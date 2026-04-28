@@ -2,13 +2,15 @@
 session: 2026-04-28-004
 role: architect
 date: 2026-04-28
-status: open
+status: implemented
 slug: stack-bumps
 parent: 2026-04-28-003
 links:
   - 2026-04-28-001
   - 2026-04-28-003
-commits: []
+commits:
+  - 9455545
+  - 6de3959
 ---
 
 # Stack bumps — Next major + Tailwind major, before Phase 2 starts
