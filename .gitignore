@@ -1,0 +1,68 @@
+# =============================================================================
+# Chrono Lexicanum — .gitignore
+# Rule of thumb: ANYTHING that is local-only, regenerable, secret, or scratch.
+# Nothing in /sessions/ — those are the project's history and SHOULD be in git.
+# =============================================================================
+
+# --- dependencies ------------------------------------------------------------
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# --- next.js / build artefacts ----------------------------------------------
+/.next/
+/out/
+/build
+/coverage
+*.tsbuildinfo
+next-env.d.ts
+
+# --- secrets -----------------------------------------------------------------
+.env
+.env*.local
+
+# --- vercel ------------------------------------------------------------------
+.vercel
+
+# --- editor / OS -------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+*.pem
+
+# --- Claude Code (per-user state; shared settings.json / hooks / agents -----
+# can be committed deliberately by removing the line below if/when they exist) -
+.claude/settings.local.json
+
+# --- scratch logs (dev-server probes etc.) ----------------------------------
+*.log
+
+# --- npm / debug logs --------------------------------------------------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# --- prototype archive (kept locally as reference, NOT in repo) -------------
+# The original HTML/JSX prototype lives under /archive/. The data has already
+# been extracted to /scripts/seed-data/*.json which IS committed. Keep the
+# prototype on your disk for reference, but never push it.
+/archive/
+
+# --- scratch / drafts (anything you want to try without committing) --------
+.scratch/
+*.scratch.*
+/screenshots-local/
+/sessions/_drafts/
+
+# --- ingestion pipeline cache (regenerable, can be huge) -------------------
+/scripts/.cache/
+/ingest/.cache/

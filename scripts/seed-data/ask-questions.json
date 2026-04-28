@@ -1,0 +1,218 @@
+[
+  {
+    "id": "experience",
+    "prompt": "Where do you stand with the Archive?",
+    "hint": "First question — sets the foundation.",
+    "options": [
+      {
+        "id": "new",
+        "label": "New to the setting",
+        "sub": "I want a welcoming entry point.",
+        "weight": {
+          "newcomer": 3,
+          "standalone": 2,
+          "short": 1
+        }
+      },
+      {
+        "id": "some",
+        "label": "I've read a bit",
+        "sub": "I know the basics, want to go deeper.",
+        "weight": {
+          "accessible": 2,
+          "series": 1
+        }
+      },
+      {
+        "id": "deep",
+        "label": "A seasoned reader",
+        "sub": "Bring me the obscure and the uncompromising.",
+        "weight": {
+          "deep_cut": 3,
+          "villain_pov": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "faction_love",
+    "prompt": "Which power stirs you most?",
+    "hint": "Pick the side you want to follow.",
+    "options": [
+      {
+        "id": "imperium",
+        "label": "The Imperium",
+        "sub": "Duty, faith, grim heroism.",
+        "weight": {
+          "faction_imperium": 3
+        },
+        "icon": "aquila"
+      },
+      {
+        "id": "heretic",
+        "label": "The Traitor Legions",
+        "sub": "Damnation, ambition, Chaos.",
+        "weight": {
+          "faction_chaos": 3,
+          "villain_pov": 2
+        },
+        "icon": "chaos"
+      },
+      {
+        "id": "loyalist_sm",
+        "label": "Space Marines",
+        "sub": "The Emperor's finest, loyal to the Throne.",
+        "weight": {
+          "faction_space_marines": 3
+        },
+        "icon": "skull"
+      },
+      {
+        "id": "inquisition",
+        "label": "The Inquisition",
+        "sub": "Secrets, heresy-hunting, compromise.",
+        "weight": {
+          "faction_inquisition": 3,
+          "accessible": 1
+        },
+        "icon": "eye"
+      },
+      {
+        "id": "guard",
+        "label": "The Common Soldier",
+        "sub": "Astra Militarum — mud, rifles, courage.",
+        "weight": {
+          "faction_guard": 3,
+          "accessible": 1
+        },
+        "icon": "rifle"
+      },
+      {
+        "id": "xenos",
+        "label": "The Alien",
+        "sub": "Aeldari, Necrons, T'au — beyond human.",
+        "weight": {
+          "faction_xenos": 3
+        },
+        "icon": "xenos"
+      }
+    ]
+  },
+  {
+    "id": "tone",
+    "prompt": "What tone suits your mood?",
+    "options": [
+      {
+        "id": "grimdark",
+        "label": "Unrelenting grimdark",
+        "sub": "Cold, beautiful, bleak.",
+        "weight": {
+          "tone_grim": 3,
+          "villain_pov": 1
+        }
+      },
+      {
+        "id": "heroic",
+        "label": "Heroic, defiant",
+        "sub": "Standing against the dark.",
+        "weight": {
+          "tone_heroic": 3
+        }
+      },
+      {
+        "id": "political",
+        "label": "Political, investigative",
+        "sub": "Intrigue over combat.",
+        "weight": {
+          "tone_political": 3,
+          "accessible": 1
+        }
+      },
+      {
+        "id": "military",
+        "label": "Military, visceral",
+        "sub": "Battle-focused, unit-level.",
+        "weight": {
+          "tone_military": 3
+        }
+      },
+      {
+        "id": "mythic",
+        "label": "Mythic, cosmic",
+        "sub": "Primarchs, gods, legend.",
+        "weight": {
+          "tone_mythic": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "length",
+    "prompt": "How deep do you want to commit?",
+    "options": [
+      {
+        "id": "standalone",
+        "label": "A single book",
+        "sub": "In and out. No commitment.",
+        "weight": {
+          "standalone": 3,
+          "short": 1
+        }
+      },
+      {
+        "id": "trilogy",
+        "label": "A trilogy or short arc",
+        "sub": "3–5 books, complete story.",
+        "weight": {
+          "arc": 3,
+          "series": 1
+        }
+      },
+      {
+        "id": "epic",
+        "label": "A long saga",
+        "sub": "I want to live in the setting for months.",
+        "weight": {
+          "series": 3,
+          "deep_cut": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "era_pref",
+    "prompt": "Which age calls you?",
+    "options": [
+      {
+        "id": "heresy",
+        "label": "The Horus Heresy",
+        "sub": "M30 — brothers turning on brothers.",
+        "weight": {
+          "era_heresy": 3
+        }
+      },
+      {
+        "id": "long_war",
+        "label": "The 41st Millennium",
+        "sub": "The 'present' — before the Rift.",
+        "weight": {
+          "era_m41": 3
+        }
+      },
+      {
+        "id": "indomitus",
+        "label": "The Indomitus Era",
+        "sub": "M42 — Guilliman's return.",
+        "weight": {
+          "era_indomitus": 3
+        }
+      },
+      {
+        "id": "any_era",
+        "label": "No preference",
+        "sub": "Surprise me.",
+        "weight": {}
+      }
+    ]
+  }
+]

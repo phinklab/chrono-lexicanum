@@ -1,0 +1,42 @@
+[
+  {
+    "id": "solar",
+    "name": "Segmentum Solar",
+    "color": "gold",
+    "tone": "The heart of the Imperium. Terra, Mars, Luna.",
+    "labelX": 500,
+    "labelY": 232
+  },
+  {
+    "id": "obscurus",
+    "name": "Segmentum Obscurus",
+    "color": "chaos",
+    "tone": "The galactic north. Cadia, Armageddon, Eye of Terror.",
+    "labelX": 500,
+    "labelY": 90
+  },
+  {
+    "id": "ultima",
+    "name": "Segmentum Ultima",
+    "color": "amber",
+    "tone": "The eastern fringe. Ultramar, Macragge, Tau Empire.",
+    "labelX": 760,
+    "labelY": 320
+  },
+  {
+    "id": "tempestus",
+    "name": "Segmentum Tempestus",
+    "color": "lum",
+    "tone": "The southern reaches. Baal, Nocturne, Vigilus.",
+    "labelX": 500,
+    "labelY": 555
+  },
+  {
+    "id": "pacificus",
+    "name": "Segmentum Pacificus",
+    "color": "pacificus",
+    "tone": "The western rim. Sabbat Worlds, Calixis.",
+    "labelX": 240,
+    "labelY": 320
+  }
+]

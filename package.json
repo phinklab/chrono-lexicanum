@@ -1,0 +1,41 @@
+{
+  "name": "chrono-lexicanum",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Chrono Lexicanum — The 41st Millennium Novel Archive. Interactive timeline, galaxy map, and recommendation engine for Warhammer 40k books.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:seed": "tsx --env-file=.env.local scripts/seed.ts"
+  },
+  "dependencies": {
+    "next": "15.5.15",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
+    "drizzle-orm": "^0.45.2",
+    "postgres": "^3.4.9",
+    "@supabase/supabase-js": "^2.105.1",
+    "zod": "^3.24.1",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@types/node": "^22.19.17",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "tailwindcss": "^3.4.19",
+    "postcss": "^8.5.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "15.5.15",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.19.2",
+    "dotenv": "^16.4.7"
+  }
+}

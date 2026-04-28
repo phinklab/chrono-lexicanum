@@ -1,0 +1,86 @@
+[
+  {
+    "id": "horus_heresy_main",
+    "name": "The Horus Heresy",
+    "total": 10,
+    "note": "Core arc."
+  },
+  {
+    "id": "siege_of_terra",
+    "name": "Siege of Terra",
+    "total": 5,
+    "note": "Climax arc."
+  },
+  {
+    "id": "eisenhorn",
+    "name": "Eisenhorn",
+    "total": 3,
+    "note": "Inquisitor trilogy."
+  },
+  {
+    "id": "ravenor",
+    "name": "Ravenor",
+    "total": 3,
+    "note": "Inquisitor trilogy."
+  },
+  {
+    "id": "night_lords_trio",
+    "name": "Night Lords",
+    "total": 3,
+    "note": "ADB's trilogy."
+  },
+  {
+    "id": "ultramarines",
+    "name": "Ultramarines",
+    "total": 6,
+    "note": "McNeill's series."
+  },
+  {
+    "id": "gaunts_ghosts",
+    "name": "Gaunt's Ghosts",
+    "total": 4,
+    "note": "Guard epic."
+  },
+  {
+    "id": "ciaphas_cain",
+    "name": "Ciaphas Cain",
+    "total": 3,
+    "note": "Satirical hero."
+  },
+  {
+    "id": "space_wolves_sw",
+    "name": "Space Wolves",
+    "total": 4,
+    "note": "William King's series."
+  },
+  {
+    "id": "black_legion",
+    "name": "Black Legion",
+    "total": 2,
+    "note": "ADB's chaos duology."
+  },
+  {
+    "id": "salamanders_s",
+    "name": "Salamanders",
+    "total": 3,
+    "note": "Nick Kyme trilogy."
+  },
+  {
+    "id": "dark_imperium",
+    "name": "Dark Imperium",
+    "total": 3,
+    "note": "Indomitus anchor."
+  },
+  {
+    "id": "shira_calpurnia",
+    "name": "Shira Calpurnia",
+    "total": 3,
+    "note": "Arbites trilogy."
+  },
+  {
+    "id": "hh_more",
+    "name": "Horus Heresy: Primarchs",
+    "total": 4,
+    "note": "Key novellas."
+  }
+]

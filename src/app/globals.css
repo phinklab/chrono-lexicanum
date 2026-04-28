@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================================================
+ * Chrono Lexicanum — global tokens.
+ * The full prototype CSS lives in archive/prototype-v1/styles/. We will port
+ * pieces over component-by-component as Phase 1 progresses (see ROADMAP.md).
+ * Until then, this file holds only what every page needs:
+ *   - the void background
+ *   - global font defaults
+ *   - reduced-motion respect
+ *   - a few CSS custom properties consumed by ported components
+ * ============================================================================= */
+
+:root {
+  --c-void: #05070d;
+  --c-void-soft: #0a0e18;
+  --c-aquila: #d8b34c;
+  --c-frost: #7fb6d9;
+  --c-heresy: #c44b3a;
+
+  --font-display: "Cinzel", serif;
+  --font-prose: "Cormorant Garamond", serif;
+  --font-ui: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+html,
+body {
+  background: var(--c-void);
+  color: #e9e9ee;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-ui);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,301 @@
+[
+  {
+    "id": "terra",
+    "name": "Terra",
+    "sector": "solar",
+    "gx": 500,
+    "gy": 320,
+    "tags": [
+      "imperium",
+      "custodes",
+      "commissariat"
+    ],
+    "capital": true
+  },
+  {
+    "id": "mars",
+    "name": "Mars",
+    "sector": "solar",
+    "gx": 524,
+    "gy": 306,
+    "tags": [
+      "mechanicus"
+    ]
+  },
+  {
+    "id": "luna",
+    "name": "Luna",
+    "sector": "solar",
+    "gx": 480,
+    "gy": 334,
+    "tags": []
+  },
+  {
+    "id": "eye_of_terror",
+    "name": "Eye of Terror",
+    "sector": "obscurus",
+    "gx": 330,
+    "gy": 120,
+    "tags": [
+      "chaos",
+      "sons_of_horus",
+      "word_bearers",
+      "iron_warriors",
+      "thousand_sons",
+      "world_eaters",
+      "alpha_legion"
+    ],
+    "warp": true
+  },
+  {
+    "id": "cadia",
+    "name": "Cadia",
+    "sector": "obscurus",
+    "gx": 395,
+    "gy": 155,
+    "tags": [
+      "astra_militarum",
+      "cadia"
+    ]
+  },
+  {
+    "id": "prospero",
+    "name": "Prospero",
+    "sector": "obscurus",
+    "gx": 565,
+    "gy": 95,
+    "tags": [
+      "thousand_sons"
+    ]
+  },
+  {
+    "id": "fenris",
+    "name": "Fenris",
+    "sector": "obscurus",
+    "gx": 620,
+    "gy": 155,
+    "tags": [
+      "space_wolves"
+    ]
+  },
+  {
+    "id": "caliban",
+    "name": "Caliban",
+    "sector": "obscurus",
+    "gx": 455,
+    "gy": 100,
+    "tags": [
+      "dark_angels"
+    ],
+    "destroyed": true
+  },
+  {
+    "id": "armageddon",
+    "name": "Armageddon",
+    "sector": "obscurus",
+    "gx": 475,
+    "gy": 215,
+    "tags": [
+      "astra_militarum",
+      "orks"
+    ]
+  },
+  {
+    "id": "istvaan_v",
+    "name": "Istvaan V",
+    "sector": "obscurus",
+    "gx": 545,
+    "gy": 210,
+    "tags": [
+      "world_eaters",
+      "night_lords",
+      "iron_warriors"
+    ]
+  },
+  {
+    "id": "davin",
+    "name": "Davin",
+    "sector": "obscurus",
+    "gx": 595,
+    "gy": 225,
+    "tags": [
+      "sons_of_horus"
+    ]
+  },
+  {
+    "id": "macragge",
+    "name": "Macragge",
+    "sector": "ultima",
+    "gx": 770,
+    "gy": 310,
+    "tags": [
+      "ultramarines"
+    ],
+    "capital": true
+  },
+  {
+    "id": "calth",
+    "name": "Calth",
+    "sector": "ultima",
+    "gx": 740,
+    "gy": 285,
+    "tags": [
+      "ultramarines",
+      "word_bearers"
+    ]
+  },
+  {
+    "id": "vigilus",
+    "name": "Vigilus",
+    "sector": "ultima",
+    "gx": 730,
+    "gy": 355,
+    "tags": [
+      "ultramarines",
+      "astra_militarum"
+    ]
+  },
+  {
+    "id": "tau_empire",
+    "name": "T'au Empire",
+    "sector": "ultima",
+    "gx": 765,
+    "gy": 255,
+    "tags": [
+      "tau"
+    ]
+  },
+  {
+    "id": "octarius",
+    "name": "Octarius",
+    "sector": "ultima",
+    "gx": 760,
+    "gy": 375,
+    "tags": [
+      "orks",
+      "tyranids"
+    ]
+  },
+  {
+    "id": "damnos",
+    "name": "Damnos",
+    "sector": "ultima",
+    "gx": 700,
+    "gy": 330,
+    "tags": [
+      "ultramarines",
+      "necrons"
+    ]
+  },
+  {
+    "id": "scintilla",
+    "name": "Scintilla",
+    "sector": "pacificus",
+    "gx": 280,
+    "gy": 315,
+    "tags": [
+      "inquisition"
+    ]
+  },
+  {
+    "id": "calixis",
+    "name": "Calixis",
+    "sector": "pacificus",
+    "gx": 250,
+    "gy": 290,
+    "tags": [
+      "inquisition"
+    ]
+  },
+  {
+    "id": "gudrun",
+    "name": "Gudrun",
+    "sector": "pacificus",
+    "gx": 235,
+    "gy": 345,
+    "tags": [
+      "inquisition"
+    ]
+  },
+  {
+    "id": "sabbat",
+    "name": "Sabbat Worlds",
+    "sector": "pacificus",
+    "gx": 290,
+    "gy": 355,
+    "tags": [
+      "astra_militarum"
+    ]
+  },
+  {
+    "id": "baal",
+    "name": "Baal",
+    "sector": "tempestus",
+    "gx": 545,
+    "gy": 440,
+    "tags": [
+      "blood_angels"
+    ]
+  },
+  {
+    "id": "nocturne",
+    "name": "Nocturne",
+    "sector": "tempestus",
+    "gx": 455,
+    "gy": 460,
+    "tags": [
+      "salamanders"
+    ]
+  },
+  {
+    "id": "medusa",
+    "name": "Medusa",
+    "sector": "tempestus",
+    "gx": 600,
+    "gy": 490,
+    "tags": [
+      "iron_hands"
+    ]
+  },
+  {
+    "id": "cretacia",
+    "name": "Cretacia",
+    "sector": "tempestus",
+    "gx": 425,
+    "gy": 515,
+    "tags": [
+      "flesh_tearers"
+    ]
+  },
+  {
+    "id": "vigilus_s",
+    "name": "Vigilus Core",
+    "sector": "tempestus",
+    "gx": 520,
+    "gy": 520,
+    "tags": []
+  },
+  {
+    "id": "great_rift",
+    "name": "The Great Rift",
+    "sector": "solar",
+    "gx": 540,
+    "gy": 275,
+    "tags": [
+      "chaos",
+      "indomitus"
+    ],
+    "warp": true
+  },
+  {
+    "id": "void",
+    "name": "Warp Corridor",
+    "sector": "obscurus",
+    "gx": 640,
+    "gy": 250,
+    "tags": [
+      "chaos"
+    ],
+    "warp": true
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "great_crusade",
+    "name": "Great Crusade",
+    "start": 30798,
+    "end": 30997,
+    "tone": "The Emperor reclaims the galaxy for humanity."
+  },
+  {
+    "id": "horus_heresy",
+    "name": "Horus Heresy",
+    "start": 30998,
+    "end": 31014,
+    "tone": "Civil war shatters the Imperium."
+  },
+  {
+    "id": "age_rebirth",
+    "name": "Age of Rebirth",
+    "start": 31015,
+    "end": 31999,
+    "tone": "Recovery under the High Lords of Terra."
+  },
+  {
+    "id": "long_war",
+    "name": "The Long War",
+    "start": 32000,
+    "end": 36999,
+    "tone": "Ten thousand years of attrition."
+  },
+  {
+    "id": "age_apostasy",
+    "name": "Age of Apostasy",
+    "start": 37000,
+    "end": 37999,
+    "tone": "Schism and tyranny."
+  },
+  {
+    "id": "time_ending",
+    "name": "Time of Ending",
+    "start": 40997,
+    "end": 41999,
+    "tone": "Omens gather before the Rift."
+  },
+  {
+    "id": "indomitus",
+    "name": "Indomitus Era",
+    "start": 42000,
+    "end": 42100,
+    "tone": "A sundered galaxy. Guilliman returns."
+  }
+]

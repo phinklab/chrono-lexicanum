@@ -1,0 +1,152 @@
+[
+  {
+    "id": "imperium",
+    "name": "Imperium of Man",
+    "parent": null,
+    "tone": "imperial"
+  },
+  {
+    "id": "ultramarines",
+    "name": "Ultramarines",
+    "parent": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "sons_of_horus",
+    "name": "Sons of Horus",
+    "parent": "imperium",
+    "tone": "warmaster"
+  },
+  {
+    "id": "night_lords",
+    "name": "Night Lords",
+    "parent": "imperium",
+    "tone": "terror"
+  },
+  {
+    "id": "thousand_sons",
+    "name": "Thousand Sons",
+    "parent": "imperium",
+    "tone": "arcane"
+  },
+  {
+    "id": "world_eaters",
+    "name": "World Eaters",
+    "parent": "imperium",
+    "tone": "butcher"
+  },
+  {
+    "id": "word_bearers",
+    "name": "Word Bearers",
+    "parent": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "iron_warriors",
+    "name": "Iron Warriors",
+    "parent": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "alpha_legion",
+    "name": "Alpha Legion",
+    "parent": "imperium",
+    "tone": "shadow"
+  },
+  {
+    "id": "blood_angels",
+    "name": "Blood Angels",
+    "parent": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "space_wolves",
+    "name": "Space Wolves",
+    "parent": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "dark_angels",
+    "name": "Dark Angels",
+    "parent": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "raven_guard",
+    "name": "Raven Guard",
+    "parent": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "salamanders",
+    "name": "Salamanders",
+    "parent": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "mechanicus",
+    "name": "Adeptus Mechanicus",
+    "parent": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "inquisition",
+    "name": "Inquisition",
+    "parent": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "grey_knights",
+    "name": "Grey Knights",
+    "parent": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "astra_militarum",
+    "name": "Astra Militarum",
+    "parent": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "commissariat",
+    "name": "Commissariat",
+    "parent": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "chaos",
+    "name": "Chaos Undivided",
+    "parent": null,
+    "tone": "chaos"
+  },
+  {
+    "id": "custodes",
+    "name": "Adeptus Custodes",
+    "parent": "imperium",
+    "tone": "gold"
+  },
+  {
+    "id": "tau",
+    "name": "T'au Empire",
+    "parent": null,
+    "tone": "alien"
+  },
+  {
+    "id": "necrons",
+    "name": "Necrons",
+    "parent": null,
+    "tone": "alien"
+  },
+  {
+    "id": "eldar",
+    "name": "Aeldari",
+    "parent": null,
+    "tone": "alien"
+  },
+  {
+    "id": "tyranids",
+    "name": "Tyranids",
+    "parent": null,
+    "tone": "alien"
+  }
+]
