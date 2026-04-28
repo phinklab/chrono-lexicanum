@@ -52,7 +52,7 @@ export default function HubPage() {
           <Link
             key={d.href}
             href={d.href}
-            className="group flex flex-col gap-3 rounded border border-frost-900/60 bg-void-900/60 p-8 transition hover:border-aquila/60 hover:bg-void-800"
+            className="group flex flex-col gap-3 rounded-sm border border-frost-900/60 bg-void-900/60 p-8 transition hover:border-aquila/60 hover:bg-void-800"
           >
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-frost-400 group-hover:text-aquila">
               {d.sub}
