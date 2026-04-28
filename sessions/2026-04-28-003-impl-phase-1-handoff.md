@@ -2,20 +2,21 @@
 session: 2026-04-28-003
 role: implementer
 date: 2026-04-28
-status: partial
+status: complete
 slug: phase-1-handoff
 parent: 2026-04-28-002
 links:
   - 2026-04-28-001
   - 2026-04-28-002
-commits: []
+commits:
+  - db2733f77c579f82e669a3244c7fc3a386131e56
 ---
 
-# Phase 1 handoff — install, verify, deploy (partial)
+# Phase 1 handoff — install, verify, deploy
 
 ## Summary
 
-Local install, lint, typecheck, dev server, Supabase migration, and seed all green against a real Supabase project. The git/GitHub/Vercel half of the brief is blocked: `git` is not installed on Philipp's Windows host, so no commits, no push, no Vercel import. Everything else from the acceptance list is met; resuming after `winget install --id Git.Git -e` should be a 10-minute follow-up.
+Local install, lint, typecheck, dev server, Supabase migration, and seed all green against a real Supabase project. After Philipp installed git mid-session, the scaffold was committed (`db2733f`), pushed to <https://github.com/wptnoire/chrono-lexicanum>, and deployed via Vercel to <https://chrono-lexicanum.vercel.app>. All 8 routes serve 200 in production.
 
 ## What I did
 
@@ -29,7 +30,9 @@ Local install, lint, typecheck, dev server, Supabase migration, and seed all gre
 - `src/db/client.ts` — removed obsolete `// eslint-disable-next-line no-var` directive (rule no longer triggered under the next/typescript flat preset); rewrote the docblock to describe the IPv4-pooler-only reality (see Decisions).
 - `.env.example`, `ONBOARDING.md` — corrected to instruct using the Transaction pooler URL (port 6543), not the Direct connection. Same for the URL-encoding note about special-character passwords.
 - `.env.local` — created locally with the live Supabase credentials Philipp pasted in chat. Gitignored, not in the diff.
-- `dev-server.log` / `dev-server.err` — leftover from probing the dev server. Will be removed before any commit (or added to `.gitignore` if useful to keep regenerable). For now: present in working tree, can `rm` before push.
+- `.gitignore` — added `.claude/settings.local.json` (user-specific Claude Code permissions; should never be committed) and `*.log` (dev-server probe artifacts).
+- `git init -b main` + commit `db2733f` "Phase 1: scaffold Next.js + Drizzle + Supabase" (49 files; verified `git ls-files | findstr archive` is empty before push).
+- Pushed to `origin/main` at <https://github.com/wptnoire/chrono-lexicanum>; Vercel auto-imported and deployed to <https://chrono-lexicanum.vercel.app>.
 
 ## Decisions I made
 
@@ -57,23 +60,16 @@ Local install, lint, typecheck, dev server, Supabase migration, and seed all gre
   - `/buch/eisenhorn-xenos`, `/fraktion/thousand-sons`, `/welt/cadia`, `/charakter/horus` → 200, each renders the slug placeholder.
   - stderr empty across all probes; no compile errors.
 - **Did NOT verify** with Drizzle Studio (`npm run db:studio`); the row-count probe via SQL is equivalent for the brief's purpose.
+- **Production probe** — all 8 routes against `https://chrono-lexicanum.vercel.app/` returned 200 with the expected markers (`<svg`, `Chronicle`, `Cartographer`, `Phase 2`, `Buch`, `Fraktion`, `Welt`, `Charakter`). First-deploy cold-start was acceptable; Hub bundle ~18.6 KB.
 
 ## Open issues / blockers
 
-1. **`git` is not installed** on this Windows host (`Get-Command git.exe` returns nothing; not in `C:\Program Files\Git\` or `C:\Program Files (x86)\Git\`). Until Philipp installs it (`winget install --id Git.Git -e --source winget` from elevated PowerShell, or installer from <https://git-scm.com/download/win>), the following acceptance bullets cannot be met: first commit, GitHub repo + push, Vercel deploy. None of those require additional code work — once `git --version` answers, it's mechanical.
-2. **`PowerShell ExecutionPolicy` blocks `npm.ps1`** for the current user. Workaround used throughout this session: invoke `& "C:\Program Files\nodejs\npm.cmd" …` directly. Doesn't affect any committed code, only Claude Code's tool calls. Philipp can run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` if he wants `npm` to work as a bare command in his shell, but it's optional.
-3. **Brief's open question 4 (direct-connection migrations) is wrong-by-default.** Supabase free tier dropped IPv4 from `db.<ref>.supabase.co` in 2024; the hostname now has only an AAAA record, and Philipp's network has no IPv6 outbound (verified via `Resolve-DnsName` and `Test-NetConnection`). Pooler URL is the only option for both runtime and migrations on free tier. Patched `.env.example`, `ONBOARDING.md`, and the `client.ts` docblock to reflect this.
-4. **Two log files left in working tree** from dev-server probing: `dev-server.log`, `dev-server.err`. Will need to be removed (or `*.log` added to `.gitignore`) before any first commit.
+1. **`NEXT_PUBLIC_SITE_URL` on Vercel is still `http://localhost:3000`.** Used for Open Graph metadata and absolute URLs. Philipp should update it to `https://chrono-lexicanum.vercel.app` in the Vercel dashboard (Project → Settings → Environment Variables) and redeploy. Cosmetic for v1 but worth doing before Reddit launch.
+2. **Brief's open question 4 (direct-connection migrations) is wrong-by-default.** Supabase free tier dropped IPv4 from `db.<ref>.supabase.co` in 2024; the hostname now has only an AAAA record, and Philipp's network has no IPv6 outbound (verified via `Resolve-DnsName` and `Test-NetConnection`). Pooler URL is the only option for both runtime and migrations on free tier. Patched `.env.example`, `ONBOARDING.md`, and the `client.ts` docblock to reflect this.
+3. **`PowerShell ExecutionPolicy` blocks `npm.ps1`** for the current user (environmental, not committed). Workaround used throughout: invoke `& "C:\Program Files\nodejs\npm.cmd" …` directly. Optional fix: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`. Saved to project memory so future sessions don't re-discover.
+4. **Git was not installed at session start.** Philipp installed it (`winget install --id Git.Git`) mid-session and the push went through cleanly. Also saved to project memory as a one-time gotcha.
 
 ## For next session
-
-When git is installed, the unblock session is short:
-
-- `git init -b main && git add . && git commit -m "Phase 1: scaffold Next.js + Drizzle + Supabase"` — verify `git status` shows no `.env.local`, `node_modules/`, `.next/`, `archive/`, or the `dev-server.*` logs (gitignore them or `rm` first).
-- `git ls-files | findstr /R "archive"` should return nothing (acceptance bullet).
-- Create the GitHub repo (Philipp does this via web UI), `git remote add origin … && git push -u origin main`.
-- Vercel: import the repo, paste the four env vars (DATABASE_URL = same pooler URL, the two `NEXT_PUBLIC_SUPABASE_*`, plus `SUPABASE_SERVICE_ROLE_KEY`); set `NEXT_PUBLIC_SITE_URL` to the Vercel-issued URL after the first deploy; redeploy.
-- Flip this report's `status: partial` → `complete`, the brief's `status: open` → `implemented`, and add the resulting commit SHAs to both files' `commits:` lists.
 
 Architectural follow-ups Cowork should consider for future briefs (none are blocking):
 

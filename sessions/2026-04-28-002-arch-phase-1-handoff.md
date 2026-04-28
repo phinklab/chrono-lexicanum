@@ -2,12 +2,13 @@
 session: 2026-04-28-002
 role: architect
 date: 2026-04-28
-status: open
+status: implemented
 slug: phase-1-handoff
 parent: 2026-04-28-001
 links:
   - 2026-04-28-001
-commits: []
+commits:
+  - db2733f77c579f82e669a3244c7fc3a386131e56
 ---
 
 # Phase 1 handoff — install, verify, deploy
