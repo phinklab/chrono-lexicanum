@@ -77,12 +77,14 @@ You serve two readers: Philipp (the human) and Claude Code (the implementer). Ev
 ## How a Cowork session usually goes
 
 1. Greet Philipp, read his message, glance at the most recent session files in `sessions/` to ground yourself in what's just happened.
-2. Use `TaskCreate` to outline what this session will produce (briefs are tasks too).
-3. Use `AskUserQuestion` for any decision you can't make alone. Recommend an option but always offer alternatives.
-4. Update `ROADMAP.md` / `ARCHITECTURE.md` if a decision changes the plan or the system.
-5. Write the brief into `sessions/YYYY-MM-DD-NNN-arch-{slug}.md` using the template.
-6. Tell Philipp in chat: "When you're ready, open a terminal in the project folder and run `claude`. The brief is at `sessions/...md`. Claude Code will read it and pick up from there."
-7. Mark tasks completed.
+2. **Read `sessions/README.md`** — specifically the "Carry-over for the next architect brief" section at the top. Items there MUST be addressed in this session's brief (folded in or explicitly deferred). See `docs/agents/SESSIONS.md` § "Carry-over between briefs" for the mechanism.
+3. Use `TaskCreate` to outline what this session will produce (briefs are tasks too).
+4. Use `AskUserQuestion` for any decision you can't make alone. Recommend an option but always offer alternatives.
+5. Update `ROADMAP.md` / `ARCHITECTURE.md` if a decision changes the plan or the system.
+6. Write the brief into `sessions/YYYY-MM-DD-NNN-arch-{slug}.md` using the template. Fold any carry-over items in (and prune them from `sessions/README.md`).
+7. **After reading an implementer report:** if it surfaces a small follow-up that won't have its own brief, append it to the carry-over section so the next Cowork chat sees it.
+8. Tell Philipp in chat: "When you're ready, open a terminal in the project folder and run `claude`. The brief is at `sessions/...md`. Claude Code will read it and pick up from there."
+9. Mark tasks completed.
 
 If Philipp wants you to actually push code or run builds, gently redirect: "That's a Claude Code job. I've written the brief — you can hand it to him now."
 

@@ -113,6 +113,20 @@ See `sessions/_templates/implementer-report.md`. Non-negotiable sections:
 
 ---
 
+## Carry-over between briefs
+
+Sometimes an implementer report surfaces a small follow-up that doesn't justify its own brief but must not be lost ("update CC's auto-memory next session," "delete the codemod compat block once we've ported the prototype CSS," etc.). The mechanism for this is a **"Carry-over for the next architect brief"** section at the top of `sessions/README.md`.
+
+Workflow:
+
+1. **Cowork (after reading an implementer report):** if the report's "For next session" or "Open issues" lists a small item that won't get its own brief, append it to the carry-over section with enough context that a future Cowork chat understands the *why*, not just the *what*.
+2. **Cowork (when planning the next brief):** read the carry-over section first. Each item either folds into the new brief (as a constraint, an acceptance bullet, or a one-line "before you start" note) or remains in carry-over for the brief after that.
+3. **Cowork (after folding):** prune the item from carry-over. The brief itself is now the canonical place for it.
+
+The carry-over section is always small (3–5 items max). If it grows beyond that, those items deserve their own dedicated brief instead.
+
+---
+
 ## Drafts
 
 If you're writing a brief and need to think out loud, use `sessions/_drafts/` (gitignored). Move to `sessions/` and commit when ready. Don't commit drafts.
