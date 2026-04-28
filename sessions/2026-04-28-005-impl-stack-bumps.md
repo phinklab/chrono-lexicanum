@@ -12,6 +12,9 @@ links:
 commits:
   - 9455545
   - 6de3959
+  - 45a6c34
+  - 2a12dd5
+  - a957b0a
 ---
 
 # Stack bumps — Next major + Tailwind major
@@ -31,9 +34,12 @@ Bumped to **Next 16.2.4** (`latest`) and **Tailwind 4.2.4** (`latest`) via the o
 - `src/app/globals.css` — `@tailwind base/components/utilities` → `@import 'tailwindcss'`. Codemod added one v3-compat `@layer base` block restoring `border-color: var(--color-gray-200, currentcolor)` on every element, because Tailwind 4 changed the default border color to `currentcolor` and the brief mandates "no rendered-output change."
 - `src/app/page.tsx` — one class rename, `rounded → rounded-sm`. v4 renamed the radius scale (`rounded` is now `0.5rem`, `rounded-sm` is `0.25rem` = the old `rounded`); the codemod applied this everywhere the v3 default was used.
 
-Two commits, one push:
+Commits in this session:
 - `9455545` Workflow: codify version-pinning policy and add brief 004
 - `6de3959` Bump Next 16.2.4 + Tailwind 4.2.4
+- `45a6c34` Session 004/005: stack bumps implemented (Next 16 + Tailwind 4)
+- `2a12dd5` Trigger Vercel deploy with correct author email *(empty; first email-fix attempt — see Open issues)*
+- `a957b0a` Trigger Vercel deploy with verified GitHub author email *(empty; second attempt, succeeded)*
 
 ## Decisions I made
 
@@ -58,13 +64,14 @@ Two commits, one push:
 - `npm run db:migrate` — applied (no new migrations; idempotent NOTICEs for the existing `drizzle` schema and `__drizzle_migrations` table).
 - `npm run db:seed` — `Inserted 0 books.` (books JSON is intentionally empty until Phase 4 ingestion).
 - **Direct row-count probe** vs Supabase: eras=7, factions=25, series=14, sectors=5, locations=28, characters=0, books=0, submissions=0. Matches Phase 1 exactly.
-- **Push + Vercel + live-URL probe — pending.** Local push to `main` was blocked by the harness permission rule for default-branch pushes; awaiting Philipp's go-ahead. Once pushed, the live deploy at <https://chrono-lexicanum.vercel.app/> should match the local dev output (the brief's last two acceptance bullets).
+- **Push + Vercel deploy — green.** Pushed three commits, then chased an unrelated email-attribution issue (see Open issues #1). The post-bump build at <https://chrono-lexicanum.vercel.app/> was visually confirmed by Philipp once the author email landed on the GitHub-verified address `p.kuenzler@web.de`. curl-based programmatic probing returns Vercel's "Security Checkpoint" anti-bot challenge — only a real browser passes it, which is why this acceptance bullet was confirmed by Philipp's eyes rather than my probe.
 
 ## Open issues / blockers
 
-1. **Push to `main` is gated.** Acceptance bullet #9 ("Push to main — Vercel auto-deploy succeeds") and #10 ("Live URL serves Hub identically") are unverified pending the push. Either Philipp pushes the two commits manually (`git push origin main`) or grants a permanent allow-rule for `git push origin main` in `.claude/settings.local.json`. The two commits are local: `9455545` (workflow docs + brief) and `6de3959` (bumps).
-2. **`NEXT_PUBLIC_SITE_URL` on Vercel** — still on the Phase 1 to-do (out of scope for this brief; flagged in the brief's Context). Worth doing before Reddit launch.
-3. **One new audit warning** (`postcss<8.5.10` via `next > postcss`). Documented in Decisions; not actionable today.
+1. **Git author email needed correcting after the first push.** Phase 1's commits and the three Phase 2 stack-bump commits all carried the typo `wptnoire@gmail.com` (from the global git config). Vercel rejected the deploy with *"the commit email wptnoire@gmail.com could not be matched to a GitHub account."* Philipp clarified the GitHub-verified address is `p.kuenzler@web.de`. I set the **local repo** `user.email` to `p.kuenzler@web.de` (project-scoped), made an empty commit `a957b0a` "Trigger Vercel deploy with verified GitHub author email," and the deploy went through. The two intermediate empty commits — `2a12dd5` (with the second-attempt typo `wtpnoire@gmail.com` from the auto-memory) and the original three `9455545`/`6de3959`/`45a6c34` — remain in history with the wrong author. Cosmetic only; their content is fine and Vercel only checks the HEAD commit's verified email. **Outstanding:** the **global** git config still has `wptnoire@gmail.com`. If Philipp creates another git repo on this machine, the typo'll come back. Either fix `git config --global user.email p.kuenzler@web.de` or rely on the local repo override (which is what we have for `chrono-lexicanum` now). Auto-memory's `# userEmail` line — `wtpnoire@gmail.com` — also doesn't match GitHub; left untouched because it may be referencing a non-git context.
+2. **Push to `main` is gated by the harness.** Each `git push origin main` requires explicit Philipp approval (or a permanent allow-rule in `.claude/settings.local.json`). Phase 1 hit this too. If autonomous deploy verification matters in future sessions, a project-level `.claude/settings.local.json` rule is the cleanest fix.
+3. **`NEXT_PUBLIC_SITE_URL` on Vercel** — still on the Phase 1 to-do (out of scope for this brief; flagged in the brief's Context). Worth doing before Reddit launch.
+4. **One new `npm audit` warning** (`postcss<8.5.10` via `next > postcss`). Documented in Decisions; not actionable today (auto-fix would force `next@9.3.3`).
 
 ## For next session
 
