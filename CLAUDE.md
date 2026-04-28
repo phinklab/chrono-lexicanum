@@ -32,7 +32,16 @@ The maintainer is **Philipp** (hobby project). Prefer **simple, honest tradeoffs
 | Hosting | **Vercel** | Zero-config Next.js deploys, preview URLs per branch |
 | Ingestion | **Python scripts under `/ingest/`** (Phase 4) | Crawl Lexicanum, Goodreads, Black Library |
 
-> **Note on versions.** This file lists the *family* of tools, not pinned versions. Pinned versions live in `package.json` and `package-lock.json`. Implementers (Claude Code) may bump versions when there's a reason; rationale goes in the session log.
+> **⚠ Version policy — read this carefully.**
+>
+> This file lists the *family* of tools (Next.js, Tailwind, Drizzle, …), never specific version numbers. **Cowork's training cutoff is older than the latest releases of every tool in this stack.** If Cowork writes "Next.js 15.1.6" in a brief or in `package.json`, that number is almost certainly wrong by the time Claude Code reads it.
+>
+> The contract:
+> - **Cowork must NEVER pin a version** in briefs, in `package.json`, or anywhere else. Cowork writes "Next.js" or "Tailwind CSS" or, at most, "Next.js 15+" when a major boundary actually matters for the design decision.
+> - **Claude Code must research** the current stable release of every tool it installs or upgrades, choose what's appropriate, and pin the chosen version in `package.json` / `package-lock.json`. Rationale (especially for "I deliberately did NOT take the latest because…") goes in the session report.
+> - When Cowork's brief asks for an upgrade ("bump to Tailwind 4"), Cowork specifies the *major* and the *intent*. Claude Code picks the exact patch.
+>
+> See `docs/agents/COWORK.md` § "Version pinning is forbidden" and `docs/agents/CLAUDE_CODE.md` § "Versions are your call" for the full discipline.
 
 The original HTML prototype lives **outside the repo** (in `archive/` locally, gitignored). Its data has been extracted into `scripts/seed-data/*.json` which IS in the repo. Do not edit the prototype; port forward.
 

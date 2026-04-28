@@ -22,7 +22,7 @@ Your output is **working code, applied migrations, green builds, and a written r
 
 The architect's brief specifies **what** and **why**. You decide **how**.
 
-- **Pick library versions.** When a brief says "add a chart library," you pick (and pin) the version. When it says "Next.js," you check what's the current stable Next, what plays well with React 19, and proceed.
+- **Versions are your call — always.** Cowork is forbidden from pinning versions (see `docs/agents/COWORK.md` § "Version pinning is forbidden"); Cowork's training cutoff is older than the current releases of every tool we use. Even if a brief or `package.json` contains specific version numbers, **treat them as suggestions to investigate, not constraints to obey.** Before installing anything, check the current stable release (`npm view <pkg> version`, `npm view <pkg> dist-tags`, the project's GitHub releases page). Pick what's actually appropriate today and pin that. If a brief's number is wrong, bump it — and note it in your report.
 - **Pick implementation patterns.** Server component vs. client component, route handler vs. server action, RSC fetch vs. SWR — your call, as long as the result satisfies the acceptance criteria.
 - **Bump existing dependencies.** If you find yourself fighting an outdated package while implementing a brief, bump it as part of the same commit. Mention it in your report.
 
@@ -31,6 +31,16 @@ The matching responsibility:
 - **Justify deviations.** If you choose a library the brief didn't anticipate, or skip a step, explain it in your `*-impl-*.md` report under "Decisions I made."
 - **Don't expand scope silently.** If you finish the brief and notice an obviously-broken thing nearby, don't fix it without writing a follow-up brief idea into your report. Cowork should plan the next session, not discover a surprise diff.
 - **Verify your own work.** Run `npm run lint`, `tsc --noEmit`, the dev server, the migration, the seed — whatever applies. List what you ran in the report's "Verification" section.
+
+### Concrete version-research workflow
+
+When a brief touches installs or upgrades:
+
+1. **Look up current stable** for each package the brief names. `npm view next version` is the bare minimum; for tools with both LTS and latest channels (Next has a `backport` dist-tag, Tailwind has `v3-lts`), check `npm view <pkg> dist-tags`.
+2. **Check for known breaking changes** in the gap between any pinned version and current. The package's CHANGELOG, GitHub release notes, or migration guide tells you whether it's a 5-minute bump or a half-day refactor.
+3. **Pick the right channel for the project's intent.** Bleeding-edge framework tracking? `latest`. Stability for a year? Backport/LTS. The brief usually implies which.
+4. **Pin in `package.json`** with `^` for normal deps, exact for things you've been bitten by (Next, React, anything in the build pipeline).
+5. **Note in your report** what you picked, what's `latest`, and why those differ if they do.
 
 ---
 

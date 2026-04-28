@@ -18,5 +18,7 @@ Open and recently-closed sessions, newest first. Cowork updates this list when i
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
-| [2026-04-28-002](2026-04-28-002-arch-phase-1-handoff.md) | architect | open | Phase 1 handoff — install, verify, deploy |
+| [2026-04-28-004](2026-04-28-004-arch-stack-bumps.md) | architect | open | Stack bumps — Next major + Tailwind major before Phase 2 |
+| [2026-04-28-003](2026-04-28-003-impl-phase-1-handoff.md) | implementer | complete | Phase 1 ship report — live at chrono-lexicanum.vercel.app |
+| [2026-04-28-002](2026-04-28-002-arch-phase-1-handoff.md) | architect | implemented | Phase 1 handoff — install, verify, deploy |
 | [2026-04-28-001](2026-04-28-001-arch-bootstrap.md) | architect | implemented | Bootstrap — project foundation and stack decision |
