@@ -9,7 +9,8 @@ links:
   - 2026-04-29-007
   - 2026-04-29-009
   - 2026-04-29-010
-commits: []
+commits:
+  - 6a8230b
 ---
 
 # Phase 2a slim — Overview ribbon + EraDetail at /timeline
