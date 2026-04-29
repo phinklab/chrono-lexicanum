@@ -721,25 +721,26 @@ main {
   letter-spacing: 0.1em;
 }
 
-/* Book pins on the ribbon */
+/* Book pins on the ribbon — always-on halo so each pin reads as a
+   distinct affordance even at the small Overview scale. The prototype's
+   hover-only halo collapsed to invisible against our dark backdrop. */
 .book-node { transition: transform .25s ease; }
 .book-node-dot {
   fill: var(--hl);
-  filter: drop-shadow(0 0 4px var(--hl));
+  filter: drop-shadow(0 0 6px var(--hl));
   transition: r .3s, filter .3s;
 }
 .book-node-halo {
   fill: none;
   stroke: var(--hl);
-  stroke-width: 0.5;
-  opacity: 0;
-  transition: opacity .3s, r .3s;
+  stroke-width: 0.7;
+  opacity: 0.55;
+  transition: opacity .3s, r .3s, stroke-width .3s;
 }
 .book-node:hover .book-node-halo,
-.book-node:focus-visible .book-node-halo { opacity: 0.6; }
+.book-node:focus-visible .book-node-halo { opacity: 1; stroke-width: 1; }
 .book-node.dim { opacity: 0.18; }
-.book-node.match .book-node-dot { filter: drop-shadow(0 0 6px var(--hl)); }
-.book-node.match .book-node-halo { opacity: 0.5; }
+.book-node.match .book-node-dot { filter: drop-shadow(0 0 8px var(--hl)); }
 
 /* ─── Era detail (zoomed-in) ─── */
 
@@ -815,6 +816,36 @@ main {
   padding: 0 8px;
   margin-bottom: 36px;
 }
+.era-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 6px 10px 6px 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  text-decoration: none;
+  border: 1px solid var(--line-1);
+  background: color-mix(in oklch, var(--bg-1) 70%, transparent);
+  transition: color .25s, border-color .25s, transform .25s cubic-bezier(.2,.8,.2,1);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  animation: fadeSlide .5s .05s backwards;
+}
+.era-back span {
+  color: var(--hl);
+  font-size: 12px;
+  transition: transform .25s cubic-bezier(.2,.8,.2,1);
+}
+.era-back:hover {
+  color: var(--ink-0);
+  border-color: var(--hl);
+  transform: translateX(-2px);
+}
+.era-back:hover span { transform: translateX(-3px); }
 .era-kicker {
   font-family: var(--font-mono);
   font-size: 9.5px;

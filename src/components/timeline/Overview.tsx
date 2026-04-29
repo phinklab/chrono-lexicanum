@@ -51,6 +51,17 @@ export default function Overview({ eras, books }: OverviewProps) {
 
   const xOf = (y: number) => AX_L + projectY(y) * AX_W;
 
+  // Pre-warm the EraDetail RSC payload as soon as the user mouses an era
+  // band, so the navigation feels instant when they actually click.
+  function hoverEra(eraId: string) {
+    setHoveredEraId(eraId);
+    const target =
+      params.size > 0
+        ? `/timeline?${new URLSearchParams({ ...Object.fromEntries(params), era: eraId }).toString()}`
+        : `/timeline?era=${eraId}`;
+    router.prefetch(target);
+  }
+
   // Empty data → render a visible cogitator-voice notice instead of a bare
   // ribbon. Most likely cause: the page's loadTimeline() catch-fallback fired
   // (Supabase pooler unreachable) or the eras table hasn't been seeded yet
@@ -81,17 +92,25 @@ export default function Overview({ eras, books }: OverviewProps) {
         preserveAspectRatio="xMidYMid meet"
       >
         <defs>
-          {/* Vertical fade — peaks at the ribbon centreline. Stop opacities
-             dialled up from the prototype's 0.18 because the prototype was
-             tested on a less-dark background; against our `--bg-0` (#06080c)
-             0.18 × the rect's 0.55 = 0.10 net, which reads as nothing. */}
+          {/* Vertical fade peaking at the ribbon centreline. Two gradients:
+             idle (subtle) and hover (loud) — switching the fill URL on
+             hover gives a much more dramatic colour change than animating
+             a single gradient's currentColor inheritance. */}
           <linearGradient id="eraBandGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
             <stop offset="50%" stopColor="currentColor" stopOpacity="0.42" />
             <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
           </linearGradient>
+          <linearGradient id="eraBandGradHover" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
+            <stop offset="50%" stopColor="currentColor" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+          </linearGradient>
           <filter id="ribbonGlow" x="-10%" y="-200%" width="120%" height="500%">
             <feGaussianBlur stdDeviation="2" />
+          </filter>
+          <filter id="bandHoverGlow" x="-5%" y="-25%" width="110%" height="150%">
+            <feGaussianBlur stdDeviation="6" />
           </filter>
         </defs>
 
@@ -107,9 +126,9 @@ export default function Overview({ eras, books }: OverviewProps) {
               role="button"
               tabIndex={0}
               aria-label={`Open era ${era.name}`}
-              onMouseEnter={() => setHoveredEraId(era.id)}
+              onMouseEnter={() => hoverEra(era.id)}
               onMouseLeave={() => setHoveredEraId(null)}
-              onFocus={() => setHoveredEraId(era.id)}
+              onFocus={() => hoverEra(era.id)}
               onBlur={() => setHoveredEraId(null)}
               onClick={() => navigateToEra(era.id)}
               onKeyDown={(e) => {
@@ -119,16 +138,28 @@ export default function Overview({ eras, books }: OverviewProps) {
                 }
               }}
             >
-              {/* Band fill — currentColor flips to --hl on hover. Idle ink
-                 dialled up to --ink-1 (cream) so the band reads as a soft
-                 horizontal smear rather than the muted brown that the
-                 prototype's --ink-2 collapses to on this dark background. */}
+              {/* Diffuse hover-glow rect underneath — only painted on hover,
+                 blurred via SVG filter for a soft cyan halo behind the band. */}
+              {hovered && (
+                <rect
+                  x={x1 - 4}
+                  y={AX_Y - 70}
+                  width={x2 - x1 + 8}
+                  height={140}
+                  fill="var(--hl)"
+                  opacity="0.22"
+                  filter="url(#bandHoverGlow)"
+                  pointerEvents="none"
+                />
+              )}
+              {/* Band fill — gradient swaps from idle to hover variant on
+                 mouse enter. currentColor flips ink-1 (cream) → --hl (cyan). */}
               <rect
                 x={x1}
                 y={AX_Y - 60}
                 width={x2 - x1}
                 height={120}
-                fill="url(#eraBandGrad)"
+                fill={`url(#${hovered ? "eraBandGradHover" : "eraBandGrad"})`}
                 className="era-seg-bar-fill"
                 style={{
                   color: hovered ? "var(--hl)" : "var(--ink-1)",
@@ -136,26 +167,28 @@ export default function Overview({ eras, books }: OverviewProps) {
                   transition: "opacity .3s, color .3s",
                 }}
               />
-              {/* Top + bottom hover dashes */}
+              {/* Top + bottom edge accents — solid bright on hover, dashed
+                 cyan-faint when idle, so each band always has a visible top
+                 and bottom edge framing it as a click-target. */}
               <line
                 x1={x1 + 4}
                 x2={x2 - 4}
                 y1={AX_Y - 58}
                 y2={AX_Y - 58}
-                stroke={hovered ? "var(--hl)" : "transparent"}
-                strokeWidth="1"
-                strokeDasharray="1 3"
-                style={{ transition: "stroke .25s" }}
+                stroke={hovered ? "var(--hl)" : "var(--line-2)"}
+                strokeWidth={hovered ? 1.4 : 0.8}
+                strokeDasharray={hovered ? "0" : "1 3"}
+                style={{ transition: "stroke .25s, stroke-width .25s" }}
               />
               <line
                 x1={x1 + 4}
                 x2={x2 - 4}
                 y1={AX_Y + 58}
                 y2={AX_Y + 58}
-                stroke={hovered ? "var(--hl)" : "transparent"}
-                strokeWidth="1"
-                strokeDasharray="1 3"
-                style={{ transition: "stroke .25s" }}
+                stroke={hovered ? "var(--hl)" : "var(--line-2)"}
+                strokeWidth={hovered ? 1.4 : 0.8}
+                strokeDasharray={hovered ? "0" : "1 3"}
+                style={{ transition: "stroke .25s, stroke-width .25s" }}
               />
               {/* Era boundary divider — between bands only */}
               {i > 0 && (
@@ -233,21 +266,35 @@ export default function Overview({ eras, books }: OverviewProps) {
           );
         })}
 
-        {/* Book pins on the ribbon — inert this brief; 2a.3 wires the click */}
-        {books.map((book) => {
+        {/* Book pins — lifted off the ribbon line via a fixed vertical
+           offset so they're not lost in the ribbon's glow. Each pin gets
+           a thin stem connecting it back to the ribbon and a bright dot
+           with an always-visible halo. Inert this brief; 2a.3 wires the
+           click to DetailPanel. */}
+        {books.map((book, i) => {
           const midY = (book.startY + book.endY) / 2;
           const x = xOf(midY);
+          // Alternate above/below the ribbon, plus a small per-book jitter
+          // so pins at the same year don't stack.
           const baseHash = book.series ? hash(book.series.id) : hash(book.id);
-          const yOff = book.series ? (baseHash % 7) - 3 : (baseHash % 5) - 2;
+          const above = i % 2 === 0;
+          const offset = (above ? -1 : 1) * (18 + (baseHash % 6));
           return (
-            <g
-              key={book.id}
-              className="book-node"
-              transform={`translate(${x}, ${AX_Y + yOff})`}
-              pointerEvents="none"
-            >
-              <circle className="book-node-halo" r="7" />
-              <circle className="book-node-dot" r={2.4} />
+            <g key={book.id} className="book-node" pointerEvents="none">
+              {/* Stem */}
+              <line
+                x1={x}
+                x2={x}
+                y1={AX_Y}
+                y2={AX_Y + offset}
+                stroke="var(--hl)"
+                strokeWidth="0.6"
+                opacity="0.6"
+              />
+              <g transform={`translate(${x}, ${AX_Y + offset})`}>
+                <circle className="book-node-halo" r="10" />
+                <circle className="book-node-dot" r={4} />
+              </g>
             </g>
           );
         })}

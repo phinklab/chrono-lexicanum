@@ -247,6 +247,9 @@ export default function EraDetail({ era, eras, books, seriesById }: EraDetailPro
 
       <header className="era-detail-header">
         <div>
+          <Link href="/timeline" className="era-back" aria-label="Back to timeline survey">
+            <span aria-hidden>◂</span> Survey-mode
+          </Link>
           <p className="era-kicker">
             EXCERPTUM · {formatM(era.start)}–{formatM(era.end)}
           </p>
