@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Starfield from "@/components/chrome/Starfield";
 import "./globals.css";
 
 /**
@@ -8,6 +9,10 @@ import "./globals.css";
  * `next/font` for self-hosting, but with five font families (Cinzel, Cormorant,
  * Newsreader, Space Grotesk, JetBrains Mono) the self-host bundle gets large.
  * Switch when we settle on the final 2–3 weights per family.
+ *
+ * Stacking order:
+ *   - Starfield  (z-index 0, fixed, pointer-events: none)
+ *   - children   (z-index 1, the route's own <main>)
  */
 export const metadata: Metadata = {
   title: {
@@ -39,7 +44,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Starfield />
+        {children}
+      </body>
     </html>
   );
 }
