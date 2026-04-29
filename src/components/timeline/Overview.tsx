@@ -51,6 +51,22 @@ export default function Overview({ eras, books }: OverviewProps) {
 
   const xOf = (y: number) => AX_L + projectY(y) * AX_W;
 
+  // Empty data → render a visible cogitator-voice notice instead of a bare
+  // ribbon. Most likely cause: the page's loadTimeline() catch-fallback fired
+  // (Supabase pooler unreachable) or the eras table hasn't been seeded yet
+  // for this environment.
+  if (eras.length === 0) {
+    return (
+      <div className="timeline-overview timeline-overview-empty">
+        <p className="era-empty">{"// CHRONICLE OFFLINE — REFERENCE TABLES UNREACHABLE"}</p>
+        <p className="era-empty-hint">
+          The eras table returned zero rows. Run <code>npm run db:seed</code> against
+          this environment&apos;s <code>DATABASE_URL</code>, or check the Supabase pooler.
+        </p>
+      </div>
+    );
+  }
+
   function navigateToEra(eraId: string) {
     const merged = new URLSearchParams(params.toString());
     merged.set("era", eraId);
@@ -65,9 +81,13 @@ export default function Overview({ eras, books }: OverviewProps) {
         preserveAspectRatio="xMidYMid meet"
       >
         <defs>
+          {/* Vertical fade — peaks at the ribbon centreline. Stop opacities
+             dialled up from the prototype's 0.18 because the prototype was
+             tested on a less-dark background; against our `--bg-0` (#06080c)
+             0.18 × the rect's 0.55 = 0.10 net, which reads as nothing. */}
           <linearGradient id="eraBandGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
-            <stop offset="50%" stopColor="currentColor" stopOpacity="0.18" />
+            <stop offset="50%" stopColor="currentColor" stopOpacity="0.42" />
             <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
           </linearGradient>
           <filter id="ribbonGlow" x="-10%" y="-200%" width="120%" height="500%">
@@ -99,7 +119,10 @@ export default function Overview({ eras, books }: OverviewProps) {
                 }
               }}
             >
-              {/* Band fill — currentColor flips to --hl on hover */}
+              {/* Band fill — currentColor flips to --hl on hover. Idle ink
+                 dialled up to --ink-1 (cream) so the band reads as a soft
+                 horizontal smear rather than the muted brown that the
+                 prototype's --ink-2 collapses to on this dark background. */}
               <rect
                 x={x1}
                 y={AX_Y - 60}
@@ -108,8 +131,8 @@ export default function Overview({ eras, books }: OverviewProps) {
                 fill="url(#eraBandGrad)"
                 className="era-seg-bar-fill"
                 style={{
-                  color: hovered ? "var(--hl)" : "var(--ink-2)",
-                  opacity: hovered ? 1 : 0.55,
+                  color: hovered ? "var(--hl)" : "var(--ink-1)",
+                  opacity: hovered ? 1 : 0.78,
                   transition: "opacity .3s, color .3s",
                 }}
               />

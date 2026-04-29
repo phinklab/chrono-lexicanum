@@ -623,6 +623,40 @@ main {
   position: relative;
   width: 100%;
   height: clamp(360px, 52vh, 520px);
+  /* Faint cyan lift through the centreline so the era bands have something
+     to glow against — without it, the very dark --bg-0 collapses any band
+     opacity below ~0.4 to invisibility. Same vocabulary as the Hub's
+     `.hub-main` radial-gradient lift around the eyebrow. */
+  background:
+    radial-gradient(ellipse 70% 35% at 50% 50%, var(--hl-faint) 0%, transparent 75%);
+}
+
+.timeline-overview-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.era-empty-hint {
+  margin: 0;
+  max-width: 64ch;
+  font-family: var(--font-reader);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.era-empty-hint code {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--hl);
+  padding: 1px 6px;
+  border: 1px solid var(--line-1);
+  background: color-mix(in oklch, var(--bg-1) 70%, transparent);
 }
 
 .timeline-svg {
@@ -654,24 +688,27 @@ main {
   filter: drop-shadow(0 0 8px var(--hl));
 }
 
-/* Era labels and year ticks */
+/* Era labels and year ticks. Brighter than the prototype's --ink-2 default
+   because that read as muted brown-grey on our very dark --bg-0; on the
+   Hub-aesthetic palette we need at least --ink-1 for the labels to feel
+   present against the starfield. */
 .era-label {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-size: 11px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  fill: var(--ink-2);
+  fill: var(--ink-1);
   transition: fill .3s, font-size .3s, letter-spacing .3s;
 }
 .era-label.primary {
   fill: var(--ink-0);
-  letter-spacing: 0.22em;
-  font-size: 11px;
+  letter-spacing: 0.26em;
+  font-size: 12px;
 }
 .era-years {
   font-family: var(--font-mono);
-  font-size: 9px;
-  fill: var(--ink-3);
+  font-size: 9.5px;
+  fill: var(--ink-2);
   letter-spacing: 0.1em;
 }
 

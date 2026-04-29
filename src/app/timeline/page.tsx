@@ -123,6 +123,11 @@ async function loadTimeline(): Promise<{
       series: b.seriesId ? { id: b.seriesId, order: b.seriesIndex } : null,
     }));
 
+    if (process.env.NODE_ENV !== "production") {
+      console.log(
+        `[/timeline] loaded ${eras.length} eras, ${books.length} books, ${Object.keys(seriesById).length} series.`,
+      );
+    }
     return { eras, books, seriesById };
   } catch (err) {
     console.error("[/timeline] DB fetch failed; rendering empty timeline.", err);

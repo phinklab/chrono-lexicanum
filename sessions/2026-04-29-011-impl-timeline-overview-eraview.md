@@ -432,3 +432,37 @@ Drizzle, postgres-js all at session-005 / session-007 pins.
 - Drizzle relational queries: https://orm.drizzle.team/docs/rqb
 - Next 16 `searchParams` Promise: https://nextjs.org/docs/app/api-reference/file-conventions/page#searchparams-optional
 - Co-shipped Aquila redesign: `sessions/2026-04-29-010-impl-aquila-redesign.md`
+
+## Post-merge fixups (after Philipp's deploy review)
+
+After the initial push to `main`, Philipp's preview screenshot
+showed the Overview ribbon with no visible bands or labels, and
+the SVG Aquila silhouette didn't read as canon. Two follow-up changes
+landed in a separate commit:
+
+- **`src/components/Aquila.tsx` → PNG-via-mask.** Replaces the procedural
+  SVG silhouette with `<span>` whose `mask-image: url(/aquila.png)` is
+  filled with `currentColor`. The PNG is the canonical W40k Aquila from
+  `archive/prototype-v1/uploads/`; copied to `public/aquila.png`. Same
+  prop API (`size`), same call site, theme colour still flows through
+  `currentColor` (so `.hub-aquila { color: var(--color-lum) }` keeps
+  working). Drops ~165 lines of procedural-feather TSX in favour of one
+  small mask-styled `<span>`.
+- **`Overview.tsx` + `globals.css` — contrast pass.** The era-band
+  fill was `--ink-2` × 0.55 × 0.18 stop = ~0.10 net opacity, which
+  collapses to invisible against `--bg-0` (#06080c). Bumped to
+  `--ink-1` × 0.78 × 0.42 = ~0.33 net. Also brightened the era labels
+  (`--ink-1` instead of `--ink-2`, font 11px instead of 10px) and
+  added a Hub-style faint cyan radial-gradient lift to the Overview
+  area so bands have something to glow against. When `eras` arrives
+  empty (e.g., the page's `loadTimeline` catch-fallback fired),
+  Overview now renders a visible cogitator-voice notice with a
+  `db:seed` reminder instead of just the bare ribbon line.
+- **`page.tsx` — dev-only data-count log.** Adds
+  `console.log("[/timeline] loaded N eras, M books, K series")` in
+  the non-production branch so future "is the page empty because of
+  data?" debugging is one terminal scroll away.
+
+These touch the same surfaces as the main commit and were folded as a
+single fixup commit rather than a re-work of the original — the
+original 6a8230b stays as the canonical "first port" of the brief.
