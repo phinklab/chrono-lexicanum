@@ -17,8 +17,7 @@ For the format, naming convention, status lifecycle, and full rules, see [`docs/
 Items decided / surfaced between sessions that the **next** architect brief MUST address. Append here when you spot something at the end of a session that doesn't deserve its own brief but must not be forgotten. Cowork prunes items here once they've been folded into a brief or otherwise resolved.
 
 - **`NEXT_PUBLIC_SITE_URL` on Vercel.** Was set to `http://localhost:3000` at first deploy; Philipp updates manually to `https://chrono-lexicanum.vercel.app` in the Vercel dashboard. Confirm-and-strike when verified — purely cosmetic for now (Open Graph metadata), important before Reddit launch.
-
-*(Auto-Memory `userEmail` typo and the Tailwind v4 border-color compat block were both folded into brief 2026-04-29-006. They prune from this list once the implementer report confirms each is done.)*
+- **Hub novel-count freshness.** The Hub `<footer>` reads `select count(*) from books` server-side; Next 16 statically prerenders the route at build time, so the count is baked at deploy. Once Phase 4 ingestion lands real books, decide whether to add `export const revalidate = 60` for hourly refresh or accept "redeploy to update count." Implementer-flagged in 2026-04-29-007.
 
 ## Active threads
 
@@ -26,7 +25,8 @@ Open and recently-closed sessions, newest first. Cowork updates this list when i
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
-| [2026-04-29-006](2026-04-29-006-arch-css-hub-polish.md) | architect | open | Phase 2 kickoff — token foundation, Hub polish, global chrome (starfield + top-chrome + era-toggle) |
+| [2026-04-29-007](2026-04-29-007-impl-css-hub-polish.md) | implementer | complete | Phase 2 kickoff shipped — tokens, Hub polish, starfield + top-chrome + era-toggle live |
+| [2026-04-29-006](2026-04-29-006-arch-css-hub-polish.md) | architect | implemented | Phase 2 kickoff — token foundation, Hub polish, global chrome (starfield + top-chrome + era-toggle) |
 | [2026-04-28-005](2026-04-28-005-impl-stack-bumps.md) | implementer | complete | Stack bumps shipped — Next 16 + Tailwind 4, deployed |
 | [2026-04-28-004](2026-04-28-004-arch-stack-bumps.md) | architect | implemented | Stack bumps — Next major + Tailwind major before Phase 2 |
 | [2026-04-28-003](2026-04-28-003-impl-phase-1-handoff.md) | implementer | complete | Phase 1 ship report — live at chrono-lexicanum.vercel.app |

@@ -2,14 +2,19 @@
 session: 2026-04-29-006
 role: architect
 date: 2026-04-29
-status: open
+status: implemented
 slug: css-hub-polish
 parent: 2026-04-28-005
 links:
   - 2026-04-28-001
   - 2026-04-28-002
   - 2026-04-28-005
-commits: []
+  - 2026-04-29-007
+commits:
+  - 6c3697b
+  - 0cfa751
+  - ce01902
+  - 23619a4
 ---
 
 # CSS foundation + Hub polish + global chrome
