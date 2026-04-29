@@ -4,24 +4,24 @@
 
 ---
 
-## Phase 1 — Foundation ✅ (current)
+## Phase 1 — Foundation ✅ (shipped 2026-04-28, sessions 001–003)
 
 The skeleton: Next.js + TypeScript + Tailwind + Drizzle + Supabase, deployed to Vercel, with the prototype's data already seeded into Postgres.
 
 - [x] Move prototype to `archive/prototype-v1/`
-- [x] Next.js 15 + TypeScript + Tailwind scaffold
+- [x] Next.js + TypeScript + Tailwind scaffold
 - [x] Drizzle schema covering eras, factions, series, books, sectors, locations, characters, junctions, submissions
 - [x] Drizzle client + drizzle.config
 - [x] Seed script that ingests the legacy `data/*.js` files
 - [x] Stub routes for `/`, `/timeline`, `/map`, `/ask`, `/buch/[slug]`, `/fraktion/[slug]`, `/welt/[slug]`, `/charakter/[slug]`
 - [x] Aquila SVG ported as a TSX component (proof of port)
 - [x] CLAUDE.md, README.md, ROADMAP.md, ARCHITECTURE.md, ONBOARDING.md
-- [ ] **`npm install` + first `npm run dev` succeeds locally** (Philipp's first action)
-- [ ] Supabase project created, `.env.local` filled, `db:migrate` and `db:seed` run successfully
-- [ ] First push to GitHub
-- [ ] First Vercel deploy (with env vars set in dashboard)
+- [x] `npm install` + first `npm run dev` succeeds locally
+- [x] Supabase project created, `.env.local` filled, `db:migrate` and `db:seed` run successfully
+- [x] First push to GitHub
+- [x] First Vercel deploy (with env vars set in dashboard) — live at `https://chrono-lexicanum.vercel.app/`
 
-**Phase 1 is done when:** the Hub page renders at a public Vercel URL, the database has the prototype data, and the four shells (`/timeline`, `/map`, `/ask`, plus `/`) load without errors.
+**Phase 1.1 — stack bumps** ✅ (shipped 2026-04-28, sessions 004–005): bumped Next to its current major + Tailwind to v4. Pipeline is now CSS-first (`@theme {…}` in `globals.css`).
 
 ---
 
@@ -39,6 +39,17 @@ Small but important so we don't fight the toolchain later.
 ## Phase 2 — Port the three tools
 
 The prototype already has these working in JSX. Migration is "make it work in our new structure," not "redesign."
+
+### 2.0. CSS foundation + Hub polish + global chrome (current — brief 006)
+
+Lays the visual ground floor before the tool routes get touched. Token migration into `@theme`, polished Hub on the existing flowed layout (no fixed-fullscreen prototype Hub), and the global chrome that every tool route will sit inside.
+
+- [ ] Prototype design tokens (surfaces / ink / lines / oklch accents) merged into `globals.css` `@theme`
+- [ ] Tailwind v4 v3-compat border-color block retired
+- [ ] Hub with corner-decorated tiles, kicker typography, Aquila glow, staggered tile-rise, multi-segment stats footer
+- [ ] `<Starfield />` 4-layer parallax canvas behind every route
+- [ ] `<TopChrome />` with mark-sigil + wordmark + era-toggle, fixed top of viewport
+- [ ] `<EraToggle />` writing `?era=…` to URL (consumed by 2a Timeline)
 
 ### 2a. Chronicle (Timeline)
 
