@@ -163,3 +163,277 @@ h1, h2, h3 {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* =============================================================================
+ * Hub.
+ * Painterly hand-written CSS for the entry-route Hub: cogitator eyebrow,
+ * Aquila glow, terminal-panel doorway tiles with cross-bracketed corners and
+ * staggered entry, multi-segment footer.
+ * ============================================================================= */
+
+.hub-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(48px, 7vw, 88px);
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(120px, 16vh, 200px) clamp(20px, 5vw, 64px) clamp(80px, 12vh, 140px);
+  text-align: center;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 18%, var(--hl-faint) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 30% at 50% 92%, var(--warm-faint) 0%, transparent 70%);
+}
+
+.hub-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: var(--animate-fade-slide);
+}
+
+.hub-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 28px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-ink-2);
+}
+.hub-eyebrow-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--color-lum);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--color-lum);
+  animation: var(--animate-eyebrow-dot);
+}
+
+.hub-aquila-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-bottom: 28px;
+  isolation: isolate;
+}
+.hub-aquila-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -40% -10%;
+  background: radial-gradient(
+    ellipse 60% 80% at 50% 55%,
+    color-mix(in oklch, var(--color-lum) 32%, transparent) 0%,
+    transparent 70%
+  );
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(2px);
+}
+.hub-aquila {
+  color: var(--color-lum);
+  filter:
+    drop-shadow(0 0 18px color-mix(in oklch, var(--color-lum) 55%, transparent))
+    drop-shadow(0 0 4px color-mix(in oklch, var(--color-ink-0) 70%, transparent));
+  opacity: 0.95;
+}
+
+.hub-title {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(12px, 1.6vw, 24px);
+  margin: 0;
+  font-family: var(--font-cinzel);
+  font-weight: 500;
+  font-size: clamp(40px, 6vw, 72px);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-ink-0);
+}
+.hub-title-sep {
+  font-size: 0.55em;
+  color: var(--color-lum);
+  text-shadow: 0 0 14px color-mix(in oklch, var(--color-lum) 50%, transparent);
+  transform: translateY(-0.06em);
+}
+.hub-sub {
+  margin: 22px auto 0;
+  max-width: 56ch;
+  font-family: var(--font-reader);
+  font-style: italic;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.6;
+  color: var(--color-ink-1);
+}
+
+/* ─── Doorway grid ─── */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(18px, 2vw, 28px);
+  width: 100%;
+  max-width: 1100px;
+}
+
+.mode-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 32px 28px 24px;
+  min-height: 360px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--color-ink-1);
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0;
+  animation: var(--animate-tile-rise);
+  animation-delay: var(--delay, 0ms);
+  transition:
+    transform 360ms cubic-bezier(.2,.8,.2,1),
+    border-color 280ms,
+    background 280ms,
+    box-shadow 280ms;
+}
+.mode-tile:hover,
+.mode-tile:focus-visible {
+  border-color: var(--hl);
+  background: var(--panel-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px -22px var(--hl-glow);
+  outline: none;
+}
+.mode-tile:hover .mt-icon,
+.mode-tile:focus-visible .mt-icon {
+  color: var(--hl);
+  transform: scale(1.04);
+}
+.mode-tile:hover .mt-arrow,
+.mode-tile:focus-visible .mt-arrow {
+  transform: translateX(6px);
+}
+
+/* Cross-bracketed corners. 4 spans, 1 per corner, each renders an L-shape
+   via two of the four borders. Brighter on hover. */
+.mt-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 0 solid var(--hl);
+  opacity: 0.5;
+  transition: opacity 280ms;
+}
+.mode-tile:hover .mt-corner,
+.mode-tile:focus-visible .mt-corner { opacity: 1; }
+.mt-corner.tl { top: -1px; left: -1px;  border-top-width: 1.5px; border-left-width: 1.5px; }
+.mt-corner.tr { top: -1px; right: -1px; border-top-width: 1.5px; border-right-width: 1.5px; }
+.mt-corner.bl { bottom: -1px; left: -1px;  border-bottom-width: 1.5px; border-left-width: 1.5px; }
+.mt-corner.br { bottom: -1px; right: -1px; border-bottom-width: 1.5px; border-right-width: 1.5px; }
+
+.mt-icon {
+  width: 86px;
+  height: 86px;
+  margin-bottom: 24px;
+  color: var(--color-ink-0);
+  opacity: 0.85;
+  transition: color 280ms, transform 480ms cubic-bezier(.2,.8,.2,1);
+}
+.mt-icon svg { width: 100%; height: 100%; }
+
+.mt-body { flex: 1; }
+.mt-kicker {
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--hl);
+}
+.mt-title {
+  margin: 0 0 12px;
+  font-family: var(--font-cinzel);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.1;
+  color: var(--color-ink-0);
+  letter-spacing: 0.02em;
+}
+.mt-desc {
+  margin: 0;
+  font-family: var(--font-reader);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-ink-1);
+}
+.mt-enter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--hl);
+}
+.mt-arrow {
+  display: inline-block;
+  transition: transform 280ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* ─── Multi-segment footer ─── */
+.hub-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: clamp(24px, 4vh, 48px);
+  animation: fadeSlide 1200ms 600ms both;
+}
+.hub-footer-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-2);
+}
+.hub-footer-line strong {
+  color: var(--hl);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.hub-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-ink-3);
+  opacity: 0.7;
+}
+.hub-footer-fineprint {
+  margin: 0;
+  max-width: 60ch;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-3);
+}
