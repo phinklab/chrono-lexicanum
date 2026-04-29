@@ -123,14 +123,17 @@ async function loadTimeline(): Promise<{
       series: b.seriesId ? { id: b.seriesId, order: b.seriesIndex } : null,
     }));
 
-    if (process.env.NODE_ENV !== "production") {
-      console.log(
-        `[/timeline] loaded ${eras.length} eras, ${books.length} books, ${Object.keys(seriesById).length} series.`,
-      );
-    }
+    // Log on every request — visible in `next dev` terminal locally and in
+    // Vercel function logs on prod. Useful when the empty-state Overview
+    // appears: zero eras here means "DB returned nothing"; an absent log
+    // line means the request didn't reach this code path.
+    console.log(
+      `[/timeline] loaded ${eras.length} eras, ${books.length} books, ${Object.keys(seriesById).length} series.`,
+    );
     return { eras, books, seriesById };
   } catch (err) {
-    console.error("[/timeline] DB fetch failed; rendering empty timeline.", err);
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(`[/timeline] DB fetch failed (${msg}); rendering empty timeline.`);
     return { eras: [], books: [], seriesById: {} };
   }
 }

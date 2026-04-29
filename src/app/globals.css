@@ -376,6 +376,15 @@ main {
   opacity: 0.95;
 }
 
+/* Force alpha-mode for the PNG mask. Some browsers default to luminance for
+   image masks, which would render the eagle's dark pixels as the masked-out
+   region (i.e., a coloured rectangle with an eagle-shaped hole). React's
+   CSSProperties type doesn't yet expose mask-mode, so it lives here. */
+.aquila {
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+}
+
 .hub-title {
   display: inline-flex;
   align-items: center;

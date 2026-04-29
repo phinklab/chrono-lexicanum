@@ -37,5 +37,14 @@ export function Aquila({ size = 180, className, style, ...rest }: AquilaProps) {
     maskPosition: "center",
     ...style,
   };
-  return <span aria-hidden="true" className={className} style={maskStyle} {...rest} />;
+  // `mask-mode: alpha` is forced via the `.aquila` CSS class in globals.css —
+  // React's CSSProperties type doesn't yet ship that key in its allow-list.
+  return (
+    <span
+      aria-hidden="true"
+      className={className ? `aquila ${className}` : "aquila"}
+      style={maskStyle}
+      {...rest}
+    />
+  );
 }
