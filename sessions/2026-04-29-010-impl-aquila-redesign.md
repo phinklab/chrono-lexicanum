@@ -6,7 +6,8 @@ status: complete
 slug: aquila-redesign
 parent: 2026-04-29-009
 links: []
-commits: []
+commits:
+  - cf19b9d
 ---
 
 # Aquila redesign — layered feather banks, two heads, kept body/talons

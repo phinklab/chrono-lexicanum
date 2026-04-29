@@ -8,7 +8,8 @@ parent: null
 links:
   - 2026-04-29-006
   - 2026-04-29-007
-commits: []
+commits:
+  - cf19b9d
 ---
 
 # Aquila redesign — make the silhouette read as a canonical W40k two-headed eagle

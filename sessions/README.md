@@ -25,9 +25,10 @@ Open and recently-closed sessions, newest first. Cowork updates this list when i
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
+| [2026-04-29-011](2026-04-29-011-impl-timeline-overview-eraview.md) | implementer | complete | Phase 2a slim shipped — Overview ribbon + EraDetail at /timeline; ?era= contract migrated; 3-book fixture seeded |
 | [2026-04-29-010](2026-04-29-010-impl-aquila-redesign.md) | implementer | complete | Aquila redesign shipped — three layered feather banks per wing; body/talons kept |
 | [2026-04-29-009](2026-04-29-009-arch-aquila-redesign.md) | architect | implemented | Aquila redesign — silhouette must read as canonical W40k two-headed eagle (parallel small commit) |
-| [2026-04-29-008](2026-04-29-008-arch-timeline-overview-eraview.md) | architect | open | Phase 2a slim — Overview ribbon + EraView track-view at /timeline; ?era= URL contract conflated; 2-3 book fixture |
+| [2026-04-29-008](2026-04-29-008-arch-timeline-overview-eraview.md) | architect | implemented | Phase 2a slim — Overview ribbon + EraView track-view at /timeline; ?era= URL contract conflated; 2-3 book fixture |
 | [2026-04-29-007](2026-04-29-007-impl-css-hub-polish.md) | implementer | complete | Phase 2 kickoff shipped — tokens, Hub polish, starfield + top-chrome + era-toggle live |
 | [2026-04-29-006](2026-04-29-006-arch-css-hub-polish.md) | architect | implemented | Phase 2 kickoff — token foundation, Hub polish, global chrome (starfield + top-chrome + era-toggle) |
 | [2026-04-28-005](2026-04-28-005-impl-stack-bumps.md) | implementer | complete | Stack bumps shipped — Next 16 + Tailwind 4, deployed |

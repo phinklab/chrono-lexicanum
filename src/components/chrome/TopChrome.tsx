@@ -33,14 +33,15 @@ export default function TopChrome() {
 
 /**
  * Renders the same shell as EraToggle so the layout doesn't shift while
- * useSearchParams resolves on first paint. Buttons are inert; the active
- * indicator points at the default era (M31).
+ * useSearchParams resolves on first paint. Buttons are inert and none is in
+ * the active state — there is no default era under the 008 URL contract;
+ * Suspense streams the resolved active label as soon as the URL is parsed.
  */
 function EraToggleFallback() {
   return (
     <div className="era-toggle" aria-hidden>
       <button type="button" tabIndex={-1}>M30</button>
-      <button type="button" className="active" tabIndex={-1}>M31</button>
+      <button type="button" tabIndex={-1}>M31</button>
       <button type="button" tabIndex={-1}>M42</button>
     </div>
   );

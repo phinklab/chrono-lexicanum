@@ -3,27 +3,52 @@
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
 /**
- * EraToggle — three-state toggle (M30 / M31 / M42) wired to the URL search
- * param `?era=`. Source of truth is the URL; default (no param) = M31.
+ * EraToggle — three-button millennium switcher (M30 / M31 / M42) wired to the
+ * URL search param `?era=`. Source of truth is the URL.
  *
- * URL-writing policy: clicking a non-default era sets `?era=...`; clicking
- * M31 (the default) strips the param so the canonical Hub URL stays clean.
- * Two URL states ('/' and '/?era=M31') therefore both render M31 active.
- * The trade is: shareable links explicitly carry M30 / M42 but the default
- * URL doesn't get noisier.
+ * URL contract (set by brief 2026-04-29-008): the visible labels are
+ * Warhammer-canon shorthand (M30 / M31 / M42), but the value written to
+ * `?era=` is the prototype era id the Timeline route consumes:
  *
- * Updates use `router.replace` (not `push`) so back-button doesn't fill with
- * era flips, and `{ scroll: false }` so toggling doesn't yank the page.
+ *   M30 → ?era=great_crusade
+ *   M31 → ?era=horus_heresy
+ *   M42 → ?era=indomitus
  *
- * Phase 2a's Timeline picks up the param this brief writes; nothing else
- * reads `era` today.
+ * The four non-canonical eras (age_rebirth, long_war, age_apostasy,
+ * time_ending) are reachable by clicking the Overview ribbon — they have
+ * no toggle button. When `?era=` matches one of them (or is absent), no
+ * toggle button is in the active state.
+ *
+ * Click behaviour: clicking a button writes its mapped era id to the URL.
+ * Clicking the active button is a no-op (the toggle is a 3-way mutex; to
+ * leave a canonical era you click the Overview ribbon back, not the toggle).
+ *
+ * Updates use `router.replace` so the back-button doesn't fill with era
+ * flips, and `{ scroll: false }` so toggling doesn't yank the page.
+ *
+ * Legacy tolerance: page.tsx redirects `?era=M30 | M31 | M42` (the value the
+ * pre-008 toggle wrote) to the mapped era id, so old shared URLs keep working.
  */
-const ERAS = ["M30", "M31", "M42"] as const;
-type Era = (typeof ERAS)[number];
-const DEFAULT: Era = "M31";
 
-function isEra(value: string | null): value is Era {
-  return value !== null && (ERAS as readonly string[]).includes(value);
+const TOGGLE_TO_ERA = {
+  M30: "great_crusade",
+  M31: "horus_heresy",
+  M42: "indomitus",
+} as const;
+
+const BUTTONS = ["M30", "M31", "M42"] as const;
+type ToggleLabel = (typeof BUTTONS)[number];
+type EraId = (typeof TOGGLE_TO_ERA)[ToggleLabel];
+
+const ERA_TO_TOGGLE: Record<EraId, ToggleLabel> = {
+  great_crusade: "M30",
+  horus_heresy: "M31",
+  indomitus: "M42",
+};
+
+function eraToActiveLabel(era: string | null): ToggleLabel | null {
+  if (!era) return null;
+  return (ERA_TO_TOGGLE as Record<string, ToggleLabel>)[era] ?? null;
 }
 
 export default function EraToggle() {
@@ -31,29 +56,27 @@ export default function EraToggle() {
   const pathname = usePathname();
   const params = useSearchParams();
 
-  const raw = params.get("era");
-  const active: Era = isEra(raw) ? raw : DEFAULT;
+  const active = eraToActiveLabel(params.get("era"));
 
-  function pick(next: Era) {
-    if (next === active) return;
+  function pick(label: ToggleLabel) {
+    if (label === active) return;
     const merged = new URLSearchParams(params.toString());
-    if (next === DEFAULT) merged.delete("era");
-    else merged.set("era", next);
+    merged.set("era", TOGGLE_TO_ERA[label]);
     const qs = merged.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
   }
 
   return (
     <div className="era-toggle" role="group" aria-label="Era">
-      {ERAS.map((era) => (
+      {BUTTONS.map((label) => (
         <button
-          key={era}
+          key={label}
           type="button"
-          onClick={() => pick(era)}
-          className={era === active ? "active" : undefined}
-          aria-pressed={era === active}
+          onClick={() => pick(label)}
+          className={label === active ? "active" : undefined}
+          aria-pressed={label === active}
         >
-          {era}
+          {label}
         </button>
       ))}
     </div>

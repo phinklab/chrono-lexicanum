@@ -132,6 +132,20 @@
 
   --warm:       var(--color-amber);
   --warm-faint: color-mix(in oklch, var(--color-amber) 12%, transparent);
+
+  /* Short-name aliases matching the prototype's stylesheet vocabulary so
+     ported CSS reads near-verbatim. Pure forwards over @theme tokens. */
+  --bg-0: var(--color-bg-0);
+  --bg-1: var(--color-bg-1);
+  --bg-2: var(--color-bg-2);
+  --ink-0: var(--color-ink-0);
+  --ink-1: var(--color-ink-1);
+  --ink-2: var(--color-ink-2);
+  --ink-3: var(--color-ink-3);
+  --line-0: var(--color-line-0);
+  --line-1: var(--color-line-1);
+  --line-2: var(--color-line-2);
+  --gold: var(--color-gold);
 }
 
 /* =============================================================================
@@ -555,3 +569,531 @@ main {
   text-transform: uppercase;
   color: var(--color-ink-3);
 }
+
+/* =============================================================================
+ * Timeline.
+ * Painterly hand-written CSS for the Chronicle route. Two surfaces share the
+ * block: the Overview ribbon (zoomed-out, all eras) and the EraDetail track
+ * view (zoomed-in to one era). Ported from
+ * `archive/prototype-v1/styles/timeline.css` minus the zoom-transition
+ * machinery, the detail-panel modal, the cluster fly-out, and the entry-rail
+ * highlight — those land in 2a.1/2a.2/2a.3 follow-up briefs.
+ *
+ * Era treatment picked: BANDS. Easier hit-target, more visible on the ribbon
+ * at the Hub's painterly aesthetic; the prototype's illuminated/◆ end-cap
+ * variant is on hold as a possible polish-pass alternative.
+ * ============================================================================= */
+
+.timeline-shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(110px, 14vh, 170px) clamp(20px, 4vw, 56px) clamp(48px, 8vh, 96px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5vh, 72px);
+}
+
+.timeline-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin: 0;
+}
+.timeline-eyebrow-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--hl);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--hl);
+  animation: var(--animate-eyebrow-dot);
+}
+
+/* ─── Overview ribbon ─── */
+
+.timeline-overview {
+  position: relative;
+  width: 100%;
+  height: clamp(360px, 52vh, 520px);
+}
+
+.timeline-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: ribbonBreathe 8s ease-in-out infinite;
+}
+@keyframes ribbonBreathe {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.08); }
+}
+
+/* Era band hit-targets */
+.era-seg {
+  cursor: pointer;
+  transition: filter .15s;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.era-seg:hover .era-seg-bar-fill {
+  filter: drop-shadow(0 0 6px color-mix(in oklch, var(--hl) 60%, transparent));
+}
+.era-seg:active { transform: scaleY(0.96); transition: transform .08s; }
+.era-seg:focus-visible { outline: none; }
+.era-seg:focus-visible .era-seg-bar-fill {
+  filter: drop-shadow(0 0 8px var(--hl));
+}
+
+/* Era labels and year ticks */
+.era-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  fill: var(--ink-2);
+  transition: fill .3s, font-size .3s, letter-spacing .3s;
+}
+.era-label.primary {
+  fill: var(--ink-0);
+  letter-spacing: 0.22em;
+  font-size: 11px;
+}
+.era-years {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  fill: var(--ink-3);
+  letter-spacing: 0.1em;
+}
+
+/* Book pins on the ribbon */
+.book-node { transition: transform .25s ease; }
+.book-node-dot {
+  fill: var(--hl);
+  filter: drop-shadow(0 0 4px var(--hl));
+  transition: r .3s, filter .3s;
+}
+.book-node-halo {
+  fill: none;
+  stroke: var(--hl);
+  stroke-width: 0.5;
+  opacity: 0;
+  transition: opacity .3s, r .3s;
+}
+.book-node:hover .book-node-halo,
+.book-node:focus-visible .book-node-halo { opacity: 0.6; }
+.book-node.dim { opacity: 0.18; }
+.book-node.match .book-node-dot { filter: drop-shadow(0 0 6px var(--hl)); }
+.book-node.match .book-node-halo { opacity: 0.5; }
+
+/* ─── Era detail (zoomed-in) ─── */
+
+.era-detail {
+  position: relative;
+  width: 100%;
+  min-height: clamp(420px, 60vh, 580px);
+  padding-top: 96px;
+  padding-bottom: 64px;
+}
+
+.era-detail-nav-prev,
+.era-detail-nav-next {
+  position: absolute;
+  top: 96px;
+  z-index: 6;
+  background: color-mix(in oklch, var(--bg-0) 75%, transparent);
+  border: 1px solid var(--line-1);
+  color: var(--ink-2);
+  padding: 12px 10px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: border-color .25s, color .25s, background .25s, transform .3s cubic-bezier(.2,.8,.2,1);
+  width: 44px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-decoration: none;
+}
+.era-detail-nav-prev { left: -52px; }
+.era-detail-nav-next { right: -52px; }
+.era-detail-nav-prev .en-arrow,
+.era-detail-nav-next .en-arrow {
+  font-size: 14px;
+  color: var(--hl);
+  transition: transform .25s;
+  writing-mode: initial;
+}
+.era-detail-nav-prev .en-label,
+.era-detail-nav-next .en-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 120px;
+  white-space: nowrap;
+}
+.era-detail-nav-prev:hover,
+.era-detail-nav-next:hover {
+  border-color: var(--hl);
+  color: var(--hl);
+  background: color-mix(in oklch, var(--hl) 8%, transparent);
+}
+.era-detail-nav-prev:hover .en-arrow { transform: translateX(-3px); }
+.era-detail-nav-next:hover .en-arrow { transform: translateX(3px); }
+
+@media (max-width: 1100px) {
+  .era-detail-nav-prev { left: 0; }
+  .era-detail-nav-next { right: 0; }
+}
+
+.era-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding: 0 8px;
+  margin-bottom: 36px;
+}
+.era-kicker {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--hl);
+  margin: 0 0 6px;
+  opacity: 0.85;
+  animation: fadeSlide .5s .15s backwards;
+}
+.era-name {
+  font-family: var(--font-cinzel);
+  font-weight: 500;
+  font-size: clamp(26px, 3vw, 34px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-0);
+  line-height: 1;
+  margin: 0;
+  animation: fadeSlide .6s .25s backwards;
+}
+.era-name em {
+  color: var(--hl);
+  font-style: normal;
+  text-shadow: 0 0 14px color-mix(in oklch, var(--hl) 40%, transparent);
+}
+.era-tone {
+  font-family: var(--font-reader);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-2);
+  margin: 8px 0 0;
+  max-width: 56ch;
+  animation: fadeSlide .6s .38s backwards;
+}
+.era-meta {
+  display: flex;
+  gap: 22px;
+  font-family: var(--font-mono);
+  text-align: right;
+}
+.em-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  animation: fadeSlide .55s backwards;
+}
+.em-stat:nth-child(1) { animation-delay: .32s; }
+.em-stat:nth-child(2) { animation-delay: .42s; }
+.em-stat .n {
+  font-family: var(--font-cinzel);
+  font-weight: 500;
+  font-size: 26px;
+  color: var(--hl);
+  line-height: 1;
+  text-shadow: 0 0 12px color-mix(in oklch, var(--hl) 35%, transparent);
+}
+.em-stat .l {
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* Empty state — when an era has 0 books in the fixture */
+.era-empty {
+  position: relative;
+  margin-top: 64px;
+  padding: 32px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.era-empty::before,
+.era-empty::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-2), transparent);
+  transform: translateX(-50%);
+}
+.era-empty::before { top: 0; }
+.era-empty::after  { bottom: 0; }
+
+/* Pan scrubber for wide eras */
+.pan-scrubber {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 3;
+  pointer-events: none;
+}
+.pan-track {
+  width: 100%;
+  height: 3px;
+  background: var(--line-0);
+  border-radius: 2px;
+  position: relative;
+}
+.pan-thumb {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: var(--hl);
+  border-radius: 2px;
+  opacity: 0.7;
+  box-shadow: 0 0 8px var(--hl);
+  transition: left .12s, opacity .2s;
+}
+.pan-hint {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  animation: hintPulse 2.5s ease-in-out infinite;
+}
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.85; }
+}
+
+/* Track region — pan/drag enabled on wide eras */
+.tracks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 200px;
+  bottom: 56px;
+}
+.tracks.pannable {
+  cursor: grab;
+  user-select: none;
+}
+.tracks.pannable:active { cursor: grabbing; }
+
+.track-axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-2) 8%, var(--line-2) 92%, transparent);
+  animation: axisGrow .7s .25s cubic-bezier(.2,.8,.2,1) backwards;
+  transform-origin: center;
+}
+@keyframes axisGrow {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+.track-axis-tick {
+  position: absolute;
+  bottom: 100%;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--ink-3);
+  letter-spacing: 0.1em;
+  transform: translateX(-50%);
+  padding-bottom: 8px;
+  animation: fadeSlide .5s backwards;
+}
+.track-axis-tick::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 4px;
+  background: var(--line-2);
+}
+
+/* Series bar (connected volumes) */
+.series-bar {
+  position: absolute;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform .3s cubic-bezier(.2,.8,.2,1);
+}
+.series-bar:hover { transform: translateY(-2px); }
+.series-bar:hover .sb-spine {
+  background: var(--hl);
+  box-shadow: 0 0 18px var(--hl);
+  opacity: 1;
+}
+.series-bar:hover .series-label { color: var(--ink-0); }
+.series-bar:hover .series-label .dot { text-shadow: 0 0 8px var(--hl); }
+.sb-spine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--hl);
+  box-shadow: 0 0 10px color-mix(in oklch, var(--hl) 60%, transparent);
+  transform: translateY(-0.5px) scaleX(0);
+  transform-origin: left center;
+  opacity: 0.7;
+  animation: spineSweep .6s .4s cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes spineSweep {
+  to { transform: translateY(-0.5px) scaleX(1); opacity: 0.7; }
+}
+.sb-end {
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 1px solid var(--hl);
+  background: var(--bg-0);
+}
+.sb-end.left { left: 0; }
+.sb-end.right { right: 0; left: auto; transform: translate(50%, -50%) rotate(45deg); }
+.series-label {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  padding-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.series-label .dot { color: var(--hl); margin-right: 8px; }
+
+/* Standalone book layout — single books outside any series */
+.standalone-spine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 2%, var(--line-1) 8%, var(--line-1) 92%, transparent 98%);
+  pointer-events: none;
+  animation: axisGrow .6s .5s backwards;
+}
+.standalone-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%) translateY(var(--jitter, 0px));
+  animation: fadeSlide .55s backwards;
+}
+.sn-tick {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--line-2));
+  margin-bottom: 2px;
+  flex: none;
+  min-height: 6px;
+}
+
+/* Book markers (dot variant only this brief) */
+.book-marker {
+  position: absolute;
+  cursor: pointer;
+  transition: transform .3s cubic-bezier(.2,.8,.2,1), opacity .3s, filter .3s;
+  transform-origin: center;
+}
+.book-marker:hover { z-index: 5; filter: drop-shadow(0 0 14px color-mix(in oklch, var(--hl) 70%, transparent)); }
+.book-marker:hover .bm-dot { transform: scale(1.25); }
+.book-marker:hover .bm-dot::after { opacity: 0.7; transform: scale(1.4); }
+.book-marker.dim { opacity: 0.22; filter: saturate(0.4); }
+
+.bm-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--hl);
+  border-radius: 50%;
+  box-shadow: 0 0 14px color-mix(in oklch, var(--hl) 60%, transparent);
+  position: relative;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.bm-dot::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 1px solid var(--hl);
+  border-radius: 50%;
+  opacity: 0.3;
+  transition: opacity .3s, transform .35s;
+}
+
+/* Tooltip on marker hover */
+.bm-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 10px;
+  background: var(--bg-1);
+  border: 1px solid var(--line-1);
+  border-bottom: 1px solid var(--hl);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s;
+  z-index: 15;
+}
+.book-marker:hover .bm-tooltip { opacity: 1; }
+.bm-tooltip .tt-title {
+  font-size: 11.5px;
+  color: var(--ink-0);
+  font-weight: 500;
+}
+.bm-tooltip .tt-meta {
+  font-size: 9.5px;
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+/* `fadeSlide` keyframes already declared inside @theme above — Timeline rules
+   reference it by name and reuse it. */
