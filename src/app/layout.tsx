@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Starfield from "@/components/chrome/Starfield";
+import TopChrome from "@/components/chrome/TopChrome";
 import "./globals.css";
 
 /**
@@ -13,6 +14,7 @@ import "./globals.css";
  * Stacking order:
  *   - Starfield  (z-index 0, fixed, pointer-events: none)
  *   - children   (z-index 1, the route's own <main>)
+ *   - TopChrome  (z-index 20, fixed top)
  */
 export const metadata: Metadata = {
   title: {
@@ -46,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Starfield />
+        <TopChrome />
         {children}
       </body>
     </html>
