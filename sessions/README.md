@@ -25,7 +25,8 @@ Open and recently-closed sessions, newest first. Cowork updates this list when i
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
-| [2026-04-30-012](2026-04-30-012-arch-timeline-buzzy-hover-and-pin-scale.md) | architect | open | Timeline polish — buzzy/glitchy hover, focus-ring fix, book pins that scale to hundreds |
+| [2026-04-30-013](2026-04-30-013-impl-timeline-buzzy-hover-and-pin-scale.md) | implementer | complete | Timeline polish shipped — buzzy era-band glitch, themed focus brackets, per-era count badges replace ribbon pins |
+| [2026-04-30-012](2026-04-30-012-arch-timeline-buzzy-hover-and-pin-scale.md) | architect | implemented | Timeline polish — buzzy/glitchy hover, focus-ring fix, book pins that scale to hundreds |
 | [2026-04-29-011](2026-04-29-011-impl-timeline-overview-eraview.md) | implementer | complete | Phase 2a slim shipped — Overview ribbon + EraDetail at /timeline; ?era= contract migrated; 3-book fixture seeded |
 | [2026-04-29-010](2026-04-29-010-impl-aquila-redesign.md) | implementer | complete | Aquila redesign shipped — three layered feather banks per wing; body/talons kept |
 | [2026-04-29-009](2026-04-29-009-arch-aquila-redesign.md) | architect | implemented | Aquila redesign — silhouette must read as canonical W40k two-headed eagle (parallel small commit) |

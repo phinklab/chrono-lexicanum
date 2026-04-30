@@ -3,30 +3,37 @@
 /**
  * Overview — the zoomed-out luminous ribbon that spans every era. Click an
  * era band to navigate the page into EraDetail at that era. Ported from
- * `archive/prototype-v1/components/OverviewTimeline.jsx` with these changes:
+ * `archive/prototype-v1/components/OverviewTimeline.jsx`. Diffs from that
+ * source documented inline; the load-bearing decisions:
  *
- *   - `eraTreatment` collapsed to BANDS (the brief asked for one; bands
- *     read more clearly as click-targets at the Hub aesthetic).
- *   - `clusterStyle` / `orientation` / `markerStyle` config props removed.
- *   - The aggressive RGB-split glitch on era hover from the prototype is
- *     not ported — see the impl report for the reasoning.
- *   - `drawProgress` parent-driven reveal removed; entry animation handled
- *     by CSS `fadeSlide` keyframes via `animation-delay` per layer.
- *   - `projectY` is built inside this component via `useMemo(makeProjectY)`
- *     because functions can't cross the RSC server→client boundary.
+ *   - `eraTreatment` collapsed to BANDS — see session 011's report.
+ *   - The prototype's RGB-split / displacement glitch on era hover IS now
+ *     ported (brief 012 reverses session 011's call to skip it). Calibrated
+ *     milder than the prototype: `feDisplacementMap scale=8` not 12, gentler
+ *     keyframe transforms, ~420ms total — the brief explicitly invited
+ *     dialing this back so it reads "buzzy electronic" rather than
+ *     "synthwave music video".
+ *   - Per-book ribbon pins removed (brief 012). At catalogue scale (~500
+ *     books, Phase 4 projection) individual pins collapse into mush;
+ *     replaced with one count badge per era. Individual books still appear
+ *     in EraDetail. Cluster-style at scale belongs to the prototype's
+ *     `cluster-node` / `cluster-flyout` machinery and is the future move
+ *     for EraDetail's standalone spine.
+ *   - Focus indicator on era bands: themed L-shaped corner brackets at each
+ *     band corner, gated visible only on `:focus-visible`. Replaces the
+ *     browser's white outline, echoes the Hub tile's `mt-corner` vocabulary.
  *
  * Click handler signature is `() => void` for now; 2a.3 will wire the
- * book-pin click to the DetailPanel modal.
+ * book-pin click in EraDetail to the DetailPanel modal.
  */
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import clsx from "clsx";
 import {
   type Era,
   type TimelineBook,
   formatM,
-  hash,
   makeProjectY,
 } from "@/lib/timeline";
 
@@ -43,18 +50,52 @@ const AX_L = 40;
 const AX_R = 960;
 const AX_W = AX_R - AX_L;
 
+// Glitch lifetime. The CSS keyframe runs 420ms; the JS state is cleared a
+// hair after so a re-hover within the window restarts cleanly.
+const GLITCH_MS = 420;
+
 export default function Overview({ eras, books }: OverviewProps) {
   const router = useRouter();
   const params = useSearchParams();
   const projectY = useMemo(() => makeProjectY(eras), [eras]);
   const [hoveredEraId, setHoveredEraId] = useState<string | null>(null);
+  const [glitchingEraId, setGlitchingEraId] = useState<string | null>(null);
+  const glitchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const xOf = (y: number) => AX_L + projectY(y) * AX_W;
 
+  // Per-era book counts via midpoint-in-era match. Mirrors the prototype's
+  // `counts` useMemo. Eras with zero books simply skip rendering a badge.
+  const eraCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const era of eras) counts[era.id] = 0;
+    for (const b of books) {
+      const mid = (b.startY + b.endY) / 2;
+      const era = eras.find((e) => mid >= e.start && mid <= e.end);
+      if (era) counts[era.id] = (counts[era.id] || 0) + 1;
+    }
+    return counts;
+  }, [eras, books]);
+
+  useEffect(
+    () => () => {
+      if (glitchTimerRef.current) clearTimeout(glitchTimerRef.current);
+    },
+    [],
+  );
+
+  function triggerGlitch(eraId: string) {
+    if (glitchTimerRef.current) clearTimeout(glitchTimerRef.current);
+    setGlitchingEraId(eraId);
+    glitchTimerRef.current = setTimeout(() => setGlitchingEraId(null), GLITCH_MS);
+  }
+
   // Pre-warm the EraDetail RSC payload as soon as the user mouses an era
-  // band, so the navigation feels instant when they actually click.
+  // band, so the navigation feels instant when they actually click. Also
+  // arms the glitch effect; we want both onEnter and onFocus to feel alive.
   function hoverEra(eraId: string) {
     setHoveredEraId(eraId);
+    triggerGlitch(eraId);
     const target =
       params.size > 0
         ? `/timeline?${new URLSearchParams({ ...Object.fromEntries(params), era: eraId }).toString()}`
@@ -112,17 +153,48 @@ export default function Overview({ eras, books }: OverviewProps) {
           <filter id="bandHoverGlow" x="-5%" y="-25%" width="110%" height="150%">
             <feGaussianBlur stdDeviation="6" />
           </filter>
+          {/* Glitch displacement filter. Turbulence drives a displacement map
+             over the band's pixels; the colour matrix nudges red/blue
+             channels apart for a chromatic-aberration tint. The keyframe
+             below toggles this filter on for ~3 frames inside a 420ms window
+             — the buzzy "the cogitator just felt your cursor" beat. */}
+          <filter id="eraGlitch" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.85 0.35"
+              numOctaves="1"
+              seed="2"
+              result="noise"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="noise"
+              scale="8"
+              xChannelSelector="R"
+              yChannelSelector="G"
+              result="displaced"
+            />
+            <feColorMatrix
+              type="matrix"
+              values="1.3 0 0 0 -0.15
+                      0 0.92 0 0 0
+                      0 0 1.25 0 -0.08
+                      0 0 0 1 0"
+              in="displaced"
+            />
+          </filter>
         </defs>
 
-        {/* Era bands — clickable, hover-lit */}
+        {/* Era bands — clickable, hover-lit, glitchy on enter */}
         {eras.map((era, i) => {
           const x1 = xOf(era.start);
           const x2 = xOf(era.end);
           const hovered = hoveredEraId === era.id;
+          const glitching = glitchingEraId === era.id;
           return (
             <g
               key={era.id}
-              className="era-seg"
+              className={clsx("era-seg", glitching && "glitching")}
               role="button"
               tabIndex={0}
               aria-label={`Open era ${era.name}`}
@@ -190,6 +262,25 @@ export default function Overview({ eras, books }: OverviewProps) {
                 strokeDasharray={hovered ? "0" : "1 3"}
                 style={{ transition: "stroke .25s, stroke-width .25s" }}
               />
+              {/* Focus brackets — four L-shapes, one per band corner. CSS-only
+                 visibility on `:focus-visible` so keyboard tab-nav gets a
+                 clear themed indicator while the band stays clean on
+                 mouse-click and idle. Same vocabulary as the Hub tile's
+                 cross-bracketed `.mt-corner` pattern. */}
+              <g className="era-seg-brackets" pointerEvents="none">
+                <polyline
+                  points={`${x1 + 2},${AX_Y - 52} ${x1 + 2},${AX_Y - 60} ${x1 + 10},${AX_Y - 60}`}
+                />
+                <polyline
+                  points={`${x2 - 10},${AX_Y - 60} ${x2 - 2},${AX_Y - 60} ${x2 - 2},${AX_Y - 52}`}
+                />
+                <polyline
+                  points={`${x1 + 2},${AX_Y + 52} ${x1 + 2},${AX_Y + 60} ${x1 + 10},${AX_Y + 60}`}
+                />
+                <polyline
+                  points={`${x2 - 10},${AX_Y + 60} ${x2 - 2},${AX_Y + 60} ${x2 - 2},${AX_Y + 52}`}
+                />
+              </g>
               {/* Era boundary divider — between bands only */}
               {i > 0 && (
                 <line
@@ -231,7 +322,9 @@ export default function Overview({ eras, books }: OverviewProps) {
         <circle cx={AX_L} cy={AX_Y} r={2.5} fill="var(--hl)" pointerEvents="none" />
         <circle cx={AX_R} cy={AX_Y} r={2.5} fill="var(--hl)" pointerEvents="none" />
 
-        {/* Era labels — alternate above/below with a 4-slot stagger */}
+        {/* Era labels — alternate above/below with a 4-slot stagger. Each era
+           with at least one book gets a count badge — the per-era density
+           signal that replaces the prototype's per-book ribbon pins. */}
         {eras.map((era, i) => {
           const x = (xOf(era.start) + xOf(era.end)) / 2;
           const hovered = hoveredEraId === era.id;
@@ -241,6 +334,8 @@ export default function Overview({ eras, books }: OverviewProps) {
           const yOff = (below ? 1 : -1) * (far ? 62 : 32);
           const tickY = below ? 6 : -6;
           const tickEnd = below ? (far ? 56 : 26) : (far ? -56 : -22);
+          const count = eraCounts[era.id] ?? 0;
+          const countYOff = yOff + (below ? 30 : -30);
           return (
             <g key={`lbl-${era.id}`} transform={`translate(${x}, ${AX_Y})`} pointerEvents="none">
               <line
@@ -262,39 +357,14 @@ export default function Overview({ eras, books }: OverviewProps) {
               <text className="era-years" textAnchor="middle" y={yOff + (below ? 13 : -12)}>
                 {formatM(era.start)} — {formatM(era.end)}
               </text>
-            </g>
-          );
-        })}
-
-        {/* Book pins — lifted off the ribbon line via a fixed vertical
-           offset so they're not lost in the ribbon's glow. Each pin gets
-           a thin stem connecting it back to the ribbon and a bright dot
-           with an always-visible halo. Inert this brief; 2a.3 wires the
-           click to DetailPanel. */}
-        {books.map((book, i) => {
-          const midY = (book.startY + book.endY) / 2;
-          const x = xOf(midY);
-          // Alternate above/below the ribbon, plus a small per-book jitter
-          // so pins at the same year don't stack.
-          const baseHash = book.series ? hash(book.series.id) : hash(book.id);
-          const above = i % 2 === 0;
-          const offset = (above ? -1 : 1) * (18 + (baseHash % 6));
-          return (
-            <g key={book.id} className="book-node" pointerEvents="none">
-              {/* Stem */}
-              <line
-                x1={x}
-                x2={x}
-                y1={AX_Y}
-                y2={AX_Y + offset}
-                stroke="var(--hl)"
-                strokeWidth="0.6"
-                opacity="0.6"
-              />
-              <g transform={`translate(${x}, ${AX_Y + offset})`}>
-                <circle className="book-node-halo" r="10" />
-                <circle className="book-node-dot" r={4} />
-              </g>
+              {count > 0 && (
+                <g className="era-count" transform={`translate(0, ${countYOff})`}>
+                  <rect className="bg" x="-34" y="-8" width="68" height="16" rx="0" />
+                  <text className="num" textAnchor="middle" y="3.5">
+                    {String(count).padStart(3, "0")} VOLUMES
+                  </text>
+                </g>
+              )}
             </g>
           );
         })}

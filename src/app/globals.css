@@ -684,6 +684,8 @@ main {
 /* Era band hit-targets */
 .era-seg {
   cursor: pointer;
+  outline: none; /* kills the browser's white rectangle on click + focus;
+                   themed indicator lives in `.era-seg-brackets` below */
   transition: filter .15s;
   transform-origin: center;
   transform-box: fill-box;
@@ -692,10 +694,44 @@ main {
   filter: drop-shadow(0 0 6px color-mix(in oklch, var(--hl) 60%, transparent));
 }
 .era-seg:active { transform: scaleY(0.96); transition: transform .08s; }
-.era-seg:focus-visible { outline: none; }
-.era-seg:focus-visible .era-seg-bar-fill {
-  filter: drop-shadow(0 0 8px var(--hl));
+
+/* Glitch hover. State + class are set from Overview.tsx; the keyframe runs
+   a brief 420ms buzz that toggles the `eraGlitch` SVG filter on for ~3
+   beats inside a series of small translates. Calibrated milder than the
+   prototype's recipe — see Overview.tsx's filter defs. Settles to a
+   neutral steady-state so the persistent `:hover` rules above carry the
+   "I'm hovered" signal once the glitch is done.
+   Reduced motion: the global `* { animation-duration: 0.001ms }` rule
+   collapses this to its 100% neutral frame, so `:hover` colour + glow
+   apply but no displacement / RGB / jitter is ever rendered. */
+.era-seg.glitching {
+  animation: eraGlitch 0.42s steps(1) forwards;
 }
+@keyframes eraGlitch {
+  0%   { filter: none; transform: none; }
+  10%  { filter: url(#eraGlitch); transform: translate(-1.5px, 0); }
+  20%  { filter: none; transform: translate(2px, 0); }
+  35%  { filter: url(#eraGlitch); transform: translate(0, 0.5px); }
+  50%  { filter: none; transform: none; }
+  65%  { filter: url(#eraGlitch); transform: translate(-1px, 0); }
+  80%  { filter: none; transform: none; }
+  100% { filter: none; transform: none; }
+}
+
+/* Themed focus indicator — four L-shaped corner brackets, hidden idle and
+   on plain :focus, painted only on :focus-visible (so mouse clicks don't
+   leave a glow trail). Same painterly vocabulary as the Hub tile's
+   `.mt-corner` cross-bracket. */
+.era-seg-brackets polyline {
+  fill: none;
+  stroke: var(--hl);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px color-mix(in oklch, var(--hl) 60%, transparent));
+  transition: opacity .2s;
+}
+.era-seg:focus-visible .era-seg-brackets polyline { opacity: 1; }
 
 /* Era labels and year ticks. Brighter than the prototype's --ink-2 default
    because that read as muted brown-grey on our very dark --bg-0; on the
@@ -721,26 +757,27 @@ main {
   letter-spacing: 0.1em;
 }
 
-/* Book pins on the ribbon — always-on halo so each pin reads as a
-   distinct affordance even at the small Overview scale. The prototype's
-   hover-only halo collapsed to invisible against our dark backdrop. */
-.book-node { transition: transform .25s ease; }
-.book-node-dot {
+/* Per-era count badge. Replaces individual book-pins on the Overview at
+   scale: a 3-digit zero-padded count reads as cleanly with 3 books as
+   with 500. The bg rect uses the panel-vocabulary fill so the badge
+   detaches softly from the band beneath; the `num` text is in --hl so
+   the cyan reads as the live datum. */
+.era-count {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.era-count .bg {
+  fill: color-mix(in oklch, var(--bg-1) 80%, transparent);
+  stroke: var(--line-1);
+  stroke-width: 0.5;
+}
+.era-count .num {
   fill: var(--hl);
-  filter: drop-shadow(0 0 6px var(--hl));
-  transition: r .3s, filter .3s;
+  font-weight: 500;
+  text-shadow: 0 0 8px color-mix(in oklch, var(--hl) 35%, transparent);
 }
-.book-node-halo {
-  fill: none;
-  stroke: var(--hl);
-  stroke-width: 0.7;
-  opacity: 0.55;
-  transition: opacity .3s, r .3s, stroke-width .3s;
-}
-.book-node:hover .book-node-halo,
-.book-node:focus-visible .book-node-halo { opacity: 1; stroke-width: 1; }
-.book-node.dim { opacity: 0.18; }
-.book-node.match .book-node-dot { filter: drop-shadow(0 0 8px var(--hl)); }
 
 /* ─── Era detail (zoomed-in) ─── */
 

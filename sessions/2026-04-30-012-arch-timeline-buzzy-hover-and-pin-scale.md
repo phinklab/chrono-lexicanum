@@ -2,7 +2,7 @@
 session: 2026-04-30-012
 role: architect
 date: 2026-04-30
-status: open
+status: implemented
 slug: timeline-buzzy-hover-and-pin-scale
 parent: null
 links:
