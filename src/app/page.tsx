@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { count } from "drizzle-orm";
+import { count, eq } from "drizzle-orm";
 import { Aquila } from "@/components/Aquila";
 import { db } from "@/db/client";
-import { books } from "@/db/schema";
+import { works } from "@/db/schema";
 
 /**
  * Hub — the entry route.
@@ -14,7 +14,10 @@ import { books } from "@/db/schema";
  */
 async function getBookCount(): Promise<number> {
   try {
-    const [row] = await db.select({ value: count() }).from(books);
+    const [row] = await db
+      .select({ value: count() })
+      .from(works)
+      .where(eq(works.kind, "book"));
     return Number(row?.value ?? 0);
   } catch {
     return 0;

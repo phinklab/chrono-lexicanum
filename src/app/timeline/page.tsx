@@ -88,14 +88,21 @@ async function loadTimeline(): Promise<{
   seriesById: Record<string, SeriesRef>;
 }> {
   try {
-    const [erasRows, seriesRows, bookRows] = await Promise.all([
+    const [erasRows, seriesRows, workRows] = await Promise.all([
       db.select().from(erasTable).orderBy(asc(erasTable.sortOrder)),
       db.select().from(seriesTable),
-      db.query.books.findMany({
-        orderBy: (b, { asc: a }) => [a(b.startY)],
+      db.query.works.findMany({
+        where: (w, { eq: eqOp }) => eqOp(w.kind, "book"),
+        orderBy: (w, { asc: a }) => [a(w.startY)],
         with: {
+          bookDetails: {
+            with: { series: { columns: { id: true, name: true } } },
+          },
           factions: { columns: { factionId: true } },
-          series: { columns: { id: true, name: true } },
+          persons: {
+            where: (wp, { eq: eqOp }) => eqOp(wp.role, "author"),
+            with: { person: { columns: { name: true } } },
+          },
         },
       }),
     ]);
@@ -112,16 +119,21 @@ async function loadTimeline(): Promise<{
     const seriesById: Record<string, SeriesRef> = {};
     for (const s of seriesRows) seriesById[s.id] = { id: s.id, name: s.name };
 
-    const books: TimelineBook[] = bookRows.map((b) => ({
-      id: b.id,
-      slug: b.slug,
-      title: b.title,
-      author: b.author,
-      startY: Number(b.startY ?? 0),
-      endY: Number(b.endY ?? 0),
-      factions: b.factions.map((f) => f.factionId),
-      series: b.seriesId ? { id: b.seriesId, order: b.seriesIndex } : null,
-    }));
+    const books: TimelineBook[] = workRows.map((w) => {
+      const seriesId = w.bookDetails?.seriesId ?? null;
+      return {
+        id: w.id,
+        slug: w.slug,
+        title: w.title,
+        authors: w.persons.map((wp) => wp.person.name),
+        startY: Number(w.startY ?? 0),
+        endY: Number(w.endY ?? 0),
+        factions: w.factions.map((f) => f.factionId),
+        series: seriesId
+          ? { id: seriesId, order: w.bookDetails?.seriesIndex ?? null }
+          : null,
+      };
+    });
 
     // Log on every request — visible in `next dev` terminal locally and in
     // Vercel function logs on prod. Useful when the empty-state Overview

@@ -41,10 +41,16 @@ export interface TimelineBook {
   id: string;
   slug: string;
   title: string;
-  author: string;
+  /**
+   * Author display names, ordered. The Stufe-2a server adapter feeds this
+   * from `work_persons` rows where role='author' (see `src/app/timeline/page.tsx`).
+   * May be empty when a work has no recorded authors yet — render falls back
+   * to "no author" treatment in EraDetail.
+   */
+  authors: string[];
   startY: number;
   endY: number;
-  /** Faction ids attached via book_factions. May be empty. */
+  /** Faction ids attached via work_factions. May be empty. */
   factions: string[];
   /** Series membership, if any. `order` is the 1-based seriesIndex. */
   series: { id: string; order: number | null } | null;
@@ -170,7 +176,7 @@ export function bookMatchesFilters(book: TimelineBook, f: BookFilters): boolean 
   if (!hasAny) return null;
   if (f.factions.size && !book.factions.some((id) => f.factions.has(id))) return false;
   if (f.series.size && (!book.series || !f.series.has(book.series.id))) return false;
-  if (f.authors.size && !f.authors.has(book.author)) return false;
+  if (f.authors.size && !book.authors.some((a) => f.authors.has(a))) return false;
   return true;
 }
 
