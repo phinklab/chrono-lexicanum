@@ -28,13 +28,6 @@ Open and recently-closed sessions, newest first. Cowork updates this list when i
 | [2026-04-30-013](2026-04-30-013-impl-timeline-buzzy-hover-and-pin-scale.md) | implementer | complete | Timeline polish shipped — buzzy era-band glitch, themed focus brackets, per-era count badges replace ribbon pins |
 | [2026-04-30-012](2026-04-30-012-arch-timeline-buzzy-hover-and-pin-scale.md) | architect | implemented | Timeline polish — buzzy/glitchy hover, focus-ring fix, book pins that scale to hundreds |
 | [2026-04-29-011](2026-04-29-011-impl-timeline-overview-eraview.md) | implementer | complete | Phase 2a slim shipped — Overview ribbon + EraDetail at /timeline; ?era= contract migrated; 3-book fixture seeded |
-| [2026-04-29-010](2026-04-29-010-impl-aquila-redesign.md) | implementer | complete | Aquila redesign shipped — three layered feather banks per wing; body/talons kept |
-| [2026-04-29-009](2026-04-29-009-arch-aquila-redesign.md) | architect | implemented | Aquila redesign — silhouette must read as canonical W40k two-headed eagle (parallel small commit) |
 | [2026-04-29-008](2026-04-29-008-arch-timeline-overview-eraview.md) | architect | implemented | Phase 2a slim — Overview ribbon + EraView track-view at /timeline; ?era= URL contract conflated; 2-3 book fixture |
-| [2026-04-29-007](2026-04-29-007-impl-css-hub-polish.md) | implementer | complete | Phase 2 kickoff shipped — tokens, Hub polish, starfield + top-chrome + era-toggle live |
-| [2026-04-29-006](2026-04-29-006-arch-css-hub-polish.md) | architect | implemented | Phase 2 kickoff — token foundation, Hub polish, global chrome (starfield + top-chrome + era-toggle) |
-| [2026-04-28-005](2026-04-28-005-impl-stack-bumps.md) | implementer | complete | Stack bumps shipped — Next 16 + Tailwind 4, deployed |
-| [2026-04-28-004](2026-04-28-004-arch-stack-bumps.md) | architect | implemented | Stack bumps — Next major + Tailwind major before Phase 2 |
-| [2026-04-28-003](2026-04-28-003-impl-phase-1-handoff.md) | implementer | complete | Phase 1 ship report — live at chrono-lexicanum.vercel.app |
-| [2026-04-28-002](2026-04-28-002-arch-phase-1-handoff.md) | architect | implemented | Phase 1 handoff — install, verify, deploy |
-| [2026-04-28-001](2026-04-28-001-arch-bootstrap.md) | architect | implemented | Bootstrap — project foundation and stack decision |
+
+Archived sessions live in [`archive/2026-04/`](archive/2026-04/) — Phase 1 (bootstrap, handoff), Phase 1.1 (stack bumps), Phase 2.0 (CSS + Hub + chrome), and the Aquila redesign side-quest.

@@ -40,24 +40,29 @@ Small but important so we don't fight the toolchain later.
 
 The prototype already has these working in JSX. Migration is "make it work in our new structure," not "redesign."
 
-### 2.0. CSS foundation + Hub polish + global chrome (current — brief 006)
+### 2.0. CSS foundation + Hub polish + global chrome ✅ (shipped 2026-04-29, sessions 006–007 + 009–010)
 
-Lays the visual ground floor before the tool routes get touched. Token migration into `@theme`, polished Hub on the existing flowed layout (no fixed-fullscreen prototype Hub), and the global chrome that every tool route will sit inside.
+Visual ground floor before the tool routes get touched. Token migration into `@theme`, polished Hub on the existing flowed layout, and the global chrome that every tool route sits inside. Aquila redesign (sessions 009–010) shipped in parallel — silhouette now reads as the canonical W40k two-headed eagle.
 
-- [ ] Prototype design tokens (surfaces / ink / lines / oklch accents) merged into `globals.css` `@theme`
-- [ ] Tailwind v4 v3-compat border-color block retired
-- [ ] Hub with corner-decorated tiles, kicker typography, Aquila glow, staggered tile-rise, multi-segment stats footer
-- [ ] `<Starfield />` 4-layer parallax canvas behind every route
-- [ ] `<TopChrome />` with mark-sigil + wordmark + era-toggle, fixed top of viewport
-- [ ] `<EraToggle />` writing `?era=…` to URL (consumed by 2a Timeline)
+- [x] Prototype design tokens (surfaces / ink / lines / oklch accents) merged into `globals.css` `@theme`
+- [x] Tailwind v4 v3-compat border-color block retired
+- [x] Hub with corner-decorated tiles, kicker typography, Aquila glow, staggered tile-rise, multi-segment stats footer
+- [x] `<Starfield />` 4-layer parallax canvas behind every route
+- [x] `<TopChrome />` with mark-sigil + wordmark + era-toggle, fixed top of viewport
+- [x] `<EraToggle />` writing `?era=…` to URL (consumed by 2a Timeline)
 
-### 2a. Chronicle (Timeline)
+### 2a. Chronicle (Timeline) — in flight
 
-- [ ] Port `OverviewTimeline.jsx` → `src/components/timeline/Overview.tsx`
-- [ ] Port `EraView.jsx` → `src/components/timeline/EraDetail.tsx`
-- [ ] Port `DetailPanel.jsx` for the book pop-out
-- [ ] Server-fetch books ordered by `startY` (no client-side `window.BOOKS` global)
-- [ ] URL state: `?era=horus_heresy&book=eisenhorn-xenos` deep-linkable
+**Slim port** ✅ (shipped 2026-04-29, sessions 008 + 011) and **polish pass** ✅ (shipped 2026-04-30, sessions 012 + 013): Overview ribbon + EraDetail at `/timeline`, `?era=…` URL contract migrated to prototype era ids (legacy redirects in place), buzzy hover on era bands, themed focus brackets, per-era `[NNN VOLUMES]` count badges that scale to a real catalogue.
+
+- [x] Port `OverviewTimeline.jsx` → `src/components/timeline/Overview.tsx`
+- [x] Port `EraView.jsx` → `src/components/timeline/EraDetail.tsx`
+- [x] Server-fetch books ordered by `startY` (no client-side `window.BOOKS` global)
+- [ ] Port `DetailPanel.jsx` for the book pop-out (2a.3)
+- [ ] URL state: `?era=horus_heresy&book=eisenhorn-xenos` deep-linkable (2a.3)
+- [ ] EntryRail (2a.1) and FilterRail (2a.2) on top of the ribbon
+- [ ] Cluster-collapse for dense eras (driven by Phase 4 real-book ingestion)
+- [ ] Pan-scrubber click-to-jump, mobile-touch test, M39–M41 encoding gap
 
 ### 2b. Cartographer (Map)
 
