@@ -2,13 +2,16 @@
 session: 2026-05-01-016
 role: architect
 date: 2026-05-01
-status: open
+status: implemented
 slug: ci-cleanup
 parent: 2026-05-01-015
 links:
   - 2026-05-01-014
   - 2026-05-01-015
-commits: []
+  - 2026-05-01-017
+commits:
+  - b5736fbfe39a5877a2d02ed4f5e7888fc88e3a65
+  - 2a35be538156dfe5d1163fc55e2c3624f09e7ea2
 ---
 
 # CI-Workflow säubern, Required-Check stabilisieren, Repo-Transfer zur Kenntnis nehmen

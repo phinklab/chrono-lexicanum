@@ -16,6 +16,7 @@ For the format, naming convention, status lifecycle, and full rules, see [`docs/
 
 Small infra changes that don't justify a session. Newest first.
 
+- **2026-05-01** — CI-Workflow Check-Naming stabilisiert (sessions 016/017). `.github/workflows/ci.yml` läuft nur noch auf `pull_request:` — der `(pull_request)`-Suffix, den GitHub bei Multi-Trigger-Workflows an den Check-Run-Namen hängt, ist damit weg. Required-Status-Check `ci / lint-and-typecheck` ist im Ruleset wieder ohne Suffix einhängbar (Anleitung im Report 017). Trade-off: kein automatischer CI-Lauf mehr auf `main` post-merge — Vercel deploy ist die zweite Sicherung.
 - **2026-05-01** — Repo transferred from `wptnoire/chrono-lexicanum` to `phinklab/chrono-lexicanum` (new GitHub Team org, needed because Rulesets don't enforce on private repos under the Free plan). New canonical URL: <https://github.com/phinklab/chrono-lexicanum>. GitHub redirects old URLs permanently; references to `wptnoire/...` in archived session logs are left as-is (historical record).
 
 ## Carry-over for the next architect brief
@@ -30,7 +31,8 @@ Open and recently-closed sessions, newest first. Cowork updates this list when i
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
-| [2026-05-01-016](2026-05-01-016-arch-ci-cleanup.md) | architect | open | CI-Workflow Check-Naming stabilisieren — `(pull_request)`-Suffix loswerden, Required-Status-Check im Ruleset wieder einsetzbar machen |
+| [2026-05-01-017](2026-05-01-017-impl-ci-cleanup.md) | implementer | complete | CI-Workflow Check-Run-Name suffix-frei — `push: branches: [main]` aus `ci.yml` raus, Required-Status-Check wieder einhängbar |
+| [2026-05-01-016](2026-05-01-016-arch-ci-cleanup.md) | architect | implemented | CI-Workflow Check-Naming stabilisieren — `(pull_request)`-Suffix loswerden, Required-Status-Check im Ruleset wieder einsetzbar machen |
 | [2026-05-01-015](2026-05-01-015-impl-build-hygiene.md) | implementer | complete | Phase 1.5 shipped — CI green on PRs, Drizzle migration runs on Vercel deploy, /healthz live, preview-URL comments confirmed |
 | [2026-05-01-014](2026-05-01-014-arch-build-hygiene.md) | architect | implemented | Phase 1.5 Build-Hygiene — CI, Drizzle migration on Vercel deploy, /healthz, preview-URL comments |
 | [2026-04-30-013](2026-04-30-013-impl-timeline-buzzy-hover-and-pin-scale.md) | implementer | complete | Timeline polish shipped — buzzy era-band glitch, themed focus brackets, per-era count badges replace ribbon pins |
