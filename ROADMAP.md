@@ -25,14 +25,14 @@ The skeleton: Next.js + TypeScript + Tailwind + Drizzle + Supabase, deployed to 
 
 ---
 
-## Phase 1.5 — Build/deploy hygiene
+## Phase 1.5 — Build/deploy hygiene ✅ (shipped 2026-05-01, sessions 014–015)
 
 Small but important so we don't fight the toolchain later.
 
-- [ ] CI: a GitHub Action that runs `npm run lint` and `tsc --noEmit` on every PR
-- [ ] Drizzle migrations run automatically on Vercel deploy (build hook or `postinstall` guard)
-- [ ] Vercel preview URLs comment on PRs
-- [ ] Add a `/healthz` route that pings the DB so we can monitor uptime later
+- [x] CI: a GitHub Action that runs `npm run lint` and `tsc --noEmit` on every PR
+- [x] Drizzle migrations run automatically on Vercel deploy (programmatic runner via `vercel-build`)
+- [x] Vercel preview URLs comment on PRs (Vercel-GitHub integration default; no Action needed)
+- [x] Add a `/healthz` route that pings the DB so we can monitor uptime later
 
 ---
 

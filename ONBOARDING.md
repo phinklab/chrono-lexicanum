@@ -182,7 +182,38 @@ npm run db:migrate        # applies to your local Supabase
 git add src/db/schema.ts src/db/migrations
 git commit -m "Schema: <what changed>"
 git push
-# IMPORTANT: also apply to production Supabase before Vercel deploys read it.
-# (Phase 1.5 will automate this; for now do it manually:
-#   DATABASE_URL=<production-url> npx drizzle-kit migrate )
+# Vercel runs the migration during the build (see "Operations" below);
+# no manual production step is needed.
 ```
+
+---
+
+## Operations
+
+Background guarantees the project relies on. If one of them is red, here's where to look.
+
+### CI
+
+Every pull request and push to `main` triggers `.github/workflows/ci.yml`, which runs `npm run lint` and `npm run typecheck` on Ubuntu / Node 22. The job is named `lint-and-typecheck`; the GitHub status check that appears on PRs is **`ci / lint-and-typecheck`** — use that name in branch-protection rules if you set them up.
+
+CI does NOT run `next build` (Vercel does that) and there are no tests yet. If the check goes red, click into it on the PR — the failing step is either ESLint or `tsc --noEmit`, the log shows the offending file and line.
+
+### Migrations on deploy
+
+Vercel's build runs `vercel-build` instead of plain `next build`. That script is `tsx scripts/migrate.ts && next build`: the programmatic Drizzle migrator applies any pending migrations, then Next builds. If migrate exits non-zero (DB unreachable, migration SQL bad), the `&&` short-circuits and the build fails — no half-applied schema in production.
+
+The same script powers `npm run db:migrate` locally, so local and Vercel run the exact same code path. To inspect the migration step on a deploy, open the Vercel build log and look for the `[migrate] starting…` and `[migrate] done in Xms` bracket lines.
+
+### Healthz
+
+`GET /healthz` pings the database with `select 1` and returns:
+- `200 { ok: true, db: "up", ts }` if the query succeeded;
+- `503 { ok: false, db: "down", error }` if it failed (error message is one line, no stack trace).
+
+The route opts out of all caching (`force-dynamic` + `cache-control: no-store`) so monitors get a live answer. It's public — no auth — because uptime monitoring shouldn't have to manage tokens, and the body reveals nothing exploitable.
+
+Production: `https://chrono-lexicanum.vercel.app/healthz`.
+
+### Preview URLs
+
+Vercel's GitHub integration comments the preview URL on every PR (one persistent comment per PR, updated as new commits land). Nothing for you to maintain. Note: previews are gated by Vercel's "Deployment Protection" by default, so curling `/healthz` on a preview URL needs auth — production is the right URL for monitors.
