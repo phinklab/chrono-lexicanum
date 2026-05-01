@@ -16,7 +16,6 @@ For the format, naming convention, status lifecycle, and full rules, see [`docs/
 
 Items decided / surfaced between sessions that the **next** architect brief MUST address. Append here when you spot something at the end of a session that doesn't deserve its own brief but must not be forgotten. Cowork prunes items here once they've been folded into a brief or otherwise resolved.
 
-- **`NEXT_PUBLIC_SITE_URL` on Vercel.** Was set to `http://localhost:3000` at first deploy; Philipp updates manually to `https://chrono-lexicanum.vercel.app` in the Vercel dashboard. Confirm-and-strike when verified — purely cosmetic for now (Open Graph metadata), important before Reddit launch.
 - **Hub novel-count freshness.** The Hub `<footer>` reads `select count(*) from books` server-side; Next 16 statically prerenders the route at build time, so the count is baked at deploy. Once Phase 4 ingestion lands real books, decide whether to add `export const revalidate = 60` for hourly refresh or accept "redeploy to update count." Implementer-flagged in 2026-04-29-007.
 
 ## Active threads
@@ -25,6 +24,7 @@ Open and recently-closed sessions, newest first. Cowork updates this list when i
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
+| [2026-05-01-014](2026-05-01-014-arch-build-hygiene.md) | architect | open | Phase 1.5 Build-Hygiene — CI, Drizzle migration on Vercel deploy, /healthz, preview-URL comments |
 | [2026-04-30-013](2026-04-30-013-impl-timeline-buzzy-hover-and-pin-scale.md) | implementer | complete | Timeline polish shipped — buzzy era-band glitch, themed focus brackets, per-era count badges replace ribbon pins |
 | [2026-04-30-012](2026-04-30-012-arch-timeline-buzzy-hover-and-pin-scale.md) | architect | implemented | Timeline polish — buzzy/glitchy hover, focus-ring fix, book pins that scale to hundreds |
 | [2026-04-29-011](2026-04-29-011-impl-timeline-overview-eraview.md) | implementer | complete | Phase 2a slim shipped — Overview ribbon + EraDetail at /timeline; ?era= contract migrated; 3-book fixture seeded |
