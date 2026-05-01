@@ -1,0 +1,20 @@
+[
+  { "id": "black_library", "name": "Black Library", "domain": "blacklibrary.com", "displayOrder": 10 },
+  { "id": "amazon", "name": "Amazon", "domain": "amazon.com", "displayOrder": 20 },
+  { "id": "audible", "name": "Audible", "domain": "audible.com", "affiliateSupported": true, "displayOrder": 30 },
+  { "id": "kindle", "name": "Kindle", "domain": "amazon.com", "displayOrder": 40 },
+  { "id": "apple_books", "name": "Apple Books", "domain": "books.apple.com", "displayOrder": 50 },
+  { "id": "spotify", "name": "Spotify", "domain": "spotify.com", "displayOrder": 60 },
+  { "id": "warhammer_plus", "name": "Warhammer+", "domain": "warhammer-plus.com", "displayOrder": 70 },
+  { "id": "amazon_video", "name": "Prime Video", "domain": "amazon.com", "displayOrder": 80 },
+  { "id": "youtube", "name": "YouTube", "domain": "youtube.com", "displayOrder": 90 },
+  { "id": "lexicanum", "name": "Lexicanum", "domain": "wh40k.lexicanum.com", "displayOrder": 100 },
+  { "id": "wikipedia", "name": "Wikipedia", "domain": "wikipedia.org", "displayOrder": 110 },
+  { "id": "wikidata", "name": "Wikidata", "domain": "wikidata.org", "displayOrder": 120 },
+  { "id": "isfdb", "name": "ISFDB", "domain": "isfdb.org", "displayOrder": 130 },
+  { "id": "open_library", "name": "Open Library", "domain": "openlibrary.org", "displayOrder": 140 },
+  { "id": "tmdb", "name": "TMDB", "domain": "themoviedb.org", "displayOrder": 150 },
+  { "id": "imdb", "name": "IMDb", "domain": "imdb.com", "displayOrder": 160 },
+  { "id": "goodreads", "name": "Goodreads", "domain": "goodreads.com", "displayOrder": 170 },
+  { "id": "letterboxd", "name": "Letterboxd", "domain": "letterboxd.com", "displayOrder": 180 }
+]

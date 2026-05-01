@@ -2,35 +2,95 @@
   {
     "id": "hh01",
     "title": "Horus Rising",
-    "author": "Dan Abnett",
     "pubYear": 2006,
     "startY": 30998,
     "endY": 30998,
-    "factions": ["sons_of_horus"],
     "synopsis": "The first volume of the Horus Heresy. The Warmaster Horus leads the Great Crusade's culminating campaigns even as the seeds of betrayal are sown.",
     "series": "horus_heresy_main",
-    "seriesIndex": 1
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "sons_of_horus", "role": "primary" }
+    ],
+    "persons": [
+      { "id": "dan_abnett", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["imperium"],
+      "scope": ["galactic"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["war_story"],
+      "tone": ["grimdark"],
+      "theme": ["betrayal"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Horus_Rising_(Novel)", "label": "Lexicanum" }
+    ]
   },
   {
     "id": "eis01",
     "title": "Eisenhorn: Xenos",
-    "author": "Dan Abnett",
     "pubYear": 2001,
     "startY": 41200,
     "endY": 41220,
-    "factions": ["inquisition"],
     "synopsis": "Inquisitor Gregor Eisenhorn pursues a heretic across the sub-sector and finds a conspiracy older than the Imperium itself.",
     "series": "eisenhorn",
-    "seriesIndex": 1
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "inquisition", "role": "primary" }
+    ],
+    "persons": [
+      { "id": "dan_abnett", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["inquisitor"],
+      "pov_side": ["imperium"],
+      "scope": ["sector"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["mystery"],
+      "tone": ["grimdark"],
+      "theme": ["faith"],
+      "content_warning": ["cw_violence"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Xenos_(Novel)", "label": "Lexicanum" }
+    ]
   },
   {
     "id": "di01",
     "title": "Dark Imperium",
-    "author": "Guy Haley",
     "pubYear": 2017,
     "startY": 42030,
     "endY": 42040,
-    "factions": ["ultramarines"],
-    "synopsis": "The reborn Roboute Guilliman returns to a galaxy he no longer recognises and leads the Indomitus Crusade against a chaos-claimed Ultramar."
+    "synopsis": "The reborn Roboute Guilliman returns to a galaxy he no longer recognises and leads the Indomitus Crusade against a chaos-claimed Ultramar.",
+    "factions": [
+      { "id": "ultramarines", "role": "primary" }
+    ],
+    "persons": [
+      { "id": "guy_haley", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["imperium"],
+      "scope": ["galactic"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["war_story"],
+      "tone": ["grimdark"],
+      "theme": ["war"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Dark_Imperium_(Novel)", "label": "Lexicanum" }
+    ]
   }
 ]

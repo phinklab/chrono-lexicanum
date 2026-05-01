@@ -1,0 +1,19 @@
+[
+  {
+    "id": "dan_abnett",
+    "name": "Dan Abnett",
+    "nameSort": "Abnett, Dan",
+    "bio": "British novelist and comics writer. Long-running Black Library author; Eisenhorn, Ravenor, Gaunt's Ghosts, and Horus Rising are among his Warhammer 40,000 anchors.",
+    "birthYear": 1965,
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Dan_Abnett",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Dan_Abnett"
+  },
+  {
+    "id": "guy_haley",
+    "name": "Guy Haley",
+    "nameSort": "Haley, Guy",
+    "bio": "British science-fiction and fantasy author. Black Library novelist; Dark Imperium, Belisarius Cawl: The Great Work, and several Horus Heresy / Siege of Terra entries.",
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Guy_Haley",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Guy_Haley"
+  }
+]
