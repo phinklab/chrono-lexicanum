@@ -19,6 +19,8 @@ Small infra changes that don't justify a session. Newest first.
 - **2026-05-01** — CI-Workflow Check-Naming stabilisiert (sessions 016/017). `.github/workflows/ci.yml` läuft nur noch auf `pull_request:` — der `(pull_request)`-Suffix, den GitHub bei Multi-Trigger-Workflows an den Check-Run-Namen hängt, ist damit weg. Required-Status-Check `ci / lint-and-typecheck` ist im Ruleset wieder ohne Suffix einhängbar (Anleitung im Report 017). Trade-off: kein automatischer CI-Lauf mehr auf `main` post-merge — Vercel deploy ist die zweite Sicherung.
 - **2026-05-01** — Repo transferred from `wptnoire/chrono-lexicanum` to `phinklab/chrono-lexicanum` (new GitHub Team org, needed because Rulesets don't enforce on private repos under the Free plan). New canonical URL: <https://github.com/phinklab/chrono-lexicanum>. GitHub redirects old URLs permanently; references to `wptnoire/...` in archived session logs are left as-is (historical record).
 
+> Cosmetic UI polish items live in [`docs/ui-backlog.md`](../docs/ui-backlog.md) and are cleared in batched cleanup sessions, not folded into the next brief.
+
 ## Carry-over for the next architect brief
 
 Items decided / surfaced between sessions that the **next** architect brief MUST address. Append here when you spot something at the end of a session that doesn't deserve its own brief but must not be forgotten. Cowork prunes items here once they've been folded into a brief or otherwise resolved.
