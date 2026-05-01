@@ -148,5 +148,29 @@
     "name": "Tyranids",
     "parent": null,
     "tone": "alien"
+  },
+  {
+    "id": "imperial_fists",
+    "name": "Imperial Fists",
+    "parent": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "black_templars",
+    "name": "Black Templars",
+    "parent": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "sisters_of_battle",
+    "name": "Adepta Sororitas",
+    "parent": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "orks",
+    "name": "Orks",
+    "parent": null,
+    "tone": "alien"
   }
 ]

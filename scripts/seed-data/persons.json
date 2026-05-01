@@ -12,8 +12,88 @@
     "id": "guy_haley",
     "name": "Guy Haley",
     "nameSort": "Haley, Guy",
-    "bio": "British science-fiction and fantasy author. Black Library novelist; Dark Imperium, Belisarius Cawl: The Great Work, and several Horus Heresy / Siege of Terra entries.",
+    "bio": "British science-fiction and fantasy author. Black Library novelist; Dark Imperium, Belisarius Cawl: The Great Work, Avenging Son, and several Horus Heresy / Siege of Terra entries.",
     "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Guy_Haley",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Guy_Haley"
+  },
+  {
+    "id": "aaron_dembski_bowden",
+    "name": "Aaron Dembski-Bowden",
+    "nameSort": "Dembski-Bowden, Aaron",
+    "bio": "British science-fiction author. Black Library mainstay; The First Heretic, Master of Mankind, Soul Hunter, Helsreach, The Talon of Horus, and the Black Legion duology are anchors of his bibliography.",
+    "birthYear": 1983,
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Aaron_Dembski-Bowden",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Aaron_Dembski-Bowden"
+  },
+  {
+    "id": "graham_mcneill",
+    "name": "Graham McNeill",
+    "nameSort": "McNeill, Graham",
+    "bio": "Scottish novelist. Black Library veteran; Storm of Iron, the Ultramarines novels, the Priests of Mars trilogy, and several Horus Heresy entries (Mechanicum, A Thousand Sons).",
+    "birthYear": 1971,
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Graham_McNeill",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Graham_McNeill"
+  },
+  {
+    "id": "sandy_mitchell",
+    "name": "Sandy Mitchell",
+    "nameSort": "Mitchell, Sandy",
+    "bio": "Pseudonym of British author Alex Stewart. Best known for the Ciaphas Cain series — first-person memoirs of an Imperial Commissar that play 40k for satire while keeping the lore.",
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Sandy_Mitchell",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sandy_Mitchell"
+  },
+  {
+    "id": "gav_thorpe",
+    "name": "Gav Thorpe",
+    "nameSort": "Thorpe, Gav",
+    "bio": "British author and game designer. Long-time Black Library writer; Path of the Eldar trilogy, Angels of Caliban, Deliverance Lost, and a steady stream of Aeldari and Dark Angels work.",
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Gav_Thorpe",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Gav_Thorpe"
+  },
+  {
+    "id": "chris_wraight",
+    "name": "Chris Wraight",
+    "nameSort": "Wraight, Chris",
+    "bio": "British science-fiction and fantasy author. Black Library novelist; Vaults of Terra trilogy, Watchers of the Throne, several Space Wolves and White Scars novels.",
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Chris_Wraight",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Chris_Wraight"
+  },
+  {
+    "id": "nate_crowley",
+    "name": "Nate Crowley",
+    "nameSort": "Crowley, Nate",
+    "bio": "British author and journalist. Black Library novelist with a comedic, character-forward voice; Ghazghkull Thraka: Prophet of the Waaagh!, Severed, and Twice-Dead King duology.",
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Nate_Crowley",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nate_Crowley"
+  },
+  {
+    "id": "robert_rath",
+    "name": "Robert Rath",
+    "nameSort": "Rath, Robert",
+    "bio": "American author and games journalist. Black Library novelist; The Infinite and the Divine (a Necron buddy-rivalry comedy spanning sixty millennia) and the Assassinorum: Kingmaker novel.",
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Robert_Rath"
+  },
+  {
+    "id": "phil_kelly",
+    "name": "Phil Kelly",
+    "nameSort": "Kelly, Phil",
+    "bio": "British game designer and author. Black Library novelist with deep T'au experience; Farsight: Crisis of Faith, Farsight: Empire of Lies, and several Codex / rulebook lore entries.",
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Phil_Kelly"
+  },
+  {
+    "id": "rachel_harrison",
+    "name": "Rachel Harrison",
+    "nameSort": "Harrison, Rachel",
+    "bio": "British author. Black Library novelist; Mark of Faith and the Severina Raine / Honourbound novels — Adepta Sororitas and Astra Militarum protagonists.",
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Rachel_Harrison"
+  },
+  {
+    "id": "ben_counter",
+    "name": "Ben Counter",
+    "nameSort": "Counter, Ben",
+    "bio": "British author. Black Library long-runner; Soul Drinkers series, Grey Knights trilogy, and several Horus Heresy entries (Battle for the Abyss, Galaxy in Flames).",
+    "birthYear": 1976,
+    "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Ben_Counter",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ben_Counter"
   }
 ]

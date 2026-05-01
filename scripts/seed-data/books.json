@@ -32,6 +32,342 @@
     ]
   },
   {
+    "id": "hh07",
+    "title": "Legion",
+    "pubYear": 2008,
+    "startY": 30985,
+    "endY": 30985,
+    "synopsis": "On the dust-choked world of Nurth, an Imperial Army officer is drawn into a conspiracy that reaches the most secretive of Astartes legions — and forces him to confront whether the Alpha Legion serves the Emperor or something else entirely.",
+    "series": "horus_heresy_main",
+    "seriesIndex": 7,
+    "factions": [
+      { "id": "alpha_legion", "role": "primary" },
+      { "id": "astra_militarum", "role": "supporting" }
+    ],
+    "persons": [
+      { "id": "dan_abnett", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine", "guardsman"],
+      "pov_side": ["dual"],
+      "scope": ["sector"],
+      "entry_point": "mid_series",
+      "length_tier": "standard",
+      "plot_type": ["mystery", "war_story"],
+      "tone": ["grimdark", "philosophical"],
+      "theme": ["loyalty", "doubt"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Legion_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "hh09",
+    "title": "Mechanicum",
+    "pubYear": 2008,
+    "startY": 30998,
+    "endY": 31000,
+    "synopsis": "While Horus's rebellion ignites across the galaxy, a parallel civil war engulfs the forge-world of Mars. Loyalist and traitor magos battle for the soul of the Adeptus Mechanicum, and the Dragon of Mars stirs beneath Olympus Mons.",
+    "series": "horus_heresy_main",
+    "seriesIndex": 9,
+    "factions": [
+      { "id": "mechanicus", "role": "primary" },
+      { "id": "imperium", "role": "supporting" },
+      { "id": "chaos", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "graham_mcneill", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["tech_priest"],
+      "pov_side": ["dual"],
+      "scope": ["planetary"],
+      "entry_point": "mid_series",
+      "length_tier": "standard",
+      "plot_type": ["war_story", "siege"],
+      "tone": ["grimdark", "somber"],
+      "theme": ["betrayal", "loyalty", "doubt"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Mechanicum_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "hh14",
+    "title": "The First Heretic",
+    "pubYear": 2010,
+    "startY": 30951,
+    "endY": 30998,
+    "synopsis": "The censure of Monarchia by the Emperor himself sets the Word Bearers on a forty-seven-year pilgrimage in search of meaning — and into the arms of the Ruinous Powers. The first heretics are born long before the Heresy, and their journey is the genesis of all that follows.",
+    "series": "horus_heresy_main",
+    "seriesIndex": 14,
+    "factions": [
+      { "id": "word_bearers", "role": "primary" },
+      { "id": "custodes", "role": "supporting" },
+      { "id": "chaos", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "aaron_dembski_bowden", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["imperium", "chaos"],
+      "scope": ["galactic"],
+      "entry_point": "mid_series",
+      "length_tier": "standard",
+      "plot_type": ["character_study", "war_story"],
+      "tone": ["grimdark", "philosophical", "somber"],
+      "theme": ["faith", "betrayal", "doubt"],
+      "content_warning": ["cw_violence", "cw_death", "cw_disturbing"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/The_First_Heretic_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "hh19",
+    "title": "Know No Fear",
+    "pubYear": 2012,
+    "startY": 30998,
+    "endY": 30998,
+    "synopsis": "The Word Bearers spring their long-laid trap on the Ultramarines fleet at Calth. In the space of a single day the orbital infrastructure of an entire system burns, and the war between the brotherhood of Astartes becomes total.",
+    "series": "horus_heresy_main",
+    "seriesIndex": 19,
+    "factions": [
+      { "id": "ultramarines", "role": "primary" },
+      { "id": "word_bearers", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "dan_abnett", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["dual"],
+      "scope": ["planetary"],
+      "entry_point": "mid_series",
+      "length_tier": "standard",
+      "plot_type": ["siege", "war_story"],
+      "tone": ["action_heavy", "grimdark"],
+      "theme": ["betrayal", "brotherhood"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Know_No_Fear_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "hh41",
+    "title": "Master of Mankind",
+    "pubYear": 2017,
+    "startY": 31010,
+    "endY": 31010,
+    "synopsis": "In the deepest sub-vaults of the Imperial Palace, the Emperor wages a hidden war beneath the Webway against the daemons of the Warp. The Custodian Guard, the Sisters of Silence, and the Mechanicum stand alongside Him in a battle no Astartes will ever know was fought.",
+    "series": "horus_heresy_main",
+    "seriesIndex": 41,
+    "factions": [
+      { "id": "custodes", "role": "primary" },
+      { "id": "mechanicus", "role": "supporting" },
+      { "id": "chaos", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "aaron_dembski_bowden", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["custodes"],
+      "pov_side": ["imperium"],
+      "scope": ["galactic"],
+      "entry_point": "requires_context",
+      "length_tier": "standard",
+      "plot_type": ["war_story", "last_stand"],
+      "tone": ["cosmic_horror", "philosophical", "grimdark"],
+      "theme": ["hubris", "sacrifice", "doubt"],
+      "content_warning": ["cw_violence", "cw_death", "cw_disturbing"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Master_of_Mankind_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "bl01",
+    "title": "The Talon of Horus",
+    "pubYear": 2014,
+    "startY": 31040,
+    "endY": 31040,
+    "synopsis": "In the Eye of Terror, the broken legions of the traitor primarchs tear at one another for scraps. From the wreckage of the Sons of Horus, a sorcerer named Iskandar Khayon and a renegade named Abaddon begin to forge a new brotherhood — and a new war.",
+    "series": "black_legion",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "chaos", "role": "primary" },
+      { "id": "sons_of_horus", "role": "supporting" },
+      { "id": "thousand_sons", "role": "supporting" }
+    ],
+    "persons": [
+      { "id": "aaron_dembski_bowden", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["chaos"],
+      "scope": ["sector"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["character_study", "journey"],
+      "tone": ["grimdark", "somber"],
+      "theme": ["redemption", "brotherhood", "hubris"],
+      "content_warning": ["cw_violence", "cw_death", "cw_disturbing"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/The_Talon_of_Horus_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "ba01",
+    "title": "I Am Slaughter",
+    "pubYear": 2015,
+    "startY": 32544,
+    "endY": 32544,
+    "synopsis": "Two thousand years after the Heresy, an Ork empire of unprecedented scale erupts from Ullanor. The Imperial Fists are sent to break the assault — and are themselves broken. The greatest Waaagh! the galaxy has ever seen has only just begun.",
+    "series": "beast_arises",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "imperial_fists", "role": "primary" },
+      { "id": "orks", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "dan_abnett", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["imperium"],
+      "scope": ["galactic"],
+      "entry_point": "series_start",
+      "length_tier": "short",
+      "plot_type": ["war_story", "last_stand"],
+      "tone": ["action_heavy", "grimdark", "somber"],
+      "theme": ["war", "sacrifice"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/I_Am_Slaughter_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "gg01",
+    "title": "Gaunt's Ghosts: First and Only",
+    "pubYear": 1999,
+    "startY": 41760,
+    "endY": 41760,
+    "synopsis": "Commissar-Colonel Ibram Gaunt and the Tanith First-and-Only are deployed to a hellish forge-world in the Sabbat Worlds Crusade — and discover that the deadliest threat is neither the enemy without nor the daemons of the Warp, but the political knives of fellow Imperial commanders.",
+    "series": "gaunts_ghosts",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "astra_militarum", "role": "primary" },
+      { "id": "commissariat", "role": "supporting" },
+      { "id": "chaos", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "dan_abnett", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["guardsman"],
+      "pov_side": ["imperium"],
+      "scope": ["regiment"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["war_story", "character_study"],
+      "tone": ["action_heavy", "grimdark"],
+      "theme": ["loyalty", "brotherhood"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/First_and_Only_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "cc01",
+    "title": "Ciaphas Cain: For the Emperor",
+    "pubYear": 2003,
+    "startY": 41928,
+    "endY": 41928,
+    "synopsis": "Commissar Ciaphas Cain — Hero of the Imperium, much-decorated, wholly self-serving — is posted to Gravalax, where T'au diplomats and Imperial governors balance on the edge of war. Cain wants only to keep his head down and his arse intact, but the universe rarely cooperates.",
+    "series": "ciaphas_cain",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "commissariat", "role": "primary" },
+      { "id": "astra_militarum", "role": "supporting" },
+      { "id": "tau", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "sandy_mitchell", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["guardsman"],
+      "pov_side": ["imperium"],
+      "scope": ["planetary"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["war_story", "political_thriller", "character_study"],
+      "tone": ["satirical", "action_heavy"],
+      "theme": ["doubt", "loyalty"],
+      "content_warning": ["cw_violence", "cw_language"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/For_the_Emperor_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "rv01",
+    "title": "Ravenor",
+    "pubYear": 2004,
+    "startY": 41341,
+    "endY": 41341,
+    "synopsis": "Inquisitor Gideon Ravenor — a paralysed psyker confined to a black throne-chair — pursues a forbidden flect drug across the Eustis Majoris sub-sector and uncovers a heretical conspiracy reaching to the highest tiers of the Imperial bureaucracy.",
+    "series": "ravenor",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "inquisition", "role": "primary" },
+      { "id": "chaos", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "dan_abnett", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["inquisitor"],
+      "pov_side": ["imperium"],
+      "scope": ["sector"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["mystery", "political_thriller"],
+      "tone": ["grimdark", "action_heavy"],
+      "theme": ["faith", "sacrifice"],
+      "content_warning": ["cw_violence", "cw_death", "cw_crime"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Ravenor_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
     "id": "eis01",
     "title": "Eisenhorn: Xenos",
     "pubYear": 2001,
@@ -64,12 +400,249 @@
     ]
   },
   {
+    "id": "nl01",
+    "title": "Soul Hunter",
+    "pubYear": 2010,
+    "startY": 41850,
+    "endY": 41850,
+    "synopsis": "First Claw of the Night Lords' 10th Company — exiles, predators, sons of Konrad Curze — stalk the void aboard the Covenant of Blood, hunting Imperial worlds for terror's sake. Talos, the Soul Hunter, sees visions that may belong to his dead father and may reshape his Legion's purpose.",
+    "series": "night_lords_trio",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "night_lords", "role": "primary" },
+      { "id": "blood_angels", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "aaron_dembski_bowden", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["chaos"],
+      "scope": ["company"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["character_study", "war_story"],
+      "tone": ["grimdark", "somber", "cosmic_horror"],
+      "theme": ["brotherhood", "doubt"],
+      "content_warning": ["cw_violence", "cw_death", "cw_disturbing"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Soul_Hunter_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "hr01",
+    "title": "Helsreach",
+    "pubYear": 2010,
+    "startY": 41998,
+    "endY": 41998,
+    "synopsis": "The Third War for Armageddon. Reclusiarch Merek Grimaldus and his Black Templars are tasked with the impossible: defend the hive city of Helsreach against the Beast of Armageddon's Ork tide. There will be no relief, no surrender, and no song sung that does not first end in fire.",
+    "series": null,
+    "seriesIndex": null,
+    "factions": [
+      { "id": "black_templars", "role": "primary" },
+      { "id": "astra_militarum", "role": "supporting" },
+      { "id": "orks", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "aaron_dembski_bowden", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["imperium"],
+      "scope": ["planetary"],
+      "entry_point": "standalone",
+      "length_tier": "standard",
+      "plot_type": ["siege", "last_stand", "war_story"],
+      "tone": ["action_heavy", "grimdark"],
+      "theme": ["faith", "sacrifice", "brotherhood"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Helsreach_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "si01",
+    "title": "Storm of Iron",
+    "pubYear": 2002,
+    "startY": 41600,
+    "endY": 41600,
+    "synopsis": "Warsmith Honsou and his Iron Warriors descend upon the citadel-world of Hydra Cordatus, where a single hidden vault holds a secret older than the Imperium. The Imperial Fists know what is buried there; the Iron Warriors will tear the planet open to reach it.",
+    "series": null,
+    "seriesIndex": null,
+    "factions": [
+      { "id": "iron_warriors", "role": "primary" },
+      { "id": "imperial_fists", "role": "antagonist" },
+      { "id": "astra_militarum", "role": "supporting" },
+      { "id": "mechanicus", "role": "supporting" }
+    ],
+    "persons": [
+      { "id": "graham_mcneill", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["dual"],
+      "scope": ["planetary"],
+      "entry_point": "standalone",
+      "length_tier": "standard",
+      "plot_type": ["siege", "war_story"],
+      "tone": ["grimdark", "action_heavy"],
+      "theme": ["hubris", "war"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Storm_of_Iron_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "pe01",
+    "title": "Path of the Warrior",
+    "pubYear": 2010,
+    "startY": 41850,
+    "endY": 41850,
+    "synopsis": "Korlandril of Alaitoc abandons the Path of the Artist for the Path of the Warrior — and discovers the seductive horror of the Striking Scorpions Aspect. Each Path he walks reshapes him; the question is whether any of them can lead him back.",
+    "series": "path_of_the_eldar",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "eldar", "role": "primary" }
+    ],
+    "persons": [
+      { "id": "gav_thorpe", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["pc_xenos"],
+      "pov_side": ["xenos"],
+      "scope": ["squad"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["character_study", "journey"],
+      "tone": ["somber", "philosophical"],
+      "theme": ["loyalty", "hubris", "brotherhood"],
+      "content_warning": ["cw_violence"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Path_of_the_Warrior_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "vt01",
+    "title": "Vaults of Terra: The Carrion Throne",
+    "pubYear": 2017,
+    "startY": 41997,
+    "endY": 41997,
+    "synopsis": "On Holy Terra, Inquisitor Erasmus Crowl follows a thread of heresy through the labyrinthine bureaucracy of the Imperial Palace. The signs gather: the Astronomican falters, the Adeptus Custodes stir, and something far beneath the throneworld is waking.",
+    "series": "vaults_of_terra",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "inquisition", "role": "primary" },
+      { "id": "custodes", "role": "supporting" },
+      { "id": "chaos", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "chris_wraight", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["inquisitor"],
+      "pov_side": ["imperium"],
+      "scope": ["planetary"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["mystery", "political_thriller", "court_intrigue"],
+      "tone": ["grimdark", "somber"],
+      "theme": ["faith", "doubt"],
+      "content_warning": ["cw_violence", "cw_death", "cw_disturbing"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/The_Carrion_Throne_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "gh01",
+    "title": "Ghazghkull Thraka: Prophet of the Waaagh!",
+    "pubYear": 2022,
+    "startY": 41600,
+    "endY": 41999,
+    "synopsis": "An Imperial historian — chained, broken, and furious — is forced to compose the official biography of Ghazghkull Mag Uruk Thraka, Warlord of Octarius and largest Ork in living memory. What he writes is part history, part heresy, and part entirely too much truth.",
+    "series": null,
+    "seriesIndex": null,
+    "factions": [
+      { "id": "orks", "role": "primary" },
+      { "id": "astra_militarum", "role": "supporting" },
+      { "id": "ultramarines", "role": "supporting" }
+    ],
+    "persons": [
+      { "id": "nate_crowley", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["pc_xenos"],
+      "pov_side": ["xenos"],
+      "scope": ["galactic"],
+      "entry_point": "standalone",
+      "length_tier": "standard",
+      "plot_type": ["character_study", "journey"],
+      "tone": ["satirical", "action_heavy", "grimdark"],
+      "theme": ["war", "hubris"],
+      "content_warning": ["cw_violence", "cw_death", "cw_language"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Ghazghkull_Thraka:_Prophet_of_the_Waaagh!_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "db01",
+    "title": "The Devastation of Baal",
+    "pubYear": 2017,
+    "startY": 41999,
+    "endY": 41999,
+    "synopsis": "Hive Fleet Leviathan descends on the homeworld of the Blood Angels. Lord Commander Dante calls every successor chapter of Sanguinius to muster — and on Baal Secundus and Baal itself the sons of the Angel face the largest tyranid swarm the Imperium has ever recorded.",
+    "series": null,
+    "seriesIndex": null,
+    "factions": [
+      { "id": "blood_angels", "role": "primary" },
+      { "id": "tyranids", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "guy_haley", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["imperium"],
+      "scope": ["sector"],
+      "entry_point": "requires_context",
+      "length_tier": "standard",
+      "plot_type": ["siege", "last_stand", "war_story"],
+      "tone": ["action_heavy", "grimdark", "somber"],
+      "theme": ["sacrifice", "brotherhood"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/The_Devastation_of_Baal_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
     "id": "di01",
     "title": "Dark Imperium",
     "pubYear": 2017,
     "startY": 42030,
     "endY": 42040,
     "synopsis": "The reborn Roboute Guilliman returns to a galaxy he no longer recognises and leads the Indomitus Crusade against a chaos-claimed Ultramar.",
+    "series": "dark_imperium",
+    "seriesIndex": 1,
     "factions": [
       { "id": "ultramarines", "role": "primary" }
     ],
@@ -91,6 +664,205 @@
     },
     "externalLinks": [
       { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Dark_Imperium_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "df01",
+    "title": "Avenging Son",
+    "pubYear": 2020,
+    "startY": 42010,
+    "endY": 42010,
+    "synopsis": "The Indomitus Crusade marches outward from Terra. Roboute Guilliman, his armies of new Primaris Astartes at his side, must reconquer a galaxy torn in two by the Cicatrix Maledictum — and learn what kind of Imperium he means to leave behind him.",
+    "series": "dawn_of_fire",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "ultramarines", "role": "primary" },
+      { "id": "imperium", "role": "supporting" },
+      { "id": "chaos", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "guy_haley", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["imperium"],
+      "scope": ["galactic"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["war_story", "journey"],
+      "tone": ["action_heavy", "grimdark"],
+      "theme": ["war", "redemption"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Avenging_Son_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "id01",
+    "title": "The Infinite and the Divine",
+    "pubYear": 2020,
+    "startY": 35000,
+    "endY": 41999,
+    "synopsis": "Across sixty thousand years of Necron tomb-sleep and awakening, two ancient lords — the cataloguer Trazyn the Infinite and the warrior-philosopher Orikan the Diviner — chase one another, sabotage one another, and quietly love one another, in pursuit of a relic that may unmake reality.",
+    "series": null,
+    "seriesIndex": null,
+    "factions": [
+      { "id": "necrons", "role": "primary" }
+    ],
+    "persons": [
+      { "id": "robert_rath", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["pc_xenos"],
+      "pov_side": ["xenos"],
+      "scope": ["galactic"],
+      "entry_point": "standalone",
+      "length_tier": "standard",
+      "plot_type": ["character_study", "journey"],
+      "tone": ["satirical", "philosophical", "cosmic_horror"],
+      "theme": ["hubris", "brotherhood", "doubt"],
+      "content_warning": ["cw_violence"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/The_Infinite_and_the_Divine_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "fs01",
+    "title": "Farsight: Crisis of Faith",
+    "pubYear": 2018,
+    "startY": 41801,
+    "endY": 41801,
+    "synopsis": "Commander Shas'O Vior'la Shovah Kais Mont'yr — Farsight — leads a T'au expedition into the Damocles Gulf and confronts a horror that the Greater Good has no language to describe. What he finds there will turn him from the Tau Empire's brightest weapon into its most dangerous heretic.",
+    "series": "farsight",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "tau", "role": "primary" },
+      { "id": "astra_militarum", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "phil_kelly", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["pc_xenos"],
+      "pov_side": ["xenos"],
+      "scope": ["sector"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["war_story", "character_study"],
+      "tone": ["action_heavy", "philosophical"],
+      "theme": ["faith", "doubt", "betrayal"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Crisis_of_Faith_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "mf01",
+    "title": "Mark of Faith",
+    "pubYear": 2019,
+    "startY": 42010,
+    "endY": 42010,
+    "synopsis": "In the wake of the Cicatrix Maledictum, Sister Evangeline of the Order of Our Martyred Lady leads a pilgrimage through Imperium Nihilus toward a shrine-world that may no longer exist. Faith is the only weapon that still functions when the Astronomican itself has gone dark.",
+    "series": null,
+    "seriesIndex": null,
+    "factions": [
+      { "id": "sisters_of_battle", "role": "primary" },
+      { "id": "chaos", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "rachel_harrison", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["sister"],
+      "pov_side": ["imperium"],
+      "scope": ["sector"],
+      "entry_point": "standalone",
+      "length_tier": "standard",
+      "plot_type": ["journey", "war_story", "character_study"],
+      "tone": ["somber", "grimdark", "hopepunk"],
+      "theme": ["faith", "doubt", "redemption"],
+      "content_warning": ["cw_violence", "cw_death"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Mark_of_Faith_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "gk01",
+    "title": "Grey Knights",
+    "pubYear": 2004,
+    "startY": 41850,
+    "endY": 41850,
+    "synopsis": "Justicar Alaric of the Grey Knights hunts the daemon-prince Ghargatuloth across a sector of haunted shrine-worlds. The Inquisition believes the prophecy is contained; the Grey Knights know it is only beginning.",
+    "series": "grey_knights_trilogy",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "grey_knights", "role": "primary" },
+      { "id": "chaos", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "ben_counter", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["space_marine"],
+      "pov_side": ["imperium"],
+      "scope": ["sector"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["war_story", "mystery"],
+      "tone": ["action_heavy", "grimdark"],
+      "theme": ["faith", "brotherhood"],
+      "content_warning": ["cw_violence", "cw_death", "cw_disturbing"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Grey_Knights_(Novel)", "label": "Lexicanum" }
+    ]
+  },
+  {
+    "id": "pm01",
+    "title": "Priests of Mars",
+    "pubYear": 2012,
+    "startY": 41880,
+    "endY": 41880,
+    "synopsis": "Archmagos Lexell Kotov leads the largest Mechanicus expedition in five centuries beyond the boundary of the known galaxy, in pursuit of a lost archmagos and his fabled discoveries. What waits for them in the halo stars cannot be measured by any instrument the Cult of Mars has ever forged.",
+    "series": "priests_of_mars",
+    "seriesIndex": 1,
+    "factions": [
+      { "id": "mechanicus", "role": "primary" },
+      { "id": "imperium", "role": "supporting" },
+      { "id": "eldar", "role": "antagonist" }
+    ],
+    "persons": [
+      { "id": "graham_mcneill", "role": "author" }
+    ],
+    "facets": {
+      "format": ["book"],
+      "protagonist_class": ["tech_priest"],
+      "pov_side": ["imperium"],
+      "scope": ["galactic"],
+      "entry_point": "series_start",
+      "length_tier": "standard",
+      "plot_type": ["journey", "mystery"],
+      "tone": ["somber", "philosophical", "cosmic_horror"],
+      "theme": ["faith", "hubris", "doubt"],
+      "content_warning": ["cw_violence", "cw_death", "cw_disturbing"],
+      "language": ["en"]
+    },
+    "externalLinks": [
+      { "kind": "reference", "service": "lexicanum", "url": "https://wh40k.lexicanum.com/wiki/Priests_of_Mars_(Novel)", "label": "Lexicanum" }
     ]
   }
 ]
