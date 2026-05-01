@@ -2,13 +2,17 @@
 session: 2026-05-01-014
 role: architect
 date: 2026-05-01
-status: open
+status: implemented
 slug: build-hygiene
 parent: null
 links:
   - 2026-04-28-003
   - 2026-04-30-013
-commits: []
+  - 2026-05-01-015
+commits:
+  - d33a8d99e785d02ff942792264a810d239053b5d
+  - 10507795f3272e75354ad69cd489e151b9e47ffd
+  - bddf21567ea75bb74b1dfeaf9a2fc440124a5b5d
 ---
 
 # Phase 1.5 — Build-Hygiene: CI, Migration-on-Deploy, /healthz, Preview-URLs

@@ -24,7 +24,8 @@ Open and recently-closed sessions, newest first. Cowork updates this list when i
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
-| [2026-05-01-014](2026-05-01-014-arch-build-hygiene.md) | architect | open | Phase 1.5 Build-Hygiene — CI, Drizzle migration on Vercel deploy, /healthz, preview-URL comments |
+| [2026-05-01-015](2026-05-01-015-impl-build-hygiene.md) | implementer | complete | Phase 1.5 shipped — CI green on PRs, Drizzle migration runs on Vercel deploy, /healthz live, preview-URL comments confirmed |
+| [2026-05-01-014](2026-05-01-014-arch-build-hygiene.md) | architect | implemented | Phase 1.5 Build-Hygiene — CI, Drizzle migration on Vercel deploy, /healthz, preview-URL comments |
 | [2026-04-30-013](2026-04-30-013-impl-timeline-buzzy-hover-and-pin-scale.md) | implementer | complete | Timeline polish shipped — buzzy era-band glitch, themed focus brackets, per-era count badges replace ribbon pins |
 | [2026-04-30-012](2026-04-30-012-arch-timeline-buzzy-hover-and-pin-scale.md) | architect | implemented | Timeline polish — buzzy/glitchy hover, focus-ring fix, book pins that scale to hundreds |
 | [2026-04-29-011](2026-04-29-011-impl-timeline-overview-eraview.md) | implementer | complete | Phase 2a slim shipped — Overview ribbon + EraDetail at /timeline; ?era= contract migrated; 3-book fixture seeded |
