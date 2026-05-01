@@ -82,5 +82,47 @@
     "name": "Horus Heresy: Primarchs",
     "total": 4,
     "note": "Key novellas."
+  },
+  {
+    "id": "beast_arises",
+    "name": "The Beast Arises",
+    "total": 12,
+    "note": "M32 Waaagh of the Beast, multi-author."
+  },
+  {
+    "id": "dawn_of_fire",
+    "name": "Dawn of Fire",
+    "total": 8,
+    "note": "M42 Indomitus crusade arc."
+  },
+  {
+    "id": "vaults_of_terra",
+    "name": "Vaults of Terra",
+    "total": 3,
+    "note": "Wraight's Custodes/Inquisition trilogy."
+  },
+  {
+    "id": "farsight",
+    "name": "Farsight",
+    "total": 3,
+    "note": "Tau Commander Farsight trilogy by Phil Kelly."
+  },
+  {
+    "id": "path_of_the_eldar",
+    "name": "Path of the Eldar",
+    "total": 3,
+    "note": "Gav Thorpe's Aeldari trilogy."
+  },
+  {
+    "id": "grey_knights_trilogy",
+    "name": "Grey Knights",
+    "total": 3,
+    "note": "Ben Counter's Grey Knights trilogy."
+  },
+  {
+    "id": "priests_of_mars",
+    "name": "Priests of Mars",
+    "total": 3,
+    "note": "McNeill's Mechanicus expedition trilogy."
   }
 ]

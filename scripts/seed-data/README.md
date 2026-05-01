@@ -2,22 +2,31 @@
 
 Canonical reference data used by `scripts/seed.ts` to initialize a fresh database.
 
-## What's in the catalog (post Stufe 2a — sessions/2026-05-01-019)
+## What's in the catalog (post Stufe 2b — sessions/2026-05-01-021)
 
 **Reference structure** (canon, hand-curated, source of truth for v1):
-25 factions, 7 eras, 5 sectors, 28 locations, 14 series, 18 services,
-12 facet categories with 85 facet values, plus the 5-question Ask-the-Archive
-questionnaire.
+29 factions, 7 eras, 5 sectors, 28 locations, 21 series, 18 services,
+12 persons, 12 facet categories with 85 facet values, plus the 5-question
+Ask-the-Archive questionnaire.
 
-**Books** (`books.json`): the **3-book Sanity-Fixture** — `hh01` Horus Rising
-(Dan Abnett, M31.998 / Horus Heresy), `eis01` Eisenhorn: Xenos (Dan Abnett,
-M41.200 / Time of Ending), `di01` Dark Imperium (Guy Haley, M42.030 / Indomitus).
-Each entry carries inline annotations: `factions[].id+role`, `persons[].id+role`,
-`facets` keyed by category id, and `externalLinks[]` pointing at services.
+**Books** (`books.json`): **26 hand-curated novels** spanning all seven eras
+of the in-universe timeline, biased toward newcomer-friendly entry points
+with deliberate Xenos / Niche-faction coverage (Necrons, T'au, Sisters of
+Battle, Grey Knights, Mechanicus solo, Orks). The 3-book Sanity-Fixture
+(Horus Rising, Eisenhorn: Xenos, Dark Imperium) is preserved verbatim;
+23 books were added by Cowork-research in stages 2b, hand-transferred from
+Lexicanum / Black Library / ISFDB / Wikipedia primary sources.
 
-The next data expansion is **Stufe 2b** — 20 hand-curated books with full
-annotations. Phase-4 ingestion (real crawler + provenance layer) is for the
-200+-scale that follows.
+Each book entry carries inline annotations: `factions[].id+role`,
+`persons[].id+role`, `facets` keyed by category id, and `externalLinks[]`
+pointing at services. Mandatory facets per book: `tone`, `pov_side`,
+`protagonist_class`, `entry_point`, `content_warning` (all 26 books fully
+populated). The other 7 categories (`scope`, `plot_type`, `theme`,
+`length_tier`, `format`, `language`, `protagonist_gender`) are best-effort.
+
+The companion document **`docs/data/2b-book-roster.md`** carries the source
+URLs, facet-call rationale, and confidence-map for the 26 books. Phase-4
+ingestion (real crawler + provenance layer) is for the 200+-scale that follows.
 
 The original prototype is intentionally **not** part of this repository — it
 lives in your local archive only.
@@ -34,7 +43,7 @@ lives in your local archive only.
 | `services.json` | 18 storefronts / catalogs / wikis (FK target for `external_links`) | `services` |
 | `persons.json` | Authors / translators / narrators / directors / cover artists | `persons` |
 | `facet-catalog.json` | 12 facet categories + ~85 facet values (NEON-14 trigger warnings + 11 editorial categories) | `facet_categories`, `facet_values` |
-| `books.json` | 3 books with inline annotations (factions, persons, facets, external_links) | `works` (kind=book), `book_details`, `work_factions`, `work_persons`, `work_facets`, `external_links` |
+| `books.json` | 26 books with inline annotations (factions, persons, facets, external_links) | `works` (kind=book), `book_details`, `work_factions`, `work_persons`, `work_facets`, `external_links` |
 | `ask-questions.json` | Recommendation questionnaire | consumed by `src/lib/recommend/` (future) |
 
 ## Notes on `books.json` shape
