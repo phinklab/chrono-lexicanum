@@ -59,7 +59,7 @@ Visual ground floor before the tool routes get touched. Token migration into `@t
 - [x] Port `EraView.jsx` → `src/components/timeline/EraDetail.tsx`
 - [x] Server-fetch books ordered by `startY` (no client-side `window.BOOKS` global)
 - [x] Schema migration: `books`-zentriert → `works`+CTI; facets / external_links / persons; CHECK-trigger discriminator; Hub-count + Timeline-RQB on `works WHERE kind='book'`. (Stufe 2a — session 019, 2026-05-01.)
-- [ ] **Stufe 2b** — 20 hand-curated books with full annotation (factions, persons, facets, external_links). Cowork compiles candidate set; Philipp curates JSON by hand. Phase-4 ingestion pipeline waits for the 200+-scale that follows.
+- [x] **Stufe 2b** — 26 hand-curated books with full annotation (factions, persons, facets, external_links). Cowork compiled candidate set; Philipp curated JSON by hand. Hub-Footer-Count auf ISR (revalidate 1h). Phase-4 ingestion pipeline waits for the 200+-scale that follows. (Stufe 2b — sessions 021/022, 2026-05-02.)
 - [ ] **Stufe 2c** — Reactivate session 018 (DetailPanel + deep-linking) against the new schema. Cartographer's book-pins also land in 2c.
 - [ ] EntryRail (2a.1) and FilterRail (2a.2) on top of the ribbon
 - [ ] Cluster-collapse for dense eras (driven by Phase 4 real-book ingestion)

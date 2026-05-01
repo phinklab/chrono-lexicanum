@@ -2,13 +2,17 @@
 session: 2026-05-01-021
 role: architect
 date: 2026-05-01
-status: open
+status: implemented
 slug: rich-seed-2b
 parent: null
 links:
   - 2026-05-01-019
   - 2026-05-01-020
-commits: []
+  - 2026-05-02-022
+commits:
+  - 2df6dd2
+  - 694340d
+  - d5afa16
 ---
 
 # Stufe 2b — Rich Seed (26 Bücher voll annotiert) + Hub-Count-Refresh
