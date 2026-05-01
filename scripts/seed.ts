@@ -3,30 +3,42 @@
  *
  * Run:  npm run db:seed
  *
- * Source data lives in scripts/seed-data/*.json and is the source of truth
- * for the v1 catalog. This script is idempotent: it truncates the relevant
- * tables and re-inserts. Safe for development; do NOT run against production
- * once the `submissions` table holds real community contributions.
+ * Source data lives in scripts/seed-data/*.json. Idempotent: TRUNCATE
+ * CASCADE the relevant tables and re-insert. Safe for development; do NOT
+ * run against production once the `submissions` table holds real community
+ * contributions.
+ *
+ * Stufe 2a (sessions/2026-05-01-019) rewired this around the works-centric
+ * schema:
+ *   • New reference inserts: services, facet_categories, facet_values, persons.
+ *   • Per-book block inserts a transaction-wrapped (`works` + `book_details`
+ *     + junctions + facets + external_links) bundle. The transaction is
+ *     belt-and-braces on top of the DB-level CHECK triggers — the helper
+ *     pairs `kind: 'book'` with `book_details` regardless of caller order.
+ *   • Old characters auto-derivation kept as-is, but our 3-book sanity
+ *     fixture has no `characters` arrays, so that branch no-ops.
  */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-// Env is loaded by `tsx --env-file=.env.local` (see package.json db:seed).
-// We don't import dotenv here because ESM hoists imports above any
-// `loadEnv()` call, so client.ts evaluates before .env.local is read.
-
 import { db } from "@/db/client";
 import {
-  books,
-  bookCharacters,
-  bookFactions,
-  bookLocations,
+  bookDetails,
   characters,
   eras,
+  externalLinks,
+  facetCategories,
+  facetValues,
   factions,
   locations,
+  persons,
   sectors,
   series,
+  services,
+  workFacets,
+  workFactions,
+  workPersons,
+  works,
 } from "@/db/schema";
 import { sql } from "drizzle-orm";
 
@@ -38,21 +50,6 @@ const readJson = <T>(file: string): T =>
 interface RawEra { id: string; name: string; start: number; end: number; tone?: string }
 interface RawFaction { id: string; name: string; parent?: string | null; tone?: string }
 interface RawSeries { id: string; name: string; total?: number; note?: string }
-interface RawBook {
-  id: string;
-  title: string;
-  author: string;
-  pubYear?: number;
-  startY: number;
-  endY: number;
-  factions?: string[];
-  characters?: string[];
-  synopsis?: string;
-  goodreads?: string;
-  series?: string;
-  seriesIndex?: number;
-  locationId?: string; // primary on-screen location
-}
 interface RawSector {
   id: string;
   name: string;
@@ -72,6 +69,92 @@ interface RawLocation {
   warp?: boolean;
 }
 
+interface RawService {
+  id: string;
+  name: string;
+  domain?: string;
+  affiliateSupported?: boolean;
+  displayOrder?: number;
+}
+
+interface RawPerson {
+  id: string;
+  name: string;
+  nameSort: string;
+  bio?: string;
+  birthYear?: number;
+  lexicanumUrl?: string;
+  wikipediaUrl?: string;
+  extras?: Record<string, unknown>;
+}
+
+type FacetValueId = string;
+interface RawFacetValue {
+  id: FacetValueId;
+  name: string;
+  description?: string;
+  displayOrder?: number;
+}
+interface RawFacetCategory {
+  id: string;
+  name: string;
+  description?: string;
+  displayOrder?: number;
+  multiValue?: boolean;
+  visibleToUsers?: boolean;
+  values: RawFacetValue[];
+}
+interface RawFacetCatalog { categories: RawFacetCategory[] }
+
+type LinkKind = "read" | "listen" | "watch" | "buy_print" | "reference" | "trailer" | "official_page";
+type PersonRoleValue =
+  | "author"
+  | "co_author"
+  | "translator"
+  | "editor"
+  | "narrator"
+  | "co_narrator"
+  | "full_cast"
+  | "director"
+  | "co_director"
+  | "cover_artist"
+  | "sound_designer";
+
+interface RawBookFaction { id: string; role?: "primary" | "supporting" | "antagonist" }
+interface RawBookPerson {
+  id: string;
+  role: PersonRoleValue;
+  displayOrder?: number;
+  note?: string;
+}
+type RawBookFacets = Record<string, string | string[]>;
+interface RawBookExternalLink {
+  kind: LinkKind;
+  service: string;
+  url: string;
+  label?: string;
+  region?: string;
+  affiliate?: boolean;
+  displayOrder?: number;
+}
+interface RawBook {
+  id: string;
+  title: string;
+  pubYear?: number;
+  startY: number;
+  endY: number;
+  synopsis?: string;
+  series?: string;
+  seriesIndex?: number;
+  isbn13?: string;
+  factions?: RawBookFaction[];
+  characters?: string[];
+  persons?: RawBookPerson[];
+  facets?: RawBookFacets;
+  externalLinks?: RawBookExternalLink[];
+  locationId?: string;
+}
+
 const RAW = {
   eras: readJson<RawEra[]>("eras.json"),
   factions: readJson<RawFaction[]>("factions.json"),
@@ -79,6 +162,9 @@ const RAW = {
   books: readJson<RawBook[]>("books.json"),
   sectors: readJson<RawSector[]>("sectors.json"),
   locations: readJson<RawLocation[]>("locations.json"),
+  services: readJson<RawService[]>("services.json"),
+  persons: readJson<RawPerson[]>("persons.json"),
+  facetCatalog: readJson<RawFacetCatalog>("facet-catalog.json"),
 };
 
 // ─── 2. Helpers ──────────────────────────────────────────────────────────────
@@ -99,16 +185,31 @@ function inferAlignment(f: RawFaction): "imperium" | "chaos" | "xenos" | "neutra
   return "neutral";
 }
 
+// Lookup: build a Set of valid facet_value ids so we can fail loudly when a
+// book.json typo references a non-existent facet value (instead of silently
+// dropping the row at FK time).
+function collectFacetValueIds(catalog: RawFacetCatalog): Set<FacetValueId> {
+  const set = new Set<FacetValueId>();
+  for (const cat of catalog.categories) for (const v of cat.values) set.add(v.id);
+  return set;
+}
+
 // ─── 3. Main ─────────────────────────────────────────────────────────────────
 async function main() {
   console.log(
-    `Loaded: ${RAW.eras.length} eras, ${RAW.factions.length} factions, ${RAW.series.length} series, ${RAW.books.length} books, ${RAW.sectors.length} sectors, ${RAW.locations.length} locations.`,
+    `Loaded: ${RAW.eras.length} eras, ${RAW.factions.length} factions, ${RAW.series.length} series, ${RAW.books.length} books, ${RAW.sectors.length} sectors, ${RAW.locations.length} locations, ${RAW.services.length} services, ${RAW.persons.length} persons, ${RAW.facetCatalog.categories.length} facet categories.`,
   );
 
   console.log("Wiping target tables (dev only)...");
+  // CASCADE handles all FKs; explicit table list documents what gets nuked.
   await db.execute(sql`TRUNCATE TABLE
-    book_characters, book_factions, book_locations,
-    books, characters, locations, sectors, factions, series, eras, submissions
+    external_links,
+    work_persons, work_facets, work_locations, work_characters, work_factions,
+    book_details, film_details, channel_details, video_details,
+    works,
+    services, persons,
+    facet_values, facet_categories,
+    characters, locations, sectors, factions, series, eras, submissions
     RESTART IDENTITY CASCADE`);
 
   // ── Eras
@@ -122,6 +223,7 @@ async function main() {
       sortOrder: i,
     })),
   );
+  console.log(`Inserted ${RAW.eras.length} eras.`);
 
   // ── Factions (two passes so parent FKs resolve)
   await db.insert(factions).values(
@@ -138,6 +240,7 @@ async function main() {
       await db.execute(sql`UPDATE factions SET parent_id = ${f.parent} WHERE id = ${f.id}`);
     }
   }
+  console.log(`Inserted ${RAW.factions.length} factions.`);
 
   // ── Series
   if (RAW.series.length > 0) {
@@ -150,6 +253,7 @@ async function main() {
       })),
     );
   }
+  console.log(`Inserted ${RAW.series.length} series.`);
 
   // ── Sectors
   await db.insert(sectors).values(
@@ -162,6 +266,7 @@ async function main() {
       labelY: s.labelY ?? null,
     })),
   );
+  console.log(`Inserted ${RAW.sectors.length} sectors.`);
 
   // ── Locations
   await db.insert(locations).values(
@@ -176,8 +281,10 @@ async function main() {
       tags: l.tags ?? [],
     })),
   );
+  console.log(`Inserted ${RAW.locations.length} locations.`);
 
-  // ── Characters: derived from the union of `characters` arrays on books
+  // ── Characters: derived from the union of `characters` arrays on books.
+  //    The 3-book Stufe-2a fixture has none, so this typically inserts 0 rows.
   const charIds = new Set<string>();
   for (const b of RAW.books) for (const c of b.characters ?? []) charIds.add(c);
   if (charIds.size > 0) {
@@ -188,50 +295,181 @@ async function main() {
       })),
     );
   }
+  console.log(`Inserted ${charIds.size} characters.`);
 
-  // ── Books + junctions
-  let inserted = 0;
+  // ── Services
+  await db.insert(services).values(
+    RAW.services.map((s) => ({
+      id: s.id,
+      name: s.name,
+      domain: s.domain ?? null,
+      affiliateSupported: s.affiliateSupported ?? false,
+      displayOrder: s.displayOrder ?? 0,
+    })),
+  );
+  console.log(`Inserted ${RAW.services.length} services.`);
+
+  // ── Facet categories + values
+  await db.insert(facetCategories).values(
+    RAW.facetCatalog.categories.map((c) => ({
+      id: c.id,
+      name: c.name,
+      description: c.description ?? null,
+      displayOrder: c.displayOrder ?? 0,
+      multiValue: c.multiValue ?? true,
+      visibleToUsers: c.visibleToUsers ?? true,
+    })),
+  );
+  console.log(`Inserted ${RAW.facetCatalog.categories.length} facet_categories.`);
+
+  let facetValueCount = 0;
+  for (const cat of RAW.facetCatalog.categories) {
+    if (cat.values.length === 0) continue;
+    await db.insert(facetValues).values(
+      cat.values.map((v) => ({
+        id: v.id,
+        categoryId: cat.id,
+        name: v.name,
+        description: v.description ?? null,
+        displayOrder: v.displayOrder ?? 0,
+      })),
+    );
+    facetValueCount += cat.values.length;
+  }
+  console.log(`Inserted ${facetValueCount} facet_values.`);
+
+  const knownFacetValues = collectFacetValueIds(RAW.facetCatalog);
+
+  // ── Persons
+  await db.insert(persons).values(
+    RAW.persons.map((p) => ({
+      id: p.id,
+      name: p.name,
+      nameSort: p.nameSort,
+      bio: p.bio ?? null,
+      birthYear: p.birthYear ?? null,
+      lexicanumUrl: p.lexicanumUrl ?? null,
+      wikipediaUrl: p.wikipediaUrl ?? null,
+      extras: p.extras ?? null,
+    })),
+  );
+  console.log(`Inserted ${RAW.persons.length} persons.`);
+
+  // ── Works + book_details + junctions, per-book transactional helper.
+  let workCount = 0;
+  let bookDetailsCount = 0;
+  let workFactionsCount = 0;
+  let workPersonsCount = 0;
+  let workFacetsCount = 0;
+  let externalLinksCount = 0;
+
   for (const b of RAW.books) {
     const slug = slugify(`${b.title}-${b.id}`);
-    const result = await db
-      .insert(books)
-      .values({
-        slug,
-        title: b.title,
-        author: b.author,
-        pubYear: b.pubYear ?? null,
-        startY: String(b.startY),
-        endY: String(b.endY),
-        synopsis: b.synopsis ?? null,
+
+    // Validate facet ids before opening a transaction so we surface bad
+    // book.json data with a clear error rather than a Postgres FK violation.
+    const facetIds: string[] = [];
+    if (b.facets) {
+      for (const [, raw] of Object.entries(b.facets)) {
+        const list = Array.isArray(raw) ? raw : [raw];
+        for (const id of list) {
+          if (!knownFacetValues.has(id)) {
+            throw new Error(`Book ${b.id}: unknown facet_value '${id}'. Check facet-catalog.json.`);
+          }
+          facetIds.push(id);
+        }
+      }
+    }
+
+    await db.transaction(async (tx) => {
+      // works (parent — kind='book' is hard-coded here; the helper IS the
+      // discriminator-integrity guarantee on the app side).
+      const [w] = await tx
+        .insert(works)
+        .values({
+          kind: "book",
+          slug,
+          title: b.title,
+          synopsis: b.synopsis ?? null,
+          startY: String(b.startY),
+          endY: String(b.endY),
+          releaseYear: b.pubYear ?? null,
+          sourceKind: "manual",
+        })
+        .returning({ id: works.id });
+      const workId = w.id;
+      workCount += 1;
+
+      // book_details
+      await tx.insert(bookDetails).values({
+        workId,
+        isbn13: b.isbn13 ?? null,
         seriesId: b.series ?? null,
         seriesIndex: b.seriesIndex ?? null,
-        goodreadsUrl: b.goodreads ?? null,
-        sourceKind: "manual",
-      })
-      .returning({ id: books.id });
-    const uuid = result[0].id;
-    inserted += 1;
-
-    if (b.factions?.length) {
-      await db.insert(bookFactions).values(
-        b.factions.map((fid) => ({ bookId: uuid, factionId: fid, role: "supporting" })),
-      );
-    }
-    if (b.characters?.length) {
-      await db.insert(bookCharacters).values(
-        b.characters.map((cid) => ({ bookId: uuid, characterId: cid, role: "appears" })),
-      );
-    }
-    if (b.locationId) {
-      await db.insert(bookLocations).values({
-        bookId: uuid,
-        locationId: b.locationId,
-        atY: String(b.startY),
       });
-    }
+      bookDetailsCount += 1;
+
+      // work_factions
+      if (b.factions?.length) {
+        await tx.insert(workFactions).values(
+          b.factions.map((f) => ({
+            workId,
+            factionId: f.id,
+            role: f.role ?? "supporting",
+          })),
+        );
+        workFactionsCount += b.factions.length;
+      }
+
+      // work_persons
+      if (b.persons?.length) {
+        await tx.insert(workPersons).values(
+          b.persons.map((p) => ({
+            workId,
+            personId: p.id,
+            role: p.role,
+            displayOrder: p.displayOrder ?? 0,
+            note: p.note ?? null,
+          })),
+        );
+        workPersonsCount += b.persons.length;
+      }
+
+      // work_facets
+      if (facetIds.length > 0) {
+        await tx.insert(workFacets).values(
+          facetIds.map((facetValueId) => ({ workId, facetValueId })),
+        );
+        workFacetsCount += facetIds.length;
+      }
+
+      // external_links
+      if (b.externalLinks?.length) {
+        await tx.insert(externalLinks).values(
+          b.externalLinks.map((l, i) => ({
+            workId,
+            kind: l.kind,
+            serviceId: l.service,
+            url: l.url,
+            label: l.label ?? null,
+            region: l.region ?? null,
+            affiliate: l.affiliate ?? false,
+            displayOrder: l.displayOrder ?? i,
+          })),
+        );
+        externalLinksCount += b.externalLinks.length;
+      }
+    });
   }
 
-  console.log(`Done. Inserted ${inserted} books.`);
+  console.log(`Inserted ${workCount} works (kind=book).`);
+  console.log(`Inserted ${bookDetailsCount} book_details.`);
+  console.log(`Inserted ${workFactionsCount} work_factions.`);
+  console.log(`Inserted ${workPersonsCount} work_persons.`);
+  console.log(`Inserted ${workFacetsCount} work_facets.`);
+  console.log(`Inserted ${externalLinksCount} external_links.`);
+
+  console.log("Done.");
   process.exit(0);
 }
 

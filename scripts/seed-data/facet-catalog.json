@@ -1,0 +1,210 @@
+{
+  "_comment": "12 facet categories per brief 019 § Notes A. NEON-14 trigger warnings under content_warning per Bridgland et al. 2022 (PMC9067675). One ID disambiguation: protagonist_class.xenos → pc_xenos to keep facet_values.id single-column-PK while pov_side.xenos stays bare.",
+  "categories": [
+    {
+      "id": "format",
+      "name": "Format",
+      "description": "Medium of the work.",
+      "displayOrder": 10,
+      "multiValue": true,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "book", "name": "Book", "displayOrder": 10 },
+        { "id": "audiobook", "name": "Audiobook", "displayOrder": 20 },
+        { "id": "animation", "name": "Animation", "displayOrder": 30 },
+        { "id": "live_action", "name": "Live Action", "displayOrder": 40 },
+        { "id": "audio_drama", "name": "Audio Drama", "displayOrder": 50 },
+        { "id": "podcast", "name": "Podcast", "displayOrder": 60 }
+      ]
+    },
+    {
+      "id": "protagonist_gender",
+      "name": "Protagonist Gender",
+      "description": "Gender of the principal viewpoint character(s).",
+      "displayOrder": 20,
+      "multiValue": true,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "male", "name": "Male", "displayOrder": 10 },
+        { "id": "female", "name": "Female", "displayOrder": 20 },
+        { "id": "non_binary", "name": "Non-binary", "displayOrder": 30 },
+        { "id": "mixed", "name": "Mixed", "displayOrder": 40 },
+        { "id": "ensemble", "name": "Ensemble", "displayOrder": 50 }
+      ]
+    },
+    {
+      "id": "protagonist_class",
+      "name": "Protagonist Class",
+      "description": "Faction/role archetype of the main protagonist(s).",
+      "displayOrder": 30,
+      "multiValue": true,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "space_marine", "name": "Space Marine", "displayOrder": 10 },
+        { "id": "guardsman", "name": "Guardsman", "displayOrder": 20 },
+        { "id": "inquisitor", "name": "Inquisitor", "displayOrder": 30 },
+        { "id": "tech_priest", "name": "Tech-Priest", "displayOrder": 40 },
+        { "id": "sister", "name": "Sister of Battle", "displayOrder": 50 },
+        { "id": "custodes", "name": "Custodes", "displayOrder": 60 },
+        { "id": "civilian", "name": "Civilian", "displayOrder": 70 },
+        { "id": "pc_xenos", "name": "Xenos", "description": "Non-human protagonist (Eldar, Tyranid, Ork, etc.). ID prefixed `pc_` to disambiguate from pov_side.xenos.", "displayOrder": 80 },
+        { "id": "daemon", "name": "Daemon", "displayOrder": 90 },
+        { "id": "multi", "name": "Multi-class", "displayOrder": 100 }
+      ]
+    },
+    {
+      "id": "pov_side",
+      "name": "POV Side",
+      "description": "Whose viewpoint the reader follows.",
+      "displayOrder": 40,
+      "multiValue": true,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "imperium", "name": "Imperium", "displayOrder": 10 },
+        { "id": "chaos", "name": "Chaos", "displayOrder": 20 },
+        { "id": "xenos", "name": "Xenos", "displayOrder": 30 },
+        { "id": "dual", "name": "Dual", "description": "Sustained POV across two opposing sides.", "displayOrder": 40 },
+        { "id": "neutral", "name": "Neutral", "displayOrder": 50 }
+      ]
+    },
+    {
+      "id": "scope",
+      "name": "Scope",
+      "description": "Scale of the conflict the story covers.",
+      "displayOrder": 50,
+      "multiValue": true,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "squad", "name": "Squad", "displayOrder": 10 },
+        { "id": "company", "name": "Company", "displayOrder": 20 },
+        { "id": "regiment", "name": "Regiment", "displayOrder": 30 },
+        { "id": "planetary", "name": "Planetary", "displayOrder": 40 },
+        { "id": "sector", "name": "Sector", "displayOrder": 50 },
+        { "id": "galactic", "name": "Galactic", "displayOrder": 60 }
+      ]
+    },
+    {
+      "id": "entry_point",
+      "name": "Entry Point",
+      "description": "Reader-onboarding role within the broader catalog.",
+      "displayOrder": 60,
+      "multiValue": false,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "standalone", "name": "Standalone", "displayOrder": 10 },
+        { "id": "series_start", "name": "Series Start", "displayOrder": 20 },
+        { "id": "mid_series", "name": "Mid Series", "displayOrder": 30 },
+        { "id": "series_finale", "name": "Series Finale", "displayOrder": 40 },
+        { "id": "requires_context", "name": "Requires Context", "description": "Best read after specific prerequisites.", "displayOrder": 50 }
+      ]
+    },
+    {
+      "id": "length_tier",
+      "name": "Length",
+      "description": "Approximate length bucket.",
+      "displayOrder": 70,
+      "multiValue": false,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "novella", "name": "Novella", "displayOrder": 10 },
+        { "id": "short", "name": "Short Novel", "displayOrder": 20 },
+        { "id": "standard", "name": "Standard", "displayOrder": 30 },
+        { "id": "doorstopper", "name": "Doorstopper", "displayOrder": 40 }
+      ]
+    },
+    {
+      "id": "plot_type",
+      "name": "Plot Type",
+      "description": "Dominant narrative structure.",
+      "displayOrder": 80,
+      "multiValue": true,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "war_story", "name": "War Story", "displayOrder": 10 },
+        { "id": "heist", "name": "Heist", "displayOrder": 20 },
+        { "id": "mystery", "name": "Mystery", "displayOrder": 30 },
+        { "id": "siege", "name": "Siege", "displayOrder": 40 },
+        { "id": "court_intrigue", "name": "Court Intrigue", "displayOrder": 50 },
+        { "id": "journey", "name": "Journey", "displayOrder": 60 },
+        { "id": "last_stand", "name": "Last Stand", "displayOrder": 70 },
+        { "id": "political_thriller", "name": "Political Thriller", "displayOrder": 80 },
+        { "id": "character_study", "name": "Character Study", "displayOrder": 90 }
+      ]
+    },
+    {
+      "id": "tone",
+      "name": "Tone",
+      "description": "Emotional register of the prose.",
+      "displayOrder": 90,
+      "multiValue": true,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "grimdark", "name": "Grimdark", "displayOrder": 10 },
+        { "id": "hopepunk", "name": "Hopepunk", "displayOrder": 20 },
+        { "id": "somber", "name": "Somber", "displayOrder": 30 },
+        { "id": "action_heavy", "name": "Action-heavy", "displayOrder": 40 },
+        { "id": "philosophical", "name": "Philosophical", "displayOrder": 50 },
+        { "id": "cosmic_horror", "name": "Cosmic Horror", "displayOrder": 60 },
+        { "id": "satirical", "name": "Satirical", "displayOrder": 70 }
+      ]
+    },
+    {
+      "id": "theme",
+      "name": "Theme",
+      "description": "Recurring thematic concern.",
+      "displayOrder": 100,
+      "multiValue": true,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "betrayal", "name": "Betrayal", "displayOrder": 10 },
+        { "id": "redemption", "name": "Redemption", "displayOrder": 20 },
+        { "id": "war", "name": "War", "displayOrder": 30 },
+        { "id": "faith", "name": "Faith", "displayOrder": 40 },
+        { "id": "loyalty", "name": "Loyalty", "displayOrder": 50 },
+        { "id": "hubris", "name": "Hubris", "displayOrder": 60 },
+        { "id": "brotherhood", "name": "Brotherhood", "displayOrder": 70 },
+        { "id": "sacrifice", "name": "Sacrifice", "displayOrder": 80 },
+        { "id": "doubt", "name": "Doubt", "displayOrder": 90 }
+      ]
+    },
+    {
+      "id": "content_warning",
+      "name": "Content Warning",
+      "description": "NEON-14 trigger-warning set per Bridgland et al. 2022 (PMC9067675).",
+      "displayOrder": 110,
+      "multiValue": true,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "cw_violence", "name": "Violence", "description": "Physical violence, combat, gore.", "displayOrder": 10 },
+        { "id": "cw_sex", "name": "Sexual Content", "displayOrder": 20 },
+        { "id": "cw_stigma", "name": "Stigma & Prejudice", "displayOrder": 30 },
+        { "id": "cw_disturbing", "name": "Disturbing Content", "displayOrder": 40 },
+        { "id": "cw_language", "name": "Strong Language", "displayOrder": 50 },
+        { "id": "cw_risky_behaviour", "name": "Risky Behaviour", "displayOrder": 60 },
+        { "id": "cw_mental_health", "name": "Mental Health", "displayOrder": 70 },
+        { "id": "cw_death", "name": "Death", "displayOrder": 80 },
+        { "id": "cw_parental_guidance", "name": "Parental Guidance", "displayOrder": 90 },
+        { "id": "cw_crime", "name": "Crime", "displayOrder": 100 },
+        { "id": "cw_abuse", "name": "Abuse", "displayOrder": 110 },
+        { "id": "cw_socio_political", "name": "Socio-political Content", "displayOrder": 120 },
+        { "id": "cw_flashing_lights", "name": "Flashing Lights", "displayOrder": 130 },
+        { "id": "cw_objects", "name": "Specific Objects", "description": "Spiders, needles, or other commonly-feared objects.", "displayOrder": 140 }
+      ]
+    },
+    {
+      "id": "language",
+      "name": "Language",
+      "description": "Original publication language of the work (not the site's UI language).",
+      "displayOrder": 120,
+      "multiValue": true,
+      "visibleToUsers": true,
+      "values": [
+        { "id": "en", "name": "English", "displayOrder": 10 },
+        { "id": "de", "name": "German", "displayOrder": 20 },
+        { "id": "fr", "name": "French", "displayOrder": 30 },
+        { "id": "it", "name": "Italian", "displayOrder": 40 },
+        { "id": "es", "name": "Spanish", "displayOrder": 50 }
+      ]
+    }
+  ]
+}
