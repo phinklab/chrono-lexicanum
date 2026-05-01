@@ -415,7 +415,8 @@ function BookDot({ book, style }: BookDotProps) {
       <div className="bm-tooltip">
         <div className="tt-title">{book.title}</div>
         <div className="tt-meta">
-          {book.author} · {formatM((book.startY + book.endY) / 2)}
+          {book.authors.length > 0 ? `${book.authors.join(", ")} · ` : ""}
+          {formatM((book.startY + book.endY) / 2)}
         </div>
       </div>
     </div>
