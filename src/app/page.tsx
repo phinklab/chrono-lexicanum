@@ -4,6 +4,9 @@ import { Aquila } from "@/components/Aquila";
 import { db } from "@/db/client";
 import { works } from "@/db/schema";
 
+// ISR: re-render at most hourly so the novel-count footer stays fresh without redeploy.
+export const revalidate = 3600;
+
 /**
  * Hub — the entry route.
  *
