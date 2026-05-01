@@ -11,7 +11,8 @@ links:
   - 2026-04-29-011
   - 2026-05-01-018
   - 2026-05-01-020
-commits: []
+commits:
+  - e205160337393d43fa82059c1b2f746a48554c7f
 ---
 
 # Stufe 2a — Schema-Foundation (works + Detail-Tabellen + Junctions + Facets + External Links + Persons), Routen umgestellt, Build grün
