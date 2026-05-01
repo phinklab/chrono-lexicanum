@@ -1189,7 +1189,13 @@ main {
   background: var(--bg-1);
   border: 1px solid var(--line-1);
   border-bottom: 1px solid var(--hl);
-  white-space: nowrap;
+  /* Wrap long titles (e.g. "Ghazghkull Thraka: Prophet of the Waaagh!", 41 chars)
+     onto two lines so the tooltip never overflows the era surface. Short titles
+     still shrink-to-content on a single line. */
+  max-width: 260px;
+  white-space: normal;
+  line-height: 1.3;
+  text-align: center;
   pointer-events: none;
   opacity: 0;
   transition: opacity .2s;
