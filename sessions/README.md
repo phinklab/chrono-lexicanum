@@ -12,6 +12,12 @@ For the format, naming convention, status lifecycle, and full rules, see [`docs/
 - **Drafts** go in `_drafts/` (gitignored)
 - **Archive:** when a phase wraps, move completed sessions to `archive/YYYY-MM/`
 
+## Infrastructure log
+
+Small infra changes that don't justify a session. Newest first.
+
+- **2026-05-01** — Repo transferred from `wptnoire/chrono-lexicanum` to `phinklab/chrono-lexicanum` (new GitHub Team org, needed because Rulesets don't enforce on private repos under the Free plan). New canonical URL: <https://github.com/phinklab/chrono-lexicanum>. GitHub redirects old URLs permanently; references to `wptnoire/...` in archived session logs are left as-is (historical record).
+
 ## Carry-over for the next architect brief
 
 Items decided / surfaced between sessions that the **next** architect brief MUST address. Append here when you spot something at the end of a session that doesn't deserve its own brief but must not be forgotten. Cowork prunes items here once they've been folded into a brief or otherwise resolved.
