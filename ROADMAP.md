@@ -53,13 +53,14 @@ Visual ground floor before the tool routes get touched. Token migration into `@t
 
 ### 2a. Chronicle (Timeline) — in flight
 
-**Slim port** ✅ (shipped 2026-04-29, sessions 008 + 011) and **polish pass** ✅ (shipped 2026-04-30, sessions 012 + 013): Overview ribbon + EraDetail at `/timeline`, `?era=…` URL contract migrated to prototype era ids (legacy redirects in place), buzzy hover on era bands, themed focus brackets, per-era `[NNN VOLUMES]` count badges that scale to a real catalogue.
+**Slim port** ✅ (shipped 2026-04-29, sessions 008 + 011), **polish pass** ✅ (shipped 2026-04-30, sessions 012 + 013), **Schema-Foundation** ✅ (shipped 2026-05-01, session 019): Overview ribbon + EraDetail at `/timeline`, `?era=…` URL contract migrated to prototype era ids (legacy redirects in place), buzzy hover on era bands, themed focus brackets, per-era `[NNN VOLUMES]` count badges, and the works-centric DB foundation (Class-Table-Inheritance, facets, external_links, persons).
 
 - [x] Port `OverviewTimeline.jsx` → `src/components/timeline/Overview.tsx`
 - [x] Port `EraView.jsx` → `src/components/timeline/EraDetail.tsx`
 - [x] Server-fetch books ordered by `startY` (no client-side `window.BOOKS` global)
-- [ ] Port `DetailPanel.jsx` for the book pop-out (2a.3)
-- [ ] URL state: `?era=horus_heresy&book=eisenhorn-xenos` deep-linkable (2a.3)
+- [x] Schema migration: `books`-zentriert → `works`+CTI; facets / external_links / persons; CHECK-trigger discriminator; Hub-count + Timeline-RQB on `works WHERE kind='book'`. (Stufe 2a — session 019, 2026-05-01.)
+- [ ] **Stufe 2b** — 20 hand-curated books with full annotation (factions, persons, facets, external_links). Cowork compiles candidate set; Philipp curates JSON by hand. Phase-4 ingestion pipeline waits for the 200+-scale that follows.
+- [ ] **Stufe 2c** — Reactivate session 018 (DetailPanel + deep-linking) against the new schema. Cartographer's book-pins also land in 2c.
 - [ ] EntryRail (2a.1) and FilterRail (2a.2) on top of the ribbon
 - [ ] Cluster-collapse for dense eras (driven by Phase 4 real-book ingestion)
 - [ ] Pan-scrubber click-to-jump, mobile-touch test, M39–M41 encoding gap
