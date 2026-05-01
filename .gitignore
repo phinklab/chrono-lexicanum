@@ -62,6 +62,7 @@ yarn-error.log*
 *.scratch.*
 /screenshots-local/
 /sessions/_drafts/
+/reviews/
 
 # --- ingestion pipeline cache (regenerable, can be huge) -------------------
 /scripts/.cache/
