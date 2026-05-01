@@ -15,6 +15,20 @@
       "when": 1777632236785,
       "tag": "0001_smoke-test-deploy",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1777667472341,
+      "tag": "0002_drop_book_tables",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1777667483398,
+      "tag": "0003_create_works_foundation",
+      "breakpoints": true
     }
   ]
 }
