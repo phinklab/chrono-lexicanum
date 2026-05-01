@@ -10,9 +10,9 @@ links:
   - 2026-04-30-013
   - 2026-05-01-015
 commits:
-  - d33a8d99e785d02ff942792264a810d239053b5d
-  - 10507795f3272e75354ad69cd489e151b9e47ffd
-  - bddf21567ea75bb74b1dfeaf9a2fc440124a5b5d
+  - 840de2591fa1aba2d262937c1767cc50bc48a2c6
+  - 6aee23b95e4730280170af331dc3f1df1a39b060
+  - 1011d14dcc39fa9f1e56f66a53cfd65b0a3a5876
 ---
 
 # Phase 1.5 — Build-Hygiene: CI, Migration-on-Deploy, /healthz, Preview-URLs

@@ -8,9 +8,9 @@ parent: 2026-05-01-014
 links:
   - 2026-05-01-014
 commits:
-  - d33a8d99e785d02ff942792264a810d239053b5d
-  - 10507795f3272e75354ad69cd489e151b9e47ffd
-  - bddf21567ea75bb74b1dfeaf9a2fc440124a5b5d
+  - 840de2591fa1aba2d262937c1767cc50bc48a2c6
+  - 6aee23b95e4730280170af331dc3f1df1a39b060
+  - 1011d14dcc39fa9f1e56f66a53cfd65b0a3a5876
 ---
 
 # Phase 1.5 — Build-Hygiene shipped
@@ -86,7 +86,7 @@ CI red-path smoke (PR #2, closed unmerged, branch deleted):
 - CI run 25211893660 → `lint-and-typecheck` FAILURE, log shows `src/_ci-smoke-fail.ts(5,7): error TS2322: Type 'string' is not assignable to type 'number'` and `Process completed with exit code 2`.
 - PR closed, branch deleted on GitHub and locally, remote-tracking ref pruned.
 
-Production verification deferred to post-merge: `curl https://chrono-lexicanum.vercel.app/healthz`.
+Production after merge: `curl https://chrono-lexicanum.vercel.app/healthz` → `200`, body `{"ok":true,"db":"up","ts":"2026-05-01T11:05:38.220Z"}`, `Cache-Control: no-store`, `X-Vercel-Cache: MISS`. First poll after the merge succeeded with no warm-up needed.
 
 ## Open issues / blockers
 
