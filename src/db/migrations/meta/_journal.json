@@ -8,6 +8,13 @@
       "when": 1777414768752,
       "tag": "0000_jazzy_kree",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1777632236785,
+      "tag": "0001_smoke-test-deploy",
+      "breakpoints": true
     }
   ]
 }
