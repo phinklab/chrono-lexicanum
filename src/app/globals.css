@@ -978,6 +978,187 @@ main {
 .era-empty::before { top: 0; }
 .era-empty::after  { bottom: 0; }
 
+/* Filter-empty state — adds a reset link below the constrained-state copy.
+   Wraps `.era-empty` in a column so the link sits centred under the brackets. */
+.era-empty-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.era-empty-block .era-empty {
+  margin-top: 64px;
+}
+.era-empty-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--line-1);
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 200ms, border-color 200ms, background 200ms;
+}
+.era-empty-reset:hover {
+  color: var(--hl);
+  border-color: var(--hl);
+  background: color-mix(in oklch, var(--hl) 8%, transparent);
+}
+.era-empty-reset:focus-visible {
+  outline: 1px solid var(--hl);
+  outline-offset: 2px;
+}
+
+/* =============================================================================
+ * FilterRail — two-axis filter strip for EraDetail (Stufe 2a.2 / brief 029).
+ * Faction + Length only; multi-select within axis, AND between axes; URL-driven.
+ *
+ * Vocabulary: monospace eyebrow ("// FILTER"), faint hairline borders, active
+ * pill = full --hl background fill (matches EraToggle.active). Reset link uses
+ * the same shape as the empty-state reset above for consistency.
+ * ============================================================================= */
+.filter-rail {
+  margin: 18px 0 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--line-1);
+  background: color-mix(in oklch, var(--bg-1) 70%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fr-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.fr-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.fr-count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+}
+.fr-count-num {
+  font-size: 14px;
+  color: var(--hl);
+  text-shadow: 0 0 10px color-mix(in oklch, var(--hl) 32%, transparent);
+}
+.fr-count-sep,
+.fr-count-total {
+  color: var(--ink-3);
+}
+.fr-count-label {
+  margin-left: 4px;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.fr-reset {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border: 1px solid var(--line-1);
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 200ms, border-color 200ms, background 200ms;
+}
+.fr-reset:hover {
+  color: var(--hl);
+  border-color: var(--hl);
+  background: color-mix(in oklch, var(--hl) 8%, transparent);
+}
+.fr-reset:focus-visible {
+  outline: 1px solid var(--hl);
+  outline-offset: 2px;
+}
+.fr-axis {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: start;
+  gap: 12px;
+}
+.fr-axis-label {
+  padding-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.fr-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.fr-pill {
+  appearance: none;
+  border: 1px solid var(--line-1);
+  background: color-mix(in oklch, var(--bg-2) 40%, transparent);
+  color: var(--ink-1);
+  padding: 5px 11px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  cursor: pointer;
+  transition: color 200ms, border-color 200ms, background 200ms, box-shadow 200ms;
+}
+.fr-pill:hover {
+  color: var(--ink-0);
+  border-color: color-mix(in oklch, var(--hl) 40%, var(--line-1));
+  background: color-mix(in oklch, var(--bg-2) 70%, transparent);
+}
+.fr-pill:focus-visible {
+  outline: 1px solid var(--hl);
+  outline-offset: 2px;
+}
+.fr-pill.active {
+  color: var(--bg-0);
+  background: var(--hl);
+  border-color: var(--hl);
+  box-shadow: 0 0 14px color-mix(in oklch, var(--hl) 35%, transparent);
+}
+.fr-pill.active:hover {
+  color: var(--bg-0);
+  background: var(--hl);
+}
+
+@media (max-width: 720px) {
+  .fr-axis {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .fr-axis-label {
+    padding-top: 0;
+  }
+  .fr-reset {
+    margin-left: 0;
+  }
+}
+
 /* Pan scrubber for wide eras */
 .pan-scrubber {
   position: absolute;

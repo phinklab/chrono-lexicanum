@@ -233,28 +233,29 @@ export function formatRange(a: number, b: number): string {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Filter matching — kept in shape for the upcoming 2a.2 FilterRail brief.
-// Returns null when no filter is active, true on match, false on miss.
+// FilterRail (Stufe 2a.2 / brief 029) — server-side filter shape. The actual
+// filter SQL lives in `loadEraBooks` (src/app/timeline/page.tsx); these types
+// describe the loader's return value and the FilterRail's prop interface.
+// Client-side per-book matching helpers from the pre-2a.2 scaffolding are
+// gone — brief constraint 8 forbids client-side filter over pre-loaded books.
 // ─────────────────────────────────────────────────────────────────────────────
 
-export interface BookFilters {
-  factions: ReadonlySet<string>;
-  series: ReadonlySet<string>;
-  authors: ReadonlySet<string>;
-  characters: ReadonlySet<string>;
+/** A single selectable option in the FilterRail (faction or length-tier). */
+export interface FilterOption {
+  id: string;
+  name: string;
 }
 
-export function emptyFilters(): BookFilters {
-  return { factions: new Set(), series: new Set(), authors: new Set(), characters: new Set() };
-}
-
-export function bookMatchesFilters(book: TimelineBook, f: BookFilters): boolean | null {
-  const hasAny = f.factions.size + f.series.size + f.authors.size + f.characters.size > 0;
-  if (!hasAny) return null;
-  if (f.factions.size && !book.factions.some((id) => f.factions.has(id))) return false;
-  if (f.series.size && (!book.series || !f.series.has(book.series.id))) return false;
-  if (f.authors.size && !book.authors.some((a) => f.authors.has(a))) return false;
-  return true;
+/** Era-scoped loader payload. `availableFactions`/`availableLengthTiers` are
+ *  computed unconditional on current selection so the option list stays stable
+ *  as the user toggles pills. `totalInEra` is the unfiltered count for the
+ *  "X of Y" headline; `matchedCount === books.length`. */
+export interface EraBooksData {
+  books: TimelineBook[];
+  availableFactions: FilterOption[];
+  availableLengthTiers: FilterOption[];
+  totalInEra: number;
+  matchedCount: number;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

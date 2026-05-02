@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { asc } from "drizzle-orm";
+import { and, asc, count, eq, exists, inArray, sql } from "drizzle-orm";
 import { db } from "@/db/client";
-import { eras as erasTable, series as seriesTable } from "@/db/schema";
+import {
+  bookDetails as bookDetailsTable,
+  eras as erasTable,
+  facetValues as facetValuesTable,
+  factions as factionsTable,
+  series as seriesTable,
+  workFacets as workFacetsTable,
+  workFactions as workFactionsTable,
+  works as worksTable,
+} from "@/db/schema";
 import {
   type BookDetail,
   type Era,
+  type EraBooksData,
   type ExternalLinkKind,
   type FactionAlignment,
+  type FilterOption,
   type SeriesRef,
   type TimelineBook,
 } from "@/lib/timeline";
+import { parseFilterParams } from "@/lib/timelineUrl";
 import Overview from "@/components/timeline/Overview";
 import EraDetail from "@/components/timeline/EraDetail";
 import { DetailPanel } from "@/components/timeline/DetailPanel";
@@ -41,13 +53,28 @@ const LEGACY_TO_ERA = {
 } as const;
 
 interface TimelinePageProps {
-  searchParams: Promise<{ era?: string; book?: string }>;
+  searchParams: Promise<{
+    era?: string;
+    book?: string;
+    faction?: string;
+    length?: string;
+  }>;
 }
 
 export default async function TimelinePage({ searchParams }: TimelinePageProps) {
   const sp = await searchParams;
   const eraRaw = sp.era;
   const bookRaw = sp.book;
+  // Filter axes (Stufe 2a.2 / brief 029): comma-separated faction ids and
+  // length-tier facet value ids. Parsed via the URL helper that powers
+  // FilterRail too — single source of truth for the URL contract.
+  const filterParams = parseFilterParams(
+    new URLSearchParams(
+      Object.entries({ faction: sp.faction, length: sp.length }).flatMap(
+        ([k, v]) => (v ? [[k, v] as [string, string]] : []),
+      ),
+    ),
+  );
 
   // 1. Legacy redirect: pre-008 toggle wrote ?era=M30|M31|M42. Propagate ?book=
   //    through unchanged — slug validation happens on the next render.
@@ -77,16 +104,18 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
     redirect("/timeline");
   }
 
-  // 4. ?era=<valid>&book=<valid?> — load detail; if unknown slug, drop ?book=.
-  //    Era-mismatch (book.primaryEraId !== era.id) is intentionally NOT
-  //    auto-corrected — brief constraint 11 forbids EraDetail remount mid-flow,
-  //    and stale shared links should still render the panel above the user's
-  //    chosen era.
-  let selectedBook: BookDetail | null = null;
-  if (bookRaw && era) {
-    selectedBook = await loadBookDetail(bookRaw);
-    if (!selectedBook) redirect(`/timeline?era=${era.id}`);
-  }
+  // 4. Era-scoped fan-out: server-filtered books for EraDetail (Stufe 2a.2)
+  //    + heavy detail load for the modal, both in parallel. Era-mismatch on
+  //    ?book= is intentionally NOT auto-corrected — brief 025 constraint 11
+  //    forbids EraDetail remount mid-flow, and stale shared links should still
+  //    render the panel above the user's chosen era.
+  const [eraBooksData, selectedBook] = await Promise.all([
+    era
+      ? loadEraBooks(era.id, filterParams)
+      : Promise.resolve(null),
+    bookRaw && era ? loadBookDetail(bookRaw) : Promise.resolve(null),
+  ]);
+  if (bookRaw && era && !selectedBook) redirect(`/timeline?era=${era.id}`);
 
   return (
     <main className="timeline-shell">
@@ -96,15 +125,19 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
         <span aria-hidden>{era ? era.name : "Survey-mode"}</span>
       </p>
 
-      {era ? (
+      {era && eraBooksData ? (
         <EraDetail
           // Remount on era change so EraDetail's pan/drag state resets
           // naturally — cheaper than a setState-in-effect inside the child.
           key={era.id}
           era={era}
           eras={data.eras}
-          books={data.books}
+          books={eraBooksData.books}
           seriesById={data.seriesById}
+          availableFactions={eraBooksData.availableFactions}
+          availableLengthTiers={eraBooksData.availableLengthTiers}
+          totalInEra={eraBooksData.totalInEra}
+          matchedCount={eraBooksData.matchedCount}
         />
       ) : (
         <Overview eras={data.eras} books={data.books} />
@@ -186,6 +219,211 @@ async function loadTimeline(): Promise<{
     const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
     console.error(`[/timeline] DB fetch failed (${msg}); rendering empty timeline.`);
     return { eras: [], books: [], seriesById: {} };
+  }
+}
+
+/**
+ * Era-scoped book loader for the FilterRail-driven EraDetail (Stufe 2a.2 /
+ * brief 029). Returns the books to render in this era under the active
+ * filter, plus the available filter options for the era (computed unconditional
+ * on current selection so the option list stays stable as the user filters).
+ *
+ * Query plan — server-side SQL filtering throughout (constraint 8):
+ *
+ *   1. matched-IDs query — narrows to (era ∧ optional faction-EXISTS ∧
+ *      optional length-EXISTS). Returns `{ id }[]`. No relations loaded.
+ *   2. availableFactions  — selectDistinct over factions ↔ work_factions
+ *      scoped to this era's books. Order by faction name.
+ *   3. availableLengthTiers — selectDistinct over facet_values ↔ work_facets
+ *      scoped to this era's books AND `category_id = 'length_tier'`.
+ *      Order by displayOrder so 'Novella → Short → Standard → Doorstopper'.
+ *   4. (only when filters active) era-count query for `totalInEra` — when no
+ *      filters active, totalInEra === matchedIds.length, query skipped.
+ *   5. hydrate via existing relational pattern (`db.query.works.findMany`)
+ *      using `inArray(works.id, matchedIds)`. Skipped on empty matchedIds —
+ *      Drizzle's `inArray([])` historically generated `IN ()` syntax error.
+ *
+ * EXISTS subqueries (steps 1's faction/length predicates) avoid the fan-out
+ * + GROUP BY HAVING dance you'd need with INNER JOINs against the multi-value
+ * junctions. They short-circuit on first match per work.
+ *
+ * No new index this brief — flagged in the report for Phase-3 ingestion when
+ * the catalog inflates past the threshold where `book_details.primary_era_id`
+ * benefits from indexing.
+ */
+async function loadEraBooks(
+  eraId: string,
+  filters: { factionIds: string[]; lengthIds: string[] },
+): Promise<EraBooksData> {
+  const empty: EraBooksData = {
+    books: [],
+    availableFactions: [],
+    availableLengthTiers: [],
+    totalInEra: 0,
+    matchedCount: 0,
+  };
+  try {
+    const factionsActive = filters.factionIds.length > 0;
+    const lengthActive = filters.lengthIds.length > 0;
+    const filtersActive = factionsActive || lengthActive;
+
+    const [matchedRows, availableFactions, availableLengthTiers] = await Promise.all([
+      db
+        .select({ id: worksTable.id })
+        .from(worksTable)
+        .innerJoin(bookDetailsTable, eq(bookDetailsTable.workId, worksTable.id))
+        .where(
+          and(
+            eq(worksTable.kind, "book"),
+            eq(bookDetailsTable.primaryEraId, eraId),
+            factionsActive
+              ? exists(
+                  db
+                    .select({ x: sql`1` })
+                    .from(workFactionsTable)
+                    .where(
+                      and(
+                        eq(workFactionsTable.workId, worksTable.id),
+                        inArray(workFactionsTable.factionId, filters.factionIds),
+                      ),
+                    ),
+                )
+              : undefined,
+            lengthActive
+              ? exists(
+                  db
+                    .select({ x: sql`1` })
+                    .from(workFacetsTable)
+                    .innerJoin(
+                      facetValuesTable,
+                      eq(workFacetsTable.facetValueId, facetValuesTable.id),
+                    )
+                    .where(
+                      and(
+                        eq(workFacetsTable.workId, worksTable.id),
+                        eq(facetValuesTable.categoryId, "length_tier"),
+                        inArray(facetValuesTable.id, filters.lengthIds),
+                      ),
+                    ),
+                )
+              : undefined,
+          ),
+        ),
+      db
+        .selectDistinct({ id: factionsTable.id, name: factionsTable.name })
+        .from(factionsTable)
+        .innerJoin(workFactionsTable, eq(workFactionsTable.factionId, factionsTable.id))
+        .innerJoin(worksTable, eq(worksTable.id, workFactionsTable.workId))
+        .innerJoin(bookDetailsTable, eq(bookDetailsTable.workId, worksTable.id))
+        .where(
+          and(eq(worksTable.kind, "book"), eq(bookDetailsTable.primaryEraId, eraId)),
+        )
+        .orderBy(asc(factionsTable.name)),
+      db
+        .selectDistinct({
+          id: facetValuesTable.id,
+          name: facetValuesTable.name,
+          displayOrder: facetValuesTable.displayOrder,
+        })
+        .from(facetValuesTable)
+        .innerJoin(workFacetsTable, eq(workFacetsTable.facetValueId, facetValuesTable.id))
+        .innerJoin(worksTable, eq(worksTable.id, workFacetsTable.workId))
+        .innerJoin(bookDetailsTable, eq(bookDetailsTable.workId, worksTable.id))
+        .where(
+          and(
+            eq(facetValuesTable.categoryId, "length_tier"),
+            eq(worksTable.kind, "book"),
+            eq(bookDetailsTable.primaryEraId, eraId),
+          ),
+        )
+        .orderBy(asc(facetValuesTable.displayOrder)),
+    ]);
+
+    const matchedIds = matchedRows.map((r) => r.id);
+    const matchedCount = matchedIds.length;
+
+    let totalInEra = matchedCount;
+    if (filtersActive) {
+      const [eraCountRow] = await db
+        .select({ value: count() })
+        .from(worksTable)
+        .innerJoin(bookDetailsTable, eq(bookDetailsTable.workId, worksTable.id))
+        .where(
+          and(eq(worksTable.kind, "book"), eq(bookDetailsTable.primaryEraId, eraId)),
+        );
+      totalInEra = Number(eraCountRow?.value ?? 0);
+    }
+
+    const optionFactions: FilterOption[] = availableFactions.map((f) => ({
+      id: f.id,
+      name: f.name,
+    }));
+    const optionLengthTiers: FilterOption[] = availableLengthTiers.map((v) => ({
+      id: v.id,
+      name: v.name,
+    }));
+
+    if (matchedCount === 0) {
+      console.log(
+        `[/timeline] loadEraBooks(${eraId}, faction=[${filters.factionIds.join(",")}], length=[${filters.lengthIds.join(",")}]) → 0 / ${totalInEra} books.`,
+      );
+      return {
+        books: [],
+        availableFactions: optionFactions,
+        availableLengthTiers: optionLengthTiers,
+        totalInEra,
+        matchedCount: 0,
+      };
+    }
+
+    const workRows = await db.query.works.findMany({
+      where: (w, { inArray: ia }) => ia(w.id, matchedIds),
+      orderBy: (w, { asc: a }) => [a(w.startY)],
+      with: {
+        bookDetails: {
+          with: { series: { columns: { id: true, name: true } } },
+        },
+        factions: { columns: { factionId: true } },
+        persons: {
+          where: (wp, { eq: e }) => e(wp.role, "author"),
+          with: { person: { columns: { name: true } } },
+        },
+      },
+    });
+
+    const books: TimelineBook[] = workRows.map((w) => {
+      const seriesId = w.bookDetails?.seriesId ?? null;
+      return {
+        id: w.id,
+        slug: w.slug,
+        title: w.title,
+        authors: w.persons.map((wp) => wp.person.name),
+        startY: Number(w.startY ?? 0),
+        endY: Number(w.endY ?? 0),
+        primaryEraId: w.bookDetails?.primaryEraId ?? "",
+        factions: w.factions.map((f) => f.factionId),
+        series: seriesId
+          ? { id: seriesId, order: w.bookDetails?.seriesIndex ?? null }
+          : null,
+      };
+    });
+
+    console.log(
+      `[/timeline] loadEraBooks(${eraId}, faction=[${filters.factionIds.join(",")}], length=[${filters.lengthIds.join(",")}]) → ${matchedCount} / ${totalInEra} books.`,
+    );
+    return {
+      books,
+      availableFactions: optionFactions,
+      availableLengthTiers: optionLengthTiers,
+      totalInEra,
+      matchedCount,
+    };
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(
+      `[/timeline] loadEraBooks(${eraId}) failed (${msg}); rendering empty era.`,
+    );
+    return empty;
   }
 }
 

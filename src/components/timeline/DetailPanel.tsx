@@ -32,8 +32,9 @@
  */
 
 import { useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { formatRange, type BookDetail, type ExternalLinkKind } from "@/lib/timeline";
+import { buildBookUrl, buildCloseUrl } from "@/lib/timelineUrl";
 
 interface Props {
   selectedBook: BookDetail | null;
@@ -75,6 +76,7 @@ const FACTION_ROLE_ORDER: Record<string, number> = {
 
 export function DetailPanel({ selectedBook, eraId }: Props) {
   const router = useRouter();
+  const sp = useSearchParams();
   const panelRef = useRef<HTMLDivElement>(null);
   /** Tracks the slug of the currently-open book so the unmount cleanup can
    *  focus the originating BookDot even after `selectedBook` is already null
@@ -141,8 +143,10 @@ export function DetailPanel({ selectedBook, eraId }: Props) {
   }, []);
 
   function handleClose() {
-    if (eraId) router.push(`/timeline?era=${eraId}`);
-    else router.push("/timeline");
+    // Preserve FilterRail state on close (brief 029 constraint 10 — modal
+    // and filter URL state are orthogonal; closing must not strip filters
+    // and re-render the unfiltered track behind the user's back).
+    router.push(buildCloseUrl(eraId, new URLSearchParams(sp.toString())));
   }
 
   if (!selectedBook) return null;
@@ -218,7 +222,11 @@ export function DetailPanel({ selectedBook, eraId }: Props) {
                   onClick={() => {
                     if (!series.prev) return;
                     router.push(
-                      `/timeline?era=${series.prev.primaryEraId}&book=${encodeURIComponent(series.prev.slug)}`,
+                      buildBookUrl(
+                        series.prev.primaryEraId,
+                        series.prev.slug,
+                        new URLSearchParams(sp.toString()),
+                      ),
                     );
                   }}
                 >
@@ -236,7 +244,11 @@ export function DetailPanel({ selectedBook, eraId }: Props) {
                   onClick={() => {
                     if (!series.next) return;
                     router.push(
-                      `/timeline?era=${series.next.primaryEraId}&book=${encodeURIComponent(series.next.slug)}`,
+                      buildBookUrl(
+                        series.next.primaryEraId,
+                        series.next.slug,
+                        new URLSearchParams(sp.toString()),
+                      ),
                     );
                   }}
                 >
