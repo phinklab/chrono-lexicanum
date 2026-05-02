@@ -63,6 +63,76 @@ export interface TimelineBook {
   series: { id: string; order: number | null } | null;
 }
 
+/**
+ * Heavy book shape consumed by `<DetailPanel>` (Stufe 2c.1). Loaded only when
+ * `?book=<slug>` is present on `/timeline`. Lives next to `TimelineBook` so the
+ * client component can `import type { BookDetail }`; the actual loader is
+ * server-only and lives in `src/app/timeline/page.tsx`.
+ */
+export type ExternalLinkKind =
+  | "reference"
+  | "read"
+  | "listen"
+  | "watch"
+  | "buy_print"
+  | "trailer"
+  | "official_page";
+
+export type FactionAlignment = "imperium" | "chaos" | "xenos" | "neutral";
+
+export interface BookDetail {
+  id: string;
+  slug: string;
+  title: string;
+  authors: string[];
+  releaseYear: number | null;
+  startY: number;
+  endY: number;
+  primaryEraId: string;
+  synopsis: string | null;
+  /** Universal `works.coverUrl` — null today; placeholder card renders instead. */
+  coverUrl: string | null;
+  factions: Array<{
+    id: string;
+    name: string;
+    alignment: FactionAlignment;
+    tone: string | null;
+    /** `factions.glyph` text (single character or symbol). Used inline until
+     *  the FactionGlyph SVG component lands in 2a.2. */
+    glyph: string | null;
+    /** `work_factions.role`: 'primary' | 'supporting' | 'antagonist'. */
+    role: string;
+  }>;
+  /** Keyed by `facet_categories.id`. Loader returns ALL 12 categories the work
+   *  has values for; the panel curates 5 (entry_point, length_tier, tone, theme,
+   *  content_warning). FilterRail (2a.2) will read the rest. */
+  facets: Record<string, {
+    categoryId: string;
+    categoryName: string;
+    values: Array<{ id: string; name: string }>;
+  }>;
+  series: {
+    id: string;
+    name: string;
+    totalPlanned: number | null;
+    /** `bookDetails.seriesIndex`, 1-based. */
+    order: number | null;
+    /** Sibling siblings filter `primaryEraId IS NOT NULL` so the URL push
+     *  always has both params. Cross-era nav is the norm, not the exception. */
+    prev: { slug: string; title: string; order: number | null; primaryEraId: string } | null;
+    next: { slug: string; title: string; order: number | null; primaryEraId: string } | null;
+  } | null;
+  externalLinks: Array<{
+    kind: ExternalLinkKind;
+    serviceId: string;
+    serviceName: string;
+    url: string;
+    label: string | null;
+  }>;
+  /** Forward-compat: `characters` table is 0 rows today; render only when non-empty. */
+  characters: Array<{ id: string; name: string; role: string }>;
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Constants — full timeline span (a touch before/after the canonical eras)
 // ─────────────────────────────────────────────────────────────────────────────
