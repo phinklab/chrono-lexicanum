@@ -2,7 +2,7 @@
 session: 2026-05-02-025
 role: architect
 date: 2026-05-02
-status: open
+status: implemented
 slug: detail-panel-deeplink
 parent: 2026-05-02-024
 links:
@@ -13,7 +13,12 @@ links:
   - 2026-05-02-022
   - 2026-05-02-023
   - 2026-05-02-024
-commits: []
+  - 2026-05-02-026
+commits:
+  - 0e0eaa59f1d2ab9877b44e86716b8c64b373189d
+  - 876277511099309dad1c14f574be9f1391b5e8ad
+  - 6639eb0e1960885e1283c2df637e8991fa2187b9
+  - 648dae577e567ebb788a982f3f3f1bdc50efe592
 ---
 
 # Stufe 2c.1 — DetailPanel + Deep-Linking (Rewrite of 018, against post-2c.0 schema)
