@@ -128,6 +128,7 @@ async function loadTimeline(): Promise<{
         authors: w.persons.map((wp) => wp.person.name),
         startY: Number(w.startY ?? 0),
         endY: Number(w.endY ?? 0),
+        primaryEraId: w.bookDetails?.primaryEraId ?? "",
         factions: w.factions.map((f) => f.factionId),
         series: seriesId
           ? { id: seriesId, order: w.bookDetails?.seriesIndex ?? null }

@@ -64,15 +64,18 @@ export default function Overview({ eras, books }: OverviewProps) {
 
   const xOf = (y: number) => AX_L + projectY(y) * AX_W;
 
-  // Per-era book counts via midpoint-in-era match. Mirrors the prototype's
-  // `counts` useMemo. Eras with zero books simply skip rendering a badge.
+  // Per-era book counts via the editorial `primaryEraId` anchor (Stufe 2c.0).
+  // No midpoint, no era-range lookup — every book lives in exactly one era,
+  // chosen by Cowork or seeded by the Phase-4 ingestion pipeline. Books with
+  // an empty/unknown primaryEraId are silently skipped (would only happen on
+  // a seed/data mismatch — surfaces as a missing badge, not as a miscount).
   const eraCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const era of eras) counts[era.id] = 0;
     for (const b of books) {
-      const mid = (b.startY + b.endY) / 2;
-      const era = eras.find((e) => mid >= e.start && mid <= e.end);
-      if (era) counts[era.id] = (counts[era.id] || 0) + 1;
+      if (counts[b.primaryEraId] !== undefined) {
+        counts[b.primaryEraId] += 1;
+      }
     }
     return counts;
   }, [eras, books]);

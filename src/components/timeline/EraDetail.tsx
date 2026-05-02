@@ -69,18 +69,14 @@ export default function EraDetail({ era, eras, books, seriesById }: EraDetailPro
   const prevEra = eraIdx > 0 ? eras[eraIdx - 1] : null;
   const nextEra = eraIdx >= 0 && eraIdx < eras.length - 1 ? eras[eraIdx + 1] : null;
 
-  // Books that fall within this era (by midpoint, with a small ±5-year leak
-  // to absorb dating discrepancies right at the boundary). The prototype used
-  // ±50; that's too forgiving with the current narrow fixture, where it pulls
-  // Dark Imperium (42030, 31 years into Indomitus) back into Time of Ending.
-  // Phase 4 ingestion can revisit if real Lexicanum dates need more slack.
+  // Books in this era — strict editorial match on `primaryEraId` (Stufe 2c.0).
+  // The previous midpoint ±5 leak is gone: every book belongs to exactly one
+  // era, picked by Cowork or by the Phase-4 ingestion pipeline. startY/endY
+  // remain the source of axis placement and the kicker range string, but
+  // never feed bucketing again.
   const eraBooks = useMemo(
-    () =>
-      books.filter((b) => {
-        const mid = (b.startY + b.endY) / 2;
-        return mid >= era.start - 5 && mid <= era.end + 5;
-      }),
-    [books, era.start, era.end],
+    () => books.filter((b) => b.primaryEraId === era.id),
+    [books, era.id],
   );
 
   // Full view span: era + 4% pad on each side so books at era boundaries don't
