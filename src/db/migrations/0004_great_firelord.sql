@@ -1,0 +1,2 @@
+ALTER TABLE "book_details" ADD COLUMN "primary_era_id" varchar(64);--> statement-breakpoint
+ALTER TABLE "book_details" ADD CONSTRAINT "book_details_primary_era_id_eras_id_fk" FOREIGN KEY ("primary_era_id") REFERENCES "public"."eras"("id") ON DELETE no action ON UPDATE no action;

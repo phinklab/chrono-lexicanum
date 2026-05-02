@@ -215,6 +215,13 @@ export const bookDetails = pgTable(
     // 1-based position inside the parent series. Per brief, `pub_year` lives
     // on works.releaseYear instead of being duplicated here.
     seriesIndex: integer("series_index"),
+    // Stufe 2c.0 (sessions/2026-05-02-023): editorial era-anchor. The single
+    // canonical era a book belongs to. Replaces the algorithmic midpoint
+    // bucketing in Overview/EraDetail. Nullable in the DB; seed-side
+    // validation makes it effectively required for the manual catalog.
+    primaryEraId: varchar("primary_era_id", { length: 64 }).references(
+      () => eras.id,
+    ),
   },
   (t) => ({
     seriesIdx: index("book_details_series_idx").on(t.seriesId, t.seriesIndex),
