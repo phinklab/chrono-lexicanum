@@ -60,7 +60,8 @@ Visual ground floor before the tool routes get touched. Token migration into `@t
 - [x] Server-fetch books ordered by `startY` (no client-side `window.BOOKS` global)
 - [x] Schema migration: `books`-zentriert → `works`+CTI; facets / external_links / persons; CHECK-trigger discriminator; Hub-count + Timeline-RQB on `works WHERE kind='book'`. (Stufe 2a — session 019, 2026-05-01.)
 - [x] **Stufe 2b** — 26 hand-curated books with full annotation (factions, persons, facets, external_links). Cowork compiled candidate set; Philipp curated JSON by hand. Hub-Footer-Count auf ISR (revalidate 1h). Phase-4 ingestion pipeline waits for the 200+-scale that follows. (Stufe 2b — sessions 021/022, 2026-05-02.)
-- [ ] **Stufe 2c** — Reactivate session 018 (DetailPanel + deep-linking) against the new schema. Cartographer's book-pins also land in 2c.
+- [x] **Stufe 2c.1** — DetailPanel + deep-linking ported against the post-2a/post-2c.0 schema (sessions 025/026, 2026-05-02). Hero modal with curated Reading-Notes block, Sources grouped by external_link.kind, cross-era series-volume nav. URL contract `?era=<id>&book=<slug>` canonical; `?book=<slug>` resolves server-side via `book_details.primary_era_id`. Cartographer's book-pins moved to Phase 2b proper.
+- [ ] **Stufe 2c.2** — Hygiene-pack (sessions 027): `series.json` total fix for `horus_heresy_main`, slug-format decision documented, `check:eras` wired into CI.
 - [ ] EntryRail (2a.1) and FilterRail (2a.2) on top of the ribbon
 - [ ] Cluster-collapse for dense eras (driven by Phase 4 real-book ingestion)
 - [ ] Pan-scrubber click-to-jump, mobile-touch test, M39–M41 encoding gap
