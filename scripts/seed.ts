@@ -143,6 +143,9 @@ interface RawBook {
   pubYear?: number;
   startY: number;
   endY: number;
+  // Stufe 2c.0: editorial era-anchor. Required for every book in the catalog.
+  // The seed validates this field strictly — see Constraint 4 of brief 023.
+  primaryEraId: string;
   synopsis?: string;
   series?: string;
   seriesIndex?: number;
@@ -339,6 +342,7 @@ async function main() {
   console.log(`Inserted ${facetValueCount} facet_values.`);
 
   const knownFacetValues = collectFacetValueIds(RAW.facetCatalog);
+  const knownEraIds = new Set(RAW.eras.map((e) => e.id));
 
   // ── Persons
   await db.insert(persons).values(
@@ -365,6 +369,18 @@ async function main() {
 
   for (const b of RAW.books) {
     const slug = slugify(`${b.title}-${b.id}`);
+
+    // Validate primaryEraId strictly — Constraint 4 of brief 2026-05-02-023.
+    // The DB column is nullable, but the catalog must always carry a value;
+    // failing here keeps the seed as the discriminator for editorial drift.
+    if (!b.primaryEraId) {
+      throw new Error(`Book ${b.id} '${b.title}': missing primaryEraId.`);
+    }
+    if (!knownEraIds.has(b.primaryEraId)) {
+      throw new Error(
+        `Book ${b.id} '${b.title}': primaryEraId '${b.primaryEraId}' not in eras.json.`,
+      );
+    }
 
     // Validate facet ids before opening a transaction so we surface bad
     // book.json data with a clear error rather than a Postgres FK violation.
@@ -406,6 +422,7 @@ async function main() {
         isbn13: b.isbn13 ?? null,
         seriesId: b.series ?? null,
         seriesIndex: b.seriesIndex ?? null,
+        primaryEraId: b.primaryEraId,
       });
       bookDetailsCount += 1;
 
