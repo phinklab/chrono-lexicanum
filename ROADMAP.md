@@ -38,9 +38,9 @@ Small but important so we don't fight the toolchain later.
 
 ---
 
-## Phase 2 — Chronicle (Timeline) — Tool 1/3
+## Phase 2 — Chronicle (Timeline) — Tool 1/3 ✅ (shipped 2026-05-02, sessions 008–013, 018–030)
 
-Der erste der drei Tool-Räume. Aus dem Prototyp portiert, dann aufgewertet zur DB-getriebenen Detail-Modal-Erfahrung. Schließt mit einer schlanken FilterRail, dann übergeben an Phase 3 (Ingestion). Cartographer und Ask the Archive sind aus dieser Phase rausgezogen und leben jetzt in Phase 5.
+Der erste der drei Tool-Räume. Aus dem Prototyp portiert, dann aufgewertet zur DB-getriebenen Detail-Modal-Erfahrung. Geschlossen mit einer schlanken FilterRail, übergeben an Phase 3 (Ingestion). Cartographer und Ask the Archive sind aus dieser Phase rausgezogen und leben jetzt in Phase 5.
 
 ### 2.0. CSS foundation + Hub polish + global chrome ✅ (shipped 2026-04-29, sessions 006–007 + 009–010)
 
@@ -53,7 +53,7 @@ Visual ground floor before the tool routes get touched. Token migration into `@t
 - [x] `<TopChrome />` with mark-sigil + wordmark + era-toggle, fixed top of viewport
 - [x] `<EraToggle />` writing `?era=…` to URL (consumed by 2a Timeline)
 
-### 2a. Chronicle (Timeline) — in flight
+### 2a. Chronicle (Timeline) — done
 
 **Slim port** ✅ (shipped 2026-04-29, sessions 008 + 011), **polish pass** ✅ (shipped 2026-04-30, sessions 012 + 013), **Schema-Foundation** ✅ (shipped 2026-05-01, session 019): Overview ribbon + EraDetail at `/timeline`, `?era=…` URL contract migrated to prototype era ids (legacy redirects in place), buzzy hover on era bands, themed focus brackets, per-era `[NNN VOLUMES]` count badges, and the works-centric DB foundation (Class-Table-Inheritance, facets, external_links, persons).
 
@@ -61,21 +61,23 @@ Visual ground floor before the tool routes get touched. Token migration into `@t
 - [x] Port `EraView.jsx` → `src/components/timeline/EraDetail.tsx`
 - [x] Server-fetch books ordered by `startY` (no client-side `window.BOOKS` global)
 - [x] Schema migration: `books`-zentriert → `works`+CTI; facets / external_links / persons; CHECK-trigger discriminator; Hub-count + Timeline-RQB on `works WHERE kind='book'`. (Stufe 2a — session 019, 2026-05-01.)
-- [x] **Stufe 2b** — 26 hand-curated books with full annotation (factions, persons, facets, external_links). Cowork compiled candidate set; Philipp curated JSON by hand. Hub-Footer-Count auf ISR (revalidate 1h). Phase-4 ingestion pipeline waits for the 200+-scale that follows. (Stufe 2b — sessions 021/022, 2026-05-02.)
-- [x] **Stufe 2c.1** — DetailPanel + deep-linking ported against the post-2a/post-2c.0 schema (sessions 025/026, 2026-05-02). Hero modal with curated Reading-Notes block, Sources grouped by external_link.kind, cross-era series-volume nav. URL contract `?era=<id>&book=<slug>` canonical; `?book=<slug>` resolves server-side via `book_details.primary_era_id`. Cartographer's book-pins moved to Phase 2b proper.
+- [x] **Stufe 2b** — 26 hand-curated books with full annotation (factions, persons, facets, external_links). Cowork compiled candidate set; Philipp curated JSON by hand. Hub-Footer-Count auf ISR (revalidate 1h). Phase-3 ingestion pipeline waits for the 200+-scale that follows. (Stufe 2b — sessions 021/022, 2026-05-02.)
+- [x] **Stufe 2c.0** — `book_details.primary_era_id` (explicit anchor) ersetzt das algorithmische Era-Bucketing (sessions 023/024, 2026-05-02). Migration 0004, alle 26 Bücher annotiert, `npm run check:eras`-Guardrail wired.
+- [x] **Stufe 2c.1** — DetailPanel + deep-linking ported against the post-2a/post-2c.0 schema (sessions 025/026, 2026-05-02). Hero modal with curated Reading-Notes block, Sources grouped by external_link.kind, cross-era series-volume nav. URL contract `?era=<id>&book=<slug>` canonical; `?book=<slug>` resolves server-side via `book_details.primary_era_id`. Cartographer's book-pins moved to Phase 5 proper.
 - [x] **Stufe 2c.2** — Hygiene-pack (sessions 027/028, 2026-05-02): `series.json` total fix for `horus_heresy_main` (10 → 54), slug-format decision documented as code-comment, `check:eras` wired into the `lint-and-typecheck` CI step.
-- [ ] **Stufe 2a.2 — FilterRail (Minimal-MVP).** Schlanke Filter-Schiene auf der EraDetail-View, die die in 2b annotierten Facets sichtbar/filterbar macht (Fraktion + Length-Tier; Tone/Theme/Content-Warning later). URL-State, OR innerhalb Achse / AND zwischen Achsen. Bewusst minimal, weil Phase 4 die Datenmenge hochzieht und Phase 4-Discovery-Layer (Timeline-Reshape) das Filter-Modell vermutlich neu definiert. **EntryRail (vormals 2a.1) ist gestrichen** — Empfehlungs-Funktion wird vom Ask-the-Archive-Trichter in Phase 5 vollständig abgedeckt.
+- [x] **Stufe 2a.2 — FilterRail (Minimal-MVP)** (shipped 2026-05-02, sessions 029/030). Schlanke Filter-Schiene auf der EraDetail-View, die die in 2b annotierten Facets sichtbar/filterbar macht (Fraktion + Length-Tier). URL-State (`?faction=…&length=…`), OR innerhalb Achse / AND zwischen Achsen, server-seitige SQL-Filterung via 2-Step Drizzle (matched-IDs EXISTS → relational hydrate), Hide-axis-bei-1-Wert, Empty-State-Split (era-clear vs filter-constrained). Bewusst minimal, weil Phase 4 (Discovery-Layer / Timeline-Reshape) das Filter-Modell vermutlich neu definiert. **EntryRail (vormals 2a.1) gestrichen** — Empfehlungs-Funktion wird vom Ask-the-Archive-Trichter in Phase 5 vollständig abgedeckt.
 
 **Aufgeschoben in Phase 4 (Discovery-Layer):**
 
 - Cluster-collapse für dichte Eras — wartet auf Ingestion-Datenmenge plus Reshape-Entscheidung
 - Pan-scrubber click-to-jump, Mobile-Touch-Test, M39–M41 encoding gap — sammeln sich im Reshape
+- Tone/Theme/Content-Warning-Filter-Achsen — heben sich auf, wenn der Discovery-Layer das Filter-Modell ohnehin überholt
 
-**Phase 2 ist durch wenn:** Chronicle steht aus DB mit DetailPanel + Deeplinks + Minimal-FilterRail, deployed, alle 26 Bücher annotiert sichtbar.
+**Phase 2 abgeschlossen 2026-05-02:** Chronicle steht aus DB mit DetailPanel + Deeplinks + Minimal-FilterRail, deployed, alle 26 Bücher annotiert sichtbar.
 
 ---
 
-## Phase 3 — Data-Ingestion-Pipeline (vorgezogen)
+## Phase 3 — Data-Ingestion-Pipeline (vorgezogen) — in flight
 
 > **Reihenfolge-Wechsel 2026-05-02.** Vorher Phase 4. Vorgezogen, weil paralleles Scrapen ab jetzt im Hintergrund laufen soll, während wir in Phase 4 am Discovery-Layer bauen — die DB füllt sich, Features entstehen, beides asynchron.
 

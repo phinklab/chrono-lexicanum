@@ -41,6 +41,7 @@ Thumbs.db
 # --- Claude Code (per-user state; shared settings.json / hooks / agents -----
 # can be committed deliberately by removing the line below if/when they exist) -
 .claude/settings.local.json
+.claude/*.lock
 
 # --- scratch logs (dev-server probes etc.) ----------------------------------
 *.log
