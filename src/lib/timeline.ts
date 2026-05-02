@@ -50,6 +50,13 @@ export interface TimelineBook {
   authors: string[];
   startY: number;
   endY: number;
+  /**
+   * Era-anchor (Stufe 2c.0): the canonical era this book lives in. Editorial
+   * placement, not derived from startY/endY anymore. Empty string flags a
+   * seed/data mismatch — Overview/EraDetail guard against unknown ids and
+   * skip the book rather than miscount it.
+   */
+  primaryEraId: string;
   /** Faction ids attached via work_factions. May be empty. */
   factions: string[];
   /** Series membership, if any. `order` is the 1-based seriesIndex. */
