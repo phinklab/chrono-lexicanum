@@ -2,8 +2,8 @@
   {
     "id": "horus_heresy_main",
     "name": "The Horus Heresy",
-    "total": 10,
-    "note": "Core arc."
+    "total": 54,
+    "note": "Core arc — 54 numbered novels, Horus Rising → The Buried Dagger; Siege of Terra continues as siege_of_terra."
   },
   {
     "id": "siege_of_terra",
