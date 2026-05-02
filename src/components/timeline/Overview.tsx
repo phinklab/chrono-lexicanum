@@ -36,6 +36,7 @@ import {
   formatM,
   makeProjectY,
 } from "@/lib/timeline";
+import { buildEraUrl } from "@/lib/timelineUrl";
 
 interface OverviewProps {
   eras: readonly Era[];
@@ -99,11 +100,9 @@ export default function Overview({ eras, books }: OverviewProps) {
   function hoverEra(eraId: string) {
     setHoveredEraId(eraId);
     triggerGlitch(eraId);
-    const target =
-      params.size > 0
-        ? `/timeline?${new URLSearchParams({ ...Object.fromEntries(params), era: eraId }).toString()}`
-        : `/timeline?era=${eraId}`;
-    router.prefetch(target);
+    // Same URL helper as the click handler — prefetching the merged URL is
+    // pointless if the click computes a different URL (filter-keys diverge).
+    router.prefetch(buildEraUrl(eraId, new URLSearchParams(params.toString())));
   }
 
   // Empty data → render a visible cogitator-voice notice instead of a bare
@@ -123,9 +122,10 @@ export default function Overview({ eras, books }: OverviewProps) {
   }
 
   function navigateToEra(eraId: string) {
-    const merged = new URLSearchParams(params.toString());
-    merged.set("era", eraId);
-    router.push(`/timeline?${merged.toString()}`);
+    // Drops the FilterRail axes from the URL — filter values are era-specific
+    // (brief 029 constraint 5). Helper centralizes the strip-and-set so a
+    // future Phase-4 nav surface can't quietly re-introduce the bug.
+    router.push(buildEraUrl(eraId, new URLSearchParams(params.toString())));
   }
 
   return (

@@ -24,21 +24,38 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import clsx from "clsx";
 import {
   type Era,
+  type FilterOption,
   type SeriesRef,
   type TimelineBook,
   formatM,
 } from "@/lib/timeline";
+import {
+  buildBookUrl,
+  buildEraUrl,
+  parseFilterParams,
+} from "@/lib/timelineUrl";
+import FilterRail from "./FilterRail";
 
 interface EraDetailProps {
   era: Era;
   eras: readonly Era[];
+  /** Books to render in this era. Pre-filtered server-side by `loadEraBooks`
+   *  (Stufe 2a.2): era anchor + active FilterRail axes. EraDetail no longer
+   *  re-filters client-side; the prop IS the rendered set. */
   books: readonly TimelineBook[];
   /** Series index, used to look up display names for series tracks. */
   seriesById: Readonly<Record<string, SeriesRef>>;
+  /** FilterRail option lists, derived server-side per era unconditional on
+   *  current filter selection so the option set stays stable while toggling. */
+  availableFactions: readonly FilterOption[];
+  availableLengthTiers: readonly FilterOption[];
+  /** Era totals for the rail's `X / Y volumes` headline + empty-state branching. */
+  totalInEra: number;
+  matchedCount: number;
 }
 
 interface SeriesGroup {
@@ -65,20 +82,33 @@ const TRACK_TOP = 110;             // CSS px from top of `.tracks` to first trac
 const TRACK_GAP_PCT = 5.0;         // PCT-space minimum gap between adjacent series
 const DOT_RADIUS_PCT = 2.5;        // visual radius of a standalone dot in PCT
 
-export default function EraDetail({ era, eras, books, seriesById }: EraDetailProps) {
+export default function EraDetail({
+  era,
+  eras,
+  books,
+  seriesById,
+  availableFactions,
+  availableLengthTiers,
+  totalInEra,
+  matchedCount,
+}: EraDetailProps) {
+  const sp = useSearchParams();
   const eraIdx = useMemo(() => eras.findIndex((e) => e.id === era.id), [eras, era.id]);
   const prevEra = eraIdx > 0 ? eras[eraIdx - 1] : null;
   const nextEra = eraIdx >= 0 && eraIdx < eras.length - 1 ? eras[eraIdx + 1] : null;
 
-  // Books in this era — strict editorial match on `primaryEraId` (Stufe 2c.0).
-  // The previous midpoint ±5 leak is gone: every book belongs to exactly one
-  // era, picked by Cowork or by the Phase-4 ingestion pipeline. startY/endY
-  // remain the source of axis placement and the kicker range string, but
-  // never feed bucketing again.
-  const eraBooks = useMemo(
-    () => books.filter((b) => b.primaryEraId === era.id),
-    [books, era.id],
-  );
+  // Books in this era — pre-filtered server-side by `loadEraBooks` (Stufe 2a.2).
+  // The previous client-side `books.filter((b) => b.primaryEraId === era.id)`
+  // is gone; the loader applies era anchor + faction/length filters via SQL,
+  // which keeps the pattern tradable to Phase-3 ingestion scale (constraint 8).
+  const eraBooks = books;
+  const hasActiveFilters = useMemo(() => {
+    const { factionIds, lengthIds } = parseFilterParams(
+      new URLSearchParams(sp.toString()),
+    );
+    return factionIds.length > 0 || lengthIds.length > 0;
+  }, [sp]);
+  const isEmptyDueToFilter = matchedCount === 0 && totalInEra > 0;
 
   // Full view span: era + 4% pad on each side so books at era boundaries don't
   // sit flush against the ends of the axis.
@@ -217,7 +247,7 @@ export default function EraDetail({ era, eras, books, seriesById }: EraDetailPro
     <div className="era-detail">
       {prevEra && (
         <Link
-          href={`/timeline?era=${prevEra.id}`}
+          href={buildEraUrl(prevEra.id, new URLSearchParams(sp.toString()))}
           className="era-detail-nav-prev"
           aria-label={`Previous era: ${prevEra.name}`}
           title={prevEra.name}
@@ -230,7 +260,7 @@ export default function EraDetail({ era, eras, books, seriesById }: EraDetailPro
       )}
       {nextEra && (
         <Link
-          href={`/timeline?era=${nextEra.id}`}
+          href={buildEraUrl(nextEra.id, new URLSearchParams(sp.toString()))}
           className="era-detail-nav-next"
           aria-label={`Next era: ${nextEra.name}`}
           title={nextEra.name}
@@ -268,8 +298,32 @@ export default function EraDetail({ era, eras, books, seriesById }: EraDetailPro
         </div>
       </header>
 
+      <FilterRail
+        era={era}
+        availableFactions={availableFactions}
+        availableLengthTiers={availableLengthTiers}
+        totalInEra={totalInEra}
+        matchedCount={matchedCount}
+      />
+
       {eraBooks.length === 0 ? (
-        <p className="era-empty">{"// EXCERPTUM CLEAR — NO VOLUMES CATALOGUED FOR THIS EPOCH"}</p>
+        isEmptyDueToFilter ? (
+          <div className="era-empty-block">
+            <p className="era-empty">
+              {"// EXCERPTUM CONSTRAINED — NO VOLUMES MATCH ACTIVE FILTERS"}
+            </p>
+            <Link
+              href={buildEraUrl(era.id, new URLSearchParams(sp.toString()))}
+              className="era-empty-reset"
+              replace
+              scroll={false}
+            >
+              × Clear filters
+            </Link>
+          </div>
+        ) : (
+          <p className="era-empty">{"// EXCERPTUM CLEAR — NO VOLUMES CATALOGUED FOR THIS EPOCH"}</p>
+        )
       ) : (
         <>
           {/* Axis */}
@@ -396,6 +450,7 @@ interface BookDotProps {
 
 function BookDot({ book, style }: BookDotProps) {
   const router = useRouter();
+  const sp = useSearchParams();
   return (
     <button
       type="button"
@@ -403,9 +458,17 @@ function BookDot({ book, style }: BookDotProps) {
       className="book-marker"
       style={style}
       onClick={(e) => {
+        // stopPropagation keeps the click from reaching the pan area's
+        // onMouseDown — without it, opening a book inside a wide era would
+        // also start a drag. <Link> would still need this, no win in
+        // converting the trigger.
         e.stopPropagation();
         router.push(
-          `/timeline?era=${book.primaryEraId}&book=${encodeURIComponent(book.slug)}`,
+          buildBookUrl(
+            book.primaryEraId,
+            book.slug,
+            new URLSearchParams(sp.toString()),
+          ),
         );
       }}
     >

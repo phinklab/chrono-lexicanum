@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { buildEraUrl } from "@/lib/timelineUrl";
 
 /**
  * EraToggle — three-button millennium switcher (M30 / M31 / M42) wired to the
@@ -60,6 +61,18 @@ export default function EraToggle() {
 
   function pick(label: ToggleLabel) {
     if (label === active) return;
+    // The toggle is global chrome (visible on every route), but the filter
+    // strip (?faction=, ?length=) only exists on /timeline. On-route, the
+    // helper enforces brief 029 constraint 5 (era-Wechsel droppt Filter).
+    // Off-route, preserve the original "stay on the current pathname" merge
+    // so a chrome click from the Hub doesn't silently reroute to /timeline.
+    if (pathname === "/timeline") {
+      router.replace(
+        buildEraUrl(TOGGLE_TO_ERA[label], new URLSearchParams(params.toString())),
+        { scroll: false },
+      );
+      return;
+    }
     const merged = new URLSearchParams(params.toString());
     merged.set("era", TOGGLE_TO_ERA[label]);
     const qs = merged.toString();
