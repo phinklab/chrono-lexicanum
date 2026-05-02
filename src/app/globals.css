@@ -1224,18 +1224,23 @@ main {
   z-index: 15;
 }
 .book-marker:hover .bm-tooltip { opacity: 1; }
+/* Children are <span> (the marker is a <button>, no <div> allowed inside).
+   `display: block` forces title and meta onto separate lines so the gap
+   between them — which spans being inline ate — is visible again. */
 .bm-tooltip .tt-title {
+  display: block;
   font-size: 11.5px;
   color: var(--ink-0);
   font-weight: 500;
 }
 .bm-tooltip .tt-meta {
+  display: block;
   font-size: 9.5px;
   color: var(--ink-2);
   font-family: var(--font-mono);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 6px;
 }
 /* `fadeSlide` keyframes already declared inside @theme above — Timeline rules
    reference it by name and reuse it. */
@@ -1276,9 +1281,18 @@ main {
   transform: translate(-50%, -50%);
   z-index: 61;
   width: min(980px, calc(100vw - 48px));
-  max-height: min(820px, calc(100vh - 48px));
+  /* `height` (not `max-height`) plus `grid-template-rows: minmax(0, 1fr)`
+     forces the single row to the panel's bound regardless of content. This
+     is what makes overflow-y: auto on dm-left/dm-right actually scroll
+     when content is taller than the panel. With `max-height` alone, the
+     row defaults to its natural content size and the inner overflow gets
+     clipped by the panel's `overflow: hidden` instead. Trade-off: panel
+     is always at full bound (no shrink to short content); for a hero
+     modal that's the right "weighty" presence anyway. */
+  height: min(820px, calc(100vh - 48px));
   display: grid;
   grid-template-columns: 340px 1fr;
+  grid-template-rows: minmax(0, 1fr);
   background: color-mix(in oklch, var(--bg-1) 96%, transparent);
   border: 1px solid var(--line-1);
   box-shadow:
@@ -1725,11 +1739,15 @@ main {
 
 /* ─── Timeline route loading skeleton (Next App-Router loading.tsx).
        Renders inside the same .timeline-shell so navigation from /
-       paints the chrome instantly while loadTimeline() is in flight. ─── */
+       paints the chrome instantly while loadTimeline() is in flight.
+       Both the skeleton and the resolved content fade in via
+       `timelineContentIn` — softens the otherwise-jarring snap when
+       Suspense swaps the fallback for the page. ─── */
 .timeline-skeleton {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  animation: timelineContentIn 220ms ease-out both;
 }
 .timeline-skel-bar {
   height: 14px;
@@ -1742,4 +1760,15 @@ main {
 @keyframes skeletonPulse {
   0%, 100% { opacity: 0.55; }
   50%      { opacity: 0.85; }
+}
+/* Same fade applied to the resolved content roots so the skeleton →
+   content swap reads as a soft cross-fade instead of a hard snap.
+   Reduced-motion: the global cascade collapses to instant. */
+.timeline-overview,
+.era-detail {
+  animation: timelineContentIn 220ms ease-out both;
+}
+@keyframes timelineContentIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
