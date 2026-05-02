@@ -13,15 +13,30 @@ review-Zielform. Quellen-Links pro Buch, Wert-Begründungen, Confidence-Hinweise
 
 ## Verteilung
 
+> **Stufe 2c.0 (sessions/2026-05-02-023):** die Era-Zuweisung pro Buch lebt
+> seit dieser Stufe im `primaryEraId`-Feld jedes books.json-Eintrags
+> (kanonisches editorielles Bucketing, kein Mittelwert mehr). Die Tabelle
+> unten spiegelt diese Anchor-Werte. Editorial-Calls, die Cowork bzw. Philipp
+> getroffen hat:
+>
+> - **The First Heretic** → `horus_heresy` (Series-Kohorten-Argument; Cowork-
+>   Empfehlung, von Philipp bestätigt) statt `great_crusade`.
+> - **The Infinite and the Divine** → `time_ending` (Klimax-Prinzip der
+>   Necron-Erzählung) statt der M35–M41-Lücke zwischen Apostasy und Time of
+>   Ending.
+> - **Mark of Faith** → `indomitus` (Daten ehren — startY/endY 42010 fallen
+>   numerisch in M42; Brief 021 hatte sie irrtümlich für `time_ending`
+>   gezählt).
+
 | Era | Anzahl | Bücher |
 |---|---|---|
-| Great Crusade (M30.798–M30.997) | 2 | Legion · The First Heretic |
-| Horus Heresy (M30.998–M31.014) | 4 | Horus Rising · Mechanicum · Know No Fear · Master of Mankind |
+| Great Crusade (M30.798–M30.997) | 1 | Legion |
+| Horus Heresy (M30.998–M31.014) | 5 | Horus Rising · Mechanicum · The First Heretic · Know No Fear · Master of Mankind |
 | Age of Rebirth (M31.015–M31.999) | 1 | The Talon of Horus |
 | The Long War (M32–M36) | 1 | I Am Slaughter |
 | Age of Apostasy (M37) | 0 | — |
-| Time of Ending (M40.997–M41.999) | 16 | Eisenhorn · Gaunt's Ghosts · Ciaphas Cain · Ravenor · Soul Hunter · Helsreach · Storm of Iron · Path of the Warrior · Carrion Throne · Ghazghkull · Devastation of Baal · Infinite & Divine · Farsight · Mark of Faith · Grey Knights · Priests of Mars |
-| Indomitus (M42) | 2 | Dark Imperium · Avenging Son |
+| Time of Ending (M40.997–M41.999) | 15 | Eisenhorn · Gaunt's Ghosts · Ciaphas Cain · Ravenor · Soul Hunter · Helsreach · Storm of Iron · Path of the Warrior · Carrion Throne · Ghazghkull · Devastation of Baal · Infinite & Divine · Farsight · Grey Knights · Priests of Mars |
+| Indomitus (M42) | 3 | Dark Imperium · Avenging Son · Mark of Faith |
 
 **Authoren-Verteilung:** Dan Abnett 7 · Aaron Dembski-Bowden 5 · Graham McNeill 3 ·
 Guy Haley 3 · je 1 für Sandy Mitchell, Gav Thorpe, Chris Wraight, Nate Crowley,
