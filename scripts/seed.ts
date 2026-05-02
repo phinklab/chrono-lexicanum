@@ -368,6 +368,11 @@ async function main() {
   let externalLinksCount = 0;
 
   for (const b of RAW.books) {
+    // Slug carries the `-{id}` suffix to guarantee uniqueness across the
+    // catalog. Editorial decision 2026-05-02 (session 027): bare title
+    // slugs (`horus-rising`) would collide at Phase-4 scale (200+ books,
+    // multiple Black Library reissues with identical titles). Cosmetic
+    // noise in the URL (`-hh01`) is the accepted cost.
     const slug = slugify(`${b.title}-${b.id}`);
 
     // Validate primaryEraId strictly — Constraint 4 of brief 2026-05-02-023.
