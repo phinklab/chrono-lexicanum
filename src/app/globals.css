@@ -784,7 +784,12 @@ main {
 .era-detail {
   position: relative;
   width: 100%;
-  min-height: clamp(420px, 60vh, 580px);
+  /* Lower bound: tracks now start at top:290 (clears the grown header),
+     plus padding-bottom:64 + bottom:56 + TRACK_TOP:110 + 1 track:110 +
+     spine slack:28 ≈ 658px floor. Round to 640 — slightly under floor
+     so 1-track eras don't waste space, but enough to seat the standalone
+     spine within view on small viewports. */
+  min-height: clamp(640px, 65vh, 720px);
   padding-top: 96px;
   padding-bottom: 64px;
 }
@@ -1016,12 +1021,17 @@ main {
   50%      { opacity: 0.85; }
 }
 
-/* Track region — pan/drag enabled on wide eras */
+/* Track region — pan/drag enabled on wide eras. `top` clears the absolute
+   flow above (era-detail's padding-top: 96px + the era-detail-header which
+   stacks survey-back-link + kicker + name + tone + 36px margin-bottom).
+   When 200px, the header outgrew its envelope and the tracks rendered
+   over the era-name; 290px gives the header room and keeps a tight gap
+   below the title. */
 .tracks {
   position: absolute;
   left: 0;
   right: 0;
-  top: 200px;
+  top: 290px;
   bottom: 56px;
 }
 .tracks.pannable {
