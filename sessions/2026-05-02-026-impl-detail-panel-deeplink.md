@@ -13,6 +13,7 @@ commits:
   - 876277511099309dad1c14f574be9f1391b5e8ad
   - 6639eb0e1960885e1283c2df637e8991fa2187b9
   - 648dae577e567ebb788a982f3f3f1bdc50efe592
+  - 120c3b860c783964d1e14956e072ab5c2c503d36
 ---
 
 # Stufe 2c.1 — DetailPanel + Deep-Linking (impl)
@@ -115,6 +116,34 @@ None. Brief was complete and unambiguous on all material points.
 - **`docs/ui-backlog.md`** — no new items from this session. The panel feels right against the existing motion vocabulary; if EntryRail (2a.1) crowds the page later, the 320ms `dmRise` is the calibration knob to revisit.
 
 - **Roadmap.** § Phase 2a has "DetailPanel + URL state" as an unchecked item that Stufe 2c.1 closes; brief Notes Z. 575+ flagged this for Cowork to handle on read-through.
+
+## Polish addendum (commit `120c3b8`)
+
+Philipp's review of the deployed Vercel preview surfaced four UI items.
+All landed in commit 5 on the same PR:
+
+1. **Close `×` overlapped series-nav `▸`** at top-right of `dm-right` (close-btn occupies `panel.right - 46` to `panel.right - 14`; vol-nav reached to `panel.right - 40`, so 6px collision). Fix: `dm-right` `padding-right` 40 → 56 so the entire row clears the close-btn footprint with 10px breathing room. Trade-off: ~16px less horizontal space for synopsis/sources content; acceptable.
+
+2. **BookDot tooltip felt cramped** at the 022-era `max-width: 260px`. Widened to `min-width: 220px / max-width: 360px` and bumped padding `6/10` → `8/12`. Long titles still wrap; short titles no longer pinch to single-word width.
+
+3. **Sources block clipped at panel bottom** — the panel's `overflow: hidden` cut off content that extended past `max-height` because grid items default to `min-height: auto` (= content size), preventing the inner `overflow-y: auto` from engaging. Fix: `min-height: 0` on both `.dm-left` and `.dm-right`, which allows them to shrink to the panel's bound and the inner scroll engages.
+
+4. **Hub → /timeline navigation showed nothing** while `loadTimeline()` ran. Added `src/app/timeline/loading.tsx` rendering a skeleton (timeline-shell + eyebrow + three pulsing bars) so the route transition paints the shell instantly and content streams in. Skeleton CSS (`.timeline-skeleton`, `.timeline-skel-bar`) sits in the new sub-block at the end of `globals.css`.
+
+**Trade-off introduced by `loading.tsx`** (worth surfacing to Cowork): when `redirect()` runs inside `page.tsx` the response stream has already started, so Next emits a `<meta http-equiv="refresh" content="1;url=...">` plus an RSC redirect directive instead of a clean HTTP 307. For browsers (JS or no-JS) the redirect still happens and the URL ends up correct; JS users get the instant Next-router redirect via the RSC stream, no-JS users see a 1-second skeleton flash before meta-refresh fires. **Internal navigation** (BookDot click, series prev/next button) is unaffected — those are searchParams-only changes within the same route so `loading.tsx` doesn't fire and redirects are RSC-instant either way. **Direct URL hits to redirect-shaped URLs** (shared links, legacy `?era=M30`) get the 1-second flash.
+
+The acceptance verification in the original report assumed HTTP 307. Updated table:
+
+| URL | Behavior post-polish |
+|---|---|
+| `?book=horus-rising-hh01` | 200 + `<meta http-equiv="refresh" content="1;url=/timeline?era=horus_heresy&book=horus-rising-hh01">` ✓ |
+| `?book=does-not-exist` | 200 + meta-refresh `1;url=/timeline` ✓ |
+| `?era=horus_heresy&book=does-not-exist` | 200 + meta-refresh `1;url=/timeline?era=horus_heresy` ✓ |
+| `?era=foo&book=horus-rising-hh01` | 200 + meta-refresh `1;url=/timeline?era=horus_heresy&book=horus-rising-hh01` ✓ |
+| `?era=M31&book=horus-rising-hh01` | 200 + meta-refresh `1;url=/timeline?era=horus_heresy&book=horus-rising-hh01` ✓ |
+| `?era=M30` | 200 + meta-refresh `1;url=/timeline?era=great_crusade` ✓ |
+
+**Cleaner-but-larger alternative** if the 1s direct-hit flash bothers Cowork: move the redirect logic to `middleware.ts` where it runs before the page render starts and can return real 307s. Middleware would need either Edge-compatible postgres (Supabase JS client) or Next 15.5+ Node middleware (we're on 16.2.4 so this is available). Skipped for now — the win on cold loads outweighs the flash on the share-link path. Surface for next brief if undesirable.
 
 ## References
 
