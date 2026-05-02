@@ -1217,3 +1217,479 @@ main {
 }
 /* `fadeSlide` keyframes already declared inside @theme above — Timeline rules
    reference it by name and reuse it. */
+
+/* ─── Detail panel modal (session 025; ports
+       `archive/prototype-v1/styles/detail-modal.css` minus order-CTA,
+       secondary-link, find-similar, light-theme overrides; adds
+       Reading-Notes block, Sources block, [data-era] cover-bg hook).
+
+       Animation timing (320ms rise + 200ms fade): sits clearly snappy
+       against band-hover (300ms) and the buzzy-glitch hover (.42s); the
+       cogitator "reads you back" rather than "stutters at you." Polish
+       pass may be warranted once EntryRail (2a.1) lands more competing
+       motion on the page.
+
+       Reduced motion: covered by the global cascade in this file
+       (animation-duration AND transition-duration → 0.001ms !important).
+       No @media block needed here. ─── */
+
+.dm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: color-mix(in oklch, var(--bg-0) 68%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: dmFade 0.20s ease-out both;
+}
+@keyframes dmFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.detail-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 61;
+  width: min(980px, calc(100vw - 48px));
+  max-height: min(820px, calc(100vh - 48px));
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  background: color-mix(in oklch, var(--bg-1) 96%, transparent);
+  border: 1px solid var(--line-1);
+  box-shadow:
+    0 30px 120px -20px rgba(0, 0, 0, 0.75),
+    0 0 80px -10px color-mix(in oklch, var(--hl) 30%, transparent),
+    inset 0 1px 0 color-mix(in oklch, var(--hl) 14%, transparent);
+  overflow: hidden;
+  animation: dmRise 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes dmRise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Close button — inherits the painterly cyan-stroke focus vocabulary from
+   .era-seg-brackets. Hover/focus elevate via colour + border, not shadow. */
+.dm-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  background: color-mix(in oklch, var(--bg-1) 80%, transparent);
+  border: 1px solid var(--line-1);
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.dm-close:hover {
+  color: var(--ink-0);
+  border-color: var(--hl);
+  background: color-mix(in oklch, var(--hl) 10%, transparent);
+}
+.dm-close:focus-visible {
+  outline: 1.5px solid var(--hl);
+  outline-offset: 2px;
+}
+
+/* Two columns: cover left, meta right. Each scrolls independently when
+   content overflows the panel's max-height. */
+.dm-left {
+  padding: 40px 28px 28px;
+  background: color-mix(in oklch, var(--bg-0) 60%, transparent);
+  border-right: 1px solid var(--line-0);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: auto;
+}
+.dm-right {
+  padding: 40px 40px 32px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Cover placeholder — designed card, no <img>. data-era hook is wired up
+   for forward-compat; no per-era CSS rules defined yet. */
+.dm-cover-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.dm-cover {
+  position: relative;
+  width: 220px;
+  height: 320px;
+  background: linear-gradient(
+    155deg,
+    color-mix(in oklch, var(--bg-2) 80%, transparent),
+    color-mix(in oklch, var(--bg-1) 90%, transparent)
+  );
+  border: 1px solid var(--line-1);
+  box-shadow:
+    0 20px 40px -15px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px color-mix(in oklch, var(--hl) 8%, transparent);
+  overflow: hidden;
+  display: flex;
+}
+.dm-cover-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.9;
+  background:
+    radial-gradient(ellipse at 30% 20%, color-mix(in oklch, var(--hl) 35%, transparent) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, color-mix(in oklch, var(--hl) 25%, transparent) 0%, transparent 45%),
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--bg-0) 70%, transparent) 0%,
+      color-mix(in oklch, var(--bg-2) 90%, transparent) 100%
+    );
+}
+.dm-cover-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(0, 0, 0, 0.06) 3px 4px);
+  opacity: 0.4;
+}
+.dm-cover-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.dm-cover-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  color: color-mix(in oklch, var(--hl) 80%, white);
+  opacity: 0.8;
+}
+.dm-cover-title {
+  font-family: var(--font-display, var(--font-serif));
+  font-size: 22px;
+  line-height: 1.15;
+  color: #f5ead5;
+  letter-spacing: -0.01em;
+  margin: 8px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  max-width: 100%;
+}
+.dm-cover-author {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--hl) 70%, white);
+  opacity: 0.85;
+}
+.dm-cover-crest {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: var(--hl);
+  opacity: 0.75;
+  margin-top: 8px;
+  filter: drop-shadow(0 0 6px color-mix(in oklch, var(--hl) 45%, transparent));
+}
+.dm-cover-caption {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  opacity: 0.7;
+}
+
+/* Series ribbon + volume nav. The ◂ ▸ buttons disable cleanly when no
+   sibling exists, so a one-volume-in-our-seed series still renders the
+   ribbon shape with both arrows greyed. */
+.dm-series {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--hl);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-0);
+}
+.dm-series-mark { opacity: 0.7; }
+.dm-series-name { flex: 1; }
+.dm-vol-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--line-1);
+  overflow: hidden;
+}
+.dm-vol-btn {
+  background: none;
+  border: 0;
+  border-right: 1px solid var(--line-1);
+  color: var(--hl);
+  font-size: 12px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.dm-vol-btn:last-child {
+  border-right: 0;
+  border-left: 1px solid var(--line-1);
+}
+.dm-vol-btn:disabled {
+  color: var(--ink-3);
+  cursor: default;
+  opacity: 0.4;
+}
+.dm-vol-btn:not(:disabled):hover {
+  background: color-mix(in oklch, var(--hl) 15%, transparent);
+}
+.dm-vol-btn:focus-visible {
+  outline: 1.5px solid var(--hl);
+  outline-offset: -1.5px;
+}
+.dm-vol-count {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--ink-2);
+  padding: 0 10px;
+}
+
+/* Title + byline + meta-grid */
+.dm-titleblock { margin: 2px 0 4px; }
+.dm-title {
+  font-family: var(--font-display, "Newsreader", serif);
+  font-weight: 500;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink-0);
+  margin: 0 0 8px;
+}
+.dm-byline {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.dm-author { color: var(--hl); }
+.dm-dot { margin: 0 8px; opacity: 0.5; }
+.dm-pub { /* same as byline base */ }
+
+.dm-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 2px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line-0);
+  border-bottom: 1px solid var(--line-0);
+}
+.dm-meta { padding: 0 4px; }
+.dm-meta-lbl {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 5px;
+}
+.dm-meta-val {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--ink-0);
+}
+.dm-meta-val.lum { color: var(--hl); }
+
+/* Section blocks */
+.dm-section-lbl {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+.dm-synopsis {
+  font-family: "Newsreader", var(--font-serif);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-1);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* Faction + character tags. Alignment is a left-border accent in the
+   imperium / chaos / xenos / neutral palette — subtle scan, no colour-bombing. */
+.dm-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.dm-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-1);
+  padding: 4px 10px;
+  border: 1px solid var(--line-1);
+  background: color-mix(in oklch, var(--bg-2) 50%, transparent);
+}
+.dm-tag-ico {
+  color: var(--hl);
+  display: inline-flex;
+  font-family: var(--font-mono);
+}
+.dm-tag-align-imperium { border-left: 2px solid color-mix(in oklch, var(--hl) 70%, white); }
+.dm-tag-align-chaos    { border-left: 2px solid color-mix(in oklch, var(--warm) 80%, transparent); }
+.dm-tag-align-xenos    { border-left: 2px solid color-mix(in oklch, var(--hl) 50%, var(--ink-3)); }
+.dm-tag-align-neutral  { border-left: 2px solid var(--line-1); }
+
+/* Reading-Notes block — 5 curated facet categories, each as a sub-section
+   of label + chip-row. The content_warning sub-section is visually offset
+   with a --warm accent and a [!] mono-prefix so it reads as reader-safety,
+   not decoration. Mono-prefix avoids breaking the painterly mono-marker
+   vocabulary (◂, ▸, ◆, |) with a Unicode emoji ⚠. */
+.dm-reading-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dm-rn-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.dm-rn-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.dm-rn-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.dm-rn-chip {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--ink-1);
+  padding: 3px 8px;
+  border: 1px solid var(--line-1);
+  background: color-mix(in oklch, var(--bg-2) 40%, transparent);
+}
+.dm-rn-section.warning {
+  padding: 8px 10px;
+  border-left: 2px solid color-mix(in oklch, var(--warm) 80%, transparent);
+  background: color-mix(in oklch, var(--warm-faint) 60%, transparent);
+}
+.dm-rn-section.warning .dm-rn-label {
+  color: color-mix(in oklch, var(--warm) 75%, white);
+}
+.dm-rn-section.warning .dm-rn-label::before {
+  content: "[!]  ";
+}
+.dm-rn-section.warning .dm-rn-chip {
+  border-color: color-mix(in oklch, var(--warm) 50%, var(--line-1));
+  background: color-mix(in oklch, var(--warm-faint) 40%, transparent);
+}
+
+/* Sources block — external_links grouped by kind. Reference-group sits
+   last (backstop), action-types (read/listen/watch) first. */
+.dm-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.dm-src-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.dm-src-group-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.dm-src-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.dm-src-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--hl);
+  text-decoration: none;
+  padding: 2px 0;
+  transition: color 0.15s;
+}
+.dm-src-link:hover {
+  color: var(--ink-0);
+  text-decoration: underline;
+}
+.dm-src-link::after {
+  content: " ↗";
+  opacity: 0.5;
+  font-size: 9px;
+}
+.dm-src-link:focus-visible {
+  outline: 1.5px solid var(--hl);
+  outline-offset: 2px;
+}
+
+/* Mobile: graceful single-column collapse below 720px. The panel is
+   desktop-first per session 025 brief — this just keeps it from crashing
+   on narrow viewports until the dedicated mobile pass lands. */
+@media (max-width: 720px) {
+  .detail-modal {
+    grid-template-columns: 1fr;
+    max-height: calc(100vh - 24px);
+    width: calc(100vw - 24px);
+  }
+  .dm-left {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-0);
+    padding: 32px 20px 20px;
+  }
+  .dm-right { padding: 24px 20px 20px; }
+  .dm-cover { width: 180px; height: 260px; }
+}
