@@ -24,6 +24,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import clsx from "clsx";
 import {
   type Era,
@@ -394,27 +395,28 @@ interface BookDotProps {
 }
 
 function BookDot({ book, style }: BookDotProps) {
+  const router = useRouter();
   return (
-    <div
+    <button
+      type="button"
+      id={`book-marker-${book.slug}`}
       className="book-marker"
       style={style}
       onClick={(e) => {
         e.stopPropagation();
-        // 2a.3 wires DetailPanel here. For now: a console log so dev can
-        // verify the click path reaches before that brief lands.
-        if (process.env.NODE_ENV === "development") {
-          console.log("[EraDetail] book click:", book.slug);
-        }
+        router.push(
+          `/timeline?era=${book.primaryEraId}&book=${encodeURIComponent(book.slug)}`,
+        );
       }}
     >
-      <div className="bm-dot" />
-      <div className="bm-tooltip">
-        <div className="tt-title">{book.title}</div>
-        <div className="tt-meta">
+      <span className="bm-dot" aria-hidden="true" />
+      <span className="bm-tooltip" aria-hidden="true">
+        <span className="tt-title">{book.title}</span>
+        <span className="tt-meta">
           {book.authors.length > 0 ? `${book.authors.join(", ")} · ` : ""}
           {formatM((book.startY + book.endY) / 2)}
-        </div>
-      </div>
-    </div>
+        </span>
+      </span>
+    </button>
   );
 }

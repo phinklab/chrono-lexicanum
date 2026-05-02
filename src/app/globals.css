@@ -1148,10 +1148,22 @@ main {
   min-height: 6px;
 }
 
-/* Book markers (dot variant only this brief) */
+/* Book markers (dot variant only this brief). Element is a real <button>
+   since session 025 (DetailPanel click target + keyboard reachable); the
+   first six properties below neutralise button default chrome so the
+   marker still renders as the painterly dot it always was. */
 .book-marker {
   position: absolute;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
   transition: transform .3s cubic-bezier(.2,.8,.2,1), opacity .3s, filter .3s;
   transform-origin: center;
 }
@@ -1159,6 +1171,15 @@ main {
 .book-marker:hover .bm-dot { transform: scale(1.25); }
 .book-marker:hover .bm-dot::after { opacity: 0.7; transform: scale(1.4); }
 .book-marker.dim { opacity: 0.22; filter: saturate(0.4); }
+/* Keyboard focus indicator — same painterly cyan vocabulary as
+   `.era-seg-brackets` and `.dm-close`. Mouse clicks (no :focus-visible)
+   stay free of the glow so the dot reads identically across input modes. */
+.book-marker:focus { outline: none; }
+.book-marker:focus-visible {
+  outline: 1.5px solid var(--hl);
+  outline-offset: 4px;
+  filter: drop-shadow(0 0 14px color-mix(in oklch, var(--hl) 70%, transparent));
+}
 
 .bm-dot {
   width: 14px;
