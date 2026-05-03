@@ -68,3 +68,9 @@ yarn-error.log*
 # --- ingestion pipeline cache (regenerable, can be huge) -------------------
 /scripts/.cache/
 /ingest/.cache/
+
+# --- ingestion pipeline state (resumable run state, NOT diffs) -------------
+# /ingest/.state/ holds the in-progress run snapshot — regenerated each run,
+# wiped on success, irrelevant to other developers. Diffs in /ingest/.last-run/
+# ARE committed (proof-of-run + audit trail).
+/ingest/.state/
