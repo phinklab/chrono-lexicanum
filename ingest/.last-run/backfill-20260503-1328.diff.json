@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-05-03T12:54:38.021Z",
+  "ranAt": "2026-05-03T13:28:08.940Z",
   "discoverySource": "wikipedia",
   "discoveryPages": [
     "List_of_Warhammer_40,000_novels",
@@ -26,11 +26,11 @@
           "releaseYear": 2006,
           "startY": 39000,
           "endY": 39000,
-          "coverUrl": "https://covers.openlibrary.org/b/id/8741384-L.jpg",
+          "coverUrl": "https://covers.openlibrary.org/b/id/894750-L.jpg",
           "seriesIndex": 2,
-          "isbn13": "9781849706193",
-          "isbn10": "1849706190",
-          "pageCount": 408,
+          "isbn13": "9781844163700",
+          "isbn10": "1844163709",
+          "pageCount": 416,
           "authorNames": [
             "Graham McNeill"
           ]
@@ -58,9 +58,45 @@
           },
           {
             "source": "open_library",
-            "url": "https://openlibrary.org/works/OL19919646W"
+            "url": "https://openlibrary.org/works/OL3990207W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/false-gods"
           }
         ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Science Fiction",
+          "War",
+          "Space",
+          "Fantasy",
+          "Civil war",
+          "Military",
+          "Science Fiction & Fantasy",
+          "Adventure",
+          "Fiction",
+          "Dystopian",
+          "Adventurous",
+          "dark",
+          "mysterious",
+          "tense",
+          "emotional",
+          "fast-paced",
+          "sad",
+          "Strong Character Development",
+          "Unloveable Characters",
+          "Not Diverse Characters",
+          "A mix driven",
+          "science fiction",
+          "fast-paced",
+          "Character driven",
+          "adventurous",
+          "mysterious",
+          "fantasy"
+        ],
+        "averageRating": 3.9745222929936306
       }
     },
     {
@@ -104,8 +140,40 @@
           {
             "source": "open_library",
             "url": "https://openlibrary.org/works/OL8454539W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/galaxy-in-flames"
           }
         ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Fantasy",
+          "Science Fiction",
+          "Space",
+          "War",
+          "Dystopian",
+          "Military",
+          "Adventure",
+          "Science Fiction & Fantasy",
+          "Fiction",
+          "dark",
+          "Adventurous",
+          "sad",
+          "fast-paced",
+          "emotional",
+          "tense",
+          "A mix driven",
+          "Strong Character Development",
+          "Loveable Characters",
+          "Not Diverse Characters",
+          "science fiction",
+          "fast-paced",
+          "adventurous",
+          "Plot driven"
+        ],
+        "averageRating": 3.9925373134328357
       }
     },
     {
@@ -149,8 +217,42 @@
           {
             "source": "open_library",
             "url": "https://openlibrary.org/works/OL8933992W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/the-flight-of-the-eisenstein"
           }
         ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Science Fiction",
+          "Fantasy",
+          "Space",
+          "War",
+          "Dystopian",
+          "Military",
+          "Guerre",
+          "Adventure",
+          "Fiction",
+          "Imaginary wars and battles",
+          "dark",
+          "Adventurous",
+          "tense",
+          "medium-paced",
+          "emotional",
+          "A mix driven",
+          "Strong Character Development",
+          "Loveable Characters",
+          "Not Diverse Characters",
+          "adventurous",
+          "dark",
+          "medium-paced",
+          "Unloveable Characters",
+          "Plot driven",
+          "Weak Character Development"
+        ],
+        "averageRating": 4
       }
     },
     {
@@ -194,8 +296,29 @@
           {
             "source": "open_library",
             "url": "https://openlibrary.org/works/OL3990208W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/fulgrim"
           }
         ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Science Fiction",
+          "Fantasy",
+          "Space",
+          "War",
+          "Dystopian",
+          "Guerre",
+          "Adventure",
+          "Horreur",
+          "Fiction",
+          "Adventurous",
+          "challenging",
+          "dark"
+        ],
+        "averageRating": 3.6358024691358026
       }
     },
     {
@@ -239,8 +362,25 @@
           {
             "source": "open_library",
             "url": "https://openlibrary.org/works/OL20795884W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/descent-of-angels"
           }
         ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Science Fiction",
+          "Fantasy",
+          "Space",
+          "War",
+          "Dystopian",
+          "Knights and knighthood",
+          "Guerre",
+          "Fiction"
+        ],
+        "averageRating": 3.587719298245614
       }
     },
     {
@@ -284,8 +424,23 @@
           {
             "source": "open_library",
             "url": "https://openlibrary.org/works/OL17546228W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/battle-for-the-abyss"
           }
         ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Fantasy",
+          "Fiction",
+          "Science Fiction",
+          "Space",
+          "War",
+          "Dystopian"
+        ],
+        "averageRating": 3.1785714285714284
       }
     },
     {
@@ -338,11 +493,11 @@
         },
         "isbn13": {
           "old": null,
-          "new": "9781849707442"
+          "new": "9781849707435"
         },
         "isbn10": {
           "old": null,
-          "new": "1849700168"
+          "new": "184970743X"
         },
         "pageCount": {
           "old": null,
@@ -368,11 +523,11 @@
         },
         "isbn13": {
           "old": null,
-          "new": "9780857879509"
+          "new": "9781849708067"
         },
         "isbn10": {
           "old": null,
-          "new": "1844165361"
+          "new": "1849708150"
         },
         "pageCount": {
           "old": null,
@@ -414,24 +569,6 @@
   "skipped_unchanged": [],
   "field_conflicts": [
     {
-      "slug": "false-gods",
-      "field": "releaseYear",
-      "sources": [
-        {
-          "source": "wikipedia",
-          "value": 2006
-        },
-        {
-          "source": "lexicanum",
-          "value": 2006
-        },
-        {
-          "source": "open_library",
-          "value": 2014
-        }
-      ]
-    },
-    {
       "slug": "descent-of-angels",
       "field": "releaseYear",
       "sources": [
@@ -452,9 +589,9 @@
   ],
   "errors": [
     {
-      "wikipediaTitle": "Horus Rising",
+      "wikipediaTitle": "Legion",
       "source": "hardcover",
-      "message": "Hardcover 403: token rejected. Check HARDCOVER_API_TOKEN in .env.local."
+      "message": "author mismatch: hardcover returned [Leo Champion / Jamie Sawyer / Angelique Anjou / Julie Kagawa / Tia Didmon], wikipedia says \"Dan Abnett\""
     },
     {
       "wikipediaTitle": "Tales of Heresy",
@@ -465,6 +602,11 @@
       "wikipediaTitle": "Tales of Heresy",
       "source": "open_library",
       "message": "no Open Library hits for title+author"
+    },
+    {
+      "wikipediaTitle": "Tales of Heresy",
+      "source": "hardcover",
+      "message": "author mismatch: hardcover returned [Nick Kyme, Lindsey Priestley / Dan Abnet, Lindsey Priestley / —], wikipedia says \"Nick Kyme and Lindsey Priestley\""
     }
   ],
   "discoveryDuplicates": [
