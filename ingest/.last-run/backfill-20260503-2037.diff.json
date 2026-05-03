@@ -1,0 +1,3862 @@
+{
+  "ranAt": "2026-05-03T20:37:25.731Z",
+  "discoverySource": "wikipedia",
+  "discoveryPages": [
+    "List_of_Warhammer_40,000_novels",
+    "Horus_Heresy_(novels)",
+    "Siege_of_Terra",
+    "Eisenhorn"
+  ],
+  "activeSources": [
+    "lexicanum",
+    "open_library",
+    "hardcover",
+    "llm"
+  ],
+  "discovered": 701,
+  "added": [
+    {
+      "wikipediaTitle": "False Gods",
+      "slug": "false-gods",
+      "payload": {
+        "slug": "false-gods",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "False Gods",
+          "releaseYear": 2006,
+          "startY": 39000,
+          "endY": 39000,
+          "synopsis": "Following the events of Horus Rising, the Sons of Horus — formerly the Luna Wolves — continue the Great Crusade under Warmaster Horus. Summoned back to the world of Davin by the scheming Word Bearers Chaplain Erebus, Horus leads his forces against the corrupted planetary governor Eugen Temba, who has fallen to the influence of Chaos. During the battle, Horus suffers a grievous wound from a daemon-infused weapon that brings him to the threshold of death. Desperate to save their beloved Warmaster, his inner circle allow him to be taken to a Chaos-tainted healing lodge deep in Davin's moon. Within that corrupted ritual space, Horus is exposed to visions of a possible future and the temptations of the Ruinous Powers. Captain Garviel Loken and the Mournival watch helplessly as seeds of doubt, pride, and resentment take root in their Primarch — setting the stage for the most catastrophic betrayal in the history of the Imperium.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/894750-L.jpg",
+          "seriesIndex": 2,
+          "isbn13": "9781844163700",
+          "isbn10": "1844163709",
+          "pageCount": 416,
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "male",
+            "space_marine",
+            "imperium",
+            "galactic",
+            "mid_series",
+            "standard",
+            "war_story",
+            "political_thriller",
+            "character_study",
+            "grimdark",
+            "somber",
+            "philosophical",
+            "betrayal",
+            "loyalty",
+            "hubris",
+            "brotherhood",
+            "doubt",
+            "cw_violence",
+            "cw_disturbing",
+            "cw_death",
+            "en"
+          ],
+          "rating": 4,
+          "ratingSource": "amazon",
+          "authorNames": [
+            "Graham McNeill"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "startY": "lexicanum",
+          "endY": "lexicanum",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/False_Gods_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL3990207W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/false-gods"
+          }
+        ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Science Fiction",
+          "War",
+          "Space",
+          "Fantasy",
+          "Civil war",
+          "Military",
+          "Science Fiction & Fantasy",
+          "Adventure",
+          "Fiction",
+          "Dystopian",
+          "Adventurous",
+          "dark",
+          "mysterious",
+          "tense",
+          "emotional",
+          "fast-paced",
+          "sad",
+          "Strong Character Development",
+          "Unloveable Characters",
+          "Not Diverse Characters",
+          "A mix driven",
+          "science fiction",
+          "fast-paced",
+          "Character driven",
+          "adventurous",
+          "mysterious",
+          "fantasy"
+        ],
+        "averageRating": 3.9745222929936306
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "political_thriller",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "betrayal",
+          "loyalty",
+          "hubris",
+          "brotherhood",
+          "doubt",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/audio/the-horus-heresy-audiobooks/false-gods-unabridged-audiobook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/False-Horus-Heresy-Graham-McNeill/dp/1849707472"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/False-Gods-Audiobook/B0764KXG1W"
+          },
+          {
+            "serviceHint": "apple_books",
+            "kind": "audio",
+            "url": "https://books.apple.com/us/audiobook/false-gods-the-horus-heresy-book-2-unabridged/id1292770011"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Galaxy in Flames",
+      "slug": "galaxy-in-flames",
+      "payload": {
+        "slug": "galaxy-in-flames",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Galaxy in Flames",
+          "releaseYear": 2006,
+          "synopsis": "The third entry in the Horus Heresy series brings the opening trilogy to a devastating close. Recovered from near-fatal wounds sustained on Davin, Warmaster Horus moves his treasonous scheme into its most brutal phase. Under the guise of crushing a planetary uprising on Isstvan III, he deploys a massed alliance of four Space Marine Legions — Sons of Horus, Death Guard, World Eaters, and Emperor's Children — against the world's defenders. Once the loyalist forces have descended to the surface, Horus unleashes virus-bombs, killing millions and driving his own warriors into a frenzied transformation. When loyalist Space Marines within his own forces refuse to participate in the slaughter, they are turned upon by their erstwhile brothers. A desperate last stand begins among the ruins as a handful of survivors — including Garviel Loken, Nathaniel Garro, and Saul Tarvitz — fight to resist the Warmaster's overwhelming betrayal, firing the opening shots of a civil war that will engulf the galaxy.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/894771-L.jpg",
+          "seriesIndex": 3,
+          "isbn13": "9781844163939",
+          "isbn10": "1844163938",
+          "pageCount": 416,
+          "format": "novel",
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "male",
+            "space_marine",
+            "multi",
+            "imperium",
+            "chaos",
+            "dual",
+            "planetary",
+            "mid_series",
+            "standard",
+            "war_story",
+            "last_stand",
+            "grimdark",
+            "somber",
+            "action_heavy",
+            "betrayal",
+            "war",
+            "loyalty",
+            "brotherhood",
+            "sacrifice",
+            "cw_violence",
+            "cw_disturbing",
+            "cw_death",
+            "en"
+          ],
+          "rating": 4.18,
+          "ratingSource": "goodreads",
+          "ratingCount": 24218,
+          "authorNames": [
+            "Ben Counter"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "llm",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Galaxy_in_Flames_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL8454539W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/galaxy-in-flames"
+          }
+        ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Fantasy",
+          "Science Fiction",
+          "Space",
+          "War",
+          "Dystopian",
+          "Military",
+          "Adventure",
+          "Science Fiction & Fantasy",
+          "Fiction",
+          "dark",
+          "Adventurous",
+          "sad",
+          "fast-paced",
+          "emotional",
+          "tense",
+          "A mix driven",
+          "Strong Character Development",
+          "Loveable Characters",
+          "Not Diverse Characters",
+          "science fiction",
+          "fast-paced",
+          "adventurous",
+          "Plot driven"
+        ],
+        "averageRating": 3.9925373134328357
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "multi",
+          "imperium",
+          "chaos",
+          "dual",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "last_stand",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "war",
+          "loyalty",
+          "brotherhood",
+          "sacrifice",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/all-products/galaxy-in-flames-ebook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/all-products/galaxy-in-flames-unabridged-audiobook-mp3.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Galaxy-Flames-Horus-Heresy-Counter/dp/1844163938"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/Galaxy-in-Flames-Audiobook/B076B516QM"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "The Flight of the Eisenstein",
+      "slug": "the-flight-of-the-eisenstein",
+      "payload": {
+        "slug": "the-flight-of-the-eisenstein",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "The Flight of the Eisenstein",
+          "releaseYear": 2007,
+          "synopsis": "In the aftermath of the Isstvan III atrocity, Death Guard Captain Nathaniel Garro witnesses Horus's betrayal firsthand — the deliberate extermination of loyal Astartes by their own treacherous brethren. Branded too faithful to the Emperor to be trusted by the conspirators, Garro is maneuvered into joint command of the frigate Eisenstein. Seizing his moment, he leads a desperate breakout through traitor warships to carry word of the Heresy back to Terra. The journey becomes a harrowing ordeal when the damaged Eisenstein is flung deep into the warp, where the servants of Chaos claw at the vessel and its crew. Garro must hold his men together through terror, doubt, and the corrupting taint of the empyrean, driving toward a revelation that will reshape the Imperium — and set him on a path no Space Marine has trodden before.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/894808-L.jpg",
+          "seriesIndex": 4,
+          "isbn13": "9781844164592",
+          "isbn10": "1844164594",
+          "pageCount": 416,
+          "format": "novel",
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "audiobook",
+            "male",
+            "space_marine",
+            "imperium",
+            "sector",
+            "mid_series",
+            "standard",
+            "journey",
+            "war_story",
+            "grimdark",
+            "somber",
+            "action_heavy",
+            "cosmic_horror",
+            "betrayal",
+            "loyalty",
+            "faith",
+            "sacrifice",
+            "doubt",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "rating": 4,
+          "ratingSource": "hardcover",
+          "authorNames": [
+            "James Swallow"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "llm",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/The_Flight_of_the_Eisenstein_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL8933992W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/the-flight-of-the-eisenstein"
+          }
+        ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Science Fiction",
+          "Fantasy",
+          "Space",
+          "War",
+          "Dystopian",
+          "Military",
+          "Guerre",
+          "Adventure",
+          "Fiction",
+          "Imaginary wars and battles",
+          "dark",
+          "Adventurous",
+          "tense",
+          "medium-paced",
+          "emotional",
+          "A mix driven",
+          "Strong Character Development",
+          "Loveable Characters",
+          "Not Diverse Characters",
+          "adventurous",
+          "dark",
+          "medium-paced",
+          "Unloveable Characters",
+          "Plot driven",
+          "Weak Character Development"
+        ],
+        "averageRating": 4
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "mid_series",
+          "standard",
+          "journey",
+          "war_story",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "cosmic_horror",
+          "betrayal",
+          "loyalty",
+          "faith",
+          "sacrifice",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/the-horus-heresy/novels/flight-of-the-eisenstein-ebook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/all-products/the-horus-heresy-audiobooks/flight-of-the-eisenstein-mp3.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Flight-Eisenstein-Horus-Heresy/dp/1844164594"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.amazon.com/Flight-of-Eisenstein-audiobook/dp/B076DMFTXZ"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Fulgrim",
+      "slug": "fulgrim",
+      "payload": {
+        "slug": "fulgrim",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Fulgrim",
+          "releaseYear": 2007,
+          "synopsis": "During the height of the Great Crusade, Fulgrim — Primarch of the Emperor's Children and avatar of martial perfection — leads his Legion against the serpentine alien Laer. Victory comes swiftly, but from the ruins of the Laer temple Fulgrim claims a relic that carries something far more dangerous than its ornate craftsmanship suggests. As the Legion's artists and warriors alike surrender to an insatiable hunger for sensation and excess, the corruption spreads invisibly through the ranks. Fulgrim's closest brotherhood is tested as loyalties fracture under the influence of whispered promises from the Warp. The novel traces the Legion's harrowing descent from disciplined perfection to hedonistic ruin, culminating in the blood-soaked killing fields of Isstvan V, where the Emperor's Children stand alongside Horus's traitor forces and the true cost of hubris is paid in the lives of former brothers.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/894818-L.jpg",
+          "seriesIndex": 5,
+          "isbn13": "9781844164769",
+          "isbn10": "1844164764",
+          "pageCount": 512,
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "male",
+            "space_marine",
+            "imperium",
+            "chaos",
+            "planetary",
+            "galactic",
+            "mid_series",
+            "standard",
+            "war_story",
+            "character_study",
+            "grimdark",
+            "somber",
+            "philosophical",
+            "betrayal",
+            "hubris",
+            "loyalty",
+            "brotherhood",
+            "cw_violence",
+            "cw_disturbing",
+            "cw_death",
+            "cw_abuse",
+            "en"
+          ],
+          "rating": 4.05,
+          "ratingSource": "goodreads",
+          "ratingCount": 16864,
+          "authorNames": [
+            "Graham McNeill"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Fulgrim_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL3990208W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/fulgrim"
+          }
+        ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Science Fiction",
+          "Fantasy",
+          "Space",
+          "War",
+          "Dystopian",
+          "Guerre",
+          "Adventure",
+          "Horreur",
+          "Fiction",
+          "Adventurous",
+          "challenging",
+          "dark"
+        ],
+        "averageRating": 3.6358024691358026
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "chaos",
+          "planetary",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "betrayal",
+          "hubris",
+          "loyalty",
+          "brotherhood",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "cw_abuse",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/the-horus-heresy/novels/fulgrim-ebook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/authors/graham-mcneill/fulgrim-audiobook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Fulgrim-Horus-Heresy-Graham-McNeill/dp/1849708134"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/Fulgrim-Audiobook/B0765CPCNS"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Descent of Angels",
+      "slug": "descent-of-angels",
+      "payload": {
+        "slug": "descent-of-angels",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Descent of Angels",
+          "releaseYear": 2007,
+          "synopsis": "On the forest world of Caliban, ancient knightly orders stand as the only shield between humanity and the monstrous creatures haunting the planet's depths. Two young aspirants, Zahariel and his cousin Nemiel, dream of joining the greatest of these orders under the inspiring leadership of the Primarch Lion El'Jonson, who seeks to unite all of Caliban under one banner. After years of brutal campaigns against the beasts of the forests and rival knightly factions, the Imperium of Man arrives and draws the Lion into the wider Great Crusade. Elevated to lead the Dark Angels Space Marine Legion, El'Jonson must leave Caliban behind — but not before the planet's old tensions and buried secrets begin to fracture the loyalty of those who call it home, setting the stage for a schism that will haunt the Dark Angels for ten thousand years.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/10090887-L.jpg",
+          "seriesIndex": 6,
+          "isbn13": "9781849708050",
+          "isbn10": "1849708142",
+          "pageCount": 416,
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "audiobook",
+            "male",
+            "space_marine",
+            "civilian",
+            "imperium",
+            "planetary",
+            "mid_series",
+            "standard",
+            "war_story",
+            "character_study",
+            "journey",
+            "somber",
+            "philosophical",
+            "action_heavy",
+            "loyalty",
+            "brotherhood",
+            "betrayal",
+            "war",
+            "faith",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "rating": 4.4,
+          "ratingSource": "amazon",
+          "ratingCount": 9,
+          "authorNames": [
+            "Mitchel Scanlon"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Descent_of_Angels_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL20795884W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/descent-of-angels"
+          }
+        ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Science Fiction",
+          "Fantasy",
+          "Space",
+          "War",
+          "Dystopian",
+          "Knights and knighthood",
+          "Guerre",
+          "Fiction"
+        ],
+        "averageRating": 3.587719298245614
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "civilian",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "journey",
+          "somber",
+          "philosophical",
+          "action_heavy",
+          "loyalty",
+          "brotherhood",
+          "betrayal",
+          "war",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/the-horus-heresy/novels/descent-of-angels-ebook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/all-products/the-horus-heresy-audiobooks/descent-of-angels-unabridged-audiobook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Descent-Angels-Heresy-Mitchel-Scanlon/dp/1849708142"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/Descent-of-Angels-Audiobook/B0765DBHPC"
+          },
+          {
+            "serviceHint": "kindle",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Descent-Angels-Horus-Heresy-Book-ebook/dp/B01N52V3NB"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Battle for the Abyss",
+      "slug": "battle-for-the-abyss",
+      "payload": {
+        "slug": "battle-for-the-abyss",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Battle for the Abyss",
+          "releaseYear": 2008,
+          "synopsis": "In the early days of the Horus Heresy, while loyalist and traitor Space Marine Legions choose their sides, a terrifying weapon is unleashed. The Word Bearers have secretly commissioned the Furious Abyss, a colossal warship unlike anything previously fielded, and are dispatching it alongside a massive fleet toward Ultramar, the domain of the Ultramarines, aiming to cripple the most powerful loyalist Legion before they can even muster a response. A hastily assembled band of warriors from several different loyal Legions — Ultramarines, Space Wolves, World Eaters, and a Thousand Sons psyker among them — race across the stars in a desperate bid to intercept and destroy the Furious Abyss. Outgunned and outnumbered, this unlikely coalition must hold together long enough to prevent a catastrophe that could permanently tip the balance of the civil war in Horus's favour.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/7794083-L.jpg",
+          "seriesIndex": 8,
+          "isbn13": "9781844166572",
+          "isbn10": "184970807X",
+          "pageCount": 416,
+          "format": "novel",
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "male",
+            "space_marine",
+            "multi",
+            "imperium",
+            "dual",
+            "sector",
+            "galactic",
+            "mid_series",
+            "standard",
+            "war_story",
+            "journey",
+            "grimdark",
+            "action_heavy",
+            "betrayal",
+            "loyalty",
+            "brotherhood",
+            "sacrifice",
+            "war",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "rating": 3.57,
+          "ratingSource": "goodreads",
+          "ratingCount": 181,
+          "authorNames": [
+            "Ben Counter"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "llm",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Battle_for_the_Abyss_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL17546228W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/battle-for-the-abyss"
+          }
+        ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Fantasy",
+          "Fiction",
+          "Science Fiction",
+          "Space",
+          "War",
+          "Dystopian"
+        ],
+        "averageRating": 3.1785714285714284
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "multi",
+          "imperium",
+          "dual",
+          "sector",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "journey",
+          "grimdark",
+          "action_heavy",
+          "betrayal",
+          "loyalty",
+          "brotherhood",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/all-products/battle-for-the-abyss-ebook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/audio/the-horus-heresy-audiobooks/battle-for-the-abyss-unabridged-audiobook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Battle-Abyss-Horus-Heresy-Book-ebook/dp/B01N947P1E"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "audio",
+            "url": "https://www.amazon.com/Battle-for-Abyss-Ben-Counter-audiobook/dp/B0765C27ZP"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/Battle-for-the-Abyss-Audiobook/B0765CJ89B"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Tales of Heresy",
+      "slug": "tales-of-heresy",
+      "payload": {
+        "slug": "tales-of-heresy",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Tales of Heresy",
+          "releaseYear": 2009,
+          "synopsis": "Tales of Heresy is the tenth entry in the Horus Heresy series — an anthology of seven short stories edited by Nick Kyme and Lindsey Priestley, spanning pivotal moments as the Great Crusade gives way to open civil war. Across diverse perspectives, the collection explores a Custodian Guard operative conducting deadly loyalty tests on Terra, the Space Wolves repelling xenos raiders, the fanatical Word Bearers battling alien forces, a tense encounter between Sisters of Silence and a suspected traitor aboard a vessel, the inner conflict fracturing the Dark Angels Legion, an intimate philosophical confrontation between the Emperor and the last priest of an ancient faith, and the brutal forging of Khârn the Betrayer within the World Eaters. Together, the stories illuminate the fractured loyalties, creeping corruption, and clashing ideologies that underpin the galaxy-spanning catastrophe to come.",
+          "seriesIndex": 10,
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "audiobook",
+            "ensemble",
+            "male",
+            "female",
+            "space_marine",
+            "custodes",
+            "multi",
+            "imperium",
+            "chaos",
+            "squad",
+            "planetary",
+            "mid_series",
+            "standard",
+            "war_story",
+            "character_study",
+            "philosophical",
+            "grimdark",
+            "somber",
+            "action_heavy",
+            "betrayal",
+            "loyalty",
+            "faith",
+            "war",
+            "doubt",
+            "brotherhood",
+            "sacrifice",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "rating": 3.76,
+          "ratingSource": "goodreads",
+          "ratingCount": 7703,
+          "authorNames": [
+            "Nick Kyme and Lindsey Priestley"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "seriesIndex": "wikipedia",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          }
+        ]
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "ensemble",
+          "male",
+          "female",
+          "space_marine",
+          "custodes",
+          "multi",
+          "imperium",
+          "chaos",
+          "squad",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "philosophical",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "loyalty",
+          "faith",
+          "war",
+          "doubt",
+          "brotherhood",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/the-horus-heresy/novels/Tales-of-Heresy-eBook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/audio/the-horus-heresy-audiobooks/tales-of-heresy-ebook-2019.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Tales-Heresy-Horus-Book-10-ebook/dp/B01N64817F"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Tales-Heresy-Horus-Nick-Kyme/dp/1844166821"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Fallen Angels",
+      "slug": "fallen-angels",
+      "payload": {
+        "slug": "fallen-angels",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Fallen Angels",
+          "releaseYear": 2009,
+          "startY": 29999,
+          "endY": 30006,
+          "synopsis": "Set against the backdrop of the galaxy-shaking Horus Heresy, this eleventh entry in the series follows the Dark Angels Legion as they face trials both on distant worlds and on their home planet of Caliban. On the forge world of Diamat, Primarch Lion El'Jonson races to deny Horus's forces access to powerful siege weapons, only to make a fateful decision about their ultimate disposition. Meanwhile, on Caliban, the brooding and sidelined Luther grows increasingly resentful of his perceived exile, slowly gravitating toward dangerous forbidden knowledge as strange and malevolent forces stir beneath the planet's surface. His former pupil Zahariel, caught between the Legion's divided loyalties, finds himself drawn ever deeper into a conspiracy that will fracture the First Legion from within. Ancient secrets and creeping corruption threaten to unmake everything the Dark Angels once stood for, laying the groundwork for a schism that will echo for ten thousand years.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/7707023-L.jpg",
+          "seriesIndex": 11,
+          "isbn13": "9781844167296",
+          "isbn10": "1844167291",
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "male",
+            "space_marine",
+            "imperium",
+            "planetary",
+            "galactic",
+            "mid_series",
+            "standard",
+            "war_story",
+            "political_thriller",
+            "character_study",
+            "grimdark",
+            "somber",
+            "action_heavy",
+            "betrayal",
+            "loyalty",
+            "doubt",
+            "brotherhood",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "rating": 3.8,
+          "ratingSource": "goodreads",
+          "ratingCount": 315,
+          "authorNames": [
+            "Mike Lee"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "startY": "lexicanum",
+          "endY": "lexicanum",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Fallen_Angels_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL17502619W"
+          }
+        ]
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "political_thriller",
+          "character_study",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "loyalty",
+          "doubt",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/all-products/fallen-angels-ebook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Fallen-Angels-Horus-Heresy-Mike/dp/184970810X"
+          },
+          {
+            "serviceHint": "kindle",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Fallen-Angels-Horus-Heresy-Book-ebook/dp/B01N90B77Q"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/Fallen-Angels-Audiobook/B0765CFCGP"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "A Thousand Sons",
+      "slug": "a-thousand-sons",
+      "payload": {
+        "slug": "a-thousand-sons",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "A Thousand Sons",
+          "releaseYear": 2010,
+          "startY": 30000,
+          "endY": 30004,
+          "synopsis": "During the height of the Great Crusade, Magnus the Red leads his Thousand Sons Legion with unparalleled psychic mastery, though their arcane practices invite deep suspicion from the Imperium. Censured at the Council of Nikaea and forbidden from wielding sorcery, Magnus retreats to Prospero with his Legion, defiantly continuing his occult studies in secret. When his far-reaching visions reveal the treachery of Warmaster Horus, Magnus makes a desperate choice — breaking the Emperor's own edict to deliver a psychic warning across the stars. This transgression, however, is interpreted as an act of rebellion, and the Emperor dispatches the Space Wolves under Leman Russ to bring Prospero to ruin. The Burning of Prospero unfolds as an apocalyptic tragedy, with Magnus's pride, good intentions, and forbidden knowledge converging to doom his Legion to a fate far darker than mere destruction — sealing their path toward Chaos itself.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/7585087-L.jpg",
+          "seriesIndex": 12,
+          "isbn13": "9781844168088",
+          "isbn10": "1844168085",
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "audiobook",
+            "male",
+            "space_marine",
+            "imperium",
+            "planetary",
+            "mid_series",
+            "standard",
+            "war_story",
+            "character_study",
+            "political_thriller",
+            "somber",
+            "philosophical",
+            "cosmic_horror",
+            "action_heavy",
+            "betrayal",
+            "hubris",
+            "loyalty",
+            "brotherhood",
+            "sacrifice",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "rating": 4.6,
+          "ratingSource": "amazon",
+          "ratingCount": 116,
+          "authorNames": [
+            "Graham McNeill"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "startY": "lexicanum",
+          "endY": "lexicanum",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/A_Thousand_Sons_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL17441392W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/a-thousand-sons"
+          }
+        ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Science Fiction",
+          "Fantasy",
+          "War",
+          "Imaginary wars and battles",
+          "Guerre",
+          "Fiction",
+          "dark",
+          "sad",
+          "mysterious",
+          "Character driven",
+          "Weak Character Development",
+          "Loveable Characters",
+          "Diverse Characters"
+        ],
+        "averageRating": 4.173469387755102
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "political_thriller",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "action_heavy",
+          "betrayal",
+          "hubris",
+          "loyalty",
+          "brotherhood",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/the-horus-heresy/novels/a-thousand-sons-ebook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/authors/graham-mcneill/A-Thousand-Sons-audiobook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Thousand-Sons-Horus-Heresy/dp/1849708207"
+          },
+          {
+            "serviceHint": "kindle",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Thousand-Sons-Horus-Heresy-Book-ebook/dp/B01N52V5HB"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.amazon.com/A-Thousand-Sons-Graham-McNeill-audiobook/dp/B076KNZYBS"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Nemesis",
+      "slug": "nemesis",
+      "payload": {
+        "slug": "nemesis",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Nemesis",
+          "releaseYear": 2010,
+          "startY": 30007,
+          "endY": 30007,
+          "synopsis": "In the aftermath of the Dropsite Massacre at Isstvan V, with Horus openly raising the banner of rebellion against the Imperium, a covert council of powerful figures within the Emperor's Palace authorises a desperate gambit: assemble a kill-team drawn from multiple Assassin temples to eliminate the Warmaster before the civil war can consume the galaxy. Each operative represents a different discipline of murder — from the shapeshifting Callidus to the psychic Culexus — and must work together despite their deeply divergent methods and philosophies. Yet unknown to the Imperium, a rival scheme is already in motion: a servant of Chaos pursues an equally audacious mission to slay the Emperor himself. As investigations on distant worlds draw closer to the truth and both assassination plots converge, the fate of the galaxy balances on a knife's edge between two competing acts of treachery.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/10500055-L.jpg",
+          "seriesIndex": 13,
+          "isbn13": "9781844168682",
+          "isbn10": "1844168689",
+          "pageCount": 464,
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "audiobook",
+            "male",
+            "mixed",
+            "multi",
+            "imperium",
+            "dual",
+            "galactic",
+            "mid_series",
+            "standard",
+            "war_story",
+            "mystery",
+            "political_thriller",
+            "grimdark",
+            "somber",
+            "action_heavy",
+            "betrayal",
+            "war",
+            "loyalty",
+            "sacrifice",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "rating": 3.68,
+          "ratingSource": "goodreads",
+          "ratingCount": 4899,
+          "authorNames": [
+            "James Swallow"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "startY": "lexicanum",
+          "endY": "lexicanum",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Nemesis_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL21155999W"
+          }
+        ]
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "mixed",
+          "multi",
+          "imperium",
+          "dual",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "mystery",
+          "political_thriller",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "war",
+          "loyalty",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/all-products/Nemesis-ebook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Nemesis-Horus-Heresy-James-Swallow/dp/1844168689"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/Nemesis-Audiobook/B076B1DTH5"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "audio",
+            "url": "https://www.amazon.com/Nemesis-James-Swallow-audiobook/dp/B076B4892L"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Prospero Burns",
+      "slug": "prospero-burns",
+      "payload": {
+        "slug": "prospero-burns",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Prospero Burns",
+          "releaseYear": 2010,
+          "startY": 1000,
+          "endY": 1000,
+          "synopsis": "Set during the turbulent years of the Horus Heresy, Prospero Burns follows Kasper Hawser, a scholar and remembrancer who becomes an unexpected witness to one of the most catastrophic events of the era. Embedded among the Vlka Fenryka — the Space Wolves — as a living repository of their oral traditions, Hawser pieces together fragmented memories and discovers that his past is far more entangled with dark forces than he ever suspected. When the Emperor commands Primarch Leman Russ to march on the world of Prospero and bring the wayward Magnus the Red to account for his sorcerous transgressions, Hawser finds himself swept into the firestorm of an assault that will consume an entire civilization. Narrated through Hawser's eyes, the novel serves as a meditation on culture, memory, loyalty, and the terrible price paid when trust between brothers shatters beyond repair.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/7502637-L.jpg",
+          "seriesIndex": 15,
+          "isbn13": "9781844167760",
+          "isbn10": "1844167763",
+          "format": "novel",
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "male",
+            "civilian",
+            "imperium",
+            "planetary",
+            "requires_context",
+            "standard",
+            "war_story",
+            "character_study",
+            "journey",
+            "grimdark",
+            "somber",
+            "philosophical",
+            "betrayal",
+            "loyalty",
+            "war",
+            "hubris",
+            "brotherhood",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "rating": 4.6,
+          "ratingSource": "amazon",
+          "ratingCount": 1201,
+          "authorNames": [
+            "Dan Abnett"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "startY": "lexicanum",
+          "endY": "lexicanum",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "format": "llm",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Prospero_Burns_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL17399892W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/prospero-burns-2010"
+          }
+        ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Fiction",
+          "Fantasy",
+          "Science fiction",
+          "War"
+        ]
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "standard",
+          "war_story",
+          "character_study",
+          "journey",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "betrayal",
+          "loyalty",
+          "war",
+          "hubris",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/the-horus-heresy/novels/prospero-burns-ebook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/audio/the-horus-heresy-audiobooks/prospero-burns-mp3.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Prospero-Burns-Horus-Heresy-Abnett/dp/1849708215"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/Prospero-Burns-Audiobook/B0765BRZ1G"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Age of Darkness",
+      "slug": "age-of-darkness",
+      "payload": {
+        "slug": "age-of-darkness",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Age of Darkness",
+          "releaseYear": 2011,
+          "synopsis": "Set during the seven years following the catastrophic betrayal at Isstvan, this anthology of short stories illuminates the hidden chapters of the Horus Heresy. As the Warmaster marshals his forces for the long march to Terra, the Imperium fractures under the weight of treachery and war. Across distant star systems, loyalists and traitors alike pursue their own agendas amid the silence and secrecy that define this dark interregnum. The collection brings together multiple authors exploring distinct warriors, Primarchs, and forgotten campaigns—from Iron Warriors holding sieges against unexpected foes to Ultramarines testing new tactical doctrines. Together, these tales build a mosaic of a galaxy convulsed by civil war, laying crucial foundations and seeding revelations that will echo throughout the broader conflict to come.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/6683888-L.jpg",
+          "seriesIndex": 16,
+          "isbn13": "9781849700375",
+          "isbn10": "1849700370",
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "ensemble",
+            "male",
+            "space_marine",
+            "multi",
+            "imperium",
+            "chaos",
+            "dual",
+            "galactic",
+            "sector",
+            "mid_series",
+            "requires_context",
+            "standard",
+            "war_story",
+            "character_study",
+            "grimdark",
+            "somber",
+            "philosophical",
+            "betrayal",
+            "war",
+            "loyalty",
+            "brotherhood",
+            "doubt",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "rating": 3,
+          "ratingSource": "goodreads",
+          "authorNames": [
+            "Christian Dunn"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL15671850W"
+          }
+        ]
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "ensemble",
+          "male",
+          "space_marine",
+          "multi",
+          "imperium",
+          "chaos",
+          "dual",
+          "galactic",
+          "sector",
+          "mid_series",
+          "requires_context",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "betrayal",
+          "war",
+          "loyalty",
+          "brotherhood",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/the-horus-heresy/novels/age-of-darkness.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Age-Darkness-Horus-Heresy/dp/1849700370"
+          },
+          {
+            "serviceHint": "kindle",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Age-Darkness-Horus-Heresy-Book-ebook/dp/B01N1FROUQ"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "The Outcast Dead",
+      "slug": "the-outcast-dead",
+      "payload": {
+        "slug": "the-outcast-dead",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "The Outcast Dead",
+          "releaseYear": 2011,
+          "startY": 30005,
+          "endY": 30005,
+          "synopsis": "Set amid the opening catastrophes of the Horus Heresy, The Outcast Dead follows Kai Zulane, a gifted astropath stationed on Terra whose sanity has been shattered by a horrific tragedy in the void. Burdened with a devastating secret about the war's ultimate outcome — knowledge so dangerous that powerful forces will kill to suppress it — Kai finds himself hunted through the labyrinthine depths of the Imperial Palace's undercity. His unlikely protectors are a band of warriors known as the Outcast Dead: Space Marines from Legions now declared traitor, men trapped in an impossible liminal space between loyalty and condemnation. As assassins and Black Sentinels close in, Kai must wrestle with whether the truth he carries is a weapon worth dying for or a secret the future of humanity demands be silenced forever.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/7615295-L.jpg",
+          "seriesIndex": 17,
+          "isbn13": "9781849700863",
+          "isbn10": "1849700869",
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "audiobook",
+            "male",
+            "civilian",
+            "imperium",
+            "planetary",
+            "mid_series",
+            "standard",
+            "journey",
+            "political_thriller",
+            "character_study",
+            "grimdark",
+            "somber",
+            "philosophical",
+            "betrayal",
+            "loyalty",
+            "doubt",
+            "sacrifice",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "rating": 4.5,
+          "ratingSource": "amazon",
+          "ratingCount": 1056,
+          "authorNames": [
+            "Graham McNeill"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "startY": "lexicanum",
+          "endY": "lexicanum",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/The_Outcast_Dead_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL17456533W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/the-outcast-dead-2011"
+          }
+        ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Science fiction",
+          "Fantasy",
+          "War",
+          "Fiction",
+          "Space warfare",
+          "Adventurous",
+          "emotional",
+          "mysterious"
+        ],
+        "averageRating": 3.7058823529411766
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "journey",
+          "political_thriller",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "betrayal",
+          "loyalty",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/the-horus-heresy/novels/the-outcast-dead-ebook-ebook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Outcast-Dead-Truth-Within-Heresy/dp/1849700869"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.amazon.com/The-Outcast-Dead-Graham-McNeill-audiobook/dp/B0765CXL7C"
+          },
+          {
+            "serviceHint": "apple_books",
+            "kind": "audio",
+            "url": "https://books.apple.com/us/audiobook/the-outcast-dead-the-horus-heresy-book-17-unabridged/id1293353269"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Deliverance Lost",
+      "slug": "deliverance-lost",
+      "payload": {
+        "slug": "deliverance-lost",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Deliverance Lost",
+          "releaseYear": 2012,
+          "synopsis": "Following the catastrophic betrayal at Isstvan V, Primarch Corax leads his devastated Raven Guard away from the killing fields, his Legion reduced to a fraction of its former strength. Determined to continue fighting the Warmaster's forces rather than retreat into passivity, Corax journeys to Terra and petitions the Emperor himself for the means to rebuild. Granted access to ancient and forbidden genetic knowledge deep within the Imperial Palace, Corax begins an accelerated programme to restore his Legion's numbers and strike back against the traitors. Yet the cunning Alpha Legion, whose operatives survived Isstvan disguised among the loyalist dead, have embedded themselves within the recovering Raven Guard. As new warriors are created and old scores are settled across war-ravaged worlds, the hidden infiltrators work to corrupt and ultimately destroy the Legion's revival before it can threaten Horus's campaign.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/7501024-L.jpg",
+          "seriesIndex": 18,
+          "isbn13": "9781849700627",
+          "isbn10": "1849700621",
+          "format": "novel",
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "audiobook",
+            "male",
+            "space_marine",
+            "imperium",
+            "dual",
+            "planetary",
+            "sector",
+            "mid_series",
+            "requires_context",
+            "standard",
+            "war_story",
+            "political_thriller",
+            "character_study",
+            "grimdark",
+            "somber",
+            "action_heavy",
+            "betrayal",
+            "loyalty",
+            "brotherhood",
+            "sacrifice",
+            "redemption",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "rating": 4.5,
+          "ratingSource": "amazon",
+          "ratingCount": 911,
+          "authorNames": [
+            "Gav Thorpe"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "format": "llm",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Deliverance_Lost_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL17399085W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/deliverance-lost"
+          }
+        ]
+      },
+      "rawHardcoverPayload": {
+        "tags": [
+          "Fantasy",
+          "Fiction",
+          "Science Fiction",
+          "War",
+          "Space warfare"
+        ],
+        "averageRating": 4
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "dual",
+          "planetary",
+          "sector",
+          "mid_series",
+          "requires_context",
+          "standard",
+          "war_story",
+          "political_thriller",
+          "character_study",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "loyalty",
+          "brotherhood",
+          "sacrifice",
+          "redemption",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/all-products/deliverance-lost-ebook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/authors/gav-thorpe/deliverance-lost-unabridged-audiobook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Deliverance-Lost-Horus-Heresy-Thorpe/dp/1849708266"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.amazon.com/Deliverance-Lost-Gav-Thorpe-audiobook/dp/B076KM14DG"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "The Primarchs",
+      "slug": "the-primarchs",
+      "payload": {
+        "slug": "the-primarchs",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "The Primarchs",
+          "releaseYear": 2012,
+          "synopsis": "The Primarchs is the twentieth volume of the Horus Heresy series and the third major anthology of the arc, collecting four novella-length stories each centred on one of the Emperor's demigod sons. In the first tale, the Emperor's Children grapple with the terrifying question of whether their Primarch Fulgrim still commands his own soul or has been utterly subsumed by the daemon within. The second follows Ferrus Manus and the Iron Hands in an encounter drawing on ancient myth. The third turns to Lion El'Jonson and the Dark Angels, probing the secrets and hidden loyalties their Primarch guards so jealously. The fourth plunges into the byzantine world of the Alpha Legion, where the twin Primarchs Alpharius and Omegon scheme against enemies — and each other — in a deadly game of identity and deception. Together, the stories illuminate how the seeds of the Heresy were sown long before Horus ever raised his hand against the Emperor.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/7688761-L.jpg",
+          "seriesIndex": 20,
+          "isbn13": "9781849702089",
+          "isbn10": "1849709831",
+          "pageCount": 416,
+          "format": "anthology",
+          "availability": "in_print",
+          "facetIds": [
+            "book",
+            "male",
+            "multi",
+            "imperium",
+            "chaos",
+            "galactic",
+            "mid_series",
+            "standard",
+            "war_story",
+            "character_study",
+            "grimdark",
+            "somber",
+            "philosophical",
+            "betrayal",
+            "loyalty",
+            "brotherhood",
+            "hubris",
+            "doubt",
+            "cw_violence",
+            "cw_disturbing",
+            "cw_death",
+            "en"
+          ],
+          "rating": 3.6,
+          "ratingSource": "goodreads",
+          "ratingCount": 3062,
+          "authorNames": [
+            "Christian Dunn"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "llm",
+          "availability": "llm",
+          "facetIds": "llm",
+          "rating": "llm",
+          "ratingSource": "llm",
+          "ratingCount": "llm",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL17493476W"
+          }
+        ]
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "male",
+          "multi",
+          "imperium",
+          "chaos",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "betrayal",
+          "loyalty",
+          "brotherhood",
+          "hubris",
+          "doubt",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/the-horus-heresy/novels/the-primarchs-ebook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Primarchs-Horus-Heresy-Christian-Dunn/dp/184970208X"
+          },
+          {
+            "serviceHint": "kindle",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Primarchs-Horus-Heresy-Book-20-ebook/dp/B01MRKVM6Q"
+          }
+        ]
+      }
+    }
+  ],
+  "updated": [],
+  "skipped_manual": [
+    {
+      "slug": "horus-rising",
+      "dbSlug": "horus-rising-hh01",
+      "wouldBeDiff": {
+        "startY": {
+          "old": 30998,
+          "new": 30000
+        },
+        "endY": {
+          "old": 30998,
+          "new": 30000
+        },
+        "synopsis": {
+          "old": "The first volume of the Horus Heresy. The Warmaster Horus leads the Great Crusade's culminating campaigns even as the seeds of betrayal are sown.",
+          "new": "Set during the waning days of the Great Crusade in the 31st Millennium, Horus Rising follows Garviel Loken, a captain of the Luna Wolves Space Marine Legion, as he rises to join the elite inner circle known as the Mournival. Under the command of Warmaster Horus — the Emperor's most favoured son, newly entrusted with leading all of humanity's armies — the Legion prosecutes campaigns across a galaxy still being brought to compliance. Loken witnesses both the glory and the moral ambiguity of conquest, from brutal warfare on the world designated 63-19 to tense diplomatic contact with the alien Interex civilisation. All the while, subtle ideological fractures begin to appear within the Legion and among Horus's closest advisors. What begins as a celebration of the Imperium's golden age gradually reveals the fault lines of pride, loyalty, and buried doubt that will eventually fracture the entire war effort — the first stirrings of a heresy that will shake the galaxy to its foundations."
+        },
+        "coverUrl": {
+          "old": null,
+          "new": "https://covers.openlibrary.org/b/id/894713-L.jpg"
+        },
+        "isbn13": {
+          "old": null,
+          "new": "9781849707435"
+        },
+        "isbn10": {
+          "old": null,
+          "new": "184970743X"
+        },
+        "pageCount": {
+          "old": null,
+          "new": 416
+        },
+        "availability": {
+          "old": null,
+          "new": "in_print"
+        },
+        "rating": {
+          "old": null,
+          "new": 4.24
+        },
+        "ratingSource": {
+          "old": null,
+          "new": "goodreads"
+        },
+        "ratingCount": {
+          "old": null,
+          "new": 33258
+        }
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "sector",
+          "series_start",
+          "standard",
+          "war_story",
+          "character_study",
+          "action_heavy",
+          "philosophical",
+          "somber",
+          "betrayal",
+          "loyalty",
+          "hubris",
+          "brotherhood",
+          "doubt",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/series/the-horus-heresy/horus-rising.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/authors/dan-abnett/horus-rising-unabridged-audiobook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Horus-Rising-Heresy-Dan-Abnett/dp/184970743X"
+          },
+          {
+            "serviceHint": "kindle",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Horus-Rising-Heresy-Book-ebook/dp/B01MQGRV2R"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/Horus-Rising-Audiobook/B0764LBS4B"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "legion",
+      "dbSlug": "legion-hh07",
+      "wouldBeDiff": {
+        "startY": {
+          "old": 30985,
+          "new": 30003
+        },
+        "endY": {
+          "old": 30985,
+          "new": 30003
+        },
+        "synopsis": {
+          "old": "On the dust-choked world of Nurth, an Imperial Army officer is drawn into a conspiracy that reaches the most secretive of Astartes legions — and forces him to confront whether the Alpha Legion serves the Emperor or something else entirely.",
+          "new": "Set during the closing years of the Great Crusade, Legion follows the Imperial Army's Geno Five-Two Chiliad as they are deployed alongside the mysterious Alpha Legion to pacify the world of Nurth, whose population harbours alien-influenced resistance. Caught between the overt military campaign and a web of espionage, linguist and operative John Grammaticus — a secret agent serving a clandestine alien organisation known as the Cabal — finds himself drawn into a conspiracy that reaches to the heart of the Horus Heresy itself. As loyalties fracture and hidden identities unravel, the true nature of the Alpha Legion's primarch Alpharius is revealed in a revelation that reframes the entire coming civil war. The novel explores deception, dual allegiance, and the terrible pragmatism of those who believe they alone can determine humanity's fate."
+        },
+        "coverUrl": {
+          "old": null,
+          "new": "https://covers.openlibrary.org/b/id/10097958-L.jpg"
+        },
+        "isbn13": {
+          "old": null,
+          "new": "9780857879509"
+        },
+        "isbn10": {
+          "old": null,
+          "new": "1844165361"
+        },
+        "pageCount": {
+          "old": null,
+          "new": 414
+        },
+        "availability": {
+          "old": null,
+          "new": "in_print"
+        },
+        "rating": {
+          "old": null,
+          "new": 4.6
+        },
+        "ratingSource": {
+          "old": null,
+          "new": "amazon"
+        },
+        "ratingCount": {
+          "old": null,
+          "new": 175
+        }
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "guardsman",
+          "civilian",
+          "multi",
+          "imperium",
+          "dual",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "mystery",
+          "political_thriller",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "betrayal",
+          "loyalty",
+          "war",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/all-products/legion-ebook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/authors/dan-abnett/legion-audiobook-mp3.html"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/Legion-Audiobook/B0763XDL9V"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Legion-Dan-Abnett-audiobook/dp/B0764B4CCS"
+          },
+          {
+            "serviceHint": "apple_books",
+            "kind": "audio",
+            "url": "https://books.apple.com/us/audiobook/legion-the-horus-heresy-book-7-unabridged/id1292379785"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "mechanicum",
+      "dbSlug": "mechanicum-hh09",
+      "wouldBeDiff": {
+        "startY": {
+          "old": 30998,
+          "new": 29739
+        },
+        "endY": {
+          "old": 31000,
+          "new": 30005
+        },
+        "synopsis": {
+          "old": "While Horus's rebellion ignites across the galaxy, a parallel civil war engulfs the forge-world of Mars. Loyalist and traitor magos battle for the soul of the Adeptus Mechanicum, and the Dragon of Mars stirs beneath Olympus Mons.",
+          "new": "Set during the tumultuous age of the Horus Heresy, Mechanicum turns its gaze to Mars — the sacred forge-world of the Adeptus Mechanicum. As the Warmaster's corruption ripples outward across the Imperium, his agents work in shadow to fracture the allegiances of Mars's priesthood. The vast manufactory-cities that have sustained the Great Crusade become battlegrounds as loyalist and traitor factions collide, dragging the legendary Titan Legions into a savage civil war that will decide who controls the most strategically vital planet in human space. Beneath the rust-red surface, something ancient and malevolent stirs — a primordial intelligence long imprisoned — and its awakening threatens to transform the conflict into something far darker. McNeill traces the origins of the Dark Mechanicum through the perspectives of Tech-Priests, Titan crews, and warriors caught between duty and heresy, exploring what it means when the custodians of knowledge become the instruments of ruin."
+        },
+        "coverUrl": {
+          "old": null,
+          "new": "https://covers.openlibrary.org/b/id/7825873-L.jpg"
+        },
+        "isbn13": {
+          "old": null,
+          "new": "9781844166060"
+        },
+        "isbn10": {
+          "old": null,
+          "new": "1844166066"
+        },
+        "pageCount": {
+          "old": null,
+          "new": 416
+        },
+        "availability": {
+          "old": null,
+          "new": "in_print"
+        },
+        "rating": {
+          "old": null,
+          "new": 3.82
+        },
+        "ratingSource": {
+          "old": null,
+          "new": "hardcover"
+        }
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "female",
+          "mixed",
+          "tech_priest",
+          "multi",
+          "imperium",
+          "dual",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "political_thriller",
+          "court_intrigue",
+          "grimdark",
+          "action_heavy",
+          "cosmic_horror",
+          "betrayal",
+          "war",
+          "loyalty",
+          "hubris",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "cw_socio_political",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/all-products/Mechanicum-eBook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/audio/the-horus-heresy-audiobooks/mechanicum-unabridged-mp3.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Mechanicum-Horus-Heresy-Graham-McNeill/dp/1849708177"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/Mechanicum-Audiobook/B076B4696S"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "the-first-heretic",
+      "dbSlug": "the-first-heretic-hh14",
+      "wouldBeDiff": {
+        "startY": {
+          "old": 30951,
+          "new": 29962
+        },
+        "endY": {
+          "old": 30998,
+          "new": 30005
+        },
+        "synopsis": {
+          "old": "The censure of Monarchia by the Emperor himself sets the Word Bearers on a forty-seven-year pilgrimage in search of meaning — and into the arms of the Ruinous Powers. The first heretics are born long before the Heresy, and their journey is the genesis of all that follows.",
+          "new": "During the Great Crusade, the Word Bearers Legion finds itself publicly humiliated when the Emperor condemns their practice of worshipping him as a god, razing their beloved city of Monarchia to dust before the eyes of all. Devastated and stripped of purpose, Primarch Lorgar leads his broken Legion on a years-long pilgrimage across the galaxy, secretly sanctioned to find a new truth worth believing in. Their wanderings carry them to the very edge of known space and into the Warp itself, where ancient and terrible powers offer them the faith they so desperately crave. Through Argel Tal, a captain bound to a daemon, and a mortal woman named Cyrene, the reader witnesses the Legion's slow, agonising transformation — from the Emperor's most devout sons into the architects of the Horus Heresy. The seed of Chaos is planted, and humanity will never be the same."
+        },
+        "coverUrl": {
+          "old": null,
+          "new": "https://covers.openlibrary.org/b/id/7724581-L.jpg"
+        },
+        "isbn13": {
+          "old": null,
+          "new": "9781844168842"
+        },
+        "isbn10": {
+          "old": null,
+          "new": "1844168840"
+        },
+        "pageCount": {
+          "old": null,
+          "new": 416
+        },
+        "availability": {
+          "old": null,
+          "new": "in_print"
+        },
+        "rating": {
+          "old": null,
+          "new": 4.7
+        },
+        "ratingSource": {
+          "old": null,
+          "new": "amazon"
+        },
+        "ratingCount": {
+          "old": null,
+          "new": 8076
+        }
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "chaos",
+          "imperium",
+          "dual",
+          "galactic",
+          "sector",
+          "mid_series",
+          "standard",
+          "war_story",
+          "journey",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "betrayal",
+          "faith",
+          "loyalty",
+          "doubt",
+          "hubris",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/all-products/First-heretic-the-ebook-2016-updated.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/authors/aaron-dembski-bowden/first-heretic-unabridged-audiobook-mp3.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/First-Heretic-Horus-Heresy/dp/1844168859"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "audio",
+            "url": "https://www.amazon.com/The-First-Heretic-audiobook/dp/B076473Z82"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/The-First-Heretic-Audiobook/B0763XVCMB"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "know-no-fear",
+      "dbSlug": "know-no-fear-hh19",
+      "wouldBeDiff": {
+        "synopsis": {
+          "old": "The Word Bearers spring their long-laid trap on the Ultramarines fleet at Calth. In the space of a single day the orbital infrastructure of an entire system burns, and the war between the brotherhood of Astartes becomes total.",
+          "new": "The Ultramarines Legion, still ignorant of the galaxy-wide civil war ignited by Horus, assembles at Calth under Primarch Roboute Guilliman's command. Their orders from the Warmaster point them toward an orkish threat in the Veridia System, and the Word Bearers Legion arrives ostensibly as brothers-in-arms. But the alliance is a trap: the Word Bearers unleash a sudden and overwhelming assault, crippling the Ultramarines fleet in orbit and slaughtering ground forces without warning. What unfolds is not merely Legion against Legion but a catastrophe on a civilisation-ending scale, as the Word Bearers draw upon daemonic powers born of the Warp, corrupting Calth's star itself into a weapon. Guilliman and his surviving warriors must fight on multiple fronts — void, ground, and the shadow of a dimension-straddling nightmare — struggling to preserve anything of their proud Legion against an enemy who had planned their annihilation for decades."
+        },
+        "coverUrl": {
+          "old": null,
+          "new": "https://covers.openlibrary.org/b/id/10500050-L.jpg"
+        },
+        "isbn13": {
+          "old": null,
+          "new": "9781849701358"
+        },
+        "isbn10": {
+          "old": null,
+          "new": "1849701350"
+        },
+        "pageCount": {
+          "old": null,
+          "new": 416
+        },
+        "availability": {
+          "old": null,
+          "new": "in_print"
+        },
+        "rating": {
+          "old": null,
+          "new": 4.3
+        },
+        "ratingSource": {
+          "old": null,
+          "new": "goodreads"
+        },
+        "ratingCount": {
+          "old": null,
+          "new": 7977
+        }
+      },
+      "rawLlmPayload": {
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "dual",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "cosmic_horror",
+          "betrayal",
+          "war",
+          "loyalty",
+          "brotherhood",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "discoveredLinks": [
+          {
+            "serviceHint": "black_library",
+            "kind": "shop",
+            "url": "https://www.blacklibrary.com/the-horus-heresy/novels/know-no-fear-ebook.html"
+          },
+          {
+            "serviceHint": "black_library",
+            "kind": "audio",
+            "url": "https://www.blacklibrary.com/authors/dan-abnett/know-no-fear-audiobook.html"
+          },
+          {
+            "serviceHint": "amazon",
+            "kind": "shop",
+            "url": "https://www.amazon.com/Know-No-Fear-Horus-Heresy/dp/1849701350"
+          },
+          {
+            "serviceHint": "audible",
+            "kind": "audio",
+            "url": "https://www.audible.com/pd/Know-No-Fear-Audiobook/B076B2VQQH"
+          }
+        ]
+      }
+    }
+  ],
+  "skipped_unchanged": [],
+  "field_conflicts": [
+    {
+      "slug": "descent-of-angels",
+      "field": "releaseYear",
+      "sources": [
+        {
+          "source": "wikipedia",
+          "value": 2007
+        },
+        {
+          "source": "lexicanum",
+          "value": 2007
+        },
+        {
+          "source": "open_library",
+          "value": 2014
+        }
+      ]
+    },
+    {
+      "slug": "a-thousand-sons",
+      "field": "releaseYear",
+      "sources": [
+        {
+          "source": "wikipedia",
+          "value": 2010
+        },
+        {
+          "source": "lexicanum",
+          "value": 2010
+        },
+        {
+          "source": "open_library",
+          "value": 2009
+        }
+      ]
+    },
+    {
+      "slug": "prospero-burns",
+      "field": "releaseYear",
+      "sources": [
+        {
+          "source": "wikipedia",
+          "value": 2010
+        },
+        {
+          "source": "lexicanum",
+          "value": 2011
+        },
+        {
+          "source": "open_library",
+          "value": 2011
+        }
+      ]
+    },
+    {
+      "slug": "deliverance-lost",
+      "field": "releaseYear",
+      "sources": [
+        {
+          "source": "wikipedia",
+          "value": 2012
+        },
+        {
+          "source": "lexicanum",
+          "value": 2011
+        },
+        {
+          "source": "open_library",
+          "value": 2011
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "wikipediaTitle": "Legion",
+      "source": "hardcover",
+      "message": "author mismatch: hardcover returned [Leo Champion / Jamie Sawyer / Angelique Anjou / Julie Kagawa / Tia Didmon], wikipedia says \"Dan Abnett\""
+    },
+    {
+      "wikipediaTitle": "Tales of Heresy",
+      "source": "lexicanum",
+      "message": "author mismatch: lexicanum says \"Dan Abnett, Matthew Farrer, Mike Lee, Graham McNeill, Anthony Reynolds, James Swallow, Gav Thorpe\", wikipedia says \"Nick Kyme and Lindsey Priestley\""
+    },
+    {
+      "wikipediaTitle": "Tales of Heresy",
+      "source": "open_library",
+      "message": "no Open Library hits for title+author"
+    },
+    {
+      "wikipediaTitle": "Tales of Heresy",
+      "source": "hardcover",
+      "message": "author mismatch: hardcover returned [Nick Kyme, Lindsey Priestley / Dan Abnet, Lindsey Priestley / —], wikipedia says \"Nick Kyme and Lindsey Priestley\""
+    },
+    {
+      "wikipediaTitle": "Fallen Angels",
+      "source": "hardcover",
+      "message": "author mismatch: hardcover returned [— / Tara Hyland / Walter Dean Myers / — / Lori Foster], wikipedia says \"Mike Lee\""
+    },
+    {
+      "wikipediaTitle": "Nemesis",
+      "source": "hardcover",
+      "message": "author mismatch: hardcover returned [Mark Millar, Steve McNiven, Dave McCaig, Chris Eliopoulos / David Stuttard / — / — / Alex  Lamb], wikipedia says \"James Swallow\""
+    },
+    {
+      "wikipediaTitle": "Age of Darkness",
+      "source": "lexicanum",
+      "message": "no candidate URL returned a book article"
+    },
+    {
+      "wikipediaTitle": "Age of Darkness",
+      "source": "hardcover",
+      "message": "author mismatch: hardcover returned [James Swallow / John French, Christian Z. Dunn, Graham McNeill, James Swallow, Nick Kyme, Chris Wraight, Gav Thorpe, Dan Abnett, Aaron Dembski-Bowden, Rob   Sanders], wikipedia says \"Christian Dunn\""
+    },
+    {
+      "wikipediaTitle": "The Primarchs",
+      "source": "lexicanum",
+      "message": "no candidate URL returned a book article"
+    },
+    {
+      "wikipediaTitle": "The Primarchs",
+      "source": "hardcover",
+      "message": "author mismatch: hardcover returned [Christian Z. Dunn, Rob   Sanders, Graham McNeill, Gav Thorpe, Nick Kyme], wikipedia says \"Christian Dunn\""
+    }
+  ],
+  "discoveryDuplicates": [
+    {
+      "slug": "horus-rising",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Other_special_editions_(selections)",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Other_special_editions_(selections)"
+      ]
+    },
+    {
+      "slug": "false-gods",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "galaxy-in-flames",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-flight-of-the-eisenstein",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "fulgrim",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "descent-of-angels",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "legion",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "battle-for-the-abyss",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "mechanicum",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "tales-of-heresy",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "fallen-angels",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "a-thousand-sons",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "nemesis",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40"
+      ]
+    },
+    {
+      "slug": "the-first-heretic",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "prospero-burns",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "age-of-darkness",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-outcast-dead",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "deliverance-lost",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "know-no-fear",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-primarchs",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "fear-to-tread",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "shadows-of-treachery",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "angel-exterminatus",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40"
+      ]
+    },
+    {
+      "slug": "betrayer",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40"
+      ]
+    },
+    {
+      "slug": "mark-of-calth",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "vulkan-lives",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-unremembered-empire",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "scars",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40"
+      ]
+    },
+    {
+      "slug": "vengeful-spirit",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-damnation-of-pythos",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "legacies-of-betrayal",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "deathfire",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "war-without-end",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "pharos",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "eye-of-terra",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-path-of-heaven",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-silent-war",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "angels-of-caliban",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "corax",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-master-of-mankind",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "garro",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "shattered-legions",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-crimson-king",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "tallarn",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "ruinstorm",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "old-earth",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-burden-of-loyalty",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "wolfsbane",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "born-of-flame",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "slaves-to-darkness",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "heralds-of-the-siege",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "titandeath",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-buried-dagger",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-solar-war",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-lost-and-the-damned",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-first-wall",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "saturnine",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "mortis",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "warhawk",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "echoes-of-eternity",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-end-and-the-death-volume-i",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-end-and-the-death-volume-ii",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-end-and-the-death-volume-iii",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "aurelian",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novellas",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Selections",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Selections"
+      ]
+    },
+    {
+      "slug": "veritas-ferrum",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Audio_Dramas",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40"
+      ]
+    },
+    {
+      "slug": "hunters-moon",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Audio_Dramas",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_21"
+      ]
+    },
+    {
+      "slug": "imperator-wrath-of-the-omnissiah",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Adeptus_Titanicus"
+      ]
+    },
+    {
+      "slug": "day-of-ascension",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Genestealer_Cults"
+      ]
+    },
+    {
+      "slug": "throne-of-light",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_3",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Dawn_of_Fire"
+      ]
+    },
+    {
+      "slug": "the-iron-kingdom",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_3",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Dawn_of_Fire"
+      ]
+    },
+    {
+      "slug": "the-martyrs-tomb",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_3",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Dawn_of_Fire"
+      ]
+    },
+    {
+      "slug": "azrael",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_6",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Space_Marine_Legends_series"
+      ]
+    },
+    {
+      "slug": "ascension",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_trilogy_2",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Blackstone_Fortress"
+      ]
+    },
+    {
+      "slug": "the-lords-of-silence",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Death_Guard",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_11"
+      ]
+    },
+    {
+      "slug": "deathwatch",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_Series_4",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Legends_of_the_Dark_Millennium"
+      ]
+    },
+    {
+      "slug": "dark-imperium",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series_5",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Anthologies_2"
+      ]
+    },
+    {
+      "slug": "the-magos",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Eisenhorn",
+        "https://en.wikipedia.org/wiki/Eisenhorn#Books"
+      ]
+    },
+    {
+      "slug": "the-unkindness-of-ravens",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Raven_Guard",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novels_3"
+      ]
+    },
+    {
+      "slug": "savage-scars",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_trilogy_4",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#White_Scars"
+      ]
+    },
+    {
+      "slug": "daenyathos",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_19",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novels_3"
+      ]
+    },
+    {
+      "slug": "deathwing",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Anthologies_2",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Anthologies_2"
+      ]
+    },
+    {
+      "slug": "praetorian-of-dorn-11-12",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "ashes-of-the-imperium",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Sequel:_The_Scouring",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Sequel:_The_Scouring"
+      ]
+    },
+    {
+      "slug": "angels-of-another-age",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "fulgurite",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "fragments-all-we-have-left",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "ex-libris",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "system-purge",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "after-the-dawn",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "homebound",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "the-carrion-lord-of-the-imperium",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "limited-edition-horus-heresy-audio-boxset",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Other_special_editions_(selections)",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Other_special_editions_(selections)"
+      ]
+    },
+    {
+      "slug": "xmas-2011-horus-heresy-ebundle",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Other_special_editions_(selections)",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Other_special_editions_(selections)"
+      ]
+    },
+    {
+      "slug": "collected-visions-iconic-images-of-the-imperium-betrayal-and-war",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Selections",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Selections"
+      ]
+    },
+    {
+      "slug": "battle-of-the-fang",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Selections",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Selections"
+      ]
+    },
+    {
+      "slug": "betrayal",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Selections",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Selections"
+      ]
+    }
+  ],
+  "llmModel": "claude-sonnet-4-6",
+  "llmPromptVersion": "3f8cc9b3c5d1",
+  "llmCostSummary": {
+    "totalTokensIn": 1735741,
+    "totalTokensOut": 44633,
+    "totalWebSearches": 112,
+    "estUsdCost": 6.996718
+  },
+  "llm_flags": [
+    {
+      "slug": "false-gods",
+      "kind": "year_glitch",
+      "field": "startY / endY",
+      "current": 39000,
+      "suggestion": 30000,
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://wh40k.lexicanum.com/wiki/False_Gods_(Novel)"
+      ],
+      "reasoning": "False Gods is set during the Horus Heresy in the early 31st Millennium (~M31 / year ~30,000), not M39; the value 39000 likely results from a data-entry error misreading 'M31' as a four-digit year prefix."
+    },
+    {
+      "slug": "fulgrim",
+      "kind": "no_rating_found",
+      "field": "rating",
+      "current": null,
+      "suggestion": "Used Goodreads (4.05/5) as fallback; Amazon rating was not cleanly surfaced in search results",
+      "sources": [
+        "https://www.goodreads.com/work/quotes/942841-fulgrim"
+      ],
+      "reasoning": "Amazon is the priority source but no explicit numeric star rating appeared in the Amazon search results; Goodreads clearly stated 4.05 average from 16,864 ratings."
+    },
+    {
+      "slug": "descent-of-angels",
+      "kind": "data_conflict",
+      "field": "isbn13",
+      "current": "9781849708050 (open_library) vs 9781844165087 (lexicanum)",
+      "suggestion": "Verify which ISBN13 is the canonical/latest edition; open_library ISBN matches ISBN10 1849708142 (later reprint), lexicanum ISBN matches original 2007 hardcover 1844165086",
+      "sources": [
+        "https://openlibrary.org/works/OL20795884W",
+        "https://wh40k.lexicanum.com/wiki/Descent_of_Angels_(Novel)"
+      ],
+      "reasoning": "Two different ISBN13 values are present across sources, corresponding to different print editions (original 2007 vs later reprint); pipeline should pin to the edition intended."
+    },
+    {
+      "slug": "descent-of-angels",
+      "kind": "year_glitch",
+      "field": "releaseYear",
+      "current": "2007 (wikipedia/lexicanum) vs 2014 (open_library)",
+      "suggestion": "Use 2007 as canonical first-publication year; 2014 is a reprint edition",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://openlibrary.org/works/OL20795884W"
+      ],
+      "reasoning": "Open Library records a 2014 release date which corresponds to a reprint, not the original publication; the series-consistent 2007 date from Wikipedia and Lexicanum should be used."
+    },
+    {
+      "slug": "mechanicum",
+      "kind": "data_conflict",
+      "field": "isbn13",
+      "current": "9781844166060 (open_library) / 9781844166640 (lexicanum)",
+      "suggestion": "Verify which ISBN13 is the primary edition; the two differ",
+      "sources": [
+        "https://openlibrary.org/works/OL17562147W",
+        "https://wh40k.lexicanum.com/wiki/Mechanicum_(Novel)"
+      ],
+      "reasoning": "Open Library records ISBN 9781844166060 while Lexicanum records 9781844166640 — these are distinct codes and at most one can be correct for the same edition."
+    },
+    {
+      "slug": "mechanicum",
+      "kind": "year_glitch",
+      "field": "startY / endY",
+      "current": "startY: 29739, endY: 30005",
+      "suggestion": "Horus Heresy events canonically occur around 005–007.M31; raw year values spanning M29–M31 suggest possible data-encoding artefact",
+      "sources": [
+        "https://wh40k.lexicanum.com/wiki/Mechanicum_(Novel)"
+      ],
+      "reasoning": "The provided startY (29739) and endY (30005) imply an implausibly wide in-universe date range across multiple millennia for a single novel, likely a formatting or epoch-offset artefact."
+    },
+    {
+      "slug": "mechanicum",
+      "kind": "no_rating_found",
+      "field": "rating",
+      "reasoning": "Amazon star-rating data could not be retrieved from search results due to repeated timeouts; rating falls back to Hardcover source (3.82/5) which was available in the supplied multi-source data."
+    },
+    {
+      "slug": "tales-of-heresy",
+      "kind": "author_mismatch",
+      "field": "authorNames",
+      "current": "Nick Kyme and Lindsey Priestley",
+      "suggestion": "Editors: Nick Kyme & Lindsey Priestley; Contributing authors: Dan Abnett, Graham McNeill, James Swallow, Mike Lee, Anthony Reynolds, Gav Thorpe, Matthew Farrer",
+      "sources": [
+        "https://warhammer40k.fandom.com/wiki/Tales_of_Heresy_(Anthology)",
+        "https://wh40k.lexicanum.com/wiki/Tales_of_Heresy_(Anthology)"
+      ],
+      "reasoning": "Nick Kyme and Lindsey Priestley are the editors of this anthology, not the primary authors; multiple well-known authors contributed individual stories."
+    },
+    {
+      "slug": "tales-of-heresy",
+      "kind": "proposed_new_facet",
+      "field": "format",
+      "current": "book",
+      "suggestion": "anthology (collection of short stories)",
+      "sources": [
+        "https://wh40k.lexicanum.com/wiki/Tales_of_Heresy_(Anthology)"
+      ],
+      "reasoning": "The format vocabulary lacks an 'anthology' value; this work is a multi-author short story collection, not a single novel, but 'book' was used as the closest available match."
+    },
+    {
+      "slug": "fallen-angels",
+      "kind": "data_conflict",
+      "field": "isbn13",
+      "current": "9781844167296",
+      "suggestion": "9781844167289",
+      "sources": [
+        "open_library",
+        "lexicanum"
+      ],
+      "reasoning": "Open Library reports ISBN-13 9781844167296 while Lexicanum reports 9781844167289, likely corresponding to different print editions (UK vs. US or different print runs)."
+    },
+    {
+      "slug": "a-thousand-sons",
+      "kind": "data_conflict",
+      "field": "releaseYear",
+      "current": "2009 (open_library) vs 2010 (wikipedia, lexicanum)",
+      "suggestion": "2010 (Black Library official publication date)",
+      "sources": [
+        "https://openlibrary.org/works/OL17441392W",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://wh40k.lexicanum.com/wiki/A_Thousand_Sons_(Novel)"
+      ],
+      "reasoning": "Open Library records 2009, likely a pre-publication or ISBN registration date; all other sources and Black Library confirm 2010 as the official release year."
+    },
+    {
+      "slug": "a-thousand-sons",
+      "kind": "year_glitch",
+      "field": "startY/endY",
+      "current": "30000–30004",
+      "suggestion": "Verify: Nikaea and Prospero events are set in approximately 004–007 M31 (early Heresy era, not pre-Heresy M30)",
+      "sources": [
+        "https://wh40k.lexicanum.com/wiki/A_Thousand_Sons_(Novel)"
+      ],
+      "reasoning": "Lexicanum places events in 30000–30004 (M30), but the Council of Nikaea and Burning of Prospero are typically placed in the early M31 Heresy timeline; this may reflect an in-universe date coding convention rather than a true error, but warrants verification."
+    },
+    {
+      "slug": "nemesis",
+      "kind": "no_rating_found",
+      "field": "rating",
+      "current": null,
+      "suggestion": "Used Goodreads (3.68/5, 4899 ratings) as fallback; Amazon page did not surface a numeric star score in search results.",
+      "sources": [
+        "https://www.goodreads.com/work/editions/7373535-nemesis"
+      ],
+      "reasoning": "Amazon search results did not return a parseable aggregate star rating, so Goodreads was used as the next priority source per the stated order (amazon → goodreads)."
+    },
+    {
+      "slug": "prospero-burns",
+      "kind": "data_conflict",
+      "field": "releaseYear",
+      "current": 2010,
+      "suggestion": 2011,
+      "sources": [
+        "wikipedia",
+        "lexicanum",
+        "open_library"
+      ],
+      "reasoning": "Wikipedia records 2010 (ebook release) while Lexicanum and Open Library both record 2011 (print release); both are technically correct for different editions."
+    },
+    {
+      "slug": "age-of-darkness",
+      "kind": "author_mismatch",
+      "field": "authorNames",
+      "current": "Christian Dunn",
+      "suggestion": "Christian Dunn (editor); stories by Dan Abnett, Rob Sanders, John French, and others",
+      "sources": [
+        "https://wh40k.lexicanum.com/wiki/Age_of_Darkness_(Anthology)",
+        "https://tragicfangirl.wordpress.com/2021/07/19/age-of-darkness-christian-dunn/"
+      ],
+      "reasoning": "Christian Dunn is the anthology editor, not a fiction author of this work; the stories are contributed by multiple authors, making a single author attribution misleading."
+    },
+    {
+      "slug": "age-of-darkness",
+      "kind": "no_rating_found",
+      "field": "rating",
+      "current": null,
+      "suggestion": "Verify aggregate rating on Goodreads (approx. 3.x/5) or Amazon product page",
+      "sources": [
+        "https://www.goodreads.com/book/show/8697285-age-of-darkness"
+      ],
+      "reasoning": "No precise aggregate numeric rating with review count was clearly extractable from search results for this anthology; the Goodreads page surfaced an informal '3 stars' comment but not the aggregate score."
+    },
+    {
+      "slug": "the-outcast-dead",
+      "kind": "data_conflict",
+      "field": "series.totalPlanned",
+      "current": null,
+      "suggestion": 54,
+      "sources": [
+        "https://www.amazon.ca/Outcast-Dead-Warhammer-000-Novels/dp/B00CAYHPHU"
+      ],
+      "reasoning": "Amazon product listing explicitly labels this 'Book 17 of 54: The Horus Heresy', indicating the series total is 54, but no totalPlanned value was present in the merged data to cross-check against."
+    },
+    {
+      "slug": "deliverance-lost",
+      "kind": "data_conflict",
+      "field": "releaseYear",
+      "current": 2012,
+      "suggestion": 2011,
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://wh40k.lexicanum.com/wiki/Deliverance_Lost_(Novel)",
+        "https://openlibrary.org/works/OL17399085W"
+      ],
+      "reasoning": "Wikipedia lists 2012 as the release year while Lexicanum and Open Library both indicate 2011; the 2011 date likely reflects the limited-edition hardback release, with 2012 being the mass-market paperback."
+    },
+    {
+      "slug": "deliverance-lost",
+      "kind": "data_conflict",
+      "field": "isbn13",
+      "current": "9781849700627",
+      "suggestion": "9781849700610 (Lexicanum)",
+      "sources": [
+        "https://wh40k.lexicanum.com/wiki/Deliverance_Lost_(Novel)",
+        "https://openlibrary.org/works/OL17399085W"
+      ],
+      "reasoning": "Lexicanum records ISBN 9781849700610 while Open Library/merged data shows 9781849700627, likely corresponding to different print editions (hardback vs. paperback)."
+    },
+    {
+      "slug": "know-no-fear",
+      "kind": "data_conflict",
+      "field": "isbn13",
+      "current": "9781849701358",
+      "suggestion": "9780857876133",
+      "sources": [
+        "open_library",
+        "lexicanum"
+      ],
+      "reasoning": "Open Library and the merged record carry ISBN 9781849701358 while Lexicanum lists 9780857876133, likely representing different print editions or a UK vs. international release variance."
+    },
+    {
+      "slug": "the-primarchs",
+      "kind": "author_mismatch",
+      "field": "authorNames",
+      "current": [
+        "Christian Dunn"
+      ],
+      "suggestion": "Editor: Christian Dunn; Story authors: Graham McNeill, Nick Kyme, Gav Thorpe, Rob Sanders",
+      "sources": [
+        "https://warhammer40k.fandom.com/wiki/The_Primarchs_(Anthology)",
+        "https://www.amazon.com/Primarchs-Horus-Heresy-Christian-Editor/dp/1849702071",
+        "https://shadowhawksshade.wordpress.com/2018/01/04/the-primarchs-by-christian-dunn-book-review/"
+      ],
+      "reasoning": "Christian Dunn is the anthology's editor, not a story author; the four novellas were written by Graham McNeill, Nick Kyme, Gav Thorpe, and Rob Sanders respectively."
+    }
+  ]
+}

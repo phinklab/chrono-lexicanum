@@ -69,6 +69,12 @@ yarn-error.log*
 /scripts/.cache/
 /ingest/.cache/
 
+# --- LLM-Anreicherungs-Cache (Phase 3c) ------------------------------------
+# Cached Tool-Use-Antworten der Anthropic-API pro Buch, regenerierbar (jede
+# Prompt-Änderung invalidiert den Cache via Hash). Kann gross werden bei
+# 800-Buch-Voll-Lauf, deshalb wie /ingest/.cache/ gitignored.
+/ingest/.llm-cache/
+
 # --- ingestion pipeline state (resumable run state, NOT diffs) -------------
 # /ingest/.state/ holds the in-progress run snapshot — regenerated each run,
 # wiped on success, irrelevant to other developers. Diffs in /ingest/.last-run/

@@ -22,7 +22,7 @@ export const FIELD_PRIORITY: Record<FieldName, ReadonlyArray<SourceName>> = {
   releaseYear:   ["wikipedia", "lexicanum", "open_library"],
   startY:        ["lexicanum"],
   endY:          ["lexicanum"],
-  synopsis:      [],                                    // 3c (LLM)
+  synopsis:      ["llm"],                               // 3c — LLM is the only synopsis source
   coverUrl:      ["open_library"],                      // 3b
 
   // book_details.*
@@ -33,6 +33,13 @@ export const FIELD_PRIORITY: Record<FieldName, ReadonlyArray<SourceName>> = {
   pageCount:     ["open_library"],                      // 3b
   format:        ["llm", "open_library"],               // 3c primary, 3b fallback
   availability:  ["llm", "open_library"],               // 3c primary, 3b fallback (Edition-History-Heuristik)
+  // Phase 3c — LLM-only Felder. facetIds wird in 3d via work_facets-Junction-
+  // Insert FK-resolved; rating + ratingSource + ratingCount landen direkt in
+  // book_details-Spalten (Migration 0006).
+  facetIds:      ["llm"],
+  rating:        ["llm"],
+  ratingSource:  ["llm"],
+  ratingCount:   ["llm"],
 
   // Junctions (raw names — FK resolution is downstream, post-3a)
   authorNames:   ["wikipedia", "lexicanum", "open_library"],  // 3b — OL füllt 25%-WP-Lücke

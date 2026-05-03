@@ -23,6 +23,13 @@ import {
   discoverLexicanumArticle,
 } from "@/lib/ingestion/lexicanum/parse";
 import {
+  enrichBookWithLLM,
+  estimateUsdCost,
+  getLlmModel,
+  isLlmEnabled,
+} from "@/lib/ingestion/llm/enrich";
+import { PROMPT_VERSION_HASH } from "@/lib/ingestion/llm/prompt";
+import {
   mergeBookFromSources,
   wikipediaEntryToPayload,
 } from "@/lib/ingestion/merge";
@@ -41,6 +48,7 @@ import { parseWikipediaList } from "@/lib/ingestion/wikipedia/parse";
 import type {
   DiffFile,
   DiscoveryDuplicateEntry,
+  LLMPayload,
   RunState,
   SourceName,
   SourcePayload,
@@ -64,6 +72,7 @@ const VALID_PER_BOOK_SOURCES: SourceName[] = [
   "lexicanum",
   "open_library",
   "hardcover",
+  "llm",
 ];
 
 interface CliConfig {
@@ -140,13 +149,18 @@ async function main(): Promise<void> {
 
   await ensureStateDir();
 
-  // Token-Filter: Hardcover braucht HARDCOVER_API_TOKEN. Wenn explizit
-  // `--source hardcover` ohne Token → harter Fehler. Wenn Default-Set ohne
-  // Token → Hardcover still aus aktiver Liste entfernen, einmaliger
+  // Token-Filter: Hardcover braucht HARDCOVER_API_TOKEN, LLM braucht
+  // ANTHROPIC_API_KEY. Wenn explizit `--source <x>` ohne Key → harter Fehler.
+  // Wenn Default-Set ohne Key → still aus aktiver Liste entfernen, einmaliger
   // Error-Eintrag im Diff (siehe initState).
   if (cfg.source === "hardcover" && !isHardcoverEnabled()) {
     exitWithError(
       "--source hardcover: HARDCOVER_API_TOKEN missing in .env.local",
+    );
+  }
+  if (cfg.source === "llm" && !isLlmEnabled()) {
+    exitWithError(
+      "--source llm: ANTHROPIC_API_KEY missing in .env.local",
     );
   }
 
@@ -157,6 +171,10 @@ async function main(): Promise<void> {
     activeSources.includes("hardcover") && !isHardcoverEnabled();
   if (hardcoverDisabled) {
     activeSources = activeSources.filter((s) => s !== "hardcover");
+  }
+  const llmDisabled = activeSources.includes("llm") && !isLlmEnabled();
+  if (llmDisabled) {
+    activeSources = activeSources.filter((s) => s !== "llm");
   }
 
   // ── Resume vs fresh ────────────────────────────────────────────────
@@ -176,6 +194,13 @@ async function main(): Promise<void> {
         source: "hardcover",
         message:
           "HARDCOVER_API_TOKEN missing — Hardcover crawler skipped for this run",
+      });
+    }
+    if (llmDisabled) {
+      state.partialDiff.errors.push({
+        source: "llm",
+        message:
+          "ANTHROPIC_API_KEY missing — LLM enrichment skipped for this run",
       });
     }
   } else {
@@ -331,6 +356,19 @@ async function initState(
     partialDiff.discoveryDuplicates = discoveryDuplicates;
   }
 
+  // Phase 3c: Top-Level-LLM-Audit-Felder, nur wenn `llm` in activeSources.
+  if (activeSources.includes("llm")) {
+    partialDiff.llmModel = getLlmModel();
+    partialDiff.llmPromptVersion = PROMPT_VERSION_HASH;
+    partialDiff.llmCostSummary = {
+      totalTokensIn: 0,
+      totalTokensOut: 0,
+      totalWebSearches: 0,
+      estUsdCost: 0,
+    };
+    partialDiff.llm_flags = [];
+  }
+
   const startedAt = new Date().toISOString();
   const state: RunState = {
     runId: startedAt,
@@ -445,6 +483,30 @@ async function processOne(
     }
   }
 
+  // Phase 3c: Two-Pass-Merge. Erster Pass nur als interne Zwischenstation —
+  // füttert den LLM mit dem multi-source-Snapshot. Zweiter Pass (final) fold-ed
+  // den LLM-Payload via FIELD_PRIORITY in den Merge zurück. conflicts werden
+  // nur einmal gepusht (vom finalen Merge), damit Pass-1-Konflikte nicht
+  // doppelt im Diff landen.
+  const { merged: firstPassMerged } = mergeBookFromSources(payloads);
+
+  let llmAudit: LLMPayload["audit"] | undefined;
+  if (state.config.sources.includes("llm") && isLlmEnabled()) {
+    try {
+      const llmPayload = await enrichBookWithLLM(firstPassMerged, payloads);
+      if (llmPayload) {
+        payloads.push(llmPayload);
+        if (llmPayload.audit) llmAudit = llmPayload.audit;
+      }
+    } catch (e) {
+      state.partialDiff.errors.push({
+        wikipediaTitle: entry.title,
+        source: "llm",
+        message: e instanceof Error ? e.message : String(e),
+      });
+    }
+  }
+
   const { merged, conflicts } = mergeBookFromSources(payloads);
 
   for (const c of conflicts) {
@@ -455,16 +517,50 @@ async function processOne(
     });
   }
 
+  // Phase 3c: per-Buch-Audit-Anker für 3d-FK-Resolution. Nur setzen wenn
+  // discoveredLinks oder facetIds non-empty sind (sonst Slot weglassen).
+  const rawLlmPayload = llmAudit
+    ? {
+        ...(llmAudit.facetIds && llmAudit.facetIds.length > 0
+          ? { facetIds: llmAudit.facetIds }
+          : {}),
+        ...(llmAudit.discoveredLinks && llmAudit.discoveredLinks.length > 0
+          ? { discoveredLinks: llmAudit.discoveredLinks }
+          : {}),
+      }
+    : undefined;
+  const hasLlmAnchor =
+    rawLlmPayload &&
+    (rawLlmPayload.facetIds !== undefined ||
+      rawLlmPayload.discoveredLinks !== undefined);
+
+  // Top-Level-Aggregation: flags + tokenUsage in DiffFile.
+  if (llmAudit?.flags && llmAudit.flags.length > 0 && state.partialDiff.llm_flags) {
+    for (const flag of llmAudit.flags) {
+      state.partialDiff.llm_flags.push({ slug: merged.slug, ...flag });
+    }
+  }
+  if (llmAudit?.tokenUsage && state.partialDiff.llmCostSummary) {
+    const cost = state.partialDiff.llmCostSummary;
+    cost.totalTokensIn += llmAudit.tokenUsage.input;
+    cost.totalTokensOut += llmAudit.tokenUsage.output;
+    cost.totalWebSearches += llmAudit.tokenUsage.webSearchCount;
+    cost.estUsdCost = estimateUsdCost(cost);
+  }
+
   const compared = await compareBook(entry.title, merged);
   switch (compared.kind) {
     case "added":
       if (hardcoverAudit) compared.entry.rawHardcoverPayload = hardcoverAudit;
+      if (hasLlmAnchor) compared.entry.rawLlmPayload = rawLlmPayload;
       state.partialDiff.added.push(compared.entry);
       break;
     case "updated":
+      if (hasLlmAnchor) compared.entry.rawLlmPayload = rawLlmPayload;
       state.partialDiff.updated.push(compared.entry);
       break;
     case "skipped_manual":
+      if (hasLlmAnchor) compared.entry.rawLlmPayload = rawLlmPayload;
       state.partialDiff.skipped_manual.push(compared.entry);
       break;
     case "skipped_unchanged":
