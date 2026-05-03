@@ -16,12 +16,19 @@ import { parseArgs } from "node:util";
 
 import { compareBook, loadDbBooks } from "@/lib/ingestion/dry-run";
 import {
+  discoverHardcoverBook,
+  isHardcoverEnabled,
+} from "@/lib/ingestion/hardcover/parse";
+import {
   discoverLexicanumArticle,
 } from "@/lib/ingestion/lexicanum/parse";
 import {
   mergeBookFromSources,
   wikipediaEntryToPayload,
 } from "@/lib/ingestion/merge";
+import {
+  discoverOpenLibraryBook,
+} from "@/lib/ingestion/open_library/parse";
 import {
   clearState,
   ensureStateDir,
@@ -33,6 +40,7 @@ import { fetchWikipediaPage } from "@/lib/ingestion/wikipedia/fetch";
 import { parseWikipediaList } from "@/lib/ingestion/wikipedia/parse";
 import type {
   DiffFile,
+  DiscoveryDuplicateEntry,
   RunState,
   SourceName,
   SourcePayload,
@@ -40,8 +48,23 @@ import type {
 } from "@/lib/ingestion/types";
 import { slugify } from "@/lib/slug";
 
-const DEFAULT_DISCOVERY_PAGES = ["List_of_Warhammer_40,000_novels"];
-const VALID_PER_BOOK_SOURCES: SourceName[] = ["lexicanum"];
+// Phase 3a Hauptliste + Phase 3b Sub-Listen. Wikipedia's WH40k-Subseiten-
+// Landschaft ist heterogen: viele beworbene Listen (Beast Arises, Path of
+// the Eldar, Night Lords) haben keine eigene Wikipedia-Seite, andere
+// (Gaunt's Ghosts) nutzen `<h3>`-pro-Buch statt strukturierter Listen. Hier
+// stehen nur Pages die `parseWikipediaList`'s `<ul>`- oder wikitable-Walker
+// sinnvolle Buch-Einträge liefern; alles andere wandert in 3c LLM-Web-Search.
+const DEFAULT_DISCOVERY_PAGES = [
+  "List_of_Warhammer_40,000_novels",
+  "Horus_Heresy_(novels)",     // 86 wikitable rows; präziserer seriesIndex als Hauptliste
+  "Siege_of_Terra",            // gleicher kanonischer Wikitable wie HH-novels (Redirect-Alias) — bestätigt Dedup-Audit
+  "Eisenhorn",                 // 4 omnibus-Einträge, mostly redundant; demonstriert Sub-List-Heterogenität
+];
+const VALID_PER_BOOK_SOURCES: SourceName[] = [
+  "lexicanum",
+  "open_library",
+  "hardcover",
+];
 
 interface CliConfig {
   dryRun: boolean;
@@ -117,9 +140,24 @@ async function main(): Promise<void> {
 
   await ensureStateDir();
 
-  const activeSources: SourceName[] = cfg.source
+  // Token-Filter: Hardcover braucht HARDCOVER_API_TOKEN. Wenn explizit
+  // `--source hardcover` ohne Token → harter Fehler. Wenn Default-Set ohne
+  // Token → Hardcover still aus aktiver Liste entfernen, einmaliger
+  // Error-Eintrag im Diff (siehe initState).
+  if (cfg.source === "hardcover" && !isHardcoverEnabled()) {
+    exitWithError(
+      "--source hardcover: HARDCOVER_API_TOKEN missing in .env.local",
+    );
+  }
+
+  let activeSources: SourceName[] = cfg.source
     ? [cfg.source]
-    : VALID_PER_BOOK_SOURCES;
+    : VALID_PER_BOOK_SOURCES.slice();
+  const hardcoverDisabled =
+    activeSources.includes("hardcover") && !isHardcoverEnabled();
+  if (hardcoverDisabled) {
+    activeSources = activeSources.filter((s) => s !== "hardcover");
+  }
 
   // ── Resume vs fresh ────────────────────────────────────────────────
   let state = await loadState();
@@ -132,6 +170,14 @@ async function main(): Promise<void> {
 
   if (!state) {
     state = await initState(cfg, activeSources);
+    if (hardcoverDisabled) {
+      // One-shot soft-fail audit entry; per-book entries would flood 800-row diffs.
+      state.partialDiff.errors.push({
+        source: "hardcover",
+        message:
+          "HARDCOVER_API_TOKEN missing — Hardcover crawler skipped for this run",
+      });
+    }
   } else {
     console.log(
       `resuming run ${state.runId}: ${state.processedIndex + 1}/${state.discoveredRoster.length} processed so far`,
@@ -222,20 +268,68 @@ async function initState(
     );
   }
 
-  // Dedupe by normalized title.
-  const seen = new Set<string>();
-  const unique: WikipediaBookEntry[] = [];
+  // Phase 3b: Sub-List-Precedence-Dedup. Wenn ein Slug aus mehreren Pages
+  // kommt (typisch: Hauptliste + HH-novels-Sub-List für die 65 HH-Bücher),
+  // mergt diese Schleife per Feld — Sub-Listen-Werte gewinnen, wenn sie
+  // gesetzt sind, weil sie strukturierter sind (Wikitable mit präzisem
+  // seriesIndex). Hauptlisten-Werte füllen die Lücken (Author, Year sind
+  // dort öfter notiert). Audit landet in `discoveryDuplicates`.
+  const isMainList = (e: WikipediaBookEntry): boolean =>
+    e.sourcePage.includes("List_of_Warhammer_40,000_novels");
+
+  const groups = new Map<string, WikipediaBookEntry[]>();
   for (const e of allEntries) {
     const key = slugify(e.title);
-    if (!key || seen.has(key)) continue;
-    seen.add(key);
-    unique.push(e);
+    if (!key) continue;
+    const arr = groups.get(key);
+    if (arr) arr.push(e);
+    else groups.set(key, [e]);
   }
-  console.log(`  total unique: ${unique.length}`);
+
+  const unique: WikipediaBookEntry[] = [];
+  const discoveryDuplicates: DiscoveryDuplicateEntry[] = [];
+
+  for (const [slug, group] of groups) {
+    if (group.length === 1) {
+      unique.push(group[0]);
+      continue;
+    }
+
+    // Sub-Listen vor Hauptliste sortieren: Sub-List-Felder sollen Vorrang
+    // haben (sie sind precise-annotated), Hauptliste füllt nur Lücken.
+    const sortedSubFirst = [...group].sort(
+      (a, b) => Number(isMainList(a)) - Number(isMainList(b)),
+    );
+
+    const winner: WikipediaBookEntry = { ...sortedSubFirst[0] };
+    for (let i = 1; i < sortedSubFirst.length; i++) {
+      const e = sortedSubFirst[i];
+      if (winner.author === undefined && e.author) winner.author = e.author;
+      if (winner.releaseYear === undefined && e.releaseYear)
+        winner.releaseYear = e.releaseYear;
+      if (winner.seriesIndex === undefined && e.seriesIndex)
+        winner.seriesIndex = e.seriesIndex;
+      if (winner.seriesId === undefined && e.seriesId)
+        winner.seriesId = e.seriesId;
+    }
+
+    unique.push(winner);
+    discoveryDuplicates.push({
+      slug,
+      sources: group.map((e) => e.sourcePage),
+    });
+  }
+
+  console.log(
+    `  total unique: ${unique.length} (${discoveryDuplicates.length} cross-page duplicates folded)`,
+  );
 
   const partialDiff = emptyDiff(DEFAULT_DISCOVERY_PAGES, activeSources);
   partialDiff.discovered = unique.length;
   partialDiff.errors.push(...errors);
+  if (discoveryDuplicates.length > 0) {
+    partialDiff.discoveryDuplicates = discoveryDuplicates;
+  }
 
   const startedAt = new Date().toISOString();
   const state: RunState = {
@@ -276,8 +370,8 @@ async function processOne(
   console.log(`[${index + 1}/${total}] ${entry.title}${entry.author ? ` — ${entry.author}` : ""}`);
 
   const payloads: SourcePayload[] = [wikipediaEntryToPayload(entry)];
+  let hardcoverAudit: { tags?: string[]; averageRating?: number } | undefined;
 
-  // Lexicanum is the only active per-book source in 3a.
   if (state.config.sources.includes("lexicanum")) {
     try {
       const { result, reason } = await discoverLexicanumArticle(
@@ -302,6 +396,55 @@ async function processOne(
     }
   }
 
+  if (state.config.sources.includes("open_library")) {
+    try {
+      const { result, reason } = await discoverOpenLibraryBook(
+        entry.title,
+        entry.author,
+      );
+      if (result) {
+        payloads.push(result.payload);
+      } else if (reason) {
+        state.partialDiff.errors.push({
+          wikipediaTitle: entry.title,
+          source: "open_library",
+          message: reason,
+        });
+      }
+    } catch (e) {
+      state.partialDiff.errors.push({
+        wikipediaTitle: entry.title,
+        source: "open_library",
+        message: e instanceof Error ? e.message : String(e),
+      });
+    }
+  }
+
+  if (state.config.sources.includes("hardcover") && isHardcoverEnabled()) {
+    try {
+      const { result, reason } = await discoverHardcoverBook(
+        entry.title,
+        entry.author,
+      );
+      if (result) {
+        payloads.push(result.payload);
+        if (result.payload.audit) hardcoverAudit = result.payload.audit;
+      } else if (reason) {
+        state.partialDiff.errors.push({
+          wikipediaTitle: entry.title,
+          source: "hardcover",
+          message: reason,
+        });
+      }
+    } catch (e) {
+      state.partialDiff.errors.push({
+        wikipediaTitle: entry.title,
+        source: "hardcover",
+        message: e instanceof Error ? e.message : String(e),
+      });
+    }
+  }
+
   const { merged, conflicts } = mergeBookFromSources(payloads);
 
   for (const c of conflicts) {
@@ -315,6 +458,7 @@ async function processOne(
   const compared = await compareBook(entry.title, merged);
   switch (compared.kind) {
     case "added":
+      if (hardcoverAudit) compared.entry.rawHardcoverPayload = hardcoverAudit;
       state.partialDiff.added.push(compared.entry);
       break;
     case "updated":

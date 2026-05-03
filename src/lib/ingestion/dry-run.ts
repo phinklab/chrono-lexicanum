@@ -45,8 +45,12 @@ interface DbBook {
   confidence: string | null;
   // book_details
   isbn13: string | null;
+  isbn10: string | null;
   seriesId: string | null;
   seriesIndex: number | null;
+  pageCount: number | null;
+  format: string | null;
+  availability: string | null;
 }
 
 let cachedDbBooks: DbBook[] | null = null;
@@ -77,8 +81,12 @@ export async function loadDbBooks(): Promise<{
       sourceKind: works.sourceKind,
       confidence: works.confidence,
       isbn13: bookDetails.isbn13,
+      isbn10: bookDetails.isbn10,
       seriesId: bookDetails.seriesId,
       seriesIndex: bookDetails.seriesIndex,
+      pageCount: bookDetails.pageCount,
+      format: bookDetails.format,
+      availability: bookDetails.availability,
     })
     .from(works)
     .leftJoin(bookDetails, eq(bookDetails.workId, works.id));
@@ -180,8 +188,12 @@ const SCALAR_FIELD_TO_DB: Partial<Record<FieldName, keyof DbBook>> = {
   synopsis: "synopsis",
   coverUrl: "coverUrl",
   isbn13: "isbn13",
+  isbn10: "isbn10",
   seriesId: "seriesId",
   seriesIndex: "seriesIndex",
+  pageCount: "pageCount",
+  format: "format",
+  availability: "availability",
 };
 
 function computeDiff(
