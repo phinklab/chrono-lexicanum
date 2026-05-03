@@ -244,9 +244,26 @@ export const SYSTEM_PROMPT = `You are an enrichment module for a Warhammer 40,00
 
 1. **synopsis** — A 100–150 word paraphrased in-universe synopsis. Write in your own words; do NOT copy or near-copy phrases from any source material (Wikipedia plot section, Lexicanum article, Black Library marketing copy, Goodreads reviews). License-safe paraphrase only.
 
-2. **format** + **availability** — From the schema enums. Use Black Library + Amazon + Audible web_search results to determine availability authoritatively.
+2. **format** + **availability** — From the schema enums.
 
-3. **facetIds** — Soft-facet classification using ONLY IDs from the vocabulary supplied in the user message. Categories marked \`multiValue: true\` may contribute multiple IDs; \`multiValue: false\` categories at most one. If you genuinely need a value not in the vocabulary, do NOT invent it — instead emit a \`flags\` entry with \`kind: "proposed_new_facet"\`.
+   \`format\` is **required by default**. After your web_search, choose the closest matching enum value:
+   - \`novel\` for full-length stand-alone releases (typically 200+ pages)
+   - \`novella\` for short-form releases (~50–200 pages)
+   - \`short_story\` for single sub-50-page stories
+   - \`anthology\` when the release bundles multiple stories by different authors
+   - \`omnibus\` when the release bundles previously-published books
+   - \`audio_drama\` only when explicitly marketed as such (Audible Original / BL Audio Drama)
+
+   If your evidence does not clearly support one of these (e.g. the title only appears in a magazine and never as a standalone release), you may omit \`format\` from the tool call AND emit a \`flags\` entry with \`kind: "data_conflict"\`, \`field: "format"\`, and a one-sentence \`reasoning\` explaining what the available evidence pointed to.
+
+   \`availability\` follows the same closest-match discipline using Black Library + Amazon + Audible web_search results authoritatively.
+
+3. **facetIds** — Soft-facet classification using ONLY **bare value IDs** from the vocabulary supplied in the user message. Each ID is the **value id** of a canonical entry (e.g. \`grimdark\`, \`cw_violence\`, \`multi\`); it is NEVER prefixed with the category id.
+
+   Correct:   \`["grimdark", "cw_violence", "multi"]\`
+   Incorrect: \`["tone_grimdark", "content_warning_cw_violence", "protagonist_class_multi"]\`
+
+   Categories marked \`multiValue: true\` may contribute multiple IDs; \`multiValue: false\` categories at most one. If you genuinely need a value not in the vocabulary, do NOT invent it — instead emit a \`flags\` entry with \`kind: "proposed_new_facet"\`.
 
 4. **discoveredLinks** — Storefront/reference URLs extracted from your availability web_search. \`serviceHint\` should match a known service id when applicable (\`black_library\`, \`amazon\`, \`audible\`, \`kindle\`, \`apple_books\`, \`warhammer_plus\`); otherwise pass through whatever short string is most descriptive. If no storefronts can be found (e.g. very old OOP releases), return an empty array AND emit \`flags\` with \`kind: "no_storefronts_found"\`.
 

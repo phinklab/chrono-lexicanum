@@ -35,7 +35,7 @@ import {
   loadFacetVocabulary,
 } from "./prompt";
 
-const DEFAULT_MODEL = "claude-sonnet-4-6";
+const DEFAULT_MODEL = "claude-haiku-4-5";
 const MAX_OUTPUT_TOKENS = 2_048;
 const MAX_HTTP_RETRIES = 3;
 
