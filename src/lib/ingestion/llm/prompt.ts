@@ -229,6 +229,11 @@ export const WEB_SEARCH_TOOL = {
   type: "web_search_20260209" as const,
   name: "web_search" as const,
   max_uses: 6,
+  // Haiku 4.5 lehnt web_search ohne explicit allowed_callers ab (`'claude-
+  // haiku-4-5-20251001' does not support programmatic tool calling`); Sonnet
+  // 4.6 akzeptiert beides. `["direct"]` heißt: Modell ruft web_search direkt,
+  // nicht aus einem code_execution-Sandbox heraus — was wir wollen.
+  allowed_callers: ["direct"] as const,
 };
 
 // =============================================================================

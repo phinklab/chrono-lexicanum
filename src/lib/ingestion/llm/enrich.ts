@@ -39,11 +39,17 @@ const DEFAULT_MODEL = "claude-sonnet-4-6";
 const MAX_OUTPUT_TOKENS = 2_048;
 const MAX_HTTP_RETRIES = 3;
 
-// Sonnet 4.6 Pricing (Stand 2026-05; Mini-Brief wenn das wechselt):
-//   $3 / 1M input tokens, $15 / 1M output tokens, $0.01 / web_search call.
-const PRICE_PER_INPUT_TOKEN = 3 / 1_000_000;
-const PRICE_PER_OUTPUT_TOKEN = 15 / 1_000_000;
-const PRICE_PER_WEB_SEARCH = 0.01;
+// Anthropic Pricing (Stand 2026-05; Mini-Brief wenn das wechselt). Lookup pro
+// Modell — der `llmCostSummary`-Top-Level-Slot summiert pro Run, also gilt
+// die single-model-assumption (gemischte Mode würde extra Logik brauchen).
+const PRICING: Record<
+  string,
+  { in: number; out: number; search: number }
+> = {
+  "claude-sonnet-4-6": { in: 3 / 1_000_000, out: 15 / 1_000_000, search: 0.01 },
+  "claude-haiku-4-5": { in: 1 / 1_000_000, out: 5 / 1_000_000, search: 0.01 },
+};
+const FALLBACK_PRICING = PRICING["claude-sonnet-4-6"];
 
 let warnedMissingKeyOnce = false;
 let circuitBreakerTripped = false;
@@ -93,15 +99,19 @@ export function getCircuitBreakerReason(): string | undefined {
   return circuitBreakerReason;
 }
 
-export function estimateUsdCost(usage: {
-  totalTokensIn: number;
-  totalTokensOut: number;
-  totalWebSearches: number;
-}): number {
+export function estimateUsdCost(
+  usage: {
+    totalTokensIn: number;
+    totalTokensOut: number;
+    totalWebSearches: number;
+  },
+  model: string,
+): number {
+  const p = PRICING[model] ?? FALLBACK_PRICING;
   return (
-    usage.totalTokensIn * PRICE_PER_INPUT_TOKEN +
-    usage.totalTokensOut * PRICE_PER_OUTPUT_TOKEN +
-    usage.totalWebSearches * PRICE_PER_WEB_SEARCH
+    usage.totalTokensIn * p.in +
+    usage.totalTokensOut * p.out +
+    usage.totalWebSearches * p.search
   );
 }
 
@@ -209,7 +219,11 @@ export async function enrichBookWithLLM(
 
   const cacheKey = buildCacheKey(merged.slug, PROMPT_VERSION_HASH, merged);
   const cached = await readCache(merged.slug, cacheKey);
-  if (cached) return cached;
+  if (cached) {
+    cached.payload.audit ??= {};
+    cached.payload.audit.modelUsed = cached.model;
+    return cached.payload;
+  }
 
   const model = getLlmModel();
   const { categories, validFacetIds } = await loadFacetVocabulary();
@@ -253,6 +267,9 @@ export async function enrichBookWithLLM(
       );
     }
   }
+
+  parsed.payload.audit ??= {};
+  parsed.payload.audit.modelUsed = model;
 
   await writeCache(merged.slug, cacheKey, model, PROMPT_VERSION_HASH, parsed.payload);
   return parsed.payload;

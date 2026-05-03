@@ -63,14 +63,18 @@ async function ensureCacheDir(): Promise<void> {
 }
 
 /**
- * Returns the cached payload if present AND the key matches; otherwise
- * undefined. Silent on file-not-found and on JSON-parse errors (a corrupt
- * cache file is treated as a miss).
+ * Returns the cached payload + the model that produced it if present AND the
+ * key matches; otherwise undefined. Silent on file-not-found and on
+ * JSON-parse errors (a corrupt cache file is treated as a miss).
+ *
+ * The model is returned separately so the caller can stamp it into
+ * `payload.audit.modelUsed` — the cached payload itself may predate the
+ * `modelUsed` field if the cache was written by an older code version.
  */
 export async function readCache(
   slug: string,
   cacheKey: string,
-): Promise<LLMPayload | undefined> {
+): Promise<{ payload: LLMPayload; model: string } | undefined> {
   let raw: string;
   try {
     raw = await readFile(cacheFilePath(slug), "utf8");
@@ -86,7 +90,7 @@ export async function readCache(
   }
 
   if (entry.key !== cacheKey) return undefined;
-  return entry.payload;
+  return { payload: entry.payload, model: entry.model };
 }
 
 export async function writeCache(
