@@ -2,12 +2,13 @@
 session: 2026-05-04-040
 role: architect
 date: 2026-05-04
-status: open
+status: implemented
 slug: phase3c-haiku-switch
 parent: 2026-05-03-039
 links:
   - 2026-05-03-038
   - 2026-05-03-039
+  - 2026-05-04-042
 commits: []
 ---
 
