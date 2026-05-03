@@ -77,23 +77,33 @@ Visual ground floor before the tool routes get touched. Token migration into `@t
 
 ---
 
-## Phase 3 — Data-Ingestion-Pipeline (vorgezogen) — in flight
+## Phase 3 — Bulk-Backfill-Pipeline (Multi-Source mit LLM-Anreicherung) — in flight
 
-> **Reihenfolge-Wechsel 2026-05-02.** Vorher Phase 4. Vorgezogen, weil paralleles Scrapen ab jetzt im Hintergrund laufen soll, während wir in Phase 4 am Discovery-Layer bauen — die DB füllt sich, Features entstehen, beides asynchron.
+> **Reihenfolge-Wechsel 2026-05-02.** Vorher Phase 4. Vorgezogen, weil paralleles Scrapen ab jetzt im Hintergrund laufen soll, während wir in Phase 4 am Discovery-Layer bauen.
+>
+> **Strategie-Schwenk 2026-05-02 (siehe sessions/2026-05-02-033 Retraction + sessions/2026-05-02-034).** Nach 032-Brainstorm-Report und Cowork-Chat mit Philipp wurde die Architektur substanziell neu gedacht: nicht „Daily-Drift", sondern **Bulk-Backfill (lokal über Nacht) + Maintenance-Crawler (monatlich)** für die andere Operations-Realität. Endziel: alle ~600–900 WH40k-Romane mit Multi-Source-Daten + LLM-paraphrasierten Synopsen.
 
-Die Aufgabe ist groß und teilbar. Erste Cowork-Brief-Aufgabe der Phase ist explizit ein **Brainstorm/Research-Brief**: wie automatisieren wir Scraping so, dass es agentisch / kontinuierlich läuft, ohne Philipps lokalen Rechner zu brauchen. Mögliche Achsen, die wir dort durchgehen: Scheduled Tasks vs. GitHub Actions vs. Vercel Cron vs. Supabase Edge Functions, Provenance-Tracking, Idempotenz, Confidence-Scoring, Dry-Run-Modi.
+**Quellen-Set.** Wikipedia-Master-Listen für Discovery; Lexicanum (MediaWiki-API) für Lore; Open Library für Bibliographie (ISBN, Cover, Pub-Year); Hardcover.app für Rating/Tags. **Goodreads ist tot** (API geschlossen seit Dez 2020). Black Library nicht aktiv (Cloudflare-Verdacht; eventuell Phase 3.5+ mit Realtest).
 
-Ziel-Set: einige Hundert gut-quellengeprüfte Bücher, mit jedem Datensatz seine Provenance-Spur (`source_kind`, `confidence` — Felder existieren schon im Schema, werden aber heute nicht gefüttert).
+**Multi-Source-Merge.** Field-by-Field-Source-Priority — pro Schema-Feld eine kanonische Quelle (Title aus Wikipedia, In-Universe-Years aus Lexicanum, Cover aus Open Library, Rating aus Hardcover). Deterministisch, debuggbar.
 
-- [ ] **Phase-3-Brainstorm-Brief** — Architektur-Optionen für agentisches/kontinuierliches Scrapen, Trade-offs benennen, Empfehlung (Cowork + Philipp)
-- [ ] `ingest/lexicanum/` — Crawler für Canon-Daten, Locations, Characters pro Buch
-- [ ] `ingest/goodreads/` — Cover, ISBN, Publication-Year, Average-Rating
-- [ ] `ingest/black_library/` — offizielle Synopsen (robots.txt-respektierend)
-- [ ] Normalisierte JSON-Cache pro Source unter `ingest/.cache/<source>/<slug>.json`
-- [ ] Merge-Step mit `confidence`-Scoring (manual > lexicanum > goodreads > black_library)
-- [ ] Load-Step: idempotente Upserts in Postgres, Confidence-Werte aus 2b-Roster aktivieren (siehe Carry-over)
-- [ ] Automation-Layer (Form aus dem Brainstorm): Trigger + Schedule + Dead-Letter / Retries
-- [ ] Dashboard / CLI-Status: was läuft, was hat gefailed, was hat sich geändert
+**LLM-Anreicherungs-Schicht** (Phase 3c). Anthropic Sonnet 4.6 mit Web-Search produziert: paraphrasierte Synopsen, Soft-Facet-Klassifikation (Tone/Theme/Entry-Point/Content-Warnings auf 40k-spezifische Werte), Plausibilitäts-Cross-Check über die gesamten Datensätze. Erwartete Cost ~$20–50 für Initial-Backfill von 800 Büchern, Cents pro Monat Maintenance.
+
+**Ziel-Set:** ~600–900 gut-quellengeprüfte Bücher, jeder mit Provenance-Spur (`works.source_kind`, `works.confidence` — Felder existieren auf `works`, nicht auf `external_links`).
+
+### Sub-Phasen
+
+- [x] **Phase 3 — Brainstorm + Recherche** (sessions 031/032 + Cowork-Chat 2026-05-02) — Achsen-Vergleich, Faktenrecherche zu Quellen-Status, Strategie-Entscheidung
+- [ ] **Phase 3a — Bulk-Backfill-Skeleton** (Brief 034) — Wikipedia-Discovery + Lexicanum-Crawler + Multi-Source-Engine + Field-Priority-Map + Manual-Protection-Comparator + Resumable-State + CLI mit `--limit N`. Plus Daten-Korrekturen (7 Confidence-Werte aus 2b, 5 `series.totalPlanned`-Bugs). Dry-Run-only.
+- [ ] **Phase 3b — Open Library + Hardcover.app + Schema-Erweiterung** — zusätzliche Quellen an die Engine andocken. ALTER TYPE `source_kind` ADD VALUE für die neuen Provider. **Schema-Migration:** zwei neue Felder auf `book_details` — `format` (Enum: novel/novella/short_story/anthology/audio_drama/omnibus) und `availability` (Enum: in_print/oop_recent/oop_legacy/unavailable). Beide Felder bleiben preliminary auf Quellen-Heuristik, definitive Klassifikation kommt mit dem LLM in 3c.
+- [ ] **Phase 3c — LLM-Anreicherungs-Schicht** — Sonnet 4.6 + Web-Search; Synopsen-Paraphrase, Soft-Facets, **Format-Klassifikation, Availability-Bestimmung via Web-Search**, Plausibilitäts-Check über die gesamten Datensätze. `ANTHROPIC_API_KEY` in `.env.local`.
+- [ ] **Phase 3d — Apply-Step** — Diff-File → DB-Writes mit `ON CONFLICT … WHERE source_kind != 'manual'`. Bringt UNIQUE INDEX `external_links` und `junctionsLocked: true`-Flag pro Buch mit.
+- [ ] **Phase 3e — Backfill-Day** — Test mit `--limit 40`, dann voller Lauf `--limit 800` über Nacht, mehrere Auto-PRs in 100er-Batches zur Review. Quality-Schwerpunkt im Test: stimmen Format und Availability bei den 40 Test-Büchern?
+- [ ] **Phase 3f — Maintenance-Crawler** — GH-Action monthly, nur Wikipedia-Diff für Neureleases, gleiche Engine-Reuse.
+
+### UI-Implikation für Phase 4 (Discovery-Layer)
+
+Phase-4-UI setzt den Default-Filter auf `availability ∈ {in_print, oop_recent}` (zeigt also nur lesbare Bücher per Default), mit Toggle „auch out of print zeigen" für Sammler / Hardcore-User. `format` ist orthogonal — ein UI-Filter, der z.B. nur `novel`+`novella` zeigt und Audio-Dramas/Anthologien ausblendet, wenn der User textuelle Lese-Empfehlungen will.
 
 ---
 
