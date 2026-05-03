@@ -14,13 +14,15 @@
     "db:migrate": "tsx --env-file=.env.local scripts/migrate.ts",
     "db:studio": "drizzle-kit studio",
     "db:seed": "tsx --env-file=.env.local scripts/seed.ts",
-    "check:eras": "tsx scripts/check-eras.ts"
+    "check:eras": "tsx scripts/check-eras.ts",
+    "ingest:backfill": "tsx --env-file=.env.local scripts/ingest-backfill.ts"
   },
   "engines": {
     "node": ">=22"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.105.1",
+    "cheerio": "^1.2.0",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.45.2",
     "next": "16.2.4",

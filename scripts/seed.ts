@@ -40,6 +40,7 @@ import {
   workPersons,
   works,
 } from "@/db/schema";
+import { slugify } from "@/lib/slug";
 import { sql } from "drizzle-orm";
 
 // ─── 1. Load JSON ─────────────────────────────────────────────────────────────
@@ -146,6 +147,9 @@ interface RawBook {
   // Stufe 2c.0: editorial era-anchor. Required for every book in the catalog.
   // The seed validates this field strictly — see Constraint 4 of brief 023.
   primaryEraId: string;
+  // Stufe 2b annotation surfaced in Phase 3a: optional per-book confidence on
+  // the manual roster. Absent → DB default 1.00. Present → stored as-is.
+  confidence?: number;
   synopsis?: string;
   series?: string;
   seriesIndex?: number;
@@ -171,15 +175,6 @@ const RAW = {
 };
 
 // ─── 2. Helpers ──────────────────────────────────────────────────────────────
-function slugify(s: string): string {
-  return s
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/['']/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
 
 function inferAlignment(f: RawFaction): "imperium" | "chaos" | "xenos" | "neutral" {
   if (f.parent === "chaos" || f.id === "chaos") return "chaos";
@@ -416,6 +411,8 @@ async function main() {
           endY: String(b.endY),
           releaseYear: b.pubYear ?? null,
           sourceKind: "manual",
+          confidence:
+            b.confidence !== undefined ? b.confidence.toFixed(2) : undefined,
         })
         .returning({ id: works.id });
       const workId = w.id;

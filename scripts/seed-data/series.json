@@ -8,8 +8,8 @@
   {
     "id": "siege_of_terra",
     "name": "Siege of Terra",
-    "total": 5,
-    "note": "Climax arc."
+    "total": 8,
+    "note": "Climax arc — 8 main novels (the 8th, The End and the Death, ships in 3 parts but counts as one release) plus 3 novellas + 1 anthology."
   },
   {
     "id": "eisenhorn",
@@ -38,20 +38,20 @@
   {
     "id": "gaunts_ghosts",
     "name": "Gaunt's Ghosts",
-    "total": 4,
-    "note": "Guard epic."
+    "total": 16,
+    "note": "Guard epic — 16 main novels through The Vincula Insurgency / Anarch arc; spin-offs (Double Eagle, Titanicus) count separately."
   },
   {
     "id": "ciaphas_cain",
     "name": "Ciaphas Cain",
-    "total": 3,
-    "note": "Satirical hero."
+    "total": 14,
+    "note": "Satirical hero — 14 main novels through Vainglorious (2024); plus short story / novella anthology collected as 'The Anthology'."
   },
   {
     "id": "space_wolves_sw",
     "name": "Space Wolves",
-    "total": 4,
-    "note": "William King's series."
+    "total": 6,
+    "note": "Ragnar Blackmane saga — 4 by William King (Space Wolf, Ragnar's Claw, Grey Hunter, Wolfblade) + 2 by Lee Lightner (Sons of Fenris, Wolf's Honour)."
   },
   {
     "id": "black_legion",
@@ -80,8 +80,8 @@
   {
     "id": "hh_more",
     "name": "Horus Heresy: Primarchs",
-    "total": 4,
-    "note": "Key novellas."
+    "total": 14,
+    "note": "Per-Primarch novellas — 14 in the numbered Primarchs sub-series (some Primarchs covered via short stories/audio dramas instead of numbered novellas; Primarchs II and XI are excluded by lore)."
   },
   {
     "id": "beast_arises",

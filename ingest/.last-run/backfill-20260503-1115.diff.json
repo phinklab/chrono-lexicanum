@@ -1,0 +1,169 @@
+{
+  "ranAt": "2026-05-03T11:15:37.491Z",
+  "discoverySource": "wikipedia",
+  "discoveryPages": [
+    "List_of_Warhammer_40,000_novels"
+  ],
+  "activeSources": [
+    "lexicanum"
+  ],
+  "discovered": 683,
+  "added": [
+    {
+      "wikipediaTitle": "False Gods",
+      "slug": "false-gods",
+      "payload": {
+        "slug": "false-gods",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "False Gods",
+          "releaseYear": 2006,
+          "startY": 39000,
+          "endY": 39000,
+          "seriesIndex": 2,
+          "authorNames": [
+            "Graham McNeill"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "startY": "lexicanum",
+          "endY": "lexicanum",
+          "seriesIndex": "wikipedia",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/False_Gods_(Novel)"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Galaxy in Flames",
+      "slug": "galaxy-in-flames",
+      "payload": {
+        "slug": "galaxy-in-flames",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Galaxy in Flames",
+          "releaseYear": 2006,
+          "seriesIndex": 3,
+          "authorNames": [
+            "Ben Counter"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "seriesIndex": "wikipedia",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Galaxy_in_Flames_(Novel)"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "The Flight of the Eisenstein",
+      "slug": "the-flight-of-the-eisenstein",
+      "payload": {
+        "slug": "the-flight-of-the-eisenstein",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "The Flight of the Eisenstein",
+          "releaseYear": 2007,
+          "seriesIndex": 4,
+          "authorNames": [
+            "James Swallow"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "seriesIndex": "wikipedia",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/The_Flight_of_the_Eisenstein_(Novel)"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Fulgrim",
+      "slug": "fulgrim",
+      "payload": {
+        "slug": "fulgrim",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Fulgrim",
+          "releaseYear": 2007,
+          "seriesIndex": 5,
+          "authorNames": [
+            "Graham McNeill"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "seriesIndex": "wikipedia",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Fulgrim_(Novel)"
+          }
+        ]
+      }
+    }
+  ],
+  "updated": [],
+  "skipped_manual": [
+    {
+      "slug": "horus-rising",
+      "dbSlug": "horus-rising-hh01",
+      "wouldBeDiff": {
+        "startY": {
+          "old": 30998,
+          "new": 30000
+        },
+        "endY": {
+          "old": 30998,
+          "new": 30000
+        }
+      }
+    }
+  ],
+  "skipped_unchanged": [],
+  "field_conflicts": [],
+  "errors": []
+}
