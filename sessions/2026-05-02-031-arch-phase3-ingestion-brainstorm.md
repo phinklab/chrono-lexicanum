@@ -2,7 +2,7 @@
 session: 2026-05-02-031
 role: architect
 date: 2026-05-02
-status: open
+status: implemented
 slug: phase3-ingestion-brainstorm
 parent: null
 links:
@@ -11,6 +11,8 @@ links:
   - 2026-05-02-027
   - 2026-05-02-029
   - 2026-05-02-030
+  - 2026-05-02-032
+  - 2026-05-02-033
 commits: []
 ---
 
