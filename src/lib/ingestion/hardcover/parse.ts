@@ -11,34 +11,40 @@
  * Hardcover-Tags → unsere kanonische 40k-aware `tone`/`theme`-Vokabular).
  * Numerisches Rating bleibt aus dem Schema raus (Phase-4-Entscheidung).
  *
- * **Best-Guess GraphQL Schema (CC, 2026-05-03).** Ohne Token konnte das
- * Schema nicht introspeziert werden — die unten gebaute Query basiert auf
- * dem Hasura-typischen `/v1/graphql`-Muster (where-Filter, _ilike-Operator,
- * limit). Wenn sich mit echtem Token herausstellt dass Field-Names anders
- * heißen (z.B. `cached_tags` vs `tags`, `rating` vs `cached_rating`), wird
- * die Query lokal in dieser Datei korrigiert. Siehe `fetch.ts`-Schema-Hinweis.
+ * **GraphQL Schema (CC, 2026-05-03).** Mit funktionierendem Token via
+ * Introspection verifiziert: Hardcover ist Hasura mit `query_root.books`
+ * als Hauptquery. **Wichtig:** `_ilike` und `_iregex` sind durch
+ * Permissions auf der Server-Seite geblockt („ilike and related operations
+ * are not permitted on this server."), nur exakte `_eq`-Matches sind
+ * erlaubt. WH40k-Buchtitel sind aber kanonisch annotiert, also reicht das
+ * für die meisten Bücher; bei Casing-/Punctuation-Mismatches landet ein
+ * „no hits" Error im Diff statt eines Treffers.
+ *
+ * Die `cached_tags`-Form ist ein verschachteltes Objekt:
+ *   { "Genre": [{tag, tagSlug, category, count, ...}], "Mood": [...],
+ *     "Content Warning": [...], "Tag": [...] }
+ * `extractTags()` walkt Object.values und sammelt `item.tag` aus jedem Array.
  */
 import type { HardcoverPayload, SourcePayloadFields } from "@/lib/ingestion/types";
 
 import { hardcoverQuery, isHardcoverEnabled } from "./fetch";
 
 // =============================================================================
-// GraphQL query (best-guess Hasura schema)
+// GraphQL query (Hasura schema verified 2026-05-03)
 // =============================================================================
 
 const SEARCH_QUERY = /* GraphQL */ `
   query ChronoLexicanumSearchBook($title: String!) {
     books(
-      where: { title: { _ilike: $title } }
+      where: { title: { _eq: $title } }
       limit: 5
-      order_by: { users_count: desc_nulls_last }
     ) {
       id
       title
       slug
       cached_tags
       rating
-      contributions(where: { contribution: { _eq: "Author" } }) {
+      contributions {
         author {
           name
         }
@@ -86,11 +92,12 @@ export async function discoverHardcoverBook(
     return { result: null, reason: "HARDCOVER_API_TOKEN missing" };
   }
 
-  const escaped = `%${title.replace(/[%_]/g, "\\$&")}%`;
-
+  // Hardcover-Permissions erlauben kein _ilike/_iregex — exakter Match-Versuch
+  // auf Wikipedia's Title. WH40k-Bücher sind in Hardcover meist kanonisch
+  // annotiert; andernfalls liefert die Query 0 Hits → "no hits"-Reason.
   let response;
   try {
-    response = await hardcoverQuery<SearchData>(SEARCH_QUERY, { title: escaped });
+    response = await hardcoverQuery<SearchData>(SEARCH_QUERY, { title });
   } catch (e) {
     return {
       result: null,

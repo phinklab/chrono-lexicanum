@@ -17,7 +17,7 @@ commits: []
 
 ## Summary
 
-Open Library + Hardcover docken an die 3a-Engine **ohne Refactor** an, das Schema bekommt zwei neue Enums (`book_format`, `book_availability`) plus vier nullable `book_details`-Spalten via `0005_solid_giant_man.sql`, und Wikipedia-Discovery erweitert sich um drei Sub-Listen mit einem neuen wikitable-Parser. **Wichtigste Abweichung:** Hardcover-Schema konnte ohne Token nicht introspeziert werden (api.hardcover.app gibt 401 ohne Auth, docs.hardcover.app ist Cloudflare-blockiert) — ich habe einen Best-Guess Hasura-style Query gebaut + Circuit-Breaker für 401/403 eingebaut, und der echte Schema-Verifikations-Test braucht einen funktionierenden Token.
+Open Library + Hardcover docken an die 3a-Engine **ohne Refactor** an, das Schema bekommt zwei neue Enums (`book_format`, `book_availability`) plus vier nullable `book_details`-Spalten via `0005_solid_giant_man.sql`, Wikipedia-Discovery erweitert sich um drei Sub-Listen mit einem neuen wikitable-Parser. **Hardcover-Schema empirisch verifiziert** nachdem Philipp einen funktionierenden Token in `.env.local` gesetzt hat: Hasura-Endpoint, `_eq` als einziger erlaubter Title-Operator (`_ilike`/`_iregex` Server-Permissions-blocked), `cached_tags` als kategorisierte JSONB-Struktur (Genre/Mood/Content Warning/Tag). Test-Lauf liefert für 6 von 7 added entries 6–27 Tags + averageRating; Tales of Heresy korrekt skipped als Multi-Author-Anthologie.
 
 ## What I did
 
@@ -37,8 +37,8 @@ Open Library + Hardcover docken an die 3a-Engine **ohne Refactor** an, das Schem
 - `src/lib/ingestion/open_library/parse.ts` — `discoverOpenLibraryBook(title, expectedAuthor?)`. Search-API liefert title/author_name/first_publish_year/isbn[]/number_of_pages_median/cover_i/key. Author-Match via case-insensitive substring (mirror Lexicanum-Pattern). ISBN-Extraktion: ISBN-13 via `/^97[89]\d{10}$/`, ISBN-10 via `/^\d{9}[\dXx]$/` (X check-digit toleriert, uppercased). Cover-URL `https://covers.openlibrary.org/b/id/<id>-L.jpg`. Source-URL `https://openlibrary.org/works/OL...W`.
 
 **Hardcover Crawler:**
-- `src/lib/ingestion/hardcover/fetch.ts` — GraphQL-POST gegen `https://api.hardcover.app/v1/graphql` mit `Authorization: Bearer ${HARDCOVER_API_TOKEN}`. Token-Detection: `isHardcoverEnabled()` returnt `false` wenn env leer ODER Circuit-Breaker getrippt. **Circuit-Breaker** (Phase-3b-Beigabe): bei 401/403 schaltet der Crawler für den Rest des Runs ab — verhindert 800 identische Token-Rejection-Errors im Diff bei großem Lauf.
-- `src/lib/ingestion/hardcover/parse.ts` — `discoverHardcoverBook(title, expectedAuthor?)`. **Best-Guess Hasura-style Query** auf `books { id title slug cached_tags rating contributions { author { name } } }` weil das Schema ohne funktionierenden Token nicht via Introspection verifizierbar war (siehe „Decisions"). `extractTags()` toleriert mehrere Hasura-JSONB-Formen für `cached_tags`. `HardcoverPayload.fields` bleibt leer (Hardcover liefert nichts in FIELD_PRIORITY); `audit.tags` und `audit.averageRating` sind die Soft-Facts.
+- `src/lib/ingestion/hardcover/fetch.ts` — GraphQL-POST gegen `https://api.hardcover.app/v1/graphql` mit `Authorization: Bearer ${HARDCOVER_API_TOKEN}`. Token-Detection: `isHardcoverEnabled()` returnt `false` wenn env leer ODER Circuit-Breaker getrippt. **Circuit-Breaker** bei 401/403 schaltet den Crawler für den Rest des Runs ab — verhindert 800 identische Token-Rejection-Errors im Diff bei großem Lauf.
+- `src/lib/ingestion/hardcover/parse.ts` — `discoverHardcoverBook(title, expectedAuthor?)`. **Schema empirisch verifiziert** (siehe „Decisions"): Hasura-typisches `query_root.books`, `where: { title: { _eq: $title } }` als einzig erlaubter Match-Operator, `contributions { author { name } }`-Junction für Author-Match-Disambiguation. `extractTags()` walkt `cached_tags` als Object mit Genre/Mood/Content Warning/Tag-Kategorien und sammelt `item.tag` aus jedem Array. `HardcoverPayload.fields` bleibt leer (Hardcover liefert nichts in FIELD_PRIORITY); `audit.tags` (raw, deduped multi-category) und `audit.averageRating` sind die Soft-Facts.
 - `.env.example` — neuer Block für `HARDCOVER_API_TOKEN` mit Schritt-für-Schritt Token-Beschaffungs-Doku.
 
 **Wikipedia Discovery + Dedup:**
@@ -54,7 +54,7 @@ Open Library + Hardcover docken an die 3a-Engine **ohne Refactor** an, das Schem
 
 ## Decisions I made
 
-- **Hardcover-Schema NICHT introspeziert.** Der Brief erlaubt expliziten Stop wenn die Schema-Erkundung signifikante Hürden zeigt. Beobachtungen: (a) `api.hardcover.app/v1/graphql` ohne Token gibt `{"error":"Unable to verify token"}` — keine offene Introspection. (b) `docs.hardcover.app` ist Cloudflare-bot-blockiert für unauthenticated curl. Statt der Implementation komplett zu skippen habe ich den Best-Guess Hasura-style Query gebaut (basierend auf dem `/v1/graphql`-Pattern, das auf eine Hasura-API hindeutet). Der Code-Pfad ist vollständig + Soft-Fail-tested; was beim ersten Lauf mit echtem Token wahrscheinlich passiert: einer der Field-Names (`cached_tags`/`rating`/`contributions`/`books`) heißt anders und es gibt `GraphQL errors: field 'X' not found`. Korrektur ist eine 5-Zeilen-Query-Anpassung in `parse.ts`. Empfehle: Mini-Brief sobald Philipp einen Token hat, erste 1-Buch-Probe, Schema empirisch korrigieren.
+- **Hardcover-Schema empirisch verifiziert (Mid-Session-Update).** Erste Implementierung nutzte einen Best-Guess Hasura-style Query mit `where: { title: { _ilike: $title } }`. Beim Test-Lauf mit Token zeigte sich der HTTP-403-Body: **„ilike and related operations are not permitted on this server."** Hasura-Permissions auf der Server-Seite blockieren `_ilike` und `_iregex` (vermutlich aus Performance-Gründen — Indizes greifen darauf nicht). `_eq` ist erlaubt. Schema-Probe via Introspection (mit Token) zeigte: `query_root` hat `books`/`books_by_pk`/`books_aggregate`/`books_trending`, `String_comparison_exp` listet alle Operatoren auf (sowohl die erlaubten wie auch die geblockten). Konsequenz: Query-Patch auf `_eq`-Match — funktioniert für die meisten WH40k-Bücher weil deren Titel kanonisch annotiert sind, schlägt bei subtilen Unterschieden (Punctuation, Casing) zurück auf „no hits" statt eines Fehlers. Final getestet: 6 von 7 nicht-manualen Büchern aus dem 10er-Test liefern Hardcover-Daten. Tales of Heresy (Multi-Author-Anthologie) skipped korrekt durch Author-Mismatch in allen 3 per-book-Quellen.
 - **Hardcover Circuit-Breaker für 401/403.** Der erste Test-Lauf zeigte: `.env.local` hat einen Token (vermutlich Test/Placeholder), die API antwortet mit 403 → ohne Breaker hätten 10 Bücher × 1 GraphQL-Request = 10 identische Fehler im Diff. Mit Breaker: ein Request, ein Fehler, alle Folge-Bücher überspringen Hardcover still. Skaliert sauber auf den 800-Buch-Lauf in 3e.
 - **Wikitable-Parser-Erweiterung statt Sub-List-spezifischer Parser.** Die HH-novels- und Siege_of_Terra-Pages liefern ihre Bücher in `<table class="wikitable sortable">`, NICHT in `<ul>`. Statt für jede Sub-Listen-Page einen eigenen Parser zu bauen (Brief-erlaubt: „aus parse.ts oder einer neuen Datei wenn das natürlicher ist"), habe ich `parseWikipediaList()` dispatch-fähig gemacht: walkt sowohl `<ul>`- als auch `table.wikitable`-Children. Die existierende Section-Tracking-Mechanik bleibt unverändert, ein einziger zusätzlicher Parser-Pfad (`parseWikitableRow`) liest die Zeilen. Saubere Erweiterung.
 - **Sub-Listen-Wahl: HH-novels + Siege_of_Terra + Eisenhorn.** Brief sagte „HH-novels + Siege of Terra + Beast Arises" als kanonische Set. Empirie: `The_Beast_Arises` und Varianten (`Beast_Arises_(series)`, `Beast_Arises_series`) geben alle HTTP 404 — die Beast-Arises-Reihe hat keine eigene Wikipedia-Seite, sie steht nur als Sektion auf der Hauptliste. `Siege_of_Terra` ist tatsächlich ein Redirect auf `The_Horus_Heresy` mit dem gleichen Wikitable wie `Horus_Heresy_(novels)` — beide aktiv enthalten zeigt explizit den `discoveryDuplicates`-Audit-Slot in Aktion (jeder slug ist mit beiden Page-URLs sichtbar). `Eisenhorn` als 3.-Sub-List liefert nur 4 Omnibus-Einträge (mostly redundant mit der Hauptliste) — pflichterfüllend, der Wert für 3b ist eher technisch (3-Sub-List-Acceptance) als inhaltlich. Heterogenität dokumentiert in „For next session".
@@ -74,24 +74,28 @@ Open Library + Hardcover docken an die 3a-Engine **ohne Refactor** an, das Schem
 - `npm run build` — pass (Next.js production build erfolgreich, alle Routes statisch oder dynamic wie erwartet).
 - `npm run db:migrate` — angewendet 2026-05-03, 0005_solid_giant_man.sql ausgeführt, NOTICEs nur über das schon-existierende `drizzle`-Schema und `__drizzle_migrations`-Relation (normal).
 - `npm run db:seed` — pass; 7 eras, 26 works, 26 book_details (mit `format = 'novel'` für alle 26), 18 services, 12 facet_categories, 85 facet_values, 12 persons, 60 work_factions, 26 work_persons, 413 work_facets, 26 external_links. Alle 26 Manuals erhalten den neuen `format` Wert.
-- `npm run ingest:backfill -- --dry-run --limit 10` — pass; 701 unique entries discovered (im 700-900-Band), Diff geschrieben nach `ingest/.last-run/backfill-20260503-1254.diff.json`.
+- `npm run ingest:backfill -- --dry-run --limit 10` — pass; 701 unique entries discovered (im 700-900-Band), Diff in `ingest/.last-run/backfill-20260503-1328.diff.json` (kompletter JSON inkl. 96-Eintrag `discoveryDuplicates`-Liste, mit-committed als Proof-of-Run).
 
-### Test-Diff-Zusammenfassung (limit 10)
+### Test-Diff-Zusammenfassung (limit 10, Hardcover aktiv)
 
 ```
 discoveryPages: [List_of_Warhammer_40,000_novels, Horus_Heresy_(novels), Siege_of_Terra, Eisenhorn]
 discovered: 701 unique (96 cross-page duplicates folded into discoveryDuplicates audit slot)
 activeSources: [lexicanum, open_library, hardcover]
 
-added: 7
+added: 7 (6 davon mit rawHardcoverPayload — tags 6-27 + averageRating 3.18-4.00)
+  - false-gods, galaxy-in-flames, the-flight-of-the-eisenstein, fulgrim,
+    descent-of-angels, battle-for-the-abyss → vollständig (4 Quellen aktiv)
+  - tales-of-heresy → nur Wikipedia (Multi-Author-Anthologie schlägt Author-Match in alle 3 per-book-Quellen fehl)
 updated: 0
 skipped_manual: 3 (Horus Rising hh01, Legion hh07, Mechanicum hh09 — Manual-Protection greift sauber)
 skipped_unchanged: 0
-field_conflicts: 2 (beide releaseYear: open_library=2014 reissue vs wikipedia/lexicanum=2006/2007 original; wikipedia gewinnt deterministisch per FIELD_PRIORITY)
-errors: 3
-  - hardcover/Horus Rising: 403 token rejected (Circuit-Breaker getrippt nach diesem Eintrag → keine weiteren Hardcover-Fehler)
-  - lexicanum/Tales of Heresy: author mismatch (Anthologie mit Editor-Liste, substring-match navigiert das nicht)
-  - open_library/Tales of Heresy: no hits for title+author (OL hat es nicht)
+field_conflicts: 1 (descent-of-angels.releaseYear: open_library=2014 reissue vs wikipedia/lexicanum=2007 original; wikipedia gewinnt deterministisch)
+errors: 4 (alle echte semantische Mismatches, keine Code-Bugs)
+  - hardcover/Legion: author mismatch (mehrere "Legion"-Bücher in Hardcover — keiner mit Dan Abnett)
+  - lexicanum/Tales of Heresy: author mismatch (Anthologie mit Editor-Liste)
+  - open_library/Tales of Heresy: no hits for title+author
+  - hardcover/Tales of Heresy: author mismatch (Anthologie)
 
 Sample fieldOrigins (False Gods):
   title:        wikipedia
@@ -102,23 +106,21 @@ Sample fieldOrigins (False Gods):
   pageCount:    open_library
   seriesIndex:  wikipedia
   authorNames:  wikipedia
+externalUrls: 4 sources (wikipedia + lexicanum + open_library + hardcover)
+rawHardcoverPayload: { tags: [27 raw multi-category strings], averageRating: 3.97 }
 
 Sample skipped_manual.wouldBeDiff (Horus Rising):
   startY/endY/coverUrl/isbn13/isbn10/pageCount — alle 6 als old=null vs new=...
   → Manual-Protection blockt sauber; im 3d Apply würde das Manual seine Werte behalten.
 ```
 
-Test-Diff-File `ingest/.last-run/backfill-20260503-1254.diff.json` wird mit-committed als Proof-of-Run (kompletter JSON inkl. `discoveryDuplicates`-Liste mit 96 Einträgen).
-
 ## Open issues / blockers
 
-1. **Hardcover-Token im env ist abgelehnt (403).** Im aktuellen `.env.local` steht ein Token, der vom Hardcover-API mit 403 zurückgewiesen wird (gestempelter Test-Wert oder abgelaufen). Der Circuit-Breaker schaltet die Quelle nach dem ersten 403 still für den Rest des Runs ab — der Code-Pfad ist verifiziert, aber Hardcover-Daten kommen erst rein wenn Philipp einen funktionierenden Token holt. **Action:** Account auf hardcover.app, Token-Generation, in `.env.local` setzen, dann ein 1-Buch-Test (`--dry-run --limit 1 --source hardcover`) um die Best-Guess Query gegen das echte Schema zu testen.
-2. **Hardcover-Schema-Korrektur** wird wahrscheinlich beim ersten echten Test-Lauf nötig — Field-Names könnten abweichen (`cached_tags` vs `tags`, `rating` vs `cached_rating`, `contributions` vs `book_authors`). Korrektur-Stelle: `SEARCH_QUERY` in `src/lib/ingestion/hardcover/parse.ts`. 5-Zeilen-Anpassung pro Field-Name-Mismatch.
-3. **Sub-List-Coverage-Lücke.** Beast Arises hat keine Wikipedia-Seite, Gaunt's Ghosts ist `<h3>`-pro-Buch-Synopse statt Liste. Eisenhorn liefert nur Omnibus-Titel. WH40k-Wikipedia-Sub-List-Landschaft ist sparser als der Brief annahm. 700–900-Discovery-Band wird mit unseren 4 Pages erreicht (701 unique gemessen), aber der Coverage-Gewinn aus Sub-Listen ist klein (~60-80 zusätzliche Audit-Provenanz-Einträge, kaum echte Buch-Neuzugänge). 3c LLM-Web-Search wird die Coverage-Lücke besser schließen.
+1. **Sub-List-Coverage-Lücke.** Beast Arises hat keine Wikipedia-Seite, Gaunt's Ghosts ist `<h3>`-pro-Buch-Synopse statt Liste. Eisenhorn liefert nur Omnibus-Titel. WH40k-Wikipedia-Sub-List-Landschaft ist sparser als der Brief annahm. 700–900-Discovery-Band wird mit unseren 4 Pages erreicht (701 unique gemessen), aber der Coverage-Gewinn aus Sub-Listen ist klein (~60-80 zusätzliche Audit-Provenanz-Einträge, kaum echte Buch-Neuzugänge). 3c LLM-Web-Search wird die Coverage-Lücke besser schließen.
+2. **Hardcover Title-Match nur exakt.** Server-Permissions blockieren `_ilike`/`_iregex`, also matcht der Crawler nur identische Title-Strings. Funktioniert für die getesteten 6 von 7 added entries ✓. Bei subtilen Unterschieden (z.B. „The Solar War" vs „Solar War", „Eisenhorn: Xenos" vs „Xenos") landet ein „no hits"-Reason im Diff statt eines Treffers. Mitigation für 3e (Backfill-Day): Title-Variationen-Liste pro Buch probieren oder eine separate Such-Funktion in Hardcover entdecken (das Schema hatte `books_trending` und `activity_feed` aber kein dediziertes `search_books` aufgelistet — eine RPC-Funktion könnte aber existieren). Heute kein Blocker.
 
 ## For next session
 
-- **Hardcover-Schema empirisch verifizieren + Query korrigieren** (3b.2 Mini-Brief, sobald Token verfügbar). Erwarte 1-2 Field-Name-Anpassungen in der GraphQL-Query. Test-Lauf mit `--source hardcover --limit 1` zeigt's sofort.
 - **3d Apply-Step Reminders** (Carry-Over aus Report 035 erweitert):
   - ALTER TYPE `sourceKind` für `open_library` + `hardcover` (in 3b NICHT gemacht weil Dry-Run-only; siehe Brief Constraints): die Pipeline schreibt `primarySource` als `open_library` in `MergedBook.primarySource`, beim Apply wird das in `works.sourceKind` geschrieben — DB-Enum braucht den Wert dann.
   - Author-FK-Resolution (`authorNames: string[]` raw → `work_persons` mit `role='author'`, Auto-Create für neue Persons).
@@ -136,7 +138,7 @@ Test-Diff-File `ingest/.last-run/backfill-20260503-1254.diff.json` wird mit-comm
 
 - Open Library Search API docs: <https://openlibrary.org/dev/docs/api/search>
 - Open Library Cover URLs: <https://openlibrary.org/dev/docs/api/covers>
-- Hardcover GraphQL endpoint (verified empirically): `https://api.hardcover.app/v1/graphql` — requires Bearer token, 401 without auth, 403 on invalid token. Schema not introspected (Cloudflare-blocked docs).
+- Hardcover GraphQL endpoint (empirisch verifiziert): `https://api.hardcover.app/v1/graphql` — Bearer-Token-Auth (533-char JWT). Schema ist Hasura-typisch (`query_root.books`, `_eq`/`_in`/`_neq` erlaubt; `_ilike`/`_iregex` blockt der Server mit „ilike and related operations are not permitted on this server."). `cached_tags` ist Object-of-Arrays mit Kategorien Genre/Mood/Content Warning/Tag, jedes Item hat `tag`/`tagSlug`/`category`/`count`-Felder.
 - Wikipedia probe results (curl HEAD): `Horus_Heresy_(novels)` ✓ 200, `Siege_of_Terra` ✓ 200 (redirect to `The_Horus_Heresy`), `Eisenhorn` ✓ 200, `Ravenor` ✓ 200, `The_Beast_Arises*` ✗ 404 alle Varianten, `Gaunt%27s_Ghosts` ✓ 200 aber `<h3>`-pro-Buch-Struktur (nicht parseable als Liste).
 - Wikitable parsing strategy: tested on `Siege_of_Terra` page's first wikitable, columns `<th>Index</th><td>Title</td><td>Author</td><td>Release</td><td>Length</td>` — 65 HH-Bücher korrekt extrahiert mit seriesIndex, author, releaseYear.
 - Drizzle migration generation: `npm run db:generate` produzierte sauber `0005_solid_giant_man.sql` ohne TTY-Rename-Resolver-Trigger (keine Drops, nur additions).
