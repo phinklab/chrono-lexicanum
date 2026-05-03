@@ -205,6 +205,12 @@ export interface LLMPayload extends SourcePayload {
       output: number;
       webSearchCount: number;
     };
+    /**
+     * Model that produced this payload. Authoritative for cache-hits (= the
+     * model that wrote the cache, not the current run's model). Surfaces in
+     * `rawLlmPayload.model` per book for cross-model-comparison runs.
+     */
+    modelUsed?: string;
   };
 }
 
@@ -250,6 +256,9 @@ export interface DiffFieldChange {
  * ist der Slot reine Sichtbarkeit — 3d-Apply ignoriert ihn dort (manual wins).
  */
 export interface RawLlmPayload {
+  /** Model that produced this entry (per-book, may differ from run-level
+   *  `DiffFile.llmModel` when re-runs use a different model). */
+  model?: string;
   facetIds?: string[];
   discoveredLinks?: DiscoveredLink[];
 }
@@ -381,6 +390,9 @@ export interface RunState {
   partialDiff: DiffFile;                  // accumulated diff so far
   config: {
     limit?: number;
+    /** Phase 3c: 0-based start index into the discovery roster. Default 0
+     *  (= start at the first book). Used for sliced re-runs. */
+    offset?: number;
     slug?: string;
     sources: SourceName[];                // 3a: ["lexicanum"]
   };

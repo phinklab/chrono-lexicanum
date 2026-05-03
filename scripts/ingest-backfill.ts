@@ -78,6 +78,10 @@ const VALID_PER_BOOK_SOURCES: SourceName[] = [
 interface CliConfig {
   dryRun: boolean;
   limit?: number;
+  /** Phase 3c: 0-based start index into the discovery roster. Use with
+   *  `--limit N` to process a contiguous slice (e.g. `--offset 20 --limit 20`
+   *  processes books 21–40). Default 0 (start at the first book). */
+  offset?: number;
   slug?: string;
   source?: SourceName;
 }
@@ -87,6 +91,7 @@ function parseCliArgs(): CliConfig {
     options: {
       "dry-run": { type: "boolean", default: false },
       limit: { type: "string" },
+      offset: { type: "string" },
       slug: { type: "string" },
       source: { type: "string" },
     },
@@ -95,10 +100,11 @@ function parseCliArgs(): CliConfig {
 
   const dryRun = Boolean(values["dry-run"]);
   const limit = values.limit !== undefined ? Number.parseInt(values.limit, 10) : undefined;
+  const offset = values.offset !== undefined ? Number.parseInt(values.offset, 10) : undefined;
   const slug = values.slug;
   const source = values.source as SourceName | undefined;
 
-  return { dryRun, limit, slug, source };
+  return { dryRun, limit, offset, slug, source };
 }
 
 function exitWithError(msg: string, code: number = 1): never {
@@ -141,9 +147,17 @@ async function main(): Promise<void> {
   if (cfg.limit !== undefined && (!Number.isFinite(cfg.limit) || cfg.limit < 1)) {
     exitWithError(`--limit must be a positive integer (got ${cfg.limit})`);
   }
+  if (cfg.offset !== undefined && (!Number.isFinite(cfg.offset) || cfg.offset < 0)) {
+    exitWithError(`--offset must be a non-negative integer (got ${cfg.offset})`);
+  }
   if (cfg.slug && cfg.limit !== undefined) {
     console.warn(
       "warn: --slug supplied; --limit is ignored when targeting a single slug",
+    );
+  }
+  if (cfg.slug && cfg.offset !== undefined) {
+    console.warn(
+      "warn: --slug supplied; --offset is ignored when targeting a single slug",
     );
   }
 
@@ -370,15 +384,20 @@ async function initState(
   }
 
   const startedAt = new Date().toISOString();
+  // Phase 3c: --offset N starts the loop at index N rather than 0. Implemented
+  // by seeding processedIndex with N-1 so the existing `startIdx =
+  // processedIndex + 1` arithmetic naturally lands on N.
+  const initialProcessedIndex = (cfg.offset ?? 0) - 1;
   const state: RunState = {
     runId: startedAt,
     startedAt,
     discoveryPages: DEFAULT_DISCOVERY_PAGES,
     discoveredRoster: unique,
-    processedIndex: -1,
+    processedIndex: initialProcessedIndex,
     partialDiff,
     config: {
       limit: cfg.limit,
+      offset: cfg.offset,
       slug: cfg.slug,
       sources: activeSources,
     },
@@ -389,12 +408,13 @@ async function initState(
 
 function computeEndIndex(rosterLen: number, startIdx: number, cfg: CliConfig): number {
   // `startIdx` is intentionally unused here: --limit N is absolute ("process
-  // up to N books total"), not incremental — so a resumed run with the same
-  // --limit naturally stops at the same point as the original would have.
+  // up to N books total starting at --offset"), not incremental — so a resumed
+  // run with the same --limit/--offset naturally stops at the same point as
+  // the original would have.
   void startIdx;
   if (cfg.slug) return rosterLen; // handled separately
   if (cfg.limit !== undefined) {
-    return Math.min(rosterLen, cfg.limit);
+    return Math.min(rosterLen, (cfg.offset ?? 0) + cfg.limit);
   }
   return rosterLen;
 }
@@ -518,9 +538,12 @@ async function processOne(
   }
 
   // Phase 3c: per-Buch-Audit-Anker für 3d-FK-Resolution. Nur setzen wenn
-  // discoveredLinks oder facetIds non-empty sind (sonst Slot weglassen).
+  // discoveredLinks oder facetIds non-empty sind ODER ein Modell-String da
+  // ist (Letzteres macht den Slot auch bei leerem Output sichtbar — wichtig
+  // für Cross-Modell-Vergleichs-Läufe).
   const rawLlmPayload = llmAudit
     ? {
+        ...(llmAudit.modelUsed ? { model: llmAudit.modelUsed } : {}),
         ...(llmAudit.facetIds && llmAudit.facetIds.length > 0
           ? { facetIds: llmAudit.facetIds }
           : {}),
@@ -532,7 +555,8 @@ async function processOne(
   const hasLlmAnchor =
     rawLlmPayload &&
     (rawLlmPayload.facetIds !== undefined ||
-      rawLlmPayload.discoveredLinks !== undefined);
+      rawLlmPayload.discoveredLinks !== undefined ||
+      rawLlmPayload.model !== undefined);
 
   // Top-Level-Aggregation: flags + tokenUsage in DiffFile.
   if (llmAudit?.flags && llmAudit.flags.length > 0 && state.partialDiff.llm_flags) {
@@ -545,7 +569,10 @@ async function processOne(
     cost.totalTokensIn += llmAudit.tokenUsage.input;
     cost.totalTokensOut += llmAudit.tokenUsage.output;
     cost.totalWebSearches += llmAudit.tokenUsage.webSearchCount;
-    cost.estUsdCost = estimateUsdCost(cost);
+    cost.estUsdCost = estimateUsdCost(
+      cost,
+      state.partialDiff.llmModel ?? "claude-sonnet-4-6",
+    );
   }
 
   const compared = await compareBook(entry.title, merged);
