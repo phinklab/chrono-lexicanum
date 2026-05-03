@@ -2,7 +2,7 @@
 session: 2026-05-04-041
 role: architect
 date: 2026-05-04
-status: open
+status: implemented
 slug: ingestion-dashboard
 parent: null
 links:
@@ -10,6 +10,7 @@ links:
   - 2026-05-03-037
   - 2026-05-03-039
   - 2026-05-04-040
+  - 2026-05-04-043
 commits: []
 ---
 
