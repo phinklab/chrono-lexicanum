@@ -1,18 +1,28 @@
 /**
- * Parse a Wikipedia "List of Warhammer 40,000 novels"-style page into a
- * roster of `WikipediaBookEntry`.
+ * Parse a Wikipedia WH40k-novels page into a roster of `WikipediaBookEntry`.
  *
- * The page is hierarchical sections (`<h2>` / `<h3>`) → bullet lists
- * (`<ul><li>`). Each `<li>` looks like:
+ * Two structural variants exist on Wikipedia:
  *
- *   <li><i>Book 001 - Horus Rising</i> by Dan Abnett (2006, reissue 2018, ISBN 9781849707435)</li>
- *   <li><i>The Solar War</i> by John French (May 2019)</li>
- *   <li><i>Roboute Guilliman: Lord of Ultramar</i> by David Annandale (short novel) (2016)</li>
+ * 1. **List-style** (the canonical „List of Warhammer 40,000 novels"). The page
+ *    is hierarchical sections (`<h2>` / `<h3>`) → bullet lists (`<ul><li>`).
+ *    Each `<li>` looks like:
  *
- * We extract the title from the first `<i>` child, strip the optional
- * "Book NNN - " prefix (capturing NNN as `seriesIndex`), find the author
- * after "by " (or "edited by " for anthologies), and pull the first
- * 4-digit year that looks like a publication year.
+ *      <li><i>Book 001 - Horus Rising</i> by Dan Abnett (2006, ISBN 9781849707435)</li>
+ *      <li><i>The Solar War</i> by John French (May 2019)</li>
+ *      <li><i>Roboute Guilliman: Lord of Ultramar</i> by David Annandale (short novel) (2016)</li>
+ *
+ *    Extracted via `parseListItem`: title from first `<i>`, optional
+ *    `Book NNN - ` prefix → seriesIndex, „by Author" tail → author, first
+ *    4-digit publication year → releaseYear.
+ *
+ * 2. **Wikitable-style** (Phase 3b: series-pages like „The Horus Heresy" or
+ *    „Siege of Terra" wrap their book lists in `<table class="wikitable
+ *    sortable">` with columns Book / Title / Author / Release date / Length).
+ *    Extracted via `parseWikitableRow`.
+ *
+ * Both variants live in the same parser entry — `parseWikipediaList` walks the
+ * page's children and dispatches based on element type. Section context is
+ * tracked across both modes so audit logs preserve provenance.
  */
 import * as cheerio from "cheerio";
 import type { CheerioAPI } from "cheerio";
@@ -84,6 +94,15 @@ export function parseWikipediaList(page: FetchedPage): WikipediaBookEntry[] {
         const entry = parseListItem($, li, page, currentSectionId);
         if (entry) entries.push(entry);
       });
+      return;
+    }
+
+    // Phase 3b: series-pages use sortable wikitables instead of bullet lists.
+    if ($el.is("table.wikitable")) {
+      $el.find("> tbody > tr, > tr").each((_i, tr) => {
+        const entry = parseWikitableRow($, tr, page, currentSectionId);
+        if (entry) entries.push(entry);
+      });
     }
   });
 
@@ -131,6 +150,82 @@ function parseListItem(
   const sourcePage = sectionId
     ? `${page.url}#${sectionId}`
     : page.url;
+
+  return {
+    title,
+    author,
+    releaseYear,
+    seriesIndex,
+    sourcePage,
+  };
+}
+
+/**
+ * Parse a single `<tr>` of a series-page wikitable into a book entry.
+ *
+ * Expected column shape (Wikipedia convention for HH/Siege-style wikitables):
+ *   1. `<th>` index   — book number inside the series (→ seriesIndex)
+ *   2. `<td>`         — `<i><a>Title</a></i><br><i>Subtitle</i>`
+ *   3. `<td>`         — author, often wrapped `<span class="fn">…</span>`
+ *   4. `<td>`         — release-info blob (year + ISBN + format)
+ *   5. `<td>`         — page count or duration
+ *
+ * Header rows (only `<th>`, no `<td>`) and rowspan-continuation rows are
+ * skipped. We tolerate column reorderings: title is „first `<i>` inside any
+ * `<td>`", year is „first 4-digit year anywhere in the row text", author
+ * prefers the vcard span and falls back to the 2nd or 3rd `<td>`.
+ */
+function parseWikitableRow(
+  $: CheerioAPI,
+  tr: Element,
+  page: FetchedPage,
+  sectionId: string | null,
+): WikipediaBookEntry | null {
+  const $tr = $(tr);
+
+  // Header rows have only <th> children — skip.
+  const tds = $tr.find("> td");
+  if (tds.length === 0) return null;
+
+  // Title: first <i> inside any <td>. Skip "subtitle" italics by taking
+  // only the first one — Wikipedia convention for these tables.
+  const firstItalic = tds.find("i").first();
+  if (firstItalic.length === 0) return null;
+  const title = collapseWhitespace(firstItalic.text());
+  if (!title) return null;
+
+  // seriesIndex from the row's leading <th> (book number column).
+  let seriesIndex: number | undefined;
+  const leadingTh = $tr.find("> th").first();
+  if (leadingTh.length > 0) {
+    const idxText = leadingTh.text().replace(/[^\d]/g, "");
+    if (idxText) {
+      const num = Number.parseInt(idxText, 10);
+      if (Number.isFinite(num) && num >= 1 && num <= 999) seriesIndex = num;
+    }
+  }
+
+  // Author: prefer the vcard span (`<span class="fn">Dan Abnett</span>`).
+  // Fall back to the third <td> as a heuristic, then sanity-filter year-like
+  // strings out (release-date columns sneaking in).
+  let author: string | undefined;
+  const fn = tds.find("span.fn").first();
+  if (fn.length > 0) {
+    author = stripAuthorNoise(fn.text());
+  } else if (tds.length >= 3) {
+    const candidate = collapseWhitespace(tds.eq(2).text());
+    if (candidate && candidate.length < 80 && !/\d{4}/.test(candidate)) {
+      author = stripAuthorNoise(candidate);
+    }
+  }
+
+  // releaseYear: first 4-digit year anywhere in the row.
+  const rowText = collapseWhitespace($tr.text());
+  let releaseYear: number | undefined;
+  const yearMatch = YEAR_RE.exec(rowText);
+  if (yearMatch) releaseYear = Number.parseInt(yearMatch[1], 10);
+
+  const sourcePage = sectionId ? `${page.url}#${sectionId}` : page.url;
 
   return {
     title,

@@ -1,0 +1,1221 @@
+{
+  "ranAt": "2026-05-03T12:54:38.021Z",
+  "discoverySource": "wikipedia",
+  "discoveryPages": [
+    "List_of_Warhammer_40,000_novels",
+    "Horus_Heresy_(novels)",
+    "Siege_of_Terra",
+    "Eisenhorn"
+  ],
+  "activeSources": [
+    "lexicanum",
+    "open_library",
+    "hardcover"
+  ],
+  "discovered": 701,
+  "added": [
+    {
+      "wikipediaTitle": "False Gods",
+      "slug": "false-gods",
+      "payload": {
+        "slug": "false-gods",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "False Gods",
+          "releaseYear": 2006,
+          "startY": 39000,
+          "endY": 39000,
+          "coverUrl": "https://covers.openlibrary.org/b/id/8741384-L.jpg",
+          "seriesIndex": 2,
+          "isbn13": "9781849706193",
+          "isbn10": "1849706190",
+          "pageCount": 408,
+          "authorNames": [
+            "Graham McNeill"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "startY": "lexicanum",
+          "endY": "lexicanum",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/False_Gods_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL19919646W"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Galaxy in Flames",
+      "slug": "galaxy-in-flames",
+      "payload": {
+        "slug": "galaxy-in-flames",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Galaxy in Flames",
+          "releaseYear": 2006,
+          "coverUrl": "https://covers.openlibrary.org/b/id/894771-L.jpg",
+          "seriesIndex": 3,
+          "isbn13": "9781844163939",
+          "isbn10": "1844163938",
+          "pageCount": 416,
+          "authorNames": [
+            "Ben Counter"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Galaxy_in_Flames_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL8454539W"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "The Flight of the Eisenstein",
+      "slug": "the-flight-of-the-eisenstein",
+      "payload": {
+        "slug": "the-flight-of-the-eisenstein",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "The Flight of the Eisenstein",
+          "releaseYear": 2007,
+          "coverUrl": "https://covers.openlibrary.org/b/id/894808-L.jpg",
+          "seriesIndex": 4,
+          "isbn13": "9781844164592",
+          "isbn10": "1844164594",
+          "pageCount": 416,
+          "authorNames": [
+            "James Swallow"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/The_Flight_of_the_Eisenstein_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL8933992W"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Fulgrim",
+      "slug": "fulgrim",
+      "payload": {
+        "slug": "fulgrim",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Fulgrim",
+          "releaseYear": 2007,
+          "coverUrl": "https://covers.openlibrary.org/b/id/894818-L.jpg",
+          "seriesIndex": 5,
+          "isbn13": "9781844164769",
+          "isbn10": "1844164764",
+          "pageCount": 512,
+          "authorNames": [
+            "Graham McNeill"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Fulgrim_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL3990208W"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Descent of Angels",
+      "slug": "descent-of-angels",
+      "payload": {
+        "slug": "descent-of-angels",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Descent of Angels",
+          "releaseYear": 2007,
+          "coverUrl": "https://covers.openlibrary.org/b/id/10090887-L.jpg",
+          "seriesIndex": 6,
+          "isbn13": "9781849708050",
+          "isbn10": "1849708142",
+          "pageCount": 416,
+          "authorNames": [
+            "Mitchel Scanlon"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Descent_of_Angels_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL20795884W"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Battle for the Abyss",
+      "slug": "battle-for-the-abyss",
+      "payload": {
+        "slug": "battle-for-the-abyss",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Battle for the Abyss",
+          "releaseYear": 2008,
+          "coverUrl": "https://covers.openlibrary.org/b/id/7794083-L.jpg",
+          "seriesIndex": 8,
+          "isbn13": "9781844166572",
+          "isbn10": "184970807X",
+          "pageCount": 416,
+          "authorNames": [
+            "Ben Counter"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "coverUrl": "open_library",
+          "seriesIndex": "wikipedia",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          },
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Battle_for_the_Abyss_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL17546228W"
+          }
+        ]
+      }
+    },
+    {
+      "wikipediaTitle": "Tales of Heresy",
+      "slug": "tales-of-heresy",
+      "payload": {
+        "slug": "tales-of-heresy",
+        "primarySource": "wikipedia",
+        "confidence": 0.85,
+        "fields": {
+          "title": "Tales of Heresy",
+          "releaseYear": 2009,
+          "seriesIndex": 10,
+          "authorNames": [
+            "Nick Kyme and Lindsey Priestley"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "wikipedia",
+          "releaseYear": "wikipedia",
+          "seriesIndex": "wikipedia",
+          "authorNames": "wikipedia"
+        },
+        "externalUrls": [
+          {
+            "source": "wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles"
+          }
+        ]
+      }
+    }
+  ],
+  "updated": [],
+  "skipped_manual": [
+    {
+      "slug": "horus-rising",
+      "dbSlug": "horus-rising-hh01",
+      "wouldBeDiff": {
+        "startY": {
+          "old": 30998,
+          "new": 30000
+        },
+        "endY": {
+          "old": 30998,
+          "new": 30000
+        },
+        "coverUrl": {
+          "old": null,
+          "new": "https://covers.openlibrary.org/b/id/894713-L.jpg"
+        },
+        "isbn13": {
+          "old": null,
+          "new": "9781849707442"
+        },
+        "isbn10": {
+          "old": null,
+          "new": "1849700168"
+        },
+        "pageCount": {
+          "old": null,
+          "new": 416
+        }
+      }
+    },
+    {
+      "slug": "legion",
+      "dbSlug": "legion-hh07",
+      "wouldBeDiff": {
+        "startY": {
+          "old": 30985,
+          "new": 30003
+        },
+        "endY": {
+          "old": 30985,
+          "new": 30003
+        },
+        "coverUrl": {
+          "old": null,
+          "new": "https://covers.openlibrary.org/b/id/10097958-L.jpg"
+        },
+        "isbn13": {
+          "old": null,
+          "new": "9780857879509"
+        },
+        "isbn10": {
+          "old": null,
+          "new": "1844165361"
+        },
+        "pageCount": {
+          "old": null,
+          "new": 414
+        }
+      }
+    },
+    {
+      "slug": "mechanicum",
+      "dbSlug": "mechanicum-hh09",
+      "wouldBeDiff": {
+        "startY": {
+          "old": 30998,
+          "new": 29739
+        },
+        "endY": {
+          "old": 31000,
+          "new": 30005
+        },
+        "coverUrl": {
+          "old": null,
+          "new": "https://covers.openlibrary.org/b/id/7825873-L.jpg"
+        },
+        "isbn13": {
+          "old": null,
+          "new": "9781844166060"
+        },
+        "isbn10": {
+          "old": null,
+          "new": "1844166066"
+        },
+        "pageCount": {
+          "old": null,
+          "new": 416
+        }
+      }
+    }
+  ],
+  "skipped_unchanged": [],
+  "field_conflicts": [
+    {
+      "slug": "false-gods",
+      "field": "releaseYear",
+      "sources": [
+        {
+          "source": "wikipedia",
+          "value": 2006
+        },
+        {
+          "source": "lexicanum",
+          "value": 2006
+        },
+        {
+          "source": "open_library",
+          "value": 2014
+        }
+      ]
+    },
+    {
+      "slug": "descent-of-angels",
+      "field": "releaseYear",
+      "sources": [
+        {
+          "source": "wikipedia",
+          "value": 2007
+        },
+        {
+          "source": "lexicanum",
+          "value": 2007
+        },
+        {
+          "source": "open_library",
+          "value": 2014
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "wikipediaTitle": "Horus Rising",
+      "source": "hardcover",
+      "message": "Hardcover 403: token rejected. Check HARDCOVER_API_TOKEN in .env.local."
+    },
+    {
+      "wikipediaTitle": "Tales of Heresy",
+      "source": "lexicanum",
+      "message": "author mismatch: lexicanum says \"Dan Abnett, Matthew Farrer, Mike Lee, Graham McNeill, Anthony Reynolds, James Swallow, Gav Thorpe\", wikipedia says \"Nick Kyme and Lindsey Priestley\""
+    },
+    {
+      "wikipediaTitle": "Tales of Heresy",
+      "source": "open_library",
+      "message": "no Open Library hits for title+author"
+    }
+  ],
+  "discoveryDuplicates": [
+    {
+      "slug": "horus-rising",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Other_special_editions_(selections)",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Other_special_editions_(selections)"
+      ]
+    },
+    {
+      "slug": "false-gods",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "galaxy-in-flames",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-flight-of-the-eisenstein",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "fulgrim",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "descent-of-angels",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "legion",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "battle-for-the-abyss",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "mechanicum",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "tales-of-heresy",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "fallen-angels",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "a-thousand-sons",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "nemesis",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40"
+      ]
+    },
+    {
+      "slug": "the-first-heretic",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "prospero-burns",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "age-of-darkness",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-outcast-dead",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "deliverance-lost",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "know-no-fear",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-primarchs",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "fear-to-tread",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "shadows-of-treachery",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "angel-exterminatus",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40"
+      ]
+    },
+    {
+      "slug": "betrayer",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40"
+      ]
+    },
+    {
+      "slug": "mark-of-calth",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "vulkan-lives",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-unremembered-empire",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "scars",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40"
+      ]
+    },
+    {
+      "slug": "vengeful-spirit",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-damnation-of-pythos",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "legacies-of-betrayal",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "deathfire",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "war-without-end",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "pharos",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "eye-of-terra",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-path-of-heaven",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-silent-war",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "angels-of-caliban",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "corax",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-master-of-mankind",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "garro",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "shattered-legions",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-crimson-king",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "tallarn",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "ruinstorm",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "old-earth",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-burden-of-loyalty",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "wolfsbane",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "born-of-flame",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "slaves-to-darkness",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "heralds-of-the-siege",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "titandeath",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-buried-dagger",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-solar-war",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-lost-and-the-damned",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-first-wall",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "saturnine",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "mortis",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "warhawk",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "echoes-of-eternity",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-end-and-the-death-volume-i",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-end-and-the-death-volume-ii",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "the-end-and-the-death-volume-iii",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Siege_of_Terra_novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "aurelian",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novellas",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Selections",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Selections"
+      ]
+    },
+    {
+      "slug": "veritas-ferrum",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Audio_Dramas",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_31_to_Book_40",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_31_to_Book_40"
+      ]
+    },
+    {
+      "slug": "hunters-moon",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Audio_Dramas",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_21"
+      ]
+    },
+    {
+      "slug": "imperator-wrath-of-the-omnissiah",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Adeptus_Titanicus"
+      ]
+    },
+    {
+      "slug": "day-of-ascension",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Genestealer_Cults"
+      ]
+    },
+    {
+      "slug": "throne-of-light",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_3",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Dawn_of_Fire"
+      ]
+    },
+    {
+      "slug": "the-iron-kingdom",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_3",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Dawn_of_Fire"
+      ]
+    },
+    {
+      "slug": "the-martyrs-tomb",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_3",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Dawn_of_Fire"
+      ]
+    },
+    {
+      "slug": "azrael",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_6",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Space_Marine_Legends_series"
+      ]
+    },
+    {
+      "slug": "ascension",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_trilogy_2",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Blackstone_Fortress"
+      ]
+    },
+    {
+      "slug": "the-lords-of-silence",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Death_Guard",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_11"
+      ]
+    },
+    {
+      "slug": "deathwatch",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_Series_4",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Legends_of_the_Dark_Millennium"
+      ]
+    },
+    {
+      "slug": "dark-imperium",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series_5",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Anthologies_2"
+      ]
+    },
+    {
+      "slug": "the-magos",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Eisenhorn",
+        "https://en.wikipedia.org/wiki/Eisenhorn#Books"
+      ]
+    },
+    {
+      "slug": "the-unkindness-of-ravens",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Raven_Guard",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novels_3"
+      ]
+    },
+    {
+      "slug": "savage-scars",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_trilogy_4",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#White_Scars"
+      ]
+    },
+    {
+      "slug": "daenyathos",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Other_stories_19",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novels_3"
+      ]
+    },
+    {
+      "slug": "deathwing",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Anthologies_2",
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Anthologies_2"
+      ]
+    },
+    {
+      "slug": "praetorian-of-dorn-11-12",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ]
+    },
+    {
+      "slug": "ashes-of-the-imperium",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Sequel:_The_Scouring",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Sequel:_The_Scouring"
+      ]
+    },
+    {
+      "slug": "angels-of-another-age",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "fulgurite",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "fragments-all-we-have-left",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "ex-libris",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "system-purge",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "after-the-dawn",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "homebound",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "the-carrion-lord-of-the-imperium",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Book_55_to_Book_65:_Siege_of_Terra",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Book_55_to_Book_65:_Siege_of_Terra"
+      ]
+    },
+    {
+      "slug": "limited-edition-horus-heresy-audio-boxset",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Other_special_editions_(selections)",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Other_special_editions_(selections)"
+      ]
+    },
+    {
+      "slug": "xmas-2011-horus-heresy-ebundle",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Other_special_editions_(selections)",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Other_special_editions_(selections)"
+      ]
+    },
+    {
+      "slug": "collected-visions-iconic-images-of-the-imperium-betrayal-and-war",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Selections",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Selections"
+      ]
+    },
+    {
+      "slug": "battle-of-the-fang",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Selections",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Selections"
+      ]
+    },
+    {
+      "slug": "betrayal",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Selections",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Selections"
+      ]
+    }
+  ]
+}

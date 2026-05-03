@@ -132,6 +132,26 @@ export const personRole = pgEnum("person_role", [
   "sound_designer",
 ]);
 
+// Phase 3b: format = was-für-ein-Werk, availability = kann-ich-es-noch-bekommen.
+// Orthogonale Felder — eine 1996er-Mass-Market-Novel ist `novel`/`oop_legacy`,
+// eine moderne BL-Audio-Reihe ist `audio_drama`/`in_print`. Beide werden in 3b
+// nullable (Crawler-Ergebnisse partiell befüllt; 3c LLM klassifiziert belastbar).
+export const bookFormat = pgEnum("book_format", [
+  "novel",
+  "novella",
+  "short_story",
+  "anthology",
+  "audio_drama",
+  "omnibus",
+]);
+
+export const bookAvailability = pgEnum("book_availability", [
+  "in_print",
+  "oop_recent",
+  "oop_legacy",
+  "unavailable",
+]);
+
 // =============================================================================
 // REFERENCE: Eras, Factions, Series
 // (Slowly-changing, small N, edited via Drizzle Studio + PR)
@@ -211,10 +231,18 @@ export const bookDetails = pgTable(
       .primaryKey()
       .references(() => works.id, { onDelete: "cascade" }),
     isbn13: varchar("isbn13", { length: 13 }),
+    // Phase 3b: ISBN-10 für Pre-2007-Editionen (Open Library liefert beides).
+    isbn10: varchar("isbn10", { length: 10 }),
     seriesId: varchar("series_id", { length: 64 }).references(() => series.id),
     // 1-based position inside the parent series. Per brief, `pub_year` lives
     // on works.releaseYear instead of being duplicated here.
     seriesIndex: integer("series_index"),
+    // Phase 3b: Page-Count + Format/Availability-Klassifikation.
+    // pageCount kommt aus Open Library; format/availability primär aus 3c LLM,
+    // Open Library als Heuristik-Fallback bei eindeutigem `physical_format`.
+    pageCount: integer("page_count"),
+    format: bookFormat("format"),
+    availability: bookAvailability("availability"),
     // Stufe 2c.0 (sessions/2026-05-02-023): editorial era-anchor. The single
     // canonical era a book belongs to. Replaces the algorithmic midpoint
     // bucketing in Overview/EraDetail. Nullable in the DB; seed-side
@@ -225,6 +253,10 @@ export const bookDetails = pgTable(
   },
   (t) => ({
     seriesIdx: index("book_details_series_idx").on(t.seriesId, t.seriesIndex),
+    // Phase 3b carry-over (aus brief 030 / report 035 § "For next session"):
+    // Index für `loadTimeline`-Era-Aggregation, heute kein Effekt (26 Bücher),
+    // bei Phase-3-Skala (200+/Era) auflaufend. Mitgenommen weil single-line.
+    primaryEraIdx: index("book_details_primary_era_idx").on(t.primaryEraId),
   }),
 );
 

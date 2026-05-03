@@ -138,6 +138,20 @@ interface RawBookExternalLink {
   affiliate?: boolean;
   displayOrder?: number;
 }
+type RawBookFormat =
+  | "novel"
+  | "novella"
+  | "short_story"
+  | "anthology"
+  | "audio_drama"
+  | "omnibus";
+
+type RawBookAvailability =
+  | "in_print"
+  | "oop_recent"
+  | "oop_legacy"
+  | "unavailable";
+
 interface RawBook {
   id: string;
   title: string;
@@ -147,6 +161,11 @@ interface RawBook {
   // Stufe 2c.0: editorial era-anchor. Required for every book in the catalog.
   // The seed validates this field strictly — see Constraint 4 of brief 023.
   primaryEraId: string;
+  // Phase 3b: orthogonale book_details-Felder. `format` ist beim 26-Manuals-
+  // Hand-Fill auf "novel" gesetzt (alle sind tatsächlich Romane). `availability`
+  // bleibt absent → NULL → 3c LLM klassifiziert per Web-Search.
+  format?: RawBookFormat;
+  availability?: RawBookAvailability;
   // Stufe 2b annotation surfaced in Phase 3a: optional per-book confidence on
   // the manual roster. Absent → DB default 1.00. Present → stored as-is.
   confidence?: number;
@@ -154,6 +173,8 @@ interface RawBook {
   series?: string;
   seriesIndex?: number;
   isbn13?: string;
+  isbn10?: string;
+  pageCount?: number;
   factions?: RawBookFaction[];
   characters?: string[];
   persons?: RawBookPerson[];
@@ -422,8 +443,12 @@ async function main() {
       await tx.insert(bookDetails).values({
         workId,
         isbn13: b.isbn13 ?? null,
+        isbn10: b.isbn10 ?? null,
         seriesId: b.series ?? null,
         seriesIndex: b.seriesIndex ?? null,
+        pageCount: b.pageCount ?? null,
+        format: b.format ?? null,
+        availability: b.availability ?? null,
         primaryEraId: b.primaryEraId,
       });
       bookDetailsCount += 1;

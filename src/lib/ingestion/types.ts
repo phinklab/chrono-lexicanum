@@ -31,6 +31,22 @@ export type SourceName =
  * Junction-shaped fields (`authorNames`, `factionNames`, ...) carry raw
  * names; resolution to FK ids happens at apply time (Phase 3d).
  */
+/** Phase 3b: Format-Klassifikation. Mirror der `bookFormat`-pgEnum. */
+export type BookFormat =
+  | "novel"
+  | "novella"
+  | "short_story"
+  | "anthology"
+  | "audio_drama"
+  | "omnibus";
+
+/** Phase 3b: Verfügbarkeits-Klassifikation. Mirror der `bookAvailability`-pgEnum. */
+export type BookAvailability =
+  | "in_print"
+  | "oop_recent"
+  | "oop_legacy"
+  | "unavailable";
+
 export interface SourcePayloadFields {
   // works.*
   title?: string;
@@ -45,6 +61,11 @@ export interface SourcePayloadFields {
   seriesId?: string;
   seriesIndex?: number;
   isbn13?: string;
+  // Phase 3b additions:
+  isbn10?: string;
+  pageCount?: number;
+  format?: BookFormat;
+  availability?: BookAvailability;
 
   // Junctions (raw names; FK resolution is post-3a)
   authorNames?: string[];
@@ -100,6 +121,23 @@ export interface WikipediaPayload extends SourcePayload {
   source: "wikipedia";
 }
 
+export interface OpenLibraryPayload extends SourcePayload {
+  source: "open_library";
+}
+
+/**
+ * Hardcover liefert primär Audit-Daten (tags, rating). Diese landen im
+ * `audit`-Slot, nicht in `fields` — sie sind nicht in FIELD_PRIORITY und
+ * werden nicht in DB-Spalten gemappt. Tags-zu-Facets-Mapping ist 3c LLM.
+ */
+export interface HardcoverPayload extends SourcePayload {
+  source: "hardcover";
+  audit?: {
+    tags?: string[];
+    averageRating?: number;
+  };
+}
+
 // =============================================================================
 // Merge engine output
 // =============================================================================
@@ -139,6 +177,15 @@ export interface AddedEntry {
   wikipediaTitle: string;
   slug: string;
   payload: MergedBook;
+  /**
+   * Phase 3b audit-only: raw Hardcover-Tags + average rating, falls Hardcover
+   * für dieses Buch einen Treffer geliefert hat. Nicht in FIELD_PRIORITY,
+   * nicht in DB-Spalten — pure Sichtbarkeit für 3c LLM-Mapping auf Facets.
+   */
+  rawHardcoverPayload?: {
+    tags?: string[];
+    averageRating?: number;
+  };
 }
 
 export interface UpdatedEntry {
@@ -175,6 +222,18 @@ export interface ErrorEntry {
   message: string;
 }
 
+/**
+ * Phase 3b: wenn dasselbe Buch in Hauptliste UND Sub-Liste gefunden wird
+ * (z.B. „Horus Rising" in `List_of_Warhammer_40,000_novels` UND
+ * `Horus_Heresy_(novels)`), wird es per `slugify(title)` dedupliziert —
+ * Sub-Liste-Felder gewinnen pro Feld. Dieser Audit-Slot zeigt welche Quellen
+ * pro Slug zur Discovery beigetragen haben (kein Fehler, nur Sichtbarkeit).
+ */
+export interface DiscoveryDuplicateEntry {
+  slug: string;
+  sources: string[];
+}
+
 export interface DiffFile {
   ranAt: string;
   discoverySource: "wikipedia";
@@ -187,6 +246,8 @@ export interface DiffFile {
   skipped_unchanged: SkippedUnchangedEntry[];
   field_conflicts: FieldConflictEntry[];
   errors: ErrorEntry[];
+  /** Phase 3b: optional Top-Level-Audit. Wird nur ausgegeben wenn nicht-leer. */
+  discoveryDuplicates?: DiscoveryDuplicateEntry[];
 }
 
 // =============================================================================
