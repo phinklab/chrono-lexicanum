@@ -101,7 +101,74 @@ Suggestions für die nächste Cowork-Session:
 
 - Anthropic SDK 0.92.0 — `node_modules/@anthropic-ai/sdk/resources/messages/messages.d.ts` für `ToolUseBlock`/`ServerToolUseBlock`/`Usage`-Form sowie `web_search_20260209`-Tool-Type-Tag.
 - Anthropic Web-Search-Tool-Doku (Sonnet 4.6 + Haiku 4.5 supported, allowed_callers, max_uses): <https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool>
-- Anthropic Pricing (2026-05): <https://www.anthropic.com/pricing> — Sonnet 4.6 $3/MTok in / $15/MTok out, Web-Search $0.01/call.
+- Anthropic Pricing (2026-05): <https://www.anthropic.com/pricing> — Sonnet 4.6 $3/MTok in / $15/MTok out, Haiku 4.5 $1/MTok in / $5/MTok out, Web-Search $0.01/call.
 - Repo-Konventionen aus `CLAUDE.md` (Versions-Pin-Discipline, Migrations + Schema im selben Commit, kein Claude-Co-Author).
 - Brief 038 (`sessions/2026-05-03-038-arch-phase3c-llm-enrichment.md`) als Spec.
 - Existing patterns: `hardcover/fetch.ts:39–84` (Soft-Fail-Circuit-Breaker), `dry-run.ts:63–114` (cached DB-Helper), `merge.ts:40–95` (deterministic-pure Merge), `lexicanum/fetch.ts` (curl shell-out + Cloudflare-Bypass).
+
+---
+
+## Addendum 2026-05-03 — Haiku-4.5-Vergleichs-Lauf (Bücher 21–40)
+
+Auf Philipps Anfrage einen 20-Buch-Vergleichs-Lauf mit `INGEST_LLM_MODEL=claude-haiku-4-5` auf Bücher 21–40. Diff: `ingest/.last-run/backfill-20260503-2130.diff.json`.
+
+### Code-Anpassungen für den Vergleich
+
+- **`scripts/ingest-backfill.ts`** — `--offset N` CLI-Flag hinzugefügt (`parseCliArgs`, `CliConfig`, `RunState.config.offset`, `initState` seedet `processedIndex = (cfg.offset ?? 0) - 1`, `computeEndIndex` rechnet `Math.min(rosterLen, offset + limit)`). `rawLlmPayload` trägt jetzt `model?` Field aus `llmAudit.modelUsed`; pro Buch sichtbar im Diff.
+- **`src/lib/ingestion/llm/prompt.ts`** — `WEB_SEARCH_TOOL` bekommt `allowed_callers: ["direct"]`. Haiku 4.5 lehnt Web-Search ohne dieses Flag ab (`'claude-haiku-4-5-20251001' does not support programmatic tool calling`); Sonnet 4.6 akzeptiert beides. Hinweis: dieser Edit ändert `PROMPT_VERSION_HASH` (von `3f8cc9b3c5d1` auf neuen Wert) und invalidiert damit den Sonnet-Cache der ersten 20 Bücher — bei Re-Run würde neuer API-Cost anfallen.
+- **`src/lib/ingestion/llm/enrich.ts`** — `estimateUsdCost(usage, model)` mit `PRICING`-Lookup-Tabelle (Sonnet $3/$15/$0.01, Haiku $1/$5/$0.01). Cache-hit setzt `payload.audit.modelUsed` aus dem Cache-File-Header (= Modell das den Eintrag erzeugt hat); Cache-miss setzt es auf das current run-Modell.
+- **`src/lib/ingestion/llm/cache.ts`** — `readCache` returnt `{ payload, model }` damit der Caller das authoritative Cache-Modell propagieren kann.
+- **`src/lib/ingestion/types.ts`** — `LLMPayload.audit.modelUsed?: string` + `RawLlmPayload.model?: string` + `RunState.config.offset?: number`.
+
+### Vergleichs-Tabelle
+
+| Metrik | Sonnet 4.6 (1–20) | Haiku 4.5 (21–40) |
+|---|---|---|
+| Cost real | **$7.00** | **$2.21** (−68%) |
+| Token in / out | 1,735,741 / 44,633 | 1,401,365 / 28,116 |
+| Web-Searches total | 112 | 67 |
+| Web-Searches/Buch | 5.6 (Range 2–6) | 3.4 (Range 2–6) |
+| Synopse-Wortzahl | 122–159 (3 leicht >150) | 102–150 (alle im Range) |
+| Format gesetzt | 6/15 (40%) | 19/20 (95%) |
+| Availability gesetzt | 15/15 | 20/20 |
+| FacetIds-Anzahl/Buch | 22–31 (sehr generös) | 0–22 (Mittel ~16; 1 Buch hat 0) |
+| Rating + Source | 15/15 | 20/20 |
+| Rating-Source Verteilung | 7× amazon, 7× goodreads, 1× hardcover | 0× amazon, 17× goodreads, 3× hardcover |
+| DiscoveredLinks | 3–5/Buch | 3–7/Buch |
+| Plausibility-Flags total | 21 | 24 |
+| year_glitch | 4 | 4 |
+| data_conflict | 9 | 1 |
+| author_mismatch | 3 | 0 |
+| proposed_new_facet | 1 | 0 |
+| no_rating_found / no_storefronts_found / insufficient_web_search | 4 / 0 / 0 | 0 / 0 / 0 |
+| **value_outside_vocabulary** | **0** | **19** ← Haiku-Schwäche |
+| Voll-Lauf-Hochrechnung 800 Bücher | ~$280 | ~$88 |
+
+### Synopse-Stichprobe Haiku (3 erste Bücher, alle in Wort-Range)
+
+- **fear-to-tread** (122 W, novel): „Sanguinius, the angelic Primarch of the Blood Angels Legion, receives a deceptive summons from his trusted brother Horus to investigate a rumored cure in the distant Signus system for the Blood Angels' closely guarded genetic flaw — the Red Thirst. […] The Legion faces the Bloodthirster Ka'Bandha in a desperate struggle for survival and redemption, revealing the true origins of the curse that will haunt the Blood Angels for millennia to come." Lore-präzise (Sanguinius, Signus-Kampagne, Khorne, Ka'Bandha, Red Thirst).
+- **shadows-of-treachery** (102 W, anthology): identifiziert korrekt 7 Tales, Phall + Istvaan + Terra; Imperial Fists / Night Lords / Mechanicum-Threads getroffen.
+- **angel-exterminatus** (146 W, novel): Perturabo + Fulgrim + Iron Warriors + Emperor's Children + Eye of Terror + Isstvan-Loyalisten — alles korrekt.
+
+### Wichtige Befunde
+
+- **Cost: Haiku ist 3.2× günstiger pro Buch ($0.11 statt $0.35).** 800-Buch-Voll-Lauf bei Haiku-Pricing trifft das Brief-Original-Budget ($60–160). Der Cost-Treiber ist gleich verteilt: Input-Tokens dominieren bei beiden (Web-Search-Result-Pages im Input-Budget). Haiku braucht 3.4 Searches/Buch statt 5.6 — entweder weil das Modell sparsamer ist oder weil es schneller einen Fall „genug Daten" trifft.
+- **Format-Coverage Haiku 95% vs Sonnet 40%.** Überraschend, aber konsistent erklärbar: Sonnet ist konservativer und lässt das optionale Feld leer wenn unklar; Haiku committed sich auf einen best-guess. Für Phase 3c-Coverage-Acceptance ist das ein Plus für Haiku.
+- **Vokabular-Compliance ist Haiku's reale Schwäche.** 19 `value_outside_vocabulary`-Verstöße: Haiku produziert ID-Pattern wie `tone_grimdark` / `theme_betrayal` / `content_warning_violence` / `language_en` / `protagonist_class_multi` — kombiniert die Kategorie als Prefix mit dem Wert, statt nur die value-ID zu nehmen. Das DB-Vokabular hat z.B. `grimdark` (kategorisiert in `tone`), `cw_violence` (in `content_warning`), `multi` (in `protagonist_class`). Der Parser filtert die invalid IDs aus dem Merged-Output raus + flagt sie — kein Crash, aber 95% des Haiku-Facet-Outputs landet in der Audit-Liste statt im FIELD_PRIORITY-Merge. Das ist mit einem System-Prompt-Tweak fixbar (explizite Beispielzeile „use the bare value ID, e.g. `grimdark` not `tone_grimdark`") — Mini-Brief-Pfad oder Bestandteil eines Test-Gate-Mini-Briefs zusammen mit dem Modell-Switch.
+- **Cross-Check-Tiefe sinkt mit Haiku.** Sonnet emittete `data_conflict×9 + author_mismatch×3 + proposed_new_facet×1`; Haiku nur `data_conflict×1 + 0 author_mismatch + 0 proposed_new_facet`. Trotz dass die Haiku-Bücher echte Anthologien enthalten (Mark of Calth, War Without End, Eye of Terra, The Silent War, Legacies of Betrayal — 5/20!), hat Haiku keine `author_mismatch`-Flags gesetzt. Das ist Plausibility-Reasoning, das Haiku schwächer macht als Sonnet — wichtig für 3d-Triage-Quality, weniger wichtig für die Synopse/Format/Rating-Pflichtjobs.
+- **Rating-Source-Verteilung: 0× Amazon bei Haiku.** Sonnet hatte 7× Amazon, Haiku 0×. Möglicher Grund: Haiku gibt schneller auf wenn Amazon-Rating nicht offensichtlich extraktbar ist. Goodreads dominiert (17/20). Für Phase 4-Detail-Pages ist das tendenziell ein Vorteil (Goodreads ist die größere Reader-Basis und stable URL-Struktur), aber wenn Philipp explizit Amazon-Diversität wollte, ist Haiku schwächer.
+
+### Test-Gate-Empfehlung
+
+Haiku ist der bessere Default für 3e-Voll-Lauf wenn:
+- Cost-Ziel <$100 für 800 Bücher gehalten werden soll → Haiku ($88) trifft, Sonnet ($280) reißt 3× drüber.
+- Format-Coverage ≥90% akzeptabel ist → Haiku 95%, Sonnet 40%.
+- Vokabular-Compliance via Mini-Brief-System-Prompt-Fix gehoben werden kann → einfacher Edit; ohne Fix sind ~95% der Facet-IDs Audit-Müll.
+- Plausibility-Cross-Check-Schwäche akzeptabel ist → Sonnet liefert reichere Flags, aber für 3c (Dry-Run-Audit) reicht das Haiku-Niveau für Year-Glitches; tieferes Cross-Check kann ein post-3e-Pass auf der DB sein.
+
+Sonnet bleibt der bessere Default wenn:
+- Plausibility-Tiefe für 3d-Triage entscheidend ist (Haiku verpasst Multi-Author-Anthologie-Glitches komplett).
+- Vokabular-Strict-Output ohne Prompt-Tweak gehalten werden soll.
+- Cost-Constraint von $280 für 800 Bücher tolerierbar ist.
+
+**Empfohlener Mini-Brief-Pfad falls Philipp Haiku will:** zwei Anpassungen — (a) System-Prompt-Tweak mit expliziten ID-Beispielen damit Haiku die `tone_grimdark`-Falle vermeidet; (b) `INGEST_LLM_MODEL=claude-haiku-4-5` als Default in `.env.local`. Test-Re-Run auf den 20 Haiku-Büchern (Cache-Invalidation via Prompt-Hash-Change kostet ~$2 nochmal) zur Verifikation der Vokabular-Compliance, dann 3e starten.
