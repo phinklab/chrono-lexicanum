@@ -243,6 +243,14 @@ export const bookDetails = pgTable(
     pageCount: integer("page_count"),
     format: bookFormat("format"),
     availability: bookAvailability("availability"),
+    // Phase 3c (sessions/2026-05-03-038): Reader-Rating-Capture. Eine Quelle
+    // pro Buch nach Source-Priority [amazon, goodreads, hardcover, audible],
+    // normalisiert auf 0–5-Skala. rating_source ist varchar (nicht enum) damit
+    // zukünftige Quellen Zeilen-Edit statt ALTER TYPE sind. rating_count ist
+    // optional (Audible zeigt nicht immer eine eindeutige Review-Zahl).
+    rating: numeric("rating", { precision: 3, scale: 2 }),
+    ratingSource: varchar("rating_source", { length: 32 }),
+    ratingCount: integer("rating_count"),
     // Stufe 2c.0 (sessions/2026-05-02-023): editorial era-anchor. The single
     // canonical era a book belongs to. Replaces the algorithmic midpoint
     // bucketing in Overview/EraDetail. Nullable in the DB; seed-side

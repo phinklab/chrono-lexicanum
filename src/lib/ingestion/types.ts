@@ -66,6 +66,14 @@ export interface SourcePayloadFields {
   pageCount?: number;
   format?: BookFormat;
   availability?: BookAvailability;
+  // Phase 3c additions (LLM-only): Soft-Facet-Klassifikation + Reader-Rating.
+  // Junction-Insert (work_facets) ist 3d; bis dahin landen die Facet-IDs
+  // ausschließlich im Diff. Rating wird auf 0–5-Skala normalisiert; source ist
+  // ein service-id-string aus der Source-Priority-Liste.
+  facetIds?: string[];
+  rating?: number;
+  ratingSource?: string;
+  ratingCount?: number;
 
   // Junctions (raw names; FK resolution is post-3a)
   authorNames?: string[];
@@ -138,6 +146,68 @@ export interface HardcoverPayload extends SourcePayload {
   };
 }
 
+/**
+ * Phase 3c: LLM-Anreicherungs-Flags. Vom LLM-Modul publishierte Audit-Slots
+ * für Plausibility-Cross-Check (`year_glitch`, `series_total_mismatch`,
+ * `author_mismatch`, `data_conflict`), Vokabular-Compliance
+ * (`value_outside_vocabulary`, `proposed_new_facet`), Tool-Use-Trajektorie
+ * (`insufficient_web_search`) sowie Coverage-Lücken (`no_storefronts_found`,
+ * `no_rating_found`).
+ */
+export type LLMFlagKind =
+  | "data_conflict"
+  | "value_outside_vocabulary"
+  | "series_total_mismatch"
+  | "author_mismatch"
+  | "year_glitch"
+  | "proposed_new_facet"
+  | "insufficient_web_search"
+  | "no_storefronts_found"
+  | "no_rating_found";
+
+export interface LLMFlag {
+  kind: LLMFlagKind;
+  field?: string;
+  current?: unknown;
+  suggestion?: unknown;
+  sources?: string[];
+  reasoning?: string;
+}
+
+/**
+ * Storefront-Link-Kandidat. Side-Effect der Availability-Web-Search-Runde im
+ * LLM-Step. `serviceHint` sollte einer `services.json`-ID matchen
+ * (`black_library`, `amazon`, `audible`, `kindle`, `apple_books`,
+ * `warhammer_plus`); 3d-Apply resolved daraus den FK gegen `services.id`.
+ */
+export interface DiscoveredLink {
+  serviceHint: string;
+  kind: "shop" | "audio" | "reference";
+  url: string;
+}
+
+/**
+ * Phase 3c: LLM-Anreicherungs-Payload. Der LLM-Job liefert `fields` (synopsis,
+ * format, availability, facetIds, rating + ratingSource + ratingCount) plus
+ * `audit` (Plausibility-Flags, Storefront-URLs, Token-Usage). Der `audit`-Slot
+ * wird in `processOne` gesplittet — `discoveredLinks` + `facetIds` als
+ * Per-Buch-Anker auf AddedEntry/UpdatedEntry/SkippedManualEntry, `flags` +
+ * `tokenUsage` aggregiert auf Top-Level-DiffFile.
+ */
+export interface LLMPayload extends SourcePayload {
+  source: "llm";
+  audit?: {
+    facetIds?: string[];
+    flags?: LLMFlag[];
+    discoveredLinks?: DiscoveredLink[];
+    tokenUsage?: {
+      input: number;
+      output: number;
+      webSearchCount: number;
+    };
+  };
+}
+
 // =============================================================================
 // Merge engine output
 // =============================================================================
@@ -173,6 +243,17 @@ export interface DiffFieldChange {
   new: unknown;
 }
 
+/**
+ * Phase 3c: per-Buch-Audit-Anker für 3d-FK-Resolution + Junction-Insert. Wird
+ * an AddedEntry/UpdatedEntry/SkippedManualEntry gehängt, wenn der LLM-Step
+ * `discoveredLinks` und/oder `facetIds` geliefert hat. Auf SkippedManualEntry
+ * ist der Slot reine Sichtbarkeit — 3d-Apply ignoriert ihn dort (manual wins).
+ */
+export interface RawLlmPayload {
+  facetIds?: string[];
+  discoveredLinks?: DiscoveredLink[];
+}
+
 export interface AddedEntry {
   wikipediaTitle: string;
   slug: string;
@@ -186,6 +267,8 @@ export interface AddedEntry {
     tags?: string[];
     averageRating?: number;
   };
+  /** Phase 3c: per-Buch-Audit-Anker (FK-Resolution-Input für 3d). */
+  rawLlmPayload?: RawLlmPayload;
 }
 
 export interface UpdatedEntry {
@@ -193,6 +276,8 @@ export interface UpdatedEntry {
   /** The actual DB slug (manual books carry an `-<id>` suffix). */
   dbSlug: string;
   diff: Record<string, DiffFieldChange>;
+  /** Phase 3c: per-Buch-Audit-Anker (FK-Resolution-Input für 3d). */
+  rawLlmPayload?: RawLlmPayload;
 }
 
 export interface SkippedManualEntry {
@@ -202,6 +287,11 @@ export interface SkippedManualEntry {
   dbSlug: string;
   /** Field changes that would have been applied if the book were not manual. */
   wouldBeDiff: Record<string, DiffFieldChange>;
+  /**
+   * Phase 3c: pure Sichtbarkeit „LLM hätte X discovered, aber manual wins".
+   * 3d-Apply iteriert nicht über skipped_manual.
+   */
+  rawLlmPayload?: RawLlmPayload;
 }
 
 export interface SkippedUnchangedEntry {
@@ -234,6 +324,26 @@ export interface DiscoveryDuplicateEntry {
   sources: string[];
 }
 
+/**
+ * Phase 3c: Plausibility-Flag mit Slug-Anker. Top-Level-Audit-Liste in der
+ * Diff-JSON, aggregiert aus per-Buch `LLMPayload.audit.flags`.
+ */
+export interface DiffLLMFlag extends LLMFlag {
+  slug: string;
+}
+
+/**
+ * Phase 3c: aggregierte Cost-Summary über den ganzen Run. Daten-Grundlage für
+ * Philipps Test-Gate-Entscheidung („weiter mit Sonnet+mandatory" oder „Mini-
+ * Brief: Web-Search optional + ggf. Haiku-Switch").
+ */
+export interface LlmCostSummary {
+  totalTokensIn: number;
+  totalTokensOut: number;
+  totalWebSearches: number;
+  estUsdCost: number;
+}
+
 export interface DiffFile {
   ranAt: string;
   discoverySource: "wikipedia";
@@ -248,6 +358,14 @@ export interface DiffFile {
   errors: ErrorEntry[];
   /** Phase 3b: optional Top-Level-Audit. Wird nur ausgegeben wenn nicht-leer. */
   discoveryDuplicates?: DiscoveryDuplicateEntry[];
+  /** Phase 3c: Modell-String der LLM-Anreicherung (z.B. "claude-sonnet-4-6"). */
+  llmModel?: string;
+  /** Phase 3c: sha256[:12] des Prompt-Strings + Tool-Schema. Cache-Invalidator. */
+  llmPromptVersion?: string;
+  /** Phase 3c: aggregierte Plausibility-Flags pro Slug. */
+  llm_flags?: DiffLLMFlag[];
+  /** Phase 3c: Cost + Tool-Call-Roll-Up des LLM-Steps. */
+  llmCostSummary?: LlmCostSummary;
 }
 
 // =============================================================================

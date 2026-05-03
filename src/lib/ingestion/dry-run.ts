@@ -51,6 +51,11 @@ interface DbBook {
   pageCount: number | null;
   format: string | null;
   availability: string | null;
+  // Phase 3c (Migration 0006): Reader-Rating-Capture. Drizzle gibt numeric als
+  // string zurück, Number-Comparison passiert in `scalarEqual`.
+  rating: string | null;
+  ratingSource: string | null;
+  ratingCount: number | null;
 }
 
 let cachedDbBooks: DbBook[] | null = null;
@@ -87,6 +92,9 @@ export async function loadDbBooks(): Promise<{
       pageCount: bookDetails.pageCount,
       format: bookDetails.format,
       availability: bookDetails.availability,
+      rating: bookDetails.rating,
+      ratingSource: bookDetails.ratingSource,
+      ratingCount: bookDetails.ratingCount,
     })
     .from(works)
     .leftJoin(bookDetails, eq(bookDetails.workId, works.id));
@@ -194,6 +202,10 @@ const SCALAR_FIELD_TO_DB: Partial<Record<FieldName, keyof DbBook>> = {
   pageCount: "pageCount",
   format: "format",
   availability: "availability",
+  // Phase 3c — facetIds NICHT hier (Junction-Insert ist 3d).
+  rating: "rating",
+  ratingSource: "ratingSource",
+  ratingCount: "ratingCount",
 };
 
 function computeDiff(
