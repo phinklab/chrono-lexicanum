@@ -1,0 +1,374 @@
+{
+  "ranAt": "2026-05-05T23:59:25.699Z",
+  "variant": "B",
+  "variantLabel": "Sonnet 4.6 + Pipeline-Prompt 1:1 + Pipeline-Audit-Inputs + re-fetched plotContext, NO web_search tool",
+  "model": "claude-sonnet-4-6",
+  "promptVersionHash": "f6272d57626d",
+  "subscriptionTier": "sonnet",
+  "limitFramework": "approximate-token-to-percent-heuristic",
+  "limitNote": "Heuristik: 1% ≈ 50.000 Sonnet-Tokens (linearer Proxy für 5h-Subscription-Limit; via API gemessen, kein echter Subscription-Counter).",
+  "slugs": [
+    {
+      "slug": "shattered-legions",
+      "synopsis": "In the aftermath of the catastrophic dropsite massacre on Isstvan V, the survivors of the Iron Hands, Raven Guard, and Salamanders Space Marine Legions find themselves scattered and broken. Rather than retreat, these warriors coalesce into a ragged but determined guerrilla force under the command of the cunning Shadrak Meduson. Striking fast and vanishing before the traitors can retaliate, they wage a shadow war across the galaxy, harrying Horus's advance toward Terra wherever possible. This anthology gathers ten stories exploring the cost of that campaign — the grief of devastating loss, the friction of uniting three proud Legions under a single banner, the burden of leadership amid despair, and the fierce loyalty that keeps loyalist warriors fighting long after hope seems extinguished. Survival, vengeance, and brotherhood define this fractured coalition's war.",
+      "facetIds": [
+        "male",
+        "space_marine",
+        "imperium",
+        "galactic",
+        "mid_series",
+        "war_story",
+        "last_stand",
+        "grimdark",
+        "somber",
+        "action_heavy",
+        "betrayal",
+        "sacrifice",
+        "loyalty",
+        "brotherhood",
+        "cw_violence",
+        "cw_death",
+        "en"
+      ],
+      "format": "anthology",
+      "availability": "in_print",
+      "rating": null,
+      "ratingSource": null,
+      "ratingCount": null,
+      "plausibilityFlags": [
+        {
+          "kind": "no_storefronts_found",
+          "reasoning": "Web search was unavailable for this run; no storefront URLs could be extracted or verified.",
+          "field": "discoveredLinks"
+        },
+        {
+          "kind": "no_rating_found",
+          "reasoning": "Web search was unavailable for this run, so no Amazon, Goodreads, Hardcover, or Audible rating could be retrieved.",
+          "field": "rating"
+        },
+        {
+          "kind": "insufficient_web_search",
+          "reasoning": "Web search was disabled for this comparison run; synopsis was composed solely from the pre-merged structured data and plot context without additional source verification.",
+          "field": "synopsis"
+        }
+      ],
+      "discoveredLinks": [],
+      "costEstimate": {
+        "subscriptionTier": "sonnet",
+        "inputTokens": 4927,
+        "outputTokens": 596,
+        "webSearchCalls": 0,
+        "estimatedLimitPercent": 11.05,
+        "cumulativeLimitPercent": 11.05
+      },
+      "divergence": "Vs. Pipeline-Haiku-A: Synopsis 131W (vs 120W → Δ 11W). FacetIds-Diff: entfernt: [vengeance]. Format+Availability identisch. Rating identisch (null). PlausibilityFlags-Diff: fehlend: [value_outside_vocabulary]; neu: [no_storefronts_found, insufficient_web_search]. DiscoveredLinks: 5 → 0."
+    },
+    {
+      "slug": "sons-of-the-emperor",
+      "synopsis": "Sons of the Emperor gathers eight tales centred on the primarchs — the Emperor's genetically supreme sons — charting their inner lives across the Great Crusade and the opening movements of the Horus Heresy. Each story isolates a singular figure at a moment of consequence: Sanguinius wrestling with the moral cost of his warriors' savagery, Konrad Curze drawn into old feuds that reveal the darkness festering within him, and Vulkan encountering his divine father on the world that forged him. Other demigod commanders face tests of command, conscience, and kinship that expose the fault lines beneath their superhuman certainty. Taken together, the anthology reframes these legendary figures not as infallible warlords but as flawed, extraordinary beings whose choices — noble, tragic, or monstrous — set the Imperium on its catastrophic course.",
+      "facetIds": [
+        "space_marine",
+        "multi",
+        "imperium",
+        "ensemble",
+        "war_story",
+        "character_study",
+        "grimdark",
+        "somber",
+        "action_heavy",
+        "philosophical",
+        "betrayal",
+        "hubris",
+        "brotherhood",
+        "sacrifice",
+        "cw_violence",
+        "cw_death",
+        "en",
+        "galactic",
+        "requires_context"
+      ],
+      "format": "anthology",
+      "availability": "in_print",
+      "rating": 4.1,
+      "ratingSource": "goodreads",
+      "ratingCount": 597,
+      "plausibilityFlags": [
+        {
+          "kind": "no_storefronts_found",
+          "reasoning": "Web search was unavailable for this run; no storefront URLs could be retrieved or verified.",
+          "field": "discoveredLinks"
+        },
+        {
+          "kind": "insufficient_web_search",
+          "reasoning": "Web search was disabled for this comparison run; availability and storefront data rely solely on the pre-merged structured data rather than live verification.",
+          "field": "availability"
+        }
+      ],
+      "discoveredLinks": [],
+      "costEstimate": {
+        "subscriptionTier": "sonnet",
+        "inputTokens": 4860,
+        "outputTokens": 561,
+        "webSearchCalls": 0,
+        "estimatedLimitPercent": 10.84,
+        "cumulativeLimitPercent": 21.89
+      },
+      "divergence": "Vs. Pipeline-Haiku-A: Synopsis 131W (vs 103W → Δ 28W). FacetIds-Diff: neu: [philosophical, sacrifice, galactic, requires_context]. Format+Availability identisch. Rating identisch (4.1 (goodreads, n=597)). PlausibilityFlags-Diff: neu: [no_storefronts_found, insufficient_web_search]. DiscoveredLinks: 5 → 0."
+    },
+    {
+      "slug": "the-master-of-mankind",
+      "synopsis": "Deep beneath the Imperial Palace, a hidden war threatens to unmake humanity's future before Horus ever reaches Terra. The Emperor's Custodian Guard, the silent warrior-women of the Sisters of Silence, and the Mechanicum forces of Fabricator General Kane fight desperately to hold the labyrinthine corridors of the ancient Eldar webway against a surging tide of daemonic horror — a catastrophe born from Magnus the Red's reckless psychic breach. As traitor Astartes and Chaos-corrupted Titans lend their terrible power to the enemy, the Imperial defenses fracture under relentless pressure. Only the Emperor Himself possesses the strength to stand at the threshold and deny the warp its prize. Yet even His supreme will carries a devastating price — one measured in the lives and souls of those who serve Him most faithfully.",
+      "facetIds": [
+        "custodes",
+        "multi",
+        "imperium",
+        "planetary",
+        "mid_series",
+        "standard",
+        "war_story",
+        "siege",
+        "character_study",
+        "grimdark",
+        "somber",
+        "philosophical",
+        "sacrifice",
+        "war",
+        "loyalty",
+        "cw_violence",
+        "cw_death",
+        "cw_disturbing",
+        "en"
+      ],
+      "format": "novel",
+      "availability": "in_print",
+      "rating": 4.26,
+      "ratingSource": "hardcover",
+      "ratingCount": null,
+      "plausibilityFlags": [
+        {
+          "kind": "insufficient_web_search",
+          "reasoning": "Web search was unavailable for this run; storefront URLs are best-effort reconstructions from known URL patterns and may not resolve correctly.",
+          "field": "discoveredLinks"
+        },
+        {
+          "kind": "proposed_new_facet",
+          "reasoning": "The merged data included a 'custodes' protagonist_class facet ID which does exist in the vocabulary and was correctly applied; no new facet needed.",
+          "field": "protagonist_class"
+        },
+        {
+          "kind": "no_storefronts_found",
+          "reasoning": "Web search was disabled for this comparison run; discovered links are inferred from canonical URL patterns rather than confirmed via live search.",
+          "field": "discoveredLinks"
+        }
+      ],
+      "discoveredLinks": [
+        {
+          "serviceHint": "black_library",
+          "kind": "shop",
+          "url": "https://www.blacklibrary.com/horus-heresy/novels/the-master-of-mankind.html"
+        },
+        {
+          "serviceHint": "amazon",
+          "kind": "shop",
+          "url": "https://www.amazon.com/dp/1784965367"
+        }
+      ],
+      "costEstimate": {
+        "subscriptionTier": "sonnet",
+        "inputTokens": 5122,
+        "outputTokens": 710,
+        "webSearchCalls": 0,
+        "estimatedLimitPercent": 11.66,
+        "cumulativeLimitPercent": 33.55
+      },
+      "divergence": "Vs. Pipeline-Haiku-A: Synopsis 130W (vs 114W → Δ 16W). FacetIds-Diff: entfernt: [duty]; neu: [multi, loyalty]. Format+Availability identisch. Rating identisch (4.26 (hardcover, n=?)). PlausibilityFlags-Diff: fehlend: [value_outside_vocabulary]; neu: [insufficient_web_search, proposed_new_facet, no_storefronts_found]. DiscoveredLinks: 3 → 2."
+    },
+    {
+      "slug": "garro",
+      "synopsis": "Once a Battle-Captain of the Death Guard, Nathaniel Garro survived the treacheries of Isstvan III and the harrowing flight aboard the Eisenstein. Now stripped of his legion's colours and clad in plain grey armour, he serves a new master: Malcador the Sigillite, Regent of Terra. As Agentia Primus, Garro operates in the shadows of the wider Heresy, travelling from the ravaged worlds of distant campaigns to the gilded halls of the Imperial Palace itself. His charge is both martial and deeply personal — to locate loyalist warriors cast adrift from their shattered legions and draw them into a secret brotherhood of purpose. Yet as Garro forges this new fellowship, his own spiritual convictions grow ever stronger, placing him at the crossroads between duty to the Imperium and a burgeoning faith that the age has not yet named.",
+      "facetIds": [
+        "space_marine",
+        "male",
+        "imperium",
+        "galactic",
+        "mid_series",
+        "standard",
+        "character_study",
+        "journey",
+        "philosophical",
+        "somber",
+        "faith",
+        "loyalty",
+        "doubt",
+        "redemption",
+        "cw_violence",
+        "cw_death",
+        "en"
+      ],
+      "format": "anthology",
+      "availability": "in_print",
+      "rating": 3.96,
+      "ratingSource": "goodreads",
+      "ratingCount": 1336,
+      "plausibilityFlags": [
+        {
+          "kind": "data_conflict",
+          "reasoning": "A page count of 2 is implausible for any book-length release; the value appears to be a data-entry error and should be verified against the physical or digital edition.",
+          "field": "pageCount"
+        },
+        {
+          "kind": "no_storefronts_found",
+          "reasoning": "Web search was unavailable for this run; no storefront URLs could be extracted or verified.",
+          "field": "discoveredLinks"
+        },
+        {
+          "kind": "insufficient_web_search",
+          "reasoning": "Comparison-run override was active; the mandatory synopsis-context and availability web_search calls were skipped per pipeline instructions.",
+          "field": "general"
+        }
+      ],
+      "discoveredLinks": [],
+      "costEstimate": {
+        "subscriptionTier": "sonnet",
+        "inputTokens": 5124,
+        "outputTokens": 595,
+        "webSearchCalls": 0,
+        "estimatedLimitPercent": 11.44,
+        "cumulativeLimitPercent": 44.99
+      },
+      "divergence": "Vs. Pipeline-Haiku-A: Synopsis 137W (vs 127W → Δ 10W). FacetIds identisch. Format+Availability identisch. Rating identisch (3.96 (goodreads, n=1336)). PlausibilityFlags-Diff: neu: [no_storefronts_found, insufficient_web_search]. DiscoveredLinks: 4 → 0."
+    },
+    {
+      "slug": "the-solar-war",
+      "synopsis": "After seven years of galaxy-spanning civil war, the Horus Heresy reaches its most critical juncture as the Warmaster's corrupted legions finally turn their gaze toward Terra. Yet before Horus can strike at the Emperor's palace, he must shatter the layered defenses that Primarch Rogal Dorn has thrown across the Sol System. As traitor fleets descend upon humanity's home system, titanic void battles erupt and desperate councils are held in shadowed chambers. The narrative draws together multiple viewpoints — loyalist commanders buying precious hours, treacherous officers pressing the assault, and figures whose choices echo throughout the Heresy. Brotherhood crumbles, ideals are corroded by hatred, and the full weight of civil war presses down as the Imperium braces for the darkest siege in its history.",
+      "facetIds": [
+        "imperium",
+        "chaos",
+        "dual",
+        "galactic",
+        "sector",
+        "mid_series",
+        "standard",
+        "war_story",
+        "siege",
+        "last_stand",
+        "grimdark",
+        "somber",
+        "action_heavy",
+        "betrayal",
+        "loyalty",
+        "war",
+        "sacrifice",
+        "brotherhood",
+        "cw_violence",
+        "cw_death",
+        "cw_disturbing",
+        "en",
+        "space_marine",
+        "multi",
+        "male"
+      ],
+      "format": "novel",
+      "availability": "in_print",
+      "rating": 4.01,
+      "ratingSource": "goodreads",
+      "ratingCount": 2712,
+      "plausibilityFlags": [
+        {
+          "kind": "insufficient_web_search",
+          "reasoning": "Web search was unavailable for this run; storefront URLs are inferred from canonical patterns rather than live search results, and may not reflect the current product page.",
+          "field": "availability"
+        },
+        {
+          "kind": "no_rating_found",
+          "reasoning": "No Amazon rating was retrievable due to the web_search override; Goodreads rating from the merged structured data was used as the first available source instead.",
+          "field": "rating"
+        }
+      ],
+      "discoveredLinks": [
+        {
+          "serviceHint": "black_library",
+          "kind": "shop",
+          "url": "https://www.blacklibrary.com/horus-heresy/novels/the-solar-war-eng-2019.html"
+        },
+        {
+          "serviceHint": "amazon",
+          "kind": "shop",
+          "url": "https://www.amazon.com/dp/1789992907"
+        }
+      ],
+      "costEstimate": {
+        "subscriptionTier": "sonnet",
+        "inputTokens": 5016,
+        "outputTokens": 683,
+        "webSearchCalls": 0,
+        "estimatedLimitPercent": 11.4,
+        "cumulativeLimitPercent": 56.39
+      },
+      "divergence": "Vs. Pipeline-Haiku-A: Synopsis 123W (vs 157W → Δ -34W). FacetIds-Diff: entfernt: [planetary]; neu: [chaos, sector, last_stand, brotherhood, space_marine, multi, male]. Format+Availability identisch. Rating identisch (4.01 (goodreads, n=2712)). PlausibilityFlags-Diff: neu: [insufficient_web_search, no_rating_found]. DiscoveredLinks: 4 → 2."
+    },
+    {
+      "slug": "mark-of-calth",
+      "synopsis": "Set in the tunnels and shattered arcologies beneath Calth's ravaged surface, this anthology gathers eight interconnected stories from the brutal underground conflict that followed the Word Bearers' treacherous assault on the Ultramarines. Roboute Guilliman's warriors must endure a grinding war of attrition against Chaos forces and daemonic entities in the planet's poisoned depths. Across the collection, readers witness the dark ambitions of Erebus, the tenacious heroism of Remus Ventanus, and the desperate flight of Perpetuals through warp-distorted realities. A sinister athame blade carries its own haunted history through the narrative. Together, the tales examine how loyalty, brotherhood, and sacrifice are forged — or broken — under the relentless pressure of the Heresy's darkest consequences, painting a vivid portrait of warriors condemned to fight on even when hope seems extinguished.",
+      "facetIds": [
+        "book",
+        "ensemble",
+        "multi",
+        "dual",
+        "planetary",
+        "mid_series",
+        "standard",
+        "war_story",
+        "character_study",
+        "grimdark",
+        "somber",
+        "action_heavy",
+        "betrayal",
+        "war",
+        "loyalty",
+        "brotherhood",
+        "sacrifice",
+        "cw_violence",
+        "cw_death",
+        "cw_disturbing",
+        "en"
+      ],
+      "format": "anthology",
+      "availability": "in_print",
+      "rating": 3.64,
+      "ratingSource": "goodreads",
+      "ratingCount": 2141,
+      "plausibilityFlags": [
+        {
+          "kind": "no_storefronts_found",
+          "reasoning": "Web search was unavailable for this run; no storefront URLs could be retrieved or verified.",
+          "field": "discoveredLinks"
+        },
+        {
+          "kind": "insufficient_web_search",
+          "reasoning": "Web search was disabled for this comparison run; synopsis and availability were derived solely from pre-merged structured data and plot context.",
+          "field": "synopsis"
+        }
+      ],
+      "discoveredLinks": [],
+      "costEstimate": {
+        "subscriptionTier": "sonnet",
+        "inputTokens": 4907,
+        "outputTokens": 576,
+        "webSearchCalls": 0,
+        "estimatedLimitPercent": 10.97,
+        "cumulativeLimitPercent": 67.36
+      },
+      "divergence": "Vs. Pipeline-Haiku-A: Synopsis 129W (vs 90W → Δ 39W). FacetIds-Diff: entfernt: [imperium, space_marine]; neu: [book, ensemble, multi, dual, planetary, standard, character_study, somber, action_heavy, loyalty, cw_disturbing, en]. Format+Availability identisch. Rating identisch (3.64 (goodreads, n=2141)). PlausibilityFlags-Diff: neu: [no_storefronts_found, insufficient_web_search]. DiscoveredLinks: 5 → 0."
+    }
+  ],
+  "summary": {
+    "cumulativeLimitPercent": 67.36,
+    "totalInputTokens": 29956,
+    "totalOutputTokens": 3721,
+    "totalWebSearchCalls": 0,
+    "hardStopTriggered": false,
+    "completedSlugs": 6,
+    "targetSlugs": 6
+  }
+}
