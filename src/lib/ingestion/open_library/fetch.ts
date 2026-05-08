@@ -66,6 +66,11 @@ const SEARCH_FIELDS = [
 /**
  * Search Open Library for a book by title (+ optional author for disambiguation).
  * Returns up to `limit` hits — caller picks the best match.
+ *
+ * Phase 3 047 Hebel D: `language=eng` constrains hits to English-only editions
+ * (OL stores languages as `/languages/eng`; the search param accepts the bare
+ * 3-letter ISO 639-2 code). Reduces noise from translated reissues that were
+ * the dominant source of releaseYear field-conflicts in the 044 batch.
  */
 export async function searchOpenLibrary(
   title: string,
@@ -75,6 +80,7 @@ export async function searchOpenLibrary(
   const params = new URLSearchParams();
   params.set("title", title);
   if (author) params.set("author", author);
+  params.set("language", "eng");
   params.set("limit", String(limit));
   params.set("fields", SEARCH_FIELDS);
 

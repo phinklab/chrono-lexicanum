@@ -168,53 +168,119 @@ function extractUniverseYears(text: string): UniverseYears {
 // Slug discovery — try multiple URL forms until one resolves to a book article
 // =============================================================================
 
-import { fetchLexicanumArticle, titleToPageName } from "./fetch";
+import {
+  fetchLexicanumArticle,
+  searchLexicanumByTitle,
+  titleToPageName,
+} from "./fetch";
 
 export interface DiscoveredArticle {
   article: FetchedArticle;
   payload: LexicanumPayload;
 }
 
+// Phase 3 047 Hebel B — extended URL-pattern list. Pre-047 the pipeline only
+// tried `_(Novel)` / plain / `_(novel)` and missed every short story, novella,
+// audio drama, and anthology. The 044 batch produced 0/50 books with
+// factionNames/locationNames/characterNames as a direct consequence (those
+// fields hang off the Lexicanum article).
+//
+// Suffix order matters: most-specific wins first. The plain title goes last
+// so that a same-named non-book article (e.g. a character page) does not
+// hijack the discovery before a `(Novel)` or `(Audio_Drama)` candidate is
+// tried. Author-disambiguation in the success path keeps a wrong-match
+// from leaking through.
+const LEXICANUM_URL_SUFFIXES = [
+  "_(Novel)",
+  "_(novel)",
+  "_(Anthology)",
+  "_(anthology)",
+  "_(Novella)",
+  "_(novella)",
+  "_(Audio_Drama)",
+  "_(audio_drama)",
+  "_(Short_Story)",
+  "_(short_story)",
+  "", // plain — last
+];
+
 /**
  * Try to find a Lexicanum book article for a given title.
  *
- * Strategy:
- *   1. `<title>_(Novel)` (most reliable for novels)
- *   2. `<title>` plain
- *   3. lowercased `(novel)` variant for older articles
+ * Strategy (Phase 3 047 Hebel B):
+ *   1. URL probing — walk `LEXICANUM_URL_SUFFIXES` until a 200 yields a
+ *      book article whose author matches.
+ *   2. MediaWiki opensearch fallback — when every URL pattern misses, ask
+ *      the search API for candidate page names and probe the top 3.
  *
- * If `expectedAuthor` is provided, the candidate page's author is
- * compared (case-insensitive substring) — a non-match returns null with
- * an `errors` signal in the caller's diff.
+ * If `expectedAuthor` is provided, every candidate's author is compared
+ * (case-insensitive substring) — a non-match returns null with an `errors`
+ * signal in the caller's diff. The first matching candidate wins.
  */
 export async function discoverLexicanumArticle(
   title: string,
   expectedAuthor?: string,
 ): Promise<{ result: DiscoveredArticle | null; reason?: string }> {
   const base = titleToPageName(title);
-  const candidates = [`${base}_(Novel)`, base, `${base}_(novel)`];
+  const tried = new Set<string>();
 
-  for (const pageName of candidates) {
-    const article = await fetchLexicanumArticle(pageName);
-    if (article.status !== 200 || !article.html) continue;
+  // Pass 1: URL pattern probing.
+  const patternCandidates = LEXICANUM_URL_SUFFIXES.map(
+    (suffix) => `${base}${suffix}`,
+  );
+  for (const pageName of patternCandidates) {
+    if (tried.has(pageName)) continue;
+    tried.add(pageName);
+    const probe = await tryLexicanumCandidate(pageName, expectedAuthor);
+    if (probe.kind === "match") return { result: probe.discovered };
+    if (probe.kind === "author_mismatch") return { result: null, reason: probe.reason };
+  }
 
-    const payload = parseLexicanumArticle(article);
-    if (!payload) continue;
-
-    if (expectedAuthor) {
-      const got = (payload.fields.authorNames ?? []).join(" ").toLowerCase();
-      if (!got || !got.includes(expectedAuthor.toLowerCase())) {
-        return {
-          result: null,
-          reason: `author mismatch: lexicanum says "${
-            (payload.fields.authorNames ?? []).join(", ")
-          }", wikipedia says "${expectedAuthor}"`,
-        };
-      }
-    }
-
-    return { result: { article, payload } };
+  // Pass 2: opensearch fallback. If api.php is Cloudflare-blocked, the
+  // helper returns [] and we fall through to the original "no candidate"
+  // error. The merged book stays junction-empty, but the LLM-extracted
+  // junction names (047 Hebel B prompt-side) still backfill those fields.
+  const searchHits = await searchLexicanumByTitle(title, 5);
+  for (const hitTitle of searchHits.slice(0, 3)) {
+    const pageName = titleToPageName(hitTitle);
+    if (tried.has(pageName)) continue;
+    tried.add(pageName);
+    const probe = await tryLexicanumCandidate(pageName, expectedAuthor);
+    if (probe.kind === "match") return { result: probe.discovered };
+    // Author-mismatch on a search hit is downgraded to "skip and try the
+    // next" — the search fallback is exploratory by nature, an early
+    // mismatch shouldn't poison the whole discovery.
   }
 
   return { result: null, reason: "no candidate URL returned a book article" };
+}
+
+type CandidateProbe =
+  | { kind: "match"; discovered: DiscoveredArticle }
+  | { kind: "miss" }
+  | { kind: "author_mismatch"; reason: string };
+
+async function tryLexicanumCandidate(
+  pageName: string,
+  expectedAuthor: string | undefined,
+): Promise<CandidateProbe> {
+  const article = await fetchLexicanumArticle(pageName);
+  if (article.status !== 200 || !article.html) return { kind: "miss" };
+
+  const payload = parseLexicanumArticle(article);
+  if (!payload) return { kind: "miss" };
+
+  if (expectedAuthor) {
+    const got = (payload.fields.authorNames ?? []).join(" ").toLowerCase();
+    if (!got || !got.includes(expectedAuthor.toLowerCase())) {
+      return {
+        kind: "author_mismatch",
+        reason: `author mismatch: lexicanum says "${
+          (payload.fields.authorNames ?? []).join(", ")
+        }", wikipedia says "${expectedAuthor}"`,
+      };
+    }
+  }
+
+  return { kind: "match", discovered: { article, payload } };
 }

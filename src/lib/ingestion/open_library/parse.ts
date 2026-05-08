@@ -34,7 +34,9 @@ export interface DiscoveredOpenLibraryBook {
 }
 
 /**
- * Find an Open-Library book for `title` (+ optional `expectedAuthor`).
+ * Find an Open-Library book for `title` (+ optional `expectedAuthor`,
+ * `expectedYear` — both are Wikipedia-side hints used for disambiguation and
+ * the reissue-trap guard introduced in Phase 3 047 Hebel D).
  *
  * Returns `{ result: { doc, payload }, reason? }`. The `reason` field is
  * populated when no match is found or when author disambiguation rejected
@@ -43,6 +45,7 @@ export interface DiscoveredOpenLibraryBook {
 export async function discoverOpenLibraryBook(
   title: string,
   expectedAuthor?: string,
+  expectedYear?: number,
 ): Promise<{ result: DiscoveredOpenLibraryBook | null; reason?: string }> {
   const response = await searchOpenLibrary(title, expectedAuthor, 5);
 
@@ -68,7 +71,7 @@ export async function discoverOpenLibraryBook(
   const payload: OpenLibraryPayload = {
     source: "open_library",
     sourceUrl: workKeyToUrl(matched.key),
-    fields: extractFields(matched),
+    fields: extractFields(matched, expectedYear),
   };
 
   return { result: { doc: matched, payload } };
@@ -82,7 +85,17 @@ function authorMatchesExpected(doc: OpenLibraryDoc, expected: string): boolean {
   return false;
 }
 
-function extractFields(doc: OpenLibraryDoc): SourcePayloadFields {
+// Phase 3 047 Hebel D — reissue/edition guard. When Wikipedia already supplied
+// a release year and OL's `first_publish_year` is ≥ 3 years later, treat OL's
+// year as a reissue/edition artefact (the OL work-record might be merging a
+// different printing run) and drop it. Wikipedia stays the authoritative
+// releaseYear source for these books.
+const RELEASE_YEAR_DRIFT_THRESHOLD = 3;
+
+function extractFields(
+  doc: OpenLibraryDoc,
+  expectedYear?: number,
+): SourcePayloadFields {
   const fields: SourcePayloadFields = {};
 
   if (doc.title) fields.title = doc.title;
@@ -92,7 +105,11 @@ function extractFields(doc: OpenLibraryDoc): SourcePayloadFields {
   }
 
   if (typeof doc.first_publish_year === "number") {
-    fields.releaseYear = doc.first_publish_year;
+    const olYear = doc.first_publish_year;
+    const skipYear =
+      typeof expectedYear === "number" &&
+      olYear - expectedYear >= RELEASE_YEAR_DRIFT_THRESHOLD;
+    if (!skipYear) fields.releaseYear = olYear;
   }
 
   if (doc.isbn && doc.isbn.length > 0) {

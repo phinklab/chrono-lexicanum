@@ -50,6 +50,13 @@
       "when": 1777836111312,
       "tag": "0006_illegal_sharon_carter",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1778272660081,
+      "tag": "0007_thick_pete_wisdom",
+      "breakpoints": true
     }
   ]
 }

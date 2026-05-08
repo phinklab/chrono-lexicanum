@@ -107,7 +107,7 @@ export async function loadFacetVocabulary(): Promise<{
 // Tool-Schema for `publish_enrichment`
 // =============================================================================
 
-const BOOK_FORMAT_VALUES: BookFormat[] = [
+export const BOOK_FORMAT_VALUES: BookFormat[] = [
   "novel",
   "novella",
   "short_story",
@@ -116,7 +116,7 @@ const BOOK_FORMAT_VALUES: BookFormat[] = [
   "omnibus",
 ];
 
-const BOOK_AVAILABILITY_VALUES: BookAvailability[] = [
+export const BOOK_AVAILABILITY_VALUES: BookAvailability[] = [
   "in_print",
   "oop_recent",
   "oop_legacy",
@@ -166,6 +166,24 @@ export const PUBLISH_ENRICHMENT_TOOL = {
         items: { type: "string" },
         description:
           "Soft-facet value IDs from the canonical vocabulary. Each must exist in the provided facet_values list. Multi-value categories may contribute multiple IDs; single-value categories at most one.",
+      },
+      factionNames: {
+        type: "array",
+        items: { type: "string" },
+        description:
+          "Phase 3 047: named factions that appear in the book. Names exactly as written on Wikipedia/Lexicanum (e.g. 'Ultramarines', 'Word Bearers', 'Cabal of Eight'). NEVER slug form — FK resolution is the 3d apply step. Empty array when not clearly extractable from sources.",
+      },
+      locationNames: {
+        type: "array",
+        items: { type: "string" },
+        description:
+          "Phase 3 047: named locations/worlds/sectors that appear in the book. Surface form on Wikipedia/Lexicanum (e.g. 'Calth', 'Eye of Terror', 'Segmentum Solar'). NEVER slug form. Empty array when not clearly extractable.",
+      },
+      characterNames: {
+        type: "array",
+        items: { type: "string" },
+        description:
+          "Phase 3 047: named individual characters that appear in the book. Surface form on Wikipedia/Lexicanum (e.g. 'Horus Lupercal', 'Gregor Eisenhorn'). NEVER slug form. Empty array when not clearly extractable.",
       },
       discoveredLinks: {
         type: "array",
@@ -265,6 +283,12 @@ export const SYSTEM_PROMPT = `You are an enrichment module for a Warhammer 40,00
 
    Categories marked \`multiValue: true\` may contribute multiple IDs; \`multiValue: false\` categories at most one. If you genuinely need a value not in the vocabulary, do NOT invent it — instead emit a \`flags\` entry with \`kind: "proposed_new_facet"\`.
 
+3a. **factionNames / locationNames / characterNames** — Named entities that appear in the book, extracted from the Wikipedia plot section, the Lexicanum story section, and your synopsis-context web_search.
+
+   - Use surface forms exactly as written in the sources ("Word Bearers", "Calth", "Horus Lupercal"). NEVER slug form — FK resolution to our catalog ids is downstream (Phase 3d apply step).
+   - Junction fields are best-effort. If a source clearly names the entity, include it. If extraction would require speculation, leave the array empty.
+   - Lexicanum (when an article exists) is the authoritative source for these fields per FIELD_PRIORITY; the LLM contribution backfills books where Lexicanum has no article. Do not under-extract: if Lexicanum's article is empty but the Wikipedia plot section names three factions, list those three.
+
 4. **discoveredLinks** — Storefront/reference URLs extracted from your availability web_search. \`serviceHint\` should match a known service id when applicable (\`black_library\`, \`amazon\`, \`audible\`, \`kindle\`, \`apple_books\`, \`warhammer_plus\`); otherwise pass through whatever short string is most descriptive. If no storefronts can be found (e.g. very old OOP releases), return an empty array AND emit \`flags\` with \`kind: "no_storefronts_found"\`.
 
 5. **rating** — Use this source-priority order: ${RATING_SOURCE_PRIORITY.join(" → ")}. Take the FIRST source from this list that has a numeric reader rating visible (in your web_search results or — for hardcover — in the multi-source data already provided to you). Normalize the value to a 0–5 scale: \`(rawValue / sourceMax) * 5\`. Today all listed sources are 0–5, but the normalization rule applies to future sources. Include \`count\` if clearly extractable. If NO source yields a rating, omit the rating object entirely AND emit \`flags\` with \`kind: "no_rating_found"\`.
@@ -331,8 +355,28 @@ function vocabularyToText(categories: FacetCategory[]): string {
   return lines.join("\n").trim();
 }
 
+// Phase 3 047 Hebel E — editor-attribution heuristic. When the merged
+// authorNames look like an editor (single entry matching this regex), the
+// LLM gets the same author_mismatch nudge as for multi-contributor titles.
+const EDITOR_HEURISTIC = /various|editor|edited.by/i;
+
 function payloadsToText(payloads: SourcePayload[]): string {
   const lines: string[] = [];
+
+  // Pre-compute the "editor-attributed?" signal once across all payloads, so
+  // the Hardcover hint can reference it even when authorNames live on the
+  // merged Wikipedia/OL payload, not the Hardcover one.
+  let mergedAuthorNames: string[] = [];
+  for (const p of payloads) {
+    const a = p.fields.authorNames;
+    if (Array.isArray(a) && a.length > 0) {
+      mergedAuthorNames = a;
+      break;
+    }
+  }
+  const triggerEditorHeuristic =
+    mergedAuthorNames.length === 1 && EDITOR_HEURISTIC.test(mergedAuthorNames[0]);
+
   for (const p of payloads) {
     const url = p.sourceUrl ? ` (${p.sourceUrl})` : "";
     lines.push(`### Source: ${p.source}${url}`);
@@ -343,9 +387,15 @@ function payloadsToText(payloads: SourcePayload[]): string {
       if (v === undefined) continue;
       lines.push(`- ${k}: ${JSON.stringify(v)}`);
     }
-    // Audit-Slot (Hardcover): tags + averageRating als hint einbetten
-    const audit = (p as { audit?: { tags?: string[]; averageRating?: number } })
-      .audit;
+    // Audit-Slot (Hardcover): tags + averageRating als hint einbetten,
+    // plus contributor-list hint (Phase 3 047 Hebel E).
+    const audit = (p as {
+      audit?: {
+        tags?: string[];
+        averageRating?: number;
+        contributorNames?: string[];
+      };
+    }).audit;
     if (audit) {
       if (audit.tags && audit.tags.length > 0) {
         lines.push(`- audit.tags: ${JSON.stringify(audit.tags.slice(0, 30))}`);
@@ -353,6 +403,14 @@ function payloadsToText(payloads: SourcePayload[]): string {
       if (typeof audit.averageRating === "number") {
         lines.push(
           `- audit.averageRating (hardcover, 0–5): ${audit.averageRating.toFixed(2)}`,
+        );
+      }
+      const contributors = audit.contributorNames ?? [];
+      const triggerMulti = contributors.length >= 2;
+      if (triggerMulti || (p.source === "hardcover" && triggerEditorHeuristic)) {
+        const list = triggerMulti ? contributors : mergedAuthorNames;
+        lines.push(
+          `- audit.contributors-hint: Hardcover lists [${list.join(", ")}]. Cross-check these against the title's stated author when classifying author_mismatch — multi-contributor releases (anthologies, edited volumes) are the dominant author_mismatch source.`,
         );
       }
     }

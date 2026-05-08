@@ -428,7 +428,13 @@ async function processOne(
   console.log(`[${index + 1}/${total}] ${entry.title}${entry.author ? ` — ${entry.author}` : ""}`);
 
   const payloads: SourcePayload[] = [wikipediaEntryToPayload(entry)];
-  let hardcoverAudit: { tags?: string[]; averageRating?: number } | undefined;
+  let hardcoverAudit:
+    | {
+        tags?: string[];
+        averageRating?: number;
+        contributorNames?: string[];
+      }
+    | undefined;
 
   if (state.config.sources.includes("lexicanum")) {
     try {
@@ -459,6 +465,7 @@ async function processOne(
       const { result, reason } = await discoverOpenLibraryBook(
         entry.title,
         entry.author,
+        entry.releaseYear,
       );
       if (result) {
         payloads.push(result.payload);

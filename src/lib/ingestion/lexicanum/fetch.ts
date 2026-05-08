@@ -10,10 +10,11 @@
  * therefore shell out to curl as the HTTP transport. Curl is available
  * built-in on Windows 10+, macOS, and most Linux distros.
  *
- * api.php is also blocked by Cloudflare even from curl in some
- * configurations, so this client only fetches `/wiki/<page-name>`
- * article pages directly. Slug discovery uses URL guessing (see
- * `parse.ts → discoverLexicanumArticle`) instead of the search API.
+ * Phase 3 047 Hebel B adds an opensearch-API fallback for slug discovery
+ * via the same curl shim. Cloudflare may still block `api.php` requests
+ * on some configurations — `searchLexicanumByTitle` soft-fails to `[]` in
+ * that case, and the URL-pattern probing in parse.ts continues to be the
+ * primary discovery path.
  */
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
@@ -150,4 +151,55 @@ export function titleToPageName(title: string): string {
     // MediaWiki accepts most punctuation in page names verbatim. We only
     // need to escape the few characters that have URL-encoding meaning.
     .replace(/[%?#&]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
+}
+
+const OPENSEARCH_BASE = "https://wh40k.lexicanum.com/mediawiki/api.php";
+
+/**
+ * Phase 3 047 Hebel B — MediaWiki `opensearch` fallback for slug discovery.
+ *
+ * Returns up to `limit` candidate page names matching `title`. Soft-fails to
+ * an empty array when the api.php endpoint is Cloudflare-blocked even via
+ * the curl shim — the caller treats `[]` as "no fallback hits, give up".
+ *
+ * Response shape (MediaWiki opensearch): `[searchTerm, titles[], descs[],
+ * urls[]]`. We only consume the titles array. Page names are returned as
+ * MediaWiki strings (with spaces); the caller must run them through
+ * `titleToPageName` before constructing a fetch URL.
+ */
+export async function searchLexicanumByTitle(
+  title: string,
+  limit: number = 5,
+): Promise<string[]> {
+  const params = new URLSearchParams({
+    action: "opensearch",
+    search: title,
+    limit: String(limit),
+    namespace: "0",
+    format: "json",
+  });
+  const url = `${OPENSEARCH_BASE}?${params.toString()}`;
+
+  await throttle();
+
+  let result: { status: number; body: string };
+  try {
+    result = await curlGet(url);
+  } catch {
+    return [];
+  }
+
+  if (result.status !== 200) return [];
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(result.body);
+  } catch {
+    return [];
+  }
+
+  if (!Array.isArray(parsed) || parsed.length < 2) return [];
+  const titles = parsed[1];
+  if (!Array.isArray(titles)) return [];
+  return titles.filter((t): t is string => typeof t === "string");
 }

@@ -73,7 +73,7 @@ export function mergeBookFromSources(payloads: SourcePayload[]): MergeResult {
 
   const title = fields.title ?? "";
   const slug = slugify(title);
-  const primarySource = fieldOrigins.title ?? inferPrimarySource(payloads);
+  const primarySource = pickPrimarySource(fieldOrigins, payloads);
   const confidence = SOURCE_CONFIDENCE[primarySource];
 
   const externalUrls: MergedBook["externalUrls"] = [];
@@ -178,10 +178,29 @@ function normalizeString(s: string): string {
   return s.toLowerCase().replace(/\s+/g, " ").trim();
 }
 
-function inferPrimarySource(payloads: SourcePayload[]): SourceName {
-  // Fallback when no source supplied a title — pick the first payload's
-  // source. In practice this is hit only when discovery yields a roster
-  // entry but every per-book crawler returned null AND the discovery
-  // entry itself had no title (shouldn't happen).
-  return payloads[0]?.source ?? "wikipedia";
+// Phase 3 047 — primarySource is the "what does this row most owe its identity
+// to?" answer. Order: lore-bearing > synopsis > title-bearing > wikipedia
+// fallback. Before 047, this was just `fieldOrigins.title`, which produced
+// 100% wikipedia in the 044 batch (44 books) — useless as an audit signal
+// because Wikipedia almost always wins title-priority. The lore-first rule
+// rewards the source that supplied the canon-specific facts (factions,
+// characters, in-universe years). LLM is only chosen when it owns the
+// synopsis but no lexicanum lore was discovered.
+const LORE_FIELDS = [
+  "factionNames",
+  "locationNames",
+  "characterNames",
+  "startY",
+  "endY",
+] as const;
+
+function pickPrimarySource(
+  fieldOrigins: Partial<Record<FieldName, SourceName>>,
+  payloads: SourcePayload[],
+): SourceName {
+  for (const f of LORE_FIELDS) {
+    if (fieldOrigins[f] === "lexicanum") return "lexicanum";
+  }
+  if (fieldOrigins.synopsis === "llm") return "llm";
+  return fieldOrigins.title ?? payloads[0]?.source ?? "wikipedia";
 }

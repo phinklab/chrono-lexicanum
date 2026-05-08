@@ -12,11 +12,15 @@
 import type Anthropic from "@anthropic-ai/sdk";
 
 import type {
+  BookAvailability,
+  BookFormat,
   DiscoveredLink,
   LLMFlag,
   LLMFlagKind,
   LLMPayload,
 } from "@/lib/ingestion/types";
+
+import { BOOK_AVAILABILITY_VALUES, BOOK_FORMAT_VALUES } from "./prompt";
 
 const VALID_FLAG_KINDS: ReadonlySet<LLMFlagKind> = new Set([
   "data_conflict",
@@ -46,6 +50,9 @@ interface PublishEnrichmentInput {
   format?: unknown;
   availability?: unknown;
   facetIds?: unknown;
+  factionNames?: unknown;
+  locationNames?: unknown;
+  characterNames?: unknown;
   discoveredLinks?: unknown;
   rating?: unknown;
   flags?: unknown;
@@ -65,6 +72,67 @@ function isServerToolUseBlock(
 
 function isStringArray(v: unknown): v is string[] {
   return Array.isArray(v) && v.every((x) => typeof x === "string");
+}
+
+// Phase 3 047 Hebel B — defensive string-array parser for the junction-name
+// outputs. Drops non-strings + empty/whitespace-only entries silently.
+function parseStringArray(v: unknown): string[] {
+  if (!Array.isArray(v)) return [];
+  const out: string[] = [];
+  for (const item of v) {
+    if (typeof item !== "string") continue;
+    const trimmed = item.trim();
+    if (trimmed.length > 0) out.push(trimmed);
+  }
+  return out;
+}
+
+// Phase 3 047 Hebel C — Format/Availability blind-cast removal.
+//
+// Before 047: `fields.format = input_.format as ...` blindly trusted the LLM,
+// landing strings like "book" and "short" (observed in the 044 batch) into
+// pgEnum-typed fields that would have rejected them at apply time.
+//
+// Closest-match mapping handles known Haiku tics. Two entries today, both
+// documented in the 044-batch diff. Adding more here narrows the
+// `value_outside_vocabulary` signal — only extend when a value shows up in
+// at least two consecutive batches.
+const FORMAT_CLOSEST_MATCH: Record<string, BookFormat> = {
+  book: "novel",
+  short: "short_story",
+};
+
+function coerceFormat(raw: unknown, flags: LLMFlag[]): BookFormat | undefined {
+  if (typeof raw !== "string") return undefined;
+  if ((BOOK_FORMAT_VALUES as readonly string[]).includes(raw)) {
+    return raw as BookFormat;
+  }
+  const mapped = FORMAT_CLOSEST_MATCH[raw];
+  if (mapped) return mapped; // closest-match — silent, no flag
+  flags.push({
+    kind: "value_outside_vocabulary",
+    field: "format",
+    current: raw,
+    reasoning: "format not in BOOK_FORMAT_VALUES and no closest-match mapping",
+  });
+  return undefined;
+}
+
+function coerceAvailability(
+  raw: unknown,
+  flags: LLMFlag[],
+): BookAvailability | undefined {
+  if (typeof raw !== "string") return undefined;
+  if ((BOOK_AVAILABILITY_VALUES as readonly string[]).includes(raw)) {
+    return raw as BookAvailability;
+  }
+  flags.push({
+    kind: "value_outside_vocabulary",
+    field: "availability",
+    current: raw,
+    reasoning: "availability not in BOOK_AVAILABILITY_VALUES",
+  });
+  return undefined;
 }
 
 /**
@@ -236,12 +304,20 @@ export function parseLlmResponse(input: ParseLlmResponseInput): ParseResult {
   const fields: LLMPayload["fields"] = {
     synopsis: input_.synopsis,
   };
-  if (typeof input_.format === "string") {
-    fields.format = input_.format as LLMPayload["fields"]["format"];
-  }
-  if (typeof input_.availability === "string") {
-    fields.availability = input_.availability as LLMPayload["fields"]["availability"];
-  }
+  const coercedFormat = coerceFormat(input_.format, flags);
+  if (coercedFormat) fields.format = coercedFormat;
+  const coercedAvailability = coerceAvailability(input_.availability, flags);
+  if (coercedAvailability) fields.availability = coercedAvailability;
+
+  // Phase 3 047 Hebel B — junction-name backfill from the LLM. Strict
+  // string-only filter; non-string entries are silently dropped (consistent
+  // with the discoveredLinks/facetIds parsers).
+  const factionNames = parseStringArray(input_.factionNames);
+  if (factionNames.length > 0) fields.factionNames = factionNames;
+  const locationNames = parseStringArray(input_.locationNames);
+  if (locationNames.length > 0) fields.locationNames = locationNames;
+  const characterNames = parseStringArray(input_.characterNames);
+  if (characterNames.length > 0) fields.characterNames = characterNames;
   // Filter facetIds to only the valid ones for `fields.facetIds` — keeping
   // invalid ones in the payload would land bogus IDs into FIELD_PRIORITY.
   // The `audit.facetIds` slot keeps the FULL list (incl. invalids) for 3d
