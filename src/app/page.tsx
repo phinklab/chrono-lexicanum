@@ -12,8 +12,7 @@ export const revalidate = 3600;
  *
  * Server component. Fetches a live count of novels in the archive on render
  * and folds it into the footer. Gracefully degrades to 0 if the DB is
- * unreachable, which is also the current ground truth (Phase 4 ingestion
- * hasn't run yet).
+ * unreachable.
  */
 async function getBookCount(): Promise<number> {
   try {
