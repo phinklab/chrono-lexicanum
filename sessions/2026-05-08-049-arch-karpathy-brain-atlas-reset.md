@@ -2,13 +2,18 @@
 session: 2026-05-08-049
 role: architect
 date: 2026-05-08
-status: open
+status: implemented
 slug: karpathy-brain-atlas-reset
 parent: null
 links:
   - 2026-05-08-047
   - 2026-05-08-048
-commits: []
+  - 2026-05-09-049
+commits:
+  - 1f6da88
+  - 3f43f4c
+  - 64b47b5
+  - 9fa70d8
 ---
 
 # Karpathy-Reset — Chrono Brain (im Repo) + Chrono Atlas (externer Vault)
