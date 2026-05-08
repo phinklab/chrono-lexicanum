@@ -43,7 +43,10 @@ export const FIELD_PRIORITY: Record<FieldName, ReadonlyArray<SourceName>> = {
 
   // Junctions (raw names — FK resolution is downstream, post-3a)
   authorNames:   ["wikipedia", "lexicanum", "open_library"],  // 3b — OL füllt 25%-WP-Lücke
-  factionNames:  ["lexicanum"],
-  locationNames: ["lexicanum"],
-  characterNames:["lexicanum"],
+  // Phase 3 047 Hebel B: LLM backfills junctions for books where Lexicanum
+  // has no article. Lexicanum still wins (extraction from a curated wiki
+  // article beats LLM web-search extraction); the LLM only fills gaps.
+  factionNames:  ["lexicanum", "llm"],
+  locationNames: ["lexicanum", "llm"],
+  characterNames:["lexicanum", "llm"],
 };

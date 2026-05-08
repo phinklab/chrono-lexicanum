@@ -84,12 +84,18 @@ export const sourceKind = pgEnum("source_kind", [
   "black_library",
   "fandom_wiki",
   "community", // user-submitted, then merged
-  // Stufe 2a additions — forward-looking for 2c / 3 / Phase 4 once non-book
-  // works arrive. Adding now avoids a one-line ALTER TYPE per Phase.
+  // Stufe 2a additions — forward-looking for 2c / 3 once non-book works arrive.
   "tmdb",
   "imdb",
   "youtube",
   "wikidata",
+  // Phase 3 pipeline-härtung (047) — align DB enum with the TS `SourceName`
+  // union (see `src/lib/ingestion/types.ts`). These four were already used in
+  // pipeline diffs since 3a/3b/3c; the enum lagged behind.
+  "wikipedia",
+  "open_library",
+  "hardcover",
+  "llm",
 ]);
 
 export const workKind = pgEnum("work_kind", [

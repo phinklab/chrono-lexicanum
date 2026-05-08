@@ -137,12 +137,19 @@ export interface OpenLibraryPayload extends SourcePayload {
  * Hardcover liefert primär Audit-Daten (tags, rating). Diese landen im
  * `audit`-Slot, nicht in `fields` — sie sind nicht in FIELD_PRIORITY und
  * werden nicht in DB-Spalten gemappt. Tags-zu-Facets-Mapping ist 3c LLM.
+ *
+ * Phase 3 047 Hebel E: `contributorNames` carries the full list of
+ * Hardcover-side contributors (`hit.contributions[].author.name`). Surfaces
+ * in the LLM user-prompt as an explicit "cross-check author_mismatch" hint
+ * for anthologies and editor-attributed multi-author releases — Haiku is
+ * blind to this without the explicit nudge.
  */
 export interface HardcoverPayload extends SourcePayload {
   source: "hardcover";
   audit?: {
     tags?: string[];
     averageRating?: number;
+    contributorNames?: string[];
   };
 }
 
@@ -271,10 +278,15 @@ export interface AddedEntry {
    * Phase 3b audit-only: raw Hardcover-Tags + average rating, falls Hardcover
    * für dieses Buch einen Treffer geliefert hat. Nicht in FIELD_PRIORITY,
    * nicht in DB-Spalten — pure Sichtbarkeit für 3c LLM-Mapping auf Facets.
+   *
+   * Phase 3 047 Hebel E: `contributorNames` mirrors the same field on
+   * `HardcoverPayload.audit` so the diff captures Hardcover's full
+   * contributor list (used for post-hoc author-mismatch triage).
    */
   rawHardcoverPayload?: {
     tags?: string[];
     averageRating?: number;
+    contributorNames?: string[];
   };
   /** Phase 3c: per-Buch-Audit-Anker (FK-Resolution-Input für 3d). */
   rawLlmPayload?: RawLlmPayload;

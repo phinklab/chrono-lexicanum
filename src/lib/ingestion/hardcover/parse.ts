@@ -131,6 +131,7 @@ export async function discoverHardcoverBook(
   }
 
   const tags = extractTags(matched.cached_tags);
+  const contributorNames = allAuthorNamesArray(matched);
   const sourceUrl = matched.slug
     ? `https://hardcover.app/books/${matched.slug}`
     : `https://hardcover.app/books/${matched.id}`;
@@ -147,6 +148,12 @@ export async function discoverHardcoverBook(
       tags: tags.length > 0 ? tags : undefined,
       averageRating:
         typeof matched.rating === "number" ? matched.rating : undefined,
+      // Phase 3 047 Hebel E — full contributor list for the LLM
+      // author_mismatch cross-check hint. Single-author hits get the
+      // (length-1) array too; the prompt-side hint only fires when
+      // length ≥ 2 OR the editor heuristic triggers.
+      contributorNames:
+        contributorNames.length > 0 ? contributorNames : undefined,
     },
   };
 
@@ -158,10 +165,14 @@ export async function discoverHardcoverBook(
 // =============================================================================
 
 function allAuthorNames(hit: HardcoverBookHit): string {
-  const names = (hit.contributions ?? [])
+  const names = allAuthorNamesArray(hit);
+  return names.join(", ") || "—";
+}
+
+function allAuthorNamesArray(hit: HardcoverBookHit): string[] {
+  return (hit.contributions ?? [])
     .map((c) => c?.author?.name)
     .filter((n): n is string => typeof n === "string" && n.length > 0);
-  return names.join(", ") || "—";
 }
 
 function authorMatchesExpected(
