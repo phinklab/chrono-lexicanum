@@ -7,6 +7,26 @@
 
 ---
 
+## Brain & Atlas
+
+This project's memory is split into two stores. Engineering memory stays in the repo and is always loaded; the book domain (entity data) lives in an external Obsidian vault and is loaded only on demand.
+
+- **Brain** ([`brain/`](./brain/CLAUDE.md)) — small, always-mitgeladen, LLM-pflegt. Contains *what the project is, how it works, what was decided, what's open*. Karpathy-style LLM Wiki (`raw/` immutable + `wiki/` synthesized + Schema-Datei + three operations Ingest/Query/Lint). Cowork and Claude Code update Brain alongside code changes; an "atomic commit" pairs a code change with its Brain update.
+- **Atlas** (`chrono-atlas/`, **außerhalb dieses Repos**, default `~/chrono-atlas/`) — external Obsidian vault, mechanical mirror of Postgres. Generated via `npm run atlas:regen`. Read-only. **Never auto-loaded** — only opened on explicit "schau in den Atlas". Postgres is single-source-of-truth for the book domain; Atlas spiegelt, bestimmt nicht.
+
+**Read-order on session start** (every Cowork-/CC-Session, before turning to the task):
+
+1. This file (top-level CLAUDE.md) — stack, conventions, version policy
+2. [`brain/CLAUDE.md`](./brain/CLAUDE.md) — Brain schema (Karpathy frame, three operations, frontmatter convention)
+3. [`brain/wiki/index.md`](./brain/wiki/index.md) — master catalog of brain pages
+4. [`brain/wiki/project-state.md`](./brain/wiki/project-state.md) — "Where are we now"
+5. [`brain/wiki/open-questions.md`](./brain/wiki/open-questions.md) — what's queued for the next brief
+6. Whatever is relevant to the actual task (decisions, workflows, pipeline state, …)
+
+Karpathy-Reset historischer Kontext: Brief [049](./sessions/2026-05-08-049-arch-karpathy-brain-atlas-reset.md), 2026-05-08.
+
+---
+
 ## What this project is
 
 **Chrono · Lexicanum** is a fan-made web archive of Warhammer 40,000 novels. Three primary tools:
@@ -30,7 +50,7 @@ The maintainer is **Philipp** (hobby project). Prefer **simple, honest tradeoffs
 | Database | **Supabase Postgres** | Real SQL, growth headroom, free tier ample, auth ready when needed |
 | ORM | **Drizzle ORM** | Type-safe, SQL-first, migrations versioned in git |
 | Hosting | **Vercel** | Zero-config Next.js deploys, preview URLs per branch |
-| Ingestion | **Python scripts under `/ingest/`** (Phase 4) | Crawl Lexicanum, Goodreads, Black Library |
+| Ingestion | **TypeScript under `src/lib/ingestion/`** (Phase 3) | Crawl Wikipedia + Lexicanum + Open Library + Hardcover; LLM-Anreicherung (Anthropic Haiku 4.5 + Web-Search). Dry-Run-Diffs unter `ingest/.last-run/`. |
 
 > **⚠ Version policy — read this carefully.**
 >
@@ -57,17 +77,29 @@ The original HTML prototype lives **outside the repo** (in `archive/` locally, g
   tailwind.config.ts
   drizzle.config.ts
   .env.example             ← copy to .env.local locally
-  CLAUDE.md                ← this file (shared context)
-  README.md                ← user-facing intro
-  ROADMAP.md               ← phased plan
-  ARCHITECTURE.md          ← schema diagram + module map
-  ONBOARDING.md            ← first-time setup steps
+  CLAUDE.md                ← this file (shared context, auto-loaded)
+  README.md                ← thin pitch + status + brain pointer + live URL
+  ROADMAP.md               ← redirect → brain/wiki/roadmap.md (post-049 reset)
+  ARCHITECTURE.md          ← redirect → brain/wiki/architecture.md (post-049 reset)
+  ONBOARDING.md            ← redirect → brain/wiki/onboarding.md (post-049 reset)
+
+  brain/                   ← engineering memory (Karpathy-style LLM Wiki, post-049 reset)
+    CLAUDE.md              ← Brain schema (Karpathy frame, three operations, frontmatter)
+    wiki/                  ← LLM-synthesized pages (read these, edit cautiously)
+      index.md, log.md, project-state.md, open-questions.md, glossary.md, …
+      decisions/           ← ADRs + revisit-triggers
+      workflows/           ← cowork-session, cc-session, ingest, query, lint, atlas-regen, …
+    raw/                   ← immutable sources (never edited by LLM)
+      historical/          ← snapshots of pre-reset top-level docs
+      reviews/             ← external code reviews (codex, gpt-5, …)
+    outputs/
+      lint/                ← lint reports YYYY-MM-DD.md (lint script TBD)
 
   docs/
     agents/
-      COWORK.md            ← Cowork's role (architect)
-      CLAUDE_CODE.md       ← Claude Code's role (implementer)
-      SESSIONS.md          ← session log format
+      COWORK.md            ← Cowork's role (architect; raw source for brain/wiki/workflows/cowork-session.md)
+      CLAUDE_CODE.md       ← Claude Code's role (implementer; raw source for brain/wiki/workflows/cc-session.md)
+      SESSIONS.md          ← session log format (raw source for brain/wiki/workflows/sessions-format.md)
 
   sessions/                ← project history (Cowork ↔ Claude Code pingpong)
     README.md
@@ -96,7 +128,7 @@ The original HTML prototype lives **outside the repo** (in `archive/` locally, g
       eras.json, factions.json, series.json, books.json,
       sectors.json, locations.json, ask-questions.json
 
-  ingest/                  ← Phase 4: Python crawlers
+  ingest/                  ← Phase 3 dry-run outputs (.last-run/ committed JSON; .llm-cache/ gitignored). Crawler code lives under src/lib/ingestion/.
 ```
 
 ---

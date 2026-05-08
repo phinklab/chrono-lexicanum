@@ -98,6 +98,8 @@ Two paths, same as before:
 2. **Database-first edits** via Drizzle Studio (`npm run db:studio`). When
    happy, **export back to JSON** so the next `db:seed` reflects the change.
 
-Once Phase 4 (the ingestion pipeline) is live, scrapers will write fresh JSON
-snapshots into `ingest/.cache/` and a merge step will produce updated versions
-of these files.
+Phase 3 (the ingestion pipeline, TypeScript under `src/lib/ingestion/`) is
+live in dry-run; once the apply step (3d) ships, scrapers will write fresh
+data to Postgres directly via the multi-source merge engine. Hand-curated
+JSON in this folder remains the seed for reference tables and the 26 manual
+books — pipeline output uses Postgres as canonical, not these files.

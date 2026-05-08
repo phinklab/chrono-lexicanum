@@ -4,12 +4,14 @@ const nextConfig: NextConfig = {
   // Strict mode catches common bugs early; keep on in dev.
   reactStrictMode: true,
 
-  // We do not yet ship images from external CDNs; allow Goodreads / Lexicanum
-  // domains here when book covers / wiki thumbnails get integrated.
+  // We do not yet ship images from external CDNs. Add remote patterns here
+  // when cover-image work picks an actual source. (Goodreads is no longer a
+  // candidate — its API was discontinued December 2020. Phase-3 sources are
+  // Wikipedia + Lexicanum + Open Library + Hardcover.)
   images: {
     remotePatterns: [
-      // { protocol: "https", hostname: "i.gr-assets.com" }, // Goodreads covers
-      // { protocol: "https", hostname: "static.wikia.nocookie.net" }, // Lexicanum
+      // { protocol: "https", hostname: "static.wikia.nocookie.net" }, // Lexicanum thumbnails
+      // { protocol: "https", hostname: "covers.openlibrary.org" }, // Open Library covers
     ],
   },
 
