@@ -15,7 +15,8 @@
     "db:studio": "drizzle-kit studio",
     "db:seed": "tsx --env-file=.env.local scripts/seed.ts",
     "check:eras": "tsx scripts/check-eras.ts",
-    "ingest:backfill": "tsx --env-file=.env.local scripts/ingest-backfill.ts"
+    "ingest:backfill": "tsx --env-file=.env.local scripts/ingest-backfill.ts",
+    "atlas:regen": "tsx --env-file=.env.local scripts/atlas-regen.ts"
   },
   "engines": {
     "node": ">=22"
