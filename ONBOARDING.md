@@ -123,7 +123,7 @@ Now seed with the canon reference structure (eras, factions, sectors, locations,
 npm run db:seed
 ```
 
-You should see something like `Done. Inserted 0 books.` — that's expected. Books are intentionally empty in v1; they'll be populated in Phase 4 by the ingestion pipeline. The reference tables ARE populated — verify in Drizzle Studio (`npm run db:studio`) that `eras`, `factions`, `sectors`, `locations` have rows.
+You should see a series of `Inserted N ...` lines ending with `Done.` — the seed loads the reference structure (eras, factions, sectors, locations, services, facet categories/values, persons) plus a hand-curated roster of ~26 books with their faction/character/facet junctions. Verify in Drizzle Studio (`npm run db:studio`) that `eras`, `factions`, `sectors`, `locations`, and `works` have rows. The Phase 3 ingestion pipeline (TypeScript, dry-run today — see `sessions/README.md`) discovers ~700 more books from Wikipedia and will backfill them once the apply step (3d) lands.
 
 Commit the migration:
 

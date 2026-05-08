@@ -7,7 +7,8 @@ slug: pipeline-hardening
 parent: 2026-05-08-047
 links:
   - 2026-05-08-048
-commits: []
+commits:
+  - 4da6184
 ---
 
 # Pipeline-Härtung vor 3d-Apply (Codex-Review-Antwort) — Implementer Report
