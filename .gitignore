@@ -38,6 +38,9 @@ next-env.d.ts
 Thumbs.db
 *.pem
 
+# --- Obsidian (per-user vault config; brain/ may be opened as a vault) ------
+.obsidian/
+
 # --- Claude Code (per-user state; shared settings.json / hooks / agents -----
 # can be committed deliberately by removing the line below if/when they exist) -
 .claude/settings.local.json
