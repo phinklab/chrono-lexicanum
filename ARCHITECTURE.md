@@ -34,10 +34,11 @@
                                     │ feeds new books
                                     │
                         ┌──────────────────────────┐
-                        │ ingest/ (Python, Phase 4)│
-                        │ - Lexicanum scraper      │
-                        │ - Goodreads scraper      │
-                        │ - merge + load to Postgres│
+                        │ ingest/ (TypeScript, P3) │
+                        │ - Wikipedia + Lexicanum  │
+                        │ - Open Library + Hardcvr │
+                        │ - LLM enrichment (Haiku) │
+                        │ - merge engine, dry-run  │
                         └──────────────────────────┘
 ```
 
@@ -186,11 +187,13 @@ works-centric Class-Table-Inheritance model:
    the same work. Authors-only queries are RQB-side (`where role='author'`).
 
 7. **`source_kind` + `confidence` on every work.**
-   When ingestion (Phase 4) scrapes from multiple sources, conflicts will
+   When ingestion (Phase 3) scrapes from multiple sources, conflicts will
    happen. We record where each row came from and a 0–1 confidence so we
    can prioritize manual edits over scraped values, and re-scrapes don't
    clobber human curation. `source_kind` extended in Stufe 2a with `tmdb`,
-   `imdb`, `youtube`, `wikidata` ahead of non-book Phase 3/5 ingestion.
+   `imdb`, `youtube`, `wikidata`; Phase 3 047 added `wikipedia`,
+   `open_library`, `hardcover`, `llm` to align the DB enum with the
+   pipeline's `SourceName` union.
 
 8. **`submissions` is a quarantine, not a queue.**
    User submissions never write to canonical tables. The `submissions` table
@@ -216,7 +219,7 @@ works-centric Class-Table-Inheritance model:
 | `src/db/migrations/` | Auto-generated SQL, committed to git |
 | `src/lib/` *(future)* | Pure utilities: `slugify`, `mScale`, `recommend` |
 | `scripts/seed.ts` | Migrates legacy prototype data into Postgres |
-| `ingest/` *(future, Phase 4)* | Python crawlers + merge/load pipeline |
+| `ingest/` *(Phase 3, active — dry-run)* | TypeScript: Wikipedia + Lexicanum + Open Library + Hardcover crawlers, multi-source merge engine, LLM enrichment layer (Anthropic Haiku 4.5 + Web Search). Diff JSON committed under `ingest/.last-run/`; apply-to-DB is the 3d step. |
 | `archive/prototype-v1/` | Original HTML prototype, read-only reference |
 
 ---

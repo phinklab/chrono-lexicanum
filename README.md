@@ -25,8 +25,10 @@ cp .env.example .env.local
 npm run db:generate
 npm run db:migrate
 
-# 4. Seed with the canon reference structure (eras, factions, series, sectors, locations).
-# Books are intentionally empty in v1 — they arrive in Phase 4 via the ingestion pipeline.
+# 4. Seed with the canon reference structure (eras, factions, series, sectors, locations)
+# plus a hand-curated roster of books. The Phase 3 ingestion pipeline (TypeScript,
+# dry-run today) discovers ~700 more from Wikipedia and crawls Lexicanum / Open
+# Library / Hardcover for them — those land in the DB once the apply step (3d) ships.
 npm run db:seed
 
 # 5. Run
@@ -61,7 +63,7 @@ Both read `CLAUDE.md` first. See it for stack, conventions, and the per-session 
 
 ## Roadmap
 
-See `ROADMAP.md` for the phased plan (Phase 1 = scaffold, Phase 2 = port the three tools, Phase 3 = book detail pages, Phase 4 = ingestion pipeline, Phase 5 = community submissions).
+See `ROADMAP.md` for the phased plan (Phase 1 = scaffold, Phase 2 = Chronicle / FilterRail, Phase 3 = ingestion pipeline, Phase 4 = discovery layer + detail pages, Phase 5 = Cartographer + Ask the Archive, Phase 6 = community submissions).
 
 ## License
 
