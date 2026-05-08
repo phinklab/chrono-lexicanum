@@ -2,14 +2,15 @@
 session: 2026-05-08-047
 role: architect
 date: 2026-05-08
-status: open
+status: implemented
 slug: pipeline-hardening
 parent: null
 links:
   - 2026-05-05-044
   - 2026-05-05-045
   - 2026-05-06-046
-commits: []
+commits:
+  - 4da6184
 ---
 
 # Pipeline-Härtung vor 3d-Apply (Codex-Review-Antwort)

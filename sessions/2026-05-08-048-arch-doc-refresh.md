@@ -2,7 +2,7 @@
 session: 2026-05-08-048
 role: architect
 date: 2026-05-08
-status: open
+status: implemented
 slug: doc-refresh
 parent: null
 links:
