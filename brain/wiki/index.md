@@ -3,8 +3,7 @@ title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
 updated: 2026-05-09
-sources:
-  - All pages under brain/wiki/ (this catalog is a roll-up)
+sources: []
 related:
   - ../CLAUDE.md
   - ./project-state.md
@@ -86,3 +85,7 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 4. [`./project-state.md`](./project-state.md) — "where are we now"
 5. [`./open-questions.md`](./open-questions.md) — what's queued
 6. Whatever's relevant to today's task (pull from this catalog by topic)
+
+## Notes on sources
+
+This catalog is a roll-up of every page under `brain/wiki/`; it has no external sources of its own (`sources: []`). Source-chains live on the pages it indexes.

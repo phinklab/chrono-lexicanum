@@ -5,7 +5,7 @@ created: 2026-05-02
 updated: 2026-05-09
 sources:
   - ../raw/historical/2026-05-08-pre-reset/ROADMAP.md
-  - ../../../sessions/README.md (Infrastructure log entry 2026-05-02 Plan-Reshuffle)
+  - ../../../sessions/README.md
   - ../../../sessions/archive/2026-05/2026-05-02-029-arch-filterrail-mvp.md
 related:
   - ../roadmap.md
