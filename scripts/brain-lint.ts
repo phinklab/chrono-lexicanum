@@ -896,7 +896,7 @@ function checkBrainSizeBudget(wikiPages: ParsedFile[]): Finding[] {
     if (p.relPath === "brain/wiki/log.md") continue; // append-only by design
     if (p.relPath === "brain/wiki/index.md") continue; // catalog grows with the wiki
     const t = p.fm?.fields.get("type");
-    let limit = SIZE_LIMITS.WIKI_BODY_LINES;
+    let limit: number = SIZE_LIMITS.WIKI_BODY_LINES;
     let kindLabel = "wiki page";
     if (p.relPath === "brain/wiki/project-state.md") {
       limit = SIZE_LIMITS.PROJECT_STATE_BODY_LINES;
