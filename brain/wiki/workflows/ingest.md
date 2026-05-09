@@ -6,7 +6,7 @@ updated: 2026-05-09
 sources:
   - https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
   - https://blog.starmorph.com/blog/karpathy-llm-wiki-knowledge-base-guide
-  - ../../../sessions/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
+  - ../../../sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
 related:
   - ./session-end.md
   - ./query.md

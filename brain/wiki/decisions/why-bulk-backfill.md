@@ -4,10 +4,10 @@ type: decision
 created: 2026-05-02
 updated: 2026-05-09
 sources:
-  - ../../../sessions/2026-05-02-031-arch-phase3-ingestion-brainstorm.md
-  - ../../../sessions/2026-05-02-032-impl-phase3-ingestion-brainstorm.md
+  - ../../../sessions/archive/2026-05/2026-05-02-031-arch-phase3-ingestion-brainstorm.md
+  - ../../../sessions/archive/2026-05/2026-05-02-032-impl-phase3-ingestion-brainstorm.md
   - ../../../sessions/archive/2026-05/2026-05-02-033-arch-phase3-stufe-3a-lexicanum-dryrun.md
-  - ../../../sessions/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md
+  - ../../../sessions/archive/2026-05/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md
 related:
   - ./why-multi-source-merge.md
   - ./no-goodreads.md
@@ -18,7 +18,7 @@ decision-date: 2026-05-02
 
 # Why bulk-backfill (with monthly maintenance), not daily-drift
 
-**Status:** active · **Decided:** 2026-05-02 · **Sessions:** [031](../../../sessions/2026-05-02-031-arch-phase3-ingestion-brainstorm.md), [032-impl](../../../sessions/2026-05-02-032-impl-phase3-ingestion-brainstorm.md), [033 (retracted)](../../../sessions/archive/2026-05/2026-05-02-033-arch-phase3-stufe-3a-lexicanum-dryrun.md), [034](../../../sessions/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md)
+**Status:** active · **Decided:** 2026-05-02 · **Sessions:** [031](../../../sessions/archive/2026-05/2026-05-02-031-arch-phase3-ingestion-brainstorm.md), [032-impl](../../../sessions/archive/2026-05/2026-05-02-032-impl-phase3-ingestion-brainstorm.md), [033 (retracted)](../../../sessions/archive/2026-05/2026-05-02-033-arch-phase3-stufe-3a-lexicanum-dryrun.md), [034](../../../sessions/archive/2026-05/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md)
 
 ## Context
 

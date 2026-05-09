@@ -4,12 +4,12 @@ type: overview
 created: 2026-05-09
 updated: 2026-05-09
 sources:
-  - ../../sessions/2026-05-08-047-arch-pipeline-hardening.md
-  - ../../sessions/2026-05-08-047-impl-pipeline-hardening.md
-  - ../../sessions/2026-05-08-048-arch-doc-refresh.md
-  - ../../sessions/2026-05-08-048-impl-doc-refresh.md
-  - ../../sessions/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
-  - ../../sessions/2026-05-09-049-impl-karpathy-brain-atlas-reset.md
+  - ../../sessions/archive/2026-05/2026-05-08-047-arch-pipeline-hardening.md
+  - ../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md
+  - ../../sessions/archive/2026-05/2026-05-08-048-arch-doc-refresh.md
+  - ../../sessions/archive/2026-05/2026-05-08-048-impl-doc-refresh.md
+  - ../../sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
+  - ../../sessions/archive/2026-05/2026-05-09-049-impl-karpathy-brain-atlas-reset.md
   - ../../sessions/README.md
   - ../../ROADMAP.md
 related:

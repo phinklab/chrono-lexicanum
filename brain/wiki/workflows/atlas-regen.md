@@ -4,7 +4,7 @@ type: workflow
 created: 2026-05-09
 updated: 2026-05-09
 sources:
-  - ../../../sessions/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
+  - ../../../sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
   - ../../../scripts/atlas-regen.ts
 related:
   - ../decisions/karpathy-reset-2026-05-08.md

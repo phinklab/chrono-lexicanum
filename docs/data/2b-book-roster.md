@@ -13,7 +13,7 @@ review-Zielform. Quellen-Links pro Buch, Wert-Begründungen, Confidence-Hinweise
 
 ## Verteilung
 
-> **Stufe 2c.0 (sessions/2026-05-02-023):** die Era-Zuweisung pro Buch lebt
+> **Stufe 2c.0 (sessions/archive/2026-05/2026-05-02-023-arch-era-anchor.md):** die Era-Zuweisung pro Buch lebt
 > seit dieser Stufe im `primaryEraId`-Feld jedes books.json-Eintrags
 > (kanonisches editorielles Bucketing, kein Mittelwert mehr). Die Tabelle
 > unten spiegelt diese Anchor-Werte. Editorial-Calls, die Cowork bzw. Philipp

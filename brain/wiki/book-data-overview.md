@@ -8,7 +8,7 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-02-021-arch-rich-seed-2b.md
   - ../../sessions/archive/2026-05/2026-05-02-022-impl-rich-seed-2b.md
   - ../../ingest/.last-run/backfill-20260508-2101.diff.json
-  - ../../sessions/2026-05-08-047-impl-pipeline-hardening.md
+  - ../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md
 related:
   - ./pipeline-state.md
   - ./project-state.md

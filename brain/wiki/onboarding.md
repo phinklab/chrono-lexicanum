@@ -5,7 +5,7 @@ created: 2026-05-09
 updated: 2026-05-09
 sources:
   - ../raw/historical/2026-05-08-pre-reset/ONBOARDING.md
-  - ../../sessions/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
+  - ../../sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
 related:
   - ./project-state.md
   - ./workflows/atlas-regen.md
