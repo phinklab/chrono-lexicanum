@@ -87,7 +87,7 @@ Top-level docs reshape:
 2. **Glossary granularity.** ≤3-sentence terms in `glossary.md`; longer/conceptual terms get individual `concepts/<slug>.md` pages (none planned in 049).
 3. **brain/raw/sessions/.** Variant A: no symlinks. Wiki pages link directly to `../../sessions/<id>.md`. Cross-platform clean.
 4. **Top-level CLAUDE.md vs brain/CLAUDE.md.** Both exist. Top-level remains auto-load anchor with new `## Brain & Atlas` section pointing to brain/CLAUDE.md (Karpathy schema).
-5. **Atlas default path.** `path.join(os.homedir(), "chrono-atlas")`. CLI override `--out=<path>`.
-6. **First ingest pass.** All ~25 wiki pages substantively seeded (Tier 1 fully fleshed, Tier 2 compact-seed-with-citations, catalogs `index.md` + `log.md` written last).
+5. **Atlas default path.** `path.join(os.homedir(), "chrono-atlas")`. CLI override `--out=<path>`; env override `ATLAS_PATH`. Reasoning: Obsidian's natural home-directory convention; `os.homedir()` cross-platform clean (Windows `C:\Users\Phil\chrono-atlas\`, POSIX `~/chrono-atlas/`); tilde-literal avoided (Node does not expand it).
+6. **First ingest pass.** All 26 wiki pages substantively seeded (Tier 1 fully fleshed, Tier 2 compact-seed-with-citations, catalogs `index.md` + `log.md` written last). No stub-fallback was needed.
 7. **CC skills for wiki ops.** Defer; re-evaluate after 2–3 manual session-end cycles.
 8. **QMD/Dataview.** Mention only in `wiki/workflows/query.md` as "distant" — no action in 049.

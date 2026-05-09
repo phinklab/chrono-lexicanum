@@ -9,6 +9,7 @@ sources:
   - ../../sessions/2026-05-08-048-arch-doc-refresh.md
   - ../../sessions/2026-05-08-048-impl-doc-refresh.md
   - ../../sessions/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
+  - ../../sessions/2026-05-09-049-impl-karpathy-brain-atlas-reset.md
   - ../../sessions/README.md
   - ../../ROADMAP.md
 related:
@@ -33,7 +34,7 @@ The book domain currently holds **26 hand-curated books** in Postgres (Stufe 2b 
 
 ## Branch
 
-Active branch: `feat/phase-3c-llm-enrichment`. Recent merges into this branch: 047 (pipeline hardening, commit `4da6184`) and 048 (doc refresh) bundle, then 049 (Karpathy-Reset, this session).
+Active branch: `feat/phase-3c-llm-enrichment`. Recent merges into this branch: 047 (pipeline hardening, commit `4da6184`) and 048 (doc refresh) bundle, then 049 (Karpathy-Reset, four commits `1f6da88`/`3f43f4c`/`64b47b5`/`9fa70d8`).
 
 ## What's running
 
@@ -41,6 +42,7 @@ Active branch: `feat/phase-3c-llm-enrichment`. Recent merges into this branch: 0
 - **CI on GitHub Actions.** `lint-and-typecheck` job on every PR. Vercel does production builds; CI does *not* run `next build`.
 - **DB on Supabase.** Pooler (port 6543) URL in `.env.local`. Migrations 0000–0006 applied. **Migration 0007 (source_kind enum extension for `wikipedia` / `open_library` / `hardcover` / `llm`) committed but NOT applied** — the Apply-Step (3d) is the right context to run it, since enum-add is required only when those sources actually write to DB.
 - **Pipeline in dry-run.** `npm run ingest:backfill -- --limit N --offset M` reads from sources, merges, calls LLM, produces a `ingest/.last-run/backfill-YYYYMMDD-HHMM.diff.json`. Latest committed: `backfill-20260508-2101.diff.json` (9 books, run aborted by Philipp after Buch 9; post-047 hardening verified).
+- **Atlas-Regen-Skript.** `npm run atlas:regen` writes a Postgres-mirror Obsidian vault to `~/chrono-atlas/` (Windows `C:\Users\Phil\chrono-atlas\`; override via `--out=<path>` or `ATLAS_PATH` env). 049-impl produced first proof-of-render (1 book + 1 faction + INDEX.md, DB-counts 26/29 verified). Manual trigger only (no auto-on-3d-Apply); see [`./workflows/atlas-regen.md`](./workflows/atlas-regen.md).
 
 ## Latest pipeline state (post-047)
 
@@ -81,7 +83,7 @@ Top items from [`./open-questions.md`](./open-questions.md):
 
 | Date | Session | Status | Topic |
 |---|---|---|---|
-| 2026-05-09 | 049-impl | (in flight, this commit) | Karpathy-Reset Brain + Atlas |
+| 2026-05-09 | 049-impl | complete (`1f6da88`/`3f43f4c`/`64b47b5`/`9fa70d8`) | Karpathy-Reset Brain + Atlas — 26 wiki pages + atlas-regen-skript + top-level consolidation. Structural-only. |
 | 2026-05-08 | 047 + 048 (Bundle) | implemented (`4da6184`) | Pipeline-Härtung (5 Hebel) + Doku-Refresh (README/ARCHITECTURE/ONBOARDING auf Phase-3-Stand) |
 | 2026-05-05 | 044 | complete | Phase 3e Batch 1 (Bücher 41–90, $5.88, 18 LLM-Flags) |
 | 2026-05-05 | 045 | complete | Sonnet-Quadrant-Vergleich (B+C) — Pipeline-Author-Mismatch-Befund, Vokabular-Lücken |
