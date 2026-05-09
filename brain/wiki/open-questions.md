@@ -4,7 +4,7 @@ type: overview
 created: 2026-05-09
 updated: 2026-05-09
 sources:
-  - ../../sessions/README.md (carry-over section, pre-049)
+  - ../../sessions/README.md
   - ../../sessions/2026-05-08-047-impl-pipeline-hardening.md
   - ../../sessions/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
   - ../../sessions/2026-05-05-044-impl-phase3e-batch-1.md
