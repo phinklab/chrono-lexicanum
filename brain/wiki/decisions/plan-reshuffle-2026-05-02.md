@@ -4,7 +4,7 @@ type: decision
 created: 2026-05-02
 updated: 2026-05-09
 sources:
-  - ../raw/historical/2026-05-08-pre-reset/ROADMAP.md
+  - ../../raw/historical/2026-05-08-pre-reset/ROADMAP.md
   - ../../../sessions/README.md
   - ../../../sessions/archive/2026-05/2026-05-02-029-arch-filterrail-mvp.md
 related:

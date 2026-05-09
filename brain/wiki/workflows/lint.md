@@ -5,6 +5,8 @@ created: 2026-05-09
 updated: 2026-05-09
 sources:
   - ../../../sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
+  - ../../../sessions/2026-05-09-053-arch-brain-lint.md
+  - ../../../scripts/brain-lint.ts
   - https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
 related:
   - ../decisions/karpathy-reset-2026-05-08.md
@@ -15,130 +17,132 @@ confidence: high
 
 # Lint workflow
 
-> **What** is checked, when, and what the output looks like. The lint **script** does not yet exist — that's a follow-up brief. Until then, the checks are run by eye when something feels off.
+> The third Karpathy operation (Ingest / Query / **Lint**). Lint flags drift between the wiki and reality. **It never edits the wiki** — fixes happen via Ingest in a separate session.
 
-Lint is one of Karpathy's three operations (Ingest / Query / **Lint**). Its job is to flag drift between the wiki and reality, without fixing anything itself. Fixes happen via a subsequent Ingest pass.
+## Run
+
+```bash
+npm run brain:lint                     # writes brain/outputs/lint/<today>.md, exits 1 on blocking
+npm run brain:lint -- --no-write       # CI mode: print summary + exit code, no report file
+npm run brain:lint -- --date=2026-05-09 # override report date (for repro / replay)
+npm run brain:lint -- --strict         # warnings exit non-zero too
+npm run brain:lint -- --help           # full usage
+```
+
+CI calls `npm run brain:lint -- --no-write` after `npm run check:eras` in `.github/workflows/ci.yml`. Default exit policy: **blocking findings exit 1**, warnings exit 0. `--strict` flips warnings to blocking — not the CI default today (queue-stability before ratcheting; revisit after 2–3 weeks of real reports).
+
+Reports land in [`../../outputs/lint/`](../../outputs/lint/) as `YYYY-MM-DD.md`. The folder is *artifact*, not wiki — it's the `outputs/` half of Karpathy's compiler analogy (test reports, not executable knowledge).
 
 ## When to run
 
-- **Periodically.** Once a week, or before a major decision that depends on wiki accuracy.
-- **Before opening a substantive architect brief** that builds on existing wiki claims (you don't want to architect on stale facts).
-- **After a long quiet period.** If Brain hasn't been touched in 2+ weeks, a lint catches forgotten drift.
-- **On-demand**, when something feels off ("I remember reading X in the wiki but the code seems to disagree").
+- **Locally before a substantive architect brief** that builds on existing wiki claims (don't architect on stale facts).
+- **CI on every PR** (automatic) — keeps frontmatter / sources / links / catalog freshness from rotting between merges.
+- **After a long quiet period** (2+ weeks). Manual run on demand.
 
-## Output format
+## Severity policy
 
-Lint reports land in `brain/outputs/lint/YYYY-MM-DD.md`. Each report has sections per check category, with concrete line-references. Empty sections are omitted.
+| Severity | Categories | CI behavior |
+|---|---|---|
+| **error** (blocking) | Frontmatter, Decision metadata, Sources, Internal links, Catalog freshness, Raw banners, Inline diff raw fields (in fenced/JSON contexts) | Exit 1 |
+| **warning** | Stale low-confidence, Brain size budget, Stale claim suspects, Inline diff raw fields (inline-code in prose) | Exit 0 (default), exit 1 with `--strict` |
 
-```markdown
-# Lint report 2026-05-15
+Errors are deterministic: schema violations, broken links, missing files, raw payloads in synthesis pages. Warnings are heuristic drift signals — useful but not gate-worthy until the warning channel proves stable.
 
-## Stale claims
+## Categories
 
-- `wiki/pipeline-state.md` line 42 says "FIELD_PRIORITY for factionNames is `['lexicanum','llm']`" — but src/lib/ingestion/field-priority.ts line 18 now reads `['llm']` (changed in 2026-05-12 batch). Synthesize the change, update the wiki page.
+The script (`scripts/brain-lint.ts`) implements ten categories. The blocking ones are explicit; warnings are conservative-by-default.
 
-## Broken internal links
+### 1. Frontmatter (blocking)
 
-- `wiki/decisions/why-haiku-not-sonnet.md` links to `../../../sessions/2026-05-04-040-arch-phase3c-haiku-switch.md` — file moved to `sessions/archive/2026-05/` after Phase-3-close. Update the relative path.
+Every `brain/wiki/**/*.md` (except `log.md`) must carry YAML frontmatter with: `title` (string), `type` (one of `overview | decision | workflow | concept | source-summary | reference`), `created` (`YYYY-MM-DD`), `updated` (`YYYY-MM-DD`), `sources` (array, may be empty), `related` (array, may be empty), `confidence` (one of `high | medium | low`). Dates must parse; `updated >= created`.
 
-## Orphan pages
+### 2. Decision metadata (blocking)
 
-(none)
+Pages with `type: decision` must additionally carry `decision-date: YYYY-MM-DD`, and `decision-date <= updated`.
 
-## Missing/incomplete frontmatter
+### 3. Sources (blocking)
 
-- `wiki/decisions/legion-faction-dimension.md` has no `decision-date` field but `type: decision`.
+For each `sources:` entry in wiki frontmatter:
 
-## Stale low-confidence pages
+- HTTPS URLs are allowed and not browsed.
+- Relative paths are resolved against the wiki file's directory; existence is checked (anchors stripped first).
+- Free text / parenthetical comments inside `sources:` are rejected — the array must be literal paths or URLs.
+- Pointers into `ingest/.last-run/` are allowed (the [retention policy in pipeline-state.md](../pipeline-state.md#ingest-diff-retention) accepts diff JSON as a citable source).
 
-- `wiki/glossary.md` was created 2026-05-09 with `confidence: low` for terms `pipeline-Engine` and `Aux-Source`. >30 days old. Either re-ingest with higher confidence, or downgrade those terms to `confidence: low` is just permanent uncertainty.
+### 4. Internal links (blocking)
 
-## Raw historical without banner
+Markdown links and images are scanned in:
 
-(none)
+- `brain/wiki/**/*.md` (full)
+- `brain/CLAUDE.md`, `brain/outputs/lint/README.md`, `brain/raw/reviews/README.md` (full)
+- Top-level `CLAUDE.md`, `README.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `ONBOARDING.md` — only links into `brain/` or `sessions/`
 
-## Decision pages without decision-date
+Fenced code blocks and inline-code spans are skipped. External URLs / `mailto:` / pure anchors / wikilinks are skipped. Targets are resolved relative to the file, anchors stripped, URL-encoding decoded; existence is then checked. Anchor existence inside the target file is not verified today.
 
-(none)
-```
+### 5. Catalog freshness (blocking)
 
-## Check list
+`brain/wiki/index.md` is the master catalog. Every wiki page (except `log.md`) must appear there as a relative markdown link. Every catalog link must resolve. If a catalog row shows an `updated` date, it must equal the page's frontmatter `updated`.
 
-The script (and your eye, until the script lands) checks:
+The orphan rule from brief 049 is folded into this check: a non-orphan is by definition catalogued.
 
-### 1. Stale claims
+### 6. Raw banners (blocking)
 
-The hardest check: a wiki page asserts something that no longer matches the code/repo state.
+`brain/raw/historical/**/*.md` (except any `README.md`) must carry frontmatter with `snapshot-of`, `snapshot-date` (valid `YYYY-MM-DD`), `snapshot-reason`, `canonical-now`.
 
-Heuristics:
+`brain/raw/reviews/**/*.md` (except `README.md`) must carry `review-date` (valid `YYYY-MM-DD`), `review-source`, `review-target`.
 
-- For each wiki page, look for **named code entities** mentioned in the body (function names, file paths, enum values, flag names, npm scripts). For each, grep the repo. If the entity doesn't exist (renamed/removed/never merged), flag.
-- For each **phase claim** in the wiki ("Phase 2 in flight", "Phase 3 dry-run"), cross-check against `roadmap.md` and `project-state.md`. If two pages disagree, flag both.
-- For each **count or metric** ("26 manual books", "$0.114/book", "Junction-Coverage 6/6"), check against the most recent diff JSON or seed data. Counts decay fast.
-- For each **`sources:` frontmatter entry**, ensure the file exists. If it's been moved (e.g. `sessions/X.md` → `sessions/archive/2026-05/X.md`), update.
+### 7. Inline diff raw fields (blocking in code/JSON, warning in prose)
 
-### 2. Broken internal links
+Per the [Brain rule from brief 052](../pipeline-state.md#brain-regel-universell-unabhängig-von-der-storage-wahl), wiki pages must not inline-quote diff raw payloads. Tokens checked: `rawLlmPayload`, `rawHardcoverPayload`, `updated[].diff`, `llm_flags`, `payload`, plus `fieldOrigins` (only flagged in JSON contexts to avoid colliding with glossary mentions).
 
-For each wiki page, parse all relative links (`./`, `../`). For each, check the target file exists. Common breakages:
+- In a fenced code block → blocking error (raw dump).
+- In a JSON-shaped line (`"<token>":`) → blocking error.
+- In an inline-code span in prose → warning (could be naming the field; could be quoting raw).
+- In plain prose → no flag (too noisy; field names appear in legitimate explanation).
 
-- Sessions moved to archive after a phase wraps
-- Decision page renamed
-- Atlas reference (links into `chrono-atlas/`) — these are external-vault links and not lintable; skip.
+Pages exempt from this check (they define / describe the tokens):
 
-### 3. Orphan pages
+- `brain/wiki/pipeline-state.md`
+- `brain/wiki/workflows/lint.md` (this page)
+- `brain/wiki/workflows/ingest.md`
+- `brain/wiki/glossary.md` is exempt from the inline-code-warning bucket (glossary entries name tokens by definition); fenced/JSON checks still apply.
 
-A page with `type: overview | decision | workflow | concept` should have **at least one inbound link** from `wiki/index.md`. Pages with `type: source-summary | reference` are exempt (they may be referenced only from frontmatter `sources:`).
+### 8. Stale low-confidence (warning)
 
-`wiki/index.md` is exempt from the orphan check (it's the catalog itself).
+Pages with `confidence: low` and `updated` more than 30 days ago. Either re-ingest with higher confidence, or downgrade the page-type if the uncertainty is permanent.
 
-### 4. Missing/incomplete frontmatter
+### 9. Brain size budget (warning)
 
-Every `wiki/**/*.md` file (except `log.md`, exempt by Brain-schema):
+Soft limits on body line count (frontmatter excluded; `log.md` and `index.md` exempt because they grow append-only / catalog-with-the-wiki):
 
-- Must have YAML triple-dash block at top.
-- Must have: `title` (string), `type` (one of `overview | decision | workflow | concept | source-summary | reference`), `created` (YYYY-MM-DD), `updated` (YYYY-MM-DD), `sources` (array, may be empty), `related` (array, may be empty), `confidence` (one of `high | medium | low`).
-- Decision pages additionally must have `decision-date`.
+| Page kind | Soft limit (body lines) |
+|---|---|
+| `project-state.md` | 160 |
+| Decision pages (`type: decision`) | 100 |
+| Other wiki pages | 300 |
 
-If `updated < created` or any date is malformed, flag.
+Limits live as `SIZE_LIMITS` constants at the top of `scripts/brain-lint.ts` — calibrated against the May-2026 post-051-Slim Brain. Adjust there when the Brain grows organically.
 
-### 5. Stale low-confidence pages
+### 10. Stale claim suspects (warning, intentionally narrow in v1)
 
-Pages with `confidence: low` and `updated` older than 30 days. The intent of `low` is "we synthesized this in a hurry; should be re-ingested". 30+ days old means it stayed `low` instead of becoming `high` — either nobody re-ingested (lint reminds), or the topic is genuinely permanent uncertainty (downgrade the page-type or add a "permanently uncertain" note).
+Two zero-noise heuristics:
 
-### 6. Raw historical without banner
+- **NPM scripts.** `npm run <name>` mentions in any wiki page are checked against `package.json.scripts`; missing scripts warn.
+- **Repo paths.** Backticked tokens and markdown link targets with prefix `src/` | `scripts/` | `brain/` | `sessions/` | `docs/` | `ingest/` | `.github/` are checked for existence. Already-flagged blocking links aren't re-reported. Placeholder-shaped tokens (`<x>`, `{x}`, `YYYY/MM/DD/HH/NNN` segments) and gitignored ingest subdirs (`ingest/.cache/`, `ingest/.llm-cache/`, `ingest/.state/`) are skipped.
 
-Files under `brain/raw/historical/**/*.md` must carry:
+`log.md` is exempt from the path-claim check because it's an append-only operation log; its bullets document files as they were *at the time of the entry*, and rewriting historical entries falsifies the journal.
 
-- `snapshot-of: <relative path>`
-- `snapshot-date: YYYY-MM-DD`
-- `snapshot-reason: …`
-- `canonical-now: <pointer to current wiki page or current top-level file>`
-
-If any field missing, flag.
-
-### 7. Decision pages without decision-date
-
-Already covered in (4) but worth a separate sanity check, because Decision pages without dates are the highest drift-risk (you can't lint stale-claims in them without knowing when they were valid).
-
-### 8. (Optional) `index.md` updated-date freshness
-
-`wiki/index.md` lists every wiki page with its `updated` date pulled from frontmatter. If a wiki page's frontmatter `updated` is newer than the date `index.md` shows for it, flag — the catalog is stale, regenerate.
+**Deliberately not in v1:** code-symbol heuristics (backticked `CONSTANT_NAME` / `functionName()` / `TypeName` greps against `src/`). Fuzzy selection, false-positive risk in glossary / concept pages erodes trust in the warning channel before it stabilizes. Promote to v2 once 2–3 weeks of real reports show the existing heuristics are stable.
 
 ## What lint does NOT do
 
-- **Lint does not edit the wiki.** Findings are reports; fixes are separate Ingest passes.
-- **Lint does not run code.** It reads the wiki + does file-existence + grep-match checks. No DB connection, no LLM calls.
-- **Lint does not check raw/sessions content drift.** Sessions are immutable. If a session's claim later proved wrong, the *correction* lives in a wiki page or a decision page, not as an edit to the session.
-- **Lint does not check the Atlas.** Atlas is mechanical mirror of Postgres; if it's wrong, the regen-script is buggy, not the Atlas content.
+- **Lint never edits the wiki.** It reports. Fixes happen via Ingest passes (Cowork-side) or as deliberate file edits in a follow-up implementer session.
+- **Lint does not run code.** No DB connection, no LLM calls, no subprocess except `fs` reads and `package.json` parse.
+- **Lint does not check raw / sessions content drift.** Sessions and `raw/` are immutable; only links *out of* current wiki/doc pages are lintable.
+- **Lint does not check the Atlas.** Atlas is a mechanical mirror of Postgres; if it's wrong, the regen-script is buggy, not the Atlas content.
+- **Lint does not verify factual claims** like "Phase 3 in flight" or "$0.114/book". Those are caught by the human eye during the periodic `session-end` pass.
+- **Lint does not check anchor existence inside link targets.** Only file-existence.
 
-## Roadmap for the lint script
+## Distant: heuristic-LLM extension (Astro-Han pattern)
 
-When the lint script ships (post-049, brief TBD):
-
-- Implementation language: TypeScript (`scripts/brain-lint.ts`), runnable via `npm run brain:lint`.
-- Reuse `gray-matter` (or hand-rolled YAML parser — no new dependency if avoidable) for frontmatter parsing.
-- File-walking via `fs.promises.readdir` recursively.
-- Output: write to `brain/outputs/lint/YYYY-MM-DD.md`; exit code 0 if clean, 1 if findings (so CI can flag stale Brain on PRs).
-- Optional: GitHub Action that runs lint weekly and opens an issue if findings exist.
-
-Until then, the discipline is: when something feels off, eyeball the check list above and write a hand-curated `brain/outputs/lint/YYYY-MM-DD.md` if there are findings. The act of writing the report is the value; automation is convenience.
+Brief 053's "Future-Anker" section names the natural next axis: an LLM-driven heuristic pass (CC skill or MCP tool) that reads wiki pages against code-reality and reports drift suspects (e.g. *"this page mentions `pickPrimarySource` but the function name has changed"*). The split mirrors the [Astro-Han karpathy-llm-wiki](https://github.com/Astro-Han/karpathy-llm-wiki) Agent skill's vocabulary: deterministic checks (this script) vs. heuristic checks (LLM). Not in 053; explicitly named so a future brief doesn't reinvent.

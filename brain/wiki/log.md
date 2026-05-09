@@ -158,4 +158,43 @@ Second cut after the 050-Hygiene pass. Goal: keep Brain not just correct but *li
 
 ---
 
+## 2026-05-09 · Decision · Ingest-Retention Option A (Brief 052)
+
+Cowork-only Decision-Session (kein CC-Turn). Storage-Strategie für `ingest/.last-run/*.diff.json` festgelegt: **Option A — alle Diff-Files bleiben committed**, bis ein expliziter Trigger feuert. Begründung: Pipeline-Daten-Erhebung noch nicht ausgereift, Voll-Diffs sind Apply-Input + Audit + Triage-Material, Repo bei 808 KB ohne akuten Druck.
+
+**Re-evaluate-Trigger** (auch im neuen Pipeline-State-Abschnitt verankert):
+
+- `ingest/.last-run/` > 5 MB
+- 3d-Apply gelaufen + stabil
+- Vor 3e-Voll-Lauf falls Hochrechnung > 5 MB
+- Wiki-Inline-Quote-Verstoß
+
+**Brain-Regel** (neu, universell): Wiki-Pages zitieren Diff-Files nur per `sources:`-Frontmatter-Pfad — niemals inline. Aggregate gehören in [`./pipeline-state.md`](./pipeline-state.md). Sobald das Lint-Skript existiert, wird der „Inline-Diff-Quote"-Check Teil davon.
+
+**Pages touched (wiki):** [`./pipeline-state.md`](./pipeline-state.md) § "Ingest-diff retention" auf Option-A-Sprache umgestellt + Re-evaluate-Trigger + Brain-Regel ergänzt; this `log.md`. Outside wiki: [`../../sessions/2026-05-09-052-arch-ingest-retention-strategy.md`](../../sessions/2026-05-09-052-arch-ingest-retention-strategy.md), [`../../sessions/README.md`](../../sessions/README.md).
+
+**Out of scope (per brief 052):** Code-Änderung jeder Art, Datei-Verschiebung in `ingest/.last-run/`, `.gitignore`-Änderung, Dashboard-Refactor, Manifest-/Summary-File-Einführung. Folge-Brief für CC erst, wenn ein Trigger feuert.
+
+**Pre-Decision-Fassung in Git-Historie.** Eine ausführliche Vor-Analyse mit Vergleich aller sechs Optionen (A–F), 11-Regel-Policy-Vorschlag und Folge-Brief-Stub lebt in der Git-Historie von [`../../sessions/2026-05-09-052-arch-ingest-retention-strategy.md`](../../sessions/2026-05-09-052-arch-ingest-retention-strategy.md). Bei Re-evaluate-Trigger dort als Startpunkt graben.
+
+---
+
+## 2026-05-09 · Lint-Skript · Brain Lint shipped (Brief 053)
+
+Karpathy operation 3/3 (Lint) is now real. `scripts/brain-lint.ts` implements ten check categories per [`./workflows/lint.md`](./workflows/lint.md); CI calls `npm run brain:lint -- --no-write` after `npm run check:eras`.
+
+**First-run findings (4 blocking, 32 warning) triaged + fixed in-session:**
+
+- **Sources × 3.** Date typo in [`./book-data-overview.md`](./book-data-overview.md) (`2026-05-02-021-...` → `2026-05-01-021-...`); wrong-depth relative paths in [`./decisions/plan-reshuffle-2026-05-02.md`](./decisions/plan-reshuffle-2026-05-02.md) and [`./decisions/why-drizzle-supabase.md`](./decisions/why-drizzle-supabase.md) (`../raw/historical/...` → `../../raw/historical/...`).
+- **Internal link × 1.** Date typo in [`./deferred-questions.md`](./deferred-questions.md) line 29 (`2026-05-01-024-impl-era-anchor.md` → `2026-05-02-024-impl-era-anchor.md`).
+- **Stale-claim warnings (32 → 1 after script tuning + lint-page rewrite).** Initial run was noisy with placeholder paths (`<slug>`, `YYYY-MM-DD-NNN`, `X.md`) and gitignored `ingest/.X/` cache subdirs. The script now skips `[<>{}]` / date-template segments / known gitignored paths, and exempts `log.md` from path-claim (its bullets are journal entries, not current claims). The full-rewrite of [`./workflows/lint.md`](./workflows/lint.md) removed the last placeholder examples. Final remaining warning is one Phase-5 forward reference (see below).
+
+**Pages touched (wiki):** [`./workflows/lint.md`](./workflows/lint.md) (full rewrite — replaces "script TBD" with real flags / severity / categories / out-of-scope), [`./index.md`](./index.md) (lint-row description), [`./book-data-overview.md`](./book-data-overview.md), [`./decisions/plan-reshuffle-2026-05-02.md`](./decisions/plan-reshuffle-2026-05-02.md), [`./decisions/why-drizzle-supabase.md`](./decisions/why-drizzle-supabase.md), [`./deferred-questions.md`](./deferred-questions.md), this `log.md`. **Outside wiki:** [`../CLAUDE.md`](../CLAUDE.md) (lint-bullet now points at the real command), [`../outputs/lint/README.md`](../outputs/lint/README.md), [`../../scripts/brain-lint.ts`](../../scripts/brain-lint.ts) (new), [`../../package.json`](../../package.json) (`brain:lint` script), [`../../.github/workflows/ci.yml`](../../.github/workflows/ci.yml) (CI step).
+
+**Out of scope (per brief 053):** auto-fix, weekly GitHub Action / Issue creation, Atlas lint, LLM-driven heuristic checks, code-symbol greps under `src/`, rewriting raw session content. Future-anker for the LLM-driven heuristic pass (Astro-Han pattern) is named in the workflow page so a later brief doesn't reinvent.
+
+**Remaining warning (1, intentional):** [`./roadmap.md`](./roadmap.md) line 76 references `src/lib/recommend.ts` — Phase-5 architectural design statement (typed `recommend(answers)` for Ask the Archive). Resolves when Phase 5 ships; not a defect today.
+
+---
+
 (Future entries go below as new `## YYYY-MM-DD · <Op-type> · <short-title>` sections.)

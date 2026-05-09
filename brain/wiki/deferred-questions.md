@@ -26,7 +26,7 @@ confidence: high
 
 ## `secondary_era_ids text[]` für Multi-Era-Sichtbarkeit
 
-**Owner:** future Phase-4 brief. **Sessions:** [024-impl](../../sessions/archive/2026-05/2026-05-01-024-impl-era-anchor.md) "For next session".
+**Owner:** future Phase-4 brief. **Sessions:** [024-impl](../../sessions/archive/2026-05/2026-05-02-024-impl-era-anchor.md) "For next session".
 
 `id01 The Infinite and the Divine` (M35–M41) wäre der Driver — lebt plausibel auch in `age_apostasy` und `long_war`. UX-Konsequenz offen (zählt zweimal in den Era-Counts? lädt EraDetail zweimal?). Wahrscheinlicher Aufgreif-Punkt: Phase-4-Timeline-Reshape (cineastische Era-Erkundung), dort wird Multi-Era-Sichtbarkeit ein konkretes Designthema.
 
