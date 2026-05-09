@@ -20,14 +20,14 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 ## Overview pages (start here)
 
-| Page | Description | Updated |
-|---|---|---|
-| [project-state.md](./project-state.md) | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. | 2026-05-09 |
-| [open-questions.md](./open-questions.md) | Items the next architect brief must address (replaces the pre-049 carry-over section in `sessions/README.md`). 11 items. | 2026-05-09 |
-| [architecture.md](./architecture.md) | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md. | 2026-05-09 |
-| [roadmap.md](./roadmap.md) | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog. | 2026-05-09 |
-| [onboarding.md](./onboarding.md) | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas). | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md) | Phase-3 pipeline detail: 21 modules, source-set, latest acceptance numbers post-047, what's next on the pipeline axis. | 2026-05-09 |
+| Page                                             | Description                                                                                                                 | Updated    |
+| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor.                                  | 2026-05-09 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address (replaces the pre-049 carry-over section in `sessions/README.md`). 11 items.    | 2026-05-09 |
+| [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
+| [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
+| [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
+| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: 21 modules, source-set, latest acceptance numbers post-047, what's next on the pipeline axis.      | 2026-05-09 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals, ~700 discovered, ~$0.114/book). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
 
 ## Decision pages (ADRs with revisit-triggers)

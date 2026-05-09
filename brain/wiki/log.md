@@ -78,4 +78,35 @@ The reset itself.
 
 ---
 
+## 2026-05-09 · Update · Session-end after 049-impl
+
+First real run of [`./workflows/session-end.md`](./workflows/session-end.md).
+
+**Read:** [`sessions/2026-05-09-049-impl-karpathy-brain-atlas-reset.md`](../../sessions/2026-05-09-049-impl-karpathy-brain-atlas-reset.md) (the 049 implementer report — four commits `1f6da88`/`3f43f4c`/`64b47b5`/`9fa70d8` on `feat/phase-3c-llm-enrichment`, `lint` + `tsc --noEmit` + `npm run atlas:regen` all green, structural-only, nothing pipeline / app / DB).
+
+**Updated wiki:**
+
+- [`./project-state.md`](./project-state.md) — 049-impl flipped from "(in flight, this commit)" to `complete` in the Recently-shipped table; Branch detail captures the four commit hashes; new "What's running" entry for `npm run atlas:regen` (manual trigger, default `~/chrono-atlas/`, `--out=` and `ATLAS_PATH` overrides, proof-of-render verified DB-counts 26/29); sources frontmatter adds 049-impl.
+- [`./decisions/karpathy-reset-2026-05-08.md`](./decisions/karpathy-reset-2026-05-08.md) — two small accuracy fixes: item 5 now mentions `ATLAS_PATH` env override (CC implemented both paths) plus cross-platform reasoning; item 6 corrected from "~25" to "26" pages and notes "no stub-fallback was needed".
+
+**Updated outside the wiki:**
+
+- [`sessions/README.md`](../../sessions/README.md) — Active threads: 049-arch flipped `open` → `implemented`; new top row for 049-impl (`complete`). Footnote: Phase-3 status line "049 (Karpathy-Reset Brain+Atlas, open)" → `complete`.
+
+**No new decision pages.** 049-impl confirmed all eight brief recommendations; they were already documented in [`./decisions/karpathy-reset-2026-05-08.md`](./decisions/karpathy-reset-2026-05-08.md) under "Initial concrete decisions resolved during 049". The two drift fixes above are accuracy patches, not new decisions.
+
+**No new external reviews.** Section 6 of the workflow is n/a this session.
+
+**No structural change to schema / pipeline / roadmap.** [`./architecture.md`](./architecture.md), [`./pipeline-state.md`](./pipeline-state.md), [`./roadmap.md`](./roadmap.md) stay as-is — 049 explicitly left those domains untouched.
+
+**[`./open-questions.md`](./open-questions.md): no edits.** No items resolved by 049 (structural-only). Items 1, 2, 3, 10, 11 explicitly reaffirmed by CC's "For next session" section. No new items surfaced.
+
+**[`./index.md`](./index.md): no edits.** All pages I touched were already dated 2026-05-09 (the date of the initial Ingest); the date stays the same after this session-end update pass.
+
+**Lint / atlas / sessions-archive: skipped.** Lint script is still TBD per brief 049's defer; atlas-regen was verified green by 049-impl itself; no archive-move warranted (Phase 3 still open).
+
+**Meta-observation from CC's "For next session":** "first real session-end-routine test … if painful or has gaps, brief 051 should be a workflow-tweak". This run completed cleanly inside the workflow's 5–15-minute realistic budget. The only friction point was that the workflow's Step 5 implicitly assumed a structural change ("if the report changed: schema → architecture.md, pipeline → pipeline-state.md, roadmap → roadmap.md") and didn't cleanly handle the structural-only case where the report introduces an artefact that's NOT a schema/pipeline/roadmap change but IS a project-state.md change (here: `npm run atlas:regen` — a new "What's running" entry on the project-state-page, not a structural update). I handled that by routing the artefact mention into [`./project-state.md`](./project-state.md)'s "What's running" section, which is the obvious home; logging it here so a future workflow-tweak (if needed) can decide whether Step 2 of [`./workflows/session-end.md`](./workflows/session-end.md) should explicitly call out "new operational artefacts" as a project-state subitem. Not blocking; not worth a workflow-tweak brief today.
+
+---
+
 (Future entries go below as new `## YYYY-MM-DD · <Op-type> · <short-title>` sections.)
