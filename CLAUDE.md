@@ -1,9 +1,11 @@
 # CLAUDE.md — Shared project context
 
 > **Read this first, every session, every role.**
-> If you are **Cowork**, also read `docs/agents/COWORK.md` for the architect role.
-> If you are **Claude Code**, also read `docs/agents/CLAUDE_CODE.md` for the implementer role.
-> Both roles must read `docs/agents/SESSIONS.md` to understand the session log format.
+> If you are **Cowork**, also read [`brain/wiki/workflows/cowork-session.md`](./brain/wiki/workflows/cowork-session.md) for the architect role.
+> If you are **Claude Code**, also read [`brain/wiki/workflows/cc-session.md`](./brain/wiki/workflows/cc-session.md) for the implementer role.
+> Both roles must read [`brain/wiki/workflows/sessions-format.md`](./brain/wiki/workflows/sessions-format.md) to understand the session log format.
+>
+> The legacy `docs/agents/*.md` files are now redirect stubs; brain workflows are canonical.
 
 ---
 
@@ -23,7 +25,7 @@ This project's memory is split into two stores. Engineering memory stays in the 
 5. [`brain/wiki/open-questions.md`](./brain/wiki/open-questions.md) — what's queued for the next brief
 6. Whatever is relevant to the actual task (decisions, workflows, pipeline state, …)
 
-Karpathy-Reset historischer Kontext: Brief [049](./sessions/2026-05-08-049-arch-karpathy-brain-atlas-reset.md), 2026-05-08.
+Karpathy-Reset historischer Kontext: Brief [049](./sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md), 2026-05-08.
 
 ---
 
@@ -41,7 +43,7 @@ The maintainer is **Philipp** (hobby project). Prefer **simple, honest tradeoffs
 
 ---
 
-## Stack (decided 2026-04-28, see `sessions/2026-04-28-001-arch-bootstrap.md`)
+## Stack (decided 2026-04-28, see `sessions/archive/2026-04/2026-04-28-001-arch-bootstrap.md`)
 
 | Layer | Choice | Rationale |
 |---|---|---|
@@ -61,7 +63,7 @@ The maintainer is **Philipp** (hobby project). Prefer **simple, honest tradeoffs
 > - **Claude Code must research** the current stable release of every tool it installs or upgrades, choose what's appropriate, and pin the chosen version in `package.json` / `package-lock.json`. Rationale (especially for "I deliberately did NOT take the latest because…") goes in the session report.
 > - When Cowork's brief asks for an upgrade ("bump to Tailwind 4"), Cowork specifies the *major* and the *intent*. Claude Code picks the exact patch.
 >
-> See `docs/agents/COWORK.md` § "Version pinning is forbidden" and `docs/agents/CLAUDE_CODE.md` § "Versions are your call" for the full discipline.
+> See [`brain/wiki/workflows/cowork-session.md`](./brain/wiki/workflows/cowork-session.md) (architect side) and [`brain/wiki/workflows/cc-session.md`](./brain/wiki/workflows/cc-session.md) § "Concrete version-research workflow" (implementer side) for the operational rules. The pre-051 long-form version with the don't-write/write-instead table and the bootstrap example lives in git history.
 
 The original HTML prototype lives **outside the repo** (in `archive/` locally, gitignored). Its data has been extracted into `scripts/seed-data/*.json` which IS in the repo. Do not edit the prototype; port forward.
 
@@ -97,9 +99,9 @@ The original HTML prototype lives **outside the repo** (in `archive/` locally, g
 
   docs/
     agents/
-      COWORK.md            ← Cowork's role (architect; raw source for brain/wiki/workflows/cowork-session.md)
-      CLAUDE_CODE.md       ← Claude Code's role (implementer; raw source for brain/wiki/workflows/cc-session.md)
-      SESSIONS.md          ← session log format (raw source for brain/wiki/workflows/sessions-format.md)
+      COWORK.md            ← legacy redirect → brain/wiki/workflows/cowork-session.md (post-051 stub)
+      CLAUDE_CODE.md       ← legacy redirect → brain/wiki/workflows/cc-session.md (post-051 stub)
+      SESSIONS.md          ← legacy redirect → brain/wiki/workflows/sessions-format.md (post-051 stub)
 
   sessions/                ← project history (Cowork ↔ Claude Code pingpong)
     README.md
@@ -179,7 +181,7 @@ npm run db:migrate         # apply to your Supabase
 
 ## Workflow at a glance
 
-Cowork is the **architect**. Claude Code is the **implementer**. They communicate through `sessions/*.md` files committed to git. Full details in `docs/agents/SESSIONS.md`.
+Cowork is the **architect**. Claude Code is the **implementer**. They communicate through `sessions/*.md` files committed to git. Full details in [`brain/wiki/workflows/sessions-format.md`](./brain/wiki/workflows/sessions-format.md).
 
 ```
 Cowork session  →  writes  →  sessions/YYYY-MM-DD-NNN-arch-*.md  →  git push
