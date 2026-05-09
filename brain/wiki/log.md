@@ -82,7 +82,7 @@ The reset itself.
 
 First real run of [`./workflows/session-end.md`](./workflows/session-end.md).
 
-**Read:** [`sessions/2026-05-09-049-impl-karpathy-brain-atlas-reset.md`](../../sessions/2026-05-09-049-impl-karpathy-brain-atlas-reset.md) (the 049 implementer report — four commits `1f6da88`/`3f43f4c`/`64b47b5`/`9fa70d8` on `feat/phase-3c-llm-enrichment`, `lint` + `tsc --noEmit` + `npm run atlas:regen` all green, structural-only, nothing pipeline / app / DB).
+**Read:** [`sessions/archive/2026-05/2026-05-09-049-impl-karpathy-brain-atlas-reset.md`](../../sessions/archive/2026-05/2026-05-09-049-impl-karpathy-brain-atlas-reset.md) (the 049 implementer report — four commits `1f6da88`/`3f43f4c`/`64b47b5`/`9fa70d8` on `feat/phase-3c-llm-enrichment`, `lint` + `tsc --noEmit` + `npm run atlas:regen` all green, structural-only, nothing pipeline / app / DB. Moved to archive in 051 Slim Pass.).
 
 **Updated wiki:**
 
@@ -125,6 +125,36 @@ Response to external review now archived at [`../raw/reviews/2026-05-09-brain-st
 **Out of scope (per brief):** lint script (Brief 051); re-synthesis of any wiki content; path fixes inside `sessions/*.md`; pipeline / app / DB / migrations.
 
 **Audit was wider than the brief listed:** the brief named glossary, why-haiku-not-sonnet, why-multi-source-merge, open-questions; an exhaustive grep over `brain/wiki/**/*.md` surfaced two additional files with the same pattern ([`./decisions/why-bulk-backfill.md`](./decisions/why-bulk-backfill.md) and [`./decisions/no-goodreads.md`](./decisions/no-goodreads.md)). Brief explicitly authorized this ("audit-exhaustiv, nicht nur diese vier"). Same fix pattern; mitfixed.
+
+---
+
+## 2026-05-09 · Slim · Brain Slim Pass (Brief 051)
+
+Second cut after the 050-Hygiene pass. Goal: keep Brain not just correct but *light*. Six work items, all docs/brain/sessions only — no app / pipeline / DB / migration touches.
+
+**`sessions/README.md` rewrite.** Cut from ~30 active-thread rows + a 5-entry infra-log + a paragraphed carry-over down to: quick-reference + three pointer bullets + a 2-row active-threads table (only 050 + 051 — everything else moved to archive). Now scannable in under 30 seconds.
+
+**Session archive sweep + status fixes.**
+
+- Stale `status: open` corrected on three closed briefs: `034` → `implemented`, `038` → `implemented`, `045` → `answered`.
+- Moved 22 closed Phase-3 sessions from `sessions/` root to `sessions/archive/2026-05/`: 031, 032, 034, 035, 036, 037, 038, 039, 040, 041, 042, 043, 044 (arch + impl), 045 (arch + impl), 047 (arch + impl), 048 (arch + impl), 049 (arch + impl). Root now holds only 050-arch (recent + parent of 051) and 051-arch (open).
+- New archive rule documented in [`./workflows/sessions-format.md`](./workflows/sessions-format.md) § Archiving: root holds only open / `needs-decision` briefs and at most the last 1–2 just-closed sessions; everything else archives promptly (don't wait for a phase to wrap).
+
+**`docs/agents/*` → redirect stubs.** [`docs/agents/COWORK.md`](../../docs/agents/COWORK.md), [`docs/agents/CLAUDE_CODE.md`](../../docs/agents/CLAUDE_CODE.md), [`docs/agents/SESSIONS.md`](../../docs/agents/SESSIONS.md) reduced to ~10-line pointer stubs ("canonical now: `brain/wiki/workflows/<page>`"). Top-level [`/CLAUDE.md`](../../CLAUDE.md) read-order intro updated to point at brain workflows directly.
+
+**ADR rule + slim ADRs.** New "ADR shape" section in [`../CLAUDE.md`](../CLAUDE.md) (Brain schema): Context / Decision / Why / Revisit triggers, no chronological history or running batch numbers. [`./decisions/karpathy-reset-2026-05-08.md`](./decisions/karpathy-reset-2026-05-08.md) cut from ~94 lines to ~45; [`./decisions/why-haiku-not-sonnet.md`](./decisions/why-haiku-not-sonnet.md) cut from ~70 lines to ~45. Numbers and report-style narrative absorbed into [`./pipeline-state.md`](./pipeline-state.md) and the session logs / [`./log.md`](./log.md).
+
+**`open-questions.md` split into Queue + Deferred + Sub-phase backlog.**
+
+- `open-questions.md` reduced from 11 items to 5 actionable: (1) Phase-3e Modell-Entscheidung, (2) Vokabular-Erweiterung, (3) Hand-Check-Workflow, (4) Anthologie-Re-Test für Hebel E, (5) Lexicanum-Junction-Lücke. Items renumbered (10→4, 11→5).
+- New [`./deferred-questions.md`](./deferred-questions.md) catches the dormant items: `secondary_era_ids`, redirect-307-mechanism, Sonnet-`no_rating_found`-flag, `series_total_mismatch` observation, cost-tuning mini-brief, and the "distant" half of original item 9 (engine-friction findings, Lexicanum apiSearchFallback, OL Format/Availability heuristic).
+- Original item 9's 3d / 3e / 3f reminders absorbed into [`./pipeline-state.md`](./pipeline-state.md) as a new "Sub-phase backlog (concrete to-dos)" section, organized by sub-phase.
+
+**Ingest-diff retention policy** documented in [`./pipeline-state.md`](./pipeline-state.md) "Ingest-diff retention". Hard rule: no committed diff under `ingest/.last-run/` may be deleted until the `/ingest` dashboard read-path has been audited (it enumerates the directory at request time). Acceptance diffs stay; throwaway diffs are allowed to leave in a future cleanup brief; per-batch payloads may eventually move to a cold-store keeping only summary blocks. As of 051: policy documented, **no diffs deleted**.
+
+**Pages touched (wiki):** [`./index.md`](./index.md), [`./open-questions.md`](./open-questions.md), [`./deferred-questions.md`](./deferred-questions.md) (new), [`./pipeline-state.md`](./pipeline-state.md), [`./decisions/karpathy-reset-2026-05-08.md`](./decisions/karpathy-reset-2026-05-08.md), [`./decisions/why-haiku-not-sonnet.md`](./decisions/why-haiku-not-sonnet.md), [`./workflows/sessions-format.md`](./workflows/sessions-format.md), [`../CLAUDE.md`](../CLAUDE.md), this `log.md`. Outside wiki: top-level [`/CLAUDE.md`](../../CLAUDE.md), [`/docs/agents/COWORK.md`](../../docs/agents/COWORK.md), [`/docs/agents/CLAUDE_CODE.md`](../../docs/agents/CLAUDE_CODE.md), [`/docs/agents/SESSIONS.md`](../../docs/agents/SESSIONS.md), [`/sessions/README.md`](../../sessions/README.md), 22 archived sessions (path-only).
+
+**Out of scope (per brief 051):** lint script (Brief 052); pipeline / app / DB / migration code; existing diff JSON deletion (dashboard-coupled); raw historical snapshots; old session content rewriting.
 
 ---
 
