@@ -7,6 +7,7 @@ sources:
   - ../../../docs/agents/SESSIONS.md
   - ../../../sessions/_templates/architect-brief.md
   - ../../../sessions/_templates/implementer-report.md
+  - ../../../sessions/2026-05-09-051-arch-brain-slim-pass.md
 related:
   - ./cowork-session.md
   - ./cc-session.md
@@ -36,9 +37,11 @@ Examples:
 sessions/2026-04-28-001-arch-bootstrap.md
 sessions/2026-04-28-002-arch-phase-1-handoff.md
 sessions/2026-04-28-003-impl-phase-1-handoff.md     ← reply to 002
-sessions/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
-sessions/2026-05-09-049-impl-karpathy-brain-atlas-reset.md     ← reply to 049
+sessions/2026-05-09-050-arch-brain-hygiene-pass.md
+sessions/2026-05-09-051-arch-brain-slim-pass.md
 ```
+
+(Reply pairs share `NNN` and `slug`: e.g. `002-arch-phase-1-handoff.md` + `003-impl-phase-1-handoff.md`. Old pairs migrate together to `sessions/archive/YYYY-MM/` once both sides are closed.)
 
 ## Frontmatter
 
@@ -141,9 +144,17 @@ If writing a brief and need to think out loud: `sessions/_drafts/` (gitignored).
 
 ## Archiving
 
-When a phase wraps (e.g. Phase 1 ships), Cowork moves all completed sessions for that phase to `sessions/archive/YYYY-MM/`. The README in `sessions/` lists active threads only.
+The root of `sessions/` contains only:
 
-Phase-2 closure (2026-05-02) moved 21 sessions (008, 011–030) to `sessions/archive/2026-04/` (008, 011–013) and `sessions/archive/2026-05/` (014–030).
+- briefs that are currently `open` or `needs-decision`,
+- the matching impl reports for those briefs,
+- at most the last 1–2 just-closed sessions, if they're load-bearing for the current thread (e.g. the parent brief of an open follow-up).
+
+Everything else moves to `sessions/archive/YYYY-MM/` promptly — don't wait for a phase to wrap. A session is "everything else" once its brief reaches `implemented` / `answered` and its impl report is `complete`, AND it isn't the parent of an open thread. Cowork archives during session-end (or at the start of the next session, if it slipped).
+
+Per-move discipline: any wiki page or top-level doc that referenced `sessions/<id>.md` needs its relative path updated to `sessions/archive/YYYY-MM/<id>.md`. A grep across `brain/wiki/**`, `sessions/README.md`, top-level `CLAUDE.md`, and `docs/**` catches them.
+
+Phase-2 closure (2026-05-02) moved 21 sessions (008, 011–030) to `sessions/archive/2026-04/` (008, 011–013) and `sessions/archive/2026-05/` (014–030). The Phase-3 archive sweep happened in two passes: 049-Karpathy-Reset moved 033 + 046 (the two retracted briefs) into `sessions/archive/2026-05/`; 051-Slim-Pass (2026-05-09) archived the remaining closed Phase-3 sessions 031–048 (12 brief/report pairs) under the same rule.
 
 ## Commits and session files
 

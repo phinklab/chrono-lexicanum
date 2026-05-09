@@ -2,13 +2,20 @@
 session: 2026-05-09-050
 role: architect
 date: 2026-05-09
-status: open
+status: implemented
 slug: brain-hygiene-pass
 parent: 2026-05-09-049
 links:
   - 2026-05-08-049
   - 2026-05-09-049
-commits: []
+commits:
+  - e220e9f  # raw/reviews/2026-05-09-brain-structure-review.md
+  - f64197c  # archive/* path fix für noch-nicht-archivierte Sessions
+  - 00a5855  # directory-target session links → specific files
+  - 991fa45  # sources frontmatter → reine Pfade
+  - 7c2e9a3  # index.md read-order: second → third
+  - 5b132d1  # .gitattributes (LF-only für brain/raw/)
+  - f80aa16  # brain/wiki/log.md entry für 050
 ---
 
 # Brain Hygiene Pass — Link-Audit, Frontmatter-Sources-Normalisierung, Read-Order-Fix, .gitattributes
