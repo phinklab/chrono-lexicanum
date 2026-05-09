@@ -96,6 +96,23 @@ Each takes specific inputs and produces specific outputs. Following them rigorou
 - Lint never edits the wiki. It reports. Fixes happen via Ingest.
 - See [`wiki/workflows/lint.md`](./wiki/workflows/lint.md) for the check list. The lint script itself is a follow-up brief; until then, the workflow page documents what *would* be checked, and humans run the checks by eye.
 
+## ADR shape (decisions/)
+
+A `decisions/<slug>.md` page answers four things, tightly:
+
+- **Context** — what was true, what hurt, why we're picking now.
+- **Decision** — the chosen option, named clearly.
+- **Why** — the reasons that made the choice obvious. Keep alternatives short; long option-tables belong in the brief that opened the decision, not in the ADR.
+- **Revisit triggers** — concrete signals that should reopen the question.
+
+What ADRs are *not* for:
+
+- Running batch numbers, cost tables, per-session metrics → those live in [`wiki/pipeline-state.md`](./wiki/pipeline-state.md).
+- Chronological history of who-did-what → that's the session-log files in `sessions/` and the entries in [`wiki/log.md`](./wiki/log.md).
+- Implementation reports — those live in `sessions/<id>-impl-<slug>.md`.
+
+If an ADR grows past ~80 lines, suspect drift: pipeline numbers or session protocol probably leaked in. Move them to the right home and re-read the ADR — the decision should still stand on its own.
+
 ## Frontmatter convention (verbindlich)
 
 Every file under `wiki/**/*.md` (except `log.md`, which is append-only) carries YAML frontmatter:
