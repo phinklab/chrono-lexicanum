@@ -1,0 +1,2246 @@
+{
+  "ranAt": "2026-05-09T19:37:42.877Z",
+  "pipeline": "v2",
+  "pilot": "v2-tryout-1",
+  "discoverySource": [
+    "wikipedia",
+    "tlbranson"
+  ],
+  "discoveryPages": [
+    "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels",
+    "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)",
+    "https://en.wikipedia.org/wiki/Siege_of_Terra",
+    "https://en.wikipedia.org/wiki/Eisenhorn",
+    "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "https://www.tlbranson.com/horus-heresy-reading-order/"
+  ],
+  "activeSources": [
+    "lexicanum",
+    "open_library",
+    "hardcover",
+    "llm"
+  ],
+  "discovered": 1078,
+  "added": [
+    {
+      "slug": "eisenhorn-xenos",
+      "fields": {
+        "title": {
+          "value": "Xenos",
+          "source": "lexicanum",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Dan Abnett"
+          ],
+          "source": "lexicanum",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2001,
+          "source": "lexicanum",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": "9780743411691",
+          "source": "open_library",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": "0743411692",
+          "source": "open_library",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": 288,
+          "source": "open_library",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": "https://covers.openlibrary.org/b/id/476057-L.jpg",
+          "source": "open_library",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "format": {
+          "value": "novel",
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues a heretic across the frozen world of Hubris, only to uncover a vast conspiracy far darker than anticipated. The heretical House Glaw seeks to recover the Necroteuch, an ancient tome of Chaos secrets, in league with alien xenos known as the Saruthi and traitor Space Marines. Eisenhorn's investigation leads him across multiple worlds as he gathers allies and enemies, including the daemonhost Cherubael and rival inquisitors. Racing to prevent the exchange of recovered xenos artifacts for a copy of the forbidden text, Eisenhorn pursues his quarry into the alien's impossible geometries. After destroying one version of the Necroteuch and cornering his enemies, he must lead an imperial invasion force against the Saruthi homeworld to obliterate all remaining traces of the heretical tome.",
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "male",
+            "inquisitor",
+            "imperium",
+            "galactic",
+            "series_start",
+            "standard",
+            "mystery",
+            "action_heavy",
+            "grimdark",
+            "betrayal",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Inquisition",
+              "role": "primary"
+            },
+            {
+              "name": "House Glaw",
+              "role": "antagonist"
+            },
+            {
+              "name": "Saruthi",
+              "role": "antagonist"
+            },
+            {
+              "name": "Emperor's Children",
+              "role": "antagonist"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Hubris",
+              "role": "primary"
+            },
+            {
+              "name": "Damask",
+              "role": "secondary"
+            },
+            {
+              "name": "KCX-1288",
+              "role": "secondary"
+            },
+            {
+              "name": "Saruthi homeworld",
+              "role": "primary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Gregor Eisenhorn",
+              "role": "pov"
+            },
+            {
+              "name": "Mandragore",
+              "role": "supporting"
+            },
+            {
+              "name": "Alizebeth Bequin",
+              "role": "supporting"
+            },
+            {
+              "name": "Oberon Glaw",
+              "role": "supporting"
+            },
+            {
+              "name": "Cherubael",
+              "role": "supporting"
+            },
+            {
+              "name": "Lord Inquisitor Rorken",
+              "role": "supporting"
+            },
+            {
+              "name": "Voke",
+              "role": "supporting"
+            },
+            {
+              "name": "Molitor",
+              "role": "supporting"
+            },
+            {
+              "name": "Gorgone Locke",
+              "role": "supporting"
+            },
+            {
+              "name": "Ecclesiarch Dazzo",
+              "role": "supporting"
+            },
+            {
+              "name": "Pontius Glaw",
+              "role": "mentioned"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:10.224Z",
+          "override": null
+        }
+      },
+      "validations": [],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/Xenos_(Novel)",
+          "fetchedAt": "2026-05-09T19:34:47.837Z",
+          "fields": {
+            "title": "Xenos",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2001,
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "Xenos_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": [
+              40240,
+              40745
+            ]
+          }
+        },
+        {
+          "source": "open_library",
+          "sourceUrl": "https://openlibrary.org/works/OL5843437W",
+          "fetchedAt": "2026-05-09T19:34:51.365Z",
+          "fields": {
+            "title": "Xenos (The Eisenhorn Trilogy, Book 1)",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2001,
+            "isbn13": "9780743411691",
+            "isbn10": "0743411692",
+            "pageCount": 288,
+            "coverUrl": "https://covers.openlibrary.org/b/id/476057-L.jpg"
+          },
+          "notes": [],
+          "raw": {
+            "author_name": [
+              "Dan Abnett"
+            ],
+            "cover_i": 476057,
+            "edition_count": 1,
+            "first_publish_year": 2001,
+            "isbn": [
+              "0743411692",
+              "9780743411691"
+            ],
+            "key": "/works/OL5843437W",
+            "number_of_pages_median": 288,
+            "title": "Xenos (The Eisenhorn Trilogy, Book 1)"
+          }
+        },
+        {
+          "source": "hardcover",
+          "sourceUrl": "https://hardcover.app/books/eisenhorn-xenos",
+          "fetchedAt": "2026-05-09T19:34:51.840Z",
+          "fields": {},
+          "notes": [],
+          "raw": {
+            "audit": {
+              "contributorNames": [
+                "Ryan O'Sullivan",
+                "Anthony Spay",
+                "Anthony Fowler",
+                "Andre Campos"
+              ]
+            }
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues a heretic across the frozen world of Hubris, only to uncover a vast conspiracy far darker than anticipated. The heretical House Glaw seeks to recover the Necroteuch, an ancient tome of Chaos secrets, in league with alien xenos known as the Saruthi and traitor Space Marines. Eisenhorn's investigation leads him across multiple worlds as he gathers allies and enemies, including the daemonhost Cherubael and rival inquisitors. Racing to prevent the exchange of recovered xenos artifacts for a copy of the forbidden text, Eisenhorn pursues his quarry into the alien's impossible geometries. After destroying one version of the Necroteuch and cornering his enemies, he must lead an imperial invasion force against the Saruthi homeworld to obliterate all remaining traces of the heretical tome.",
+        "format": "novel",
+        "facetIds": [
+          "male",
+          "inquisitor",
+          "imperium",
+          "galactic",
+          "series_start",
+          "standard",
+          "mystery",
+          "action_heavy",
+          "grimdark",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          {
+            "name": "Inquisition",
+            "role": "primary"
+          },
+          {
+            "name": "House Glaw",
+            "role": "antagonist"
+          },
+          {
+            "name": "Saruthi",
+            "role": "antagonist"
+          },
+          {
+            "name": "Emperor's Children",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Hubris",
+            "role": "primary"
+          },
+          {
+            "name": "Damask",
+            "role": "secondary"
+          },
+          {
+            "name": "KCX-1288",
+            "role": "secondary"
+          },
+          {
+            "name": "Saruthi homeworld",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Gregor Eisenhorn",
+            "role": "pov"
+          },
+          {
+            "name": "Mandragore",
+            "role": "supporting"
+          },
+          {
+            "name": "Alizebeth Bequin",
+            "role": "supporting"
+          },
+          {
+            "name": "Oberon Glaw",
+            "role": "supporting"
+          },
+          {
+            "name": "Cherubael",
+            "role": "supporting"
+          },
+          {
+            "name": "Lord Inquisitor Rorken",
+            "role": "supporting"
+          },
+          {
+            "name": "Voke",
+            "role": "supporting"
+          },
+          {
+            "name": "Molitor",
+            "role": "supporting"
+          },
+          {
+            "name": "Gorgone Locke",
+            "role": "supporting"
+          },
+          {
+            "name": "Ecclesiarch Dazzo",
+            "role": "supporting"
+          },
+          {
+            "name": "Pontius Glaw",
+            "role": "mentioned"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 25107,
+            "output": 1639,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 25107,
+        "tokensOut": 1639,
+        "webSearches": 1,
+        "estUsdCost": 0.043302
+      },
+      "sourcePages": [],
+      "wikipediaTitle": "Eisenhorn: Xenos",
+      "payload": {
+        "slug": "eisenhorn-xenos",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Xenos",
+          "authorNames": [
+            "Dan Abnett"
+          ],
+          "releaseYear": 2001,
+          "synopsis": "Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues a heretic across the frozen world of Hubris, only to uncover a vast conspiracy far darker than anticipated. The heretical House Glaw seeks to recover the Necroteuch, an ancient tome of Chaos secrets, in league with alien xenos known as the Saruthi and traitor Space Marines. Eisenhorn's investigation leads him across multiple worlds as he gathers allies and enemies, including the daemonhost Cherubael and rival inquisitors. Racing to prevent the exchange of recovered xenos artifacts for a copy of the forbidden text, Eisenhorn pursues his quarry into the alien's impossible geometries. After destroying one version of the Necroteuch and cornering his enemies, he must lead an imperial invasion force against the Saruthi homeworld to obliterate all remaining traces of the heretical tome.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/476057-L.jpg",
+          "isbn13": "9780743411691",
+          "isbn10": "0743411692",
+          "pageCount": 288,
+          "format": "novel",
+          "facetIds": [
+            "male",
+            "inquisitor",
+            "imperium",
+            "galactic",
+            "series_start",
+            "standard",
+            "mystery",
+            "action_heavy",
+            "grimdark",
+            "betrayal",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "factionNames": [
+            "Inquisition",
+            "House Glaw",
+            "Saruthi",
+            "Emperor's Children"
+          ],
+          "locationNames": [
+            "Hubris",
+            "Damask",
+            "KCX-1288",
+            "Saruthi homeworld"
+          ],
+          "characterNames": [
+            "Gregor Eisenhorn",
+            "Mandragore",
+            "Alizebeth Bequin",
+            "Oberon Glaw",
+            "Cherubael",
+            "Lord Inquisitor Rorken",
+            "Voke",
+            "Molitor",
+            "Gorgone Locke",
+            "Ecclesiarch Dazzo",
+            "Pontius Glaw"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "lexicanum",
+          "authorNames": "lexicanum",
+          "releaseYear": "lexicanum",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "llm",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Xenos_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL5843437W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/eisenhorn-xenos"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "false-gods",
+      "fields": {
+        "title": {
+          "value": "False Gods",
+          "source": "lexicanum",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Graham McNeill"
+          ],
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2006,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Horus Heresy",
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": 2,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": "9781844163700",
+          "source": "open_library",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": "1844163709",
+          "source": "open_library",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": 416,
+          "source": "open_library",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": "https://covers.openlibrary.org/b/id/894750-L.jpg",
+          "source": "open_library",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "format": {
+          "value": "novel",
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "validator-corrected",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null,
+          "evidence": [
+            {
+              "source": "lexicanum",
+              "value": 39000
+            }
+          ]
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "The Imperium of Mankind reaches the zenith of its power during the Great Crusade, with the Warmaster Horus appointed as commander of the military forces. Yet beneath the veneer of unity, ambition and resentment fester among the primarchs. When Horus is grievously wounded in combat on the moon of Davin, he enters a fever dream where manipulative forces from the Warp, led by the Word Bearer chaplain Erebus in disguise, offer him visions of betrayal and abandonment. They claim the Emperor will ascend to godhood while discarding his sons. Torn between doubt and pride, Horus is drawn toward rebellion. Meanwhile, within the fleet's chaplaincy and among the civilian remembrancers, the first stirrings of faith in the Emperor as a divine figure begin to take root, even as dark forces work to corrupt the Warmaster and turn his legion to chaos. The stage is set for the galaxy's greatest tragedy.",
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "grimdark",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "space_marine",
+            "imperium",
+            "war_story",
+            "court_intrigue",
+            "character_study",
+            "betrayal",
+            "loyalty",
+            "hubris",
+            "doubt",
+            "action_heavy",
+            "somber",
+            "philosophical"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Luna Wolves",
+              "role": "primary"
+            },
+            {
+              "name": "Word Bearers",
+              "role": "antagonist"
+            },
+            {
+              "name": "Sons of Horus",
+              "role": "primary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Davin",
+              "role": "primary"
+            },
+            {
+              "name": "Temple of the Serpent Lodge",
+              "role": "primary"
+            },
+            {
+              "name": "Vengeful Spirit",
+              "role": "secondary"
+            },
+            {
+              "name": "Terra",
+              "role": "mentioned"
+            },
+            {
+              "name": "Warp",
+              "role": "secondary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Horus Lupercal",
+              "role": "pov"
+            },
+            {
+              "name": "Garviel Loken",
+              "role": "pov"
+            },
+            {
+              "name": "Erebus",
+              "role": "supporting"
+            },
+            {
+              "name": "Tarik Torgaddon",
+              "role": "supporting"
+            },
+            {
+              "name": "Kyril Sindermann",
+              "role": "supporting"
+            },
+            {
+              "name": "Euphrati Keeler",
+              "role": "supporting"
+            },
+            {
+              "name": "Ignace Karkasy",
+              "role": "supporting"
+            },
+            {
+              "name": "Ezekyle Abaddon",
+              "role": "supporting"
+            },
+            {
+              "name": "Horus Aximand",
+              "role": "supporting"
+            },
+            {
+              "name": "Saul Tarvitz",
+              "role": "appears"
+            },
+            {
+              "name": "Magnus the Red",
+              "role": "appears"
+            },
+            {
+              "name": "Angron",
+              "role": "appears"
+            },
+            {
+              "name": "Petronella Vivar",
+              "role": "appears"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:32.975Z",
+          "override": null
+        }
+      },
+      "validations": [
+        {
+          "field": "startY",
+          "severity": "error",
+          "kind": "year_outlier",
+          "evidence": [
+            {
+              "source": "lexicanum",
+              "value": 39000
+            }
+          ],
+          "suggested": {
+            "action": "drop"
+          },
+          "reasoning": "lexicanum's body-text contained M-scale token=39000, outside the canonical era for Horus Heresy / Siege of Terra (29000–29999, 30000–30999); audit-only — not promoted to a field, recorded as evidence of unreliable body-year extraction."
+        }
+      ],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/False_Gods_(Novel)",
+          "fetchedAt": "2026-05-09T19:35:10.752Z",
+          "fields": {
+            "title": "False Gods",
+            "authorNames": [
+              "Graham McNeill"
+            ],
+            "releaseYear": 2006,
+            "isbn13": "9781844163700",
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "False_Gods_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": [
+              39000
+            ]
+          }
+        },
+        {
+          "source": "open_library",
+          "sourceUrl": "https://openlibrary.org/works/OL3990207W",
+          "fetchedAt": "2026-05-09T19:35:14.920Z",
+          "fields": {
+            "title": "False Gods",
+            "authorNames": [
+              "Graham McNeill"
+            ],
+            "releaseYear": 2006,
+            "isbn13": "9781844163700",
+            "isbn10": "1844163709",
+            "pageCount": 416,
+            "coverUrl": "https://covers.openlibrary.org/b/id/894750-L.jpg"
+          },
+          "notes": [],
+          "raw": {
+            "author_name": [
+              "Graham McNeill"
+            ],
+            "cover_i": 894750,
+            "edition_count": 1,
+            "first_publish_year": 2006,
+            "isbn": [
+              "9781844163700",
+              "1844163709"
+            ],
+            "key": "/works/OL3990207W",
+            "number_of_pages_median": 416,
+            "title": "False Gods"
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "The Imperium of Mankind reaches the zenith of its power during the Great Crusade, with the Warmaster Horus appointed as commander of the military forces. Yet beneath the veneer of unity, ambition and resentment fester among the primarchs. When Horus is grievously wounded in combat on the moon of Davin, he enters a fever dream where manipulative forces from the Warp, led by the Word Bearer chaplain Erebus in disguise, offer him visions of betrayal and abandonment. They claim the Emperor will ascend to godhood while discarding his sons. Torn between doubt and pride, Horus is drawn toward rebellion. Meanwhile, within the fleet's chaplaincy and among the civilian remembrancers, the first stirrings of faith in the Emperor as a divine figure begin to take root, even as dark forces work to corrupt the Warmaster and turn his legion to chaos. The stage is set for the galaxy's greatest tragedy.",
+        "format": "novel",
+        "facetIds": [
+          "grimdark",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "space_marine",
+          "imperium",
+          "war_story",
+          "court_intrigue",
+          "character_study",
+          "betrayal",
+          "loyalty",
+          "hubris",
+          "doubt",
+          "action_heavy",
+          "somber",
+          "philosophical"
+        ],
+        "factions": [
+          {
+            "name": "Luna Wolves",
+            "role": "primary"
+          },
+          {
+            "name": "Word Bearers",
+            "role": "antagonist"
+          },
+          {
+            "name": "Sons of Horus",
+            "role": "primary"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Davin",
+            "role": "primary"
+          },
+          {
+            "name": "Temple of the Serpent Lodge",
+            "role": "primary"
+          },
+          {
+            "name": "Vengeful Spirit",
+            "role": "secondary"
+          },
+          {
+            "name": "Terra",
+            "role": "mentioned"
+          },
+          {
+            "name": "Warp",
+            "role": "secondary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Horus Lupercal",
+            "role": "pov"
+          },
+          {
+            "name": "Garviel Loken",
+            "role": "pov"
+          },
+          {
+            "name": "Erebus",
+            "role": "supporting"
+          },
+          {
+            "name": "Tarik Torgaddon",
+            "role": "supporting"
+          },
+          {
+            "name": "Kyril Sindermann",
+            "role": "supporting"
+          },
+          {
+            "name": "Euphrati Keeler",
+            "role": "supporting"
+          },
+          {
+            "name": "Ignace Karkasy",
+            "role": "supporting"
+          },
+          {
+            "name": "Ezekyle Abaddon",
+            "role": "supporting"
+          },
+          {
+            "name": "Horus Aximand",
+            "role": "supporting"
+          },
+          {
+            "name": "Saul Tarvitz",
+            "role": "appears"
+          },
+          {
+            "name": "Magnus the Red",
+            "role": "appears"
+          },
+          {
+            "name": "Angron",
+            "role": "appears"
+          },
+          {
+            "name": "Petronella Vivar",
+            "role": "appears"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 60964,
+            "output": 1675,
+            "webSearchCount": 2
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 60964,
+        "tokensOut": 1675,
+        "webSearches": 2,
+        "estUsdCost": 0.089339
+      },
+      "sourcePages": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://www.tlbranson.com/horus-heresy-reading-order/"
+      ],
+      "wikipediaTitle": "False Gods",
+      "payload": {
+        "slug": "false-gods",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "False Gods",
+          "authorNames": [
+            "Graham McNeill"
+          ],
+          "releaseYear": 2006,
+          "synopsis": "The Imperium of Mankind reaches the zenith of its power during the Great Crusade, with the Warmaster Horus appointed as commander of the military forces. Yet beneath the veneer of unity, ambition and resentment fester among the primarchs. When Horus is grievously wounded in combat on the moon of Davin, he enters a fever dream where manipulative forces from the Warp, led by the Word Bearer chaplain Erebus in disguise, offer him visions of betrayal and abandonment. They claim the Emperor will ascend to godhood while discarding his sons. Torn between doubt and pride, Horus is drawn toward rebellion. Meanwhile, within the fleet's chaplaincy and among the civilian remembrancers, the first stirrings of faith in the Emperor as a divine figure begin to take root, even as dark forces work to corrupt the Warmaster and turn his legion to chaos. The stage is set for the galaxy's greatest tragedy.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/894750-L.jpg",
+          "seriesIndex": 2,
+          "isbn13": "9781844163700",
+          "isbn10": "1844163709",
+          "pageCount": 416,
+          "format": "novel",
+          "facetIds": [
+            "grimdark",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "space_marine",
+            "imperium",
+            "war_story",
+            "court_intrigue",
+            "character_study",
+            "betrayal",
+            "loyalty",
+            "hubris",
+            "doubt",
+            "action_heavy",
+            "somber",
+            "philosophical"
+          ],
+          "factionNames": [
+            "Luna Wolves",
+            "Word Bearers",
+            "Sons of Horus"
+          ],
+          "locationNames": [
+            "Davin",
+            "Temple of the Serpent Lodge",
+            "Vengeful Spirit",
+            "Terra",
+            "Warp"
+          ],
+          "characterNames": [
+            "Horus Lupercal",
+            "Garviel Loken",
+            "Erebus",
+            "Tarik Torgaddon",
+            "Kyril Sindermann",
+            "Euphrati Keeler",
+            "Ignace Karkasy",
+            "Ezekyle Abaddon",
+            "Horus Aximand",
+            "Saul Tarvitz",
+            "Magnus the Red",
+            "Angron",
+            "Petronella Vivar"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "lexicanum",
+          "authorNames": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "llm",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/False_Gods_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL3990207W"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "garro",
+      "fields": {
+        "title": {
+          "value": "Garro",
+          "source": "lexicanum",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "James Swallow"
+          ],
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2017,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Horus Heresy",
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": 42,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": "9781800262072",
+          "source": "open_library",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": "1800262078",
+          "source": "open_library",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": "https://covers.openlibrary.org/b/id/13228460-L.jpg",
+          "source": "open_library",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "format": {
+          "value": "anthology",
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "Nathaniel Garro, a Death Guard captain who survived the treachery at Isstvan III, emerges from captivity on Luna as the Sigillite's instrument of will. Stripped of his legion colors, he becomes Agentia Primus—first and most trusted of a shadowy cadre known as the Knights Errant. Tasked with recruiting loyalist warriors from across the fractured legions, Garro traverses the war-torn Imperium, striking at traitor strongholds and seeking out those worthy of Malcador's hidden cause. As he visits Calth, the Imperial Palace, and distant war zones to gather his brotherhood, Garro grapples with doubt and the full scope of the Sigillite's mysterious plans. His path leads him ever closer to a destiny neither glory nor damnation can escape, forcing him to question whether even his unshakeable faith in the Emperor remains uncompromised. The collection culminates in his desperate search for Saint Euphrati Keeler as the shadow of the Siege falls over Terra.",
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "grimdark",
+            "cw_violence",
+            "cw_death",
+            "loyalty",
+            "faith",
+            "doubt",
+            "redemption",
+            "brotherhood",
+            "imperium",
+            "space_marine",
+            "male",
+            "galactic"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Imperium of Mankind",
+              "role": "primary"
+            },
+            {
+              "name": "Death Guard",
+              "role": "supporting"
+            },
+            {
+              "name": "Ultramarines",
+              "role": "supporting"
+            },
+            {
+              "name": "Imperial Fists",
+              "role": "supporting"
+            },
+            {
+              "name": "World Eaters",
+              "role": "supporting"
+            },
+            {
+              "name": "Sons of Horus",
+              "role": "supporting"
+            },
+            {
+              "name": "Word Bearers",
+              "role": "antagonist"
+            },
+            {
+              "name": "Traitor forces",
+              "role": "antagonist"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Luna",
+              "role": "primary"
+            },
+            {
+              "name": "Terra",
+              "role": "primary"
+            },
+            {
+              "name": "Isstvan III",
+              "role": "secondary"
+            },
+            {
+              "name": "Calth",
+              "role": "secondary"
+            },
+            {
+              "name": "Imperial Palace",
+              "role": "secondary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Nathaniel Garro",
+              "role": "pov"
+            },
+            {
+              "name": "Malcador the Sigillite",
+              "role": "supporting"
+            },
+            {
+              "name": "Tylos Rubio",
+              "role": "supporting"
+            },
+            {
+              "name": "Garviel Loken",
+              "role": "supporting"
+            },
+            {
+              "name": "Euphrati Keeler",
+              "role": "supporting"
+            },
+            {
+              "name": "Erikon Gaius",
+              "role": "appears"
+            },
+            {
+              "name": "Iacton Qruze",
+              "role": "appears"
+            },
+            {
+              "name": "Rogal Dorn",
+              "role": "appears"
+            },
+            {
+              "name": "Mortarion",
+              "role": "mentioned"
+            },
+            {
+              "name": "Horus Lupercal",
+              "role": "mentioned"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:35:51.059Z",
+          "override": null
+        }
+      },
+      "validations": [],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/Garro_(Novel)",
+          "fetchedAt": "2026-05-09T19:35:33.751Z",
+          "fields": {
+            "title": "Garro",
+            "authorNames": [
+              "James Swallow"
+            ],
+            "releaseYear": 2017,
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "Garro_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": []
+          }
+        },
+        {
+          "source": "open_library",
+          "sourceUrl": "https://openlibrary.org/works/OL28738724W",
+          "fetchedAt": "2026-05-09T19:35:36.097Z",
+          "fields": {
+            "title": "Garro",
+            "authorNames": [
+              "James Swallow"
+            ],
+            "isbn13": "9781800262072",
+            "isbn10": "1800262078",
+            "coverUrl": "https://covers.openlibrary.org/b/id/13228460-L.jpg"
+          },
+          "notes": [
+            "releaseYear_skipped_drift_2023_vs_2017"
+          ],
+          "raw": {
+            "author_name": [
+              "James Swallow"
+            ],
+            "cover_i": 13228460,
+            "edition_count": 1,
+            "first_publish_year": 2023,
+            "isbn": [
+              "1800262078",
+              "9781800262072"
+            ],
+            "key": "/works/OL28738724W",
+            "title": "Garro"
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "Nathaniel Garro, a Death Guard captain who survived the treachery at Isstvan III, emerges from captivity on Luna as the Sigillite's instrument of will. Stripped of his legion colors, he becomes Agentia Primus—first and most trusted of a shadowy cadre known as the Knights Errant. Tasked with recruiting loyalist warriors from across the fractured legions, Garro traverses the war-torn Imperium, striking at traitor strongholds and seeking out those worthy of Malcador's hidden cause. As he visits Calth, the Imperial Palace, and distant war zones to gather his brotherhood, Garro grapples with doubt and the full scope of the Sigillite's mysterious plans. His path leads him ever closer to a destiny neither glory nor damnation can escape, forcing him to question whether even his unshakeable faith in the Emperor remains uncompromised. The collection culminates in his desperate search for Saint Euphrati Keeler as the shadow of the Siege falls over Terra.",
+        "format": "anthology",
+        "facetIds": [
+          "grimdark",
+          "cw_violence",
+          "cw_death",
+          "loyalty",
+          "faith",
+          "doubt",
+          "redemption",
+          "brotherhood",
+          "imperium",
+          "space_marine",
+          "male",
+          "galactic"
+        ],
+        "factions": [
+          {
+            "name": "Imperium of Mankind",
+            "role": "primary"
+          },
+          {
+            "name": "Death Guard",
+            "role": "supporting"
+          },
+          {
+            "name": "Ultramarines",
+            "role": "supporting"
+          },
+          {
+            "name": "Imperial Fists",
+            "role": "supporting"
+          },
+          {
+            "name": "World Eaters",
+            "role": "supporting"
+          },
+          {
+            "name": "Sons of Horus",
+            "role": "supporting"
+          },
+          {
+            "name": "Word Bearers",
+            "role": "antagonist"
+          },
+          {
+            "name": "Traitor forces",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Luna",
+            "role": "primary"
+          },
+          {
+            "name": "Terra",
+            "role": "primary"
+          },
+          {
+            "name": "Isstvan III",
+            "role": "secondary"
+          },
+          {
+            "name": "Calth",
+            "role": "secondary"
+          },
+          {
+            "name": "Imperial Palace",
+            "role": "secondary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Nathaniel Garro",
+            "role": "pov"
+          },
+          {
+            "name": "Malcador the Sigillite",
+            "role": "supporting"
+          },
+          {
+            "name": "Tylos Rubio",
+            "role": "supporting"
+          },
+          {
+            "name": "Garviel Loken",
+            "role": "supporting"
+          },
+          {
+            "name": "Euphrati Keeler",
+            "role": "supporting"
+          },
+          {
+            "name": "Erikon Gaius",
+            "role": "appears"
+          },
+          {
+            "name": "Iacton Qruze",
+            "role": "appears"
+          },
+          {
+            "name": "Rogal Dorn",
+            "role": "appears"
+          },
+          {
+            "name": "Mortarion",
+            "role": "mentioned"
+          },
+          {
+            "name": "Horus Lupercal",
+            "role": "mentioned"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 40310,
+            "output": 1317,
+            "webSearchCount": 2
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 40310,
+        "tokensOut": 1317,
+        "webSearches": 2,
+        "estUsdCost": 0.066895
+      },
+      "sourcePages": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles"
+      ],
+      "wikipediaTitle": "Garro",
+      "payload": {
+        "slug": "garro",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Garro",
+          "authorNames": [
+            "James Swallow"
+          ],
+          "releaseYear": 2017,
+          "synopsis": "Nathaniel Garro, a Death Guard captain who survived the treachery at Isstvan III, emerges from captivity on Luna as the Sigillite's instrument of will. Stripped of his legion colors, he becomes Agentia Primus—first and most trusted of a shadowy cadre known as the Knights Errant. Tasked with recruiting loyalist warriors from across the fractured legions, Garro traverses the war-torn Imperium, striking at traitor strongholds and seeking out those worthy of Malcador's hidden cause. As he visits Calth, the Imperial Palace, and distant war zones to gather his brotherhood, Garro grapples with doubt and the full scope of the Sigillite's mysterious plans. His path leads him ever closer to a destiny neither glory nor damnation can escape, forcing him to question whether even his unshakeable faith in the Emperor remains uncompromised. The collection culminates in his desperate search for Saint Euphrati Keeler as the shadow of the Siege falls over Terra.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/13228460-L.jpg",
+          "seriesIndex": 42,
+          "isbn13": "9781800262072",
+          "isbn10": "1800262078",
+          "format": "anthology",
+          "facetIds": [
+            "grimdark",
+            "cw_violence",
+            "cw_death",
+            "loyalty",
+            "faith",
+            "doubt",
+            "redemption",
+            "brotherhood",
+            "imperium",
+            "space_marine",
+            "male",
+            "galactic"
+          ],
+          "factionNames": [
+            "Imperium of Mankind",
+            "Death Guard",
+            "Ultramarines",
+            "Imperial Fists",
+            "World Eaters",
+            "Sons of Horus",
+            "Word Bearers",
+            "Traitor forces"
+          ],
+          "locationNames": [
+            "Luna",
+            "Terra",
+            "Isstvan III",
+            "Calth",
+            "Imperial Palace"
+          ],
+          "characterNames": [
+            "Nathaniel Garro",
+            "Malcador the Sigillite",
+            "Tylos Rubio",
+            "Garviel Loken",
+            "Euphrati Keeler",
+            "Erikon Gaius",
+            "Iacton Qruze",
+            "Rogal Dorn",
+            "Mortarion",
+            "Horus Lupercal"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "lexicanum",
+          "authorNames": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "format": "llm",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Garro_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL28738724W"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "tales-of-heresy",
+      "fields": {
+        "title": {
+          "value": "Tales of Heresy",
+          "source": "lexicanum",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "various authors"
+          ],
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2009,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Horus Heresy",
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": 10,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "format": {
+          "value": "anthology",
+          "source": "validator",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "During the twilight of the Great Crusade and the opening shadows of the Horus Heresy, seven interconnected tales illuminate hidden moments across the sprawling conflict. These stories capture Space Marine Legions grappling with their identities and purpose: the Space Wolves facing impossible choices in compliance operations, the Word Bearers pursuing ever-zealous conquest, the World Eaters confronting a broken Primarch, and the Dark Angels wrestling with internal fractures. Meanwhile, the Sisters of Silence navigate horrors in the void aboard a derelict Black Ship, the Custodian Guard execute mysterious tasks, and a lone priest on Terra confronts the Emperor himself about faith and purpose. Together, these vignettes chart the galaxy's descent into fratricidal war, revealing the personal costs and moral ambiguities that would define the Imperium's darkest age.",
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "grimdark",
+            "cw_violence",
+            "cw_death",
+            "war",
+            "betrayal",
+            "doubt",
+            "faith"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Space Wolves",
+              "role": "supporting"
+            },
+            {
+              "name": "Word Bearers",
+              "role": "supporting"
+            },
+            {
+              "name": "World Eaters",
+              "role": "supporting"
+            },
+            {
+              "name": "Dark Angels",
+              "role": "supporting"
+            },
+            {
+              "name": "Sisters of Silence",
+              "role": "supporting"
+            },
+            {
+              "name": "Custodian Guard",
+              "role": "supporting"
+            },
+            {
+              "name": "Imperium",
+              "role": "primary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Terra",
+              "role": "secondary"
+            },
+            {
+              "name": "Desh'ea",
+              "role": "mentioned"
+            },
+            {
+              "name": "Nuceria",
+              "role": "mentioned"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Angron",
+              "role": "supporting"
+            },
+            {
+              "name": "Kharn",
+              "role": "supporting"
+            },
+            {
+              "name": "The Emperor",
+              "role": "appears"
+            },
+            {
+              "name": "Lorgar",
+              "role": "appears"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:36:43.139Z",
+          "override": null
+        }
+      },
+      "validations": [
+        {
+          "field": "format",
+          "severity": "warn",
+          "kind": "author_editor_suspicion",
+          "evidence": [
+            {
+              "source": "lexicanum",
+              "value": {
+                "editorNames": [
+                  "Nick Kyme",
+                  "Lindsey Priestley"
+                ]
+              }
+            }
+          ],
+          "suggested": {
+            "value": "anthology",
+            "action": "flag"
+          },
+          "reasoning": "anthology signal: Lexicanum infobox carries an Editor cell, or an authorNames entry matched the editor-heuristic regex (various|editor|edited by|anonymous). Format set to anthology by validator."
+        }
+      ],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tales_of_Heresy_(Anthology)",
+          "fetchedAt": "2026-05-09T19:35:56.615Z",
+          "fields": {
+            "title": "Tales of Heresy",
+            "authorNames": [
+              "Dan Abnett",
+              "Matthew Farrer",
+              "Mike Lee",
+              "Graham McNeill",
+              "Anthony Reynolds",
+              "James Swallow",
+              "Gav Thorpe"
+            ],
+            "editorNames": [
+              "Nick Kyme",
+              "Lindsey Priestley"
+            ],
+            "releaseYear": 2009,
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "Tales_of_Heresy_(Anthology)",
+            "status": 200,
+            "bodyYearCandidates": []
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "During the twilight of the Great Crusade and the opening shadows of the Horus Heresy, seven interconnected tales illuminate hidden moments across the sprawling conflict. These stories capture Space Marine Legions grappling with their identities and purpose: the Space Wolves facing impossible choices in compliance operations, the Word Bearers pursuing ever-zealous conquest, the World Eaters confronting a broken Primarch, and the Dark Angels wrestling with internal fractures. Meanwhile, the Sisters of Silence navigate horrors in the void aboard a derelict Black Ship, the Custodian Guard execute mysterious tasks, and a lone priest on Terra confronts the Emperor himself about faith and purpose. Together, these vignettes chart the galaxy's descent into fratricidal war, revealing the personal costs and moral ambiguities that would define the Imperium's darkest age.",
+        "facetIds": [
+          "grimdark",
+          "cw_violence",
+          "cw_death",
+          "war",
+          "betrayal",
+          "doubt",
+          "faith"
+        ],
+        "factions": [
+          {
+            "name": "Space Wolves",
+            "role": "supporting"
+          },
+          {
+            "name": "Word Bearers",
+            "role": "supporting"
+          },
+          {
+            "name": "World Eaters",
+            "role": "supporting"
+          },
+          {
+            "name": "Dark Angels",
+            "role": "supporting"
+          },
+          {
+            "name": "Sisters of Silence",
+            "role": "supporting"
+          },
+          {
+            "name": "Custodian Guard",
+            "role": "supporting"
+          },
+          {
+            "name": "Imperium",
+            "role": "primary"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Terra",
+            "role": "secondary"
+          },
+          {
+            "name": "Desh'ea",
+            "role": "mentioned"
+          },
+          {
+            "name": "Nuceria",
+            "role": "mentioned"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Angron",
+            "role": "supporting"
+          },
+          {
+            "name": "Kharn",
+            "role": "supporting"
+          },
+          {
+            "name": "The Emperor",
+            "role": "appears"
+          },
+          {
+            "name": "Lorgar",
+            "role": "appears"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 50604,
+            "output": 1011,
+            "webSearchCount": 2
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 50604,
+        "tokensOut": 1011,
+        "webSearches": 2,
+        "estUsdCost": 0.075659
+      },
+      "sourcePages": [
+        "https://en.wikipedia.org/wiki/List_of_Warhammer_40,000_novels#Novel_series",
+        "https://en.wikipedia.org/wiki/Horus_Heresy_(novels)#Titles",
+        "https://en.wikipedia.org/wiki/Siege_of_Terra#Titles",
+        "https://www.tlbranson.com/horus-heresy-reading-order/"
+      ],
+      "wikipediaTitle": "Tales of Heresy",
+      "payload": {
+        "slug": "tales-of-heresy",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Tales of Heresy",
+          "authorNames": [
+            "various authors"
+          ],
+          "releaseYear": 2009,
+          "synopsis": "During the twilight of the Great Crusade and the opening shadows of the Horus Heresy, seven interconnected tales illuminate hidden moments across the sprawling conflict. These stories capture Space Marine Legions grappling with their identities and purpose: the Space Wolves facing impossible choices in compliance operations, the Word Bearers pursuing ever-zealous conquest, the World Eaters confronting a broken Primarch, and the Dark Angels wrestling with internal fractures. Meanwhile, the Sisters of Silence navigate horrors in the void aboard a derelict Black Ship, the Custodian Guard execute mysterious tasks, and a lone priest on Terra confronts the Emperor himself about faith and purpose. Together, these vignettes chart the galaxy's descent into fratricidal war, revealing the personal costs and moral ambiguities that would define the Imperium's darkest age.",
+          "seriesIndex": 10,
+          "format": "anthology",
+          "facetIds": [
+            "grimdark",
+            "cw_violence",
+            "cw_death",
+            "war",
+            "betrayal",
+            "doubt",
+            "faith"
+          ],
+          "factionNames": [
+            "Space Wolves",
+            "Word Bearers",
+            "World Eaters",
+            "Dark Angels",
+            "Sisters of Silence",
+            "Custodian Guard",
+            "Imperium"
+          ],
+          "locationNames": [
+            "Terra",
+            "Desh'ea",
+            "Nuceria"
+          ],
+          "characterNames": [
+            "Angron",
+            "Kharn",
+            "The Emperor",
+            "Lorgar"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "lexicanum",
+          "authorNames": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "format": "manual",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Tales_of_Heresy_(Anthology)"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "chem-dog",
+      "fields": {
+        "title": {
+          "value": "Chem Dog",
+          "source": "lexicanum",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Callum Davis"
+          ],
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2026,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Newest Warhammer 40k Books",
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "format": {
+          "value": "novel",
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "<cite index=\"1-5,1-6\">Commissar Bastun Hasp is assigned to lead the Savlar Chem-Dogs, a notorious penal legion unit considered far beneath the glorious soldiers of the Imperium. Saddled with insubordinate and unruly troops he views with contempt, Hasp must nevertheless command his kill team through ork-infested terrain to secure crucial military intelligence.</cite> <cite index=\"5-6\">However, Hasp needs the Chem-Dogs far more than they need him, and he must learn to trust them if any are to survive.</cite> <cite index=\"8-17,8-22,8-23\">As the brutal commissar struggles with his mission, his rigid worldview begins to shift—not through kindness, but through the logical necessity of duty and the recognition that his cruelty springs from an absolute devotion to his principles.</cite> <cite index=\"8-24,8-25\">The Savlar themselves prove to be complex soldiers rather than mere dregs, bickering and complaining while displaying the gallows humor of the expendable.</cite>",
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "grimdark",
+            "action_heavy",
+            "war_story",
+            "squad",
+            "standalone",
+            "standard",
+            "cw_violence",
+            "cw_death",
+            "imperium"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Astra Militarum",
+              "role": "primary"
+            },
+            {
+              "name": "Orks",
+              "role": "antagonist"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Savlar",
+              "role": "mentioned"
+            },
+            {
+              "name": "Ork-infested territory",
+              "role": "primary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Commissar Bastun Hasp",
+              "role": "pov"
+            },
+            {
+              "name": "Savlar Chem-Dogs",
+              "role": "supporting"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-09T19:37:42.877Z",
+          "override": null
+        }
+      },
+      "validations": [],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/Chem_Dog_(Novel)",
+          "fetchedAt": "2026-05-09T19:36:43.567Z",
+          "fields": {
+            "title": "Chem Dog",
+            "authorNames": [
+              "Callum Davis"
+            ],
+            "releaseYear": 2026,
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "Chem_Dog_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": []
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "<cite index=\"1-5,1-6\">Commissar Bastun Hasp is assigned to lead the Savlar Chem-Dogs, a notorious penal legion unit considered far beneath the glorious soldiers of the Imperium. Saddled with insubordinate and unruly troops he views with contempt, Hasp must nevertheless command his kill team through ork-infested terrain to secure crucial military intelligence.</cite> <cite index=\"5-6\">However, Hasp needs the Chem-Dogs far more than they need him, and he must learn to trust them if any are to survive.</cite> <cite index=\"8-17,8-22,8-23\">As the brutal commissar struggles with his mission, his rigid worldview begins to shift—not through kindness, but through the logical necessity of duty and the recognition that his cruelty springs from an absolute devotion to his principles.</cite> <cite index=\"8-24,8-25\">The Savlar themselves prove to be complex soldiers rather than mere dregs, bickering and complaining while displaying the gallows humor of the expendable.</cite>",
+        "format": "novel",
+        "facetIds": [
+          "grimdark",
+          "action_heavy",
+          "war_story",
+          "squad",
+          "standalone",
+          "standard",
+          "cw_violence",
+          "cw_death",
+          "imperium"
+        ],
+        "factions": [
+          {
+            "name": "Astra Militarum",
+            "role": "primary"
+          },
+          {
+            "name": "Orks",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Savlar",
+            "role": "mentioned"
+          },
+          {
+            "name": "Ork-infested territory",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Commissar Bastun Hasp",
+            "role": "pov"
+          },
+          {
+            "name": "Savlar Chem-Dogs",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 19473,
+            "output": 706,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 19473,
+        "tokensOut": 706,
+        "webSearches": 1,
+        "estUsdCost": 0.033003000000000005
+      },
+      "sourcePages": [
+        "https://www.tlbranson.com/warhammer-40k-books-in-order/"
+      ],
+      "wikipediaTitle": "Chem Dog",
+      "payload": {
+        "slug": "chem-dog",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Chem Dog",
+          "authorNames": [
+            "Callum Davis"
+          ],
+          "releaseYear": 2026,
+          "synopsis": "<cite index=\"1-5,1-6\">Commissar Bastun Hasp is assigned to lead the Savlar Chem-Dogs, a notorious penal legion unit considered far beneath the glorious soldiers of the Imperium. Saddled with insubordinate and unruly troops he views with contempt, Hasp must nevertheless command his kill team through ork-infested terrain to secure crucial military intelligence.</cite> <cite index=\"5-6\">However, Hasp needs the Chem-Dogs far more than they need him, and he must learn to trust them if any are to survive.</cite> <cite index=\"8-17,8-22,8-23\">As the brutal commissar struggles with his mission, his rigid worldview begins to shift—not through kindness, but through the logical necessity of duty and the recognition that his cruelty springs from an absolute devotion to his principles.</cite> <cite index=\"8-24,8-25\">The Savlar themselves prove to be complex soldiers rather than mere dregs, bickering and complaining while displaying the gallows humor of the expendable.</cite>",
+          "format": "novel",
+          "facetIds": [
+            "grimdark",
+            "action_heavy",
+            "war_story",
+            "squad",
+            "standalone",
+            "standard",
+            "cw_violence",
+            "cw_death",
+            "imperium"
+          ],
+          "factionNames": [
+            "Astra Militarum",
+            "Orks"
+          ],
+          "locationNames": [
+            "Savlar",
+            "Ork-infested territory"
+          ],
+          "characterNames": [
+            "Commissar Bastun Hasp",
+            "Savlar Chem-Dogs"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "lexicanum",
+          "authorNames": "wikipedia",
+          "releaseYear": "wikipedia",
+          "synopsis": "llm",
+          "format": "llm",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Chem_Dog_(Novel)"
+          }
+        ]
+      }
+    }
+  ],
+  "updated": [],
+  "skipped_manual": [],
+  "skipped_unchanged": [],
+  "field_conflicts": [],
+  "errors": [
+    {
+      "source": "discovery",
+      "slug": "eisenhorn-xenos",
+      "message": "not found in any discovery source — synthesized minimal record from slug"
+    }
+  ],
+  "validationSummary": {
+    "year_outlier": 1,
+    "edition_isbn_conflict": 0,
+    "pagecount_outlier": 0,
+    "author_editor_suspicion": 1,
+    "lexicanum_missing": 0
+  },
+  "llmModel": "claude-haiku-4-5",
+  "llmPromptVersion": "305ed8d37ce0",
+  "llmCostSummary": {
+    "totalTokensIn": 196458,
+    "totalTokensOut": 6348,
+    "totalWebSearches": 8,
+    "estUsdCost": 0.30819799999999997
+  }
+}
