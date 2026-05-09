@@ -5,11 +5,11 @@ created: 2026-05-09
 updated: 2026-05-09
 sources:
   - ../../src/lib/ingestion/
-  - ../../sessions/2026-05-08-047-arch-pipeline-hardening.md
-  - ../../sessions/2026-05-08-047-impl-pipeline-hardening.md
-  - ../../sessions/2026-05-05-044-impl-phase3e-batch-1.md
-  - ../../sessions/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
-  - ../../sessions/2026-05-04-042-impl-phase3c-haiku-switch.md
+  - ../../sessions/archive/2026-05/2026-05-08-047-arch-pipeline-hardening.md
+  - ../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md
+  - ../../sessions/archive/2026-05/2026-05-05-044-impl-phase3e-batch-1.md
+  - ../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
+  - ../../sessions/archive/2026-05/2026-05-04-042-impl-phase3c-haiku-switch.md
   - ../../ingest/.last-run/backfill-20260508-2101.diff.json
 related:
   - ./project-state.md
@@ -116,14 +116,65 @@ CLI entry: `scripts/ingest-backfill.ts` — `tsx --env-file=.env.local scripts/i
 
 In rough order:
 
-1. **Anthologie-Re-Test für Hebel E** ([open-question 10](./open-questions.md#10-anthologie-re-test-für-hebel-e-hardcover-author-hint)). 3-slug sample test: tales-of-heresy, mark-of-calth, sons-of-the-emperor. Mini-brief, no DB write.
-2. **Lexicanum-Body-Lore-Pass *or* FIELD_PRIORITY-Reduktion** ([open-question 11](./open-questions.md#11-lexicanum-trägt-keine-junction-daten---body-lore-pass-oder-field_priority-reduktion)). Either Cheerio-walker over `.mw-parser-output` for faction/location/character Wikilinks, or a constant-edit dropping Lexicanum from the field-priority for these three fields.
+1. **Anthologie-Re-Test für Hebel E** ([open-question 4](./open-questions.md#4-anthologie-re-test-für-hebel-e-hardcover-author-hint)). 3-slug sample test: tales-of-heresy, mark-of-calth, sons-of-the-emperor. Mini-brief, no DB write.
+2. **Lexicanum-Body-Lore-Pass *or* FIELD_PRIORITY-Reduktion** ([open-question 5](./open-questions.md#5-lexicanum-trägt-keine-junction-daten---body-lore-pass-oder-field_priority-reduktion)). Either Cheerio-walker over `.mw-parser-output` for faction/location/character Wikilinks, or a constant-edit dropping Lexicanum from the field-priority for these three fields.
 3. **Phase-3e Modell-Entscheidung** ([open-question 1](./open-questions.md#1-phase-3e-modell-entscheidung---haiku-bleiben-vs-sonnet-upgrade)). Haiku ($88 voll-lauf) vs. Sonnet (~$250–300 voll-lauf). Decided post-047, post-Anthologie-Re-Test.
 4. **Vokabular-Erweiterung** ([open-question 2](./open-questions.md#2-vokabular-erweiterung---duty--faction-dimension-legion--chaos-pov_side-pattern)). `duty` (clear promotion candidate), `legion` faceten-dimension (design call), `chaos`-pov_side prompt-härtung.
 5. **Hand-Check + Override-Schema** ([open-question 3](./open-questions.md#3-hand-check-workflow-brief-nach-architektur-klärung)). CSV/Markdown override format, Cowork's flag-triage discipline.
-6. **3d-Apply-Step.** FK-Resolution (work_persons + work_facets + external_links), `junctionsLocked: true` flag, ALTER TYPE source_kind (Migration 0007 ready), UNIQUE INDEX external_links. The big one.
-7. **3e Batched Backfill** (~800 Bücher in 8–16 Sessions à 50–100 books). Currently at Batch 1/N (sessions 044). Each batch produces a diff, gets dashboard-inspected, gets Cowork-flag-triage'd.
+6. **3d-Apply-Step.** Detail-backlog below. The big one.
+7. **3e Batched Backfill** (~800 Bücher in 8–16 Sessions à 50–100 books). Currently at Batch 1/N. Each batch produces a diff, gets dashboard-inspected, gets Cowork-flag-triage'd.
 8. **3f Maintenance-Crawler.** GH-Action monthly Wikipedia-Diff for new releases. Same engine, much smaller scope.
+
+## Sub-phase backlog (concrete to-dos)
+
+Lifted from the original open-questions item 9 during 051 (Brain Slim Pass). Each item is something to fold into the brief that opens the matching sub-phase.
+
+**3d (Apply-Step) backlog:**
+
+- Author-FK-Resolution für `work_persons`-Junction inkl. Auto-Create-on-New-Person.
+- FK-Resolution für `work_facets`-Junction aus den 3c LLM-`facetIds`.
+- ALTER TYPE für `sourceKind`-DB-Enum (`open_library`, `hardcover`, `llm`) — Migration 0007 ready, committed-but-not-applied.
+- UNIQUE INDEX `external_links (work_id, kind, service_id)`.
+- `junctionsLocked: true`-Flag auf `works` (Schreibschutz für 3d-applied Junctions gegen 3f-Maintenance-Reihenwiederholungen).
+- `loadTimeline`-Trim (`SELECT primaryEraId, COUNT(*) GROUP BY primaryEraId` statt full-row-fetch).
+- `llm_flags`-Triage-Workflow (auto-applied / Cowork-Review / ignored, plus UI- bzw. CSV-/Markdown-Export-Pfad).
+- `rawLlmPayload`-FK-Resolution: `facetIds` → `facet_values.id`, `discoveredLinks` → `services.id` mit serviceHint-Resolution.
+
+**3e (Batched Backfill) backlog:**
+
+- Hardcover-Title-Variation: Server blockt `_ilike`/`_iregex`; nur exakte Title-Strings matchen — bei subtilen Unterschieden landet "no hits". Mitigation-Optionen: pre-fetch Title-Variationen-Liste oder undokumentierte RPC-Funktion entdecken.
+
+**3f (Maintenance-Crawler) backlog:**
+
+- `curl` muss im GH-Actions-Workflow-Container verfügbar sein (`ubuntu-latest` hat es by-default; explizit dokumentieren in der Action-Yaml).
+
+Distant-axis items (Lexicanum `apiSearchFallback`, OL Format/Availability heuristic, engine-friction findings from 037) wandered to [`./deferred-questions.md`](./deferred-questions.md) "Distant — Phase-3+-Engine-Erweiterungen aus 035 / 037".
+
+## Ingest-diff retention
+
+`ingest/.last-run/*.diff.json` is committed by design — it's the proof-of-run + audit trail and the data source for the `/ingest` dashboard ([`src/lib/ingestion/diff-reader.ts`](../../src/lib/ingestion/diff-reader.ts), Phase-3.5). Keeping it small enough that the repo doesn't bloat is a discipline, not an automated rule.
+
+What stays committed:
+
+- Acceptance diffs that anchor a decision (the 047-Hardening Acceptance, the 044-Batch-1 Acceptance, the original 035 dry-run that opened the pipeline).
+- One representative diff per sub-phase milestone (3a / 3b / 3c-Sonnet / 3c-Haiku / 047). The dashboard's chronological card view walks these.
+
+What is allowed to stay temporary (regeneratable, can be removed in a future cleanup brief once dashboard-decoupled):
+
+- Repeated 3c-Sonnet test reruns from the same date (e.g. multiple `backfill-20260503-*.diff.json`).
+- Throwaway debug diffs from `--limit 1` smoke tests.
+
+When summary suffices over full diff:
+
+- After a 3e batch passes its acceptance and gets folded into pipeline-state numbers, the per-book accordion content stops being load-bearing. Future move (deferred): keep the summary block (counters, cost, primarySource distribution, llm-flag histogram) committed; move the raw per-book payloads to `ingest/.archive/<runId>.diff.json` either gitignored or cold-stored, leaving `ingest/.last-run/` for the most recent ~3 batches the dashboard actively renders.
+
+**Hard rule:** no committed diff under `ingest/.last-run/` may be deleted unless the dashboard's read-path has been audited for the change. `/ingest` enumerates the directory at request time; deleting a file removes the corresponding card without warning. A separate dashboard-brief that introduces a manifest file (or moves dashboard reads to a curated list) is the prerequisite for any retention sweep. As of 051 (Brain Slim Pass): policy documented, no diffs deleted.
+
+Cache and state directories are unrelated:
+
+- `ingest/.llm-cache/` is gitignored (Anthropic API responses, regenerable, prompt-hash-keyed).
+- `ingest/.state/` is gitignored (resumable run state, regenerated each run, wiped on success).
+- `ingest/.compare/` and `ingest/.cache/` are gitignored (scratch/comparison-area).
 
 ## Out-of-scope (today)
 

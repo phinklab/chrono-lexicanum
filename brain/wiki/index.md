@@ -22,7 +22,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor.                                  | 2026-05-09 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address (replaces the pre-049 carry-over section in `sessions/README.md`). 11 items.    | 2026-05-09 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-051 trimmed to 5 actionable items; dormant items split out to `deferred-questions.md`. | 2026-05-09 |
+| [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires.       | 2026-05-09 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
