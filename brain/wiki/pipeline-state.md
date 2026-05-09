@@ -10,6 +10,7 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-05-044-impl-phase3e-batch-1.md
   - ../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
   - ../../sessions/archive/2026-05/2026-05-04-042-impl-phase3c-haiku-switch.md
+  - ../../sessions/2026-05-09-052-arch-ingest-retention-strategy.md
   - ../../ingest/.last-run/backfill-20260508-2101.diff.json
 related:
   - ./project-state.md
@@ -152,23 +153,31 @@ Distant-axis items (Lexicanum `apiSearchFallback`, OL Format/Availability heuris
 
 ## Ingest-diff retention
 
-`ingest/.last-run/*.diff.json` is committed by design — it's the proof-of-run + audit trail and the data source for the `/ingest` dashboard ([`src/lib/ingestion/diff-reader.ts`](../../src/lib/ingestion/diff-reader.ts), Phase-3.5). Keeping it small enough that the repo doesn't bloat is a discipline, not an automated rule.
+**Current strategy: Option A (decided 2026-05-09, brief 052).** Alle `ingest/.last-run/*.diff.json` bleiben committed — Acceptance + Test-Rerun + Smoke + zukünftige 3e-Batches. Begründung: die Pipeline-Daten-Erhebung ist noch nicht ausgereift, Voll-Diffs sind Apply-Input + Audit + Triage-Material, das Repo ist heute bei 808 KB ohne akuten Druck. Komplexität (Manifest, Summary-Writer, Dashboard-Refactor) wäre verfrüht.
 
-What stays committed:
+### Brain-Regel (universell, unabhängig von der Storage-Wahl)
 
-- Acceptance diffs that anchor a decision (the 047-Hardening Acceptance, the 044-Batch-1 Acceptance, the original 035 dry-run that opened the pipeline).
-- One representative diff per sub-phase milestone (3a / 3b / 3c-Sonnet / 3c-Haiku / 047). The dashboard's chronological card view walks these.
+Wiki-Pages zitieren Diff-Files **ausschließlich** per `sources:`-Frontmatter-Pfad — niemals inline. Aggregate (Cost/Buch, Junction-Coverage, Flag-Histogramm, primarySource-Distribution) gehören als synthetisierte Kennzahlen hier in `pipeline-state.md`. Inline-Quotes aus `payload`, `updated[].diff`, `llm_flags`, `rawLlmPayload`, `rawHardcoverPayload` sind verboten — das sind Roh-Daten, kein Brain-Material. Sobald das Lint-Skript existiert, wird dieser Check Teil davon.
 
-What is allowed to stay temporary (regeneratable, can be removed in a future cleanup brief once dashboard-decoupled):
+### Re-evaluate-Trigger
 
-- Repeated 3c-Sonnet test reruns from the same date (e.g. multiple `backfill-20260503-*.diff.json`).
-- Throwaway debug diffs from `--limit 1` smoke tests.
+Option A bleibt gültig, **bis** mindestens einer der folgenden Trigger feuert. Dann öffnet ein neuer Brief die Strategie-Frage neu:
 
-When summary suffices over full diff:
+1. **Repo-Druck.** `ingest/.last-run/` überschreitet 5 MB (heute ~0.8 MB; Hochrechnung 3e-Voll-Lauf ~4–5 MB).
+2. **3d-Apply ist gelaufen + stabil.** Sobald produktive DB-Writes existieren, wird ein Teil der Diff-Daten redundant — Tier-D-Routine kann auf Summary reduziert werden.
+3. **Vor 3e-Voll-Lauf**, falls die Hochrechnung dann doch die 5-MB-Marke übersteigt.
+4. **Wiki-Inline-Quote-Verstoß.** Wenn ein Wiki-Page versehentlich Diff-Inhalt inline lädt — sofortiger Lint-Fix + Strategie-Review.
 
-- After a 3e batch passes its acceptance and gets folded into pipeline-state numbers, the per-book accordion content stops being load-bearing. Future move (deferred): keep the summary block (counters, cost, primarySource distribution, llm-flag histogram) committed; move the raw per-book payloads to `ingest/.archive/<runId>.diff.json` either gitignored or cold-stored, leaving `ingest/.last-run/` for the most recent ~3 batches the dashboard actively renders.
+Bei Trigger ist die wahrscheinliche Nachfolge-Strategie **Option C+F** (Tier-D-Routine in Cold-Archive nach Apply, Summary-getriebene Listenansicht). Die Tier-Klassifikation (Smoke / Test-Rerun / Acceptance / Routine-Batch) ist dafür vorgedacht; siehe Brief 052 + Git-Historie für die ausführliche Analyse.
 
-**Hard rule:** no committed diff under `ingest/.last-run/` may be deleted unless the dashboard's read-path has been audited for the change. `/ingest` enumerates the directory at request time; deleting a file removes the corresponding card without warning. A separate dashboard-brief that introduces a manifest file (or moves dashboard reads to a curated list) is the prerequisite for any retention sweep. As of 051 (Brain Slim Pass): policy documented, no diffs deleted.
+### Hard rule (aus 051, weiterhin gültig)
+
+**Kein committed Diff unter `ingest/.last-run/` darf gelöscht werden, solange `/ingest` das Verzeichnis direkt enumeriert.** Das Dashboard rendert eine Card pro File; ein Delete entfernt die Card ohne Warnung. Jede Retention-Sweep braucht einen separaten Brief, der den Dashboard-Read-Path geprüft + ggf. auf eine Manifest-Quelle umgestellt hat, und der die `sources:`-Pointer in betroffenen Wiki-Pages mit-anpasst.
+
+### Was Option A nicht erlaubt
+
+- **Tier-A/B Files (z. B. die drei `backfill-20260503-*` Sonnet/Haiku-Vergleichs-Files) bleiben drin.** Sie sind heute Audit-Anker für `decisions/why-haiku-not-sonnet.md`. Reduktion erst, wenn ein dedizierter Cleanup-Brief Dashboard-Pfad und ADR-Sources-Liste mit-anpasst.
+- **Keine Code-Änderungen am Diff-Writer / Dashboard / Schema** als Folge dieser Policy. Status quo der Implementierung.
 
 Cache and state directories are unrelated:
 
