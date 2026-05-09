@@ -24,6 +24,8 @@ Only open / `needs-decision` briefs and the last just-closed session. Cowork upd
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
+| [2026-05-09-054](2026-05-09-054-impl-pipeline-v2-pilot.md) | implementer | complete | Pipeline V2 Pilot shipped — TLBranson + Wikipedia discovery, infobox-only Lexicanum + sanity-checked OL + silent-skip Hardcover, 5 deterministic validators, slim LLM (no rating/availability, max_uses=3), BookV2Record diff at `ingest/.last-run/v2-pilot-20260509-1934.diff.json`. 4/5 acceptance bullets clean; garro pagecount empirical-only. |
+| [2026-05-09-054](2026-05-09-054-arch-pipeline-v2-pilot.md) | architect | implemented | Pipeline V2 Pilot — Discovery-Spine (Wikipedia + TLBranson), Lexicanum-Body-Year-Regex raus, deterministische Validators, Slim-LLM ohne Rating/Availability, BookV2Record mit Provenance-pro-Feld. Pilot auf 5 Büchern als committed Diff. |
 | [2026-05-09-053](2026-05-09-053-impl-brain-lint.md) | implementer | complete | Brain Lint shipped — `scripts/brain-lint.ts` + `npm run brain:lint` + CI gate; first report at `brain/outputs/lint/2026-05-09.md` (0 blocking, 1 intentional warning); 4 deterministic fixes mit-shipped. |
 | [2026-05-09-053](2026-05-09-053-arch-brain-lint.md) | architect | implemented | Brain Lint - einmal sauber bauen: deterministische Brain-Hygiene, high-signal stale-claim warnings, Report-Output und CI-Guardrail in einer Session. |
 | [2026-05-09-052](2026-05-09-052-arch-ingest-retention-strategy.md) | architect | implemented | Ingest-Retention — Decision: Option A (alles bleibt committed, Re-evaluate-Trigger gesetzt, Brain-Inline-Quote-Verbot). Cowork-only, kein CC. |

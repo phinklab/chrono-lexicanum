@@ -8,6 +8,14 @@
  * Usage:
  *   npm run ingest:backfill -- --dry-run [--limit N] [--slug <slug>] [--source <name>]
  *
+ * Phase-3 Brief 054 — Pipeline V2 pilot opt-in:
+ *   npm run ingest:backfill -- --pipeline=v2 --pilot=v2-tryout-1
+ *
+ * The V2 path is diff-only by design (no DB-apply ever) — `--dry-run` is
+ * implied. V1 (default) behavior is unchanged: `--dry-run` is still
+ * required, the existing flag set still applies, the diff schema still
+ * matches `backfill-YYYYMMDD-HHMM.diff.json`.
+ *
  * Resumable: progress is persisted to ingest/.state/in-progress.json on
  * each book and after Ctrl-C; a subsequent invocation picks up at the
  * next unprocessed index. State is cleared on successful completion.
@@ -75,6 +83,8 @@ const VALID_PER_BOOK_SOURCES: SourceName[] = [
   "llm",
 ];
 
+type PipelineVersion = "v1" | "v2";
+
 interface CliConfig {
   dryRun: boolean;
   limit?: number;
@@ -84,6 +94,11 @@ interface CliConfig {
   offset?: number;
   slug?: string;
   source?: SourceName;
+  /** Brief 054: pipeline version. Default `v1`. `v2` swaps to the slim
+   *  V2 path (Discovery + Validators + Slim LLM + BookV2Record diff). */
+  pipeline: PipelineVersion;
+  /** Brief 054: pilot identifier (only meaningful with `--pipeline=v2`). */
+  pilot?: string;
 }
 
 function parseCliArgs(): CliConfig {
@@ -94,6 +109,8 @@ function parseCliArgs(): CliConfig {
       offset: { type: "string" },
       slug: { type: "string" },
       source: { type: "string" },
+      pipeline: { type: "string" },
+      pilot: { type: "string" },
     },
     strict: true,
   });
@@ -103,8 +120,16 @@ function parseCliArgs(): CliConfig {
   const offset = values.offset !== undefined ? Number.parseInt(values.offset, 10) : undefined;
   const slug = values.slug;
   const source = values.source as SourceName | undefined;
+  const pipelineRaw = values.pipeline;
+  const pipeline: PipelineVersion =
+    pipelineRaw === "v2" ? "v2" : pipelineRaw === "v1" || pipelineRaw === undefined
+      ? "v1"
+      : (() => {
+          exitWithError(`--pipeline ${pipelineRaw}: must be "v1" or "v2"`);
+        })();
+  const pilot = values.pilot;
 
-  return { dryRun, limit, offset, slug, source };
+  return { dryRun, limit, offset, slug, source, pipeline, pilot };
 }
 
 function exitWithError(msg: string, code: number = 1): never {
@@ -130,6 +155,23 @@ function emptyDiff(discoveryPages: string[], activeSources: SourceName[]): DiffF
 
 async function main(): Promise<void> {
   const cfg = parseCliArgs();
+
+  // Brief 054 — V2 path is diff-only by design; --dry-run is implied.
+  if (cfg.pipeline === "v2") {
+    if (!cfg.pilot) {
+      exitWithError(
+        "--pipeline=v2 requires --pilot=<name> (today: --pilot=v2-tryout-1)",
+      );
+    }
+    if (cfg.pilot !== "v2-tryout-1") {
+      exitWithError(
+        `--pilot ${cfg.pilot}: only "v2-tryout-1" is wired in 054`,
+      );
+    }
+    const { runV2Pilot } = await import("@/lib/ingestion/v2/run-pilot");
+    await runV2Pilot(cfg.pilot);
+    return;
+  }
 
   if (!cfg.dryRun) {
     exitWithError(
