@@ -17,7 +17,7 @@ decision-date: 2026-05-02
 
 # Why field-by-field multi-source merge (deterministic priority)
 
-**Status:** active · **Decided:** 2026-05-02 · **Sessions:** [033 (retracted)](../../../sessions/archive/2026-05/), [034](../../../sessions/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md), [035-impl](../../../sessions/2026-05-03-035-impl-phase3a-bulk-backfill-skeleton.md)
+**Status:** active · **Decided:** 2026-05-02 · **Sessions:** [033 (retracted)](../../../sessions/archive/2026-05/2026-05-02-033-arch-phase3-stufe-3a-lexicanum-dryrun.md), [034](../../../sessions/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md), [035-impl](../../../sessions/2026-05-03-035-impl-phase3a-bulk-backfill-skeleton.md)
 
 ## Context
 

@@ -57,7 +57,7 @@ Sequenz post-049: Anthologie-Re-Test (item 10) → Body-Lore-Pass / FIELD_PRIORI
 
 ## (5) Redirect-Mechanismus — HTTP 307 vs. meta-refresh
 
-**Owner:** future brief if pain becomes concrete. **Sessions:** [025/026-impl](../../sessions/archive/2026-05/) (Stufe 2c.1 DetailPanel + deep-link).
+**Owner:** future brief if pain becomes concrete. **Sessions:** [025-arch](../../sessions/archive/2026-05/2026-05-02-025-arch-detail-panel-deeplink.md) + [026-impl](../../sessions/archive/2026-05/2026-05-02-026-impl-detail-panel-deeplink.md) (Stufe 2c.1 DetailPanel + deep-link).
 
 Mit `src/app/timeline/loading.tsx` (instant Skeleton beim Hub→Timeline-Click) hat sich das Verhalten von `redirect()`-Calls in `page.tsx` geändert: Stream startet vor Redirect → Next emittet `<meta http-equiv="refresh">` plus RSC-Redirect-Direktive, statt sauberen HTTP 307. Browser folgen korrekt; JS-User kriegen den Redirect via Next-Router instant; **Direkthits auf Redirect-URLs (geteilte Links, Legacy `?era=M30`) bekommen 1 Sekunde Skeleton-Blink vor Meta-Refresh**. Sauberere Alternative: Redirect-Logik in `middleware.ts` (gibt 307 sofort zurück). Trade-off: ~80 Zeilen `middleware.ts` mit 1–2 DB-Queries vor jedem `/timeline`-Hit. Mit Philipp 2026-05-02 bestätigt: bleibt vorerst hier liegen — Internal-Nav unaffected, Direkthits selten genug.
 
