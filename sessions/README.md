@@ -24,6 +24,9 @@ Only open / `needs-decision` briefs and the last just-closed session. Cowork upd
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
+| [2026-05-09-053](2026-05-09-053-impl-brain-lint.md) | implementer | complete | Brain Lint shipped — `scripts/brain-lint.ts` + `npm run brain:lint` + CI gate; first report at `brain/outputs/lint/2026-05-09.md` (0 blocking, 1 intentional warning); 4 deterministic fixes mit-shipped. |
+| [2026-05-09-053](2026-05-09-053-arch-brain-lint.md) | architect | implemented | Brain Lint - einmal sauber bauen: deterministische Brain-Hygiene, high-signal stale-claim warnings, Report-Output und CI-Guardrail in einer Session. |
+| [2026-05-09-052](2026-05-09-052-arch-ingest-retention-strategy.md) | architect | implemented | Ingest-Retention — Decision: Option A (alles bleibt committed, Re-evaluate-Trigger gesetzt, Brain-Inline-Quote-Verbot). Cowork-only, kein CC. |
 | [2026-05-09-051](2026-05-09-051-arch-brain-slim-pass.md) | architect | implemented | Brain Slim Pass — README/ADRs/Queue/Sessions/Ingest verschlanken. |
 | [2026-05-09-051](2026-05-09-051-impl-brain-slim-pass.md) | implementer | complete | Brain Slim Pass implementer report — 22 sessions archived, 3 stale `open` corrected, `docs/agents/*` stubbed, ADRs cut, `open-questions.md` split, ingest-retention policy documented. |
 | [2026-05-09-050](2026-05-09-050-arch-brain-hygiene-pass.md) | architect | implemented | Brain Hygiene Pass — Link-Audit, Frontmatter-Sources-Normalisierung, Read-Order-Fix, `.gitattributes`. |

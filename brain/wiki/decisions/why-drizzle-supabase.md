@@ -5,7 +5,7 @@ created: 2026-04-28
 updated: 2026-05-09
 sources:
   - ../../../sessions/archive/2026-04/2026-04-28-001-arch-bootstrap.md
-  - ../raw/historical/2026-05-08-pre-reset/ARCHITECTURE.md
+  - ../../raw/historical/2026-05-08-pre-reset/ARCHITECTURE.md
   - ../../../src/db/schema.ts
 related:
   - ../architecture.md

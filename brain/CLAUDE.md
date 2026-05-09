@@ -94,7 +94,7 @@ Each takes specific inputs and produces specific outputs. Following them rigorou
 **Rules:**
 
 - Lint never edits the wiki. It reports. Fixes happen via Ingest.
-- See [`wiki/workflows/lint.md`](./wiki/workflows/lint.md) for the check list. The lint script itself is a follow-up brief; until then, the workflow page documents what *would* be checked, and humans run the checks by eye.
+- Run with `npm run brain:lint` (writes a report under `outputs/lint/<today>.md`) or `npm run brain:lint -- --no-write` (CI mode, summary + exit code only). CI calls the no-write form on every PR. See [`wiki/workflows/lint.md`](./wiki/workflows/lint.md) for the full check list, severity policy, and what's deliberately out of scope.
 
 ## ADR shape (decisions/)
 
