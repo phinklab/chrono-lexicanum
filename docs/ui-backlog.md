@@ -20,7 +20,7 @@ Differences from neighbouring docs:
 ### Series-label crowding in EraDetail when books cluster at the same time
 
 - **Spotted:** 2026-05-02, after Stufe 2b shipped 26 books
-  (`sessions/2026-05-02-022-impl-rich-seed-2b.md`).
+  (`sessions/archive/2026-05/2026-05-02-022-impl-rich-seed-2b.md`).
 - **Where:** `/timeline?era=time_ending`, right side of the surface around
   M41.799–M41.999. The era covers M41.997–M42.999 but the live data only has
   one book past M42, so 13 of 14 books anchor in a narrow ~200-year window.
