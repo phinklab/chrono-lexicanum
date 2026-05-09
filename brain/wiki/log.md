@@ -107,6 +107,25 @@ First real run of [`./workflows/session-end.md`](./workflows/session-end.md).
 
 **Meta-observation from CC's "For next session":** "first real session-end-routine test … if painful or has gaps, brief 051 should be a workflow-tweak". This run completed cleanly inside the workflow's 5–15-minute realistic budget. The only friction point was that the workflow's Step 5 implicitly assumed a structural change ("if the report changed: schema → architecture.md, pipeline → pipeline-state.md, roadmap → roadmap.md") and didn't cleanly handle the structural-only case where the report introduces an artefact that's NOT a schema/pipeline/roadmap change but IS a project-state.md change (here: `npm run atlas:regen` — a new "What's running" entry on the project-state-page, not a structural update). I handled that by routing the artefact mention into [`./project-state.md`](./project-state.md)'s "What's running" section, which is the obvious home; logging it here so a future workflow-tweak (if needed) can decide whether Step 2 of [`./workflows/session-end.md`](./workflows/session-end.md) should explicitly call out "new operational artefacts" as a project-state subitem. Not blocking; not worth a workflow-tweak brief today.
 
+## 2026-05-09 · Lint-Hygiene-Pass · Brain Hygiene Pass (Brief 050)
+
+Response to external review now archived at [`../raw/reviews/2026-05-09-brain-structure-review.md`](../raw/reviews/2026-05-09-brain-structure-review.md). Review found Brain architecturally sound but flagged five hygiene gaps; this session addressed gaps 1–4. Gap 5 (lint script) is queued as Brief 051.
+
+**What was corrected:**
+
+- **Class A — broken `sessions/archive/*` paths.** ~27 references corrected across 6 wiki pages, all pointing to `sessions/archive/2026-05/<id>.md` for sessions that actually live directly under `sessions/<id>.md`. Sessions affected: 031, 032, 034, 035, 037, 038, 039. (033 + 046 are the only sessions actually archived; their archive-paths stay.)
+- **Class B — phantom filename `2026-05-02-033-arch-daily-drift-RETRACTED.md`.** Two `sources:`-entries (in [`./decisions/why-multi-source-merge.md`](./decisions/why-multi-source-merge.md) and [`./decisions/why-bulk-backfill.md`](./decisions/why-bulk-backfill.md)) referenced a file that doesn't exist on disk. Corrected to the actual archived 033 filename `2026-05-02-033-arch-phase3-stufe-3a-lexicanum-dryrun.md`.
+- **Class C — directory-target body links.** Three `(.../sessions/archive/2026-05/)`-only links (no specific file) repointed to concrete files: 033 (retracted) in two decisions pages, plus the `[025/026-impl]` link in [`./open-questions.md`](./open-questions.md) item 5 expanded to two explicit links (025-arch + 026-impl).
+- **Class D — `sources:` frontmatter normalization.** Four entries with parens-comments or free text rewritten to pure paths (or `sources: []` + body note for the catalog). Files: [`./index.md`](./index.md), [`./onboarding.md`](./onboarding.md), [`./open-questions.md`](./open-questions.md), [`./decisions/plan-reshuffle-2026-05-02.md`](./decisions/plan-reshuffle-2026-05-02.md). A future `brain:lint` (Brief 051) can now treat `sources:` as a list of literal paths.
+- **Class E — read-order phrasing.** [`./index.md`](./index.md) line ~17 now correctly says read **third** (after top-level `/CLAUDE.md` and `brain/CLAUDE.md`), matching the read-order list in the same file (~lines 81–88) and in [`../CLAUDE.md`](../CLAUDE.md) (lines 11–16).
+- **Class F — `.gitattributes`.** New file at repo root with `brain/raw/** text eol=lf`. Stops the LF/CRLF churn on the immutable `brain/raw/historical/` snapshots that was undermining the snapshot-contract on Windows clients.
+
+**Pages touched (wiki):** [`./glossary.md`](./glossary.md), [`./onboarding.md`](./onboarding.md), [`./index.md`](./index.md), [`./open-questions.md`](./open-questions.md), [`./decisions/why-haiku-not-sonnet.md`](./decisions/why-haiku-not-sonnet.md), [`./decisions/why-multi-source-merge.md`](./decisions/why-multi-source-merge.md), [`./decisions/why-bulk-backfill.md`](./decisions/why-bulk-backfill.md), [`./decisions/no-goodreads.md`](./decisions/no-goodreads.md), [`./decisions/plan-reshuffle-2026-05-02.md`](./decisions/plan-reshuffle-2026-05-02.md), this `log.md`. All `updated:` already at 2026-05-09 (pages were created in the 2026-05-09 ingest pass); no date bumps needed.
+
+**Out of scope (per brief):** lint script (Brief 051); re-synthesis of any wiki content; path fixes inside `sessions/*.md`; pipeline / app / DB / migrations.
+
+**Audit was wider than the brief listed:** the brief named glossary, why-haiku-not-sonnet, why-multi-source-merge, open-questions; an exhaustive grep over `brain/wiki/**/*.md` surfaced two additional files with the same pattern ([`./decisions/why-bulk-backfill.md`](./decisions/why-bulk-backfill.md) and [`./decisions/no-goodreads.md`](./decisions/no-goodreads.md)). Brief explicitly authorized this ("audit-exhaustiv, nicht nur diese vier"). Same fix pattern; mitfixed.
+
 ---
 
 (Future entries go below as new `## YYYY-MM-DD · <Op-type> · <short-title>` sections.)
