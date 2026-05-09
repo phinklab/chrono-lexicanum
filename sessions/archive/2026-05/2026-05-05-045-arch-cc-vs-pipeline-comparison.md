@@ -2,7 +2,7 @@
 session: 2026-05-05-045
 role: architect
 date: 2026-05-05
-status: open
+status: answered
 slug: cc-vs-pipeline-comparison
 parent: null
 links:
