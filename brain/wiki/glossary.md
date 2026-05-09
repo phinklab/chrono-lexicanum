@@ -8,9 +8,9 @@ sources:
   - ../../src/lib/ingestion/types.ts
   - ../../scripts/seed-data/README.md
   - ../../sessions/archive/2026-05/2026-05-01-019-arch-schema-foundation.md
-  - ../../sessions/archive/2026-05/2026-05-03-035-impl-phase3a-bulk-backfill-skeleton.md
-  - ../../sessions/archive/2026-05/2026-05-03-037-impl-phase3b-aux-sources.md
-  - ../../sessions/archive/2026-05/2026-05-03-039-impl-phase3c-llm-enrichment.md
+  - ../../sessions/2026-05-03-035-impl-phase3a-bulk-backfill-skeleton.md
+  - ../../sessions/2026-05-03-037-impl-phase3b-aux-sources.md
+  - ../../sessions/2026-05-03-039-impl-phase3c-llm-enrichment.md
 related:
   - ./architecture.md
   - ./pipeline-state.md
