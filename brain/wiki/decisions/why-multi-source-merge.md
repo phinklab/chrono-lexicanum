@@ -4,9 +4,9 @@ type: decision
 created: 2026-05-02
 updated: 2026-05-09
 sources:
-  - ../../../sessions/archive/2026-05/2026-05-02-033-arch-daily-drift-RETRACTED.md
-  - ../../../sessions/archive/2026-05/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md
-  - ../../../sessions/archive/2026-05/2026-05-03-035-impl-phase3a-bulk-backfill-skeleton.md
+  - ../../../sessions/archive/2026-05/2026-05-02-033-arch-phase3-stufe-3a-lexicanum-dryrun.md
+  - ../../../sessions/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md
+  - ../../../sessions/2026-05-03-035-impl-phase3a-bulk-backfill-skeleton.md
 related:
   - ./why-bulk-backfill.md
   - ./no-goodreads.md
@@ -17,7 +17,7 @@ decision-date: 2026-05-02
 
 # Why field-by-field multi-source merge (deterministic priority)
 
-**Status:** active · **Decided:** 2026-05-02 · **Sessions:** [033 (retracted)](../../../sessions/archive/2026-05/), [034](../../../sessions/archive/2026-05/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md), [035-impl](../../../sessions/archive/2026-05/2026-05-03-035-impl-phase3a-bulk-backfill-skeleton.md)
+**Status:** active · **Decided:** 2026-05-02 · **Sessions:** [033 (retracted)](../../../sessions/archive/2026-05/), [034](../../../sessions/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md), [035-impl](../../../sessions/2026-05-03-035-impl-phase3a-bulk-backfill-skeleton.md)
 
 ## Context
 

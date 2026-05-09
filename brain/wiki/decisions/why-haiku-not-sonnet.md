@@ -4,8 +4,8 @@ type: decision
 created: 2026-05-04
 updated: 2026-05-09
 sources:
-  - ../../../sessions/archive/2026-05/2026-05-03-038-arch-phase3c-llm-enrichment.md
-  - ../../../sessions/archive/2026-05/2026-05-03-039-impl-phase3c-llm-enrichment.md
+  - ../../../sessions/2026-05-03-038-arch-phase3c-llm-enrichment.md
+  - ../../../sessions/2026-05-03-039-impl-phase3c-llm-enrichment.md
   - ../../../sessions/2026-05-04-040-arch-phase3c-haiku-switch.md
   - ../../../sessions/2026-05-04-042-impl-phase3c-haiku-switch.md
   - ../../../sessions/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
@@ -18,7 +18,7 @@ decision-date: 2026-05-04
 
 # Why Haiku 4.5, not Sonnet 4.6
 
-**Status:** active (under review post-Anthologie-Re-Test) · **Decided:** 2026-05-04 (Brief 040) · **Sessions:** [038](../../../sessions/archive/2026-05/2026-05-03-038-arch-phase3c-llm-enrichment.md), [039-impl + addendum](../../../sessions/archive/2026-05/2026-05-03-039-impl-phase3c-llm-enrichment.md), [040](../../../sessions/2026-05-04-040-arch-phase3c-haiku-switch.md), [042-impl](../../../sessions/2026-05-04-042-impl-phase3c-haiku-switch.md), [045-impl](../../../sessions/2026-05-05-045-impl-cc-vs-pipeline-comparison.md)
+**Status:** active (under review post-Anthologie-Re-Test) · **Decided:** 2026-05-04 (Brief 040) · **Sessions:** [038](../../../sessions/2026-05-03-038-arch-phase3c-llm-enrichment.md), [039-impl + addendum](../../../sessions/2026-05-03-039-impl-phase3c-llm-enrichment.md), [040](../../../sessions/2026-05-04-040-arch-phase3c-haiku-switch.md), [042-impl](../../../sessions/2026-05-04-042-impl-phase3c-haiku-switch.md), [045-impl](../../../sessions/2026-05-05-045-impl-cc-vs-pipeline-comparison.md)
 
 ## Context
 

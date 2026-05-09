@@ -63,7 +63,7 @@ Mit `src/app/timeline/loading.tsx` (instant Skeleton beim Hub→Timeline-Click) 
 
 ## (6) 3c `no_rating_found`-Flag-Misuse (Sonnet-spezifisch, mit Haiku dormant)
 
-**Owner:** future brief, only if Sonnet ad-hoc per `INGEST_LLM_MODEL`-Override aktiviert wird. **Sessions:** [039-impl](../../sessions/archive/2026-05/2026-05-03-039-impl-phase3c-llm-enrichment.md), [042-impl](../../sessions/2026-05-04-042-impl-phase3c-haiku-switch.md).
+**Owner:** future brief, only if Sonnet ad-hoc per `INGEST_LLM_MODEL`-Override aktiviert wird. **Sessions:** [039-impl](../../sessions/2026-05-03-039-impl-phase3c-llm-enrichment.md), [042-impl](../../sessions/2026-05-04-042-impl-phase3c-haiku-switch.md).
 
 4 Bücher im Sonnet-Original-Lauf hatten `rating + ratingSource` gesetzt UND einen `no_rating_found`-Flag — der Sonnet nutzt den Flag als Audit-Erklärung für Source-Priority-Fallback. Haiku zeigte das Verhalten nicht (0× im Vergleichs-Lauf). Mit dem Modell-Switch in 040 ist das Symptom weg. Mini-Brief-Pfad falls jemals nötig: Flag-Kind-Union um `rating_source_fallback` erweitern, oder System-Prompt schärfen. **Dormant.**
 
@@ -81,7 +81,7 @@ Im Original-Haiku-Lauf (Bücher 21–40, alles HH-Phase-2) wurde der Flag 0× em
 
 ## (9) Phase-3-Brief-Reminders aus 035 + 037 + 039 für kommende Bricks
 
-**Owner:** Cowork (folds into the right phase-brief when its turn comes). **Sessions:** [035-impl](../../sessions/archive/2026-05/2026-05-03-035-impl-phase3a-bulk-backfill-skeleton.md), [037-impl](../../sessions/archive/2026-05/2026-05-03-037-impl-phase3b-aux-sources.md), [039-impl](../../sessions/archive/2026-05/2026-05-03-039-impl-phase3c-llm-enrichment.md).
+**Owner:** Cowork (folds into the right phase-brief when its turn comes). **Sessions:** [035-impl](../../sessions/2026-05-03-035-impl-phase3a-bulk-backfill-skeleton.md), [037-impl](../../sessions/2026-05-03-037-impl-phase3b-aux-sources.md), [039-impl](../../sessions/2026-05-03-039-impl-phase3c-llm-enrichment.md).
 
 Sub-items grouped by destination phase:
 
