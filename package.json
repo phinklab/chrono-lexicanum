@@ -14,8 +14,10 @@
     "db:migrate": "tsx --env-file=.env.local scripts/migrate.ts",
     "db:studio": "drizzle-kit studio",
     "db:seed": "tsx --env-file=.env.local scripts/seed.ts",
+    "db:reset-for-ssot": "tsx --env-file=.env.local scripts/db-reset-for-ssot.ts",
     "check:eras": "tsx scripts/check-eras.ts",
     "ingest:backfill": "tsx --env-file=.env.local scripts/ingest-backfill.ts",
+    "import:ssot-roster": "tsx scripts/import-ssot-roster.ts",
     "atlas:regen": "tsx --env-file=.env.local scripts/atlas-regen.ts",
     "brain:lint": "tsx scripts/brain-lint.ts",
     "test:discovery-merge": "tsx scripts/test-discovery-merge.ts",
@@ -46,6 +48,7 @@
     "eslint": "^9.39.4",
     "eslint-config-next": "16.2.4",
     "postcss": "^8.5.1",
+    "read-excel-file": "^9.0.9",
     "tailwindcss": "^4.2.4",
     "tsx": "^4.19.2",
     "typescript": "^5.9.3"

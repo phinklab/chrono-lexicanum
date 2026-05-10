@@ -224,6 +224,7 @@ async function main() {
   await db.execute(sql`TRUNCATE TABLE
     external_links,
     work_persons, work_facets, work_locations, work_characters, work_factions,
+    work_collections,
     book_details, film_details, channel_details, video_details,
     works,
     services, persons,

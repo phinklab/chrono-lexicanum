@@ -57,6 +57,13 @@
       "when": 1778272660081,
       "tag": "0007_thick_pete_wisdom",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1778445255347,
+      "tag": "0008_ssot_schema",
+      "breakpoints": true
     }
   ]
 }
