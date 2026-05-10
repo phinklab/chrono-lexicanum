@@ -1,0 +1,4189 @@
+{
+  "ranAt": "2026-05-10T22:32:25.275Z",
+  "pipeline": "v2",
+  "pilot": "ssot-w40k-001",
+  "discoverySource": [
+    "ssot"
+  ],
+  "discoveryPages": [
+    "scripts\\seed-data\\book-roster.json"
+  ],
+  "activeSources": [
+    "lexicanum",
+    "open_library",
+    "hardcover",
+    "llm"
+  ],
+  "discovered": 10,
+  "added": [
+    {
+      "slug": "xenos",
+      "fields": {
+        "title": {
+          "value": "Xenos",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Dan Abnett"
+          ],
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2001,
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": "9780743411691",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": "0743411692",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": 288,
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": "https://covers.openlibrary.org/b/id/476057-L.jpg",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "format": {
+          "value": "novel",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues the heretic Murdin Eyclone to the frozen world of Hubris, where he discovers the theft of a mysterious artifact containing the preserved consciousness of the notorious Pontius Glaw. This seemingly routine case spirals into a galaxy-spanning conspiracy when Eisenhorn uncovers a cabal of rogue imperial agents and Chaos cultists racing to obtain the Necroteuch, an ancient daemonic tome of terrible power. Assembling an eclectic retinue including the untouchable Alizebeth Bequin and Arbites officer Godwyn Fischig, Eisenhorn hunts his prey across multiple worlds, from the noble estates of Gudrun to the bizarre geometries of an alien world. He must confront traitors within the Inquisition itself, daemonic entities, and the terrifying xenos saruthi, while grappling with the moral cost of his methods in combating Chaos.",
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "inquisitor",
+            "male",
+            "imperium",
+            "sector",
+            "series_start",
+            "standard",
+            "mystery",
+            "action_heavy",
+            "grimdark",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Inquisition",
+              "role": "primary"
+            },
+            {
+              "name": "Emperor's Children",
+              "role": "antagonist"
+            },
+            {
+              "name": "Chaos",
+              "role": "antagonist"
+            },
+            {
+              "name": "Adeptus Arbites",
+              "role": "supporting"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Hubris",
+              "role": "primary"
+            },
+            {
+              "name": "Gudrun",
+              "role": "primary"
+            },
+            {
+              "name": "Damask",
+              "role": "secondary"
+            },
+            {
+              "name": "56-Izar",
+              "role": "primary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Gregor Eisenhorn",
+              "role": "pov"
+            },
+            {
+              "name": "Alizebeth Bequin",
+              "role": "supporting"
+            },
+            {
+              "name": "Godwyn Fischig",
+              "role": "supporting"
+            },
+            {
+              "name": "Midas Betancore",
+              "role": "supporting"
+            },
+            {
+              "name": "Uber Aemos",
+              "role": "supporting"
+            },
+            {
+              "name": "Mandragore Carrion",
+              "role": "antagonist"
+            },
+            {
+              "name": "Cherubael",
+              "role": "supporting"
+            },
+            {
+              "name": "Pontius Glaw",
+              "role": "mentioned"
+            },
+            {
+              "name": "Murdin Eyclone",
+              "role": "appears"
+            },
+            {
+              "name": "Commodus Voke",
+              "role": "appears"
+            },
+            {
+              "name": "Lores Vibben",
+              "role": "appears"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:27:55.800Z",
+          "override": null
+        }
+      },
+      "validations": [],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/Xenos_(Novel)",
+          "fetchedAt": "2026-05-10T22:27:40.207Z",
+          "fields": {
+            "title": "Xenos",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2001,
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "Xenos_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": [
+              40240,
+              40745
+            ]
+          }
+        },
+        {
+          "source": "open_library",
+          "sourceUrl": "https://openlibrary.org/works/OL5843437W",
+          "fetchedAt": "2026-05-10T22:27:42.151Z",
+          "fields": {
+            "title": "Xenos (The Eisenhorn Trilogy, Book 1)",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2001,
+            "isbn13": "9780743411691",
+            "isbn10": "0743411692",
+            "pageCount": 288,
+            "coverUrl": "https://covers.openlibrary.org/b/id/476057-L.jpg"
+          },
+          "notes": [],
+          "raw": {
+            "author_name": [
+              "Dan Abnett"
+            ],
+            "cover_i": 476057,
+            "edition_count": 1,
+            "first_publish_year": 2001,
+            "isbn": [
+              "0743411692",
+              "9780743411691"
+            ],
+            "key": "/works/OL5843437W",
+            "number_of_pages_median": 288,
+            "title": "Xenos (The Eisenhorn Trilogy, Book 1)"
+          }
+        },
+        {
+          "source": "hardcover",
+          "sourceUrl": "https://hardcover.app/books/xenos",
+          "fetchedAt": "2026-05-10T22:27:42.599Z",
+          "fields": {},
+          "notes": [],
+          "raw": {
+            "audit": {
+              "tags": [
+                "Science Fiction",
+                "Fantasy",
+                "Space",
+                "War",
+                "Dystopian",
+                "Aliens",
+                "Fantasy games",
+                "Horror",
+                "Horreur",
+                "Aventure",
+                "Adventurous",
+                "dark",
+                "fast-paced",
+                "challenging",
+                "Plot driven",
+                "Weak Character Development",
+                "Diverse Characters",
+                "Unloveable Characters",
+                "challenging",
+                "adventurous",
+                "A mix driven",
+                "Loveable Characters",
+                "fast-paced"
+              ],
+              "averageRating": 3.937007874015748,
+              "contributorNames": [
+                "Dan Abnett"
+              ]
+            }
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues the heretic Murdin Eyclone to the frozen world of Hubris, where he discovers the theft of a mysterious artifact containing the preserved consciousness of the notorious Pontius Glaw. This seemingly routine case spirals into a galaxy-spanning conspiracy when Eisenhorn uncovers a cabal of rogue imperial agents and Chaos cultists racing to obtain the Necroteuch, an ancient daemonic tome of terrible power. Assembling an eclectic retinue including the untouchable Alizebeth Bequin and Arbites officer Godwyn Fischig, Eisenhorn hunts his prey across multiple worlds, from the noble estates of Gudrun to the bizarre geometries of an alien world. He must confront traitors within the Inquisition itself, daemonic entities, and the terrifying xenos saruthi, while grappling with the moral cost of his methods in combating Chaos.",
+        "facetIds": [
+          "inquisitor",
+          "male",
+          "imperium",
+          "sector",
+          "series_start",
+          "standard",
+          "mystery",
+          "action_heavy",
+          "grimdark",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          {
+            "name": "Inquisition",
+            "role": "primary"
+          },
+          {
+            "name": "Emperor's Children",
+            "role": "antagonist"
+          },
+          {
+            "name": "Chaos",
+            "role": "antagonist"
+          },
+          {
+            "name": "Adeptus Arbites",
+            "role": "supporting"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Hubris",
+            "role": "primary"
+          },
+          {
+            "name": "Gudrun",
+            "role": "primary"
+          },
+          {
+            "name": "Damask",
+            "role": "secondary"
+          },
+          {
+            "name": "56-Izar",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Gregor Eisenhorn",
+            "role": "pov"
+          },
+          {
+            "name": "Alizebeth Bequin",
+            "role": "supporting"
+          },
+          {
+            "name": "Godwyn Fischig",
+            "role": "supporting"
+          },
+          {
+            "name": "Midas Betancore",
+            "role": "supporting"
+          },
+          {
+            "name": "Uber Aemos",
+            "role": "supporting"
+          },
+          {
+            "name": "Mandragore Carrion",
+            "role": "antagonist"
+          },
+          {
+            "name": "Cherubael",
+            "role": "supporting"
+          },
+          {
+            "name": "Pontius Glaw",
+            "role": "mentioned"
+          },
+          {
+            "name": "Murdin Eyclone",
+            "role": "appears"
+          },
+          {
+            "name": "Commodus Voke",
+            "role": "appears"
+          },
+          {
+            "name": "Lores Vibben",
+            "role": "appears"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 24875,
+            "output": 1060,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 24875,
+        "tokensOut": 1060,
+        "webSearches": 1,
+        "estUsdCost": 0.040174999999999995
+      },
+      "sourcePages": [
+        "https://www.tlbranson.com/warhammer-40k-books-in-order/"
+      ],
+      "wikipediaTitle": "Xenos",
+      "payload": {
+        "slug": "xenos",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Xenos",
+          "authorNames": [
+            "Dan Abnett"
+          ],
+          "releaseYear": 2001,
+          "synopsis": "Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues the heretic Murdin Eyclone to the frozen world of Hubris, where he discovers the theft of a mysterious artifact containing the preserved consciousness of the notorious Pontius Glaw. This seemingly routine case spirals into a galaxy-spanning conspiracy when Eisenhorn uncovers a cabal of rogue imperial agents and Chaos cultists racing to obtain the Necroteuch, an ancient daemonic tome of terrible power. Assembling an eclectic retinue including the untouchable Alizebeth Bequin and Arbites officer Godwyn Fischig, Eisenhorn hunts his prey across multiple worlds, from the noble estates of Gudrun to the bizarre geometries of an alien world. He must confront traitors within the Inquisition itself, daemonic entities, and the terrifying xenos saruthi, while grappling with the moral cost of his methods in combating Chaos.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/476057-L.jpg",
+          "isbn13": "9780743411691",
+          "isbn10": "0743411692",
+          "pageCount": 288,
+          "format": "novel",
+          "facetIds": [
+            "inquisitor",
+            "male",
+            "imperium",
+            "sector",
+            "series_start",
+            "standard",
+            "mystery",
+            "action_heavy",
+            "grimdark",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing"
+          ],
+          "factionNames": [
+            "Inquisition",
+            "Emperor's Children",
+            "Chaos",
+            "Adeptus Arbites"
+          ],
+          "locationNames": [
+            "Hubris",
+            "Gudrun",
+            "Damask",
+            "56-Izar"
+          ],
+          "characterNames": [
+            "Gregor Eisenhorn",
+            "Alizebeth Bequin",
+            "Godwyn Fischig",
+            "Midas Betancore",
+            "Uber Aemos",
+            "Mandragore Carrion",
+            "Cherubael",
+            "Pontius Glaw",
+            "Murdin Eyclone",
+            "Commodus Voke",
+            "Lores Vibben"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "manual",
+          "authorNames": "manual",
+          "releaseYear": "manual",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "manual",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Xenos_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL5843437W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/xenos"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "malleus",
+      "fields": {
+        "title": {
+          "value": "Malleus",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:28:12.494Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Dan Abnett"
+          ],
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2001,
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": "9780743411769",
+          "source": "validator",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null,
+          "evidence": [
+            {
+              "source": "lexicanum",
+              "value": "9780857870704"
+            },
+            {
+              "source": "open_library",
+              "value": "9780743411769"
+            }
+          ]
+        },
+        "isbn10": {
+          "value": "0743411765",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": 288,
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": "https://covers.openlibrary.org/b/id/476063-L.jpg",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "format": {
+          "value": "novel",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "A century after his recovery of the alien artefact Necroteuch, Inquisitor Gregor Eisenhorn has become one of the Imperium's most decorated agents. His reprieve ends when he returns to Thracian Primaris for a grand celebration honouring the Ophidian Campaign. During the festivities, disaster strikes—a coordinated attack releases captured Alpha-level psykers and sows chaos across the world. Eisenhorn pursues the conspiracy's architects, discovering they are led by former allies turned to Chaos. His investigation spans multiple worlds and reveals the involvement of the daemon Cherubael, a malevolent force determined either to destroy him or corrupt him into service of the Dark Gods. As Eisenhorn hunts the conspirators, his reputation becomes tainted by suspicion, and internal Inquisitorial politics threaten to turn allies against him. His choices grow increasingly desperate and morally compromised as he confronts enemies wielding the very tools of Chaos he despises.",
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "inquisitor",
+            "male",
+            "imperium",
+            "planetary",
+            "mystery",
+            "grimdark",
+            "betrayal",
+            "doubt",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "mid_series"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Inquisition",
+              "role": "primary"
+            },
+            {
+              "name": "Chaos",
+              "role": "antagonist"
+            },
+            {
+              "name": "Imperium of Man",
+              "role": "supporting"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Thracian Primaris",
+              "role": "primary"
+            },
+            {
+              "name": "Eechan",
+              "role": "secondary"
+            },
+            {
+              "name": "Cinchare",
+              "role": "secondary"
+            },
+            {
+              "name": "Cadia",
+              "role": "secondary"
+            },
+            {
+              "name": "Lethe Eleven",
+              "role": "mentioned"
+            },
+            {
+              "name": "Gudrun",
+              "role": "mentioned"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Gregor Eisenhorn",
+              "role": "pov"
+            },
+            {
+              "name": "Cherubael",
+              "role": "antagonist"
+            },
+            {
+              "name": "Titus Endor",
+              "role": "supporting"
+            },
+            {
+              "name": "Medea Betancore",
+              "role": "supporting"
+            },
+            {
+              "name": "Gideon Ravenor",
+              "role": "supporting"
+            },
+            {
+              "name": "Javed Fischig",
+              "role": "supporting"
+            },
+            {
+              "name": "Aemos",
+              "role": "supporting"
+            },
+            {
+              "name": "Nayl",
+              "role": "supporting"
+            },
+            {
+              "name": "Yael Voke",
+              "role": "supporting"
+            },
+            {
+              "name": "Beldame Sadia",
+              "role": "antagonist"
+            },
+            {
+              "name": "Lyko",
+              "role": "antagonist"
+            },
+            {
+              "name": "Quixos",
+              "role": "antagonist"
+            },
+            {
+              "name": "Javes Thysser",
+              "role": "appears"
+            },
+            {
+              "name": "Inquisitor General Neve",
+              "role": "appears"
+            },
+            {
+              "name": "Esarhaddon",
+              "role": "mentioned"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:28:12.495Z",
+          "override": null
+        }
+      },
+      "validations": [
+        {
+          "field": "isbn13",
+          "severity": "warn",
+          "kind": "edition_isbn_conflict",
+          "evidence": [
+            {
+              "source": "lexicanum",
+              "value": "9780857870704"
+            },
+            {
+              "source": "open_library",
+              "value": "9780743411769"
+            }
+          ],
+          "suggested": {
+            "value": "9780743411769",
+            "action": "use"
+          },
+          "reasoning": "lexicanum and open_library disagree on isbn13; suggesting the numerically lower 9780743411769 (first-edition heuristic)."
+        }
+      ],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/Malleus_(Novel)",
+          "fetchedAt": "2026-05-10T22:27:56.562Z",
+          "fields": {
+            "title": "Malleus",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2001,
+            "isbn13": "9780857870704",
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "Malleus_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": [
+              40337,
+              40338,
+              40340,
+              40343,
+              40345
+            ]
+          }
+        },
+        {
+          "source": "open_library",
+          "sourceUrl": "https://openlibrary.org/works/OL5843402W",
+          "fetchedAt": "2026-05-10T22:27:57.394Z",
+          "fields": {
+            "title": "Malleus (The Eisenhorn Trilogy, Book 2)",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2002,
+            "isbn13": "9780743411769",
+            "isbn10": "0743411765",
+            "pageCount": 288,
+            "coverUrl": "https://covers.openlibrary.org/b/id/476063-L.jpg"
+          },
+          "notes": [],
+          "raw": {
+            "author_name": [
+              "Dan Abnett"
+            ],
+            "cover_i": 476063,
+            "edition_count": 1,
+            "first_publish_year": 2002,
+            "isbn": [
+              "0743411765",
+              "9780743411769"
+            ],
+            "key": "/works/OL5843402W",
+            "number_of_pages_median": 288,
+            "title": "Malleus (The Eisenhorn Trilogy, Book 2)"
+          }
+        },
+        {
+          "source": "hardcover",
+          "sourceUrl": "https://hardcover.app/books/malleus",
+          "fetchedAt": "2026-05-10T22:27:57.891Z",
+          "fields": {},
+          "notes": [],
+          "raw": {
+            "audit": {
+              "tags": [
+                "Science Fiction",
+                "Fantasy",
+                "Space",
+                "War",
+                "Dystopian",
+                "Horror",
+                "Horreur",
+                "Adventure",
+                "Mystère",
+                "Fiction",
+                "Adventurous",
+                "fast-paced",
+                "mysterious",
+                "dark",
+                "Plot driven",
+                "adventurous",
+                "mysterious",
+                "Strong Character Development",
+                "Loveable Characters",
+                "Diverse Characters",
+                "Weak Character Development",
+                "Unloveable Characters",
+                "fast-paced",
+                "Not Diverse Characters"
+              ],
+              "averageRating": 4.0120481927710845,
+              "contributorNames": [
+                "Dan Abnett"
+              ]
+            }
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "A century after his recovery of the alien artefact Necroteuch, Inquisitor Gregor Eisenhorn has become one of the Imperium's most decorated agents. His reprieve ends when he returns to Thracian Primaris for a grand celebration honouring the Ophidian Campaign. During the festivities, disaster strikes—a coordinated attack releases captured Alpha-level psykers and sows chaos across the world. Eisenhorn pursues the conspiracy's architects, discovering they are led by former allies turned to Chaos. His investigation spans multiple worlds and reveals the involvement of the daemon Cherubael, a malevolent force determined either to destroy him or corrupt him into service of the Dark Gods. As Eisenhorn hunts the conspirators, his reputation becomes tainted by suspicion, and internal Inquisitorial politics threaten to turn allies against him. His choices grow increasingly desperate and morally compromised as he confronts enemies wielding the very tools of Chaos he despises.",
+        "facetIds": [
+          "inquisitor",
+          "male",
+          "imperium",
+          "planetary",
+          "mystery",
+          "grimdark",
+          "betrayal",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "mid_series"
+        ],
+        "factions": [
+          {
+            "name": "Inquisition",
+            "role": "primary"
+          },
+          {
+            "name": "Chaos",
+            "role": "antagonist"
+          },
+          {
+            "name": "Imperium of Man",
+            "role": "supporting"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Thracian Primaris",
+            "role": "primary"
+          },
+          {
+            "name": "Eechan",
+            "role": "secondary"
+          },
+          {
+            "name": "Cinchare",
+            "role": "secondary"
+          },
+          {
+            "name": "Cadia",
+            "role": "secondary"
+          },
+          {
+            "name": "Lethe Eleven",
+            "role": "mentioned"
+          },
+          {
+            "name": "Gudrun",
+            "role": "mentioned"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Gregor Eisenhorn",
+            "role": "pov"
+          },
+          {
+            "name": "Cherubael",
+            "role": "antagonist"
+          },
+          {
+            "name": "Titus Endor",
+            "role": "supporting"
+          },
+          {
+            "name": "Medea Betancore",
+            "role": "supporting"
+          },
+          {
+            "name": "Gideon Ravenor",
+            "role": "supporting"
+          },
+          {
+            "name": "Javed Fischig",
+            "role": "supporting"
+          },
+          {
+            "name": "Aemos",
+            "role": "supporting"
+          },
+          {
+            "name": "Nayl",
+            "role": "supporting"
+          },
+          {
+            "name": "Yael Voke",
+            "role": "supporting"
+          },
+          {
+            "name": "Beldame Sadia",
+            "role": "antagonist"
+          },
+          {
+            "name": "Lyko",
+            "role": "antagonist"
+          },
+          {
+            "name": "Quixos",
+            "role": "antagonist"
+          },
+          {
+            "name": "Javes Thysser",
+            "role": "appears"
+          },
+          {
+            "name": "Inquisitor General Neve",
+            "role": "appears"
+          },
+          {
+            "name": "Esarhaddon",
+            "role": "mentioned"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 25189,
+            "output": 1316,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 25189,
+        "tokensOut": 1316,
+        "webSearches": 1,
+        "estUsdCost": 0.041769
+      },
+      "sourcePages": [
+        "https://www.tlbranson.com/warhammer-40k-books-in-order/"
+      ],
+      "wikipediaTitle": "Malleus",
+      "payload": {
+        "slug": "malleus",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Malleus",
+          "authorNames": [
+            "Dan Abnett"
+          ],
+          "releaseYear": 2001,
+          "synopsis": "A century after his recovery of the alien artefact Necroteuch, Inquisitor Gregor Eisenhorn has become one of the Imperium's most decorated agents. His reprieve ends when he returns to Thracian Primaris for a grand celebration honouring the Ophidian Campaign. During the festivities, disaster strikes—a coordinated attack releases captured Alpha-level psykers and sows chaos across the world. Eisenhorn pursues the conspiracy's architects, discovering they are led by former allies turned to Chaos. His investigation spans multiple worlds and reveals the involvement of the daemon Cherubael, a malevolent force determined either to destroy him or corrupt him into service of the Dark Gods. As Eisenhorn hunts the conspirators, his reputation becomes tainted by suspicion, and internal Inquisitorial politics threaten to turn allies against him. His choices grow increasingly desperate and morally compromised as he confronts enemies wielding the very tools of Chaos he despises.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/476063-L.jpg",
+          "isbn13": "9780743411769",
+          "isbn10": "0743411765",
+          "pageCount": 288,
+          "format": "novel",
+          "facetIds": [
+            "inquisitor",
+            "male",
+            "imperium",
+            "planetary",
+            "mystery",
+            "grimdark",
+            "betrayal",
+            "doubt",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "mid_series"
+          ],
+          "factionNames": [
+            "Inquisition",
+            "Chaos",
+            "Imperium of Man"
+          ],
+          "locationNames": [
+            "Thracian Primaris",
+            "Eechan",
+            "Cinchare",
+            "Cadia",
+            "Lethe Eleven",
+            "Gudrun"
+          ],
+          "characterNames": [
+            "Gregor Eisenhorn",
+            "Cherubael",
+            "Titus Endor",
+            "Medea Betancore",
+            "Gideon Ravenor",
+            "Javed Fischig",
+            "Aemos",
+            "Nayl",
+            "Yael Voke",
+            "Beldame Sadia",
+            "Lyko",
+            "Quixos",
+            "Javes Thysser",
+            "Inquisitor General Neve",
+            "Esarhaddon"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "manual",
+          "authorNames": "manual",
+          "releaseYear": "manual",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "isbn13": "manual",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "manual",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Malleus_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL5843402W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/malleus"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "hereticus",
+      "fields": {
+        "title": {
+          "value": "Hereticus",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Dan Abnett"
+          ],
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2002,
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": "9780743443081",
+          "source": "validator",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null,
+          "evidence": [
+            {
+              "source": "lexicanum",
+              "value": "9780857870711"
+            },
+            {
+              "source": "open_library",
+              "value": "9780743443081"
+            }
+          ]
+        },
+        "isbn10": {
+          "value": "074344308X",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": 320,
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": "https://covers.openlibrary.org/b/id/4698319-L.jpg",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "format": {
+          "value": "novel",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "Inquisitor Gregor Eisenhorn finds himself hunted by those he once served, branded as a radical and heretic by the very Inquisition he has devoted his life to protecting. Desperate to clear his name and prove his loyalty, he pursues Pontius Glaw, a former Inquisitor whose consciousness was preserved and whose influence continues to strike at Eisenhorn's assets and allies. As his investigation escalates across multiple worlds—beginning with the civilized planet Gudrun—Eisenhorn employs increasingly extreme methods and forbidden tools, including daemonic pacts, to pursue his quarry. Yet with each moral compromise, he moves closer to becoming the very thing he hunts. The climax draws him toward the ancient world of Ghül and confronts him with the ultimate question: at what point does the warrior fighting monsters transform into something equally monstrous?",
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "inquisitor",
+            "male",
+            "imperium",
+            "mid_series",
+            "standard",
+            "mystery",
+            "character_study",
+            "grimdark",
+            "philosophical",
+            "cw_violence",
+            "cw_death",
+            "betrayal",
+            "doubt",
+            "hubris",
+            "sector",
+            "en"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Inquisition",
+              "role": "primary"
+            },
+            {
+              "name": "Aeldari",
+              "role": "background"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Gudrun",
+              "role": "primary"
+            },
+            {
+              "name": "Ghül",
+              "role": "primary"
+            },
+            {
+              "name": "Promody",
+              "role": "secondary"
+            },
+            {
+              "name": "New Gevae",
+              "role": "secondary"
+            },
+            {
+              "name": "Durer",
+              "role": "secondary"
+            },
+            {
+              "name": "Jeganda",
+              "role": "mentioned"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Gregor Eisenhorn",
+              "role": "pov"
+            },
+            {
+              "name": "Pontius Glaw",
+              "role": "mentioned"
+            },
+            {
+              "name": "Quixos",
+              "role": "mentioned"
+            },
+            {
+              "name": "Gideon Ravenor",
+              "role": "appears"
+            },
+            {
+              "name": "Cherubael",
+              "role": "mentioned"
+            },
+            {
+              "name": "Fischig",
+              "role": "supporting"
+            },
+            {
+              "name": "Aemos",
+              "role": "supporting"
+            },
+            {
+              "name": "Medea",
+              "role": "supporting"
+            },
+            {
+              "name": "Marla Tarray",
+              "role": "supporting"
+            },
+            {
+              "name": "Kara Swole",
+              "role": "appears"
+            },
+            {
+              "name": "Harlon Nayl",
+              "role": "appears"
+            },
+            {
+              "name": "Berschilde",
+              "role": "supporting"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:28:31.207Z",
+          "override": null
+        }
+      },
+      "validations": [
+        {
+          "field": "isbn13",
+          "severity": "warn",
+          "kind": "edition_isbn_conflict",
+          "evidence": [
+            {
+              "source": "lexicanum",
+              "value": "9780857870711"
+            },
+            {
+              "source": "open_library",
+              "value": "9780743443081"
+            }
+          ],
+          "suggested": {
+            "value": "9780743443081",
+            "action": "use"
+          },
+          "reasoning": "lexicanum and open_library disagree on isbn13; suggesting the numerically lower 9780743443081 (first-edition heuristic)."
+        }
+      ],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hereticus_(Novel)",
+          "fetchedAt": "2026-05-10T22:28:13.181Z",
+          "fields": {
+            "title": "Hereticus",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2002,
+            "isbn13": "9780857870711",
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "Hereticus_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": [
+              40386,
+              40392
+            ]
+          }
+        },
+        {
+          "source": "open_library",
+          "sourceUrl": "https://openlibrary.org/works/OL5843387W",
+          "fetchedAt": "2026-05-10T22:28:13.809Z",
+          "fields": {
+            "title": "Hereticus (The Eisenhorn Trilogy, Book 3)",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2002,
+            "isbn13": "9780743443081",
+            "isbn10": "074344308X",
+            "pageCount": 320,
+            "coverUrl": "https://covers.openlibrary.org/b/id/4698319-L.jpg"
+          },
+          "notes": [],
+          "raw": {
+            "author_name": [
+              "Dan Abnett"
+            ],
+            "cover_i": 4698319,
+            "edition_count": 1,
+            "first_publish_year": 2002,
+            "isbn": [
+              "9780743443081",
+              "074344308X"
+            ],
+            "key": "/works/OL5843387W",
+            "number_of_pages_median": 320,
+            "title": "Hereticus (The Eisenhorn Trilogy, Book 3)"
+          }
+        },
+        {
+          "source": "hardcover",
+          "sourceUrl": "https://hardcover.app/books/hereticus",
+          "fetchedAt": "2026-05-10T22:28:14.335Z",
+          "fields": {},
+          "notes": [],
+          "raw": {
+            "audit": {
+              "tags": [
+                "Science Fiction",
+                "Fantasy",
+                "Fiction",
+                "Space",
+                "Dystopian",
+                "War",
+                "Aliens",
+                "Mystery",
+                "Thriller",
+                "Aventure",
+                "fast-paced",
+                "Adventurous",
+                "dark",
+                "tense",
+                "fast-paced",
+                "adventurous"
+              ],
+              "averageRating": 4.1571428571428575,
+              "contributorNames": [
+                "Dan Abnett"
+              ]
+            }
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "Inquisitor Gregor Eisenhorn finds himself hunted by those he once served, branded as a radical and heretic by the very Inquisition he has devoted his life to protecting. Desperate to clear his name and prove his loyalty, he pursues Pontius Glaw, a former Inquisitor whose consciousness was preserved and whose influence continues to strike at Eisenhorn's assets and allies. As his investigation escalates across multiple worlds—beginning with the civilized planet Gudrun—Eisenhorn employs increasingly extreme methods and forbidden tools, including daemonic pacts, to pursue his quarry. Yet with each moral compromise, he moves closer to becoming the very thing he hunts. The climax draws him toward the ancient world of Ghül and confronts him with the ultimate question: at what point does the warrior fighting monsters transform into something equally monstrous?",
+        "facetIds": [
+          "inquisitor",
+          "male",
+          "imperium",
+          "mid_series",
+          "standard",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "philosophical",
+          "cw_violence",
+          "cw_death",
+          "betrayal",
+          "doubt",
+          "hubris",
+          "sector",
+          "en"
+        ],
+        "factions": [
+          {
+            "name": "Inquisition",
+            "role": "primary"
+          },
+          {
+            "name": "Aeldari",
+            "role": "background"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Gudrun",
+            "role": "primary"
+          },
+          {
+            "name": "Ghül",
+            "role": "primary"
+          },
+          {
+            "name": "Promody",
+            "role": "secondary"
+          },
+          {
+            "name": "New Gevae",
+            "role": "secondary"
+          },
+          {
+            "name": "Durer",
+            "role": "secondary"
+          },
+          {
+            "name": "Jeganda",
+            "role": "mentioned"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Gregor Eisenhorn",
+            "role": "pov"
+          },
+          {
+            "name": "Pontius Glaw",
+            "role": "mentioned"
+          },
+          {
+            "name": "Quixos",
+            "role": "mentioned"
+          },
+          {
+            "name": "Gideon Ravenor",
+            "role": "appears"
+          },
+          {
+            "name": "Cherubael",
+            "role": "mentioned"
+          },
+          {
+            "name": "Fischig",
+            "role": "supporting"
+          },
+          {
+            "name": "Aemos",
+            "role": "supporting"
+          },
+          {
+            "name": "Medea",
+            "role": "supporting"
+          },
+          {
+            "name": "Marla Tarray",
+            "role": "supporting"
+          },
+          {
+            "name": "Kara Swole",
+            "role": "appears"
+          },
+          {
+            "name": "Harlon Nayl",
+            "role": "appears"
+          },
+          {
+            "name": "Berschilde",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 25271,
+            "output": 1529,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 25271,
+        "tokensOut": 1529,
+        "webSearches": 1,
+        "estUsdCost": 0.042916
+      },
+      "sourcePages": [
+        "https://www.tlbranson.com/warhammer-40k-books-in-order/"
+      ],
+      "wikipediaTitle": "Hereticus",
+      "payload": {
+        "slug": "hereticus",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Hereticus",
+          "authorNames": [
+            "Dan Abnett"
+          ],
+          "releaseYear": 2002,
+          "synopsis": "Inquisitor Gregor Eisenhorn finds himself hunted by those he once served, branded as a radical and heretic by the very Inquisition he has devoted his life to protecting. Desperate to clear his name and prove his loyalty, he pursues Pontius Glaw, a former Inquisitor whose consciousness was preserved and whose influence continues to strike at Eisenhorn's assets and allies. As his investigation escalates across multiple worlds—beginning with the civilized planet Gudrun—Eisenhorn employs increasingly extreme methods and forbidden tools, including daemonic pacts, to pursue his quarry. Yet with each moral compromise, he moves closer to becoming the very thing he hunts. The climax draws him toward the ancient world of Ghül and confronts him with the ultimate question: at what point does the warrior fighting monsters transform into something equally monstrous?",
+          "coverUrl": "https://covers.openlibrary.org/b/id/4698319-L.jpg",
+          "isbn13": "9780743443081",
+          "isbn10": "074344308X",
+          "pageCount": 320,
+          "format": "novel",
+          "facetIds": [
+            "inquisitor",
+            "male",
+            "imperium",
+            "mid_series",
+            "standard",
+            "mystery",
+            "character_study",
+            "grimdark",
+            "philosophical",
+            "cw_violence",
+            "cw_death",
+            "betrayal",
+            "doubt",
+            "hubris",
+            "sector",
+            "en"
+          ],
+          "factionNames": [
+            "Inquisition",
+            "Aeldari"
+          ],
+          "locationNames": [
+            "Gudrun",
+            "Ghül",
+            "Promody",
+            "New Gevae",
+            "Durer",
+            "Jeganda"
+          ],
+          "characterNames": [
+            "Gregor Eisenhorn",
+            "Pontius Glaw",
+            "Quixos",
+            "Gideon Ravenor",
+            "Cherubael",
+            "Fischig",
+            "Aemos",
+            "Medea",
+            "Marla Tarray",
+            "Kara Swole",
+            "Harlon Nayl",
+            "Berschilde"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "manual",
+          "authorNames": "manual",
+          "releaseYear": "manual",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "isbn13": "manual",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "manual",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Hereticus_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL5843387W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/hereticus"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "eisenhorn-omnibus",
+      "fields": {
+        "title": {
+          "value": "Eisenhorn Omnibus",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Dan Abnett"
+          ],
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2005,
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": "9781844161560",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": "1844161560",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": 768,
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": "https://covers.openlibrary.org/b/id/894613-L.jpg",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "format": {
+          "value": "omnibus",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "<cite index=\"2-14\">Inquisitor Gregor Eisenhorn operates on the very edge of Imperial doctrine, investigating conspiracies that pit him against aliens, heretics, daemons, and even fellow Inquisitors.</cite> <cite index=\"3-1\">Over his career, Eisenhorn transforms from a zealous upholder of the truth to one willing to collaborate with the very powers he once swore to destroy.</cite> <cite index=\"2-18\">He becomes entangled in the fate of the alien text known as the Necroteuch, and draws the ire of the Imperium as he becomes embroiled in cat-and-mouse games and double-crossing with powerful friends and foes.</cite> <cite index=\"2-1\">Throughout, Eisenhorn clashes repeatedly with the daemon Cherubael while experimenting with darker powers to execute the brutal judgements he deems necessary.</cite> <cite index=\"6-23,6-24\">The primary arc follows Eisenhorn's fall from a strict Puritan outlook to that of a Radical element, ultimately becoming blind to the dangers of using Chaos tools to fight Chaos itself.</cite>",
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "book",
+            "male",
+            "inquisitor",
+            "imperium",
+            "galactic",
+            "series_start",
+            "doorstopper",
+            "mystery",
+            "political_thriller",
+            "grimdark",
+            "philosophical",
+            "betrayal",
+            "doubt",
+            "cw_violence",
+            "cw_disturbing",
+            "en"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Inquisition",
+              "role": "primary"
+            },
+            {
+              "name": "Imperium of Man",
+              "role": "supporting"
+            },
+            {
+              "name": "Chaos",
+              "role": "antagonist"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Calixis Sector",
+              "role": "primary"
+            },
+            {
+              "name": "Eye of Terror",
+              "role": "mentioned"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Gregor Eisenhorn",
+              "role": "pov"
+            },
+            {
+              "name": "Cherubael",
+              "role": "supporting"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:29:29.275Z",
+          "override": null
+        }
+      },
+      "validations": [
+        {
+          "field": "(coverage)",
+          "severity": "info",
+          "kind": "lexicanum_missing",
+          "evidence": [],
+          "reasoning": "no lexicanum article — junctions come from LLM only. No drop signal; explicit transparency entry."
+        }
+      ],
+      "rawClaims": [
+        {
+          "source": "open_library",
+          "sourceUrl": "https://openlibrary.org/works/OL5843379W",
+          "fetchedAt": "2026-05-10T22:29:18.486Z",
+          "fields": {
+            "title": "Eisenhorn (A Warhammer 40,000 Omnibus)",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2005,
+            "isbn13": "9781844161560",
+            "isbn10": "1844161560",
+            "pageCount": 768,
+            "coverUrl": "https://covers.openlibrary.org/b/id/894613-L.jpg"
+          },
+          "notes": [],
+          "raw": {
+            "author_name": [
+              "Dan Abnett"
+            ],
+            "cover_i": 894613,
+            "edition_count": 1,
+            "first_publish_year": 2005,
+            "isbn": [
+              "1844161560",
+              "9781844161560"
+            ],
+            "key": "/works/OL5843379W",
+            "number_of_pages_median": 768,
+            "title": "Eisenhorn (A Warhammer 40,000 Omnibus)"
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "<cite index=\"2-14\">Inquisitor Gregor Eisenhorn operates on the very edge of Imperial doctrine, investigating conspiracies that pit him against aliens, heretics, daemons, and even fellow Inquisitors.</cite> <cite index=\"3-1\">Over his career, Eisenhorn transforms from a zealous upholder of the truth to one willing to collaborate with the very powers he once swore to destroy.</cite> <cite index=\"2-18\">He becomes entangled in the fate of the alien text known as the Necroteuch, and draws the ire of the Imperium as he becomes embroiled in cat-and-mouse games and double-crossing with powerful friends and foes.</cite> <cite index=\"2-1\">Throughout, Eisenhorn clashes repeatedly with the daemon Cherubael while experimenting with darker powers to execute the brutal judgements he deems necessary.</cite> <cite index=\"6-23,6-24\">The primary arc follows Eisenhorn's fall from a strict Puritan outlook to that of a Radical element, ultimately becoming blind to the dangers of using Chaos tools to fight Chaos itself.</cite>",
+        "facetIds": [
+          "book",
+          "male",
+          "inquisitor",
+          "imperium",
+          "galactic",
+          "series_start",
+          "doorstopper",
+          "mystery",
+          "political_thriller",
+          "grimdark",
+          "philosophical",
+          "betrayal",
+          "doubt",
+          "cw_violence",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          {
+            "name": "Inquisition",
+            "role": "primary"
+          },
+          {
+            "name": "Imperium of Man",
+            "role": "supporting"
+          },
+          {
+            "name": "Chaos",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Calixis Sector",
+            "role": "primary"
+          },
+          {
+            "name": "Eye of Terror",
+            "role": "mentioned"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Gregor Eisenhorn",
+            "role": "pov"
+          },
+          {
+            "name": "Cherubael",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 21347,
+            "output": 765,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 21347,
+        "tokensOut": 765,
+        "webSearches": 1,
+        "estUsdCost": 0.035172
+      },
+      "sourcePages": [
+        "https://www.tlbranson.com/warhammer-40k-books-in-order/"
+      ],
+      "wikipediaTitle": "Eisenhorn Omnibus",
+      "payload": {
+        "slug": "eisenhorn-omnibus",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Eisenhorn Omnibus",
+          "authorNames": [
+            "Dan Abnett"
+          ],
+          "releaseYear": 2005,
+          "synopsis": "<cite index=\"2-14\">Inquisitor Gregor Eisenhorn operates on the very edge of Imperial doctrine, investigating conspiracies that pit him against aliens, heretics, daemons, and even fellow Inquisitors.</cite> <cite index=\"3-1\">Over his career, Eisenhorn transforms from a zealous upholder of the truth to one willing to collaborate with the very powers he once swore to destroy.</cite> <cite index=\"2-18\">He becomes entangled in the fate of the alien text known as the Necroteuch, and draws the ire of the Imperium as he becomes embroiled in cat-and-mouse games and double-crossing with powerful friends and foes.</cite> <cite index=\"2-1\">Throughout, Eisenhorn clashes repeatedly with the daemon Cherubael while experimenting with darker powers to execute the brutal judgements he deems necessary.</cite> <cite index=\"6-23,6-24\">The primary arc follows Eisenhorn's fall from a strict Puritan outlook to that of a Radical element, ultimately becoming blind to the dangers of using Chaos tools to fight Chaos itself.</cite>",
+          "coverUrl": "https://covers.openlibrary.org/b/id/894613-L.jpg",
+          "isbn13": "9781844161560",
+          "isbn10": "1844161560",
+          "pageCount": 768,
+          "format": "omnibus",
+          "facetIds": [
+            "book",
+            "male",
+            "inquisitor",
+            "imperium",
+            "galactic",
+            "series_start",
+            "doorstopper",
+            "mystery",
+            "political_thriller",
+            "grimdark",
+            "philosophical",
+            "betrayal",
+            "doubt",
+            "cw_violence",
+            "cw_disturbing",
+            "en"
+          ],
+          "factionNames": [
+            "Inquisition",
+            "Imperium of Man",
+            "Chaos"
+          ],
+          "locationNames": [
+            "Calixis Sector",
+            "Eye of Terror"
+          ],
+          "characterNames": [
+            "Gregor Eisenhorn",
+            "Cherubael"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "manual",
+          "authorNames": "manual",
+          "releaseYear": "manual",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "manual",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL5843379W"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "ravenor",
+      "fields": {
+        "title": {
+          "value": "Ravenor",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Dan Abnett"
+          ],
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2004,
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": "9781844160730",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": "1844160734",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": 416,
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": "https://covers.openlibrary.org/b/id/894554-L.jpg",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "format": {
+          "value": "novel",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "Following severe physical trauma that leaves him confined to a life-support apparatus, Inquisitor Gideon Ravenor must navigate the Imperium's darkness relying entirely on his formidable psychic abilities. Alongside his handpicked retinue—warriors, assassins, and operatives—Ravenor embarks on his first investigation as a full Inquisitor, arriving on the industrial world of Eustis Majoris. What begins as an inquiry into illicit narcotics trafficking escalates into something far more sinister and dangerous. Through the eyes of Ravenor and his team, Abnett crafts an ensemble narrative exploring how a man utterly disconnected from the physical world must still fight to protect those around him and preserve the Imperium's secrets from those who would weaponize them.",
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "inquisitor",
+            "imperium",
+            "mystery",
+            "action_heavy",
+            "character_study",
+            "grimdark",
+            "cw_violence",
+            "cw_disturbing"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Inquisition",
+              "role": "primary"
+            },
+            {
+              "name": "Imperium",
+              "role": "primary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Eustis Majoris",
+              "role": "primary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Gideon Ravenor",
+              "role": "pov"
+            },
+            {
+              "name": "Kara Swole",
+              "role": "supporting"
+            },
+            {
+              "name": "Harlon Nayl",
+              "role": "supporting"
+            },
+            {
+              "name": "Gregor Eisenhorn",
+              "role": "mentioned"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:29:43.363Z",
+          "override": null
+        }
+      },
+      "validations": [],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ravenor_(Novel)",
+          "fetchedAt": "2026-05-10T22:29:29.788Z",
+          "fields": {
+            "title": "Ravenor",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2005,
+            "isbn13": "9781844160730",
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "Ravenor_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": []
+          }
+        },
+        {
+          "source": "open_library",
+          "sourceUrl": "https://openlibrary.org/works/OL5843410W",
+          "fetchedAt": "2026-05-10T22:29:31.884Z",
+          "fields": {
+            "title": "Ravenor (Ravenor 1)",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2005,
+            "isbn13": "9781844160730",
+            "isbn10": "1844160734",
+            "pageCount": 416,
+            "coverUrl": "https://covers.openlibrary.org/b/id/894554-L.jpg"
+          },
+          "notes": [],
+          "raw": {
+            "author_name": [
+              "Dan Abnett"
+            ],
+            "cover_i": 894554,
+            "edition_count": 1,
+            "first_publish_year": 2005,
+            "isbn": [
+              "1844160734",
+              "9781844160730"
+            ],
+            "key": "/works/OL5843410W",
+            "number_of_pages_median": 416,
+            "title": "Ravenor (Ravenor 1)"
+          }
+        },
+        {
+          "source": "hardcover",
+          "sourceUrl": "https://hardcover.app/books/ravenor-21bbd13d-06bd-4595-852a-2823eb7a73dd",
+          "fetchedAt": "2026-05-10T22:29:32.508Z",
+          "fields": {},
+          "notes": [],
+          "raw": {
+            "audit": {
+              "tags": [
+                "Science fiction",
+                "Fantasy",
+                "Space",
+                "Dystopian",
+                "Adventure"
+              ],
+              "contributorNames": [
+                "Dan Abnett"
+              ]
+            }
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "Following severe physical trauma that leaves him confined to a life-support apparatus, Inquisitor Gideon Ravenor must navigate the Imperium's darkness relying entirely on his formidable psychic abilities. Alongside his handpicked retinue—warriors, assassins, and operatives—Ravenor embarks on his first investigation as a full Inquisitor, arriving on the industrial world of Eustis Majoris. What begins as an inquiry into illicit narcotics trafficking escalates into something far more sinister and dangerous. Through the eyes of Ravenor and his team, Abnett crafts an ensemble narrative exploring how a man utterly disconnected from the physical world must still fight to protect those around him and preserve the Imperium's secrets from those who would weaponize them.",
+        "facetIds": [
+          "inquisitor",
+          "imperium",
+          "mystery",
+          "action_heavy",
+          "character_study",
+          "grimdark",
+          "cw_violence",
+          "cw_disturbing"
+        ],
+        "factions": [
+          {
+            "name": "Inquisition",
+            "role": "primary"
+          },
+          {
+            "name": "Imperium",
+            "role": "primary"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Eustis Majoris",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Gideon Ravenor",
+            "role": "pov"
+          },
+          {
+            "name": "Kara Swole",
+            "role": "supporting"
+          },
+          {
+            "name": "Harlon Nayl",
+            "role": "supporting"
+          },
+          {
+            "name": "Gregor Eisenhorn",
+            "role": "mentioned"
+          }
+        ],
+        "flags": [
+          {
+            "kind": "year_glitch",
+            "field": "releaseYear",
+            "reasoning": "Lexicanum and Open Library both report 2005, while SSOT and Wikipedia report 2004. Two independent sources contradict the SSOT anchor."
+          }
+        ],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 21897,
+            "output": 748,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 21897,
+        "tokensOut": 748,
+        "webSearches": 1,
+        "estUsdCost": 0.035637
+      },
+      "sourcePages": [
+        "https://www.tlbranson.com/warhammer-40k-books-in-order/"
+      ],
+      "wikipediaTitle": "Ravenor",
+      "payload": {
+        "slug": "ravenor",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Ravenor",
+          "authorNames": [
+            "Dan Abnett"
+          ],
+          "releaseYear": 2004,
+          "synopsis": "Following severe physical trauma that leaves him confined to a life-support apparatus, Inquisitor Gideon Ravenor must navigate the Imperium's darkness relying entirely on his formidable psychic abilities. Alongside his handpicked retinue—warriors, assassins, and operatives—Ravenor embarks on his first investigation as a full Inquisitor, arriving on the industrial world of Eustis Majoris. What begins as an inquiry into illicit narcotics trafficking escalates into something far more sinister and dangerous. Through the eyes of Ravenor and his team, Abnett crafts an ensemble narrative exploring how a man utterly disconnected from the physical world must still fight to protect those around him and preserve the Imperium's secrets from those who would weaponize them.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/894554-L.jpg",
+          "isbn13": "9781844160730",
+          "isbn10": "1844160734",
+          "pageCount": 416,
+          "format": "novel",
+          "facetIds": [
+            "inquisitor",
+            "imperium",
+            "mystery",
+            "action_heavy",
+            "character_study",
+            "grimdark",
+            "cw_violence",
+            "cw_disturbing"
+          ],
+          "factionNames": [
+            "Inquisition",
+            "Imperium"
+          ],
+          "locationNames": [
+            "Eustis Majoris"
+          ],
+          "characterNames": [
+            "Gideon Ravenor",
+            "Kara Swole",
+            "Harlon Nayl",
+            "Gregor Eisenhorn"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "manual",
+          "authorNames": "manual",
+          "releaseYear": "manual",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "manual",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Ravenor_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL5843410W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/ravenor-21bbd13d-06bd-4595-852a-2823eb7a73dd"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "ravenor-returned",
+      "fields": {
+        "title": {
+          "value": "Ravenor Returned",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Dan Abnett"
+          ],
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2005,
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": "9781844161843",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": "1844161846",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": 320,
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": "https://covers.openlibrary.org/b/id/894639-L.jpg",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "format": {
+          "value": "novel",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "After barely escaping assassination at Bonner's Reach, Inquisitor Gideon Ravenor and his covert team return to Eustis Majoris to continue their hunt for forbidden technology trafficking. Operating under deep cover and declared dead to protect themselves, Ravenor orchestrates his operatives from his mobile command as they infiltrate a brutal smuggling network moving stolen archeotech through Imperial supply channels. The investigation uncovers layers of conspiracy far darker than suspected: the confiscated machines are ancient reliquaries containing fragments of something catastrophic—forbidden knowledge tied directly to the machinations of Chaos itself. As separate threads of investigation converge, Ravenor must use all his formidable psychic intellect to outmaneuver conspirators who seem always one step ahead, racing against time before forbidden secrets reshape the Imperium's fate.",
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "grimdark",
+            "mystery",
+            "action_heavy",
+            "male",
+            "inquisitor",
+            "imperium",
+            "planetary",
+            "mid_series",
+            "standard",
+            "cw_violence",
+            "cw_death"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Imperium of Man",
+              "role": "background"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Eustis Majoris",
+              "role": "primary"
+            },
+            {
+              "name": "Bonner's Reach",
+              "role": "secondary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Gideon Ravenor",
+              "role": "pov"
+            },
+            {
+              "name": "Kara Swole",
+              "role": "supporting"
+            },
+            {
+              "name": "Harlon Nayl",
+              "role": "supporting"
+            },
+            {
+              "name": "Maud Plyton",
+              "role": "supporting"
+            },
+            {
+              "name": "Doctor Belknap",
+              "role": "appears"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:30:01.465Z",
+          "override": null
+        }
+      },
+      "validations": [],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ravenor_Returned_(Novel)",
+          "fetchedAt": "2026-05-10T22:29:43.863Z",
+          "fields": {
+            "title": "Ravenor Returned",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "Ravenor_Returned_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": []
+          }
+        },
+        {
+          "source": "open_library",
+          "sourceUrl": "https://openlibrary.org/works/OL5843411W",
+          "fetchedAt": "2026-05-10T22:29:45.673Z",
+          "fields": {
+            "title": "Ravenor Returned (Inquisitor Ravenor)",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2005,
+            "isbn13": "9781844161843",
+            "isbn10": "1844161846",
+            "pageCount": 320,
+            "coverUrl": "https://covers.openlibrary.org/b/id/894639-L.jpg"
+          },
+          "notes": [],
+          "raw": {
+            "author_name": [
+              "Dan Abnett"
+            ],
+            "cover_i": 894639,
+            "edition_count": 1,
+            "first_publish_year": 2005,
+            "isbn": [
+              "1844161846",
+              "9781844161843"
+            ],
+            "key": "/works/OL5843411W",
+            "number_of_pages_median": 320,
+            "title": "Ravenor Returned (Inquisitor Ravenor)"
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "After barely escaping assassination at Bonner's Reach, Inquisitor Gideon Ravenor and his covert team return to Eustis Majoris to continue their hunt for forbidden technology trafficking. Operating under deep cover and declared dead to protect themselves, Ravenor orchestrates his operatives from his mobile command as they infiltrate a brutal smuggling network moving stolen archeotech through Imperial supply channels. The investigation uncovers layers of conspiracy far darker than suspected: the confiscated machines are ancient reliquaries containing fragments of something catastrophic—forbidden knowledge tied directly to the machinations of Chaos itself. As separate threads of investigation converge, Ravenor must use all his formidable psychic intellect to outmaneuver conspirators who seem always one step ahead, racing against time before forbidden secrets reshape the Imperium's fate.",
+        "facetIds": [
+          "grimdark",
+          "mystery",
+          "action_heavy",
+          "male",
+          "inquisitor",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Imperium of Man",
+            "role": "background"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Eustis Majoris",
+            "role": "primary"
+          },
+          {
+            "name": "Bonner's Reach",
+            "role": "secondary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Gideon Ravenor",
+            "role": "pov"
+          },
+          {
+            "name": "Kara Swole",
+            "role": "supporting"
+          },
+          {
+            "name": "Harlon Nayl",
+            "role": "supporting"
+          },
+          {
+            "name": "Maud Plyton",
+            "role": "supporting"
+          },
+          {
+            "name": "Doctor Belknap",
+            "role": "appears"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 23452,
+            "output": 1171,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 23452,
+        "tokensOut": 1171,
+        "webSearches": 1,
+        "estUsdCost": 0.039307
+      },
+      "sourcePages": [
+        "https://www.tlbranson.com/warhammer-40k-books-in-order/"
+      ],
+      "wikipediaTitle": "Ravenor Returned",
+      "payload": {
+        "slug": "ravenor-returned",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Ravenor Returned",
+          "authorNames": [
+            "Dan Abnett"
+          ],
+          "releaseYear": 2005,
+          "synopsis": "After barely escaping assassination at Bonner's Reach, Inquisitor Gideon Ravenor and his covert team return to Eustis Majoris to continue their hunt for forbidden technology trafficking. Operating under deep cover and declared dead to protect themselves, Ravenor orchestrates his operatives from his mobile command as they infiltrate a brutal smuggling network moving stolen archeotech through Imperial supply channels. The investigation uncovers layers of conspiracy far darker than suspected: the confiscated machines are ancient reliquaries containing fragments of something catastrophic—forbidden knowledge tied directly to the machinations of Chaos itself. As separate threads of investigation converge, Ravenor must use all his formidable psychic intellect to outmaneuver conspirators who seem always one step ahead, racing against time before forbidden secrets reshape the Imperium's fate.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/894639-L.jpg",
+          "isbn13": "9781844161843",
+          "isbn10": "1844161846",
+          "pageCount": 320,
+          "format": "novel",
+          "facetIds": [
+            "grimdark",
+            "mystery",
+            "action_heavy",
+            "male",
+            "inquisitor",
+            "imperium",
+            "planetary",
+            "mid_series",
+            "standard",
+            "cw_violence",
+            "cw_death"
+          ],
+          "factionNames": [
+            "Imperium of Man"
+          ],
+          "locationNames": [
+            "Eustis Majoris",
+            "Bonner's Reach"
+          ],
+          "characterNames": [
+            "Gideon Ravenor",
+            "Kara Swole",
+            "Harlon Nayl",
+            "Maud Plyton",
+            "Doctor Belknap"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "manual",
+          "authorNames": "manual",
+          "releaseYear": "manual",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "manual",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Ravenor_Returned_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL5843411W"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "ravenor-rogue",
+      "fields": {
+        "title": {
+          "value": "Ravenor Rogue",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Dan Abnett"
+          ],
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2007,
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": "9781844164608",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": "1844164608",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": 320,
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": "https://covers.openlibrary.org/b/id/894809-L.jpg",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "format": {
+          "value": "novel",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "The third and final installment of the Ravenor trilogy follows Inquisitor Gideon Ravenor's relentless hunt for his nemesis, the arch-heretic Zygmunt Molotch. Consumed by obsession, Ravenor defies the direct orders of his superiors and takes his specialist team rogue into the Halo Stars, the dangerous outer reaches of Imperial space. As the pursuit becomes increasingly personal and sacrificial, the team begins to unravel from within—tested by hidden betrayals, temporal anomalies, and enemies of staggering power. What began as duty becomes a descent into vengeance, forcing Ravenor and his operatives to confront the cost of their mission and the price of loyalty.",
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "inquisitor",
+            "imperium",
+            "galactic",
+            "series_finale",
+            "standard",
+            "mystery",
+            "journey",
+            "grimdark",
+            "character_study",
+            "betrayal",
+            "sacrifice",
+            "cw_violence",
+            "cw_death",
+            "en"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Inquisition",
+              "role": "primary"
+            },
+            {
+              "name": "Chaos",
+              "role": "antagonist"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Halo Stars",
+              "role": "primary"
+            },
+            {
+              "name": "Scarus Sector",
+              "role": "secondary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Gideon Ravenor",
+              "role": "pov"
+            },
+            {
+              "name": "Zygmunt Molotch",
+              "role": "antagonist"
+            },
+            {
+              "name": "Orfeo Culzean",
+              "role": "supporting"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:30:16.620Z",
+          "override": null
+        }
+      },
+      "validations": [],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ravenor_Rogue_(Novel)",
+          "fetchedAt": "2026-05-10T22:30:02.047Z",
+          "fields": {
+            "title": "Ravenor Rogue",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2007,
+            "isbn13": "9781844164608",
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "Ravenor_Rogue_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": []
+          }
+        },
+        {
+          "source": "open_library",
+          "sourceUrl": "https://openlibrary.org/works/OL5843414W",
+          "fetchedAt": "2026-05-10T22:30:03.001Z",
+          "fields": {
+            "title": "Ravenor Rogue",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2007,
+            "isbn13": "9781844164608",
+            "isbn10": "1844164608",
+            "pageCount": 320,
+            "coverUrl": "https://covers.openlibrary.org/b/id/894809-L.jpg"
+          },
+          "notes": [],
+          "raw": {
+            "author_name": [
+              "Dan Abnett"
+            ],
+            "cover_i": 894809,
+            "edition_count": 1,
+            "first_publish_year": 2007,
+            "isbn": [
+              "9781844164608",
+              "1844164608"
+            ],
+            "key": "/works/OL5843414W",
+            "number_of_pages_median": 320,
+            "title": "Ravenor Rogue"
+          }
+        },
+        {
+          "source": "hardcover",
+          "sourceUrl": "https://hardcover.app/books/ravenor-rogue",
+          "fetchedAt": "2026-05-10T22:30:03.693Z",
+          "fields": {},
+          "notes": [],
+          "raw": {
+            "audit": {
+              "tags": [
+                "Fantasy",
+                "Adventure",
+                "Fiction",
+                "Science fiction",
+                "Space",
+                "War",
+                "Dystopian"
+              ],
+              "averageRating": 4.3,
+              "contributorNames": [
+                "Dan Abnett"
+              ]
+            }
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "The third and final installment of the Ravenor trilogy follows Inquisitor Gideon Ravenor's relentless hunt for his nemesis, the arch-heretic Zygmunt Molotch. Consumed by obsession, Ravenor defies the direct orders of his superiors and takes his specialist team rogue into the Halo Stars, the dangerous outer reaches of Imperial space. As the pursuit becomes increasingly personal and sacrificial, the team begins to unravel from within—tested by hidden betrayals, temporal anomalies, and enemies of staggering power. What began as duty becomes a descent into vengeance, forcing Ravenor and his operatives to confront the cost of their mission and the price of loyalty.",
+        "facetIds": [
+          "inquisitor",
+          "imperium",
+          "galactic",
+          "series_finale",
+          "standard",
+          "mystery",
+          "journey",
+          "grimdark",
+          "character_study",
+          "betrayal",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          {
+            "name": "Inquisition",
+            "role": "primary"
+          },
+          {
+            "name": "Chaos",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Halo Stars",
+            "role": "primary"
+          },
+          {
+            "name": "Scarus Sector",
+            "role": "secondary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Gideon Ravenor",
+            "role": "pov"
+          },
+          {
+            "name": "Zygmunt Molotch",
+            "role": "antagonist"
+          },
+          {
+            "name": "Orfeo Culzean",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 20144,
+            "output": 970,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 20144,
+        "tokensOut": 970,
+        "webSearches": 1,
+        "estUsdCost": 0.034994
+      },
+      "sourcePages": [
+        "https://www.tlbranson.com/warhammer-40k-books-in-order/"
+      ],
+      "wikipediaTitle": "Ravenor Rogue",
+      "payload": {
+        "slug": "ravenor-rogue",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Ravenor Rogue",
+          "authorNames": [
+            "Dan Abnett"
+          ],
+          "releaseYear": 2007,
+          "synopsis": "The third and final installment of the Ravenor trilogy follows Inquisitor Gideon Ravenor's relentless hunt for his nemesis, the arch-heretic Zygmunt Molotch. Consumed by obsession, Ravenor defies the direct orders of his superiors and takes his specialist team rogue into the Halo Stars, the dangerous outer reaches of Imperial space. As the pursuit becomes increasingly personal and sacrificial, the team begins to unravel from within—tested by hidden betrayals, temporal anomalies, and enemies of staggering power. What began as duty becomes a descent into vengeance, forcing Ravenor and his operatives to confront the cost of their mission and the price of loyalty.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/894809-L.jpg",
+          "isbn13": "9781844164608",
+          "isbn10": "1844164608",
+          "pageCount": 320,
+          "format": "novel",
+          "facetIds": [
+            "inquisitor",
+            "imperium",
+            "galactic",
+            "series_finale",
+            "standard",
+            "mystery",
+            "journey",
+            "grimdark",
+            "character_study",
+            "betrayal",
+            "sacrifice",
+            "cw_violence",
+            "cw_death",
+            "en"
+          ],
+          "factionNames": [
+            "Inquisition",
+            "Chaos"
+          ],
+          "locationNames": [
+            "Halo Stars",
+            "Scarus Sector"
+          ],
+          "characterNames": [
+            "Gideon Ravenor",
+            "Zygmunt Molotch",
+            "Orfeo Culzean"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "manual",
+          "authorNames": "manual",
+          "releaseYear": "manual",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "isbn13": "open_library",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "manual",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Ravenor_Rogue_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL5843414W"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/ravenor-rogue"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "ravenor-the-omnibus",
+      "fields": {
+        "title": {
+          "value": "Ravenor: The Omnibus",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:31:40.118Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Dan Abnett"
+          ],
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:31:40.118Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2009,
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:31:40.118Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:31:40.118Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:40.118Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "format": {
+          "value": "omnibus",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "Inquisitor Gideon Ravenor and his lethal team of operatives undertake investigations that span from the heart of the Scarus Sector across the wildest regions of space and even through time itself. In the grim 41st Millennium, the Inquisition wages a hidden war against the darkest threats to Mankind—the alien, the heretic, and the daemon. Ravenor and his band pursue a sprawling conspiracy rooted in daemonic corruption, taking them beyond the known Imperium and testing their resolve at every turn. This omnibus collects three interconnected novels following Ravenor's mission to investigate and expose threats that few others could comprehend, unraveling mysteries that challenge both their loyalty and sanity as they confront enemies both mortal and supernatural.",
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "inquisitor",
+            "imperium",
+            "mystery",
+            "grimdark",
+            "action_heavy",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Inquisition",
+              "role": "primary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Scarus Sector",
+              "role": "primary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Gideon Ravenor",
+              "role": "pov"
+            },
+            {
+              "name": "Gregor Eisenhorn",
+              "role": "mentioned"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:31:40.119Z",
+          "override": null
+        }
+      },
+      "validations": [
+        {
+          "field": "(coverage)",
+          "severity": "info",
+          "kind": "lexicanum_missing",
+          "evidence": [],
+          "reasoning": "no lexicanum article — junctions come from LLM only. No drop signal; explicit transparency entry."
+        }
+      ],
+      "rawClaims": [
+        {
+          "source": "hardcover",
+          "sourceUrl": "https://hardcover.app/books/ravenor-the-omnibus-2004",
+          "fetchedAt": "2026-05-10T22:31:17.006Z",
+          "fields": {},
+          "notes": [],
+          "raw": {
+            "audit": {
+              "tags": [
+                "Fantasy",
+                "Science Fiction",
+                "Dystopian",
+                "Aventure",
+                "Science",
+                "Adventure",
+                "Mystère",
+                "Space"
+              ],
+              "averageRating": 4.333333333333333,
+              "contributorNames": [
+                "Dan Abnett"
+              ]
+            }
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "Inquisitor Gideon Ravenor and his lethal team of operatives undertake investigations that span from the heart of the Scarus Sector across the wildest regions of space and even through time itself. In the grim 41st Millennium, the Inquisition wages a hidden war against the darkest threats to Mankind—the alien, the heretic, and the daemon. Ravenor and his band pursue a sprawling conspiracy rooted in daemonic corruption, taking them beyond the known Imperium and testing their resolve at every turn. This omnibus collects three interconnected novels following Ravenor's mission to investigate and expose threats that few others could comprehend, unraveling mysteries that challenge both their loyalty and sanity as they confront enemies both mortal and supernatural.",
+        "facetIds": [
+          "inquisitor",
+          "imperium",
+          "mystery",
+          "grimdark",
+          "action_heavy",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          {
+            "name": "Inquisition",
+            "role": "primary"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Scarus Sector",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Gideon Ravenor",
+            "role": "pov"
+          },
+          {
+            "name": "Gregor Eisenhorn",
+            "role": "mentioned"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 18861,
+            "output": 827,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 18861,
+        "tokensOut": 827,
+        "webSearches": 1,
+        "estUsdCost": 0.032996
+      },
+      "sourcePages": [
+        "https://www.tlbranson.com/warhammer-40k-books-in-order/"
+      ],
+      "wikipediaTitle": "Ravenor: The Omnibus",
+      "payload": {
+        "slug": "ravenor-the-omnibus",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Ravenor: The Omnibus",
+          "authorNames": [
+            "Dan Abnett"
+          ],
+          "releaseYear": 2009,
+          "synopsis": "Inquisitor Gideon Ravenor and his lethal team of operatives undertake investigations that span from the heart of the Scarus Sector across the wildest regions of space and even through time itself. In the grim 41st Millennium, the Inquisition wages a hidden war against the darkest threats to Mankind—the alien, the heretic, and the daemon. Ravenor and his band pursue a sprawling conspiracy rooted in daemonic corruption, taking them beyond the known Imperium and testing their resolve at every turn. This omnibus collects three interconnected novels following Ravenor's mission to investigate and expose threats that few others could comprehend, unraveling mysteries that challenge both their loyalty and sanity as they confront enemies both mortal and supernatural.",
+          "format": "omnibus",
+          "facetIds": [
+            "inquisitor",
+            "imperium",
+            "mystery",
+            "grimdark",
+            "action_heavy",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing"
+          ],
+          "factionNames": [
+            "Inquisition"
+          ],
+          "locationNames": [
+            "Scarus Sector"
+          ],
+          "characterNames": [
+            "Gideon Ravenor",
+            "Gregor Eisenhorn"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "manual",
+          "authorNames": "manual",
+          "releaseYear": "manual",
+          "synopsis": "llm",
+          "format": "manual",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/ravenor-the-omnibus-2004"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pariah",
+      "fields": {
+        "title": {
+          "value": "Pariah",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Dan Abnett"
+          ],
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2012,
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": "9781800260351",
+          "source": "validator",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null,
+          "evidence": [
+            {
+              "source": "lexicanum",
+              "value": "9781849702010"
+            },
+            {
+              "source": "open_library",
+              "value": "9781800260351"
+            }
+          ]
+        },
+        "isbn10": {
+          "value": "1800260350",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": 336,
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": "https://covers.openlibrary.org/b/id/12439246-L.jpg",
+          "source": "open_library",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "format": {
+          "value": "novel",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "In the shadowed city of Queen Mab, Alizebeth Bequin navigates a treacherous existence as an Inquisitorial agent while concealing her nature as a Pariah—a Blank whose very presence nullifies psychic energies and breeds irrational hatred in those around her. Escaping a life of regimented training at a mysterious academy, she becomes entangled in a dangerous game between two former allies turned bitter enemies: Inquisitors Gregor Eisenhorn and Gideon Ravenor. As the Archenemy pursues her and the Inquisition closes in from all sides, Bequin struggles to understand her own role in a conspiracy far darker than she imagined. With the line between friend and foe irreversibly blurred, she must uncover the truth of her identity and purpose before a coming reckoning in which her survival—and that of countless worlds—hangs in the balance.",
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "inquisitor",
+            "female",
+            "imperium",
+            "planetary",
+            "mid_series",
+            "standard",
+            "mystery",
+            "character_study",
+            "political_thriller",
+            "grimdark",
+            "somber",
+            "doubt",
+            "redemption",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Inquisition",
+              "role": "supporting"
+            },
+            {
+              "name": "Chaos",
+              "role": "antagonist"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Queen Mab",
+              "role": "primary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Alizebeth Bequin",
+              "role": "pov"
+            },
+            {
+              "name": "Gregor Eisenhorn",
+              "role": "supporting"
+            },
+            {
+              "name": "Gideon Ravenor",
+              "role": "supporting"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:31:57.877Z",
+          "override": null
+        }
+      },
+      "validations": [
+        {
+          "field": "isbn13",
+          "severity": "warn",
+          "kind": "edition_isbn_conflict",
+          "evidence": [
+            {
+              "source": "lexicanum",
+              "value": "9781849702010"
+            },
+            {
+              "source": "open_library",
+              "value": "9781800260351"
+            }
+          ],
+          "suggested": {
+            "value": "9781800260351",
+            "action": "use"
+          },
+          "reasoning": "lexicanum and open_library disagree on isbn13; suggesting the numerically lower 9781800260351 (first-edition heuristic)."
+        }
+      ],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/Pariah_(Novel)",
+          "fetchedAt": "2026-05-10T22:31:40.702Z",
+          "fields": {
+            "title": "Pariah",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2012,
+            "isbn13": "9781849702010",
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "Pariah_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": []
+          }
+        },
+        {
+          "source": "open_library",
+          "sourceUrl": "https://openlibrary.org/works/OL25486017W",
+          "fetchedAt": "2026-05-10T22:31:42.720Z",
+          "fields": {
+            "title": "Pariah",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "isbn13": "9781800260351",
+            "isbn10": "1800260350",
+            "pageCount": 336,
+            "coverUrl": "https://covers.openlibrary.org/b/id/12439246-L.jpg"
+          },
+          "notes": [
+            "releaseYear_skipped_drift_2021_vs_2012"
+          ],
+          "raw": {
+            "author_name": [
+              "Dan Abnett"
+            ],
+            "cover_i": 12439246,
+            "edition_count": 2,
+            "first_publish_year": 2021,
+            "isbn": [
+              "1800260350",
+              "1800260474",
+              "9781800260351",
+              "9781800260474"
+            ],
+            "key": "/works/OL25486017W",
+            "number_of_pages_median": 336,
+            "title": "Pariah"
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "In the shadowed city of Queen Mab, Alizebeth Bequin navigates a treacherous existence as an Inquisitorial agent while concealing her nature as a Pariah—a Blank whose very presence nullifies psychic energies and breeds irrational hatred in those around her. Escaping a life of regimented training at a mysterious academy, she becomes entangled in a dangerous game between two former allies turned bitter enemies: Inquisitors Gregor Eisenhorn and Gideon Ravenor. As the Archenemy pursues her and the Inquisition closes in from all sides, Bequin struggles to understand her own role in a conspiracy far darker than she imagined. With the line between friend and foe irreversibly blurred, she must uncover the truth of her identity and purpose before a coming reckoning in which her survival—and that of countless worlds—hangs in the balance.",
+        "facetIds": [
+          "inquisitor",
+          "female",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "mystery",
+          "character_study",
+          "political_thriller",
+          "grimdark",
+          "somber",
+          "doubt",
+          "redemption",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          {
+            "name": "Inquisition",
+            "role": "supporting"
+          },
+          {
+            "name": "Chaos",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Queen Mab",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Alizebeth Bequin",
+            "role": "pov"
+          },
+          {
+            "name": "Gregor Eisenhorn",
+            "role": "supporting"
+          },
+          {
+            "name": "Gideon Ravenor",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 24152,
+            "output": 1280,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 24152,
+        "tokensOut": 1280,
+        "webSearches": 1,
+        "estUsdCost": 0.040552
+      },
+      "sourcePages": [
+        "https://www.tlbranson.com/warhammer-40k-books-in-order/"
+      ],
+      "wikipediaTitle": "Pariah",
+      "payload": {
+        "slug": "pariah",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "Pariah",
+          "authorNames": [
+            "Dan Abnett"
+          ],
+          "releaseYear": 2012,
+          "synopsis": "In the shadowed city of Queen Mab, Alizebeth Bequin navigates a treacherous existence as an Inquisitorial agent while concealing her nature as a Pariah—a Blank whose very presence nullifies psychic energies and breeds irrational hatred in those around her. Escaping a life of regimented training at a mysterious academy, she becomes entangled in a dangerous game between two former allies turned bitter enemies: Inquisitors Gregor Eisenhorn and Gideon Ravenor. As the Archenemy pursues her and the Inquisition closes in from all sides, Bequin struggles to understand her own role in a conspiracy far darker than she imagined. With the line between friend and foe irreversibly blurred, she must uncover the truth of her identity and purpose before a coming reckoning in which her survival—and that of countless worlds—hangs in the balance.",
+          "coverUrl": "https://covers.openlibrary.org/b/id/12439246-L.jpg",
+          "isbn13": "9781800260351",
+          "isbn10": "1800260350",
+          "pageCount": 336,
+          "format": "novel",
+          "facetIds": [
+            "inquisitor",
+            "female",
+            "imperium",
+            "planetary",
+            "mid_series",
+            "standard",
+            "mystery",
+            "character_study",
+            "political_thriller",
+            "grimdark",
+            "somber",
+            "doubt",
+            "redemption",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing"
+          ],
+          "factionNames": [
+            "Inquisition",
+            "Chaos"
+          ],
+          "locationNames": [
+            "Queen Mab"
+          ],
+          "characterNames": [
+            "Alizebeth Bequin",
+            "Gregor Eisenhorn",
+            "Gideon Ravenor"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "manual",
+          "authorNames": "manual",
+          "releaseYear": "manual",
+          "synopsis": "llm",
+          "coverUrl": "open_library",
+          "isbn13": "manual",
+          "isbn10": "open_library",
+          "pageCount": "open_library",
+          "format": "manual",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/Pariah_(Novel)"
+          },
+          {
+            "source": "open_library",
+            "url": "https://openlibrary.org/works/OL25486017W"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "the-magos",
+      "fields": {
+        "title": {
+          "value": "The Magos",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "authorNames": {
+          "value": [
+            "Dan Abnett"
+          ],
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "releaseYear": {
+          "value": 2018,
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "seriesHint": {
+          "value": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "seriesIndex": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "isEntryPoint": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "isbn13": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "isbn10": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "pageCount": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "coverUrl": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "format": {
+          "value": "novel",
+          "source": "ssot",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "startY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "endY": {
+          "value": null,
+          "source": "discovery",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "synopsis": {
+          "value": "Veteran Inquisitor Gregor Eisenhorn, now marked a heretic by the Imperium he once served, pursues his quarry across the remote worlds of the galaxy with a small band of loyal followers. Leading the hunt is the timid yet brilliant Magos Biologis Valentin Drusher, reluctantly drawn into Eisenhorn's obsessive crusade against the Cognitae—a heretical sect that has haunted the Inquisitor for decades. As Drusher becomes entangled in their mission, he discovers a mystery that challenges everything he understands about his world. Eisenhorn, meanwhile, confronts an uncomfortable truth: in his relentless pursuit of darkness and corruption, he has himself become vulnerable to the very evil he hunts. The hunt becomes a reckoning, forcing both men to examine the cost of their choices and the thin line between righteous crusade and self-deception.",
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "facetIds": {
+          "value": [
+            "male",
+            "inquisitor",
+            "imperium",
+            "sector",
+            "mid_series",
+            "standard",
+            "mystery",
+            "character_study",
+            "grimdark",
+            "philosophical",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "factions": {
+          "value": [
+            {
+              "name": "Inquisition",
+              "role": "supporting"
+            },
+            {
+              "name": "Cognitae",
+              "role": "antagonist"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "locations": {
+          "value": [
+            {
+              "name": "Imperium",
+              "role": "primary"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        },
+        "characters": {
+          "value": [
+            {
+              "name": "Gregor Eisenhorn",
+              "role": "pov"
+            },
+            {
+              "name": "Valentin Drusher",
+              "role": "supporting"
+            },
+            {
+              "name": "Harlon Nayl",
+              "role": "supporting"
+            },
+            {
+              "name": "Medea Betancore",
+              "role": "supporting"
+            },
+            {
+              "name": "Germaine Macks",
+              "role": "supporting"
+            }
+          ],
+          "source": "llm",
+          "fetchedAt": "2026-05-10T22:32:25.274Z",
+          "override": null
+        }
+      },
+      "validations": [],
+      "rawClaims": [
+        {
+          "source": "lexicanum",
+          "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Magos_(Novel)",
+          "fetchedAt": "2026-05-10T22:31:58.327Z",
+          "fields": {
+            "title": "The Magos",
+            "authorNames": [
+              "Dan Abnett"
+            ],
+            "releaseYear": 2018,
+            "publisher": "Black Library"
+          },
+          "notes": [],
+          "raw": {
+            "pageName": "The_Magos_(Novel)",
+            "status": 200,
+            "bodyYearCandidates": []
+          }
+        },
+        {
+          "source": "hardcover",
+          "sourceUrl": "https://hardcover.app/books/the-magos",
+          "fetchedAt": "2026-05-10T22:32:13.696Z",
+          "fields": {},
+          "notes": [],
+          "raw": {
+            "audit": {
+              "tags": [
+                "Fantasy",
+                "Science fiction",
+                "War",
+                "Space",
+                "Aliens",
+                "Dystopian",
+                "Adventure",
+                "Adventurous",
+                "fast-paced"
+              ],
+              "averageRating": 4.290322580645161,
+              "contributorNames": [
+                "Dan Abnett"
+              ]
+            }
+          }
+        }
+      ],
+      "rawLlmPayload": {
+        "synopsis": "Veteran Inquisitor Gregor Eisenhorn, now marked a heretic by the Imperium he once served, pursues his quarry across the remote worlds of the galaxy with a small band of loyal followers. Leading the hunt is the timid yet brilliant Magos Biologis Valentin Drusher, reluctantly drawn into Eisenhorn's obsessive crusade against the Cognitae—a heretical sect that has haunted the Inquisitor for decades. As Drusher becomes entangled in their mission, he discovers a mystery that challenges everything he understands about his world. Eisenhorn, meanwhile, confronts an uncomfortable truth: in his relentless pursuit of darkness and corruption, he has himself become vulnerable to the very evil he hunts. The hunt becomes a reckoning, forcing both men to examine the cost of their choices and the thin line between righteous crusade and self-deception.",
+        "facetIds": [
+          "male",
+          "inquisitor",
+          "imperium",
+          "sector",
+          "mid_series",
+          "standard",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "philosophical",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          {
+            "name": "Inquisition",
+            "role": "supporting"
+          },
+          {
+            "name": "Cognitae",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Imperium",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Gregor Eisenhorn",
+            "role": "pov"
+          },
+          {
+            "name": "Valentin Drusher",
+            "role": "supporting"
+          },
+          {
+            "name": "Harlon Nayl",
+            "role": "supporting"
+          },
+          {
+            "name": "Medea Betancore",
+            "role": "supporting"
+          },
+          {
+            "name": "Germaine Macks",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "audit": {
+          "modelUsed": "claude-haiku-4-5",
+          "tokenUsage": {
+            "input": 23718,
+            "output": 870,
+            "webSearchCount": 1
+          }
+        }
+      },
+      "llmCostSummary": {
+        "tokensIn": 23718,
+        "tokensOut": 870,
+        "webSearches": 1,
+        "estUsdCost": 0.038068
+      },
+      "sourcePages": [
+        "https://www.tlbranson.com/warhammer-40k-books-in-order/"
+      ],
+      "wikipediaTitle": "The Magos",
+      "payload": {
+        "slug": "the-magos",
+        "primarySource": "llm",
+        "confidence": 0.5,
+        "fields": {
+          "title": "The Magos",
+          "authorNames": [
+            "Dan Abnett"
+          ],
+          "releaseYear": 2018,
+          "synopsis": "Veteran Inquisitor Gregor Eisenhorn, now marked a heretic by the Imperium he once served, pursues his quarry across the remote worlds of the galaxy with a small band of loyal followers. Leading the hunt is the timid yet brilliant Magos Biologis Valentin Drusher, reluctantly drawn into Eisenhorn's obsessive crusade against the Cognitae—a heretical sect that has haunted the Inquisitor for decades. As Drusher becomes entangled in their mission, he discovers a mystery that challenges everything he understands about his world. Eisenhorn, meanwhile, confronts an uncomfortable truth: in his relentless pursuit of darkness and corruption, he has himself become vulnerable to the very evil he hunts. The hunt becomes a reckoning, forcing both men to examine the cost of their choices and the thin line between righteous crusade and self-deception.",
+          "format": "novel",
+          "facetIds": [
+            "male",
+            "inquisitor",
+            "imperium",
+            "sector",
+            "mid_series",
+            "standard",
+            "mystery",
+            "character_study",
+            "grimdark",
+            "philosophical",
+            "cw_violence",
+            "cw_death",
+            "cw_disturbing",
+            "en"
+          ],
+          "factionNames": [
+            "Inquisition",
+            "Cognitae"
+          ],
+          "locationNames": [
+            "Imperium"
+          ],
+          "characterNames": [
+            "Gregor Eisenhorn",
+            "Valentin Drusher",
+            "Harlon Nayl",
+            "Medea Betancore",
+            "Germaine Macks"
+          ]
+        },
+        "fieldOrigins": {
+          "title": "manual",
+          "authorNames": "manual",
+          "releaseYear": "manual",
+          "synopsis": "llm",
+          "format": "manual",
+          "facetIds": "llm",
+          "factionNames": "llm",
+          "locationNames": "llm",
+          "characterNames": "llm"
+        },
+        "externalUrls": [
+          {
+            "source": "lexicanum",
+            "url": "https://wh40k.lexicanum.com/wiki/The_Magos_(Novel)"
+          },
+          {
+            "source": "hardcover",
+            "url": "https://hardcover.app/books/the-magos"
+          }
+        ]
+      }
+    }
+  ],
+  "updated": [],
+  "skipped_manual": [],
+  "skipped_unchanged": [],
+  "field_conflicts": [],
+  "errors": [],
+  "validationSummary": {
+    "year_outlier": 0,
+    "edition_isbn_conflict": 3,
+    "pagecount_outlier": 0,
+    "author_editor_suspicion": 0,
+    "lexicanum_missing": 2
+  },
+  "llmModel": "claude-haiku-4-5",
+  "llmPromptVersion": "d95ba16f8ca1",
+  "llmCostSummary": {
+    "totalTokensIn": 228906,
+    "totalTokensOut": 10536,
+    "totalWebSearches": 10,
+    "estUsdCost": 0.38158600000000004
+  }
+}
