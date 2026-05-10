@@ -12,13 +12,17 @@ sources:
   - ../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md
   - ../../sessions/2026-05-09-055-arch-v2-voll-lauf-decision-gate.md
   - ../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md
-  - ../../sessions/2026-05-10-056-arch-v2-pre-roster-fixes.md
+  - ../../sessions/archive/2026-05/2026-05-10-056-arch-v2-pre-roster-fixes.md
+  - ../../sessions/archive/2026-05/2026-05-10-056-impl-v2-pre-roster-fixes.md
+  - ../../sessions/archive/2026-05/2026-05-10-057-arch-excel-roster-import.md
+  - ../../sessions/archive/2026-05/2026-05-10-057-impl-excel-ssot-import.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
 related:
   - ./project-state.md
   - ./pipeline-state.md
   - ./deferred-questions.md
   - ./decisions/why-haiku-not-sonnet.md
+  - ./decisions/why-excel-ssot-not-crawl.md
 confidence: high
 ---
 
@@ -26,7 +30,7 @@ confidence: high
 
 > Items the **next** architect brief MUST address. The queue is intentionally small (3–5 items). Cowork prunes here when an item lands in a brief or is otherwise resolved. Dormant / distant items live in [`./deferred-questions.md`](./deferred-questions.md). Phase-internal backlog (3d / 3e / 3f reminders) lives in [`./pipeline-state.md`](./pipeline-state.md).
 >
-> **Migration history:** the original 9-item Carry-over (`sessions/README.md`) was migrated to 11 numbered items at the 049 Karpathy-Reset. Brief 051 (Brain Slim Pass, 2026-05-09) split the queue into actionable here + dormant in `deferred-questions.md` + sub-phase reminders in `pipeline-state.md`. Post-054 Session-End: ehemals OQ4 (Anthologie-Re-Test) → `deferred-questions.md` (durch *tales-of-heresy* in V2-Pilot empirisch bestanden); ehemals OQ5 (Lexicanum-Body-Lore-Pass) → `deferred-questions.md` (V2 hat Body-Year-Regex aus FIELDS-Pfad entfernt, FIELD_PRIORITY für Junctions ist effektiv `[llm]`, Body-Lore-Walker bleibt eine Optimierung ohne aktuellen Treiber). Neu OQ4 (Junction-Resolver) + OQ5 (Unresolved-Queue) aus Codex-Review + V2-Pilot-Erfahrung. **Pre-055 Add (rogue, 2026-05-09):** Neu OQ6 (Hardcover-Rating-Promotion + OL-Fallback) — Wieder-Aufnahme von Rating als deterministische Quelle nach Slim-LLM-Drop. **Post-055 Pivot (2026-05-10):** Maintainer-Direktive nach 055-Voll-Lauf-Erfahrung — Workflow wechselt von "Voll-Lauf 50-100 Bücher" auf kuratierte 10er-Batches gegen eine Master-Liste. OQ4 + OQ5 bleiben bestehen, aber rutschen in der Sequenz nach hinten — Resolver-Brief erst nach 30–50 real-prozessierten Büchern aus den 10er-Batches. Bis dahin sind OQ4/5 nicht der "next brief", sondern Datensammlungs-Targets. OQ7 (Master-Liste-Erstellung) und OQ8 (V2-Batch auf Roster) sind die nächsten echten Briefs (Brief 057 + 058) nach 056. Universe-Year-Walker (parallele Diskussion) bewusst nicht hier sondern in `deferred-questions.md`, weil Maintainer das hinten anstellt.
+> **Migration history (kompakt):** Initial 9-Item-Carry-over migrated 049-Reset → 11 items; 051 Slim Pass split actionable / deferred / sub-phase. Post-054 verschob Anthologie-Re-Test + Body-Lore-Walker nach `deferred-questions.md` (V2-Pilot strukturell adressiert) und ersetzte sie durch OQ4 (Junction-Resolver) + OQ5 (Unresolved-Queue). Pre-055 Add: OQ6 (Hardcover-Rating-Promotion + OL-Fallback). Post-055-Pivot (2026-05-10): Workflow von Voll-Lauf auf kuratierte 10er-Batches umgestellt; OQ4/OQ5 rutschen sequence-mäßig hinter die ersten 30–50 prozessierten Bücher. Excel-SSOT-Pivot (2026-05-10, Brief 057): Maintainer-Excel ersetzt Crawler-Discovery; OQ7 (Master-Liste-Crawl-Build) + OQ8 (Roster-Index-Selektor) **erledigt durch 057-impl** (Schema + Truncate + Loader gelandet) — der Pipeline-Refactor selbst ist Brief 058. Siehe [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md) für die ADR. Universe-Year-Walker bleibt in `deferred-questions.md` (Maintainer-Direktive: erstmal hinten anstellen).
 
 Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions: …` (raw sources) · `Follow-up brief: …` (if known).
 
@@ -57,7 +61,7 @@ Sequenz post-054: V2-Voll-Lauf (055) → Resolver + Unresolved-Queue (056, items
 
 ## (4) Junction-Resolver für 3d-Apply — Faction/Location/Character Surface-Form → Canonical-ID
 
-**Owner:** Cowork (architectural design) → CC (implementation). **Sessions:** [054-arch](../../sessions/2026-05-09-054-arch-pipeline-v2-pilot.md), [054-impl](../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md), [055-impl](../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md), [Codex-Review](../raw/reviews/2026-05-09-codex-v2-pilot-review.md). **Follow-up brief:** verschoben — kommt nach den ersten 30–50 real-prozessierten Büchern aus den 10er-Batches (Briefs 058+). Bis dahin ist die 055er Surface-Form-Top-20 Referenz-Datensatz, aber Datensammlung läuft weiter; die Resolver-Brief-Empirie wächst mit jedem 10er-Batch.
+**Owner:** Cowork (architectural design) → CC (implementation). **Sessions:** [054-arch](../../sessions/2026-05-09-054-arch-pipeline-v2-pilot.md), [054-impl](../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md), [055-impl](../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md), [Codex-Review](../raw/reviews/2026-05-09-codex-v2-pilot-review.md). **Follow-up brief:** verschoben — kommt nach den ersten 30–50 real-prozessierten Büchern aus den 10er-Batches (Briefs 058+). Bis dahin ist die 055er Surface-Form-Top-20 Referenz-Datensatz, aber Datensammlung läuft weiter; die Resolver-Brief-Empirie wächst mit jedem 10er-Batch. **Post-057-Update:** Excel-SSOT ändert die Resolver-Frage nicht — Surface-Forms kommen aus dem LLM-Output, nicht aus der Excel; Faction-/Location-/Character-Vokabular ist Pipeline-Job, nicht Maintainer-Curation.
 
 V2 schreibt Faktionen, Locations und Characters als `{ name, role }` mit Surface-Forms aus dem LLM (z. B. `{ name: "Sons of Horus", role: "primary" }`). Das ist by-design für Pilot + Voll-Lauf — die FK-Resolution gegen `factions.id` / `locations.id` / `characters.id` (alle `varchar(64)` String-IDs) kommt im Resolver. Vier Anforderungen aus Codex-Review:
 
@@ -102,29 +106,10 @@ Drei Architektur-Entscheidungen für den Brief:
 
 Out of scope für diesen Eintrag: Universe-Year-Walker (parallel diskutiert, in `deferred-questions.md` geparkt), `availability` (war Slim-LLM-Drop genau wie Rating, hat aber keine vergleichbare deterministische API-Quelle und bleibt offen).
 
-## (7) Master-Liste-Erstellung — `book-roster.json` + Override-Datei
+## (7) ~~Master-Liste-Erstellung~~ — closed by 057-impl
 
-**Owner:** Cowork (architectural design) → CC (implementation). **Sessions:** Maintainer-Diskussion 2026-05-10 (post-055-Pivot). **Follow-up brief:** Brief 057.
+Excel-SSOT (`scripts/seed-data/source/Warhammer_Books_SSOT.xlsx`, 859 Bücher + 191 Collection-Beziehungen) ist gelandet; Loader (`scripts/import-ssot-roster.ts`) produziert deterministisch `scripts/seed-data/book-roster.json` (SHA256-verifiziert byte-identisch über Re-Runs). ADR: [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md). Coverage-Maintenance bleibt extern (Maintainer-Workflow mit LLM-Assistenz).
 
-Maintainer-Direktive nach 055-Voll-Lauf: weg vom rauschigen Discovery-Output (Wikipedia + TLBranson schreiben `about-warhammer-40k`, `above-and-beyond` etc. mit), hin zu einer kuratierten Master-Liste, gegen die die Pipeline crawlt. Architektur-Entscheidung 2026-05-10 (Maintainer-Wahl): **Auto-generiert + Override-Datei**.
+## (8) ~~V2-Batch-Auswahl auf Roster-Index~~ — verschoben in Brief 058 (queued)
 
-- **Build-Skript** `scripts/build-book-roster.ts` crawlt drei Quellen: tlbranson Books-Seite, tlbranson Horus Heresy-Seite, Wikipedia-Master-Listen (4 Seiten wie heute). Nutzt die V2-Discovery-Module (`tlbranson/parse.ts` + `wikipedia/parse.ts`) intern, schreibt nicht direkt in `ingest/.cache/` sondern produziert ein Roster-File.
-- **Output 1: `scripts/seed-data/book-roster.json`** — checked-in Datei mit Form `{ books: [{ slug, title, sources: ["tlbranson", "wikipedia"], releaseYear?, seriesHint?, authorHint? }, ...] }`. Re-Crawls produzieren Git-Diffs gegen die alte Datei.
-- **Output 2: `scripts/seed-data/book-roster-overrides.json`** — Hand-Override-Datei mit drei Sektionen: `exclude` (Slugs die rauswerfen, z. B. `["about-warhammer-40k", "above-and-beyond"]`), `rename` (Slug-/Title-Korrekturen), `extra` (manuell dazugepackte Bücher die der Crawler nicht findet). Build-Pipeline: Crawl → Dedup → Override-Application → Final `book-roster.json`.
-
-Architektur-Fragen für 057-Brief (sind im Brief zu setzen, nicht hier zu entscheiden):
-
-- (a) **Roster-Format** mehr Felder als oben (z. B. `series`, `seriesIndex` als optional)? Pragmatik: nur Felder, die deterministisch aus den drei Crawl-Quellen extrahierbar sind.
-- (b) **Override-Application-Reihenfolge** — `exclude` vor `rename` vor `extra` ist die natürliche Sequenz. CC kann begründen, falls anders.
-- (c) **Slug-Konflikt-Auflösung** zwischen tlbranson und Wikipedia. Vermutlich slug-canonical aus tlbranson (kürzer, kontroller) mit Wikipedia als Confirmation; Konflikte loggen, nicht silent-merge.
-- (d) **Build-Skript-Lauf-Trigger** — manuell (nur `npm run build:roster` von Maintainer) oder GH-Action (monatlich oder bei Wikipedia-Update)? Pragmatik: erstmal manuell, GH-Action ist 3f-Maintenance-Backlog.
-
-## (8) V2-Batch-Auswahl von Slug-Sort auf Roster-Index umstellen — erster 10er-Batch
-
-**Owner:** Cowork (architectural design) → CC (implementation). **Sessions:** [055-impl](../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md), Maintainer-Diskussion 2026-05-10. **Follow-up brief:** Brief 058 (post-Brief-057).
-
-V2-Batch-Selektor heute (post-055) sortiert die Discovery-Output-Roster nach Slug ascending und nimmt die ersten N. Das wird in 058 abgelöst durch eine Roster-Index-basierte Auswahl: `book-roster.json` ist die Quelle, Batch-Mode wählt `books[offset:offset+limit]`. CLI-Form-Vorschlag: `--pipeline=v2 --batch=v2-tryout-3 --offset=0 --limit=10`. CC kann eine elegantere CLI vorschlagen.
-
-In derselben Session: erster 10er-Batch wird gefahren, produziert committed Diff (Filename-Prefix bleibt `v2-batch-` — Dashboard rendert ohne Code-Änderung). Maintainer-Review danach (Surface-Forms, Validator-Trigger, Synopsis-Plausibilität); 059er-Brief je nach Befund (nächster 10er-Batch + ggf. Mini-Fixes).
-
-Architektur-Fragen für 058-Brief: CLI-Form, Roster-Lese-Pfad (cached oder direct file-read), Verhalten bei `offset+limit > books.length` (klar fehlern oder loud-warn-und-trim?), Metadata im Diff-File über die Batch-Range (`{ rosterRange: { offset: 0, limit: 10, total: 712 } }` o. Ä.).
+Brief 058 (V2-Pipeline-Refactor) übernimmt: SSOT-Modus in `run-batch.ts`, Discovery-Stage 0 ab, Stage-1-Validators trimmen (year_outlier raus, author_editor_suspicion raus oder umbauen), Stage-3-LLM-Tool-Schema schrumpfen (Author/Year/Format/Title raus), erster 10er-Batch als committed Diff. Die OQ-Form ("Roster-Index-Selektor") ist durch die SSOT-Form ersetzt — Pipeline liest direkt aus `book-roster.json[offset:offset+limit]`.

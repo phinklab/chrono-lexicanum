@@ -14,7 +14,10 @@ sources:
   - ../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md
   - ../../sessions/2026-05-09-055-arch-v2-voll-lauf-decision-gate.md
   - ../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md
-  - ../../sessions/2026-05-10-056-arch-v2-pre-roster-fixes.md
+  - ../../sessions/archive/2026-05/2026-05-10-056-arch-v2-pre-roster-fixes.md
+  - ../../sessions/archive/2026-05/2026-05-10-056-impl-v2-pre-roster-fixes.md
+  - ../../sessions/archive/2026-05/2026-05-10-057-arch-excel-roster-import.md
+  - ../../sessions/archive/2026-05/2026-05-10-057-impl-excel-ssot-import.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
   - ../../sessions/README.md
   - ../../ROADMAP.md
@@ -23,6 +26,7 @@ related:
   - ./open-questions.md
   - ./roadmap.md
   - ./architecture.md
+  - ./decisions/why-excel-ssot-not-crawl.md
 confidence: high
 ---
 
@@ -32,35 +36,40 @@ confidence: high
 
 ## Phase
 
-**Phase 3 — Bulk-Backfill-Pipeline (in flight, dry-run, V2-Voll-Lauf 50 Bücher gelandet).** The TypeScript ingestion pipeline (Wikipedia + TLBranson + Lexicanum + Open Library + Hardcover crawlers + Anthropic Haiku 4.5 Slim-LLM + deterministische Validatoren + Provenance-pro-Feld) is wired in two parallel Pfaden (V1 + V2) und produziert dry-run Diffs. 055-Voll-Lauf hat 50 Bücher als V2-Diff geliefert; gleichzeitig drei strukturelle Schwächen freigelegt (Lexicanum-Throttle, blinde Cost-Telemetrie auf Cache-Hits, kein Per-Book-Checkpointing). **Pivot 2026-05-10**: weg vom Voll-Lauf-Pfad, hin zu kuratierten 10er-Batches gegen eine Master-Liste. Sequenz: Brief 056 (Pre-Roster-Fixes, Lex-Cache + Checkpointing + Cost-Recompute), Brief 057 (Master-Liste-Erstellung, `book-roster.json` + Override-Datei), Brief 058 (V2-Batch auf Master-Liste umstellen + erster 10er), Briefs 059+ (fortlaufende 10er-Batches mit Maintainer-Review zwischen den Briefs). Resolver-Brief verschoben hinter die ersten 30–50 real-prozessierten Bücher.
+**Phase 3 — Bulk-Backfill-Pipeline (in flight, dry-run, Excel-SSOT-Pivot durch 057 vollzogen).** Der TypeScript-Ingestion-Stack (Lexicanum + Open Library + Hardcover crawler + Anthropic Haiku 4.5 Slim-LLM + deterministische Validatoren + Provenance-pro-Feld) bleibt bestehen; die **Discovery-Stage** ist nach dem 055-Voll-Lauf strukturell von Wikipedia/TLBranson-Crawl auf eine Maintainer-kuratierte Excel-SSOT umgestellt worden. ADR: [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md).
+
+Sequenz seit 055: Brief 056 (V2-Pre-Roster-Fixes — Lex-Cache, Per-Book-Checkpointing, Cost-Recompute, Diff-Archivierung) **landed**; Brief 057 (Excel-SSOT-Import — Schema-Migration `0008`, Truncate-Skript `db-reset-for-ssot.ts`, Loader `import-ssot-roster.ts` + deterministisches `book-roster.json` mit 859 Büchern + 191 Collections) **landed code-seitig**, Migration-Apply + DB-Truncate **deferred to Maintainer-Trigger** (lokales `.env.local` zeigt auf prod-Supabase, CC kann nicht apply'n). Nächster Brief: 058 (V2-Pipeline-Refactor auf SSOT-Mode + erster 10er-Batch). Briefs 059+ als fortlaufende 10er-Batch-Reihe mit Maintainer-Review zwischen den Briefs. Resolver-Brief (OQ4 + OQ5) bleibt verschoben hinter die ersten 30–50 real-prozessierten Bücher.
 
 Phases 1 (foundation), 1.1 (stack bumps), 1.5 (build/deploy hygiene), 2 (Chronicle / Timeline), and 3a–3c (pipeline skeleton + aux sources + LLM enrichment) are shipped. Phase 4 (Discovery-Layer) and Phase 5 (Cartographer + Ask the Archive) follow Phase 3. See [`./roadmap.md`](./roadmap.md) for the full phase plan.
 
-The book domain currently holds **26 hand-curated books** in Postgres (Stufe 2b seed, sessions 021/022). The pipeline has discovered ~700 more via Wikipedia + TLBranson, but those are dry-run only — no DB writes have occurred yet from the pipeline.
+Das Buch-Domain-Bild ist mid-flight im Übergang: **26 hand-kuratierte Bücher** in Postgres (Stufe 2b seed, sessions 021/022) — werden mit Maintainer-Trigger durch das `db-reset-for-ssot`-Skript hard-deleted. Der **Excel-SSOT-Roster** mit 859 Büchern + 191 Collections liegt deterministisch unter `scripts/seed-data/book-roster.json`; Pipeline-Konsumtion startet mit Brief 058.
 
 ## Branch
 
-Active branch: `feat/phase-3c-llm-enrichment`. Recent merges into this branch: 047 (pipeline hardening, commit `4da6184`) and 048 (doc refresh) bundle, 049 (Karpathy-Reset, four commits `1f6da88`/`3f43f4c`/`64b47b5`/`9fa70d8`), 050 (Brain Hygiene), 051 (Brain Slim Pass), 052 (Ingest-Retention Decision), 053 (Brain Lint), 054 (V2-Pilot — TLBranson + Validatoren + Slim-LLM + BookV2Record), 055 (V2 Voll-Lauf 50 Bücher + `genericityScore` + Web-Search-Prompt-Härtung + Engine-Refactor `run-engine.ts`/`run-batch.ts`).
+Active branch: `feat/phase-3c-llm-enrichment`. Recent merges into this branch: 047 (pipeline hardening, commit `4da6184`) and 048 (doc refresh) bundle, 049 (Karpathy-Reset, four commits `1f6da88`/`3f43f4c`/`64b47b5`/`9fa70d8`), 050 (Brain Hygiene), 051 (Brain Slim Pass), 052 (Ingest-Retention Decision), 053 (Brain Lint), 054 (V2-Pilot — TLBranson + Validatoren + Slim-LLM + BookV2Record), 055 (V2 Voll-Lauf 50 Bücher + `genericityScore` + Web-Search-Prompt-Härtung + Engine-Refactor `run-engine.ts`/`run-batch.ts`), 056 (V2-Pre-Roster-Fixes — Lex-Cache + Per-Book-Checkpointing + Cost-Recompute + Diff-Archivierung), 057 (Excel-SSOT-Import — Schema-Migration `0008`, Truncate-Skript, Loader, 859-Bücher-JSON-Roster).
 
 ## What's running
 
 - **App on Vercel.** Hub + `/timeline` + `/timeline/[era]` + `/buch/[slug]` (DetailPanel) + `/ingest` (Phase 3.5 read-only Diff-Inspector) + `/healthz`. Live: <https://chrono-lexicanum.vercel.app/>.
 - **CI on GitHub Actions.** `lint-and-typecheck` + `brain:lint --no-write` Jobs on every PR. Vercel does production builds; CI does *not* run `next build`.
-- **DB on Supabase.** Pooler (port 6543) URL in `.env.local`. Migrations 0000–0006 applied. **Migration 0007 (source_kind enum extension for `wikipedia` / `open_library` / `hardcover` / `llm`) committed but NOT applied** — the Apply-Step (3d) is the right context to run it, since enum-add is required only when those sources actually write to DB.
-- **Pipeline V1 in dry-run.** `npm run ingest:backfill -- --limit N --offset M` reads from sources, merges, calls LLM, produces a `ingest/.last-run/backfill-YYYYMMDD-HHMM.diff.json`. Latest V1 committed: `ingest/.archive/v1/backfill-20260508-2101.diff.json` (9 books, run aborted by Philipp after Buch 9; post-047 hardening verified; archived in 056).
-- **Pipeline V2 in dry-run (Voll-Lauf 50 Bücher, post-055).** `npm run ingest:backfill -- --pipeline=v2 --pilot=v2-tryout-1` für Pilot-Slugs; `npm run ingest:backfill -- --pipeline=v2 --batch=v2-tryout-2 --limit=N` für Batch (slug-sort selektor, wird in 058 durch Master-Liste abgelöst). Latest V2 committed: `v2-batch-20260510-1109.diff.json` (50 books, slug-window `13th-legion → ascension`, web-search 1.06/Buch, 4/5 Validator-Kinds non-zero) + Sibling-File `v2-batch-20260510-1109-surfaces.json` (Surface-Form-Frequenz-Dump für Resolver-Tooling). Cost-Telemetrie im Diff blind ($0/Buch wegen Cache-Hits beim finalen Lauf; real fresh-Cost $0.0199/Buch aus 5-Book-Smoke). 047er V1-Diff + 054er V2-Pilot-Diff werden in 056 nach `ingest/.archive/` verschoben. V1- und V2-Pfade laufen parallel; Default ohne `--pipeline=` Flag bleibt V1.
-- **Atlas-Regen-Skript.** `npm run atlas:regen` writes a Postgres-mirror Obsidian vault to `~/chrono-atlas/` (Windows `C:\Users\Phil\chrono-atlas\`; override via `--out=<path>` or `ATLAS_PATH` env). 049-impl produced first proof-of-render (1 book + 1 faction + INDEX.md, DB-counts 26/29 verified). Manual trigger only (no auto-on-3d-Apply); see [`./workflows/atlas-regen.md`](./workflows/atlas-regen.md).
+- **DB on Supabase.** Pooler (port 6543) URL in `.env.local` zeigt heute auf prod (kein Test-Branch). Migrations 0000–0006 applied. **Migration 0007** (source_kind enum extension `wikipedia` / `open_library` / `hardcover` / `llm`) bleibt committed-but-NOT-applied — relevant erst beim 3d-Apply. **Migration 0008 `ssot_schema.sql`** (post-057, committed-but-NOT-applied): bookFormat-Enum +3 (`collection`/`artbook`/`scriptbook`), sourceKind-Enum +1 (`ssot`), `works.external_book_id varchar(16) UNIQUE`, `bookDetails.notes text`, `work_collections`-Junction (composite PK + display_order/confidence/basis + Cascade-FKs). Apply ist Maintainer-Trigger (lokal/Test bevorzugt; Cowork führt Apply nicht aus).
+- **Excel-SSOT-Roster.** `scripts/seed-data/source/Warhammer_Books_SSOT.xlsx` (Maintainer-extern gepflegt) + Loader `scripts/import-ssot-roster.ts` produziert deterministisch `scripts/seed-data/book-roster.json` (859 RosterBooks + 191 RosterCollections, SHA256 byte-identisch über Re-Runs). Pipeline-Konsumtion startet mit Brief 058. Der `db-reset-for-ssot`-Skript (`npm run db:reset-for-ssot -- --confirm`) macht den Hard-Delete der 26 hand-kuratierten Bücher in einem Schritt; auch Maintainer-Trigger.
+- **Pipeline V1 in dry-run** (Default ohne `--pipeline=` Flag, bleibt für Reproduzierbarkeit alter Diffs). `npm run ingest:backfill -- --limit N --offset M`. Latest V1 committed: `ingest/.archive/v1/backfill-20260508-2101.diff.json` (9 books, post-047 hardening, archived in 056).
+- **Pipeline V2 in dry-run (Voll-Lauf 50 Bücher, post-055; Pre-Roster-Fixes post-056).** `npm run ingest:backfill -- --pipeline=v2 --pilot=v2-tryout-1` für Pilot-Slugs; `npm run ingest:backfill -- --pipeline=v2 --batch=v2-tryout-2 --limit=N` für Batch (heute slug-sort, ab Brief 058 SSOT-Modus). Latest V2 committed: `ingest/.last-run/v2-batch-20260510-1109.diff.json` (50 books) + Sibling `-surfaces.json`. Per-page Lexicanum-Cache + per-book Diff-Checkpointing + Cost-Recompute auf Cache-Hits seit 056 wirksam.
+- **Atlas-Regen-Skript.** `npm run atlas:regen` writes a Postgres-mirror Obsidian vault to `~/chrono-atlas/` (Windows `C:\Users\Phil\chrono-atlas\`; override via `--out=<path>` or `ATLAS_PATH` env). 049-impl produced first proof-of-render (1 book + 1 faction + INDEX.md, DB-counts 26/29 verified). Manual trigger only; see [`./workflows/atlas-regen.md`](./workflows/atlas-regen.md).
 - **Brain-Lint.** `npm run brain:lint` (10 Check-Kategorien) + CI-Gate `brain:lint -- --no-write` post-053. Reports unter `brain/outputs/lint/YYYY-MM-DD.md`.
 
-## Latest pipeline state (post-055, V2-Voll-Lauf 50 Bücher)
+## Latest pipeline state (post-057, Excel-SSOT-Pivot)
 
-Brief 055 hat den ersten V2-Voll-Lauf über 50 Bücher geliefert (`v2-batch-20260510-1109.diff.json`, slug-window `13th-legion → ascension`). **Web-Search-Disziplin ist eindrucksvoll**: 1.06/Buch (47 Bücher genau 1 Search, 3 Bücher 2 Searches) bei Brief-Target ≤1.4 — die Prompt-Härtung in 055 hält. **Validator-Trigger 4-of-5 kinds non-zero**: `year_outlier` 1× (`angel-exterminatus`), `edition_isbn_conflict` 1× (`angel-exterminatus`), `pagecount_outlier` 0× (OL-Fall-through wie im Pilot), `author_editor_suspicion` 2× (Anthologien `age-of-darkness` + `architect-of-fate`), `lexicanum_missing` 20× (~40% des Slug-Windows). Surface-Form-Top-20 + Resolver-Triage-Notes liegen in `ingest/.last-run/v2-batch-20260510-1109-surfaces.json` als 056/057-Resolver-Input bereit (46.7% Faction-Direct-Match, 13.2% Locations, 0% Characters strukturell weil `seed-data/persons.json` Author-Roster ist).
+Brief 055 hat den ersten V2-Voll-Lauf über 50 Bücher geliefert (`v2-batch-20260510-1109.diff.json`, slug-window `13th-legion → ascension`, 1.06 web_search/Buch, 4-of-5 Validator-Kinds non-zero). Brief 056 hat die drei strukturellen Schwächen aus dem Voll-Lauf isoliert behoben: per-page Lexicanum-Cache (24h TTL + negative caching, ~5000× Speedup auf Cache-Hits), per-book Diff-Checkpointing in `run-batch.ts` (mid-run-Halt verliert State nicht mehr), Cost-Recompute auf Cache-Hits ($0.0352/Buch live-verifiziert vs. pre-056 $0/Buch), plus 9-Datei-Diff-Archivierung nach `ingest/.archive/{v1,v2-pilot,v2-batch}/`.
 
-**Drei strukturelle Schwächen aus 055-Lauf:** (1) Lexicanum-Throttle dominiert die Latenz (~60s/Buch lex-missing × 11 URL-Patterns × 5s Crawl-Delay; ~70% lex-missing-Rate im typischen Slug-Window → 100-Bücher-Batch ~70 Min nur für Lex-Probing). (2) Cost-Telemetrie blind auf Cache-Hits (`llmCostSummary.estUsdCost = $0` für alle 50 Bücher; real fresh-Cost $0.0199/Buch nur aus 5-Book-Smoke). (3) Kein per-book Diff-Checkpointing in `run-batch.ts` — mid-run-Halt verliert State (`scripts/synthesize-v2-batch-diff.ts` wurde als Fallback gebaut, aber der Live-Lauf hat sich glücklich durchgekämpft). Plus: TaskStop in der Cowork-Harness propagiert nicht zum tsx-Child — drei Halt-Versuche, drei Mal weitergelaufen. Brief 056 adressiert die ersten drei direkt; TaskStop ist Plattform-Limitation und out-of-scope.
+Brief 057 hat den **Excel-SSOT-Pivot vollzogen** (siehe [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md)): Maintainer-Excel `Warhammer_Books_SSOT_enriched.xlsx` (859 Bücher, 192 Collection-Beziehungen Roh / 191 nach Header-Korrektur, 100% Type/Section/URL-Coverage) liegt jetzt unter `scripts/seed-data/source/`; Loader `import-ssot-roster.ts` produziert deterministisch `scripts/seed-data/book-roster.json`. Drizzle-Schema um vier atomare Adds erweitert + Migration `0008_ssot_schema.sql` generiert (Apply Maintainer-Trigger). Truncate-Skript `db-reset-for-ssot.ts` mit `--confirm`/`DB_RESET_CONFIRM=1`-Gate gebaut.
 
-**Pivot 2026-05-10**: Maintainer-Direktive nach 055-Erfahrung — weg vom Voll-Lauf-Pfad, hin zu kuratierten 10er-Batches gegen eine Master-Liste (`scripts/seed-data/book-roster.json` + Override-Datei aus tlbranson Books + Horus Heresy + Wikipedia-Master). Vorteile: 10 Bücher × 60s Lex-Throttle = 10 Min (session-tauglich); Maintainer kann zwischen den Briefs Surface-Forms/Validator-Trigger lesen; Discovery-Müll (`about-warhammer-40k` etc.) wird durch kuratierte Liste strukturell weggefiltert statt per Regex-Game-of-Whack-a-Mole.
+**CC-Erweiterungen in 057-impl ggü. Brief-Acceptance** (Cowork akzeptiert): RosterBook-Schema trägt zusätzlich `editors: string[]` + `editorialNote: "various" | null` (Konsequenz aus den zwei OQ-Antworten "Various Authors" + "(ed.)"-Trailing). `external_book_id` ist `UNIQUE` ohne separaten Index (B-Tree-Backing reicht). `work_collections`-Junction trägt nur einen Sekundär-Index auf `content_work_id` (composite-PK deckt `collection_work_id` als Leading-Column ab; Maintainer kann via 0009-Mini-Migration nachreichen falls gewünscht). Year-Validierung pragmatisch: `null` → warn (1 Treffer: W40K-0307 "War for Armageddon Omnibus"), non-numeric → loud-Error.
 
-V2-Pilot-Sektion (54er) und V2-Voll-Lauf-Sektion (55er) in [`./pipeline-state.md`](./pipeline-state.md) detailliert.
+**Author-Splitting-Empirie** aus dem 859-Buch-Loader-Lauf: 772 solo, 3 multi (`X and Y`), 62 various (61× "Various Authors" + 1× "Dan Abnett & Others"), 0 `(ed.)`/`(eds.)`/`(editor)`, 23 leere Author-Cells ohne Various-Marker. Slug-Disambiguierung: 1 Section-Disambig (zwei "Ascension"-Bücher → `ascension-dawn-of-war` + `ascension-blackstone-fortress`), 0 Triple-Collisions.
+
+V2-Pilot-Sektion (54er), V2-Voll-Lauf-Sektion (55er), V2-Pre-Roster-Fixes (56er) und SSOT-Pivot (57er) in [`./pipeline-state.md`](./pipeline-state.md) detailliert.
 
 ## V2-Pilot-Architektur (post-054)
 
@@ -77,21 +86,25 @@ V2-Pilot-Acceptance-Numbers aus `ingest/.archive/v2-pilot/v2-pilot-20260509-1934
 
 ## What's open
 
-Top items from [`./open-questions.md`](./open-questions.md), neu sortiert post-055-Pivot:
+Top items from [`./open-questions.md`](./open-questions.md), neu sortiert post-057:
 
-- **Brief 056 (in flight).** Lex-Cache + Per-Book-Checkpointing + Cost-Recompute + Diff-Archivierung — siehe [`../../sessions/2026-05-10-056-arch-v2-pre-roster-fixes.md`](../../sessions/2026-05-10-056-arch-v2-pre-roster-fixes.md).
-- **Brief 057 (queued).** Master-Liste-Erstellung — `scripts/seed-data/book-roster.json` + `book-roster-overrides.json` + Build-Skript via tlbranson Books + Horus Heresy + Wikipedia-Master, dedup. Auto-generiert + manuelle Override-Datei (Maintainer-Wahl 2026-05-10).
-- **Brief 058 (queued).** V2-Batch-Mode auf Master-Liste umstellen, weg vom Slug-Sort-Selektor. Erster 10er-Batch in der gleichen Session. Danach laufen Briefs 059+ als 10er-Batch-Reihe mit Maintainer-Review zwischen den Briefs.
-- **Phase-3e-Modell-Entscheidung.** Haiku bleiben vs. Sonnet-Upgrade. 055-Empirie (Web-Search 1.06/Buch, Hochrechnung Haiku-Voll-Lauf ~$15 für 750 Bücher) verschiebt das Trade-off massiv Richtung Haiku.
-- **Vokabular-Erweiterung.** `duty` (5+ Verstöße kumulativ), `legion`-Faceten-Dimension, `chaos`-pov_side-Pattern.
-- **Junction-Resolver + Unresolved-Queue.** Verschoben hinter die ersten 30–50 real-prozessierten Bücher aus den 10er-Batches. Bis dahin ist die 055er Surface-Form-Top-20 Referenz, aber kein Implementier-Eingang. Empirie spricht für Option C (Hybrid Top-100) auf der Character-Achse — Primarchs + Ahriman + Schaeffer cluster naturally above the noise floor.
-- **Hand-Check-Workflow + Override-Schema.** Sequenz post-Resolver, vor 3d-Apply. V2's `FieldRecord.override` bietet den passenden Slot.
+- **Maintainer-Trigger (out of Cowork-/CC-Loop).** Migration-Apply `0008_ssot_schema.sql` + Truncate-Smoke `db:reset-for-ssot -- --confirm` gegen prod-Supabase. Verifikations-Outputs (`\d+ work_collections`, `enum_range(NULL::book_format)`, `enum_range(NULL::source_kind)`, `\d works`, COUNT-vorher/nachher) sollten in einen Append zu [`../../sessions/archive/2026-05/2026-05-10-057-impl-excel-ssot-import.md`](../../sessions/archive/2026-05/2026-05-10-057-impl-excel-ssot-import.md) (oder Brief 058) wandern.
+- **Brief 058 (queued).** V2-Pipeline-Refactor + erster 10er-Batch. SSOT-Mode in `run-batch.ts` (`--source=ssot --offset=N --limit=M`), Discovery-Stage 0 abschalten, Stage-1-Validators trimmen (`year_outlier` raus weil Year-fix; `author_editor_suspicion` raus oder umbauen weil Format/`editorialNote`/`editors` aus Excel kommen), Stage-3-LLM-Tool-Schema schrumpfen (Author/Year/Format/Title raus), erster 10er-Batch als committed Diff. Hängt **nicht** strikt am Maintainer-Trigger (dry-run berührt DB nicht).
+- **Briefs 059+ (queued).** Fortlaufende 10er-Batches mit Maintainer-Review zwischen den Briefs. Mini-Briefs zwischendrin für Vokabular-Erweiterung (OQ2), Validator-Tuning, Override-Updates.
+- **Phase-3e-Modell-Entscheidung** (OQ1). Haiku bleiben vs. Sonnet-Upgrade. 055-Empirie (Web-Search 1.06/Buch, Hochrechnung Haiku-Voll-Lauf ~$15 für 750 Bücher) verschiebt das Trade-off massiv Richtung Haiku.
+- **Vokabular-Erweiterung** (OQ2). `duty` (5+ Verstöße kumulativ), `legion`-Faceten-Dimension, `chaos`-pov_side-Pattern.
+- **Hand-Check-Workflow + Override-Schema** (OQ3). Sequenz post-Resolver, vor 3d-Apply. V2's `FieldRecord.override` bietet den passenden Slot.
+- **Junction-Resolver + Unresolved-Queue** (OQ4 + OQ5). Verschoben hinter die ersten 30–50 real-prozessierten Bücher aus den 10er-Batches. Bis dahin sammeln die Diffs Surface-Forms; Empirie spricht für Option C (Hybrid Top-100) auf der Character-Achse.
+- **Hardcover-Rating-Promotion + OL-Fallback** (OQ6). Architectural call zu Field-Schema + OL-Fallback ja/nein; Implementation ~10–20 LOC.
+- **DetailPanel "Auch enthalten in:"-Mini-Brief.** Backend-bereit (Junction `work_collections` + `worksRelations.containedIn`/`contains`). Frontend folgt sobald 058+ erste Omnibus-Children im Diff/DB hat.
 - **3d-Apply-Step** (FK-Resolution, ALTER TYPE source_kind, UNIQUE INDEX external_links, junctionsLocked) — weiter hinten, nach Resolver.
 
 ## Recently shipped (session-level)
 
 | Date | Session | Status | Topic |
 |---|---|---|---|
+| 2026-05-10 | 057-impl | complete | Excel-SSOT-Import — Schema-Migration `0008_ssot_schema.sql` (bookFormat-Enum +3, sourceKind +1, `works.external_book_id` UNIQUE, `bookDetails.notes`, `work_collections`-Junction mit Self-M2M), Truncate-Skript `db-reset-for-ssot.ts` mit `--confirm`/ENV-Gate, Loader `import-ssot-roster.ts` produziert deterministisch (SHA256-verifiziert) `book-roster.json` mit 859 Büchern + 191 Collections. Migration-Apply + Truncate-Smoke deferred zu Maintainer-Trigger. |
+| 2026-05-10 | 056-impl | complete | V2 Pre-Roster Fixes — per-page Lexicanum-Cache (24h TTL + negative caching), per-book Diff-Checkpointing in `run-batch.ts`, Cost-Recompute auf Cache-Hits ($0.0352/Buch live verifiziert), 9-Datei-Diff-Archivierung nach `ingest/.archive/{v1,v2-pilot,v2-batch}/`. |
 | 2026-05-10 | 055-impl | complete | V2 Voll-Lauf 50 Bücher — `genericityScore`-Discovery-Merge mit 11 Unit-Tests, Web-Search-Prompt strict (1.06/Buch), Engine-Refactor (`run-engine.ts`/`run-batch.ts` als shared Stage 0–4), `v2-batch-20260510-1109.diff.json` als canonical Diff. Surface-Form-Top-20 + Resolver-Triage-Notes für 056-Resolver verfügbar. Cost-Telemetrie auf Cache-Hits blind ($0.0199/Buch real, aus 5-Book-Smoke). |
 | 2026-05-09 | 054-impl | complete | V2-Pilot — TLBranson + Wikipedia Discovery, infobox-only Lexicanum, 5 deterministische Validatoren, Slim-LLM, BookV2Record mit Provenance pro Feld. 4/5 Acceptance-Bullets clean, $0.062/Buch (vs. V1 $0.114). |
 | 2026-05-09 | 053 | complete | Brain Lint — `scripts/brain-lint.ts` + CI-Gate, erste Lint-Report-Datei. |
@@ -108,12 +121,12 @@ For older sessions and the full chronological log: [`../raw/historical/sessions-
 
 ## Next likely brief
 
-Sequenz post-055-Pivot (kuratierte 10er-Batches statt Voll-Lauf):
+Sequenz post-057 (Excel-SSOT-Roster gelandet, 10er-Batch-Reihe öffnet):
 
-- **Brief 056 (open)** — V2 Pre-Roster Fixes. Per-page Lexicanum-Cache (24h TTL + negative caching), per-book Diff-Checkpointing in `run-batch.ts`, Cost-Recompute auf Cache-Hits, Archivierung 047er V1-Diff + 054er V2-Pilot-Diff in `ingest/.archive/`. Vorarbeit für 057 + 10er-Batches.
-- **Brief 057 (queued)** — Master-Liste-Erstellung. `scripts/seed-data/book-roster.json` + `book-roster-overrides.json` + Build-Skript (`scripts/build-book-roster.ts`) crawlt tlbranson Books + Horus Heresy + Wikipedia-Master, dedupt, schreibt die Datei. Override-Datei (`exclude` / `rename` / `extra`) erlaubt Hand-Korrekturen, die Re-Crawls überleben.
-- **Brief 058 (queued)** — V2-Batch-Mode auf Master-Liste umstellen + erster 10er-Batch. Slug-Sort-Selektor in `run-batch.ts` ersetzt durch Roster-Index-basierte Auswahl. Erster 10er produziert committed Diff für Maintainer-Review.
-- **Briefs 059+ (queued)** — fortlaufende 10er-Batches. Maintainer-Review zwischen den Briefs (Surface-Forms, Validator-Trigger, plausible Synopsen). Bei Findings: kleine Mini-Briefs zwischendrin (Vokabular-Erweiterung, Validator-Tuning, Override-Updates). Nach 30–50 real-prozessierten Büchern: Resolver-Brief mit empirischer Alias-Liste.
-- **Resolver + Unresolved-Queue + 3d-Apply** — verschoben hinter die ersten 10er-Batches. Sequenz wird nach Brief 058 neu evaluiert.
+- **Maintainer-Trigger zuerst** — `npm run db:migrate` (Migration `0008` apply gegen prod-Supabase) + `npm run db:reset-for-ssot -- --confirm` (Hard-Delete der 26). Verifikations-Outputs in 057-impl-Append. Cowork wartet hier.
+- **Brief 058 (queued)** — V2-Pipeline-Refactor + erster 10er-Batch. SSOT-Mode in `run-batch.ts` (`--source=ssot --offset=N --limit=M`), Discovery-Stage 0 abschalten, Stage-1-Validators trimmen (`year_outlier` raus, `author_editor_suspicion` raus oder umbauen), Stage-3-LLM-Tool-Schema schrumpfen (Author/Year/Format/Title raus), erster 10er-Batch als committed Diff. Hängt nicht strikt am Maintainer-Trigger (dry-run berührt DB nicht).
+- **Briefs 059+ (queued)** — fortlaufende 10er-Batches. Maintainer-Review zwischen den Briefs (Surface-Forms, Validator-Trigger, plausible Synopsen). Bei Findings: kleine Mini-Briefs zwischendrin (Vokabular-Erweiterung OQ2, Validator-Tuning, Excel-Fix-Re-Imports).
+- **DetailPanel "Auch enthalten in:"-Mini-Brief** — sobald 058+ erste Omnibus + Children im Diff/DB hat. Frontend-Query gegen `work_collections WHERE content_work_id = ?`.
+- **Resolver + Unresolved-Queue (OQ4 + OQ5) + 3d-Apply** — verschoben hinter die ersten 10er-Batches. Sequenz wird nach ~30–50 prozessierten Büchern neu evaluiert.
 
 Cowork's session-end discipline (post-049): each architect brief and CC report runs through [`./workflows/session-end.md`](./workflows/session-end.md) — update this page, prune `open-questions.md`, write decisions if needed.
