@@ -133,12 +133,15 @@ function buildCacheKey(slug: string, merged: MergedBook): string {
     .slice(0, 32);
 }
 
-async function readCacheV2(slug: string, key: string): Promise<SlimLlmPayload | undefined> {
+async function readCacheV2(
+  slug: string,
+  key: string,
+): Promise<{ payload: SlimLlmPayload; model: string } | undefined> {
   try {
     const raw = await readFile(join(CACHE_DIR, `${slug}.v2.json`), "utf8");
     const entry = JSON.parse(raw) as CachedEntryV2;
     if (entry.key !== key) return undefined;
-    return entry.payload;
+    return { payload: entry.payload, model: entry.model };
   } catch {
     return undefined;
   }
@@ -181,7 +184,22 @@ export async function enrichBookWithLlmV2(
   const cacheKey = buildCacheKey(merged.slug, merged);
   const cached = await readCacheV2(merged.slug, cacheKey);
   if (cached) {
-    return { payload: cached, cached: true, estUsdCost: 0 };
+    // Recompute cost from the cached payload's token usage and the model
+    // recorded *in the cache file* (not the currently-configured model —
+    // a Haiku-cached entry must price under Haiku even if config now says
+    // Sonnet). The cache file itself is not rewritten — recompute is a
+    // read-time operation feeding the diff aggregation only. Brief 056
+    // Fix 3; mirrors scripts/synthesize-v2-batch-diff.ts.
+    const usage = cached.payload.audit.tokenUsage;
+    const estUsdCost = estimateUsdCost(
+      {
+        totalTokensIn: usage.input,
+        totalTokensOut: usage.output,
+        totalWebSearches: usage.webSearchCount,
+      },
+      cached.model,
+    );
+    return { payload: cached.payload, cached: true, estUsdCost };
   }
 
   const model = getLlmModel();

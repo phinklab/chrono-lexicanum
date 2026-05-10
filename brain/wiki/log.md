@@ -171,11 +171,11 @@ Cowork-only Decision-Session (kein CC-Turn). Storage-Strategie für `ingest/.las
 
 **Brain-Regel** (neu, universell): Wiki-Pages zitieren Diff-Files nur per `sources:`-Frontmatter-Pfad — niemals inline. Aggregate gehören in [`./pipeline-state.md`](./pipeline-state.md). Sobald das Lint-Skript existiert, wird der „Inline-Diff-Quote"-Check Teil davon.
 
-**Pages touched (wiki):** [`./pipeline-state.md`](./pipeline-state.md) § "Ingest-diff retention" auf Option-A-Sprache umgestellt + Re-evaluate-Trigger + Brain-Regel ergänzt; this `log.md`. Outside wiki: [`../../sessions/2026-05-09-052-arch-ingest-retention-strategy.md`](../../sessions/2026-05-09-052-arch-ingest-retention-strategy.md), [`../../sessions/README.md`](../../sessions/README.md).
+**Pages touched (wiki):** [`./pipeline-state.md`](./pipeline-state.md) § "Ingest-diff retention" auf Option-A-Sprache umgestellt + Re-evaluate-Trigger + Brain-Regel ergänzt; this `log.md`. Outside wiki: [`../../sessions/archive/2026-05/2026-05-09-052-arch-ingest-retention-strategy.md`](../../sessions/archive/2026-05/2026-05-09-052-arch-ingest-retention-strategy.md), [`../../sessions/README.md`](../../sessions/README.md).
 
 **Out of scope (per brief 052):** Code-Änderung jeder Art, Datei-Verschiebung in `ingest/.last-run/`, `.gitignore`-Änderung, Dashboard-Refactor, Manifest-/Summary-File-Einführung. Folge-Brief für CC erst, wenn ein Trigger feuert.
 
-**Pre-Decision-Fassung in Git-Historie.** Eine ausführliche Vor-Analyse mit Vergleich aller sechs Optionen (A–F), 11-Regel-Policy-Vorschlag und Folge-Brief-Stub lebt in der Git-Historie von [`../../sessions/2026-05-09-052-arch-ingest-retention-strategy.md`](../../sessions/2026-05-09-052-arch-ingest-retention-strategy.md). Bei Re-evaluate-Trigger dort als Startpunkt graben.
+**Pre-Decision-Fassung in Git-Historie.** Eine ausführliche Vor-Analyse mit Vergleich aller sechs Optionen (A–F), 11-Regel-Policy-Vorschlag und Folge-Brief-Stub lebt in der Git-Historie von [`../../sessions/archive/2026-05/2026-05-09-052-arch-ingest-retention-strategy.md`](../../sessions/archive/2026-05/2026-05-09-052-arch-ingest-retention-strategy.md). Bei Re-evaluate-Trigger dort als Startpunkt graben.
 
 ---
 
@@ -194,6 +194,91 @@ Karpathy operation 3/3 (Lint) is now real. `scripts/brain-lint.ts` implements te
 **Out of scope (per brief 053):** auto-fix, weekly GitHub Action / Issue creation, Atlas lint, LLM-driven heuristic checks, code-symbol greps under `src/`, rewriting raw session content. Future-anker for the LLM-driven heuristic pass (Astro-Han pattern) is named in the workflow page so a later brief doesn't reinvent.
 
 **Remaining warning (1, intentional):** [`./roadmap.md`](./roadmap.md) line 76 references `src/lib/recommend.ts` — Phase-5 architectural design statement (typed `recommend(answers)` for Ask the Archive). Resolves when Phase 5 ships; not a defect today.
+
+---
+
+## 2026-05-09 · Session-End nach 054-impl (V2-Pilot) + Codex-Review-Landung
+
+054-impl-Report durchgelesen ([`../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md`](../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md)): V2-Pilot trägt, 4/5 hard acceptance bullets clean, $0.062/Buch (vs. V1 $0.114/Buch — fast Halbierung), `false-gods` `startY=39000` korrekt durch `year_outlier`-Validator gedroppt, *tales-of-heresy* deterministisch als `format=anthology` über Validator 4 erkannt, *chem-dog* aus TLBranson (Wikipedia-Frische-Lücke gepatcht). Schwächen: *eisenhorn-xenos* musste über `synthesizeMissingBook`-Fallback (Discovery-Merge-Edge-Case), `garro` `pagecount_outlier` nur per Inspektion verifiziert (OL gab keinen `pageCount=2` zurück), 8 statt ≤7 Web-Searches.
+
+**Codex-Review** in Cowork-Chat eingegangen, zwei Fragen — Faction-Repräsentation (Names vs IDs) und V2-Pipeline-Gesamteinschätzung. Verbatim als externes Review gelandet unter [`../raw/reviews/2026-05-09-codex-v2-pilot-review.md`](../raw/reviews/2026-05-09-codex-v2-pilot-review.md) mit Banner `review-source: codex` / `review-target: sessions/2026-05-09-054`. Codex-Verdikt zur V2-Pipeline: „klar die bessere Pipeline-Basis, aber noch nicht die Pipeline, die ich ohne 055-Test direkt auf 700+ Bücher loslassen würde."
+
+**Updated wiki:**
+
+- [`./project-state.md`](./project-state.md) — Phase-Sektion auf „V2-Pilot abgeschlossen" + V2 in „What's running" (parallel zu V1) + komplett neue „Latest pipeline state (post-054, V2-Pilot)"-Sektion mit V2-Stack-Beschreibung + Acceptance-Numbers + Codex-Verdikt-Quote. „What's open"-Liste auf Post-054-Stand reduziert (alte Anthologie- und Lexicanum-Body-Lore-Items raus, Resolver + Unresolved-Queue rein). „Recently shipped" um 050–054 erweitert. „Next likely brief" auf 055/056/057-Sequenz umgestellt. „What's NOT open in 049"-Sektion entfernt (veraltet).
+- [`./pipeline-state.md`](./pipeline-state.md) — Titel auf „post-054", Header-Block dokumentiert V1+V2-Parallelpfade, neue große Sektion „V2-Pipeline (Pilot, post-054)" mit Stage-Architektur (0–4), V2-Modul-Layout, Acceptance-Numbers-Tabelle, Bekannte Schwächen. „What's next"-Liste umgestellt auf 055/056-vor-Apply-Sequenz. „3d (Apply-Step) backlog" um Junction-Resolver und Codex-geschärfte FK-Resolution-Anforderungen erweitert. „3e backlog" um TLBranson-Maintenance-Sicherung + V2-Single-Slug-Form ergänzt.
+- [`./open-questions.md`](./open-questions.md) — neuer Migrations-Hinweis im Header (Anthologie + Body-Lore raus, Resolver + Queue rein). Items 4 + 5 ersetzt: (4) Junction-Resolver für 3d-Apply (Codex-geschärft, mit allen vier Anforderungen aus Codex' Antwort), (5) Unresolved-Queue-Strategie (drei Optionen A/B/C, Cowork-Empfehlung Option C). Items 1 (Modell-Entscheidung) + 2 (Vokabular) + 3 (Hand-Check) bleiben, mit Post-054-Updates: Cost-Argument für Haiku noch stärker durch V2-$0.062/Buch, Querverbindung `legion`-Faceten ↔ Junction-Resolver explizit, V2-`FieldRecord.override` als Hand-Check-Override-Slot dokumentiert.
+- [`./deferred-questions.md`](./deferred-questions.md) — zwei neue Einträge oben: „Anthologie-Re-Test für Hebel E (Hardcover-Author-Hint) — bestanden in V2-Pilot" (closed mit Promote-when-Trigger) und „Lexicanum-Body-Lore-Pass — V2 hat strukturell entschieden" (closed mit Promote-when-Trigger).
+- [`./index.md`](./index.md) — Beschreibungen für `open-questions.md`, `deferred-questions.md`, `pipeline-state.md` aktualisiert; Reviews-Hinweis um Codex-Review erweitert.
+
+**Outside wiki:** [`../../sessions/README.md`](../../sessions/README.md) Active-Threads-Tabelle wird im selben Zug aufgeräumt (50–53 archiviert; nur noch 054 + ggf. Pointer auf 055).
+
+**No new decision pages.** V2-Architektur ist in [`./pipeline-state.md`](./pipeline-state.md) dokumentiert, nicht als separate ADR — die zugrunde liegenden Entscheidungen (Multi-Source-Merge, why-haiku-not-sonnet, why-bulk-backfill) bleiben gültig; V2 ist eine Implementierungs-Schärfung, keine Strategie-Wende. Falls 055-Voll-Lauf trägt und V2 Default wird, könnte ein „why-validators-not-llm-sanity"-ADR sinnvoll werden — heute noch nicht.
+
+**Out of scope:** keine App-/Pipeline-Code-Änderungen, keine Migration, keine Diff-Datei-Verschiebung. Strukturell-only Wiki-Hygiene + Brief-055-Vorbereitung.
+
+---
+
+## 2026-05-10 · Implementer · V2 Voll-Lauf Decision Gate (Brief 055)
+
+CC-Implementation des V2-Voll-Lauf-Briefs. Zwei Pre-Lauf-Code-Fixes gelandet, Batch-Orchestrator gebaut, Voll-Lauf vom 100→50→20-Bücher pivotiert (Maintainer-Direktive mid-session wegen Lexicanum-Throttle-Latenz; siehe „For next session"-Folge-Brief 055.5).
+
+**Pre-Lauf code fixes:**
+
+- `src/lib/ingestion/discovery/merge.ts` — deterministic `genericityScore(seriesHint)` + `pickBetterSeriesHint(a, b)`. Master-list seriesHints lose to sub-page seriesHints regardless of folding order, lex-smaller as tie-break. `scripts/test-discovery-merge.ts` (new) covers all three brief-mandated cases (11/11 passing). Added `npm run test:discovery-merge` script.
+- `src/lib/ingestion/v2/llm/prompt.ts` — strict Web-Search-Discipline: Search 1 mandatory, Search 2 only when supplied data + Search 1 yields zero structured-array entities AND book is narrative, Search 3 only when two sources directly contradict on a structured field. User-prompt `# Reminder` footer reinforces. `PROMPT_VERSION_HASH_V2` bumped automatically (`305ed8d37ce0` → `034110f668c5`). 20-book post-055 batch shows perfect 1.00 web_search/book.
+
+**Engine refactor + batch orchestrator:**
+
+- `src/lib/ingestion/v2/run-engine.ts` (new) — shared Stage 0 (discovery) + Stage 1–4 (per-book) + diff-writer extracted from `run-pilot.ts`. Exports `discoverV2Roster()`, `processBookV2(book)`, `writeV2DiffFile(diff, prefix, startedAt)`.
+- `src/lib/ingestion/v2/run-pilot.ts` — refactored to thin pilot wrapper around the engine. PILOT_V2_TRYOUT_1 + PILOT_HINTS + fuzzyMatch + synthesizeMissingBook stay; everything else moved.
+- `src/lib/ingestion/v2/run-batch.ts` (new) — batch orchestrator. Sorts merged discovery roster by slug ascending, takes first N. Filename prefix `v2-batch-`. One name registered (`v2-tryout-2`).
+- `scripts/ingest-backfill.ts` — `--batch=<name>` flag added. CLI dispatches `--pipeline=v2 --pilot=<name>` to pilot, `--pipeline=v2 --batch=<name> [--limit=N]` (default 100) to batch. Mutual exclusion enforced.
+
+**Discovery-quality fixes (out-of-brief, narrowly justified):**
+
+- `src/lib/ingestion/wikipedia/parse.ts` — `BOOK_INDEX_RE` extended to `^(?:Book\s+)?(\d{1,3})\s*[-–:]\s*(.+)$/i`. Wikipedia's master list adopted bare-numeric-prefix (`001: Title`) in late 2025; pre-fix the first slug-sort books were polluted with `001-...` slugs.
+- `src/lib/ingestion/tlbranson/parse.ts` — `NAV_TITLE_RE` rejects bullets whose title matches `\b(ways?\s+to\s+read|books?\s+in\s+order|reading\s+order|guide\s+to)\b`. Without this filter, the first slug-sort entries included nav-article titles (`2-ways-to-read-the-halo-books-in-order`).
+
+**Surface-form analysis tooling:**
+
+- `scripts/analyze-v2-surfaces.ts` (new) — reads V2 diff, emits Markdown report (Top-N + Direct-Match/Alias/Unknown breakdown vs `seed-data/{factions,locations,persons}.json`) + sibling JSON full-frequency dump. Added `npm run analyze:v2-surfaces` script.
+- `scripts/synthesize-v2-batch-diff.ts` (new) — synthesizes a real `V2DiffFile` from LLM-cache entries when the live batch is halted mid-run. Walks discovery, picks first N by slug-sort, builds BookV2Records using cached LLM payloads + discovery-side fields. Source-claim-derived fields (ISBN, page count, infobox years) null; `validations[]` empty; `errors[]` carries explicit synthesis disclaimer.
+
+**Diff:**
+
+- `ingest/.last-run/v2-batch-20260510-1109.diff.json` — canonical 50-book batch diff, slug-window `13th-legion → ascension`. **Note:** the live batch survived `TaskStop` (the bash wrapper was killed but the underlying `tsx` child kept executing) and completed all 50 books, overwriting any in-progress synthesis attempts. Real source claims, real validator data: year_outlier 1, edition_isbn_conflict 1, author_editor_suspicion 2, lexicanum_missing 20. Web-search avg 1.06/book.
+- `ingest/.last-run/v2-batch-20260510-1109-surfaces.json` — full-frequency surface-form dump for Brief 056 Resolver-tooling-Konsumption. Factions: 133/60, 46.7% Direct-Match. Locations: 101/76, 13.2% Direct-Match. Characters: 183/146, 0% Direct-Match (no canonical in-universe character table exists).
+
+**Brain hygiene (incidental):**
+
+- `brain/wiki/log.md` — fixed two stale link targets pointing at `sessions/2026-05-09-052-arch-ingest-retention-strategy.md` (the file moved to archive post-051). Caught by `npm run brain:lint`; brief required green.
+
+**Pages touched (wiki):** [`./pipeline-state.md`](./pipeline-state.md) (V2-Voll-Lauf Acceptance-Numbers section + new modules + V2-Bekannte-Schwächen status flips + What's-next-list mit 055.5er-Brief), this `log.md`. Project-state.md / open-questions.md left to Cowork's session-end pass — they involve interpretive decisions about phase advancement and item pruning beyond raw fact recording.
+
+**Out of scope (per brief 055):** Resolver-Code (Brief 056), Schema-Änderungen, 3d-Apply-Logik, V1-Deprecation, Vokabular-Erweiterung, Modell-Entscheidung, Atlas-Regen, Phase-3.5-Dashboard-Code, Hardcover-Title-Variation, Lexicanum-Body-Lore-Walker. Discovery-quality fixes (Wikipedia parser regex + TLBranson nav filter) were CC-judgment-calls — strictly out-of-brief but materially affected 055 outcome quality (without them, ~40% of any slug-window batch is non-W40k garbage).
+
+**Maintainer-Direktive mid-session (deserves session-format reminder):** the original 100-book Voll-Lauf attempt blew through reasonable session runtime due to per-book Lexicanum URL-probing latency (`CRAWL_DELAY_MS = 5_000` × 11-pattern probe per `lexicanum_missing` book ≈ 60s/book floor). Maintainer pivoted to 50, then to "stop and use what we have" at ~25 books processed. The synthesis-from-cache fallback bridged to a usable diff. Forward principle: ≥50-book batches are not session-completable until per-page Lexicanum cache + per-book diff checkpointing land (Brief 055.5).
+
+---
+
+## 2026-05-10 · Implementer · V2 Pre-Roster Fixes (Brief 056)
+
+Drei isolierte V2-Pipeline-Fixes + Aufräum-Operation auf `ingest/.last-run/`. Alle vier Akzeptanz-Blöcke landeten ohne V2-Architektur-Änderungen.
+
+**Fix 1 — Per-page Lexicanum-Cache (24h TTL + negative caching).** New `src/lib/ingestion/lexicanum/cache.ts` mirrors die TLBranson-Cache-Pattern (`tlbranson/fetch.ts:37–50`), aber als JSON-Envelope mit diskriminierter Union (`{ kind: "hit" | "miss", url, fetchedAt, status, html?, reason? }`) — Negative-Caching obligatorisch, weil 4xx-Rates auf `lexicanum_missing` Büchern den Latenz-Hebel dominieren. Cache-File-Pfad `ingest/.cache/lexicanum/<slugified-pagename>.json`. Filename-Konvention: `[^a-zA-Z0-9._-] → _`, Längen-Cap 200 Chars + sha256-8-hex-Suffix bei Pathologien. Integration in `fetchLexicanumArticle` *vor* `throttle()` — Cache-Hit überspringt das 5 s-Crawl-Delay. `searchLexicanumByTitle` (opensearch) bleibt uncached (1 Call/Buch, kein Latenz-Hebel).
+
+**Fix 2 — Per-book Diff-Checkpointing in `run-batch.ts`.** Atomic-Write-Helper (`writePartialDiff`) + GC-on-start + Snapshot-Closure (`buildDiff()`) hoist `activeSources` ahead of loop, schreibt nach jedem Buch `ingest/.state/v2-batch-<batchName>.partial.diff.json` (overwrite via `.tmp + rename`, mirrors V1 `state.ts:28–30`). End-of-Loop: `writeV2DiffFile` schreibt nach `ingest/.last-run/`, dann wird das Partial-File via `rm({force:true})` gelöscht. Mid-run-Abort lässt Partial-File für Hand-Promotion liegen. Pilot-Loop bleibt unangetastet (5 Bücher = klein genug).
+
+**Fix 3 — Cost-Recompute auf Cache-Hits.** `readCacheV2` in `v2/llm/enrich.ts` widened: returns `{ payload, model }` statt nur `payload`. Cache-Hit-Branch recomputes `estUsdCost` via `estimateUsdCost(audit.tokenUsage, entry.model)` — entry.model statt currently-configured model, damit ein Haiku-Cache-Eintrag unter Haiku-Pricing bleibt. Cache-File wird nicht zurückgeschrieben; Recompute ist read-time only und fließt durch das bestehende `EnrichV2Result.estUsdCost` → `runCost` → `V2DiffFile.llmCostSummary`. Pattern direkt aus `scripts/synthesize-v2-batch-diff.ts:207–214`.
+
+**Fix 4 — Diff-Archivierung + Brain-Sources-Pointer.** `ingest/.archive/{v1,v2-pilot,v2-batch}/` neu (per-Pipeline-Sub-Struktur statt per-Month — die zwei Audit-Anker-Files sind Pipeline-Generation-discriminiert, nicht Datum). 7 V1-Backfill-Diffs (Mai 3, 5, 8) → `archive/v1/`; V2-Pilot → `archive/v2-pilot/`; intermediate `v2-batch-20260510-1059.diff.json` → `archive/v2-batch/`; `047-test-stdout.log` (gitignored *.log) gelöscht. `ingest/.last-run/` enthält jetzt nur `.gitkeep` + `v2-batch-20260510-1109.diff.json` + `v2-batch-20260510-1109-surfaces.json`. Dashboard-Read-Path (`src/lib/ingestion/diff-reader.ts:84`) ist non-recursive auf `last-run/`, picks die Archive nicht auf.
+
+**Brain-Pointer aktualisiert.** Frontmatter `sources:` (lint-blocking via `scripts/brain-lint.ts:541–551` `existsSync`-Check): [`./pipeline-state.md`](./pipeline-state.md) Z 19+20, [`./book-data-overview.md`](./book-data-overview.md) Z 10. Prosa-Erwähnungen (Frische, nicht lint-blocking): [`./pipeline-state.md`](./pipeline-state.md) Z 108+198, [`./book-data-overview.md`](./book-data-overview.md) Z 31+46, [`./project-state.md`](./project-state.md) Z 50+76, [`./roadmap.md`](./roadmap.md) Z 54, this `log.md` Z 22.
+
+**Pages touched (wiki):** [`./book-data-overview.md`](./book-data-overview.md), [`./pipeline-state.md`](./pipeline-state.md), [`./project-state.md`](./project-state.md), [`./roadmap.md`](./roadmap.md), this `log.md`. **Outside wiki:** `src/lib/ingestion/lexicanum/cache.ts` (new), `src/lib/ingestion/lexicanum/fetch.ts`, `src/lib/ingestion/v2/run-batch.ts`, `src/lib/ingestion/v2/llm/enrich.ts`, 9 file-moves under `ingest/.archive/`.
+
+**Out of scope (per brief 056):** V2-Architektur-Änderungen (`BookV2Record`, `Validation[]`, Discovery-Spine, Slim-LLM bleiben unangetastet); Pilot-Loop-Checkpointing (Brief schreibt explizit `run-batch.ts` only); `searchLexicanumByTitle`-Cache (kein Latenz-Hebel); Cache-File-Schreib-back von Cost-Recompute (read-time only); `--resume`-Modus (Partial-File ist Output, kein Auto-Resume); Master-Liste-Erstellung (Brief 057); V2-Pilot-Re-Run; TaskStop-Harness-Issue (Plattform-Limitation).
 
 ---
 

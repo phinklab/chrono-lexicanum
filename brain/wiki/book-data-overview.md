@@ -7,7 +7,7 @@ sources:
   - ../../scripts/seed-data/books.json
   - ../../sessions/archive/2026-05/2026-05-01-021-arch-rich-seed-2b.md
   - ../../sessions/archive/2026-05/2026-05-02-022-impl-rich-seed-2b.md
-  - ../../ingest/.last-run/backfill-20260508-2101.diff.json
+  - ../../ingest/.archive/v1/backfill-20260508-2101.diff.json
   - ../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md
 related:
   - ./pipeline-state.md
@@ -28,7 +28,7 @@ confidence: high
 |---|---|---|
 | `scripts/seed-data/books.json` | committed, 26 books | Hand-curated Stufe 2b roster (sessions 021/022). Full annotation: factions, persons, facets, external_links. Every field hand-verified by Philipp. |
 | Postgres (`works` + `book_details` + junctions) | live | The 26 manuals + reference tables (eras, factions, sectors, locations, persons, services, facet_categories, facet_values, characters, series). No pipeline-discovered books yet (3d-Apply not shipped). |
-| `ingest/.last-run/*.diff.json` | committed, 7 files | Dry-run pipeline outputs. Latest: `backfill-20260508-2101.diff.json` (9 books, 2026-05-08, post-047 hardening). Older runs visible at `/ingest` route. |
+| `ingest/.last-run/v2-batch-*.diff.json` | committed | Active V2-Batch dry-run output (post-055). Visible at `/ingest` route. Pre-056 generations (V1 backfills, V2-Pilot, intermediate V2-Batch) archived under `ingest/.archive/{v1,v2-pilot,v2-batch}/`. |
 | Pipeline discovery (Wikipedia master-lists) | dry-run | ~700 unique books across 4 lists (Hauptliste + HH-novels + Siege_of_Terra + Eisenhorn). Post-3b numbers: 701 unique, 96 cross-page-duplicates resolved. |
 | External `chrono-atlas/` Obsidian vault | regenerated on demand | Mechanical mirror of Postgres via `npm run atlas:regen`. Default `~/chrono-atlas/`. |
 
@@ -43,7 +43,7 @@ confidence: high
 
 ## Latest pipeline cost
 
-From `backfill-20260508-2101.diff.json` (9 books, 047-impl test):
+From `ingest/.archive/v1/backfill-20260508-2101.diff.json` (9 books, 047-impl test, archived in 056):
 
 - **$0.114/book** (–3% vs 044 baseline of $0.118/book)
 - Extrapolated voll-lauf for ~750 remaining: **~$85** (close to original Brief-040 estimate of $88)

@@ -6,7 +6,9 @@
  * streams, the merge folds them into one record:
  *   - `sourcePages` set-union
  *   - `discoverySources` set-union
- *   - first `authorHint` / `seriesHint` / `seriesIndex` wins
+ *   - first `authorHint` / `seriesIndex` wins
+ *   - `seriesHint` resolved by `genericityScore` (lower wins, lex-smaller as
+ *     tie-break) — folding-order independent
  *   - `releaseYearCandidates` carries every distinct year that any source
  *     supplied; primary `releaseYear` is the lower of the candidates
  *     (Wikipedia tends to be more conservative on the date front)
@@ -33,23 +35,62 @@ export function mergeDiscoveredBooks(
 }
 
 /**
- * Wikipedia's master list ("List of Warhammer 40,000 novels") groups books
- * by series in H3 sections, but the parser tracks section IDs at H2/H3
- * level and the current implementation doesn't reliably reach the H3 anchor
- * for every book. Result: master-list-derived seriesHints are generic
- * ("List of Warhammer 40,000 novels") and useless for the year_outlier
- * validator. Sub-pages (Horus_Heresy_(novels), Siege_of_Terra, Eisenhorn,
- * Ciaphas_Cain) carry meaningful page-name-derived seriesHints — those
- * always win in the merge.
+ * Master-list-style anchors that surface from Wikipedia's per-book scrape
+ * when the parser doesn't reach a more specific H3. They beat genuine series
+ * names ("Eisenhorn", "Horus Heresy") on score so the latter always win.
  */
-const GENERIC_SERIES_HINTS = new Set<string>([
+const MASTER_LIST_ANCHORS: ReadonlyArray<string> = [
   "list of warhammer 40,000 novels",
   "list of warhammer 40000 novels",
-]);
+  "list of black library publications",
+];
 
-function isGenericSeriesHint(hint: string | undefined): boolean {
-  if (!hint) return true;
-  return GENERIC_SERIES_HINTS.has(hint.toLowerCase().trim());
+/**
+ * Generic-vs-specific score for a `seriesHint`. Lower score = MORE specific
+ * (better candidate to keep on a fold); higher score = MORE generic (loses).
+ *
+ * Components are additive so the score reflects compounding generic-ness
+ * (e.g. "List of WH40k novels" hits master-list-anchor + list-of + novels +
+ * length + word-count). Designed to be folding-order independent: the same
+ * two strings always produce the same comparison result.
+ *
+ * Empty/undefined returns a sentinel high score so any defined hint wins.
+ */
+export function genericityScore(seriesHint: string | undefined | null): number {
+  if (seriesHint === undefined || seriesHint === null) return 1_000;
+  const s = seriesHint.toLowerCase().trim();
+  if (s.length === 0) return 1_000;
+  if (MASTER_LIST_ANCHORS.includes(s)) return 100;
+
+  let score = 0;
+  if (/^list of\b/.test(s)) score += 50;
+  if (/\bnovels?\b/.test(s)) score += 20;
+  if (/\bpublications?\b/.test(s)) score += 20;
+  if (/\bbooks?\b/.test(s)) score += 20;
+  if (/\bseries\b/.test(s)) score += 10;
+  if (s.length > 30) score += 10;
+  const wordCount = s.split(/\s+/).filter(Boolean).length;
+  if (wordCount > 4) score += 10;
+  return score;
+}
+
+/**
+ * Pick the more-specific of two seriesHints. Lower `genericityScore` wins;
+ * on a tie, the lexicographically smaller string wins (deterministic, NOT
+ * dependent on which side was passed first).
+ */
+export function pickBetterSeriesHint(
+  a: string | undefined,
+  b: string | undefined,
+): string | undefined {
+  if (!a && !b) return undefined;
+  if (!a) return b;
+  if (!b) return a;
+  const sa = genericityScore(a);
+  const sb = genericityScore(b);
+  if (sa < sb) return a;
+  if (sb < sa) return b;
+  return a.localeCompare(b) <= 0 ? a : b;
 }
 
 function foldInto(
@@ -75,12 +116,7 @@ function foldInto(
     if (!existing.discoverySources.includes(s)) existing.discoverySources.push(s);
   }
   if (!existing.authorHint && book.authorHint) existing.authorHint = book.authorHint;
-  // Specific seriesHint wins over a generic one.
-  if (book.seriesHint && (!existing.seriesHint || isGenericSeriesHint(existing.seriesHint))) {
-    if (!isGenericSeriesHint(book.seriesHint) || !existing.seriesHint) {
-      existing.seriesHint = book.seriesHint;
-    }
-  }
+  existing.seriesHint = pickBetterSeriesHint(existing.seriesHint, book.seriesHint);
   if (existing.seriesIndex === undefined && book.seriesIndex !== undefined) {
     existing.seriesIndex = book.seriesIndex;
   }
@@ -128,7 +164,7 @@ function collapseSimilar(books: DiscoveredBook[]): DiscoveredBook[] {
         if (!folded.discoverySources.includes(s)) folded.discoverySources.push(s);
       }
       if (!folded.authorHint && b.authorHint) folded.authorHint = b.authorHint;
-      if (!folded.seriesHint && b.seriesHint) folded.seriesHint = b.seriesHint;
+      folded.seriesHint = pickBetterSeriesHint(folded.seriesHint, b.seriesHint);
       if (folded.seriesIndex === undefined && b.seriesIndex !== undefined) {
         folded.seriesIndex = b.seriesIndex;
       }

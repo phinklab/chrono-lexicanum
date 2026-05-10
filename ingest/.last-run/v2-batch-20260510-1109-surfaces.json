@@ -1,0 +1,1161 @@
+{
+  "diff": "v2-batch-20260510-1109.diff.json",
+  "booksProcessed": 50,
+  "factions": [
+    {
+      "name": "Imperium",
+      "count": 11
+    },
+    {
+      "name": "Chaos",
+      "count": 10
+    },
+    {
+      "name": "Thousand Sons",
+      "count": 8
+    },
+    {
+      "name": "Iron Warriors",
+      "count": 5
+    },
+    {
+      "name": "Orks",
+      "count": 5
+    },
+    {
+      "name": "Space Wolves",
+      "count": 5
+    },
+    {
+      "name": "World Eaters",
+      "count": 5
+    },
+    {
+      "name": "Adeptus Mechanicus",
+      "count": 4
+    },
+    {
+      "name": "Ultramarines",
+      "count": 4
+    },
+    {
+      "name": "Word Bearers",
+      "count": 4
+    },
+    {
+      "name": "Emperor's Children",
+      "count": 3
+    },
+    {
+      "name": "Imperium of Mankind",
+      "count": 3
+    },
+    {
+      "name": "Necrons",
+      "count": 3
+    },
+    {
+      "name": "Salamanders",
+      "count": 3
+    },
+    {
+      "name": "13th Penal Legion",
+      "count": 2
+    },
+    {
+      "name": "Black Templars",
+      "count": 2
+    },
+    {
+      "name": "Blood Swords",
+      "count": 2
+    },
+    {
+      "name": "Dark Angels",
+      "count": 2
+    },
+    {
+      "name": "Imperial Fists",
+      "count": 2
+    },
+    {
+      "name": "Imperial Guard",
+      "count": 2
+    },
+    {
+      "name": "Imperium of Man",
+      "count": 2
+    },
+    {
+      "name": "Last Chancers",
+      "count": 2
+    },
+    {
+      "name": "Night Lords",
+      "count": 2
+    },
+    {
+      "name": "Relictors",
+      "count": 2
+    },
+    {
+      "name": "Sons of Horus",
+      "count": 2
+    },
+    {
+      "name": "Star Dragons",
+      "count": 2
+    },
+    {
+      "name": "The Harrowing",
+      "count": 2
+    },
+    {
+      "name": "War Hounds",
+      "count": 2
+    },
+    {
+      "name": "Adepta Sororitas",
+      "count": 1
+    },
+    {
+      "name": "Aeldari",
+      "count": 1
+    },
+    {
+      "name": "Alpha Legion",
+      "count": 1
+    },
+    {
+      "name": "Angels of the Grail",
+      "count": 1
+    },
+    {
+      "name": "Astra Militarum",
+      "count": 1
+    },
+    {
+      "name": "Black Legion",
+      "count": 1
+    },
+    {
+      "name": "Blood Angels",
+      "count": 1
+    },
+    {
+      "name": "Celestial Lions",
+      "count": 1
+    },
+    {
+      "name": "Chaos Space Marines",
+      "count": 1
+    },
+    {
+      "name": "Cult of the Angel of Fire",
+      "count": 1
+    },
+    {
+      "name": "Death Guard",
+      "count": 1
+    },
+    {
+      "name": "Death Spectres",
+      "count": 1
+    },
+    {
+      "name": "Disciples of Nul",
+      "count": 1
+    },
+    {
+      "name": "Doom Eagles",
+      "count": 1
+    },
+    {
+      "name": "Ecclesiarchy",
+      "count": 1
+    },
+    {
+      "name": "Eldar",
+      "count": 1
+    },
+    {
+      "name": "Grey Knights",
+      "count": 1
+    },
+    {
+      "name": "Imperial Army",
+      "count": 1
+    },
+    {
+      "name": "Inquisition",
+      "count": 1
+    },
+    {
+      "name": "Iron Hands",
+      "count": 1
+    },
+    {
+      "name": "Loyalist survivors",
+      "count": 1
+    },
+    {
+      "name": "Luna Wolves",
+      "count": 1
+    },
+    {
+      "name": "Ordo Malleus",
+      "count": 1
+    },
+    {
+      "name": "Prodigal Sons",
+      "count": 1
+    },
+    {
+      "name": "Raven Guard",
+      "count": 1
+    },
+    {
+      "name": "Scythes of the Emperor",
+      "count": 1
+    },
+    {
+      "name": "Sisters of Battle",
+      "count": 1
+    },
+    {
+      "name": "Sisters of Silence",
+      "count": 1
+    },
+    {
+      "name": "The Fallen",
+      "count": 1
+    },
+    {
+      "name": "Tyranids",
+      "count": 1
+    },
+    {
+      "name": "Tzeentch",
+      "count": 1
+    },
+    {
+      "name": "White Scars",
+      "count": 1
+    }
+  ],
+  "locations": [
+    {
+      "name": "Eye of Terror",
+      "count": 11
+    },
+    {
+      "name": "Armageddon",
+      "count": 4
+    },
+    {
+      "name": "Warp",
+      "count": 4
+    },
+    {
+      "name": "Accursed Eternity",
+      "count": 2
+    },
+    {
+      "name": "Holy Terra",
+      "count": 2
+    },
+    {
+      "name": "Imperium Nihilus",
+      "count": 2
+    },
+    {
+      "name": "Isstvan",
+      "count": 2
+    },
+    {
+      "name": "Isstvan V",
+      "count": 2
+    },
+    {
+      "name": "Mortal Realms",
+      "count": 2
+    },
+    {
+      "name": "Nuceria",
+      "count": 2
+    },
+    {
+      "name": "Sotha",
+      "count": 2
+    },
+    {
+      "name": "Terra",
+      "count": 2
+    },
+    {
+      "name": "Almace",
+      "count": 1
+    },
+    {
+      "name": "Armageddon Prime",
+      "count": 1
+    },
+    {
+      "name": "Asaheim",
+      "count": 1
+    },
+    {
+      "name": "Attilan Gap",
+      "count": 1
+    },
+    {
+      "name": "Bacchus",
+      "count": 1
+    },
+    {
+      "name": "Black Hole",
+      "count": 1
+    },
+    {
+      "name": "Black Ship",
+      "count": 1
+    },
+    {
+      "name": "Blackstone Fortress",
+      "count": 1
+    },
+    {
+      "name": "Blood Crescent",
+      "count": 1
+    },
+    {
+      "name": "Caliban",
+      "count": 1
+    },
+    {
+      "name": "Calth",
+      "count": 1
+    },
+    {
+      "name": "Conqueror",
+      "count": 1
+    },
+    {
+      "name": "Coritanorum",
+      "count": 1
+    },
+    {
+      "name": "Deighton",
+      "count": 1
+    },
+    {
+      "name": "Desh'ea",
+      "count": 1
+    },
+    {
+      "name": "Endeavour of Will",
+      "count": 1
+    },
+    {
+      "name": "Equatorial Jungles",
+      "count": 1
+    },
+    {
+      "name": "Fenris",
+      "count": 1
+    },
+    {
+      "name": "Fist of Iron",
+      "count": 1
+    },
+    {
+      "name": "Forge World",
+      "count": 1
+    },
+    {
+      "name": "Fort Kerberos",
+      "count": 1
+    },
+    {
+      "name": "Galaxy",
+      "count": 1
+    },
+    {
+      "name": "Great Rift",
+      "count": 1
+    },
+    {
+      "name": "Heliosa",
+      "count": 1
+    },
+    {
+      "name": "Hive Helsreach",
+      "count": 1
+    },
+    {
+      "name": "Hydra Cordatus",
+      "count": 1
+    },
+    {
+      "name": "Ilissus",
+      "count": 1
+    },
+    {
+      "name": "Imperium Secundus",
+      "count": 1
+    },
+    {
+      "name": "Irongrad",
+      "count": 1
+    },
+    {
+      "name": "Karsk",
+      "count": 1
+    },
+    {
+      "name": "long-lost forge world",
+      "count": 1
+    },
+    {
+      "name": "Macragge",
+      "count": 1
+    },
+    {
+      "name": "Mars",
+      "count": 1
+    },
+    {
+      "name": "Mhurghast",
+      "count": 1
+    },
+    {
+      "name": "Montgisard Citadel",
+      "count": 1
+    },
+    {
+      "name": "Multiple war-zones",
+      "count": 1
+    },
+    {
+      "name": "Necromunda",
+      "count": 1
+    },
+    {
+      "name": "Necron tomb world",
+      "count": 1
+    },
+    {
+      "name": "Ninety-Three Fifteen",
+      "count": 1
+    },
+    {
+      "name": "Nocturne",
+      "count": 1
+    },
+    {
+      "name": "Nove Shendak",
+      "count": 1
+    },
+    {
+      "name": "Olympia",
+      "count": 1
+    },
+    {
+      "name": "Orath",
+      "count": 1
+    },
+    {
+      "name": "Panxir",
+      "count": 1
+    },
+    {
+      "name": "Piscina V",
+      "count": 1
+    },
+    {
+      "name": "Pit of Raukos",
+      "count": 1
+    },
+    {
+      "name": "Precipice",
+      "count": 1
+    },
+    {
+      "name": "Prospero",
+      "count": 1
+    },
+    {
+      "name": "Proudheart",
+      "count": 1
+    },
+    {
+      "name": "Proxima Apocryphis",
+      "count": 1
+    },
+    {
+      "name": "Shyish",
+      "count": 1
+    },
+    {
+      "name": "Stella-Xenithica",
+      "count": 1
+    },
+    {
+      "name": "Stygia XII",
+      "count": 1
+    },
+    {
+      "name": "The Fang",
+      "count": 1
+    },
+    {
+      "name": "Threshold of Space and Time",
+      "count": 1
+    },
+    {
+      "name": "Titan Child",
+      "count": 1
+    },
+    {
+      "name": "Ultramar",
+      "count": 1
+    },
+    {
+      "name": "Unnamed Forge World (Skitarius)",
+      "count": 1
+    },
+    {
+      "name": "Unnamed Forge World (Tech-Priest)",
+      "count": 1
+    },
+    {
+      "name": "Valenth estate",
+      "count": 1
+    },
+    {
+      "name": "War Hounds flagship",
+      "count": 1
+    },
+    {
+      "name": "World Engine",
+      "count": 1
+    },
+    {
+      "name": "Zaramundm",
+      "count": 1
+    },
+    {
+      "name": "Zepath",
+      "count": 1
+    }
+  ],
+  "characters": [
+    {
+      "name": "Ahzek Ahriman",
+      "count": 7
+    },
+    {
+      "name": "Magnus the Red",
+      "count": 5
+    },
+    {
+      "name": "Angron",
+      "count": 4
+    },
+    {
+      "name": "Horus Lupercal",
+      "count": 4
+    },
+    {
+      "name": "Roboute Guilliman",
+      "count": 4
+    },
+    {
+      "name": "Colonel Schaeffer",
+      "count": 3
+    },
+    {
+      "name": "Ctesias",
+      "count": 3
+    },
+    {
+      "name": "Haldron-44 Stroika",
+      "count": 3
+    },
+    {
+      "name": "Omnid Torquora",
+      "count": 3
+    },
+    {
+      "name": "Eidolon",
+      "count": 2
+    },
+    {
+      "name": "Fulgrim",
+      "count": 2
+    },
+    {
+      "name": "Gzrel",
+      "count": 2
+    },
+    {
+      "name": "Horus",
+      "count": 2
+    },
+    {
+      "name": "Khârn",
+      "count": 2
+    },
+    {
+      "name": "Konrad Curze",
+      "count": 2
+    },
+    {
+      "name": "Lieutenant Kage",
+      "count": 2
+    },
+    {
+      "name": "Lorgar",
+      "count": 2
+    },
+    {
+      "name": "Tolbek",
+      "count": 2
+    },
+    {
+      "name": "Vulkan",
+      "count": 2
+    },
+    {
+      "name": "Abe Collins",
+      "count": 1
+    },
+    {
+      "name": "Ahriman",
+      "count": 1
+    },
+    {
+      "name": "Alabastian",
+      "count": 1
+    },
+    {
+      "name": "Alpha Primus",
+      "count": 1
+    },
+    {
+      "name": "Alpharius",
+      "count": 1
+    },
+    {
+      "name": "Amatnim Ur-Nabas Lash",
+      "count": 1
+    },
+    {
+      "name": "Andrej",
+      "count": 1
+    },
+    {
+      "name": "Anna",
+      "count": 1
+    },
+    {
+      "name": "Anton",
+      "count": 1
+    },
+    {
+      "name": "Arjac Rockfist",
+      "count": 1
+    },
+    {
+      "name": "Artekus Bardane",
+      "count": 1
+    },
+    {
+      "name": "Artirion",
+      "count": 1
+    },
+    {
+      "name": "Astelan",
+      "count": 1
+    },
+    {
+      "name": "Astraeos",
+      "count": 1
+    },
+    {
+      "name": "Aveth Vairon",
+      "count": 1
+    },
+    {
+      "name": "Avram Rakomon",
+      "count": 1
+    },
+    {
+      "name": "Baron Chravius Blumolotov",
+      "count": 1
+    },
+    {
+      "name": "Bastilian",
+      "count": 1
+    },
+    {
+      "name": "Be'lakor",
+      "count": 1
+    },
+    {
+      "name": "Belisarius Cawl",
+      "count": 1
+    },
+    {
+      "name": "Boreas",
+      "count": 1
+    },
+    {
+      "name": "Cadar",
+      "count": 1
+    },
+    {
+      "name": "Cador",
+      "count": 1
+    },
+    {
+      "name": "Calas Typhon",
+      "count": 1
+    },
+    {
+      "name": "Captain Tanek",
+      "count": 1
+    },
+    {
+      "name": "Carnolon Gorrager",
+      "count": 1
+    },
+    {
+      "name": "Colonel Sarren",
+      "count": 1
+    },
+    {
+      "name": "Corax",
+      "count": 1
+    },
+    {
+      "name": "Cypher",
+      "count": 1
+    },
+    {
+      "name": "Damas",
+      "count": 1
+    },
+    {
+      "name": "Darius Hinks",
+      "count": 1
+    },
+    {
+      "name": "Darnath Lysander",
+      "count": 1
+    },
+    {
+      "name": "Decario",
+      "count": 1
+    },
+    {
+      "name": "Decimus Androdinus Felix",
+      "count": 1
+    },
+    {
+      "name": "Dillon Montgomery",
+      "count": 1
+    },
+    {
+      "name": "Dreagher",
+      "count": 1
+    },
+    {
+      "name": "Erebus",
+      "count": 1
+    },
+    {
+      "name": "Eremenitas",
+      "count": 1
+    },
+    {
+      "name": "Fabius",
+      "count": 1
+    },
+    {
+      "name": "Fabius Bile",
+      "count": 1
+    },
+    {
+      "name": "Farith Redloss",
+      "count": 1
+    },
+    {
+      "name": "Ferrus Manus",
+      "count": 1
+    },
+    {
+      "name": "Galenus",
+      "count": 1
+    },
+    {
+      "name": "Ganimus",
+      "count": 1
+    },
+    {
+      "name": "Gendor Skraivok",
+      "count": 1
+    },
+    {
+      "name": "Ghazghkull Thraka",
+      "count": 1
+    },
+    {
+      "name": "Graucis Telomane",
+      "count": 1
+    },
+    {
+      "name": "Grimaldus",
+      "count": 1
+    },
+    {
+      "name": "Helio Isidorus",
+      "count": 1
+    },
+    {
+      "name": "Hengis Blackhand",
+      "count": 1
+    },
+    {
+      "name": "Hephaestus",
+      "count": 1
+    },
+    {
+      "name": "Herman von Strab",
+      "count": 1
+    },
+    {
+      "name": "Heyd Calder",
+      "count": 1
+    },
+    {
+      "name": "Holguin",
+      "count": 1
+    },
+    {
+      "name": "Ignis",
+      "count": 1
+    },
+    {
+      "name": "Inquisitor Drake",
+      "count": 1
+    },
+    {
+      "name": "Inquisitor Halstron",
+      "count": 1
+    },
+    {
+      "name": "Inquisitor Mortmain",
+      "count": 1
+    },
+    {
+      "name": "Inquisitor Remigius",
+      "count": 1
+    },
+    {
+      "name": "Iobel",
+      "count": 1
+    },
+    {
+      "name": "Irik Stianolf",
+      "count": 1
+    },
+    {
+      "name": "Ivan",
+      "count": 1
+    },
+    {
+      "name": "Jake Ozga",
+      "count": 1
+    },
+    {
+      "name": "Janus Draik",
+      "count": 1
+    },
+    {
+      "name": "Jursian",
+      "count": 1
+    },
+    {
+      "name": "Justin D. Hill",
+      "count": 1
+    },
+    {
+      "name": "Kage",
+      "count": 1
+    },
+    {
+      "name": "Kairos Fateweaver",
+      "count": 1
+    },
+    {
+      "name": "Karoz",
+      "count": 1
+    },
+    {
+      "name": "Karros",
+      "count": 1
+    },
+    {
+      "name": "Karuchi Vohra",
+      "count": 1
+    },
+    {
+      "name": "Kharn",
+      "count": 1
+    },
+    {
+      "name": "Kile Simlex",
+      "count": 1
+    },
+    {
+      "name": "Kolumbari-Enas",
+      "count": 1
+    },
+    {
+      "name": "Kossolax the Foresworn",
+      "count": 1
+    },
+    {
+      "name": "Kraverek",
+      "count": 1
+    },
+    {
+      "name": "Leman Russ",
+      "count": 1
+    },
+    {
+      "name": "Leo Lemuel",
+      "count": 1
+    },
+    {
+      "name": "Lion El'Jonson",
+      "count": 1
+    },
+    {
+      "name": "Logan Grimnar",
+      "count": 1
+    },
+    {
+      "name": "Lora Gray",
+      "count": 1
+    },
+    {
+      "name": "Lord Solar Macharius",
+      "count": 1
+    },
+    {
+      "name": "Lorgar Aurelian",
+      "count": 1
+    },
+    {
+      "name": "Lotara Sarrin",
+      "count": 1
+    },
+    {
+      "name": "Lucille von Shard",
+      "count": 1
+    },
+    {
+      "name": "Luther",
+      "count": 1
+    },
+    {
+      "name": "Lyran Tios",
+      "count": 1
+    },
+    {
+      "name": "Maehekta",
+      "count": 1
+    },
+    {
+      "name": "Mago",
+      "count": 1
+    },
+    {
+      "name": "Major Rykken",
+      "count": 1
+    },
+    {
+      "name": "Malcador the Sigillite",
+      "count": 1
+    },
+    {
+      "name": "Marianne",
+      "count": 1
+    },
+    {
+      "name": "Menkaura",
+      "count": 1
+    },
+    {
+      "name": "Merir Astelan",
+      "count": 1
+    },
+    {
+      "name": "Necron Lord",
+      "count": 1
+    },
+    {
+      "name": "Nerovar",
+      "count": 1
+    },
+    {
+      "name": "Nestor",
+      "count": 1
+    },
+    {
+      "name": "Nico Tarryn",
+      "count": 1
+    },
+    {
+      "name": "Nykona Sharrowkyn",
+      "count": 1
+    },
+    {
+      "name": "Omegon",
+      "count": 1
+    },
+    {
+      "name": "Ortan Leidis",
+      "count": 1
+    },
+    {
+      "name": "Perturabo",
+      "count": 1
+    },
+    {
+      "name": "Primarus",
+      "count": 1
+    },
+    {
+      "name": "Qvo-89",
+      "count": 1
+    },
+    {
+      "name": "Samantha Collins",
+      "count": 1
+    },
+    {
+      "name": "Samiel",
+      "count": 1
+    },
+    {
+      "name": "Sanakht",
+      "count": 1
+    },
+    {
+      "name": "Sanguinius",
+      "count": 1
+    },
+    {
+      "name": "Sapphon",
+      "count": 1
+    },
+    {
+      "name": "Sen Neziel",
+      "count": 1
+    },
+    {
+      "name": "Sentina",
+      "count": 1
+    },
+    {
+      "name": "Sergeant Korydon",
+      "count": 1
+    },
+    {
+      "name": "Setekh",
+      "count": 1
+    },
+    {
+      "name": "Shon'tu",
+      "count": 1
+    },
+    {
+      "name": "Silvanus",
+      "count": 1
+    },
+    {
+      "name": "Slitho Gallifa",
+      "count": 1
+    },
+    {
+      "name": "Solana",
+      "count": 1
+    },
+    {
+      "name": "Suboden Khan",
+      "count": 1
+    },
+    {
+      "name": "T'Kell",
+      "count": 1
+    },
+    {
+      "name": "The Burned Man",
+      "count": 1
+    },
+    {
+      "name": "Thumiel",
+      "count": 1
+    },
+    {
+      "name": "Unnamed Imperial Army soldier (psy-touched)",
+      "count": 1
+    },
+    {
+      "name": "Vabion",
+      "count": 1
+    },
+    {
+      "name": "Vashtorr the Arkifane",
+      "count": 1
+    },
+    {
+      "name": "Wocolos",
+      "count": 1
+    },
+    {
+      "name": "Zahariel",
+      "count": 1
+    },
+    {
+      "name": "Zaul",
+      "count": 1
+    }
+  ],
+  "resolution": [
+    {
+      "axis": "factions",
+      "directMatch": 28,
+      "aliasCandidate": 2,
+      "unknown": 30,
+      "totalDistinct": 60
+    },
+    {
+      "axis": "locations",
+      "directMatch": 10,
+      "aliasCandidate": 4,
+      "unknown": 62,
+      "totalDistinct": 76
+    },
+    {
+      "axis": "characters",
+      "directMatch": 0,
+      "aliasCandidate": 0,
+      "unknown": 146,
+      "totalDistinct": 146
+    }
+  ]
+}

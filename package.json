@@ -17,7 +17,9 @@
     "check:eras": "tsx scripts/check-eras.ts",
     "ingest:backfill": "tsx --env-file=.env.local scripts/ingest-backfill.ts",
     "atlas:regen": "tsx --env-file=.env.local scripts/atlas-regen.ts",
-    "brain:lint": "tsx scripts/brain-lint.ts"
+    "brain:lint": "tsx scripts/brain-lint.ts",
+    "test:discovery-merge": "tsx scripts/test-discovery-merge.ts",
+    "analyze:v2-surfaces": "tsx scripts/analyze-v2-surfaces.ts"
   },
   "engines": {
     "node": ">=22"

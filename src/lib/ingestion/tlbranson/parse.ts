@@ -40,6 +40,15 @@ const ENTRY_POINT_RE = /best\s+entry|where\s+to\s+start/i;
 
 const AFFILIATE_HOST_RE = /(?:^|\.)(?:amazon\.[a-z.]+|amzn\.to)$/i;
 
+/**
+ * Cross-link nav-article titles that TLBranson pages embed in
+ * "Recommended next reads" / sidebar sections — these are links to OTHER
+ * reading-order articles on the same site, not real W40k books. Rule:
+ * "Ways to Read X", "X Books in Order", "Reading Order", "Guide to X".
+ * Real W40k titles never match these patterns.
+ */
+const NAV_TITLE_RE = /\b(ways?\s+to\s+read|books?\s+in\s+order|reading\s+order|guide\s+to)\b/i;
+
 interface ParseContext {
   pageUrl: string;
   pageSlug: TLBransonPageSlug;
@@ -170,6 +179,10 @@ function parseBullet(
     title = stripTitleTrailers(title);
   }
   if (!title || title.length < 2) return null;
+
+  // Reject TLBranson cross-links to other reading-order articles ("X Ways
+  // to Read", "Y Books in Order", "Reading Order") — these are nav, not books.
+  if (NAV_TITLE_RE.test(title)) return null;
 
   const slug = slugify(title);
   if (!slug) return null;

@@ -19,6 +19,8 @@
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 
+import { readLexCache, writeLexCache } from "./cache";
+
 const execFileP = promisify(execFile);
 
 const UA =
@@ -69,6 +71,20 @@ export async function fetchLexicanumArticle(
 ): Promise<FetchedArticle> {
   const url = ARTICLE_BASE + pageName;
 
+  // Cache check before throttle — a hit/miss skips the 5 s crawl-delay
+  // entirely. The latency win on lex-missing books (which probe ~13 URL
+  // suffixes) is the dominant cost-saver of brief 056 Fix 1.
+  const cached = await readLexCache(pageName);
+  if (cached) {
+    return {
+      pageName,
+      url: cached.url,
+      status: cached.status,
+      html: cached.kind === "hit" ? cached.html : null,
+      fetchedAt: cached.fetchedAt,
+    };
+  }
+
   for (let attempt = 0; attempt <= MAX_RETRIES_5XX; attempt++) {
     await throttle();
 
@@ -81,23 +97,39 @@ export async function fetchLexicanumArticle(
       continue;
     }
 
+    const fetchedAt = new Date().toISOString();
+
     if (result.status >= 200 && result.status < 300) {
+      await writeLexCache(pageName, {
+        kind: "hit",
+        url,
+        fetchedAt,
+        status: result.status,
+        html: result.body,
+      });
       return {
         pageName,
         url,
         status: result.status,
         html: result.body,
-        fetchedAt: new Date().toISOString(),
+        fetchedAt,
       };
     }
 
     if (result.status >= 400 && result.status < 500) {
+      await writeLexCache(pageName, {
+        kind: "miss",
+        url,
+        fetchedAt,
+        status: result.status,
+        reason: `HTTP ${result.status}`,
+      });
       return {
         pageName,
         url,
         status: result.status,
         html: null,
-        fetchedAt: new Date().toISOString(),
+        fetchedAt,
       };
     }
 

@@ -5,7 +5,7 @@ created: 2026-05-09
 updated: 2026-05-09
 sources:
   - ../../../sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
-  - ../../../sessions/2026-05-09-053-arch-brain-lint.md
+  - ../../../sessions/archive/2026-05/2026-05-09-053-arch-brain-lint.md
   - ../../../scripts/brain-lint.ts
   - https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
 related:
