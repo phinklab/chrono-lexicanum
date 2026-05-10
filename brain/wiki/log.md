@@ -282,4 +282,41 @@ Drei isolierte V2-Pipeline-Fixes + Aufräum-Operation auf `ingest/.last-run/`. A
 
 ---
 
+## 2026-05-10 · Implementer + Decision · Excel-SSOT-Import (Brief 057)
+
+CC-Implementation des Excel-SSOT-Imports + neue Decision-Page für den Discovery-Pivot. 057-arch hatte den Maintainer-Pivot 2026-05-10 dokumentiert (statt Crawler-Discovery eine extern gepflegte Excel-SSOT mit 859 Büchern + 192 Collection-Beziehungen); 057-impl hat das Schema + Loader + Truncate-Skript code-fertig gelandet. Migration-Apply + Truncate-Smoke deferred zu Maintainer-Trigger (lokales `.env.local` zeigt auf prod-Supabase).
+
+**Code (CC-Output):**
+
+- `src/db/schema.ts` — vier atomare Adds: `bookFormat`-Enum +3 (`collection`/`artbook`/`scriptbook`), `sourceKind`-Enum +1 (`ssot`), `works.externalBookId varchar(16) UNIQUE`, `bookDetails.notes text`, neue `workCollections`-Junction (composite PK auf `(collection_work_id, content_work_id)`, beide FKs `cascade`, `display_order int NOT NULL DEFAULT 0`, `confidence numeric(3,2)`, `basis text`, Sekundär-Index auf `content_work_id`). `worksRelations` um `containedIn` + `contains` mit expliziten `relationName`-Strings ergänzt; neue `workCollectionsRelations`.
+- `src/db/migrations/0008_ssot_schema.sql` — generiert via `npm run db:generate -- --name=ssot_schema`. 19 Zeilen DDL; händisch auditiert (Enum-Adds vor Table-Create, FK-Cascade beidseitig, UNIQUE auf `external_book_id`).
+- `scripts/db-reset-for-ssot.ts` (new) — `parseArgs` für `--confirm`, ODER `DB_RESET_CONFIRM=1`-ENV. Loud-Abort sonst mit Hilfetext. `TRUNCATE works CASCADE` (kein `RESTART IDENTITY`, weil `works.id` UUID). Pre/Post-Counts für 12 works-Domain-Tabellen + 10 Reference-Tabellen, mit Assert dass Targets=0 und References unverändert.
+- `scripts/seed-data/types.ts` (new) — `RosterBook`, `RosterCollection`, `RosterFile`, `BookFormat`. Always-present-with-null-or-empty-Convention.
+- `scripts/import-ssot-roster.ts` (new) — Loader mit Two-Layer-Architektur (pure parsers + I/O-Entry). `read-excel-file` 9.0.9 mit `{ trim: false }`-Workaround (Library-Bug auf bestimmten leeren String-Cells; eigenes Trimming via `toTrimmedString`-Helper). Issue-Collector sammelt alle Failures, druckt am Ende, exit 1.
+- `scripts/seed.ts` — TRUNCATE-Liste defensiv um `work_collections` erweitert.
+- `scripts/seed-data/book-roster.json` (new, generiert) — 421 KB, 859 Books + 191 Collections. SHA256 `49e0237c575cbaf12cf6817c9fd4bb1b2b048234cecc9137c8e7786d17734f45`.
+- `package.json` — `read-excel-file ^9.0.9` als devDep + zwei npm-Scripts: `db:reset-for-ssot`, `import:ssot-roster`.
+
+**Filesystem moves:**
+
+- `mv` (untracked) `docs/data/Warhammer_Books_SSOT_enriched.xlsx` → `scripts/seed-data/source/Warhammer_Books_SSOT.xlsx` (`_enriched`-Suffix raus).
+
+**CC-Erweiterungen ggü. Brief-Acceptance** (Cowork akzeptiert): RosterBook trägt zusätzlich `editors: string[]` + `editorialNote: "various" | null` (Konsequenz aus den zwei OQ-Antworten); `external_book_id` UNIQUE ohne separaten Index; `work_collections` nur ein Sekundär-Index (Composite-PK reicht für leading-column); Year-`null` → warn statt error; Migration mit explizitem `--name=ssot_schema`; `RESTART IDENTITY` weggelassen (UUIDs only).
+
+**Brain (Cowork-Output, this session):**
+
+- [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md) (**new**) — ADR mit Context (drei strukturelle 055-Probleme + Maintainer-Excel als bessere Alternative), Decision (Excel-SSOT in repo, Loader, Schema-Migration 0008, Hard-Delete der 26, Pipeline-Refactor in Brief 058), Why (Curatorial-Decisions bekommen Slot, Latenz-Drop, Pipeline-Maschinerie unverändert), Revisit-Trigger (Maintenance-Burden, Quality-Divergenz, 3d-Apply-Direct-Load, Excel-Größenwachstum).
+- [`./project-state.md`](./project-state.md) — Phase-Sektion auf Excel-SSOT-Pivot umgeschrieben; Branch-Liste um 056+057 erweitert; What's running (DB-Sektion mit Migration 0008 committed-but-NOT-applied + Excel-SSOT-Roster-Sektion); Latest-pipeline-state-Sektion komplett neu (post-057, mit CC-Erweiterungen + Author-Splitting-Empirie); What's-open neu sortiert (Maintainer-Trigger zuerst, dann Brief 058); Recently-shipped um 056+057 ergänzt; Next-likely-brief auf Maintainer-Trigger → 058 → 059+ Sequenz.
+- [`./pipeline-state.md`](./pipeline-state.md) — Header `post-055` → `post-057` mit SSOT-Pivot-Pointer; neue Excel-SSOT-Layer-Sektion (Inputs/Outputs, CC-Erweiterungen, Schema-DDL, Type-Map, display_order-Hybrid, Author-Splitting-Empirie, Excel-Workflow, bekannte Schwächen); What's-next-Sektion neu nummeriert (056 + 057 als ✅, 058 als nächst-queued, 059+ als 10er-Batch-Reihe); 3d-Backlog um Migration-0008-Apply + work_collections-Population erweitert.
+- [`./open-questions.md`](./open-questions.md) — Migrations-History-Note kompakter formuliert; OQ7 + OQ8 als closed/verschoben markiert (mit ADR-Cross-Link); OQ4-Note um Post-057-Pointer erweitert (Excel ändert die Resolver-Frage nicht).
+- [`./index.md`](./index.md) — `updated:` auf 2026-05-10 gebumpt für project-state, open-questions, pipeline-state, log, deferred-questions, plus neue Decision-Page why-excel-ssot-not-crawl.md.
+
+**Outside wiki:** [`../../sessions/README.md`](../../sessions/README.md) Active-Threads-Tabelle geleert (056+057 archiviert); 056-arch + 056-impl + 057-arch + 057-impl von `sessions/` root nach `sessions/archive/2026-05/` verschoben (4 git mv).
+
+**No new external reviews.**
+
+**Out of scope (per brief 057):** V2-Pipeline-Refactor (Brief 058 — Discovery-Stage-0-abschalten, Validators trimmen, LLM-Tool-Schema schrumpfen, erster 10er-Batch), DB-Writes aus dem Loader, DetailPanel "Auch enthalten in:"-UI, Junction-Resolver, Author-/Person-Resolver, Series-ID-Mapping, Migration-Apply auf prod, `docs/data/`-Aufräumung, Vokabular-Erweiterung (OQ2), Brain-Lint-Konvention "Brain ↔ Buch-Daten" (gehört in späteren Hygiene-Brief, nicht in Schema-Migration-Brief).
+
+---
+
 (Future entries go below as new `## YYYY-MM-DD · <Op-type> · <short-title>` sections.)
