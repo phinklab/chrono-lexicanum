@@ -96,6 +96,11 @@ export const sourceKind = pgEnum("source_kind", [
   "open_library",
   "hardcover",
   "llm",
+  // Brief 057 (2026-05-10): Excel-SSOT-Pivot. Maintainer pflegt extern eine
+  // kuratierte Master-Excel; der SSOT-Loader (`scripts/import-ssot-roster.ts`)
+  // produziert `book-roster.json`, Pipeline 058+ liest daraus statt aus
+  // Wikipedia/TLBranson-Discovery.
+  "ssot",
 ]);
 
 export const workKind = pgEnum("work_kind", [
@@ -149,6 +154,12 @@ export const bookFormat = pgEnum("book_format", [
   "anthology",
   "audio_drama",
   "omnibus",
+  // Brief 057 (2026-05-10): Excel-SSOT enthält drei weitere Type-Werte aus dem
+  // Maintainer-Vokabular. `collection` = Sammelband knapper als Anthology (z. B.
+  // 11 Einträge im SSOT), `artbook` + `scriptbook` Randfälle (je 2).
+  "collection",
+  "artbook",
+  "scriptbook",
 ]);
 
 export const bookAvailability = pgEnum("book_availability", [
@@ -215,6 +226,13 @@ export const works = pgTable(
     // works without a clear publication year stay NULL.
     releaseYear: integer("release_year"),
 
+    // Brief 057 (2026-05-10): stable Maintainer-Excel-IDs (e.g. "W40K-0001",
+    // "HH-0042"). Nullable because non-SSOT works (films, channels, future
+    // hand-inserts) won't have one. UNIQUE so a re-import after Maintainer
+    // edits the spreadsheet can match Excel-row → existing `works.id` (UUID)
+    // safely — slug alone may shift if a title gets corrected.
+    externalBookId: varchar("external_book_id", { length: 16 }).unique(),
+
     sourceKind: sourceKind("source_kind").notNull().default("manual"),
     confidence: numeric("confidence", { precision: 3, scale: 2 }).default("1.00"),
 
@@ -264,6 +282,12 @@ export const bookDetails = pgTable(
     primaryEraId: varchar("primary_era_id", { length: 64 }).references(
       () => eras.id,
     ),
+    // Brief 057 (2026-05-10): freie Text-Notiz aus der Excel-SSOT-Spalte
+    // "Relation Notes" — Maintainer hält dort z. B. "Eisenhorn Omnibus
+    // collects Xenos/Malleus/Hereticus + Backcloth for a Crown Additional"
+    // fest. Kein Frontend-Verbraucher heute; landet sichtbar im DetailPanel
+    // sobald die SSOT-gepflegten Bücher live sind.
+    notes: text("notes"),
   },
   (t) => ({
     seriesIdx: index("book_details_series_idx").on(t.seriesId, t.seriesIndex),
@@ -435,6 +459,45 @@ export const workFacets = pgTable(
 );
 
 // =============================================================================
+// BOOK COLLECTIONS (Anthology / Omnibus M2M)
+// Junction für "Sammlung enthält Werk" — Brief 057 (2026-05-10) aus der Excel-
+// SSOT-Spalte "Collection Links" (192 Beziehungen, z. B. *Xenos* enthalten in
+// *Eisenhorn Omnibus*). Beide FKs zeigen auf `works.id` (Self-M2M); cascade
+// auf beiden Richtungen, damit ein gelöschter Sammelband seine Junction-Rows
+// mitnimmt UND ein gelöschtes enthaltenes Werk aus allen Sammlungen rausfällt.
+// =============================================================================
+
+export const workCollections = pgTable(
+  "work_collections",
+  {
+    collectionWorkId: uuid("collection_work_id")
+      .notNull()
+      .references(() => works.id, { onDelete: "cascade" }),
+    contentWorkId: uuid("content_work_id")
+      .notNull()
+      .references(() => works.id, { onDelete: "cascade" }),
+    // 0-basierte Reihenfolge der Children innerhalb der Sammlung (aus Excel
+    // Books-Sheet "Collects Titles" semicolon-Order). Default 0 wenn keine
+    // Sequenz ableitbar — Frontend fällt dann auf releaseYear-Sort zurück.
+    displayOrder: integer("display_order").notNull().default(0),
+    // 0.00–1.00 aus Excel "Collection Links" Sheet "Confidence" — wie sicher
+    // ist die Beziehung (Maintainer-LLM-Workflow setzt das).
+    confidence: numeric("confidence", { precision: 3, scale: 2 }),
+    // Begründung aus Excel "Collection Links" Sheet "Basis", z. B. "Explicit
+    // Eisenhorn omnibus follows the trilogy in TLBranson".
+    basis: text("basis"),
+  },
+  (t) => ({
+    pk: primaryKey({ columns: [t.collectionWorkId, t.contentWorkId] }),
+    // Sekundär-Index für die DetailPanel-Query "alle Sammlungen, die *Xenos*
+    // enthalten" (`WHERE content_work_id = ?`). Die andere Richtung ("alle
+    // Children eines Omnibus") ist von der PK-B-Tree als Leading-Column
+    // abgedeckt — kein zweiter Index nötig.
+    contentIdx: index("work_collections_content_idx").on(t.contentWorkId),
+  }),
+);
+
+// =============================================================================
 // SERVICES + EXTERNAL LINKS
 // services is a reference table (insert-to-add). external_links is the
 // per-work junction. URL-fields that lived on the old `books` row are gone.
@@ -595,6 +658,15 @@ export const worksRelations = relations(works, ({ one, many }) => ({
   locations: many(workLocations),
   persons: many(workPersons),
   facets: many(workFacets),
+  // Brief 057 (2026-05-10): zwei `many()` auf dieselbe Junction (Self-M2M
+  // "Sammlung ↔ Inhalt"). Drizzle braucht explizite `relationName`-Strings,
+  // sonst wirft die Relational-Query-API Disambiguation-Errors.
+  // `containedIn` = Sammlungen, in denen dieses Werk enthalten ist
+  //   (für DetailPanel von *Xenos*: zeigt *Eisenhorn Omnibus* etc.).
+  // `contains` = Werke, die diese Sammlung enthält
+  //   (für DetailPanel von *Eisenhorn Omnibus*: zeigt *Xenos*, *Malleus*, …).
+  containedIn: many(workCollections, { relationName: "work_collection_content" }),
+  contains: many(workCollections, { relationName: "work_collection_collection" }),
   externalLinks: many(externalLinks),
 }));
 
@@ -682,6 +754,22 @@ export const workFacetsRelations = relations(workFacets, ({ one }) => ({
   facetValue: one(facetValues, {
     fields: [workFacets.facetValueId],
     references: [facetValues.id],
+  }),
+}));
+
+// Brief 057 (2026-05-10): beide `one(works)` brauchen `relationName`, das mit
+// dem `containedIn`/`contains` in `worksRelations` paart — sonst wirft
+// Drizzle's Relational-Query-API "ambiguous relation"-Errors.
+export const workCollectionsRelations = relations(workCollections, ({ one }) => ({
+  collection: one(works, {
+    fields: [workCollections.collectionWorkId],
+    references: [works.id],
+    relationName: "work_collection_collection",
+  }),
+  content: one(works, {
+    fields: [workCollections.contentWorkId],
+    references: [works.id],
+    relationName: "work_collection_content",
   }),
 }));
 
