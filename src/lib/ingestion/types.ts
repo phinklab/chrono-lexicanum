@@ -31,14 +31,20 @@ export type SourceName =
  * Junction-shaped fields (`authorNames`, `factionNames`, ...) carry raw
  * names; resolution to FK ids happens at apply time (Phase 3d).
  */
-/** Phase 3b: Format-Klassifikation. Mirror der `bookFormat`-pgEnum. */
+/** Phase 3b: Format-Klassifikation. Mirror der `bookFormat`-pgEnum.
+ *  Brief 057 (2026-05-10) extended the DB enum to 9 values (+ `collection`,
+ *  `artbook`, `scriptbook`) to accommodate maintainer Excel SSOT classifications.
+ */
 export type BookFormat =
   | "novel"
   | "novella"
   | "short_story"
   | "anthology"
   | "audio_drama"
-  | "omnibus";
+  | "omnibus"
+  | "collection"
+  | "artbook"
+  | "scriptbook";
 
 /** Phase 3b: Verfügbarkeits-Klassifikation. Mirror der `bookAvailability`-pgEnum. */
 export type BookAvailability =

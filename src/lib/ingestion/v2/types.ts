@@ -22,8 +22,10 @@ import type { BookFormat, MergedBook, SourceName } from "../types";
 // Stage 0 — Discovery
 // =============================================================================
 
-/** Discovery-source identifier shared by Wikipedia + TLBranson outputs. */
-export type DiscoverySource = "wikipedia" | "tlbranson";
+/** Discovery-source identifier shared by Wikipedia + TLBranson outputs, plus
+ *  the post-058 `"ssot"` source that reads `scripts/seed-data/book-roster.json`
+ *  in place of a crawl. */
+export type DiscoverySource = "wikipedia" | "tlbranson" | "ssot";
 
 /**
  * Single book emitted by a discovery module. Slug is canonical (slugify(title));
@@ -48,6 +50,48 @@ export interface DiscoveredBook {
   /** Discovery sources that contributed (subset of `["wikipedia",
    *  "tlbranson"]`). Useful for the V2 diff's `discoverySource` audit slot. */
   discoverySources: DiscoverySource[];
+}
+
+/**
+ * SSOT sidecar travelling alongside `DiscoveredBook` when the roster comes
+ * from `scripts/seed-data/book-roster.json` (Brief 058). Carries the
+ * maintainer-authoritative fields that the V2 pipeline must NOT overwrite
+ * from Lexicanum / Open Library / LLM. `processBookV2(book, ssotContext?)`
+ * threads it into Stage 2 (validator-skip), Stage 3 (prompt anchor), and
+ * Stage 4 (field-pick override).
+ */
+export interface SsotBookContext {
+  externalBookId: string;
+  /** Maintainer-authoritative title — same value lives on `DiscoveredBook.title`,
+   *  mirrored here so the SSOT context is a self-contained "authoritative
+   *  fields" view for the LLM prompt and Stage-4 fold. */
+  title: string;
+  format: BookFormat;
+  /** Full author list (DiscoveredBook only carries `authorHint` = first
+   *  author). Empty `[]` when `editorialNote === "various"`. */
+  authors: string[];
+  /** Empty `[]` unless the source-cell carried an `(ed.)` marker. */
+  editors: string[];
+  editorialNote: "various" | null;
+  /** Real-world publication year. `null` for the one Excel row that lacks it. */
+  releaseYear: number | null;
+  /** Raw "Section / Series" cell, e.g. `"Inquisitor (Eisenhorn/Ravenor/Bequin)"`. */
+  seriesHint: string | null;
+  notes: string | null;
+  sourceRow: number;
+}
+
+/**
+ * Return shape of `loadV2RosterSsot()` — mirrors the crawl-mode
+ * `DiscoveryResult` (defined in `run-engine.ts`) so `run-batch` can branch on
+ * the source without diverging downstream code. `ssotContexts` is keyed by
+ * slug; `processBookV2` looks the sidecar up by `book.slug`.
+ */
+export interface SsotLoadResult {
+  merged: DiscoveredBook[];
+  ssotContexts: Map<string, SsotBookContext>;
+  errors: { source: string; slug?: string; message: string }[];
+  ssotSourceFile: string;
 }
 
 // =============================================================================
@@ -162,7 +206,8 @@ export type FieldRecordSource =
   | "discovery"
   | "llm"
   | "validator"
-  | "validator-corrected";
+  | "validator-corrected"
+  | "ssot";
 
 export interface FieldRecord<T> {
   value: T;

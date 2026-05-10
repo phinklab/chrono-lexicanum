@@ -95,10 +95,13 @@ interface CliConfig {
   limit?: number;
   /** Phase 3c: 0-based start index into the discovery roster. Use with
    *  `--limit N` to process a contiguous slice (e.g. `--offset 20 --limit 20`
-   *  processes books 21–40). Default 0 (start at the first book). */
+   *  processes books 21–40). Default 0 (start at the first book). Rejected
+   *  in V2-SSOT-mode where the offset is encoded in the batch name. */
   offset?: number;
   slug?: string;
-  source?: SourceName;
+  /** Dual-purpose flag: V1 selects a per-book API source; V2 with
+   *  `--source=ssot` activates SSOT-mode. */
+  source?: SourceName | "ssot";
   /** Brief 054: pipeline version. Default `v1`. `v2` swaps to the slim
    *  V2 path (Discovery + Validators + Slim LLM + BookV2Record diff). */
   pipeline: PipelineVersion;
@@ -129,7 +132,11 @@ function parseCliArgs(): CliConfig {
   const limit = values.limit !== undefined ? Number.parseInt(values.limit, 10) : undefined;
   const offset = values.offset !== undefined ? Number.parseInt(values.offset, 10) : undefined;
   const slug = values.slug;
-  const source = values.source as SourceName | undefined;
+  // `--source` is dual-purpose: in V1 it names a per-book API source
+  // ("lexicanum", "open_library", "hardcover", "llm"); in V2 it selects the
+  // roster source ("ssot" enables SSOT-mode, anything else falls through to
+  // crawl-mode). The V2 dispatch validates which values it accepts.
+  const source = values.source as SourceName | "ssot" | undefined;
   const pipelineRaw = values.pipeline;
   const pipeline: PipelineVersion =
     pipelineRaw === "v2" ? "v2" : pipelineRaw === "v1" || pipelineRaw === undefined
@@ -172,6 +179,15 @@ async function main(): Promise<void> {
     if (cfg.pilot && cfg.batch) {
       exitWithError("--pipeline=v2 takes --pilot OR --batch, not both");
     }
+    // V2 mode treats `--source` as a roster-source selector. In V2 the only
+    // accepted value is `ssot`; anything else is a misuse (V1 per-book-source
+    // semantics don't apply here).
+    const isSsotMode = cfg.source === "ssot";
+    if (cfg.source !== undefined && !isSsotMode) {
+      exitWithError(
+        `--source=${cfg.source}: in V2 mode only "ssot" is accepted (--source selects the roster source). For per-book API source filtering, drop --pipeline=v2.`,
+      );
+    }
     if (cfg.batch) {
       const { runV2Batch, isRegisteredBatch, listRegisteredBatches } =
         await import("@/lib/ingestion/v2/run-batch");
@@ -180,14 +196,40 @@ async function main(): Promise<void> {
           `--batch ${cfg.batch}: not registered (registered: ${listRegisteredBatches().join(", ")})`,
         );
       }
-      const limit = cfg.limit ?? 100;
+      const isSsotBatch = cfg.batch.startsWith("ssot-");
+      if (isSsotBatch && !isSsotMode) {
+        exitWithError(
+          `--batch ${cfg.batch}: SSOT-mode batches require --source=ssot`,
+        );
+      }
+      if (!isSsotBatch && isSsotMode) {
+        exitWithError(
+          `--source=ssot must pair with an "ssot-*" batch name; got --batch=${cfg.batch}`,
+        );
+      }
+      if (isSsotMode && cfg.offset !== undefined) {
+        exitWithError(
+          `--offset is rejected in V2-SSOT-mode (offset is encoded in the batch name "ssot-<cluster>-<NNN>")`,
+        );
+      }
+      // SSOT-mode operational rhythm is 10er-batches (Brief 058); crawl-mode
+      // retains the legacy 100 default.
+      const defaultLimit = isSsotMode ? 10 : 100;
+      const limit = cfg.limit ?? defaultLimit;
       if (!Number.isFinite(limit) || limit < 1) {
         exitWithError(`--limit must be a positive integer (got ${cfg.limit})`);
       }
-      await runV2Batch(cfg.batch, limit);
+      await runV2Batch(cfg.batch, limit, {
+        source: isSsotMode ? "ssot" : "crawl",
+      });
       return;
     }
     if (cfg.pilot) {
+      if (isSsotMode) {
+        exitWithError(
+          "--source=ssot must pair with --batch=ssot-<cluster>-<NNN>, not --pilot",
+        );
+      }
       if (cfg.pilot !== "v2-tryout-1") {
         exitWithError(
           `--pilot ${cfg.pilot}: only "v2-tryout-1" is wired in 054`,
@@ -198,7 +240,7 @@ async function main(): Promise<void> {
       return;
     }
     exitWithError(
-      "--pipeline=v2 requires either --pilot=<name> (e.g. v2-tryout-1) or --batch=<name> --limit=N (e.g. --batch=v2-tryout-2 --limit=100)",
+      "--pipeline=v2 requires --pilot=<name> (e.g. v2-tryout-1), --batch=<crawl-name> --limit=N (e.g. --batch=v2-tryout-2 --limit=100), or --batch=ssot-<cluster>-<NNN> --source=ssot [--limit=10] (e.g. --batch=ssot-w40k-001 --source=ssot)",
     );
   }
 
@@ -207,9 +249,14 @@ async function main(): Promise<void> {
       "--dry-run is required in Phase 3a (apply mode arrives in 3d)",
     );
   }
-  if (cfg.source && !VALID_PER_BOOK_SOURCES.includes(cfg.source)) {
+  if (cfg.source && !VALID_PER_BOOK_SOURCES.includes(cfg.source as SourceName)) {
     if (cfg.source === ("wikipedia" as SourceName)) {
       exitWithError("--source wikipedia: wikipedia is discovery-only, not a per-book source");
+    }
+    if (cfg.source === "ssot") {
+      exitWithError(
+        "--source ssot: SSOT-mode requires --pipeline=v2 --batch=ssot-<cluster>-<NNN>",
+      );
     }
     exitWithError(
       `--source ${cfg.source}: not active in Phase 3a (active: ${VALID_PER_BOOK_SOURCES.join(", ")})`,
@@ -249,8 +296,10 @@ async function main(): Promise<void> {
     );
   }
 
+  // By this point cfg.source has been validated against VALID_PER_BOOK_SOURCES
+  // (the "ssot" / "wikipedia" / unknown-value branches above exit). Safe cast.
   let activeSources: SourceName[] = cfg.source
-    ? [cfg.source]
+    ? [cfg.source as SourceName]
     : VALID_PER_BOOK_SOURCES.slice();
   const hardcoverDisabled =
     activeSources.includes("hardcover") && !isHardcoverEnabled();
