@@ -282,3 +282,127 @@ Brief 058 (V2-Pipeline-Refactor + erster 10er-Batch) — Bullets, die sich jetzt
 - Drizzle `relationName` für Self-M2M: <https://orm.drizzle.team/docs/rqb#disambiguating-relations>
 - Postgres `ALTER TYPE ADD VALUE` Transaction-Safety (PG12+): <https://www.postgresql.org/docs/current/sql-altertype.html>
 - `node:util` `parseArgs`: <https://nodejs.org/api/util.html#utilparseargsconfig>
+
+---
+
+## Apply-State Verification + Truncate-Smoke 2026-05-10
+
+Im Maintainer-Trigger-Slot wurde verifiziert, dass die Migrationen 0007 + 0008 **bereits via Vercel-Auto-Deploy apply'd** sind (vor der eigentlichen Maintainer-Aktion). `drizzle.__drizzle_migrations` enthält 9 Einträge mit `0008_ssot_schema` als letztem (`created_at=1778445255347`, matched `_journal.json`). Dieser Append verifiziert die Live-DB-Struktur und führt den Truncate-Smoke aus.
+
+Cowork-Brain-State im Vor-Apply-Stand bezeichnete 0007 + 0008 als "committed-but-NOT-applied" — das entsprach nicht der Realität, weil `vercel-build` (`tsx scripts/migrate.ts && next build` in `package.json` Z. 9) jede Migration beim nächsten Vercel-Deploy auto-anwendet. Brain-State-Korrektur erfolgt im 058-Brief-Vorlauf (`project-state.md` Z. 55, `pipeline-state.md` SSOT-Layer).
+
+### Pre-State (vor Truncate)
+
+```
+works_count                 26
+book_format_after enum       {novel,novella,short_story,anthology,audio_drama,omnibus,collection,artbook,scriptbook}
+source_kind_after enum       {manual,lexicanum,goodreads,black_library,fandom_wiki,community,tmdb,imdb,youtube,wikidata,wikipedia,open_library,hardcover,llm,ssot}
+__drizzle_migrations         9 Einträge, idx 9 = 0008_ssot_schema
+```
+
+### Structural verification (Live-DB)
+
+`works.external_book_id`:
+
+| column_name      | data_type         | character_maximum_length | is_nullable |
+| ---------------- | ----------------- | ------------------------ | ----------- |
+| external_book_id | character varying | 16                       | YES         |
+
+UNIQUE-Constraint: `works_external_book_id_unique` ✓ (eine Zeile in `pg_constraint`).
+
+`book_details.notes`:
+
+| column_name | data_type |
+| ----------- | --------- |
+| notes       | text      |
+
+`work_collections` Spalten:
+
+| column_name        | data_type | is_nullable | column_default |
+| ------------------ | --------- | ----------- | -------------- |
+| collection_work_id | uuid      | NO          | null           |
+| content_work_id    | uuid      | NO          | null           |
+| display_order      | integer   | NO          | 0              |
+| confidence         | numeric   | YES         | null           |
+| basis              | text      | YES         | null           |
+
+`work_collections` Indexes:
+
+| indexname                                              | indexdef                                                                                                                                                |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| work_collections_collection_work_id_content_work_id_pk | CREATE UNIQUE INDEX work_collections_collection_work_id_content_work_id_pk ON public.work_collections USING btree (collection_work_id, content_work_id) |
+| work_collections_content_idx                           | CREATE INDEX work_collections_content_idx ON public.work_collections USING btree (content_work_id)                                                      |
+
+`work_collections` Constraints:
+
+| conname                                                | pg_get_constraintdef                                                    |
+| ------------------------------------------------------ | ----------------------------------------------------------------------- |
+| work_collections_collection_work_id_content_work_id_pk | PRIMARY KEY (collection_work_id, content_work_id)                       |
+| work_collections_collection_work_id_works_id_fk        | FOREIGN KEY (collection_work_id) REFERENCES works(id) ON DELETE CASCADE |
+| work_collections_content_work_id_works_id_fk           | FOREIGN KEY (content_work_id) REFERENCES works(id) ON DELETE CASCADE    |
+
+Befund: `works.external_book_id varchar(16) UNIQUE` ✓; `book_details.notes text` ✓; `work_collections` mit composite-PK + sekundär-Index `work_collections_content_idx` auf `content_work_id` + zwei FK-Cascades auf `works(id)` ON DELETE CASCADE ✓; `display_order` mit DEFAULT 0 NOT NULL ✓. Alle Acceptance-Bullets aus 057-arch zur Live-DB-Struktur grün.
+
+### Truncate-Smoke
+
+`npm run db:reset-for-ssot -- --confirm`:
+
+```
+[before · works domain]
+  works                       26
+  book_details                26
+  film_details                 0
+  channel_details              0
+  video_details                0
+  work_factions               60
+  work_characters              0
+  work_locations               0
+  work_persons                26
+  work_facets                413
+  work_collections             0
+  external_links              26
+[before · reference (must stay unchanged)]
+  eras                         7
+  factions                    29
+  series                      21
+  persons                     12
+  characters                   0
+  locations                   28
+  sectors                      5
+  services                    18
+  facet_categories            12
+  facet_values                85
+[db-reset-for-ssot] TRUNCATE works CASCADE …
+(NOTICE: cascade to book_details, channel_details, external_links, film_details,
+ video_details, work_characters, work_facets, work_factions, work_locations,
+ work_persons, work_collections — all 11 dependent tables)
+[after · works domain]
+  works                        0
+  book_details                 0
+  film_details                 0
+  channel_details              0
+  video_details                0
+  work_factions                0
+  work_characters              0
+  work_locations               0
+  work_persons                 0
+  work_facets                  0
+  work_collections             0
+  external_links               0
+[after · reference]
+  eras                         7
+  factions                    29
+  series                      21
+  persons                     12
+  characters                   0
+  locations                   28
+  sectors                      5
+  services                    18
+  facet_categories            12
+  facet_values                85
+[db-reset-for-ssot] done. works domain cleared, reference tables intact.
+```
+
+Befund: pre=26 works → post=0 works ✓; alle 12 work-domain-Tabellen auf 0 (inkl. `work_factions=60`, `work_persons=26`, `work_facets=413`, `external_links=26` aus dem Stufe-2b-Seed, alle hand-getaggten Junctions weg) ✓; alle 10 Reference-Tabellen byte-identisch vorher/nachher ✓. `characters`-Reference-Tabelle zeigt weiterhin 0 Rows — strukturell, weil kein canonical Character-Table existiert (OQ4-Empirie aus 055).
+
+DB-State ist jetzt clean-slate für die Brief-058 SSOT-Pipeline-Konsumtion.
