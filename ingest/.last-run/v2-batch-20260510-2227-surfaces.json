@@ -1,0 +1,297 @@
+{
+  "diff": "v2-batch-20260510-2227.diff.json",
+  "booksProcessed": 10,
+  "factions": [
+    {
+      "name": "Inquisition",
+      "count": 9
+    },
+    {
+      "name": "Chaos",
+      "count": 5
+    },
+    {
+      "name": "Imperium of Man",
+      "count": 3
+    },
+    {
+      "name": "Adeptus Arbites",
+      "count": 1
+    },
+    {
+      "name": "Aeldari",
+      "count": 1
+    },
+    {
+      "name": "Cognitae",
+      "count": 1
+    },
+    {
+      "name": "Emperor's Children",
+      "count": 1
+    },
+    {
+      "name": "Imperium",
+      "count": 1
+    }
+  ],
+  "locations": [
+    {
+      "name": "Gudrun",
+      "count": 3
+    },
+    {
+      "name": "Eustis Majoris",
+      "count": 2
+    },
+    {
+      "name": "Scarus Sector",
+      "count": 2
+    },
+    {
+      "name": "56-Izar",
+      "count": 1
+    },
+    {
+      "name": "Bonner's Reach",
+      "count": 1
+    },
+    {
+      "name": "Cadia",
+      "count": 1
+    },
+    {
+      "name": "Calixis Sector",
+      "count": 1
+    },
+    {
+      "name": "Cinchare",
+      "count": 1
+    },
+    {
+      "name": "Damask",
+      "count": 1
+    },
+    {
+      "name": "Durer",
+      "count": 1
+    },
+    {
+      "name": "Eechan",
+      "count": 1
+    },
+    {
+      "name": "Eye of Terror",
+      "count": 1
+    },
+    {
+      "name": "Ghül",
+      "count": 1
+    },
+    {
+      "name": "Halo Stars",
+      "count": 1
+    },
+    {
+      "name": "Hubris",
+      "count": 1
+    },
+    {
+      "name": "Imperium",
+      "count": 1
+    },
+    {
+      "name": "Jeganda",
+      "count": 1
+    },
+    {
+      "name": "Lethe Eleven",
+      "count": 1
+    },
+    {
+      "name": "New Gevae",
+      "count": 1
+    },
+    {
+      "name": "Promody",
+      "count": 1
+    },
+    {
+      "name": "Queen Mab",
+      "count": 1
+    },
+    {
+      "name": "Thracian Primaris",
+      "count": 1
+    }
+  ],
+  "characters": [
+    {
+      "name": "Gregor Eisenhorn",
+      "count": 8
+    },
+    {
+      "name": "Gideon Ravenor",
+      "count": 7
+    },
+    {
+      "name": "Cherubael",
+      "count": 4
+    },
+    {
+      "name": "Harlon Nayl",
+      "count": 4
+    },
+    {
+      "name": "Kara Swole",
+      "count": 3
+    },
+    {
+      "name": "Aemos",
+      "count": 2
+    },
+    {
+      "name": "Alizebeth Bequin",
+      "count": 2
+    },
+    {
+      "name": "Medea Betancore",
+      "count": 2
+    },
+    {
+      "name": "Pontius Glaw",
+      "count": 2
+    },
+    {
+      "name": "Quixos",
+      "count": 2
+    },
+    {
+      "name": "Beldame Sadia",
+      "count": 1
+    },
+    {
+      "name": "Berschilde",
+      "count": 1
+    },
+    {
+      "name": "Commodus Voke",
+      "count": 1
+    },
+    {
+      "name": "Doctor Belknap",
+      "count": 1
+    },
+    {
+      "name": "Esarhaddon",
+      "count": 1
+    },
+    {
+      "name": "Fischig",
+      "count": 1
+    },
+    {
+      "name": "Germaine Macks",
+      "count": 1
+    },
+    {
+      "name": "Godwyn Fischig",
+      "count": 1
+    },
+    {
+      "name": "Inquisitor General Neve",
+      "count": 1
+    },
+    {
+      "name": "Javed Fischig",
+      "count": 1
+    },
+    {
+      "name": "Javes Thysser",
+      "count": 1
+    },
+    {
+      "name": "Lores Vibben",
+      "count": 1
+    },
+    {
+      "name": "Lyko",
+      "count": 1
+    },
+    {
+      "name": "Mandragore Carrion",
+      "count": 1
+    },
+    {
+      "name": "Marla Tarray",
+      "count": 1
+    },
+    {
+      "name": "Maud Plyton",
+      "count": 1
+    },
+    {
+      "name": "Medea",
+      "count": 1
+    },
+    {
+      "name": "Midas Betancore",
+      "count": 1
+    },
+    {
+      "name": "Murdin Eyclone",
+      "count": 1
+    },
+    {
+      "name": "Nayl",
+      "count": 1
+    },
+    {
+      "name": "Orfeo Culzean",
+      "count": 1
+    },
+    {
+      "name": "Titus Endor",
+      "count": 1
+    },
+    {
+      "name": "Uber Aemos",
+      "count": 1
+    },
+    {
+      "name": "Valentin Drusher",
+      "count": 1
+    },
+    {
+      "name": "Yael Voke",
+      "count": 1
+    },
+    {
+      "name": "Zygmunt Molotch",
+      "count": 1
+    }
+  ],
+  "resolution": [
+    {
+      "axis": "factions",
+      "directMatch": 5,
+      "aliasCandidate": 0,
+      "unknown": 3,
+      "totalDistinct": 8
+    },
+    {
+      "axis": "locations",
+      "directMatch": 3,
+      "aliasCandidate": 1,
+      "unknown": 18,
+      "totalDistinct": 22
+    },
+    {
+      "axis": "characters",
+      "directMatch": 0,
+      "aliasCandidate": 0,
+      "unknown": 36,
+      "totalDistinct": 36
+    }
+  ]
+}
