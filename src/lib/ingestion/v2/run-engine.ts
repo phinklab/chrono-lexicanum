@@ -55,6 +55,7 @@ import type {
   RoleAnnotated,
   SlimLlmPayload,
   SourceClaim,
+  SsotBookContext,
   V2DiffFile,
   Validation,
 } from "./types";
@@ -170,15 +171,22 @@ export async function discoverV2Roster(): Promise<DiscoveryResult> {
 // Stage 1-4 per book
 // ============================================================================
 
-export async function processBookV2(book: DiscoveredBook): Promise<ProcessBookResult> {
+export async function processBookV2(
+  book: DiscoveredBook,
+  ssotContext?: SsotBookContext,
+): Promise<ProcessBookResult> {
   const errors: RunErrorEntry[] = [];
 
   // Stage 1 — claims.
   const { claims, claimErrors } = await fetchSourceClaims(book);
   errors.push(...claimErrors);
 
-  // Stage 2 — validators.
-  const validations = runAllValidators(claims, book);
+  // Stage 2 — validators. In SSOT mode the maintainer Excel supplies `format`,
+  // `editorialNote`, and `editors` directly, so the heuristic anthology-flag
+  // signal from `author_editor_suspicion` is redundant and inert.
+  const validations = runAllValidators(claims, book, {
+    skipKinds: ssotContext ? ["author_editor_suspicion"] : [],
+  });
   for (const v of validations) {
     console.log(`  validation: ${v.kind} (severity=${v.severity}) on ${v.field}`);
   }
@@ -193,6 +201,7 @@ export async function processBookV2(book: DiscoveredBook): Promise<ProcessBookRe
         firstPass.merged,
         firstPass.payloads,
         validations,
+        ssotContext,
       );
       if (enrich) {
         llmPayload = enrich.payload;
@@ -217,7 +226,7 @@ export async function processBookV2(book: DiscoveredBook): Promise<ProcessBookRe
   }
 
   // Stage 4 — fold into BookV2Record.
-  const record = foldIntoBookV2Record(book, claims, validations, llmPayload, llmCost);
+  const record = foldIntoBookV2Record(book, claims, validations, llmPayload, llmCost, ssotContext);
   return { record, errors, llmCost, validations };
 }
 
@@ -477,18 +486,28 @@ function foldIntoBookV2Record(
   validations: Validation[],
   llm: SlimLlmPayload | null,
   llmCost: BookLlmCostSummary | null,
+  ssotContext?: SsotBookContext,
 ): BookV2Record {
   const drops = buildDropMap(validations);
 
-  // Title — Lexicanum > OL > Discovery
-  const titleClaim = pickClaim(claims, ["lexicanum", "open_library"], "title");
-  const titleField: FieldRecord<string> = titleClaim
-    ? fr(titleClaim.value as string, titleClaim.source)
-    : fr(book.title, "discovery");
+  // Title — SSOT > Lexicanum > OL > Discovery. In SSOT mode the maintainer
+  // Excel is authoritative; book.title is the Excel-derived title (the
+  // adapter sets `discovered.title = rb.title`).
+  let titleField: FieldRecord<string>;
+  if (ssotContext) {
+    titleField = fr(book.title, "ssot");
+  } else {
+    const titleClaim = pickClaim(claims, ["lexicanum", "open_library"], "title");
+    titleField = titleClaim
+      ? fr(titleClaim.value as string, titleClaim.source)
+      : fr(book.title, "discovery");
+  }
 
-  // authorNames — Discovery > Lexicanum > OL
+  // authorNames — SSOT > Discovery > Lexicanum > OL
   let authorField: FieldRecord<string[]>;
-  if (book.authorHint) {
+  if (ssotContext) {
+    authorField = fr(ssotContext.authors, "ssot");
+  } else if (book.authorHint) {
     authorField = fr([book.authorHint], "discovery");
   } else {
     const claim = pickClaim(claims, ["lexicanum", "open_library"], "authorNames");
@@ -497,9 +516,13 @@ function foldIntoBookV2Record(
       : fr<string[]>([], "discovery");
   }
 
-  // releaseYear — Discovery > Lexicanum > OL
+  // releaseYear — SSOT > Discovery > Lexicanum > OL. SSOT may carry `null`
+  // (the lone null row is W40K-0307); when null, fall through to Lex/OL so
+  // the record still gets a year if any source has one.
   let releaseYearField: FieldRecord<number | null>;
-  if (book.releaseYear !== undefined) {
+  if (ssotContext && book.releaseYear !== undefined) {
+    releaseYearField = fr<number | null>(book.releaseYear, "ssot");
+  } else if (book.releaseYear !== undefined) {
     releaseYearField = fr<number | null>(book.releaseYear, "discovery");
   } else {
     const claim = pickClaim(claims, ["lexicanum", "open_library"], "releaseYear");
@@ -508,10 +531,10 @@ function foldIntoBookV2Record(
       : fr<number | null>(null, "discovery");
   }
 
-  // seriesHint / seriesIndex / isEntryPoint — Discovery only
+  // seriesHint / seriesIndex / isEntryPoint — SSOT or Discovery
   const seriesHintField: FieldRecord<string | null> = fr(
     book.seriesHint ?? null,
-    "discovery",
+    ssotContext ? "ssot" : "discovery",
   );
   const seriesIndexField: FieldRecord<number | null> = fr(
     book.seriesIndex ?? null,
@@ -568,11 +591,13 @@ function foldIntoBookV2Record(
     ? fr<string | null>(coverUrlClaim.value as string, coverUrlClaim.source)
     : fr<string | null>(null, "discovery");
 
-  // format — validator (use) > LLM > OL > validator (flag)
+  // format — SSOT > validator (use) > LLM > validator (flag) > Discovery
   const formatUsed = drops.used.get("format");
   const formatFlagged = drops.flagged.get("format");
   let formatField: FieldRecord<BookFormat | null>;
-  if (formatUsed) {
+  if (ssotContext) {
+    formatField = fr<BookFormat | null>(ssotContext.format, "ssot");
+  } else if (formatUsed) {
     formatField = fr<BookFormat | null>(
       formatUsed.value as BookFormat,
       "validator",
@@ -721,6 +746,9 @@ function pickPrimarySource(fields: BookV2Fields): SourceName {
     return "llm";
   }
   if (fields.synopsis.source === "llm") return "llm";
+  // SSOT-mode books: title is fixed by maintainer Excel → "manual" maps the
+  // SSOT origin to the legacy MergedBook source vocabulary.
+  if (fields.title.source === "ssot") return "manual";
   // Title-source as last fallback.
   const ts = fields.title.source;
   if (ts === "lexicanum" || ts === "open_library" || ts === "hardcover") return ts;
@@ -741,7 +769,8 @@ function synthFieldOrigins(fields: BookV2Fields): MergedBook["fieldOrigins"] {
         return "wikipedia";
       case "validator":
       case "validator-corrected":
-        return "manual"; // surface validator-touched fields as manual-ish
+      case "ssot":
+        return "manual"; // surface validator-touched / SSOT-fixed fields as manual-ish
     }
   };
   if (fields.title.value) out.title = map(fields.title.source);

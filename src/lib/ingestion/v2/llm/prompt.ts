@@ -32,6 +32,7 @@ import {
   type FacetCategory,
 } from "../../llm/prompt";
 import type { PlotContext } from "../../llm/context";
+import type { SsotBookContext } from "../types";
 
 export { loadFacetVocabulary };
 export type { FacetCategory };
@@ -43,6 +44,9 @@ export const BOOK_FORMAT_VALUES: BookFormat[] = [
   "anthology",
   "audio_drama",
   "omnibus",
+  "collection",
+  "artbook",
+  "scriptbook",
 ];
 
 export const FACTION_ROLES = ["primary", "supporting", "antagonist", "background"] as const;
@@ -73,12 +77,6 @@ export const PUBLISH_ENRICHMENT_TOOL_V2 = {
         maxLength: 1200,
         description:
           "Paraphrased in-universe synopsis, 100–150 words. Do not quote any source material directly.",
-      },
-      format: {
-        type: "string",
-        enum: BOOK_FORMAT_VALUES,
-        description:
-          "Book format classification. May be omitted if the validator already supplied it (anthology) or evidence is genuinely inconclusive.",
       },
       facetIds: {
         type: "array",
@@ -157,7 +155,7 @@ export const SYSTEM_PROMPT_V2 = `You are an enrichment module for a Warhammer 40
 
 1. **synopsis** — A 100–150 word paraphrased in-universe synopsis. Write in your own words; do NOT copy or near-copy phrases from any source material (Wikipedia plot section, Lexicanum article, Black Library marketing copy, Goodreads reviews). License-safe paraphrase only.
 
-2. **format** (optional) — One of \`novel\`, \`novella\`, \`short_story\`, \`anthology\`, \`audio_drama\`, \`omnibus\`. May be OMITTED entirely if (a) the multi-source data already includes a validator-derived \`format = anthology\` (Editor cell or editor-heuristic match), or (b) evidence is genuinely inconclusive — in case (b) emit a \`flags\` entry with \`kind: "data_conflict"\`, \`field: "format"\`.
+2. **format** is set by the upstream SSOT (the maintainer-curated Excel) or by the deterministic validator-riege — NEVER by you. Do NOT propose a format value. If your web-search evidence appears to contradict the supplied format (e.g. SSOT says \`anthology\` but Goodreads-blurb describes a single-author novel), emit a \`flags\` entry with \`kind: "data_conflict"\`, \`field: "format"\` and let downstream triage handle it.
 
    This pipeline does NOT assess availability or rating — those live in a separate refresh layer.
 
@@ -223,6 +221,11 @@ interface BuildUserPromptInput {
    *  prompt surfaces them so the LLM doesn't second-guess validator-decided
    *  fields (e.g. format=anthology). */
   validations?: Array<{ kind: string; field: string; reasoning: string }>;
+  /** Brief 058 — when the roster source is the maintainer Excel (SSOT), this
+   *  sidecar carries the authoritative fields. The prompt surfaces them in a
+   *  dedicated "SSOT-fixed fields" section so the LLM does not propose
+   *  overrides for title/authors/year/format/series. */
+  ssotFixed?: SsotBookContext;
 }
 
 function trimText(s: string, maxChars: number): string {
@@ -272,10 +275,18 @@ function payloadsToText(payloads: SourcePayload[]): string {
 }
 
 export function buildUserPromptV2(input: BuildUserPromptInput): string {
-  const { merged, rawPayloads, plotContext, vocabulary, validations } = input;
-  const title = merged.fields.title ?? "(unknown title)";
-  const author =
-    merged.fields.authorNames && merged.fields.authorNames.length > 0
+  const { merged, rawPayloads, plotContext, vocabulary, validations, ssotFixed } = input;
+  // When the SSOT sidecar is present the maintainer Excel is authoritative
+  // for title/authors — display those over the multi-source-merged values
+  // even if a Lexicanum/OL claim happens to differ.
+  const title = ssotFixed?.title ?? merged.fields.title ?? "(unknown title)";
+  const author = ssotFixed
+    ? ssotFixed.authors.length > 0
+      ? ssotFixed.authors.join(", ")
+      : ssotFixed.editorialNote === "various"
+        ? "(various — anthology)"
+        : "(unknown author)"
+    : merged.fields.authorNames && merged.fields.authorNames.length > 0
       ? merged.fields.authorNames.join(", ")
       : "(unknown author)";
 
@@ -286,9 +297,41 @@ export function buildUserPromptV2(input: BuildUserPromptInput): string {
 - Title: ${title}
 - Author: ${author}
 - Pipeline-slug: ${merged.slug}
-- Primary source: ${merged.primarySource} (confidence ${merged.confidence})
+- Primary source: ${merged.primarySource} (confidence ${merged.confidence})`);
 
-# Multi-source data
+  if (ssotFixed) {
+    const editorsLine =
+      ssotFixed.editors.length > 0
+        ? `\n- Editors: ${ssotFixed.editors.join(", ")}`
+        : "";
+    const editorialLine = ssotFixed.editorialNote
+      ? `\n- Editorial note: ${ssotFixed.editorialNote}`
+      : "";
+    const seriesLine = ssotFixed.seriesHint
+      ? `\n- Series hint: ${ssotFixed.seriesHint}`
+      : "";
+    const yearLine =
+      ssotFixed.releaseYear !== null
+        ? `\n- Release year: ${ssotFixed.releaseYear}`
+        : "";
+    sections.push(`# SSOT-fixed fields (authoritative — do NOT propose overrides)
+
+The maintainer-curated catalog has already resolved these values; they are
+\`source: "ssot"\` in the downstream record and MUST NOT be contradicted by
+your output. Your job is to enrich the *soft* fields (synopsis, facets,
+factions, locations, characters) against this anchor.
+
+- External book ID: ${ssotFixed.externalBookId}
+- Title: ${ssotFixed.title}
+- Authors: ${ssotFixed.authors.length > 0 ? ssotFixed.authors.join(", ") : "(none — see editorial note)"}${editorsLine}${editorialLine}${yearLine}
+- Format: ${ssotFixed.format}${seriesLine}
+
+If your web-search evidence appears to contradict any of these (e.g. format
+mismatch), emit a \`flags\` entry with \`kind: "data_conflict"\` and the
+specific field, then proceed with the SSOT values as the working truth.`);
+  }
+
+  sections.push(`# Multi-source data
 
 \`\`\`json
 ${JSON.stringify(merged.fields, null, 2)}
@@ -298,7 +341,7 @@ ${JSON.stringify(merged.fields, null, 2)}
     const lines = validations.map(
       (v) => `- **${v.kind}** (field: ${v.field}): ${v.reasoning}`,
     );
-    sections.push(`# Validator findings (already-decided)\n\n${lines.join("\n")}\n\nDO NOT contradict these. If a validator set \`format = anthology\`, you may omit \`format\` from your response (the validator's value wins).`);
+    sections.push(`# Validator findings (already-decided)\n\n${lines.join("\n")}\n\nDO NOT contradict these.`);
   }
 
   sections.push(`# Per-source raw payloads

@@ -25,7 +25,7 @@ import {
 } from "../../llm/enrich";
 import { fetchPlotContext } from "../../llm/context";
 import type { MergedBook, SourcePayload } from "../../types";
-import type { SlimLlmPayload, Validation } from "../types";
+import type { SlimLlmPayload, SsotBookContext, Validation } from "../types";
 
 import {
   PROMPT_VERSION_HASH_V2,
@@ -122,11 +122,24 @@ interface CachedEntryV2 {
   payload: SlimLlmPayload;
 }
 
-function buildCacheKey(slug: string, merged: MergedBook): string {
+function buildCacheKey(
+  slug: string,
+  merged: MergedBook,
+  ssotContext: SsotBookContext | undefined,
+): string {
   const sortedKeys = Object.keys(merged.fields).sort();
   const canonical: Record<string, unknown> = {};
   for (const k of sortedKeys) canonical[k] = (merged.fields as Record<string, unknown>)[k];
-  const inputHash = createHash("sha256").update(JSON.stringify(canonical)).digest("hex");
+  // SSOT context affects the prompt (adds "SSOT-fixed fields" section), so
+  // cache keys must vary on it — otherwise crawl-mode and SSOT-mode runs of
+  // the same slug would collide and reuse stale completions.
+  const ssotKey = ssotContext
+    ? `::ssot::${ssotContext.externalBookId}::${ssotContext.format}::${ssotContext.authors.join(",")}::${ssotContext.editorialNote ?? ""}`
+    : "";
+  const inputHash = createHash("sha256")
+    .update(JSON.stringify(canonical))
+    .update(ssotKey)
+    .digest("hex");
   return createHash("sha256")
     .update(`${slug}::v2::${PROMPT_VERSION_HASH_V2}::${inputHash}`)
     .digest("hex")
@@ -178,10 +191,11 @@ export async function enrichBookWithLlmV2(
   merged: MergedBook,
   rawPayloads: SourcePayload[],
   validations: Validation[] = [],
+  ssotContext?: SsotBookContext,
 ): Promise<EnrichV2Result | null> {
   if (!isLlmEnabled()) return null;
 
-  const cacheKey = buildCacheKey(merged.slug, merged);
+  const cacheKey = buildCacheKey(merged.slug, merged, ssotContext);
   const cached = await readCacheV2(merged.slug, cacheKey);
   if (cached) {
     // Recompute cost from the cached payload's token usage and the model
@@ -215,6 +229,7 @@ export async function enrichBookWithLlmV2(
       field: v.field,
       reasoning: v.reasoning,
     })),
+    ssotFixed: ssotContext,
   });
 
   const first = await callApiWithRetry({

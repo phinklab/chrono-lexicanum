@@ -28,6 +28,7 @@ import {
 import { isLlmEnabled, getLlmModel } from "../llm/enrich";
 import { isHardcoverEnabled } from "../hardcover/fetch";
 import { PROMPT_VERSION_HASH_V2 } from "./llm/prompt";
+import { loadV2RosterSsot } from "./ssot/load-roster";
 import {
   emptyValidationSummary,
   mergeValidationSummaries,
@@ -35,6 +36,9 @@ import {
 } from "./validators";
 import type {
   BookV2Record,
+  DiscoveredBook,
+  DiscoverySource,
+  SsotBookContext,
   V2DiffFile,
   V2RunLlmCostSummary,
 } from "./types";
@@ -58,11 +62,19 @@ async function writePartialDiff(
 
 /**
  * Registered batch names. Each entry is a logical run-id that pairs with
- * a per-batch limit derived from the CLI `--limit` flag (default 100).
- * Restricting to a known list mirrors the pilot's `--pilot=v2-tryout-1`
- * gate and keeps the diff-file naming auditable across runs.
+ * a per-batch limit derived from the CLI `--limit` flag (default 100 for
+ * crawl, 10 for SSOT). Restricting to a known list mirrors the pilot's
+ * `--pilot=v2-tryout-1` gate and keeps the diff-file naming auditable
+ * across runs.
+ *
+ * Names following `ssot-<cluster>-<NNN>` are SSOT-mode batches (Brief 058);
+ * the rest are crawl-mode batches reading the Wikipedia + TLBranson
+ * discovery roster. The `--source=ssot` CLI flag selects the path.
  */
-const REGISTERED_BATCHES = new Set<string>(["v2-tryout-2"]);
+const REGISTERED_BATCHES = new Set<string>([
+  "v2-tryout-2",
+  "ssot-w40k-001",
+]);
 
 export function isRegisteredBatch(name: string): boolean {
   return REGISTERED_BATCHES.has(name);
@@ -72,7 +84,17 @@ export function listRegisteredBatches(): string[] {
   return Array.from(REGISTERED_BATCHES);
 }
 
-export async function runV2Batch(batchName: string, limit: number): Promise<string> {
+export type RosterSource = "crawl" | "ssot";
+
+export interface RunV2BatchOptions {
+  source: RosterSource;
+}
+
+export async function runV2Batch(
+  batchName: string,
+  limit: number,
+  opts: RunV2BatchOptions = { source: "crawl" },
+): Promise<string> {
   if (!REGISTERED_BATCHES.has(batchName)) {
     throw new Error(
       `unknown batch "${batchName}"; registered: ${Array.from(REGISTERED_BATCHES).join(", ")}`,
@@ -80,6 +102,19 @@ export async function runV2Batch(batchName: string, limit: number): Promise<stri
   }
   if (!Number.isFinite(limit) || limit < 1) {
     throw new Error(`--limit must be a positive integer (got ${limit})`);
+  }
+  // Cross-check batch name vs. roster source — `ssot-*` names must run
+  // through the SSOT path and vice versa.
+  const isSsotName = batchName.startsWith("ssot-");
+  if (isSsotName && opts.source !== "ssot") {
+    throw new Error(
+      `batch "${batchName}" must run with --source=ssot (currently --source=${opts.source})`,
+    );
+  }
+  if (!isSsotName && opts.source === "ssot") {
+    throw new Error(
+      `batch "${batchName}" is a crawl-mode batch but --source=ssot was supplied; use a "ssot-<cluster>-<NNN>" batch name for SSOT mode`,
+    );
   }
 
   const startedAt = new Date().toISOString();
@@ -91,24 +126,52 @@ export async function runV2Batch(batchName: string, limit: number): Promise<stri
   const partialPath = partialDiffPath(batchName);
   await rm(partialPath, { force: true });
 
-  // ── Stage 0 — Discovery ─────────────────────────────────────────────
-  const discovery = await discoverV2Roster();
-  errors.push(...discovery.errors);
+  // ── Stage 0 — Roster source ────────────────────────────────────────
+  let selected: DiscoveredBook[];
+  let discoveryPages: string[];
+  let discoveredTotal: number;
+  let ssotContexts: Map<string, SsotBookContext> | undefined;
+  const discoverySourceTag: DiscoverySource[] =
+    opts.source === "ssot" ? ["ssot"] : ["wikipedia", "tlbranson"];
 
-  // First-N by slug-sort (lex, ascending). Filter out any empty-slug rows
-  // defensively — slugify can produce "" on degenerate titles.
-  const sorted = discovery.merged
-    .filter((b) => b.slug.length > 0)
-    .sort((a, b) => a.slug.localeCompare(b.slug));
-  const selected = sorted.slice(0, Math.min(limit, sorted.length));
-  console.log(
-    `[v2-batch ${batchName}] selected first ${selected.length}/${sorted.length} books by slug-sort` +
-      (selected.length < limit ? ` (capped to roster size)` : ` (limit=${limit})`),
-  );
-  if (selected.length > 0) {
+  if (opts.source === "ssot") {
+    const ssot = await loadV2RosterSsot(batchName, limit);
+    errors.push(...ssot.errors);
+    selected = ssot.merged;
+    discoveryPages = [ssot.ssotSourceFile];
+    discoveredTotal = ssot.merged.length;
+    ssotContexts = ssot.ssotContexts;
     console.log(
-      `  range: "${selected[0].slug}" → "${selected[selected.length - 1].slug}"`,
+      `[v2-batch ${batchName}] SSOT-mode: selected ${selected.length} books from ${ssot.ssotSourceFile}`,
     );
+    if (selected.length > 0) {
+      console.log(
+        `  first → last: ${selected[0].slug} → ${selected[selected.length - 1].slug}`,
+      );
+    }
+  } else {
+    const discovery = await discoverV2Roster();
+    errors.push(...discovery.errors);
+    // First-N by slug-sort (lex, ascending). Filter out any empty-slug rows
+    // defensively — slugify can produce "" on degenerate titles.
+    const sorted = discovery.merged
+      .filter((b) => b.slug.length > 0)
+      .sort((a, b) => a.slug.localeCompare(b.slug));
+    selected = sorted.slice(0, Math.min(limit, sorted.length));
+    discoveryPages = [
+      ...discovery.wikipediaPagesUsed,
+      ...discovery.tlbransonPagesUsed,
+    ];
+    discoveredTotal = discovery.merged.length;
+    console.log(
+      `[v2-batch ${batchName}] selected first ${selected.length}/${sorted.length} books by slug-sort` +
+        (selected.length < limit ? ` (capped to roster size)` : ` (limit=${limit})`),
+    );
+    if (selected.length > 0) {
+      console.log(
+        `  range: "${selected[0].slug}" → "${selected[selected.length - 1].slug}"`,
+      );
+    }
   }
 
   // Push run-level "LLM disabled" error once if applicable.
@@ -144,13 +207,10 @@ export async function runV2Batch(batchName: string, limit: number): Promise<stri
     ranAt: new Date().toISOString(),
     pipeline: "v2",
     pilot: batchName,
-    discoverySource: ["wikipedia", "tlbranson"],
-    discoveryPages: [
-      ...discovery.wikipediaPagesUsed,
-      ...discovery.tlbransonPagesUsed,
-    ],
+    discoverySource: discoverySourceTag,
+    discoveryPages,
     activeSources,
-    discovered: discovery.merged.length,
+    discovered: discoveredTotal,
     added: records,
     updated: [],
     skipped_manual: [],
@@ -170,9 +230,11 @@ export async function runV2Batch(batchName: string, limit: number): Promise<stri
   for (let i = 0; i < selected.length; i++) {
     const book = selected[i];
     const tag = `[${i + 1}/${selected.length}]`;
-    console.log(`${tag} ${book.title} (${book.slug})`);
+    const ssotCtx = ssotContexts?.get(book.slug);
+    const idLabel = ssotCtx ? ` [${ssotCtx.externalBookId}]` : "";
+    console.log(`${tag} ${book.title} (${book.slug})${idLabel}`);
 
-    const result = await processBookV2(book);
+    const result = await processBookV2(book, ssotCtx);
     records.push(result.record);
     errors.push(...result.errors);
     validationSummary = mergeValidationSummaries(

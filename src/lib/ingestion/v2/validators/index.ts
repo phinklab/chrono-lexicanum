@@ -27,20 +27,38 @@ export type ValidatorFn = (
   discovered: DiscoveredBook,
 ) => Validation[];
 
-export const VALIDATORS: ValidatorFn[] = [
-  validateYearOutlier,
-  validateEditionIsbnConflict,
-  validatePagecountOutlier,
-  validateAuthorEditorSuspicion,
-  validateLexicanumMissing,
+export interface ValidatorEntry {
+  kind: ValidationKind;
+  fn: ValidatorFn;
+}
+
+export const VALIDATORS: ValidatorEntry[] = [
+  { kind: "year_outlier", fn: validateYearOutlier },
+  { kind: "edition_isbn_conflict", fn: validateEditionIsbnConflict },
+  { kind: "pagecount_outlier", fn: validatePagecountOutlier },
+  { kind: "author_editor_suspicion", fn: validateAuthorEditorSuspicion },
+  { kind: "lexicanum_missing", fn: validateLexicanumMissing },
 ];
+
+export interface RunValidatorsOptions {
+  /** Validator kinds to skip entirely (not invoked, not in output). Used by
+   *  the SSOT-mode path (Brief 058) to inert `author_editor_suspicion`, which
+   *  is redundant when `format`/`editorialNote`/`editors` come straight from
+   *  the maintainer Excel. */
+  skipKinds?: ValidationKind[];
+}
 
 export function runAllValidators(
   claims: SourceClaim[],
   discovered: DiscoveredBook,
+  opts?: RunValidatorsOptions,
 ): Validation[] {
+  const skip = new Set(opts?.skipKinds ?? []);
   const out: Validation[] = [];
-  for (const v of VALIDATORS) out.push(...v(claims, discovered));
+  for (const v of VALIDATORS) {
+    if (skip.has(v.kind)) continue;
+    out.push(...v.fn(claims, discovered));
+  }
   return out;
 }
 
