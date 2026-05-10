@@ -2,7 +2,7 @@
 title: Pipeline state (Phase 3)
 type: overview
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-10
 sources:
   - ../../src/lib/ingestion/
   - ../../sessions/archive/2026-05/2026-05-08-047-arch-pipeline-hardening.md
@@ -10,8 +10,18 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-05-044-impl-phase3e-batch-1.md
   - ../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
   - ../../sessions/archive/2026-05/2026-05-04-042-impl-phase3c-haiku-switch.md
-  - ../../sessions/2026-05-09-052-arch-ingest-retention-strategy.md
-  - ../../ingest/.last-run/backfill-20260508-2101.diff.json
+  - ../../sessions/archive/2026-05/2026-05-09-052-arch-ingest-retention-strategy.md
+  - ../../sessions/2026-05-09-054-arch-pipeline-v2-pilot.md
+  - ../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md
+  - ../../sessions/2026-05-09-055-arch-v2-voll-lauf-decision-gate.md
+  - ../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md
+  - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
+  - ../../ingest/.archive/v1/backfill-20260508-2101.diff.json
+  - ../../ingest/.archive/v2-pilot/v2-pilot-20260509-1934.diff.json
+  - ../../ingest/.last-run/v2-batch-20260510-1109.diff.json
+  - ../../scripts/test-discovery-merge.ts
+  - ../../scripts/analyze-v2-surfaces.ts
+  - ../../scripts/synthesize-v2-batch-diff.ts
 related:
   - ./project-state.md
   - ./architecture.md
@@ -22,13 +32,17 @@ related:
 confidence: high
 ---
 
-# Pipeline state (Phase 3, post-047)
+# Pipeline state (Phase 3, post-055)
 
 > The TypeScript ingestion pipeline as it stands today. Sources, modules, current numbers, levers pulled, what's next. Detail-level page; for the high-level "where are we" use [`./project-state.md`](./project-state.md).
+>
+> **Two parallel paths since 054.** V1 (multi-source-merge + LLM-two-pass, post-047 hardened) und V2 (Discovery-Spine + Validators + Slim-LLM + Provenance-pro-Feld + Pilot+Batch-Modi nach 055). V1 bleibt Default (`npm run ingest:backfill -- --slug X --dry-run`); V2 explizit per `--pipeline=v2 --pilot=v2-tryout-1` oder `--pipeline=v2 --batch=v2-tryout-2 --limit=N`. Brief 055 hat die zwei Pilot-Schwächen (Discovery-Merge-Fuzzy-Edge-Case + Web-Search-Großzügigkeit) deterministisch gefixt und einen 20-Bücher-Voll-Lauf-Diff aus Cache produziert (Live-Lauf von Maintainer abgebrochen wegen Lexicanum-Throttle-Latenz; per-page Lex-Cache + per-book Diff-Checkpointing sind 055.5er-Backlog). Die V2-Resolver-Frage (Brief 056) hat jetzt empirische Surface-Form-Basis.
 
 ## Architecture
 
-**Multi-Source-Merge with field-by-field source-priority + LLM enrichment two-pass.** Discovery from Wikipedia (master lists, ~700 books); per-book crawl from Lexicanum + Open Library + Hardcover; LLM (Anthropic Haiku 4.5 + Web Search, mandatory ≥2 calls/book) for synopsis paraphrase + soft-facets + format/availability + plausibility cross-check + reader-rating capture. Output: dry-run diff JSON committed under `ingest/.last-run/`. **No DB writes from the pipeline yet** — Apply-Step (3d) is the next sub-phase.
+**V1 — Multi-Source-Merge with field-by-field source-priority + LLM enrichment two-pass.** Discovery from Wikipedia (master lists, ~700 books); per-book crawl from Lexicanum + Open Library + Hardcover; LLM (Anthropic Haiku 4.5 + Web Search, mandatory ≥2 calls/book) for synopsis paraphrase + soft-facets + format/availability + plausibility cross-check + reader-rating capture. Output: dry-run diff JSON committed under `ingest/.last-run/`. **No DB writes from the pipeline yet** — Apply-Step (3d) is the next sub-phase.
+
+**V2-Pilot — Discovery-Spine + Validators + Slim-LLM + Provenance-pro-Feld.** Siehe Sektion „V2-Pipeline (Pilot, post-054)" weiter unten. V1 bleibt für Reproduzierbarkeit alter Diffs erhalten; V2 läuft als Opt-In-Flag parallel.
 
 ### 21 modules under `src/lib/ingestion/`
 
@@ -91,7 +105,7 @@ CLI entry: `scripts/ingest-backfill.ts` — `tsx --env-file=.env.local scripts/i
 
 ## Latest acceptance numbers (post-047)
 
-`backfill-20260508-2101.diff.json` (9 books, run aborted by Philipp at Buch 9):
+`ingest/.archive/v1/backfill-20260508-2101.diff.json` (9 books, run aborted by Philipp at Buch 9; archived in 056):
 
 | Metric | 044 baseline | 047-impl |
 |---|---|---|
@@ -113,18 +127,131 @@ CLI entry: `scripts/ingest-backfill.ts` — `tsx --env-file=.env.local scripts/i
 - **D. Open Library edition filter.** `language=eng` query param + parse-time-Year-Cross-Check. Catches re-issue-trap (older book, modern reprint year on the OL record). 0 `releaseYear`-conflicts in 9-book test (vs 11/15 in 044).
 - **E. Hardcover-Author-Hint in LLM-User-Prompt.** Editor-heuristic for anthologies: when Hardcover's contributor list shows multiple authors but Wikipedia/Lexicanum show one (the editor), the LLM prompt is hinted to flag and reconsider. **Code-verified, not empirically tested** — 0–9 slice had no anthologies. See [open-question 10](./open-questions.md#10-anthologie-re-test-für-hebel-e-hardcover-author-hint).
 
+## V2-Pipeline (Pilot, post-054)
+
+V2 entstand aus drei Befunden, die V1's Härtungs-Hebel (047) nicht adressierten:
+
+- Lexicanum-Body-Year-Halluzinationen (`startY=39000` für *false-gods*) gingen ungeprüft in Diffs.
+- Open-Library-PageCount-Müll (`pageCount=2` für *garro*) hatte keine Sanity-Schwelle.
+- Hardcover-Author-Mismatches überschwemmten `errors[]` (44/50 Müll-Errors in 044) und machten das Dashboard unleserlich.
+
+Plus zwei strukturelle Zusatzbefunde aus dem 2026-05-09-Audit: Wikipedia-Master-Liste hat eine Frische-Lücke ab Dezember 2025 (TLBranson ist frischer); Rating und Availability sind volatile Felder, gehören schemabedingt nicht in den Bulk-Crawl (eigener Refresh-Pfad in zukünftigem Brief 057).
+
+### V2 Stage-Architektur
+
+**Stage 0 — Discovery (Wikipedia + TLBranson).** Zwei parallele Discovery-Module mit gemeinsamer `DiscoveredBook`-Output-Form (`{ slug, title, releaseYear?, authorHint?, seriesHint?, seriesIndex?, isEntryPoint?, sourcePages[] }`). TLBranson cached unter `ingest/.cache/tlbranson/`; Parser strippt Amazon-Affiliate-URLs und peelt Date/Author/Paren-Trailers. Dedup über slug + Levenshtein-2-Title-Fallback.
+
+**Stage 1 — Source-Claims-Crawl.** Pro Buch parallel bis zu drei Fetcher (Lexicanum, OL, Hardcover); jeder schreibt einen `SourceClaim` (`{ source, sourceUrl, fetchedAt, fields, raw, notes }`). Lexicanum-Refactor: `extractUniverseYears` (Body-Year-Regex) ist aus dem FIELDS-Pfad entfernt — Body-Scan bleibt nur als `claim.raw.bodyYearCandidates` für Audit-Evidence. OL-Sanity: `pageCount<30` drop, `>1500` flag. Hardcover-Author-Mismatch: silent skip (kein `errors[]`-Eintrag).
+
+**Stage 2 — Validators.** Fünf deterministische Validatoren, jeder produziert `Validation[]` (`{ field, severity, kind, evidence[], suggested?, reasoning }`):
+
+- `year_outlier` — Series-Anker-Tabelle (HH/SoT M30/M31, Eisenhorn/Ravenor/Cain M40, Dawn-of-Fire M42); `severity: error` + `action: drop` bei `±1000`-Verstoß.
+- `edition_isbn_conflict` — Lexicanum vs OL, niedrigere ISBN als Erstausgabe-Heuristik.
+- `pagecount_outlier` — `<30` error/drop, `>1500` warn/flag.
+- `author_editor_suspicion` — Lexicanum-Editor-Cell oder `/various|editor|edited.by|anonymous/i` Single-Author → Anthologie-Flag.
+- `lexicanum_missing` — Transparenz-only.
+
+Validatoren modifizieren Stage-1-Claims **nicht** direkt; Stage 4 foldet sie in den finalen Record.
+
+**Stage 3 — Slim-LLM.** `PUBLISH_ENRICHMENT_TOOL_V2` (kein Rating, kein Availability), `WEB_SEARCH_TOOL_V2` (`max_uses: 3`, 1 obligatorisch), structured `factions`/`locations`/`characters` Arrays mit `{name, role}`. `PROMPT_VERSION_HASH_V2` invalidiert V1-Cache; V2-Cache-Files kriegen `.v2.json`-Suffix für parallele Koexistenz.
+
+**Stage 4 — `BookV2Record` + Diff-Writer.**
+
+```ts
+type FieldRecord<T> = {
+  value: T;
+  source: SourceName | "validator" | "discovery" | "llm" | "validator-corrected";
+  fetchedAt: string;
+  override: T | null;             // human override slot
+  evidence?: { source: string; value: unknown }[];
+};
+
+type BookV2Record = {
+  slug: string;
+  fields: { /* title, authorNames, releaseYear, seriesHint, ..., factions, locations, characters */ };
+  validations: Validation[];
+  rawClaims: SourceClaim[];
+  rawLlmPayload: SlimLlmPayload | null;
+  llmCostSummary: { tokensIn, tokensOut, webSearches, estUsdCost };
+};
+```
+
+Diff-Form: `ingest/.last-run/v2-pilot-YYYYMMDD-HHMM.diff.json` mit `pipeline: "v2"`, `pilot: "v2-tryout-1"`, `discoverySource: ["wikipedia", "tlbranson"]`, `validationSummary`-Histogramm, `llmCostSummary`. Renderbar im `/ingest`-Dashboard ohne Code-Änderung (synthesized `payload: MergedBook`-Shim).
+
+### V2-Modul-Layout (parallel zu V1)
+
+- `src/lib/ingestion/v2/types.ts` — V2-Types
+- `src/lib/ingestion/tlbranson/{fetch,parse}.ts` — neue Discovery-Quelle. Post-055: `NAV_TITLE_RE` rejects nav-article cross-links ("Ways to Read", "Books in Order", "Reading Order", "Guide to") — TLBranson pages embed sidebar links to other reading-order articles which previously polluted the slug-window with non-W40k entries.
+- `src/lib/ingestion/discovery/{types,merge}.ts` — gemeinsame Discovery-Form. Post-055: deterministic `genericityScore(seriesHint)` + `pickBetterSeriesHint(a, b)` make seriesHint folding order-independent (`scripts/test-discovery-merge.ts` covers it with 11 cases).
+- `src/lib/ingestion/wikipedia/parse.ts` — Wikipedia parser. Post-055: `BOOK_INDEX_RE` extended to also match the bare-numeric prefix form (`001: Title`, `001 - Title`) Wikipedia adopted in late 2025; previous regex only matched `Book NNN - Title`.
+- `src/lib/ingestion/v2/sources/{lexicanum,open-library,hardcover}.ts` — V2-Claim-Adapter
+- `src/lib/ingestion/v2/validators/{year-outlier,edition-isbn,pagecount,author-editor,lexicanum-missing,index}.ts`
+- `src/lib/ingestion/v2/llm/{prompt,parse,enrich}.ts` — Slim-LLM. Post-055: `SYSTEM_PROMPT_V2` Web-Search-Discipline section is now **strict** (Search 1 mandatory; Search 2 only when supplied data + Search 1 yields zero structured-array entities AND book is narrative; Search 3 only when two sources directly contradict on a structured field). `PROMPT_VERSION_HASH_V2` bumped to `034110f668c5` (was `305ed8d37ce0`).
+- `src/lib/ingestion/v2/run-engine.ts` (post-055) — shared Stage 0 (discovery) + Stage 1–4 (per-book) + diff-writer logic, factored out so pilot + batch share one implementation. Exports `discoverV2Roster()`, `processBookV2(book)`, `writeV2DiffFile(diff, prefix, startedAt)`.
+- `src/lib/ingestion/v2/run-pilot.ts` — pilot orchestrator (slim wrapper around the engine post-055). PILOT_V2_TRYOUT_1 + PILOT_HINTS + fuzzyMatch + synthesizeMissingBook stay here.
+- `src/lib/ingestion/v2/run-batch.ts` (post-055) — batch orchestrator. Sorts merged discovery roster by slug ascending, takes first N, runs each through `processBookV2`. Filename prefix `v2-batch-`. Currently only `v2-tryout-2` registered; same one-name gate as the pilot.
+
+V1-Module bleiben unangetastet; CLI-Dispatch in `scripts/ingest-backfill.ts` über `--pipeline=v2 --pilot=<name>` (Pilot) oder `--pipeline=v2 --batch=<name> [--limit=N]` (Batch, default `--limit=100`). Mutual exclusion enforced. Beide V2-Pfade sind diff-only.
+
+### V2-Pilot Acceptance-Numbers
+
+`ingest/.archive/v2-pilot/v2-pilot-20260509-1934.diff.json` (5 Bücher: eisenhorn-xenos, false-gods, garro, tales-of-heresy, chem-dog; archived in 056):
+
+| Bullet | Status |
+|---|---|
+| Diff committed unter korrektem Pfad | ✓ |
+| `BookV2Record` pro Buch mit allen Slots | ✓ (5/5) |
+| `eisenhorn-xenos`: 0 Validations + Synopsis ≥ 100 W | ✓ (130 W) |
+| `false-gods`: `year_outlier` mit Lexicanum-Evidence-Wert 39000, finaler `startY` source ≠ `lexicanum` | ✓ (`source: "validator-corrected"`, `value: null`) |
+| `garro`: `pagecount_outlier` Validation | ⚠ (Code-verifiziert; OL hat diesmal keinen `pageCount=2` zurückgegeben) |
+| `tales-of-heresy`: `author_editor_suspicion` + `format=anthology` von Validator + 0 Hardcover-`errors[]` | ✓ (alle drei Sub-Kriterien) |
+| `chem-dog`: TLBranson in `sourcePages` | ✓ (TLBranson alleine) |
+| Diff rendert im `/ingest`-Dashboard | ✓ |
+| `llmCostSummary.totalWebSearches ≤ 7` | ⚠ (8; 1 über Target, im `max_uses=3`-Korridor) |
+| Kein Rating/Availability in `rawLlmPayload` oder `fields` | ✓ |
+| V1-Pfad unverändert (smoke `--slug=false-gods --dry-run`) | ✓ |
+| `npm run lint` + `tsc --noEmit` grün | ✓ |
+
+**Cost:** $0.062/Buch (Pilot) vs. V1 post-047 $0.114/Buch — fast Halbierung. Hochrechnung 750 Bücher V2 ≈ $46 (vs. V1 ≈ $86).
+
+### V2-Voll-Lauf Acceptance-Numbers (post-055)
+
+`v2-batch-20260510-1109.diff.json` (50 Bücher slug-window `13th-legion → ascension`). Der Live-Lauf hat trotz mid-session-Maintainer-Halt-Direktive (`TaskStop`) das Bash-Wrapper überlebt und bis Buch 50 weitergelaufen — der diff ist die canonical 055 Voll-Lauf Artefact. Real source claims, real validator data, real LLM payloads.
+
+- **Cost (recomputed):** $0 in `llmCostSummary.estUsdCost` — every book was a cache hit when the live batch landed (LLM cost was charged during the killed runs; cached responses report `enrich.estUsdCost = 0`). Actual fresh-run per-book cost from the post-fix 5-book smoke war **$0.0199**, vs Pilot $0.062 vs V1 $0.114. Hochrechnung 750 Bücher V2-Voll-Lauf ≈ **$15** auf der gemessenen Pace. Cached-cost-recompute ist 055.5er-Backlog.
+- **Web-search:** **1.06/Buch im Mittel** (53 searches over 50 books; 47 books took exactly 1, 3 took a 2nd). Die strikte Prompt-Härtung in 055 hält. Brief-Target ≤1.4 ✓.
+- **Validator-Trigger-Histogramm:** 4-of-5 kinds non-zero. `year_outlier` 1× (`angel-exterminatus`), `edition_isbn_conflict` 1× (`angel-exterminatus`), `pagecount_outlier` 0×, `author_editor_suspicion` 2× (`age-of-darkness`, `architect-of-fate` — beide Anthologien deterministisch durch Validator 4 als `format=anthology` klassifiziert), `lexicanum_missing` 20× (~40% des slug-windows, viele kürzliche Short-Stories ohne Lexicanum-Eintrag).
+- **Discovery:** 1040 Bücher merged (874 wiki + 808 tlbranson, deduped post-fixes). 0 `synthesized minimal record from slug` errors.
+- **Surface-Form-Verteilung:**
+  - Factions: 133 occurrences / 60 distinct, **46.7% Direct-Match**, 3.3% Alias-Candidate, 50.0% Unknown. Clear canonical-Lücken in `seed-data/factions.json`: Iron Hands, Emperor's Children, Black Legion, Death Guard, Sisters of Silence, Ecclesiarchy. Clear Aliases: "Imperial Guard" / "Imperial Army" / "Imperium of Mankind" / "War Hounds" / "Prodigal Sons" / "Last Chancers" / "13th Penal Legion" → existing canonicals.
+  - Locations: 101/76, 13.2% Direct-Match (`seed-data/locations.json` ist galaktischer Cartography-Anker, nicht Lore-Welten-Bibliothek). Ships (Black Ship, Conqueror, Endeavour of Will, Fist of Iron, Titan Child) leak into the location bucket — Resolver-Design-Frage für 056.
+  - Characters: 183/146, **0% Direct-Match** — strukturell, weil `seed-data/persons.json` der Author-Roster ist, nicht in-universe Characters. Für Brief 056 architectural blocker: entweder canonical character table designen (Option A), characters explizit aus Resolver-Pfad rausnehmen (Option B), oder Hybrid Top-100 (Option C). Empirie spricht für C — Primarchs + Ahriman + Schaeffer cluster naturally above the noise floor.
+
+Surface-Form-Top-20 + Resolver-Triage-Notes liegen im Implementer-Report; full-frequency dump für Resolver-Tooling unter `ingest/.last-run/v2-batch-20260510-1109-surfaces.json`.
+
+### V2-Bekannte Schwächen (Status post-055)
+
+- ✅ **Discovery-Merge-Fuzzy-Edge-Case** (eisenhorn-xenos) — **gefixt in 055** via deterministic `genericityScore` in `discovery/merge.ts`. Master-list seriesHints lose to sub-page seriesHints regardless of folding order; lex-smaller wins on tie. Unit test covers the three brief-mandated cases.
+- ✅ **Web-Search-Großzügigkeit** (Pilot 1.6/Buch) — **gefixt in 055**. Strict prompt language + tightened user-prompt reminder. 20-book post-055 batch shows **1.00 web_search/book** (every book exactly 1).
+- ⚠ **Validator 3 (`pagecount_outlier`) nur per Inspektion verifiziert** — Pilot OL didn't return `pageCount=2` for *garro* (V1-known glitch not reproducible). Code path verified by inspection on `pagecount_below_threshold` notes; will fire whenever OL returns a sub-30 value.
+- ⚠ **Lexicanum-Throttle dominiert Voll-Lauf-Latenz** (new in 055). The `CRAWL_DELAY_MS = 5_000` × 11-pattern URL probe per `lexicanum_missing` book makes per-book floor ~60s for source fetches alone. With ~70% lex-missing rate in the post-canonical slug-window, a 100-book batch is ~70+ min on Lexicanum throttle alone, before LLM. Mitigation in 055.5er backlog: per-page Lexicanum cache (24h, mirroring `ingest/.cache/tlbranson/`).
+- ⚠ **No per-book diff checkpointing in `run-batch.ts`** (new in 055). The diff writes at end-of-loop only; killing mid-run loses aggregated state. Synthesis from LLM cache (`scripts/synthesize-v2-batch-diff.ts`) bridges in the meantime but produces empty `validations[]` per book. 055.5er backlog: partial-diff write under `ingest/.state/v2-batch-<name>.partial.diff.json`.
+- ⚠ **Discovery still includes some non-book entries** (new in 055). Post-fix slug-window includes `about-the-horus-heresy`, `about-warhammer-40k`, `above-and-beyond` — Wikipedia entries with italic-text `<li>` items that aren't actually books. Lower-priority than the Lexicanum cache; might want a "book-likeness" filter in 056's Resolver triage.
+
 ## What's next on the pipeline axis
 
 In rough order:
 
-1. **Anthologie-Re-Test für Hebel E** ([open-question 4](./open-questions.md#4-anthologie-re-test-für-hebel-e-hardcover-author-hint)). 3-slug sample test: tales-of-heresy, mark-of-calth, sons-of-the-emperor. Mini-brief, no DB write.
-2. **Lexicanum-Body-Lore-Pass *or* FIELD_PRIORITY-Reduktion** ([open-question 5](./open-questions.md#5-lexicanum-trägt-keine-junction-daten---body-lore-pass-oder-field_priority-reduktion)). Either Cheerio-walker over `.mw-parser-output` for faction/location/character Wikilinks, or a constant-edit dropping Lexicanum from the field-priority for these three fields.
-3. **Phase-3e Modell-Entscheidung** ([open-question 1](./open-questions.md#1-phase-3e-modell-entscheidung---haiku-bleiben-vs-sonnet-upgrade)). Haiku ($88 voll-lauf) vs. Sonnet (~$250–300 voll-lauf). Decided post-047, post-Anthologie-Re-Test.
+1. ✅ **Brief 055 — V2 Voll-Lauf Decision Gate** — geliefert mit zwei Pre-Lauf-Fixes (Discovery-Merge `genericityScore` + Web-Search-Prompt-Härtung) und 20-Bücher-Diff aus Cache-Synthesis (Live-Lauf bei ~25 Bücher abgebrochen wegen Lex-Throttle).
+2. **Brief 055.5 (klein) — per-page Lexicanum-Cache + per-book Diff-Checkpointing in `run-batch.ts`.** Beide Fixes sind isoliert auf den V2-Ingestion-Pfad; jeder einzeln macht den nächsten ≥50-Bücher-Batch session-completable. Bündeln in einem Brief.
+3. **Brief 056 — Resolver + Unresolved-Queue Design** ([open-question 4](./open-questions.md), [open-question 5](./open-questions.md)). Empirische Surface-Form-Basis liegt jetzt in `v2-batch-20260510-1109-surfaces.json`: 60.7% Faction-Direct-Match, klar identifizierbare Aliases ("Imperial Guard" → astra_militarum, "Eldar" → eldar, "War Hounds" → world_eaters), klare Canonical-Lücken (Iron Hands, Emperor's Children, Sisters of Silence). Character-Achse bleibt strukturell ungelöst (kein canonical-Tabelle).
+4. **Phase-3e Modell-Entscheidung** ([open-question 1](./open-questions.md#1-phase-3e-modell-entscheidung---haiku-bleiben-vs-sonnet-upgrade)). Post-055-V2-Batch zeigt Haiku-Cost weiter nach unten (Pilot $0.062/Buch → Batch $0.0352/Buch, fast Halbierung wieder, mit der strikten 1-Search-Disziplin). Hochrechnung 750-Bücher-V2-Voll-Lauf ≈ $26. Sonnet-Vergleich heute überflüssig — Cost-Argument für Haiku ist erdrückend.
 4. **Vokabular-Erweiterung** ([open-question 2](./open-questions.md#2-vokabular-erweiterung---duty--faction-dimension-legion--chaos-pov_side-pattern)). `duty` (clear promotion candidate), `legion` faceten-dimension (design call), `chaos`-pov_side prompt-härtung.
-5. **Hand-Check + Override-Schema** ([open-question 3](./open-questions.md#3-hand-check-workflow-brief-nach-architektur-klärung)). CSV/Markdown override format, Cowork's flag-triage discipline.
-6. **3d-Apply-Step.** Detail-backlog below. The big one.
-7. **3e Batched Backfill** (~800 Bücher in 8–16 Sessions à 50–100 books). Currently at Batch 1/N. Each batch produces a diff, gets dashboard-inspected, gets Cowork-flag-triage'd.
-8. **3f Maintenance-Crawler.** GH-Action monthly Wikipedia-Diff for new releases. Same engine, much smaller scope.
+5. **Hand-Check + Override-Schema** ([open-question 3](./open-questions.md#3-hand-check-workflow-brief-nach-architektur-klärung)). V2's `FieldRecord.override`-Slot ist die natürliche Heimat.
+6. **Brief 057 — 3d-Apply-Step.** Mit Resolver scharf, Migration 0007 angewandt, FK-Resolution für alle Junctions.
+7. **3e Batched Backfill** (~800 Bücher in 8–16 Sessions à 50–100 books). Post-3d, mit V2 als Default. Die Validatoren feuern, Cowork triagiert die Queue, Apply schreibt Deltas.
+8. **Refresh-Layer für volatile Felder** (Brief 057-Successor). Rating + Availability + Cover-URL — separater `rating_snapshots`/`availability_snapshots`-Pfad mit eigener Cadence (weekly/monthly), nicht im Bulk-Crawl.
+9. **3f Maintenance-Crawler.** GH-Action monthly Wikipedia + TLBranson Diff für new releases. Same engine, much smaller scope.
 
 ## Sub-phase backlog (concrete to-dos)
 
@@ -133,17 +260,24 @@ Lifted from the original open-questions item 9 during 051 (Brain Slim Pass). Eac
 **3d (Apply-Step) backlog:**
 
 - Author-FK-Resolution für `work_persons`-Junction inkl. Auto-Create-on-New-Person.
-- FK-Resolution für `work_facets`-Junction aus den 3c LLM-`facetIds`.
-- ALTER TYPE für `sourceKind`-DB-Enum (`open_library`, `hardcover`, `llm`) — Migration 0007 ready, committed-but-not-applied.
+- FK-Resolution für `work_facets`-Junction aus den 3c LLM-`facetIds` (jetzt unter V2 als `BookV2Record.fields.facetIds`).
+- **Junction-Resolver für `work_factions` / `work_locations` / `work_characters`** — neu post-054. Surface-Form (V2 LLM-Output) → Canonical-ID via Alias-Tabelle + Hierarchie-Rollup + Raw-Name-Audit. Codex-geschärft, siehe [open-question 4](./open-questions.md) + [open-question 5](./open-questions.md).
+- ALTER TYPE für `sourceKind`-DB-Enum (`open_library`, `hardcover`, `llm`) — Migration 0007 ready, committed-but-not-applied. (Optional V2-Werte `tlbranson` ergänzen, falls 055 die als eigenständigen primarySource klassifiziert.)
 - UNIQUE INDEX `external_links (work_id, kind, service_id)`.
 - `junctionsLocked: true`-Flag auf `works` (Schreibschutz für 3d-applied Junctions gegen 3f-Maintenance-Reihenwiederholungen).
 - `loadTimeline`-Trim (`SELECT primaryEraId, COUNT(*) GROUP BY primaryEraId` statt full-row-fetch).
-- `llm_flags`-Triage-Workflow (auto-applied / Cowork-Review / ignored, plus UI- bzw. CSV-/Markdown-Export-Pfad).
+- `llm_flags`-Triage-Workflow (auto-applied / Cowork-Review / ignored, plus UI- bzw. CSV-/Markdown-Export-Pfad). Unter V2 ersetzt `Validation[]` + `BookV2Record.fields.<f>.override` große Teile davon.
 - `rawLlmPayload`-FK-Resolution: `facetIds` → `facet_values.id`, `discoveredLinks` → `services.id` mit serviceHint-Resolution.
 
 **3e (Batched Backfill) backlog:**
 
 - Hardcover-Title-Variation: Server blockt `_ilike`/`_iregex`; nur exakte Title-Strings matchen — bei subtilen Unterschieden landet "no hits". Mitigation-Optionen: pre-fetch Title-Variationen-Liste oder undokumentierte RPC-Funktion entdecken.
+- **TLBranson-Maintenance-Sicherung** (post-054): `npm run ingest:backfill -- --pipeline=v2 --pilot=...` Loud-Errors-Row wenn `parseTlbransonPage` 0 Entries liefert (WP-Theme-/Cache-Update bricht Selektoren). CC-Empfehlung in 054-impl: 0-Bücher-Trigger reicht statt Multi-Selector-Fallback.
+- **V2-Single-Slug-Form** (post-054): `--pipeline=v2 --slug X` für ad-hoc A/B-Vergleiche während 055-Prep. Zwei Zeilen in `run-pilot.ts`, nicht blocking.
+- ✅ **TLBranson nav-link filter** (post-055) — `NAV_TITLE_RE` in `src/lib/ingestion/tlbranson/parse.ts` rejects "X Ways to Read", "Y Books in Order", "Reading Order", "Guide to" titles (cross-link articles, not books). Eliminates ~40% non-W40k pollution from the slug-window.
+- ✅ **Wikipedia bare-numeric-prefix support** (post-055) — `BOOK_INDEX_RE` in `src/lib/ingestion/wikipedia/parse.ts` accepts `001: Title` / `001 - Title` (the master list adopted this in late 2025) in addition to the legacy `Book NNN - Title`.
+- **Per-page Lexicanum cache** (055.5er-Backlog, post-055) — bigger of the two follow-up items. Mirroring `ingest/.cache/tlbranson/`, store fetched URL→HTML for 24h. Most impactful change for batch-runtime: collapses the 11-pattern × 5s-throttle URL probe overhead on `lexicanum_missing` repeats. Prerequisite for any 100+ book Voll-Lauf in a single session.
+- **Per-book diff checkpointing in `run-batch.ts`** (055.5er-Backlog, post-055) — partial-diff write under `ingest/.state/v2-batch-<name>.partial.diff.json` after each book, mirroring V1's `state.ts` resumability. So a halted run yields a usable artefact instead of forcing a synthesis-from-cache fallback.
 
 **3f (Maintenance-Crawler) backlog:**
 

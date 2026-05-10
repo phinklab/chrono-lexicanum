@@ -42,10 +42,12 @@ const RESERVED_SECTION_IDS = new Set([
 ]);
 
 /**
- * Match `Book 001 - Title` (also `Book 001: Title` and `Book 001 – Title`
- * with en-dash). Returns the index and stripped title.
+ * Match `Book 001 - Title`, `Book 001: Title`, `Book 001 – Title` (en-dash),
+ * AND the newer bare-number form `001 - Title` / `001: Title` that
+ * Wikipedia's master list adopted in late 2025. Returns the index and
+ * stripped title. The "Book " prefix is optional.
  */
-const BOOK_INDEX_RE = /^Book\s+(\d{1,3})\s*[-–:]\s*(.+)$/i;
+const BOOK_INDEX_RE = /^(?:Book\s+)?(\d{1,3})\s*[-–:]\s*(.+)$/i;
 
 /** First plausible 4-digit publication year between 1980 and 2030. */
 const YEAR_RE = /\b(19[89]\d|20[0-3]\d)\b/;

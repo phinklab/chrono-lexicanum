@@ -183,13 +183,25 @@ export const SYSTEM_PROMPT_V2 = `You are an enrichment module for a Warhammer 40
 
    Each flag should include \`field\`, \`current\`, \`suggestion\`, \`sources\`, and a one-sentence \`reasoning\` whenever applicable.
 
-## Web-Search-Discipline (V2)
+## Web-Search-Discipline (V2 — STRICT)
 
-You MUST call \`web_search\` AT LEAST ONCE before invoking \`publish_enrichment\`:
+You MUST call \`web_search\` EXACTLY ONCE for synopsis-context, then STOP. Additional searches are tightly conditional — see below. The expectation is **1 search for ~80% of books**, 2 only for sparsely-documented titles, 3 only for a real source-contradiction tiebreaker.
 
-- **Synopsis-context search** — e.g. \`"<title>" by <author> Warhammer 40k novel synopsis review\`. Targets Goodreads/Black-Library/Reddit. Use this to refine the emotional/thematic register of the synopsis AND to extract faction/location/character names that aren't in the supplied multi-source data.
+- **Search 1 (mandatory)** — \`"<title>" by <author> Warhammer 40k novel synopsis review\`. Targets Goodreads / Black Library / Reddit. Use it to (a) refine the emotional/thematic register of the synopsis AND (b) extract faction/location/character names. After this single search you almost always have enough.
 
-You may make up to 2 additional web_search calls (3 total max) when you spot specific gaps to fill — a series_total to verify, an unclear publication year, a thematic tiebreaker. Do NOT search for availability or rating; those are out of scope for this pipeline.
+- **Search 2 (CONDITIONAL — only when BOTH conditions hold)**:
+  1. The supplied plot-context snippets PLUS Search 1 results yield ZERO factions AND ZERO locations AND ZERO characters that you can put in the structured arrays — i.e. the structured arrays would be entirely empty otherwise, AND
+  2. The book is a narrative work (not a non-narrative supplement like a codex, art book, RPG manual, or rules supplement).
+
+  Otherwise: do NOT search again. Return \`publish_enrichment\` with whatever entities you have, even if the lists are sparse. Sparse-but-grounded beats search-padded.
+
+- **Search 3 (CONDITIONAL — only when BOTH conditions hold)**:
+  1. Two of the supplied sources directly contradict each other on a structured field (example contradiction: Lexicanum \`authorNames=[A]\` vs Open Library \`authorNames=[B]\` — same field, different values from two sources. Non-example: Lexicanum has \`startY\` and OL has \`releaseYear\` — those are different fields, not a contradiction), AND
+  2. Search 1 results did not resolve the contradiction.
+
+  Otherwise: do NOT search a third time. Emit a \`flags\` entry with \`kind: "data_conflict"\` and let the downstream validator handle it.
+
+The hard cap of \`max_uses: 3\` is enforced by the tool definition; the discipline above is the expected behavior at the policy level. NEVER search for availability, rating, or storefronts — those are out of scope for V2.
 
 ## Output Format
 
@@ -318,7 +330,7 @@ ${vocabularyToText(vocabulary)}`);
 
   sections.push(`# Reminder
 
-Make at least one web_search call (synopsis context), then call \`publish_enrichment\` exactly once. V2 does NOT cover availability or rating.`);
+Aim for **exactly one** web_search call (synopsis context), then call \`publish_enrichment\`. A second search is only allowed when the supplied data + Search 1 yields zero structured-array entities; a third only when two sources directly contradict on a structured field. V2 does NOT cover availability or rating.`);
 
   return sections.join("\n\n");
 }

@@ -21,13 +21,13 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor.                                  | 2026-05-09 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-051 trimmed to 5 actionable items; dormant items split out to `deferred-questions.md`. | 2026-05-09 |
-| [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires.       | 2026-05-09 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor.                                  | 2026-05-10 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-055 Pivot: OQ4/5 (Resolver/Unresolved-Queue) verschoben hinter 10er-Batches; OQ7 (Master-Liste) + OQ8 (V2-Batch-auf-Roster) neu für Brief 057+058. OQ1 (Modell-Frage) abgeschwächt — Haiku-Cost-Argument erdrückend ($0.0199/Buch fresh-Run nach 055). | 2026-05-10 |
+| [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-054: ergänzt um Anthologie-Re-Test (closed) + Lexicarum-Body-Lore-Pass (closed). | 2026-05-09 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: 21 modules, source-set, latest acceptance numbers post-047, what's next on the pipeline axis.      | 2026-05-09 |
+| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 (21 modules, post-047 hardened) + V2 (Discovery-Spine + Validators + Slim-LLM + Provenance-pro-Feld + Pilot+Batch-Modi post-055), latest acceptance numbers, what's next on the pipeline axis. | 2026-05-10 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals, ~700 discovered, ~$0.114/book). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
 
 ## Decision pages (ADRs with revisit-triggers)
@@ -73,7 +73,7 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 ## Outside the wiki
 
-- **Raw sources** (immutable): [`../raw/historical/`](../raw/historical/), [`../raw/reviews/`](../raw/reviews/). Files there have `snapshot-*` or `review-*` frontmatter banners.
+- **Raw sources** (immutable): [`../raw/historical/`](../raw/historical/), [`../raw/reviews/`](../raw/reviews/). Files there have `snapshot-*` or `review-*` frontmatter banners. Latest reviews: `2026-05-09-brain-structure-review.md` (Karpathy-Reset audit), `2026-05-09-codex-v2-pilot-review.md` (V2-Pipeline + Faction-Repräsentation).
 - **Outputs** (generated, not part of executable knowledge): [`../outputs/lint/`](../outputs/lint/) for lint reports.
 - **Sessions** (project history; raw form): top-level [`../../sessions/`](../../sessions/). Linked from wiki pages via `sources:` frontmatter.
 - **Atlas** (external Obsidian vault, book domain): `~/chrono-atlas/` (default). Generated via `npm run atlas:regen`. **Never auto-loaded** — see [`./workflows/atlas-regen.md`](./workflows/atlas-regen.md).

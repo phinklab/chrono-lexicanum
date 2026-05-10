@@ -11,10 +11,15 @@
  * Phase-3 Brief 054 — Pipeline V2 pilot opt-in:
  *   npm run ingest:backfill -- --pipeline=v2 --pilot=v2-tryout-1
  *
- * The V2 path is diff-only by design (no DB-apply ever) — `--dry-run` is
+ * Phase-3 Brief 055 — Pipeline V2 voll-Lauf decision gate:
+ *   npm run ingest:backfill -- --pipeline=v2 --batch=v2-tryout-2 --limit=100
+ *
+ * Both V2 paths are diff-only by design (no DB-apply ever) — `--dry-run` is
  * implied. V1 (default) behavior is unchanged: `--dry-run` is still
  * required, the existing flag set still applies, the diff schema still
- * matches `backfill-YYYYMMDD-HHMM.diff.json`.
+ * matches `backfill-YYYYMMDD-HHMM.diff.json`. Pilot output filenames keep
+ * the `v2-pilot-` prefix; batch output uses `v2-batch-` so the dashboard +
+ * later resolver tooling can discriminate via `startsWith`.
  *
  * Resumable: progress is persisted to ingest/.state/in-progress.json on
  * each book and after Ctrl-C; a subsequent invocation picks up at the
@@ -99,6 +104,10 @@ interface CliConfig {
   pipeline: PipelineVersion;
   /** Brief 054: pilot identifier (only meaningful with `--pipeline=v2`). */
   pilot?: string;
+  /** Brief 055: batch identifier (only meaningful with `--pipeline=v2`).
+   *  Pairs with `--limit` to run the first N books from the merged
+   *  discovery roster, sorted by slug. */
+  batch?: string;
 }
 
 function parseCliArgs(): CliConfig {
@@ -111,6 +120,7 @@ function parseCliArgs(): CliConfig {
       source: { type: "string" },
       pipeline: { type: "string" },
       pilot: { type: "string" },
+      batch: { type: "string" },
     },
     strict: true,
   });
@@ -128,8 +138,9 @@ function parseCliArgs(): CliConfig {
           exitWithError(`--pipeline ${pipelineRaw}: must be "v1" or "v2"`);
         })();
   const pilot = values.pilot;
+  const batch = values.batch;
 
-  return { dryRun, limit, offset, slug, source, pipeline, pilot };
+  return { dryRun, limit, offset, slug, source, pipeline, pilot, batch };
 }
 
 function exitWithError(msg: string, code: number = 1): never {
@@ -156,21 +167,39 @@ function emptyDiff(discoveryPages: string[], activeSources: SourceName[]): DiffF
 async function main(): Promise<void> {
   const cfg = parseCliArgs();
 
-  // Brief 054 — V2 path is diff-only by design; --dry-run is implied.
+  // Brief 054/055 — V2 path is diff-only by design; --dry-run is implied.
   if (cfg.pipeline === "v2") {
-    if (!cfg.pilot) {
-      exitWithError(
-        "--pipeline=v2 requires --pilot=<name> (today: --pilot=v2-tryout-1)",
-      );
+    if (cfg.pilot && cfg.batch) {
+      exitWithError("--pipeline=v2 takes --pilot OR --batch, not both");
     }
-    if (cfg.pilot !== "v2-tryout-1") {
-      exitWithError(
-        `--pilot ${cfg.pilot}: only "v2-tryout-1" is wired in 054`,
-      );
+    if (cfg.batch) {
+      const { runV2Batch, isRegisteredBatch, listRegisteredBatches } =
+        await import("@/lib/ingestion/v2/run-batch");
+      if (!isRegisteredBatch(cfg.batch)) {
+        exitWithError(
+          `--batch ${cfg.batch}: not registered (registered: ${listRegisteredBatches().join(", ")})`,
+        );
+      }
+      const limit = cfg.limit ?? 100;
+      if (!Number.isFinite(limit) || limit < 1) {
+        exitWithError(`--limit must be a positive integer (got ${cfg.limit})`);
+      }
+      await runV2Batch(cfg.batch, limit);
+      return;
     }
-    const { runV2Pilot } = await import("@/lib/ingestion/v2/run-pilot");
-    await runV2Pilot(cfg.pilot);
-    return;
+    if (cfg.pilot) {
+      if (cfg.pilot !== "v2-tryout-1") {
+        exitWithError(
+          `--pilot ${cfg.pilot}: only "v2-tryout-1" is wired in 054`,
+        );
+      }
+      const { runV2Pilot } = await import("@/lib/ingestion/v2/run-pilot");
+      await runV2Pilot(cfg.pilot);
+      return;
+    }
+    exitWithError(
+      "--pipeline=v2 requires either --pilot=<name> (e.g. v2-tryout-1) or --batch=<name> --limit=N (e.g. --batch=v2-tryout-2 --limit=100)",
+    );
   }
 
   if (!cfg.dryRun) {
