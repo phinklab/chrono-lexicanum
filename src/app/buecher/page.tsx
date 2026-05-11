@@ -39,6 +39,7 @@ interface CatalogueBook {
   id: string;
   slug: string;
   title: string;
+  synopsis: string | null;
   coverUrl: string | null;
   releaseYear: number | null;
   startY: number | null;
@@ -200,6 +201,7 @@ async function loadBooks(): Promise<CatalogueBook[]> {
         id: w.id,
         slug: w.slug,
         title: w.title,
+        synopsis: w.synopsis ?? null,
         coverUrl: w.coverUrl,
         releaseYear: w.releaseYear,
         startY: w.startY == null ? null : Number(w.startY),
@@ -288,7 +290,7 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
         <ol className="catalogue-list">
           {sorted.map((b) => (
             <li key={b.id}>
-              <BookCard book={b} now={now} />
+              <BookRow book={b} now={now} />
             </li>
           ))}
         </ol>
@@ -297,7 +299,7 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
   );
 }
 
-function BookCard({ book, now }: { book: CatalogueBook; now: Date }) {
+function BookRow({ book, now }: { book: CatalogueBook; now: Date }) {
   const mBand = formatMBand(book.startY, book.endY);
   const formatLabel = book.format
     ? FORMAT_LABELS[book.format] ?? book.format
@@ -314,119 +316,138 @@ function BookCard({ book, now }: { book: CatalogueBook; now: Date }) {
     book.releaseYear != null ? String(book.releaseYear) : null,
   ].filter((v): v is string => Boolean(v));
 
-  return (
-    <article
-      className={`catalogue-card ${book.isEnriched ? "is-enriched" : "is-stub"}`}
-    >
-      <div className="card-cover">
-        {book.coverUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={book.coverUrl}
-            alt=""
-            loading="lazy"
-            width={120}
-            height={180}
-          />
-        ) : (
-          <div className="card-cover-placeholder" aria-hidden>
-            ?
-          </div>
-        )}
-      </div>
+  const updatedRel = formatRelative(book.updatedAt, now);
+  const updatedAbs = book.updatedAt.toLocaleString("de-DE");
 
-      <div className="card-body">
-        <header className="card-header">
-          <div className="card-title-block">
-            <Link href={`/buch/${book.slug}`} className="card-title">
-              {book.title}
-            </Link>
-            {book.authors.length > 0 && (
-              <p className="card-byline">von {book.authors.join(", ")}</p>
-            )}
-            {book.otherPersons.length > 0 && (
-              <p className="card-roles">
-                {book.otherPersons
-                  .map((p) => `${ROLE_LABELS[p.role] ?? p.role}: ${p.name}`)
-                  .join(" · ")}
-              </p>
-            )}
-          </div>
+  return (
+    <details
+      className={`catalogue-item ${book.isEnriched ? "is-enriched" : "is-stub"}`}
+    >
+      <summary className="row-summary">
+        <span className="row-chevron" aria-hidden>
+          ›
+        </span>
+        <div className="row-main">
+          <span className="row-title">{book.title}</span>
+          {book.authors.length > 0 && (
+            <span className="row-byline">von {book.authors.join(", ")}</span>
+          )}
+        </div>
+        <div className="row-meta">
+          {book.releaseYear != null && (
+            <span className="row-year">{book.releaseYear}</span>
+          )}
           <span className={book.isEnriched ? "badge-enriched" : "badge-stub"}>
             {book.isEnriched ? "Detailreich" : "Stub"}
           </span>
-        </header>
-
-        {metaParts.length > 0 && (
-          <p className="card-meta">{metaParts.join(" · ")}</p>
-        )}
-
-        {book.factions.length > 0 && (
-          <div className="card-tagrow">
-            <span className="card-tagrow-label">Fraktionen</span>
-            <ul className="card-tags">
-              {book.factions.map((f) => (
-                <li key={f.id} className="tag tag-faction">
-                  {f.name}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {book.facets.length > 0 && (
-          <div className="card-tagrow">
-            <span className="card-tagrow-label">Facetten</span>
-            <ul className="card-tags">
-              {book.facets.map((f) => (
-                <li
-                  key={f.id}
-                  className="tag tag-facet"
-                  title={f.categoryName ?? f.categoryId}
-                >
-                  {f.categoryName ? (
-                    <>
-                      <span className="tag-key">{f.categoryName}:</span>{" "}
-                      {f.name}
-                    </>
-                  ) : (
-                    f.name
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {book.containedIn.length > 0 && (
-          <div className="card-tagrow">
-            <span className="card-tagrow-label">Enthalten in</span>
-            <ul className="card-tags">
-              {book.containedIn.map((c) => (
-                <li key={c.slug} className="tag tag-collection">
-                  <Link href={`/buch/${c.slug}`}>{c.title}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        <footer className="card-footer">
-          {book.seriesName && (
-            <span className="card-series">
-              {book.seriesName}
-              {book.seriesIndex ? ` #${book.seriesIndex}` : ""}
-            </span>
-          )}
           <time
-            className="card-updated"
+            className="row-updated"
             dateTime={book.updatedAt.toISOString()}
-            title={book.updatedAt.toLocaleString("de-DE")}
+            title={updatedAbs}
           >
-            {formatRelative(book.updatedAt, now)}
+            {updatedRel}
           </time>
-        </footer>
+        </div>
+      </summary>
+
+      <div className="row-detail">
+        <div className="row-detail-cover">
+          {book.coverUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={book.coverUrl}
+              alt=""
+              loading="lazy"
+              width={140}
+              height={210}
+            />
+          ) : (
+            <div className="row-detail-cover-placeholder" aria-hidden>
+              ?
+            </div>
+          )}
+        </div>
+
+        <div className="row-detail-body">
+          {book.otherPersons.length > 0 && (
+            <p className="row-detail-roles">
+              {book.otherPersons
+                .map((p) => `${ROLE_LABELS[p.role] ?? p.role}: ${p.name}`)
+                .join(" · ")}
+            </p>
+          )}
+
+          {metaParts.length > 0 && (
+            <p className="row-detail-meta">{metaParts.join(" · ")}</p>
+          )}
+
+          {book.synopsis && (
+            <p className="row-detail-synopsis">{book.synopsis}</p>
+          )}
+
+          {book.factions.length > 0 && (
+            <div className="row-tagrow">
+              <span className="row-tagrow-label">Fraktionen</span>
+              <ul className="row-tags">
+                {book.factions.map((f) => (
+                  <li key={f.id} className="tag tag-faction">
+                    {f.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {book.facets.length > 0 && (
+            <div className="row-tagrow">
+              <span className="row-tagrow-label">Facetten</span>
+              <ul className="row-tags">
+                {book.facets.map((f) => (
+                  <li
+                    key={f.id}
+                    className="tag tag-facet"
+                    title={f.categoryName ?? f.categoryId}
+                  >
+                    {f.categoryName ? (
+                      <>
+                        <span className="tag-key">{f.categoryName}:</span>{" "}
+                        {f.name}
+                      </>
+                    ) : (
+                      f.name
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {book.containedIn.length > 0 && (
+            <div className="row-tagrow">
+              <span className="row-tagrow-label">Enthalten in</span>
+              <ul className="row-tags">
+                {book.containedIn.map((c) => (
+                  <li key={c.slug} className="tag tag-collection">
+                    <Link href={`/buch/${c.slug}`}>{c.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <footer className="row-detail-footer">
+            {book.seriesName && (
+              <span className="row-detail-series">
+                {book.seriesName}
+                {book.seriesIndex ? ` #${book.seriesIndex}` : ""}
+              </span>
+            )}
+            <Link href={`/buch/${book.slug}`} className="row-detail-link">
+              Detailseite öffnen →
+            </Link>
+          </footer>
+        </div>
       </div>
-    </article>
+    </details>
   );
 }
