@@ -1,0 +1,314 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-001",
+  "createdBy": "cowork-opus",
+  "createdAt": "2026-05-11",
+  "model": "claude-opus-4-7",
+  "rationale": "Cowork-curated authority data for the first 10 W40K mainline books (Eisenhorn + Ravenor + Bequin trilogy openers + The Magos). Maintainer reviewed Haiku-output side-by-side and chose this Cowork-Opus run as ground-truth: Haiku produced ~3-4 plot-relevant hallucinations across the 10 books (Emperor's Children in Xenos, Cherubael in Xenos pre-introduction, Beta Bequin vs. Alizebeth confusion in Pariah, Valentin Drusher in The Magos), plus systematic Omnibus-undertagging. Cowork's output is plot-accurate and lore-deep but lighter on peripheral surface forms — Haiku's web-search peripherally caught Mandragore Carrion, Beldame Sadia, Maud Plyton, Orfeo Culzean etc., which Cowork did not include. This file is the override layer; the Haiku-diff (v2-batch-20260510-2227.diff.json) remains in archive for audit. Brief 060 consumes this as Authority during the first DB-Apply pass.",
+  "books": [
+    {
+      "externalBookId": "W40K-0001",
+      "slug": "xenos",
+      "overrides": {
+        "synopsis": "Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues a renegade rogue trader on the ice-world of Hubris and unravels the cult of Pontius Glaw — a discarnate scion of an executed heretic family whose preserved consciousness sells xenos artefacts to anyone willing to pay in souls. The trail crosses the hive of Thracian Primaris and the agri-world of Damask, and forces Eisenhorn into first contact with an alien intelligence that bargains in centuries. He acquires a retinue — savant Aemos, the pariah Bequin, pilot Midas Betancore — and reads, against orders, from the proscribed Necroteuch. Along the way he learns that Inquisitors can become the thing they hunt, and that the slow seduction of useful means is how heretics first persuade themselves.",
+        "facetIds": ["book", "male", "inquisitor", "imperium", "sector", "series_start", "standard", "mystery", "journey", "grimdark", "philosophical", "hubris", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Hubris", "role": "primary" },
+          { "name": "Thracian Primaris", "role": "secondary" },
+          { "name": "Damask", "role": "secondary" },
+          { "name": "Helican Subsector", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Gregor Eisenhorn", "role": "pov" },
+          { "name": "Alizebeth Bequin", "role": "supporting" },
+          { "name": "Midas Betancore", "role": "supporting" },
+          { "name": "Uber Aemos", "role": "supporting" },
+          { "name": "Godwyn Fischig", "role": "supporting" },
+          { "name": "Pontius Glaw", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0002",
+      "slug": "malleus",
+      "overrides": {
+        "synopsis": "A century after Hubris, Eisenhorn is hunted by his own kind. Quixos, a fellow Inquisitor turned radical, has bound himself to a daemonic patron and accuses Eisenhorn of heresy to deflect attention from his own pact-making. Eisenhorn flees Inquisitorial detention with his small retinue and crosses Gudrun, Sameter and the daemon-touched world of Eechan in pursuit of evidence. To beat Quixos he risks bargaining with a chained daemonhost named Cherubael — bitter, lucid, and almost certainly listening too closely. The novel closes on the doctrine of the Tyrantine Cabal — the radical Inquisitorial subset who hold that the Emperor's Tarot must be read against the grain — and Eisenhorn keeps a copy of his bargain in writing, against the day the bargain itself reads him.",
+        "facetIds": ["book", "male", "inquisitor", "imperium", "sector", "mid_series", "standard", "mystery", "journey", "political_thriller", "grimdark", "philosophical", "betrayal", "hubris", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Malleus", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Gudrun", "role": "primary" },
+          { "name": "Sameter", "role": "secondary" },
+          { "name": "Eechan", "role": "secondary" },
+          { "name": "Calixis Sector", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Gregor Eisenhorn", "role": "pov" },
+          { "name": "Alizebeth Bequin", "role": "supporting" },
+          { "name": "Godwyn Fischig", "role": "supporting" },
+          { "name": "Uber Aemos", "role": "supporting" },
+          { "name": "Cherubael", "role": "supporting" },
+          { "name": "Quixos", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0003",
+      "slug": "hereticus",
+      "overrides": {
+        "synopsis": "Decades on, Eisenhorn is older, harder, and openly using a bound daemonhost — Cherubael — as a working tool. His old enemy Pontius Glaw, presumed contained, escapes his iron prison with help from a Mechanicus reclamator named Pater Sinjet. The pursuit drags Eisenhorn through the agri-world of Durer and the ice-tomb of Spaeton House on Gudrun, and costs him half his retinue. He closes the case but loses Fischig to puritan denunciation, and Bequin to a stasis injury that will not unwind. The book is an obituary in the voice of the obituary's author — he is the man he once would have arrested, and he writes the record himself because he no longer trusts any other archivist to do it.",
+        "facetIds": ["book", "male", "inquisitor", "imperium", "sector", "series_finale", "standard", "siege", "mystery", "grimdark", "somber", "philosophical", "betrayal", "hubris", "doubt", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Hereticus", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Gudrun", "role": "primary" },
+          { "name": "Spaeton House", "role": "primary" },
+          { "name": "Durer", "role": "secondary" },
+          { "name": "Helican Subsector", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Gregor Eisenhorn", "role": "pov" },
+          { "name": "Alizebeth Bequin", "role": "supporting" },
+          { "name": "Godwyn Fischig", "role": "supporting" },
+          { "name": "Uber Aemos", "role": "supporting" },
+          { "name": "Cherubael", "role": "supporting" },
+          { "name": "Pontius Glaw", "role": "supporting" },
+          { "name": "Gideon Ravenor", "role": "supporting" },
+          { "name": "Pater Sinjet", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0004",
+      "slug": "eisenhorn-omnibus",
+      "overrides": {
+        "synopsis": "Omnibus collecting Xenos, Malleus and Hereticus plus the short stories \"Missing in Action\" and \"Backcloth for a Crown Additional\" — the full first arc of Inquisitor Gregor Eisenhorn's record. Across two centuries of in-universe time he advances from puritan Amalathian to radical Inquisitor willing to bind a daemonhost and conceal it from his peers. The omnibus is the most coherent single text on how a servant of the Imperium reaches the threshold of heresy without quite crossing the line he himself can see, and on how the line he cannot see moves behind him. The canonical entry point into Black Library through Abnett.",
+        "facetIds": ["book", "male", "inquisitor", "imperium", "sector", "series_start", "doorstopper", "mystery", "journey", "political_thriller", "grimdark", "philosophical", "somber", "betrayal", "hubris", "doubt", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "primary" },
+          { "name": "Ordo Malleus", "role": "supporting" },
+          { "name": "Ordo Hereticus", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Helican Subsector", "role": "primary" },
+          { "name": "Gudrun", "role": "primary" },
+          { "name": "Hubris", "role": "secondary" },
+          { "name": "Thracian Primaris", "role": "secondary" },
+          { "name": "Spaeton House", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Gregor Eisenhorn", "role": "pov" },
+          { "name": "Alizebeth Bequin", "role": "supporting" },
+          { "name": "Midas Betancore", "role": "supporting" },
+          { "name": "Godwyn Fischig", "role": "supporting" },
+          { "name": "Uber Aemos", "role": "supporting" },
+          { "name": "Cherubael", "role": "supporting" },
+          { "name": "Pontius Glaw", "role": "supporting" },
+          { "name": "Gideon Ravenor", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0005",
+      "slug": "ravenor",
+      "overrides": {
+        "synopsis": "Gideon Ravenor, the rising Inquisitor whose body was destroyed in the Spatian incident, hunts a synthetic narcotic called Flects across the Eustis Majoris sub-sector. He works from a hovering force-chair — locked in mind, projecting through telepathy — with a retinue led by his lifelong protector Harlon Nayl and the savant Kara Swole. The investigation widens: the flects are warp-glass refracted from the Eye of Terror, sold to bored aristocrats as a daemon-narcotic. Behind the dealers stands a hereditary commercial dynasty older than the local government, with Inquisitorial protection inherited like silverware. Ravenor closes one cell and watches three more open. The book introduces the difference between the Eisenhorn voice and the Ravenor voice: Eisenhorn writes; Ravenor speaks through others.",
+        "facetIds": ["book", "ensemble", "inquisitor", "imperium", "sector", "series_start", "standard", "mystery", "political_thriller", "court_intrigue", "grimdark", "action_heavy", "betrayal", "hubris", "cw_violence", "cw_death", "cw_crime", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Eustis Majoris", "role": "primary" },
+          { "name": "Sancour", "role": "secondary" },
+          { "name": "Eye of Terror", "role": "mentioned" },
+          { "name": "Scarus Sector", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Gideon Ravenor", "role": "pov" },
+          { "name": "Harlon Nayl", "role": "supporting" },
+          { "name": "Kara Swole", "role": "supporting" },
+          { "name": "Patience Kys", "role": "supporting" },
+          { "name": "Carl Thonius", "role": "supporting" },
+          { "name": "Wystan Frauka", "role": "supporting" },
+          { "name": "Zael Efferneti", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0006",
+      "slug": "ravenor-returned",
+      "overrides": {
+        "synopsis": "Ravenor is stripped of Inquisitorial sanction by his own peer Lilean Chase and continues the Flects/Slyte case unofficially, hidden in a slum quarter of Petropolis on Eustis Majoris. He works dark, recruits a renegade-Inquisitor's hag, and chases a daemonic pre-emergence prophecy: a creature called Slyte will be born from within his own retinue. The hunt brings him face to face with Zygmunt Molotch, the heretic he once thought dead, and forces him to make peace with the fact that the official Inquisition is now hunting him as hard as he is hunting Slyte. The book closes one case and opens a year-long siege between Ravenor's people and the daemon they have carried with them since Ravenor opened.",
+        "facetIds": ["book", "ensemble", "inquisitor", "imperium", "sector", "mid_series", "standard", "mystery", "political_thriller", "siege", "grimdark", "action_heavy", "betrayal", "hubris", "doubt", "cw_violence", "cw_death", "cw_crime", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Eustis Majoris", "role": "primary" },
+          { "name": "Petropolis", "role": "primary" },
+          { "name": "Scarus Sector", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Gideon Ravenor", "role": "pov" },
+          { "name": "Harlon Nayl", "role": "supporting" },
+          { "name": "Kara Swole", "role": "supporting" },
+          { "name": "Patience Kys", "role": "supporting" },
+          { "name": "Carl Thonius", "role": "supporting" },
+          { "name": "Wystan Frauka", "role": "supporting" },
+          { "name": "Zael Efferneti", "role": "supporting" },
+          { "name": "Zygmunt Molotch", "role": "supporting" },
+          { "name": "Lilean Chase", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0007",
+      "slug": "ravenor-rogue",
+      "overrides": {
+        "synopsis": "Ravenor accepts the verdict of his peers: he is now rogue, and so is his work. The hunt collapses inward as the daemon Slyte gestates inside Carl Thonius, his most trusted savant. Ravenor follows Molotch — and through Molotch the cabal Sons of Stone — across a chain of ruined and forbidden worlds, finally to the stasis-locked tomb on Yassilli Sarum, where Slyte's birth becomes a hostage exchange that Ravenor wins only by losing. The book ends with Thonius dead by his own hand, Slyte aborted, and Ravenor's Inquisitorial seal handed back without ceremony. He keeps the Flects case open in private; the rogue inquisitor has rogue work to finish, and the next page of it is fifty years away.",
+        "facetIds": ["book", "ensemble", "inquisitor", "imperium", "sector", "series_finale", "standard", "mystery", "journey", "last_stand", "grimdark", "action_heavy", "somber", "betrayal", "hubris", "sacrifice", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Yassilli Sarum", "role": "primary" },
+          { "name": "Scarus Sector", "role": "primary" },
+          { "name": "Eustis Majoris", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Gideon Ravenor", "role": "pov" },
+          { "name": "Harlon Nayl", "role": "supporting" },
+          { "name": "Kara Swole", "role": "supporting" },
+          { "name": "Patience Kys", "role": "supporting" },
+          { "name": "Carl Thonius", "role": "supporting" },
+          { "name": "Wystan Frauka", "role": "supporting" },
+          { "name": "Zygmunt Molotch", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0008",
+      "slug": "ravenor-the-omnibus",
+      "overrides": {
+        "synopsis": "Omnibus collecting Ravenor, Ravenor Returned and Ravenor Rogue, plus the short stories \"Thorn Wishes Talon\" and \"Playing Patience\". Together these tell the full arc of Gideon Ravenor's slow drift from sanctioned Imperial investigator to rogue Inquisitor on the run from his own order, while inside him grows the mathematical proof that the daemon Slyte was incubating in his own house. Best read after Eisenhorn: continuity threads (Cherubael, Pontius Glaw, the Pylon Saint) only resolve if both arcs are read in order. The two short stories sit between Hereticus and Ravenor and bridge the two protagonists' eras.",
+        "facetIds": ["book", "ensemble", "inquisitor", "imperium", "sector", "requires_context", "doorstopper", "mystery", "political_thriller", "journey", "grimdark", "action_heavy", "philosophical", "betrayal", "hubris", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Scarus Sector", "role": "primary" },
+          { "name": "Eustis Majoris", "role": "primary" },
+          { "name": "Yassilli Sarum", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Gideon Ravenor", "role": "pov" },
+          { "name": "Harlon Nayl", "role": "supporting" },
+          { "name": "Kara Swole", "role": "supporting" },
+          { "name": "Patience Kys", "role": "supporting" },
+          { "name": "Carl Thonius", "role": "supporting" },
+          { "name": "Wystan Frauka", "role": "supporting" },
+          { "name": "Zygmunt Molotch", "role": "supporting" },
+          { "name": "Gregor Eisenhorn", "role": "mentioned" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0009",
+      "slug": "pariah",
+      "overrides": {
+        "synopsis": "Beta Bequin — pariah, untouchable, and trained at the King's Wood school to be the perfect blank — discovers that the woman she was raised to become is a counterfeit of an older Alizebeth Bequin she was never meant to meet. The Eisenhorn and Ravenor arcs collide on the city-world of Sancour through a cold-war exchange between Inquisitor Gregor Eisenhorn (long radical, long believed-dead) and Inquisitor Gideon Ravenor (still rogue), each playing the other through Beta as the unwitting piece. The book opens the Bequin trilogy with the question: which side of the Inquisition is the real one, and which is using Beta — both? Cherubael is in it; Pontius Glaw is in it; everything that was buried in Hereticus is now walking.",
+        "facetIds": ["book", "female", "civilian", "imperium", "planetary", "series_start", "standard", "mystery", "political_thriller", "character_study", "grimdark", "philosophical", "somber", "betrayal", "hubris", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sancour", "role": "primary" },
+          { "name": "Queen Mab", "role": "primary" },
+          { "name": "Scarus Sector", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Beta Bequin", "role": "pov" },
+          { "name": "Gregor Eisenhorn", "role": "supporting" },
+          { "name": "Gideon Ravenor", "role": "supporting" },
+          { "name": "Cherubael", "role": "supporting" },
+          { "name": "Pontius Glaw", "role": "supporting" },
+          { "name": "Harlon Nayl", "role": "supporting" },
+          { "name": "Patience Kys", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0010",
+      "slug": "the-magos",
+      "overrides": {
+        "synopsis": "Collection bridging the Eisenhorn and Bequin arcs: a chronological set of Eisenhorn short stories (\"Regia Occulta\", \"The Strange Demise of Titus Endor\", \"Master Imus's Transgression\", \"The Curiosity\", \"Gardens of Tycho\", \"Missing in Action\", \"Backcloth for a Crown Additional\", \"Thorn Wishes Talon\", \"Playing Patience\", \"Perihelion\") and a brand-new closing novella, The Magos, in which Eisenhorn confronts Tech-Magos Bure of the Mechanicus and a Necron-trace artefact that may rewrite the price of one of his old bargains. The Magos itself is the longest single piece in the volume and the only original story; the surrounding shorts are reprints. Best read after the Eisenhorn omnibus and before Pariah for full continuity.",
+        "facetIds": ["book", "male", "inquisitor", "imperium", "sector", "requires_context", "doorstopper", "mystery", "journey", "character_study", "grimdark", "philosophical", "somber", "hubris", "doubt", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Chaos", "role": "background" }
+        ],
+        "locations": [
+          { "name": "Sancour", "role": "primary" },
+          { "name": "Gershom", "role": "secondary" },
+          { "name": "Scarus Sector", "role": "primary" },
+          { "name": "Helican Subsector", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Gregor Eisenhorn", "role": "pov" },
+          { "name": "Magos Bure", "role": "supporting" },
+          { "name": "Titus Endor", "role": "supporting" },
+          { "name": "Alizebeth Bequin", "role": "appears" },
+          { "name": "Cherubael", "role": "appears" },
+          { "name": "Gideon Ravenor", "role": "appears" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "format",
+            "current": "novel",
+            "suggestion": "collection",
+            "sources": ["Black Library hardcover contents page"],
+            "reasoning": "The Magos is structurally a collection of 10 reprinted short stories anchored by one new title novella. SSOT classifies it as novel; the data_conflict suggests collection (or anthology). Note: also missing from book-roster.json.collections is the parent-child relationship between The Magos and the included Eisenhorn shorts — that's a Maintainer-Excel edit, not a runtime fix."
+          }
+        ]
+      }
+    }
+  ]
+}

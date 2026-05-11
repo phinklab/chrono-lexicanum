@@ -24,6 +24,10 @@ Only open / `needs-decision` briefs and the last just-closed session. Cowork upd
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
-| _(none — 056 + 057 archiviert; 058 in Vorbereitung, hängt am Maintainer-Trigger für `0008_ssot_schema.sql` Apply + `db:reset-for-ssot --confirm`)_ | | | |
+| [2026-05-11-060-arch-ssot-w40k-001-db-apply](./2026-05-11-060-arch-ssot-w40k-001-db-apply.md) | architect | implemented | Erster DB-Apply — `ssot-w40k-001` (10 Bücher) mit Cowork-Override-Authority aus `manual-overrides-ssot-w40k-001.json` statt Haiku-Diff. Phase 3d Showcase-Welle. CC-Sequenz: 059 → 060. |
+| [2026-05-11-060-impl-ssot-w40k-001-db-apply](./2026-05-11-060-impl-ssot-w40k-001-db-apply.md) | implementer | complete | 060-Pendant: `scripts/apply-override.ts` + minimaler `/buch/[slug]`-DB-Render; 10/10 Bücher idempotent in Postgres. |
+| [2026-05-11-059-arch-cc-direct-overrides-w40k-002-005](./2026-05-11-059-arch-cc-direct-overrides-w40k-002-005.md) | architect | open | CC-Direct mit WebSearch produziert vier Override-Files für `ssot-w40k-002..005` (W40K-0011..0050, 40 Bücher). Diff-only; Apply läuft per Brief-060-Skript. Schließt 50-Bücher-Schwelle → Resolver-Brief. Supersedes Brief 059-alt (A/B-Pilot). |
+| [2026-05-11-058-arch-v2-ssot-mode-first-batch](./2026-05-11-058-arch-v2-ssot-mode-first-batch.md) | architect | implemented | V2-Pipeline auf SSOT-Mode umstellen + erster 10er-Batch `ssot-w40k-001` (W40K-0001..W40K-0010) als committed Diff |
+| [2026-05-11-058-impl-v2-ssot-mode-first-batch](./2026-05-11-058-impl-v2-ssot-mode-first-batch.md) | implementer | complete | 058-Pendant: SSOT-Mode in `run-batch.ts`, `ssot-w40k-001` Diff $0.382/10 Bücher |
 
 For everything else, see [`archive/2026-04/`](archive/2026-04/) and [`archive/2026-05/`](archive/2026-05/). Project-history at the page level lives in [`brain/wiki/project-state.md`](../brain/wiki/project-state.md) "Recently shipped" + [`brain/wiki/log.md`](../brain/wiki/log.md).
