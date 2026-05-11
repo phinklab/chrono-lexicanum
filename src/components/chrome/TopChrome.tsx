@@ -24,6 +24,12 @@ export default function TopChrome() {
         <span className="mark-name">Chrono · Lexicanum</span>
       </Link>
 
+      <nav className="top-nav" aria-label="Hauptnavigation">
+        <Link href="/buecher" className="top-nav-link">
+          Bücher
+        </Link>
+      </nav>
+
       <Suspense fallback={<EraToggleFallback />}>
         <EraToggle />
       </Suspense>
