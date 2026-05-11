@@ -2812,66 +2812,183 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   background: var(--hl);
 }
 
-.catalogue-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: var(--font-grotesk);
-  font-size: 14px;
+.catalogue-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
-.catalogue-table thead th {
-  text-align: left;
+.catalogue-list > li {
+  list-style: none;
+}
+
+.catalogue-card {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 20px;
+  padding: 18px;
+  border: 1px solid var(--line-1);
+  border-left: 3px solid transparent;
+  background: color-mix(in oklch, var(--bg-1) 70%, transparent);
+  transition: border-color 200ms, background 200ms;
+}
+.catalogue-card.is-enriched {
+  border-left-color: var(--color-frost-400);
+}
+.catalogue-card.is-stub {
+  border-left-color: var(--line-2);
+}
+.catalogue-card:hover {
+  background: color-mix(in oklch, var(--bg-2) 80%, transparent);
+}
+
+.card-cover {
+  width: 120px;
+}
+.card-cover img {
+  display: block;
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  border: 1px solid var(--line-1);
+  background: var(--bg-2);
+}
+.card-cover-placeholder {
+  display: grid;
+  place-items: center;
+  width: 120px;
+  height: 180px;
+  border: 1px dashed var(--line-1);
+  background: color-mix(in oklch, var(--bg-2) 60%, transparent);
+  color: var(--ink-3);
+  font-family: var(--font-cinzel);
+  font-size: 32px;
+  letter-spacing: 0.05em;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.card-title-block {
+  min-width: 0;
+}
+.card-title {
+  font-family: var(--font-cinzel);
+  font-size: 19px;
+  letter-spacing: 0.02em;
+  color: var(--ink-0);
+  text-decoration: none;
+  transition: color 200ms;
+}
+.card-title:hover {
+  color: var(--hl);
+}
+.catalogue-card.is-stub .card-title {
+  color: var(--ink-1);
+}
+.card-byline {
+  margin: 4px 0 0;
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-1);
+}
+.card-roles {
+  margin: 2px 0 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+
+.card-meta {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+
+.card-tagrow {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 10px;
+  align-items: baseline;
+}
+.card-tagrow-label {
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--ink-3);
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--line-1);
-  font-weight: 500;
 }
-.catalogue-table tbody td {
-  padding: 12px;
-  border-bottom: 1px solid var(--line-0);
+.card-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--line-1);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
   color: var(--ink-1);
-  vertical-align: top;
+  background: color-mix(in oklch, var(--bg-2) 50%, transparent);
 }
-.catalogue-table tbody tr {
-  transition: background 180ms;
-  border-left: 2px solid transparent;
+.tag-faction {
+  color: var(--color-aquila);
+  border-color: color-mix(in oklch, var(--color-aquila) 30%, var(--line-1));
 }
-.catalogue-table tbody tr:hover {
-  background: color-mix(in oklch, var(--line-1) 40%, transparent);
+.tag-facet .tag-key {
+  color: var(--ink-3);
 }
-.catalogue-table tbody tr.is-enriched {
-  border-left-color: var(--color-frost-400);
-}
-.catalogue-table tbody tr.is-stub td {
-  color: var(--ink-2);
-}
-.catalogue-cell-title a {
-  color: var(--ink-0);
+.tag-collection a {
+  color: var(--ink-1);
   text-decoration: none;
-  font-family: var(--font-cinzel);
-  font-size: 15px;
-  letter-spacing: 0.02em;
-  transition: color 200ms;
 }
-.catalogue-cell-title a:hover {
+.tag-collection {
+  border-color: color-mix(in oklch, var(--hl) 30%, var(--line-1));
+}
+.tag-collection a:hover {
   color: var(--hl);
 }
-.catalogue-table tbody tr.is-stub .catalogue-cell-title a {
-  color: var(--ink-1);
-}
-.catalogue-col-year,
-.catalogue-col-updated {
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-top: 6px;
+  border-top: 1px solid var(--line-0);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+.card-series {
   color: var(--ink-2);
+}
+.card-updated {
   white-space: nowrap;
 }
-.catalogue-col-series {
-  color: var(--ink-2);
-}
+
 .badge-enriched,
 .badge-stub {
   display: inline-block;
@@ -2882,6 +2999,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   letter-spacing: 0.20em;
   text-transform: uppercase;
   white-space: nowrap;
+  flex: none;
 }
 .badge-enriched {
   color: var(--color-frost-400);
@@ -2894,11 +3012,21 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 }
 
 @media (max-width: 720px) {
-  .catalogue-table {
-    font-size: 13px;
+  .catalogue-card {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 14px;
   }
-  .catalogue-col-series,
-  .catalogue-col-updated {
-    display: none;
+  .card-cover,
+  .card-cover img,
+  .card-cover-placeholder {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+  }
+  .card-tagrow {
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 }
