@@ -10,7 +10,8 @@ links:
   - 2026-05-11-058-arch-v2-ssot-mode-first-batch
   - 2026-05-11-058-impl-v2-ssot-mode-first-batch
 commits:
-  - 7c3b53d
+  - 9ae8b51
+  - ba4fbb3
 ---
 
 # Erster DB-Apply: ssot-w40k-001 mit Cowork-Override-Authority
