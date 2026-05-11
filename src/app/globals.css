@@ -2680,3 +2680,225 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .ingest-diff-new {
   color: var(--color-lum);
 }
+
+/* =============================================================================
+ * Top-nav link.
+ * Single primary link in the fixed TopChrome — sits between the wordmark and
+ * the era-toggle (flex justify-content: space-between distributes the three).
+ * Mono small-caps to echo the wordmark's voice, ink-2 muted by default and
+ * lifting to the highlight on hover/focus.
+ * ============================================================================= */
+
+.top-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.top-nav-link {
+  color: var(--color-ink-2);
+  text-decoration: none;
+  padding: 6px 4px;
+  transition: color 220ms;
+}
+.top-nav-link:hover,
+.top-nav-link:focus-visible {
+  color: var(--hl);
+  outline: none;
+}
+
+/* =============================================================================
+ * Catalogue (/buecher).
+ * Flat all-books table with an "enriched vs. stub" status column. The cyan
+ * left-accent on enriched rows is the at-a-glance signal of "filled with
+ * further information" — synopsis populated. Stub rows pick up muted ink so
+ * the eye drifts to the rich entries first. Sort pills share the visual
+ * vocabulary of the timeline FilterRail without coupling to its classnames.
+ * ============================================================================= */
+
+.catalogue-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(96px, 16vh, 140px) clamp(20px, 4vw, 48px) clamp(80px, 12vh, 120px);
+}
+
+.catalogue-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 12px;
+}
+
+.catalogue-title {
+  font-family: var(--font-cinzel);
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: 0.04em;
+  color: var(--ink-0);
+  margin: 0 0 8px;
+}
+
+.catalogue-summary {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-2);
+  margin: 0 0 24px;
+}
+
+.catalogue-empty {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--ink-3);
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: 17px;
+  border: 1px dashed var(--line-1);
+}
+
+.sort-pills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-1);
+  background: color-mix(in oklch, var(--bg-1) 70%, transparent);
+  margin-bottom: 18px;
+}
+.sort-pills-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-right: 4px;
+}
+.sort-pill {
+  appearance: none;
+  border: 1px solid var(--line-1);
+  background: color-mix(in oklch, var(--bg-2) 40%, transparent);
+  color: var(--ink-1);
+  padding: 5px 11px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  cursor: pointer;
+  transition: color 200ms, border-color 200ms, background 200ms, box-shadow 200ms;
+}
+.sort-pill:hover {
+  color: var(--ink-0);
+  border-color: color-mix(in oklch, var(--hl) 40%, var(--line-1));
+  background: color-mix(in oklch, var(--bg-2) 70%, transparent);
+}
+.sort-pill:focus-visible {
+  outline: 1px solid var(--hl);
+  outline-offset: 2px;
+}
+.sort-pill.active {
+  color: var(--bg-0);
+  background: var(--hl);
+  border-color: var(--hl);
+  box-shadow: 0 0 14px color-mix(in oklch, var(--hl) 35%, transparent);
+}
+.sort-pill.active:hover {
+  color: var(--bg-0);
+  background: var(--hl);
+}
+
+.catalogue-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-grotesk);
+  font-size: 14px;
+}
+.catalogue-table thead th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line-1);
+  font-weight: 500;
+}
+.catalogue-table tbody td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line-0);
+  color: var(--ink-1);
+  vertical-align: top;
+}
+.catalogue-table tbody tr {
+  transition: background 180ms;
+  border-left: 2px solid transparent;
+}
+.catalogue-table tbody tr:hover {
+  background: color-mix(in oklch, var(--line-1) 40%, transparent);
+}
+.catalogue-table tbody tr.is-enriched {
+  border-left-color: var(--color-frost-400);
+}
+.catalogue-table tbody tr.is-stub td {
+  color: var(--ink-2);
+}
+.catalogue-cell-title a {
+  color: var(--ink-0);
+  text-decoration: none;
+  font-family: var(--font-cinzel);
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  transition: color 200ms;
+}
+.catalogue-cell-title a:hover {
+  color: var(--hl);
+}
+.catalogue-table tbody tr.is-stub .catalogue-cell-title a {
+  color: var(--ink-1);
+}
+.catalogue-col-year,
+.catalogue-col-updated {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.catalogue-col-series {
+  color: var(--ink-2);
+}
+.badge-enriched,
+.badge-stub {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--line-1);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.badge-enriched {
+  color: var(--color-frost-400);
+  border-color: color-mix(in oklch, var(--color-frost-400) 40%, var(--line-1));
+  background: color-mix(in oklch, var(--color-frost-400) 8%, transparent);
+}
+.badge-stub {
+  color: var(--ink-3);
+  border-color: var(--line-1);
+}
+
+@media (max-width: 720px) {
+  .catalogue-table {
+    font-size: 13px;
+  }
+  .catalogue-col-series,
+  .catalogue-col-updated {
+    display: none;
+  }
+}
