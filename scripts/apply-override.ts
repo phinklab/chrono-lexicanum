@@ -10,18 +10,28 @@
  * What the script does:
  *   1. Loads `manual-overrides-<batch>.json` and `book-roster.json` from
  *      `scripts/seed-data/`.
- *   2. For each of the 10 books, opens its own transaction:
+ *   2. Pre-pass: collects every distinct roster author + editor across the
+ *      batch, slugifies each to a persons.id, INSERTs missing persons rows
+ *      in a single block. Newly created entries are tracked for the final
+ *      persons.json write.
+ *   3. For each book in the batch, opens its own transaction:
  *      - UPSERT works (idempotent on `external_book_id` UNIQUE).
  *      - UPSERT bookDetails.
  *      - DELETE-then-INSERT junctions (work_facets, work_persons, work_factions,
  *        work_locations) — gives us per-row idempotency without per-row diff.
+ *      - work_persons rows derived from roster.authors[]/roster.editors[]
+ *        with role=author/editor and 0-based displayOrder.
+ *      - Anthology edge case (authors=[] + editorialNote="various") emits a
+ *        `---authorship---` marker into book_details.notes; resolver-brief
+ *        will pick those up later.
  *      - Persist non-canonical surface forms (factions/locations/characters that
  *        do not resolve to reference IDs, plus any `data_conflict` flags) into
- *        `book_details.notes` between `---surfaceForms---` delimiters. The
- *        Resolver brief (062-063) extracts these later.
- *   3. After all 10 books: a second pass writes `work_collections` rows. They
+ *        `book_details.notes` between `---surfaceForms---` delimiters.
+ *   4. After all books: a second pass writes `work_collections` rows. They
  *      need the works.id UUIDs of every book in the batch, so they are deferred
  *      until the per-book pass has produced an externalBookId → UUID map.
+ *   5. Final atomic write of scripts/seed-data/persons.json if any persons
+ *      were auto-created.
  *
  * Authority-vs-source split:
  *   - `works.synopsis`        ← override
@@ -31,16 +41,17 @@
  *   - `works.sourceKind`      ← const "ssot"
  *   - `works.confidence`      ← const "1.00"
  *   - `bookDetails.format`    ← roster (or override `data_conflict.suggestion`)
- *   - `bookDetails.notes`     ← surfaceForms JSON block
+ *   - `bookDetails.notes`     ← surfaceForms + optional authorship JSON blocks
  *   - `bookDetails.primaryEraId` ← const "time_ending" (M41)
  *   - `bookDetails.seriesId`/`seriesIndex` ← seriesHint→reference mapping
+ *   - `work_persons.*`        ← roster.authors[]/roster.editors[] (slugified)
  *
  * Anything not in the override file stays NULL. No fallback to LLM diffs.
  *
  * CLI:
  *   npm run db:apply-override -- --batch=ssot-w40k-001
  */
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { parseArgs } from "node:util";
 import { resolve } from "node:path";
 
@@ -50,6 +61,7 @@ import { db } from "@/db/client";
 import {
   bookDetails,
   facetValues,
+  persons,
   works,
   workCollections,
   workFacets,
@@ -60,10 +72,10 @@ import {
 
 const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
 const ROSTER_PATH = resolve(SEED_DIR, "book-roster.json");
+const PERSONS_PATH = resolve(SEED_DIR, "persons.json");
 const OVERRIDE_FILENAME_PREFIX = "manual-overrides-";
 
 const M41_ERA_ID = "time_ending";
-const AUTHOR_PERSON_ID = "dan_abnett";
 const BATCH_NAME_PATTERN = /^ssot-(w40k|hh)-\d{3}$/;
 
 // Highest-role-wins for work_factions composite-PK collision resolution.
@@ -184,6 +196,33 @@ interface BookApplyResult {
   facetCount: number;
   factionCount: number;
   locationCount: number;
+  authorCount: number;
+  editorCount: number;
+  unresolvedAuthorship: boolean;
+}
+
+interface AutoCreatedPerson {
+  id: string;
+  name: string;
+  nameSort: string;
+}
+
+// Marker emitted into bookDetails.notes for anthologies where the roster says
+// authors=[] + editorialNote="various". Lets the future Resolver-Brief regex-
+// extract these books without scanning work_persons absences.
+interface AuthorshipMarker {
+  kind: "various";
+  editorialNote: "various";
+}
+
+interface PersonsJsonEntry {
+  id: string;
+  name: string;
+  nameSort: string;
+  bio?: string;
+  birthYear?: number;
+  lexicanumUrl?: string;
+  wikipediaUrl?: string;
 }
 
 // =============================================================================
@@ -235,6 +274,56 @@ Behaviour:
 // =============================================================================
 // Helpers
 // =============================================================================
+
+/**
+ * Slugify an author/editor display name into a snake_case persons.id.
+ *
+ * Rules (in order):
+ *  1. NFKD normalize and strip combining diacritics (e.g. "Müller" → "Muller").
+ *  2. Lower-case.
+ *  3. Replace every non-[a-z0-9] run with a single underscore.
+ *  4. Trim leading/trailing underscores.
+ *
+ * Deterministic + idempotent. Verified to reproduce all 12 existing
+ * persons.json IDs from their `name` fields ("Dan Abnett" → "dan_abnett",
+ * "Aaron Dembski-Bowden" → "aaron_dembski_bowden", "Graham McNeill" →
+ * "graham_mcneill", etc.). Edge cases: "C.S. Goto" → "c_s_goto",
+ * "O'Brien" → "o_brien".
+ */
+function slugifyPerson(displayName: string): string {
+  // \p{Mn} = Unicode Nonspacing Mark — the combining diacritics produced by
+  // NFKD decomposition ("ü" → "u" + U+0308). Stripping them yields ASCII.
+  return displayName
+    .normalize("NFKD")
+    .replace(/\p{Mn}/gu, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+/**
+ * Derive a Library-of-Congress style nameSort ("Lastname, Firstname rest").
+ *   "Dan Abnett"           → "Abnett, Dan"
+ *   "Aaron Dembski-Bowden" → "Dembski-Bowden, Aaron"
+ *   "C.S. Goto"            → "Goto, C.S."
+ *   "Anonymous"            → "Anonymous"   (single-token fallback)
+ *
+ * Single-token fallback returns the original string because the DB column
+ * `persons.name_sort` is NOT NULL (src/db/schema.ts); brief 062 originally
+ * suggested NULL, but the schema disallows it, so we keep the token verbatim.
+ */
+function deriveNameSort(displayName: string): string {
+  const trimmed = displayName.trim();
+  const parts = trimmed.split(/\s+/);
+  if (parts.length < 2) return trimmed;
+  const last = parts[parts.length - 1];
+  const rest = parts.slice(0, -1).join(" ");
+  return `${last}, ${rest}`;
+}
+
+function buildAuthorshipBlock(marker: AuthorshipMarker): string {
+  return `---authorship---\n${JSON.stringify(marker, null, 2)}\n---/authorship---`;
+}
 
 function pickFinalFormat(roster: RosterBook, override: OverrideBook): {
   format: string | null;
@@ -308,9 +397,13 @@ function buildSurfaceFormsBlock(
 function composeNotes(
   rosterNotes: string | null,
   surfaceFormsBlock: string,
+  authorshipBlock: string | null,
 ): string {
   const head = (rosterNotes ?? "").trim();
-  return head ? `${head}\n\n${surfaceFormsBlock}` : surfaceFormsBlock;
+  const tail = authorshipBlock
+    ? `${surfaceFormsBlock}\n\n${authorshipBlock}`
+    : surfaceFormsBlock;
+  return head ? `${head}\n\n${tail}` : tail;
 }
 
 // =============================================================================
@@ -350,6 +443,70 @@ async function validateFacetIds(allFacetIds: Set<string>): Promise<void> {
   }
 }
 
+/**
+ * Pre-pass over the whole batch: collect every distinct author + editor name
+ * string from the rosters of all books in the override, slugify each to a
+ * persons.id, look up which ones already exist in DB, and INSERT the missing
+ * rows as a single block.
+ *
+ * Returns the list of newly inserted entries (in DB insertion order) so
+ * main() can append them atomically to scripts/seed-data/persons.json once
+ * the per-book apply pass is done.
+ *
+ * Runs OUTSIDE the per-book transactions so applyBook() can rely on FK-safe
+ * persons.id values when inserting work_persons rows.
+ */
+async function ensurePersonsExist(
+  overrideBooks: OverrideBook[],
+  rosterByExternalId: Map<string, RosterBook>,
+): Promise<{ autoCreated: AutoCreatedPerson[]; distinct: number }> {
+  // 1. Walk override books, resolve roster entry, collect author+editor names.
+  // 2. Dedupe by slug — first occurrence's display string drives nameSort.
+  const desiredBySlug = new Map<string, string>();
+  for (const ob of overrideBooks) {
+    const rb = rosterByExternalId.get(ob.externalBookId);
+    if (!rb) continue; // surfaced as a hard error later in main()
+    for (const author of rb.authors) {
+      const slug = slugifyPerson(author);
+      if (slug && !desiredBySlug.has(slug)) desiredBySlug.set(slug, author);
+    }
+    for (const editor of rb.editors) {
+      const slug = slugifyPerson(editor);
+      if (slug && !desiredBySlug.has(slug)) desiredBySlug.set(slug, editor);
+    }
+  }
+
+  const wantedSlugs = [...desiredBySlug.keys()];
+  if (wantedSlugs.length === 0) {
+    return { autoCreated: [], distinct: 0 };
+  }
+
+  // 3. SELECT existing → compute missing.
+  const existingRows = (await db
+    .select({ id: persons.id })
+    .from(persons)
+    .where(inArray(persons.id, wantedSlugs))) as Array<{ id: string }>;
+  const existing = new Set(existingRows.map((r) => r.id));
+  const missing = wantedSlugs.filter((s) => !existing.has(s));
+
+  if (missing.length === 0) {
+    return { autoCreated: [], distinct: wantedSlugs.length };
+  }
+
+  // 4. INSERT missing as one block. nameSort is NOT NULL in the schema, so
+  // single-token fallback returns the original token rather than null.
+  const rows = missing.map((slug) => {
+    const name = desiredBySlug.get(slug)!;
+    return { id: slug, name, nameSort: deriveNameSort(name) };
+  });
+  await db.insert(persons).values(rows).onConflictDoNothing();
+
+  return {
+    autoCreated: rows.map((r) => ({ id: r.id, name: r.name, nameSort: r.nameSort })),
+    distinct: wantedSlugs.length,
+  };
+}
+
 async function applyBook(
   override: OverrideBook,
   roster: RosterBook,
@@ -357,7 +514,32 @@ async function applyBook(
   return await db.transaction(async (tx) => {
     const { format, formatOverride } = pickFinalFormat(roster, override);
     const surfaceFormsBlock = buildSurfaceFormsBlock(override, formatOverride);
-    const notes = composeNotes(roster.notes, surfaceFormsBlock);
+
+    // Authorship resolution from roster (not override). The override carries
+    // soft-content authority (synopsis, facets, factions, …) but the persons
+    // axis is mechanically taken from the SSOT-Excel roster mirror.
+    let authorshipMarker: AuthorshipMarker | null = null;
+    let unresolvedAuthorship = false;
+    if (roster.authors.length === 0) {
+      if (roster.editorialNote === "various") {
+        authorshipMarker = { kind: "various", editorialNote: "various" };
+      } else if (roster.editors.length === 0) {
+        unresolvedAuthorship = true;
+        console.warn(
+          `[apply-override] unresolved_authorship: ${roster.externalBookId} ` +
+            `(slug=${roster.slug}, row=${roster.sourceRow}, ` +
+            `authors=[], editors=[], editorialNote=null)`,
+        );
+      }
+      // else: editors-only book (curated anthology with named editors) →
+      // fall through; the editor rows below carry authorship by virtue of
+      // role="editor", no authorship marker emitted in this branch.
+    }
+
+    const authorshipBlock = authorshipMarker
+      ? buildAuthorshipBlock(authorshipMarker)
+      : null;
+    const notes = composeNotes(roster.notes, surfaceFormsBlock, authorshipBlock);
 
     const existing = (await tx
       .select({ id: works.id })
@@ -432,15 +614,35 @@ async function applyBook(
       );
     }
 
-    await tx.delete(workPersons).where(eq(workPersons.workId, workId));
-    await tx.insert(workPersons).values([
-      {
+    // Compose work_persons rows from roster.authors + roster.editors. The
+    // ensurePersonsExist() pre-pass already guaranteed every slug below has a
+    // matching persons.id row in the DB.
+    const personRows: Array<{
+      workId: string;
+      personId: string;
+      role: "author" | "editor";
+      displayOrder: number;
+    }> = [];
+    for (const [i, authorName] of roster.authors.entries()) {
+      personRows.push({
         workId,
-        personId: AUTHOR_PERSON_ID,
+        personId: slugifyPerson(authorName),
         role: "author",
-        displayOrder: 0,
-      },
-    ]);
+        displayOrder: i,
+      });
+    }
+    for (const [i, editorName] of roster.editors.entries()) {
+      personRows.push({
+        workId,
+        personId: slugifyPerson(editorName),
+        role: "editor",
+        displayOrder: i,
+      });
+    }
+    await tx.delete(workPersons).where(eq(workPersons.workId, workId));
+    if (personRows.length > 0) {
+      await tx.insert(workPersons).values(personRows);
+    }
 
     await tx.delete(workFactions).where(eq(workFactions.workId, workId));
     const resolvedFactions = resolveFactions(override.overrides.factions);
@@ -474,6 +676,9 @@ async function applyBook(
       facetCount: override.overrides.facetIds.length,
       factionCount: resolvedFactions.length,
       locationCount: resolvedLocations.length,
+      authorCount: roster.authors.length,
+      editorCount: roster.editors.length,
+      unresolvedAuthorship,
     };
   });
 }
@@ -552,6 +757,22 @@ async function main() {
   await validateFacetIds(allFacetIds);
   console.log(`[apply-override] validated ${allFacetIds.size} distinct facet ids`);
 
+  // Pre-pass: ensure every roster author + editor exists as a persons row.
+  // Runs OUTSIDE the per-book transactions so FK targets are stable when
+  // applyBook() inserts work_persons.
+  const { autoCreated, distinct } = await ensurePersonsExist(
+    override.books,
+    rosterByExternalId,
+  );
+  console.log(
+    `[apply-override] ensurePersonsExist: ${distinct} distinct slugs in batch, ${autoCreated.length} newly created in DB`,
+  );
+  if (autoCreated.length > 0) {
+    for (const p of autoCreated) {
+      console.log(`[apply-override]   + person ${p.id} (${p.name})`);
+    }
+  }
+
   const results: BookApplyResult[] = [];
   const externalIdToUuid = new Map<string, string>();
 
@@ -566,7 +787,7 @@ async function main() {
     externalIdToUuid.set(result.externalBookId, result.workId);
     results.push(result);
     console.log(
-      `[apply-override]   ${result.externalBookId.padEnd(9)} ${result.slug.padEnd(22)} path=${result.path} facets=${result.facetCount} factions=${result.factionCount} locations=${result.locationCount}`,
+      `[apply-override]   ${result.externalBookId.padEnd(9)} ${result.slug.padEnd(22)} path=${result.path} facets=${result.facetCount} factions=${result.factionCount} locations=${result.locationCount} authors=${result.authorCount} editors=${result.editorCount}`,
     );
   }
 
@@ -602,6 +823,33 @@ async function main() {
           )[0]?.n ?? 0,
   };
   console.log(`[apply-override] DB-side counts:`, summary);
+
+  // Atomic persons.json write: one append at the end of the run so the JSON
+  // mirror stays in sync with the DB. If the run aborted mid-way, the DB has
+  // more persons rows than the JSON and a maintainer can re-sync manually.
+  if (autoCreated.length > 0) {
+    const rawPersons = await readFile(PERSONS_PATH, "utf8");
+    const existing = JSON.parse(rawPersons) as PersonsJsonEntry[];
+    const merged = [
+      ...existing,
+      ...autoCreated.map((p) => ({ id: p.id, name: p.name, nameSort: p.nameSort })),
+    ];
+    await writeFile(PERSONS_PATH, JSON.stringify(merged, null, 2) + "\n", "utf8");
+    console.log(
+      `[apply-override] appended ${autoCreated.length} new entries to persons.json (total now ${merged.length})`,
+    );
+  }
+
+  // Unresolved-authorship summary (loud, separately from the per-book log).
+  const unresolved = results.filter((r) => r.unresolvedAuthorship);
+  if (unresolved.length > 0) {
+    console.warn(
+      `[apply-override] unresolved authorship for ${unresolved.length} book(s):`,
+    );
+    for (const r of unresolved) {
+      console.warn(`[apply-override]   ${r.externalBookId} (${r.slug})`);
+    }
+  }
 
   const inserts = results.filter((r) => r.path === "insert").length;
   const updates = results.filter((r) => r.path === "update").length;
