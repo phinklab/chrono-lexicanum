@@ -10,7 +10,8 @@ links:
   - ../archive/2026-05/2026-05-11-060-arch-ssot-w40k-001-db-apply
   - ../archive/2026-05/2026-05-11-060-impl-ssot-w40k-001-db-apply
   - 2026-05-11-061-arch-ssot-loop
-commits: []
+commits:
+  - 6a58000
 ---
 
 # Apply-Override: Author-FK-Fix + Auto-Create für fehlende Persons
