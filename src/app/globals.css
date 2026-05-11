@@ -2729,7 +2729,7 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 
 .catalogue-kicker {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -2774,21 +2774,21 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 }
 .sort-pills-label {
   font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.32em;
+  font-size: 11px;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--ink-3);
-  margin-right: 4px;
+  margin-right: 6px;
 }
 .sort-pill {
   appearance: none;
   border: 1px solid var(--line-1);
   background: color-mix(in oklch, var(--bg-2) 40%, transparent);
   color: var(--ink-1);
-  padding: 5px 11px;
+  padding: 7px 14px;
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.10em;
+  font-size: 13px;
+  letter-spacing: 0.06em;
   cursor: pointer;
   transition: color 200ms, border-color 200ms, background 200ms, box-shadow 200ms;
 }
@@ -2818,137 +2818,202 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 8px;
 }
 .catalogue-list > li {
   list-style: none;
 }
 
-.catalogue-card {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 20px;
-  padding: 18px;
+/* ─── Collapsible row (native <details> / <summary>) ───────────────────── */
+
+.catalogue-item {
   border: 1px solid var(--line-1);
   border-left: 3px solid transparent;
   background: color-mix(in oklch, var(--bg-1) 70%, transparent);
   transition: border-color 200ms, background 200ms;
 }
-.catalogue-card.is-enriched {
+.catalogue-item.is-enriched {
   border-left-color: var(--color-frost-400);
 }
-.catalogue-card.is-stub {
+.catalogue-item.is-stub {
   border-left-color: var(--line-2);
 }
-.catalogue-card:hover {
+.catalogue-item:hover {
+  background: color-mix(in oklch, var(--bg-2) 80%, transparent);
+}
+.catalogue-item[open] {
   background: color-mix(in oklch, var(--bg-2) 80%, transparent);
 }
 
-.card-cover {
-  width: 120px;
+.row-summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
 }
-.card-cover img {
+.row-summary::-webkit-details-marker {
+  display: none;
+}
+.row-summary:focus-visible {
+  outline: 1px solid var(--hl);
+  outline-offset: -2px;
+}
+
+.row-chevron {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  line-height: 1;
+  color: var(--ink-3);
+  transition: transform 200ms ease, color 200ms;
+}
+.catalogue-item[open] .row-chevron {
+  transform: rotate(90deg);
+  color: var(--hl);
+}
+
+.row-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+.row-title {
+  font-family: var(--font-cinzel);
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  color: var(--ink-0);
+}
+.catalogue-item.is-stub .row-title {
+  color: var(--ink-1);
+}
+.row-byline {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-2);
+}
+
+.row-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.row-year,
+.row-updated {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.row-year {
+  color: var(--ink-3);
+}
+
+/* ─── Expanded detail body ─────────────────────────────────────────────── */
+
+.row-detail {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 22px;
+  padding: 18px 18px 20px 60px;
+  border-top: 1px solid var(--line-1);
+}
+
+.row-detail-cover {
+  width: 140px;
+}
+.row-detail-cover img {
   display: block;
-  width: 120px;
-  height: 180px;
+  width: 140px;
+  height: 210px;
   object-fit: cover;
   border: 1px solid var(--line-1);
   background: var(--bg-2);
 }
-.card-cover-placeholder {
+.row-detail-cover-placeholder {
   display: grid;
   place-items: center;
-  width: 120px;
-  height: 180px;
+  width: 140px;
+  height: 210px;
   border: 1px dashed var(--line-1);
   background: color-mix(in oklch, var(--bg-2) 60%, transparent);
   color: var(--ink-3);
   font-family: var(--font-cinzel);
-  font-size: 32px;
+  font-size: 36px;
   letter-spacing: 0.05em;
 }
 
-.card-body {
+.row-detail-body {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
   min-width: 0;
 }
 
-.card-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-}
-.card-title-block {
-  min-width: 0;
-}
-.card-title {
-  font-family: var(--font-cinzel);
-  font-size: 19px;
-  letter-spacing: 0.02em;
-  color: var(--ink-0);
-  text-decoration: none;
-  transition: color 200ms;
-}
-.card-title:hover {
-  color: var(--hl);
-}
-.catalogue-card.is-stub .card-title {
-  color: var(--ink-1);
-}
-.card-byline {
-  margin: 4px 0 0;
-  font-family: var(--font-cormorant);
-  font-style: italic;
-  font-size: 15px;
-  color: var(--ink-1);
-}
-.card-roles {
-  margin: 2px 0 0;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  color: var(--ink-3);
-}
-
-.card-meta {
+.row-detail-roles {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  font-size: 13px;
+  letter-spacing: 0.04em;
   color: var(--ink-2);
 }
 
-.card-tagrow {
+.row-detail-meta {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--ink-1);
+}
+
+.row-detail-synopsis {
+  margin: 0;
+  font-family: var(--font-reader);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-1);
+}
+
+.row-tagrow {
   display: grid;
-  grid-template-columns: 96px 1fr;
-  gap: 10px;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
   align-items: baseline;
 }
-.card-tagrow-label {
+.row-tagrow-label {
   font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.28em;
+  font-size: 11px;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--ink-3);
 }
-.card-tags {
+.row-tags {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 6px;
 }
+
 .tag {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 4px 10px;
   border: 1px solid var(--line-1);
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.06em;
+  font-size: 12px;
+  letter-spacing: 0.04em;
   color: var(--ink-1);
   background: color-mix(in oklch, var(--bg-2) 50%, transparent);
 }
@@ -2959,44 +3024,50 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 .tag-facet .tag-key {
   color: var(--ink-3);
 }
+.tag-collection {
+  border-color: color-mix(in oklch, var(--hl) 30%, var(--line-1));
+}
 .tag-collection a {
   color: var(--ink-1);
   text-decoration: none;
-}
-.tag-collection {
-  border-color: color-mix(in oklch, var(--hl) 30%, var(--line-1));
 }
 .tag-collection a:hover {
   color: var(--hl);
 }
 
-.card-footer {
+.row-detail-footer {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 12px;
-  padding-top: 6px;
+  padding-top: 10px;
+  margin-top: 4px;
   border-top: 1px solid var(--line-0);
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
+  font-size: 12px;
+  letter-spacing: 0.06em;
   color: var(--ink-3);
 }
-.card-series {
+.row-detail-series {
   color: var(--ink-2);
 }
-.card-updated {
-  white-space: nowrap;
+.row-detail-link {
+  color: var(--hl);
+  text-decoration: none;
+  transition: color 200ms;
+}
+.row-detail-link:hover {
+  color: var(--color-aquila);
 }
 
 .badge-enriched,
 .badge-stub {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 3px 10px;
   border: 1px solid var(--line-1);
   font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.20em;
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   white-space: nowrap;
   flex: none;
@@ -3012,20 +3083,36 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 }
 
 @media (max-width: 720px) {
-  .catalogue-card {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 14px;
+  .row-summary {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px 14px;
   }
-  .card-cover,
-  .card-cover img,
-  .card-cover-placeholder {
+  .row-meta {
+    grid-column: 2;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .row-title {
+    font-size: 18px;
+  }
+  .row-byline {
+    font-size: 15px;
+  }
+  .row-detail {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+  .row-detail-cover,
+  .row-detail-cover img,
+  .row-detail-cover-placeholder {
     width: 100%;
     max-width: 200px;
     height: auto;
     aspect-ratio: 2 / 3;
   }
-  .card-tagrow {
+  .row-tagrow {
     grid-template-columns: 1fr;
     gap: 4px;
   }
