@@ -63,12 +63,18 @@ import {
   facetValues,
   persons,
   works,
+  workCharacters,
   workCollections,
   workFacets,
   workFactions,
   workLocations,
   workPersons,
 } from "@/db/schema";
+import {
+  resolveCharacter,
+  resolveFaction,
+  resolveLocation,
+} from "@/lib/resolver";
 
 const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
 const ROSTER_PATH = resolve(SEED_DIR, "book-roster.json");
@@ -86,20 +92,14 @@ const FACTION_ROLE_PRIORITY: Record<string, number> = {
   background: 1,
 };
 
-// Override-surface-form name → reference table id. Anything not here stays
-// in `bookDetails.notes` as an unresolved surface form.
-const CANONICAL_FACTION_RESOLVE: Record<string, string> = {
-  Inquisition: "inquisition",
-  "Ordo Xenos": "inquisition",
-  "Ordo Malleus": "inquisition",
-  "Ordo Hereticus": "inquisition",
-  Chaos: "chaos",
-  "Adeptus Mechanicus": "mechanicus",
-  Necrons: "necrons",
-};
-
-const CANONICAL_LOCATION_RESOLVE: Record<string, string> = {
-  "Eye of Terror": "eye_of_terror",
+// Brief 063 (2026-05-12): inline canonical-resolve maps extracted to
+// `src/lib/resolver/` (Direct-Match + Alias-Lookup). The composite-PK
+// collision resolver for work_characters needs its own role priority — same
+// pattern as FACTION_ROLE_PRIORITY but on the character axis.
+const CHARACTER_ROLE_PRIORITY: Record<string, number> = {
+  pov: 3,
+  appears: 2,
+  mentioned: 1,
 };
 
 // Eisenhorn/Ravenor are seeded series; Bequin and The Magos have no series row
@@ -196,6 +196,7 @@ interface BookApplyResult {
   facetCount: number;
   factionCount: number;
   locationCount: number;
+  characterCount: number;
   authorCount: number;
   editorCount: number;
   unresolvedAuthorship: boolean;
@@ -345,28 +346,84 @@ function pickFinalFormat(roster: RosterBook, override: OverrideBook): {
   return { format: roster.format ?? null, formatOverride: null };
 }
 
-function resolveFactions(input: OverrideEntity[]): Array<{ id: string; role: string }> {
-  // Collapse multiple surface forms onto the same canonical id, keeping the
-  // highest-priority role per id (FACTION_ROLE_PRIORITY).
-  const byId = new Map<string, string>();
+/**
+ * Resolve OverrideEntity surface forms to canonical IDs via the resolver
+ * module. For factions, collapse multiple surface forms onto the same
+ * canonical id and keep the highest-priority role (FACTION_ROLE_PRIORITY).
+ * The retained rawName is the surface form that won the role contest —
+ * giving the work_factions.raw_name audit column a deterministic value.
+ */
+function resolveFactions(
+  input: OverrideEntity[],
+): Array<{ id: string; role: string; rawName: string }> {
+  const byId = new Map<string, { role: string; rawName: string }>();
   for (const f of input) {
-    const id = CANONICAL_FACTION_RESOLVE[f.name];
-    if (!id) continue;
+    const r = resolveFaction(f.name);
+    if (r.id === null) continue;
     const incomingPriority = FACTION_ROLE_PRIORITY[f.role] ?? 0;
-    const current = byId.get(id);
-    const currentPriority = current ? FACTION_ROLE_PRIORITY[current] ?? 0 : -1;
-    if (incomingPriority > currentPriority) byId.set(id, f.role);
+    const current = byId.get(r.id);
+    const currentPriority = current
+      ? FACTION_ROLE_PRIORITY[current.role] ?? 0
+      : -1;
+    if (incomingPriority > currentPriority) {
+      byId.set(r.id, { role: f.role, rawName: f.name });
+    }
   }
-  return [...byId.entries()].map(([id, role]) => ({ id, role }));
+  return [...byId.entries()].map(([id, { role, rawName }]) => ({
+    id,
+    role,
+    rawName,
+  }));
 }
 
-function resolveLocations(input: OverrideEntity[]): Array<{ id: string; role: string }> {
-  return input
-    .map((l) => {
-      const id = CANONICAL_LOCATION_RESOLVE[l.name];
-      return id ? { id, role: l.role } : null;
-    })
-    .filter((x): x is { id: string; role: string } => x !== null);
+/**
+ * Resolve location surface forms. No role-priority table for locations today
+ * — keep-first-wins on canonical-id collisions (a surface-form alias and the
+ * canonical name collapsing onto the same id is the realistic case).
+ */
+function resolveLocations(
+  input: OverrideEntity[],
+): Array<{ id: string; role: string; rawName: string }> {
+  const byId = new Map<string, { role: string; rawName: string }>();
+  for (const l of input) {
+    const r = resolveLocation(l.name);
+    if (r.id === null) continue;
+    if (!byId.has(r.id)) {
+      byId.set(r.id, { role: l.role, rawName: l.name });
+    }
+  }
+  return [...byId.entries()].map(([id, { role, rawName }]) => ({
+    id,
+    role,
+    rawName,
+  }));
+}
+
+/**
+ * Resolve character surface forms. Mirrors resolveFactions on the character
+ * axis with CHARACTER_ROLE_PRIORITY (pov > appears > mentioned).
+ */
+function resolveCharacters(
+  input: OverrideEntity[],
+): Array<{ id: string; role: string; rawName: string }> {
+  const byId = new Map<string, { role: string; rawName: string }>();
+  for (const c of input) {
+    const r = resolveCharacter(c.name);
+    if (r.id === null) continue;
+    const incomingPriority = CHARACTER_ROLE_PRIORITY[c.role] ?? 0;
+    const current = byId.get(r.id);
+    const currentPriority = current
+      ? CHARACTER_ROLE_PRIORITY[current.role] ?? 0
+      : -1;
+    if (incomingPriority > currentPriority) {
+      byId.set(r.id, { role: c.role, rawName: c.name });
+    }
+  }
+  return [...byId.entries()].map(([id, { role, rawName }]) => ({
+    id,
+    role,
+    rawName,
+  }));
 }
 
 function buildSurfaceFormsBlock(
@@ -374,15 +431,14 @@ function buildSurfaceFormsBlock(
   formatOverride: { from: string | null; to: string; reason: string } | null,
 ): string {
   const factionsUnresolved = override.overrides.factions
-    .filter((f) => !CANONICAL_FACTION_RESOLVE[f.name])
+    .filter((f) => resolveFaction(f.name).id === null)
     .map((f) => ({ name: f.name, role: f.role }));
   const locationsUnresolved = override.overrides.locations
-    .filter((l) => !CANONICAL_LOCATION_RESOLVE[l.name])
+    .filter((l) => resolveLocation(l.name).id === null)
     .map((l) => ({ name: l.name, role: l.role }));
-  const charactersUnresolved = override.overrides.characters.map((c) => ({
-    name: c.name,
-    role: c.role,
-  }));
+  const charactersUnresolved = override.overrides.characters
+    .filter((c) => resolveCharacter(c.name).id === null)
+    .map((c) => ({ name: c.name, role: c.role }));
   const payload: Record<string, unknown> = {
     factionsUnresolved,
     locationsUnresolved,
@@ -652,6 +708,7 @@ async function applyBook(
           workId,
           factionId: f.id,
           role: f.role,
+          rawName: f.rawName,
         })),
       );
     }
@@ -664,6 +721,24 @@ async function applyBook(
           workId,
           locationId: l.id,
           role: l.role,
+          rawName: l.rawName,
+        })),
+      );
+    }
+
+    // Brief 063 (2026-05-12): work_characters now written. Until this brief
+    // the table stayed empty because no resolver existed for the character
+    // axis; the resolver module + characters.json seed + character-aliases
+    // unlock this insert path. Same delete-then-insert pattern as factions.
+    await tx.delete(workCharacters).where(eq(workCharacters.workId, workId));
+    const resolvedCharacters = resolveCharacters(override.overrides.characters);
+    if (resolvedCharacters.length > 0) {
+      await tx.insert(workCharacters).values(
+        resolvedCharacters.map((c) => ({
+          workId,
+          characterId: c.id,
+          role: c.role,
+          rawName: c.rawName,
         })),
       );
     }
@@ -676,6 +751,7 @@ async function applyBook(
       facetCount: override.overrides.facetIds.length,
       factionCount: resolvedFactions.length,
       locationCount: resolvedLocations.length,
+      characterCount: resolvedCharacters.length,
       authorCount: roster.authors.length,
       editorCount: roster.editors.length,
       unresolvedAuthorship,
@@ -787,7 +863,7 @@ async function main() {
     externalIdToUuid.set(result.externalBookId, result.workId);
     results.push(result);
     console.log(
-      `[apply-override]   ${result.externalBookId.padEnd(9)} ${result.slug.padEnd(22)} path=${result.path} facets=${result.facetCount} factions=${result.factionCount} locations=${result.locationCount} authors=${result.authorCount} editors=${result.editorCount}`,
+      `[apply-override]   ${result.externalBookId.padEnd(9)} ${result.slug.padEnd(22)} path=${result.path} facets=${result.facetCount} factions=${result.factionCount} locations=${result.locationCount} characters=${result.characterCount} authors=${result.authorCount} editors=${result.editorCount}`,
     );
   }
 
@@ -797,7 +873,12 @@ async function main() {
   // Summary counts straight from the DB so the report has authoritative numbers.
   const batchUuidList = [...externalIdToUuid.values()];
   const countOf = async (
-    table: typeof workFacets | typeof workPersons | typeof workFactions | typeof workLocations,
+    table:
+      | typeof workFacets
+      | typeof workPersons
+      | typeof workFactions
+      | typeof workLocations
+      | typeof workCharacters,
   ): Promise<number> => {
     if (batchUuidList.length === 0) return 0;
     const r = await db
@@ -812,6 +893,7 @@ async function main() {
     work_persons: await countOf(workPersons),
     work_factions: await countOf(workFactions),
     work_locations: await countOf(workLocations),
+    work_characters: await countOf(workCharacters),
     work_collections:
       batchUuidList.length === 0
         ? 0
