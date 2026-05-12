@@ -1,0 +1,328 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-003",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-12",
+  "model": "claude-opus-4-7",
+  "rationale": "Second Loop-Brief-061 iteration. Two cluster halves: (a) the late-period Ciaphas Cain titles released after the long Mitchell hiatus — Choose Your Enemies (Bk 10, 2018), Vainglorious (Bk 11, 2023), plus the Black-Library-Weekender-exclusive novella Old Soldiers Never Die (2012, wider release 2020). (b) the opening seven novels of Gaunt's Ghosts — First and Only, Ghostmaker, Necropolis (the Founding trilogy) and Honour Guard, The Guns of Tanith, Straight Silver, Sabbat Martyr (the Saint tetralogy). Coverage characteristic: very high training-data + web-coverage for the Founding trilogy and Necropolis (canonical Sabbat-Worlds Crusade openers, multiple Wikipedia / Lexicanum / Fandom / community-review sources); slightly lower for Cain Bk10/Bk11 (more recent, less aggregated lore) but still WebSearch-confirmable. WebSearch mean 1.3, max 2 (over 10 books); Choose Your Enemies and Vainglorious each got 2 passes to nail Drechia/Ironfound vs Damocles-Gulf locations, Ghostmaker got 1 pass that surfaced its linked-short-story structure — flagged data_conflict on format. Roster correctness: clean (no title-typos or setting-mistags detected this batch). Format-compliance: W40K-0023 Old Soldiers Never Die uses length_tier=novella (medium remains 'book' per facet-catalog format taxonomy); W40K-0025 Ghostmaker flagged data_conflict format=collection (roster says 'novel', sources unanimously describe Inferno!-magazine-derived linked short stories framed by Monthax present-day chapters). Surface-form treue: 'Imperial Guard' over 'Astra Militarum' (publication era 1999-2003 for the Founding trilogy + Saint tetralogy, 2018-2023 for the late Cain books — Cain himself uses 'Imperial Guard' throughout the series), 'Tanith First-and-Only' as the regiment name, 'Chaos' over 'Forces of Chaos', 'Eldar' over 'Aeldari' (pre-9th-edition spelling). Inquisition-consistency constraint: not triggered (no Inquisitor POVs in this batch). Tone choices: Cain stays satirical+action_heavy (grimdark dropped for Choose Your Enemies and Vainglorious, kept on Old Soldiers Never Die because the zombie outbreak is tonally darker than typical Cain); Gaunt's Ghosts is grimdark+somber+war_story across the board, with action_heavy added.",
+  "books": [
+    {
+      "externalBookId": "W40K-0021",
+      "slug": "choose-your-enemies",
+      "overrides": {
+        "synopsis": "Ciaphas Cain and the Valhallan 597th deploy to the ice world of Drechia in the Damocles Gulf, ostensibly to reinforce the planetary defence force against Eldar pirate raids. The pirates turn out to be the surface symptom of a deeper rot: a Chaos cult has taken root among the Drechian PDF officer corps and is feeding the Eldar coordinates in exchange for ritual artefacts. Cain's investigation, run nominally as a counter-piracy mop-up but in practice as Amberley Vail's Inquisitorial errand, drags him into a three-way crossfire between cultists, raiders, and his own paranoid command structure. The cult's confessions point to a forge world named Ironfound as the next domino — a hook that Vainglorious will pick up. Tonally lighter than the late Cain books that follow; the threat stays local-planetary, but the Damocles-Gulf framing implies a larger Tau-border subplot that Mitchell deliberately keeps off-page.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "standard", "war_story", "mystery", "action_heavy", "satirical", "doubt", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Valhallan 597th", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Ordo Xenos", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Drechia", "role": "primary" },
+          { "name": "Damocles Gulf", "role": "secondary" },
+          { "name": "Ironfound", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Amberley Vail", "role": "supporting" },
+          { "name": "Regina Kasteen", "role": "supporting" },
+          { "name": "Ruput Broklaw", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0022",
+      "slug": "vainglorious",
+      "overrides": {
+        "synopsis": "Cain's long-deferred retirement is on the line again when Astra Militarum weapon shipments from the newly founded forge world of Ironfound dry up overnight. Sent in nominally as a Commissariat liaison, Cain — with Jurgen at his side and Amberley Vail running parallel Inquisitorial cover — uncovers a tangle of mutinous Skitarii, doctrinal heresy inside the Adeptus Mechanicus magos hierarchy, and a string of insidious assassination attempts that get more personal the deeper he digs. The hidden hand behind it pulls strings inside Ironfound's own Fabricator-General circle, with an agenda that threatens Imperial control of the Damocles Gulf and chains back to the Drechia conspiracy in Choose Your Enemies. Cain emerges nominally a hero, definitely alive, and slightly closer to the retirement that will never come.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "standard", "mystery", "political_thriller", "action_heavy", "satirical", "doubt", "hubris", "betrayal", "cw_violence", "cw_death", "cw_crime", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Valhallan 597th", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Ordo Xenos", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "antagonist" },
+          { "name": "Skitarii", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ironfound", "role": "primary" },
+          { "name": "Damocles Gulf", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Amberley Vail", "role": "supporting" },
+          { "name": "Regina Kasteen", "role": "supporting" },
+          { "name": "Ruput Broklaw", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0023",
+      "slug": "old-soldiers-never-die",
+      "overrides": {
+        "synopsis": "Originally a 500-copy limited-edition novella released exclusively at the 2012 Black Library Weekender (wider release in 2020), Old Soldiers Never Die drops Cain and the Valhallan 597th on Lentonia to police the aftermath of a planetary insurrection — only to find a warp-tainted infection running through the Astra Militarum ranks that kills its victims and reanimates them as flesh-eating zombies. As the contagion spreads from regiment to regiment and from the military into Lentonia's civilian population, Cain and his malodorous aide Jurgen race to find the source of the infection — and a cure — before the survivors are overwhelmed. Tonally a darker entry than the typical Cain memoir: the zombie outbreak's horror register pushes the prose toward grimdark even with Cain's first-person framing keeping the dry wit intact.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "novella", "war_story", "mystery", "action_heavy", "grimdark", "satirical", "doubt", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Valhallan 597th", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Lentonia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0024",
+      "slug": "first-and-only",
+      "overrides": {
+        "synopsis": "The Sabbat Worlds Crusade is on the verge of collapse when the brutal warmaster Slaydo dies and Macaroth inherits a fractured high command. Commissar Ibram Gaunt, demoted by political enemies to a regimental command, leads the Tanith First-and-Only — the only survivors of his evacuation of the burning forest world of Tanith Magna, who will never see their homeworld again — through campaigns on Voltemand, Pyrites and Fortis Binary toward the Menazoid Epsilon stalingrad. There the Ghosts uncover a clue to a Standard Template Constructor buried under the Necromantic ice, and Gaunt finds himself targeted from within the Imperium by Lord General Dravere and the Jantine Patricians, whose patron's grudge with Gaunt runs back to Slaydo's deathbed. The series opener establishes the regiment cast — Corbec, Rawne, Larkin, Mkoll, Bragg, Caffran, Milo, Dorden — and the Crusade's grinding-attritional war frame.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "series_start", "standard", "war_story", "mystery", "grimdark", "somber", "action_heavy", "war", "betrayal", "loyalty", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Jantine Patricians", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Tanith", "role": "mentioned" },
+          { "name": "Voltemand", "role": "secondary" },
+          { "name": "Pyrites", "role": "secondary" },
+          { "name": "Fortis Binary", "role": "secondary" },
+          { "name": "Menazoid Epsilon", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Colm Corbec", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Brin Milo", "role": "supporting" },
+          { "name": "Tolin Dorden", "role": "supporting" },
+          { "name": "Bragg", "role": "supporting" },
+          { "name": "Caffran", "role": "supporting" },
+          { "name": "Lord General Dravere", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0025",
+      "slug": "ghostmaker",
+      "overrides": {
+        "synopsis": "Ghostmaker frames its present-tense chapters around the Tanith First-and-Only dug in on the jungle deathworld of Monthax waiting for the order to advance against a Chaos infestation that turns out to also conceal an Eldar warhost — and slots into that framing a series of earlier-published Inferno! magazine flashbacks, one per principal trooper, building the regiment's mythology bit by bit. The flashback chapters give individual showcases to Gaunt, Corbec, Rawne, Larkin, Bragg, Caffran, Mkoll, Milo and Dorden — each on a different Sabbat-Worlds-Crusade theatre, each peeling another layer off the character. The Monthax climax converges into a brief, brutal three-way clash that ends with Gaunt cooperating tactically with the Eldar against the shared Chaos enemy. Structurally a fix-up: linked short stories presented as a novel — the only volume in the series with this shape.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "standard", "war_story", "character_study", "grimdark", "somber", "action_heavy", "war", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Eldar", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Monthax", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Colm Corbec", "role": "pov" },
+          { "name": "Elim Rawne", "role": "pov" },
+          { "name": "Hlaine Larkin", "role": "pov" },
+          { "name": "Bragg", "role": "pov" },
+          { "name": "Caffran", "role": "pov" },
+          { "name": "Oan Mkoll", "role": "pov" },
+          { "name": "Brin Milo", "role": "pov" },
+          { "name": "Tolin Dorden", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "collection", "reason": "Wikipedia, Fandom and Black Library descriptions agree this is a fix-up of linked Inferno!-magazine short stories framed by Monthax present-day chapters, not a unified novel; SSOT roster lists 'novel'." }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0026",
+      "slug": "necropolis",
+      "overrides": {
+        "synopsis": "On the hive world of Verghast, the great hive-state of Vervunhive — long the rival of neighbouring Ferrozoica — comes under surprise assault when Zoican forces, secretly thralled to the Chaos warlord Heritor Asphodel, march out and lay siege. The Vervunhive militia is shattered in the field; Crusade-fleet reinforcements arrive in fragments under several command structures, and rivalries between the relief generals nearly derail the defence before it begins. Colonel-Commissar Ibram Gaunt — who arrives with the Tanith First-and-Only inside a city already burning — is forced to take command of the Imperial forces and stitch a unified defence out of regiments that despise each other. The novel ends with the founding of the regiment's second intake, the Verghastite Ghosts (introducing Soric, Criid, Kolea, Banda, Hark and others), permanently changing the regiment's character from Tanith-only to mixed. Doorstopper-length, structurally a siege narrative with a multi-POV battlefield map.",
+        "facetIds": ["book", "ensemble", "guardsman", "imperium", "planetary", "mid_series", "doorstopper", "siege", "war_story", "grimdark", "somber", "action_heavy", "war", "sacrifice", "betrayal", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Vervunhive Militia", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Zoican Host", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Verghast", "role": "primary" },
+          { "name": "Vervunhive", "role": "primary" },
+          { "name": "Ferrozoica", "role": "secondary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Colm Corbec", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Agun Soric", "role": "supporting" },
+          { "name": "Gol Kolea", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Heritor Asphodel", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0027",
+      "slug": "honour-guard",
+      "overrides": {
+        "synopsis": "On the shrine world of Hagia — homeworld and final resting place of the Saint Sabbat herself, the icon for whom the entire Crusade is named — the Ghosts are tasked with escorting the relics of the Saint to safety after a sudden Chaos invasion. What begins as a static guard duty turns into a pilgrim's-way running retreat across desert and mountain country, with Gaunt's column trailed by Chaos pursuers and harried by sandstorms, treacherous Imperial allies and an internal mutiny inside the convoy. The political stakes are religious as much as military: losing Sabbat's relics would gut the Crusade's morale, and Gaunt's authority over the mixed Tanith/Verghastite regiment is tested again by Major Rawne and Commissar-Captain Vaynom Blenner. By novel's end the relics reach safety, but the cost is high enough to mark Gaunt's first full break with Lord General Lugo. Saint-tetralogy opener.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "standard", "journey", "war_story", "grimdark", "somber", "action_heavy", "faith", "loyalty", "sacrifice", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Ecclesiarchy", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Hagia", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Colm Corbec", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Sanian", "role": "supporting" },
+          { "name": "Lord General Lugo", "role": "antagonist" },
+          { "name": "Vaynom Blenner", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0028",
+      "slug": "the-guns-of-tanith",
+      "overrides": {
+        "synopsis": "The Ghosts join a multi-regiment Imperial Guard descent on Phantine, a smog-choked world where the breathable atmosphere sits in a thin shell above poisoned lowlands and where every battlefield is a hive-tower spire reached only from the air. To prosecute the assault, Gaunt's regiment — never trained for airborne operations — is rapidly stood up alongside the elite Phantine Air Corps and the Urdeshi armoured regiments. The campaign focuses on the Cirenholm and Ouranberg objectives, with Major Rawne's increasingly insubordinate command of a separate strike, the trial of trooper Caffran on a false rape-and-murder charge engineered by an internal enemy, and the methodical retaking of spire after spire from Blood Pact defenders. Political subplot: the Crusade's wider war over Phantine's promethium reserves and the Cardinal Pater Gargoyle subplot of Chaos infiltration into the Munitorum command. Tonally one of the tightest, most procedural of the series.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "standard", "war_story", "siege", "grimdark", "somber", "action_heavy", "war", "loyalty", "brotherhood", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Phantine Air Corps", "role": "supporting" },
+          { "name": "Urdeshi", "role": "supporting" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Phantine", "role": "primary" },
+          { "name": "Cirenholm", "role": "secondary" },
+          { "name": "Ouranberg", "role": "secondary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Colm Corbec", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Caffran", "role": "supporting" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0029",
+      "slug": "straight-silver",
+      "overrides": {
+        "synopsis": "On Aexe Cardinal, the Imperial Guard finds itself embedded in a planetary-scale stalingrad of trench warfare — a static Great-War-style front line where two Aexegarian factions, locked in a fifty-year-old grudge, are now joined by Crusade reinforcements on one side and Blood Pact warbands on the other. The Ghosts are dropped into this medieval gunfight as a scout-and-stealth regiment in a war that has barely heard of stealth. Gaunt's command intersects with the venal General Lyntor-Sewq and the local Aexegarian high command, where political snobbery toward an off-world regiment matters more than the daily attrition. Subplots: Trooper Cuu's killer-among-the-Ghosts arc tightens its noose around Larkin; Mkoll's scout teams probe the no-man's-land for ways past the Shadik trench network. The novel ends with a no-budge stalemate broken by Tanith reconnaissance feeding the artillery a working firing solution. Tone register stays in the trench-poetry vein throughout — somber and grinding.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "standard", "war_story", "siege", "grimdark", "somber", "action_heavy", "war", "brotherhood", "sacrifice", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Aexegarian Forces", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Aexe Cardinal", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Colm Corbec", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Lijah Cuu", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0030",
+      "slug": "sabbat-martyr",
+      "overrides": {
+        "synopsis": "Word has reached the Sabbat Worlds that the Saint herself — six thousand years dead — has been reincarnated on the pious but unimportant world of Herodor, in the Civitas Beati. The Ghosts are pulled there for sainthood-guard duty, and Gaunt arrives to find that the reincarnated Saint is Sanian — the young Hagian priestess from Honour Guard — manipulated into the role by the careerist Lord General Lugo as a tool for his own advancement. The fates conspire faster than Lugo can: the Chaos warmaster Enok Innokenti, recognising the propaganda threat, dispatches nine specialised assassins (one per Holy Wound that originally ended Sabbat's life) at the head of a Blood Pact army to kill the Saint before she can take the stage. The novel pivots from political intrigue to a Civitas-Beati siege, ending Saint-tetralogy with a real-or-fake-saint reveal that lands on real — and that real saint dies, taking Innokenti with her, before the Crusade can fully capitalise. Series turning point.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "doorstopper", "siege", "war_story", "political_thriller", "grimdark", "somber", "action_heavy", "faith", "sacrifice", "betrayal", "war", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Ecclesiarchy", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Herodor", "role": "primary" },
+          { "name": "Civitas Beati", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Colm Corbec", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Sanian", "role": "supporting" },
+          { "name": "Saint Sabbat", "role": "supporting" },
+          { "name": "Lord General Lugo", "role": "antagonist" },
+          { "name": "Enok Innokenti", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
