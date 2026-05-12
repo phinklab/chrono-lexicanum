@@ -8,7 +8,13 @@ parent: 2026-05-12-063
 links:
   - 2026-05-11-061-arch-ssot-loop
   - 2026-05-11-062-arch-apply-override-author-fix
-commits: []
+commits:
+  - adee6ab
+  - 29a2251
+  - a747bbb
+  - 9e4b4a5
+  - dde705b
+  - 1fa30de
 ---
 
 # Resolver für die ersten 50 Bücher der Authority-Schicht — Implementer Report
