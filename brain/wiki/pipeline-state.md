@@ -364,7 +364,7 @@ In rough order:
 7. **Vokabular-Erweiterung** ([open-question 2](./open-questions.md)). `duty` (clear promotion candidate), `legion` faceten-dimension (design call), `chaos`-pov_side prompt-härtung.
 8. **Hand-Check + Override-Schema** ([open-question 3](./open-questions.md)). V2's `FieldRecord.override`-Slot ist die natürliche Heimat.
 9. ✅ **Resolver-Brief** (OQ4 + OQ5) — implemented/applied for the first 50 W40K books in 063–069.
-10. **Resume Brief 061 with `ssot-w40k-006`.** Continue the 10er override/apply loop after resolver branch merge/push.
+10. **Resume Brief 061 with `ssot-w40k-006`.** Continue the 10er override/apply loop after the remaining Brain/session hygiene from the resolver branch lands on `main`.
 11. **Cross-Batch-Collection-Resolution.** `applyCollections` is still intra-batch; cross-batch omnibus references need a mini-brief.
 12. **3e Voll-Apply** (alle 859 Bücher in DB) once the 10er-loop has enough confidence, with resolver maintenance every 50-book threshold.
 13. **Refresh-Layer für volatile Felder.** Rating + Availability + Cover-URL — separater `rating_snapshots`/`availability_snapshots`-Pfad mit eigener Cadence (weekly/monthly), nicht im Bulk-Crawl.
