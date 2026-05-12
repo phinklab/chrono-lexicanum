@@ -3,19 +3,28 @@
  *
  * Brief 060 (2026-05-11): minimal end-to-end render so the SSOT-Apply round-
  * trip is observable from the frontend (synopsis, author, factions, facet
- * tags). The richer Phase-3 layout — map embed, characters, "what to read
- * next" sidebar — is still future work.
+ * tags).
+ *
+ * Brief 063 (2026-05-12): Locations + Characters sections added. The
+ * resolver-landing turns the previously-near-empty `work_locations` /
+ * `work_characters` junctions into useful chip-lists. raw_name lands on the
+ * chip as a hover-only `title` attribute when it diverges from the canonical
+ * name — Cowork-audit signal, user-invisible.
  */
 import { notFound } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { db } from "@/db/client";
 import {
   bookDetails as bookDetailsTable,
+  characters as charactersTable,
   facetValues as facetValuesTable,
   factions as factionsTable,
+  locations as locationsTable,
   persons as personsTable,
+  workCharacters as workCharactersTable,
   workFacets as workFacetsTable,
   workFactions as workFactionsTable,
+  workLocations as workLocationsTable,
   workPersons as workPersonsTable,
   works as worksTable,
 } from "@/db/schema";
@@ -36,43 +45,78 @@ async function loadBookBySlug(slug: string) {
     .limit(1);
   if (!work) return null;
 
-  const [details] = await db
-    .select({
-      format: bookDetailsTable.format,
-      seriesId: bookDetailsTable.seriesId,
-      seriesIndex: bookDetailsTable.seriesIndex,
-    })
-    .from(bookDetailsTable)
-    .where(eq(bookDetailsTable.workId, work.id))
-    .limit(1);
-
-  const personRows = await db
-    .select({ name: personsTable.name, role: workPersonsTable.role })
-    .from(workPersonsTable)
-    .innerJoin(personsTable, eq(personsTable.id, workPersonsTable.personId))
-    .where(eq(workPersonsTable.workId, work.id));
-
-  const factionRows = await db
-    .select({ name: factionsTable.name, role: workFactionsTable.role })
-    .from(workFactionsTable)
-    .innerJoin(factionsTable, eq(factionsTable.id, workFactionsTable.factionId))
-    .where(eq(workFactionsTable.workId, work.id));
-
-  const facetRows = await db
-    .select({ name: facetValuesTable.name, category: facetValuesTable.categoryId })
-    .from(workFacetsTable)
-    .innerJoin(facetValuesTable, eq(facetValuesTable.id, workFacetsTable.facetValueId))
-    .where(eq(workFacetsTable.workId, work.id));
+  const [details, personRows, factionRows, locationRows, characterRows, facetRows] =
+    await Promise.all([
+      db
+        .select({
+          format: bookDetailsTable.format,
+          seriesId: bookDetailsTable.seriesId,
+          seriesIndex: bookDetailsTable.seriesIndex,
+        })
+        .from(bookDetailsTable)
+        .where(eq(bookDetailsTable.workId, work.id))
+        .limit(1),
+      db
+        .select({ name: personsTable.name, role: workPersonsTable.role })
+        .from(workPersonsTable)
+        .innerJoin(personsTable, eq(personsTable.id, workPersonsTable.personId))
+        .where(eq(workPersonsTable.workId, work.id)),
+      db
+        .select({
+          name: factionsTable.name,
+          role: workFactionsTable.role,
+          rawName: workFactionsTable.rawName,
+        })
+        .from(workFactionsTable)
+        .innerJoin(factionsTable, eq(factionsTable.id, workFactionsTable.factionId))
+        .where(eq(workFactionsTable.workId, work.id)),
+      db
+        .select({
+          name: locationsTable.name,
+          role: workLocationsTable.role,
+          rawName: workLocationsTable.rawName,
+        })
+        .from(workLocationsTable)
+        .innerJoin(locationsTable, eq(locationsTable.id, workLocationsTable.locationId))
+        .where(eq(workLocationsTable.workId, work.id)),
+      db
+        .select({
+          name: charactersTable.name,
+          role: workCharactersTable.role,
+          rawName: workCharactersTable.rawName,
+        })
+        .from(workCharactersTable)
+        .innerJoin(charactersTable, eq(charactersTable.id, workCharactersTable.characterId))
+        .where(eq(workCharactersTable.workId, work.id)),
+      db
+        .select({ name: facetValuesTable.name, category: facetValuesTable.categoryId })
+        .from(workFacetsTable)
+        .innerJoin(facetValuesTable, eq(facetValuesTable.id, workFacetsTable.facetValueId))
+        .where(eq(workFacetsTable.workId, work.id)),
+    ]);
 
   return {
     ...work,
-    format: details?.format ?? null,
-    series: details?.seriesId ?? null,
-    seriesIndex: details?.seriesIndex ?? null,
+    format: details[0]?.format ?? null,
+    series: details[0]?.seriesId ?? null,
+    seriesIndex: details[0]?.seriesIndex ?? null,
     persons: personRows,
     factions: factionRows,
+    locations: locationRows,
+    characters: characterRows,
     facets: facetRows,
   };
+}
+
+/**
+ * Decide whether the raw_name audit value should land on a chip as a
+ * hover tooltip. Only show it when it actually diverges from the canonical
+ * surface form — otherwise the tooltip is noise. NULL raw_name (direct match
+ * without drift) returns undefined so React drops the attribute.
+ */
+function rawTitle(canonical: string, raw: string | null): string | undefined {
+  if (!raw || raw === canonical) return undefined;
+  return `Surface form: ${raw}`;
 }
 
 export default async function BookPage({ params }: { params: Promise<Params> }) {
@@ -110,10 +154,47 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
             {book.factions.map((f) => (
               <li
                 key={f.name}
+                title={rawTitle(f.name, f.rawName)}
                 className="rounded border border-frost-400/40 px-2 py-1 font-mono text-xs text-frost-200"
               >
                 {f.name}
                 {f.role && f.role !== "supporting" ? ` · ${f.role}` : ""}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {book.locations.length > 0 && (
+        <section className="mt-6">
+          <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-frost-400">Locations</h2>
+          <ul className="mt-2 flex flex-wrap gap-2">
+            {book.locations.map((l) => (
+              <li
+                key={l.name}
+                title={rawTitle(l.name, l.rawName)}
+                className="rounded border border-frost-400/40 px-2 py-1 font-mono text-xs text-frost-200"
+              >
+                {l.name}
+                {l.role && l.role !== "secondary" ? ` · ${l.role}` : ""}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {book.characters.length > 0 && (
+        <section className="mt-6">
+          <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-frost-400">Characters</h2>
+          <ul className="mt-2 flex flex-wrap gap-2">
+            {book.characters.map((c) => (
+              <li
+                key={c.name}
+                title={rawTitle(c.name, c.rawName)}
+                className="rounded border border-frost-400/40 px-2 py-1 font-mono text-xs text-frost-200"
+              >
+                {c.name}
+                {c.role && c.role !== "appears" ? ` · ${c.role}` : ""}
               </li>
             ))}
           </ul>
