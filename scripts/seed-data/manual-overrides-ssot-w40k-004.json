@@ -1,0 +1,378 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-004",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-12",
+  "model": "claude-opus-4-7",
+  "rationale": "Third Loop-Brief-061 iteration. Single-author cluster: Dan Abnett solo across all 10 books. Structurally three Gaunt's Ghosts arcs plus an aggregated omnibus: (a) The Lost tetralogy (Traitor General, His Last Command, The Armour of Contempt, Only in Death) — Gereon-resistance infiltration, demotion arc, liberation, Hinzerhaus haunted-siege closer; (b) the bridge novel Blood Pact (Balhaut, Mabbon Etogaur interrogation) and the Victory arc proper (Salvation's Reach, The Warmaster, The Anarch — heist + Urdesh + Eltath finale); (c) The Vincula Insurgency, a 2021 'Ghost Dossier 1' supplementary novella set chronologically before First and Only's Menazoid Epsilon climax; (d) Gaunt's Ghosts: The Founding Omnibus, 1-3 — collects W40K-0024 First and Only + W40K-0025 Ghostmaker + W40K-0026 Necropolis from ssot-w40k-003, factions/locations/characters/facetIds aggregated by union with highest-role-wins. Coverage characteristic: very high training-data + WebSearch confirmation for the entire batch (Black-Library-Premium-Serie, Lexicanum + Fandom + dedicated Ghostspedia + Wikipedia all richly populated). WebSearch mean 0.5, max 1 (over 10 books); spot-checks on Hinzerhaus/Jago for Only in Death, Vincula-City/Voltemand-aftermath for Vincula Insurgency, Gereon-12 roster for Traitor General, Mabbon-Etogaur/Felyx-Chass introduction for Salvation's Reach, Sons-of-Sek/Macaroth-Urdesh framing for The Warmaster, Corbec-killed-by-Cuu-killed-by-Larkin chronology to make sure Corbec stays out of these synopses (he died in Sabbat Martyr, W40K-0030). Roster correctness: clean — all 9 novels list 'novel' correctly, the omnibus lists 'omnibus' correctly. Format-compliance: no data_conflict flags raised. Surface-form treue: 'Imperial Guard' over 'Astra Militarum' (publication era 2004-2021 crosses the 2014 lore-rename, but Abnett kept 'Imperial Guard' internally in the Ghosts books), 'Tanith First-and-Only' as regiment, 'Verghastite Ghosts' as the second-intake sub-faction, 'Belladon' as the third-intake sub-faction introduced in His Last Command, 'Blood Pact' as the Crusade-era Chaos infantry, 'Sons of Sek' as the Anarch Sek elite emerging in Salvation's Reach and dominant in The Warmaster + The Anarch, 'Eldar' over 'Aeldari' (pre-9th-edition spelling). Inquisition-consistency constraint: not triggered (no Inquisitor POVs; Sirkle agents in His Last Command/Salvation's Reach are rogue Inquisitorial assets, supporting roles only). Tone choices: Gaunt's Ghosts default of grimdark+somber+action_heavy+war_story holds across all 10 entries; The Lost trilogy adds cw_disturbing for Chaos-taint body-horror; Only in Death adds mystery for the Hinzerhaus haunted-citadel register; Blood Pact adds political_thriller + mystery for the interrogation/assassination subplot; Salvation's Reach is tagged heist for the actual raid mechanic.",
+  "books": [
+    {
+      "externalBookId": "W40K-0031",
+      "slug": "traitor-general",
+      "overrides": {
+        "synopsis": "The Lost trilogy opens with the Sabbat Worlds Crusade in retreat from Gereon, a Chaos-occupied agricultural world whose Imperial governor Lord General Noches Sturm sold the planet out and is now reported alive inside the occupation administration. Gaunt hand-picks twelve Ghosts — Rawne, Feygor, Brostin, Mkvenner, Larkin, Beltayn, Criid, Mkoll, Varl, Bonin and the regiment's senior medic Curth — for a deep-strike insertion to assassinate Sturm before he can be turned into an enemy propaganda asset. Cut off behind the lines with no extraction window, the Gereon 12 link up with Major Gerome Landerson and the local Imperial Resistance and crawl across the country toward the capital, drinking poisoned water and breathing Chaos-tainted air that slowly mutates them. The novel's tonal frame is body-horror plus partisan-warfare procedural; the mission target hides a final twist that reshapes the team's purpose on the ground. Closes on the team and the Resistance still trapped on Gereon, awaiting His Last Command.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "standard", "war_story", "journey", "mystery", "grimdark", "somber", "action_heavy", "war", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Gereon Resistance", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Gereon", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Murtan Feygor", "role": "supporting" },
+          { "name": "Brostin", "role": "supporting" },
+          { "name": "Mkvenner", "role": "supporting" },
+          { "name": "Beltayn", "role": "supporting" },
+          { "name": "Bonin", "role": "supporting" },
+          { "name": "Varl", "role": "supporting" },
+          { "name": "Ana Curth", "role": "supporting" },
+          { "name": "Gerome Landerson", "role": "supporting" },
+          { "name": "Noches Sturm", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0032",
+      "slug": "his-last-command",
+      "overrides": {
+        "synopsis": "The Lost trilogy's second movement opens with the Gereon 12 extracted back to friendly space after eighteen months behind the lines, only to find that their long absence has reshaped the regiment. Major Elim Rawne has been confirmed in command of the Tanith First; Gaunt is demoted from Colonel-Commissar to Commissar, his Inquisitorial-supervised return treated as a political problem rather than a triumphant homecoming. The action moves to Ancreon Sextus, where a new third-intake of Belladon recruits is being folded into the regiment alongside the surviving Tanith and Verghastite Ghosts under Hark and Daur. The Gereon survivors' Chaos taint is treated medically and politically; Gaunt's path back to authority runs through the local Sabbat-Crusade command staff and a quiet, painful adjustment of who-commands-whom that culminates in a battle where the Ghosts are forced into action against an Arch-Enemy push despite their internal divisions. By novel's end Gaunt has clawed back nominal command authority, but the regiment is permanently transformed.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "standard", "war_story", "political_thriller", "grimdark", "somber", "action_heavy", "war", "doubt", "loyalty", "brotherhood", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Belladon", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ancreon Sextus", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Ban Daur", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Caffran", "role": "supporting" },
+          { "name": "Ana Curth", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0033",
+      "slug": "the-armour-of-contempt",
+      "overrides": {
+        "synopsis": "Gereon is recaptured. The third book of The Lost picks up as the Imperium launches a full-scale liberation invasion of the world the Ghosts spent eighteen months crawling through in Traitor General — and the Tanith First, with its complicated history on that ground, is sent back in as one of the lead regiments. The novel runs three intersecting tracks: Gaunt's command level adjusting to the liberation strategy, the now-veteran Gereon-survivors' difficult emotional return to the soil that broke them, and a younger track following Dalin Criid — Tona Criid and Caffran's adopted son, now of conscription age — going through Belladon recruit training under Hark before being committed to the front. The Gereon Resistance, both the noble dead and the survivors found tainted past saving, looms over every page. By novel's end Gereon is nominally retaken, but the Imperial verdict on the Resistance is grim, and the title's irony — the contempt the armour offered the conquerors, and the armour of contempt with which the Imperium answers — lands as a closing theme.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "standard", "war_story", "journey", "grimdark", "somber", "action_heavy", "war", "loyalty", "sacrifice", "doubt", "betrayal", "faith", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Belladon", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Gereon Resistance", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Gereon", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Dalin Criid", "role": "pov" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Caffran", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Ban Daur", "role": "supporting" },
+          { "name": "Ana Curth", "role": "supporting" },
+          { "name": "Gerome Landerson", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0034",
+      "slug": "only-in-death",
+      "overrides": {
+        "synopsis": "The Lost cycle closes on the fortress-world of Jago, where the Tanith First is rotated forward to a long-disused Imperial citadel called Hinzerhaus — a half-buried sandstone pile dug into a cliff face overlooking a chokepoint pass. Their orders are to anchor the Imperial left flank against an expected Arch-Enemy counter-attack. But Hinzerhaus itself is wrong: doors that open onto bare rock, sentries who vanish on watch, voices on the wind that whisper warnings the regiment is too dug-in to obey. The Ghosts settle into a siege-defence rhythm against waves of Blood Pact attackers while the citadel slowly reveals itself as a haunted place with its own designs. The novel deliberately reads as a horror-register war story — Hinzerhaus is closer to a haunted house than a fortification. Major regiment trauma lands by the end; the Tanith come out smaller and quieter, and The Lost cycle ends with the survivors marching off Jago as a permanently changed unit.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "standard", "war_story", "siege", "mystery", "grimdark", "somber", "action_heavy", "cosmic_horror", "war", "sacrifice", "loyalty", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Belladon", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Jago", "role": "primary" },
+          { "name": "Hinzerhaus", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Ban Daur", "role": "supporting" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Caffran", "role": "supporting" },
+          { "name": "Dalin Criid", "role": "supporting" },
+          { "name": "Ana Curth", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0035",
+      "slug": "blood-pact",
+      "overrides": {
+        "synopsis": "Pulled off the line for the first time in years, the Tanith First is rotated to the rear-area city of Balopolis on Balhaut — the same world where Macaroth was anointed Warmaster a generation earlier — for furlough, refit and a slow regimental decay born of inactivity. Gaunt is dragged out of that grey rotation by a request from Section: a high-value Blood Pact prisoner, Etogaur Mabbon, is in Inquisitorial custody nearby, refusing to speak to anyone but Gaunt. As Gaunt and a small team begin the interrogation, three rogue Inquisitorial agents — all named Sirkle, all working some agenda inside an internal Sabbat-Crusade conspiracy — attempt to kill Mabbon before he can talk. The novel is structured as a chase-thriller across Balopolis with Major Rawne running the protective detail, Mabbon dropping cryptic intelligence on the Sek-Innokenti split inside the Archenemy, and Gaunt himself emerging from years of grief and decline with a new strategic purpose that will reset the regiment for the Victory arc. Closes with Mabbon held as an Imperial asset and the Tanith First reactivated for a mission only Mabbon can guide.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "standard", "war_story", "mystery", "political_thriller", "grimdark", "somber", "action_heavy", "doubt", "betrayal", "loyalty", "brotherhood", "cw_violence", "cw_death", "cw_crime", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Belladon", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Balhaut", "role": "primary" },
+          { "name": "Balopolis", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Ana Curth", "role": "supporting" },
+          { "name": "Ban Daur", "role": "supporting" },
+          { "name": "Mabbon Etogaur", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0036",
+      "slug": "salvations-reach",
+      "overrides": {
+        "synopsis": "Acting on intelligence supplied by the captured Etogaur Mabbon, Gaunt proposes a deep-strike raid on Salvation's Reach — a fortress space hulk hidden in archenemy-held space that hosts Anarch Sek's strategic archive. If the data caches can be seized or destroyed, the Sek-vs-Innokenti civil war inside the Archenemy can be tipped in the Imperium's favour without a single battlefield engagement. The Tanith First — reinforced with fresh Verghastite and Belladon intakes for the assault — embarks on a small black-ops fleet under Captain Spika and pushes into deep Archenemy territory. The mission has a passenger: Felyx Chass, a teenage Verghastite intake who is in fact Merity Chass's child by Gaunt — the son Gaunt never knew he fathered. The raid itself is structured as a heist procedural through the Reach's twisted corridors against Blood Pact and emerging Sons of Sek defenders; the political subplot, with Mabbon's loyalty constantly in doubt and the Sirkle agents still hunting, runs parallel. Closes with the data in Imperial hands and the Victory arc proper opened.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "standard", "war_story", "heist", "political_thriller", "grimdark", "somber", "action_heavy", "war", "betrayal", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Belladon", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Imperial Navy", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" },
+          { "name": "Sons of Sek", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Salvation's Reach", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Ban Daur", "role": "supporting" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Caffran", "role": "supporting" },
+          { "name": "Felyx Chass", "role": "supporting" },
+          { "name": "Mabbon Etogaur", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0037",
+      "slug": "the-warmaster",
+      "overrides": {
+        "synopsis": "After the success of the Salvation's Reach raid, the Tanith First races to the strategically vital forge world of Urdesh, where the Sabbat Crusade has converged for a decisive open-ground battle against Anarch Sek's massed armies. Warmaster Macaroth himself commands the Urdesh campaign from a field headquarters at Eltath, and the Archenemy push — Blood Pact infantry led by the elite Sons of Sek — may be aimed not at the planet but at the Warmaster's person, a single-blow attempt to decapitate the entire Crusade command structure. Gaunt, now serving on Macaroth's personal staff, threads regimental command of the Tanith with brokered relationships across the Crusade's senior generals — Cybon, Van Voytz, Kelso, Bulledin, Lugo, Blackwood. The novel runs as a forge-world siege-and-counter-siege procedural, with the regiment's Felyx-Chass subplot deepening and the Sek faction emerging as the dominant Archenemy presence. Closes mid-campaign on Urdesh, with The Anarch continuing the assault on Eltath.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "sector", "mid_series", "doorstopper", "war_story", "siege", "political_thriller", "grimdark", "somber", "action_heavy", "war", "loyalty", "betrayal", "hubris", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Belladon", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Urdeshi", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" },
+          { "name": "Sons of Sek", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Urdesh", "role": "primary" },
+          { "name": "Eltath", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Macaroth", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Ban Daur", "role": "supporting" },
+          { "name": "Felyx Chass", "role": "supporting" },
+          { "name": "Mabbon Etogaur", "role": "supporting" },
+          { "name": "Anakwanar Sek", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0038",
+      "slug": "the-anarch",
+      "overrides": {
+        "synopsis": "The Urdesh campaign reaches its climax inside the city of Eltath, where Warmaster Macaroth's headquarters has become the target of an in-person decapitation push by Anarch Sek himself. Sek arrives on the planet to take the Warmaster's life, breaking every rule of Archenemy command doctrine and forcing the Crusade leadership into a desperate close-quarters defence of the command palaces and tactical-control nodes. The Tanith First fights through the urban-warfare maze of Eltath in fragments — Rawne running one column, Hark another, Daur and Criid coordinating the Mkoll-led scout teams — converging slowly on the Macaroth-Sek confrontation. The Felyx Chass subplot, the long-running Yoncy Kolea daemon-whisper subplot, and the Sirkle internal-conspiracy thread all close out, costing the regiment several of its longest-serving figures. Series climax. Closes with Sek killed, the Crusade strategic balance permanently tipped, and the Tanith First reduced again to a smaller, harder unit.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "doorstopper", "war_story", "siege", "last_stand", "political_thriller", "grimdark", "somber", "action_heavy", "war", "sacrifice", "betrayal", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Belladon", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Urdeshi", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" },
+          { "name": "Sons of Sek", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Urdesh", "role": "primary" },
+          { "name": "Eltath", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Elim Rawne", "role": "pov" },
+          { "name": "Macaroth", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Ban Daur", "role": "supporting" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Felyx Chass", "role": "supporting" },
+          { "name": "Mabbon Etogaur", "role": "supporting" },
+          { "name": "Anakwanar Sek", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0039",
+      "slug": "the-vincula-insurgency",
+      "overrides": {
+        "synopsis": "The first volume of the supplementary 'Ghost Dossier' series is a prequel novella set chronologically before the famous Sabbat-Crusade campaigns of First and Only. Fresh out of their gruelling first engagement on Voltemand, the newly raised Tanith First-and-Only is pulled off the front line and parked in an agricultural backwater — the Vincula Sub-sector capital, Vincula City — for what Crusade Command labels permanent-peace enforcement and Gaunt's regiment recognises as garrison-duty exile. The Ghosts, still figuring out who they are as a unit, must hold the city for the arrival of a new provincial governor and his administrative staff. Almost immediately the regiment becomes the target of a highly disciplined insurgency operating from inside the city itself — one that knows the Tanith's deployment cycles too well, kills with patience, and eventually reveals dark truths about the regiment's own origins that will echo through the series. Novella-length, structurally a counterinsurgency procedural with a slow-mystery spine.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "novella", "war_story", "mystery", "political_thriller", "grimdark", "somber", "action_heavy", "war", "doubt", "loyalty", "brotherhood", "cw_violence", "cw_death", "cw_crime", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vincula Sub-sector", "role": "primary" },
+          { "name": "Vincula City", "role": "primary" },
+          { "name": "Voltemand", "role": "mentioned" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Colm Corbec", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Brin Milo", "role": "supporting" },
+          { "name": "Tolin Dorden", "role": "supporting" },
+          { "name": "Bragg", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0040",
+      "slug": "gaunts-ghosts-the-founding-omnibus-1-3",
+      "overrides": {
+        "synopsis": "The Founding Omnibus collects the first three Gaunt's Ghosts novels — First and Only, Ghostmaker and Necropolis — and tells the story of how Colonel-Commissar Ibram Gaunt and the Tanith First-and-Only become the unit that will carry the Sabbat Worlds Crusade. Book one (First and Only) follows the early Crusade-era campaigns from Voltemand through Pyrites and Fortis Binary to the Menazoid Epsilon stalemate, establishing the regiment's cast and the internal-Imperium conspiracy run by Lord General Dravere and the Jantine Patricians. Book two (Ghostmaker), structured as a fix-up of linked Inferno!-magazine flashbacks framed by a present-tense Monthax campaign, gives each principal Ghost — Corbec, Rawne, Larkin, Bragg, Caffran, Mkoll, Milo, Dorden — a single-protagonist spotlight chapter, peeling the regiment's mythology open one trooper at a time and closing on a brief tactical truce with an Eldar warhost. Book three (Necropolis) is the Vervunhive siege on Verghast: the Zoican Host under Heritor Asphodel besieges Vervunhive, multiple Imperial regiments arrive piecemeal under squabbling generals, Gaunt is forced to take command of the relief, and the regiment's second intake — the Verghastite Ghosts, founded inside a burning city — permanently changes the unit's character.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "series_start", "doorstopper", "war_story", "siege", "character_study", "grimdark", "somber", "action_heavy", "war", "betrayal", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Vervunhive Militia", "role": "supporting" },
+          { "name": "Eldar", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Jantine Patricians", "role": "antagonist" },
+          { "name": "Zoican Host", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Tanith", "role": "mentioned" },
+          { "name": "Voltemand", "role": "secondary" },
+          { "name": "Pyrites", "role": "secondary" },
+          { "name": "Fortis Binary", "role": "secondary" },
+          { "name": "Menazoid Epsilon", "role": "primary" },
+          { "name": "Monthax", "role": "primary" },
+          { "name": "Verghast", "role": "primary" },
+          { "name": "Vervunhive", "role": "primary" },
+          { "name": "Ferrozoica", "role": "secondary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Colm Corbec", "role": "pov" },
+          { "name": "Elim Rawne", "role": "pov" },
+          { "name": "Hlaine Larkin", "role": "pov" },
+          { "name": "Oan Mkoll", "role": "pov" },
+          { "name": "Brin Milo", "role": "pov" },
+          { "name": "Tolin Dorden", "role": "pov" },
+          { "name": "Bragg", "role": "pov" },
+          { "name": "Caffran", "role": "pov" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Agun Soric", "role": "supporting" },
+          { "name": "Gol Kolea", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Lord General Dravere", "role": "antagonist" },
+          { "name": "Heritor Asphodel", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
