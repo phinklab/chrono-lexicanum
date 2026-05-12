@@ -11,10 +11,10 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
   - ../../sessions/archive/2026-05/2026-05-04-042-impl-phase3c-haiku-switch.md
   - ../../sessions/archive/2026-05/2026-05-09-052-arch-ingest-retention-strategy.md
-  - ../../sessions/2026-05-09-054-arch-pipeline-v2-pilot.md
-  - ../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md
-  - ../../sessions/2026-05-09-055-arch-v2-voll-lauf-decision-gate.md
-  - ../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md
+  - ../../sessions/archive/2026-05/2026-05-09-054-arch-pipeline-v2-pilot.md
+  - ../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md
+  - ../../sessions/archive/2026-05/2026-05-09-055-arch-v2-voll-lauf-decision-gate.md
+  - ../../sessions/archive/2026-05/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md
   - ../../sessions/archive/2026-05/2026-05-10-056-arch-v2-pre-roster-fixes.md
   - ../../sessions/archive/2026-05/2026-05-10-056-impl-v2-pre-roster-fixes.md
   - ../../sessions/archive/2026-05/2026-05-10-057-arch-excel-roster-import.md

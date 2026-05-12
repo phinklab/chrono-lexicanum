@@ -8,10 +8,10 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
   - ../../sessions/archive/2026-05/2026-05-05-044-impl-phase3e-batch-1.md
   - ../../sessions/archive/2026-05/2026-05-04-042-impl-phase3c-haiku-switch.md
-  - ../../sessions/2026-05-09-054-arch-pipeline-v2-pilot.md
-  - ../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md
-  - ../../sessions/2026-05-09-055-arch-v2-voll-lauf-decision-gate.md
-  - ../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md
+  - ../../sessions/archive/2026-05/2026-05-09-054-arch-pipeline-v2-pilot.md
+  - ../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md
+  - ../../sessions/archive/2026-05/2026-05-09-055-arch-v2-voll-lauf-decision-gate.md
+  - ../../sessions/archive/2026-05/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md
   - ../../sessions/archive/2026-05/2026-05-10-056-arch-v2-pre-roster-fixes.md
   - ../../sessions/archive/2026-05/2026-05-10-056-impl-v2-pre-roster-fixes.md
   - ../../sessions/archive/2026-05/2026-05-10-057-arch-excel-roster-import.md
@@ -38,7 +38,7 @@ Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions
 
 ## (1) Phase-3e Modell-Entscheidung — Haiku bleiben vs. Sonnet-Upgrade
 
-**Owner:** Cowork (architect decision, then CC implements). **Sessions:** [045-arch](../../sessions/archive/2026-05/2026-05-05-045-arch-cc-vs-pipeline-comparison.md), [045-impl](../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md), [047-impl](../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md), [054-impl](../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md), [055-impl](../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md). **Follow-up brief:** verschoben in den 10er-Batch-Zeitraum — Vokabular-Erweiterung (item 2) ist eher Treiber als Modell-Entscheidung; Haiku-Cost ist post-055 nicht mehr streitig.
+**Owner:** Cowork (architect decision, then CC implements). **Sessions:** [045-arch](../../sessions/archive/2026-05/2026-05-05-045-arch-cc-vs-pipeline-comparison.md), [045-impl](../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md), [047-impl](../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md), [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md), [055-impl](../../sessions/archive/2026-05/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md). **Follow-up brief:** verschoben in den 10er-Batch-Zeitraum — Vokabular-Erweiterung (item 2) ist eher Treiber als Modell-Entscheidung; Haiku-Cost ist post-055 nicht mehr streitig.
 
 Trade-off-Tabelle aus 045: Sonnet-Pipeline löst `dual` vs `imperium` (mark-of-calth-Tagging-Failure), gibt nuancierteres Plausibility-Reasoning, löst Vokabular-Drift `vengeance` semantisch. Cost ~3× Haiku. **Post-055-Update:** Web-Search-Disziplin-Härtung in 055 hat das Cost-Bild noch deutlicher verschoben — 1.06 Web-Searches/Buch (vs. Pilot 1.6) bei $0.0199/Buch fresh-Run-Cost (5-Book-Smoke; im Voll-Lauf-Diff war alles Cache-Hit, daher $0). Hochrechnung 750-Bücher-V2-Voll-Lauf ≈ **$15** auf der gemessenen Pace — vs. Sonnet hochgerechnet ~$45–60. Cost-Argument für Haiku ist erdrückend; Modell-Frage rutscht in der Priorität ab. Realistisch wird sie erst wieder relevant, wenn die 10er-Batch-Reihe Qualitäts-Pathologien zeigt, die Sonnet semantisch besser löst.
 
@@ -55,13 +55,13 @@ Plus: `value_outside_vocabulary` über 70 Bücher kumulativ (042 + 044): `duty` 
 
 ## (3) Hand-Check-Workflow-Brief nach Architektur-Klärung
 
-**Owner:** Cowork. **Sessions:** [040-arch](../../sessions/archive/2026-05/2026-05-04-040-arch-phase3c-haiku-switch.md), [054-impl](../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md). **Follow-up brief:** post-Modell-Entscheidung, pre-3d-Apply.
+**Owner:** Cowork. **Sessions:** [040-arch](../../sessions/archive/2026-05/2026-05-04-040-arch-phase3c-haiku-switch.md), [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md). **Follow-up brief:** post-Modell-Entscheidung, pre-3d-Apply.
 
 Sequenz post-054: V2-Voll-Lauf (055) → Resolver + Unresolved-Queue (056, items 4+5) → Modell-Entscheidung + Vokabular (items 1+2) → **Hand-Check + Override-Schema** → 3d-Apply-Step (057). **Post-054-Update:** V2 hat `BookV2Record.fields.<f>.override` als Hand-Override-Slot bereits eingebaut; Hand-Check-Brief muss „nur" das CSV-/Markdown-Override-Format definieren und die Triage-Disziplin für Cowork (welcher Validation-Severity rolls auto, welcher braucht Cowork-Augen, welcher ignored). V1's `llm_flags` fallen unter V2 weg, ersetzt durch `Validation[]`.
 
 ## (4) Junction-Resolver für 3d-Apply — Faction/Location/Character Surface-Form → Canonical-ID
 
-**Owner:** Cowork (architectural design) → CC (implementation). **Sessions:** [054-arch](../../sessions/2026-05-09-054-arch-pipeline-v2-pilot.md), [054-impl](../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md), [055-impl](../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md), [Codex-Review](../raw/reviews/2026-05-09-codex-v2-pilot-review.md). **Follow-up brief:** verschoben — kommt nach den ersten 30–50 real-prozessierten Büchern aus den 10er-Batches (Briefs 058+). Bis dahin ist die 055er Surface-Form-Top-20 Referenz-Datensatz, aber Datensammlung läuft weiter; die Resolver-Brief-Empirie wächst mit jedem 10er-Batch. **Post-057-Update:** Excel-SSOT ändert die Resolver-Frage nicht — Surface-Forms kommen aus dem LLM-Output, nicht aus der Excel; Faction-/Location-/Character-Vokabular ist Pipeline-Job, nicht Maintainer-Curation.
+**Owner:** Cowork (architectural design) → CC (implementation). **Sessions:** [054-arch](../../sessions/archive/2026-05/2026-05-09-054-arch-pipeline-v2-pilot.md), [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md), [055-impl](../../sessions/archive/2026-05/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md), [Codex-Review](../raw/reviews/2026-05-09-codex-v2-pilot-review.md). **Follow-up brief:** verschoben — kommt nach den ersten 30–50 real-prozessierten Büchern aus den 10er-Batches (Briefs 058+). Bis dahin ist die 055er Surface-Form-Top-20 Referenz-Datensatz, aber Datensammlung läuft weiter; die Resolver-Brief-Empirie wächst mit jedem 10er-Batch. **Post-057-Update:** Excel-SSOT ändert die Resolver-Frage nicht — Surface-Forms kommen aus dem LLM-Output, nicht aus der Excel; Faction-/Location-/Character-Vokabular ist Pipeline-Job, nicht Maintainer-Curation.
 
 V2 schreibt Faktionen, Locations und Characters als `{ name, role }` mit Surface-Forms aus dem LLM (z. B. `{ name: "Sons of Horus", role: "primary" }`). Das ist by-design für Pilot + Voll-Lauf — die FK-Resolution gegen `factions.id` / `locations.id` / `characters.id` (alle `varchar(64)` String-IDs) kommt im Resolver. Vier Anforderungen aus Codex-Review:
 
@@ -80,7 +80,7 @@ Gilt parallel für `locations` und `characters`.
 
 ## (5) Unresolved-Queue-Strategie für unbekannte Entitäten
 
-**Owner:** Cowork (architectural call) → CC (Schema + Triage-UI/CSV). **Sessions:** [054-impl](../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md), [055-impl](../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md), [Codex-Review](../raw/reviews/2026-05-09-codex-v2-pilot-review.md). **Follow-up brief:** verschoben — gebündelt mit item 4 in einem späteren Resolver-Brief, sobald 30–50 Bücher aus den 10er-Batches durch sind. Bis dahin sammeln die 10er-Batch-Diffs Surface-Forms; Maintainer-Review zwischen den Briefs trifft Triage-Entscheidungen ad-hoc.
+**Owner:** Cowork (architectural call) → CC (Schema + Triage-UI/CSV). **Sessions:** [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md), [055-impl](../../sessions/archive/2026-05/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md), [Codex-Review](../raw/reviews/2026-05-09-codex-v2-pilot-review.md). **Follow-up brief:** verschoben — gebündelt mit item 4 in einem späteren Resolver-Brief, sobald 30–50 Bücher aus den 10er-Batches durch sind. Bis dahin sammeln die 10er-Batch-Diffs Surface-Forms; Maintainer-Review zwischen den Briefs trifft Triage-Entscheidungen ad-hoc.
 
 Wenn das LLM "Cabal of Eight" oder "House Glaw" oder "Saruthi" als Faction extrahiert, aber `factions.json` enthält keinen direkten Match und keine Alias-Resolution greift — was tun? Drei Optionen:
 
@@ -92,7 +92,7 @@ Wenn das LLM "Cabal of Eight" oder "House Glaw" oder "Saruthi" als Faction extra
 
 ## (6) Hardcover-Rating-Promotion + Open-Library-Fallback-Decision
 
-**Owner:** Cowork (architectural call: Field-Slot + OL-Fallback ja/nein) → CC (Implementation, ~10–20 LOC). **Sessions:** [054-arch](../../sessions/2026-05-09-054-arch-pipeline-v2-pilot.md), [054-impl](../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md) (Slim-LLM-Entscheidung, Rating raus aus `PUBLISH_ENRICHMENT_TOOL`), Cowork-Maintainer-Diskussion 2026-05-09 (rogue, kein eigener Session-Log). **Follow-up brief:** post-055-Verifikation, entweder schlanker 055.5-Brief oder gebündelt mit Brief 056.
+**Owner:** Cowork (architectural call: Field-Slot + OL-Fallback ja/nein) → CC (Implementation, ~10–20 LOC). **Sessions:** [054-arch](../../sessions/archive/2026-05/2026-05-09-054-arch-pipeline-v2-pilot.md), [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md) (Slim-LLM-Entscheidung, Rating raus aus `PUBLISH_ENRICHMENT_TOOL`), Cowork-Maintainer-Diskussion 2026-05-09 (rogue, kein eigener Session-Log). **Follow-up brief:** post-055-Verifikation, entweder schlanker 055.5-Brief oder gebündelt mit Brief 056.
 
 V2 hat `rating` aus `PUBLISH_ENRICHMENT_TOOL.input_schema.properties` rausgenommen, weil der LLM via Web-Search keinen verlässlichen Rating-Wert produziert (Slim-Prompt-Disziplin in 054). Gleichzeitig liefert Hardcover-GraphQL den Wert deterministisch und kostenlos, und V2's `discoverHardcoverClaimV2` schreibt ihn bereits in `claim.raw.audit.averageRating` (siehe `src/lib/ingestion/v2/sources/hardcover.ts` Zeile 32–40 + 117–123). Die Architektur-Lücke ist nur, dass der Wert nicht aus dem Audit-Slot in einen echten `BookV2Record.fields.rating: FieldRecord<number>` promoted wird — also nicht renderable, nicht in der Detail-Page sichtbar, nicht im Resolver-Datensatz mit drin.
 

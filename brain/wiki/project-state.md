@@ -10,10 +10,10 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-08-048-impl-doc-refresh.md
   - ../../sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
   - ../../sessions/archive/2026-05/2026-05-09-049-impl-karpathy-brain-atlas-reset.md
-  - ../../sessions/2026-05-09-054-arch-pipeline-v2-pilot.md
-  - ../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md
-  - ../../sessions/2026-05-09-055-arch-v2-voll-lauf-decision-gate.md
-  - ../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md
+  - ../../sessions/archive/2026-05/2026-05-09-054-arch-pipeline-v2-pilot.md
+  - ../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md
+  - ../../sessions/archive/2026-05/2026-05-09-055-arch-v2-voll-lauf-decision-gate.md
+  - ../../sessions/archive/2026-05/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md
   - ../../sessions/archive/2026-05/2026-05-10-056-arch-v2-pre-roster-fixes.md
   - ../../sessions/archive/2026-05/2026-05-10-056-impl-v2-pre-roster-fixes.md
   - ../../sessions/archive/2026-05/2026-05-10-057-arch-excel-roster-import.md

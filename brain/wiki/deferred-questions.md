@@ -9,7 +9,7 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-03-039-impl-phase3c-llm-enrichment.md
   - ../../sessions/archive/2026-05/2026-05-03-035-impl-phase3a-bulk-backfill-skeleton.md
   - ../../sessions/archive/2026-05/2026-05-03-037-impl-phase3b-aux-sources.md
-  - ../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md
+  - ../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md
 related:
   - ./open-questions.md
   - ./pipeline-state.md
@@ -27,7 +27,7 @@ confidence: high
 
 ## Anthologie-Re-Test für Hebel E (Hardcover-Author-Hint) — bestanden in V2-Pilot
 
-**Owner:** none (closed). **Sessions:** [047-impl](../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md), [054-impl](../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md).
+**Owner:** none (closed). **Sessions:** [047-impl](../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md), [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md).
 
 War vor 054 OQ4. *tales-of-heresy* im V2-Pilot hat das empirisch geklärt: V2 erkennt Anthologien deterministisch über Validator 4 (`author_editor_suspicion`) — Lexicanum-`Editor`-Cell und/oder `/various|editor|edited.by|anonymous/i` Single-Author-Patterns triggern `format=anthology` mit `source: "validator"`. V1's Hebel E (Hardcover-Author-Hint im LLM-Prompt) ist unter V2 effektiv ersetzt durch deterministischen Validator. *Mark of Calth* und *Sons of the Emperor* würden im 055-Voll-Lauf den gleichen Pfad treffen.
 
@@ -35,7 +35,7 @@ War vor 054 OQ4. *tales-of-heresy* im V2-Pilot hat das empirisch geklärt: V2 er
 
 ## Lexicanum-Body-Lore-Pass — V2 hat strukturell entschieden
 
-**Owner:** none (closed). **Sessions:** [047-impl](../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md), [054-impl](../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md).
+**Owner:** none (closed). **Sessions:** [047-impl](../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md), [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md).
 
 War vor 054 OQ5. V2 hat die FIELDS-Pfad-Frage strukturell entschieden: Body-Year-Regex ist aus dem FIELDS-Pfad raus (Validatoren übernehmen Sanity), und FIELD_PRIORITY für `factionNames`/`locationNames`/`characterNames` ist effektiv `[llm]` — Lexicanum trägt für diese drei Felder weiter nichts bei. Body-Lore-Walker (Cheerio-Walks über `.mw-parser-output` für `<a href="/wiki/<entity>">`-Links) wäre eine Optimierung, hat aber heute keinen Treiber: V2 erreicht 100% Junction-Coverage rein aus LLM-Output, und LLM-Cost auf $0.062/Buch ist niedrig genug, dass eine Lexicanum-Lore-Pre-Population für LLM-Prompt-Trimm nicht offensichtlich rechnet.
 
@@ -85,7 +85,7 @@ Im Original-Haiku-Lauf (Bücher 21–40, alles HH-Phase-2) wurde der Flag 0× em
 
 ## Universe-Year-Coverage — Walker + Series-Anchor-Inferenz + Hand-Override
 
-**Owner:** Cowork (architectural design across multiple sources) → CC (Implementation). **Sessions:** [047-impl](../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md) (V1 Body-Year-Regex), [054-impl](../../sessions/2026-05-09-054-impl-pipeline-v2-pilot.md) (V2 Drop), Cowork-Maintainer-Diskussion 2026-05-09 (rogue, Maintainer hat das Thema bewusst hinten angestellt).
+**Owner:** Cowork (architectural design across multiple sources) → CC (Implementation). **Sessions:** [047-impl](../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md) (V1 Body-Year-Regex), [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md) (V2 Drop), Cowork-Maintainer-Diskussion 2026-05-09 (rogue, Maintainer hat das Thema bewusst hinten angestellt).
 
 V1's Lexicanum-Body-Year-Regex hat im 20260508-2101-Lauf für 9 Bücher genau einen Jahres-Wert produziert (*false-gods* `startY=39000`), der korrekt eine LLM-Halluzination war und vom V2-`year_outlier`-Validator gedroppt wird. V2 schreibt nur noch infobox `Setting`/`Date`/`Story Date`, was auf Lexicanum aber für die meisten Bücher nicht gefüllt ist — Coverage geht damit gegen 0%. Die Chronicle-Timeline bräuchte zumindest grobe Universe-Year-Bänder, sonst rendert der Phase-3-Apply-Schritt fast leere Detail-Pages auf der zeitlichen Achse.
 
