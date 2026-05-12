@@ -9,7 +9,8 @@ links:
   - 2026-05-12-063
   - 2026-05-11-061
   - 2026-05-11-062
-commits: []
+commits:
+  - d7dd71c
 ---
 
 # Resolver Deep Audit - Implementer Review
