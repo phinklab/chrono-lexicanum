@@ -22,6 +22,8 @@
     "atlas:regen": "tsx --env-file=.env.local scripts/atlas-regen.ts",
     "brain:lint": "tsx scripts/brain-lint.ts",
     "test:discovery-merge": "tsx scripts/test-discovery-merge.ts",
+    "test:resolver": "tsx scripts/test-resolver.ts",
+    "db:seed-resolver-extensions": "tsx --env-file=.env.local scripts/seed-resolver-extensions.ts",
     "analyze:v2-surfaces": "tsx scripts/analyze-v2-surfaces.ts"
   },
   "engines": {
