@@ -299,6 +299,22 @@
     "warp": true
   },
   {
+    "id": "scarus",
+    "name": "Scarus Sector",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "helican",
+    "name": "Helican Subsector",
+    "sector": "scarus",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
     "id": "eustis_majoris",
     "name": "Eustis Majoris",
     "sector": "scarus",

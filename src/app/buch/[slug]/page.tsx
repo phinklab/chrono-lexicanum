@@ -1,15 +1,13 @@
 /**
- * Per-book detail page.  /buch/eisenhorn-xenos
+ * Per-book detail page. /buch/eisenhorn-xenos
  *
- * Brief 060 (2026-05-11): minimal end-to-end render so the SSOT-Apply round-
+ * Brief 060 (2026-05-11): minimal end-to-end render so the SSOT-Apply round
  * trip is observable from the frontend (synopsis, author, factions, facet
  * tags).
  *
- * Brief 063 (2026-05-12): Locations + Characters sections added. The
- * resolver-landing turns the previously-near-empty `work_locations` /
- * `work_characters` junctions into useful chip-lists. raw_name lands on the
- * chip as a hover-only `title` attribute when it diverges from the canonical
- * name — Cowork-audit signal, user-invisible.
+ * Brief 063 (2026-05-12): Locations + Characters sections added. Session 067
+ * deliberately keeps raw_name out of this query so branch previews still work
+ * before migration 0009 has been applied.
  */
 import { notFound } from "next/navigation";
 import { eq } from "drizzle-orm";
@@ -65,7 +63,6 @@ async function loadBookBySlug(slug: string) {
         .select({
           name: factionsTable.name,
           role: workFactionsTable.role,
-          rawName: workFactionsTable.rawName,
         })
         .from(workFactionsTable)
         .innerJoin(factionsTable, eq(factionsTable.id, workFactionsTable.factionId))
@@ -74,7 +71,6 @@ async function loadBookBySlug(slug: string) {
         .select({
           name: locationsTable.name,
           role: workLocationsTable.role,
-          rawName: workLocationsTable.rawName,
         })
         .from(workLocationsTable)
         .innerJoin(locationsTable, eq(locationsTable.id, workLocationsTable.locationId))
@@ -83,7 +79,6 @@ async function loadBookBySlug(slug: string) {
         .select({
           name: charactersTable.name,
           role: workCharactersTable.role,
-          rawName: workCharactersTable.rawName,
         })
         .from(workCharactersTable)
         .innerJoin(charactersTable, eq(charactersTable.id, workCharactersTable.characterId))
@@ -106,17 +101,6 @@ async function loadBookBySlug(slug: string) {
     characters: characterRows,
     facets: facetRows,
   };
-}
-
-/**
- * Decide whether the raw_name audit value should land on a chip as a
- * hover tooltip. Only show it when it actually diverges from the canonical
- * surface form — otherwise the tooltip is noise. NULL raw_name (direct match
- * without drift) returns undefined so React drops the attribute.
- */
-function rawTitle(canonical: string, raw: string | null): string | undefined {
-  if (!raw || raw === canonical) return undefined;
-  return `Surface form: ${raw}`;
 }
 
 export default async function BookPage({ params }: { params: Promise<Params> }) {
@@ -154,7 +138,6 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
             {book.factions.map((f) => (
               <li
                 key={f.name}
-                title={rawTitle(f.name, f.rawName)}
                 className="rounded border border-frost-400/40 px-2 py-1 font-mono text-xs text-frost-200"
               >
                 {f.name}
@@ -172,7 +155,6 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
             {book.locations.map((l) => (
               <li
                 key={l.name}
-                title={rawTitle(l.name, l.rawName)}
                 className="rounded border border-frost-400/40 px-2 py-1 font-mono text-xs text-frost-200"
               >
                 {l.name}
@@ -190,7 +172,6 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
             {book.characters.map((c) => (
               <li
                 key={c.name}
-                title={rawTitle(c.name, c.rawName)}
                 className="rounded border border-frost-400/40 px-2 py-1 font-mono text-xs text-frost-200"
               >
                 {c.name}

@@ -43,7 +43,7 @@ Adresse OQ4 (Junction-Resolver für Faction/Location/Character Surface-Form → 
 
 **Was Cowork festhält:**
 - Auf jeder `/buch/<slug>`-Page gibt es nach dem Resolver-Landing **drei** Junction-Sections: Factions (existiert), Locations (neu), Characters (neu). Plus Facets (existiert).
-- Auf den 5 Verifikations-Büchern (xenos, first-and-only, necropolis, nightbringer, the-anarch) zeigt jede Achse ≥3 Chips.
+- Auf den 5 Verifikations-Büchern (xenos, first-and-only, necropolis, nightbringer, the-anarch) werden die Resolver-Counts dokumentiert. 067-Dry-Run-Korrektur: `nightbringer` hat nur 1 Location, weil das Override-File nur Pavonis setzt; die frühere ≥3-je-Achse-Erwartung ist kein hartes Acceptance-Kriterium.
 - Heutige Factions+Facets-Rendering darf nicht regressen.
 - Server-Component bleibt Server-Component (keine Client-Hydration nötig wegen neuer Sections).
 
@@ -133,7 +133,7 @@ Vollständige Frequency-Tabellen mit Cowork-vorgeschlagenen Canonical-IDs siehe 
 
 - Heutige `loadBookBySlug`-Query um zwei zusätzliche Joins ergänzen: `workLocations` × `locations` und `workCharacters` × `characters`. Beide werden in dieser Runde immer geladen (kein Lazy-Load, kein Suspense-Boundary nötig — Server-Component, ein extra Roundtrip ist akzeptabel).
 - JSX um zwei Sections erweitern parallel zum existierenden Faction-Section-Pattern. Konkrete Form ist Design-Freedom (siehe oben).
-- `raw_name` aus den Junction-Rows ist im Server-Query verfügbar (Migration 0009 fügt die Spalte hinzu). Ob CC sie ans UI durchreicht ist Design-Freedom; falls ja, als optionaler `title`-Attribute auf dem Chip o.ä. — User-sichtbar oder nicht.
+- `raw_name` aus den Junction-Rows bleibt DB-Audit-Trail nach Migration 0009. 067-Korrektur: Die Detailpage selectet `raw_name` bewusst nicht, damit Preview-Routes vor Migration 0009 nicht auf fehlenden Spalten brechen.
 - Keine neuen Routen, keine neuen API-Endpoints, keine Client-State-Erweiterung.
 
 ### `apply-override.ts` Refactor
@@ -156,7 +156,7 @@ Vollständige Frequency-Tabellen mit Cowork-vorgeschlagenen Canonical-IDs siehe 
 - `npm run typecheck` grün.
 - `npm run brain:lint -- --no-write` grün.
 - Resolver-Modul-Tests grün (existierender vitest-Setup nutzen — kein neues Test-Framework hinzufügen).
-- **Detail-Page-Smoke gegen ein 5er-Sample (manuelle Verifikation):** `/buch/xenos`, `/buch/first-and-only`, `/buch/necropolis`, `/buch/nightbringer`, `/buch/the-anarch`. Erwartung: jede Seite zeigt jetzt Faction/Location/Character-Chips mit ≥3 Einträgen je Achse (heute meist 0–1).
+- **Detail-Page-Smoke gegen ein 5er-Sample (manuelle Verifikation):** `/buch/xenos`, `/buch/first-and-only`, `/buch/necropolis`, `/buch/nightbringer`, `/buch/the-anarch`. 067-Dry-Run-Erwartung: xenos 3/3/6, first-and-only 5/6/10, necropolis 7/4/9, nightbringer 7/1/5, the-anarch 9/3/11 (Factions/Locations/Characters).
 - SQL-Counts vor/nach Re-Apply im Impl-Report. Erwartung: work_factions ≥ ~200, work_locations ≥ ~80, work_characters ≥ ~250 nach Re-Apply (vorher heute praktisch nur die hardcoded-Resolver-Treffer).
 
 ## Out of scope
@@ -192,7 +192,7 @@ The session is done when:
 - [ ] **`scripts/seed-resolver-extensions.ts`** angelegt, idempotent, `INSERT … ON CONFLICT DO NOTHING`. Neues package.json-Script `db:seed-resolver-extensions`.
 - [ ] **`scripts/apply-override.ts` refactored**: Inline-Resolver entfernt, Resolver-Modul genutzt. `work_factions.raw_name` und `work_locations.raw_name` werden befüllt. `work_characters` wird jetzt analog zu `work_factions`/`work_locations` geschrieben (delete-then-insert per workId, `rawName` befüllt, Highest-Role-Priority).
 - [ ] **Re-Apply 001..005** durchgeführt (5× `npm run db:apply-override -- --batch=ssot-w40k-00X`). Maintainer-Trigger; CC bereitet das Kommando vor, Maintainer führt aus. SQL-Counts vor + nach im Impl-Report.
-- [ ] **Detail-Page-Smoke** gegen 5 Bücher (xenos, first-and-only, necropolis, nightbringer, the-anarch). Pro Buch im Impl-Report: Chip-Counts pro Achse (Factions / Locations / Characters) nach Re-Apply. Erwartung ≥3 pro Achse je Buch — wenn ein Buch unter dieser Schwelle bleibt, bekommt es eine kurze Begründung („nur 1 Location explizit gesetzt im Override-File, da Storymise enge Indoor-Setzung").
+- [ ] **Detail-Page-Smoke** gegen 5 Bücher (xenos, first-and-only, necropolis, nightbringer, the-anarch). Pro Buch im Impl-Report: Chip-Counts pro Achse (Factions / Locations / Characters) nach Re-Apply. 067-Dry-Run-Korrektur: `nightbringer` bleibt bei 1 Location, weil das Override nur Pavonis enthält; das ist ein Datenbefund, kein Apply-Fehler.
 - [ ] **`npm run lint` + `npm run typecheck` + `npm run test:resolver` + `npm run brain:lint -- --no-write`** grün.
 
 ## Open questions

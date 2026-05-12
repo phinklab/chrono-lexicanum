@@ -1,0 +1,202 @@
+/**
+ * Resolver coverage smoke for the first 50 Authority-layer books.
+ *
+ * Reads manual-overrides-ssot-w40k-001..005 and computes unique resolved
+ * canonical counts per book and axis. This is intentionally observational:
+ * sparse books are reported with below-threshold notes, not padded with
+ * invented entities and not treated as script failures.
+ */
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import process from "node:process";
+
+import {
+  normalizeCharacterRole,
+  resolveCharacter,
+  resolveFaction,
+  resolveLocation,
+} from "../src/lib/resolver";
+
+const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
+const BATCHES = ["001", "002", "003", "004", "005"] as const;
+const SMOKE_SLUGS = [
+  "xenos",
+  "first-and-only",
+  "necropolis",
+  "nightbringer",
+  "the-anarch",
+] as const;
+const SMOKE_THRESHOLD = 3;
+
+interface OverrideEntity {
+  name: string;
+  role: string;
+}
+
+interface OverrideBook {
+  externalBookId: string;
+  slug: string;
+  overrides: {
+    factions: OverrideEntity[];
+    locations: OverrideEntity[];
+    characters: OverrideEntity[];
+  };
+}
+
+interface OverrideFile {
+  books: OverrideBook[];
+}
+
+interface AxisCoverage {
+  resolved: number;
+  input: number;
+  unresolved: string[];
+}
+
+interface BookCoverage {
+  externalBookId: string;
+  slug: string;
+  factions: AxisCoverage;
+  locations: AxisCoverage;
+  characters: AxisCoverage;
+}
+
+function readJson<T>(file: string): T {
+  return JSON.parse(readFileSync(resolve(SEED_DIR, file), "utf8")) as T;
+}
+
+function uniqueResolved(
+  input: OverrideEntity[],
+  resolveOne: (name: string) => { id: string | null },
+): AxisCoverage {
+  const ids = new Set<string>();
+  const unresolved = new Set<string>();
+  for (const entity of input) {
+    const resolved = resolveOne(entity.name);
+    if (resolved.id === null) {
+      unresolved.add(entity.name);
+    } else {
+      ids.add(resolved.id);
+    }
+  }
+  return {
+    resolved: ids.size,
+    input: input.length,
+    unresolved: [...unresolved].sort(),
+  };
+}
+
+function characterCoverage(input: OverrideEntity[]): AxisCoverage {
+  for (const entity of input) {
+    const normalized = normalizeCharacterRole(entity.role);
+    assert.ok(normalized.role !== null, `invalid character role ${entity.role}`);
+  }
+  return uniqueResolved(input, resolveCharacter);
+}
+
+function formatAxis(axis: AxisCoverage): string {
+  return `${axis.resolved}/${axis.input}`;
+}
+
+function pad(value: string, width: number): string {
+  return value.padEnd(width, " ");
+}
+
+const books = BATCHES.flatMap((n) =>
+  readJson<OverrideFile>(`manual-overrides-ssot-w40k-${n}.json`).books,
+);
+
+const coverage: BookCoverage[] = books.map((book) => ({
+  externalBookId: book.externalBookId,
+  slug: book.slug,
+  factions: uniqueResolved(book.overrides.factions, resolveFaction),
+  locations: uniqueResolved(book.overrides.locations, resolveLocation),
+  characters: characterCoverage(book.overrides.characters),
+}));
+
+const bySlug = new Map(coverage.map((row) => [row.slug, row]));
+
+console.log("resolver coverage: manual-overrides-ssot-w40k-001..005");
+console.log(`books: ${coverage.length}`);
+console.log("");
+
+const header = [
+  pad("slug", 22),
+  pad("id", 9),
+  pad("factions", 9),
+  pad("locations", 10),
+  pad("characters", 10),
+  "notes",
+].join("  ");
+console.log(header);
+console.log("-".repeat(header.length));
+
+for (const slug of SMOKE_SLUGS) {
+  const row = bySlug.get(slug);
+  assert.ok(row, `Missing smoke slug ${slug}`);
+
+  const lowAxes = [
+    ["factions", row.factions] as const,
+    ["locations", row.locations] as const,
+    ["characters", row.characters] as const,
+  ]
+    .filter(([, axis]) => axis.resolved < SMOKE_THRESHOLD)
+    .map(([axis, data]) => `${axis}<${SMOKE_THRESHOLD} (${data.resolved})`);
+
+  const notes = lowAxes.length > 0 ? lowAxes.join(", ") : "ok";
+  console.log(
+    [
+      pad(row.slug, 22),
+      pad(row.externalBookId, 9),
+      pad(formatAxis(row.factions), 9),
+      pad(formatAxis(row.locations), 10),
+      pad(formatAxis(row.characters), 10),
+      notes,
+    ].join("  "),
+  );
+}
+
+console.log("");
+
+const totals = coverage.reduce(
+  (acc, row) => ({
+    factionsResolved: acc.factionsResolved + row.factions.resolved,
+    factionInputs: acc.factionInputs + row.factions.input,
+    locationsResolved: acc.locationsResolved + row.locations.resolved,
+    locationInputs: acc.locationInputs + row.locations.input,
+    charactersResolved: acc.charactersResolved + row.characters.resolved,
+    characterInputs: acc.characterInputs + row.characters.input,
+  }),
+  {
+    factionsResolved: 0,
+    factionInputs: 0,
+    locationsResolved: 0,
+    locationInputs: 0,
+    charactersResolved: 0,
+    characterInputs: 0,
+  },
+);
+
+console.log(
+  `totals: factions=${totals.factionsResolved}/${totals.factionInputs}, ` +
+    `locations=${totals.locationsResolved}/${totals.locationInputs}, ` +
+    `characters=${totals.charactersResolved}/${totals.characterInputs}`,
+);
+
+const below = SMOKE_SLUGS.flatMap((slug) => {
+  const row = bySlug.get(slug);
+  if (!row) return [`${slug}: missing`];
+  return [
+    ["factions", row.factions] as const,
+    ["locations", row.locations] as const,
+    ["characters", row.characters] as const,
+  ]
+    .filter(([, axis]) => axis.resolved < SMOKE_THRESHOLD)
+    .map(([axis, data]) => `${slug}.${axis}=${data.resolved}/${data.input}`);
+});
+
+if (below.length > 0) {
+  console.log(`below-threshold smoke axes: ${below.join(", ")}`);
+  console.log("below-threshold rows are data findings, not automatic failures");
+}

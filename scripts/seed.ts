@@ -15,8 +15,8 @@
  *     + junctions + facets + external_links) bundle. The transaction is
  *     belt-and-braces on top of the DB-level CHECK triggers — the helper
  *     pairs `kind: 'book'` with `book_details` regardless of caller order.
- *   • Old characters auto-derivation kept as-is, but our 3-book sanity
- *     fixture has no `characters` arrays, so that branch no-ops.
+ *   • Brief 063/065 resolver data adds canonical in-universe characters via
+ *     `characters.json`; the seed loads that file directly.
  */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -49,7 +49,22 @@ const readJson = <T>(file: string): T =>
   JSON.parse(readFileSync(join(SEED_DIR, file), "utf8")) as T;
 
 interface RawEra { id: string; name: string; start: number; end: number; tone?: string }
-interface RawFaction { id: string; name: string; parent?: string | null; tone?: string }
+type FactionAlignment = "imperium" | "chaos" | "xenos" | "neutral";
+const FACTION_ALIGNMENTS = new Set<FactionAlignment>([
+  "imperium",
+  "chaos",
+  "xenos",
+  "neutral",
+]);
+
+interface RawFaction {
+  id: string;
+  name: string;
+  parent?: string | null;
+  alignment?: string;
+  tone?: string | null;
+  glyph?: string | null;
+}
 interface RawSeries { id: string; name: string; total?: number; note?: string }
 interface RawSector {
   id: string;
@@ -62,12 +77,21 @@ interface RawSector {
 interface RawLocation {
   id: string;
   name: string;
-  sector: string;
-  gx: number;
-  gy: number;
+  sector?: string | null;
+  gx?: number | null;
+  gy?: number | null;
   tags?: string[];
   capital?: boolean;
   warp?: boolean;
+  lexicanumUrl?: string | null;
+}
+
+interface RawCharacter {
+  id: string;
+  name: string;
+  primaryFactionId?: string | null;
+  lexicanumUrl?: string | null;
+  notes?: string | null;
 }
 
 interface RawService {
@@ -190,6 +214,7 @@ const RAW = {
   books: readJson<RawBook[]>("books.json"),
   sectors: readJson<RawSector[]>("sectors.json"),
   locations: readJson<RawLocation[]>("locations.json"),
+  characters: readJson<RawCharacter[]>("characters.json"),
   services: readJson<RawService[]>("services.json"),
   persons: readJson<RawPerson[]>("persons.json"),
   facetCatalog: readJson<RawFacetCatalog>("facet-catalog.json"),
@@ -197,11 +222,22 @@ const RAW = {
 
 // ─── 2. Helpers ──────────────────────────────────────────────────────────────
 
-function inferAlignment(f: RawFaction): "imperium" | "chaos" | "xenos" | "neutral" {
+function inferAlignmentFromTree(f: RawFaction): FactionAlignment {
   if (f.parent === "chaos" || f.id === "chaos") return "chaos";
   if (f.parent === "imperium" || f.id === "imperium") return "imperium";
   if (f.tone === "alien") return "xenos";
   return "neutral";
+}
+
+function normalizeAlignment(f: RawFaction): FactionAlignment {
+  if (!f.alignment) return inferAlignmentFromTree(f);
+  if (f.alignment === "imperial") return "imperium";
+  if (FACTION_ALIGNMENTS.has(f.alignment as FactionAlignment)) {
+    return f.alignment as FactionAlignment;
+  }
+  throw new Error(
+    `Faction ${f.id}: invalid alignment '${f.alignment}'. Expected imperium, chaos, xenos, neutral, or legacy imperial.`,
+  );
 }
 
 // Lookup: build a Set of valid facet_value ids so we can fail loudly when a
@@ -213,11 +249,47 @@ function collectFacetValueIds(catalog: RawFacetCatalog): Set<FacetValueId> {
   return set;
 }
 
+function validateReferenceData(): void {
+  const factionIds = new Set(RAW.factions.map((f) => f.id));
+  const sectorIds = new Set(RAW.sectors.map((s) => s.id));
+  const characterIds = new Set(RAW.characters.map((c) => c.id));
+
+  for (const faction of RAW.factions) {
+    normalizeAlignment(faction);
+    if (faction.parent && !factionIds.has(faction.parent)) {
+      throw new Error(`Faction ${faction.id}: parent '${faction.parent}' not found in factions.json.`);
+    }
+  }
+
+  for (const location of RAW.locations) {
+    if (location.sector && !sectorIds.has(location.sector)) {
+      throw new Error(`Location ${location.id}: sector '${location.sector}' not found in sectors.json.`);
+    }
+  }
+
+  for (const character of RAW.characters) {
+    if (character.primaryFactionId && !factionIds.has(character.primaryFactionId)) {
+      throw new Error(
+        `Character ${character.id}: primaryFactionId '${character.primaryFactionId}' not found in factions.json.`,
+      );
+    }
+  }
+
+  for (const book of RAW.books) {
+    for (const characterId of book.characters ?? []) {
+      if (!characterIds.has(characterId)) {
+        throw new Error(`Book ${book.id}: character '${characterId}' not found in characters.json.`);
+      }
+    }
+  }
+}
+
 // ─── 3. Main ─────────────────────────────────────────────────────────────────
 async function main() {
   console.log(
-    `Loaded: ${RAW.eras.length} eras, ${RAW.factions.length} factions, ${RAW.series.length} series, ${RAW.books.length} books, ${RAW.sectors.length} sectors, ${RAW.locations.length} locations, ${RAW.services.length} services, ${RAW.persons.length} persons, ${RAW.facetCatalog.categories.length} facet categories.`,
+    `Loaded: ${RAW.eras.length} eras, ${RAW.factions.length} factions, ${RAW.series.length} series, ${RAW.books.length} books, ${RAW.sectors.length} sectors, ${RAW.locations.length} locations, ${RAW.characters.length} characters, ${RAW.services.length} services, ${RAW.persons.length} persons, ${RAW.facetCatalog.categories.length} facet categories.`,
   );
+  validateReferenceData();
 
   console.log("Wiping target tables (dev only)...");
   // CASCADE handles all FKs; explicit table list documents what gets nuked.
@@ -251,8 +323,9 @@ async function main() {
       id: f.id,
       name: f.name,
       parentId: null,
-      alignment: inferAlignment(f),
+      alignment: normalizeAlignment(f),
       tone: f.tone ?? null,
+      glyph: f.glyph ?? null,
     })),
   );
   for (const f of RAW.factions) {
@@ -293,29 +366,30 @@ async function main() {
     RAW.locations.map((l) => ({
       id: l.id,
       name: l.name,
-      sectorId: l.sector,
-      gx: l.gx,
-      gy: l.gy,
+      sectorId: l.sector ?? null,
+      gx: l.gx ?? null,
+      gy: l.gy ?? null,
       capital: l.capital ?? false,
       warp: l.warp ?? false,
+      lexicanumUrl: l.lexicanumUrl ?? null,
       tags: l.tags ?? [],
     })),
   );
   console.log(`Inserted ${RAW.locations.length} locations.`);
 
-  // ── Characters: derived from the union of `characters` arrays on books.
-  //    The 3-book Stufe-2a fixture has none, so this typically inserts 0 rows.
-  const charIds = new Set<string>();
-  for (const b of RAW.books) for (const c of b.characters ?? []) charIds.add(c);
-  if (charIds.size > 0) {
+  // ── Characters
+  if (RAW.characters.length > 0) {
     await db.insert(characters).values(
-      [...charIds].map((id) => ({
-        id,
-        name: id.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+      RAW.characters.map((c) => ({
+        id: c.id,
+        name: c.name,
+        primaryFactionId: c.primaryFactionId ?? null,
+        lexicanumUrl: c.lexicanumUrl ?? null,
+        notes: c.notes ?? null,
       })),
     );
   }
-  console.log(`Inserted ${charIds.size} characters.`);
+  console.log(`Inserted ${RAW.characters.length} characters.`);
 
   // ── Services
   await db.insert(services).values(

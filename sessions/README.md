@@ -20,14 +20,12 @@ For format, naming, status lifecycle, and archive rule, see [`brain/wiki/workflo
 
 ## Active threads
 
-Only open / `needs-decision` briefs and the last just-closed session. Cowork updates this list during session-end; older sessions archive to [`archive/YYYY-MM/`](./archive/).
+> **Maintainer-Bedienung in einem Satz:** Branch ist code-seitig 067-apply-ready; Maintainer führt jetzt Migration 0009 + Resolver-Seed + Apply-Sweep `001..005` nach [`docs/resolver-apply-runbook.md`](../docs/resolver-apply-runbook.md) aus. Danach Brief **061** (Loop) wieder pro `/clear`; Brief 061 bleibt bis dahin auf 50er-Pause.
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
-| [2026-05-11-060-arch-ssot-w40k-001-db-apply](./2026-05-11-060-arch-ssot-w40k-001-db-apply.md) | architect | implemented | Erster DB-Apply — `ssot-w40k-001` (10 Bücher) mit Cowork-Override-Authority aus `manual-overrides-ssot-w40k-001.json` statt Haiku-Diff. Phase 3d Showcase-Welle. CC-Sequenz: 059 → 060. |
-| [2026-05-11-060-impl-ssot-w40k-001-db-apply](./2026-05-11-060-impl-ssot-w40k-001-db-apply.md) | implementer | complete | 060-Pendant: `scripts/apply-override.ts` + minimaler `/buch/[slug]`-DB-Render; 10/10 Bücher idempotent in Postgres. |
-| [2026-05-11-059-arch-cc-direct-overrides-w40k-002-005](./2026-05-11-059-arch-cc-direct-overrides-w40k-002-005.md) | architect | open | CC-Direct mit WebSearch produziert vier Override-Files für `ssot-w40k-002..005` (W40K-0011..0050, 40 Bücher). Diff-only; Apply läuft per Brief-060-Skript. Schließt 50-Bücher-Schwelle → Resolver-Brief. Supersedes Brief 059-alt (A/B-Pilot). |
-| [2026-05-11-058-arch-v2-ssot-mode-first-batch](./2026-05-11-058-arch-v2-ssot-mode-first-batch.md) | architect | implemented | V2-Pipeline auf SSOT-Mode umstellen + erster 10er-Batch `ssot-w40k-001` (W40K-0001..W40K-0010) als committed Diff |
-| [2026-05-11-058-impl-v2-ssot-mode-first-batch](./2026-05-11-058-impl-v2-ssot-mode-first-batch.md) | implementer | complete | 058-Pendant: SSOT-Mode in `run-batch.ts`, `ssot-w40k-001` Diff $0.382/10 Bücher |
+| [2026-05-12-067-impl-resolver-apply-readiness](./2026-05-12-067-impl-resolver-apply-readiness.md) | implementer | complete | **Apply-Readiness für 063.** Detailpage ist vor Migration 0009 preview-sicher, Dry-Run `001..005` liefert erwartete Junction-Counts 318/129/363, Runbook liegt in `docs/resolver-apply-runbook.md`. Nächster Schritt ist Maintainer-DB-Apply, nicht weiterer Code. |
+| [2026-05-12-063-arch-resolver-50-books](./2026-05-12-063-arch-resolver-50-books.md) | architect | implemented | **Resolver-Pass nach 50-Bücher-Pause.** Adressiert OQ4 + OQ5. Code gelandet; 067 ergänzt Apply-Readiness und korrigiert die Smoke-Erwartung (`nightbringer` hat nur 1 Location). |
+| [2026-05-11-061-arch-ssot-loop](./2026-05-11-061-arch-ssot-loop.md) | architect | open (standing, paused) | **Standing-Loop, auf 50er-Pause.** Pro `/clear` EIN 10er-Override-Batch. CC erkennt Domain + nächste Nummer via File-Listing, schreibt `manual-overrides-ssot-{w40k\|hh}-NNN.json`, hängt an `sessions/ssot-loop-log.md` an. Stoppt loud bei kumulativ 50/100/150… Büchern → Resolver-Brief. **Aktuell pausiert** bei 50 Büchern; Re-Trigger nach Brief 063 Apply-Sweep. Iterations 002..005 erledigt; nächste Iteration wäre `ssot-w40k-006`. |
 
-For everything else, see [`archive/2026-04/`](archive/2026-04/) and [`archive/2026-05/`](archive/2026-05/). Project-history at the page level lives in [`brain/wiki/project-state.md`](../brain/wiki/project-state.md) "Recently shipped" + [`brain/wiki/log.md`](../brain/wiki/log.md).
+For closed sessions: [`archive/2026-04/`](archive/2026-04/) and [`archive/2026-05/`](archive/2026-05/). Project-history: [`brain/wiki/project-state.md`](../brain/wiki/project-state.md) "Recently shipped" + [`brain/wiki/log.md`](../brain/wiki/log.md).

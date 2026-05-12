@@ -14,6 +14,7 @@ import assert from "node:assert/strict";
 import process from "node:process";
 
 import {
+  normalizeCharacterRole,
   resolveCharacter,
   resolveFaction,
   resolveLocation,
@@ -67,12 +68,16 @@ check("alias — Imperial Guard routes to Astra Militarum", () => {
   assert.equal(r.raw, "Imperial Guard"); // raw preserved verbatim
 });
 
-check("alias — Ordo Xenos routes to Inquisition", () => {
-  assert.equal(resolveFaction("Ordo Xenos").id, "inquisition");
+check("direct match — Ordo Xenos remains a canonical Inquisition sub-faction", () => {
+  assert.equal(resolveFaction("Ordo Xenos").id, "ordo_xenos");
 });
 
-check("alias — Ordo Malleus routes to Inquisition", () => {
-  assert.equal(resolveFaction("Ordo Malleus").id, "inquisition");
+check("direct match — Ordo Malleus remains a canonical Inquisition sub-faction", () => {
+  assert.equal(resolveFaction("Ordo Malleus").id, "ordo_malleus");
+});
+
+check("direct match — Ordo Hereticus remains a canonical Inquisition sub-faction", () => {
+  assert.equal(resolveFaction("Ordo Hereticus").id, "ordo_hereticus");
 });
 
 check("alias — Eldar routes to canonical eldar (Aeldari)", () => {
@@ -127,6 +132,18 @@ check("direct match — existing canonical (Eye of Terror)", () => {
 
 check("direct match — existing canonical (Sabbat Worlds)", () => {
   assert.equal(resolveLocation("Sabbat Worlds").id, "sabbat");
+});
+
+check("direct match — sector-as-location (Scarus Sector)", () => {
+  assert.equal(resolveLocation("Scarus Sector").id, "scarus");
+});
+
+check("direct match — subsector-as-location (Helican Subsector)", () => {
+  assert.equal(resolveLocation("Helican Subsector").id, "helican");
+});
+
+check("alias — Calixis Sector routes to existing Calixis pin", () => {
+  assert.equal(resolveLocation("Calixis Sector").id, "calixis");
 });
 
 check("direct match — new seed (Eustis Majoris)", () => {
@@ -239,6 +256,39 @@ check("character-aliases is empty in this round — no alias-hits expected", () 
   // The shape of the file is `{}` (Brief 063, character-aliases.json).
   // Any name that isn't a direct match must return null, not get aliased.
   assert.equal(resolveCharacter("Inquisitor Eisenhorn").id, null);
+});
+
+// =============================================================================
+// normalizeCharacterRole
+// =============================================================================
+console.log("\nnormalizeCharacterRole");
+
+check("role — pov stays pov", () => {
+  assert.equal(normalizeCharacterRole("pov").role, "pov");
+});
+
+check("role — appears stays appears", () => {
+  assert.equal(normalizeCharacterRole("appears").role, "appears");
+});
+
+check("role — mentioned stays mentioned", () => {
+  assert.equal(normalizeCharacterRole("mentioned").role, "mentioned");
+});
+
+check("role — supporting becomes appears", () => {
+  const normalized = normalizeCharacterRole("supporting");
+  assert.equal(normalized.role, "appears");
+  assert.equal(normalized.changed, true);
+});
+
+check("role — antagonist becomes appears", () => {
+  const normalized = normalizeCharacterRole("antagonist");
+  assert.equal(normalized.role, "appears");
+  assert.equal(normalized.changed, true);
+});
+
+check("role — unexpected values throw before DB insert", () => {
+  assert.throws(() => normalizeCharacterRole("cameo"), /Unsupported character role/);
 });
 
 // =============================================================================
