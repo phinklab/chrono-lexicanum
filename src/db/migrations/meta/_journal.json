@@ -64,6 +64,13 @@
       "when": 1778445255347,
       "tag": "0008_ssot_schema",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1778619403974,
+      "tag": "0009_lucky_pete_wisdom",
+      "breakpoints": true
     }
   ]
 }
