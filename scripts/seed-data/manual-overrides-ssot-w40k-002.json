@@ -1,0 +1,280 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-002",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-12",
+  "model": "claude-opus-4-7",
+  "rationale": "First Loop-Brief-061 iteration: Bequin trilogy book 2 (Penitent) + the nine-novel Ciaphas Cain mainline arc (For the Emperor through The Greater Good). Cluster character: very high training-data + web-coverage density — Ciaphas Cain is one of Black Library's longest-running and best-documented series, and Mitchell's narrative voice (Cain's edited-memoir-with-Vail-footnotes frame) is sufficiently distinctive that surface forms for the recurring cast (Cain, Jurgen, Amberley Vail, Colonel Kasteen, Major Broklaw, Lord General Zyvan) repeat across nine of ten books in this batch. WebSearch usage stayed modest (mean 1.2, max 2; Penitent and The Last Ditch needed a second pass for plot specifics on the King-in-Yellow arc and the Nusquam hive-ship reveal respectively). One roster correction surfaced: W40K-0015 \"Death of Glory\" is a roster typo — canonical title is \"Death or Glory\" (Lexicanum + Black Library + Goodreads + Amazon all agree). data_conflict flag set on field=title with suggestion. No format-conflicts in this batch (all ten are novels per SSOT and per all sources). Tone choice for the Cain books: satirical + action_heavy as primary, grimdark dropped for eight of nine (kept only on Cain's Last Stand which is darker than the rest); this departs from the Eisenhorn-batch default of grimdark-everywhere because the Cain frame is deliberately comic-grim, not grim-grim. Inquisition consistency held: every Cain book lists Inquisition+Ordo-Xenos (Amberley Vail as supporting or framing) per the brief's constraint. Surface-form treue: \"Imperial Guard\" used over \"Astra Militarum\" (publication-era language for 2003–2013 BL stock), \"Tau Empire\" over \"T'au\" (pre-9th-edition spelling).",
+  "books": [
+    {
+      "externalBookId": "W40K-0011",
+      "slug": "penitent",
+      "overrides": {
+        "synopsis": "Beta Bequin goes deeper into the labyrinth of Queen Mab on Sancour, working undercover alongside Gregor Eisenhorn among the city's elite occult-dabblers in pursuit of someone who can decipher the proscribed grimoire she recovered in Pariah. The hunt turns violent fast: a graal — one of the energy-assassins dispatched by the figure called the King in Yellow — attacks a channeling performance. Eisenhorn's small band and Gideon Ravenor's parallel cell, now sworn enemies inside the radical wing of the Inquisition, end up chasing the same shadow at cross purposes, both menaced by the Cognitae, the heretical academy that trained Beta to be a counterfeit Bequin. By the end Beta has chosen which Inquisitor she follows and the King in Yellow's identity has begun to slip toward the page; what is on the page turns out to be much larger than the Bequin arc that started it.",
+        "facetIds": ["book", "female", "civilian", "imperium", "planetary", "mid_series", "standard", "mystery", "political_thriller", "grimdark", "philosophical", "somber", "betrayal", "hubris", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "primary" },
+          { "name": "Cognitae", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sancour", "role": "primary" },
+          { "name": "Queen Mab", "role": "primary" },
+          { "name": "Scarus Sector", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Beta Bequin", "role": "pov" },
+          { "name": "Gregor Eisenhorn", "role": "supporting" },
+          { "name": "Gideon Ravenor", "role": "supporting" },
+          { "name": "Cherubael", "role": "supporting" },
+          { "name": "Renner Lightburn", "role": "supporting" },
+          { "name": "King in Yellow", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0012",
+      "slug": "for-the-emperor",
+      "overrides": {
+        "synopsis": "Commissar Ciaphas Cain takes charge of the freshly-merged Valhallan 597th — a fractious blend of the all-male 296th and all-female 301st — and is shipped to Gravalax, an Imperial mining world on the Tau border where civil unrest is threatening to drag both powers into open war. Cain juggles diplomatic duty alongside Inquisitor Amberley Vail, suppresses food riots in the capital, and survives an early assassination attempt on the Tau ambassador whose architects turn out to be neither Tau nor Imperial. Beneath the diplomatic theatre crawls a deeper conspiracy — a genestealer cult engineering the war from the shadows — and Cain spends the novel trying very hard to be somewhere else while accidentally averting an interstellar incident. The book opens Cain's series and presents itself as the first volume of his memoirs, edited and footnoted by Vail.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "series_start", "standard", "war_story", "political_thriller", "mystery", "satirical", "action_heavy", "loyalty", "doubt", "hubris", "cw_violence", "cw_death", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Ordo Xenos", "role": "supporting" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "Genestealer Cults", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Gravalax", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Amberley Vail", "role": "supporting" },
+          { "name": "Regina Kasteen", "role": "supporting" },
+          { "name": "Ruput Broklaw", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0013",
+      "slug": "caves-of-ice",
+      "overrides": {
+        "synopsis": "The 597th deploys to the ice world Simia Orichalcae to defend a vital promethium refinery from an Ork warband already on the surface. Cain — always looking for an excuse to be anywhere but the front — proposes leading the search for missing miners in the subterranean ice caves below the refinery and instead stumbles onto a sealed Necron tomb beneath the permafrost. The novel braids two grinding frontlines: the surface war with the Orks pressing the refinery, and the underground horror waking below as the Necron Lord stirs to expel the new intruders. Cain manages, more or less by accident, to be in command at both. By the end the Orks are broken, the tomb is resealed at survivor cost, and the official record blandly congratulates the 597th's commissar for the kind of personal heroism Cain spends the rest of his life denying.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "standard", "war_story", "mystery", "satirical", "action_heavy", "loyalty", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Simia Orichalcae", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Amberley Vail", "role": "supporting" },
+          { "name": "Regina Kasteen", "role": "supporting" },
+          { "name": "Ruput Broklaw", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0014",
+      "slug": "the-traitors-hand",
+      "overrides": {
+        "synopsis": "Cain and the Valhallan 597th deploy to Adumbria — a tidally-locked world whose narrow terminator-zone is the Imperium's defensive line against an incoming Chaos raiding fleet — and find themselves brigaded with the Tallarn 229th, whose regimental commissar is Cain's old Schola Progenium rival Tomas Beije. The defence holds against the obvious threat from orbit; the real threat is internal, a Slaaneshi cult deep inside the planetary government working to crack a warp portal to bring something much worse than raiders through. Cain navigates Beije's petty sabotage, sweats out the narcotic-perfume of Slaanesh he last met on Slawkenberg, and ends the campaign by foiling both the cult and Beije's career in a single very uncomfortable afternoon. The novel is the third Cain memoir and one of the series' more openly comic entries.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "standard", "war_story", "siege", "political_thriller", "satirical", "action_heavy", "loyalty", "betrayal", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Slaanesh", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Adumbria", "role": "primary" },
+          { "name": "Slawkenberg", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Tomas Beije", "role": "antagonist" },
+          { "name": "Amberley Vail", "role": "supporting" },
+          { "name": "Regina Kasteen", "role": "supporting" },
+          { "name": "Ruput Broklaw", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0015",
+      "slug": "death-or-glory",
+      "overrides": {
+        "synopsis": "Chronologically the earliest Cain story in Amberley Vail's archive: a much younger Cain, en route to the agri-world Perlia under attack by Orks, is forced into an escape pod with his aide Jurgen when his troop transport is gutted in orbit. They crash-land far behind the enemy line. With charm, bluff, and a quantity of luck that even Cain finds embarrassing, he gathers a swelling band of refugees, escaped prisoners and stranded Imperial Guard stragglers, and builds a guerilla resistance across the Perlian wastes against the Ork host of Warboss Gargash Korbul. The novel ends with the duel Cain has been trying to avoid for four hundred pages, Korbul dead at his feet, and the planet-wide hero-reputation that will follow Cain for the rest of his career permanently affixed.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "standalone", "standard", "war_story", "journey", "last_stand", "satirical", "action_heavy", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Perlia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Amberley Vail", "role": "supporting" },
+          { "name": "Gargash Korbul", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0016",
+      "slug": "duty-calls",
+      "overrides": {
+        "synopsis": "The 597th rejoins Lord General Zyvan's task force on Periremunda just in time to find the world simultaneously menaced by a Tyranid splinter fleet, an emerging Chaos cult, and a hidden genestealer infestation that has already replaced parts of the planetary administration. Cain narrowly survives an early assassination attempt and is unsurprised to find Amberley Vail in town with her own priority: recovering a xenos artefact whose history brushes uncomfortably close to Cain's earliest service record. The novel braids three escalating threats and a slow Inquisitorial reveal that the genestealer hybrids predate this campaign by a generation. Periremunda holds, but only just, and Cain spends the close of the book trying to stay close enough to Vail to survive it. The fifth Cain memoir and the opener of the loose 'Shadowlight' arc that closes in Cain's Last Stand.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "standard", "war_story", "mystery", "political_thriller", "satirical", "action_heavy", "loyalty", "doubt", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Ordo Xenos", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Genestealer Cults", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Periremunda", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Amberley Vail", "role": "supporting" },
+          { "name": "Zyvan", "role": "supporting" },
+          { "name": "Regina Kasteen", "role": "supporting" },
+          { "name": "Ruput Broklaw", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0017",
+      "slug": "cains-last-stand",
+      "overrides": {
+        "synopsis": "Cain is in his semi-retirement on Perlia, teaching commissar cadets at the Schola Progenium on the world where his name became a banner eighty years earlier. When Abaddon's 13th Black Crusade spills out of the Eye of Terror, a splinter under Warmaster Varan splits off and lands on Perlia with a specific target: the Shadowlight, a xenos artefact the Adeptus Mechanicus and the Ordos have been quietly studying in the Valley of Daemons. Cain — old, with no command except his handful of cadets and the loyally-stinking Jurgen — defends the planet through a planetary siege he has spent the last decade dreading. Amberley Vail appears, the Shadowlight does what Varan was always going to make it do, and Cain ends the book alive, very tired, and once again credited with a victory he did not plan. The sixth and tonally darkest of the early Cain memoirs.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "sector", "mid_series", "standard", "war_story", "siege", "last_stand", "satirical", "action_heavy", "grimdark", "loyalty", "sacrifice", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Ordo Xenos", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Black Legion", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Perlia", "role": "primary" },
+          { "name": "Valley of Daemons", "role": "primary" },
+          { "name": "Eye of Terror", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Amberley Vail", "role": "supporting" },
+          { "name": "Varan", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0018",
+      "slug": "the-emperors-finest",
+      "overrides": {
+        "synopsis": "Fresh out of a near-fatal scrape with a Necron tomb world, Cain is seconded to the Reclaimers — an archaeotech-obsessed Space Marine chapter — as Commissariat liaison while they sail to Viridia to suppress a noble-led civil war. The unrest turns out to be a genestealer cult and the Reclaimers' next mission is tracking down the space hulk that brought it. The boarding action goes badly: most of the Marines are devoured by the awakening Tyranid presence inside the hulk, and Cain is left to navigate its lightless corridors with Jurgen, a stowaway band of Orks, and the Viridian Governor's spoiled, infatuated daughter Mira. The novel is the first time Cain serves alongside Astartes for a sustained stretch, and he is — predictably — unimpressed and grateful to make it home. The seventh Cain memoir.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "standard", "war_story", "journey", "satirical", "action_heavy", "loyalty", "doubt", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Space Marines", "role": "supporting" },
+          { "name": "Reclaimers", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Genestealer Cults", "role": "antagonist" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Viridia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Amberley Vail", "role": "supporting" },
+          { "name": "Mira Sulla", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0019",
+      "slug": "the-last-ditch",
+      "overrides": {
+        "synopsis": "Cain and the 597th return to the frozen world of Nusquam Fundumentibus to break an Ork campaign that has already bled three Guard regiments before them. A daemon-possessed servitor wrecks their ship's bridge in transit; the controlled crash that follows hammers a wide crater into the permafrost and disturbs something far worse than Orks. Beneath the ice has lain a Tyranid hive ship dormant for some seven thousand years — older than Imperial presence on the world, older than the comet-strike folklore that supposedly formed the local geology. The remainder of the campaign becomes a three-way war with the slowly waking hive at its centre, and the closing chapters force Cain to confront the strategic implication: if Nusquam's hive predates first contact with the Tyranids by a millennium, the galaxy is far more infested than the Magos Biologis has ever admitted. The eighth Cain memoir.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "standard", "war_story", "siege", "mystery", "satirical", "action_heavy", "loyalty", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Chaos", "role": "background" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Nusquam Fundumentibus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Amberley Vail", "role": "supporting" },
+          { "name": "Regina Kasteen", "role": "supporting" },
+          { "name": "Ruput Broklaw", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0020",
+      "slug": "the-greater-good",
+      "overrides": {
+        "synopsis": "Cain and the 597th deploy to Quadravidia to break a Tau invasion on the marches of the Damocles Gulf; when the Tau abruptly sue for ceasefire under threat from an incoming Tyranid hive fleet, Cain is reluctantly drafted to forge a temporary Imperium-Tau alliance against the Great Devourer. Negotiations put him face-to-face with Tau Water Caste diplomats, an Earth Caste secret experiment that may itself be drawing the hive fleet's attention, and the usual Imperial paranoia that the Tau are the worse of two threats. Amberley Vail's parallel investigation uncovers a Tech-priest project that could end the campaign in either side's favour or destroy all three combatants. The book closes with an unstable peace, no clean victories, and Cain mildly relieved to be a regular Guard officer again. The ninth Cain memoir.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "sector", "mid_series", "standard", "war_story", "political_thriller", "satirical", "action_heavy", "loyalty", "doubt", "betrayal", "cw_violence", "cw_death", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Quadravidia", "role": "primary" },
+          { "name": "Damocles Gulf", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Amberley Vail", "role": "supporting" },
+          { "name": "Regina Kasteen", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
