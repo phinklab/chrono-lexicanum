@@ -57,7 +57,7 @@ Das Buch-Domain-Bild ist jetzt im SSOT-Authority-Modus: **50 W40K-Bücher** (`ss
 
 ## Branch
 
-Active branch while this cleanup ran: `session-063-resolver-50-books` (ahead of `origin/session-063-resolver-50-books` by local cleanup/Brain commits until pushed). `main` is at the 061 loop state through `ssot-w40k-005`; resolver commits 063–069 live on the resolver branch and are intended to merge before the next batch resumes.
+Active branch while this cleanup ran: `session-063-resolver-50-books`, synced with `origin/session-063-resolver-50-books` after push. After the 2026-05-13 fetch, `origin/main` already contains the resolver code as patch-equivalent commits through 069; the remaining branch-only material is Brain/session hygiene (this Ingest, the 058/060 archive sweep, the 059 archive note, and the missing 061/062 briefs). Land that hygiene on `main` before resuming `ssot-w40k-006`, so the next loop starts from the same narrative state as the code.
 
 ## What's running
 
@@ -99,7 +99,7 @@ V2-Pilot-Acceptance-Numbers aus `ingest/.archive/v2-pilot/v2-pilot-20260509-1934
 
 Top items from [`./open-questions.md`](./open-questions.md), neu sortiert post-069:
 
-- **Resume Brief 061 with `ssot-w40k-006`.** Resolver/Apply blocker ist weg; nächster Batch kann nach Merge/Push des Resolver-Branches und sauberem Worktree weiterlaufen.
+- **Resume Brief 061 with `ssot-w40k-006`.** Resolver/Apply blocker ist weg; nächster Batch kann weiterlaufen, sobald die verbliebene Brain-/Session-Hygiene auf `main` gelandet ist und der Worktree sauber ist.
 - **Phase-3e-Modell-Entscheidung** (OQ1). Haiku bleiben vs. Sonnet-Upgrade. 055-Empirie (Web-Search 1.06/Buch, Hochrechnung Haiku-Voll-Lauf ~$15 für 750 Bücher) verschiebt das Trade-off massiv Richtung Haiku.
 - **Vokabular-Erweiterung** (OQ2). `duty` (5+ Verstöße kumulativ), `legion`-Faceten-Dimension, `chaos`-pov_side-Pattern.
 - **Hand-Check-Workflow + Override-Schema** (OQ3). V2's `FieldRecord.override` und die 061-Override-Loop liefern den passenden Slot; Cowork muss noch die längerfristige Triage-Disziplin festziehen.
@@ -134,7 +134,7 @@ For older sessions and the full chronological log: [`../raw/historical/sessions-
 
 Sequenz post-069:
 
-- **Clean merge / push resolver branch.** `session-063-resolver-50-books` enthält den apply-verifizierten Resolver-Stand; vor nächstem Batch sollte der Worktree sauber und der Branch synchronisiert sein.
+- **Land remaining Brain/session hygiene.** `origin/main` hat den Resolver-Code bereits patch-äquivalent; `session-063-resolver-50-books` trägt noch die Session-Archivierung und den Brain-Ingest. Vor dem nächsten Batch diese Reste nach `main` bringen und den Worktree sauber halten.
 - **Resume Brief 061 mit `ssot-w40k-006`.** 50er-Resolver-Pause ist erledigt. Die nächste Loop-Session erzeugt den nächsten 10er-Override und stoppt wieder für Review.
 - **Cross-Batch-Collection-Resolution-Mini-Brief.** Sobald die Omnibus-Refs über Batch-Grenzen UX-relevant werden, `applyCollections` um `external_book_id → works.id` über alle applied works erweitern.
 - **DetailPanel "Auch enthalten in:"-Mini-Brief.** Backend-bereit; Frontend-Query gegen `work_collections WHERE content_work_id = ?`.

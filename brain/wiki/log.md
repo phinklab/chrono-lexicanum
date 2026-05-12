@@ -326,4 +326,11 @@ CC-Implementation des Excel-SSOT-Imports + neue Decision-Page für den Discovery
 - Session hygiene in same cleanup pass: archived 058/060 session logs, added 059 archive note, committed missing 061/062 architect briefs.
 - Other: local Git `core.autocrlf=false` set for this repo to avoid Windows LF/CRLF churn; local/generated artefacts moved to `.scratch/cleanup-2026-05-13/` outside Git.
 
+## 2026-05-13 · Update · Resolver branch/main alignment
+
+- Read: current Git comparison `origin/main..session-063-resolver-50-books` after fetch, plus the existing post-069 Brain Ingest.
+- Updated wiki: project-state.md (Branch / What's open / Next likely brief wording), pipeline-state.md (next-axis wording).
+- New decision: (none)
+- Other: `origin/main` already has the resolver code as patch-equivalent commits; the resolver branch now carries only Brain/session hygiene that should land before `ssot-w40k-006` resumes.
+
 (Future entries go below as new `## YYYY-MM-DD · <Op-type> · <short-title>` sections.)
