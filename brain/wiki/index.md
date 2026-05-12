@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-05-10
+updated: 2026-05-13
 sources: []
 related:
   - ../CLAUDE.md
@@ -21,13 +21,13 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-057: Excel-SSOT-Pivot vollzogen, Migration `0008` committed-but-NOT-applied, Maintainer-Trigger ausstehend, Brief 058 queued. | 2026-05-10 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-057: OQ7 (Master-Liste) closed durch Excel-SSOT, OQ8 (V2-Batch-Selektor) verschoben in Brief 058. OQ4/5 (Resolver/Unresolved-Queue) bleiben verschoben hinter ersten 30–50 prozessierten Bücher. OQ1 (Modell-Frage) abgeschwächt — Haiku-Cost-Argument erdrückend. | 2026-05-10 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-069: first 50 W40K books applied, resolver layer applied/verified, next batch is `ssot-w40k-006`. | 2026-05-13 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-069: OQ4/OQ5 closed for the first 50 W40K books; remaining queue is model/vocabulary/hand-check/rating plus SSOT-loop continuation. | 2026-05-13 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-054: ergänzt um Anthologie-Re-Test (closed) + Lexicarum-Body-Lore-Pass (closed). | 2026-05-09 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 (21 modules, post-047 hardened) + V2 (Discovery-Spine + Validators + Slim-LLM + Provenance-pro-Feld + Pilot+Batch-Modi post-055 + Pre-Roster-Fixes post-056) + Excel-SSOT-Layer (post-057, ersetzt Discovery-Stage 0 ab Brief 058). Latest acceptance numbers, what's next on the pipeline axis. | 2026-05-10 |
+| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-069: `ssot-w40k-001..005` applied, resolver counts verified, next axis is `ssot-w40k-006` plus cross-batch collections. | 2026-05-13 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals heute, 859 SSOT-Roster ab 058, ~$0.114/book V1 / $0.0199/Buch V2 fresh-Smoke). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
 
 ## Decision pages (ADRs with revisit-triggers)
@@ -61,8 +61,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Description | Updated |
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-10 |
-| (this file) | Master catalog | 2026-05-10 |
+| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-13 |
+| (this file) | Master catalog | 2026-05-13 |
 
 ## Concept pages
 

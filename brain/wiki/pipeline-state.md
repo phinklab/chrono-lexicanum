@@ -2,7 +2,7 @@
 title: Pipeline state (Phase 3)
 type: overview
 created: 2026-05-09
-updated: 2026-05-10
+updated: 2026-05-13
 sources:
   - ../../src/lib/ingestion/
   - ../../sessions/archive/2026-05/2026-05-08-047-arch-pipeline-hardening.md
@@ -19,6 +19,15 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-10-056-impl-v2-pre-roster-fixes.md
   - ../../sessions/archive/2026-05/2026-05-10-057-arch-excel-roster-import.md
   - ../../sessions/archive/2026-05/2026-05-10-057-impl-excel-ssot-import.md
+  - ../../sessions/archive/2026-05/2026-05-11-058-arch-v2-ssot-mode-first-batch.md
+  - ../../sessions/archive/2026-05/2026-05-11-058-impl-v2-ssot-mode-first-batch.md
+  - ../../sessions/archive/2026-05/2026-05-11-060-arch-ssot-w40k-001-db-apply.md
+  - ../../sessions/archive/2026-05/2026-05-11-060-impl-ssot-w40k-001-db-apply.md
+  - ../../sessions/2026-05-11-061-arch-ssot-loop.md
+  - ../../sessions/2026-05-12-063-arch-resolver-50-books.md
+  - ../../sessions/2026-05-12-063-impl-resolver-50-books.md
+  - ../../sessions/2026-05-12-067-impl-resolver-apply-readiness.md
+  - ../../sessions/2026-05-12-069-impl-resolver-apply-evidence.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
   - ../../ingest/.archive/v1/backfill-20260508-2101.diff.json
   - ../../ingest/.archive/v2-pilot/v2-pilot-20260509-1934.diff.json
@@ -30,6 +39,10 @@ sources:
   - ../../scripts/db-reset-for-ssot.ts
   - ../../scripts/seed-data/book-roster.json
   - ../../src/db/migrations/0008_ssot_schema.sql
+  - ../../src/db/migrations/0009_lucky_pete_wisdom.sql
+  - ../../src/lib/resolver/index.ts
+  - ../../scripts/apply-override.ts
+  - ../../docs/resolver-apply-runbook.md
 related:
   - ./project-state.md
   - ./architecture.md
@@ -41,11 +54,11 @@ related:
 confidence: high
 ---
 
-# Pipeline state (Phase 3, post-057)
+# Pipeline state (Phase 3, post-069)
 
 > The TypeScript ingestion pipeline as it stands today. Sources, modules, current numbers, levers pulled, what's next. Detail-level page; for the high-level "where are we" use [`./project-state.md`](./project-state.md).
 >
-> **Two parallel paths since 054.** V1 (multi-source-merge + LLM-two-pass, post-047 hardened) und V2 (Discovery-Spine + Validators + Slim-LLM + Provenance-pro-Feld + Pilot+Batch-Modi nach 055; Pre-Roster-Fixes nach 056). V1 bleibt Default-Flag-Form (`npm run ingest:backfill -- --slug X --dry-run`); V2 explizit per `--pipeline=v2 --pilot=v2-tryout-1` oder `--pipeline=v2 --batch=v2-tryout-2 --limit=N`. **Post-057 Excel-SSOT-Pivot** (siehe [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md)): Discovery-Stage 0 wird in der nächsten Iteration (Brief 058) durch eine Maintainer-kuratierte Excel-SSOT ersetzt; der Loader (`scripts/import-ssot-roster.ts`) produziert deterministisch `scripts/seed-data/book-roster.json` (859 Bücher + 191 Collections). Pipeline-Refactor zur SSOT-Konsumtion ist Brief 058. Die V2-Resolver-Frage (OQ4 + OQ5) bleibt offen — wird empirisch in den 10er-Batches gefüttert (Briefs 058+).
+> **Two paths since 054, but SSOT is the active authority path.** V1 remains for reproducibility of old diffs. V2 now has SSOT mode from 058 (`book-roster.json` instead of Wikipedia/TLBranson discovery), a curated override/apply path from 060/061, and a resolver layer from 063–069. OQ4/OQ5 are closed for the first 50 W40K books: canonical Reference rows + Alias JSONs + `raw_name` audit + re-apply `ssot-w40k-001..005` are in place.
 
 ## Architecture
 
@@ -269,7 +282,7 @@ Discovery-Stage-Replacement (siehe [`./decisions/why-excel-ssot-not-crawl.md`](.
 - **`RESTART IDENTITY` weggelassen** im Truncate (UUIDs only, keine Sequenzen).
 - **`seed.ts` TRUNCATE-Liste defensiv um `work_collections` erweitert** (eine Zeile, falls jemand post-SSOT seedet).
 
-### Schema-Migration `0008_ssot_schema.sql` (committed, NOT applied)
+### Schema-Migrations `0008` + `0009` (applied)
 
 ```
 ALTER TYPE book_format ADD VALUE 'collection';
@@ -318,6 +331,19 @@ Total mit Doppel-Zählung-Korrektur: 772 + 3 + 62 + 23 − 1 = 859. ✓
 
 Maintainer editiert die Excel extern (LLM-assistierter Workflow), committet die neue Version unter `scripts/seed-data/source/Warhammer_Books_SSOT.xlsx`, läuft `npm run import:ssot-roster`, committet die frische `book-roster.json`. Re-Run-Stabilität (SHA256) sorgt dafür, dass identisches Excel = byte-identische JSON.
 
+### Resolver layer (post-063 through 069)
+
+The first 50 W40K authority books (`ssot-w40k-001..005`) now have a concrete resolver/apply layer:
+
+- `src/lib/resolver/index.ts` resolves Factions, Locations, Characters via direct name + alias JSONs; `src/lib/resolver/roles.ts` normalizes roles before DB writes.
+- `scripts/seed-data/faction-aliases.json`, `location-aliases.json`, `character-aliases.json`, `characters.json`, plus extended `factions.json`, `locations.json`, `sectors.json` are the checked-in resolver sidecars.
+- `src/db/migrations/0009_lucky_pete_wisdom.sql` made `locations.gx/gy` nullable and added `raw_name` audit columns to all three work junctions.
+- `scripts/seed-resolver-extensions.ts` seeds resolver reference rows idempotently with loud preflight validation; 069 seeded +23 Factions, +3 Sectors, +40 Locations, +65 Characters.
+- `scripts/apply-override.ts` writes `work_factions`, `work_locations`, and `work_characters`; 069 re-applied `ssot-w40k-001..005` and verified `work_factions=318`, `work_locations=129`, `work_characters=363`.
+- Safety tests: `test:resolver`, `test:resolver-data`, `test:resolver-coverage`, `test:apply-override-dry`. Runbook: `docs/resolver-apply-runbook.md`.
+
+Known caveat: `nightbringer` has 1/1 resolved Location because the override only supplies Pavonis; this is accepted data truth, not a resolver failure.
+
 ### Bekannte Schwächen / Out-of-scope
 
 - **`read-excel-file` 9.0.9 Library-Bug** (`parseString` crasht ohne `{ trim: false }` auf bestimmten leeren String-Cells). Workaround in einem Argument; upstream-Issue noch nicht aufgemacht. Low priority.
@@ -331,17 +357,18 @@ In rough order:
 
 1. ✅ **Brief 055 — V2 Voll-Lauf Decision Gate** — geliefert mit zwei Pre-Lauf-Fixes (`genericityScore` + Web-Search-Prompt-Härtung) und 50-Bücher-Diff (Live-Lauf hat den TaskStop-Halt überlebt, real source claims).
 2. ✅ **Brief 056 — V2 Pre-Roster Fixes** — per-page Lexicanum-Cache (24h TTL + negative caching, ~5000× Speedup auf Cache-Hits), per-book Diff-Checkpointing in `run-batch.ts` (mid-run-Halt verliert State nicht mehr), Cost-Recompute auf Cache-Hits ($0.0352/Buch live verifiziert vs. pre-056 $0/Buch), 9-Datei-Diff-Archivierung nach `ingest/.archive/{v1,v2-pilot,v2-batch}/`.
-3. ✅ **Brief 057 — Excel-SSOT-Import** — Schema-Migration `0008_ssot_schema.sql` (4 atomare Adds: bookFormat-Enum +3, sourceKind +1, `works.external_book_id` UNIQUE, `bookDetails.notes`, `work_collections`-Junction), Truncate-Skript `db-reset-for-ssot.ts`, Loader `import-ssot-roster.ts` produziert deterministisch `book-roster.json` (859 Bücher + 191 Collections). Migration-Apply + Truncate-Smoke deferred zu Maintainer-Trigger. ADR: [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md).
-4. **Brief 058 (queued) — V2-Pipeline-Refactor + erster 10er-Batch.** SSOT-Mode (`--source=ssot --offset=N --limit=M`) liest aus `book-roster.json` direkt; Discovery-Stage 0 (Wikipedia + TLBranson) im SSOT-Modus übersprungen. Stage-1-Validators trimmen (`year_outlier` raus weil Year-fix; `author_editor_suspicion` raus oder umbauen weil Format/`editorialNote`/`editors` aus Excel kommen). Stage-3-LLM-Tool-Schema schrumpfen (Author/Year/Format/Title raus aus LLM-Output; nur weiche Felder bleiben). Erster 10er-Batch in derselben Session als committed Diff für Maintainer-Review.
-5. **Briefs 059+ (queued)** — fortlaufende 10er-Batches, Maintainer-Review zwischen den Briefs. Mini-Briefs zwischendrin: Vokabular-Erweiterung (OQ2), Validator-Tuning, Excel-Re-Imports.
+3. ✅ **Brief 057 — Excel-SSOT-Import** — Schema-Migration `0008_ssot_schema.sql`, Truncate-Skript, Loader, deterministic `book-roster.json` (859 Bücher + 191 Collections). ADR: [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md).
+4. ✅ **Brief 058 — V2-Pipeline-Refactor + erster 10er-Batch.** SSOT-Mode liest aus `book-roster.json`; erster Batch `ssot-w40k-001` wurde erzeugt.
+5. ✅ **Brief 060/061 — Authority-Layer first 50.** `ssot-w40k-001..005` wurden in Postgres applied; Brief 061 pausierte planmäßig bei der 50er-Resolver-Schwelle.
 6. **Phase-3e Modell-Entscheidung** ([open-question 1](./open-questions.md)). Post-055/056-V2-Batch zeigt Haiku-Cost weiter nach unten ($0.0199/Buch fresh-Smoke → $0.0352/Buch im warm-cache 2-Buch-Smoke). Hochrechnung 750-Bücher-V2-Voll-Lauf ≈ $15–26. Sonnet-Vergleich heute überflüssig — Cost-Argument für Haiku ist erdrückend.
 7. **Vokabular-Erweiterung** ([open-question 2](./open-questions.md)). `duty` (clear promotion candidate), `legion` faceten-dimension (design call), `chaos`-pov_side prompt-härtung.
 8. **Hand-Check + Override-Schema** ([open-question 3](./open-questions.md)). V2's `FieldRecord.override`-Slot ist die natürliche Heimat.
-9. **Resolver-Brief** (OQ4 + OQ5) — nach 30–50 real-prozessierten Büchern aus den 10er-Batches.
-10. **Brief 3d-Apply-Step.** Mit Resolver scharf, Migrations `0007` + `0008` angewandt, FK-Resolution für alle Junctions inkl. `external_book_id` als Trace-Anchor.
-11. **3e Voll-Apply** (alle 859 Bücher in DB). Die Validatoren feuern, Cowork triagiert die Queue, Apply schreibt Deltas.
-12. **Refresh-Layer für volatile Felder.** Rating + Availability + Cover-URL — separater `rating_snapshots`/`availability_snapshots`-Pfad mit eigener Cadence (weekly/monthly), nicht im Bulk-Crawl.
-13. **3f Maintenance-Crawler.** GH-Action monthly Wikipedia/TLBranson-Diff für new releases — *post-SSOT* nur noch als Vorschlags-Quelle, die Maintainer in die Excel einarbeitet (nicht direkt schreibend).
+9. ✅ **Resolver-Brief** (OQ4 + OQ5) — implemented/applied for the first 50 W40K books in 063–069.
+10. **Resume Brief 061 with `ssot-w40k-006`.** Continue the 10er override/apply loop after resolver branch merge/push.
+11. **Cross-Batch-Collection-Resolution.** `applyCollections` is still intra-batch; cross-batch omnibus references need a mini-brief.
+12. **3e Voll-Apply** (alle 859 Bücher in DB) once the 10er-loop has enough confidence, with resolver maintenance every 50-book threshold.
+13. **Refresh-Layer für volatile Felder.** Rating + Availability + Cover-URL — separater `rating_snapshots`/`availability_snapshots`-Pfad mit eigener Cadence (weekly/monthly), nicht im Bulk-Crawl.
+14. **3f Maintenance-Crawler.** GH-Action monthly Wikipedia/TLBranson-Diff für new releases — *post-SSOT* nur noch als Vorschlags-Quelle, die Maintainer in die Excel einarbeitet (nicht direkt schreibend).
 
 ## Sub-phase backlog (concrete to-dos)
 
@@ -349,11 +376,10 @@ Lifted from the original open-questions item 9 during 051 (Brain Slim Pass). Eac
 
 **3d (Apply-Step) backlog:**
 
-- Author-FK-Resolution für `work_persons`-Junction inkl. Auto-Create-on-New-Person. **Post-057-Update:** `editorialNote === "various"` darf KEINE Pseudo-Person `Various Authors` erzeugen; `editors[]` (heute leer) braucht denselben Resolver-Pfad wie `authors[]`, nur mit `work_persons.role = "editor"`.
+- ✅ Author-FK-Resolution für `work_persons`-Junction inkl. Auto-Create-on-New-Person (062). `editorialNote === "various"` erzeugt keine Pseudo-Person `Various Authors`.
 - FK-Resolution für `work_facets`-Junction aus den 3c LLM-`facetIds` (jetzt unter V2 als `BookV2Record.fields.facetIds`).
-- **Junction-Resolver für `work_factions` / `work_locations` / `work_characters`** — neu post-054. Surface-Form (V2 LLM-Output) → Canonical-ID via Alias-Tabelle + Hierarchie-Rollup + Raw-Name-Audit. Codex-geschärft, siehe [open-question 4](./open-questions.md) + [open-question 5](./open-questions.md).
-- ALTER TYPE für `sourceKind`-DB-Enum (`open_library`, `hardcover`, `llm`) — Migration 0007 ready, committed-but-not-applied. (Optional V2-Werte `tlbranson` ergänzen, falls 055 die als eigenständigen primarySource klassifiziert.)
-- **Migration `0008_ssot_schema.sql` apply** — committed-but-not-applied (siehe SSOT-Layer-Sektion oben). Maintainer-Trigger; Verifikations-Outputs (`\d+ work_collections`, `enum_range`-Outputs, `\d works`) sollten in Brief 058 oder einem separaten Maintainer-Append zu 057-impl wandern.
+- ✅ **Junction-Resolver für `work_factions` / `work_locations` / `work_characters`** — closed for first 50 W40K books in 063–069. Surface-Form → Canonical-ID via sidecar JSONs; `raw_name` audit is in DB.
+- ✅ ALTER TYPE / SSOT schema applies through `0009` are applied in prod per 069.
 - **`work_collections`-Junction-Population** aus dem 058+ V2-Diff: Pipeline-Konsumtion der `book-roster.json.collections[]`-Refs in eine echte Junction-Insert-Reihe. Mapping `external_book_id → works.id` via `external_book_id`-UNIQUE-Lookup; `displayOrder`/`confidence`/`basis` direkt aus dem Roster.
 - UNIQUE INDEX `external_links (work_id, kind, service_id)`.
 - `junctionsLocked: true`-Flag auf `works` (Schreibschutz für 3d-applied Junctions gegen 3f-Maintenance-Reihenwiederholungen).

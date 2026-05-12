@@ -2,7 +2,7 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-05-10
+updated: 2026-05-13
 sources:
   - ../../sessions/archive/2026-05/2026-05-08-047-arch-pipeline-hardening.md
   - ../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md
@@ -18,6 +18,17 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-10-056-impl-v2-pre-roster-fixes.md
   - ../../sessions/archive/2026-05/2026-05-10-057-arch-excel-roster-import.md
   - ../../sessions/archive/2026-05/2026-05-10-057-impl-excel-ssot-import.md
+  - ../../sessions/archive/2026-05/2026-05-11-058-arch-v2-ssot-mode-first-batch.md
+  - ../../sessions/archive/2026-05/2026-05-11-058-impl-v2-ssot-mode-first-batch.md
+  - ../../sessions/archive/2026-05/2026-05-11-060-arch-ssot-w40k-001-db-apply.md
+  - ../../sessions/archive/2026-05/2026-05-11-060-impl-ssot-w40k-001-db-apply.md
+  - ../../sessions/2026-05-11-061-arch-ssot-loop.md
+  - ../../sessions/2026-05-11-062-arch-apply-override-author-fix.md
+  - ../../sessions/2026-05-11-062-impl-apply-override-author-fix.md
+  - ../../sessions/2026-05-12-063-arch-resolver-50-books.md
+  - ../../sessions/2026-05-12-063-impl-resolver-50-books.md
+  - ../../sessions/2026-05-12-067-impl-resolver-apply-readiness.md
+  - ../../sessions/2026-05-12-069-impl-resolver-apply-evidence.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
   - ../../sessions/README.md
   - ../../ROADMAP.md
@@ -30,46 +41,46 @@ related:
 confidence: high
 ---
 
-# Project state — 2026-05-10
+# Project state — 2026-05-13
 
 > The "where are we now" anchor. Cowork and Claude Code start every session here (after `brain/CLAUDE.md` and `wiki/index.md`).
 
 ## Phase
 
-**Phase 3 — Bulk-Backfill-Pipeline (in flight, dry-run, Excel-SSOT-Pivot durch 057 vollzogen).** Der TypeScript-Ingestion-Stack (Lexicanum + Open Library + Hardcover crawler + Anthropic Haiku 4.5 Slim-LLM + deterministische Validatoren + Provenance-pro-Feld) bleibt bestehen; die **Discovery-Stage** ist nach dem 055-Voll-Lauf strukturell von Wikipedia/TLBranson-Crawl auf eine Maintainer-kuratierte Excel-SSOT umgestellt worden. ADR: [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md).
+**Phase 3 — Bulk-Backfill-Pipeline (in flight, SSOT-Authority-Layer aktiv).** Der TypeScript-Ingestion-Stack bleibt bestehen, aber die Discovery-Stage ist seit 057 nicht mehr der Default-Eingang: die Maintainer-kuratierte Excel-SSOT ist die Roster-Quelle. ADR: [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md).
 
-Sequenz seit 055: Brief 056 (V2-Pre-Roster-Fixes — Lex-Cache, Per-Book-Checkpointing, Cost-Recompute, Diff-Archivierung) **landed**; Brief 057 (Excel-SSOT-Import — Schema-Migration `0008`, Truncate-Skript `db-reset-for-ssot.ts`, Loader `import-ssot-roster.ts` + deterministisches `book-roster.json` mit 859 Büchern + 191 Collections) **landed code-seitig**, Migration-Apply + DB-Truncate **deferred to Maintainer-Trigger** (lokales `.env.local` zeigt auf prod-Supabase, CC kann nicht apply'n). Nächster Brief: 058 (V2-Pipeline-Refactor auf SSOT-Mode + erster 10er-Batch). Briefs 059+ als fortlaufende 10er-Batch-Reihe mit Maintainer-Review zwischen den Briefs. Resolver-Brief (OQ4 + OQ5) bleibt verschoben hinter die ersten 30–50 real-prozessierten Bücher.
+Sequenz seit 057: Brief 058 hat den SSOT-Modus und den ersten 10er-Batch gebaut; 060 hat `ssot-w40k-001` in die DB geschrieben; 061 lief als Standing-Loop bis `ssot-w40k-005` (50 Bücher); 062 fixte den Author-FK-Pfad; 063–069 haben den Resolver-Layer für diese 50 Bücher implementiert, reviewed, applied und mit DB-Counts verifiziert. **OQ4/OQ5 sind damit für die ersten 50 Bücher geschlossen**: Resolver-Sidecar-JSONs, canonical Factions/Locations/Characters, `raw_name`-Audit-Spalten und Re-Apply `001..005` sind gelandet.
 
 Phases 1 (foundation), 1.1 (stack bumps), 1.5 (build/deploy hygiene), 2 (Chronicle / Timeline), and 3a–3c (pipeline skeleton + aux sources + LLM enrichment) are shipped. Phase 4 (Discovery-Layer) and Phase 5 (Cartographer + Ask the Archive) follow Phase 3. See [`./roadmap.md`](./roadmap.md) for the full phase plan.
 
-Das Buch-Domain-Bild ist mid-flight im Übergang: **26 hand-kuratierte Bücher** in Postgres (Stufe 2b seed, sessions 021/022) — werden mit Maintainer-Trigger durch das `db-reset-for-ssot`-Skript hard-deleted. Der **Excel-SSOT-Roster** mit 859 Büchern + 191 Collections liegt deterministisch unter `scripts/seed-data/book-roster.json`; Pipeline-Konsumtion startet mit Brief 058.
+Das Buch-Domain-Bild ist jetzt im SSOT-Authority-Modus: **50 W40K-Bücher** (`ssot-w40k-001..005`) sind in Postgres applied, mit Resolver-Junctions auf `work_factions=318`, `work_locations=129`, `work_characters=363` nach 069. Der **Excel-SSOT-Roster** mit 859 Büchern + 191 Collections liegt deterministisch unter `scripts/seed-data/book-roster.json`; nächster operativer Schritt ist `ssot-w40k-006` über Brief 061.
 
 ## Branch
 
-Active branch: `feat/phase-3c-llm-enrichment`. Recent merges into this branch: 047 (pipeline hardening, commit `4da6184`) and 048 (doc refresh) bundle, 049 (Karpathy-Reset, four commits `1f6da88`/`3f43f4c`/`64b47b5`/`9fa70d8`), 050 (Brain Hygiene), 051 (Brain Slim Pass), 052 (Ingest-Retention Decision), 053 (Brain Lint), 054 (V2-Pilot — TLBranson + Validatoren + Slim-LLM + BookV2Record), 055 (V2 Voll-Lauf 50 Bücher + `genericityScore` + Web-Search-Prompt-Härtung + Engine-Refactor `run-engine.ts`/`run-batch.ts`), 056 (V2-Pre-Roster-Fixes — Lex-Cache + Per-Book-Checkpointing + Cost-Recompute + Diff-Archivierung), 057 (Excel-SSOT-Import — Schema-Migration `0008`, Truncate-Skript, Loader, 859-Bücher-JSON-Roster).
+Active branch while this cleanup ran: `session-063-resolver-50-books` (ahead of `origin/session-063-resolver-50-books` by local cleanup/Brain commits until pushed). `main` is at the 061 loop state through `ssot-w40k-005`; resolver commits 063–069 live on the resolver branch and are intended to merge before the next batch resumes.
 
 ## What's running
 
 - **App on Vercel.** Hub + `/timeline` + `/timeline/[era]` + `/buch/[slug]` (DetailPanel) + `/ingest` (Phase 3.5 read-only Diff-Inspector) + `/healthz`. Live: <https://chrono-lexicanum.vercel.app/>.
 - **CI on GitHub Actions.** `lint-and-typecheck` + `brain:lint --no-write` Jobs on every PR. Vercel does production builds; CI does *not* run `next build`.
-- **DB on Supabase.** Pooler (port 6543) URL in `.env.local` zeigt heute auf prod (kein Test-Branch). Migrations 0000–0006 applied. **Migration 0007** (source_kind enum extension `wikipedia` / `open_library` / `hardcover` / `llm`) bleibt committed-but-NOT-applied — relevant erst beim 3d-Apply. **Migration 0008 `ssot_schema.sql`** (post-057, committed-but-NOT-applied): bookFormat-Enum +3 (`collection`/`artbook`/`scriptbook`), sourceKind-Enum +1 (`ssot`), `works.external_book_id varchar(16) UNIQUE`, `bookDetails.notes text`, `work_collections`-Junction (composite PK + display_order/confidence/basis + Cascade-FKs). Apply ist Maintainer-Trigger (lokal/Test bevorzugt; Cowork führt Apply nicht aus).
-- **Excel-SSOT-Roster.** `scripts/seed-data/source/Warhammer_Books_SSOT.xlsx` (Maintainer-extern gepflegt) + Loader `scripts/import-ssot-roster.ts` produziert deterministisch `scripts/seed-data/book-roster.json` (859 RosterBooks + 191 RosterCollections, SHA256 byte-identisch über Re-Runs). Pipeline-Konsumtion startet mit Brief 058. Der `db-reset-for-ssot`-Skript (`npm run db:reset-for-ssot -- --confirm`) macht den Hard-Delete der 26 hand-kuratierten Bücher in einem Schritt; auch Maintainer-Trigger.
+- **DB on Supabase.** Pooler (port 6543) URL in `.env.local` zeigt heute auf prod (kein Test-Branch). Migrations durch `0009_lucky_pete_wisdom.sql` sind applied: 0008 brachte SSOT-Schema/`work_collections`, 0009 machte `locations.gx/gy` nullable und fügte `raw_name` auf `work_factions`, `work_locations`, `work_characters` hinzu. `db:seed-resolver-extensions` hat +23 Factions, +3 Sectors, +40 Locations, +65 Characters geschrieben.
+- **Excel-SSOT-Roster.** `scripts/seed-data/source/Warhammer_Books_SSOT.xlsx` (Maintainer-extern gepflegt) + Loader `scripts/import-ssot-roster.ts` produziert deterministisch `scripts/seed-data/book-roster.json` (859 RosterBooks + 191 RosterCollections). Die Pipeline konsumiert den Roster seit 058; `ssot-w40k-001..005` sind applied, `ssot-w40k-006` ist der nächste Batch.
 - **Pipeline V1 in dry-run** (Default ohne `--pipeline=` Flag, bleibt für Reproduzierbarkeit alter Diffs). `npm run ingest:backfill -- --limit N --offset M`. Latest V1 committed: `ingest/.archive/v1/backfill-20260508-2101.diff.json` (9 books, post-047 hardening, archived in 056).
-- **Pipeline V2 in dry-run (Voll-Lauf 50 Bücher, post-055; Pre-Roster-Fixes post-056).** `npm run ingest:backfill -- --pipeline=v2 --pilot=v2-tryout-1` für Pilot-Slugs; `npm run ingest:backfill -- --pipeline=v2 --batch=v2-tryout-2 --limit=N` für Batch (heute slug-sort, ab Brief 058 SSOT-Modus). Latest V2 committed: `ingest/.last-run/v2-batch-20260510-1109.diff.json` (50 books) + Sibling `-surfaces.json`. Per-page Lexicanum-Cache + per-book Diff-Checkpointing + Cost-Recompute auf Cache-Hits seit 056 wirksam.
+- **Pipeline V2 / SSOT Authority path.** `npm run ingest:backfill -- --pipeline=v2 --source=ssot --batch=ssot-w40k-00N` erzeugt die Diff-/Override-Basis; `scripts/apply-override.ts` schreibt curated overrides in die DB. Resolver-Support liegt in `src/lib/resolver/`, `scripts/seed-data/{faction,location,character}-aliases.json`, `scripts/seed-data/characters.json`, `scripts/test-resolver*.ts` und `docs/resolver-apply-runbook.md`.
 - **Atlas-Regen-Skript.** `npm run atlas:regen` writes a Postgres-mirror Obsidian vault to `~/chrono-atlas/` (Windows `C:\Users\Phil\chrono-atlas\`; override via `--out=<path>` or `ATLAS_PATH` env). 049-impl produced first proof-of-render (1 book + 1 faction + INDEX.md, DB-counts 26/29 verified). Manual trigger only; see [`./workflows/atlas-regen.md`](./workflows/atlas-regen.md).
 - **Brain-Lint.** `npm run brain:lint` (10 Check-Kategorien) + CI-Gate `brain:lint -- --no-write` post-053. Reports unter `brain/outputs/lint/YYYY-MM-DD.md`.
 
-## Latest pipeline state (post-057, Excel-SSOT-Pivot)
+## Latest pipeline state (post-069, resolver applied)
 
-Brief 055 hat den ersten V2-Voll-Lauf über 50 Bücher geliefert (`v2-batch-20260510-1109.diff.json`, slug-window `13th-legion → ascension`, 1.06 web_search/Buch, 4-of-5 Validator-Kinds non-zero). Brief 056 hat die drei strukturellen Schwächen aus dem Voll-Lauf isoliert behoben: per-page Lexicanum-Cache (24h TTL + negative caching, ~5000× Speedup auf Cache-Hits), per-book Diff-Checkpointing in `run-batch.ts` (mid-run-Halt verliert State nicht mehr), Cost-Recompute auf Cache-Hits ($0.0352/Buch live-verifiziert vs. pre-056 $0/Buch), plus 9-Datei-Diff-Archivierung nach `ingest/.archive/{v1,v2-pilot,v2-batch}/`.
+Brief 055 hat den ersten V2-Voll-Lauf über 50 Bücher geliefert (`v2-batch-20260510-1109.diff.json`, slug-window `13th-legion → ascension`, 1.06 web_search/Buch, 4-of-5 Validator-Kinds non-zero). Brief 056 hat die drei strukturellen Schwächen aus dem Voll-Lauf isoliert behoben: per-page Lexicanum-Cache, per-book Diff-Checkpointing, Cost-Recompute auf Cache-Hits, plus Diff-Archivierung.
 
-Brief 057 hat den **Excel-SSOT-Pivot vollzogen** (siehe [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md)): Maintainer-Excel `Warhammer_Books_SSOT_enriched.xlsx` (859 Bücher, 192 Collection-Beziehungen Roh / 191 nach Header-Korrektur, 100% Type/Section/URL-Coverage) liegt jetzt unter `scripts/seed-data/source/`; Loader `import-ssot-roster.ts` produziert deterministisch `scripts/seed-data/book-roster.json`. Drizzle-Schema um vier atomare Adds erweitert + Migration `0008_ssot_schema.sql` generiert (Apply Maintainer-Trigger). Truncate-Skript `db-reset-for-ssot.ts` mit `--confirm`/`DB_RESET_CONFIRM=1`-Gate gebaut.
+Brief 057 hat den **Excel-SSOT-Pivot vollzogen** (siehe [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md)): Maintainer-Excel liegt unter `scripts/seed-data/source/`; Loader `import-ssot-roster.ts` produziert deterministisch `scripts/seed-data/book-roster.json`. Brief 058 hat den V2-SSOT-Modus gebaut; 060/061 haben die ersten fünf W40K-10er-Batches in den Authority-Layer gebracht.
 
 **CC-Erweiterungen in 057-impl ggü. Brief-Acceptance** (Cowork akzeptiert): RosterBook-Schema trägt zusätzlich `editors: string[]` + `editorialNote: "various" | null` (Konsequenz aus den zwei OQ-Antworten "Various Authors" + "(ed.)"-Trailing). `external_book_id` ist `UNIQUE` ohne separaten Index (B-Tree-Backing reicht). `work_collections`-Junction trägt nur einen Sekundär-Index auf `content_work_id` (composite-PK deckt `collection_work_id` als Leading-Column ab; Maintainer kann via 0009-Mini-Migration nachreichen falls gewünscht). Year-Validierung pragmatisch: `null` → warn (1 Treffer: W40K-0307 "War for Armageddon Omnibus"), non-numeric → loud-Error.
 
-**Author-Splitting-Empirie** aus dem 859-Buch-Loader-Lauf: 772 solo, 3 multi (`X and Y`), 62 various (61× "Various Authors" + 1× "Dan Abnett & Others"), 0 `(ed.)`/`(eds.)`/`(editor)`, 23 leere Author-Cells ohne Various-Marker. Slug-Disambiguierung: 1 Section-Disambig (zwei "Ascension"-Bücher → `ascension-dawn-of-war` + `ascension-blackstone-fortress`), 0 Triple-Collisions.
+Brief 063–069 haben die Resolver-Schicht für diese ersten 50 Bücher geschlossen: 0009 applied, resolver reference data seeded, `apply-override` schreibt `work_characters`, normalisiert Rollen und bewahrt Surface-Forms in `raw_name`. 069-Counts nach Apply: `work_factions=318`, `work_locations=129`, `work_characters=363`; Smoke-Slugs matchen die Dry-Run-Erwartung (`xenos 3/3/6`, `first-and-only 5/6/10`, `necropolis 7/4/9`, `nightbringer 7/1/5`, `the-anarch 9/3/11`).
 
-V2-Pilot-Sektion (54er), V2-Voll-Lauf-Sektion (55er), V2-Pre-Roster-Fixes (56er) und SSOT-Pivot (57er) in [`./pipeline-state.md`](./pipeline-state.md) detailliert.
+V2-Pilot (54), V2-Voll-Lauf (55), V2-Pre-Roster-Fixes (56), SSOT-Pivot (57/58) und Resolver-Layer (063–069) sind in [`./pipeline-state.md`](./pipeline-state.md) detailliert.
 
 ## V2-Pilot-Architektur (post-054)
 
@@ -86,23 +97,23 @@ V2-Pilot-Acceptance-Numbers aus `ingest/.archive/v2-pilot/v2-pilot-20260509-1934
 
 ## What's open
 
-Top items from [`./open-questions.md`](./open-questions.md), neu sortiert post-057:
+Top items from [`./open-questions.md`](./open-questions.md), neu sortiert post-069:
 
-- **Maintainer-Trigger (out of Cowork-/CC-Loop).** Migration-Apply `0008_ssot_schema.sql` + Truncate-Smoke `db:reset-for-ssot -- --confirm` gegen prod-Supabase. Verifikations-Outputs (`\d+ work_collections`, `enum_range(NULL::book_format)`, `enum_range(NULL::source_kind)`, `\d works`, COUNT-vorher/nachher) sollten in einen Append zu [`../../sessions/archive/2026-05/2026-05-10-057-impl-excel-ssot-import.md`](../../sessions/archive/2026-05/2026-05-10-057-impl-excel-ssot-import.md) (oder Brief 058) wandern.
-- **Brief 058 (queued).** V2-Pipeline-Refactor + erster 10er-Batch. SSOT-Mode in `run-batch.ts` (`--source=ssot --offset=N --limit=M`), Discovery-Stage 0 abschalten, Stage-1-Validators trimmen (`year_outlier` raus weil Year-fix; `author_editor_suspicion` raus oder umbauen weil Format/`editorialNote`/`editors` aus Excel kommen), Stage-3-LLM-Tool-Schema schrumpfen (Author/Year/Format/Title raus), erster 10er-Batch als committed Diff. Hängt **nicht** strikt am Maintainer-Trigger (dry-run berührt DB nicht).
-- **Briefs 059+ (queued).** Fortlaufende 10er-Batches mit Maintainer-Review zwischen den Briefs. Mini-Briefs zwischendrin für Vokabular-Erweiterung (OQ2), Validator-Tuning, Override-Updates.
+- **Resume Brief 061 with `ssot-w40k-006`.** Resolver/Apply blocker ist weg; nächster Batch kann nach Merge/Push des Resolver-Branches und sauberem Worktree weiterlaufen.
 - **Phase-3e-Modell-Entscheidung** (OQ1). Haiku bleiben vs. Sonnet-Upgrade. 055-Empirie (Web-Search 1.06/Buch, Hochrechnung Haiku-Voll-Lauf ~$15 für 750 Bücher) verschiebt das Trade-off massiv Richtung Haiku.
 - **Vokabular-Erweiterung** (OQ2). `duty` (5+ Verstöße kumulativ), `legion`-Faceten-Dimension, `chaos`-pov_side-Pattern.
-- **Hand-Check-Workflow + Override-Schema** (OQ3). Sequenz post-Resolver, vor 3d-Apply. V2's `FieldRecord.override` bietet den passenden Slot.
-- **Junction-Resolver + Unresolved-Queue** (OQ4 + OQ5). Verschoben hinter die ersten 30–50 real-prozessierten Bücher aus den 10er-Batches. Bis dahin sammeln die Diffs Surface-Forms; Empirie spricht für Option C (Hybrid Top-100) auf der Character-Achse.
+- **Hand-Check-Workflow + Override-Schema** (OQ3). V2's `FieldRecord.override` und die 061-Override-Loop liefern den passenden Slot; Cowork muss noch die längerfristige Triage-Disziplin festziehen.
 - **Hardcover-Rating-Promotion + OL-Fallback** (OQ6). Architectural call zu Field-Schema + OL-Fallback ja/nein; Implementation ~10–20 LOC.
 - **DetailPanel "Auch enthalten in:"-Mini-Brief.** Backend-bereit (Junction `work_collections` + `worksRelations.containedIn`/`contains`). Frontend folgt sobald 058+ erste Omnibus-Children im Diff/DB hat.
-- **3d-Apply-Step** (FK-Resolution, ALTER TYPE source_kind, UNIQUE INDEX external_links, junctionsLocked) — weiter hinten, nach Resolver.
+- **Cross-Batch-Collection-Resolution.** `apply-override.applyCollections` ist weiterhin intra-batch; Omnibus-Refs über Batch-Grenzen brauchen einen Mini-Brief.
 
 ## Recently shipped (session-level)
 
 | Date | Session | Status | Topic |
 |---|---|---|---|
+| 2026-05-12 | 069-impl | complete | Resolver Apply Evidence — `db:migrate`, `db:seed-resolver-extensions`, Re-Apply `ssot-w40k-001..005`; DB-Counts nachher `work_factions=318`, `work_locations=129`, `work_characters=363`, Smoke-Slugs matchen Dry-Run. |
+| 2026-05-12 | 063–067 | complete | Resolver Layer — Migration `0009`, Resolver-Modul, Alias-/Reference-Daten, `work_characters`-Apply, Role-Normalisierung, Dry-Run/Runbook, Detailpage Locations+Characters. |
+| 2026-05-11 | 058–062 | complete | SSOT-Mode + erster Authority-Layer — V2 liest `book-roster.json`, erster 10er-Batch, DB-Apply `ssot-w40k-001`, Standing-Loop 061 bis `ssot-w40k-005`, Author-FK-Fix. |
 | 2026-05-10 | 057-impl | complete | Excel-SSOT-Import — Schema-Migration `0008_ssot_schema.sql` (bookFormat-Enum +3, sourceKind +1, `works.external_book_id` UNIQUE, `bookDetails.notes`, `work_collections`-Junction mit Self-M2M), Truncate-Skript `db-reset-for-ssot.ts` mit `--confirm`/ENV-Gate, Loader `import-ssot-roster.ts` produziert deterministisch (SHA256-verifiziert) `book-roster.json` mit 859 Büchern + 191 Collections. Migration-Apply + Truncate-Smoke deferred zu Maintainer-Trigger. |
 | 2026-05-10 | 056-impl | complete | V2 Pre-Roster Fixes — per-page Lexicanum-Cache (24h TTL + negative caching), per-book Diff-Checkpointing in `run-batch.ts`, Cost-Recompute auf Cache-Hits ($0.0352/Buch live verifiziert), 9-Datei-Diff-Archivierung nach `ingest/.archive/{v1,v2-pilot,v2-batch}/`. |
 | 2026-05-10 | 055-impl | complete | V2 Voll-Lauf 50 Bücher — `genericityScore`-Discovery-Merge mit 11 Unit-Tests, Web-Search-Prompt strict (1.06/Buch), Engine-Refactor (`run-engine.ts`/`run-batch.ts` als shared Stage 0–4), `v2-batch-20260510-1109.diff.json` als canonical Diff. Surface-Form-Top-20 + Resolver-Triage-Notes für 056-Resolver verfügbar. Cost-Telemetrie auf Cache-Hits blind ($0.0199/Buch real, aus 5-Book-Smoke). |
@@ -121,12 +132,11 @@ For older sessions and the full chronological log: [`../raw/historical/sessions-
 
 ## Next likely brief
 
-Sequenz post-057 (Excel-SSOT-Roster gelandet, 10er-Batch-Reihe öffnet):
+Sequenz post-069:
 
-- **Maintainer-Trigger zuerst** — `npm run db:migrate` (Migration `0008` apply gegen prod-Supabase) + `npm run db:reset-for-ssot -- --confirm` (Hard-Delete der 26). Verifikations-Outputs in 057-impl-Append. Cowork wartet hier.
-- **Brief 058 (queued)** — V2-Pipeline-Refactor + erster 10er-Batch. SSOT-Mode in `run-batch.ts` (`--source=ssot --offset=N --limit=M`), Discovery-Stage 0 abschalten, Stage-1-Validators trimmen (`year_outlier` raus, `author_editor_suspicion` raus oder umbauen), Stage-3-LLM-Tool-Schema schrumpfen (Author/Year/Format/Title raus), erster 10er-Batch als committed Diff. Hängt nicht strikt am Maintainer-Trigger (dry-run berührt DB nicht).
-- **Briefs 059+ (queued)** — fortlaufende 10er-Batches. Maintainer-Review zwischen den Briefs (Surface-Forms, Validator-Trigger, plausible Synopsen). Bei Findings: kleine Mini-Briefs zwischendrin (Vokabular-Erweiterung OQ2, Validator-Tuning, Excel-Fix-Re-Imports).
-- **DetailPanel "Auch enthalten in:"-Mini-Brief** — sobald 058+ erste Omnibus + Children im Diff/DB hat. Frontend-Query gegen `work_collections WHERE content_work_id = ?`.
-- **Resolver + Unresolved-Queue (OQ4 + OQ5) + 3d-Apply** — verschoben hinter die ersten 10er-Batches. Sequenz wird nach ~30–50 prozessierten Büchern neu evaluiert.
+- **Clean merge / push resolver branch.** `session-063-resolver-50-books` enthält den apply-verifizierten Resolver-Stand; vor nächstem Batch sollte der Worktree sauber und der Branch synchronisiert sein.
+- **Resume Brief 061 mit `ssot-w40k-006`.** 50er-Resolver-Pause ist erledigt. Die nächste Loop-Session erzeugt den nächsten 10er-Override und stoppt wieder für Review.
+- **Cross-Batch-Collection-Resolution-Mini-Brief.** Sobald die Omnibus-Refs über Batch-Grenzen UX-relevant werden, `applyCollections` um `external_book_id → works.id` über alle applied works erweitern.
+- **DetailPanel "Auch enthalten in:"-Mini-Brief.** Backend-bereit; Frontend-Query gegen `work_collections WHERE content_work_id = ?`.
 
 Cowork's session-end discipline (post-049): each architect brief and CC report runs through [`./workflows/session-end.md`](./workflows/session-end.md) — update this page, prune `open-questions.md`, write decisions if needed.
