@@ -85,25 +85,151 @@ interface SeedCharacter {
   notes?: string | null;
 }
 
+interface ResolverSeedData {
+  factions: SeedFaction[];
+  sectors: SeedSector[];
+  locations: SeedLocation[];
+  characters: SeedCharacter[];
+  factionAliases: Record<string, string>;
+  locationAliases: Record<string, string>;
+  characterAliases: Record<string, string>;
+}
+
 async function loadJson<T>(file: string): Promise<T> {
   const raw = await readFile(resolve(SEED_DIR, file), "utf8");
   return JSON.parse(raw) as T;
 }
 
-function asAlignment(v: Alignment | string | undefined): Alignment {
-  if (v && (ALIGNMENT_VALUES as readonly string[]).includes(v)) {
-    return v as Alignment;
-  }
+async function loadResolverSeedData(): Promise<ResolverSeedData> {
+  const [
+    factionData,
+    sectorData,
+    locationData,
+    characterData,
+    factionAliases,
+    locationAliases,
+    characterAliases,
+  ] = await Promise.all([
+    loadJson<SeedFaction[]>("factions.json"),
+    loadJson<SeedSector[]>("sectors.json"),
+    loadJson<SeedLocation[]>("locations.json"),
+    loadJson<SeedCharacter[]>("characters.json"),
+    loadJson<Record<string, string>>("faction-aliases.json"),
+    loadJson<Record<string, string>>("location-aliases.json"),
+    loadJson<Record<string, string>>("character-aliases.json"),
+  ]);
+
+  return {
+    factions: factionData,
+    sectors: sectorData,
+    locations: locationData,
+    characters: characterData,
+    factionAliases,
+    locationAliases,
+    characterAliases,
+  };
+}
+
+function inferAlignmentFromTree(f: SeedFaction): Alignment {
+  if (f.parent === "chaos" || f.id === "chaos") return "chaos";
+  if (f.parent === "imperium" || f.id === "imperium") return "imperium";
+  if (f.tone === "alien") return "xenos";
   return "neutral";
 }
 
-async function seedFactions(): Promise<{ added: number; skipped: number }> {
-  const data = await loadJson<SeedFaction[]>("factions.json");
+function normalizeAlignment(f: SeedFaction): Alignment {
+  if (!f.alignment) return inferAlignmentFromTree(f);
+  if (f.alignment === "imperial") return "imperium";
+  if ((ALIGNMENT_VALUES as readonly string[]).includes(f.alignment)) {
+    return f.alignment as Alignment;
+  }
+  throw new Error(
+    `Faction ${f.id}: invalid alignment '${f.alignment}'. Expected imperium, chaos, xenos, neutral, or legacy imperial.`,
+  );
+}
+
+function assertUnique<T>(
+  label: string,
+  rows: T[],
+  select: (row: T) => string | null | undefined,
+): void {
+  const seen = new Map<string, number>();
+  for (const row of rows) {
+    const value = select(row);
+    if (!value) continue;
+    seen.set(value, (seen.get(value) ?? 0) + 1);
+  }
+  const duplicates = [...seen.entries()]
+    .filter(([, count]) => count > 1)
+    .map(([value]) => value);
+  if (duplicates.length > 0) {
+    throw new Error(`${label}: duplicate values: ${duplicates.join(", ")}`);
+  }
+}
+
+function assertAliasTargets(
+  label: string,
+  aliases: Record<string, string>,
+  targetIds: Set<string>,
+): void {
+  const dangling = Object.entries(aliases)
+    .filter(([, target]) => !targetIds.has(target))
+    .map(([alias, target]) => `${alias} -> ${target}`);
+  if (dangling.length > 0) {
+    throw new Error(`${label}: dangling alias targets: ${dangling.join(", ")}`);
+  }
+}
+
+function validateResolverSeedData(data: ResolverSeedData): void {
+  assertUnique("factions.id", data.factions, (f) => f.id);
+  assertUnique("factions.name", data.factions, (f) => f.name);
+  assertUnique("sectors.id", data.sectors, (s) => s.id);
+  assertUnique("sectors.name", data.sectors, (s) => s.name);
+  assertUnique("locations.id", data.locations, (l) => l.id);
+  assertUnique("locations.name", data.locations, (l) => l.name);
+  assertUnique("characters.id", data.characters, (c) => c.id);
+  assertUnique("characters.name", data.characters, (c) => c.name);
+
+  const factionIds = new Set(data.factions.map((f) => f.id));
+  const sectorIds = new Set(data.sectors.map((s) => s.id));
+  const locationIds = new Set(data.locations.map((l) => l.id));
+  const characterIds = new Set(data.characters.map((c) => c.id));
+
+  const danglingParents = data.factions
+    .filter((f) => f.parent && !factionIds.has(f.parent))
+    .map((f) => `${f.id} -> ${f.parent}`);
+  if (danglingParents.length > 0) {
+    throw new Error(`factions.json: dangling parents: ${danglingParents.join(", ")}`);
+  }
+
+  const danglingSectors = data.locations
+    .filter((l) => l.sector && !sectorIds.has(l.sector))
+    .map((l) => `${l.id} -> ${l.sector}`);
+  if (danglingSectors.length > 0) {
+    throw new Error(`locations.json: dangling sectors: ${danglingSectors.join(", ")}`);
+  }
+
+  const danglingPrimaryFactions = data.characters
+    .filter((c) => c.primaryFactionId && !factionIds.has(c.primaryFactionId))
+    .map((c) => `${c.id} -> ${c.primaryFactionId}`);
+  if (danglingPrimaryFactions.length > 0) {
+    throw new Error(
+      `characters.json: dangling primaryFactionIds: ${danglingPrimaryFactions.join(", ")}`,
+    );
+  }
+
+  for (const faction of data.factions) normalizeAlignment(faction);
+  assertAliasTargets("faction-aliases.json", data.factionAliases, factionIds);
+  assertAliasTargets("location-aliases.json", data.locationAliases, locationIds);
+  assertAliasTargets("character-aliases.json", data.characterAliases, characterIds);
+}
+
+async function seedFactions(data: SeedFaction[]): Promise<{ added: number; skipped: number }> {
   const rows = data.map((f) => ({
     id: f.id,
     name: f.name,
     parentId: f.parent ?? null,
-    alignment: asAlignment(f.alignment),
+    alignment: normalizeAlignment(f),
     tone: f.tone ?? null,
     glyph: f.glyph ?? null,
   }));
@@ -123,8 +249,7 @@ async function seedFactions(): Promise<{ added: number; skipped: number }> {
   return { added: toInsert.length, skipped: existingSet.size };
 }
 
-async function seedSectors(): Promise<{ added: number; skipped: number }> {
-  const data = await loadJson<SeedSector[]>("sectors.json");
+async function seedSectors(data: SeedSector[]): Promise<{ added: number; skipped: number }> {
   const rows = data.map((s) => ({
     id: s.id,
     name: s.name,
@@ -149,8 +274,7 @@ async function seedSectors(): Promise<{ added: number; skipped: number }> {
   return { added: toInsert.length, skipped: existingSet.size };
 }
 
-async function seedLocations(): Promise<{ added: number; skipped: number }> {
-  const data = await loadJson<SeedLocation[]>("locations.json");
+async function seedLocations(data: SeedLocation[]): Promise<{ added: number; skipped: number }> {
   const rows = data.map((l) => ({
     id: l.id,
     name: l.name,
@@ -178,8 +302,7 @@ async function seedLocations(): Promise<{ added: number; skipped: number }> {
   return { added: toInsert.length, skipped: existingSet.size };
 }
 
-async function seedCharacters(): Promise<{ added: number; skipped: number }> {
-  const data = await loadJson<SeedCharacter[]>("characters.json");
+async function seedCharacters(data: SeedCharacter[]): Promise<{ added: number; skipped: number }> {
   const rows = data.map((c) => ({
     id: c.id,
     name: c.name,
@@ -205,10 +328,13 @@ async function seedCharacters(): Promise<{ added: number; skipped: number }> {
 
 async function main() {
   console.log("[seed-resolver-extensions] start");
-  const f = await seedFactions();
-  const s = await seedSectors();
-  const l = await seedLocations();
-  const c = await seedCharacters();
+  const data = await loadResolverSeedData();
+  validateResolverSeedData(data);
+  console.log("[seed-resolver-extensions] validation ok");
+  const f = await seedFactions(data.factions);
+  const s = await seedSectors(data.sectors);
+  const l = await seedLocations(data.locations);
+  const c = await seedCharacters(data.characters);
   const totalAdded = f.added + s.added + l.added + c.added;
   const totalSkipped = f.skipped + s.skipped + l.skipped + c.skipped;
   console.log(

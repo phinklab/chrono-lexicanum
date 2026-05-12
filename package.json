@@ -23,6 +23,9 @@
     "brain:lint": "tsx scripts/brain-lint.ts",
     "test:discovery-merge": "tsx scripts/test-discovery-merge.ts",
     "test:resolver": "tsx scripts/test-resolver.ts",
+    "test:resolver-data": "tsx scripts/test-resolver-data-integrity.ts",
+    "test:resolver-coverage": "tsx scripts/test-resolver-coverage.ts",
+    "test:apply-override-dry": "tsx scripts/apply-override-dry.ts",
     "db:seed-resolver-extensions": "tsx --env-file=.env.local scripts/seed-resolver-extensions.ts",
     "analyze:v2-surfaces": "tsx scripts/analyze-v2-surfaces.ts"
   },

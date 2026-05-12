@@ -33,6 +33,9 @@ export interface Resolution {
   raw: string;
 }
 
+export type { CharacterJunctionRole } from "./roles";
+export { normalizeCharacterRole } from "./roles";
+
 // Build name→id lookup maps once at module-init.
 const factionByName = new Map<string, string>(
   factionsCanon.map((f) => [f.name, f.id]),

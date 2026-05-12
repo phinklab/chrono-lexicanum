@@ -96,6 +96,27 @@
     "tone": "archive"
   },
   {
+    "id": "ordo_xenos",
+    "name": "Ordo Xenos",
+    "parent": "inquisition",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "ordo_malleus",
+    "name": "Ordo Malleus",
+    "parent": "inquisition",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "ordo_hereticus",
+    "name": "Ordo Hereticus",
+    "parent": "inquisition",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
     "id": "grey_knights",
     "name": "Grey Knights",
     "parent": "imperium",
@@ -177,14 +198,14 @@
     "id": "tanith_first",
     "name": "Tanith First-and-Only",
     "parent": "astra_militarum",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "line"
   },
   {
     "id": "verghastite_ghosts",
     "name": "Verghastite Ghosts",
     "parent": "tanith_first",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "line"
   },
   {
@@ -198,7 +219,7 @@
     "id": "belladon",
     "name": "Belladon",
     "parent": "tanith_first",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "line"
   },
   {
@@ -212,28 +233,28 @@
     "id": "imperial_navy",
     "name": "Imperial Navy",
     "parent": "imperium",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {
     "id": "ecclesiarchy",
     "name": "Ecclesiarchy",
     "parent": "imperium",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "archive"
   },
   {
     "id": "urdeshi",
     "name": "Urdeshi",
     "parent": "astra_militarum",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "line"
   },
   {
     "id": "adeptus_astartes",
     "name": "Adeptus Astartes",
     "parent": "imperium",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {
@@ -247,35 +268,35 @@
     "id": "valhallan_597th",
     "name": "Valhallan 597th",
     "parent": "astra_militarum",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "line"
   },
   {
     "id": "phantine_air_corps",
     "name": "Phantine Air Corps",
     "parent": "astra_militarum",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "line"
   },
   {
     "id": "gereon_resistance",
     "name": "Gereon Resistance",
     "parent": "astra_militarum",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "line"
   },
   {
     "id": "jantine_patricians",
     "name": "Jantine Patricians",
     "parent": "astra_militarum",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "line"
   },
   {
     "id": "vervunhive_militia",
     "name": "Vervunhive Militia",
     "parent": "astra_militarum",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "line"
   },
   {
@@ -289,14 +310,14 @@
     "id": "aexegarian_forces",
     "name": "Aexegarian Forces",
     "parent": "astra_militarum",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "line"
   },
   {
     "id": "mortifactors",
     "name": "Mortifactors",
     "parent": "adeptus_astartes",
-    "alignment": "imperial",
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {

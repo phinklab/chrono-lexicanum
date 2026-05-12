@@ -61,9 +61,9 @@ Resolver-Modul + Reference-Daten-Extensions + Migration 0009 + apply-override-Re
 
 ### Detail-Page-Extension
 
-- `src/app/buch/[slug]/page.tsx` — `loadBookBySlug` lädt die 5 Detail-Queries (book_details + persons + factions + facets + 2 neue: locations, characters) jetzt parallel in einem `Promise.all`. Die zwei neuen Joins selecten zusätzlich `rawName` aus den Junction-Tabellen.
+- `src/app/buch/[slug]/page.tsx` — `loadBookBySlug` lädt die 5 Detail-Queries (book_details + persons + factions + facets + 2 neue: locations, characters) jetzt parallel in einem `Promise.all`. 067-Korrektur: die Page selectet `rawName` nicht mehr, damit Branch-Previews vor Migration 0009 nicht auf fehlenden Spalten brechen.
 - JSX um zwei Sections (Locations, Characters) erweitert, parallel zur existierenden Factions-Section: gleiche Chip-Klassen (`border border-frost-400/40 px-2 py-1 font-mono text-xs text-frost-200`), gleiche Heading-Tonalität (englisch — „Locations", „Characters" — matched die heutige „Factions"/„Tags"-Linie). Empty-State: Section ausgeblendet bei `length === 0`.
-- `rawName`-Audit-Trail: pro Chip via `title`-HTML-Attribut, nur wenn `rawName !== canonical.name` (Helper `rawTitle()`). User-unsichtbar bis hover; Cowork-Triage greift im Browser-DevTools.
+- `rawName`-Audit-Trail: 063 hatte ihn pro Chip via `title`-HTML-Attribut geplant. 067 nimmt ihn aus der Detailpage heraus; der Audit-Trail bleibt in der DB nach Migration/Apply, ist aber kein Preview-Blocking-Frontend-Feld.
 - Server-Component bleibt Server-Component (keine `"use client"`, keine Hooks, keine Hydration).
 
 ### Brain-Lint Pre-Cleanup
@@ -125,7 +125,7 @@ npm run db:apply-override -- --batch=ssot-w40k-005
 | work_locations | ~5 (Eye-of-Terror-Treffer) | ≥ ~80 | +39 lore-Welten + 4 aliases + raw_name audit |
 | work_characters | 0 (kein Code-Pfad) | ≥ ~250 | Neue Junction-Schreiblogik + 65 canonical characters |
 
-**Detail-Page-Smoke nach Apply:** Maintainer (oder CC im Follow-up-Commit) klickt die 5 URLs `/buch/{xenos,first-and-only,necropolis,nightbringer,the-anarch}` auf einer lokalen `next dev`-Instanz (verbindet auf prod-Supabase via .env.local) und dokumentiert pro Buch die Chip-Counts pro Achse. Erwartung: ≥3 pro Achse je Buch.
+**Detail-Page-Smoke nach Apply:** Maintainer (oder CC im Follow-up-Commit) klickt die 5 URLs `/buch/{xenos,first-and-only,necropolis,nightbringer,the-anarch}` auf einer lokalen `next dev`-Instanz (verbindet auf prod-Supabase via .env.local) und dokumentiert pro Buch die Chip-Counts pro Achse. 067-Dry-Run-Korrektur: erwartete Counts sind xenos 3/3/6, first-and-only 5/6/10, necropolis 7/4/9, nightbringer 7/1/5, the-anarch 9/3/11 (Factions/Locations/Characters). `nightbringer` hat nur 1 Location, weil das Override nur Pavonis enthält.
 
 ## For next session
 

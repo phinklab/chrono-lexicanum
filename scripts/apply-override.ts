@@ -75,6 +75,18 @@ import {
   resolveFaction,
   resolveLocation,
 } from "@/lib/resolver";
+import {
+  CHARACTER_ROLE_PRIORITY,
+  FACTION_ROLE_PRIORITY,
+  normalizeCharacterRole,
+  normalizeFactionRole,
+  normalizeLocationRole,
+} from "@/lib/resolver/roles";
+import type {
+  CharacterJunctionRole,
+  FactionJunctionRole,
+  LocationJunctionRole,
+} from "@/lib/resolver/roles";
 
 const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
 const ROSTER_PATH = resolve(SEED_DIR, "book-roster.json");
@@ -83,24 +95,6 @@ const OVERRIDE_FILENAME_PREFIX = "manual-overrides-";
 
 const M41_ERA_ID = "time_ending";
 const BATCH_NAME_PATTERN = /^ssot-(w40k|hh)-\d{3}$/;
-
-// Highest-role-wins for work_factions composite-PK collision resolution.
-const FACTION_ROLE_PRIORITY: Record<string, number> = {
-  primary: 4,
-  supporting: 3,
-  antagonist: 2,
-  background: 1,
-};
-
-// Brief 063 (2026-05-12): inline canonical-resolve maps extracted to
-// `src/lib/resolver/` (Direct-Match + Alias-Lookup). The composite-PK
-// collision resolver for work_characters needs its own role priority — same
-// pattern as FACTION_ROLE_PRIORITY but on the character axis.
-const CHARACTER_ROLE_PRIORITY: Record<string, number> = {
-  pov: 3,
-  appears: 2,
-  mentioned: 1,
-};
 
 // Eisenhorn/Ravenor are seeded series; Bequin and The Magos have no series row
 // and stay NULL until a future brief decides whether to add one.
@@ -355,18 +349,20 @@ function pickFinalFormat(roster: RosterBook, override: OverrideBook): {
  */
 function resolveFactions(
   input: OverrideEntity[],
-): Array<{ id: string; role: string; rawName: string }> {
-  const byId = new Map<string, { role: string; rawName: string }>();
+): Array<{ id: string; role: FactionJunctionRole; rawName: string }> {
+  const byId = new Map<string, { role: FactionJunctionRole; rawName: string }>();
   for (const f of input) {
     const r = resolveFaction(f.name);
     if (r.id === null) continue;
-    const incomingPriority = FACTION_ROLE_PRIORITY[f.role] ?? 0;
+    const normalizedRole = normalizeFactionRole(f.role).role;
+    if (normalizedRole === null) continue;
+    const incomingPriority = FACTION_ROLE_PRIORITY[normalizedRole];
     const current = byId.get(r.id);
     const currentPriority = current
-      ? FACTION_ROLE_PRIORITY[current.role] ?? 0
+      ? FACTION_ROLE_PRIORITY[current.role]
       : -1;
     if (incomingPriority > currentPriority) {
-      byId.set(r.id, { role: f.role, rawName: f.name });
+      byId.set(r.id, { role: normalizedRole, rawName: f.name });
     }
   }
   return [...byId.entries()].map(([id, { role, rawName }]) => ({
@@ -383,13 +379,15 @@ function resolveFactions(
  */
 function resolveLocations(
   input: OverrideEntity[],
-): Array<{ id: string; role: string; rawName: string }> {
-  const byId = new Map<string, { role: string; rawName: string }>();
+): Array<{ id: string; role: LocationJunctionRole; rawName: string }> {
+  const byId = new Map<string, { role: LocationJunctionRole; rawName: string }>();
   for (const l of input) {
     const r = resolveLocation(l.name);
     if (r.id === null) continue;
+    const normalizedRole = normalizeLocationRole(l.role).role;
+    if (normalizedRole === null) continue;
     if (!byId.has(r.id)) {
-      byId.set(r.id, { role: l.role, rawName: l.name });
+      byId.set(r.id, { role: normalizedRole, rawName: l.name });
     }
   }
   return [...byId.entries()].map(([id, { role, rawName }]) => ({
@@ -405,18 +403,20 @@ function resolveLocations(
  */
 function resolveCharacters(
   input: OverrideEntity[],
-): Array<{ id: string; role: string; rawName: string }> {
-  const byId = new Map<string, { role: string; rawName: string }>();
+): Array<{ id: string; role: CharacterJunctionRole; rawName: string }> {
+  const byId = new Map<string, { role: CharacterJunctionRole; rawName: string }>();
   for (const c of input) {
     const r = resolveCharacter(c.name);
     if (r.id === null) continue;
-    const incomingPriority = CHARACTER_ROLE_PRIORITY[c.role] ?? 0;
+    const normalizedRole = normalizeCharacterRole(c.role).role;
+    if (normalizedRole === null) continue;
+    const incomingPriority = CHARACTER_ROLE_PRIORITY[normalizedRole];
     const current = byId.get(r.id);
     const currentPriority = current
-      ? CHARACTER_ROLE_PRIORITY[current.role] ?? 0
+      ? CHARACTER_ROLE_PRIORITY[current.role]
       : -1;
     if (incomingPriority > currentPriority) {
-      byId.set(r.id, { role: c.role, rawName: c.name });
+      byId.set(r.id, { role: normalizedRole, rawName: c.name });
     }
   }
   return [...byId.entries()].map(([id, { role, rawName }]) => ({
@@ -494,6 +494,40 @@ async function validateFacetIds(allFacetIds: Set<string>): Promise<void> {
   if (missing.length > 0) {
     throw new Error(
       `Override references unknown facet_value ids: ${missing.join(", ")}. ` +
+        `Halt before mutation.`,
+    );
+  }
+}
+
+function validateEntityRoles(overrideBooks: OverrideBook[]): void {
+  const invalid: string[] = [];
+  for (const book of overrideBooks) {
+    for (const entity of book.overrides.factions) {
+      try {
+        normalizeFactionRole(entity.role);
+      } catch {
+        invalid.push(`${book.externalBookId} faction '${entity.name}' role='${entity.role}'`);
+      }
+    }
+    for (const entity of book.overrides.locations) {
+      try {
+        normalizeLocationRole(entity.role);
+      } catch {
+        invalid.push(`${book.externalBookId} location '${entity.name}' role='${entity.role}'`);
+      }
+    }
+    for (const entity of book.overrides.characters) {
+      try {
+        normalizeCharacterRole(entity.role);
+      } catch {
+        invalid.push(`${book.externalBookId} character '${entity.name}' role='${entity.role}'`);
+      }
+    }
+  }
+
+  if (invalid.length > 0) {
+    throw new Error(
+      `Override references unsupported entity roles after normalization: ${invalid.join("; ")}. ` +
         `Halt before mutation.`,
     );
   }
@@ -832,6 +866,8 @@ async function main() {
   for (const b of override.books) for (const f of b.overrides.facetIds) allFacetIds.add(f);
   await validateFacetIds(allFacetIds);
   console.log(`[apply-override] validated ${allFacetIds.size} distinct facet ids`);
+  validateEntityRoles(override.books);
+  console.log("[apply-override] validated entity roles after normalization");
 
   // Pre-pass: ensure every roster author + editor exists as a persons row.
   // Runs OUTSIDE the per-book transactions so FK targets are stable when
