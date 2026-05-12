@@ -1,0 +1,358 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-005",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-12",
+  "model": "claude-opus-4-7",
+  "rationale": "Fourth Loop-Brief-061 iteration. Mixed cluster across two series transitions: (a) Gaunt's Ghosts wrap-up via three Abnett-authored omnibuses (Saint Omnibus 4-7 aggregating Honour Guard / Guns of Tanith / Straight Silver / Sabbat Martyr from ssot-w40k-003; Lost Omnibus 8-11 aggregating Traitor General / His Last Command / The Armour of Contempt / Only in Death from ssot-w40k-004; Victory Omnibus Part One 12-13 aggregating Blood Pact / Salvation's Reach from ssot-w40k-004) — each treated as a union-with-highest-role-wins aggregate per Brief-061 Omnibus-Aggregation clause, length_tier=doorstopper; (b) three Sabbat-Worlds-Crusade multi-author anthologies edited by Dan Abnett — Sabbat Worlds (2010, eight stories), Sabbat Crusade (2014, ten+ stories including four Abnett-authored Ghosts pieces), Sabbat War (2021, ten stories post-Sek-death finale) — TOC recovered via WebSearch (Lexicanum + Fandom + Black Library product pages); SSOT roster lists 'anthology' format correctly, no data_conflict raised; (c) Graham McNeill's Ventris-saga opener via three Ultramarines novels (Nightbringer 2002 with Pavonis Necron-tomb + Cardinal-House conspiracy, Warriors of the Ultramar 2003 with Tarsis Ultra Tyranid invasion + Mortifactors crossover, Dead Sky Black Sun 2004 with Medrengard death-oath + Iron Warriors Honsou debut) plus the Ultramarines Omnibus aggregating those three; all McNeill 2002-2004, training-data-dense, 0-1 spot-check WebSearch per novel. Coverage characteristic: very high training-data + WebSearch confirmation for the omnibus aggregations (covered already by 003/004) and the Ventris novels; lower-but-recoverable coverage for the anthologies (each story summarised at synopsis-level only via Lexicanum/Fandom). WebSearch mean 0.4, max 2 (over 10 books); 4 total searches concentrated on the three anthologies (1 each for Sabbat Worlds + Sabbat Crusade, 2 for Sabbat War). Roster correctness: clean — all 10 entries match SSOT format declarations (3 omnibus + 3 anthology + 3 novel + 1 omnibus). Format-compliance: no data_conflict flags raised in this batch. Surface-form treue: 'Imperial Guard' over 'Astra Militarum' across all 10 entries (anthology era 2010-2021 crosses 2014 lore-rename, but the Crusade frame is consistently pre-Astra-Militarum, and Abnett keeps Imperial Guard internally; McNeill's Ultramarines novels are all pre-2014); 'Tanith First-and-Only' as regiment, 'Verghastite Ghosts' as the second-intake sub-faction, 'Belladon' as third-intake (Lost+Victory only), 'Blood Pact' and 'Sons of Sek' as the Archenemy infantry tiers, 'Eldar' over 'Aeldari' (Nightbringer 2002, anthologies stay surface-form-consistent), 'Adeptus Astartes' + 'Ultramarines' + 'Mortifactors' + 'Iron Warriors' as Astartes-side factions. Inquisition-consistency constraint: not strictly triggered (no Inquisitor POVs in any entry); supporting Inquisition presence retained where canonical (Nightbringer + Warriors of the Ultramar via Inquisitor Ario Barzano; Sabbat-Crusade-anthology via recurring Sirkle-style agents). Tone choices: Gaunt's Ghosts omnibuses keep grimdark+somber+action_heavy with siege/political_thriller/journey modulating per constituent; Sabbat anthologies stay grimdark+somber+action_heavy at the umbrella level (individual stories vary); Ventris novels skew grimdark+action_heavy with cosmic_horror added on Dead Sky Black Sun. Notable scope choices: Saint+Lost Omnibuses scope=regiment (constituent modal value); Victory Part One scope=regiment (matches modal); Nightbringer scope=company (single Ultramarines 4th-Company deployment); Warriors of the Ultramar scope=planetary (Tarsis-Ultra-defense scale); Dead Sky Black Sun scope=squad (two-Astartes-on-foot Medrengard mission); Ultramarines Omnibus scope=planetary (modal-aggregate). Loop-trigger note: this batch lands at cumulative=50, hitting the Brief-061 50er-pre-check threshold; the *next* loop iteration (ssot-w40k-006) will loud-stop with a resolver-pause unless Maintainer sets skip-50-stop. Cowork should write the Resolver brief (OQ4 + OQ5) before the next iteration.",
+  "books": [
+    {
+      "externalBookId": "W40K-0041",
+      "slug": "gaunts-ghosts-the-saint-omnibus-4-7",
+      "overrides": {
+        "synopsis": "The Saint Omnibus collects the four Gaunt's Ghosts novels that span the Saint Sabbat tetralogy and bridge the Sabbat-Worlds Crusade from its mid-campaign stalemates to the reincarnated-Saint pivot point. Book four (Honour Guard) drops the Ghosts on the shrine world of Hagia, where they escort the relics of Saint Sabbat across desert country under sustained Chaos pursuit and inside an open political feud with Lord General Lugo, introducing the Hagian priestess Sanian. Book five (The Guns of Tanith) takes the regiment to Phantine, a smog-poisoned world whose only battlefields are airborne hive-spire assaults, fought alongside the elite Phantine Air Corps and the Urdeshi armoured regiments against entrenched Blood Pact defenders at Cirenholm and Ouranberg, with Caffran's framed-trial subplot tightening the regimental fault lines. Book six (Straight Silver) embeds the Tanith inside a planetary-scale Great-War-style trench stalemate on Aexe Cardinal, where two Aexegarian factions and Blood Pact warbands have locked into a fifty-year static front and the Cuu killer-among-the-Ghosts arc closes around Larkin. Book seven (Sabbat Martyr) returns to the central question of the Crusade — the reincarnated Saint, manipulated into being by Lugo, is besieged at Herodor's Civitas Beati by Anarch Enok Innokenti's nine specialised assassins, one per Holy Wound; the omnibus closes on the Saint's death and the Crusade's permanent strategic re-orientation.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "doorstopper", "war_story", "siege", "political_thriller", "grimdark", "somber", "action_heavy", "faith", "war", "sacrifice", "betrayal", "loyalty", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Ecclesiarchy", "role": "supporting" },
+          { "name": "Phantine Air Corps", "role": "supporting" },
+          { "name": "Urdeshi", "role": "supporting" },
+          { "name": "Aexegarian Forces", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Hagia", "role": "primary" },
+          { "name": "Phantine", "role": "primary" },
+          { "name": "Cirenholm", "role": "secondary" },
+          { "name": "Ouranberg", "role": "secondary" },
+          { "name": "Aexe Cardinal", "role": "primary" },
+          { "name": "Herodor", "role": "primary" },
+          { "name": "Civitas Beati", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Colm Corbec", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Caffran", "role": "supporting" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Lijah Cuu", "role": "supporting" },
+          { "name": "Sanian", "role": "supporting" },
+          { "name": "Saint Sabbat", "role": "supporting" },
+          { "name": "Vaynom Blenner", "role": "supporting" },
+          { "name": "Lord General Lugo", "role": "antagonist" },
+          { "name": "Enok Innokenti", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0042",
+      "slug": "gaunts-ghosts-the-lost-omnibus-8-11",
+      "overrides": {
+        "synopsis": "The Lost Omnibus collects the four Gaunt's Ghosts novels that follow the Tanith First through the Gereon insertion arc — the regiment's deepest, longest break from regular Crusade duty and the cycle that reshapes it permanently. Book eight (Traitor General) sends Gaunt and the Gereon Twelve — Rawne, Feygor, Brostin, Mkvenner, Larkin, Beltayn, Criid, Mkoll, Varl, Bonin and the medic Curth — on a deep-strike insertion onto Chaos-occupied Gereon to assassinate the traitor Lord General Noches Sturm, threading partisan-warfare procedural and body-horror as the team mutates from breathing tainted air. Book nine (His Last Command) recovers the survivors back to friendly space on Ancreon Sextus, demotes Gaunt from Colonel-Commissar to Commissar, confirms Rawne in regimental command, and introduces the Belladon third intake under Hark and Daur. Book ten (The Armour of Contempt) launches the Imperial liberation of Gereon while running a generational hand-off through Dalin Criid's Belladon recruit training, peeling open the Resistance's tragic post-occupation reckoning. Book eleven (Only in Death) closes The Lost on the fortress-world of Jago, where the regiment garrisons the haunted citadel Hinzerhaus — a half-buried structure that reveals itself as a haunted place with its own designs while a Blood Pact siege builds outside — and emerges from the cycle smaller, quieter and permanently transformed.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "doorstopper", "war_story", "siege", "journey", "mystery", "grimdark", "somber", "action_heavy", "cosmic_horror", "war", "loyalty", "sacrifice", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Belladon", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Gereon Resistance", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Gereon", "role": "primary" },
+          { "name": "Ancreon Sextus", "role": "primary" },
+          { "name": "Jago", "role": "primary" },
+          { "name": "Hinzerhaus", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Dalin Criid", "role": "pov" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Ban Daur", "role": "supporting" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Caffran", "role": "supporting" },
+          { "name": "Ana Curth", "role": "supporting" },
+          { "name": "Murtan Feygor", "role": "supporting" },
+          { "name": "Brostin", "role": "supporting" },
+          { "name": "Mkvenner", "role": "supporting" },
+          { "name": "Beltayn", "role": "supporting" },
+          { "name": "Bonin", "role": "supporting" },
+          { "name": "Varl", "role": "supporting" },
+          { "name": "Gerome Landerson", "role": "supporting" },
+          { "name": "Noches Sturm", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0043",
+      "slug": "sabbat-worlds",
+      "overrides": {
+        "synopsis": "The first Sabbat Worlds anthology, edited by Dan Abnett and published by Black Library in 2010, gathers eight short stories set across the Sabbat-Worlds Crusade by a rotating cast of Black Library authors. Dan Abnett bookends the collection with two Tanith First pieces — 'Of Their Lives in the Ruins of Their Cities', which catches up with Gaunt's regiment in the wake of Necropolis, and 'The Iron Star', which threads an Inquisition story through the Crusade's seams. Graham McNeill's 'Apostle's Creed' centres a Sisters of Battle confessor's faith-defined fight; Matthew Farrer's 'The Headstone and the Hammerstone Kings' and Nik Vincent's 'Cell' follow Imperial-civilian and partisan threads inside Crusade-occupied territory; Aaron Dembski-Bowden's 'Regicide', Nick Kyme's 'Blueblood' and Sandy Mitchell's 'A Good Man' contribute a Sirkle-style political-intrigue piece, a Volpone-Bluebloods regiment showcase and a tonally lighter Imperial-Guard character study respectively. The anthology operates as a cross-section sampler of the Crusade's mid-period, with surface-form treue to Abnett's established cast and Crusade-era faction names.",
+        "facetIds": ["book", "ensemble", "guardsman", "imperium", "sector", "mid_series", "standard", "war_story", "character_study", "mystery", "grimdark", "somber", "action_heavy", "war", "faith", "loyalty", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "supporting" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Volpone Bluebloods", "role": "supporting" },
+          { "name": "Adepta Sororitas", "role": "supporting" },
+          { "name": "Ecclesiarchy", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sabbat Worlds", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Colm Corbec", "role": "supporting" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0044",
+      "slug": "sabbat-crusade",
+      "overrides": {
+        "synopsis": "The second Sabbat Worlds anthology, edited by Dan Abnett and published by Black Library in 2014, expands the Crusade-anthology format with new fiction from Dan Abnett, Aaron Dembski-Bowden, Nick Kyme, Nik Vincent, John French, Rob Sanders, Matthew Farrer and David Annandale. Abnett contributes four Tanith First pieces — 'Family', 'You Never Know', 'Ghosts and Bad Shadows' and 'A Ghost Return' — that fill in regimental gaps between Salvation's Reach and the Victory arc. John French's 'Son of Sek' centres the rising Anarch infantry tier as a strategic threat; Aaron Dembski-Bowden's 'Arnogaur' explores the Blood Pact officer corps from the inside; Nick Kyme's 'Tempest' returns to the Phantine theatre; Nik Vincent's 'Viduity' and David Annandale's 'The Deeper Wounds' run smaller-scale Crusade-civilian and trooper-level threads. The anthology sits chronologically across the late-Saint and early-Victory arcs, with the Sirkle-style internal-Imperium conspiracy and the Sek/Innokenti Archenemy split as recurring framing concerns.",
+        "facetIds": ["book", "ensemble", "guardsman", "imperium", "sector", "mid_series", "standard", "war_story", "character_study", "political_thriller", "grimdark", "somber", "action_heavy", "war", "loyalty", "sacrifice", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "supporting" },
+          { "name": "Belladon", "role": "supporting" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" },
+          { "name": "Sons of Sek", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sabbat Worlds", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Mabbon Etogaur", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0045",
+      "slug": "gaunts-ghosts-the-victory-omnibus-part-one-12-13",
+      "overrides": {
+        "synopsis": "The Victory Omnibus Part One collects the two Gaunt's Ghosts novels that bridge the regiment's long post-Sabbat-Martyr decline into its reactivated final campaign. Book twelve (Blood Pact) pulls the Tanith First off the line to rear-area Balhaut and the city of Balopolis — the same world where Macaroth was anointed Warmaster a generation earlier — for furlough, refit and a slow regimental decay; Gaunt is dragged back into Section work by the captured Blood Pact Etogaur Mabbon, who refuses to talk to anyone else, while three rogue Sirkle-named Inquisitorial agents attempt to murder Mabbon before he can pass on what he knows about the Sek-versus-Innokenti split inside the Archenemy. Book thirteen (Salvation's Reach) acts on the intelligence Mabbon supplied: Gaunt's regiment — reinforced with fresh Verghastite and Belladon intakes — embarks on a black-ops fleet under Captain Spika to raid the fortress space hulk Salvation's Reach and seize Anarch Sek's strategic archive, with the teenage Verghastite intake Felyx Chass aboard who turns out to be Merity Chass's child by Gaunt — the son Gaunt never knew he fathered. The Victory arc proper opens here; the omnibus closes with the data in Imperial hands, Mabbon as an Imperial asset, and Sons of Sek established as the new Archenemy infantry tier facing the Crusade.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "doorstopper", "war_story", "heist", "political_thriller", "mystery", "grimdark", "somber", "action_heavy", "war", "betrayal", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death", "cw_crime", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "primary" },
+          { "name": "Belladon", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Imperial Navy", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" },
+          { "name": "Sons of Sek", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Balhaut", "role": "primary" },
+          { "name": "Balopolis", "role": "primary" },
+          { "name": "Salvation's Reach", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" },
+          { "name": "Oan Mkoll", "role": "supporting" },
+          { "name": "Hlaine Larkin", "role": "supporting" },
+          { "name": "Ana Curth", "role": "supporting" },
+          { "name": "Ban Daur", "role": "supporting" },
+          { "name": "Tona Criid", "role": "supporting" },
+          { "name": "Caffran", "role": "supporting" },
+          { "name": "Felyx Chass", "role": "supporting" },
+          { "name": "Mabbon Etogaur", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0046",
+      "slug": "sabbat-war",
+      "overrides": {
+        "synopsis": "The third Sabbat Worlds anthology, edited by Dan Abnett and published by Black Library in 2021, collects ten stories from Dan Abnett, Graham McNeill, Robert Rath, Marc Collins, Matthew Farrer, Justin D. Hill, Edoardo Albert, John French and Rachel Harrison. Abnett opens with 'This is What Victory Feels Like (Forever the Same)' and closes with 'From There to Here', both centred on the Tanith First in the aftermath of The Anarch's Eltath finale. The middle of the volume runs across the wider Crusade — Graham McNeill's 'Whose Voice is Heard No More', Robert Rath's 'Glory Flight' (a Phantine Air Corps piece), Marc Collins's 'The Death of the Prophet', Matthew Farrer's 'Nineteen-Three Coreward, Resolved', Justin D. Hill's 'The Tomb of Vichres', Edoardo Albert's 'Deep' and John French's 'Armaduke' (named for Gaunt's strike-cruiser flagship) — with Rachel Harrison's 'Indomitable Spirit' threading a Severina-Raine-style Commissar-procedural piece. The anthology's umbrella frame is the post-Sek-death strategic re-orientation of the Crusade and the question of what victory actually means at the end of two centuries of war.",
+        "facetIds": ["book", "ensemble", "guardsman", "imperium", "sector", "mid_series", "standard", "war_story", "character_study", "political_thriller", "grimdark", "somber", "action_heavy", "war", "loyalty", "sacrifice", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Tanith First-and-Only", "role": "primary" },
+          { "name": "Verghastite Ghosts", "role": "supporting" },
+          { "name": "Belladon", "role": "supporting" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Imperial Navy", "role": "supporting" },
+          { "name": "Phantine Air Corps", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" },
+          { "name": "Sons of Sek", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sabbat Worlds", "role": "primary" },
+          { "name": "Urdesh", "role": "mentioned" },
+          { "name": "Eltath", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ibram Gaunt", "role": "pov" },
+          { "name": "Elim Rawne", "role": "supporting" },
+          { "name": "Viktor Hark", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0047",
+      "slug": "nightbringer",
+      "overrides": {
+        "synopsis": "The Ventris saga opens with newly promoted Captain Uriel Ventris of the Ultramarines 4th Company taking command after the death of his mentor Captain Idaeus. His first independent deployment is to Pavonis, a mercantile world in the Eastern Fringe whose seven Cardinal Houses — the old mercantile dynasties that effectively run the planet — are deep in conspiracy against the planetary governor and against each other. Inquisitor Ario Barzano arrives in parallel, pursuing a far older threat: a slumbering C'tan, the Nightbringer, buried beneath Pavonis by an ancient Eldar exile civilisation that built its planetary structure as a prison. Together with battle-brother Pasanius Lysane, the rest of the 4th Company under Ventris's command, and the unexpected tactical cooperation of an Eldar farseer who arrives to ensure the C'tan stays sealed, Ventris must thread the Cardinal-House intrigue, the Imperial-Navy presence, an awakening Necron tomb-complex, and his own Codex-pragmatist instincts to prevent the Nightbringer from rising. Sets up the Codex-versus-pragmatism arc that defines Ventris, the Pasanius battle-brother throughline, and the Inquisitor-Barzano partnership that recurs in Warriors of the Ultramar.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "series_start", "standard", "war_story", "mystery", "political_thriller", "grimdark", "action_heavy", "war", "loyalty", "brotherhood", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Imperial Navy", "role": "supporting" },
+          { "name": "Eldar", "role": "supporting" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Pavonis", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Uriel Ventris", "role": "pov" },
+          { "name": "Pasanius Lysane", "role": "supporting" },
+          { "name": "Ario Barzano", "role": "supporting" },
+          { "name": "Captain Idaeus", "role": "mentioned" },
+          { "name": "Nightbringer", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0048",
+      "slug": "warriors-of-the-ultramar",
+      "overrides": {
+        "synopsis": "Captain Uriel Ventris and the Ultramarines 4th Company are despatched to Tarsis Ultra, an industrial frontier world directly in the path of a Tyranid hive-fleet splinter pushing coreward through the Eastern Fringe. The defence is mounted jointly with the Mortifactors Chapter — an austere, death-cult-oriented Astartes brotherhood under Chaplain Astador whose doctrine of acceptable losses pulls hard against Ventris's instinctive Ultramarine pragmatism — and supported by Tarsis Ultra's local Imperial Guard militia, a substantial Adeptus Mechanicus contingent and a returning Inquisitor Ario Barzano. The campaign runs as a planet-scale siege procedural: hive-city perimeters, falling industrial belts, the slow grinding of Astartes-grade defensive lines against an enemy that cannot be deterred. The decisive choice the novel turns on is whether to deploy a Magos-engineered Vespasian-class biological weapon against the Hive Fleet — a Codex-Astartes violation the Mortifactors propose and Ventris ultimately authorises, ending the planetary defence at the cost of a death-oath that propels Dead Sky, Black Sun. Closes with Tarsis Ultra held and Ventris sentenced to a death-oath alongside Pasanius.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "siege", "grimdark", "action_heavy", "war", "loyalty", "brotherhood", "sacrifice", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Mortifactors", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Tarsis Ultra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Uriel Ventris", "role": "pov" },
+          { "name": "Pasanius Lysane", "role": "supporting" },
+          { "name": "Ario Barzano", "role": "supporting" },
+          { "name": "Chaplain Astador", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0049",
+      "slug": "dead-sky-black-sun",
+      "overrides": {
+        "synopsis": "Sentenced to a Death Oath for the Vespasian-tactic deployment on Tarsis Ultra, Captain Uriel Ventris and his battle-brother Pasanius Lysane are dispatched into the Eye of Terror to Medrengard, the daemon-forge-world of the Iron Warriors Traitor Legion. Their penance-mission is to locate and return a sample from the Daemonculaba — the horrific biological-industrial complex the Iron Warriors use to incubate Astartes-grade Chaos warriors. Stripped of regimental support, hunted by Iron Warriors Warsmith Honsou and harried by daemon engines and the corrupted infrastructure of a Chaos planet, Ventris and Pasanius link up with Ardaric Vaanes and his Lords of the Unholy Host — a band of fallen Space Marines living rough in Medrengard's wastes — and fight a journey-procedural through the daemon-forge to extract the sample. The novel's register is horror-procedural: corrupted flesh, half-living machinery, the slow attrition of two Loyalist Astartes alone on a Chaos planet. Closes with Ventris and Pasanius returning to Macragge changed but vindicated; Honsou survives the encounter and is permanently set as Ventris's personal antagonist for the remainder of the saga.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "mid_series", "standard", "journey", "war_story", "cosmic_horror", "grimdark", "somber", "action_heavy", "doubt", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Lords of the Unholy Host", "role": "supporting" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Daemons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Medrengard", "role": "primary" },
+          { "name": "Eye of Terror", "role": "primary" },
+          { "name": "Macragge", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Uriel Ventris", "role": "pov" },
+          { "name": "Pasanius Lysane", "role": "supporting" },
+          { "name": "Ardaric Vaanes", "role": "supporting" },
+          { "name": "Honsou", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0050",
+      "slug": "the-ultramarines-omnibus",
+      "overrides": {
+        "synopsis": "The Ultramarines Omnibus collects Graham McNeill's first three Uriel Ventris novels and operates as the canonical entry point for the entire Ventris saga. Book one (Nightbringer) introduces newly promoted Captain Uriel Ventris of the Ultramarines 4th Company on Pavonis, where the seven Cardinal Houses' political conspiracies obscure a far older Eldar-exile prison structure holding the C'tan Nightbringer — and Ventris must thread Inquisitor Ario Barzano's investigation, a tactical Eldar farseer alliance and an awakening Necron tomb to keep the C'tan sealed. Book two (Warriors of the Ultramar) defends the frontier world of Tarsis Ultra against a Tyranid hive-fleet splinter, with Ventris and the Mortifactors Chapter under Chaplain Astador holding a planet-scale siege that turns on the morally fraught deployment of a Magos-engineered Vespasian biological weapon — a Codex-Astartes violation that earns Ventris a death-oath. Book three (Dead Sky, Black Sun) takes that oath into the Eye of Terror: Ventris and Pasanius are sent to Medrengard, daemon-forge-world of the Iron Warriors, to retrieve a sample from the Daemonculaba, fighting through Warsmith Honsou and a band of fallen Astartes under Ardaric Vaanes in a horror-register journey that ends with their vindicated return to Macragge and Honsou set as a permanent personal antagonist.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_start", "doorstopper", "war_story", "siege", "journey", "mystery", "cosmic_horror", "grimdark", "somber", "action_heavy", "war", "loyalty", "brotherhood", "sacrifice", "doubt", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Mortifactors", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Imperial Navy", "role": "supporting" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Eldar", "role": "supporting" },
+          { "name": "Lords of the Unholy Host", "role": "supporting" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Daemons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Pavonis", "role": "primary" },
+          { "name": "Tarsis Ultra", "role": "primary" },
+          { "name": "Medrengard", "role": "primary" },
+          { "name": "Eye of Terror", "role": "primary" },
+          { "name": "Macragge", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Uriel Ventris", "role": "pov" },
+          { "name": "Pasanius Lysane", "role": "supporting" },
+          { "name": "Ario Barzano", "role": "supporting" },
+          { "name": "Chaplain Astador", "role": "supporting" },
+          { "name": "Ardaric Vaanes", "role": "supporting" },
+          { "name": "Captain Idaeus", "role": "mentioned" },
+          { "name": "Nightbringer", "role": "antagonist" },
+          { "name": "Honsou", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
