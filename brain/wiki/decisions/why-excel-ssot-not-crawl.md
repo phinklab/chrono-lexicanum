@@ -6,7 +6,7 @@ updated: 2026-05-10
 sources:
   - ../../../sessions/archive/2026-05/2026-05-10-057-arch-excel-roster-import.md
   - ../../../sessions/archive/2026-05/2026-05-10-057-impl-excel-ssot-import.md
-  - ../../../sessions/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md
+  - ../../../sessions/archive/2026-05/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md
   - ../../../scripts/seed-data/source/Warhammer_Books_SSOT.xlsx
   - ../../../scripts/seed-data/book-roster.json
 related:
