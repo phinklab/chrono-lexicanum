@@ -38,5 +38,17 @@
     "tone": "The western rim. Sabbat Worlds, Calixis.",
     "labelX": 240,
     "labelY": 320
+  },
+  {
+    "id": "scarus",
+    "name": "Scarus Sector"
+  },
+  {
+    "id": "helican",
+    "name": "Helican Subsector"
+  },
+  {
+    "id": "sabbat_region",
+    "name": "Sabbat Region"
   }
 ]

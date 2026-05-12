@@ -1,0 +1,457 @@
+[
+  {
+    "id": "ibram_gaunt",
+    "name": "Ibram Gaunt",
+    "primaryFactionId": "commissariat",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "elim_rawne",
+    "name": "Elim Rawne",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "hlaine_larkin",
+    "name": "Hlaine Larkin",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "oan_mkoll",
+    "name": "Oan Mkoll",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "viktor_hark",
+    "name": "Viktor Hark",
+    "primaryFactionId": "commissariat",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "ciaphas_cain",
+    "name": "Ciaphas Cain",
+    "primaryFactionId": "commissariat",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "jurgen",
+    "name": "Jurgen",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "tona_criid",
+    "name": "Tona Criid",
+    "primaryFactionId": "verghastite_ghosts",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "amberley_vail",
+    "name": "Amberley Vail",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "colm_corbec",
+    "name": "Colm Corbec",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "caffran",
+    "name": "Caffran",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "gideon_ravenor",
+    "name": "Gideon Ravenor",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "ban_daur",
+    "name": "Ban Daur",
+    "primaryFactionId": "verghastite_ghosts",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "gregor_eisenhorn",
+    "name": "Gregor Eisenhorn",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "regina_kasteen",
+    "name": "Regina Kasteen",
+    "primaryFactionId": "valhallan_597th",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "ruput_broklaw",
+    "name": "Ruput Broklaw",
+    "primaryFactionId": "valhallan_597th",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "ana_curth",
+    "name": "Ana Curth",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "cherubael",
+    "name": "Cherubael",
+    "primaryFactionId": "chaos",
+    "lexicanumUrl": null,
+    "notes": "Daemonhost bound by Eisenhorn; chaos alignment via daemonic possession"
+  },
+  {
+    "id": "mabbon_etogaur",
+    "name": "Mabbon Etogaur",
+    "primaryFactionId": "sons_of_sek",
+    "lexicanumUrl": null,
+    "notes": "Former Blood Pact officer who defected to Sons of Sek; primaryFactionId reflects current allegiance"
+  },
+  {
+    "id": "alizebeth_bequin",
+    "name": "Alizebeth Bequin",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "harlon_nayl",
+    "name": "Harlon Nayl",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "patience_kys",
+    "name": "Patience Kys",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "uber_aemos",
+    "name": "Uber Aemos",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "godwyn_fischig",
+    "name": "Godwyn Fischig",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "pontius_glaw",
+    "name": "Pontius Glaw",
+    "primaryFactionId": "chaos",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "kara_swole",
+    "name": "Kara Swole",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "carl_thonius",
+    "name": "Carl Thonius",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "wystan_frauka",
+    "name": "Wystan Frauka",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "brin_milo",
+    "name": "Brin Milo",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "tolin_dorden",
+    "name": "Tolin Dorden",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "bragg",
+    "name": "Bragg",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "felyx_chass",
+    "name": "Felyx Chass",
+    "primaryFactionId": "verghastite_ghosts",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "uriel_ventris",
+    "name": "Uriel Ventris",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "pasanius_lysane",
+    "name": "Pasanius Lysane",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "zygmunt_molotch",
+    "name": "Zygmunt Molotch",
+    "primaryFactionId": "chaos",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "sanian",
+    "name": "Sanian",
+    "primaryFactionId": "ecclesiarchy",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "lord_general_lugo",
+    "name": "Lord General Lugo",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "gerome_landerson",
+    "name": "Gerome Landerson",
+    "primaryFactionId": "gereon_resistance",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "dalin_criid",
+    "name": "Dalin Criid",
+    "primaryFactionId": "belladon",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "ario_barzano",
+    "name": "Ario Barzano",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "midas_betancore",
+    "name": "Midas Betancore",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "zael_efferneti",
+    "name": "Zael Efferneti",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "beta_bequin",
+    "name": "Beta Bequin",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "lord_general_dravere",
+    "name": "Lord General Dravere",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "agun_soric",
+    "name": "Agun Soric",
+    "primaryFactionId": "verghastite_ghosts",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "gol_kolea",
+    "name": "Gol Kolea",
+    "primaryFactionId": "verghastite_ghosts",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "heritor_asphodel",
+    "name": "Heritor Asphodel",
+    "primaryFactionId": "zoican_host",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "vaynom_blenner",
+    "name": "Vaynom Blenner",
+    "primaryFactionId": "commissariat",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "lijah_cuu",
+    "name": "Lijah Cuu",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "saint_sabbat",
+    "name": "Saint Sabbat",
+    "primaryFactionId": "ecclesiarchy",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "enok_innokenti",
+    "name": "Enok Innokenti",
+    "primaryFactionId": "chaos",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "murtan_feygor",
+    "name": "Murtan Feygor",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "brostin",
+    "name": "Brostin",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "mkvenner",
+    "name": "Mkvenner",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "beltayn",
+    "name": "Beltayn",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "bonin",
+    "name": "Bonin",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "varl",
+    "name": "Varl",
+    "primaryFactionId": "tanith_first",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "noches_sturm",
+    "name": "Noches Sturm",
+    "primaryFactionId": "chaos",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "macaroth",
+    "name": "Macaroth",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "anakwanar_sek",
+    "name": "Anakwanar Sek",
+    "primaryFactionId": "sons_of_sek",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "captain_idaeus",
+    "name": "Captain Idaeus",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "nightbringer",
+    "name": "Nightbringer",
+    "primaryFactionId": "chaos",
+    "lexicanumUrl": null,
+    "notes": "C'tan deity; pragmatically tagged chaos until a dedicated C'tan faction lands"
+  },
+  {
+    "id": "chaplain_astador",
+    "name": "Chaplain Astador",
+    "primaryFactionId": "mortifactors",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "ardaric_vaanes",
+    "name": "Ardaric Vaanes",
+    "primaryFactionId": "lords_of_unholy_host",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "honsou",
+    "name": "Honsou",
+    "primaryFactionId": "iron_warriors",
+    "lexicanumUrl": null,
+    "notes": null
+  }
+]

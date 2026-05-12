@@ -297,5 +297,309 @@
       "chaos"
     ],
     "warp": true
+  },
+  {
+    "id": "eustis_majoris",
+    "name": "Eustis Majoris",
+    "sector": "scarus",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "sancour",
+    "name": "Sancour",
+    "sector": "scarus",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "damocles_gulf",
+    "name": "Damocles Gulf",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "voltemand",
+    "name": "Voltemand",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "gereon",
+    "name": "Gereon",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "urdesh",
+    "name": "Urdesh",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "eltath",
+    "name": "Eltath",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "hubris",
+    "name": "Hubris",
+    "sector": "scarus",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "thracian_primaris",
+    "name": "Thracian Primaris",
+    "sector": "helican",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "spaeton_house",
+    "name": "Spaeton House",
+    "sector": "scarus",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "yassilli_sarum",
+    "name": "Yassilli Sarum",
+    "sector": "scarus",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "queen_mab",
+    "name": "Queen Mab",
+    "sector": "scarus",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "perlia",
+    "name": "Perlia",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ironfound",
+    "name": "Ironfound",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "tanith",
+    "name": "Tanith",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "pyrites",
+    "name": "Pyrites",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "fortis_binary",
+    "name": "Fortis Binary",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "menazoid_epsilon",
+    "name": "Menazoid Epsilon",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "monthax",
+    "name": "Monthax",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "verghast",
+    "name": "Verghast",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "vervunhive",
+    "name": "Vervunhive",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ferrozoica",
+    "name": "Ferrozoica",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "hagia",
+    "name": "Hagia",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "phantine",
+    "name": "Phantine",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "cirenholm",
+    "name": "Cirenholm",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ouranberg",
+    "name": "Ouranberg",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "aexe_cardinal",
+    "name": "Aexe Cardinal",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "herodor",
+    "name": "Herodor",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "civitas_beati",
+    "name": "Civitas Beati",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ancreon_sextus",
+    "name": "Ancreon Sextus",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "jago",
+    "name": "Jago",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "hinzerhaus",
+    "name": "Hinzerhaus",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "balhaut",
+    "name": "Balhaut",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "balopolis",
+    "name": "Balopolis",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "salvations_reach",
+    "name": "Salvation's Reach",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "pavonis",
+    "name": "Pavonis",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "tarsis_ultra",
+    "name": "Tarsis Ultra",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "medrengard",
+    "name": "Medrengard",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": []
   }
 ]

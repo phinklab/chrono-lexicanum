@@ -172,5 +172,145 @@
     "name": "Orks",
     "parent": null,
     "tone": "alien"
+  },
+  {
+    "id": "tanith_first",
+    "name": "Tanith First-and-Only",
+    "parent": "astra_militarum",
+    "alignment": "imperial",
+    "tone": "line"
+  },
+  {
+    "id": "verghastite_ghosts",
+    "name": "Verghastite Ghosts",
+    "parent": "tanith_first",
+    "alignment": "imperial",
+    "tone": "line"
+  },
+  {
+    "id": "blood_pact",
+    "name": "Blood Pact",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "belladon",
+    "name": "Belladon",
+    "parent": "tanith_first",
+    "alignment": "imperial",
+    "tone": "line"
+  },
+  {
+    "id": "sons_of_sek",
+    "name": "Sons of Sek",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "imperial_navy",
+    "name": "Imperial Navy",
+    "parent": "imperium",
+    "alignment": "imperial",
+    "tone": "imperial"
+  },
+  {
+    "id": "ecclesiarchy",
+    "name": "Ecclesiarchy",
+    "parent": "imperium",
+    "alignment": "imperial",
+    "tone": "archive"
+  },
+  {
+    "id": "urdeshi",
+    "name": "Urdeshi",
+    "parent": "astra_militarum",
+    "alignment": "imperial",
+    "tone": "line"
+  },
+  {
+    "id": "adeptus_astartes",
+    "name": "Adeptus Astartes",
+    "parent": "imperium",
+    "alignment": "imperial",
+    "tone": "imperial"
+  },
+  {
+    "id": "genestealer_cults",
+    "name": "Genestealer Cults",
+    "parent": "tyranids",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "valhallan_597th",
+    "name": "Valhallan 597th",
+    "parent": "astra_militarum",
+    "alignment": "imperial",
+    "tone": "line"
+  },
+  {
+    "id": "phantine_air_corps",
+    "name": "Phantine Air Corps",
+    "parent": "astra_militarum",
+    "alignment": "imperial",
+    "tone": "line"
+  },
+  {
+    "id": "gereon_resistance",
+    "name": "Gereon Resistance",
+    "parent": "astra_militarum",
+    "alignment": "imperial",
+    "tone": "line"
+  },
+  {
+    "id": "jantine_patricians",
+    "name": "Jantine Patricians",
+    "parent": "astra_militarum",
+    "alignment": "imperial",
+    "tone": "line"
+  },
+  {
+    "id": "vervunhive_militia",
+    "name": "Vervunhive Militia",
+    "parent": "astra_militarum",
+    "alignment": "imperial",
+    "tone": "line"
+  },
+  {
+    "id": "zoican_host",
+    "name": "Zoican Host",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "aexegarian_forces",
+    "name": "Aexegarian Forces",
+    "parent": "astra_militarum",
+    "alignment": "imperial",
+    "tone": "line"
+  },
+  {
+    "id": "mortifactors",
+    "name": "Mortifactors",
+    "parent": "adeptus_astartes",
+    "alignment": "imperial",
+    "tone": "imperial"
+  },
+  {
+    "id": "lords_of_unholy_host",
+    "name": "Lords of the Unholy Host",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "daemons",
+    "name": "Daemons",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
   }
 ]

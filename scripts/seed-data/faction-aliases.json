@@ -1,0 +1,16 @@
+{
+  "Chaos": "chaos",
+  "Imperial Guard": "astra_militarum",
+  "Astra Militarum": "astra_militarum",
+  "Ordo Xenos": "inquisition",
+  "Ordo Malleus": "inquisition",
+  "Ordo Hereticus": "inquisition",
+  "Eldar": "eldar",
+  "Aeldari": "eldar",
+  "Tau Empire": "tau",
+  "T'au Empire": "tau",
+  "T'au": "tau",
+  "Space Marines": "adeptus_astartes",
+  "Imperium of Mankind": "imperium",
+  "Imperium of Man": "imperium"
+}
