@@ -343,6 +343,11 @@ export const workFactions = pgTable(
     // editorial vocabulary can grow without a migration; default keeps
     // bulk-tagging cheap.
     role: varchar("role", { length: 32 }).default("supporting"),
+    // Brief 063 (2026-05-12): Audit-Trail-Spalte. Originaler LLM-/Override-
+    // Surface-Form-String, der zu dieser Junction-Row geführt hat. NULL =
+    // Direct-Match ohne Drift (raw == canonical.name); non-NULL = Surface-Form
+    // wich vom canonical Namen ab (z.B. "Imperial Guard" → astra_militarum).
+    rawName: text("raw_name"),
   },
   (t) => ({
     pk: primaryKey({ columns: [t.workId, t.factionId] }),
@@ -361,6 +366,8 @@ export const workCharacters = pgTable(
       .references(() => characters.id),
     // 'pov' | 'appears' | 'mentioned'.
     role: varchar("role", { length: 32 }).default("appears"),
+    // Brief 063 (2026-05-12): Audit-Trail-Spalte (siehe workFactions.rawName).
+    rawName: text("raw_name"),
   },
   (t) => ({
     pk: primaryKey({ columns: [t.workId, t.characterId] }),
@@ -382,6 +389,8 @@ export const workLocations = pgTable(
     // explicitly).
     role: varchar("role", { length: 32 }).default("secondary"),
     atY: numeric("at_y", { precision: 10, scale: 3 }),
+    // Brief 063 (2026-05-12): Audit-Trail-Spalte (siehe workFactions.rawName).
+    rawName: text("raw_name"),
   },
   (t) => ({
     pk: primaryKey({ columns: [t.workId, t.locationId] }),
@@ -574,8 +583,12 @@ export const locations = pgTable(
     id: varchar("id", { length: 64 }).primaryKey(),
     name: text("name").notNull(),
     sectorId: varchar("sector_id", { length: 64 }).references(() => sectors.id),
-    gx: integer("gx").notNull(),
-    gy: integer("gy").notNull(),
+    // Brief 063 (2026-05-12): nullable gemacht für Lore-Welten ohne Cartographer-
+    // Coordinaten (60 neue frequency≥2-Welten aus den ersten 50 Authority-Büchern,
+    // z.B. Sabbat-Sektor + Scarus-Sektor). Cartographer (Phase 5) filtert
+    // `WHERE gx IS NOT NULL`.
+    gx: integer("gx"),
+    gy: integer("gy"),
     capital: boolean("capital").default(false),
     warp: boolean("warp").default(false),
     lexicanumUrl: text("lexicanum_url"),
