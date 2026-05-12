@@ -319,4 +319,11 @@ CC-Implementation des Excel-SSOT-Imports + neue Decision-Page für den Discovery
 
 ---
 
+## 2026-05-13 · Update · Resolver applied + SSOT loop ready
+
+- Read: sessions/2026-05-12-063-impl-resolver-50-books.md, sessions/2026-05-12-067-impl-resolver-apply-readiness.md, sessions/2026-05-12-069-impl-resolver-apply-evidence.md
+- Updated wiki: project-state.md (post-069 anchor), pipeline-state.md (SSOT authority + resolver layer), open-questions.md (OQ4/OQ5 closed for first 50 W40K books), index.md (catalog dates/descriptions)
+- Session hygiene in same cleanup pass: archived 058/060 session logs, added 059 archive note, committed missing 061/062 architect briefs.
+- Other: local Git `core.autocrlf=false` set for this repo to avoid Windows LF/CRLF churn; local/generated artefacts moved to `.scratch/cleanup-2026-05-13/` outside Git.
+
 (Future entries go below as new `## YYYY-MM-DD · <Op-type> · <short-title>` sections.)

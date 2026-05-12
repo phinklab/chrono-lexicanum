@@ -2,7 +2,7 @@
 title: Open questions (next-brief queue)
 type: overview
 created: 2026-05-09
-updated: 2026-05-10
+updated: 2026-05-13
 sources:
   - ../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md
   - ../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
@@ -16,6 +16,11 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-10-056-impl-v2-pre-roster-fixes.md
   - ../../sessions/archive/2026-05/2026-05-10-057-arch-excel-roster-import.md
   - ../../sessions/archive/2026-05/2026-05-10-057-impl-excel-ssot-import.md
+  - ../../sessions/2026-05-11-061-arch-ssot-loop.md
+  - ../../sessions/2026-05-12-063-arch-resolver-50-books.md
+  - ../../sessions/2026-05-12-063-impl-resolver-50-books.md
+  - ../../sessions/2026-05-12-067-impl-resolver-apply-readiness.md
+  - ../../sessions/2026-05-12-069-impl-resolver-apply-evidence.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
 related:
   - ./project-state.md
@@ -30,7 +35,7 @@ confidence: high
 
 > Items the **next** architect brief MUST address. The queue is intentionally small (3–5 items). Cowork prunes here when an item lands in a brief or is otherwise resolved. Dormant / distant items live in [`./deferred-questions.md`](./deferred-questions.md). Phase-internal backlog (3d / 3e / 3f reminders) lives in [`./pipeline-state.md`](./pipeline-state.md).
 >
-> **Migration history (kompakt):** Initial 9-Item-Carry-over migrated 049-Reset → 11 items; 051 Slim Pass split actionable / deferred / sub-phase. Post-054 verschob Anthologie-Re-Test + Body-Lore-Walker nach `deferred-questions.md` (V2-Pilot strukturell adressiert) und ersetzte sie durch OQ4 (Junction-Resolver) + OQ5 (Unresolved-Queue). Pre-055 Add: OQ6 (Hardcover-Rating-Promotion + OL-Fallback). Post-055-Pivot (2026-05-10): Workflow von Voll-Lauf auf kuratierte 10er-Batches umgestellt; OQ4/OQ5 rutschen sequence-mäßig hinter die ersten 30–50 prozessierten Bücher. Excel-SSOT-Pivot (2026-05-10, Brief 057): Maintainer-Excel ersetzt Crawler-Discovery; OQ7 (Master-Liste-Crawl-Build) + OQ8 (Roster-Index-Selektor) **erledigt durch 057-impl** (Schema + Truncate + Loader gelandet) — der Pipeline-Refactor selbst ist Brief 058. Siehe [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md) für die ADR. Universe-Year-Walker bleibt in `deferred-questions.md` (Maintainer-Direktive: erstmal hinten anstellen).
+> **Migration history (kompakt):** Initial 9-Item-Carry-over migrated 049-Reset → 11 items; 051 Slim Pass split actionable / deferred / sub-phase. Post-054 verschob Anthologie-Re-Test + Body-Lore-Walker nach `deferred-questions.md` und ersetzte sie durch OQ4 (Junction-Resolver) + OQ5 (Unresolved-Queue). Excel-SSOT-Pivot (2026-05-10, Brief 057): OQ7 (Master-Liste-Crawl-Build) + OQ8 (Roster-Index-Selektor) erledigt. Post-069 (2026-05-12): OQ4 + OQ5 **für die ersten 50 W40K-Bücher geschlossen** durch Resolver-Sidecar-JSONs, canonical Reference-Extensions, `raw_name`-Audit-Spalten, `db:seed-resolver-extensions` und Re-Apply `ssot-w40k-001..005`. Universe-Year-Walker bleibt in `deferred-questions.md` (Maintainer-Direktive: erstmal hinten anstellen).
 
 Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions: …` (raw sources) · `Follow-up brief: …` (if known).
 
@@ -59,36 +64,13 @@ Plus: `value_outside_vocabulary` über 70 Bücher kumulativ (042 + 044): `duty` 
 
 Sequenz post-054: V2-Voll-Lauf (055) → Resolver + Unresolved-Queue (056, items 4+5) → Modell-Entscheidung + Vokabular (items 1+2) → **Hand-Check + Override-Schema** → 3d-Apply-Step (057). **Post-054-Update:** V2 hat `BookV2Record.fields.<f>.override` als Hand-Override-Slot bereits eingebaut; Hand-Check-Brief muss „nur" das CSV-/Markdown-Override-Format definieren und die Triage-Disziplin für Cowork (welcher Validation-Severity rolls auto, welcher braucht Cowork-Augen, welcher ignored). V1's `llm_flags` fallen unter V2 weg, ersetzt durch `Validation[]`.
 
-## (4) Junction-Resolver für 3d-Apply — Faction/Location/Character Surface-Form → Canonical-ID
+## (4) ~~Junction-Resolver für 3d-Apply~~ — closed by 063–069
 
-**Owner:** Cowork (architectural design) → CC (implementation). **Sessions:** [054-arch](../../sessions/archive/2026-05/2026-05-09-054-arch-pipeline-v2-pilot.md), [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md), [055-impl](../../sessions/archive/2026-05/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md), [Codex-Review](../raw/reviews/2026-05-09-codex-v2-pilot-review.md). **Follow-up brief:** verschoben — kommt nach den ersten 30–50 real-prozessierten Büchern aus den 10er-Batches (Briefs 058+). Bis dahin ist die 055er Surface-Form-Top-20 Referenz-Datensatz, aber Datensammlung läuft weiter; die Resolver-Brief-Empirie wächst mit jedem 10er-Batch. **Post-057-Update:** Excel-SSOT ändert die Resolver-Frage nicht — Surface-Forms kommen aus dem LLM-Output, nicht aus der Excel; Faction-/Location-/Character-Vokabular ist Pipeline-Job, nicht Maintainer-Curation.
+Resolver für die ersten 50 W40K-Bücher ist gelandet und applied. Brief 063 entschied die Hybrid-Top-N-Richtung praktisch aus: checked-in Reference-Erweiterungen (`factions.json`, `locations.json`, neues `characters.json`), Alias-JSONs, Resolver-Modul, `raw_name`-Audit-Spalten und `work_characters`-Apply-Pfad. 065–067 härteten Alignment, Fresh-Seed, Role-Normalisierung, Coverage-Smoke und Runbook; 069 führte Migration/Seed/Re-Apply gegen die DB aus und dokumentierte die Counts. Future work ist keine offene OQ4-Architekturfrage mehr, sondern laufende Resolver-Pflege pro 50er-Schwelle und ggf. HH-spezifischer Resolver, wenn der Loop die HH-Domain erreicht.
 
-V2 schreibt Faktionen, Locations und Characters als `{ name, role }` mit Surface-Forms aus dem LLM (z. B. `{ name: "Sons of Horus", role: "primary" }`). Das ist by-design für Pilot + Voll-Lauf — die FK-Resolution gegen `factions.id` / `locations.id` / `characters.id` (alle `varchar(64)` String-IDs) kommt im Resolver. Vier Anforderungen aus Codex-Review:
+## (5) ~~Unresolved-Queue-Strategie für unbekannte Entitäten~~ — closed by 063–069
 
-- (a) **Name-Normalisierung + Direct-Match.** "Word Bearers" → `word_bearers`, "Sons of Horus" → `sons_of_horus`. Slugify + Direct-`name`-Lookup.
-- (b) **Alias-Mapping** für historische / synonyme Namen: "Space Marines" / "Adeptus Astartes", "Sons of Horus" / "Luna Wolves" (alte Legion-Namen vor Horus-Heresy-Bruch), "Imperial Fists" / "VII Legion". Alias-Tabelle als checked-in Artifact (z. B. `scripts/seed-data/faction-aliases.json` oder als Resolver-Code-Konstante mit Migration-Pfad).
-- (c) **Hierarchie-Rollup** über `factions.parentId`. UX-Frage: filter "Imperium" surface-t plausibel auch `ultramarines`-getaggte Bücher? Wenn ja: recursive query oder pre-computed materialized path. Architektur-Entscheidung im Brief.
-- (d) **Raw-Name-Audit-Trail.** Auch nach erfolgreichem Mapping bleibt der extrahierte Surface-Form-Name in der Junction-Row gespeichert (z. B. als `work_factions.raw_name text`). Audit: „Buch sagte 'Sons of Horus', resolved wurde `sons_of_horus`."
-
-Gilt parallel für `locations` und `characters`.
-
-**Empirische Basis aus 055-Voll-Lauf** (`v2-batch-20260510-1109-surfaces.json`, 50 Bücher, slug-window `13th-legion → ascension`):
-
-- **Factions:** 133 Occurrences / 60 distinct, **46.7% Direct-Match**, 3.3% Alias-Candidate, 50.0% Unknown. Klare Alias-Targets: `"Imperial Guard" / "Imperial Army" → astra_militarum`, `"Imperium of Mankind" → imperium`, `"War Hounds" → world_eaters` (pre-Heresy Legion-Name; 2× im Window), `"Prodigal Sons" → thousand_sons`, `"Last Chancers" / "13th Penal Legion"` interlinkbar. Klare Canonical-Lücken in `seed-data/factions.json`: **Iron Hands, Emperor's Children, Black Legion, Death Guard, Sisters of Silence, Ecclesiarchy** (alle real W40K-Faktionen, real benötigt). Daneben Book-narrow Cults (Cult of the Angel of Fire, Disciples of Nul, Angels of the Grail) — Unresolved-Queue-Material (item 5).
-- **Locations:** 101/76, **13.2% Direct-Match**, 5.3% Alias-Candidate, 81.6% Unknown. `seed-data/locations.json` ist Cartography-Anker (Terra, Mars, Calth), nicht Lore-Welten-Bibliothek — die meisten Surface-Forms sind book-internal. Lore-Welten zum Kanonisieren: Isstvan / Isstvan V (HH-Event), Nuceria (World-Eaters-Heimatwelt), Sotha, Imperium Nihilus (post-Cicatrix-Divide), Mortal Realms (AoS-Setting; Stormcast-Appearances). **Discriminator-Problem:** Schiffe (Black Ship, Conqueror, Endeavour of Will, Fist of Iron, Titan Child) leak ins Location-Bucket — `kind: "ship" | "world" | "sector" | "structure"` Discriminator oder Pre-Resolver-Disambiguation-im-Prompt ist Resolver-Brief-Architektur-Frage.
-- **Characters:** 183/146, **0% Direct-Match** — strukturell, weil `seed-data/persons.json` der Author-Roster ist (Dan Abnett, Guy Haley, …), nicht in-universe Characters. Empirie spricht für **Option C (Hybrid Top-100):** Primarchs + Ahriman + Schaeffer cluster naturally above the noise floor (Ahriman 7×, Magnus 5×, Angron / Horus / Guilliman 4×, Schaeffer / Ctesias / Stroika / Torquora 3×). Architectural Blocker: kein canonical character table existiert; der Resolver-Brief muss A (full canonical) / B (scope-out) / C (Hybrid Top-100) entscheiden. Maintainer-Vorpräferenz Option C.
-
-## (5) Unresolved-Queue-Strategie für unbekannte Entitäten
-
-**Owner:** Cowork (architectural call) → CC (Schema + Triage-UI/CSV). **Sessions:** [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md), [055-impl](../../sessions/archive/2026-05/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md), [Codex-Review](../raw/reviews/2026-05-09-codex-v2-pilot-review.md). **Follow-up brief:** verschoben — gebündelt mit item 4 in einem späteren Resolver-Brief, sobald 30–50 Bücher aus den 10er-Batches durch sind. Bis dahin sammeln die 10er-Batch-Diffs Surface-Forms; Maintainer-Review zwischen den Briefs trifft Triage-Entscheidungen ad-hoc.
-
-Wenn das LLM "Cabal of Eight" oder "House Glaw" oder "Saruthi" als Faction extrahiert, aber `factions.json` enthält keinen direkten Match und keine Alias-Resolution greift — was tun? Drei Optionen:
-
-- **Option A — Silent Drop mit Audit-Log.** Junction wird nicht geschrieben; `work_factions.raw_name`-Audit-Eintrag entfällt. Vorteil: einfach. Nachteil: Lore-Detail geht verloren ohne Cowork-Sichtbarkeit.
-- **Option B — Auto-Create mit De-Dup-Heuristik.** Pipeline erzeugt automatisch neuen `factions.id` (slugified) mit `parentId: null` + `alignment: 'neutral'`. De-Dup gegen `name`-Levenshtein. Vorteil: keine Cowork-Eingriffe nötig. Nachteil: Faction-Tabelle wird mit halb-kanonischen Einträgen polluted; Filter-UX zerfasert.
-- **Option C — Staging-Tabelle mit Cowork-Triage** (Codex-Empfehlung). Neue Tabelle `unresolved_entities { id, kind: 'faction'|'location'|'character', raw_name, occurrences, first_seen_work_id, status: 'pending'|'resolved'|'ignored' }`. Pipeline schreibt dort hin; Cowork triagiert frequenz-sortiert (häufigste Unknowns zuerst); resolved Einträge spawnen seed-data-PR + alias-mapping-Entry. **Empfehlung Cowork: Option C**, weil sie die Junction-Datenintegrität bewahrt und gleichzeitig die Surface-Form-Information nicht verliert.
-
-**Volumen-Empirie post-055** (50-Bücher-Voll-Lauf, vs. Pilot-Hochrechnung): Faction-Achse 30 Unknown von 60 distinct (50.0%); Location-Achse 62 von 76 (81.6%); Character-Achse 146 von 146 (100%, strukturell weil kein canonical Character-Table). Hochgerechnet auf 750 Bücher V2-Voll-Lauf: ~450 Faction-Unknowns, ~930 Location-Unknowns, ~2200 Character-Surface-Forms total. Long-Tail-Verteilung — Top-100 erfassen vermutlich 70–80% des Signals (siehe `surfaces.json` aus 055). Cowork-Triage einer Top-100-Liste in einer Sitzung machbar; die 10er-Batch-Reihe verteilt das natürlich auf viele kleine Triage-Inkremente.
+Für die 50-Buch-Authority-Schicht wurde keine `unresolved_entities`-Staging-Tabelle gebaut. Stattdessen gilt für diesen Modus: Cowork kuratiert häufige Surface-Forms direkt in Sidecar-JSONs, Long-Tail bleibt im `book_details.notes`-Surface-Forms-Block, und Coverage-Tests (`test:resolver-coverage`, `test:apply-override-dry`) machen die Rest-Lücken sichtbar. Eine echte Staging-Tabelle bleibt eine distant/future Option, falls später ein autonomer Crawler-Apply ohne Maintainer-Override-Loop wieder relevant wird.
 
 ## (6) Hardcover-Rating-Promotion + Open-Library-Fallback-Decision
 
