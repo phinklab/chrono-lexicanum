@@ -100,5 +100,30 @@
     "id": "nick_kyme",
     "name": "Nick Kyme",
     "nameSort": "Kyme, Nick"
+  },
+  {
+    "id": "ian_watson",
+    "name": "Ian Watson",
+    "nameSort": "Watson, Ian"
+  },
+  {
+    "id": "barrington_j_bayley",
+    "name": "Barrington J. Bayley",
+    "nameSort": "Bayley, Barrington J."
+  },
+  {
+    "id": "brian_craig",
+    "name": "Brian Craig",
+    "nameSort": "Craig, Brian"
+  },
+  {
+    "id": "william_king",
+    "name": "William King",
+    "nameSort": "King, William"
+  },
+  {
+    "id": "simon_spurrier",
+    "name": "Simon Spurrier",
+    "nameSort": "Spurrier, Simon"
   }
 ]
