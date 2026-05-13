@@ -125,5 +125,30 @@
     "id": "simon_spurrier",
     "name": "Simon Spurrier",
     "nameSort": "Spurrier, Simon"
+  },
+  {
+    "id": "jonathan_green",
+    "name": "Jonathan Green",
+    "nameSort": "Green, Jonathan"
+  },
+  {
+    "id": "c_s_goto",
+    "name": "C.S. Goto",
+    "nameSort": "Goto, C.S."
+  },
+  {
+    "id": "richard_williams",
+    "name": "Richard Williams",
+    "nameSort": "Williams, Richard"
+  },
+  {
+    "id": "chris_roberson",
+    "name": "Chris Roberson",
+    "nameSort": "Roberson, Chris"
+  },
+  {
+    "id": "rob_sanders",
+    "name": "Rob Sanders",
+    "nameSort": "Sanders, Rob"
   }
 ]
