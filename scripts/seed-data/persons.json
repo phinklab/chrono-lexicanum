@@ -95,5 +95,10 @@
     "birthYear": 1976,
     "lexicanumUrl": "https://wh40k.lexicanum.com/wiki/Ben_Counter",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Ben_Counter"
+  },
+  {
+    "id": "nick_kyme",
+    "name": "Nick Kyme",
+    "nameSort": "Kyme, Nick"
   }
 ]
