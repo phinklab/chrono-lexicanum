@@ -1,0 +1,281 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-008",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-13",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0071..W40K-0080 — a mixed late-2000s/early-2010s 40K standalone cluster: Dan Abnett's Sabbat-Worlds aviation companion novel Double Eagle (2002, Phantine pilots on Enothis), Jonathan Green's Iron Hands quest novel (2004, Iron-Father Gdolkin chasing a Ferrus-Manus relic during the 13th Black Crusade), Simon Spurrier's Night Lords noir Lord of the Night (2005, Sahaal vs Mita Ashyn on Equixus), Dan Abnett's Iron-Snakes fix-up Brothers of the Snake (2007, Brother-Sergeant Priad of Damocles Squad on Ithaka/Karybdis), C.S. Goto's controversial craftworld novel Eldar Prophecy (2007, Kaelor + Naois), Richard Williams's Imperial-Navy class-war thriller Relentless (2008, Captain Becket vs First Officer Ward + Dark Eldar), Dan Abnett's Adeptus-Titanicus ensemble piece Titanicus (2008, Orestes + Legio Invicta), Chris Roberson's Imperial-Fists recruitment novel Sons of Dorn (2010, Vernailis), Rob Sanders's Inquisitor-Czevak Webway novel Atlas Infernal (2011, Black Library + Ahriman), and Aaron Dembski-Bowden's Grey-Knights first-person novel The Emperor's Gift (2012, Hyperion + Annika Jarlsdottir + First War of Armageddon + Months of Shame). Structural notes: one format-compliance flag (W40K-0074 Brothers of the Snake is a seven-story fix-up but SSOT-roster lists novel), one low-confidence-canonicity flag for the Goto Eldar entry, and the first authority-layer entries for the Iron Hands, Iron Snakes, Imperial Fists scout/recruitment register, Adeptus Titanicus, Grey Knights, and Night Lords factions.",
+  "books": [
+    {
+      "externalBookId": "W40K-0071",
+      "slug": "double-eagle",
+      "overrides": {
+        "synopsis": "Sabbat Worlds Crusade companion novel to Gaunt's Ghosts, taking the Crusade to the skies above Enothis. The elite Phantine XX fighter wing — including Commander Bree Jagdea — arrives on the desert-coast war-front in a desperate hour, with Chaos air forces driving Imperial cover off the planet and threatening to wipe out the remaining human population. Dual POV across the dogfighting line: Phantine pilots flying Thunderbolt and Marauder aircraft on one side, the infamous Chaos ace Khrel Kas Obarkon and his Hell-Talon squadrons hunting the skies on the other. Cast across both sides is large (squadron-mate ensembles, ground crew, and PDF aviator allies). A 'Battle of Britain in space' register — sustained aerial combat, attrition, pilot psychology, and the strategic stakes of holding the air corridor that the Crusade's ground forces depend on. Carries the same Sabbat-Worlds geopolitics as the Gaunt's Ghosts arc but anchors on the Imperial Navy / Phantine-aviation axis rather than the Tanith First-and-Only.",
+        "facetIds": ["book", "mixed", "guardsman", "dual", "planetary", "standalone", "standard", "war_story", "character_study", "grimdark", "somber", "action_heavy", "brotherhood", "sacrifice", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Navy", "role": "primary" },
+          { "name": "Phantine Air Corps", "role": "primary" },
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "supporting" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Tanith First-and-Only", "role": "mentioned" }
+        ],
+        "locations": [
+          { "name": "Enothis", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "secondary" },
+          { "name": "Phantine", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Bree Jagdea", "role": "pov" },
+          { "name": "Khrel Kas Obarkon", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0072",
+      "slug": "iron-hands",
+      "overrides": {
+        "synopsis": "Standalone Iron Hands novel set against the backdrop of Abaddon the Despoiler's 13th Black Crusade. Iron-Father Gdolkin and his company are pulled away from the defence of their home world of Medusa to honour an ancient oath sworn to the Adeptus Mechanicus, and a trail of clues from the Mechanicus archive draws Gdolkin to a long-lost world that may hold an ancient weapon capable of turning the tide of the Crusade. For Gdolkin the mission is personal as well as duty-bound: the same lost world is reputed to hide the resting place of the Iron Hands' primarch, Ferrus Manus, the oldest mystery of the chapter. Quest / journey register with an Adeptus-Mechanicus theological undertone, written from the Iron Hands' machine-supremacist Astartes perspective. First authority-layer entry where the Iron Hands chapter is the primary protagonist faction (previous appearances were antagonist-mentioned in the Iron Warriors arc) and first explicit Ferrus-Manus surface form.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "standalone", "standard", "journey", "mystery", "war_story", "grimdark", "somber", "action_heavy", "loyalty", "hubris", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Medusa", "role": "primary" },
+          { "name": "Eye of Terror", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Iron-Father Gdolkin", "role": "pov" },
+          { "name": "Ferrus Manus", "role": "mentioned" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0073",
+      "slug": "lord-of-the-night",
+      "overrides": {
+        "synopsis": "Night Lords noir / investigation thriller. Zso Sahaal — First Captain of the VIII Legion, exiled and lost in the warp for ten thousand years since the death of his master Konrad Curze — emerges back into realspace on the sunless hive-world of Equixus, hunting an ancient stolen artefact (the Corona Nox) that he needs to reclaim leadership of his scattered legion from his treacherous rival Acerbus. Mita Ashyn, a young Inquisitorial interrogator with growing doubts about the hypocrisy of her own order, is sent to Equixus to investigate what she takes for routine corruption and heresy, only to find herself on Sahaal's trail. Dual POV across antagonist and protagonist registers — neither cleanly hero nor villain — with both characters developing across the novel. Hive-noir atmosphere with Adeptus Arbites enforcers, hive-gang ecosystems, and Inquisition strike-team support woven through the chase. First authority-layer entry where the Night Lords legion is the primary protagonist faction.",
+        "facetIds": ["book", "mixed", "multi", "dual", "planetary", "standalone", "standard", "mystery", "character_study", "political_thriller", "grimdark", "somber", "cosmic_horror", "betrayal", "hubris", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "primary" },
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Adeptus Arbites", "role": "supporting" },
+          { "name": "Adeptus Astartes", "role": "supporting" },
+          { "name": "Imperial Guard", "role": "mentioned" }
+        ],
+        "locations": [
+          { "name": "Equixus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Zso Sahaal", "role": "pov" },
+          { "name": "Mita Ashyn", "role": "pov" },
+          { "name": "Acerbus", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0074",
+      "slug": "brothers-of-the-snake",
+      "overrides": {
+        "synopsis": "Episodic Iron Snakes novel structured as seven linked short stories (most originally published in Inferno! magazine) following Damocles Squad over roughly twelve years of duty defending the Reef Stars sector. POV anchor is Brother Priad of Damocles Squad — an Iron Snake of Ithaka who, after Brother-Sergeant Raphon and two other squadmates fall on an early mission, inherits Raphon's legendary Lightning Claw and the squad's sergeancy. The seven episodes range from boarding actions and Dark-Eldar slave-raid responses to Ork brawls and squad-internal weakness-and-honour reckonings, with Priad's mentor-and-leader arc as the spine. Iron Snakes chapter culture is Greek-coded: home world Ithaka, chapter-fortress moon Karybdis, oath / hospitality / kin-debt ethics threaded through every episode. First authority-layer entry for the Iron Snakes chapter and the Reef-Stars sector framing; format-compliance flag because the SSOT roster lists 'novel' while the work is structurally a fix-up / linked-story collection.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "standalone", "standard", "war_story", "character_study", "journey", "grimdark", "somber", "action_heavy", "brotherhood", "loyalty", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Snakes", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Dark Eldar", "role": "antagonist" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Ithaka", "role": "primary" },
+          { "name": "Karybdis", "role": "secondary" },
+          { "name": "Reef Stars", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Priad", "role": "pov" },
+          { "name": "Raphon", "role": "supporting" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "format",
+            "current": "novel",
+            "suggestion": "collection",
+            "sources": ["Lexicanum Brothers of the Snake (Novel); Warhammer 40k Wiki / Fandom Brothers of the Snake; Goodreads"],
+            "reasoning": "Brothers of the Snake is structurally a fix-up of seven linked short stories (most originally published in Inferno! magazine) framed as a Priad / Damocles-Squad-progression novel over roughly twelve years. SSOT roster lists 'novel'; suggestion 'collection' or 'fix_up'. Same pattern as W40K-0025 Ghostmaker in ssot-w40k-003. Resolver brief later can decide whether to promote a 'fix_up' or 'collection' value into the format taxonomy or keep 'novel' as the umbrella."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0075",
+      "slug": "eldar-prophecy",
+      "overrides": {
+        "synopsis": "Standalone Eldar-anchored novel set on the isolated craftworld Kaelor, which has drifted for generations through the dark reaches of space with almost no contact with the wider 40K galaxy. Kaelor's society has fragmented into a quasi-feudal House structure scarred by the great House Wars of its recent past; its Aspect Temples have withdrawn from public life into the craftworld's outer reaches. When the young warrior Naois comes of age he is the unwitting subject of an old prophecy that drives him toward acts of escalating violence across the craftworld, while older Eldar — Farseers, Aspect Warriors, and House lords — try to determine whether the prophecy is genuine guidance or a manipulation by darker powers (Slaaneshi corruption / Chaos influence implicated). Dense in Eldar internal politics rather than wider-40K conflict. Goto's Eldar trilogy has had a controversial reception within Black Library readership for lore-handling; coverage of secondary characters and the prophecy's metaphysics is thin enough in summary sources that the surface forms below are deliberately kept tight.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "planetary", "standalone", "standard", "mystery", "character_study", "political_thriller", "grimdark", "somber", "philosophical", "betrayal", "hubris", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Eldar", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Kaelor", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Naois", "role": "pov" }
+        ],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "characters",
+            "sources": ["Lexicanum Eldar Prophecy (Novel); Goodreads; Black Library product page"],
+            "reasoning": "Secondary-source coverage of Eldar Prophecy is thin and inconsistent on secondary character names (House lords, Farseers, Aspect Warrior cast, prophecy-figures) and on craftworld-internal locations beyond Kaelor itself. Per Brief 061's plot-halluzinations-disziplin, characters and locations are left tight to what summary sources consistently surface rather than invented; resolver / coverage pass later can extend if the source coverage improves."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0076",
+      "slug": "relentless",
+      "overrides": {
+        "synopsis": "Imperial-Navy class-war thriller aboard the cruiser *Relentless* on patrol in the Eastern Fringe. First Officer Ward has spent years running the ship as de-facto captain, with the crew growing fat on illicit 'tithes' extracted from civilian trading vessels. When a new commander, the hardliner Captain Becket, is appointed above him, Ward's grip on the ship is suddenly threatened — and a conspiracy to remove Becket escalates to an assassination attempt that drops the captain into the very pit of his own vessel: the Conscript decks, where the human fuel of an Imperial cruiser lives and dies in lifetime back-breaking labour with only the strongest ever advancing back up. Becket survives the 'accident' as a lowest-tier slave on his own ship and works his way back toward the bridge to confront Ward, while a Dark-Eldar raider intercept turns the internal conspiracy into a survival fight against an external xenos threat. Imperial-Navy ship-as-society set-piece; ship-class scope rather than planetary.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "standalone", "standard", "political_thriller", "mystery", "war_story", "grimdark", "somber", "action_heavy", "betrayal", "loyalty", "hubris", "cw_violence", "cw_death", "cw_abuse", "cw_crime", "en"],
+        "factions": [
+          { "name": "Imperial Navy", "role": "primary" },
+          { "name": "Dark Eldar", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eastern Fringe", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Captain Becket", "role": "pov" },
+          { "name": "First Officer Ward", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0077",
+      "slug": "titanicus",
+      "overrides": {
+        "synopsis": "Adeptus-Titanicus ensemble novel set on the vital forge-world of Orestes when a Chaos titan legion makes planetfall. Titan Legio Invicta — fresh from the front and in desperate need of refit — responds anyway, committing its surviving god-engines to the defence under the leadership of Princeps Gearhart, with Princeps Guido Prinzhorn of Legio Tempestus drafted in to crew the Titan Dominatus Victrix after most of its previous crew was killed in an Eldar engagement (only Moderati Zane Tarses survived). On the ground around the titan-line, Cally Samstag — a member of the Orestes PDF Activated 26th whose pre-war military experience was little more than weekend hikes — finds herself an unlikely junior leader as the war stretches the planetary defenders thin. Underneath the war on Orestes, archivist Tolemy and an Orestes-internal faction of the Adeptus Mechanicus surface a deeper crisis: the theological gulf between the Mechanicus (Omnissiah as separate being) and the Imperium (Omnissiah as the Emperor) opens into a real schism, and the Chaos invasion is partly cover for that internal Imperium fracture. Multi-POV doorstopper ensemble, war-story + political-thriller in roughly equal weight.",
+        "facetIds": ["book", "ensemble", "multi", "imperium", "planetary", "standalone", "doorstopper", "war_story", "political_thriller", "siege", "character_study", "grimdark", "somber", "action_heavy", "loyalty", "betrayal", "doubt", "sacrifice", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Legio Invicta", "role": "primary" },
+          { "name": "Legio Tempestus", "role": "primary" },
+          { "name": "Adeptus Titanicus", "role": "primary" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Orestes", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Princeps Gearhart", "role": "pov" },
+          { "name": "Guido Prinzhorn", "role": "pov" },
+          { "name": "Cally Samstag", "role": "pov" },
+          { "name": "Zane Tarses", "role": "supporting" },
+          { "name": "Tolemy", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0078",
+      "slug": "sons-of-dorn",
+      "overrides": {
+        "synopsis": "Imperial-Fists recruitment-and-training novel. The Imperial Fists, descending on a backwater planet whose technology has slipped back to roughly civil-war-era infrastructure and which has fallen out of contact with the wider Imperium, harvest some two thousand candidates from three rival nations locked in a long planetary war. Three of those candidates — Zatori, du Queste, and Taloc, drawn from opposing sides of that same local war — survive the brutal recruitment regime and progress together through the chapter's Scout-stage formation, each carrying nationally-coded grievances against the other two even as the Imperial Fists' indoctrination tries to weld them into battle-brothers. Their first deployment as fully-formed Neophytes is to Vernailis, a planet under Chaos blight, where they fight alongside their senior battle-brothers against the Roaring Blades Traitor Guard, a Chaos-corrupted Imperial Guard host. Coming-of-age / Bildungsroman structure across three POV recruits; opens what was projected as an Imperial-Fists scout trilogy.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "series_start", "standard", "war_story", "character_study", "journey", "grimdark", "somber", "action_heavy", "brotherhood", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Roaring Blades", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Vernailis", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Zatori", "role": "pov" },
+          { "name": "du Queste", "role": "pov" },
+          { "name": "Taloc", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0079",
+      "slug": "atlas-infernal",
+      "overrides": {
+        "synopsis": "Standalone Inquisitor-Czevak novel that compresses four crucial decades of High Inquisitor Bronislaw Czevak's life into a single chase. Czevak of the Ordo Xenos — the only human ever known to have been invited to study within the Eldar's Black Library — has stolen from there the Atlas Infernal, a living map of the Webway, and is now hunted simultaneously by three sets of pursuers: the Eldar Harlequins, sent to apprehend him and reclaim the Atlas; rivals within his own Inquisition who would rather kill him than let him keep what he has learned; and his deadliest foe, the Thousand Sons arch-sorcerer Ahzek Ahriman, who wants the knowledge inside the Black Library and inside Czevak's head to exalt himself to godhood. Webway-scale journey / cat-and-mouse pursuit across realspace and warp infrastructure, with Czevak's small allied entourage, Harlequin troupes, Thousand Sons cabals, and Inquisition strike-teams converging at every waypoint.",
+        "facetIds": ["book", "male", "inquisitor", "imperium", "galactic", "standalone", "standard", "journey", "mystery", "political_thriller", "character_study", "grimdark", "cosmic_horror", "somber", "philosophical", "hubris", "doubt", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "primary" },
+          { "name": "Thousand Sons", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Eldar", "role": "supporting" },
+          { "name": "Harlequins", "role": "antagonist" },
+          { "name": "Adeptus Astartes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Webway", "role": "primary" },
+          { "name": "Black Library", "role": "primary" },
+          { "name": "Eye of Terror", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Bronislaw Czevak", "role": "pov" },
+          { "name": "Ahzek Ahriman", "role": "antagonist" },
+          { "name": "Eldrad Ulthran", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0080",
+      "slug": "the-emperors-gift",
+      "overrides": {
+        "synopsis": "First-person Grey-Knights novel narrated in retrospect by Hyperion of Squad Castian, covering the chapter's involvement around the First War of Armageddon and the subsequent intra-Imperium fallout that came to be remembered as the Months of Shame. Hyperion is taken into Castian by Squad-leader Justicar Galeo and grows into the chapter alongside Squad Castian's small fraternity; their work as the Inquisition's daemon-eradication strike-force throws them across multiple theatres of Armageddon and the warp around it. Anchoring the Inquisition end of the narrative is Annika Jarlsdottir, a Fenrisian Imperial Inquisitor whose home-world Space-Wolves loyalty and Inquisitorial duty pull her into immediate moral tension with both the Grey Knights' methods and the chapter's later confrontation with Logan Grimnar's Space Wolves over the fate of the Armageddon survivors. Tone is somber and reflective rather than action-march; the Grey Knights are presented as incorruptible but not infallible, with the moral cost of their daemon-banishment work and their treatment of the witnesses to that work as the load-bearing emotional spine. First authority-layer entry for the Grey Knights chapter, the Space Wolves chapter (in antagonist register), and the First War of Armageddon / Months-of-Shame frame.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "galactic", "standalone", "standard", "war_story", "character_study", "political_thriller", "grimdark", "somber", "cosmic_horror", "philosophical", "loyalty", "sacrifice", "doubt", "betrayal", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Grey Knights", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Malleus", "role": "supporting" },
+          { "name": "Daemons", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Space Wolves", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" },
+          { "name": "Fenris", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Hyperion", "role": "pov" },
+          { "name": "Annika Jarlsdottir", "role": "supporting" },
+          { "name": "Justicar Galeo", "role": "supporting" },
+          { "name": "Logan Grimnar", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
