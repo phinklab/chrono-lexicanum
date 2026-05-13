@@ -29,6 +29,8 @@ sources:
   - ../../sessions/2026-05-12-063-impl-resolver-50-books.md
   - ../../sessions/2026-05-12-067-impl-resolver-apply-readiness.md
   - ../../sessions/2026-05-12-069-impl-resolver-apply-evidence.md
+  - ../../sessions/2026-05-13-070-arch-faction-policy-hygiene.md
+  - ../../sessions/2026-05-13-070-impl-faction-policy-hygiene.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
   - ../../sessions/README.md
   - ../../ROADMAP.md
@@ -38,6 +40,7 @@ related:
   - ./roadmap.md
   - ./architecture.md
   - ./decisions/why-excel-ssot-not-crawl.md
+  - ./decisions/faction-policy.md
 confidence: high
 ---
 
@@ -68,7 +71,8 @@ Active branch while this cleanup ran: `session-063-resolver-50-books`, synced wi
 - **Pipeline V1 in dry-run** (Default ohne `--pipeline=` Flag, bleibt für Reproduzierbarkeit alter Diffs). `npm run ingest:backfill -- --limit N --offset M`. Latest V1 committed: `ingest/.archive/v1/backfill-20260508-2101.diff.json` (9 books, post-047 hardening, archived in 056).
 - **Pipeline V2 / SSOT Authority path.** `npm run ingest:backfill -- --pipeline=v2 --source=ssot --batch=ssot-w40k-00N` erzeugt die Diff-/Override-Basis; `scripts/apply-override.ts` schreibt curated overrides in die DB. Resolver-Support liegt in `src/lib/resolver/`, `scripts/seed-data/{faction,location,character}-aliases.json`, `scripts/seed-data/characters.json`, `scripts/test-resolver*.ts` und `docs/resolver-apply-runbook.md`.
 - **Atlas-Regen-Skript.** `npm run atlas:regen` writes a Postgres-mirror Obsidian vault to `~/chrono-atlas/` (Windows `C:\Users\Phil\chrono-atlas\`; override via `--out=<path>` or `ATLAS_PATH` env). 049-impl produced first proof-of-render (1 book + 1 faction + INDEX.md, DB-counts 26/29 verified). Manual trigger only; see [`./workflows/atlas-regen.md`](./workflows/atlas-regen.md).
-- **Brain-Lint.** `npm run brain:lint` (10 Check-Kategorien) + CI-Gate `brain:lint -- --no-write` post-053. Reports unter `brain/outputs/lint/YYYY-MM-DD.md`.
+- **Brain-Lint.** `npm run brain:lint` (11 Check-Kategorien post-070) + CI-Gate `brain:lint -- --no-write` post-053. Reports unter `brain/outputs/lint/YYYY-MM-DD.md`. Neue Kategorie „Faction policy" (070): warn auf parent-null Faction-Rows ohne Browse-Root-Status, error auf dangling `parent`-FK.
+- **Faction-Policy.** [`./decisions/faction-policy.md`](./decisions/faction-policy.md) trennt Browse-Root (UI-Filter-Ebene) von Tree-Root; Browse-Root-Whitelist + `knownTopLevelExceptions` + `specialCases` leben in `scripts/seed-data/faction-policy.json`. Schema unverändert; `factions.parent_id` weiter Single-Parent. `seed-resolver-extensions` faction-Insert ist seit 070 ein Upsert auf JSON-Spalten, damit der Pre-Apply Parent-Hygiene-Check (Runbook) Reparents in prod-DB schieben kann.
 
 ## Latest pipeline state (post-069, resolver applied)
 
@@ -111,6 +115,7 @@ Top items from [`./open-questions.md`](./open-questions.md), neu sortiert post-0
 
 | Date | Session | Status | Topic |
 |---|---|---|---|
+| 2026-05-13 | 070-impl | complete | Faction-Policy & Hierarchie-Hygiene — Browse-Root vs. Tree-Root als Konzept getrennt, `brain/wiki/decisions/faction-policy.md` + `scripts/seed-data/faction-policy.json` (16 Browse-Roots), `factions.json` audit-patched (Chaos-Rename + 14 Reparents), `seed-resolver-extensions` faction-Insert auf Upsert, Pre-Apply Parent-Hygiene-Check ins Runbook, `brain:lint` neue Kategorie. Junctions unverändert. |
 | 2026-05-12 | 069-impl | complete | Resolver Apply Evidence — `db:migrate`, `db:seed-resolver-extensions`, Re-Apply `ssot-w40k-001..005`; DB-Counts nachher `work_factions=318`, `work_locations=129`, `work_characters=363`, Smoke-Slugs matchen Dry-Run. |
 | 2026-05-12 | 063–067 | complete | Resolver Layer — Migration `0009`, Resolver-Modul, Alias-/Reference-Daten, `work_characters`-Apply, Role-Normalisierung, Dry-Run/Runbook, Detailpage Locations+Characters. |
 | 2026-05-11 | 058–062 | complete | SSOT-Mode + erster Authority-Layer — V2 liest `book-roster.json`, erster 10er-Batch, DB-Apply `ssot-w40k-001`, Standing-Loop 061 bis `ssot-w40k-005`, Author-FK-Fix. |
