@@ -1,0 +1,354 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-006",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-13",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0051..W40K-0060 — the second half of Graham McNeill's Uriel Ventris arc (Killing Ground / Courage and Honour / Chapter's Due) plus the late Primaris-era reopener (Swords of Calth), three umbrella omnibuses (Second Omnibus + Uriel Ventris Chronicles Vol. 1 & Vol. 2), two Space-Marine-Heroes-class novellas (Assault on Black Reach, Death Knell), and the foundational Iron Warriors novel Storm of Iron. Heavy omnibus density (4 of 10 entries) plus the loop's first repackaging-pair (W40K-0056 = repackaged W40K-0050; W40K-0057 = repackaged W40K-0055). First Crimson Slaughter, first explicit Primaris ascension, and the canonical Honsou-rise novel (Storm of Iron, 2002) all enter the authority layer in this batch. Resolver was already executed in 063–069 for the first 50; this batch lands clean on the existing resolver dictionary (Ultramarines, Iron Warriors, Necrons, Eldar, C'tan, Daemons all known), with Crimson Slaughter as the only genuine new faction surface form.",
+  "books": [
+    {
+      "externalBookId": "W40K-0051",
+      "slug": "the-killing-ground",
+      "overrides": {
+        "synopsis": "Uriel Ventris and Pasanius Lysane, freshly fled from Medrengard with their honour barely intact, fall through the warp and land on the agri-world of Salinas. There they find Governor Leto Barbaden ruling a population riven by the Salinas Liberation Front, while the Khaturians — a people Barbaden massacred during the planet's pacification a generation earlier — haunt the killing ground that scars the western continent. Worse, the Unfleshed — half-aware survivors of Honsou's Daemonculaba forge — have followed Uriel out of the Eye of Terror and prowl the wilderness. Uriel must satisfy his chapter's death-oath investigation, expose Barbaden's old massacre, and reckon with the Unfleshed as kin he is partly responsible for. By novel's end the Unfleshed sacrifice themselves to break the killing ground's spirit-trap, and Uriel returns to Macragge cleared but marked.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "mystery", "character_study", "grimdark", "cosmic_horror", "somber", "doubt", "sacrifice", "redemption", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Unfleshed", "role": "antagonist" },
+          { "name": "Iron Warriors", "role": "background" },
+          { "name": "Salinas Liberation Front", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Salinas", "role": "primary" },
+          { "name": "Killing Ground", "role": "primary" },
+          { "name": "Eye of Terror", "role": "mentioned" },
+          { "name": "Macragge", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Uriel Ventris", "role": "pov" },
+          { "name": "Pasanius Lysane", "role": "supporting" },
+          { "name": "Leto Barbaden", "role": "supporting" },
+          { "name": "Daron Nisato", "role": "supporting" },
+          { "name": "Sylvanus Thayer", "role": "supporting" },
+          { "name": "Honsou", "role": "mentioned" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0052",
+      "slug": "courage-and-honour",
+      "overrides": {
+        "synopsis": "Captain Uriel Ventris returns to Pavonis, the mercantile world where his career began in Nightbringer, to defend it against an invasion by the Tau Empire. Shas'O Or'es'ka'an leads the Hunter Cadre's military arm; the Water-Caste envoy Aun'rai conducts the diplomatic infiltration through Pavonis's reduced governing cabinet. The 4th Company fights alongside Lord Winterbourne's Imperial Guard regiment as the Tau split-strike encircles the spires of the planetary capital. The Tau political wing tries to win the world on the terms of the Greater Good while their military wing breaks one Imperial line after another. Uriel carries the Sword of Calth, a chapter-relic blade, into the climactic battle. By the close, the Tau are driven off-world but at heavy cost, and Uriel's stature as a chapter exemplar is reset up for the chapter-scale war that follows in The Chapter's Due.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "siege", "political_thriller", "grimdark", "action_heavy", "brotherhood", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Pavonis", "role": "primary" },
+          { "name": "Macragge", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Uriel Ventris", "role": "pov" },
+          { "name": "Pasanius Lysane", "role": "supporting" },
+          { "name": "Shas'O Or'es'ka'an", "role": "supporting" },
+          { "name": "Aun'rai", "role": "supporting" },
+          { "name": "Lord Winterbourne", "role": "supporting" },
+          { "name": "Mykola Shonai", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0053",
+      "slug": "the-chapters-due",
+      "overrides": {
+        "synopsis": "Honsou returns to repay his debt to the Ultramarines. He gathers a Skull Harvest coalition — Iron Warriors warbands, Chaos-tainted renegades, and the Khornate cultist horde called the Bloodborn — and drives deep into Ultramar, striking at Calth and the worlds adjacent to Macragge itself. Chapter Master Marneus Calgar mobilises the full chapter. Captain Cato Sicarius leads the 2nd Company; Captain Uriel Ventris fights with the 4th; Chief Librarian Tigurius reads the warp-tides; Chaplain Cassius rallies the relief force; the renegade Ardaric Vaanes is among Honsou's Astartes lieutenants. The novel runs the siege at sector scale across Calth's surface as set-piece battles. Honsou's blood-debt is paid in chapter blood and chapter mourning; the series-finale to the first Ventris six-book arc closes with Honsou wounded but missing rather than confirmed dead.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "series_finale", "doorstopper", "war_story", "siege", "last_stand", "grimdark", "action_heavy", "somber", "brotherhood", "loyalty", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Bloodborn", "role": "antagonist" },
+          { "name": "Khorne", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ultramar", "role": "primary" },
+          { "name": "Calth", "role": "primary" },
+          { "name": "Macragge", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Uriel Ventris", "role": "pov" },
+          { "name": "Pasanius Lysane", "role": "supporting" },
+          { "name": "Marneus Calgar", "role": "supporting" },
+          { "name": "Cato Sicarius", "role": "supporting" },
+          { "name": "Tigurius", "role": "supporting" },
+          { "name": "Cassius", "role": "supporting" },
+          { "name": "Honsou", "role": "supporting" },
+          { "name": "Ardaric Vaanes", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0054",
+      "slug": "the-swords-of-calth",
+      "overrides": {
+        "synopsis": "Uriel Ventris, raised to the Primaris ranks by Roboute Guilliman's gene-doctors during the Indomitus Crusade, leads a hand-picked Ultramarines kill-force called the Swords of Calth to the frontier world of Sycorax. Once an Ork warzone, Sycorax is now under furious Necron assault: tomb-stalkers have risen from beneath the dunes and the cities fall section by section. Uriel senses an old foe's hand at work behind the xenos onslaught — a tally unfinished, a debt to the Imperium come due. Trapped deep in a devastated city, the Swords must adapt as much to Uriel's new Primaris incarnation as to the Necron offensive. The novel closes one chapter of the Ventris saga (his pre-Primaris career) and opens another (Primaris-Captain Uriel under Indomitus command) — chronologically far later than the 2002–2010 first six-book arc.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "requires_context", "standard", "war_story", "siege", "grimdark", "action_heavy", "brotherhood", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sycorax", "role": "primary" },
+          { "name": "Ultramar", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Uriel Ventris", "role": "pov" },
+          { "name": "Pasanius Lysane", "role": "supporting" },
+          { "name": "Roboute Guilliman", "role": "mentioned" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0055",
+      "slug": "ultramarines-the-second-omnibus",
+      "overrides": {
+        "synopsis": "Omnibus collecting the second half of Uriel Ventris's pre-Primaris career: The Killing Ground (Salinas, Governor Barbaden's massacre, the Unfleshed pursuing Uriel out of the Eye of Terror); Courage and Honour (the Tau Empire's invasion of Pavonis under Shas'O Or'es'ka'an and Aun'rai, defended by the 4th Company plus Lord Winterbourne's Imperial Guard regiment); and The Chapter's Due (Honsou's Skull Harvest revenge invasion of Ultramar, with Iron Warriors and the Khornate Bloodborn assaulting Calth at sector scale). The arc moves from one Astartes's character-study and death-oath investigation to a chapter-scale war for survival. Not the canonical series entry-point — that is The Ultramarines Omnibus / Uriel Ventris Chronicles Vol. 1, which collects books 1–3 — but the natural follow-on volume for readers continuing the saga.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "requires_context", "doorstopper", "war_story", "siege", "mystery", "character_study", "last_stand", "political_thriller", "grimdark", "cosmic_horror", "action_heavy", "somber", "brotherhood", "loyalty", "sacrifice", "doubt", "redemption", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Bloodborn", "role": "antagonist" },
+          { "name": "Khorne", "role": "antagonist" },
+          { "name": "Unfleshed", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Salinas Liberation Front", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Ultramar", "role": "primary" },
+          { "name": "Calth", "role": "primary" },
+          { "name": "Salinas", "role": "primary" },
+          { "name": "Pavonis", "role": "primary" },
+          { "name": "Killing Ground", "role": "primary" },
+          { "name": "Macragge", "role": "secondary" },
+          { "name": "Eye of Terror", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Uriel Ventris", "role": "pov" },
+          { "name": "Pasanius Lysane", "role": "supporting" },
+          { "name": "Marneus Calgar", "role": "supporting" },
+          { "name": "Cato Sicarius", "role": "supporting" },
+          { "name": "Tigurius", "role": "supporting" },
+          { "name": "Cassius", "role": "supporting" },
+          { "name": "Honsou", "role": "supporting" },
+          { "name": "Ardaric Vaanes", "role": "supporting" },
+          { "name": "Leto Barbaden", "role": "supporting" },
+          { "name": "Daron Nisato", "role": "supporting" },
+          { "name": "Sylvanus Thayer", "role": "supporting" },
+          { "name": "Shas'O Or'es'ka'an", "role": "supporting" },
+          { "name": "Aun'rai", "role": "supporting" },
+          { "name": "Lord Winterbourne", "role": "supporting" },
+          { "name": "Mykola Shonai", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0056",
+      "slug": "the-uriel-ventris-chronicles-vol-1-omnibus",
+      "overrides": {
+        "synopsis": "Repackaging of the Ventris saga's first three novels — Nightbringer, Warriors of Ultramar, and Dead Sky, Black Sun — under the later Black Library 'Chronicles' branding. Content is identical to The Ultramarines Omnibus (W40K-0050). Uriel Ventris is sent first to the mercantile world of Pavonis with Inquisitor Ario Barzano, then to Tarsis Ultra with the Mortifactors against a Tyranid splinter-fleet, then on a death-oath into the Eye of Terror itself — to Medrengard, daemon-forge of the Iron Warriors — where Honsou and the Daemonculaba enter the saga. Canonical entry point into the entire Ventris saga; series_start for new readers; the protagonist's pre-Primaris career begins here.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "series_start", "doorstopper", "war_story", "siege", "mystery", "character_study", "journey", "grimdark", "cosmic_horror", "action_heavy", "somber", "doubt", "brotherhood", "loyalty", "sacrifice", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "C'tan", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Daemons", "role": "antagonist" },
+          { "name": "Lords of the Unholy Host", "role": "supporting" },
+          { "name": "Mortifactors", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Eldar", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Pavonis", "role": "primary" },
+          { "name": "Tarsis Ultra", "role": "primary" },
+          { "name": "Medrengard", "role": "primary" },
+          { "name": "Eye of Terror", "role": "primary" },
+          { "name": "Macragge", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Uriel Ventris", "role": "pov" },
+          { "name": "Pasanius Lysane", "role": "supporting" },
+          { "name": "Ario Barzano", "role": "supporting" },
+          { "name": "Captain Idaeus", "role": "mentioned" },
+          { "name": "Nightbringer", "role": "supporting" },
+          { "name": "Mykola Shonai", "role": "supporting" },
+          { "name": "Chaplain Astador", "role": "supporting" },
+          { "name": "Honsou", "role": "supporting" },
+          { "name": "Ardaric Vaanes", "role": "supporting" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "duplicate_omnibus",
+            "current": "distinct",
+            "suggestion": "marked-as-repackaging-of-W40K-0050",
+            "sources": ["roster format=omnibus, slug=the-uriel-ventris-chronicles-vol-1-omnibus"],
+            "reasoning": "Content-identical to W40K-0050 The Ultramarines Omnibus (same three constituent novels). Roster carries both rows because they exist as distinct SKUs in publication (different ISBNs, different cover art, different decade). Resolver should resolve them to the same logical 'first three Ventris novels collection' for recommendation purposes but keep separate book rows for catalogue completeness. No content correction needed; flag is informational."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0057",
+      "slug": "the-uriel-ventris-chronicles-vol-2-omnibus",
+      "overrides": {
+        "synopsis": "Repackaging of the Ventris saga's second three novels — The Killing Ground, Courage and Honour, and The Chapter's Due — under the later Black Library 'Chronicles' branding. Content is identical to Ultramarines: The Second Omnibus (W40K-0055). Picks up after Dead Sky, Black Sun with Uriel and Pasanius's return from the Eye of Terror to Salinas, the Tau Empire invasion of Pavonis, and Honsou's Skull Harvest assault on Ultramar at sector scale. Not a series entry-point; readers should start with Vol. 1.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "requires_context", "doorstopper", "war_story", "siege", "mystery", "character_study", "last_stand", "political_thriller", "grimdark", "cosmic_horror", "action_heavy", "somber", "brotherhood", "loyalty", "sacrifice", "doubt", "redemption", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Bloodborn", "role": "antagonist" },
+          { "name": "Khorne", "role": "antagonist" },
+          { "name": "Unfleshed", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Salinas Liberation Front", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Ultramar", "role": "primary" },
+          { "name": "Calth", "role": "primary" },
+          { "name": "Salinas", "role": "primary" },
+          { "name": "Pavonis", "role": "primary" },
+          { "name": "Killing Ground", "role": "primary" },
+          { "name": "Macragge", "role": "secondary" },
+          { "name": "Eye of Terror", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Uriel Ventris", "role": "pov" },
+          { "name": "Pasanius Lysane", "role": "supporting" },
+          { "name": "Marneus Calgar", "role": "supporting" },
+          { "name": "Cato Sicarius", "role": "supporting" },
+          { "name": "Tigurius", "role": "supporting" },
+          { "name": "Cassius", "role": "supporting" },
+          { "name": "Honsou", "role": "supporting" },
+          { "name": "Ardaric Vaanes", "role": "supporting" },
+          { "name": "Leto Barbaden", "role": "supporting" },
+          { "name": "Daron Nisato", "role": "supporting" },
+          { "name": "Sylvanus Thayer", "role": "supporting" },
+          { "name": "Shas'O Or'es'ka'an", "role": "supporting" },
+          { "name": "Aun'rai", "role": "supporting" },
+          { "name": "Lord Winterbourne", "role": "supporting" },
+          { "name": "Mykola Shonai", "role": "supporting" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "duplicate_omnibus",
+            "current": "distinct",
+            "suggestion": "marked-as-repackaging-of-W40K-0055",
+            "sources": ["roster format=omnibus, slug=the-uriel-ventris-chronicles-vol-2-omnibus"],
+            "reasoning": "Content-identical to W40K-0055 Ultramarines: The Second Omnibus (same three constituent novels). Roster carries both rows because they exist as distinct SKUs in publication (different ISBNs, different cover art, different decade). Resolver should treat them as the same logical 'second three Ventris novels collection' for recommendation purposes but keep separate book rows for catalogue completeness."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0058",
+      "slug": "assault-on-black-reach",
+      "overrides": {
+        "synopsis": "Companion novella to the 5th Edition Assault on Black Reach boxed set. Captain Cato Sicarius and the Ultramarines 2nd Company drop on the Ork-held world of Black Reach to break Warboss Zanzag's gathering greenskin host before it can spill out across the wider subsector. The story centres not on Sicarius himself but on Brother-Sergeant Scipio Vorolanus, who watches and judges his captain across the campaign; Sergeants Iulus Fennion and Praxor offer the alternative tactical-squad viewpoints, and Scout-Sergeant Telion runs the recon angle. Three squad sergeants debate Sicarius's bold strategy as the campaign unfolds — self-reflective brotherhood-pieces wrapping a fast Ork-purge plot. Showcase Ultramarines-versus-Orks engagement intended for new readers.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "war_story", "grimdark", "action_heavy", "brotherhood", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Black Reach", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Scipio Vorolanus", "role": "pov" },
+          { "name": "Cato Sicarius", "role": "supporting" },
+          { "name": "Iulus Fennion", "role": "supporting" },
+          { "name": "Praxor", "role": "supporting" },
+          { "name": "Telion", "role": "supporting" },
+          { "name": "Zanzag", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0059",
+      "slug": "death-knell",
+      "overrides": {
+        "synopsis": "Tie-in novella to Games Workshop's Space Marine Heroes miniature line. The coastal Isle of St Capilene has been overrun by the Crimson Slaughter — a renegade Astartes chapter driven to butchery by the never-ceasing echoes of their victims. The renegades have found a daemonic bell in the archipelago's cathedral; its toll silences their inner voices but drives the mortal population to madness and mutation. Captain Thassarius of the Ultramarines storms the island to slay the traitors and silence the bell. When the initial mass-assault collapses, Sergeant Sevastus and a stealth-trained tactical squad — including the combat specialist Aethor and the veteran Titus — are sent to test whether precision can win where speed and belligerence has failed. Squad-level Astartes character-piece around a haunted-cathedral setting.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "war_story", "mystery", "siege", "grimdark", "cosmic_horror", "action_heavy", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Crimson Slaughter", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Isle of St Capilene", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sevastus", "role": "pov" },
+          { "name": "Thassarius", "role": "supporting" },
+          { "name": "Aethor", "role": "supporting" },
+          { "name": "Titus", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0060",
+      "slug": "storm-of-iron",
+      "overrides": {
+        "synopsis": "Iron Warriors under Warsmith Barban Falk, fronted by the three Grand-Company captains Forrix, Kroeger, and the rising half-breed Honsou, lay siege to the Imperial fortress-world of Hydra Cordatus. The Imperial defenders are an Imperial Guard regiment and a thin Imperial Fists detachment, both protecting a buried Adeptus Mechanicus secret held by Magos Naicin. Across the book the siege rolls section by section in canonical Iron Warriors fashion: the outer walls fall, the inner walls fall, the citadel falls — with the late arrival of Warsmith Berossus's reinforcement column tipping the final push. The buried vault is revealed to hold a fragment of primarch genetic material, which the Iron Warriors mean to weaponise against the Adeptus Astartes' loyalist chapters. Honsou's part in the siege earns him the elevation that carries him through Dead Sky, Black Sun, The Killing Ground, and The Chapter's Due — making Storm of Iron the foundational Honsou origin story, written four years before he appears as Ventris's antagonist. Dual POV across both sides.",
+        "facetIds": ["book", "ensemble", "space_marine", "dual", "planetary", "standalone", "standard", "war_story", "siege", "grimdark", "action_heavy", "somber", "hubris", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Chaos", "role": "background" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Hydra Cordatus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Honsou", "role": "pov" },
+          { "name": "Forrix", "role": "pov" },
+          { "name": "Kroeger", "role": "supporting" },
+          { "name": "Barban Falk", "role": "supporting" },
+          { "name": "Berossus", "role": "supporting" },
+          { "name": "Magos Naicin", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
