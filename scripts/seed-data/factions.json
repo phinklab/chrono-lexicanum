@@ -8,31 +8,36 @@
   {
     "id": "ultramarines",
     "name": "Ultramarines",
-    "parent": "imperium",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {
     "id": "sons_of_horus",
     "name": "Sons of Horus",
-    "parent": "imperium",
+    "parent": "chaos",
+    "alignment": "chaos",
     "tone": "warmaster"
   },
   {
     "id": "night_lords",
     "name": "Night Lords",
-    "parent": "imperium",
+    "parent": "chaos",
+    "alignment": "chaos",
     "tone": "terror"
   },
   {
     "id": "thousand_sons",
     "name": "Thousand Sons",
-    "parent": "imperium",
+    "parent": "chaos",
+    "alignment": "chaos",
     "tone": "arcane"
   },
   {
     "id": "world_eaters",
     "name": "World Eaters",
-    "parent": "imperium",
+    "parent": "chaos",
+    "alignment": "chaos",
     "tone": "butcher"
   },
   {
@@ -50,37 +55,43 @@
   {
     "id": "alpha_legion",
     "name": "Alpha Legion",
-    "parent": "imperium",
+    "parent": "chaos",
+    "alignment": "chaos",
     "tone": "shadow"
   },
   {
     "id": "blood_angels",
     "name": "Blood Angels",
-    "parent": "imperium",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {
     "id": "space_wolves",
     "name": "Space Wolves",
-    "parent": "imperium",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {
     "id": "dark_angels",
     "name": "Dark Angels",
-    "parent": "imperium",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {
     "id": "raven_guard",
     "name": "Raven Guard",
-    "parent": "imperium",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {
     "id": "salamanders",
     "name": "Salamanders",
-    "parent": "imperium",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {
@@ -119,7 +130,8 @@
   {
     "id": "grey_knights",
     "name": "Grey Knights",
-    "parent": "imperium",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
     "tone": "archive"
   },
   {
@@ -136,8 +148,9 @@
   },
   {
     "id": "chaos",
-    "name": "Chaos Undivided",
+    "name": "Chaos",
     "parent": null,
+    "alignment": "chaos",
     "tone": "chaos"
   },
   {
@@ -173,13 +186,15 @@
   {
     "id": "imperial_fists",
     "name": "Imperial Fists",
-    "parent": "imperium",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {
     "id": "black_templars",
     "name": "Black Templars",
-    "parent": "imperium",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {
