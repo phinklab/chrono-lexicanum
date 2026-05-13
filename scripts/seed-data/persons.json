@@ -150,5 +150,35 @@
     "id": "rob_sanders",
     "name": "Rob Sanders",
     "nameSort": "Sanders, Rob"
+  },
+  {
+    "id": "peter_fehervari",
+    "name": "Peter Fehervari",
+    "nameSort": "Fehervari, Peter"
+  },
+  {
+    "id": "paul_kearney",
+    "name": "Paul Kearney",
+    "nameSort": "Kearney, Paul"
+  },
+  {
+    "id": "joe_parrino",
+    "name": "Joe Parrino",
+    "nameSort": "Parrino, Joe"
+  },
+  {
+    "id": "sarah_cawkwell",
+    "name": "Sarah Cawkwell",
+    "nameSort": "Cawkwell, Sarah"
+  },
+  {
+    "id": "david_annandale",
+    "name": "David Annandale",
+    "nameSort": "Annandale, David"
+  },
+  {
+    "id": "ian_st_martin",
+    "name": "Ian St. Martin",
+    "nameSort": "Martin, Ian St."
   }
 ]
