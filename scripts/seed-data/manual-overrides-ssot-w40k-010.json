@@ -259,7 +259,7 @@
           { "name": "Saint Celestine", "role": "pov" }
         ],
         "flags": [
-          { "kind": "data_conflict", "field": "format", "current": "novel", "suggestion": "short_novel", "reason": "Lexicanum + Track-of-Words + Black Library product page consistently characterise *Celestine* as a 'short novel' / novella-length release (closer to the *Assassinorum: Execution Force* register from ssot-w40k-009 than a standard novel)." }
+          { "kind": "data_conflict", "field": "format", "current": "novel", "suggestion": "novella", "reason": "Lexicanum + Track-of-Words + Black Library product page consistently characterise *Celestine* as a 'short novel' / novella-length release (closer to the *Assassinorum: Execution Force* register from ssot-w40k-009 than a standard novel). Valid `book_format` enum has `novella` but no `short_novel`." }
         ]
       }
     }
