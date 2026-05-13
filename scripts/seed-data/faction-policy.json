@@ -1,0 +1,31 @@
+{
+  "browseRoots": [
+    "astra_militarum",
+    "adeptus_astartes",
+    "inquisition",
+    "mechanicus",
+    "commissariat",
+    "custodes",
+    "sisters_of_battle",
+    "ecclesiarchy",
+    "imperial_navy",
+    "grey_knights",
+    "chaos",
+    "eldar",
+    "tau",
+    "necrons",
+    "tyranids",
+    "orks"
+  ],
+  "knownTopLevelExceptions": [
+    "imperium"
+  ],
+  "specialCases": {
+    "chaos": "Synthetischer Umbrella-Row (name='Chaos'). Hosts Heresy-Traitor-Legionen (Sons of Horus, Night Lords, Thousand Sons, World Eaters, Alpha Legion) + Word Bearers / Iron Warriors / Blood Pact / Sons of Sek / Zoican Host / Lords of Unholy Host / Daemons. 'Chaos Undivided' als separater Row ist deferred bis Worship-Form-Spezifik datenrelevant.",
+    "commissariat": "Institutionell parallel zu Astra Militarum; im Schema unter Imperium (Single-Parent-Limit). Multi-Parent ist deferred.",
+    "grey_knights": "Chamber Militant Ordo Malleus + Astartes-Grade. Single-Parent: adeptus_astartes (Resolver-Robustheit gegen Astartes-Klassifikation in Books).",
+    "genestealer_cults": "Sub-Faction der Tyraniden (parent='tyranids'), nicht eigener Browse-Root.",
+    "eldar": "Aeldari-Umbrella; Craftworlds/Drukhari/Harlequins/Ynnari-Split deferred.",
+    "imperium": "Grand-Alignment-Konzept (lebt in factions.alignment), bleibt parent-null als Lore-Root, ist aber KEIN Browse-Root."
+  }
+}

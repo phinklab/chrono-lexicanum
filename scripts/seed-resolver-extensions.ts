@@ -27,7 +27,7 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
-import { inArray } from "drizzle-orm";
+import { inArray, sql } from "drizzle-orm";
 
 import { db } from "@/db/client";
 import {
@@ -224,7 +224,7 @@ function validateResolverSeedData(data: ResolverSeedData): void {
   assertAliasTargets("character-aliases.json", data.characterAliases, characterIds);
 }
 
-async function seedFactions(data: SeedFaction[]): Promise<{ added: number; skipped: number }> {
+async function seedFactions(data: SeedFaction[]): Promise<{ added: number; updated: number }> {
   const rows = data.map((f) => ({
     id: f.id,
     name: f.name,
@@ -239,14 +239,31 @@ async function seedFactions(data: SeedFaction[]): Promise<{ added: number; skipp
     .from(factions)
     .where(inArray(factions.id, ids))) as Array<{ id: string }>;
   const existingSet = new Set(existing.map((r) => r.id));
-  const toInsert = rows.filter((r) => !existingSet.has(r.id));
-  if (toInsert.length > 0) {
-    await db.insert(factions).values(toInsert).onConflictDoNothing();
+  const added = rows.filter((r) => !existingSet.has(r.id)).length;
+  const updated = existingSet.size;
+  if (rows.length > 0) {
+    // Upsert on every row so the Pre-Apply Parent-Hygiene-Check in the
+    // resolver-apply-runbook can push name/parent/alignment/tone/glyph
+    // corrections from factions.json into prod-DB by re-running this script.
+    // Only JSON-sourced columns are written; nothing else touches factions.
+    await db
+      .insert(factions)
+      .values(rows)
+      .onConflictDoUpdate({
+        target: factions.id,
+        set: {
+          name: sql`excluded.name`,
+          parentId: sql`excluded.parent_id`,
+          alignment: sql`excluded.alignment`,
+          tone: sql`excluded.tone`,
+          glyph: sql`excluded.glyph`,
+        },
+      });
   }
   console.log(
-    `[seed-resolver-extensions] factions: +${toInsert.length} new, ${existingSet.size} skipped existing`,
+    `[seed-resolver-extensions] factions: +${added} new, ${updated} updated (upsert on JSON columns)`,
   );
-  return { added: toInsert.length, skipped: existingSet.size };
+  return { added, updated };
 }
 
 async function seedSectors(data: SeedSector[]): Promise<{ added: number; skipped: number }> {
@@ -336,9 +353,9 @@ async function main() {
   const l = await seedLocations(data.locations);
   const c = await seedCharacters(data.characters);
   const totalAdded = f.added + s.added + l.added + c.added;
-  const totalSkipped = f.skipped + s.skipped + l.skipped + c.skipped;
+  const totalExisting = f.updated + s.skipped + l.skipped + c.skipped;
   console.log(
-    `[seed-resolver-extensions] done. total: +${totalAdded} new, ${totalSkipped} skipped existing`,
+    `[seed-resolver-extensions] done. total: +${totalAdded} new, ${totalExisting} existing (factions upserted, others skipped)`,
   );
   process.exit(0);
 }
