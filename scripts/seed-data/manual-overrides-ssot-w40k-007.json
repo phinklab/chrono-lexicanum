@@ -1,0 +1,357 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-007",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-13",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0061..W40K-0070 — the Iron Warriors trio that closes Graham McNeill's chaos-side material (the 2012 Omnibus, the 2019 Complete Honsou Omnibus, and the 2010 limited-edition Iron Warrior novella), followed by six early-2000s 40K standalones whose lore has aged into Black Library's Heretic Tomes label: Ian Watson's foundational Astartes Bildungsroman Space Marine (1993, Imperial Fists from Necromunda underhive recruits), Barrington J. Bayley's surreal British-New-Wave Eye of Terror (1999, Rogue Trader + corrupted-Marine subplot inside the Eye), Brian Craig/Stableford's chaos-cult character study Pawns of Chaos (2001, medieval Sigmatus), William King's rogue-trader-meets-Farseer journey Farseer (2002), Ben Counter's baroque chaos-world spectacle Daemon World (2003, Torvendis), Gav Thorpe's foundational Dark Angels / Fallen-Angels interrogation Angels of Darkness (2003, Astelan + Piscina IV), and Simon Spurrier's rare Tau-POV game-tie-in Fire Warrior (2003, Kais on Dolumar IV). Two repackaging-pair flags (W40K-0061 ≡ W40K-0062, both Iron Warriors omnibuses with identical eight constituents) and four canonicity_drift flags (Heretic Tomes label) are the structural notes for this batch. First explicit Word Bearers appearance, first Tau-POV-anchored entry, and first Eldar-Farseer-POV-supporting entry in the authority layer."
+,
+  "books": [
+    {
+      "externalBookId": "W40K-0061",
+      "slug": "iron-warriors-the-omnibus",
+      "overrides": {
+        "synopsis": "Black Library's first omnibus collection of Graham McNeill's Iron Warriors stories around Warsmith Honsou. Contents: the foundational novel *Storm of Iron* (the siege of the Imperial fortress-world of Hydra Cordatus under Warsmith Barban Falk, with Forrix, Kroeger, and the rising Honsou as Grand-Company captains, and Magos Naicin's primarch-DNA vault as the prize), the Black-Library limited-edition A5 novella *Iron Warrior* (Honsou's near-impossible strike at one of the Ultramarines' most heavily defended star forts, driven by his vendetta against Uriel Ventris), and six short stories — *The Enemy of My Enemy*, *The Heraclitus Effect*, *The Skull Harvest*, *The Iron Without*, *The Beast of Calth*, and *The Corpse Road* — that bridge the chronology between *Dead Sky, Black Sun*, *The Chapter's Due*, the novella, and Honsou's continuing schemes against Ultramar. Mostly Honsou-POV with cross-warband viewpoints in the shorts. Repackaged in 2019 as *Iron Warriors: The Complete Honsou Omnibus* (W40K-0062) with identical contents.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "standalone", "doorstopper", "war_story", "siege", "character_study", "journey", "grimdark", "cosmic_horror", "action_heavy", "somber", "hubris", "brotherhood", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "antagonist" },
+          { "name": "Imperial Fists", "role": "supporting" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Heretic Astartes", "role": "supporting" },
+          { "name": "Daemons", "role": "background" }
+        ],
+        "locations": [
+          { "name": "Medrengard", "role": "primary" },
+          { "name": "Hydra Cordatus", "role": "primary" },
+          { "name": "Ultramar", "role": "secondary" },
+          { "name": "Calth", "role": "mentioned" },
+          { "name": "Macragge", "role": "mentioned" },
+          { "name": "Eye of Terror", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Honsou", "role": "pov" },
+          { "name": "Forrix", "role": "pov" },
+          { "name": "Kroeger", "role": "supporting" },
+          { "name": "Barban Falk", "role": "supporting" },
+          { "name": "Berossus", "role": "supporting" },
+          { "name": "Magos Naicin", "role": "supporting" },
+          { "name": "Ardaric Vaanes", "role": "supporting" },
+          { "name": "Uriel Ventris", "role": "antagonist" },
+          { "name": "Pasanius Lysane", "role": "mentioned" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "duplicate_omnibus",
+            "current": "distinct",
+            "suggestion": "marked-as-repackaging-pair-with-W40K-0062",
+            "sources": ["Black Library product listings; Lexicanum Iron Warriors (Novel Series); Goodreads"],
+            "reasoning": "Content-identical to W40K-0062 Iron Warriors: The Complete Honsou Omnibus (2019). Both collect the same eight constituents: the novel Storm of Iron, the novella Iron Warrior, and the six shorts The Enemy of My Enemy, The Heraclitus Effect, The Skull Harvest, The Iron Without, The Beast of Calth, and The Corpse Road. Roster carries both rows because they exist as distinct SKUs (different ISBNs, different cover art, seven-year publication gap). Resolver should treat them as the same logical work for recommendation purposes but keep separate book rows for catalogue completeness."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0062",
+      "slug": "iron-warriors-the-complete-honsou-omnibus",
+      "overrides": {
+        "synopsis": "2019 repackaging of the 2012 *Iron Warriors: The Omnibus* (W40K-0061) under the *Complete Honsou Omnibus* title — identical eight constituents: *Storm of Iron* (Warsmith Barban Falk's siege of Hydra Cordatus with Forrix/Kroeger/Honsou as Grand-Company captains and Magos Naicin's primarch-DNA vault as the prize), the A5 limited-edition novella *Iron Warrior* (Honsou's vendetta strike on an Ultramarines star fort), and the six shorts *The Enemy of My Enemy*, *The Heraclitus Effect*, *The Skull Harvest*, *The Iron Without*, *The Beast of Calth*, and *The Corpse Road*. Content-identical to W40K-0061; the roster carries both rows because they exist as distinct SKUs (different ISBN, different cover, seven-year publication gap). Same Honsou-anchored chaos-side perspective on the Iron Warriors as a continuing antagonist arc against Ultramar.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "standalone", "doorstopper", "war_story", "siege", "character_study", "journey", "grimdark", "cosmic_horror", "action_heavy", "somber", "hubris", "brotherhood", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "antagonist" },
+          { "name": "Imperial Fists", "role": "supporting" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Heretic Astartes", "role": "supporting" },
+          { "name": "Daemons", "role": "background" }
+        ],
+        "locations": [
+          { "name": "Medrengard", "role": "primary" },
+          { "name": "Hydra Cordatus", "role": "primary" },
+          { "name": "Ultramar", "role": "secondary" },
+          { "name": "Calth", "role": "mentioned" },
+          { "name": "Macragge", "role": "mentioned" },
+          { "name": "Eye of Terror", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Honsou", "role": "pov" },
+          { "name": "Forrix", "role": "pov" },
+          { "name": "Kroeger", "role": "supporting" },
+          { "name": "Barban Falk", "role": "supporting" },
+          { "name": "Berossus", "role": "supporting" },
+          { "name": "Magos Naicin", "role": "supporting" },
+          { "name": "Ardaric Vaanes", "role": "supporting" },
+          { "name": "Uriel Ventris", "role": "antagonist" },
+          { "name": "Pasanius Lysane", "role": "mentioned" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "duplicate_omnibus",
+            "current": "distinct",
+            "suggestion": "marked-as-repackaging-pair-with-W40K-0061",
+            "sources": ["Black Library product listings; Lexicanum Iron Warriors (Novel Series); Kobo / Apple Books / Amazon listings"],
+            "reasoning": "Content-identical to W40K-0061 Iron Warriors: The Omnibus (2012). Both collect the same eight constituents. Roster carries both rows because they exist as distinct SKUs (different ISBNs, different cover art, seven-year publication gap). Resolver should treat them as the same logical work for recommendation purposes but keep separate book rows for catalogue completeness."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0063",
+      "slug": "iron-warrior",
+      "overrides": {
+        "synopsis": "Warsmith Honsou's hatred for Ultramarines Captain Uriel Ventris drives him to attempt the nigh-impossible — capture one of the most heavily defended of the chapter's star forts, an installation that conceals a secret deep at its core. The novella runs the assault from the Iron Warriors' side, with Honsou's hand-picked warband against the fortress garrison's interlocking firepower, and shifts the saga's gravity decisively to chaos-POV after the chapter-POV finale of *The Chapter's Due*. Black Library's first A5 limited-edition hardback (1,000 hand-numbered, author-signed copies, 2010), strictly chaos-POV, structurally a fast siege-novella that sits between *The Chapter's Due* and the later Honsou short-story arc collected in W40K-0061 / W40K-0062. Honsou's revenge against Ventris is by this point a sustained obsession, not a phase, and the novella is the rawest articulation of it.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "planetary", "requires_context", "novella", "war_story", "siege", "character_study", "grimdark", "cosmic_horror", "action_heavy", "somber", "hubris", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "antagonist" },
+          { "name": "Ultramarines", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Medrengard", "role": "mentioned" },
+          { "name": "Ultramar", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Honsou", "role": "pov" },
+          { "name": "Uriel Ventris", "role": "antagonist" },
+          { "name": "Ardaric Vaanes", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0064",
+      "slug": "space-marine",
+      "overrides": {
+        "synopsis": "Three boys from the underhive gangs of Hive Trazior on Necromunda — Lexandro d'Arquebus, Yeremi Valance, and Biff Tundrish — are recruited into the Imperial Fists Astartes induction programme. The novel follows their gene-seed implantation, scout-stage trials, ascension to full battle-brother status, and successive campaigns across the Imperium, climaxing with an Imperial Fists First Company boarding action inside a Tyranid bioship. Structurally a Bildungsroman in three POVs, with the trio's diverging temperaments — Lexandro's ascetic discipline, Yeremi's intuitive aggression, Biff's bawdy loyalty — set against the chapter's rigid Codex orthodoxy. The third Warhammer 40,000 novel ever published (Games Workshop, 1993) and the first published Astartes-recruitment narrative; the structural template for every later \"path to becoming a Space Marine\" novel. Now distributed under Black Library's *Heretic Tomes* label: the 1993 lore around Imperial Fists recruitment, gene-seed implantation rites, and the now-removed Squat sub-faction (referenced throughout) is no longer canonical with present-day 40K.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "standalone", "standard", "war_story", "journey", "character_study", "grimdark", "action_heavy", "somber", "brotherhood", "loyalty", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Genestealer Cults", "role": "antagonist" },
+          { "name": "Squats", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Trazior", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Lexandro d'Arquebus", "role": "pov" },
+          { "name": "Yeremi Valance", "role": "pov" },
+          { "name": "Biff Tundrish", "role": "pov" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "canonicity",
+            "current": "rostered",
+            "suggestion": "heretic_tomes_label",
+            "sources": ["Black Library / Lexicanum: novel sold under the Heretic Tomes brand"],
+            "reasoning": "Black Library currently distributes the novel under its *Heretic Tomes* label, reserved for works no longer consistent with current Warhammer 40,000 canon. The 1993 lore around Imperial Fists recruitment, gene-seed rites, and the now-removed Squat sub-faction has been retconned. Roster correctly lists the book as a 40K novel; this flag is informational for the recommender so it can de-weight or contextualise canonicity-drift entries in Ask-the-Archive results."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0065",
+      "slug": "eye-of-terror",
+      "overrides": {
+        "synopsis": "On the eve of a new Black Crusade, the Rogue Trader Maynard Rugolo runs a lighter-than-lighter cargo into the fringes of the Eye of Terror, calculating that the warp-twisted reefs between Imperial space and Abaddon's pulpits hold both fortunes and short paths home. A parallel thread follows two Space Marines whose fates entwine deep inside the Eye — one a Khornate corsair of long standing, the other a survivor from the time of the Great Crusade whose loyalist faith is being eroded by everything around him, until he must choose between scorning the Emperor or throwing his lot in with the dark gods his warband-brother already serves. Subplots: a Navigator losing his mind under the Eye's constantly-shifting topography; frog-people brokering diamonds with a Chaos merchant; Marine-on-Marine cannibalism; and two Greater Daemons playing a literal game of pieces-on-a-board by smashing two real planets together. Bayley's prose sits closer to British New-Wave SF than to standard 40K — philosophical, surreal, unsettling — and the book is now under Black Library's Heretic Tomes label for cumulative lore drift since 1999.",
+        "facetIds": ["book", "male", "multi", "dual", "sector", "standalone", "standard", "journey", "war_story", "mystery", "character_study", "grimdark", "cosmic_horror", "philosophical", "somber", "doubt", "hubris", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "primary" },
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Khorne", "role": "antagonist" },
+          { "name": "Black Legion", "role": "background" },
+          { "name": "Rogue Traders", "role": "primary" },
+          { "name": "Daemons", "role": "antagonist" },
+          { "name": "Navis Nobilite", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Maynard Rugolo", "role": "pov" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "canonicity",
+            "current": "rostered",
+            "suggestion": "heretic_tomes_label",
+            "sources": ["Black Library / Lexicanum: novel sold under the Heretic Tomes brand"],
+            "reasoning": "Black Library distributes this 1999 Bayley novel under its *Heretic Tomes* label for works no longer consistent with current 40K canon. Roster correctly lists it as a 40K novel; flag is informational for the recommender."
+          },
+          {
+            "kind": "low_confidence",
+            "field": "characters",
+            "reason": "Beyond Rogue Trader Maynard Rugolo (the named POV), the two Space Marine subplot protagonists and the Navigator who goes mad inside the Eye are described in summary across review sources but their personal names are not consistently surfaced; deliberately left unenumerated rather than invented."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0066",
+      "slug": "pawns-of-chaos",
+      "overrides": {
+        "synopsis": "On the medieval-tech world of Sigmatus, isolated for generations inside a warp storm and slowly converted into a tributary of the Imperium, an indigenous rebel cult prepares a daemonic summoning to throw the Adeptus Arbites garrison and the thin Imperial Guard occupation force off their soil. The novel is told largely from the cultist side: the rebels are not monsters but human beings worn flat by Imperial exploitation, philosophically reasoning their way toward a pact with the warp. Their summoning succeeds and a Daemon of Chaos comes through, with all the cost such bargains carry. \"Brian Craig\" is a Black-Library pseudonym for the British SF author Brian Stableford; the prose is his usual existential-rumination register, not the standard 40K battle-pulp, and the book now sits under Heretic Tomes for the cumulative canonicity drift that catches several early-period 40K standalones written by SF generalists.",
+        "facetIds": ["book", "mixed", "civilian", "chaos", "planetary", "standalone", "standard", "war_story", "character_study", "political_thriller", "mystery", "grimdark", "philosophical", "somber", "doubt", "betrayal", "hubris", "faith", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Daemons", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "antagonist" },
+          { "name": "Adeptus Arbites", "role": "antagonist" },
+          { "name": "Cult of Chaos", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Sigmatus", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "canonicity",
+            "current": "rostered",
+            "suggestion": "heretic_tomes_label",
+            "sources": ["Lexicanum / Fandom: novel listed under Heretic Tomes for canonicity drift"],
+            "reasoning": "Distributed under Black Library's *Heretic Tomes* label, reserved for works no longer consistent with current 40K canon. Roster correctly carries the book; flag is informational. (Also worth noting: \"Brian Craig\" is the Black-Library pseudonym for the British SF author Brian Stableford — useful for the persons table when the resolver auto-creates the author row.)"
+          },
+          {
+            "kind": "low_confidence",
+            "field": "characters",
+            "reason": "Cultist-side ensemble cast with multiple POVs across the rebel cell; individual character names are not consistently surfaced across review sources beyond the broad ensemble framing. Left unenumerated rather than invented."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0067",
+      "slug": "farseer",
+      "overrides": {
+        "synopsis": "Rogue Trader Janus Darke, once rich and famous and now skidding toward ruin in a drug-ridden frontier-world dive, finds himself joined at his table by Auric — an alien with cheekbones too sharp for any human gene-line and a manner that bends the room around him. Auric is an Eldar Farseer, and he has a craftworld-scale problem: a Daemon Prince of Slaanesh is hunting Darke's soul, the runes have shown Auric where their paths cross, and only at that intersection can the prince be killed. The novel runs the unlikely alliance — rogue trader, Farseer, and Darke's voidship crew — across a journey into the Eye of Terror, with Inquisition agents converging because no human, even one carrying a Farseer for a passenger, should be inside the Eye even by choice. William King writes the Eldar interior with rare interiority for the early-2000s era; the book is now under Black Library's Heretic Tomes label for the cumulative changes to Eldar canon since 2002.",
+        "facetIds": ["book", "male", "multi", "imperium", "sector", "standalone", "standard", "journey", "mystery", "character_study", "grimdark", "cosmic_horror", "philosophical", "somber", "doubt", "redemption", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Rogue Traders", "role": "primary" },
+          { "name": "Eldar", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Slaanesh", "role": "antagonist" },
+          { "name": "Daemons", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Janus Darke", "role": "pov" },
+          { "name": "Auric", "role": "supporting" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "canonicity",
+            "current": "rostered",
+            "suggestion": "heretic_tomes_label",
+            "sources": ["Black Library / Lexicanum: novel sold under Heretic Tomes brand"],
+            "reasoning": "Distributed under Black Library's *Heretic Tomes* label for cumulative canonicity drift in Eldar lore since 2002 (pre-9th-edition Aeldari spelling, pre-Ynnari craftworld politics, etc.). Roster correctly carries the book; flag is informational. The 2002 rogue-trader-meets-Farseer concept and Slaanesh-Daemon-Prince soul-hunt plot itself remain narratively intact."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0068",
+      "slug": "daemon-world",
+      "overrides": {
+        "synopsis": "Torvendis is a daemon world deep inside the Maelstrom, ruled openly by Lady Charybdia in the name of Slaanesh from a hedonistic mega-city built atop strata of millennia of battle and death. A Word Bearers warband under Captain Amakyre arrives hunting one of their own — the traitor Karnulon, an Astartes who broke from the Legion's faith for purposes of his own. As Amakyre's hunt threads through Charybdia's court, the young tribal warlord Golgoth pushes from the wastes to seize his own holding, and the fugitive sorcerer Kron crosses every faction with motives all his own. Beneath all of them lurks a true horror bound deep in Torvendis's bones, whose escape would unmake the planet and threaten the wider Maelstrom. Strictly chaos-side: no significant Imperial presence on stage, the Violators (Charybdia's pet Heretic Astartes warband) function as her enforcers, and the four-way chaos politics across Slaanesh / Khorne / Tzeentch / Nurgle drift across the book's surface. Ben Counter's most baroque early novel and the loud Slaaneshi entry in the Black Library catalogue.",
+        "facetIds": ["book", "ensemble", "multi", "chaos", "planetary", "standalone", "standard", "war_story", "court_intrigue", "mystery", "siege", "grimdark", "cosmic_horror", "somber", "hubris", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "cw_sex", "en"],
+        "factions": [
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Slaanesh", "role": "primary" },
+          { "name": "Khorne", "role": "supporting" },
+          { "name": "Tzeentch", "role": "supporting" },
+          { "name": "Nurgle", "role": "supporting" },
+          { "name": "Daemons", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "primary" },
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Violators", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Torvendis", "role": "primary" },
+          { "name": "Maelstrom", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Lady Charybdia", "role": "pov" },
+          { "name": "Golgoth", "role": "pov" },
+          { "name": "Kron", "role": "pov" },
+          { "name": "Amakyre", "role": "pov" },
+          { "name": "Karnulon", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0069",
+      "slug": "angels-of-darkness",
+      "overrides": {
+        "synopsis": "Two stories run in alternating chapters. In the first, on Piscina IV, a Dark Angels strike force under Master Belial defends an Imperial Guard regiment and a Piscinan PDF against an Ork orbital invasion — a fast-moving conventional-war structure that doubles as the chapter's public face. In the second, the Interrogator-Chaplain Boreas conducts the slow, controlled interrogation of Astelan, one of the Fallen captured in deep-warp transit. Astelan does not deny his identity as a Fallen Angel of the Great Crusade — he argues, calmly and at length, that he served the Lion's true commands and that Luther's later actions misrepresented those commands, that the Lion himself was the traitor and the Fallen the loyalists. Boreas reads the transcript like a noose. Astelan's account is unreliable, deliberately structured to break a young Interrogator-Chaplain's certainties, and the novel's central question is whether the Dark Angels' centuries-old hunt for the Fallen rests on the moral certainty the chapter claims. Foundational text for Fallen-Angels lore.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "war_story", "mystery", "character_study", "political_thriller", "grimdark", "somber", "action_heavy", "doubt", "betrayal", "loyalty", "faith", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Fallen Angels", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Piscina IV", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Boreas", "role": "pov" },
+          { "name": "Astelan", "role": "pov" },
+          { "name": "Belial", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0070",
+      "slug": "fire-warrior",
+      "overrides": {
+        "synopsis": "Shas'la T'au Kais, a young Fire-Caste trooper newly graduated from the trial of fire, drops on the desert world of Dolumar IV as part of a Tau hunter-cadre's rescue strike for the Ethereal Aun'el Ko'vash, who has crash-landed behind Imperial lines. What was meant to be a clean extraction tangles into a multi-faction nightmare: an Imperial Guard regiment and Adeptus Astartes contingent hold the surface positions; a Chaos cult has been working under the city for some time, having orchestrated Ko'vash's capture as bait to draw enough Tau soul-substance to release the Greater Daemon Tarkh'ax from a warp-prison within a buried fragment of the Webway; and an Inquisition strike-team converges in pursuit of the cult. Kais cuts through layers of betrayal, his caste-discipline fracturing under cumulative kill-counts, to rescue Ko'vash, deny Tarkh'ax his ritual, and survive to be promoted. Tie-in novelisation of THQ's 2003 *Fire Warrior* PlayStation 2 game (Marc Gascoigne plotted the novel against the game; Simon Spurrier wrote the prose); rare Tau-POV-anchored entry in the early-2000s 40K catalogue and the authority layer's first Tau-Empire-protagonist book.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "planetary", "standalone", "standard", "war_story", "journey", "last_stand", "grimdark", "action_heavy", "somber", "loyalty", "doubt", "sacrifice", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Tau Empire", "role": "primary" },
+          { "name": "Fire Caste", "role": "primary" },
+          { "name": "Ethereal Caste", "role": "supporting" },
+          { "name": "Imperial Guard", "role": "antagonist" },
+          { "name": "Adeptus Astartes", "role": "antagonist" },
+          { "name": "Inquisition", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Daemons", "role": "antagonist" },
+          { "name": "Cult of Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Dolumar IV", "role": "primary" },
+          { "name": "Webway", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Shas'la T'au Kais", "role": "pov" },
+          { "name": "Aun'el Ko'vash", "role": "supporting" },
+          { "name": "Tarkh'ax", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
