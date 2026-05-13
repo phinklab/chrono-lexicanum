@@ -21,6 +21,8 @@ sources:
   - ../../sessions/2026-05-12-063-impl-resolver-50-books.md
   - ../../sessions/2026-05-12-067-impl-resolver-apply-readiness.md
   - ../../sessions/2026-05-12-069-impl-resolver-apply-evidence.md
+  - ../../sessions/2026-05-13-070-arch-faction-policy-hygiene.md
+  - ../../sessions/2026-05-13-070-impl-faction-policy-hygiene.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
 related:
   - ./project-state.md
@@ -28,6 +30,7 @@ related:
   - ./deferred-questions.md
   - ./decisions/why-haiku-not-sonnet.md
   - ./decisions/why-excel-ssot-not-crawl.md
+  - ./decisions/faction-policy.md
 confidence: high
 ---
 
@@ -35,7 +38,7 @@ confidence: high
 
 > Items the **next** architect brief MUST address. The queue is intentionally small (3–5 items). Cowork prunes here when an item lands in a brief or is otherwise resolved. Dormant / distant items live in [`./deferred-questions.md`](./deferred-questions.md). Phase-internal backlog (3d / 3e / 3f reminders) lives in [`./pipeline-state.md`](./pipeline-state.md).
 >
-> **Migration history (kompakt):** Initial 9-Item-Carry-over migrated 049-Reset → 11 items; 051 Slim Pass split actionable / deferred / sub-phase. Post-054 verschob Anthologie-Re-Test + Body-Lore-Walker nach `deferred-questions.md` und ersetzte sie durch OQ4 (Junction-Resolver) + OQ5 (Unresolved-Queue). Excel-SSOT-Pivot (2026-05-10, Brief 057): OQ7 (Master-Liste-Crawl-Build) + OQ8 (Roster-Index-Selektor) erledigt. Post-069 (2026-05-12): OQ4 + OQ5 **für die ersten 50 W40K-Bücher geschlossen** durch Resolver-Sidecar-JSONs, canonical Reference-Extensions, `raw_name`-Audit-Spalten, `db:seed-resolver-extensions` und Re-Apply `ssot-w40k-001..005`. Universe-Year-Walker bleibt in `deferred-questions.md` (Maintainer-Direktive: erstmal hinten anstellen).
+> **Migration history (kompakt):** Initial 9-Item-Carry-over migrated 049-Reset → 11 items; 051 Slim Pass split actionable / deferred / sub-phase. Post-054 verschob Anthologie-Re-Test + Body-Lore-Walker nach `deferred-questions.md` und ersetzte sie durch OQ4 (Junction-Resolver) + OQ5 (Unresolved-Queue). Excel-SSOT-Pivot (2026-05-10, Brief 057): OQ7 (Master-Liste-Crawl-Build) + OQ8 (Roster-Index-Selektor) erledigt. Post-069 (2026-05-12): OQ4 + OQ5 **für die ersten 50 W40K-Bücher geschlossen** durch Resolver-Sidecar-JSONs, canonical Reference-Extensions, `raw_name`-Audit-Spalten, `db:seed-resolver-extensions` und Re-Apply `ssot-w40k-001..005`. Universe-Year-Walker bleibt in `deferred-questions.md` (Maintainer-Direktive: erstmal hinten anstellen). Post-070 (2026-05-13): Faction-Policy & Hierarchie-Hygiene gelandet (Browse-Root vs. Tree-Root, `factions.json` Audit-Pass mit Chaos-Rename + 14 Reparents, `seed-resolver-extensions`-Faction-Insert auf Upsert geliftet, neue `brain:lint`-Kategorie); keine OQ-Verschiebung — parallel zu OQ1/2/3/6 gelaufen. UI-Rollup-Vorarbeit ist explizit als Future-Brief markiert (Trigger: ≥100 Bücher resolved + UI-Polish-Phase aktiv).
 
 Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions: …` (raw sources) · `Follow-up brief: …` (if known).
 

@@ -2,7 +2,7 @@
 session: 2026-05-13-070
 role: architect
 date: 2026-05-13
-status: open
+status: implemented
 slug: faction-policy-hygiene
 parent: null
 links:
