@@ -106,7 +106,8 @@ type Category =
   | "Stale low-confidence"
   | "Brain size budget"
   | "Inline diff raw fields"
-  | "Stale claim suspects";
+  | "Stale claim suspects"
+  | "Faction policy";
 
 const CATEGORY_ORDER: ReadonlyArray<Category> = [
   "Frontmatter",
@@ -119,6 +120,7 @@ const CATEGORY_ORDER: ReadonlyArray<Category> = [
   "Brain size budget",
   "Stale low-confidence",
   "Stale claim suspects",
+  "Faction policy",
 ];
 
 interface Finding {
@@ -1235,6 +1237,46 @@ function renderReport(date: string, findings: Finding[], blocking: number, warni
   return out.join("\n");
 }
 
+function checkFactionPolicy(repoRoot: string): Finding[] {
+  const findings: Finding[] = [];
+  const factionsPath = "scripts/seed-data/factions.json";
+  const policyPath = "scripts/seed-data/faction-policy.json";
+  const factionsAbs = path.join(repoRoot, factionsPath);
+  const policyAbs = path.join(repoRoot, policyPath);
+  if (!existsSync(factionsAbs) || !existsSync(policyAbs)) return findings;
+  const factions = JSON.parse(readFileSync(factionsAbs, "utf8")) as Array<{
+    id: string;
+    parent?: string | null;
+  }>;
+  const policy = JSON.parse(readFileSync(policyAbs, "utf8")) as {
+    browseRoots?: string[];
+    knownTopLevelExceptions?: string[];
+  };
+  const browseRoots = new Set(policy.browseRoots ?? []);
+  const exceptions = new Set(policy.knownTopLevelExceptions ?? []);
+  const ids = new Set(factions.map((f) => f.id));
+  for (const f of factions) {
+    if (f.parent == null) {
+      if (!browseRoots.has(f.id) && !exceptions.has(f.id)) {
+        findings.push({
+          severity: "warning",
+          category: "Faction policy",
+          file: factionsPath,
+          message: `Faction "${f.id}" has parent: null but is not listed in faction-policy.json browseRoots or knownTopLevelExceptions.`,
+        });
+      }
+    } else if (!ids.has(f.parent)) {
+      findings.push({
+        severity: "error",
+        category: "Faction policy",
+        file: factionsPath,
+        message: `Faction "${f.id}" has parent="${f.parent}" but no faction with that id exists in factions.json.`,
+      });
+    }
+  }
+  return findings;
+}
+
 function compareFindings(a: Finding, b: Finding): number {
   const ai = CATEGORY_ORDER.indexOf(a.category);
   const bi = CATEGORY_ORDER.indexOf(b.category);
@@ -1309,6 +1351,7 @@ async function main(): Promise<void> {
   findings.push(...checkBrainSizeBudget(wikiPages));
   findings.push(...checkInlineDiffRawFields(wikiPages));
   findings.push(...checkStaleClaimSuspects(wikiPages, repoRoot, pkgScripts, brokenLinks));
+  findings.push(...checkFactionPolicy(repoRoot));
 
   findings.sort(compareFindings);
 
