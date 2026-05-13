@@ -1,0 +1,260 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-009",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-13",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0081..W40K-0090 — a mid-2010s 40K standalone / series-start cluster spanning multiple registers: Peter Fehervari's debut Fire Caste (2013, jungle-stalemate Commissar Iverson + Colonel Cutler on Phaedra vs Tau, opens the loose 'Dark Coil' weird-40K continuity), Ben Counter's Seventh Retribution (2013, Captain Lysander leading Imperial-Fists 1st Company on civil-war Opis vs a Chaos cult, Iron-Warriors trauma flashbacks), Guy Haley's Eldar-anchored Apocalypse-piece Valedor (2014, Prince Yriel of Iyanden + Biel-Tan + Commorragh Dark Eldar vs converging Hive Fleets Leviathan + Kraken at the Battle of Duriel), Paul Kearney's Dark Hunters: Umbra Sumus (2015, Captain Jonah Kerne + Mortai Company defending the homeworld Phobian and pursuing the Punishers warband to Ras Hanem — series-start), Joe Parrino's box-set tie-in Assassinorum: Execution Force (2015, four-assassin ensemble vs Crimson-Slaughter sorcerer Severin Drask and the Temple of Shades ritual), Sarah Cawkwell's Silver Skulls: Portents (2014, Sergeant Gileas Ur'ten + Prognosticar-driven deployment to Valoria Quintus and a slow-burn Inquisition-manipulation reveal), David Annandale's War-Zone-Fenris tie-in Curse of the Wulfen (2016, Wolf-Lord Harald Deathwolf + the returning 13th-Company Wulfen vs Magnus the Red + Thousand Sons across the Fenris system, Grey-Knights uneasy-truce subplot), David Annandale's Titanicus ensemble Warlord: Fury of the God-Machine (2016, Princeps Krezoc / Pallidus Mor + Princeps Syagrius / Imperial Hunters forced to fight together on a Chaos-overrun forge-world), Paul Kearney's Calgar's Fury (2016, Marneus Calgar leading five Ultramarines companies + Inquisition + Adeptus Mechanicus into the space hulk Fury near Iax, morally murky cooperation), and Ian St. Martin's Lucius: The Faultless Blade (2016, Lucius the Eternal vs World Eaters + Fabius-Bile-aligned Emperor's Children + Dark Eldar, series-start of the Lucius trilogy). Structural notes: no format-conflict or low-confidence flags this iteration (mid-2010s Black-Library entries are uniformly well-documented); first authority-layer entries for Imperial Fists' Lysander, the Dark Hunters chapter (White-Scars-successor), the Silver Skulls chapter (also White-Scars-successor), Officio Assassinorum + its four temple sub-factions, Pallidus Mor + Imperial Hunters Titan Legios, the Crimson Slaughter Chaos warband, the Punishers Chaos warband, and the Emperor's Children legion as primary protagonist faction.",
+  "books": [
+    {
+      "externalBookId": "W40K-0081",
+      "slug": "fire-caste",
+      "overrides": {
+        "synopsis": "Standalone Imperial-Guard-anchored 40K novel set on the jungle-and-swamp death-world of Phaedra, where the Imperium has been bogged down in a decade-long stalemate against a T'au expansion force backed by local secessionist insurgents. The 19th Arkan Confederates — a fresh regiment still haunted by the trauma of their home world's recent rebellion — are deployed to break the deadlock, but command sends them in piecemeal and the regiment scatters under fire. Dual Imperial POV across the campaign: Commissar Holt Iverson, who has spent so long on Phaedra that his sense of duty has corroded into private vendetta, sees in the Confederates a last chance at redemption; Colonel Ensor Cutler holds the regimental command line as the campaign disintegrates. Phaedra itself functions as an antagonist — a Heart-of-Darkness / Apocalypse-Now register where the warp leaks through the canopy, ghosts of past Imperial atrocities surface, and Tau Empire infiltrators move through the trees. Opens Fehervari's loose 'Dark Coil' continuity: weird-40K standalones that share an undercurrent of cosmic-horror taint without explicit cross-references.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "standalone", "standard", "war_story", "character_study", "mystery", "journey", "grimdark", "cosmic_horror", "somber", "philosophical", "doubt", "hubris", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "cw_mental_health", "en"],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Arkan Confederates", "role": "primary" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Phaedra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Holt Iverson", "role": "pov" },
+          { "name": "Ensor Cutler", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0082",
+      "slug": "seventh-retribution",
+      "overrides": {
+        "synopsis": "Standalone Imperial-Fists novel built around Captain Darnath Lysander of the chapter's elite First Company. The world of Opis has fallen into civil war, with planetary defence forces turning on each other and the Imperium's hold slipping; the Imperial Fists Seventh Crusade-company response under Lysander is the Imperium's intervention. As the campaign progresses the rebellion is revealed to be more than political — a Chaos cult has been steering events from inside the Opisian aristocracy, and the cult's master is closer to Lysander's own past than he wants to admit. The book runs Lysander through extended flashbacks of his imprisonment by Warsmith Shon'tu of the Iron Warriors (the trauma carried over from the *Iron Warriors* arc), so the present-day Chaos confrontation doubles as a survival-of-faith piece. Officio-Assassinorum support is woven into the late-novel push. Standard chapter-master register: brotherhood + duty + the moral cost of Imperial Fists' uncompromising siegecraft.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "war_story", "siege", "political_thriller", "character_study", "grimdark", "somber", "action_heavy", "brotherhood", "loyalty", "hubris", "doubt", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Officio Assassinorum", "role": "supporting" },
+          { "name": "Imperial Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Opis", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Darnath Lysander", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0083",
+      "slug": "valedor",
+      "overrides": {
+        "synopsis": "Standalone Eldar-anchored Apocalypse-scale novel covering the Battle of Duriel. Prince Yriel of Craftworld Iyanden — still bearing the consequences of an earlier Hive-Fleet-Kraken engagement his farseers diverted into the warp — discovers that the diverted fragment has re-emerged and is on a collision course with Hive Fleet Leviathan. If the two hive fleets are allowed to combine, their genetic exchange would produce something neither Eldar nor wider galaxy can survive. Yriel forges an uneasy three-way alliance: Iyanden, Craftworld Biel-Tan (Swordwind / Aspect-Warrior bias), and the Dark Eldar of Commorragh, who will fight only as long as the soul-toll suits them. Battlefield-scale ensemble across Wraithguard / Wraithknight constructs, Aspect Warrior shrines, Dark-Eldar Kabal raiders, and Tyranid swarm bioforms. Tone is somber-cosmic: the Eldar are very aware that even victory only postpones their extinction, and the Dark-Eldar allies will leave the moment the bill comes due. **First authority-layer Eldar-faction-as-primary-protagonist novel** since the Cain crossover supporting role; first Iyanden / Biel-Tan / Dark-Eldar-Commorragh-as-protagonist surface forms.",
+        "facetIds": ["book", "mixed", "pc_xenos", "xenos", "sector", "standalone", "standard", "war_story", "last_stand", "journey", "siege", "grimdark", "cosmic_horror", "somber", "action_heavy", "sacrifice", "doubt", "hubris", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Eldar", "role": "primary" },
+          { "name": "Iyanden", "role": "primary" },
+          { "name": "Biel-Tan", "role": "primary" },
+          { "name": "Dark Eldar", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Hive Fleet Leviathan", "role": "antagonist" },
+          { "name": "Hive Fleet Kraken", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Duriel", "role": "primary" },
+          { "name": "Iyanden", "role": "secondary" },
+          { "name": "Commorragh", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Yriel", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0084",
+      "slug": "dark-hunters-umbra-sumus",
+      "overrides": {
+        "synopsis": "Series-start Dark-Hunters novel. The Dark Hunters — a White-Scars-successor chapter whose silent-hunting doctrine comes from the Sahrmatae people of their homeworld Phobian (where pre-Imperial humans learned to move silently to avoid the deadly Phobian Bats) — open the book defending Phobian against a Chaos raid that turns out to be a feint. The Punishers, a Chaos warband the chapter had thought destroyed in a previous campaign, have returned for vengeance and are now marauding the world of Ras Hanem. Captain Jonah Kerne of Mortai Company leads the Dark Hunters' response — ship-to-surface deployment, joint-arms with Ras Hanem PDF and Imperial-Guard support, a slow-burning pursuit through fortified hive-cities, and finally a decapitation strike at the Punishers' command. Tone holds to grimdark + somber: the chapter is competent rather than glorious, the Punishers exact a heavy cost, and the campaign closes on the chapter motto's literal meaning (*we are the shadow*).",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "series_start", "standard", "war_story", "character_study", "siege", "journey", "grimdark", "somber", "action_heavy", "brotherhood", "loyalty", "sacrifice", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Hunters", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Punishers", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Phobian", "role": "primary" },
+          { "name": "Ras Hanem", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Jonah Kerne", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0085",
+      "slug": "assassinorum-execution-force",
+      "overrides": {
+        "synopsis": "Standalone Officio-Assassinorum novella tied to the Games-Workshop board-game box-set of the same name. Four Imperial assassins — one each from the Vindicare (sniper), Eversor (berserker), Callidus (infiltrator-shapeshifter), and Culexus (psyker-null) temples — are dispatched as a single Execution Force to stop Severin Drask, a Sorcerer-Lord of the Crimson Slaughter Chaos Space Marines, before he can complete a ritual at the Temple of Shades that would tear open the warp and unleash a daemonic tide on the Imperium. The four temples are doctrinally so different from each other that their cooperation is the structural tension as much as the Chaos opposition is: each assassin's specialised approach interferes with the others, the Eversor's combat-stim psychosis grates against the Culexus's silence, the Callidus's shape-changing collides with the Vindicare's positional discipline, and the Crimson-Slaughter cabal hunts them through the temple as they hunt Drask. Heist + last-stand procedural at squad scale. First authority-layer entry for the Officio Assassinorum and its four temples, and for the Crimson Slaughter Chaos warband.",
+        "facetIds": ["book", "mixed", "multi", "imperium", "squad", "standalone", "short", "heist", "last_stand", "war_story", "mystery", "grimdark", "action_heavy", "somber", "cosmic_horror", "brotherhood", "sacrifice", "doubt", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Officio Assassinorum", "role": "primary" },
+          { "name": "Vindicare Temple", "role": "primary" },
+          { "name": "Eversor Temple", "role": "primary" },
+          { "name": "Callidus Temple", "role": "primary" },
+          { "name": "Culexus Temple", "role": "primary" },
+          { "name": "Crimson Slaughter", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Daemons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Temple of Shades", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Severin Drask", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0086",
+      "slug": "silver-skulls-portents",
+      "overrides": {
+        "synopsis": "Silver-Skulls chapter mid-series novel (second after the previous Silver-Skulls release *The Gildar Rift*, set in the same continuity). The Silver Skulls — a White-Scars-successor chapter whose every major deployment is dictated by their order of Prognosticars, prophetic psyker-priests whose visions decree the chapter's wars — are sent to the world of Valoria Quintus to crush an insurrection that the Prognosticars have foreseen will fall quickly. The deployment is anchored by Sergeant Gileas Ur'ten, a rogue-element battle-brother whose fiery temper and unusual heritage put him at angles to his command but whose squad becomes the spearhead of the Valoria fight. As the campaign progresses the early prophecy frays: the Inquisition has arrived alongside the Silver Skulls with its own interest in the Prognosticars themselves, and the longer the war runs the more it looks as if the chapter is being steered by exactly the powers it thought it was fighting. Slow-burn political-thriller + mystery layer wrapped around a war-story spine.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "mid_series", "standard", "war_story", "mystery", "political_thriller", "character_study", "grimdark", "somber", "action_heavy", "brotherhood", "doubt", "betrayal", "loyalty", "faith", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Silver Skulls", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Valoria Quintus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Gileas Ur'ten", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0087",
+      "slug": "curse-of-the-wulfen",
+      "overrides": {
+        "synopsis": "War-Zone-Fenris tie-in novel covering the Space Wolves' confrontation with their lost 13th Company. Ten thousand years after the burning of Prospero — when the entire 13th Company was lost into the warp during the campaign — the Wulfen begin returning to realspace in scattered packs across the Fenris system, and the Space Wolves' great companies are committed wholesale to find and recover them. Wolf-Lord Harald Deathwolf anchors the chapter-side response. The returning Wulfen are at first read as a primarch-portent — the closest sign in millennia that Leman Russ might return — but as the campaign proceeds the chapter discovers that the Wulfen are not the same Space-Wolves-with-feral-augments they remember: the warp has marked them deeply, and an alarming number of present-day Space Wolves begin turning Wulfen on contact. Meanwhile cult activity scattered across the Fenris system resolves, when seen from orbit, into the glyph of Magnus the Red — the long-prepared revenge of the Thousand Sons for the burning of Prospero. Grey Knights arrive demanding the Wulfen be turned over to the Ordo Malleus; an uneasy truce is brokered to stand against the Thousand Sons. First authority-layer entry for Magnus the Red as an active antagonist and the War-Zone-Fenris / Gathering-Storm frame.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "requires_context", "standard", "war_story", "siege", "political_thriller", "mystery", "grimdark", "cosmic_horror", "somber", "action_heavy", "brotherhood", "betrayal", "doubt", "sacrifice", "loyalty", "faith", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Wulfen", "role": "primary" },
+          { "name": "Thousand Sons", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Tzeentch", "role": "antagonist" },
+          { "name": "Daemons", "role": "antagonist" },
+          { "name": "Grey Knights", "role": "supporting" },
+          { "name": "Ordo Malleus", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Harald Deathwolf", "role": "pov" },
+          { "name": "Magnus the Red", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0088",
+      "slug": "warlord-fury-of-the-god-machine",
+      "overrides": {
+        "synopsis": "Adeptus-Titanicus ensemble novel. The Pallidus Mor demi-legio — a stoic, duty-bound Titan Legion still reeling from a near-disastrous engagement against Tyranids — is reassigned to a forge world that has fallen to Chaos. There they are forced to fight alongside the Imperial Hunters, an aristocratic Titan Legion whose princeps look down on the Pallidus Mor as common-stock and pursue glory-kills against enemy bio-titans rather than coordinate. The novel runs dual POV across the two legios: Princeps Ferantha Krezoc of the Warlord Titan *Gloria Vastator* (Pallidus Mor) holds the campaign-discipline line; Princeps Adrel Syagrius of the Warlord *Augustus Secutor* (Imperial Hunters) escalates the inter-legio friction until the Chaos enemy forces an unwilling cooperation. Battle-scale set-pieces of city-after-city Titan combat anchor the action register; underneath them, the Imperium-Mechanicus political-friction layer (which side of an Omnissiah-vs-Emperor cult-axis each Princeps stands on) functions as the slow drumbeat. First authority-layer entries for the Pallidus Mor + Imperial Hunters Titan Legios and for the named Warlord titans *Gloria Vastator* and *Augustus Secutor*.",
+        "facetIds": ["book", "mixed", "multi", "imperium", "planetary", "standalone", "standard", "war_story", "siege", "political_thriller", "character_study", "grimdark", "somber", "action_heavy", "loyalty", "betrayal", "hubris", "sacrifice", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Titanicus", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Pallidus Mor", "role": "primary" },
+          { "name": "Imperial Hunters", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Ferantha Krezoc", "role": "pov" },
+          { "name": "Adrel Syagrius", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0089",
+      "slug": "calgars-fury",
+      "overrides": {
+        "synopsis": "Standalone Ultramarines space-hulk novel. The space hulk *Fury* drifts into the realm of Ultramar near the agri-world Iax in M41.812, carrying along its many-millennia-old composite hull both signs of Chaos taint and unbroken caches of ancient Imperial technology that the Adeptus Mechanicus and Inquisition both want recovered before the hulk is destroyed. Marneus Calgar, Chapter Master of the Ultramarines and Lord of Macragge, commits five of the chapter's companies — 1st, 5th, 7th, 9th, and 10th — to a reconnaissance-in-force aboard the hulk, with Inquisition strike-teams and Mechanicus magos-and-skitarii detachments embedded under their own command structures and their own agendas. The narrative deliberately blurs the Imperium-side faction lines: Calgar's Ultramarines, the Inquisition's purification urge, and the Mechanicus's archeo-tech hunger all push the operation in different directions while the hulk's own xenos and Chaos defenders close in around them. Morally murky register for an Ultramarines novel — competence under pressure, the fragility of inter-Imperium cooperation, and the chapter master's growing sense that the hulk is itself a trap.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "standalone", "standard", "war_story", "journey", "mystery", "siege", "character_study", "grimdark", "somber", "action_heavy", "cosmic_horror", "loyalty", "hubris", "doubt", "brotherhood", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Genestealer Cults", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Iax", "role": "primary" },
+          { "name": "Ultramar", "role": "secondary" },
+          { "name": "Macragge", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Marneus Calgar", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0090",
+      "slug": "lucius-the-faultless-blade",
+      "overrides": {
+        "synopsis": "Series-start Lucius-the-Eternal novel (book 1 of the Lucius trilogy). Lucius — Soulthief, Champion of Slaanesh, doomed to reincarnate in any opponent who manages to kill him without exulting in the kill — finds his Emperor's Children warband Cohort exhausted by ten thousand years of unending pursuit of new sensation, with his retainers turning on one another and his own body breaking down between victories. Lucius reaches out to an estranged brother of the legion to rebuild his strength, and the novel braids three converging pressures: a feud with a World-Eaters warband led by a Khornate champion who has been pursuing Lucius for decades, the rival cabal of Emperor's Children loyal to Fabius Bile (the legion's mad-flesh-artist primogenitor), and a Dark-Eldar Kabal that has tracked Lucius into the Webway in pursuit of the same target Lucius is hunting. Servitor-POV intervals frame the chapters and let the reader see Lucius from outside his own corrosive narcissism. Themes: loss, addiction, decay, the impossibility of escaping mortality for someone who cannot die. First authority-layer entries for the Emperor's Children legion + Lucius the Eternal as primary protagonist, and for Fabius Bile as an explicit antagonist surface form.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "galactic", "series_start", "standard", "war_story", "character_study", "journey", "political_thriller", "grimdark", "somber", "cosmic_horror", "philosophical", "hubris", "doubt", "betrayal", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "cw_abuse", "en"],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "primary" },
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Slaanesh", "role": "primary" },
+          { "name": "World Eaters", "role": "antagonist" },
+          { "name": "Khorne", "role": "antagonist" },
+          { "name": "Dark Eldar", "role": "antagonist" },
+          { "name": "Fabius Bile's Coterie", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Webway", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Lucius the Eternal", "role": "pov" },
+          { "name": "Fabius Bile", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
