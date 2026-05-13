@@ -23,6 +23,42 @@ Known smoke-count caveat: `/buch/nightbringer` has only 1 resolved Location
 because the override lists only Pavonis. This replaces the earlier loose
 expectation that every smoke URL has at least 3 chips on every axis.
 
+## Pre-Apply Parent-Hygiene-Check
+
+Before every `db:apply-override` sweep, audit `scripts/seed-data/factions.json`
+against `scripts/seed-data/faction-policy.json`:
+
+1. Diff `factions.json` against the last-applied-batch commit to identify new
+   faction rows since the previous sweep:
+
+   ```bash
+   git diff <last-applied-batch-sha>..HEAD -- scripts/seed-data/factions.json
+   ```
+
+2. For each new or touched row, check the `parent` field:
+   - `parent` set, and resolves to a Browse-Root (or descendant of one) in
+     `faction-policy.json` → pass.
+   - `parent: null` and `id` is in `browseRoots` or `knownTopLevelExceptions` →
+     pass.
+   - Anything else → fix the row in `factions.json` and commit.
+
+3. After fixing, push the corrections into the DB before applying overrides:
+
+   ```bash
+   npm run db:seed-resolver-extensions
+   ```
+
+   `seedFactions` upserts on the JSON-sourced columns (`name`, `parent_id`,
+   `alignment`, `tone`, `glyph`) — re-running it propagates rename/reparent
+   edits to existing rows. Other entities (sectors, locations, characters)
+   remain insert-only.
+
+4. Run `npm run brain:lint -- --no-write` once for a fast cross-check;
+   the `Faction policy` category flags dangling parents (error) and orphan
+   parent-null rows (warning).
+
+5. Proceed with the apply sweep below.
+
 ## Apply Order
 
 Run in this order:
@@ -76,7 +112,8 @@ same DB:
   seed step; do not hand-edit migration history.
 - If `db:seed-resolver-extensions` fails on FK or enum alignment, stop. Fix the
   checked-in JSON or schema mismatch, then rerun the seed script; it is
-  idempotent and only inserts missing rows.
+  idempotent. Factions are upserted on the JSON-sourced columns; sectors,
+  locations, and characters are insert-only.
 - If an apply batch fails mid-sweep after earlier batches succeeded, fix the
   cause and rerun the failed batch, then continue in order. The apply script is
   delete-then-insert per work and safe to rerun for `001..005`.
