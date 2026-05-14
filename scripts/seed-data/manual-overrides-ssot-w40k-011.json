@@ -1,0 +1,267 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-011",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-14",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0101..W40K-0110 — the 2019-2021 cluster of late-8th-edition / early-9th-edition Black-Library novels covering the post-Great-Rift Imperium and the renewed Necron-as-galactic-threat repositioning (Pariah Nexus / Silent Kingdom). Pre-Check note: cumulativeBefore=100 (% 50 == 0) would normally trigger the Brief-061 loud-stop, but maintainer set the **`skip-50-stop`** marker in the opening prompt — pause overridden, batch produced as if Resolver were already done. Spine of the batch: Rachel Harrison's *Honourbound* (2019, Commissar Severina Raine + the 11th Antari Rifles in the Bale-Stars Crusade against the Sighted Chaos cult, with Raine's Schola flashbacks + a malfeasance subplot inside the Crusade hierarchy) and her *Mark of Faith* (2020, Battle-Sister Evangeline of the Order of Our Martyred Lady + Inquisitor Ahri Ravara crossing the Great Rift into Imperium Nihilus to recover the Shield of Saint Katherine); Peter Fehervari's *Requiem Infernal* (2019, Dark-Coil Adepta-Sororitas-of-the-Last-Candle horror novel — Sister Hospitaller Asenath Hyades escorts a decimated Astra-Militarum company to the Candleworld, slow-burn metaphysical horror); Guy Haley's *Belisarius Cawl: The Great Work* (2019, Cawl + Tetrarch Felix + Scythes-of-the-Emperor Chapter-Master Thracian investigate the Pharos beacon on Sotha, multi-time-frame structure); Mike Brooks's *Rites of Passage* (2019, dual-POV Navigator-house-political-thriller + Chaos-cult-assassinations — Lady Chettamandey Brobantis on Vorlese vs Radimir Niklau, warp-eye-harvesting subplot) and his *Brutal Kunnin* (2020, **first Black Library novel told from an Ork POV** — Ufthak Blackhawk and the Goffs assault Mechanicus forge world Hephaesto, complicated by Kaptin Badrukk's Freebooters); David Annandale's *Ephrael Stern: The Heretic Saint* (2020, novella expansion of the audio drama — Ephrael Stern + Harlequin Kyganil on Severitas vs Word Bearers); Robert Rath's *The Infinite and the Divine* (2020, **first Necron-POV novel**, Trazyn the Infinite vs Orikan the Diviner over ten thousand years and the Astrarium Mysterios, satirical-philosophical register); Gav Thorpe's *Indomitus* (2020, **first 9th-edition Black-Library novel**, dual-POV Ultramarines-Primaris-vs-Necrons under the Indomitus Crusade frame, introduces the Pariah Nexus / Silent Kingdom register); and Edoardo Albert's *Silent Hunters* (2021, Carcharodons Chaplain Tangata Manu's millennium-long relic hunt that takes him into Commorragh). Structural notes: dense first-X density (first Ork-POV novel, first Necron-POV novel, first 9th-edition novel, first Carcharodons-as-primary chapter, first Navigator-house political thriller, first Pariah-Nexus / Silent-Kingdom surface forms, first Scythes-of-the-Emperor mentioned as recurring focal chapter). Synopsis-length elasticity: most entries sit at 800-1300 chars; *The Infinite and the Divine* and *Indomitus* push higher because each has to set up an ensemble cast + novel-scale setting (Trazyn/Orikan dual-POV plus the Astrarium Mysterios MacGuffin in one case; Ultramarines tri-officer cast plus Necron tri-officer cast plus Pariah Nexus reveal in the other). One `data_conflict { field: format, suggestion: novella }` flag on *Ephrael Stern: The Heretic Saint* — Black Library + Lexicanum + Audible product pages variously characterise this as a novella / short novel (192 pages, originally an audio drama later prose-adapted) rather than a standard novel. No `low_confidence` flags this iteration — all ten entries have strong post-2019 Black-Library / Lexicanum / Track-of-Words / Goonhammer / Grimdark-Magazine coverage. Maintainer requested skip-50-stop; next iteration (`ssot-w40k-012`) will be cumulativeBefore=110 → no pause; the next loud-stop will fire on `ssot-w40k-015` (cumulativeBefore=140 still ≠ 50-multiple) — strict reading: next 50-multiple is cumulativeBefore=150, which lands on `ssot-w40k-016` (W40K-0151..W40K-0160).",
+  "books": [
+    {
+      "externalBookId": "W40K-0101",
+      "slug": "honourbound",
+      "overrides": {
+        "synopsis": "Standalone Astra-Militarum novel introducing Commissar Severina Raine of the 11th Antari Rifles. The Antari are crusading to liberate the Bale Stars under Lord-General-Militant Alar Serek; the principal antagonist is the Sighted, a Chaos cult sweeping the system world by world. The novel braids three strands: the main-line war as the Rifles take three large action set-pieces against Sighted forces; intercut flashbacks to Raine's childhood with her sister Lucia and her training in the Schola Progenium, sketching the formation of an unusually thoughtful Commissar; and a slow-burn malfeasance subplot inside the Crusade command hierarchy itself, in which Raine begins to suspect a betrayal close enough to home to threaten the entire campaign. Character work weights heavily toward Raine's interiority and toward the Antari command cadre around her (the Rifles' company-tier officers and her own retinue), with the war-on-the-Sighted serving as both backdrop and pressure-cooker for the internal investigation. **First authority-layer entry where a Commissar is the primary POV protagonist** (prior Commissariat entries either share POV with a regimental colonel or place the Commissar as supporting; Cain in ssot-w40k-002/003 is structurally Officio-Prefectus-as-Inquisitorial-archive, not a deployed Commissar in the Honourbound register).",
+        "facetIds": ["book", "female", "guardsman", "imperium", "sector", "series_start", "standard", "war_story", "mystery", "character_study", "political_thriller", "grimdark", "somber", "action_heavy", "doubt", "loyalty", "betrayal", "war", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "11th Antari Rifles", "role": "primary" },
+          { "name": "Schola Progenium", "role": "supporting" },
+          { "name": "Bale Stars Crusade", "role": "supporting" },
+          { "name": "The Sighted", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Bale Stars", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Severina Raine", "role": "pov" },
+          { "name": "Lucia Raine", "role": "supporting" },
+          { "name": "Alar Serek", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0102",
+      "slug": "requiem-infernal",
+      "overrides": {
+        "synopsis": "Standalone Dark-Coil novel — Peter Fehervari's loosely-connected weird-40K continuity — built around the Adepta Sororitas of the Last Candle, a small Sororitas sect that has kept centuries-long vigil on a sanctuary 'Candleworld', striving to decipher their founder's tormented visions. The survivors of an elite Astra-Militarum company, decimated by an encounter with a lethal xenos entity, journey to the Candleworld in search of healing. Their escort is Sister Hospitaller Asenath Hyades — a compassionate and unusually self-questioning member of the Eternal Candle order who turned her back on the sect decades ago. Their fellow-pilgrim Jonah Tythe wears the garb of an itinerant preacher; like Asenath, he has lived many lives, and his pilgrimage is not what it appears. As the seekers approach the sect's bastion, malign forces begin to stir among the planet's storm-wracked spires, but the most insidious shadows lie inside the pilgrims' own souls. Slow-burn metaphysical horror in the Fehervari register: damaged characters looking from the outside in, questions of purpose and belonging, sinister religious imagery, bleak interrogations of faith. **First authority-layer Dark-Coil entry**; **first authority-layer Sisters Hospitaller surface form.**",
+        "facetIds": ["book", "female", "sister", "imperium", "planetary", "standalone", "standard", "mystery", "character_study", "journey", "grimdark", "cosmic_horror", "somber", "philosophical", "faith", "doubt", "betrayal", "cw_violence", "cw_disturbing", "cw_mental_health", "cw_death", "en"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Order of the Last Candle", "role": "primary" },
+          { "name": "Sisters Hospitaller", "role": "primary" },
+          { "name": "Order of the Eternal Candle", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Candleworld", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Asenath Hyades", "role": "pov" },
+          { "name": "Jonah Tythe", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0103",
+      "slug": "belisarius-cawl-the-great-work",
+      "overrides": {
+        "synopsis": "Standalone novel set in the wake of the Great Rift and the Indomitus Crusade. Archmagos Dominus Belisarius Cawl — the architect of the Primaris Marines — travels to the long-dead world of Sotha, once home to the Scythes of the Emperor Chapter and since devoured by Hive Fleet Kraken, believing the lynchpin of his still-secret Great Work lies in the ruins of the Pharos beacon there. He is accompanied by Tetrarch Decimus Felix of the Ultramarines and by Chapter Master Thracian, leader of the surviving Scythes-of-the-Emperor remnant. The novel runs across multiple time-frames: present-day mission on Sotha; the Heresy-era and post-Heresy past of Cawl, Felix, and Thracian (the Pharos's blackstone substrate triggers literal time-slips in which the present-day characters re-experience past events); and the deep-history of Sotha and the Scythes — why the Chapter fell, what happened to the Pharos in the millennia since, and what the beacon truly is. Cawl's apparently reckless pursuit of forbidden knowledge, Thracian's secretive motives regarding his Chapter's homeworld, and Felix's role as the Ultramarines' political envoy keep the mission's three principals in near-constant friction. **First authority-layer Belisarius Cawl + Decimus Felix + Scythes of the Emperor + Pharos + Sotha + Hive Fleet Kraken-as-Sotha-devourer surface forms** (Hive Fleet Kraken appeared in W40K-0083 *Valedor* in ssot-w40k-009 as an Iyanden-region antagonist; this is the second appearance, distinct deployment).",
+        "facetIds": ["book", "male", "multi", "imperium", "planetary", "standalone", "standard", "mystery", "journey", "war_story", "character_study", "grimdark", "somber", "philosophical", "action_heavy", "hubris", "loyalty", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Scythes of the Emperor", "role": "primary" },
+          { "name": "Hive Fleet Kraken", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sotha", "role": "primary" },
+          { "name": "Pharos", "role": "primary" },
+          { "name": "Macragge", "role": "mentioned" },
+          { "name": "Ultramar", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Belisarius Cawl", "role": "pov" },
+          { "name": "Decimus Felix", "role": "pov" },
+          { "name": "Thracian", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0104",
+      "slug": "rites-of-passage",
+      "overrides": {
+        "synopsis": "Standalone Navis-Nobilite political-thriller / dark-mystery hybrid. Lord Azariel, head of the Navigator House Brobantis, is dead — murdered by his widow, Lady Chettamandey Brobantis, who returns to House-seat-world Vorlese to inherit his power and influence. Her careful succession plans are immediately disrupted by inter-house politics, the looming threat of a warp-based disaster in the system, and a string of mysterious disappearances of Navigators across Vorlese. The novel runs in alternating-POV layers: Chettamandey's court-intrigue strand (managing rival Navigator houses, the Imperial Navy contracts that depend on her line's continued operation, and her own grown children's manoeuvres against her); and the Chaos-cult strand of Radimir Niklau, a warp-touched assassin who has arrived on Vorlese fresh from a world-ending ritual on Galimo Prime, ingratiates himself with a local Chaos cult, and uses his warp-powers to murder Navigators one by one. The murders' object is the harvest of Navigator warp-eyes — the third eyes by which Navigators perceive the warp — for a depraved world-ending ritual aimed at Vorlese itself. The trust-question and the resource-question converge on Chettamandey as she realises diplomacy alone will not save her House or her world. **First authority-layer entry where the Navis Nobilite is a primary protagonist faction** and **first Navigator-house political-thriller plot register**; **first Vorlese + House Brobantis + Galimo Prime + Radimir Niklau + Chettamandey Brobantis surface forms**.",
+        "facetIds": ["book", "mixed", "civilian", "dual", "planetary", "series_start", "standard", "political_thriller", "mystery", "court_intrigue", "character_study", "grimdark", "somber", "action_heavy", "betrayal", "hubris", "doubt", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "cw_crime", "en"],
+        "factions": [
+          { "name": "Navis Nobilite", "role": "primary" },
+          { "name": "House Brobantis", "role": "primary" },
+          { "name": "Imperial Navy", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Chaos Cult", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vorlese", "role": "primary" },
+          { "name": "Galimo Prime", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Chettamandey Brobantis", "role": "pov" },
+          { "name": "Radimir Niklau", "role": "pov" },
+          { "name": "Azariel Brobantis", "role": "mentioned" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0105",
+      "slug": "mark-of-faith",
+      "overrides": {
+        "synopsis": "Standalone Adepta-Sororitas novel set in the immediate aftermath of the war for Ophelia VII (the Sororitas homeworld), in the early Dark-Imperium / Imperium-Nihilus window. Battle-Sister Evangeline of the Order of Our Martyred Lady is denied a martyr's death when Chaos Daemons assault Ophelia VII and is instead given a new and grave duty: pilgrimage beyond the Great Rift into Imperium Nihilus to recover the Shield of Saint Katherine, a precious and powerful Sororitas relic believed lost on the far side of the warp-storm boundary. She is accompanied by Inquisitor Ahri Ravara of the Ordo Hereticus, who carries her own complex history with a Thousand Sons Sorcerer and whose closure objective beyond the Rift is left deliberately ambiguous through the opening movements. The novel alternates between Evangeline's POV (the strain of an unasked-for destiny on a young Sister who expected to die at Ophelia) and Ravara's POV (Inquisitorial detachment subverted by personal stake). Plot-tier: journey-into-Imperium-Nihilus with a relic-recovery objective; theme-tier: how Sororitas faith is reconstituted in the absence of the Astronomican's certainty. **Second authority-layer Adepta-Sororitas-as-primary entry** (after W40K-0100 *Celestine* in ssot-w40k-010); **first authority-layer Order of Our Martyred Lady as primary protagonist faction** (Celestine carried Adepta-Sororitas-generic as primary); **first Inquisitor Ravara + Sister Evangeline + Shield of Saint Katherine + Ophelia VII surface forms**.",
+        "facetIds": ["book", "female", "sister", "imperium", "sector", "standalone", "standard", "journey", "war_story", "character_study", "mystery", "grimdark", "somber", "action_heavy", "faith", "doubt", "loyalty", "redemption", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Order of Our Martyred Lady", "role": "primary" },
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Hereticus", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Thousand Sons", "role": "antagonist" },
+          { "name": "Daemons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ophelia VII", "role": "primary" },
+          { "name": "Imperium Nihilus", "role": "primary" },
+          { "name": "Great Rift", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Evangeline", "role": "pov" },
+          { "name": "Ahri Ravara", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0106",
+      "slug": "ephrael-stern-the-heretic-saint",
+      "overrides": {
+        "synopsis": "Short novel — prose adaptation of David Annandale's earlier audio drama of the same name — built around the Sororitas-of-the-Adepta-Sororitas-but-officially-heretic figure of Ephrael Stern. The book opens a century after the events of the Daemonifuge graphic-novel arc: Stern, now in Imperium Nihilus, has spent a hundred years jumping from world to world with her Harlequin companion Kyganil, purging daemons and gathering holy relics. Trapped on the dark side of the Great Rift, she fears the God-Emperor's light has gone out and the Imperium is no more. A mysterious stranger arrives offering her a new destiny — one that might yet see the Imperium saved. The plot's main movement: Stern coming to the aid of an Order-of-Our-Martyred-Lady Sororitas detachment engaged on the world of Severitas against a Word-Bearers Traitor-Legion warband. The Sisters distrust her on first contact (she is officially excommunicate); she proves herself a true servant of the Emperor by unleashing her miraculous psyker-powers against the Heretic Astartes. **First authority-layer Ephrael Stern + Kyganil + Severitas surface forms**; **second authority-layer Harlequins surface form** (after the supporting Kyganil mention in *Spear of the Emperor* is incorrect — actually first explicit Harlequins surface form). **`data_conflict { field: format, suggestion: novella }` flag set** — Black Library + Lexicanum + Audible product pages variously characterise this release as a novella / short novel (192 pages, audio-drama-to-prose adaptation) rather than a standard novel.",
+        "facetIds": ["book", "female", "sister", "imperium", "planetary", "standalone", "short", "war_story", "journey", "character_study", "mystery", "grimdark", "somber", "action_heavy", "cosmic_horror", "faith", "redemption", "doubt", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Order of Our Martyred Lady", "role": "supporting" },
+          { "name": "Harlequins", "role": "supporting" },
+          { "name": "Aeldari", "role": "supporting" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Severitas", "role": "primary" },
+          { "name": "Imperium Nihilus", "role": "primary" },
+          { "name": "Great Rift", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Ephrael Stern", "role": "pov" },
+          { "name": "Kyganil", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "novella", "reason": "Black Library + Lexicanum + Audible product pages characterise the release as a novella / short novel (192 pages, originally an audio drama adapted to prose); SSOT roster lists `novel`." }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0107",
+      "slug": "brutal-kunnin",
+      "overrides": {
+        "synopsis": "Standalone Ork-perspective novel. Ufthak Blackhawk — a Goff Ork Nob in the Waaagh! of Da Biggest Big Mek — and the green tide descend on Hephaesto, an Adeptus Mechanicus forge world bristling with loot, only to find the planet already under siege by the notorious Freebooter Kaptin Badrukk. When Da Biggest Big Mek orders temporary co-operation between the two ork forces, Ufthak sees his chance to make a name for himself by crushing some of the Imperium's most advanced defenders and claiming the greatest single prize on the world. But a sinister new Mechanicus war machine on the horizon, Badrukk's constant plotting against his nominal ally, and a thoroughly annoying grot in Ufthak's own retinue all conspire to make the campaign harder than ork warfare usually is — and Ufthak is going to need the brutal kunnin' of Mork himself just to survive. Multi-POV across orks at the squad-leader, Nob, and warboss tiers, plus Mechanicus and Imperial-defender POV chapters for contrast. Humour-forward, satirical-ork-voice register that nonetheless takes ork sub-culture and ork warfare seriously enough to function as a war novel. **First Black Library novel told from an Ork POV**; **first authority-layer Ufthak Blackhawk + Kaptin Badrukk + Da Biggest Big Mek + Hephaesto + Goffs + Freebooters surface forms**.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "planetary", "series_start", "standard", "war_story", "siege", "heist", "character_study", "satirical", "action_heavy", "grimdark", "brotherhood", "hubris", "war", "cw_violence", "cw_death", "cw_disturbing", "cw_language", "en"],
+        "factions": [
+          { "name": "Orks", "role": "primary" },
+          { "name": "Goffs", "role": "primary" },
+          { "name": "Freebooters", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "antagonist" },
+          { "name": "Skitarii", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Hephaesto", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ufthak Blackhawk", "role": "pov" },
+          { "name": "Kaptin Badrukk", "role": "antagonist" },
+          { "name": "Da Biggest Big Mek", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0108",
+      "slug": "the-infinite-and-the-divine",
+      "overrides": {
+        "synopsis": "Standalone Necron-perspective novel running ten thousand years of grudge between Trazyn the Infinite — the Necron archaeologist-collector whose galleries on Solemnace house the most dangerous artefacts and people of the galactic past — and Orikan the Diviner, a Chronomancer without peer who draws zodiacs that both predict and manipulate the future. Their feud catalyses when Orikan breaks into Trazyn's galleries to steal the Astrarium Mysterios, an esoteric pre-biotransference device he believes will let him locate the tomb of the last true Necrontyr Phaeron, where he hopes to find the knowledge needed to reverse the biotransference that turned the Necrontyr into Necrons. Over ten thousand years across the millennia preceding the Great Rift, the two go from competing over the Mysterios, to forced collaboration to unlock its secrets, to repeatedly betraying each other over the prize. Their feud reshapes timelines, dooms planets across the galaxy, and threatens either to destroy or to restore the entire Necron race. The novel's structural register is dry-comic, satirical, philosophical-by-disguise — the two principal Necrons spend more time arguing about precedence and pettiness than fighting, but the cost is always paid in worlds. Resolution: Orikan is horrified by the power he attains, Trazyn captures a single C'tan Shard and returns it to Solemnace for interrogation. **First Black Library novel told from a Necron POV**; **first authority-layer Trazyn the Infinite + Orikan the Diviner + Astrarium Mysterios + Solemnace + C'tan + Necrontyr surface forms**.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "galactic", "standalone", "standard", "character_study", "heist", "journey", "political_thriller", "mystery", "satirical", "philosophical", "somber", "grimdark", "hubris", "loyalty", "betrayal", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Necrons", "role": "primary" },
+          { "name": "Necrontyr", "role": "supporting" },
+          { "name": "C'tan", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Solemnace", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Trazyn the Infinite", "role": "pov" },
+          { "name": "Orikan the Diviner", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0109",
+      "slug": "indomitus",
+      "overrides": {
+        "synopsis": "Standalone novel — the first Warhammer 40,000 novel of the 9th-edition era, taking its name from the Indomitus Crusade itself. For nearly a decade after the Great Rift, the Indomitus Crusade has waged a war of defiance and reconquest across the Imperium. Crusade Fleet Quintus — dubbed the Cursed Fleet — is drawn to a stricken sector. There, the Ultramarines of the strike cruiser *Ithraca's Vengeance* discover that millions of souls are being enslaved by a malign Necron technology, the Pariah Nexus, that siphons the souls of the innocent and signals the Silent Kingdom's expansion into Imperium-Nihilus space. The Ultramarines face an impossible decision: mount a desperate last stand to destroy the Pariah Nexus where it stands, or break away to bring word of this ancient foe's resurgence back to the only being capable of halting it — Lord Primarch Roboute Guilliman. Three-and-three dual-POV structure: on the Imperial side, the relatively inexperienced Captain Aeschelus and his two Lieutenants — action-oriented Nemetus and reserved-but-experienced Praxamedes; on the Necron side, the paranoiac Overlord Simut, the insubordinate Plasmancer Ah-hotep, and the Skorpekh Lord Zozar, whose entire mind is fixed on the destruction of all sentient life. **First authority-layer Pariah Nexus + Silent Kingdom + Crusade Fleet Quintus + *Ithraca's Vengeance* + Skorpekh Lord + Plasmancer + Necron Overlord surface forms**; **first authority-layer Primaris-and-Necron dual-POV register**; **first 9th-edition publication-era surface forms generally**.",
+        "facetIds": ["book", "male", "multi", "dual", "sector", "standalone", "standard", "war_story", "siege", "last_stand", "journey", "political_thriller", "grimdark", "action_heavy", "somber", "brotherhood", "loyalty", "doubt", "hubris", "war", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Indomitus Crusade", "role": "primary" },
+          { "name": "Necrons", "role": "primary" },
+          { "name": "Silent Kingdom", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Pariah Nexus", "role": "primary" },
+          { "name": "Imperium Nihilus", "role": "primary" },
+          { "name": "Macragge", "role": "mentioned" },
+          { "name": "Ultramar", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Aeschelus", "role": "pov" },
+          { "name": "Nemetus", "role": "pov" },
+          { "name": "Praxamedes", "role": "pov" },
+          { "name": "Simut", "role": "pov" },
+          { "name": "Ah-hotep", "role": "pov" },
+          { "name": "Zozar", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "mentioned" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0110",
+      "slug": "silent-hunters",
+      "overrides": {
+        "synopsis": "Standalone Carcharodons-chapter novel. For a thousand years, Chaplain Tangata Manu has searched for a relic lost under his watch — an ancient thing once charged into the keeping of the Forgotten One himself, the Carcharodons' name for one of their founding figures. On the brink of finally fulfilling his hunt and returning the relic to the Chapter's keeping, it is stolen from under him. The trail leads inexorably into a place no Astartes is supposed to be able to reach: Commorragh, the Dark City of the Drukhari. Tangata must lead his hunt against some of the vilest predators the galaxy has ever bred — Drukhari kabal-warriors, wych-cults, haemonculus covens — before they can turn the artefact to their own purposes. The expedition is deliberately small: a handful of his Carcharodons brothers and an unassuming pair of Chapter serfs whose mortal-tier perspective gives the book its second register. Themes: sinister-predator-meets-sinister-predator (the Carcharodons are framed throughout as predators themselves, not protectors), familial bonds inside an unusually closed Chapter culture, the consequences of extreme age on an Astartes psyche, and the cost of single-minded dedication to duty across centuries. **First authority-layer entry where the Carcharodons are the primary protagonist faction** and **first explicit Chaplain-tier Astartes-POV register in the authority layer** (prior Chaplain appearances were supporting); **first Tangata Manu + the Forgotten One + Commorragh-as-Carcharodons-hunting-ground surface forms**.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "standalone", "standard", "journey", "mystery", "war_story", "heist", "character_study", "grimdark", "somber", "action_heavy", "cosmic_horror", "brotherhood", "loyalty", "hubris", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Carcharodons", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Drukhari", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Commorragh", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Tangata Manu", "role": "pov" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
