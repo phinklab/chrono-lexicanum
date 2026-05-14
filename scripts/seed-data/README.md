@@ -45,6 +45,7 @@ lives in your local archive only.
 | `facet-catalog.json` | 12 facet categories + ~85 facet values (NEON-14 trigger warnings + 11 editorial categories) | `facet_categories`, `facet_values` |
 | `books.json` | 26 books with inline annotations (factions, persons, facets, external_links) | `works` (kind=book), `book_details`, `work_factions`, `work_persons`, `work_facets`, `external_links` |
 | `ask-questions.json` | Recommendation questionnaire | consumed by `src/lib/recommend/` (future) |
+| `collection-gaps.json` | Known incomplete collection/omnibus membership where the collection remains a normal book but constituent links are not complete yet | future roster maintenance / `work_collections` completion |
 
 ## Notes on `books.json` shape
 
@@ -97,6 +98,15 @@ Two paths, same as before:
    `npm run db:seed` against your dev database.
 2. **Database-first edits** via Drizzle Studio (`npm run db:studio`). When
    happy, **export back to JSON** so the next `db:seed` reflects the change.
+
+## Incomplete collections
+
+If an omnibus or collection is known but its constituent works are not fully
+modeled yet, keep the omnibus as a normal book and record the missing
+membership in `collection-gaps.json`. Do not add partial `work_collections`
+rows that could make the collection look complete. A later collection-gap
+resolve pass should add missing roster works/links and then apply the full
+collection membership.
 
 Phase 3 (the ingestion pipeline, TypeScript under `src/lib/ingestion/`) is
 live in dry-run; once the apply step (3d) ships, scrapers will write fresh

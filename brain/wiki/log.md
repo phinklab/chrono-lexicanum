@@ -408,3 +408,13 @@ Triage-Material aus 072, das das Cockpit sichtbar machen muss: Character-Long-Ta
 5. **`brain:lint` in Hygiene-Acceptance.** AGENTS.md verlangt `npm run brain:lint -- --no-write` bei Code-Änderungen. Acceptance ergänzt zwischen `npm run lint` und `npm run dev`.
 
 Operativ-Punkt: 073-Brief liegt aktuell untracked auf `codex/session-072-resolver-batch-2`. Maintainer muss vor CC-Start commit/push (oder 072 sauber auf main landen) — sonst sieht CC den Brief je nach gewählter Cwd nicht.
+
+## 2026-05-15 · Architect · Brief 074 Green-Tide-Collection-Gap-Addendum
+
+Maintainer-Review hat die Green-Tide-Entscheidung aus Brief 074 geschärft: *The Green Tide* (`W40K-0147`) bleibt vollständig in scope als normales Buch für Resolver-Apply (Facets / Factions / Locations / Characters), aber bleibt vorerst out of scope als vollständige `work_collections`-Struktur. Grund: Einige Constituents existieren bereits als Roster-Works (`W40K-0128` *Warboss*, `W40K-0118` *Catachan Devil*, `W40K-0249` *Iron Resolve*, `W40K-0565` *Prisoners of Waaagh!*), Short-Story-Constituents sind aber noch nicht als eigene Roster-Works modelliert. Partielle Collection-Kanten würden im UI später leicht wie Vollständigkeit aussehen.
+
+Brief 074 verlangt deshalb neu ein maschinenlesbares Ledger `scripts/seed-data/collection-gaps.json`: Green Tide wird dort als `needs_constituent_roster_entries` festgehalten, inklusive bekannter existierender Constituents und bekannter fehlender Short-Story-Titel. `book-roster.json` bleibt in 074 unangetastet; ein späterer Collection-Gap-Resolve-Pass ergänzt fehlende Works/Roster-Rows und schreibt dann vollständige `roster.collections`.
+
+**Pages touched (wiki):** `project-state.md` (Green-Tide-Status auf Collection-Gap-Ledger statt Report-only-Handoff), `pipeline-state.md` (dauerhafte Collection-gap policy), `index.md` (Katalogzeilen), this `log.md`.
+
+**Outside wiki:** `sessions/2026-05-15-074-arch-resolver-batch-3.md` (Erratum/Goal/Context/Acceptance/Open-Questions geschärft), `scripts/seed-data/README.md` (Policy-Hinweis für `collection-gaps.json`).
