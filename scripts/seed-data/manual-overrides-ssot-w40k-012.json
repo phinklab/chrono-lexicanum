@@ -1,0 +1,251 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-012",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-14",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0111..W40K-0120 — the 2021-2022 cluster spanning the post-9th-edition-launch / Dark-Imperium-era / Octarius-and-Indomitus-Crusade-window: a heavy Astra-Militarum sub-genre push (Volpone Bluebloods war-story + Cadian-tank-crew character-study + Death-Korps-of-Krieg siege novel + Catachan jungle-fighters dual-POV + Cadian-Primaris-Psyker mystery), an Adeptus-Mechanicus + Genestealer-Cult dual-POV outsider-author entry from Adrian Tchaikovsky (first authority-layer Genestealer-Cult-as-primary-protagonist + first outsider-name SF-author Black-Library debut), an Adepta-Sororitas funerary-procession novel introducing the Orders Pronatus + all six canonical Matriarch-Saints (Katherine + Dominica + Silvana + Mina + Arabella + Lucia) + their six Major Orders as authority-layer surface forms in a single book, the first authority-layer Red-Corsairs-as-primary-protagonist entry (Huron Blackheart's own POV from Mike Brooks), the first authority-layer Officio-Assassinorum-team-mission entry (Vindicare + Callidus + Vanus, Robert Rath's second authority-layer novel after *The Infinite and the Divine* in ssot-w40k-011), and the first authority-layer Black-Templars-as-primary-protagonist entry (Helbrecht's Rogal-Dorn-relic pilgrimage from debut-novelist Marc Collins). Bookends: Nick Kyme's *Volpone Glory* (2021, Royal Volpone 50th Bluebloods on Gnostes / Agria-island-chain liberation vs Blood-Pact in the Sabbat-Worlds Crusade — propaganda + unlikely-champion + bleak-glory-cost register; second authority-layer Sabbat-Worlds-Crusade entry after the Gaunt's-Ghosts cluster in ssot-w40k-003/004 but first Volpone-Bluebloods-as-primary-protagonist) and Steven B. Fischer's *Witchbringer* (2022, Cadian-900th captain Glavia Aerand returns to her old regiment as a fresh Primaris Psyker, on the fog-shrouded waterlogged Chaos-tainted high-psyker-yield world Visage, hunting a psychic artefact + her missing mentor + a treacherous commander — first authority-layer Astra-Militarum-Primaris-Psyker-POV + first Scholastica-Psykana surface form). Heart of the batch: Andy Clark's *Steel Tread* (2021, veteran tank gunner Hadeya Etsul reassigned into a Cadian regiment commanding the ancient Leman-Russ Demolisher *Steel Tread* on the war-torn Croatoas under the Great Rift's poisonous light — dysfunctional-crew + outsider-officer-in-insular-regiment + nightmare-haunted-veteran register; pre-write training-data correction caught Hadeya-Etsul-not-Hanna-Zhako via Lexicanum + Unseen-Library + Goodreads), Adrian Tchaikovsky's *Day of Ascension* (2022, forge-world Morod, Adeptus-Mechanicus Genetor Gammat Triskellian's investigation into a 'twisted congregation' parallels the Genestealer-Cult's preparation for the 'long-prophesied union with angels' — dual Mechanicus-vs-cult POV from the cult-side primarily, ~200-page short-novel register; **first authority-layer outsider-SF-author entry** [Tchaikovsky is best known for *Children of Time* / *Shadows of the Apt*] and **first authority-layer entry where Genestealer Cults are the primary protagonist faction**), Danie Ware's *The Triumph of Saint Katherine* (2022, Sister Avra of the Order of Our Martyred Lady is chosen to fill a fallen Sister's place in the funerary procession of Saint Katherine — six Sisters Pronatus embodying the spirits of the six canonical Matriarchs from the six Major Orders, marching to defend the besieged world Kiros against Chaos — character-study + war-story + journey hybrid; **first authority-layer entries for the Orders Pronatus + Order of the Ebon Chalice + Order of the Argent Shroud + Order of the Bloody Rose + Order of the Sacred Rose + Order of the Valorous Heart + Saint Katherine [in-person Spirit] + Saint Dominica + Saint Silvana + Saint Mina + Saint Arabella + Saint Lucia surface forms** — single book introduces twelve canonical Sororitas surface forms in one synopsis), Mike Brooks's *Huron Blackheart: Master of the Maelstrom* (2022, Huron Blackheart POV — Tyrant of Badab, Master of the Maelstrom — facing a renewed post-Guilliman Imperium pressing on the Maelstrom's borders while internal warband challengers test his grip; political-thriller register inside the Red-Corsairs warband — power dynamics + the cost-of-holding-power; **first authority-layer entry where Red Corsairs are the primary protagonist faction + first Huron Blackheart + Tyrant of Badab surface forms**), Robert Rath's *Assassinorum: Kingmaker* (2022, Officio-Assassinorum team-mission on the Knight-World Dominion to remove the secession-leaning king and place a pro-Imperial successor — Vindicare Absolom Raithe leading, Callidus Sycorax shapeshifter, Vanus Avaaris Koln data-analyst — spy-thriller register with rivalry-bordering-on-backstab + mission-goes-sideways + uncertain-allegiance; **first authority-layer team-mission Assassinorum entry + first Vindicare Temple + Callidus Temple + Vanus Temple + Absolom Raithe + Sycorax + Avaaris Koln + House Dominion surface forms**), Steve Lyons's *Krieg* (2022, Death Korps of Krieg siege of Hive Arathron in the Octarius War — twin storylines weave the 1500-year-old Krieg-rebellion origin [nuclear self-immolation that birthed the Death Korps] into the present siege as the past tries to repeat itself; **first authority-layer entry where Death Korps of Krieg are the primary protagonist faction + first Krieg [planet] + Octarius / Octarius War + Hive Arathron surface forms**), Justin Woolley's *Catachan Devil* (2022, Catachan 57th Jungle Fighters under Colonel Haskell 'Hell Fist' Aldalon retake Outpost Four on quagmire-world Gondwa VI vs an Ork incursion — three-POV structure with Catachan-side + outsider-Skadi-survivor Trooper Torvin trial-by-fire + Ork-kommando Nogrok parallel POV; **first authority-layer entry where Catachan Jungle Fighters are the primary protagonist faction + first Catachan 57th + Aldalon + Torvin + Skadi Second Infantry + Gondwa VI + Nogrok-as-Ork-kommando-POV surface forms**), and Marc Collins's *Helbrecht: Knight of the Throne* (2022, post-Shrine-Worlds-Crusades-and-Rubicon-Primaris High Marshal Helbrecht is dispatched by a vision of the Emperor to the ten-thousand-year-old penitent-ruinworld Hevaran to recover a relic of Rogal Dorn — pilgrimage with a small honour-guard, ancient-enemy reappearance test of faith / wrath / skill; **first authority-layer entry where Black Templars are the primary protagonist faction + first Helbrecht + Hevaran + Rubicon-Primaris-explicit + relic-of-Rogal-Dorn surface forms**). Structural notes: **three female-primary-POV entries this batch** (Hadeya Etsul + Sister Avra + Glavia Aerand) maintaining mid-tier female-POV density after ssot-w40k-011's five-of-ten high-water mark. **Six first-authority-layer-as-primary-protagonist-faction entries** (Genestealer Cults + Red Corsairs + Officio Assassinorum + Death Korps of Krieg + Catachan Jungle Fighters + Black Templars) — the densest first-authority-layer faction-debut count since ssot-w40k-008. **Three pre-write training-data corrections** caught and folded into synopses before commit: Steel-Tread's protagonist is Hadeya Etsul not Hanna Zhako (Lexicanum + Unseen Library + Goodreads), Day-of-Ascension's Mechanicus character is Genetor Gammat Triskellian (Lexicanum + Black Library product page), and the Assassinorum: Kingmaker team-composition is Vindicare-Raithe + Callidus-Sycorax + Vanus-Koln (Lexicanum + TV-Tropes + At-Boundary's-Edge — initially uncertain whether a fourth temple was involved, confirmed three-temple team). No `data_conflict` flags this iteration — all ten roster entries are standard novel-length per Black Library + Lexicanum + publisher-product-pages, although Day-of-Ascension's ~200-page register is on the short end. No `low_confidence` flags either — all ten entries have strong 2021-2022 Black-Library coverage (Lexicanum + Track-of-Words + Unseen Library + At Boundary's Edge + Goonhammer + Grimdark Magazine + author Rapid-Fire interviews + publisher product pages). **Resolver-Pre-Note:** cumulativeBefore=110 → cumulativeAfter=120; next natural resolver-pause-window is at cumulative=150 (`ssot-w40k-016`). Per the previous iteration's deferred Resolver context (Maintainer invoked `skip-50-stop` at cumulative=100), the second Resolver-Brief is still pending; this batch adds another twelve first-authority-layer Sororitas-Matriarch + Major-Order surface forms + six first-authority-layer-as-primary chapter / cult / temple / regiment surface forms to that resolver-debt pile.",
+  "books": [
+    {
+      "externalBookId": "W40K-0111",
+      "slug": "volpone-glory",
+      "overrides": {
+        "synopsis": "Standalone Astra-Militarum novel set in the **Sabbat Worlds Crusade**. As war rages across the Sabbat Worlds, the **Volpone Bluebloods** — the proud, arrogant, blue-blooded officer-and-soldier caste of the **50th Royal Volpone Regiment** — are sent to **Gnostes** at the head of a massive Imperial host, tasked with the liberation of the **Agria island chain** from the entrenched **Blood Pact**. The Bluebloods' haughty doctrine meets a brutal meat-grinder reality: a punishing setback threatens to derail the entire campaign before an unlikely champion rises through the regiment's ranks and victory once again seems possible. But the propaganda of war is a fickle beast, and the Archenemy is cultivating a plot the Imperium can scarcely fathom. Gritty page-turner register; the novel examines the Bluebloods' hunger for glory at all costs, the lengths certain officers will go to for victory, and the powerful — if sinister — impact of Imperial propaganda. Second authority-layer Sabbat-Worlds-Crusade entry after the Gaunt's-Ghosts cluster in ssot-w40k-003 / ssot-w40k-004, but **first authority-layer entry where the Volpone Bluebloods are the primary protagonist faction**; the Bluebloods appeared as antagonist-tier rival regiments in *First and Only* but are POV-tier here.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "sector", "standalone", "standard", "war_story", "political_thriller", "character_study", "grimdark", "somber", "action_heavy", "war", "loyalty", "hubris", "doubt", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Volpone Bluebloods", "role": "primary" },
+          { "name": "Royal Volpone", "role": "primary" },
+          { "name": "Sabbat Worlds Crusade", "role": "secondary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Gnostes", "role": "primary" },
+          { "name": "Agria", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "secondary" }
+        ],
+        "characters": [],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0112",
+      "slug": "steel-tread",
+      "overrides": {
+        "synopsis": "Standalone Astra-Militarum tank-crew novel. Veteran tank gunner **Hadeya Etsul**, whose own regiment has been ground to nothing by the war, is reassigned and consolidated into a proud, insular **Cadian** regiment and placed in command of the ancient Leman Russ Demolisher *Steel Tread* on the war-torn world **Croatoas**, where the armies of the Astra Militarum battle the twisted servants of the Ruinous Powers under the poisonous light of the **Great Rift**. Haunted by nightmares from her old crew's deaths, surrounded by a dysfunctional new crew that does not want her, and striving to find her place amid a culture so different from her own, Etsul must hold the tank together as her regiment rolls out into a death-or-glory offensive. War-story + character-study register, intensely close-quarters: most of the book unfolds inside the *Steel Tread*'s crew compartment. **First authority-layer Astra-Militarum-tank-crew-POV novel + first Hadeya Etsul + Croatoas + the *Steel Tread* itself as a named-vehicle surface form** (paralleling the named-vessel-as-location precedents *Solace* / *Casus Belli* / *Ithraca's Vengeance* from ssot-w40k-010 / ssot-w40k-011).",
+        "facetIds": ["book", "female", "guardsman", "imperium", "planetary", "standalone", "standard", "war_story", "character_study", "grimdark", "somber", "action_heavy", "war", "loyalty", "doubt", "brotherhood", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "cw_mental_health", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Cadian Shock Troops", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Croatoas", "role": "primary" },
+          { "name": "Steel Tread", "role": "primary" },
+          { "name": "Great Rift", "role": "mentioned" },
+          { "name": "Imperium Nihilus", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Hadeya Etsul", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0113",
+      "slug": "day-of-ascension",
+      "overrides": {
+        "synopsis": "Standalone short-novel-length Adeptus-Mechanicus / Genestealer-Cult dual-POV entry — Adrian Tchaikovsky's first Black-Library work. On the forge world **Morod**, the population toils in the mines and factoria under conditions of crushing stagnation while the **Adeptus Mechanicus** enjoy lives of palatial comfort; the machines never stop and the work never ends. **Genetor Gammat Triskellian** — an Adeptus-Mechanicus reformer who finds Morod's stagnant corruption intolerable — learns of a twisted congregation operating within the shadows, a cult that believes the tech-priests are keeping the people from their true salvation: a long-prophesied union with **angels**. The cult is a **Genestealer Cult**; the angels are coming. Triskellian sees in the cult an opportunity to bring down Morod's masters and reclaim the world in the name of progress; the cult sees in the long-prophesied day of ascension the moment all their generations of patient infiltration have been working toward. Dual-POV across the Mechanicus-investigator and the cult-side worker / convert registers, with the cult side carrying the larger share of the prose. Tone is grimdark + cosmic-horror + philosophical; theme is faith-against-stagnation read from two unreconciled angles. **First authority-layer entry where Genestealer Cults are the primary protagonist faction** (prior entries had GSC as antagonist-tier or supporting-tier only, e.g. *For the Emperor* in ssot-w40k-002, *The Infinite and the Divine* in ssot-w40k-011); **first authority-layer outsider-SF-author entry** (Tchaikovsky's primary body of work is *Children of Time* and *Shadows of the Apt*, not Black Library).",
+        "facetIds": ["book", "ensemble", "multi", "dual", "planetary", "standalone", "short", "political_thriller", "mystery", "character_study", "grimdark", "cosmic_horror", "philosophical", "somber", "faith", "hubris", "doubt", "betrayal", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Genestealer Cults", "role": "primary" },
+          { "name": "Tyranids", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Morod", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Gammat Triskellian", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0114",
+      "slug": "the-triumph-of-saint-katherine",
+      "overrides": {
+        "synopsis": "Standalone Adepta-Sororitas novel. **Sister Avra** of the **Order of Our Martyred Lady** is chosen — to her shame and to her honour — to take the place of a fallen Sister in the funerary procession known as the **Triumph of Saint Katherine**: the **Orders Pronatus** ritual-march that bears the skeleton of Saint Katherine inside her reliquary armour from world to world, accompanied by six handpicked Sisters Pronatus, each embodying the Spirit of one of the six canonised **Matriarchs** of the six original Major Orders — Saint Katherine herself (Our Martyred Lady), **Saint Dominica** (Ebon Chalice), **Saint Silvana** (Argent Shroud), **Saint Mina** (Bloody Rose), **Saint Arabella** (Sacred Rose), and **Saint Lucia** (Valorous Heart). The procession marches to defend the besieged shrine-world **Kiros** against a Chaos onslaught; over the course of one night before battle, each new sister relates to Avra a tale of the saint she embodies, in turn revealing the ethos of each of the six Major Orders. Avra carries a secret shame she believes can only be redeemed in death — until a vision shows her the Emperor has different plans for her. Character-study + war-story + journey hybrid; tone hopepunk + somber + philosophical inside an unbroken grimdark frame. **First authority-layer entry for the Orders Pronatus + the Triumph-of-Saint-Katherine procession itself + Saint Katherine (in-person Spirit-bearer) + Saints Dominica / Silvana / Mina / Arabella / Lucia + the Orders Ebon Chalice / Argent Shroud / Bloody Rose / Sacred Rose / Valorous Heart + Sister Avra + Kiros — twelve canonical Sororitas surface forms introduced in one book**.",
+        "facetIds": ["book", "female", "sister", "imperium", "planetary", "standalone", "standard", "war_story", "character_study", "journey", "grimdark", "hopepunk", "somber", "philosophical", "faith", "redemption", "sacrifice", "doubt", "brotherhood", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Order of Our Martyred Lady", "role": "primary" },
+          { "name": "Orders Pronatus", "role": "primary" },
+          { "name": "Order of the Ebon Chalice", "role": "supporting" },
+          { "name": "Order of the Argent Shroud", "role": "supporting" },
+          { "name": "Order of the Bloody Rose", "role": "supporting" },
+          { "name": "Order of the Sacred Rose", "role": "supporting" },
+          { "name": "Order of the Valorous Heart", "role": "supporting" },
+          { "name": "Ecclesiarchy", "role": "secondary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Kiros", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sister Avra", "role": "pov" },
+          { "name": "Saint Katherine", "role": "supporting" },
+          { "name": "Saint Dominica", "role": "supporting" },
+          { "name": "Saint Silvana", "role": "supporting" },
+          { "name": "Saint Mina", "role": "supporting" },
+          { "name": "Saint Arabella", "role": "supporting" },
+          { "name": "Saint Lucia", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0115",
+      "slug": "huron-blackheart-master-of-the-maelstrom",
+      "overrides": {
+        "synopsis": "Standalone Chaos-Astartes novel — **Huron Blackheart** POV. The Tyrant of Badab, master of the **Red Corsairs** and lord of the lawless **Maelstrom**, faces the converging pressures that come with being a king of renegades in the post-Great-Rift galaxy: a renewed and increasingly aggressive Imperium pushing on the Maelstrom's borders after the return of Roboute Guilliman, and fresh internal challengers within his own warband — captains and warlords who eye the Tyrant's throne and read every setback as the moment to strike. Brooks's Huron is a study in power: how to claim it, how to hold it, how to lose it. The Red Corsairs are numerous but riven by in-fighting and competition; the very thing that makes them not the Imperium — their independence and free will — is the thing that weakens them against an Imperium united by Guilliman's hand. Brooks's Chaos-prose register (the third such after the Alpha-Legion and Death-Guard entries in ssot-w40k-010): political-thriller + court-intrigue + war-story laid across a Chaos-warband structure, with Huron's loyalty-to-cause vs loyalty-to-person tension as the spine. **First authority-layer entry where Red Corsairs are the primary protagonist faction** and where Huron Blackheart / Tyrant of Badab / Master of the Maelstrom appear as surface forms; second authority-layer Brooks Chaos-protagonist entry after the Death-Guard *Lords of Silence* register in ssot-w40k-010.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "standalone", "standard", "political_thriller", "war_story", "court_intrigue", "character_study", "grimdark", "somber", "action_heavy", "betrayal", "loyalty", "hubris", "doubt", "war", "cw_violence", "cw_death", "cw_disturbing", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "Red Corsairs", "role": "primary" },
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "antagonist" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Maelstrom", "role": "primary" },
+          { "name": "Badab", "role": "mentioned" }
+        ],
+        "characters": [
+          { "name": "Huron Blackheart", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0116",
+      "slug": "assassinorum-kingmaker",
+      "overrides": {
+        "synopsis": "Standalone Officio-Assassinorum team-mission novel — Robert Rath's second authority-layer entry after *The Infinite and the Divine* in ssot-w40k-011. The Knight-World **Dominion**, a crucial Imperial bulwark, is on the verge of seceding from the Imperium under a king the Officio Assassinorum has decided cannot be allowed to keep his throne. Vindicare assassin **Absolom Raithe** is handed the most difficult assignment of his career: lead a hand-picked three-temple team — Callidus shapeshifter **Sycorax** plus Vanus data-analyst **Avaaris Koln** — to remove the king and steer a pro-Imperial successor through the brutal succession crisis that will inevitably follow. The novel is structured as a love-letter to spy-thrillers: the rivalry that borders on backstab between the three assassins, the change in priority as the mission inevitably goes sideways, the uncertain allegiance of every Knight-World noble they encounter, and an indomitable Knight-Suit bodyguard standing between the team and the target. Heist + court-intrigue + political-thriller + mystery hybrid; tone action-heavy + grimdark with Rath's signature wit. **First authority-layer Officio-Assassinorum team-mission entry + first Vindicare Temple / Callidus Temple / Vanus Temple + Absolom Raithe + Sycorax + Avaaris Koln + House Dominion + Knight-World-Dominion surface forms.**",
+        "facetIds": ["book", "mixed", "multi", "imperium", "planetary", "standalone", "standard", "heist", "mystery", "political_thriller", "court_intrigue", "grimdark", "action_heavy", "satirical", "betrayal", "loyalty", "doubt", "hubris", "cw_violence", "cw_death", "cw_disturbing", "cw_crime", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "Officio Assassinorum", "role": "primary" },
+          { "name": "Vindicare Temple", "role": "primary" },
+          { "name": "Callidus Temple", "role": "primary" },
+          { "name": "Vanus Temple", "role": "primary" },
+          { "name": "Imperial Knights", "role": "secondary" },
+          { "name": "House Dominion", "role": "secondary" }
+        ],
+        "locations": [
+          { "name": "Dominion", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Absolom Raithe", "role": "pov" },
+          { "name": "Sycorax", "role": "pov" },
+          { "name": "Avaaris Koln", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0117",
+      "slug": "krieg",
+      "overrides": {
+        "synopsis": "Standalone Death-Korps-of-Krieg novel with twin storylines. **Present:** the **Death Korps of Krieg** lay siege to a captured **Hive Arathron** on the outskirts of the system-spanning **Octarius War** — the desperate Imperial campaign to hold the cordon containing the Orks-versus-Tyranids meat-grinder before either side spills out into the rest of the Imperium. As the grind around Hive Arathron deepens, fellow Imperial soldiers and Inquisitorial observers begin to question the Korps's loyalty and sanity, and a deadly discovery deep inside the hive starts to push their methods past doubt. **Past:** fifteen hundred years earlier the world of **Krieg** declared independence from the Imperium; one loyal Autarch defied the planet's treacherous rulers and laid the world to waste in nuclear self-immolation. From those ashes emerged the unique fighting force that bears the planet's name. The novel weaves the origin into the present as the question — is history doomed to repeat itself? — closes around the present-day siege. Siege + war-story + character-study; tone grimdark + somber + action-heavy + cosmic-horror (the radioactive Krieg-frame). **First authority-layer entry where Death Korps of Krieg are the primary protagonist faction + first Krieg (planet) + Octarius / Octarius War + Hive Arathron surface forms.** Inquisition-consistency: Inquisitorial observers are on-page supervising the Korps's loyalty assessment — Inquisition listed at supporting role.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "sector", "standalone", "standard", "siege", "war_story", "character_study", "grimdark", "somber", "action_heavy", "cosmic_horror", "faith", "loyalty", "sacrifice", "war", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Death Korps of Krieg", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Hive Arathron", "role": "primary" },
+          { "name": "Octarius", "role": "primary" },
+          { "name": "Krieg", "role": "secondary" }
+        ],
+        "characters": [],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0118",
+      "slug": "catachan-devil",
+      "overrides": {
+        "synopsis": "Standalone Catachan-Jungle-Fighters novel. When Colonel **Haskell 'Hell Fist' Aldalon** and the **Catachan 57th Jungle Fighters** arrive on the quagmire world **Gondwa VI**, they find it locked in the grip of an ever-growing greenskin threat. Rather than shoring up the meagre planetary defences, Aldalon elects to go on the offensive and retake **Outpost Four** — but the Catachans are saddled with **Trooper Torvin** of the **Skadi Second Infantry**, the sole survivor of Outpost Four's fall, attached to the 57th for the assault. Three-POV structure: the Catachan veterans of the 57th carrying the brutal jungle-warfare register, Torvin's outsider-survivor-trial-by-fire arc (under suspicion of cowardice from Catachans who haven't forgotten that the Skadi held the outpost), and an ork-kommando named **Nogrok** giving the greenskin side. As the Astra Militarum and orks clash, Aldalon comes to terms with the costs of victory and Torvin is at as much risk from the Jungle Fighters as he is from the vile xenos — unless he can earn the respect of the Catachan Devils. War-story + character-study; dual-POV-side (imperium + ork). **First authority-layer entry where Catachan Jungle Fighters are the primary protagonist faction + first Catachan 57th + Aldalon ('Hell Fist') + Torvin + Skadi Second Infantry + Gondwa VI + Nogrok-Ork-kommando-POV surface forms.**",
+        "facetIds": ["book", "male", "guardsman", "dual", "planetary", "standalone", "standard", "war_story", "character_study", "grimdark", "action_heavy", "somber", "war", "brotherhood", "doubt", "loyalty", "redemption", "cw_violence", "cw_death", "cw_disturbing", "cw_abuse", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Catachan Jungle Fighters", "role": "primary" },
+          { "name": "Skadi", "role": "supporting" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Gondwa VI", "role": "primary" },
+          { "name": "Outpost Four", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Haskell Aldalon", "role": "pov" },
+          { "name": "Trooper Torvin", "role": "pov" },
+          { "name": "Nogrok", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0119",
+      "slug": "helbrecht-knight-of-the-throne",
+      "overrides": {
+        "synopsis": "Standalone Black-Templars novel — Marc Collins's debut Black-Library novel. The Shrine-Worlds Crusades are over and the **Rubicon Primaris** has been crossed; chastised by Roboute Guilliman the Primarch Returned, and then guided by a vision from the holy God-Emperor himself, **High Marshal Helbrecht** of the **Black Templars** is called to the ruinworld **Hevaran** — a world sacred in its desolation, condemned to never rebuild — to recover an ancient sacred relic of **Rogal Dorn** hidden upon its barren surface. Helbrecht quests with no fleet and no army, only a few select Templar souls to aid him; he must trust in his skill, his wrath, and his faith as an ancient enemy returns to test him as it never has before. Pilgrimage register: journey + character-study + war-story laid across a single penitent undertaking, with Helbrecht reckoning not only with the relic-quest but with his own sense of identity after the Rubicon. Small cast, character-driven. **First authority-layer entry where Black Templars are the primary protagonist faction + first Helbrecht + Hevaran + explicit Rubicon-Primaris-crossing-as-plot-event + relic-of-Rogal-Dorn surface forms.**",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "journey", "character_study", "war_story", "grimdark", "somber", "philosophical", "action_heavy", "faith", "redemption", "sacrifice", "hubris", "brotherhood", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Black Templars", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Hevaran", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Helbrecht", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "mentioned" },
+          { "name": "Roboute Guilliman", "role": "mentioned" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0120",
+      "slug": "witchbringer",
+      "overrides": {
+        "synopsis": "Standalone Astra-Militarum-Primaris-Psyker novel — Steven B. Fischer's debut. **Glavia Aerand**, former captain of the **Cadian 900th Regiment**, receives a startling premonition on the eve of her sanctioning as a Primaris Psyker within the **Scholastica Psykana**: a vision concerning her old unit and a dangerous psychic artefact hidden on the planet where they are now deployed. After her sanctioning, Glavia is sent back to her old regiment on the Chaos-tainted world **Visage** — a gloomy, fog-shrouded, waterlogged planet whose shallow seas are rumoured to swallow the souls of the dead and whose population generates an unusually high rate of latent psykers. There she finds fear and mistrust where once there was comradeship, has to fight to find a place among soldiers who now look at her as something Other, and is haunted by growing suspicions of her new commander and the manifestations of the sinister relic. Aerand must trust in her new-found abilities to keep her former comrades alive and confront an ancient threat that could consume Visage entirely. Mystery + war-story + character-study; tone grimdark + cosmic-horror + somber + philosophical; theme isolation + doubt + change + mistrust + the Imperium's uncomfortable reliance on psykers. **First authority-layer Astra-Militarum-Primaris-Psyker-POV novel + first Scholastica Psykana + Glavia Aerand + Cadian 900th + Visage surface forms.**",
+        "facetIds": ["book", "female", "guardsman", "imperium", "planetary", "standalone", "standard", "mystery", "war_story", "character_study", "grimdark", "cosmic_horror", "somber", "philosophical", "doubt", "faith", "betrayal", "sacrifice", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "cw_mental_health", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Cadian Shock Troops", "role": "primary" },
+          { "name": "Scholastica Psykana", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Visage", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Glavia Aerand", "role": "pov" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
