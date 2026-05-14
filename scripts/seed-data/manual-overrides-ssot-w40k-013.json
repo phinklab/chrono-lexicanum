@@ -1,0 +1,523 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-013",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-14",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0121..W40K-0130 — the 2022-2023 cluster spanning the Indomitus-Crusade / Arks-of-Omen-lead-in / post-9th-edition-mid-cycle window: a heavy mix of first-authority-layer-as-primary-protagonist faction debuts (Rogue Traders + T'au Empire + Kasrkin + Flesh Tearers + Daemon-Primarch-Angron-POV + Lion-El'Jonson-Primarch-POV + Inquisitor-Astor-Sabbathiel-as-first-named-Inquisitor-POV + Aeronautica-Imperialis dual-POV) and a continuation of the high-density Adepta-Sororitas push from ssot-w40k-011/012 with Justin D. Hill's Order-of-Our-Martyred-Lady pilgrimage novel (Pilgrims of Fire — third consecutive authority-layer Sororitas-primary entry, following Triumph of Saint Katherine and Mark of Faith). Bookends: Denny Flowers's *Outgunned* (2022, Flight Commander Lucille von Shard + Propagandist Kile Simlex dual-POV on Bacchus vs Orks — Aeronautica-Imperialis aerial-combat + propaganda-machine-cynicism; **first authority-layer Aeronautica-Imperialis-as-primary-protagonist + first Lucille von Shard + first Kile Simlex + first Bacchus surface forms**; training-data correction caught pre-write — Bacchus war is anti-Ork, not anti-Tau as my pre-search model held) and Mike Brooks's *The Lion: Son of the Forest* (2023, Lion El'Jonson awakens in a forest with no memory of ten-thousand-years-in-Warp-stasis on Caliban-in-the-Warp, gathers loyalist Fallen Angels to his side and hunts a traitorous-son Chaos warband — Primarch-resurrection register #2 after Guilliman; **first authority-layer Lion-El'Jonson POV + first Caliban-in-the-Warp + first Zabriel + first Watchers-in-the-Dark + first Fallen-as-redeemed-allies surface forms + first authority-layer-as-primary Fallen Angels frame**; roster title is *Sons of the Forest* but canonical title is *Son of the Forest* singular — `data_conflict` flag set). Heart of the batch: George Mann's *Awakenings* (2022, Inquisitor Astor Sabbathiel awakens on an Ecclesiarchy stronghold a hundred years after being shot-and-warp-stormed-into-stasis in the Calaphrax Cluster, owing her resurrection to Magos Metik, summoned to Hulth by Ordo-Hereticus Inquisitor Heldren and pulled into a conspiracy involving corrupt inquisitors + Navigator Houses + the Custodes; **first authority-layer Inquisitor-Astor-Sabbathiel-POV + first authority-layer Ordo-Hereticus-as-primary-protagonist + first Magos Metik + first Heldren + first Calaphrax Cluster + first Hulth surface forms**; pre-write training-data correction caught — *Awakenings* is an Inquisition novel, NOT a Dark-Angels-Lazarus-from-coma novel as my pre-search mental model held), Phil Kelly's *Shadowsun: The Patient Hunter* (2022, Commander O'Shaserra wages the Kauyon Patient-Hunter doctrine in the Chalnath Expanse and Fourth-Sphere-Expansion zone against a Death-Guard armada whose warp-tearing technology + daemonic patrons defy the logical Tau worldview, while a surprise attack on the Startide-Nexus wormhole-portal and treacheries among the Tau-allies threaten civil war from within — Mont'ka counter + civil-war-pressure register; **first authority-layer T'au-Empire-as-primary-protagonist + first Commander Shadowsun POV + first Kauyon-doctrine + first Mont'ka-counter-doctrine + first Chalnath-Expanse + first Fourth-Sphere-Expansion + first Startide-Nexus + first Death-Guard-as-Tau-antagonist surface forms**; corrects pre-search confusion about post-Damocles-trial frame — actual frame is Fourth-Sphere + Chalnath, not post-Damocles), Marc Collins's *Void King* (2022, Indomitus-Crusade-era Rogue-Trader Davamir Compact tasked by Guilliman with finding a route across the Great Rift — Proud Lamertine + Fierce Helvintr + Cunning Radrexxus dynasties; Erastus Lamertine heir rises through tragedy + betrayal to lead the disparate Compact forces and uncover the hidden hands threatening the Imperium's dreams of unity; **first authority-layer Rogue-Traders-as-primary-protagonist + first Davamir Compact + first House Lamertine + first House Helvintr + first House Radrexxus + first Erastus Lamertine surface forms + first 'modern-timeline-Rogue-Trader-novel-in-a-long-time' register**; **major pre-write training-data correction** — Void King is a Rogue Traders novel, NOT an Imperial-Knights / House-Tan-Draconis novel as my pre-search mental model wrongly held), Edoardo Albert's *Kasrkin* (2022, Captain Bharath Obeysekera leads a Kasrkin squad on the besieged T'au-pressed Imperial world of Dasht i-Kevar to recover a downed Astra-Militarum-general whose knowledge could break the war effort — desert-as-enemy half-one followed by Kroot kinband under Shaper Tchek and an ancient buried entity in half-two with alternating human + Kroot POVs; **first authority-layer Kasrkin-as-primary-protagonist + first Bharath Obeysekera + first Dasht-i-Kevar + first Shaper-Tchek + first Kroot-kinband-on-page-antagonist surface forms**), Chris Forrester's *Wrath of the Lost* (2023, Flesh-Tearers Chapter Master Gabriel Seth orders Chaplain Dumah and Apothecary Barachiel to return to Cretacia after the homeworld-garrison goes silent in the aftermath of the Primaris influx from Guilliman + Cawl; the returning brothers must battle Chaos AND the raging Black-Rage-equivalent curse in their own veins to reclaim the ancestral home — eponymous 'Wrath of the Lost' = the Flesh-Tearers' homegrown gene-curse; **first authority-layer Flesh-Tearers-as-primary-protagonist + first Gabriel Seth + first Chaplain Dumah + first Apothecary Barachiel + first Cretacia + first Flesh-Tearer-curse-as-on-page-burden surface forms**), David Guymer's *Angron: The Red Angel* (2023, Daemon-Primarch Angron returns to a wounded Imperium-Nihilus and lights a beacon to which his scattered XII-Legion sons heed the call to slaughter — three interleaved POV strands: Kossolax-the-Foresworn lord-regent fighting to keep the old Legion-dreams alive aboard the World-Eaters flagship, Ortan-Leidis-of-the-Angels-of-the-Grail marooned on a worthless moon with a rag-tag traitor band dreaming of glory, and Grey-Knight Graucis-Telomane finally executing six-centuries-in-the-making plans to eradicate Angron once and for all; **first authority-layer Daemon-Primarch-Angron-POV + first authority-layer World-Eaters-as-primary-protagonist + first Kossolax-the-Foresworn + first Ortan Leidis + first Angels-of-the-Grail-warband + second-authority-layer Grey-Knights entry after *The Emperor's Gift* (ssot-w40k-008) + first Graucis Telomane surface forms**), Mike Brooks's *Warboss* (2023, Warboss Gazrot Goresnappa dies under a decapitated Gargant-head and the biggest-and-baddest bosses of the six no-longer-united clans step forward to seize succession — Da-Genrul of the Blood Axes, Speedboss Zagnob Thundaskuzz of the Evil Sunz, Big-Boss Mag Dedfist of the Goffs, and grot-uprising-leader Snaggi Littletoof all race toward a prophesied gate beneath the human city that the one-true-Warboss will use to turn the galaxy green — Ork-clan-succession-thriller + multi-clan-POV register; **NOT a direct sequel to *Brutal Kunnin* — *Da Big Dakka* is the Ufthak-Blackhawk sequel — *Warboss* is a parallel Ork-novel with a separate cast**; **first authority-layer Blood-Axes + Evil-Sunz + Goffs-as-primary-clan + Grot-uprising-as-primary surface forms + first Gazrot Goresnappa + Da Genrul + Zagnob Thundaskuzz + Mag Dedfist + Snaggi Littletoof + Ork-Gretchin-revolution-frame surface forms**; pre-write training-data correction caught — *Warboss* is NOT an Ufthak sequel as my pre-search mental model wrongly held), and Justin D. Hill's *Pilgrims of Fire* (2023, Order-of-Our-Martyred-Lady Sister Helewise leads two companies of Sisters aboard Fleet-Quintus the 'Cursed Fleet' in the Indomitus Crusade — a dual-timeline structure bracketing the arrival of the Cicatrix Maledictum, one company pre-Cadia-fall and one post-Galactic-sundering — retracing Saint Katherine's ancient pilgrimage to liberate the shrine-world Cion in the daemon-infested sectors beyond the Cicatrix Maledictum, with the arc of one Sister's choice to become a Sister Repentia as the spiritual spine + Arco-flagellants + Penitent Engines on-page; **third-consecutive-batch authority-layer Adepta-Sororitas-primary entry after Triumph of Saint Katherine (ssot-w40k-012) and Mark of Faith / Ephrael Stern / Requiem Infernal cluster (ssot-w40k-011); third authority-layer Order-of-Our-Martyred-Lady appearance; first Helewise + Cion + Sisters-Repentia-as-on-page-arc + Arco-flagellants + Penitent-Engines surface forms; second authority-layer Fleet-Quintus surface form after *Indomitus* (ssot-w40k-011 — same Crusade fleet, cross-reference**). Structural notes: **eight first-authority-layer-as-primary-protagonist faction debuts** in one batch — Aeronautica Imperialis (Outgunned), Inquisition / Ordo Hereticus (Awakenings), T'au Empire (Shadowsun), Rogue Traders (Void King), Kasrkin (Kasrkin), Flesh Tearers (Wrath of the Lost), World Eaters (Angron — counting from Daemon-Primarch-led XII), and the Lion-El'Jonson + Fallen-as-redeemed Dark-Angels-cross-aisle register (The Lion). Plus first authority-layer Daemon-Primarch-POV (Angron) and first authority-layer Primarch-resurrection POV (The Lion). The densest first-authority-layer-as-primary-protagonist-faction count of any batch so far. **Four pre-write training-data corrections** caught and folded into synopses before commit: Awakenings is an Inquisition novel not a Dark-Angels-Lazarus-from-coma novel (Lexicanum + At-Boundary's-Edge + Simon-&-Schuster confirmed Astor Sabbathiel); Void King is a Rogue-Traders novel not an Imperial-Knights novel (Lexicanum + At-Boundary's-Edge + Black-Library product page confirmed Davamir Compact); Outgunned's Bacchus campaign is vs Orks not vs Tau (Unseen-Library + Simon-&-Schuster + At-Boundary's-Edge confirmed Orks); Warboss is NOT an Ufthak sequel (Warhammer-Community + At-Boundary's-Edge + Black-Library confirmed succession-crisis cast — Da Big Dakka is the Ufthak-Blackhawk follow-up). All four were caught by WebSearch + folded into synopses pre-commit. **Female-POV density:** four-of-ten entries are female-primary-POV (Lucille von Shard + Astor Sabbathiel + Shadowsun + Helewise) — solidly above ssot-w40k-012's 3-of-10 and only one entry shy of ssot-w40k-011's 5-of-10 high-water mark. **One `data_conflict` flag this iteration** — W40K-0130's roster title is *The Lion: Sons of the Forest* (plural) but canonical title across Black-Library / Lexicanum / Simon-&-Schuster / Goodreads / Fluffenhammer / Warhammer-Community is *The Lion: Son of the Forest* (singular). Roster-mistag-cleanup deferred to Maintainer in Excel-SSOT-workflow; book stays in this batch to keep the slot covered. **No `low_confidence` flags this iteration** — all ten entries have strong 2022-2023 Black-Library coverage (Lexicanum + Track-of-Words + Unseen Library + At Boundary's Edge + Goonhammer + Simon-&-Schuster + Warhammer-Community + author Rapid-Fire interviews + The-Fluffenhammer + TV-Tropes). **Resolver-Pre-Note:** cumulativeBefore=120 → cumulativeAfter=130; next natural resolver-pause-window is at cumulative=150 (`ssot-w40k-016`, W40K-0151..W40K-0160 — two more iterations from this one). Per the previous iteration's deferred Resolver context (the second Resolver-Brief is still pending since cumulative=100, where Maintainer invoked `skip-50-stop`), this batch adds another eight first-authority-layer-as-primary-protagonist faction debuts + the Lion-resurrection + Sabbathiel-Inquisitor-frame to that resolver-debt pile. Surface-form-resolver-pile growth shows no sign of plateauing.",
+  "books": [
+    {
+      "externalBookId": "W40K-0121",
+      "slug": "outgunned",
+      "overrides": {
+        "synopsis": "Standalone Aeronautica-Imperialis novel set on the foetid jungle-and-swamp world **Bacchus** in the dying years of the Imperium's struggle against an Ork incursion. Two protagonists in alternating POV: **Flight Commander Lucille von Shard**, an arrogant misanthropic fighter ace whose consummate skill in the cockpit is the only thing keeping her from sanction, and **Propagandist Kile Simlex**, dispatched by Imperial information-ministry handlers to produce a cinema-pict portraying Shard as the regulation Imperial hero the war effort desperately needs. When Simlex arrives planetside he finds the war in shambles: the Imperium's overstretched forces are in full retreat from the greenskin tide, the planetary governor is actively downplaying the conflict to his own off-world masters, and the supposed-hero he is meant to film and edit into propaganda is a sneering ace who treats both her wingmen and her commissar with contempt. As Simlex's cameras roll through the rotting waters and the Aeronautica-Imperialis fighter squadrons attrit themselves against the rampaging greenskin hordes, something vast and terrible begins to stir within the clouds. The novel examines the propaganda-machine of the 41st Millennium as closely as it examines aerial-combat-attrition — what the Imperium tells itself versus what its pilots actually see. **First authority-layer Aeronautica-Imperialis-as-primary-protagonist entry + first Lucille von Shard + first Kile Simlex + first Bacchus surface forms**; first 'fighter-ace-from-the-cockpit' register in the authority layer; novel functions as a companion-piece-meta-commentary on the Imperial-propaganda-as-weapon thread that ran through Volpone Glory (ssot-w40k-012) at the line-soldier scale.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "character_study",
+          "political_thriller",
+          "grimdark",
+          "somber",
+          "satirical",
+          "war",
+          "hubris",
+          "doubt",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Aeronautica Imperialis", "role": "primary" },
+          { "name": "Imperial Navy", "role": "primary" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Bacchus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Lucille von Shard", "role": "pov" },
+          { "name": "Kile Simlex", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0122",
+      "slug": "awakenings",
+      "overrides": {
+        "synopsis": "Standalone Inquisition novel — first full-length Astor-Sabbathiel-POV entry after her appearances in the Warhammer-40,000 comic series. **Inquisitor Astor Sabbathiel** has been dead — or so the records say — for nearly a hundred years, supposedly killed when she was shot at point-blank range just as a roiling warp-storm engulfed the **Calaphrax Cluster** and entombed her in suspended stasis. She awakens on a distant Ecclesiarchy stronghold under the care of a magos called **Metik**, who has brought her back from the brink of death and to whom she is uncomfortably indebted. Shortly after her resurrection, Sabbathiel is summoned to an audience on the planet **Hulth** by a high-ranking Ordo-Hereticus Inquisitor named **Heldren**, who informs her with cold formality that after being lost for so long the members of her former conclave no longer trust her — and that she will need to prove her loyalty by unravelling a conspiracy that already implicates corrupt Inquisitors, several Navigator Houses, and even the Adeptus Custodes. The investigation that follows is a slow-burn political-thriller / mystery hybrid, with Sabbathiel walking the line between Inquisitorial-procedure and personal-vendetta as the layers of who shot her and why begin to peel back. **First authority-layer Inquisitor-Astor-Sabbathiel-POV + first authority-layer Ordo-Hereticus-as-primary-protagonist + first authority-layer single-named-Inquisitor-as-primary-POV-novel + first Magos Metik + first Inquisitor Heldren + first Calaphrax Cluster + first Hulth surface forms**; first authority-layer Custodes-as-conspiracy-target frame; Mann's first authority-layer Black-Library novel of this register.",
+        "facetIds": [
+          "book",
+          "female",
+          "inquisitor",
+          "imperium",
+          "sector",
+          "mid_series",
+          "standard",
+          "mystery",
+          "political_thriller",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "betrayal",
+          "doubt",
+          "loyalty",
+          "redemption",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Hereticus", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Ecclesiarchy", "role": "supporting" },
+          { "name": "Navis Nobilite", "role": "antagonist" },
+          { "name": "Adeptus Custodes", "role": "mentioned" }
+        ],
+        "locations": [
+          { "name": "Calaphrax Cluster", "role": "primary" },
+          { "name": "Hulth", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Astor Sabbathiel", "role": "pov" },
+          { "name": "Metik", "role": "supporting" },
+          { "name": "Heldren", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0123",
+      "slug": "shadowsun-the-patient-hunter",
+      "overrides": {
+        "synopsis": "Standalone T'au-Empire novel — Phil Kelly's authority-layer Commander-Shadowsun-POV entry in the Warhammer-40,000 Characters range. **Commander O'Shaserra**, better known across the Chalnath Expanse as **Shadowsun**, is the ice-cold military genius and master of the stealth-battlesuit-assault who embodies the Tau **Kauyon** — the Patient Hunter — metastrategy. As the novel opens she is grappling with the haunted residue of the **Fourth Sphere Expansion** fleet, the survivors of which returned from the Warp changed in unsettling ways, when a massive **Death-Guard** armada attacks her sphere with ancient technology that rips holes in real-space and brings daemonic patrons who defy the very laws of physics on which Shadowsun's logical methods depend. Forced to lay a Mont'ka-style counter-trap, she must simultaneously respond to a surprise attack on the **Startide Nexus** wormhole-portal at the dark-side edge of the **Great Rift**, with her forces stretched perilously thin across the Sphere. As hidden atrocities and treacheries among the T'au and their allies are laid bare, the threat of civil-war from within the Empire begins to simmer alongside the external Chaos pressure. The book is part military-thriller, part Tau-philosophy treatise (the Kauyon-as-life-stance + the impossibility of fighting an enemy that violates causality), and part faction-political-thriller. **First authority-layer T'au-Empire-as-primary-protagonist + first Commander-Shadowsun-POV + first Kauyon-doctrine + first Mont'ka-counter-doctrine + first Chalnath-Expanse + first Fourth-Sphere-Expansion + first Startide-Nexus + first Death-Guard-as-primary-Tau-antagonist surface forms**; pre-write training-data correction caught — Shadowsun's antagonist here is Chaos (Death Guard), NOT residual Damocles-Crusade-era Imperial forces as my pre-search mental model wrongly held.",
+        "facetIds": [
+          "book",
+          "female",
+          "pc_xenos",
+          "xenos",
+          "sector",
+          "standalone",
+          "standard",
+          "war_story",
+          "political_thriller",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "war",
+          "doubt",
+          "betrayal",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "T'au Empire", "role": "primary" },
+          { "name": "Tau Empire", "role": "primary" },
+          { "name": "Fire Caste", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Imperium", "role": "mentioned" }
+        ],
+        "locations": [
+          { "name": "Chalnath Expanse", "role": "primary" },
+          { "name": "Fourth Sphere Expansion", "role": "primary" },
+          { "name": "Startide Nexus", "role": "primary" },
+          { "name": "Great Rift", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Shadowsun", "role": "pov" },
+          { "name": "O'Shaserra", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0124",
+      "slug": "void-king",
+      "overrides": {
+        "synopsis": "Standalone Rogue-Traders novel — the first true Rogue-Trader-as-primary-protagonist Black-Library entry in a long time, dragging the Rogue-Trader archetype into the post-Cicatrix-Maledictum present timeline. As the **Indomitus Crusade** begins, Roboute Guilliman tasks the **Davamir Compact** — three noble Rogue-Trader dynasties that have plied the void in the Emperor's name since the halcyon days of the Great Crusade — with finding a route across the **Great Rift**. The Compact is named for the king who sits over its three constituent houses: **Proud Lamertine** (the protagonist dynasty), **Fierce Helvintr**, and **Cunning Radrexxus**. As plans are drawn up for the most immense crusade imaginable, the Emperor's reborn son's demand for a Rift-crossing route forces the three dynasties into uneasy cooperation that quickly fractures under tragedy and betrayal — the king dies, a succession crisis erupts, and the Lamertine heir **Erastus** must rise to guide the disparate Compact forces in service to their sacred mission, avenge the wounds done by hidden hands, and reveal the darkest secrets threatening the Imperium's dreams of unity. The novel blends court-intrigue + political-thriller + journey + space-opera in a register Black-Library has not run at novel-length since the Rogue-Trader-themed background of older editions. **First authority-layer Rogue-Traders-as-primary-protagonist + first Davamir Compact + first House Lamertine + first House Helvintr + first House Radrexxus + first Erastus Lamertine surface forms + first 'modern-timeline-Rogue-Trader' frame in the authority layer**; **major pre-write training-data correction caught** — Void King is a Rogue-Traders novel, NOT an Imperial-Knights / House-Tan-Draconis novel as my pre-search mental model wrongly held; my prior Marc-Collins-author-association was *Helbrecht: Knight of the Throne* (ssot-w40k-012, Black-Templars), not an Imperial-Knights novel.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "sector",
+          "standalone",
+          "standard",
+          "court_intrigue",
+          "political_thriller",
+          "journey",
+          "war_story",
+          "grimdark",
+          "action_heavy",
+          "war",
+          "betrayal",
+          "loyalty",
+          "hubris",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Rogue Traders", "role": "primary" },
+          { "name": "Davamir Compact", "role": "primary" },
+          { "name": "House Lamertine", "role": "primary" },
+          { "name": "House Helvintr", "role": "primary" },
+          { "name": "House Radrexxus", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Indomitus Crusade", "role": "secondary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Great Rift", "role": "primary" },
+          { "name": "Davamir Compact", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Erastus Lamertine", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0125",
+      "slug": "kasrkin",
+      "overrides": {
+        "synopsis": "Standalone Astra-Militarum Kasrkin novel — first authority-layer Kasrkin-as-primary-protagonist entry. When the **T'au Empire** brings down a Valkyrie carrying an Astra-Militarum general on the besieged Imperial world of **Dasht i-Kevar**, all could be lost: what the general knows could break the Imperial war effort and see the planet fall under the control of the vile xenos. Only the elite Cadian-shock-trooper-derived **Kasrkin** stand a chance at bringing him back across the desert wastes. **Captain Bharath Obeysekera** and his squad set out into the endless dunes, where the enemy is not at first an army at all but the desert itself — implacable, sand-eating, water-starved. The first half of the novel runs a slow-paced desert-survival register as the squad gets to grips with the wastes; the second half pivots into action when the Kasrkin find the missing general and a kinband of **Kroot** under **Shaper Tchek** arrives in pursuit, introducing alternating human + Kroot POVs and Albert's first authority-layer Kroot-as-on-page-antagonist register. As the chase deepens, the Kasrkin begin to realise they are not the only hunters in the desert — something ancient is buried beneath the sands. Slow-burn war-story + journey + mystery hybrid; explicitly Cadian-diaspora-post-Fall-of-Cadia framing (the Kasrkin here are survivors of the fall, regimentally re-formed and re-deployed). **First authority-layer Kasrkin-as-primary-protagonist + first Bharath Obeysekera + first Dasht-i-Kevar + first Shaper Tchek + first Kroot-kinband-on-page-antagonist surface forms**; the Kasrkin frame is distinct from the broader Cadian-Shock-Troops surface form already in the authority layer (ssot-w40k-012's Steel Tread + Witchbringer).",
+        "facetIds": [
+          "book",
+          "male",
+          "guardsman",
+          "dual",
+          "planetary",
+          "standalone",
+          "doorstopper",
+          "war_story",
+          "journey",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Kasrkin", "role": "primary" },
+          { "name": "Cadian Shock Troops", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "T'au Empire", "role": "antagonist" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "Kroot", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Dasht i-Kevar", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Bharath Obeysekera", "role": "pov" },
+          { "name": "Tchek", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0126",
+      "slug": "wrath-of-the-lost",
+      "overrides": {
+        "synopsis": "Standalone Flesh-Tearers novel — first authority-layer Flesh-Tearers-as-primary-protagonist entry. Spared extinction by the gift of **Primaris** Space Marines from **Roboute Guilliman** and **Belisarius Cawl**, the Blood-Angels-successor **Flesh Tearers** Chapter have set about doing what they do best: slaying the Imperium's enemies and claiming worlds at brutal cost. But in their eagerness they have left their volcanic-jungle homeworld **Cretacia** under-garrisoned, and the long silence from that garrison has become impossible to ignore. **Chapter Master Gabriel Seth** orders **Chaplain Dumah** and **Apothecary Barachiel** to return home and discover what has befallen their ancestral world. What they find is Chaos taking root — and as the brothers fight to reclaim Cretacia they must battle not only the Ruinous Powers but the raging gene-curse within their own veins, the eponymous Wrath of the Lost (the Flesh-Tearers' homegrown analogue to the Blood-Angels' Black Rage and Red Thirst — a perpetual fury that consumes brothers from within). The novel runs character-study + war-story + journey-home register, with the Chaplain's spiritual-stewardship and the Apothecary's gene-seed-stewardship as twin spines holding back a Chapter perpetually on the edge of becoming the monsters it hunts. **First authority-layer Flesh-Tearers-as-primary-protagonist + first Gabriel Seth + first Chaplain Dumah + first Apothecary Barachiel + first Cretacia + first 'Wrath of the Lost'-as-Flesh-Tearer-gene-curse surface forms**; first authority-layer Blood-Angels-successor-Chapter-curse register; second authority-layer Primaris-integration-as-plot-event after ssot-w40k-012's Helbrecht.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "journey",
+          "character_study",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "brotherhood",
+          "sacrifice",
+          "doubt",
+          "redemption",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Flesh Tearers", "role": "primary" },
+          { "name": "Blood Angels", "role": "secondary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cretacia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Gabriel Seth", "role": "supporting" },
+          { "name": "Dumah", "role": "pov" },
+          { "name": "Barachiel", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0127",
+      "slug": "angron-the-red-angel",
+      "overrides": {
+        "synopsis": "Standalone Daemon-Primarch-Angron novel — first authority-layer Daemon-Primarch-as-primary-protagonist entry. In the darkness of **Imperium Nihilus**, across half a million worlds cut off from the dim light of Holy Terra by the Cicatrix Maledictum, a beacon is lit: **Angron**, the Red Angel of the XII Legion, returns to an unsteady galaxy and his scattered sons heed the call to slaughter. The novel runs three interleaved POV strands as Angron summons his Legion back to his side and embarks on an epic conquest. Aboard the **World Eaters** flagship, **Kossolax the Foresworn** — self-appointed lord-regent of the XII during the Primarch's long absence — fights to keep the old dreams of the Legion alive but finds the return of his hated father both an opportunity to redeem himself in Angron's eyes and a mortal threat to the warriors' fragile unity. Marooned on a worthless moon with a rag-tag band of traitors as despicable as himself, **Ortan Leidis of the Angels of the Grail** dares to dream of something greater than the petty raiding that has been his lot — Angron's call is a chance at glory, or annihilation. Half a galaxy away, **Graucis Telomane** of the **Grey Knights** has been readying himself for this day, and plans six centuries in the making are finally set in motion: plans that will see the eradication of the Emperor's greatest mistake once and for all. Guymer's signature dense-prose Primarch-psychology + Legion-politics + Grey-Knight-counter-strike register. **First authority-layer Daemon-Primarch-Angron-POV + first authority-layer World-Eaters-as-primary-protagonist + first Kossolax-the-Foresworn + first Ortan Leidis + first Angels-of-the-Grail-warband + first Graucis Telomane surface forms + second-authority-layer Grey-Knights entry** after *The Emperor's Gift* (ssot-w40k-008).",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "dual",
+          "galactic",
+          "standalone",
+          "standard",
+          "war_story",
+          "character_study",
+          "political_thriller",
+          "grimdark",
+          "action_heavy",
+          "philosophical",
+          "war",
+          "hubris",
+          "brotherhood",
+          "betrayal",
+          "redemption",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "primary" },
+          { "name": "Chaos Space Marines", "role": "primary" },
+          { "name": "Khorne", "role": "primary" },
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Angels of the Grail", "role": "primary" },
+          { "name": "Grey Knights", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Imperium", "role": "secondary" }
+        ],
+        "locations": [
+          { "name": "Imperium Nihilus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Angron", "role": "pov" },
+          { "name": "Kossolax the Foresworn", "role": "pov" },
+          { "name": "Ortan Leidis", "role": "pov" },
+          { "name": "Graucis Telomane", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0128",
+      "slug": "warboss",
+      "overrides": {
+        "synopsis": "Standalone Orks novel — a multi-clan Ork-succession-crisis ensemble distinct from Brooks's Ufthak-Blackhawk register (Ufthak's actual sequel is *Da Big Dakka*, not this book). **Warboss Gazrot Goresnappa** lies dead beneath the decapitated head of his own Gargant, and the biggest-and-baddest bosses from each of the six no-longer-united clans step forward to duke it out for the succession. A prophecy foretells a mysterious gate that lies beneath the human city below — and the one true Warboss will be the first to find it, and will use it to turn the galaxy green. **Da Genrul** of the **Blood Axes** believes only his by-the-numbers-Ork tactical-discipline is worthy of the title. But **Speedboss Zagnob Thundaskuzz** of the **Evil Sunz** didn't get the memo, and neither did **Big-Boss Mag Dedfist** of the **Goffs**, nor — most absurdly — the leader of an opportunistic grot uprising, **Snaggi Littletoof**, who fancies that his moment to lead the gretchin to revolutionary greatness has at last arrived. The novel runs satirical + war-story + political-thriller register from inside the greenskin perspective, mocking Imperial-grade succession-politics while still treating Ork society as legitimately load-bearing. Brooks's second authority-layer Ork-protagonist novel after *Brutal Kunnin* (ssot-w40k-011) but with a separate cast — Ufthak Blackhawk does not appear. **First authority-layer Blood-Axes + Evil-Sunz + Goffs-as-primary-protagonist + Grot-uprising-as-primary surface forms + first Gazrot Goresnappa (mentioned-dead) + Da Genrul + Zagnob Thundaskuzz + Mag Dedfist + Snaggi Littletoof surface forms + first authority-layer Gretchin-revolutionary-frame**. Pre-write training-data correction caught — *Warboss* is NOT a direct Ufthak-Blackhawk sequel as my pre-search mental model wrongly held.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "pc_xenos",
+          "xenos",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "political_thriller",
+          "character_study",
+          "satirical",
+          "grimdark",
+          "action_heavy",
+          "war",
+          "hubris",
+          "brotherhood",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Orks", "role": "primary" },
+          { "name": "Blood Axes", "role": "primary" },
+          { "name": "Evil Sunz", "role": "primary" },
+          { "name": "Goffs", "role": "primary" },
+          { "name": "Gretchin", "role": "primary" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Gazrot Goresnappa", "role": "mentioned" },
+          { "name": "Da Genrul", "role": "pov" },
+          { "name": "Zagnob Thundaskuzz", "role": "pov" },
+          { "name": "Mag Dedfist", "role": "pov" },
+          { "name": "Snaggi Littletoof", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0129",
+      "slug": "pilgrims-of-fire",
+      "overrides": {
+        "synopsis": "Standalone Adepta-Sororitas novel — third-consecutive-batch authority-layer Sororitas-primary entry after *The Triumph of Saint Katherine* (ssot-w40k-012) and the Mark-of-Faith / Ephrael-Stern / Requiem-Infernal cluster (ssot-w40k-011). One of the most pious orders of the Adepta Sororitas — the **Order of Our Martyred Lady** — joins the **Indomitus Crusade** aboard **Fleet Quintus**, ominously nicknamed the 'Cursed Fleet' for the calamities that dog its path. The novel follows two companies of Sisters in a dual-timeline structure that brackets the arrival of the **Cicatrix Maledictum** — one company before Cadia's fall, and one running long after the galaxy is sundered. Sister **Helewise** and her Sisters follow an ancient route of pilgrimage in an effort to rediscover and liberate the shrine-world **Cion**, once a sacred bastion of the Order, now lost in the daemon-infested sectors beyond the Cicatrix Maledictum. In retracing the steps of **Saint Katherine** herself, their faith is tested to the extreme as they attempt to uncover what became of their Sisters stationed beyond the rift. As their mission lurches from disaster to disaster and the Emperor's voice grows ever more silent, the Sisters must trust in bolter, blade, and their own unbreakable bonds to drive back the darkness of Imperium Nihilus. The book gives over significant page-count to the daily rituals and prayers of the Sororitas, the on-page presence of **Arco-flagellants** and **Penitent Engines**, and most distinctively the arc of one Sister's choice to become a **Sister Repentia** — her reasons, her vows, and the terrible fate she embraces. **First authority-layer Helewise + Cion + Sisters-Repentia-as-on-page-arc + Arco-flagellants-on-page + Penitent-Engines-on-page surface forms + second authority-layer Fleet-Quintus surface form** after *Indomitus* (ssot-w40k-011 — same Crusade fleet, cross-reference); **third authority-layer Order-of-Our-Martyred-Lady appearance** after ssot-w40k-011 *Mark of Faith* + ssot-w40k-012 *Triumph of Saint Katherine*.",
+        "facetIds": [
+          "book",
+          "female",
+          "sister",
+          "imperium",
+          "sector",
+          "standalone",
+          "standard",
+          "war_story",
+          "journey",
+          "character_study",
+          "siege",
+          "grimdark",
+          "somber",
+          "hopepunk",
+          "philosophical",
+          "faith",
+          "sacrifice",
+          "doubt",
+          "redemption",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Sisters of Battle", "role": "primary" },
+          { "name": "Order of Our Martyred Lady", "role": "primary" },
+          { "name": "Sisters Repentia", "role": "primary" },
+          { "name": "Arco-flagellants", "role": "supporting" },
+          { "name": "Penitent Engines", "role": "supporting" },
+          { "name": "Ecclesiarchy", "role": "supporting" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Indomitus Crusade", "role": "secondary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Daemons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cion", "role": "primary" },
+          { "name": "Fleet Quintus", "role": "primary" },
+          { "name": "Imperium Nihilus", "role": "secondary" },
+          { "name": "Cicatrix Maledictum", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Helewise", "role": "pov" },
+          { "name": "Saint Katherine", "role": "mentioned" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0130",
+      "slug": "the-lion-sons-of-the-forest",
+      "overrides": {
+        "synopsis": "Standalone Lion-El'Jonson novel — the Lion's resurrection-and-return after ten thousand years, the second authority-layer Primarch-resurrection event after Roboute Guilliman. A man wakes up in the middle of a vast forest with no memory of his past. In short order he learns he is **Lion El'Jonson**, Primarch of the I Legion, one of the sons of the Emperor of Mankind — and that he has been missing in action for ten thousand years, during which the galaxy has gone to hell, quite literally, torn in half by the Great Rift. The Lion's sons, the Space Marines of the Dark Angels Legion, have been sent forward in time along with him, and many were scattered in the same region of space when his stasis-prison-forest fragmented out of the Warp. Unfortunately, the particular Dark Angels who landed nearby are **Fallen** — those who opposed him back in the day, believing he betrayed them, just as he believes they betrayed him. Many among the Fallen knights have long awaited the day their liege would return to redeem them; others are irrevocably lost to Chaos. The **Lord of Shadowed Paths** must gather these lost loyalists to his side once more and stride forth to vanquish a traitorous son and the twisted Chaos warband — including the Fallen warband-leader-turned-Chaos-Lord **Zabriel** — that calls him master. The **Watchers in the Dark** observe and intercede with their characteristic obliquity. Only at the novel's close does the Lion learn that his brother Guilliman is not only alive but leading the Imperium. Brooks's first authority-layer Primarch-resurrection novel, deliberately written as a journey-of-self-rediscovery in a Caliban-mythic register. **First authority-layer Lion-El'Jonson-POV + first Caliban-in-the-Warp / Forest-Caliban + first Zabriel + first Watchers-in-the-Dark + first Fallen-Angels-as-on-page-cast surface forms + first 'Lord of Shadowed Paths' surface form + first authority-layer Primarch-resurrection-as-plot-event for the I Legion**. **Roster title-mismatch**: roster lists *The Lion: Sons of the Forest* (plural) but the canonical title across Black-Library + Lexicanum + Simon-&-Schuster + Goodreads + Warhammer-Community + Fluffenhammer + TV-Tropes is *The Lion: Son of the Forest* (singular); `data_conflict` flag set with `field: title`, `suggestion: 'The Lion: Son of the Forest'`. Roster-mistag-cleanup deferred to Maintainer Excel-SSOT workflow; the book stays in this batch to keep the slot covered.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "standalone",
+          "standard",
+          "journey",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "philosophical",
+          "hopepunk",
+          "redemption",
+          "loyalty",
+          "brotherhood",
+          "doubt",
+          "faith",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Fallen Angels", "role": "primary" },
+          { "name": "Watchers in the Dark", "role": "supporting" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Caliban", "role": "primary" },
+          { "name": "Great Rift", "role": "secondary" },
+          { "name": "Imperium Nihilus", "role": "secondary" }
+        ],
+        "characters": [
+          { "name": "Lion El'Jonson", "role": "pov" },
+          { "name": "Zabriel", "role": "antagonist" },
+          { "name": "Roboute Guilliman", "role": "mentioned" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "title",
+            "suggestion": "The Lion: Son of the Forest",
+            "reason": "Roster lists 'Sons of the Forest' (plural) but canonical title across Black-Library + Lexicanum + Simon-&-Schuster + Goodreads + Warhammer-Community + Fluffenhammer + TV-Tropes is 'Son of the Forest' (singular). Roster-mistag-cleanup deferred to Maintainer Excel-SSOT workflow."
+          }
+        ]
+      }
+    }
+  ]
+}
