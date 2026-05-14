@@ -2,7 +2,7 @@
 title: Deferred questions (dormant)
 type: overview
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-15
 sources:
   - ../../sessions/archive/2026-05/2026-05-04-042-impl-phase3c-haiku-switch.md
   - ../../sessions/archive/2026-05/2026-05-05-044-impl-phase3e-batch-1.md
@@ -21,7 +21,19 @@ confidence: high
 
 > Items that surfaced during a session but don't belong in the next-brief queue. Either dormant (waiting for a trigger), distant (Phase-4+ ambitions), or model-specific things that became inactive after a switch. Cowork promotes an item back into [`./open-questions.md`](./open-questions.md) when its trigger fires.
 >
-> Created during 051 (Brain Slim Pass) by lifting items 4–8 + the "distant" half of item 9 from the original 11-item queue. Phase-internal sub-phase reminders (3d / 3e / 3f to-dos that were inside item 9) live now in [`./pipeline-state.md`](./pipeline-state.md) under each sub-phase. Post-054 Session-End: ehemalige OQ4 (Anthologie-Re-Test) + OQ5 (Lexicanum-Body-Lore-Pass) hierher migriert — beide durch V2-Pilot strukturell adressiert.
+> Created during 051 (Brain Slim Pass) by lifting items 4–8 + the "distant" half of item 9 from the original 11-item queue. Phase-internal sub-phase reminders (3d / 3e / 3f to-dos that were inside item 9) live now in [`./pipeline-state.md`](./pipeline-state.md) under each sub-phase. Post-054 Session-End: ehemalige OQ4 (Anthologie-Re-Test) + OQ5 (Lexicanum-Body-Lore-Pass) hierher migriert — beide durch V2-Pilot strukturell adressiert. **2026-05-15:** OQ2-(c) `chaos`-pov_side-Promote-Pass hierher migriert (moot post-CC-Direct-Curation; ggf. später als isolierter SQL-Hygiene-Mini-Brief).
+
+---
+
+## `chaos`-pov_side-Promote-Pass für Traitor-Legion-POV-Bücher — moot post-CC-Direct-Curation
+
+**Owner:** none (deferred). **Sessions:** [044-impl](../../sessions/archive/2026-05/2026-05-05-044-impl-phase3e-batch-1.md), [045-impl](../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md), Cowork-Maintainer-Diskussion 2026-05-13 (open-questions.md OQ2-(c)), Cowork-Session 2026-05-15 (Brief 074 Pre-Brief-Klärung).
+
+Ursprünglich (pre-2026-05-15) als OQ2-(c) in `open-questions.md`: System-Prompt-Patch für `src/lib/ingestion/v2/llm/` (Traitor-Legion-Surface-Forms → `pov_side: chaos`) plus retroaktiver SQL-Promote-Pass für die Pipeline-Outputs, die vor dem Patch erzeugt wurden. Begründung war eine in 044/045 erkannte Pipeline-Pathologie: V2-LLM mit Haiku/Sonnet hat `pov_side` bei Traitor-Legion-Büchern manchmal nicht auf `chaos` gesetzt, wenn die Synopsis das Wort „Chaos" nicht explizit nannte.
+
+**Moot post-2026-05-15.** Die V2-LLM-Stage (`src/lib/ingestion/v2/llm/`) ist seit dem Brief-061-Standing-Loop de-facto durch eine `claude -p`-Subsession ausgemustert — eine CC-Subsession produziert die Override-Datei direkt. Damit gibt es keine Pipeline-System-Prompt-Stelle mehr, an der ein Patch landen könnte; das `pov_side`-Field wird von CC pro Buch manuell entschieden (Maintainer-Override-Workflow).
+
+**Promote when:** (a) Cockpit-Triage zeigt einen klaren Drift-Cluster bei `pov_side` (z. B. ≥ 5 Bücher mit Traitor-Legion-Faction-Primary + `pov_side` nicht `chaos`), ODER (b) die V2-LLM-Pipeline wird für irgendeinen Use-Case reaktiviert. Im Promote-Fall ist es ein kleiner SQL-Mini-Brief: `UPDATE works SET pov_side='chaos' WHERE EXISTS (SELECT 1 FROM work_factions wf JOIN factions f ON wf.faction_id=f.id WHERE wf.work_id=works.id AND f.parent IN ('heretic_astartes', 'chaos') AND wf.role='primary')` — Cowork validiert vorher in `pipeline-state.md` / Cockpit, ob die Trefferliste sauber ist.
 
 ---
 

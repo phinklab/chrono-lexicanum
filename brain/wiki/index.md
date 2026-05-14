@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-05-13
+updated: 2026-05-14
 sources: []
 related:
   - ../CLAUDE.md
@@ -21,13 +21,13 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-069: first 50 W40K books applied, resolver layer applied/verified, next batch is `ssot-w40k-006`. | 2026-05-13 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-069: OQ4/OQ5 closed for the first 50 W40K books; remaining queue is model/vocabulary/hand-check/rating plus SSOT-loop continuation. | 2026-05-13 |
-| [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-054: ergänzt um Anthologie-Re-Test (closed) + Lexicarum-Body-Lore-Pass (closed). | 2026-05-09 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-074-arch: 150 W40K-Bücher applied, dritte Resolver-Welle offen; Green Tide ist Roster-Lücken-Handoff statt Cross-Batch-Stresstest. | 2026-05-15 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-074-arch: OQ9 closed/folded, OQ2-(c) moot post-CC-Direct-Curation; Restqueue Brief 074, Loop-Resume, OQ3/OQ6. | 2026-05-15 |
+| [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: ergänzt um `chaos`-pov_side-Promote-Pass als moot/deferred. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-069: `ssot-w40k-001..005` applied, resolver counts verified, next axis is `ssot-w40k-006` plus cross-batch collections. | 2026-05-13 |
+| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-072: `ssot-w40k-001..010` applied, zweite Resolver-Welle plus Cross-Batch-`applyCollections`-Refactor sind durch, Authority-Junctions stehen bei 650/239/475/35. *(Inhaltliches Update steht aus — nächste Cowork-Session.)* | 2026-05-13 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals heute, 859 SSOT-Roster ab 058, ~$0.114/book V1 / $0.0199/Buch V2 fresh-Smoke). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
 
 ## Decision pages (ADRs with revisit-triggers)
@@ -35,6 +35,7 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Decision | Decided | Updated |
 |---|---|---|---|
 | [decisions/faction-policy.md](./decisions/faction-policy.md) | Browse-Root vs. Tree-Root getrennt: Policy lebt in `scripts/seed-data/faction-policy.json` (16 Browse-Roots, `imperium` als Grand-Alignment-Exception), `factions.parent_id` weiter Single-Parent. `factions.json` audit-patched (Chaos-Rename + 14 Reparents), `brain:lint` neue Kategorie. | 2026-05-13 | 2026-05-13 |
+| [decisions/why-sonnet-not-haiku.md](./decisions/why-sonnet-not-haiku.md) | Supersedes Haiku-Default: Pipeline-Enrichment soll mit Sonnet (current major) laufen, weil Cockpit-Audit Datenqualitaets-Pathologien sichtbar macht und der Cost-Aufschlag im Hobby-Rahmen tragbar bleibt. | 2026-05-13 | 2026-05-13 |
 | [decisions/why-excel-ssot-not-crawl.md](./decisions/why-excel-ssot-not-crawl.md) | Discovery-Stage durch Maintainer-kuratierte Excel-SSOT ersetzt (859 Bücher + 191 Collections, deterministischer Loader → `book-roster.json`). Crawler bleiben im Code, ab Brief 058 nicht mehr Default-Eingang | 2026-05-10 | 2026-05-10 |
 | [decisions/karpathy-reset-2026-05-08.md](./decisions/karpathy-reset-2026-05-08.md) | Brain (`brain/` in repo) + Atlas (external Obsidian vault, `~/chrono-atlas/`) — Karpathy LLM Wiki pattern, domain-split | 2026-05-08 | 2026-05-09 |
 | [decisions/why-drizzle-supabase.md](./decisions/why-drizzle-supabase.md) | Next.js + TS + Tailwind + Drizzle + Supabase + Vercel + custom M-scale + string IDs / UUIDs split | 2026-04-28 | 2026-05-09 |
@@ -42,7 +43,7 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | [decisions/why-bulk-backfill.md](./decisions/why-bulk-backfill.md) | Bulk-backfill (lokal über Nacht, resumable, batched) + monthly maintenance, NOT daily-drift | 2026-05-02 | 2026-05-09 |
 | [decisions/why-multi-source-merge.md](./decisions/why-multi-source-merge.md) | Field-by-field source priority (deterministic, debuggable, source-aware), NOT first-source-wins / consensus | 2026-05-02 | 2026-05-09 |
 | [decisions/plan-reshuffle-2026-05-02.md](./decisions/plan-reshuffle-2026-05-02.md) | Phase 3 ↔ 4 swap; EntryRail dropped; Cartographer + Ask the Archive moved to Phase 5 | 2026-05-02 | 2026-05-09 |
-| [decisions/why-haiku-not-sonnet.md](./decisions/why-haiku-not-sonnet.md) | Default `INGEST_LLM_MODEL = claude-haiku-4-5` for Phase-3e voll-lauf (3.2× cheaper, equivalent on measurable axes); Sonnet for ad-hoc only | 2026-05-04 | 2026-05-09 |
+| [decisions/why-haiku-not-sonnet.md](./decisions/why-haiku-not-sonnet.md) | Superseded by Sonnet-current-major decision; retained as story-continuity stub for the 2026-05-04 Haiku cost/quality trade-off. | 2026-05-04 | 2026-05-13 |
 
 ## Workflow pages
 
@@ -62,8 +63,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Description | Updated |
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-13 |
-| (this file) | Master catalog | 2026-05-13 |
+| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-14 |
+| (this file) | Master catalog | 2026-05-14 |
 
 ## Concept pages
 

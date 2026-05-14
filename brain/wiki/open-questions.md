@@ -2,7 +2,9 @@
 title: Open questions (next-brief queue)
 type: overview
 created: 2026-05-09
-updated: 2026-05-13
+updated: 2026-05-15
+# 2026-05-15 (Brief 074): OQ9 fully closed (073-impl complete). OQ2-(c) chaos-pov_side reclassified as moot post-CC-Direct-Curation pipeline-shift — wandert in deferred-questions.md.
+# 2026-05-14 (Brief 073): OQ9 folded into Brief 073 (Maintainer-Audit-Cockpit) and pruned.
 sources:
   - ../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md
   - ../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
@@ -17,18 +19,20 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-10-057-arch-excel-roster-import.md
   - ../../sessions/archive/2026-05/2026-05-10-057-impl-excel-ssot-import.md
   - ../../sessions/2026-05-11-061-arch-ssot-loop.md
-  - ../../sessions/2026-05-12-063-arch-resolver-50-books.md
-  - ../../sessions/2026-05-12-063-impl-resolver-50-books.md
-  - ../../sessions/2026-05-12-067-impl-resolver-apply-readiness.md
-  - ../../sessions/2026-05-12-069-impl-resolver-apply-evidence.md
+  - ../../sessions/archive/2026-05/2026-05-12-063-arch-resolver-50-books.md
+  - ../../sessions/archive/2026-05/2026-05-12-063-impl-resolver-50-books.md
+  - ../../sessions/archive/2026-05/2026-05-12-067-impl-resolver-apply-readiness.md
+  - ../../sessions/archive/2026-05/2026-05-12-069-impl-resolver-apply-evidence.md
   - ../../sessions/2026-05-13-070-arch-faction-policy-hygiene.md
   - ../../sessions/2026-05-13-070-impl-faction-policy-hygiene.md
+  - ../../sessions/2026-05-14-072-arch-resolver-batch-2.md
+  - ../../sessions/2026-05-14-072-impl-resolver-batch-2.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
 related:
   - ./project-state.md
   - ./pipeline-state.md
   - ./deferred-questions.md
-  - ./decisions/why-haiku-not-sonnet.md
+  - ./decisions/why-sonnet-not-haiku.md
   - ./decisions/why-excel-ssot-not-crawl.md
   - ./decisions/faction-policy.md
 confidence: high
@@ -38,28 +42,33 @@ confidence: high
 
 > Items the **next** architect brief MUST address. The queue is intentionally small (3–5 items). Cowork prunes here when an item lands in a brief or is otherwise resolved. Dormant / distant items live in [`./deferred-questions.md`](./deferred-questions.md). Phase-internal backlog (3d / 3e / 3f reminders) lives in [`./pipeline-state.md`](./pipeline-state.md).
 >
-> **Migration history (kompakt):** Initial 9-Item-Carry-over migrated 049-Reset → 11 items; 051 Slim Pass split actionable / deferred / sub-phase. Post-054 verschob Anthologie-Re-Test + Body-Lore-Walker nach `deferred-questions.md` und ersetzte sie durch OQ4 (Junction-Resolver) + OQ5 (Unresolved-Queue). Excel-SSOT-Pivot (2026-05-10, Brief 057): OQ7 (Master-Liste-Crawl-Build) + OQ8 (Roster-Index-Selektor) erledigt. Post-069 (2026-05-12): OQ4 + OQ5 **für die ersten 50 W40K-Bücher geschlossen** durch Resolver-Sidecar-JSONs, canonical Reference-Extensions, `raw_name`-Audit-Spalten, `db:seed-resolver-extensions` und Re-Apply `ssot-w40k-001..005`. Universe-Year-Walker bleibt in `deferred-questions.md` (Maintainer-Direktive: erstmal hinten anstellen). Post-070 (2026-05-13): Faction-Policy & Hierarchie-Hygiene gelandet (Browse-Root vs. Tree-Root, `factions.json` Audit-Pass mit Chaos-Rename + 14 Reparents, `seed-resolver-extensions`-Faction-Insert auf Upsert geliftet, neue `brain:lint`-Kategorie); keine OQ-Verschiebung — parallel zu OQ1/2/3/6 gelaufen. UI-Rollup-Vorarbeit ist explizit als Future-Brief markiert (Trigger: ≥100 Bücher resolved + UI-Polish-Phase aktiv).
+> **Migration history (kompakt):** Initial 9-Item-Carry-over migrated 049-Reset → 11 items; 051 Slim Pass split actionable / deferred / sub-phase. Post-054 verschob Anthologie-Re-Test + Body-Lore-Walker nach `deferred-questions.md` und ersetzte sie durch OQ4 (Junction-Resolver) + OQ5 (Unresolved-Queue). Excel-SSOT-Pivot (2026-05-10, Brief 057): OQ7 (Master-Liste-Crawl-Build) + OQ8 (Roster-Index-Selektor) erledigt. Post-069 (2026-05-12): OQ4 + OQ5 **für die ersten 50 W40K-Bücher geschlossen** durch Resolver-Sidecar-JSONs, canonical Reference-Extensions, `raw_name`-Audit-Spalten, `db:seed-resolver-extensions` und Re-Apply `ssot-w40k-001..005`. Universe-Year-Walker bleibt in `deferred-questions.md` (Maintainer-Direktive: erstmal hinten anstellen). Post-070 (2026-05-13): Faction-Policy & Hierarchie-Hygiene gelandet (Browse-Root vs. Tree-Root, `factions.json` Audit-Pass mit Chaos-Rename + 14 Reparents, `seed-resolver-extensions`-Faction-Insert auf Upsert geliftet, neue `brain:lint`-Kategorie); keine OQ-Verschiebung — parallel zu OQ1/2/3/6 gelaufen. UI-Rollup-Vorarbeit ist explizit als Future-Brief markiert (Trigger: ≥100 Bücher resolved + UI-Polish-Phase aktiv). Cowork-Maintainer-Diskussion 2026-05-13 (im Vorfeld von Brief 071-Driver-Lauf-Ende): **OQ1 geschlossen pro Sonnet** (current major) statt Haiku 4.5 — Cost-Trade-off bewusst akzeptiert weil Cockpit-Phase Datenqualität sichtbar macht; ADR-Slug `why-sonnet-not-haiku.md`. **OQ2 auf (c) Prompt-Härtung reduziert** — (a) Tag-Promotion wandert in Cockpit-Triage (`loyalty` ubiquitär = Filter-wertlos), (b) `legion`-/`protagonist_class`-Erweiterung explizit nicht implementiert (Reader-Bedarf ist Sub-Faction nicht Klassen-Abstraktion; UI-Filter über `work_factions` reicht), plus neuer Mid-Knoten `heretic_astartes` unter `chaos` als 070-Follow-Up. **OQ9 Maintainer-Cockpit eingeführt** (Trigger: 100 Bücher applied, Read-only Audit, zwei Routen, `/buecher` mit Audit-Filtern). Post-072 (2026-05-14): zweite Resolver-Welle gelandet, `heretic_astartes`-Mid-Knoten + Reparents + Cross-Batch-Collections in der DB; **OQ2-(b) damit geschlossen** (Mid-Knoten existiert, UI-Rollup-Filter wandert ins Cockpit-Brief); **OQ9 ist jetzt scharf** — Trigger ≥ 100 applied ist erreicht (`ssot-w40k-001..010`, `work_factions=650`, `work_locations=239`, `work_characters=475`, `work_collections=35`). Erstes Cockpit-Triage-Material: Character-Long-Tail (+112 Junctions für 50 Bücher vs. +363 in erster Welle), Coverage `characters=475/552`, Iyanden-Doppel-Alias, Aeldari-/Drukhari-Alias-Pfad. Brief 073 (2026-05-14): **OQ9 in Brief gefaltet** — Sub-Route `/buch/[slug]/audit` + `/buecher`-Audit-Modus mit vier Pflicht-Filtern (Drift, Junction-Lücke, SSOT, In mehreren Collections — AND-kombiniert), Default-Sort `updatedAt desc`, Audit-Route `noindex`, keine Schema-Migration. `confidence < 0.7` ist bewusst nicht Pflicht-Filter (heute fast alles 1.00 im SSOT-Layer; wird scharf mit dem Sonnet-Pipeline-Lauf).
 
 Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions: …` (raw sources) · `Follow-up brief: …` (if known).
 
 ---
 
-## (1) Phase-3e Modell-Entscheidung — Haiku bleiben vs. Sonnet-Upgrade
+## (1) ~~Phase-3e Modell-Entscheidung~~ — closed 2026-05-13: Sonnet (current major)
 
-**Owner:** Cowork (architect decision, then CC implements). **Sessions:** [045-arch](../../sessions/archive/2026-05/2026-05-05-045-arch-cc-vs-pipeline-comparison.md), [045-impl](../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md), [047-impl](../../sessions/archive/2026-05/2026-05-08-047-impl-pipeline-hardening.md), [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md), [055-impl](../../sessions/archive/2026-05/2026-05-09-055-impl-v2-voll-lauf-decision-gate.md). **Follow-up brief:** verschoben in den 10er-Batch-Zeitraum — Vokabular-Erweiterung (item 2) ist eher Treiber als Modell-Entscheidung; Haiku-Cost ist post-055 nicht mehr streitig.
+Cowork-Maintainer-Diskussion 2026-05-13: Maintainer entscheidet pro Sonnet (current major) statt Haiku 4.5 für die Pipeline-Enrichment-Stage. Begründung: Cockpit-Phase steht an (siehe (9)) und damit wird Datenqualität sichtbarer + auditierbarer; Sonnet löste in 045-Comparison die Pathologien semantisch besser (`dual` vs `imperium` bei mark-of-calth, `vengeance`-Vokabular-Drift, nuancierteres Plausibility-Reasoning), genau die roten Lampen, die im Audit-View aufgehen würden. Cost-Trade-Off von ~$15 Haiku-Hochrechnung auf ~$45–70 Sonnet-Hochrechnung (750-Bücher-Voll-Lauf) ist bewusst akzeptiert. ADR landet als [`./decisions/why-sonnet-not-haiku.md`](./decisions/why-sonnet-not-haiku.md); altes [`./decisions/why-haiku-not-sonnet.md`](./decisions/why-haiku-not-sonnet.md) wird Stub mit „superseded by"-Pointer für Story-Continuity. Implementation-Brief bündelt das mit der nächsten Pipeline-Touch-Session (kein eigener Brief notwendig — Modell-Konfiguration lebt im shared LLM-Pfad `src/lib/ingestion/llm/enrich.ts`).
 
-Trade-off-Tabelle aus 045: Sonnet-Pipeline löst `dual` vs `imperium` (mark-of-calth-Tagging-Failure), gibt nuancierteres Plausibility-Reasoning, löst Vokabular-Drift `vengeance` semantisch. Cost ~3× Haiku. **Post-055-Update:** Web-Search-Disziplin-Härtung in 055 hat das Cost-Bild noch deutlicher verschoben — 1.06 Web-Searches/Buch (vs. Pilot 1.6) bei $0.0199/Buch fresh-Run-Cost (5-Book-Smoke; im Voll-Lauf-Diff war alles Cache-Hit, daher $0). Hochrechnung 750-Bücher-V2-Voll-Lauf ≈ **$15** auf der gemessenen Pace — vs. Sonnet hochgerechnet ~$45–60. Cost-Argument für Haiku ist erdrückend; Modell-Frage rutscht in der Priorität ab. Realistisch wird sie erst wieder relevant, wenn die 10er-Batch-Reihe Qualitäts-Pathologien zeigt, die Sonnet semantisch besser löst.
+## (2) Vokabular-Erweiterung — moot post-CC-Direct-Curation (2026-05-15)
 
-## (2) Vokabular-Erweiterung — `duty` + Faction-Dimension `legion` + `chaos`-pov_side-Pattern
+> **Post-Pipeline-Shift-Note (2026-05-15).** Die V2-LLM-Stage (`src/lib/ingestion/v2/llm/`) ist seit dem Brief-061-Standing-Loop de-facto durch eine `claude -p`-Subsession ersetzt, die die Override-Datei direkt produziert (Modell heute: Default-CC, momentan Opus). Damit ist der ursprüngliche OQ2-(c)-Inhalt ("System-Prompt-Patch für `chaos`-pov_side-Härtung an Traitor-Legion-Surface-Forms") **gegenstandslos** — es gibt keine Pipeline-System-Prompt-Stelle mehr, an der ein Patch landen könnte. Der retroaktive SQL-Promote-Pass (eine Handvoll Zeilen `UPDATE works SET pov_side='chaos' WHERE EXISTS (...)`) bleibt theoretisch sinnvoll, ist aber pragmatisch lieber im Cockpit-Triage-Loop am Einzelfall zu beheben (Maintainer-Sichtung im Audit-Modus + ggf. Override-Field-Korrektur). OQ2-(c) wandert deshalb in [`./deferred-questions.md`](./deferred-questions.md) — kann später als isolierter SQL-Hygiene-Mini-Brief reaktiviert werden, wenn der Cockpit-Triage-Loop einen klaren Drift-Cluster zeigt.
 
-**Owner:** Cowork (architect call) → CC (schema + seed + LLM prompt). **Sessions:** [044-impl](../../sessions/archive/2026-05/2026-05-05-044-impl-phase3e-batch-1.md), [045-impl](../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md). **Follow-up brief:** likely bundled with item (1).
+## (2-historic) Vokabular-Erweiterung — auf Prompt-Härtung geschrumpft (post-2026-05-13)
 
-Drei separate Erkenntnisse:
-- (a) `duty` ist 3-Modelle-Konsens echte Lücke (kein existierender Tag deckt die "selbstlose unpersönliche Pflicht/Stoik"-Semantik). Promotion-Kandidat zur facet_value.
-- (b) `legion` als neue multi-value-Faceten-Dimension (`ultramarines`, `word_bearers`, `iron_hands`, `salamanders`, …) ODER `protagonist_class`-Erweiterung mit `heretic_astartes` + `loyalist_astartes`. Beide Optionen sind Designthema. **Querverbindung post-054:** mit V2's Junction-Resolver (item 4) wird die `legion`-Dimension teilweise redundant, weil `work_factions` bereits Legion-Granularität trägt. Vor (1)+(2) muss geklärt sein, ob `legion`-Faceten zusätzlich zur Junction nötig sind oder durch sie ersetzt werden.
-- (c) `chaos`-pov_side wird auch von Sonnet nicht für `mark-of-calth` gesetzt (Word Bearers + Daemonic in Synopsis, aber kein chaos-Tag) — Modell-übergreifender Blind-Spot. Wahrscheinlich Prompt-Härtung statt Vokabular-Erweiterung.
+**Owner:** Cowork (Brief-Skizze) → CC (Prompt-Patch + retroaktiver Re-Apply-Pass). **Sessions:** [044-impl](../../sessions/archive/2026-05/2026-05-05-044-impl-phase3e-batch-1.md), [045-impl](../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md), Cowork-Maintainer-Diskussion 2026-05-13. **Follow-up brief:** wahrscheinlich gebündelt mit Resolver-Apply-Brief für `ssot-w40k-007..010` (Brief 072).
 
-Plus: `value_outside_vocabulary` über 70 Bücher kumulativ (042 + 044): `duty` × 5 (`praetorian-of-dorn`, `the-master-of-mankind`, `wolfsbane`, `saturnine`, `blood-of-the-emperor`), `vengeance` × 1 (`shattered-legions`), `fate` × 1 (`ruinstorm`). `duty` ist klarer Promotion-Kandidat; die anderen brauchen mehr Datenpunkte.
+Ursprünglicher Drei-Teiler ist nach 2026-05-13-Diskussion auf einen Teil reduziert:
+
+- **(a) `duty`-/Heroic-Tag-Promotion** → wandert in den Cockpit-Brief (siehe (9)). Begründung: Maintainer-Punkt 2026-05-13 ist scharf — `loyalty` ist heute ubiquitär (in ~80% der Bücher) und damit als Filter wertlos. Statt jetzt einen Tag-Namen abstrakt zu wählen (`duty`/`grim_resolve`/`heroic_sacrifice`/...), entsteht die Tag-Triage am Cockpit-Datensatz: welche Tags sind ubiquitär (splitten oder kicken), welche Themen-Cluster fehlen (z. B. die 5 Belegbücher Praetorian of Dorn / Master of Mankind / Wolfsbane / Saturnine / Blood of the Emperor). Tag-Hygiene als laufende Maintainer-Arbeit, nicht als einmaliger Architektur-Brief.
+
+- **(b) `legion`-Dimension bzw. `protagonist_class`-Erweiterung mit `heretic_astartes`/`loyalist_astartes`** → **explizit nicht implementiert** als Vokabular-Dimension. Maintainer-Punkt 2026-05-13: Reader-Filter-Bedarf ist „mehr Death Guard / Word Bearers / etc." (Sub-Faction-Granularität), nicht „Loyalist vs. Heretic" (Klassen-Abstraktion). Das `work_factions`-Junction-Schema trägt diese Granularität bereits — fehlt nur die UI-Exposure als hierarchischer Faction-Filter. Wandert in den Cockpit-Brief als `/buecher`-Filter-Anforderung. **Status post-2026-05-14: Brief 072 hat den `heretic_astartes`-Mid-Knoten unter `chaos` gepflanzt, 7 Heresy-Traitor-Legionen + optional Alpha Legion reparented, Death-Guard / Emperor's-Children / Black Legion / Crimson Slaughter / Violators / Fabius Bile's Coterie / Unfleshed als Mid-Knoten-Kinder angelegt. `faction-policy.json` trägt `heretic_astartes` als Browse-Root. OQ2-(b) damit auf der Daten-Seite geschlossen.** Das UI-Rollup-Filter-Stück (recursive parentId-Walk in `/buecher`) bleibt offen und wandert in das Cockpit-Brief (OQ9).
+
+- **(c) `chaos`-pov_side-Blind-Spot bei Traitor-Legionen** → bleibt als einziger eigentlicher OQ2-Inhalt. System-Prompt-Patch („Word Bearers, Iron Warriors, Death Guard, Thousand Sons, Emperor's Children, World Eaters, Night Lords, Alpha Legion = chaos pov_side, auch ohne wörtliches ‚Chaos' in der Synopsis") plus retroaktiver Promote-Pass, der `chaos` als pov_side setzt wenn `work_factions` eine der Traitor-Legionen enthält (ein paar Zeilen SQL). Cost minimal, gebündelt mit Brief 072.
+
+Plus: `value_outside_vocabulary`-Historie über 70 Bücher kumulativ (042 + 044) bleibt als Datenpunkt für die Cockpit-Triage stehen: `duty` × 5 (`praetorian-of-dorn`, `the-master-of-mankind`, `wolfsbane`, `saturnine`, `blood-of-the-emperor`), `vengeance` × 1 (`shattered-legions`), `fate` × 1 (`ruinstorm`).
 
 ## (3) Hand-Check-Workflow-Brief nach Architektur-Klärung
 
@@ -90,6 +99,10 @@ Drei Architektur-Entscheidungen für den Brief:
 - (c) **Retroactive-Strategie.** Der 055-Voll-Lauf-Diff enthält `audit.averageRating` für jedes erfolgreiche Hardcover-Match bereits. Ein simpler Promote-Pass kann den committed Diff retroaktiv um das `fields.rating` erweitern, ohne neuen V2-Lauf — alternativ ein Source-only-Re-Crawl (Hardcover + ggf. OL, kein LLM, ~Cents). Wahl der Strategie ist Aufwands-/Reproduzierbarkeits-Trade-off.
 
 Out of scope für diesen Eintrag: Universe-Year-Walker (parallel diskutiert, in `deferred-questions.md` geparkt), `availability` (war Slim-LLM-Drop genau wie Rating, hat aber keine vergleichbare deterministische API-Quelle und bleibt offen).
+
+## (9) ~~Maintainer-Audit-Cockpit für Buch-Seiten~~ — folded into Brief 073 (2026-05-14)
+
+Brief 073 (`sessions/2026-05-14-073-arch-maintainer-audit-cockpit.md`) bündelt OQ9 vollständig: Sub-Route `/buch/[slug]/audit` (Read-only, alle DB-Felder), Audit-Filter-Pillen auf `/buecher` (Drift / Junction-Lücke / SSOT / In mehreren Collections, AND-kombiniert), Default-Sort `updatedAt desc`, Audit-Route `noindex`, keine Schema-Migration. `confidence < 0.7`-Filter wurde bewusst nicht aufgenommen — wird scharf, wenn der Sonnet-Pipeline-Lauf wieder läuft (post-OQ2-(c)). Implementer-Report wird OQ9 abschließen.
 
 ## (7) ~~Master-Liste-Erstellung~~ — closed by 057-impl
 
