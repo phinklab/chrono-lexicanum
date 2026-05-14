@@ -83,3 +83,8 @@ yarn-error.log*
 # wiped on success, irrelevant to other developers. Diffs in /ingest/.last-run/
 # ARE committed (proof-of-run + audit trail).
 /ingest/.state/
+
+# --- loop-driver step log (Brief 071) --------------------------------------
+# scripts/run-ssot-loop.sh tees its stdout into this file for post-mortem
+# inspection. Per-run, regenerated on every invocation, irrelevant in git.
+/scripts/.last-loop-run.log
