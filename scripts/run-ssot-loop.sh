@@ -18,6 +18,9 @@
 #              Inject `skip-50-stop` into the FIRST iteration's trigger only.
 #              Use after a Resolver- or Cockpit-merge when cumulative sits at
 #              a 50-mod boundary and the first iter would otherwise pause.
+#              If the requested successful iterations land exactly on the next
+#              50-book boundary, the driver runs one extra unskipped pause probe
+#              so the resolver-pause block is committed before push/PR.
 #
 # WINDOWS
 #   PowerShell:  & "C:\Program Files\Git\bin\bash.exe" scripts/run-ssot-loop.sh
@@ -37,6 +40,7 @@
 #   2  halt-check violation inside an iteration (CC misbehaved)
 #   3  `claude -p` returned non-zero exit
 #   4  bad CLI arguments
+#   5  finalization failed (push/PR create failed when required)
 #
 # Mini-doc only — see sessions/2026-05-13-071-arch-loop-driver.md (the brief)
 # and the impl report sessions/2026-05-13-071-impl-loop-driver.md for the
@@ -214,6 +218,27 @@ validate_override_json() {
   " "$file"
 }
 
+# Counts all books in committed manual-overrides SSOT files.
+count_override_books() {
+  node --input-type=module -e "
+    import fs from 'node:fs';
+    import path from 'node:path';
+
+    const dir = process.argv[1];
+    let total = 0;
+    for (const name of fs.readdirSync(dir)) {
+      if (!/^manual-overrides-ssot-(w40k|hh)-\\d+\\.json\$/.test(name)) continue;
+      const data = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'));
+      if (!Array.isArray(data.books)) {
+        console.error(name + ': books is not an array');
+        process.exit(21);
+      }
+      total += data.books.length;
+    }
+    console.log(total);
+  " "$OVERRIDE_DIR"
+}
+
 # Runs all post-iteration halt-checks.
 # Inputs (globals): HEAD_BEFORE, FILES_BEFORE_RAW, ITER (for log)
 # Outputs (globals): OUTCOME=success|resolver_pause|violation, REASON, NEW_FILE
@@ -319,6 +344,8 @@ ITER_SUCCESS_COUNT=0
 RESOLVER_PAUSE_HIT=0
 NEW_FILES_COMMITTED=()
 CUMULATIVE_AT_PAUSE=""
+ATTEMPT=1
+FINAL_PAUSE_PROBE=0
 
 # tee stdout into a step log (gitignored)
 mkdir -p "$(dirname "$STEP_LOG")"
@@ -326,13 +353,24 @@ exec > >(tee "$STEP_LOG") 2>&1
 
 log "${C_BOLD}Driver start${C_RESET} — iterations=$ITERATIONS, branch=$CURRENT_BRANCH, skip-initial-pause=$SKIP_INITIAL_PAUSE"
 
-for (( i=1; i<=ITERATIONS; i++ )); do
-  log "${C_BOLD}=== Iteration $i/$ITERATIONS ===${C_RESET}"
+while (( ATTEMPT <= ITERATIONS || FINAL_PAUSE_PROBE == 1 )); do
+  IS_FINAL_PAUSE_PROBE=0
+  if (( FINAL_PAUSE_PROBE == 1 )); then
+    IS_FINAL_PAUSE_PROBE=1
+    FINAL_PAUSE_PROBE=0
+    log "${C_BOLD}=== Resolver-pause confirmation ===${C_RESET}"
+  else
+    log "${C_BOLD}=== Iteration $ATTEMPT/$ITERATIONS ===${C_RESET}"
+  fi
 
   HEAD_BEFORE=$(git rev-parse HEAD)
   FILES_BEFORE_RAW=$(list_override_files)
 
-  TRIGGER=$(build_trigger "$i")
+  if (( IS_FINAL_PAUSE_PROBE == 1 )); then
+    TRIGGER=$(build_trigger 0)
+  else
+    TRIGGER=$(build_trigger "$ATTEMPT")
+  fi
   log "  invoking claude -p ..."
 
   set +e
@@ -350,9 +388,22 @@ for (( i=1; i<=ITERATIONS; i++ )); do
   run_halt_checks
   case "$OUTCOME" in
     success)
+      if (( IS_FINAL_PAUSE_PROBE == 1 )); then
+        err "final resolver-pause probe produced an override instead of a pause block: $NEW_FILE"
+        exit 2
+      fi
       ok "  ✓ all halt-checks green — committed $NEW_FILE"
       ITER_SUCCESS_COUNT=$(( ITER_SUCCESS_COUNT + 1 ))
       NEW_FILES_COMMITTED+=("$NEW_FILE")
+
+      if (( ATTEMPT == ITERATIONS )); then
+        current_total=$(count_override_books)
+        if (( current_total > 0 && current_total % 50 == 0 )); then
+          log "  cumulative=$current_total is a resolver boundary; running one unskipped pause-confirmation subsession"
+          FINAL_PAUSE_PROBE=1
+        fi
+      fi
+      ATTEMPT=$(( ATTEMPT + 1 ))
       ;;
     resolver_pause)
       ok "  ✓ resolver-pause detected — stopping driver cleanly"
@@ -382,7 +433,8 @@ done
 log "${C_BOLD}Pushing branch${C_RESET}"
 
 if ! git push -u origin "$CURRENT_BRANCH"; then
-  warn "git push failed — leaving branch local for manual inspection"
+  err "git push failed — leaving branch local for manual inspection"
+  exit 5
 fi
 
 # Build PR body
@@ -428,6 +480,7 @@ if (( GH_READY == 1 )); then
       warn "gh pr create failed:"
       warn "$PR_URL"
       warn "open manually: $REPO_URL/compare/$CURRENT_BRANCH"
+      exit 5
     fi
   fi
 else

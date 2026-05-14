@@ -18,6 +18,15 @@ commits:
 
 `scripts/run-ssot-loop.sh` ist gelandet (Bash, Single-File, ~450 LOC inkl. Header und ANSI-Output). Live-Smoke mit `N=1` auf disposable Branch hat den Resolver-Pause-Pfad sauber durchlaufen und PR #51 auf GitHub erstellt — die Subsession hat den Pause-Block korrekt committed, alle Halt-Checks waren grün, der Driver hat den Cumulative-Counter (100) aus dem Log-Diff geparsed.
 
+## Review follow-up
+
+Codex-Review-Fixes nach dem ersten Smoke:
+
+- Resume-Läufe, die mit dem letzten erfolgreichen Batch exakt auf einer 50er-Grenze landen, starten jetzt automatisch eine zusätzliche ungeskippte Pause-Bestätigungs-Subsession. Produziert diese wider Erwarten noch ein Override statt Pause-Block, stoppt der Driver hart.
+- `git push`-Fehler und `gh pr create`-Fehler im authentifizierten `gh`-Pfad sind jetzt non-zero Finalization-Failures (`exit 5`) statt grüner Warnungen.
+- `scripts/run-ssot-loop.sh` ist im Git-Index executable (`100755`), passend zur dokumentierten `./scripts/run-ssot-loop.sh`-Usage.
+- `.gitignore` / `.gitattributes` wurden auf LF normalisiert; der semantische Diff bleibt der `.last-loop-run.log`-Ignore plus `*.sh text eol=lf`.
+
 ## What I did
 
 - `scripts/run-ssot-loop.sh` — neuer Single-File-Bash-Wrapper. Pre-Run-Checks (worktree clean, branch != main, claude/node in PATH, gh+auth optional). Iterationsschleife: pro Iter neue `claude -p`-Subsession mit `--allowedTools "Read Write Edit Bash Glob Grep WebSearch"` und `--permission-mode acceptEdits` (kein `--dangerously-skip-permissions`). Halt-Checks strikt: worktree clean, HEAD moved, `git diff --name-only` set-equality auf erwartete Pfade, Override-File-Count 0/1, JSON-Validierung via `node -e '...'` (kein jq), Log-Diff enthält neuen `## ` H2-Block, im Pause-Pfad zusätzlich `⏸`-Marker. Push + idempotenter PR-Create (`gh pr view --head` zuerst, `gh pr create` nur wenn keine PR existiert). Trigger-String löst die Brief-061-interne Widersprüchlichkeit (Z79 vs Z131) explizit auf.
