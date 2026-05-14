@@ -2,7 +2,7 @@
 title: Pipeline state (Phase 3)
 type: overview
 created: 2026-05-09
-updated: 2026-05-13
+updated: 2026-05-15
 sources:
   - ../../src/lib/ingestion/
   - ../../sessions/archive/2026-05/2026-05-08-047-arch-pipeline-hardening.md
@@ -28,6 +28,7 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-12-063-impl-resolver-50-books.md
   - ../../sessions/archive/2026-05/2026-05-12-067-impl-resolver-apply-readiness.md
   - ../../sessions/archive/2026-05/2026-05-12-069-impl-resolver-apply-evidence.md
+  - ../../sessions/2026-05-15-074-arch-resolver-batch-3.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
   - ../../ingest/.archive/v1/backfill-20260508-2101.diff.json
   - ../../ingest/.archive/v2-pilot/v2-pilot-20260509-1934.diff.json
@@ -54,7 +55,7 @@ related:
 confidence: high
 ---
 
-# Pipeline state (Phase 3, post-069)
+# Pipeline state (Phase 3, post-074-arch)
 
 > The TypeScript ingestion pipeline as it stands today. Sources, modules, current numbers, levers pulled, what's next. Detail-level page; for the high-level "where are we" use [`./project-state.md`](./project-state.md).
 >
@@ -314,6 +315,12 @@ ALTER TABLE works ADD CONSTRAINT works_external_book_id_unique UNIQUE (external_
 ### `display_order` Hybrid-Quelle
 
 Pair-Set kommt aus `Collection Links`; Order-Sequenz aus Books-Sheet `Collects Titles` (Pre-built `Map<parentExternalId, ChildTitleSequence>`, Lookup via `childSequence.indexOf(contentTitle)`). Kein Match → `displayOrder = 0` (Frontend fällt auf releaseYear-sort zurück).
+
+### Collection-gap policy (post-074)
+
+Unvollständige Sammelwerke bleiben **als normale Bücher** im Authority-Layer: `works`, `book_details`, Facets und Resolver-Junctions werden applied. Was nicht geschrieben wird, sind partielle `work_collections`-Kanten, wenn die Bestandteile nicht vollständig als Roster-Works modelliert sind. Stattdessen führt `scripts/seed-data/collection-gaps.json` ein maschinenlesbares Ledger mit `status`, bekannten schon vorhandenen Constituents und bekannten fehlenden Constituents. Spätere Collection-Gap-Resolve-Pässe laufen über dieses Ledger, ergänzen fehlende Works/Roster-Rows und schreiben erst dann vollständige `roster.collections`.
+
+Leitregel: **Kein Sammelwerk wegen fehlender Constituents aus dem Buchkatalog entfernen; aber auch keine halbe Collection als vollständig wirkende `work_collections`-Struktur darstellen.** Green Tide (`W40K-0147`) ist der erste Ledger-Fall aus Brief 074.
 
 ### Author-Splitting-Empirie (859-Buch-Loader-Lauf)
 

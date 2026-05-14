@@ -21,13 +21,13 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-074-arch: 150 W40K-Bücher applied, dritte Resolver-Welle offen; Green Tide ist Roster-Lücken-Handoff statt Cross-Batch-Stresstest. | 2026-05-15 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-074-arch: 150 W40K-Bücher applied, dritte Resolver-Welle offen; Green Tide bleibt Buch-Scope und bekommt Collection-Gap-Ledger statt partieller `work_collections`. | 2026-05-15 |
 | [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-074-arch: OQ9 closed/folded, OQ2-(c) moot post-CC-Direct-Curation; Restqueue Brief 074, Loop-Resume, OQ3/OQ6. | 2026-05-15 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: ergänzt um `chaos`-pov_side-Promote-Pass als moot/deferred. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-072: `ssot-w40k-001..010` applied, zweite Resolver-Welle plus Cross-Batch-`applyCollections`-Refactor sind durch, Authority-Junctions stehen bei 650/239/475/35. *(Inhaltliches Update steht aus — nächste Cowork-Session.)* | 2026-05-13 |
+| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-074: Collection-gap policy ergänzt — unfertige Sammelwerke bleiben Buch-Scope, keine partiellen `work_collections`, stattdessen `collection-gaps.json`. | 2026-05-15 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals heute, 859 SSOT-Roster ab 058, ~$0.114/book V1 / $0.0199/Buch V2 fresh-Smoke). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
 
 ## Decision pages (ADRs with revisit-triggers)
