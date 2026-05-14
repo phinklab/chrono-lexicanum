@@ -1,8 +1,8 @@
 ---
-title: Why Haiku 4.5, not Sonnet 4.6 (or Opus 4.7)
+title: Why Haiku 4.5, not Sonnet 4.6 (superseded)
 type: decision
 created: 2026-05-04
-updated: 2026-05-09
+updated: 2026-05-13
 sources:
   - ../../../sessions/archive/2026-05/2026-05-03-038-arch-phase3c-llm-enrichment.md
   - ../../../sessions/archive/2026-05/2026-05-03-039-impl-phase3c-llm-enrichment.md
@@ -10,46 +10,29 @@ sources:
   - ../../../sessions/archive/2026-05/2026-05-04-042-impl-phase3c-haiku-switch.md
   - ../../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
 related:
+  - ./why-sonnet-not-haiku.md
   - ../pipeline-state.md
   - ../open-questions.md
 confidence: high
 decision-date: 2026-05-04
+superseded-by: ./why-sonnet-not-haiku.md
+superseded-on: 2026-05-13
 ---
 
-# Why Haiku 4.5, not Sonnet 4.6
+# Why Haiku 4.5, not Sonnet 4.6 — superseded
 
-**Status:** active under-review (pending Anthologie-Re-Test for Hebel E).
+**Status:** superseded 2026-05-13 by [`./why-sonnet-not-haiku.md`](./why-sonnet-not-haiku.md). Diese ADR bleibt als Stub für Story-Continuity erhalten; der vollständige Text der Pre-Cockpit-Argumentation lebt im Git-History-Stand vor 2026-05-13 (`git log --follow brain/wiki/decisions/why-haiku-not-sonnet.md`).
 
-## Context
+## Kurzversion der ursprünglichen Argumentation (2026-05-04)
 
-Phase-3c was originally specified with Sonnet 4.6 + Web Search. The 20-Buch test came in 2× over budget ($0.35/Buch → $280 voll-lauf vs an expected $60–160). A Haiku 4.5 re-run on the same 20 books landed at $0.11/Buch → ~$88 voll-lauf — within original budget — without losing measurable synopsis quality.
+- Phase-3c war originally mit Sonnet 4.6 + Web Search geplant; 20-Buch-Test kam 2× über Budget ($0.35/Buch → $280 Voll-Lauf vs. erwartet $60–160).
+- Haiku 4.5 Re-Run lag bei $0.11/Buch → ~$88 Voll-Lauf, ohne messbaren Synopsis-Qualitätsverlust auf den Achsen, die wir testen konnten.
+- Cost-Gap (3× Input-Token-Preis) ist strukturell, nicht anomal — persistiert über 800 Bücher.
+- Plausibility-Depth-Gap (Sonnet löst `dual` vs `imperium` bei `mark-of-calth`, `vengeance`-Vokabular-Drift) ist real aber wurde als „schmaler als befürchtet" bewertet und durch Hand-Check für Prestige-Reads abgedeckt.
+- Hebel E (Hardcover-Author-Hint, Brief 047) sollte Haiku's Anthologie-Blindheit prompt-seitig schließen.
 
-The cost gap is structural (3× input-token price), not anomalous, so it persists across the 800-book run.
+## Warum die Entscheidung 2026-05-13 revidiert wurde
 
-## Decision
+Pre-Cockpit war Datenqualität nur über Stichproben in Hand-Check-Sessions sichtbar; das Plausibility-Depth-Gap-Argument zugunsten Haiku verließ sich darauf, dass die Pathologien nicht im UI auftauchen würden. Mit OQ9 (Maintainer-Cockpit, eingeführt 2026-05-13) wird Datenqualität sichtbar und Maintainer-Triage-Aufwand pro Pathologie steigt — der Trade-off kippt. Cost-Argument bleibt strukturell gültig ($45–70 Sonnet vs. $15 Haiku für 750-Bücher-Voll-Lauf), aber wird gegen den höheren Triage-Aufwand aufgewogen statt absolut bewertet.
 
-**Default `INGEST_LLM_MODEL = claude-haiku-4-5`** for the 3e voll-lauf and 3f maintenance. Per-book override available for ad-hoc Sonnet calls when an outlier warrants it.
-
-Two prompt hardenings were required to make Haiku safe as default:
-
-1. **Vokabular-ID-Form.** Demand bare value-IDs (`grimdark`, not `tone_grimdark`) — Haiku originally combined category-prefix with value, producing 19/20 invalid facet IDs.
-2. **Format-Required-Verhalten.** Demand closest-match under uncertainty plus a `data_conflict` flag for residual uncertainty — Haiku originally left format/availability optional.
-
-Hebel E (Hardcover-Author-Hint, brief 047) addresses Haiku's known anthology-blindness from the prompt side, before the model side becomes the question again.
-
-## Why
-
-- **3× cost reduction matters at 800-book scale.** Hobby project economics: $88 vs $280 is the difference between "let it run" and "is this worth it".
-- **Synopsis quality is equivalent on the measurable axes.** Both 100–150W in range; format-coverage 100% (vs Sonnet's 40% — which was *too conservative*); `value_outside_vocabulary` 19→1 after hardening.
-- **Plausibility-depth gap is real but narrower than feared.** Sonnet catches a few signals Haiku misses (`mark-of-calth` `dual` vs `imperium`; `vengeance` semantic resolution into `betrayal+loyalty`). Sonnet *also* misses `chaos`-pov_side for the same book — the deepest gaps are model-agnostic prompt issues.
-- **Out-of-vocabulary findings are useful signals.** Haiku flagging `duty` × 5 in 044 is a vocabulary-extension proposal, not a model failure. Lower flagging-threshold beats Sonnet's force-fit.
-- **Hand-Check covers the deep-plausibility tail.** Philipp does focused claude.ai Hand-Check sessions for ~150 prestige reads + ~120 flag-heavy outliers; Haiku's bulk output stands on its own for the remaining ~530 background books.
-
-## Revisit triggers
-
-- **Anthologie-Re-Test for Hebel E** (open-question 10). If Hardcover-Hint closes the multi-author-anthology gap, Haiku's last quality-deficit is gone. If it doesn't, Sonnet-for-anthologies (a hybrid) becomes attractive again.
-- **Anthropic releases Haiku 4.6+ with materially better plausibility.** Drop-in upgrade.
-- **Voll-Lauf cost overshoots $88.** Cost-tuning levers (`max_uses` 6→3, prompt-trim, web-search-optional-mode) were deferred to [`../deferred-questions.md`](../deferred-questions.md).
-- **A future tool-use feature is Sonnet-only and we need it.**
-
-For current acceptance numbers, see [`../pipeline-state.md`](../pipeline-state.md). For the chronological narrative of how the decision held up across 040 / 042 / 044 / 045 / 047, see the session logs and [`../log.md`](../log.md).
+Volle Argumentation für den Pivot in [`./why-sonnet-not-haiku.md`](./why-sonnet-not-haiku.md).

@@ -321,7 +321,7 @@ CC-Implementation des Excel-SSOT-Imports + neue Decision-Page für den Discovery
 
 ## 2026-05-13 · Update · Resolver applied + SSOT loop ready
 
-- Read: sessions/2026-05-12-063-impl-resolver-50-books.md, sessions/2026-05-12-067-impl-resolver-apply-readiness.md, sessions/2026-05-12-069-impl-resolver-apply-evidence.md
+- Read: sessions/archive/2026-05/2026-05-12-063-impl-resolver-50-books.md, sessions/archive/2026-05/2026-05-12-067-impl-resolver-apply-readiness.md, sessions/archive/2026-05/2026-05-12-069-impl-resolver-apply-evidence.md
 - Updated wiki: project-state.md (post-069 anchor), pipeline-state.md (SSOT authority + resolver layer), open-questions.md (OQ4/OQ5 closed for first 50 W40K books), index.md (catalog dates/descriptions)
 - Session hygiene in same cleanup pass: archived 058/060 session logs, added 059 archive note, committed missing 061/062 architect briefs.
 - Other: local Git `core.autocrlf=false` set for this repo to avoid Windows LF/CRLF churn; local/generated artefacts moved to `.scratch/cleanup-2026-05-13/` outside Git.
@@ -352,3 +352,59 @@ Parallele Hygiene-Spur zur SSOT-Loop. Browse-Root-Konzept (UI-Filter-Ebene) saub
 **Out of scope (per brief 070):** UI-Rollup, Schema-Migration, `kind`-Feld in der DB, neue Faction-Rows (Khorne/Tzeentch/Nurgle/Slaanesh/Sisters of Silence/Aeldari-Split/`chaos_undivided`), Alias-Refactor, Re-Apply existierender Batches, HH-Domain-Audit.
 
 (Future entries go below as new `## YYYY-MM-DD · <Op-type> · <short-title>` sections.)
+
+---
+
+## 2026-05-14 · Implementer · Resolver-Pass 2 für `ssot-w40k-006..010` (Brief 072)
+
+Zweite Resolver-Welle. CC hat in einem Branch (`session-072-resolver-batch-2` o. ä., Merge auf `main` steht aus) die im Brief vereinbarte Surface-Form-Crystallization umgesetzt — 54 neue Factions inkl. `heretic_astartes`-Mid-Knoten (parent=`chaos`, alignment=`chaos`) und Reparent von `sons_of_horus`, `night_lords`, `thousand_sons`, `world_eaters`, `word_bearers`, `iron_warriors`, `lords_of_unholy_host` (+ optional `alpha_legion`, CC hat reparented) plus die ehemals fehlenden `death_guard` und `emperors_children` als Heretic-Astartes-Kinder. 45 neue Locations + `great_rift`-In-place-Mutate (zusätzlicher Tag `era_frame`). 38 neue Characters (16 freq≥2 + 22 lore-iconic freq=1). Aeldari-/Drukhari-/Khârn-/Czevak-Aliase ergänzt. `faction-policy.json` um `heretic_astartes`, `adeptus_titanicus`, `officio_assassinorum` als Browse-Roots erweitert.
+
+**Cross-Batch-Collection-Refactor:** `apply-override.applyCollections` löst `external_book_id`-Endpunkte primär aus dem Batch-Map, bei Miss per DB-Lookup gegen `works.external_book_id`. Forward-Refs (`0`) loud-warned. Same-batch-Baseline 17 → Refactor 35 `work_collections`-Rows.
+
+**Counts nach Re-Apply `001..010`:** `work_factions=650`, `work_locations=239`, `work_characters=475`, `work_collections=35`. Coverage `factions=650/657`, `locations=239/258`, `characters=475/552`. Smoke-Slugs: `the-anarch=9/3/11`, `calgars-fury=7/3/1`, `the-emperors-gift=8/2/1`, `storm-of-iron=6/1/6`, `celestine=5/1/1`, `spear-of-the-emperor=8/3/2`. Collection-Spotcheck: `W40K-0040` enthält `first-and-only`, `ghostmaker`, `necropolis`; `W40K-0061` enthält `storm-of-iron`, `iron-warrior`.
+
+**Disziplin-Notizen:**
+
+- Pre-Apply-DB-Counts wurden nicht als Tabelle reportet, nur Post-Counts — Brief-Acceptance hatte beide verlangt. Nächste Resolver-Welle: Tabelle erzwingen.
+- Per-Batch-Counts pro Re-Apply-Iteration fehlen ebenfalls — Global + Smoke + Coverage reichen für die Konsistenz-Story, aber die 10-Zeilen-Tabelle wäre die saubere Form.
+- Character-Junction-Wachstum (+112 für 50 Bücher vs. +363 in erster Welle) ist auffällig niedrig. Passt zur Long-Tail-Hypothese (`characters=475/552`, 77 unresolved). Wird der erste Cockpit-Triage-Datenpunkt.
+- CC hat zwei Brain-Dateien angefasst (`brain/wiki/index.md`, `brain/wiki/decisions/why-sonnet-not-haiku.md`), um `brain:lint -- --no-write` grün zu kriegen. Ursache: Cowork hatte vor dem Brief-Commit dirty Brain-Edits im Worktree, die den Lint blockierten. CC hat das Minimum-Fix gefahren und transparent gemeldet; `project-state.md` / `open-questions.md` / `why-haiku-not-sonnet.md` / Brief-Drafts bewusst nicht angefasst. Disziplin-Punkt für Cowork: vor jedem Brief-Commit `brain:lint -- --no-write` lokal grünziehen.
+
+**Pages touched (wiki):** `project-state.md` (post-072 anchor, Branch-Note, Counts, Latest-pipeline-state-Block, What's-open, Recently-shipped, Next-likely-brief), `open-questions.md` (OQ2-(b) Status-Update, OQ9 scharfgeschaltet, Migration-History-Note erweitert, frontmatter), `index.md` (Datum-Bump auf 2026-05-14, post-072-Note), this `log.md`.
+
+**Outside wiki:** `scripts/seed-data/factions.json`, `scripts/seed-data/locations.json`, `scripts/seed-data/characters.json`, `scripts/seed-data/faction-aliases.json`, `scripts/seed-data/location-aliases.json`, `scripts/seed-data/character-aliases.json`, `scripts/seed-data/faction-policy.json`, `scripts/seed-resolver-extensions.ts`, `scripts/apply-override.ts`, `scripts/test-resolver.ts`, `scripts/apply-override-dry.ts`, `scripts/test-resolver-coverage.ts`, `scripts/test-resolver-data-integrity.ts`, `sessions/2026-05-14-072-arch-resolver-batch-2.md` (status flip), `sessions/2026-05-14-072-impl-resolver-batch-2.md`, `sessions/README.md`.
+
+**Out of scope (per Brief 072):** Schema-Migration, UI-Arbeit, neues Test-Framework, HH-Domain-Resolver, Cockpit-Audit-Route, Hardcover-Rating-Promotion, Anreicherungs-Brief für Reference-Rows, Logical-Work-ID / `superseded_by`, `canonicity`-Facet, `primaris`-/`firstborn`-Facet, Hierarchy-Rollup-Filter in der UI.
+
+## 2026-05-14 · Architect · Brief 073 — Maintainer-Audit-Cockpit (OQ9)
+
+OQ9 in einen Brief gefaltet. Brief 073 (`sessions/2026-05-14-073-arch-maintainer-audit-cockpit.md`) trennt `/buch/[slug]` (public-lean) von neuer Sub-Route `/buch/[slug]/audit` (Read-only Server Component, alle DB-Felder inkl. `raw_name`, `work_collections.confidence`/`basis`, `external_links`, `notes`) und gibt `/buecher` einen Audit-Modus mit vier kombinierbaren Filter-Pillen: **Drift** (`raw_name ≠ canonical`), **Junction-Lücke** (0 Rows in einer der drei Junctions), **SSOT** (`source_kind=ssot`), **In mehreren Collections** (`content_work_id`-Count ≥ 2). AND-Logik bei Multi-Select. Default-Sort im Audit-Modus: `updatedAt desc`. Audit-Route trägt `noindex`. Keine Schema-Migration. `confidence < 0.7` bewusst nicht in die Pflicht-Filter — heute steht im SSOT-Layer fast alles auf 1.00, der Filter wird erst scharf, wenn der Sonnet-Pipeline-Lauf wieder läuft (post-OQ2-(c)).
+
+Triage-Material aus 072, das das Cockpit sichtbar machen muss: Character-Long-Tail (+112 für 50 Bücher vs. +363 für die ersten 50), Iyanden-Doppel-Pfad, Aeldari-/Drukhari-Alias-Drift, 35 Cross-Batch-Collections.
+
+**AskUserQuestion-Lock-In 2026-05-14:**
+
+- Filter-Set: `Drift + Junction-Lücke + SSOT + Bonus 'In mehreren Collections'`.
+- Sub-Route-Pfad: `/buch/[slug]/audit` (Sub-Segment).
+- Audit-Tiefe: vollumfänglich pro Achse, was die Schicht hergibt (`work_factions`/`work_locations`/`work_characters` haben `role+raw_name`, `work_collections` hat zusätzlich `confidence+basis+displayOrder`, `works` trägt `confidence+sourceKind+externalBookId`).
+- Default-Sort: `updatedAt desc` (letzter Apply zuerst).
+
+**Design-Freedom-Block** zwischen Goal und Context übergibt explizit Pillen-Shape, Drift-Markierung, Audit-Section-Frame, Public-↔-Audit-Link-Position+Copy, Animations-Timings, oklch-Werte und Spacing-Skala an Claude Code. Architektur bleibt bei Cowork (welche Routen, welche Felder, welche Filter, AND-Logik, noindex-Intent).
+
+**Sessions hygiene mitkommutiert:** `2026-05-12-063-arch-resolver-50-books.md`, `063-impl`, `067-impl`, `069-impl` nach `sessions/archive/2026-05/` verschoben (per Cowork-Direktive — closed + nicht mehr load-bearing). Pfad-Referenzen aktualisiert in `brain/wiki/project-state.md`, `brain/wiki/open-questions.md`, `brain/wiki/pipeline-state.md`, `brain/wiki/log.md` (alle Source-Listen + dieser Log-Eintrag). 062-arch/-impl + 064 + 065 + 066 + 068 bleiben bewusst in `sessions/-Root` (nicht in der Cowork-Direktive).
+
+**Pages touched (wiki):** `project-state.md` (Next-likely-brief auf 073-arch umgestellt, Source-Pfade), `open-questions.md` (OQ9 auf folded-into-073 reduziert, Source-Pfade, Frontmatter-Note), `pipeline-state.md` (Source-Pfade), `index.md` (project-state + open-questions Tabellen-Rows), this `log.md`.
+
+**Outside wiki:** `sessions/2026-05-14-073-arch-maintainer-audit-cockpit.md` (neu), `sessions/README.md` (073-Row, Maintainer-Bedienung-Satz), `sessions/archive/2026-05/2026-05-12-063-arch-resolver-50-books.md` + `063-impl` + `067-impl` + `069-impl` (verschoben).
+
+**Out of scope (per Brief 073):** Inline-Edit-Pfad in der UI, Auth/Login, `ssot-w40k-011`-Loop-Resume, Brief 071 (Loop-Driver), OQ2-(c) `chaos`-pov_side-Prompt-Härtung, Hardcover-Rating-Promotion (OQ6), Schema-Migration, Cartographer-/Timeline-Audit-Filter, Reference-Entity-Audit-Pages (`/fraktion/[slug]/audit` etc.), Site-weit-Robots-Policy.
+
+**Codex-Review-Pass 2026-05-14 (vor Commit):** Codex hat den 073-Brief vor Hand-Off durchgegangen und fünf konkrete Schärfungen geliefert, alle übernommen.
+
+1. **Drift-Filter falsch definiert.** Brief schrieb erst `raw_name IS NOT NULL` → würde fast alle SSOT-Bücher matchen, weil `scripts/apply-override.ts` (line ~363) `rawName` unconditional aus der Surface-Form setzt (auch wenn `raw_name == reference.name`). Korrigiert auf `raw_name IS NOT NULL AND raw_name <> {reference}.name` an allen drei Stellen: `/buecher`-Filter-Definition (Acceptance), Drift-Markierung pro Section in der Audit-View (Acceptance), und Design-Freedom-Beschreibung der Drift-Sichtbarkeit.
+2. **Goal-Paragraph-Widerspruch.** Erstfassung las „Detail-Seite ist nicht Reddit-Public, sondern Cockpit", aber `/buch/[slug]` ist im Brief klar public-lean. Korrigiert auf „die bisherige Detail-Seite soll nicht länger Audit und Public mischen — die neue Audit-Sub-Route wird das Cockpit".
+3. **Public-Constraints kollidierte mit Pillen.** Constraints-Block sagte „Sichtbare Felder ausschließlich Cover/Titel/...", Acceptance erlaubte aber Faction-/Location-/Character-Pillen. Konsolidiert: Pillen + Facet-Tags sind explizit in der erlaubten Public-Liste. „Nicht sichtbar" zählt nur den Audit-Layer auf (raw_name, confidence, sourceKind, externalBookId, notes, rating, work_collections.confidence/basis, external_links als Liste).
+4. **Drukhari-Alias-Beispiel.** Brief schrieb fälschlich „Drukhari → `dark_eldar`". `scripts/seed-data/faction-aliases.json` line 13–14 mappt sowohl „Drukhari" als auch „Dark Eldar" auf `eldar` (kein eigener `dark_eldar`-Row im Seed). Beispiel an beiden Stellen korrigiert; bonus: der Fall ist jetzt der saubere Drift-Demo (`raw_name = "Drukhari"` ≠ `factions.name = "Eldar"`).
+5. **`brain:lint` in Hygiene-Acceptance.** AGENTS.md verlangt `npm run brain:lint -- --no-write` bei Code-Änderungen. Acceptance ergänzt zwischen `npm run lint` und `npm run dev`.
+
+Operativ-Punkt: 073-Brief liegt aktuell untracked auf `codex/session-072-resolver-batch-2`. Maintainer muss vor CC-Start commit/push (oder 072 sauber auf main landen) — sonst sieht CC den Brief je nach gewählter Cwd nicht.

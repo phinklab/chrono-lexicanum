@@ -24,10 +24,10 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-11-060-arch-ssot-w40k-001-db-apply.md
   - ../../sessions/archive/2026-05/2026-05-11-060-impl-ssot-w40k-001-db-apply.md
   - ../../sessions/2026-05-11-061-arch-ssot-loop.md
-  - ../../sessions/2026-05-12-063-arch-resolver-50-books.md
-  - ../../sessions/2026-05-12-063-impl-resolver-50-books.md
-  - ../../sessions/2026-05-12-067-impl-resolver-apply-readiness.md
-  - ../../sessions/2026-05-12-069-impl-resolver-apply-evidence.md
+  - ../../sessions/archive/2026-05/2026-05-12-063-arch-resolver-50-books.md
+  - ../../sessions/archive/2026-05/2026-05-12-063-impl-resolver-50-books.md
+  - ../../sessions/archive/2026-05/2026-05-12-067-impl-resolver-apply-readiness.md
+  - ../../sessions/archive/2026-05/2026-05-12-069-impl-resolver-apply-evidence.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
   - ../../ingest/.archive/v1/backfill-20260508-2101.diff.json
   - ../../ingest/.archive/v2-pilot/v2-pilot-20260509-1934.diff.json
