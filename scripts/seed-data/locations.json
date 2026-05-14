@@ -283,7 +283,8 @@
     "gy": 275,
     "tags": [
       "chaos",
-      "indomitus"
+      "indomitus",
+      "era_frame"
     ],
     "warp": true
   },
@@ -614,6 +615,388 @@
     "id": "medrengard",
     "name": "Medrengard",
     "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ultramar",
+    "name": "Ultramar",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "sector",
+      "region"
+    ]
+  },
+  {
+    "id": "imperium_nihilus",
+    "name": "Imperium Nihilus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "era_frame"
+    ]
+  },
+  {
+    "id": "maelstrom",
+    "name": "Maelstrom",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "warp"
+    ]
+  },
+  {
+    "id": "webway",
+    "name": "Webway",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "region"
+    ]
+  },
+  {
+    "id": "hydra_cordatus",
+    "name": "Hydra Cordatus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "killing_ground",
+    "name": "Killing Ground",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "salinas",
+    "name": "Salinas",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "commorragh",
+    "name": "Commorragh",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "iax",
+    "name": "Iax",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "casus_belli",
+    "name": "Casus Belli",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "vessel"
+    ]
+  },
+  {
+    "id": "solace",
+    "name": "Solace",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "vessel"
+    ]
+  },
+  {
+    "id": "rynns_world",
+    "name": "Rynn's World",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "arx_tyrannus",
+    "name": "Arx Tyrannus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "necromunda",
+    "name": "Necromunda",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "black_reach",
+    "name": "Black Reach",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "elaras_veil",
+    "name": "Elara's Veil",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "region",
+      "era_frame"
+    ]
+  },
+  {
+    "id": "tsadrekha",
+    "name": "Tsadrekha",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "darkand",
+    "name": "Darkand",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ikara_ix",
+    "name": "Ikara IX",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "nicomedua",
+    "name": "Nicomedua",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "sycorax",
+    "name": "Sycorax",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "opis",
+    "name": "Opis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "phaedra",
+    "name": "Phaedra",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "equixus",
+    "name": "Equixus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ithaka",
+    "name": "Ithaka",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "karybdis",
+    "name": "Karybdis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "reef_stars",
+    "name": "Reef Stars",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "region"
+    ]
+  },
+  {
+    "id": "kaelor",
+    "name": "Kaelor",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "phobian",
+    "name": "Phobian",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ras_hanem",
+    "name": "Ras Hanem",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "temple_of_shades",
+    "name": "Temple of Shades",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "valoria_quintus",
+    "name": "Valoria Quintus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "eastern_fringe",
+    "name": "Eastern Fringe",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "region"
+    ]
+  },
+  {
+    "id": "orestes",
+    "name": "Orestes",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "vernailis",
+    "name": "Vernailis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "black_library_place",
+    "name": "Black Library",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "region"
+    ]
+  },
+  {
+    "id": "iyanden",
+    "name": "Iyanden",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "duriel",
+    "name": "Duriel",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "dolumar_iv",
+    "name": "Dolumar IV",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "sigmatus",
+    "name": "Sigmatus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "torvendis",
+    "name": "Torvendis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "piscina_iv",
+    "name": "Piscina IV",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "enothis",
+    "name": "Enothis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "hive_trazior",
+    "name": "Hive Trazior",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "isle_of_st_capilene",
+    "name": "Isle of St Capilene",
+    "sector": null,
     "gx": null,
     "gy": null,
     "tags": []

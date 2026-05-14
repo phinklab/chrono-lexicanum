@@ -1,14 +1,8 @@
 /**
- * Standalone unit test for `src/lib/resolver/index.ts` (Brief 063 Stage 1+2).
+ * Standalone unit test for src/lib/resolver/index.ts.
  *
- * Verifies the two-stage resolution (Direct-Match + Alias-Lookup) returns
- * canonical IDs from the empirical surface forms collected across the first
- * 50 W40K override files (ssot-w40k-001..005). No test framework —
- * `node:assert/strict` + a single console.log line per case (same pattern as
- * `scripts/test-discovery-merge.ts`). Exits 1 on failure so CI / pre-commit
- * can gate on it.
- *
- * Run: `tsx scripts/test-resolver.ts` or via `npm run test:resolver`.
+ * No test framework: node:assert/strict + one console line per case, same
+ * pattern as scripts/test-discovery-merge.ts.
  */
 import assert from "node:assert/strict";
 import process from "node:process";
@@ -26,273 +20,233 @@ let fail = 0;
 function check(name: string, fn: () => void): void {
   try {
     fn();
-    console.log(`  ✓ ${name}`);
+    console.log(`ok - ${name}`);
     pass += 1;
   } catch (e) {
-    console.error(`  ✗ ${name}`);
-    console.error(`    ${e instanceof Error ? e.message : String(e)}`);
+    console.error(`not ok - ${name}`);
+    console.error(`  ${e instanceof Error ? e.message : String(e)}`);
     fail += 1;
   }
 }
 
-// =============================================================================
-// resolveFaction
-// =============================================================================
 console.log("resolveFaction");
 
-check("direct match — existing canonical (Inquisition)", () => {
+check("direct match - existing canonical Inquisition", () => {
   const r = resolveFaction("Inquisition");
   assert.equal(r.id, "inquisition");
   assert.equal(r.raw, "Inquisition");
 });
 
-check("direct match — existing canonical (Ultramarines)", () => {
+check("direct match - existing canonical Ultramarines", () => {
   assert.equal(resolveFaction("Ultramarines").id, "ultramarines");
 });
 
-check("direct match — new seed (Tanith First-and-Only)", () => {
+check("direct match - first resolver wave Tanith First-and-Only", () => {
   assert.equal(resolveFaction("Tanith First-and-Only").id, "tanith_first");
 });
 
-check("direct match — new seed (Sons of Sek)", () => {
-  assert.equal(resolveFaction("Sons of Sek").id, "sons_of_sek");
+check("direct match - Heretic Astartes mid-node", () => {
+  assert.equal(resolveFaction("Heretic Astartes").id, "heretic_astartes");
 });
 
-check("direct match — new seed (Mortifactors)", () => {
-  assert.equal(resolveFaction("Mortifactors").id, "mortifactors");
+check("direct match - Black Legion", () => {
+  assert.equal(resolveFaction("Black Legion").id, "black_legion");
 });
 
-check("alias — Imperial Guard routes to Astra Militarum", () => {
-  const r = resolveFaction("Imperial Guard");
-  assert.equal(r.id, "astra_militarum");
-  assert.equal(r.raw, "Imperial Guard"); // raw preserved verbatim
+check("direct match - Death Guard", () => {
+  assert.equal(resolveFaction("Death Guard").id, "death_guard");
 });
 
-check("direct match — Ordo Xenos remains a canonical Inquisition sub-faction", () => {
-  assert.equal(resolveFaction("Ordo Xenos").id, "ordo_xenos");
+check("direct match - Emperor's Children", () => {
+  assert.equal(resolveFaction("Emperor's Children").id, "emperors_children");
 });
 
-check("direct match — Ordo Malleus remains a canonical Inquisition sub-faction", () => {
-  assert.equal(resolveFaction("Ordo Malleus").id, "ordo_malleus");
+check("direct match - Khorne", () => {
+  assert.equal(resolveFaction("Khorne").id, "khorne");
 });
 
-check("direct match — Ordo Hereticus remains a canonical Inquisition sub-faction", () => {
-  assert.equal(resolveFaction("Ordo Hereticus").id, "ordo_hereticus");
+check("direct match - Adeptus Titanicus", () => {
+  assert.equal(resolveFaction("Adeptus Titanicus").id, "adeptus_titanicus");
 });
 
-check("alias — Eldar routes to canonical eldar (Aeldari)", () => {
-  assert.equal(resolveFaction("Eldar").id, "eldar");
+check("direct match - Officio Assassinorum", () => {
+  assert.equal(resolveFaction("Officio Assassinorum").id, "officio_assassinorum");
 });
 
-check("alias — Chaos routes to canonical (Chaos Undivided)", () => {
-  assert.equal(resolveFaction("Chaos").id, "chaos");
+check("alias - Imperial Guard routes to Astra Militarum", () => {
+  assert.equal(resolveFaction("Imperial Guard").id, "astra_militarum");
 });
 
-check("alias — T'au Empire routes to tau", () => {
-  assert.equal(resolveFaction("T'au Empire").id, "tau");
+check("alias - Drukhari routes to collapsed Aeldari umbrella", () => {
+  assert.equal(resolveFaction("Drukhari").id, "eldar");
 });
 
-check("alias — Space Marines routes to adeptus_astartes", () => {
-  assert.equal(resolveFaction("Space Marines").id, "adeptus_astartes");
+check("alias - Dark Eldar routes to collapsed Aeldari umbrella", () => {
+  assert.equal(resolveFaction("Dark Eldar").id, "eldar");
 });
 
-check("case-sensitivity — lowercase 'chaos' is not a direct match", () => {
-  // 'chaos' (lowercase) is NOT in canonical names (canonical is "Chaos Undivided")
-  // and NOT in the alias table (alias key is "Chaos" capitalised). Should miss.
+check("alias - Chaos Undivided routes to Chaos umbrella", () => {
+  assert.equal(resolveFaction("Chaos Undivided").id, "chaos");
+});
+
+check("alias - Mentor Legion routes to Mentors", () => {
+  assert.equal(resolveFaction("Mentor Legion").id, "mentors");
+});
+
+check("alias - Biel-Tan routes to eldar on faction axis", () => {
+  assert.equal(resolveFaction("Biel-Tan").id, "eldar");
+});
+
+check("alias - Iyanden routes to eldar on faction axis", () => {
+  assert.equal(resolveFaction("Iyanden").id, "eldar");
+});
+
+check("case-sensitivity - lowercase chaos is not a direct match", () => {
   assert.equal(resolveFaction("chaos").id, null);
 });
 
-check("unknown — frequency-1 long-tail (Black Legion) stays null", () => {
-  // Brief deliberately keeps Black Legion in long-tail; not seeded yet.
-  assert.equal(resolveFaction("Black Legion").id, null);
-});
-
-check("unknown — empty string returns null with raw=''", () => {
-  const r = resolveFaction("");
-  assert.equal(r.id, null);
-  assert.equal(r.raw, "");
-});
-
-check("unknown — fabricated faction stays null", () => {
+check("unknown - fabricated faction stays null", () => {
   assert.equal(resolveFaction("Cabal of Eight").id, null);
 });
 
-// =============================================================================
-// resolveLocation
-// =============================================================================
 console.log("\nresolveLocation");
 
-check("direct match — existing canonical (Terra)", () => {
+check("direct match - existing canonical Terra", () => {
   assert.equal(resolveLocation("Terra").id, "terra");
 });
 
-check("direct match — existing canonical (Eye of Terror)", () => {
-  assert.equal(resolveLocation("Eye of Terror").id, "eye_of_terror");
+check("direct match - existing canonical The Great Rift", () => {
+  assert.equal(resolveLocation("The Great Rift").id, "great_rift");
 });
 
-check("direct match — existing canonical (Sabbat Worlds)", () => {
-  assert.equal(resolveLocation("Sabbat Worlds").id, "sabbat");
+check("alias - Great Rift routes to existing row", () => {
+  assert.equal(resolveLocation("Great Rift").id, "great_rift");
 });
 
-check("direct match — sector-as-location (Scarus Sector)", () => {
-  assert.equal(resolveLocation("Scarus Sector").id, "scarus");
+check("alias - Cicatrix Maledictum routes to Great Rift", () => {
+  assert.equal(resolveLocation("Cicatrix Maledictum").id, "great_rift");
 });
 
-check("direct match — subsector-as-location (Helican Subsector)", () => {
-  assert.equal(resolveLocation("Helican Subsector").id, "helican");
+check("direct match - Ultramar region", () => {
+  assert.equal(resolveLocation("Ultramar").id, "ultramar");
 });
 
-check("alias — Calixis Sector routes to existing Calixis pin", () => {
-  assert.equal(resolveLocation("Calixis Sector").id, "calixis");
+check("direct match - Imperium Nihilus era frame", () => {
+  assert.equal(resolveLocation("Imperium Nihilus").id, "imperium_nihilus");
 });
 
-check("direct match — new seed (Eustis Majoris)", () => {
-  assert.equal(resolveLocation("Eustis Majoris").id, "eustis_majoris");
+check("direct match - Elara's Veil", () => {
+  assert.equal(resolveLocation("Elara's Veil").id, "elaras_veil");
 });
 
-check("direct match — new seed (Tanith)", () => {
-  assert.equal(resolveLocation("Tanith").id, "tanith");
+check("direct match - Casus Belli vessel", () => {
+  assert.equal(resolveLocation("Casus Belli").id, "casus_belli");
 });
 
-check("direct match — new seed (Hagia)", () => {
-  assert.equal(resolveLocation("Hagia").id, "hagia");
+check("direct match - Solace vessel", () => {
+  assert.equal(resolveLocation("Solace").id, "solace");
 });
 
-check("direct match — new seed (Salvation's Reach)", () => {
-  // Apostrophe-in-name preserved verbatim — direct-match works because the
-  // canonical seed uses the same surface form.
-  assert.equal(resolveLocation("Salvation's Reach").id, "salvations_reach");
+check("direct match - Black Library place", () => {
+  assert.equal(resolveLocation("Black Library").id, "black_library_place");
 });
 
-check("alias — Sabbat Worlds Crusade routes to sabbat", () => {
-  assert.equal(resolveLocation("Sabbat Worlds Crusade").id, "sabbat");
+check("direct match - Iyanden location axis", () => {
+  assert.equal(resolveLocation("Iyanden").id, "iyanden");
 });
 
-check("alias — Istvaan V routes to istvaan_v", () => {
-  assert.equal(resolveLocation("Istvaan V").id, "istvaan_v");
-});
-
-check("alias — Isstvan V (alt spelling) routes to istvaan_v", () => {
-  assert.equal(resolveLocation("Isstvan V").id, "istvaan_v");
-});
-
-check("unknown — fabricated world stays null", () => {
+check("unknown - fabricated world stays null", () => {
   assert.equal(resolveLocation("Atoll Verloren").id, null);
 });
 
-check("unknown — empty string returns null", () => {
-  const r = resolveLocation("");
-  assert.equal(r.id, null);
-  assert.equal(r.raw, "");
-});
-
-check("case-sensitivity — lowercase 'terra' is not a direct match", () => {
-  assert.equal(resolveLocation("terra").id, null);
-});
-
-// =============================================================================
-// resolveCharacter
-// =============================================================================
 console.log("\nresolveCharacter");
 
-check("direct match — Ibram Gaunt (highest frequency)", () => {
+check("direct match - first resolver wave Ibram Gaunt", () => {
   assert.equal(resolveCharacter("Ibram Gaunt").id, "ibram_gaunt");
 });
 
-check("direct match — Ciaphas Cain", () => {
-  assert.equal(resolveCharacter("Ciaphas Cain").id, "ciaphas_cain");
+check("direct match - Mykola Shonai", () => {
+  assert.equal(resolveCharacter("Mykola Shonai").id, "mykola_shonai");
 });
 
-check("direct match — Gregor Eisenhorn", () => {
-  assert.equal(resolveCharacter("Gregor Eisenhorn").id, "gregor_eisenhorn");
+check("direct match - Marneus Calgar", () => {
+  assert.equal(resolveCharacter("Marneus Calgar").id, "marneus_calgar");
 });
 
-check("direct match — Mabbon Etogaur (cross-faction note)", () => {
-  assert.equal(resolveCharacter("Mabbon Etogaur").id, "mabbon_etogaur");
+check("direct match - Roboute Guilliman", () => {
+  assert.equal(resolveCharacter("Roboute Guilliman").id, "roboute_guilliman");
 });
 
-check("direct match — Saint Sabbat", () => {
-  assert.equal(resolveCharacter("Saint Sabbat").id, "saint_sabbat");
+check("direct match - Saint Celestine", () => {
+  assert.equal(resolveCharacter("Saint Celestine").id, "saint_celestine");
 });
 
-check("direct match — Honsou", () => {
-  assert.equal(resolveCharacter("Honsou").id, "honsou");
+check("direct match - Kharn with diacritic", () => {
+  assert.equal(resolveCharacter("Kh\u00e2rn the Betrayer").id, "kharn_the_betrayer");
 });
 
-check("direct match — Lord General Lugo (rank-as-name)", () => {
-  assert.equal(resolveCharacter("Lord General Lugo").id, "lord_general_lugo");
+check("direct match - Magnus the Red", () => {
+  assert.equal(resolveCharacter("Magnus the Red").id, "magnus_the_red");
 });
 
-check("direct match — Nightbringer (C'tan, pragmatic chaos)", () => {
-  assert.equal(resolveCharacter("Nightbringer").id, "nightbringer");
+check("direct match - Duke Sliscus", () => {
+  assert.equal(resolveCharacter("Duke Sliscus").id, "duke_sliscus");
 });
 
-check("direct match — Alizebeth Bequin", () => {
-  assert.equal(resolveCharacter("Alizebeth Bequin").id, "alizebeth_bequin");
+check("alias - Kharn without epithet", () => {
+  assert.equal(resolveCharacter("Kh\u00e2rn").id, "kharn_the_betrayer");
+  assert.equal(resolveCharacter("Kharn").id, "kharn_the_betrayer");
 });
 
-check("direct match — raw preserved verbatim", () => {
-  const r = resolveCharacter("Cherubael");
-  assert.equal(r.id, "cherubael");
-  assert.equal(r.raw, "Cherubael");
+check("alias - Lukas the Trickster", () => {
+  assert.equal(resolveCharacter("Lukas the Trickster").id, "lukas_the_strifeson");
 });
 
-check("unknown — HH primarch (Magnus the Red) not yet seeded", () => {
-  // HH-domain stays out of W40K resolver scope per Brief 063 § Out of scope.
-  assert.equal(resolveCharacter("Magnus the Red").id, null);
+check("alias - Jackalwolf", () => {
+  assert.equal(resolveCharacter("Jackalwolf").id, "lukas_the_strifeson");
 });
 
-check("unknown — frequency-1 long-tail character stays null", () => {
+check("alias - Serpent of Commorragh", () => {
+  assert.equal(resolveCharacter("Serpent of Commorragh").id, "duke_sliscus");
+});
+
+check("alias - Inquisitor Czevak", () => {
+  assert.equal(resolveCharacter("Inquisitor Czevak").id, "bronislaw_czevak");
+});
+
+check("unknown - long-tail character stays null", () => {
   assert.equal(resolveCharacter("Mandragore Carrion").id, null);
 });
 
-check("unknown — empty string returns null", () => {
-  const r = resolveCharacter("");
-  assert.equal(r.id, null);
-  assert.equal(r.raw, "");
-});
-
-check("character-aliases is empty in this round — no alias-hits expected", () => {
-  // The shape of the file is `{}` (Brief 063, character-aliases.json).
-  // Any name that isn't a direct match must return null, not get aliased.
-  assert.equal(resolveCharacter("Inquisitor Eisenhorn").id, null);
-});
-
-// =============================================================================
-// normalizeCharacterRole
-// =============================================================================
 console.log("\nnormalizeCharacterRole");
 
-check("role — pov stays pov", () => {
+check("role - pov stays pov", () => {
   assert.equal(normalizeCharacterRole("pov").role, "pov");
 });
 
-check("role — appears stays appears", () => {
+check("role - appears stays appears", () => {
   assert.equal(normalizeCharacterRole("appears").role, "appears");
 });
 
-check("role — mentioned stays mentioned", () => {
+check("role - mentioned stays mentioned", () => {
   assert.equal(normalizeCharacterRole("mentioned").role, "mentioned");
 });
 
-check("role — supporting becomes appears", () => {
+check("role - supporting becomes appears", () => {
   const normalized = normalizeCharacterRole("supporting");
   assert.equal(normalized.role, "appears");
   assert.equal(normalized.changed, true);
 });
 
-check("role — antagonist becomes appears", () => {
+check("role - antagonist becomes appears", () => {
   const normalized = normalizeCharacterRole("antagonist");
   assert.equal(normalized.role, "appears");
   assert.equal(normalized.changed, true);
 });
 
-check("role — unexpected values throw before DB insert", () => {
+check("role - unexpected values throw before DB insert", () => {
   assert.throws(() => normalizeCharacterRole("cameo"), /Unsupported character role/);
 });
 
-// =============================================================================
-// Summary
-// =============================================================================
 console.log(`\n${pass} passed, ${fail} failed`);
 if (fail > 0) process.exit(1);

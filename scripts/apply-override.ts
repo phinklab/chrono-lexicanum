@@ -55,7 +55,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { parseArgs } from "node:util";
 import { resolve } from "node:path";
 
-import { count, eq, inArray } from "drizzle-orm";
+import { count, eq, inArray, or } from "drizzle-orm";
 
 import { db } from "@/db/client";
 import {
@@ -796,14 +796,15 @@ async function applyBook(
 async function applyCollections(
   externalIdToUuid: Map<string, string>,
   roster: RosterFile,
+  batchName: string,
 ): Promise<number> {
   const batchExternalIds = new Set(externalIdToUuid.keys());
-  // A collection row is in scope iff BOTH endpoints are inside the override
-  // batch. Cross-batch refs (e.g. a future Eisenhorn-shorts collection
-  // pointing at a non-W40K-001 piece) stay untouched.
+  // A collection row is in scope iff at least one endpoint is inside the
+  // override batch. The other endpoint may have been applied in an earlier
+  // batch, so resolve misses through works.external_book_id below.
   const inScope = roster.collections.filter(
     (c) =>
-      batchExternalIds.has(c.collectionExternalId) &&
+      batchExternalIds.has(c.collectionExternalId) ||
       batchExternalIds.has(c.contentExternalId),
   );
 
@@ -821,13 +822,49 @@ async function applyCollections(
 
   if (inScope.length === 0) return 0;
 
-  const rows = inScope.map((c) => ({
-    collectionWorkId: externalIdToUuid.get(c.collectionExternalId)!,
-    contentWorkId: externalIdToUuid.get(c.contentExternalId)!,
-    displayOrder: c.displayOrder,
-    confidence: c.confidence !== null ? c.confidence.toFixed(2) : null,
-    basis: c.basis,
-  }));
+  const resolvedExternalIds = new Map(externalIdToUuid);
+  const resolveWorkId = async (externalBookId: string): Promise<string | null> => {
+    const cached = resolvedExternalIds.get(externalBookId);
+    if (cached !== undefined) return cached;
+    const row = (await db
+      .select({ id: works.id })
+      .from(works)
+      .where(eq(works.externalBookId, externalBookId))
+      .limit(1)) as Array<{ id: string }>;
+    const resolved = row[0]?.id ?? null;
+    if (resolved !== null) resolvedExternalIds.set(externalBookId, resolved);
+    return resolved;
+  };
+
+  const rows: Array<{
+    collectionWorkId: string;
+    contentWorkId: string;
+    displayOrder: number;
+    confidence: string | null;
+    basis: string | null;
+  }> = [];
+  for (const c of inScope) {
+    const collectionWorkId = await resolveWorkId(c.collectionExternalId);
+    const contentWorkId = await resolveWorkId(c.contentExternalId);
+    if (collectionWorkId === null || contentWorkId === null) {
+      const missing = [
+        collectionWorkId === null ? c.collectionExternalId : null,
+        contentWorkId === null ? c.contentExternalId : null,
+      ].filter((value): value is string => value !== null);
+      console.warn(
+        `[applyCollections] skipping unresolved external_book_id=${missing.join(",")} in batch=${batchName}`,
+      );
+      continue;
+    }
+    rows.push({
+      collectionWorkId,
+      contentWorkId,
+      displayOrder: c.displayOrder,
+      confidence: c.confidence !== null ? c.confidence.toFixed(2) : null,
+      basis: c.basis,
+    });
+  }
+  if (rows.length === 0) return 0;
   await db.insert(workCollections).values(rows);
   return rows.length;
 }
@@ -903,7 +940,7 @@ async function main() {
     );
   }
 
-  const collectionsCount = await applyCollections(externalIdToUuid, roster);
+  const collectionsCount = await applyCollections(externalIdToUuid, roster, args.batch);
   console.log(`[apply-override] work_collections written: ${collectionsCount} rows`);
 
   // Summary counts straight from the DB so the report has authoritative numbers.
@@ -937,7 +974,12 @@ async function main() {
             await db
               .select({ n: count() })
               .from(workCollections)
-              .where(inArray(workCollections.collectionWorkId, batchUuidList))
+              .where(
+                or(
+                  inArray(workCollections.collectionWorkId, batchUuidList),
+                  inArray(workCollections.contentWorkId, batchUuidList),
+                ),
+              )
           )[0]?.n ?? 0,
   };
   console.log(`[apply-override] DB-side counts:`, summary);

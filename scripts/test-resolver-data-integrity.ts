@@ -17,13 +17,25 @@ import {
 
 const SEED_DIR = join(process.cwd(), "scripts", "seed-data");
 const ALIGNMENT_VALUES = new Set(["imperium", "chaos", "xenos", "neutral"]);
-const OVERRIDE_BATCHES = ["001", "002", "003", "004", "005"] as const;
+const OVERRIDE_BATCHES = [
+  "001",
+  "002",
+  "003",
+  "004",
+  "005",
+  "006",
+  "007",
+  "008",
+  "009",
+  "010",
+] as const;
 const EXPECTED_SMOKE_SLUGS = [
-  "xenos",
-  "first-and-only",
-  "necropolis",
-  "nightbringer",
   "the-anarch",
+  "calgars-fury",
+  "the-emperors-gift",
+  "storm-of-iron",
+  "celestine",
+  "spear-of-the-emperor",
 ] as const;
 
 interface FactionRow {
@@ -226,7 +238,7 @@ function main(): void {
     }
   });
 
-  check("coverage smoke slugs exist in 001..005", () => {
+  check("coverage smoke slugs exist in 001..010", () => {
     const slugs = new Set<string>();
     for (const batch of OVERRIDE_BATCHES) {
       const override = readJson<OverrideFile>(
