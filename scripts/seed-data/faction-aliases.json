@@ -9,5 +9,13 @@
   "T'au": "tau",
   "Space Marines": "adeptus_astartes",
   "Imperium of Mankind": "imperium",
-  "Imperium of Man": "imperium"
+  "Imperium of Man": "imperium",
+  "Dark Eldar": "eldar",
+  "Drukhari": "eldar",
+  "Heretic Astartes": "heretic_astartes",
+  "Mentor Legion": "mentors",
+  "Chaos Undivided": "chaos",
+  "Biel-Tan": "eldar",
+  "Iyanden": "eldar",
+  "Fabius Bile Coterie": "fabius_bile_coterie"
 }

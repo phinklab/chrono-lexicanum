@@ -453,5 +453,271 @@
     "primaryFactionId": "iron_warriors",
     "lexicanumUrl": null,
     "notes": null
+  },
+  {
+    "id": "mykola_shonai",
+    "name": "Mykola Shonai",
+    "primaryFactionId": "imperial_navy",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "marneus_calgar",
+    "name": "Marneus Calgar",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "cato_sicarius",
+    "name": "Cato Sicarius",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "leto_barbaden",
+    "name": "Leto Barbaden",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "daron_nisato",
+    "name": "Daron Nisato",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "sylvanus_thayer",
+    "name": "Sylvanus Thayer",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "shaso_oreskaan",
+    "name": "Shas'O Or'es'ka'an",
+    "primaryFactionId": "tau",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "aunrai",
+    "name": "Aun'rai",
+    "primaryFactionId": "tau",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "lord_winterbourne",
+    "name": "Lord Winterbourne",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "tigurius",
+    "name": "Tigurius",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "cassius",
+    "name": "Cassius",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "forrix",
+    "name": "Forrix",
+    "primaryFactionId": "iron_warriors",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "kroeger",
+    "name": "Kroeger",
+    "primaryFactionId": "iron_warriors",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "barban_falk",
+    "name": "Barban Falk",
+    "primaryFactionId": "iron_warriors",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "berossus",
+    "name": "Berossus",
+    "primaryFactionId": "iron_warriors",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "magos_naicin",
+    "name": "Magos Naicin",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "roboute_guilliman",
+    "name": "Roboute Guilliman",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "saint_celestine",
+    "name": "Saint Celestine",
+    "primaryFactionId": "sisters_of_battle",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "kharn_the_betrayer",
+    "name": "Khârn the Betrayer",
+    "primaryFactionId": "world_eaters",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "magnus_the_red",
+    "name": "Magnus the Red",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "lucius_the_eternal",
+    "name": "Lucius the Eternal",
+    "primaryFactionId": "emperors_children",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "fabius_bile",
+    "name": "Fabius Bile",
+    "primaryFactionId": "fabius_bile_coterie",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "abaddon_the_despoiler",
+    "name": "Abaddon the Despoiler",
+    "primaryFactionId": "black_legion",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "ahzek_ahriman",
+    "name": "Ahzek Ahriman",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "eldrad_ulthran",
+    "name": "Eldrad Ulthran",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "logan_grimnar",
+    "name": "Logan Grimnar",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "ferrus_manus",
+    "name": "Ferrus Manus",
+    "primaryFactionId": "iron_hands",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "astelan",
+    "name": "Astelan",
+    "primaryFactionId": "fallen_angels",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "belial",
+    "name": "Belial",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "darnath_lysander",
+    "name": "Darnath Lysander",
+    "primaryFactionId": "imperial_fists",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "lukas_the_strifeson",
+    "name": "Lukas the Strifeson",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "duke_sliscus",
+    "name": "Duke Sliscus",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": "Drukhari Kabal Lord; collapsed to eldar until an Aeldari split lands"
+  },
+  {
+    "id": "zso_sahaal",
+    "name": "Zso Sahaal",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "bronislaw_czevak",
+    "name": "Bronislaw Czevak",
+    "primaryFactionId": "ordo_xenos",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "yriel",
+    "name": "Yriel",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": "Iyanden Autarch; Iyanden remains a location plus faction alias to eldar"
+  },
+  {
+    "id": "vorx",
+    "name": "Vorx",
+    "primaryFactionId": "death_guard",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "anuradha",
+    "name": "Anuradha",
+    "primaryFactionId": "emperors_spears",
+    "lexicanumUrl": null,
+    "notes": "Chapter-serf POV; primary faction is patron chapter"
+  },
+  {
+    "id": "amadeus_kaias_incarius",
+    "name": "Amadeus Kaias Incarius",
+    "primaryFactionId": "mentors",
+    "lexicanumUrl": null,
+    "notes": null
   }
 ]

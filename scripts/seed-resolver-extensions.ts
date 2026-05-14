@@ -1,33 +1,26 @@
 /**
- * seed-resolver-extensions.ts — idempotent seed for the Brief-063 resolver
- * reference-data extensions.
+ * seed-resolver-extensions.ts - idempotent seed for resolver reference-data
+ * extensions.
  *
- * Inserts the new factions / sectors / locations / characters that were added
- * to `scripts/seed-data/*.json` for Brief 063 (the resolver landing for the
- * first 50 W40K Authority-Layer books). Existing rows are NEVER mutated —
- * the script walks each entity, fetches the set of IDs already in the DB,
- * filters the JSON down to the genuinely-new rows, and INSERTs only those.
- * `onConflictDoNothing()` is layered on top as a belt-and-braces safety net
- * (parallel runs, mid-script kills, edited JSONs).
+ * Inserts the factions / sectors / locations / characters from
+ * scripts/seed-data/*.json for Brief 063 and later resolver passes. Factions
+ * are upserted from JSON-sourced columns so hierarchy hygiene fixes reach the
+ * DB on re-run. Locations and characters remain insert-only, except for the
+ * targeted Brief-072 great_rift.tags update that preserves existing tags and
+ * adds era_frame.
  *
  * Order of inserts respects FK dependencies:
- *   1. Factions   — locations.sectorId is fk→sectors (not factions), but
- *                   characters.primaryFactionId is fk→factions, so factions
- *                   must land first for the character insert to succeed.
- *   2. Sectors    — locations.sectorId is fk→sectors.
- *   3. Locations  — depends on sectors.
- *   4. Characters — depends on factions.
+ *   1. Factions
+ *   2. Sectors
+ *   3. Locations (+ targeted great_rift tag update)
+ *   4. Characters
  *
- * CLI: `npm run db:seed-resolver-extensions` (defined in package.json).
- * Maintainer-trigger only — CC does not run this against prod-Supabase from
- * the workstation. This script is the deliberate sibling of the Brief-060
- * `apply-override` workflow: schema lands via `db:migrate`, reference data
- * lands here, then the per-batch `apply-override` re-runs use the new resolver.
+ * CLI: npm run db:seed-resolver-extensions
  */
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
-import { inArray, sql } from "drizzle-orm";
+import { eq, inArray, sql } from "drizzle-orm";
 
 import { db } from "@/db/client";
 import {
@@ -319,6 +312,47 @@ async function seedLocations(data: SeedLocation[]): Promise<{ added: number; ski
   return { added: toInsert.length, skipped: existingSet.size };
 }
 
+async function updateGreatRiftTags(
+  data: SeedLocation[],
+): Promise<{ updated: boolean; missing: boolean }> {
+  const desiredRow = data.find((location) => location.id === "great_rift");
+  const desiredTags = desiredRow?.tags ?? [];
+  if (desiredTags.length === 0) {
+    console.log("[seed-resolver-extensions] great_rift tags: skipped (no seed tags)");
+    return { updated: false, missing: false };
+  }
+
+  const existing = (await db
+    .select({ tags: locations.tags })
+    .from(locations)
+    .where(eq(locations.id, "great_rift"))
+    .limit(1)) as Array<{ tags: string[] | null }>;
+
+  if (existing.length === 0) {
+    console.warn("[seed-resolver-extensions] great_rift tags: skipped (row missing)");
+    return { updated: false, missing: true };
+  }
+
+  const currentTags = existing[0].tags ?? [];
+  const mergedTags = [...currentTags];
+  for (const tag of desiredTags) {
+    if (!mergedTags.includes(tag)) mergedTags.push(tag);
+  }
+  if (mergedTags.length === currentTags.length) {
+    console.log("[seed-resolver-extensions] great_rift tags: skipped (already current)");
+    return { updated: false, missing: false };
+  }
+
+  await db
+    .update(locations)
+    .set({ tags: mergedTags })
+    .where(eq(locations.id, "great_rift"));
+  console.log(
+    `[seed-resolver-extensions] great_rift tags: updated (${mergedTags.join(", ")})`,
+  );
+  return { updated: true, missing: false };
+}
+
 async function seedCharacters(data: SeedCharacter[]): Promise<{ added: number; skipped: number }> {
   const rows = data.map((c) => ({
     id: c.id,
@@ -351,11 +385,12 @@ async function main() {
   const f = await seedFactions(data.factions);
   const s = await seedSectors(data.sectors);
   const l = await seedLocations(data.locations);
+  const greatRift = await updateGreatRiftTags(data.locations);
   const c = await seedCharacters(data.characters);
   const totalAdded = f.added + s.added + l.added + c.added;
   const totalExisting = f.updated + s.skipped + l.skipped + c.skipped;
   console.log(
-    `[seed-resolver-extensions] done. total: +${totalAdded} new, ${totalExisting} existing (factions upserted, others skipped)`,
+    `[seed-resolver-extensions] done. total: +${totalAdded} new, ${totalExisting} existing (factions upserted, others skipped, great_rift=${greatRift.updated ? "updated" : "skipped"})`,
   );
   process.exit(0);
 }

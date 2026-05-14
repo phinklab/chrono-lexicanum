@@ -1,5 +1,5 @@
 /**
- * Dry simulation for the resolver apply sweep (ssot-w40k-001..005).
+ * Dry simulation for the resolver apply sweep (ssot-w40k-001..010).
  *
  * This intentionally does not import the DB client and performs no mutations.
  * It mirrors the resolver-facing parts of scripts/apply-override.ts:
@@ -30,19 +30,31 @@ import type {
 } from "../src/lib/resolver/roles";
 
 const SEED_DIR = join(process.cwd(), "scripts", "seed-data");
-const BATCHES = ["001", "002", "003", "004", "005"] as const;
+const BATCHES = [
+  "001",
+  "002",
+  "003",
+  "004",
+  "005",
+  "006",
+  "007",
+  "008",
+  "009",
+  "010",
+] as const;
 const SMOKE_SLUGS = [
-  "xenos",
-  "first-and-only",
-  "necropolis",
-  "nightbringer",
   "the-anarch",
+  "calgars-fury",
+  "the-emperors-gift",
+  "storm-of-iron",
+  "celestine",
+  "spear-of-the-emperor",
 ] as const;
 
 const EXPECTED_RANGES = {
-  factions: { min: 200, max: 324 },
-  locations: { min: 80, max: 148 },
-  characters: { min: 250, max: 375 },
+  factions: { min: 500, max: 651 },
+  locations: { min: 180, max: 239 },
+  characters: { min: 430, max: 540 },
 } as const;
 
 interface OverrideEntity {
@@ -68,6 +80,12 @@ interface OverrideFile {
 
 interface RosterFile {
   books: Array<{ externalBookId: string }>;
+  collections: RosterCollection[];
+}
+
+interface RosterCollection {
+  contentExternalId: string;
+  collectionExternalId: string;
 }
 
 interface FacetCatalog {
@@ -281,6 +299,10 @@ function formatCounts(counts: Map<string, number>): string {
     .join(", ");
 }
 
+function batchLabel(): string {
+  return `ssot-w40k-${BATCHES[0]}..${BATCHES[BATCHES.length - 1]}`;
+}
+
 function collectUnresolved(
   simulations: BookSimulation[],
   axis: "factions" | "locations" | "characters",
@@ -372,6 +394,73 @@ function collectReferenceFkFindings(refs: ReferenceData): string[] {
   return findings;
 }
 
+function buildBatchByExternalId(overrideBooks: OverrideBook[]): Map<string, string> {
+  const batchByExternalId = new Map<string, string>();
+  for (const batch of BATCHES) {
+    const file = readJson<OverrideFile>(
+      `manual-overrides-ssot-w40k-${batch}.json`,
+    );
+    for (const book of file.books) {
+      batchByExternalId.set(book.externalBookId, batch);
+    }
+  }
+  assert.equal(
+    batchByExternalId.size,
+    overrideBooks.length,
+    "override books should map 1:1 to batches",
+  );
+  return batchByExternalId;
+}
+
+function analyzeCollections(
+  roster: RosterFile,
+  batchByExternalId: Map<string, string>,
+): {
+  oldSameBatchResolvable: number;
+  newResolvable: number;
+  crossBatchResolvable: RosterCollection[];
+  forwardRefs: RosterCollection[];
+} {
+  const appliedIds = new Set(batchByExternalId.keys());
+  const relevant = roster.collections.filter(
+    (collection) =>
+      appliedIds.has(collection.collectionExternalId) ||
+      appliedIds.has(collection.contentExternalId),
+  );
+  const oldSameBatchResolvable = relevant.filter((collection) => {
+    const collectionBatch = batchByExternalId.get(collection.collectionExternalId);
+    const contentBatch = batchByExternalId.get(collection.contentExternalId);
+    return collectionBatch !== undefined && collectionBatch === contentBatch;
+  }).length;
+  const newResolvable = relevant.filter(
+    (collection) =>
+      appliedIds.has(collection.collectionExternalId) &&
+      appliedIds.has(collection.contentExternalId),
+  ).length;
+  const crossBatchResolvable = relevant.filter((collection) => {
+    const collectionBatch = batchByExternalId.get(collection.collectionExternalId);
+    const contentBatch = batchByExternalId.get(collection.contentExternalId);
+    return (
+      collectionBatch !== undefined &&
+      contentBatch !== undefined &&
+      collectionBatch !== contentBatch
+    );
+  });
+  const forwardRefs = crossBatchResolvable.filter((collection) => {
+    const collectionBatch = batchByExternalId.get(collection.collectionExternalId);
+    const contentBatch = batchByExternalId.get(collection.contentExternalId);
+    return collectionBatch !== undefined && contentBatch !== undefined
+      ? collectionBatch < contentBatch
+      : false;
+  });
+  return {
+    oldSameBatchResolvable,
+    newResolvable,
+    crossBatchResolvable,
+    forwardRefs,
+  };
+}
+
 function assertInRange(label: string, value: number, min: number, max: number): void {
   assert.ok(
     value >= min && value <= max,
@@ -381,8 +470,11 @@ function assertInRange(label: string, value: number, min: number, max: number): 
 
 function main(): void {
   const refs = loadReferences();
+  const roster = readJson<RosterFile>("book-roster.json");
   const overrideBooks = loadOverrides();
   const simulations = overrideBooks.map((book) => simulateBook(book, refs));
+  const batchByExternalId = buildBatchByExternalId(overrideBooks);
+  const collectionAnalysis = analyzeCollections(roster, batchByExternalId);
 
   const missingRoster = overrideBooks
     .filter((book) => !refs.rosterIds.has(book.externalBookId))
@@ -402,7 +494,7 @@ function main(): void {
     work_characters: simulations.reduce((sum, book) => sum + book.characters.rows.length, 0),
   };
 
-  console.log("[apply-override-dry] batches=ssot-w40k-001..005");
+  console.log(`[apply-override-dry] batches=${batchLabel()}`);
   console.log(`[apply-override-dry] books=${overrideBooks.length}`);
   console.log("[apply-override-dry] resolved junction counts:");
   console.log(`  work_factions:   ${totals.work_factions}`);
@@ -432,12 +524,29 @@ function main(): void {
   console.log(`  ${formatCounts(roleNormalizations) || "none"}`);
   console.log("");
 
+  console.log("[apply-override-dry] work_collections resolution:");
+  console.log(
+    `  old same-batch resolvable: ${collectionAnalysis.oldSameBatchResolvable}`,
+  );
+  console.log(`  new cross-batch-capable resolvable: ${collectionAnalysis.newResolvable}`);
+  console.log(
+    `  cross-batch examples: ${
+      collectionAnalysis.crossBatchResolvable
+        .slice(0, 6)
+        .map((c) => `${c.collectionExternalId}->${c.contentExternalId}`)
+        .join(", ") || "none"
+    }`,
+  );
+  console.log(`  forward refs in ${batchLabel()}: ${collectionAnalysis.forwardRefs.length}`);
+  console.log("");
+
   console.log("[apply-override-dry] validation:");
   console.log(`  missing roster externalBookIds: ${missingRoster.length}`);
   console.log(`  missing facet ids:             ${missingFacets.length}`);
   console.log(`  invalid normalized roles:      ${invalidRoles.length}`);
   console.log(`  missing resolved FK targets:   ${missingTargets.length}`);
   console.log(`  dangling JSON FK/alias refs:   ${referenceFkFindings.length}`);
+  console.log(`  forward collection refs:       ${collectionAnalysis.forwardRefs.length}`);
 
   assert.deepEqual(missingRoster, [], `missing roster ids: ${missingRoster.join(", ")}`);
   assert.deepEqual(missingFacets, [], `missing facet ids: ${missingFacets.join(", ")}`);
@@ -447,6 +556,17 @@ function main(): void {
     referenceFkFindings,
     [],
     `dangling JSON FK/alias refs: ${referenceFkFindings.join("; ")}`,
+  );
+  assert.deepEqual(
+    collectionAnalysis.forwardRefs,
+    [],
+    `forward collection refs: ${collectionAnalysis.forwardRefs
+      .map((c) => `${c.collectionExternalId}->${c.contentExternalId}`)
+      .join("; ")}`,
+  );
+  assert.ok(
+    collectionAnalysis.crossBatchResolvable.length > 0,
+    "expected at least one cross-batch collection example",
   );
   assertInRange(
     "work_factions",

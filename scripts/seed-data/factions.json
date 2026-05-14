@@ -15,47 +15,49 @@
   {
     "id": "sons_of_horus",
     "name": "Sons of Horus",
-    "parent": "chaos",
+    "parent": "heretic_astartes",
     "alignment": "chaos",
     "tone": "warmaster"
   },
   {
     "id": "night_lords",
     "name": "Night Lords",
-    "parent": "chaos",
+    "parent": "heretic_astartes",
     "alignment": "chaos",
     "tone": "terror"
   },
   {
     "id": "thousand_sons",
     "name": "Thousand Sons",
-    "parent": "chaos",
+    "parent": "heretic_astartes",
     "alignment": "chaos",
     "tone": "arcane"
   },
   {
     "id": "world_eaters",
     "name": "World Eaters",
-    "parent": "chaos",
+    "parent": "heretic_astartes",
     "alignment": "chaos",
     "tone": "butcher"
   },
   {
     "id": "word_bearers",
     "name": "Word Bearers",
-    "parent": "chaos",
-    "tone": "chaos"
+    "parent": "heretic_astartes",
+    "tone": "chaos",
+    "alignment": "chaos"
   },
   {
     "id": "iron_warriors",
     "name": "Iron Warriors",
-    "parent": "chaos",
-    "tone": "chaos"
+    "parent": "heretic_astartes",
+    "tone": "chaos",
+    "alignment": "chaos"
   },
   {
     "id": "alpha_legion",
     "name": "Alpha Legion",
-    "parent": "chaos",
+    "parent": "heretic_astartes",
     "alignment": "chaos",
     "tone": "shadow"
   },
@@ -338,7 +340,7 @@
   {
     "id": "lords_of_unholy_host",
     "name": "Lords of the Unholy Host",
-    "parent": "chaos",
+    "parent": "heretic_astartes",
     "alignment": "chaos",
     "tone": "chaos"
   },
@@ -348,5 +350,384 @@
     "parent": "chaos",
     "alignment": "chaos",
     "tone": "chaos"
+  },
+  {
+    "id": "heretic_astartes",
+    "name": "Heretic Astartes",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": null,
+    "glyph": null
+  },
+  {
+    "id": "black_legion",
+    "name": "Black Legion",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "death_guard",
+    "name": "Death Guard",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "plague"
+  },
+  {
+    "id": "emperors_children",
+    "name": "Emperor's Children",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "excess"
+  },
+  {
+    "id": "crimson_slaughter",
+    "name": "Crimson Slaughter",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "violators",
+    "name": "Violators",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "fabius_bile_coterie",
+    "name": "Fabius Bile's Coterie",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "unfleshed",
+    "name": "Unfleshed",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "dark_mechanicum",
+    "name": "Dark Mechanicum",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "archive"
+  },
+  {
+    "id": "white_scars",
+    "name": "White Scars",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "iron_hands",
+    "name": "Iron Hands",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "crimson_fists",
+    "name": "Crimson Fists",
+    "parent": "imperial_fists",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "iron_snakes",
+    "name": "Iron Snakes",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "silver_skulls",
+    "name": "Silver Skulls",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "dark_hunters",
+    "name": "Dark Hunters",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "mentors",
+    "name": "Mentors",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "emperors_spears",
+    "name": "Emperor's Spears",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "star_scorpions",
+    "name": "Star Scorpions",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "celestial_lions",
+    "name": "Celestial Lions",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "wulfen",
+    "name": "Wulfen",
+    "parent": "space_wolves",
+    "alignment": "imperium",
+    "tone": "feral"
+  },
+  {
+    "id": "khorne",
+    "name": "Khorne",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "blood"
+  },
+  {
+    "id": "slaanesh",
+    "name": "Slaanesh",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "excess"
+  },
+  {
+    "id": "tzeentch",
+    "name": "Tzeentch",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "arcane"
+  },
+  {
+    "id": "nurgle",
+    "name": "Nurgle",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "plague"
+  },
+  {
+    "id": "adeptus_titanicus",
+    "name": "Adeptus Titanicus",
+    "parent": "mechanicus",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "legio_invicta",
+    "name": "Legio Invicta",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "legio_tempestus",
+    "name": "Legio Tempestus",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "legio_metalica",
+    "name": "Legio Metalica",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "pallidus_mor",
+    "name": "Pallidus Mor",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "imperial_hunters",
+    "name": "Imperial Hunters",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "imperial_knights",
+    "name": "Imperial Knights",
+    "parent": "mechanicus",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "skitarii",
+    "name": "Skitarii",
+    "parent": "mechanicus",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "officio_assassinorum",
+    "name": "Officio Assassinorum",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "shadow"
+  },
+  {
+    "id": "vindicare_temple",
+    "name": "Vindicare Temple",
+    "parent": "officio_assassinorum",
+    "alignment": "imperium",
+    "tone": "shadow"
+  },
+  {
+    "id": "eversor_temple",
+    "name": "Eversor Temple",
+    "parent": "officio_assassinorum",
+    "alignment": "imperium",
+    "tone": "shadow"
+  },
+  {
+    "id": "callidus_temple",
+    "name": "Callidus Temple",
+    "parent": "officio_assassinorum",
+    "alignment": "imperium",
+    "tone": "shadow"
+  },
+  {
+    "id": "culexus_temple",
+    "name": "Culexus Temple",
+    "parent": "officio_assassinorum",
+    "alignment": "imperium",
+    "tone": "shadow"
+  },
+  {
+    "id": "rogue_traders",
+    "name": "Rogue Traders",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "frontier"
+  },
+  {
+    "id": "adeptus_arbites",
+    "name": "Adeptus Arbites",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "navis_nobilite",
+    "name": "Navis Nobilite",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "squats",
+    "name": "Squats",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "Aus-Setting-Removed sub-faction (Squats)"
+  },
+  {
+    "id": "hive_fleet_leviathan",
+    "name": "Hive Fleet Leviathan",
+    "parent": "tyranids",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "hive_fleet_kraken",
+    "name": "Hive Fleet Kraken",
+    "parent": "tyranids",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "harlequins",
+    "name": "Harlequins",
+    "parent": "eldar",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "fire_caste",
+    "name": "Fire Caste",
+    "parent": "tau",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "ethereal_caste",
+    "name": "Ethereal Caste",
+    "parent": "tau",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "ctan",
+    "name": "C'tan",
+    "parent": "necrons",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "arkan_confederates",
+    "name": "Arkan Confederates",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "bloodborn",
+    "name": "Bloodborn",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "cult_of_chaos",
+    "name": "Cult of Chaos",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "roaring_blades",
+    "name": "Roaring Blades",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "salinas_liberation_front",
+    "name": "Salinas Liberation Front",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "punishers",
+    "name": "Punishers",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "fallen_angels",
+    "name": "Fallen Angels",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "lore-ambiguous Fallen Angels, pragmatically under Chaos"
   }
 ]

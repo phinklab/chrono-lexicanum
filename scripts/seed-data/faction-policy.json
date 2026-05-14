@@ -2,13 +2,16 @@
   "browseRoots": [
     "astra_militarum",
     "adeptus_astartes",
+    "heretic_astartes",
     "inquisition",
     "mechanicus",
+    "adeptus_titanicus",
     "commissariat",
     "custodes",
     "sisters_of_battle",
     "ecclesiarchy",
     "imperial_navy",
+    "officio_assassinorum",
     "grey_knights",
     "chaos",
     "eldar",
@@ -26,6 +29,9 @@
     "grey_knights": "Chamber Militant Ordo Malleus + Astartes-Grade. Single-Parent: adeptus_astartes (Resolver-Robustheit gegen Astartes-Klassifikation in Books).",
     "genestealer_cults": "Sub-Faction der Tyraniden (parent='tyranids'), nicht eigener Browse-Root.",
     "eldar": "Aeldari-Umbrella; Craftworlds/Drukhari/Harlequins/Ynnari-Split deferred.",
-    "imperium": "Grand-Alignment-Konzept (lebt in factions.alignment), bleibt parent-null als Lore-Root, ist aber KEIN Browse-Root."
+    "imperium": "Grand-Alignment-Konzept (lebt in factions.alignment), bleibt parent-null als Lore-Root, ist aber KEIN Browse-Root.",
+    "heretic_astartes": "Mid-Knoten unter chaos analog zu adeptus_astartes unter imperium. Hosts Heresy-Traitor-Legionen plus Renegade Chapters / Warbands.",
+    "adeptus_titanicus": "Titan-Legion-Umbrella unter mechanicus. Hosts Legio Invicta / Tempestus / Metalica / Pallidus Mor / Imperial Hunters.",
+    "officio_assassinorum": "Assassinorum-Umbrella mit Vindicare / Eversor / Callidus / Culexus Tempeln."
   }
 }
