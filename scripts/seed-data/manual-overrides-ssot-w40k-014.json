@@ -1,0 +1,540 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-014",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-14",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0131..W40K-0140 — a 2023-2025 cluster spanning the 10th-edition launch (Leviathan box-novel) through the early-Arks-of-Omen / post-Arks-of-Omen / Sabbat-Worlds-revival window. Tight thematic clustering this batch: a **Cadian-legacy mini-arc** (Longshot's Darya Nevic on Attruso → Creed: Ashes of Cadia's Ursula-Creed-daughter-of-Ursarkar legacy-mantle → Fall of Cadia's Ursarkar-Creed-last-stand 13th-Black-Crusade-prequel-causally → Hell's Last's Minka-Lesk-Cadian-101st-post-Cadia-survivor-arc on jungle-world Alia) — four of ten entries are Cadian-Astra-Militarum-primary with deliberate cross-generation continuity, the densest Cadian-Imperial-Guard cluster in the authority layer to date. **Three first-authority-layer-as-primary-protagonist faction-debuts** (Tyranids-as-on-page-primary-antagonist with the Norn-Emissary-Harbinger on-page in Leviathan + Emperor's-Children-as-primary-protagonist-Heretic-Astartes-Legion in Fulgrim: The Perfect Son + Ethereal-Caste-led-Elemental-Council Tau-spy-thriller in Elemental Council), plus the **first Daemon-Primarch-Fulgrim-POV** (second authority-layer Daemon-Primarch-POV after ssot-w40k-013's Angron), the **first authority-layer Norn-Emissary-Harbinger-on-page-antagonist**, the **first authority-layer Imperium-Civil-War-Cadia-Fall structural-event-novel** (Fall of Cadia), the **first authority-layer Pylon-Network-anti-Warp-research-frame** (Genefather), the **first authority-layer Sabbat-Worlds-Aeronautica-Imperialis-revival** (Interceptor City — direct sequel to Double Eagle ssot-w40k-009 after 20-in-universe + 21-publication years), and the **first authority-layer Bree-Jagdea-return-from-Double-Eagle character continuity**. Two direct sequels to prior authority-layer entries: Above and Beyond (Denny Flowers, Lucille-von-Shard-book-2) follows Outgunned (ssot-w40k-013 W40K-0121), and Interceptor City (Dan Abnett) follows Double Eagle (ssot-w40k-009 W40K-0090) — cross-batch character-continuity now resolving for the first time across the authority layer. One direct sequel within Astartes-tech-mystery: Genefather (Guy Haley) follows Belisarius Cawl: The Great Work (ssot-w40k-011 W40K-0103). One Jude-Reid-double-entry (Creed: Ashes of Cadia + Fulgrim: The Perfect Son — same author, ~18-month publication-spread, two faction-debut books). **Female-primary-POV density**: five-of-ten entries are female-primary-POV (Darya Nevic + Ursula Creed + Lucille von Shard returning from Outgunned + Bree Jagdea returning from Double Eagle + Minka Lesk), matching ssot-w40k-011's previous high-water-mark; if Elemental Council's ensemble-with-Ethereal-Yor'i-frame is counted as gender-mixed-but-female-anchor, this batch effectively pushes a Cadian-and-female-led 2023-2025 cluster. **Five `data_conflict` flags for missing author fields** in the roster (W40K-0136/0137/0138/0139/0140) — confirmed by WebSearch + Black-Library + Lexicanum + Goodreads + Simon-&-Schuster + Warhammer-Community + author-Rapid-Fire-interviews: Above and Beyond = Denny Flowers; Elemental Council = Noah Van Nguyen; Interceptor City = Dan Abnett; Hell's Last = Justin D Hill; Fulgrim: The Perfect Son = Jude Reid. Roster-mistag-cleanup deferred to Maintainer Excel-SSOT workflow per Brief-061 convention; books stay in this batch to keep the slot covered. **No `low_confidence` flags this iteration** — 2023-2025 is the publication-frontier zone for my training data (cutoff January 2026 covers all five 2025 releases plus their pre-order coverage cycle), but WebSearch + Black-Library + Lexicanum + The-Unseen-Library + At-Boundary's-Edge + Goonhammer + Track-of-Words + Warhammer-Community + author-Rapid-Fire-interviews + Simon-&-Schuster product pages all gave strong coverage on every entry. **WebSearch:** mean=1.0/book, max=1 (10 total searches — one obligatory plot-context search per book, no follow-up searches needed). **Resolver-Pre-Note**: cumulativeBefore=130 → cumulativeAfter=140; next natural resolver-pause-window is at cumulative=150 (`ssot-w40k-015`, W40K-0141..W40K-0150 — one iteration from this one). The surface-form-resolver-pile from the post-069 second-window (ssot-w40k-006..014 = ~90 Bücher) continues to grow, with the Cadian-legacy-mini-arc this batch consolidating Cadia / Cadian-Shock-Troops / Ursarkar-E.-Creed / 13th-Black-Crusade / Eye-of-Terror / Indomitus-Crusade canonical-resolver-targets, and the cross-batch character-continuity (Lucille-von-Shard / Bree-Jagdea / Belisarius-Cawl / Fabius-Bile) signalling that Authority-Layer-internal-resolver-work is now load-bearing alongside surface-form-canonical-resolution.",
+  "books": [
+    {
+      "externalBookId": "W40K-0131",
+      "slug": "leviathan",
+      "overrides": {
+        "synopsis": "Standalone Ultramarines-vs-Tyranids novel — the launch-tie-in for the **Warhammer 40,000 Leviathan box set** that opened **10th Edition** in 2023. **Lieutenant Castamon** of the Ultramarines 1st Company recognises the early signs of an impending Tyranid invasion of the agri-fortress world **Regium** and launches a pre-emptive strike force to slaughter the xenos in the outer system before they can take root, but **Hive Fleet Leviathan**'s newest tendril proves more unpredictable and more deadly than any prior incursion. Pressure mounts: scouting beasts mount small-scale attacks, biomorphic spores fill the air to choke the local populace into the hive-mind's biomass-reserve, and a long-dormant **Genestealer Cult** chooses the eve of Regium's **Ascension Day** to launch its own uprising in concert with the swarm above. **Apothecary Biologis Vultis**, whose research into Tyranid biology may be the one weapon that can give the defenders an asymmetric edge, becomes pivotal — and is hunted in turn by **the Harbinger**, a new Norn-Emissary-class psychic-leader-beast deployed by the hive-mind specifically to crush the Ultramarines' adaptive defence. The novel's second half is a full-scale planetary invasion; new Tyranid creatures (von Ryan's Leapers, Neurotyrants, Norn Emissary) debut on-page consistent with the 10th-edition codex roll-out. **First authority-layer Tyranids-as-primary-on-page-antagonist + first authority-layer Hive-Fleet-Leviathan-frame + first authority-layer Norn-Emissary / Harbinger-on-page + first Lieutenant Castamon + first Apothecary-Biologis Vultis + first Regium + first authority-layer 10th-Edition-launch-tie-in surface forms**; second authority-layer Genestealer-Cults appearance after ssot-w40k-012's *Day of Ascension* (cross-reference of the Cult-uprising-as-Tyranid-precursor frame).",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "siege",
+          "last_stand",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "cosmic_horror",
+          "war",
+          "brotherhood",
+          "sacrifice",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_objects",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Hive Fleet Leviathan", "role": "antagonist" },
+          { "name": "Genestealer Cults", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Regium", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Castamon", "role": "pov" },
+          { "name": "Vultis", "role": "supporting" },
+          { "name": "The Harbinger", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0132",
+      "slug": "longshot",
+      "overrides": {
+        "synopsis": "Standalone Astra-Militarum-sharpshooter novel — Rob Young's debut Black-Library novel and the first authority-layer Cadian-Sharpshooter-POV entry. **Sergeant Darya Nevic** of the **Cadian 217th** leads her squad of snipers in the war for the wintry manufactorum world **Attruso**, where her precision kills against the **T'au Empire** invaders have made her an unwilling propaganda-celebrity — a fame she neither sought nor wants, complicated by the fact that she is not Cadian-born but an adoptee assigned to the regiment, a status that the 'real-Cadian' soldiers around her never let her forget. As winter closes in and Darya's men die around her, she finds herself fighting a war waged with words as much as with weapons: Imperial information-officers want her to perform the figurehead role her soldiers need, the Tau bombard the lines with seductive promises of the Greater Good to be embraced if she will only walk across no-man's-land and accept them, and the choice she eventually makes proves pivotal to the wider conflict. The novel runs on a tight personal scope (one sergeant, one squad, one front of one battle) and a counter-propagandist register that resonates with the previous-batch *Outgunned* / *Above and Beyond* propaganda-frame at the line-soldier level — the question of which lies the Imperium tells itself versus which lies it asks its soldiers to embody. **First authority-layer Cadian-217th + first Darya Nevic + first Attruso surface forms + first authority-layer adopted-Cadian-as-protagonist register**; second authority-layer T'au-Empire appearance as primary antagonist (after ssot-w40k-013's *Shadowsun*); third authority-layer propaganda-as-load-bearing-frame entry (after ssot-w40k-012 *Volpone Glory* + ssot-w40k-013 *Outgunned*).",
+        "facetIds": [
+          "book",
+          "female",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "character_study",
+          "political_thriller",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "war",
+          "doubt",
+          "loyalty",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Cadian Shock Troops", "role": "primary" },
+          { "name": "Cadian 217th", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "T'au Empire", "role": "antagonist" },
+          { "name": "Tau Empire", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Attruso", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Darya Nevic", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0133",
+      "slug": "creed-ashes-of-cadia",
+      "overrides": {
+        "synopsis": "Standalone Astra-Militarum novel and Jude Reid's debut Black-Library novel — first authority-layer **Ursula Creed**-POV entry, introducing the daughter of the legendary Cadian Lord Castellan **Ursarkar E. Creed** as a major character in the post-Fall-of-Cadia Imperium. For decades since Cadia's destruction Ursula has built a glittering career in the furthest reaches of the Imperium, deliberately operating far from her father's shadow. When unexpected orders arrive from the **Avenging Son himself, Roboute Guilliman**, the newly-appointed Lord Castellan is dispatched to the shattered remains of Cadia in search of Ursarkar E. Creed's final, hidden battle plans — strategic insights that the Indomitus Crusade may yet need to repel the next great offensive. What Ursula finds on the ash-blasted ruined world is a hellscape of deadly secrets: **poxwalker**-infested ruins where Nurgle's plagues have warp-corrupted what survived the planet's death, hostile Imperial expeditions she cannot fully trust, and the choking weight of her father's legacy that her command-cohort and the Imperium itself will not let her step out of. Reid's zombie-survival register is unusually visceral for non-Warhammer-Horror-imprint Imperium-side fiction — characters are killed or mutilated without flinching, and the threat of a single poxwalker bite as Chaos-corruption-vector is a load-bearing tension throughout. **First authority-layer Ursula Creed-POV + first authority-layer Ursarkar-E.-Creed-as-mentioned-legendary-father-frame + first authority-layer poxwalker-on-page-antagonist register + first authority-layer ruined-Cadia-as-primary-location surface forms**; first authority-layer daughter-of-legend-mantle-passing register; recurring Roboute Guilliman as Avenging-Son / Imperium-Regent ambient mentioned-tier presence consistent with ssot-w40k-013's Indomitus-Crusade-era pattern.",
+        "facetIds": [
+          "book",
+          "female",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "journey",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "action_heavy",
+          "war",
+          "doubt",
+          "loyalty",
+          "sacrifice",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Cadian Shock Troops", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Indomitus Crusade", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Nurgle", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cadia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ursula Creed", "role": "pov" },
+          { "name": "Ursarkar E. Creed", "role": "mentioned" },
+          { "name": "Roboute Guilliman", "role": "mentioned" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0134",
+      "slug": "genefather",
+      "overrides": {
+        "synopsis": "Standalone Adeptus-Mechanicus novel — direct sequel to Guy Haley's *Belisarius Cawl: The Great Work* (ssot-w40k-011 W40K-0103), now pitting the Imperium's most-renowned techpriest against its most-notorious heretic genetor. In the hope of finally taming the **Great Rift** that bisects the galaxy, **Archmagos Belisarius Cawl** invites representatives from across the Imperium's great institutions to the artificial world **Pontus Avernes**, where he will unveil his research into the **Pylon network** — pre-Necron-confirmed-but-publicly-attributed-to-an-ancient-race-of-builders structures that, Cawl believes, can be reactivated to stave off the pull of the Warp and re-stabilise the post-Cicatrix-Maledictum galaxy. Confident he can convince the assembled magi, cardinals, generals and tech-savants of his genius, Cawl needs only their assistance and political backing to proceed. But among the attendees is an uninvited guest: **Fabius Bile** himself, the Pater Mutatis of the Emperor's Children, who needs no validation of his own genius and pursues an agenda directly opposed to Cawl's. The novel becomes an epic intellectual-and-physical confrontation between the galaxy's two greatest living scientific minds, both wielding the assembled Imperium representatives and Pontus-Avernes's contained-environment infrastructure as the stage for their duel of theories and biotech. Themes: ambition-as-doom (Cawl's hubris that mirrors Fabius's), the cost of trying to do good with techno-heresy methods, and the philosophical question of what 'human perfection' means when both protagonists believe in it but with mutually-exclusive definitions. **First authority-layer Pontus Avernes + first authority-layer Pylon-network-anti-Warp-research-frame + first authority-layer Fabius-Bile-on-page-as-primary-antagonist + first authority-layer Cawl-vs-Bile-direct-confrontation register surface forms**; direct character-continuity-sequel to ssot-w40k-011 *Belisarius Cawl: The Great Work*.",
+        "facetIds": [
+          "book",
+          "male",
+          "tech_priest",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "mystery",
+          "political_thriller",
+          "character_study",
+          "grimdark",
+          "philosophical",
+          "somber",
+          "hubris",
+          "doubt",
+          "betrayal",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Indomitus Crusade", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Slaanesh", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Pontus Avernes", "role": "primary" },
+          { "name": "Great Rift", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Belisarius Cawl", "role": "pov" },
+          { "name": "Fabius Bile", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0135",
+      "slug": "fall-of-cadia",
+      "overrides": {
+        "synopsis": "Standalone war-epic — Robert Rath's authority-layer dramatisation of the canonical **Fall of Cadia**, the touchstone moment of the Warhammer-40,000 timeline that opened the Cicatrix Maledictum and inaugurated the Era Indomitus. **Cadia** has stood for ten thousand years as the bulwark of the Imperium against the forces of Chaos boiling out of the **Eye of Terror**, and **Lord Castellan Ursarkar E. Creed** has held the line against every prior Black Crusade. When the apparent heretic forces of the latest assault retreat on all fronts, Creed senses with field-marshal's-intuition that the assault was a prelude — and is correct: **Abaddon the Despoiler** emerges from the Eye at the head of a warhost of a scale unmatched since the Horus Heresy itself, the **13th Black Crusade** in full flower, with the Black Legion, the Iron Warriors, the Word Bearers, the World Eaters and the Death Guard at the vanguard of the largest Chaos invasion since the dawn of the Imperium. The 500+-page novel is a multi-POV war-epic in the style of the Sabbat-Worlds-Crusade dramatisations: Imperial-Guard line-soldiers and their leaders, Imperial Navy fighter pilots, Adeptus Astartes detachments from the Cadian frontier chapters, Battle Sisters of the Adepta Sororitas, and even traitor characters within the 13th-Black-Crusade-warhost — each strand converging on the planet-cracking finale where Abaddon's Blackstone-Fortress / Pylon-network-shattering plan destroys Cadia and tears the Cicatrix Maledictum across the galaxy. Doorstopper-length, last-stand-and-siege register, multi-POV ensemble, tone heavy somber and grim. **First authority-layer Fall-of-Cadia-structural-event-novel + first authority-layer Ursarkar-E.-Creed-POV + first authority-layer 13th-Black-Crusade-on-page + first authority-layer Abaddon-the-Despoiler-as-on-page-antagonist + first authority-layer Eye-of-Terror-as-primary-location + first authority-layer Cicatrix-Maledictum-genesis-event surface forms**; first authority-layer canonical-galaxy-altering-event-dramatisation register, structurally analogous to the Horus-Heresy-Siege-of-Terra arc but for the 40K-mainline timeline. Pre-write note: roster releaseYear=2024 (paperback); first hardback release was 2023 per Lexicanum + Black Library.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "doorstopper",
+          "war_story",
+          "siege",
+          "last_stand",
+          "political_thriller",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "war",
+          "faith",
+          "sacrifice",
+          "loyalty",
+          "brotherhood",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Cadian Shock Troops", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Imperial Navy", "role": "supporting" },
+          { "name": "Adeptus Astartes", "role": "supporting" },
+          { "name": "Space Marines", "role": "supporting" },
+          { "name": "Adepta Sororitas", "role": "supporting" },
+          { "name": "Sisters of Battle", "role": "supporting" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Chaos Space Marines", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cadia", "role": "primary" },
+          { "name": "Eye of Terror", "role": "primary" },
+          { "name": "Cadian Gate", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ursarkar E. Creed", "role": "pov" },
+          { "name": "Abaddon the Despoiler", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0136",
+      "slug": "above-and-beyond",
+      "overrides": {
+        "synopsis": "Standalone Aeronautica-Imperialis novel — direct sequel to Denny Flowers's *Outgunned* (ssot-w40k-013 W40K-0121), continuing the dual-POV **Lucille von Shard** + **Kile Simlex** propaganda-and-aerial-combat frame in a new theatre. **Flight Commander Lucille von Shard** has become a fighter ace and living legend of the Imperial war effort; **Propagandist Kile Simlex**, who manufactured her fame in the Bacchus campaign, shares none of the renown and has been condemned to anonymous scribe-work in the bureaucratic depths of the propaganda apparatus. When Simlex receives a cryptic message claiming to be from Shard requesting his aid, he is whisked away from his exile to join her latest crusade on the rebel-held world **Deighton**, a world in open insurrection against the Imperium. What he finds is a Shard who is the shadow of her former self — near-broken by eternal war, her confidence and her reputation crumbling, drinking through her squadron's downtime, and now facing a xenos mercenary of unparalleled skill whose elite aerial combat is shredding her wing. Simlex must rouse her one last time to perform the Imperial-hero role she no longer believes herself to be, while himself wrestling with whether the propaganda machine that elevated her is the thing that has now broken her. The novel deepens the propaganda-machine-as-load-bearing-frame from *Outgunned* into a sustained study of celebrity-burnout in a Total-War-Imperium, with the central faded-hero-redemption mystery (who sent the cryptic message? what does Shard really want?) hooking the plot. **First authority-layer Deighton + first authority-layer xenos-mercenary-ace-as-antagonist register + second authority-layer Lucille-von-Shard + Kile-Simlex POV appearances (returning from ssot-w40k-013 *Outgunned*); first authority-layer cross-batch-character-continuity-sequel for Aeronautica-Imperialis surface forms**. **`data_conflict` flag: roster `authors[]` empty; canonical author is Denny Flowers per Black Library + Lexicanum + Goodreads + Simon-&-Schuster + The-Unseen-Library + Warhammer-Community.**",
+        "facetIds": [
+          "book",
+          "mixed",
+          "multi",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "political_thriller",
+          "mystery",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "war",
+          "doubt",
+          "redemption",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Aeronautica Imperialis", "role": "primary" },
+          { "name": "Imperial Navy", "role": "primary" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Imperium", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Deighton", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Lucille von Shard", "role": "pov" },
+          { "name": "Kile Simlex", "role": "pov" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "authors",
+            "suggestion": ["Denny Flowers"],
+            "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + Goodreads + Simon-&-Schuster + The-Unseen-Library + Warhammer-Community"
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0137",
+      "slug": "elemental-council",
+      "overrides": {
+        "synopsis": "Standalone T'au-Empire novel — Noah Van Nguyen's authority-layer Tau-spy-thriller centred on an Ethereal-Caste-led specialist team, second authority-layer Tau-Empire-as-primary-protagonist entry after ssot-w40k-013's *Shadowsun: The Patient Hunter*. Since the T'au Empire annexed the world of **Cao Quo**, its benighted human population has caused setback after setback for their new rulers, resisting the light of the Greater Good through cycles of low-level insurgency, sabotage, and quietly stubborn refusal to integrate. As a fresh insurrection threatens to overwhelm the recently-acquired world, the enigmatic Ethereal **Yor'i** assembles an elite **Elemental Council** — a veteran **Fire Caste** Fireblade, a **Water Caste** spy, a peerless **Air Caste** pilot, and a maverick **Earth Caste** engineer — to curtail the growing insurgency before the planet is plunged back into a dark age of pre-Greater-Good ignorance and open war. But as the full-scale planetary insurrection looms, enemies more cunning than Yor'i's council could have imagined begin to surface from both sides: human resistance leaders who understand the Empire better than its own auxilaries, T'au-internal factions who see the Ethereal-Caste's stranglehold on doctrine as the real problem, and the Empire's ever-shifting consensus on what compromises the Greater Good can or cannot tolerate. The novel reads more like a Tau-internal spy-and-political thriller than a battlefield-procedural, with each caste's competing priorities (Fire's tactical aggression vs Water's diplomatic patience vs Air's mobility-doctrine vs Earth's pragmatic-engineering vs Ethereal's all-binding philosophical authority) interrogated through the council's friction. **First authority-layer Cao Quo + first authority-layer Ethereal-Caste-led-protagonist-team + first authority-layer Water-Caste + Air-Caste + Earth-Caste-on-page-as-primary-protagonists + first Yor'i + first explicit Tau-five-caste-collaboration-frame surface forms**. **`data_conflict` flag: roster `authors[]` empty; canonical author is Noah Van Nguyen per Black Library + Lexicanum + Goodreads + Warhammer-Community + Goonhammer + At-Boundary's-Edge.**",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "pc_xenos",
+          "xenos",
+          "planetary",
+          "standalone",
+          "standard",
+          "political_thriller",
+          "war_story",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "philosophical",
+          "somber",
+          "war",
+          "betrayal",
+          "doubt",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "T'au Empire", "role": "primary" },
+          { "name": "Tau Empire", "role": "primary" },
+          { "name": "Ethereal Caste", "role": "primary" },
+          { "name": "Fire Caste", "role": "primary" },
+          { "name": "Water Caste", "role": "primary" },
+          { "name": "Air Caste", "role": "primary" },
+          { "name": "Earth Caste", "role": "primary" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cao Quo", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Yor'i", "role": "pov" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "authors",
+            "suggestion": ["Noah Van Nguyen"],
+            "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + Goodreads + Warhammer-Community + Goonhammer + At-Boundary's-Edge"
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0138",
+      "slug": "interceptor-city",
+      "overrides": {
+        "synopsis": "Standalone Aeronautica-Imperialis novel — Dan Abnett's long-anticipated **direct sequel to *Double Eagle*** (ssot-w40k-009 W40K-0090), set more than twenty in-universe years after the battle for Enothis and twenty-one publication years after the original. **Commander Bree Jagdea** returns to the cockpit, now a veteran-of-veterans, joining the infamous **Circus 66** squadron over the war-torn hive city of **Vesperus** to execute the daring interception runs that will determine whether the Imperium can break the latest Archenemy stranglehold on the city. The **Sabbat Worlds Crusade** is still raging, two-and-a-half decades into Macaroth's offensive: millions of Imperial Guardsmen are still fighting and dying to claim the planets from Sek's successors and the entrenched Blood-Pact-and-Chaos-warband holdouts, and the Aeronautica-Imperialis squadrons are the only force capable of contesting the orbital and atmospheric superiority that determines the ground war's tempo. The novel's dogfights are pure Abnett — fast, technical, character-led, with Jagdea's seasoned-pilot-mentor arc (a generation of younger Circus-66 pilots learning the trade under her wing) bracketing the explosive aerial-combat set-pieces. Tone keeps the *Double Eagle* register but darker, the long-running-war-of-attrition wearing on every veteran character who has been with the Crusade since Slaydo's death. **First authority-layer Vesperus + first authority-layer Circus-66 + first authority-layer Sabbat-Worlds-Crusade-aerial-combat-revival; second authority-layer Bree-Jagdea POV appearance (returning from ssot-w40k-009 *Double Eagle* — second cross-batch character-continuity-sequel this iteration alongside *Above and Beyond* — see Lucille von Shard arc) surface forms**. **`data_conflict` flag: roster `authors[]` empty; canonical author is Dan Abnett per Black Library + Lexicanum + The-Unseen-Library + Warhammer-Community.**",
+        "facetIds": [
+          "book",
+          "female",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "action_heavy",
+          "character_study",
+          "grimdark",
+          "somber",
+          "war",
+          "brotherhood",
+          "sacrifice",
+          "hubris",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Aeronautica Imperialis", "role": "primary" },
+          { "name": "Imperial Navy", "role": "primary" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Blood Pact", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vesperus", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Bree Jagdea", "role": "pov" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "authors",
+            "suggestion": ["Dan Abnett"],
+            "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + The-Unseen-Library + Warhammer-Community"
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0139",
+      "slug": "hells-last",
+      "overrides": {
+        "synopsis": "Standalone Astra-Militarum novel and continuation of Justin D. Hill's **Minka Lesk** Cadian-survivor sub-series — third authority-layer Cadian-Astra-Militarum-primary entry in this batch (after *Longshot* + *Creed: Ashes of Cadia*) and fourth across the wider Cadian-legacy mini-arc with *Fall of Cadia* as the structural prequel. **Commissar Minka Lesk** and the **Cadian 101st** have fought in some of the most hellish environments the post-Fall-of-Cadia Imperium has thrown at them since their narrow escape from the destruction of their homeworld — and the deadly jungle world of **Alia** in the **Gallows cluster** may be the most dangerous yet. Lesk and her hard-bitten company of guardsmen are forced to fight there when an unspecified darkness rises in the cluster, threatening the stability of the entire sector, and responsibility for success falls squarely on her dwindling command. The novel runs the *Catachan Devil* / *Krieg* register of jungle-quagmire-as-enemy where the planet's biota, the rotting atmosphere, and the desperate logistics chain are as deadly as whatever Chaos or xenos force has emerged in the cluster; tonally tight on Lesk's command-perspective and the strained-veteran-Cadian-officer-arc that the sub-series has been building since her introduction. **First authority-layer Minka Lesk-POV + first authority-layer Cadian-101st + first authority-layer Alia + first authority-layer Gallows Cluster + first authority-layer post-Cadia-Cadian-survivor-officer-arc surface forms**; fourth Cadian-Imperial-Guard-primary entry this batch (cluster: *Longshot* on Attruso → *Creed: Ashes of Cadia* on ruined Cadia → *Fall of Cadia* on Cadia-during-13th-Black-Crusade → *Hell's Last* on Alia post-Cadia-destruction). **`data_conflict` flag: roster `authors[]` empty; canonical author is Justin D Hill per Black Library + Lexicanum + Warhammer-Community + Wargame-Portal.**",
+        "facetIds": [
+          "book",
+          "female",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "siege",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "war",
+          "brotherhood",
+          "sacrifice",
+          "loyalty",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Cadian Shock Troops", "role": "primary" },
+          { "name": "Cadian 101st", "role": "primary" },
+          { "name": "Commissariat", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Alia", "role": "primary" },
+          { "name": "Gallows Cluster", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Minka Lesk", "role": "pov" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "authors",
+            "suggestion": ["Justin D Hill"],
+            "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + Warhammer-Community + Wargame-Portal"
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0140",
+      "slug": "fulgrim-the-perfect-son",
+      "overrides": {
+        "synopsis": "Standalone Daemon-Primarch-POV Chaos novel — Jude Reid's second authority-layer Black-Library novel after *Creed: Ashes of Cadia* (W40K-0133 this batch) and the first authority-layer **Fulgrim**-POV-as-Daemon-Primarch entry in the W40K mainline. Lord **Fulgrim**, ascended Daemon-Primarch of the **III Legion** (Emperor's Children) and Slaaneshi Prince, has issued a challenge to his scattered warriors: vanquish the Imperial world of **Crucible** and bring him the head of the **Black Templar** charged with its defence as a trophy of perfected slaughter. But Fulgrim's plans go far beyond the conquest of a single planet — what should have been a swift and bloody offensive turns into a gruelling siege as the Black-Templar-led defenders refuse to break, and as Fulgrim's own Emperor's-Children commanders begin to scheme against one another for the Phoenician's favour. The novel is a tale of ambition, treachery, and hubris in the III-Legion register, an intricate character-study of the Emperor's-Children psyche through the lens of their daemon-father's gaze: every champion seeking to be the most-perfect, every sub-faction (Kakophoni / Lucius's-warband-descendants / the Sybarite-clades) pursuing its own definition of excellence, and Fulgrim himself manipulating them all as a sculptor manipulates clay. The Black Templar Crusader-Sword-Brotherhood register provides the counter-frame: zealotry-as-perfection-of-faith answering perfection-of-excess. **First authority-layer Daemon-Primarch-Fulgrim-POV + first authority-layer Emperor's-Children-as-primary-protagonist-Legion + first authority-layer Slaanesh-as-primary-faction-on-page + first authority-layer Crucible + first authority-layer Black-Templar-as-on-page-defender-antagonist register surface forms**; second authority-layer Daemon-Primarch-POV after ssot-w40k-013's *Angron: The Red Angel* (Khorne) — Slaanesh-side counterpart; second authority-layer Jude-Reid novel after *Creed: Ashes of Cadia* (W40K-0133 this batch — author double-entry). **`data_conflict` flag: roster `authors[]` empty; canonical author is Jude Reid per Black Library + Lexicanum + Goodreads + Amazon + Warhammer-Community + Frontline-Gaming.**",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "planetary",
+          "standalone",
+          "standard",
+          "siege",
+          "war_story",
+          "political_thriller",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "hubris",
+          "betrayal",
+          "brotherhood",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "primary" },
+          { "name": "Chaos Space Marines", "role": "primary" },
+          { "name": "Chaos", "role": "primary" },
+          { "name": "Slaanesh", "role": "primary" },
+          { "name": "Black Templars", "role": "antagonist" },
+          { "name": "Adeptus Astartes", "role": "antagonist" },
+          { "name": "Space Marines", "role": "antagonist" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Crucible", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Fulgrim", "role": "pov" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "authors",
+            "suggestion": ["Jude Reid"],
+            "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + Goodreads + Amazon + Warhammer-Community + Frontline-Gaming"
+          }
+        ]
+      }
+    }
+  ]
+}
