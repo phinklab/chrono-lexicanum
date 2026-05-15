@@ -51,6 +51,7 @@ interface CatalogueAudit {
   containedInCount: number;
   containsCount: number;
   hasDrift: boolean;
+  driftCount: number;
   hasJunctionGap: boolean;
   isSsot: boolean;
   isInMultipleCollections: boolean;
@@ -120,6 +121,16 @@ function hasResolvedDrift(
   rows: ReadonlyArray<{ rawName: string | null; name: string }>,
 ): boolean {
   return rows.some((row) => row.rawName !== null && row.rawName !== "" && row.rawName !== row.name);
+}
+
+function countResolvedDrift(
+  rows: ReadonlyArray<{ rawName: string | null; name: string }>,
+): number {
+  let n = 0;
+  for (const row of rows) {
+    if (row.rawName !== null && row.rawName !== "" && row.rawName !== row.name) n++;
+  }
+  return n;
 }
 
 async function loadBooks(): Promise<CatalogueBook[]> {
@@ -259,10 +270,11 @@ async function loadBooks(): Promise<CatalogueBook[]> {
       const factionCount = w.factions.length;
       const locationCount = w.locations.length;
       const characterCount = w.characters.length;
-      const hasDrift =
-        hasResolvedDrift(factionAuditRows) ||
-        hasResolvedDrift(locationAuditRows) ||
-        hasResolvedDrift(characterAuditRows);
+      const driftCount =
+        countResolvedDrift(factionAuditRows) +
+        countResolvedDrift(locationAuditRows) +
+        countResolvedDrift(characterAuditRows);
+      const hasDrift = driftCount > 0;
       const hasJunctionGap = factionCount === 0 || locationCount === 0 || characterCount === 0;
 
       return {
@@ -301,6 +313,7 @@ async function loadBooks(): Promise<CatalogueBook[]> {
           containedInCount: containedIn.length,
           containsCount,
           hasDrift,
+          driftCount,
           hasJunctionGap,
           isSsot: w.sourceKind === "ssot",
           isInMultipleCollections: containedIn.length >= 2,
@@ -314,8 +327,27 @@ async function loadBooks(): Promise<CatalogueBook[]> {
   }
 }
 
-function sortBooks(books: CatalogueBook[], key: SortKey): CatalogueBook[] {
+function sortBooks(
+  books: CatalogueBook[],
+  key: SortKey,
+  auditFilters: readonly AuditFilter[],
+): CatalogueBook[] {
   const copy = [...books];
+  if (auditFilters.includes("drift")) {
+    copy.sort((a, b) => {
+      const dDrift = b.audit.driftCount - a.audit.driftCount;
+      if (dDrift !== 0) return dDrift;
+      const dConf =
+        Number(b.audit.confidence ?? "0") - Number(a.audit.confidence ?? "0");
+      if (dConf !== 0) return dConf;
+      const dUpdated = b.updatedAt.getTime() - a.updatedAt.getTime();
+      if (dUpdated !== 0) return dUpdated;
+      return (a.audit.externalBookId ?? "").localeCompare(
+        b.audit.externalBookId ?? "",
+      );
+    });
+    return copy;
+  }
   if (key === "title") {
     copy.sort((a, b) => a.title.localeCompare(b.title, "de"));
   } else {
@@ -374,7 +406,8 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
   const visibleBooks = isAuditMode
     ? books.filter((book) => matchesAudit(book, auditFilters))
     : books;
-  const sorted = sortBooks(visibleBooks, sort);
+  const sorted = sortBooks(visibleBooks, sort, auditFilters);
+  const driftSortActive = auditFilters.includes("drift");
   const enrichedCount = books.filter((b) => b.isEnriched).length;
   const now = new Date();
 
@@ -392,9 +425,15 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
 
       {books.length > 0 && (
         <div className="catalogue-controls">
-          <SortPills active={sort} />
+          <SortPills active={sort} overriddenByDrift={driftSortActive} />
           <AuditPills active={auditFilters} />
         </div>
+      )}
+
+      {driftSortActive && sorted.length > 0 && (
+        <p className="catalogue-sort-caption">
+          Sortiert nach Drift-Frequenz · Confidence · zuletzt aktualisiert.
+        </p>
       )}
 
       {books.length === 0 ? (

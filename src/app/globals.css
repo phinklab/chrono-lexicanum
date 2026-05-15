@@ -2824,6 +2824,14 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   margin-bottom: 0;
 }
 
+.catalogue-sort-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.02em;
+  margin: -6px 0 14px;
+}
+
 .audit-pills {
   display: inline-flex;
   flex-wrap: wrap;
