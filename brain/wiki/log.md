@@ -481,3 +481,55 @@ Cowork-only Brain-Update-Session, kein CC-Brief. Zwei Aufgaben gebündelt: (1) S
 **Outside wiki:** `sessions/README.md`.
 
 **Out of scope dieser Hygiene-Session:** Keine Code-Änderungen. Keine Schema-Touches. Kein CC-Brief. Keine session-archive-Moves (separater Cleanup-Pass falls Maintainer einleitet). Kein `brain:lint --no-write`-Run durch Cowork (Sandbox kann es nicht zuverlässig).
+
+---
+
+## 2026-05-15 · Architect · Brief 075 Cockpit-Refinement + OQ6 Hardcover-Rating
+
+Cowork-Brief mit Erratum-Block post-Codex-Review (vier Punkte vor dem regulären Body): `--env-file=.env.local`-Konvention für DB-Scripts, W40K-SSOT-eng Scope-Filter (`works.source_kind='ssot' AND works.external_book_id LIKE 'W40K-%' AND works.kind='book'`) — nicht „alle `bookDetails.rating IS NULL`", `no_author`-Miss-Bucket für Anthologien/Editor-only-Bücher (kein `discoverHardcoverClaimV2`-Call ohne Author-Hint, weil `hits[0]`-Fallback ungeguarded ist), DetailPanel-Surface auf `/buch/[slug]` Public-Page (nicht `/buecher`-Audit-Inline — dort rendert die Page bereits `containedIn` in Row-Details). Brief bewusst klein gehalten (zwei orthogonale Tracks, Sicherheitsventil für Track B explizit, beide Tracks landen in eigenen Commits). Design-freedom-Sektion delegiert visuelle Sprache, Animation, oklch-Tokens, Klassen-Shapes vollständig an CC.
+
+**Pages touched:** `sessions/2026-05-15-075-arch-cockpit-drift-sort-and-rating.md` (NEU), `sessions/README.md` (Active-Threads-Update mit Maintainer-Bedienung-Satz inkl. Codex-Review-Erratum-Hinweis).
+
+---
+
+## 2026-05-15 · Implementer · Brief 075-impl Cockpit-Drift-Sort + Hardcover-Rating-Backfill (Commits `61d4ff5` / `e0c7575` / `7f3f14f`)
+
+Beide Tracks gelandet. **Track A — Cockpit:** `src/app/buecher/page.tsx` trägt `CatalogueAudit.driftCount` parallel zu `hasResolvedDrift`-Helper (kein zweiter DB-Read); `sortBooks(auditFilters)` rangiert bei aktivem `?audit=drift` per `(driftCount desc, Number(audit.confidence ?? "0") desc, updatedAt desc, externalBookId localeCompare asc)`. `SortPills.overriddenByDrift`-Prop schaltet Label auf „Sortieren (Audit überschreibt)". Mikro-Caption „Sortiert nach Drift-Frequenz · Confidence · zuletzt aktualisiert." (server-rendered, nur bei aktivem `drift`-Filter mit Treffern). `src/app/buch/[slug]/page.tsx` zieht 7. parallele Promise für `containedIn` aus `work_collections JOIN works` (displayOrder/title-sortiert) und rendert slim Komma-Zeile unter Meta-Strip (`font-mono text-xs text-frost-400`, Collection-Titel als Next-`<Link>`, kein `displayOrder`/`confidence`/`basis` — Public-Lean gewahrt). Smoke-Skript `scripts/smoke-drift-sort-075.ts` als persistente SQL-Replica der neuen Sort-Branch committed.
+
+**Track B — Daten:** `scripts/backfill-hardcover-rating.ts` als Standalone Drizzle-Script. `parseArgs` strict mit `--force` / `--limit` / `--help`. Default-Modus `and(eq(sourceKind,'ssot'), like(externalBookId,'W40K-%'), eq(kind,'book'), isNull(rating))`; `--force` droppt nur den `isNull`-Teil, bleibt im SSOT-W40K-Scope. Zwei Drizzle-Reads (target-works + author-map via `workPersons INNER JOIN persons WHERE role='author'`, niedrigster `displayOrder`). `no_author`-Bucket für Rows mit leerem `primaryAuthor` (kein `discoverHardcoverClaimV2`-Call). `discoverHardcoverClaimV2` bekommt 3. Parameter `opts: HardcoverDiscoveryV2Options = {}`; neuer `HardcoverRatingsCountField`-Typ, dynamisches `buildSearchQuery(extraField)`-Helper, parst `claim.raw.audit.ratingCount` wenn `typeof === 'number'`. Probe `users_count` vor `ratings_count` — `users_count` ist supported, kein Fallback nötig. `isUnknownFieldError(message, fieldName)` detection-helper für GraphQL-Schema-Fehlerpfade. Persistenz via `db.insert(bookDetails).onConflictDoUpdate({...})`; `rating` als `clampRating(value).toFixed(2)` (numeric(3,2)-safe), `ratingCount` bei Probe-Erfolg überschrieben, sonst `sql\`${bookDetails.ratingCount}\`` preserved. `getCircuitBreakerReason()`-Check nach jedem Fail → loud-exit(1) bei Trip. `package.json` trägt `"backfill:hardcover-rating": "tsx --env-file=.env.local scripts/backfill-hardcover-rating.ts"`.
+
+**Verification:** `npm run typecheck` + `npm run lint` grün (1 pre-existing layout.tsx Warning, nicht 075-eingeführt). Track-A-Smoke (Top-20 via SQL-Replica) bestätigt 19 Bücher auf `drift_count=2 / confidence=1.00` (flat, durch `updatedAt DESC` differenziert) und Rang 20 auf `drift_count=1` (Drop unter freq=2-Gruppe). Track-B Live-Run: 73 Hits / 74 Misses in Pass 1 (49.7 %), 2. idempotenter Pass + 1 weiterer Hit (5 transiente `graphql_error` aus Pass 1 alle aufgelöst), `--force`-Smoke auf W40K-0001 verifiziert Overwrite. **Endstand: 77/150 W40K-SSOT-Bücher (51.3 %) mit `rating + ratingSource='hardcover' + ratingCount`.** 73 NULL: 14 `no_author` (5 Sabbat-Anthologien + 5 weitere Editor-only + 4 Roster-Pflege-Lücken inkl. `W40K-0144 Archmagos` — Justin D Hill, kein `work_persons role='author'`), 40 `null_result_zero_hits` (Hardcover `_eq` Titel-Mismatch), 19 `author_mismatch`, 0 `graphql_error`.
+
+**For-next-session-Punkte:** (1) OQ-Promote-Trigger gefeuert (51.3 % < 70 %), aber 075-impl-Argumentation präferiert **Titel-Normalisierungs-Layer** über OL-Fallback (Miss-Profile sind Normalisierungs-Probleme, nicht Coverage-Lücken); (2) `no_author`-Audit der 14 Bücher (Maintainer-Excel-Workflow); (3) Drift-Sort-Sub-Sortierung innerhalb freq=2-Tie-Group (19/20 Top-Drift flat); (4) DetailPanel-Pattern-Erweiterung (Series-Info, Collection-Count); (5) `users_count` als deterministisch erreichbar geklärt — Architektur-Punkt für ggf. reaktivierte V2-LLM-Stage; (6) Brain-Hygiene-Post-Merge.
+
+**Pages touched (CC):** `src/app/buecher/page.tsx`, `src/app/buecher/SortPills.tsx`, `src/app/buch/[slug]/page.tsx`, `src/app/globals.css`, `scripts/smoke-drift-sort-075.ts` (NEU), `scripts/backfill-hardcover-rating.ts` (NEU), `src/lib/ingestion/v2/sources/hardcover.ts`, `package.json`, `sessions/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md` (NEU).
+
+---
+
+## 2026-05-16 · Cowork-Hygiene-Pass · Post-075-impl Wiki-Catch-up
+
+Cowork-only Brain-Update-Session, kein CC-Brief. Standard Session-End-Discipline für Brief 075-impl (project-state, open-questions, log, index, sessions/README auf post-075-Stand).
+
+**`open-questions.md`** — Frontmatter `updated: 2026-05-16` + neuer Migration-History-Block. OQ6 entrückt von strikethrough-Anker auf Final-Closed-Form (Hit-Rate / Bucket-Counts dokumentiert, kein Detail-Body mehr). Neue OQ (10) „Hardcover-Hit-Rate-Härtung (Titel-Normalisierung)" mit Owner/Sessions/Follow-up-brief-Metadaten + drei Architektur-Calls (Normalisierungs-Strategie / Confidence-Tie-Break / Persistenz-Audit) + Note auf laufende Cockpit-Sub-Sortierung. Sources um 075-arch + 075-impl erweitert.
+
+**`project-state.md`** — Frontmatter `updated: 2026-05-16`, Sources um 075-arch + 075-impl erweitert. Phase-Paragraph auf „Cockpit-Drift-Sort + Hardcover-Rating-Backfill gelandet" umgestellt; Sequenz-Paragraph um Brief-075-Beschreibung verlängert (Track A + Track B mit Commit-Hashes). Branch-Block auf Post-075-Commits aktualisiert. What's running: `/buch/[slug]` + `/buecher` mit den 075-Refinements annotiert, `book_details.rating` post-075 mit Coverage-Note (77/150). Neue „Latest pipeline state (post-075)"-Sektion vor dem post-074-Block: Track A (driftCount-Compute, sortBooks-Kaskade, SortPills-Affordance, slim Komma-Zeile auf Public) und Track B (Standalone-Script, opts.ratingsCountField-Probe, no_author-Bucket, onConflictDoUpdate-Persistenz, Endstand-Counts) inkl. 075-impl-Architektur-Punkt zu `users_count` für ggf. reaktivierte V2-Stage. What's-open komplett neu sortiert (Loop-Re-Trigger zuerst, dann Hit-Rate-Härtung, Cockpit-Sub-Sortierung, OQ3-Hand-Check, Public-Rating-Render, Collection-Gap, no_author-Roster-Hygiene, Loop-Driver-Refinements, Vokabular-Hygiene). Recently-shipped: drei neue Zeilen (Wiki-Hygiene 2026-05-16, 075-impl + PR merge, 075-arch). Next-likely-brief auf „kein neuer Brief — Loop-Re-Trigger + Resolver-Pass-4 als natürliche Sequenz" plus zwei sekundäre Optionen reduziert.
+
+**`log.md`** — Drei Blöcke ans Ende: 075-arch, 075-impl, dieser Hygiene-Pass.
+
+**`index.md`** — Updated-Dates auf 2026-05-16 für open-questions + project-state.
+
+**`sessions/README.md`** — Active-Threads-Tabelle: 075-Zeile auf „implemented + merged" (Commits eingetragen); Maintainer-Bedienung-Satz auf post-075-Stand umformuliert (Loop-Re-Trigger für `ssot-w40k-016..020` als nächster Schritt).
+
+**Pages touched (wiki):** `open-questions.md`, `project-state.md`, `index.md`, this `log.md`.
+
+**Outside wiki:** `sessions/README.md`.
+
+**Out of scope dieser Hygiene-Session:** Keine Code-Änderungen. Keine Schema-Touches. Kein CC-Brief. Keine session-archive-Moves (separater Cleanup-Pass falls Maintainer einleitet). Kein `brain:lint --no-write`-Run durch Cowork (Sandbox kann es nicht zuverlässig). Kein ADR-Stub `decisions/why-no-ol-fallback-yet.md` — 075-impl-Punkt 6 hat das vorgeschlagen, aber die Story lebt sauberer in OQ (10) als architektonischer Promote-Trigger statt als ADR (eine OL-Fallback-Entscheidung wurde nicht *getroffen*, nur deferred-pro-Hit-Rate-Härtung).
+
+## 2026-05-16 · Correction · SSOT-loop resume command
+
+Codex-Review der Post-075-Hygiene hat einen Bedienungs-Widerspruch gefunden: `sessions/README.md` und `project-state.md` sagten für den nächsten 50er-Driver-Lauf `bash scripts/run-ssot-loop.sh 5` ohne Skip-Marker, obwohl `sessions/ssot-loop-log.md` auf `cumulativeBefore = 150` steht und der Driver selbst `--skip-initial-resolver-pause` genau für diesen Fall dokumentiert. Ohne Flag würde der Lauf sofort nur einen weiteren 150er-Pause-Block produzieren und keine `ssot-w40k-016`-Datei schreiben.
+
+**Korrektur:** Der nächste operative Driver-Lauf ist `bash scripts/run-ssot-loop.sh 5 --skip-initial-resolver-pause`. Das Flag injiziert `skip-50-stop` nur in die erste Subsession, also nur für `ssot-w40k-016`; Iterationen 017–020 laufen unmarkiert. Wenn der Lauf bei kumulativ 200 landet, startet der Driver laut Skriptlogik automatisch eine ungeskippte Pause-Probe, sodass der 200er-Resolver-Pause-Block committed wird.
+
+**Pages touched:** `project-state.md` (Next-likely-brief, What's-open, What's-running und operative Step-Form), `pipeline-state.md` (updated 2026-05-16 + sources + next-axis Items 12–14), `index.md` (Katalogzeilen project-state/pipeline-state), `sessions/README.md` (Maintainer-Bedienung + 061-Zeile), this `log.md`.
