@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-05-14
+updated: 2026-05-15
 sources: []
 related:
   - ../CLAUDE.md
@@ -21,21 +21,22 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-074-arch: 150 W40K-Bücher applied, dritte Resolver-Welle offen; Green Tide bleibt Buch-Scope und bekommt Collection-Gap-Ledger statt partieller `work_collections`. | 2026-05-15 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-074-arch: OQ9 closed/folded, OQ2-(c) moot post-CC-Direct-Curation; Restqueue Brief 074, Loop-Resume, OQ3/OQ6. | 2026-05-15 |
-| [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: ergänzt um `chaos`-pov_side-Promote-Pass als moot/deferred. | 2026-05-15 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-074-impl + Wiki-Hygiene-Pass: 150 W40K-Bücher applied, dritte Resolver-Welle geschlossen, Junction-Counts 912/287/522/35, ADR `why-cc-direct-curation.md` formalisiert. | 2026-05-15 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Wiki-Hygiene: OQ1 endgültig superseded durch CC-Direct-Curation-ADR, OQ2-(c) nach deferred. Restqueue: Loop-Resume, Cockpit-Refinement, OQ3, OQ6, Collection-Gap-Resolve. | 2026-05-15 |
+| [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-074: Collection-gap policy ergänzt — unfertige Sammelwerke bleiben Buch-Scope, keine partiellen `work_collections`, stattdessen `collection-gaps.json`. | 2026-05-15 |
+| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-074-impl + Wiki-Hygiene: V2-LLM-Stage als de-facto ausgemustert markiert, Resolver-Layer-Sektion auf 150 Bücher + 912/287/522/35 Junctions aktualisiert, Watson-Trilogy historical-canon-layer-Konvention dokumentiert. | 2026-05-15 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals heute, 859 SSOT-Roster ab 058, ~$0.114/book V1 / $0.0199/Buch V2 fresh-Smoke). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
 
 ## Decision pages (ADRs with revisit-triggers)
 
 | Page | Decision | Decided | Updated |
 |---|---|---|---|
+| [decisions/why-cc-direct-curation.md](./decisions/why-cc-direct-curation.md) | V2-LLM-Stage de-facto ausgemustert; `claude -p`-Subsession produziert die Override-Datei direkt. Maintainer-Kontrolle + Modell-Qualität + Latenz vs. Reproduzierbarkeit + Field-Provenance. Effektiv entschieden seit Brief 061 (2026-05-11), formal-ADR 2026-05-15. | 2026-05-11 | 2026-05-15 |
 | [decisions/faction-policy.md](./decisions/faction-policy.md) | Browse-Root vs. Tree-Root getrennt: Policy lebt in `scripts/seed-data/faction-policy.json` (16 Browse-Roots, `imperium` als Grand-Alignment-Exception), `factions.parent_id` weiter Single-Parent. `factions.json` audit-patched (Chaos-Rename + 14 Reparents), `brain:lint` neue Kategorie. | 2026-05-13 | 2026-05-13 |
-| [decisions/why-sonnet-not-haiku.md](./decisions/why-sonnet-not-haiku.md) | Supersedes Haiku-Default: Pipeline-Enrichment soll mit Sonnet (current major) laufen, weil Cockpit-Audit Datenqualitaets-Pathologien sichtbar macht und der Cost-Aufschlag im Hobby-Rahmen tragbar bleibt. | 2026-05-13 | 2026-05-13 |
+| [decisions/why-sonnet-not-haiku.md](./decisions/why-sonnet-not-haiku.md) | Supersedes Haiku-Default: Pipeline-Enrichment soll mit Sonnet (current major) laufen, weil Cockpit-Audit Datenqualitaets-Pathologien sichtbar macht und der Cost-Aufschlag im Hobby-Rahmen tragbar bleibt. **Post-2026-05-15 historisches Artefakt + Reaktivierungs-Sicherung** — die V2-LLM-Stage läuft nicht mehr (siehe `why-cc-direct-curation.md`). | 2026-05-13 | 2026-05-15 |
 | [decisions/why-excel-ssot-not-crawl.md](./decisions/why-excel-ssot-not-crawl.md) | Discovery-Stage durch Maintainer-kuratierte Excel-SSOT ersetzt (859 Bücher + 191 Collections, deterministischer Loader → `book-roster.json`). Crawler bleiben im Code, ab Brief 058 nicht mehr Default-Eingang | 2026-05-10 | 2026-05-10 |
 | [decisions/karpathy-reset-2026-05-08.md](./decisions/karpathy-reset-2026-05-08.md) | Brain (`brain/` in repo) + Atlas (external Obsidian vault, `~/chrono-atlas/`) — Karpathy LLM Wiki pattern, domain-split | 2026-05-08 | 2026-05-09 |
 | [decisions/why-drizzle-supabase.md](./decisions/why-drizzle-supabase.md) | Next.js + TS + Tailwind + Drizzle + Supabase + Vercel + custom M-scale + string IDs / UUIDs split | 2026-04-28 | 2026-05-09 |
@@ -63,8 +64,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Description | Updated |
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-14 |
-| (this file) | Master catalog | 2026-05-14 |
+| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-15 |
+| (this file) | Master catalog | 2026-05-15 |
 
 ## Concept pages
 
