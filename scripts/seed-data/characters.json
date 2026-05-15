@@ -719,5 +719,167 @@
     "primaryFactionId": "mentors",
     "lexicanumUrl": null,
     "notes": null
+  },
+  {
+    "id": "belisarius_cawl",
+    "name": "Belisarius Cawl",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Cawl trilogy anchor"
+  },
+  {
+    "id": "hadeya_etsul",
+    "name": "Hadeya Etsul",
+    "primaryFactionId": "cadian_shock_troops",
+    "lexicanumUrl": null,
+    "notes": "Cadian-tank-crew POV; cross-batch Steel Tread 012 -> Demolisher 015"
+  },
+  {
+    "id": "jaq_draco",
+    "name": "Jaq Draco",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "historical_canon_layer; Watson Inquisition-War Trilogy POV (Inquisitor / Draco, Harlequin, Chaos Child)"
+  },
+  {
+    "id": "meh_lindi",
+    "name": "Meh'Lindi",
+    "primaryFactionId": "callidus_temple",
+    "lexicanumUrl": null,
+    "notes": "historical_canon_layer; Watson Inquisition-War Trilogy retinue, Callidus assassin"
+  },
+  {
+    "id": "vitali_googol",
+    "name": "Vitali Googol",
+    "primaryFactionId": "navis_nobilite",
+    "lexicanumUrl": null,
+    "notes": "historical_canon_layer; Watson Inquisition-War Trilogy retinue, Navigator"
+  },
+  {
+    "id": "grimm",
+    "name": "Grimm",
+    "primaryFactionId": "squats",
+    "lexicanumUrl": null,
+    "notes": "historical_canon_layer; Watson Inquisition-War Trilogy retinue, Squat companion"
+  },
+  {
+    "id": "severina_raine",
+    "name": "Severina Raine",
+    "primaryFactionId": "commissariat",
+    "lexicanumUrl": null,
+    "notes": "Commissar POV in Honourbound (Bale Stars Crusade, Eleventh Antari Rifles)"
+  },
+  {
+    "id": "asenath_hyades",
+    "name": "Asenath Hyades",
+    "primaryFactionId": "order_of_the_last_candle",
+    "lexicanumUrl": null,
+    "notes": "Sister-Hospitaller POV in Requiem Infernal"
+  },
+  {
+    "id": "tetrarch_felix",
+    "name": "Tetrarch Felix",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "lady_chettamandey_brobantis",
+    "name": "Lady Chettamandey Brobantis",
+    "primaryFactionId": "house_brobantis",
+    "lexicanumUrl": null,
+    "notes": "Navis-Nobilite POV in Rites of Passage"
+  },
+  {
+    "id": "sister_evangeline",
+    "name": "Sister Evangeline",
+    "primaryFactionId": "order_of_our_martyred_lady",
+    "lexicanumUrl": null,
+    "notes": "Battle-Sister POV in Mark of Faith"
+  },
+  {
+    "id": "ahri_ravara",
+    "name": "Inquisitor Ahri Ravara",
+    "primaryFactionId": "ordo_hereticus",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "ephrael_stern",
+    "name": "Ephrael Stern",
+    "primaryFactionId": "sisters_of_battle",
+    "lexicanumUrl": null,
+    "notes": "Thrice-Born / Daemonifuge / Heretic Saint"
+  },
+  {
+    "id": "kyganil",
+    "name": "Kyganil",
+    "primaryFactionId": "harlequins",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "ufthak_blackhawk",
+    "name": "Ufthak Blackhawk",
+    "primaryFactionId": "goffs",
+    "lexicanumUrl": null,
+    "notes": "Goff Big-Mek POV in Brutal Kunnin"
+  },
+  {
+    "id": "trazyn_the_infinite",
+    "name": "Trazyn the Infinite",
+    "primaryFactionId": "necrons",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "orikan_the_diviner",
+    "name": "Orikan the Diviner",
+    "primaryFactionId": "necrons",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "te_kahurangi",
+    "name": "Te Kahurangi",
+    "primaryFactionId": "carcharodons",
+    "lexicanumUrl": null,
+    "notes": "Pale Nomad / Carcharodons Librarian POV in Silent Hunters"
+  },
+  {
+    "id": "chaplain_tangata_manu",
+    "name": "Chaplain Tangata Manu",
+    "primaryFactionId": "carcharodons",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "captain_aeschelus",
+    "name": "Captain Aeschelus",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": "Crusade Fleet Quintus / Ithraca's Vengeance, Indomitus"
+  },
+  {
+    "id": "ursula_creed",
+    "name": "Ursula Creed",
+    "primaryFactionId": "cadian_shock_troops",
+    "lexicanumUrl": null,
+    "notes": "Daughter / mantle-bearer; Creed: Ashes of Cadia POV"
+  },
+  {
+    "id": "ursarkar_e_creed",
+    "name": "Ursarkar E. Creed",
+    "primaryFactionId": "cadian_shock_troops",
+    "lexicanumUrl": null,
+    "notes": "Cadian Lord Castellan; Fall of Cadia last-stand POV"
+  },
+  {
+    "id": "astor_sabbathiel",
+    "name": "Astor Sabbathiel",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Inquisitor POV; Pilgrims of Fire, Awakenings"
   }
 ]
+

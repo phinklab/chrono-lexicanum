@@ -1000,5 +1000,157 @@
     "gx": null,
     "gy": null,
     "tags": []
+  },
+  {
+    "id": "bale_stars",
+    "name": "Bale Stars",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["era_frame"]
+  },
+  {
+    "id": "candleworld",
+    "name": "Candleworld",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "sotha",
+    "name": "Sotha",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ophelia_vii",
+    "name": "Ophelia VII",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "vorlese",
+    "name": "Vorlese",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "galimo_prime",
+    "name": "Galimo Prime",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "pariah_nexus",
+    "name": "Pariah Nexus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["era_frame"]
+  },
+  {
+    "id": "silent_kingdom",
+    "name": "Silent Kingdom",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["era_frame"]
+  },
+  {
+    "id": "hephaesto",
+    "name": "Hephaesto",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "attruso",
+    "name": "Attruso",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "stalinvast",
+    "name": "Stalinvast",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["historical_canon_layer"]
+  },
+  {
+    "id": "sabulorb",
+    "name": "Sabulorb",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["historical_canon_layer"]
+  },
+  {
+    "id": "solemnace",
+    "name": "Solemnace",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "cepharil",
+    "name": "Cepharil",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "orymous",
+    "name": "Orymous",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ithracas_vengeance",
+    "name": "Ithraca's Vengeance",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "steel_tread",
+    "name": "Steel Tread",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "croatoas",
+    "name": "Croatoas",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "gondwa_vi",
+    "name": "Gondwa VI",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
   }
 ]

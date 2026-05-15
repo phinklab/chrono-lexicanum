@@ -180,5 +180,85 @@
     "id": "ian_st_martin",
     "name": "Ian St. Martin",
     "nameSort": "Martin, Ian St."
+  },
+  {
+    "id": "mike_brooks",
+    "name": "Mike Brooks",
+    "nameSort": "Brooks, Mike"
+  },
+  {
+    "id": "edoardo_albert",
+    "name": "Edoardo Albert",
+    "nameSort": "Albert, Edoardo"
+  },
+  {
+    "id": "adrian_tchaikovsky",
+    "name": "Adrian Tchaikovsky",
+    "nameSort": "Tchaikovsky, Adrian"
+  },
+  {
+    "id": "danie_ware",
+    "name": "Danie Ware",
+    "nameSort": "Ware, Danie"
+  },
+  {
+    "id": "steve_lyons",
+    "name": "Steve Lyons",
+    "nameSort": "Lyons, Steve"
+  },
+  {
+    "id": "justin_woolley",
+    "name": "Justin Woolley",
+    "nameSort": "Woolley, Justin"
+  },
+  {
+    "id": "marc_collins",
+    "name": "Marc Collins",
+    "nameSort": "Collins, Marc"
+  },
+  {
+    "id": "steven_b_fischer",
+    "name": "Steven B. Fischer",
+    "nameSort": "Fischer, Steven B."
+  },
+  {
+    "id": "denny_flowers",
+    "name": "Denny Flowers",
+    "nameSort": "Flowers, Denny"
+  },
+  {
+    "id": "george_mann",
+    "name": "George Mann",
+    "nameSort": "Mann, George"
+  },
+  {
+    "id": "chris_forrester",
+    "name": "Chris Forrester",
+    "nameSort": "Forrester, Chris"
+  },
+  {
+    "id": "david_guymer",
+    "name": "David Guymer",
+    "nameSort": "Guymer, David"
+  },
+  {
+    "id": "justin_d_hill",
+    "name": "Justin D. Hill",
+    "nameSort": "Hill, Justin D."
+  },
+  {
+    "id": "darius_hinks",
+    "name": "Darius Hinks",
+    "nameSort": "Hinks, Darius"
+  },
+  {
+    "id": "rob_young",
+    "name": "Rob Young",
+    "nameSort": "Young, Rob"
+  },
+  {
+    "id": "jude_reid",
+    "name": "Jude Reid",
+    "nameSort": "Reid, Jude"
   }
 ]

@@ -28,6 +28,11 @@ const OVERRIDE_BATCHES = [
   "008",
   "009",
   "010",
+  "011",
+  "012",
+  "013",
+  "014",
+  "015",
 ] as const;
 const EXPECTED_SMOKE_SLUGS = [
   "the-anarch",
@@ -36,6 +41,14 @@ const EXPECTED_SMOKE_SLUGS = [
   "storm-of-iron",
   "celestine",
   "spear-of-the-emperor",
+  "honourbound",
+  "the-infinite-and-the-divine",
+  "brutal-kunnin",
+  "krieg",
+  "archmagos",
+  "inquisitor-draco",
+  "voidscarred",
+  "the-green-tide",
 ] as const;
 
 interface FactionRow {
@@ -238,7 +251,7 @@ function main(): void {
     }
   });
 
-  check("coverage smoke slugs exist in 001..010", () => {
+  check("coverage smoke slugs exist in 001..015", () => {
     const slugs = new Set<string>();
     for (const batch of OVERRIDE_BATCHES) {
       const override = readJson<OverrideFile>(

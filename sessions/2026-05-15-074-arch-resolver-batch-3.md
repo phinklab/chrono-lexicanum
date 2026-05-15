@@ -2,7 +2,7 @@
 session: 2026-05-15-074
 role: architect
 date: 2026-05-15
-status: open
+status: implemented
 slug: resolver-batch-3
 parent: 2026-05-14-072-arch-resolver-batch-2
 links:
@@ -12,6 +12,7 @@ links:
   - 2026-05-13-071-arch-loop-driver
   - 2026-05-14-072-arch-resolver-batch-2
   - 2026-05-14-073-arch-maintainer-audit-cockpit
+  - 2026-05-15-074-impl-resolver-batch-3
 commits: []
 ---
 
