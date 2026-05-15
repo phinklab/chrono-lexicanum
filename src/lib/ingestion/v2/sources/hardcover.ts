@@ -24,7 +24,12 @@ import {
 } from "../../hardcover/fetch";
 import type { SourceClaim } from "../types";
 
-const SEARCH_QUERY = /* GraphQL */ `
+/** Hardcover field names recognised as Pipeline-V2 ratings-count probes. */
+export type HardcoverRatingsCountField = "users_count" | "ratings_count";
+
+function buildSearchQuery(extraField: HardcoverRatingsCountField | null): string {
+  const extra = extraField ? `      ${extraField}\n` : "";
+  return /* GraphQL */ `
   query ChronoLexicanumV2SearchBook($title: String!) {
     books(where: { title: { _eq: $title } }, limit: 5) {
       id
@@ -32,7 +37,7 @@ const SEARCH_QUERY = /* GraphQL */ `
       slug
       cached_tags
       rating
-      contributions {
+${extra}      contributions {
         author {
           name
         }
@@ -40,6 +45,9 @@ const SEARCH_QUERY = /* GraphQL */ `
     }
   }
 `;
+}
+
+const DEFAULT_SEARCH_QUERY = buildSearchQuery(null);
 
 interface HardcoverBookHit {
   id: number | string;
@@ -47,6 +55,8 @@ interface HardcoverBookHit {
   slug?: string | null;
   cached_tags?: unknown;
   rating?: number | null;
+  users_count?: number | null;
+  ratings_count?: number | null;
   contributions?: Array<{ author?: { name?: string } | null } | null>;
 }
 
@@ -63,17 +73,36 @@ export interface HardcoverDiscoveryV2Result {
   authorMismatch?: boolean;
 }
 
+export interface HardcoverDiscoveryV2Options {
+  /**
+   * If set, the search query asks Hardcover for this additional scalar field
+   * (e.g. `users_count` or `ratings_count`) and exposes it as
+   * `claim.raw.audit.ratingCount`. When the field is not in Hardcover's
+   * schema the GraphQL endpoint returns an error and the call falls back to
+   * `result: null` with `reason: "GraphQL errors: …"`. Caller decides whether
+   * to retry with a different field or accept the miss.
+   */
+  ratingsCountField?: HardcoverRatingsCountField | null;
+}
+
 export async function discoverHardcoverClaimV2(
   title: string,
   expectedAuthor?: string,
+  opts: HardcoverDiscoveryV2Options = {},
 ): Promise<HardcoverDiscoveryV2Result> {
   if (!isHardcoverEnabled()) {
     return { result: null, reason: "HARDCOVER_API_TOKEN missing" };
   }
 
+  const ratingsCountField = opts.ratingsCountField ?? null;
+  const query =
+    ratingsCountField === null
+      ? DEFAULT_SEARCH_QUERY
+      : buildSearchQuery(ratingsCountField);
+
   let response;
   try {
-    response = await hardcoverQuery<SearchData>(SEARCH_QUERY, { title });
+    response = await hardcoverQuery<SearchData>(query, { title });
   } catch (e) {
     return { result: null, reason: e instanceof Error ? e.message : String(e) };
   }
@@ -104,6 +133,8 @@ export async function discoverHardcoverClaimV2(
     .map((c) => c?.author?.name)
     .filter((n): n is string => typeof n === "string" && n.length > 0);
 
+  const ratingCount = ratingsCountField ? matched[ratingsCountField] : null;
+
   const sourceUrl = matched.slug
     ? `https://hardcover.app/books/${matched.slug}`
     : `https://hardcover.app/books/${matched.id}`;
@@ -118,6 +149,7 @@ export async function discoverHardcoverClaimV2(
       audit: {
         tags: tags.length > 0 ? tags : undefined,
         averageRating: typeof matched.rating === "number" ? matched.rating : undefined,
+        ratingCount: typeof ratingCount === "number" ? ratingCount : undefined,
         contributorNames: contributorNames.length > 0 ? contributorNames : undefined,
       },
     },

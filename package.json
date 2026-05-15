@@ -27,7 +27,8 @@
     "test:resolver-coverage": "tsx scripts/test-resolver-coverage.ts",
     "test:apply-override-dry": "tsx scripts/apply-override-dry.ts",
     "db:seed-resolver-extensions": "tsx --env-file=.env.local scripts/seed-resolver-extensions.ts",
-    "analyze:v2-surfaces": "tsx scripts/analyze-v2-surfaces.ts"
+    "analyze:v2-surfaces": "tsx scripts/analyze-v2-surfaces.ts",
+    "backfill:hardcover-rating": "tsx --env-file=.env.local scripts/backfill-hardcover-rating.ts"
   },
   "engines": {
     "node": ">=22"
