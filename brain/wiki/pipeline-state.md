@@ -2,7 +2,7 @@
 title: Pipeline state (Phase 3)
 type: overview
 created: 2026-05-09
-updated: 2026-05-15
+updated: 2026-05-16
 sources:
   - ../../src/lib/ingestion/
   - ../../sessions/archive/2026-05/2026-05-08-047-arch-pipeline-hardening.md
@@ -28,8 +28,11 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-12-063-impl-resolver-50-books.md
   - ../../sessions/archive/2026-05/2026-05-12-067-impl-resolver-apply-readiness.md
   - ../../sessions/archive/2026-05/2026-05-12-069-impl-resolver-apply-evidence.md
+  - ../../sessions/2026-05-13-071-impl-loop-driver.md
   - ../../sessions/2026-05-15-074-arch-resolver-batch-3.md
   - ../../sessions/2026-05-15-074-impl-resolver-batch-3.md
+  - ../../sessions/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md
+  - ../../scripts/run-ssot-loop.sh
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
   - ../../ingest/.archive/v1/backfill-20260508-2101.diff.json
   - ../../ingest/.archive/v2-pilot/v2-pilot-20260509-1934.diff.json
@@ -380,9 +383,9 @@ In rough order:
 9. ✅ **Brief 072 — Resolver-Welle 2** für `ssot-w40k-006..010`: `heretic_astartes`-Mid-Knoten, Reparents, Cross-Batch-`applyCollections` via `external_book_id`. Counts post-072: `work_factions=650`, `work_locations=239`, `work_characters=475`, `work_collections=35`.
 10. ✅ **Brief 073 — Maintainer-Audit-Cockpit (OQ9)** — `/buch/[slug]/audit` Sub-Route, `/buecher`-Audit-Modus mit vier Pillen (Drift / Junction-Lücke / SSOT / In mehreren Collections, AND-kombiniert), Default-Sort `updatedAt desc`, `src/lib/book-labels.ts`.
 11. ✅ **Brief 074 — Resolver-Welle 3 + Watson-Trilogy historical-canon-layer** für `ssot-w40k-011..015`: 20 neue Factions inkl. `hydra_cabal`, 19 Locations, 26 Characters, Squats-`tone`-Update via Upsert, Green-Tide-`collection-gaps.json`-Ledger statt partieller Collection-Kanten, 13 LLM-Catalog-Typos gestrippt. Counts post-074: `work_factions=912`, `work_locations=287`, `work_characters=522`, `work_collections=35`. Re-Apply 001..015 hat First-Apply für 011..015 mit-erledigt (Loop-Driver-PR #54 hatte nur Override-Files committed, nicht in DB geschrieben).
-12. **Loop-Re-Trigger für `ssot-w40k-016`.** Standing-Brief 061 + Loop-Driver-Skript, `skip-50-stop`-Marker bis zur 200er-Resolver-Pause. CC-Direct-Curation-Pattern (kein V2-LLM-Stage-Aufruf).
-13. **Cockpit-Detail-View-Refinement.** Quality-Feedback aus 074-impl (Drift-Pille braucht freq-/confidence-Sort innerhalb der Liste). Kleiner UI/Backend-Brief; ggf. gebündelt mit DetailPanel "Auch enthalten in:".
-14. **OQ6 — Hardcover-Rating-Promotion + OL-Fallback.** Architectural Brief: `rating: FieldRecord<number>` auf `BookV2Record`, OL-Fallback ja/nein, retroaktive Promote-Strategie. ~10–20 LOC.
+12. **Loop-Re-Trigger für `ssot-w40k-016..020`.** Standing-Brief 061 + Loop-Driver-Skript. Korrekte Driver-Form: `bash scripts/run-ssot-loop.sh 5 --skip-initial-resolver-pause`. Das Flag überspringt nur den bereits abgearbeiteten 150er-Pre-Check; die 200er-Resolver-Pause bleibt ungeskippt und soll als Pause-Block committed werden. CC-Direct-Curation-Pattern (kein V2-LLM-Stage-Aufruf).
+13. **Hardcover-Hit-Rate-Härtung (Titel-Normalisierung).** Neue OQ (10) post-075: 77/150 Hardcover-Rating-Hits (51.3 %) unter 70 %-Trigger, Miss-Profil primär Titel-Match/Author-Match statt Coverage. Architektur-Call für Title-Varianten, Tie-Breaks und Audit-Persistenz.
+14. **Cockpit-Sub-Sortierung + Public-Rating-Render.** Drift-Pille sortiert seit 075 nach Drift-Frequenz, aber 19/20 Top-Treffer sind noch flat auf `drift_count=2 / confidence=1.00`; zusätzlich ist `bookDetails.rating` befüllt, aber noch nicht auf `/buch/[slug]` sichtbar.
 15. **OQ3 — Hand-Check-Workflow + Override-Schema.** Cockpit ist verfügbar; Override-Field-Schema + Triage-Disziplin stehen noch aus. Wahrscheinlich gebündelt mit dem Cockpit-Refinement.
 16. **Collection-Gap-Resolve-Pass für Green Tide.** Wenn der Maintainer-Excel-Workflow die 4 fehlenden Short-Story-Constituents als eigene Roster-Works modelliert, schließt ein Folge-Brief das Ledger.
 17. **3e Voll-Apply** (alle 859 Bücher in DB) sobald die Loop-Iterationen genug Confidence haben, mit Resolver-Pflege je 50er-Schwelle.

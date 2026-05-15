@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-05-15
+updated: 2026-05-16
 sources: []
 related:
   - ../CLAUDE.md
@@ -21,13 +21,13 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-074-impl + Wiki-Hygiene-Pass: 150 W40K-Bücher applied, dritte Resolver-Welle geschlossen, Junction-Counts 912/287/522/35, ADR `why-cc-direct-curation.md` formalisiert. | 2026-05-15 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Wiki-Hygiene: OQ1 endgültig superseded durch CC-Direct-Curation-ADR, OQ2-(c) nach deferred. Restqueue: Loop-Resume, Cockpit-Refinement, OQ3, OQ6, Collection-Gap-Resolve. | 2026-05-15 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-075-impl + Wiki-Hygiene-Pass 2026-05-16: 150 W40K-Bücher applied (77 davon mit Hardcover-Rating, 51.3 %), Cockpit-Drift-Frequenz-Sort + slim Public-DetailPanel gelandet, OQ6 closed; Loop-Resume-Kommando auf `--skip-initial-resolver-pause` korrigiert. | 2026-05-16 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Wiki-Hygiene 2026-05-16: OQ6 (Hardcover-Rating-Promotion) durch Brief 075 closed; neue OQ (10) „Hardcover-Hit-Rate-Härtung (Titel-Normalisierung)" promoted (51.3 % Hit-Rate < 70 %-Trigger). Restqueue: Loop-Resume `ssot-w40k-016..020`, OQ (10), Cockpit-Sub-Sortierung, OQ3, Collection-Gap-Resolve. | 2026-05-16 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-074-impl + Wiki-Hygiene: V2-LLM-Stage als de-facto ausgemustert markiert, Resolver-Layer-Sektion auf 150 Bücher + 912/287/522/35 Junctions aktualisiert, Watson-Trilogy historical-canon-layer-Konvention dokumentiert. | 2026-05-15 |
+| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-075-Hygiene: Resolver-Layer auf 150 Bücher + 912/287/522/35 Junctions, V2-LLM-Stage de-facto ausgemustert, Loop-Re-Trigger `016..020` mit initialem Skip-Flag und ungeskippter 200er-Pause dokumentiert. | 2026-05-16 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals heute, 859 SSOT-Roster ab 058, ~$0.114/book V1 / $0.0199/Buch V2 fresh-Smoke). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
 
 ## Decision pages (ADRs with revisit-triggers)
@@ -64,8 +64,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Description | Updated |
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-15 |
-| (this file) | Master catalog | 2026-05-15 |
+| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-16 |
+| (this file) | Master catalog | 2026-05-16 |
 
 ## Concept pages
 
