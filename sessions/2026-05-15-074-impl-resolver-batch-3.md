@@ -28,7 +28,7 @@ Dritte Resolver-Welle umgesetzt. `factions.json` +20 (inkl. `hydra_cabal`-Watson
 - **`scripts/seed-data/faction-aliases.json`** — 17 neue Aliases (`Imperium → imperium`, `Chaos Space Marines → heretic_astartes`, `Space Sharks → carcharodons`, `Hydra → hydra_cabal`, `Adepta Sororitas → sisters_of_battle`, …).
 - **`scripts/seed-data/location-aliases.json`** — 4 neue Aliases (`Dark City → commorragh`, `Serenade → cepharil`, …).
 - **`scripts/seed-data/character-aliases.json`** — 17 neue Aliases (`Cawl → belisarius_cawl`, `Inquisitor Draco → jaq_draco`, `Lord Castellan Creed → ursarkar_e_creed`, …); Review-Follow-up entfernt das zu breite `Creed` und den falschen `Lord Solar Trazyn`-Alias.
-- **`scripts/seed-data/collection-gaps.json` (NEU)** — Green-Tide-Ledger-Eintrag mit den 4 existierenden Constituents (W40K-0128/0118/0249/0565) + 4 fehlenden Short-Stories. Override-File-15 erwähnt W40K-0117 für *Catachan Devil*, der korrekte Roster-Eintrag ist W40K-0118 — Note dokumentiert.
+- **`scripts/seed-data/collection-gaps.json` (NEU)** — Green-Tide-Ledger-Eintrag mit den 4 existierenden Constituents (W40K-0128/0118/0249/0565) + 4 fehlenden Short-Stories. Override-File-15 wurde für *Catachan Devil* auf den korrekten Roster-Eintrag W40K-0118 korrigiert.
 - **`scripts/seed-data/manual-overrides-ssot-w40k-015.json`** — 13 unbekannte facetIds entfernt (`interplanetary`/`freedom`/`discovery`/`duty`/`early_release`); siehe Decisions.
 - **`scripts/apply-override-dry.ts`** — Batch-Range 001..015 + 8 neue Smoke-Slugs + erweiterte EXPECTED_RANGES für die 150-Bücher-Größenordnung.
 - **`scripts/test-resolver-coverage.ts`** — Batch-Range 001..015 + Smoke-Slugs.

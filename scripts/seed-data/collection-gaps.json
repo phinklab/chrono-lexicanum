@@ -15,6 +15,6 @@
       "Mad Dok",
       "The Enemy of My Enemy"
     ],
-    "note": "Keep omnibus as a normal work; defer complete work_collections until missing short-story works/roster rows are modeled. Constituents per override-015 rationale: Warboss (Mike Brooks, W40K-0128), Catachan Devil (Justin Woolley, W40K-0118), novellas Iron Resolve (Steve Lyons, W40K-0249) + Prisoners of Waaagh! (Justin Woolley, W40K-0565), short stories by Graham McNeill and others. The override rationale references W40K-0117 for Catachan Devil but the roster row is W40K-0118 (see book-roster.json)."
+    "note": "Keep omnibus as a normal work; defer complete work_collections until missing short-story works/roster rows are modeled. Constituents per override-015 rationale: Warboss (Mike Brooks, W40K-0128), Catachan Devil (Justin Woolley, W40K-0118), novellas Iron Resolve (Steve Lyons, W40K-0249) + Prisoners of Waaagh! (Justin Woolley, W40K-0565), short stories by Graham McNeill and others. Constituent IDs verified against book-roster.json."
   }
 ]
