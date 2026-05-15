@@ -3,6 +3,7 @@ title: Open questions (next-brief queue)
 type: overview
 created: 2026-05-09
 updated: 2026-05-15
+# 2026-05-15 (Brief 075): OQ6 in Brief 075 (Cockpit-Refinement + Hardcover-Rating) gefaltet — Track-B-Architektur-Calls in 075 fixiert (Hardcover-only, kein OL-Fallback, Standalone-Backfill-Script). Eintrag bleibt als strikethrough-Anker bis 075-impl gemerged ist; dann gepruned. Track-B-Sicherheitsventil: bei Unsicherheit darf CC OQ6 als saubere Folge-OQ neu öffnen statt zu zwingen.
 # 2026-05-15 (Wiki-Hygiene-Pass post-074-impl): OQ1 (Phase-3e Modell) und OQ2-(c) (chaos-pov_side) beide endgültig moot post-CC-Direct-Curation; ADR decisions/why-cc-direct-curation.md geschrieben. OQ2-(c) wandert nach deferred-questions.md mit Promote-Trigger. Brief 074 + 074-impl als shipped markiert; Recently-shipped-Pointer zeigt jetzt auf project-state.md.
 # 2026-05-15 (Brief 074): OQ9 fully closed (073-impl complete). OQ2-(c) chaos-pov_side reclassified as moot post-CC-Direct-Curation pipeline-shift — wandert in deferred-questions.md.
 # 2026-05-14 (Brief 073): OQ9 folded into Brief 073 (Maintainer-Audit-Cockpit) and pruned.
@@ -88,7 +89,16 @@ Resolver für die ersten 50 W40K-Bücher ist gelandet und applied. Brief 063 ent
 
 Für die 50-Buch-Authority-Schicht wurde keine `unresolved_entities`-Staging-Tabelle gebaut. Stattdessen gilt für diesen Modus: Cowork kuratiert häufige Surface-Forms direkt in Sidecar-JSONs, Long-Tail bleibt im `book_details.notes`-Surface-Forms-Block, und Coverage-Tests (`test:resolver-coverage`, `test:apply-override-dry`) machen die Rest-Lücken sichtbar. Eine echte Staging-Tabelle bleibt eine distant/future Option, falls später ein autonomer Crawler-Apply ohne Maintainer-Override-Loop wieder relevant wird.
 
-## (6) Hardcover-Rating-Promotion + Open-Library-Fallback-Decision
+## (6) ~~Hardcover-Rating-Promotion + Open-Library-Fallback-Decision~~ — folded into Brief 075 (2026-05-15)
+
+Brief 075 (`sessions/2026-05-15-075-arch-cockpit-drift-sort-and-rating.md`) fixiert die drei Architektur-Calls:
+- (a) **Field-Schema:** `bookDetails.rating` / `ratingSource` / `ratingCount` (bestehende Spalten, keine Migration). Kein V2-`BookV2Record.fields.rating`-Slot — moot post-CC-Direct-Curation.
+- (b) **OL-Fallback:** nicht in 075. Promote-Trigger: Hardcover-Hit-Rate < 70 % über die 150 W40K-Bücher → eigene Folge-OQ.
+- (c) **Retroactive:** Standalone `scripts/backfill-hardcover-rating.ts` (idempotent default, `--force`-Flag). Kein `apply-override.ts`-Touch, kein V2-Pipeline-Touch.
+
+**Sicherheitsventil:** Wenn Track B in 075-impl architektonisch unsicher wird (Hardcover-API-Schema, Hit-Rate, anderes), darf CC abbrechen — Track A landet trotzdem, und eine präzisere Folge-OQ wird in `For next session` spezifiziert. Eintrag bleibt als strikethrough-Anker bis 075-impl gemerged ist, dann gepruned (oder Folge-OQ ersetzt ihn).
+
+## (6-historic) Hardcover-Rating-Promotion + Open-Library-Fallback-Decision
 
 **Owner:** Cowork (architectural call: Field-Slot + OL-Fallback ja/nein) → CC (Implementation, ~10–20 LOC). **Sessions:** [054-arch](../../sessions/archive/2026-05/2026-05-09-054-arch-pipeline-v2-pilot.md), [054-impl](../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md) (Slim-LLM-Entscheidung, Rating raus aus `PUBLISH_ENRICHMENT_TOOL`), Cowork-Maintainer-Diskussion 2026-05-09 (rogue, kein eigener Session-Log). **Follow-up brief:** post-055-Verifikation, entweder schlanker 055.5-Brief oder gebündelt mit Brief 056.
 

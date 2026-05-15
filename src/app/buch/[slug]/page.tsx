@@ -6,7 +6,7 @@
  */
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { eq } from "drizzle-orm";
+import { asc, eq } from "drizzle-orm";
 import { db } from "@/db/client";
 import {
   bookDetails as bookDetailsTable,
@@ -18,6 +18,7 @@ import {
   persons as personsTable,
   series as seriesTable,
   workCharacters as workCharactersTable,
+  workCollections as workCollectionsTable,
   workFacets as workFacetsTable,
   workFactions as workFactionsTable,
   workLocations as workLocationsTable,
@@ -43,8 +44,15 @@ async function loadBookBySlug(slug: string) {
     .limit(1);
   if (!work) return null;
 
-  const [details, personRows, factionRows, locationRows, characterRows, facetRows] =
-    await Promise.all([
+  const [
+    details,
+    personRows,
+    factionRows,
+    locationRows,
+    characterRows,
+    facetRows,
+    containedInRows,
+  ] = await Promise.all([
       db
         .select({
           format: bookDetailsTable.format,
@@ -96,6 +104,18 @@ async function loadBookBySlug(slug: string) {
         .from(workFacetsTable)
         .innerJoin(facetValuesTable, eq(facetValuesTable.id, workFacetsTable.facetValueId))
         .where(eq(workFacetsTable.workId, work.id)),
+      db
+        .select({
+          collectionSlug: worksTable.slug,
+          collectionTitle: worksTable.title,
+        })
+        .from(workCollectionsTable)
+        .innerJoin(
+          worksTable,
+          eq(worksTable.id, workCollectionsTable.collectionWorkId),
+        )
+        .where(eq(workCollectionsTable.contentWorkId, work.id))
+        .orderBy(asc(workCollectionsTable.displayOrder), asc(worksTable.title)),
     ]);
 
   return {
@@ -111,6 +131,7 @@ async function loadBookBySlug(slug: string) {
     locations: locationRows,
     characters: characterRows,
     facets: facetRows,
+    containedIn: containedInRows,
   };
 }
 
@@ -172,6 +193,23 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
           {metaParts.length > 0 && (
             <p className="mt-4 font-mono text-xs text-frost-400">
               {metaParts.join(" · ")}
+            </p>
+          )}
+
+          {book.containedIn.length > 0 && (
+            <p className="mt-1 font-mono text-xs text-frost-400">
+              Auch enthalten in:{" "}
+              {book.containedIn.map((c, i) => (
+                <span key={c.collectionSlug}>
+                  {i > 0 && ", "}
+                  <Link
+                    href={`/buch/${c.collectionSlug}`}
+                    className="underline decoration-frost-500/40 underline-offset-2 hover:text-frost-200"
+                  >
+                    {c.collectionTitle}
+                  </Link>
+                </span>
+              ))}
             </p>
           )}
 

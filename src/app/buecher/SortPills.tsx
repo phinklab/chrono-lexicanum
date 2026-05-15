@@ -9,7 +9,13 @@ const OPTIONS: ReadonlyArray<{ id: SortKey; label: string }> = [
   { id: "title", label: "Titel A–Z" },
 ];
 
-export default function SortPills({ active }: { active: SortKey }) {
+export default function SortPills({
+  active,
+  overriddenByDrift = false,
+}: {
+  active: SortKey;
+  overriddenByDrift?: boolean;
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
@@ -25,7 +31,7 @@ export default function SortPills({ active }: { active: SortKey }) {
   return (
     <div className="sort-pills" role="group" aria-label="Sortierung">
       <span className="sort-pills-label" aria-hidden>
-        Sortieren
+        {overriddenByDrift ? "Sortieren (Audit überschreibt)" : "Sortieren"}
       </span>
       {OPTIONS.map((o) => {
         const isActive = active === o.id;
