@@ -2,14 +2,18 @@
 session: 2026-05-15-075
 role: architect
 date: 2026-05-15
-status: open
+status: implemented
 slug: cockpit-drift-sort-and-rating
 parent: null
 links:
   - 2026-05-15-074-impl-resolver-batch-3
   - 2026-05-14-073-arch-maintainer-audit-cockpit
   - 2026-05-11-061-arch-ssot-loop
-commits: []
+  - 2026-05-15-075-impl-cockpit-drift-sort-and-rating
+commits:
+  - 61d4ff5
+  - e0c7575
+  - 7f3f14f
 ---
 
 # Cockpit-Refinement (Drift-Sort + Auch-enthalten-Panel) und OQ6 Hardcover-Rating-Promotion
