@@ -41,6 +41,11 @@ const BATCHES = [
   "008",
   "009",
   "010",
+  "011",
+  "012",
+  "013",
+  "014",
+  "015",
 ] as const;
 const SMOKE_SLUGS = [
   "the-anarch",
@@ -49,12 +54,20 @@ const SMOKE_SLUGS = [
   "storm-of-iron",
   "celestine",
   "spear-of-the-emperor",
+  "honourbound",
+  "the-infinite-and-the-divine",
+  "brutal-kunnin",
+  "krieg",
+  "archmagos",
+  "inquisitor-draco",
+  "voidscarred",
+  "the-green-tide",
 ] as const;
 
 const EXPECTED_RANGES = {
-  factions: { min: 500, max: 651 },
-  locations: { min: 180, max: 239 },
-  characters: { min: 430, max: 540 },
+  factions: { min: 500, max: 1100 },
+  locations: { min: 180, max: 450 },
+  characters: { min: 430, max: 900 },
 } as const;
 
 interface OverrideEntity {

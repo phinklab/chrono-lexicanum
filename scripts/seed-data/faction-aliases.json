@@ -1,5 +1,6 @@
 {
   "Chaos": "chaos",
+  "Imperium": "imperium",
   "Imperial Guard": "astra_militarum",
   "Astra Militarum": "astra_militarum",
   "Eldar": "eldar",
@@ -13,9 +14,25 @@
   "Dark Eldar": "eldar",
   "Drukhari": "eldar",
   "Heretic Astartes": "heretic_astartes",
+  "Chaos Space Marines": "heretic_astartes",
   "Mentor Legion": "mentors",
   "Chaos Undivided": "chaos",
   "Biel-Tan": "eldar",
   "Iyanden": "eldar",
-  "Fabius Bile Coterie": "fabius_bile_coterie"
+  "Fabius Bile Coterie": "fabius_bile_coterie",
+  "Space Sharks": "carcharodons",
+  "Death Korps": "death_korps_of_krieg",
+  "Hydra": "hydra_cabal",
+  "Hydra Cabal": "hydra_cabal",
+  "Adepta Sororitas": "sisters_of_battle",
+  "Sisters of Battle": "sisters_of_battle",
+  "Cadian": "cadian_shock_troops",
+  "Cadian Regiments": "cadian_shock_troops",
+  "Royal Volpone": "volpone_bluebloods",
+  "Catachan": "catachan_jungle_fighters",
+  "Krieg": "death_korps_of_krieg",
+  "Triarch Council": "triarch_praetorians",
+  "Craftworld Aeldari": "eldar",
+  "Aeldari Corsairs Warhost": "aeldari_corsairs",
+  "Ynnead": "ynnari"
 }

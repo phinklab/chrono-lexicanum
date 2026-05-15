@@ -2,7 +2,7 @@
 session: 2026-05-15-074
 role: architect
 date: 2026-05-15
-status: open
+status: implemented
 slug: resolver-batch-3
 parent: 2026-05-14-072-arch-resolver-batch-2
 links:
@@ -12,7 +12,11 @@ links:
   - 2026-05-13-071-arch-loop-driver
   - 2026-05-14-072-arch-resolver-batch-2
   - 2026-05-14-073-arch-maintainer-audit-cockpit
-commits: []
+  - 2026-05-15-074-impl-resolver-batch-3
+commits:
+  - 7b86d5c
+  - 546e3e5
+  - 3e1d55d
 ---
 
 # Resolver-Pass 3 — Surface-Form-Crystallization für ssot-w40k-011..015

@@ -109,6 +109,53 @@ check("unknown - fabricated faction stays null", () => {
   assert.equal(resolveFaction("Cabal of Eight").id, null);
 });
 
+check("direct match - third wave Cadian Shock Troops", () => {
+  assert.equal(resolveFaction("Cadian Shock Troops").id, "cadian_shock_troops");
+});
+
+check("direct match - third wave Death Korps of Krieg", () => {
+  assert.equal(resolveFaction("Death Korps of Krieg").id, "death_korps_of_krieg");
+});
+
+check("direct match - third wave Carcharodons", () => {
+  assert.equal(resolveFaction("Carcharodons").id, "carcharodons");
+});
+
+check("direct match - third wave Order of Our Martyred Lady", () => {
+  assert.equal(
+    resolveFaction("Order of Our Martyred Lady").id,
+    "order_of_our_martyred_lady",
+  );
+});
+
+check("direct match - third wave Aeldari Corsairs", () => {
+  assert.equal(resolveFaction("Aeldari Corsairs").id, "aeldari_corsairs");
+});
+
+check("direct match - third wave Triarch Praetorians", () => {
+  assert.equal(resolveFaction("Triarch Praetorians").id, "triarch_praetorians");
+});
+
+check("direct match - Watson historical Hydra cabal", () => {
+  assert.equal(resolveFaction("Hydra").id, "hydra_cabal");
+});
+
+check("alias - Space Sharks routes to Carcharodons", () => {
+  assert.equal(resolveFaction("Space Sharks").id, "carcharodons");
+});
+
+check("alias - Death Korps short form routes to canonical regiment", () => {
+  assert.equal(resolveFaction("Death Korps").id, "death_korps_of_krieg");
+});
+
+check("alias - Adepta Sororitas routes to sisters_of_battle", () => {
+  assert.equal(resolveFaction("Adepta Sororitas").id, "sisters_of_battle");
+});
+
+check("alias - Triarch Council routes to Triarch Praetorians", () => {
+  assert.equal(resolveFaction("Triarch Council").id, "triarch_praetorians");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
@@ -157,6 +204,30 @@ check("direct match - Iyanden location axis", () => {
 
 check("unknown - fabricated world stays null", () => {
   assert.equal(resolveLocation("Atoll Verloren").id, null);
+});
+
+check("direct match - third wave Bale Stars era frame", () => {
+  assert.equal(resolveLocation("Bale Stars").id, "bale_stars");
+});
+
+check("direct match - third wave Stalinvast historical layer", () => {
+  assert.equal(resolveLocation("Stalinvast").id, "stalinvast");
+});
+
+check("direct match - third wave Cepharil", () => {
+  assert.equal(resolveLocation("Cepharil").id, "cepharil");
+});
+
+check("direct match - third wave Steel Tread vessel", () => {
+  assert.equal(resolveLocation("Steel Tread").id, "steel_tread");
+});
+
+check("alias - Dark City routes to Commorragh", () => {
+  assert.equal(resolveLocation("Dark City").id, "commorragh");
+});
+
+check("alias - Serenade routes to Cepharil", () => {
+  assert.equal(resolveLocation("Serenade").id, "cepharil");
 });
 
 console.log("\nresolveCharacter");
@@ -216,6 +287,46 @@ check("alias - Inquisitor Czevak", () => {
 
 check("unknown - long-tail character stays null", () => {
   assert.equal(resolveCharacter("Mandragore Carrion").id, null);
+});
+
+check("direct match - third wave Belisarius Cawl", () => {
+  assert.equal(resolveCharacter("Belisarius Cawl").id, "belisarius_cawl");
+});
+
+check("direct match - third wave Hadeya Etsul cross-batch", () => {
+  assert.equal(resolveCharacter("Hadeya Etsul").id, "hadeya_etsul");
+});
+
+check("direct match - third wave Lucille von Shard cross-batch", () => {
+  assert.equal(resolveCharacter("Lucille von Shard").id, "lucille_von_shard");
+});
+
+check("direct match - third wave Kile Simlex cross-batch", () => {
+  assert.equal(resolveCharacter("Kile Simlex").id, "kile_simlex");
+});
+
+check("direct match - third wave Bree Jagdea cross-batch", () => {
+  assert.equal(resolveCharacter("Bree Jagdea").id, "bree_jagdea");
+});
+
+check("direct match - third wave Watson Jaq Draco", () => {
+  assert.equal(resolveCharacter("Jaq Draco").id, "jaq_draco");
+});
+
+check("direct match - third wave Watson Meh'Lindi", () => {
+  assert.equal(resolveCharacter("Meh'Lindi").id, "meh_lindi");
+});
+
+check("alias - Cawl short form routes to Belisarius Cawl", () => {
+  assert.equal(resolveCharacter("Cawl").id, "belisarius_cawl");
+});
+
+check("alias - Inquisitor Draco routes to Jaq Draco", () => {
+  assert.equal(resolveCharacter("Inquisitor Draco").id, "jaq_draco");
+});
+
+check("alias - Lord Castellan Creed routes to Ursarkar Creed", () => {
+  assert.equal(resolveCharacter("Lord Castellan Creed").id, "ursarkar_e_creed");
 });
 
 console.log("\nnormalizeCharacterRole");

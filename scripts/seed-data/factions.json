@@ -637,7 +637,7 @@
     "name": "Squats",
     "parent": "imperium",
     "alignment": "imperium",
-    "tone": "Aus-Setting-Removed sub-faction (Squats)"
+    "tone": "historical_canon_layer"
   },
   {
     "id": "hive_fleet_leviathan",
@@ -729,5 +729,145 @@
     "parent": "chaos",
     "alignment": "chaos",
     "tone": "lore-ambiguous Fallen Angels, pragmatically under Chaos"
+  },
+  {
+    "id": "hydra_cabal",
+    "name": "Hydra",
+    "parent": "inquisition",
+    "alignment": "imperium",
+    "tone": "historical_canon_layer"
+  },
+  {
+    "id": "cadian_shock_troops",
+    "name": "Cadian Shock Troops",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "antari_rifles",
+    "name": "Antari Rifles",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "volpone_bluebloods",
+    "name": "Volpone Bluebloods",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "catachan_jungle_fighters",
+    "name": "Catachan Jungle Fighters",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "death_korps_of_krieg",
+    "name": "Death Korps of Krieg",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "kasrkin",
+    "name": "Kasrkin",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "aeronautica_imperialis",
+    "name": "Aeronautica Imperialis",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "the_sighted",
+    "name": "The Sighted",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "order_of_our_martyred_lady",
+    "name": "Order of Our Martyred Lady",
+    "parent": "sisters_of_battle",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "order_of_the_last_candle",
+    "name": "Order of the Last Candle",
+    "parent": "sisters_of_battle",
+    "alignment": "imperium",
+    "tone": "heterodox"
+  },
+  {
+    "id": "scythes_of_the_emperor",
+    "name": "Scythes of the Emperor",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "carcharodons",
+    "name": "Carcharodons",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "flesh_tearers",
+    "name": "Flesh Tearers",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "aeldari_corsairs",
+    "name": "Aeldari Corsairs",
+    "parent": "eldar",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "starsplinters",
+    "name": "Starsplinters",
+    "parent": "eldar",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "ynnari",
+    "name": "Ynnari",
+    "parent": "eldar",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "triarch_praetorians",
+    "name": "Triarch Praetorians",
+    "parent": "necrons",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "house_brobantis",
+    "name": "House Brobantis",
+    "parent": "navis_nobilite",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "goffs",
+    "name": "Goffs",
+    "parent": "orks",
+    "alignment": "xenos",
+    "tone": "alien"
   }
 ]
