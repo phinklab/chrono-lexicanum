@@ -5,8 +5,8 @@
  * /buecher?audit=drift ordering.
  *
  * Read-only. Usage:
- *   npm exec tsx scripts/smoke-drift-sort-075.ts            # top 10 drift books
- *   npm exec tsx scripts/smoke-drift-sort-075.ts -- --limit=20
+ *   npx tsx --env-file=.env.local scripts/smoke-drift-sort-075.ts            # top 10 drift books
+ *   npx tsx --env-file=.env.local scripts/smoke-drift-sort-075.ts --limit=20
  */
 import { sql } from "drizzle-orm";
 

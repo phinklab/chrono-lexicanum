@@ -117,12 +117,6 @@ function formatMBand(startY: number | null, endY: number | null): string | null 
   return fmt((startY ?? endY) as number);
 }
 
-function hasResolvedDrift(
-  rows: ReadonlyArray<{ rawName: string | null; name: string }>,
-): boolean {
-  return rows.some((row) => row.rawName !== null && row.rawName !== "" && row.rawName !== row.name);
-}
-
 function countResolvedDrift(
   rows: ReadonlyArray<{ rawName: string | null; name: string }>,
 ): number {
