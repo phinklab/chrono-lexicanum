@@ -861,6 +861,27 @@
     "notes": "Crusade Fleet Quintus / Ithraca's Vengeance, Indomitus"
   },
   {
+    "id": "lucille_von_shard",
+    "name": "Lucille von Shard",
+    "primaryFactionId": "aeronautica_imperialis",
+    "lexicanumUrl": null,
+    "notes": "Aeronautica Imperialis POV; Outgunned -> Above and Beyond cross-batch continuity"
+  },
+  {
+    "id": "kile_simlex",
+    "name": "Kile Simlex",
+    "primaryFactionId": "aeronautica_imperialis",
+    "lexicanumUrl": null,
+    "notes": "Imperial propagandist POV; Outgunned -> Above and Beyond cross-batch continuity"
+  },
+  {
+    "id": "bree_jagdea",
+    "name": "Bree Jagdea",
+    "primaryFactionId": "aeronautica_imperialis",
+    "lexicanumUrl": null,
+    "notes": "Aeronautica Imperialis POV; Double Eagle -> Interceptor City cross-batch continuity"
+  },
+  {
     "id": "ursula_creed",
     "name": "Ursula Creed",
     "primaryFactionId": "cadian_shock_troops",
@@ -882,4 +903,3 @@
     "notes": "Inquisitor POV; Pilgrims of Fire, Awakenings"
   }
 ]
-

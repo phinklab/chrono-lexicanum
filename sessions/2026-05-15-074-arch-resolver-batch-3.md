@@ -13,7 +13,8 @@ links:
   - 2026-05-14-072-arch-resolver-batch-2
   - 2026-05-14-073-arch-maintainer-audit-cockpit
   - 2026-05-15-074-impl-resolver-batch-3
-commits: []
+commits:
+  - 7b86d5c
 ---
 
 # Resolver-Pass 3 — Surface-Form-Crystallization für ssot-w40k-011..015

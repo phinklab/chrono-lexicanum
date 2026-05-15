@@ -297,6 +297,18 @@ check("direct match - third wave Hadeya Etsul cross-batch", () => {
   assert.equal(resolveCharacter("Hadeya Etsul").id, "hadeya_etsul");
 });
 
+check("direct match - third wave Lucille von Shard cross-batch", () => {
+  assert.equal(resolveCharacter("Lucille von Shard").id, "lucille_von_shard");
+});
+
+check("direct match - third wave Kile Simlex cross-batch", () => {
+  assert.equal(resolveCharacter("Kile Simlex").id, "kile_simlex");
+});
+
+check("direct match - third wave Bree Jagdea cross-batch", () => {
+  assert.equal(resolveCharacter("Bree Jagdea").id, "bree_jagdea");
+});
+
 check("direct match - third wave Watson Jaq Draco", () => {
   assert.equal(resolveCharacter("Jaq Draco").id, "jaq_draco");
 });

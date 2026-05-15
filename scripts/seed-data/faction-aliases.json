@@ -1,5 +1,6 @@
 {
   "Chaos": "chaos",
+  "Imperium": "imperium",
   "Imperial Guard": "astra_militarum",
   "Astra Militarum": "astra_militarum",
   "Eldar": "eldar",
@@ -13,6 +14,7 @@
   "Dark Eldar": "eldar",
   "Drukhari": "eldar",
   "Heretic Astartes": "heretic_astartes",
+  "Chaos Space Marines": "heretic_astartes",
   "Mentor Legion": "mentors",
   "Chaos Undivided": "chaos",
   "Biel-Tan": "eldar",

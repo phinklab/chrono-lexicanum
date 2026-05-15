@@ -9,23 +9,24 @@ links:
   - 2026-05-14-072-impl-resolver-batch-2
   - 2026-05-13-070-impl-faction-policy-hygiene
   - 2026-05-12-069-impl-resolver-apply-evidence
-commits: []
+commits:
+  - 7b86d5c
 ---
 
 # Resolver-Pass 3 — Surface-Form-Crystallization für ssot-w40k-011..015 (impl)
 
 ## Summary
 
-Dritte Resolver-Welle umgesetzt. `factions.json` +20 (inkl. `hydra_cabal`-Watson-Knoten, Astra-Militarum-named-regiment-tier, Sororitas-Orders, Astartes-Loyalist-Sub-Factions, Aeldari-/Necron-/Navis-Sub-Factions, Goffs). `locations.json` +19 (Imperium-Nihilus-Frames + Necron-Tomb-Worlds + Watson-Welten + Named-Vehicles). `characters.json` +23 (Cawl NEU als 074-Cross-Batch-Anchor + Hadeya Etsul + Watson-Retinue + lore-iconic-singletons). Aliases erweitert (Space Sharks/Dark City/Cawl-Multispelling etc.). Brief-Erratum #4 umgesetzt: Green Tide bleibt voll im Resolver-Scope, kein partieller `work_collections`-Eintrag; neue `scripts/seed-data/collection-gaps.json` mit dem W40K-0147-Ledger. Re-Apply `ssot-w40k-001..015` produzierte 50 frische `works`-Rows (die Brief-061-Loop hatte sie nur als Override-Files gemerged, nicht in die DB geschrieben). Globale Junction-Counts nach Re-Apply: `work_factions=882`, `work_locations=287`, `work_characters=516`, `work_collections=35` (Green Tide unverändert bei 0 Cross-Batch-Rows, wie erwartet wegen `roster.collections`-Lücke).
+Dritte Resolver-Welle umgesetzt. `factions.json` +20 (inkl. `hydra_cabal`-Watson-Knoten, Astra-Militarum-named-regiment-tier, Sororitas-Orders, Astartes-Loyalist-Sub-Factions, Aeldari-/Necron-/Navis-Sub-Factions, Goffs). `locations.json` +19 (Imperium-Nihilus-Frames + Necron-Tomb-Worlds + Watson-Welten + Named-Vehicles). `characters.json` +26 (Cawl NEU als 074-Cross-Batch-Anchor + Hadeya Etsul + Aeronautica-cross-batch Lucille/Kile/Bree + Watson-Retinue + lore-iconic-singletons). Aliases erweitert (Space Sharks/Dark City/Cawl-Multispelling etc.); Review-Follow-up ergänzt `Imperium` / `Chaos Space Marines` und entfernt zwei riskante Character-Aliases. Brief-Erratum #4 umgesetzt: Green Tide bleibt voll im Resolver-Scope, kein partieller `work_collections`-Eintrag; neue `scripts/seed-data/collection-gaps.json` mit dem W40K-0147-Ledger. Re-Apply `ssot-w40k-001..015` produzierte 50 frische `works`-Rows (die Brief-061-Loop hatte sie nur als Override-Files gemerged, nicht in die DB geschrieben). Globale Junction-Counts nach Review-Follow-up-Re-Apply: `work_factions=912`, `work_locations=287`, `work_characters=522`, `work_collections=35` (Green Tide unverändert bei 0 Cross-Batch-Rows, wie erwartet wegen `roster.collections`-Lücke).
 
 ## What I did
 
 - **`scripts/seed-data/factions.json`** — 20 neue Faction-Rows + Squats-`tone`-Update von `"Aus-Setting-Removed sub-faction (Squats)"` auf `"historical_canon_layer"` (siehe Decisions).
-- **`scripts/seed-data/locations.json`** — 19 neue Locations.
-- **`scripts/seed-data/characters.json`** — 23 neue Characters (Cawl NEU per Brief-Erratum #3).
-- **`scripts/seed-data/faction-aliases.json`** — 15 neue Aliases (`Space Sharks → carcharodons`, `Hydra → hydra_cabal`, `Adepta Sororitas → sisters_of_battle`, …).
+- **`scripts/seed-data/locations.json`** — 19 neue Locations; Review-Follow-up ergänzt fehlende `era_frame`-Tags auf den 074-Frame-Locations.
+- **`scripts/seed-data/characters.json`** — 26 neue Characters (Cawl NEU per Brief-Erratum #3; plus Lucille von Shard / Kile Simlex / Bree Jagdea als echte ≥2-cross-batch Aeronautica-Continuity).
+- **`scripts/seed-data/faction-aliases.json`** — 17 neue Aliases (`Imperium → imperium`, `Chaos Space Marines → heretic_astartes`, `Space Sharks → carcharodons`, `Hydra → hydra_cabal`, `Adepta Sororitas → sisters_of_battle`, …).
 - **`scripts/seed-data/location-aliases.json`** — 4 neue Aliases (`Dark City → commorragh`, `Serenade → cepharil`, …).
-- **`scripts/seed-data/character-aliases.json`** — 19 neue Aliases (`Cawl → belisarius_cawl`, `Inquisitor Draco → jaq_draco`, `Lord Castellan Creed → ursarkar_e_creed`, …).
+- **`scripts/seed-data/character-aliases.json`** — 17 neue Aliases (`Cawl → belisarius_cawl`, `Inquisitor Draco → jaq_draco`, `Lord Castellan Creed → ursarkar_e_creed`, …); Review-Follow-up entfernt das zu breite `Creed` und den falschen `Lord Solar Trazyn`-Alias.
 - **`scripts/seed-data/collection-gaps.json` (NEU)** — Green-Tide-Ledger-Eintrag mit den 4 existierenden Constituents (W40K-0128/0118/0249/0565) + 4 fehlenden Short-Stories. Override-File-15 erwähnt W40K-0117 für *Catachan Devil*, der korrekte Roster-Eintrag ist W40K-0118 — Note dokumentiert.
 - **`scripts/seed-data/manual-overrides-ssot-w40k-015.json`** — 13 unbekannte facetIds entfernt (`interplanetary`/`freedom`/`discovery`/`duty`/`early_release`); siehe Decisions.
 - **`scripts/apply-override-dry.ts`** — Batch-Range 001..015 + 8 neue Smoke-Slugs + erweiterte EXPECTED_RANGES für die 150-Bücher-Größenordnung.
@@ -33,6 +34,7 @@ Dritte Resolver-Welle umgesetzt. `factions.json` +20 (inkl. `hydra_cabal`-Watson
 - **`scripts/test-resolver-data-integrity.ts`** — Batch-Range 001..015 + Smoke-Slugs + Slug-Existence-Test-Label.
 - **`scripts/test-resolver.ts`** — 24 neue Resolver-Cases (Brief-074-spezifische direct-matches + Aliase, davon 11 Faction, 6 Location, 7 Character).
 - **`scripts/seed-data/persons.json`** — 17 auto-erstellte Author-Personen aus dem 011..015-Apply (Loop-LLM-Subsession schrieb sie ohne Roster-Author, Brief-061-Konvention).
+- **`scripts/seed-resolver-extensions.ts`** — Review-Follow-up: Location-Tags werden für bestehende Rows idempotent aus JSON gemerged, damit tag-only-Fixes wie die 074-`era_frame`-Korrektur die DB erreichen.
 - **Helper-Scripts (NEU, alle in `scripts/`):** `aggregate-surface-forms-074.ts` (Override-Aggregation), `snapshot-counts-074.ts` (DB-Snapshots für die Counts-Tabelle), `audit-cockpit-replica-074.ts` (Cockpit-Pillen-SQL-Replica), `smoke-slugs-074.ts` (Junction-Counts pro Slug), `watson-trilogy-check.ts` (Watson-Trilogy-Junction-Audit), `strip-unknown-facets-074.ts` (Data-Hygiene für die 015-Override-facetIds).
 - **`sessions/2026-05-15-074-arch-resolver-batch-3.md`** — Status `open` → `implemented`, `commits: […]` gesetzt.
 
@@ -59,24 +61,24 @@ Dritte Resolver-Welle umgesetzt. `factions.json` +20 (inkl. `hydra_cabal`-Watson
 | Phase                         | `work_factions` | `work_locations` | `work_characters` | `work_collections` |
 | ----------------------------- | --------------- | ---------------- | ----------------- | ------------------ |
 | Pre-Apply (vor diesem Brief)  | 650             | 239              | 475               | 35                 |
-| Per-Batch 011                 | 697             | 257              | 491               | 35                 |
-| Per-Batch 012                 | 732             | 265              | 493               | 35                 |
-| Per-Batch 013                 | 775             | 274              | 495               | 35                 |
-| Per-Batch 014                 | 822             | 280              | 502               | 35                 |
-| Per-Batch 015                 | 882             | 287              | 516               | 35                 |
-| Post-Re-Apply 001..015 (total)| 882             | 287              | 516               | 35                 |
+| Per-Batch 011                 | 697             | 257              | 492               | 35                 |
+| Per-Batch 012                 | 733             | 265              | 494               | 35                 |
+| Per-Batch 013                 | 786             | 274              | 498               | 35                 |
+| Per-Batch 014                 | 843             | 280              | 508               | 35                 |
+| Per-Batch 015                 | 912             | 287              | 522               | 35                 |
+| Post-Re-Apply 001..015 (total)| 912             | 287              | 522               | 35                 |
 
-Re-Apply 001..010 davor verschob `work_factions` minimal (650 → 651, Resolver-Set-Drift-Cleanup). Per-Batch-Counts oben sind Snapshots NACH jedem `db:apply-override --batch=ssot-w40k-NNN`-Run; jeder Batch baut auf den vorigen auf.
+Re-Apply 001..010 davor verschob `work_factions` minimal (650 → 651, Resolver-Set-Drift-Cleanup) und `work_characters` nach Review-Follow-up auf 476 (Bree Jagdea aus `ssot-w40k-009`). Per-Batch-Counts oben sind Snapshots NACH jedem `db:apply-override --batch=ssot-w40k-NNN`-Run; jeder Batch baut auf den vorigen auf.
 
 ### Coverage-Tabelle
 
 | Achse        | Reference-Rows | Junction-Distincts | Distinct-Coverage |
 | ------------ | -------------- | ------------------ | ----------------- |
-| factions     | 126            | 882 / 1003 input   | 87.9 % direct match |
+| factions     | 126            | 912 / 1003 input   | 90.9 % direct match |
 | locations    | 132            | 287 / 342 input    | 83.9 % direct match |
-| characters   | 126            | 516 / 677 input    | 76.2 % direct match |
+| characters   | 129            | 522 / 677 input    | 77.1 % direct match |
 
-Die Long-Tail-Unresolveds (12.1 % / 16.1 % / 23.8 %) sind erwartete Surface-Forms aus 1× Auftritten, die unter ≥2-Schwelle blieben — sichtbar in `book_details.notes`-Surface-Forms-Block + Cockpit-`drift`-Pille.
+Die Rest-Unresolveds (9.1 % / 16.1 % / 22.9 %) sind überwiegend erwartete 1×-Surface-Forms; verbleibende 2×-Treffer sind primär Omnibus-inherited Ork-/Catachan-Constituent-Forms aus `The Green Tide` plus `Saint Katherine` als eigener späterer Curations-Call.
 
 ### Smoke-Slugs (`f/l/c/in-coll`)
 
@@ -86,10 +88,10 @@ Die Long-Tail-Unresolveds (12.1 % / 16.1 % / 23.8 %) sind erwartete Surface-Form
 | the-infinite-and-the-divine   | W40K-0108   | 4 | 2 | 2 | 0 |
 | brutal-kunnin                 | W40K-0107   | 4 | 1 | 1 | 0 |
 | krieg                         | W40K-0117   | 5 | 1 | 0 | 0 |
-| archmagos                     | W40K-0144   | 2 | 0 | 1 | 0 |
-| inquisitor-draco              | W40K-0148   | 10| 0 | 4 | 0 |
+| archmagos                     | W40K-0144   | 3 | 0 | 1 | 0 |
+| inquisitor-draco              | W40K-0148   | 11| 0 | 4 | 0 |
 | voidscarred                   | W40K-0141   | 4 | 0 | 0 | 0 |
-| the-green-tide                | W40K-0147   | 5 | 1 | 0 | **0** |
+| the-green-tide                | W40K-0147   | 6 | 1 | 0 | **0** |
 
 Green Tide: 5 factions / 1 location / 0 characters / **0 work_collections** wie erwartet — der Roster trägt 0 `collections`-Rows mit W40K-0147 als parent, also kann `applyCollections` nichts schreiben. Stattdessen lebt der Hinweis in `scripts/seed-data/collection-gaps.json`. Inquisitor / Draco-15 trotz 11 Faction-Surface-Forms hat 0 Locations (Watson-Trilogy-Book-1 ist Earth-/Inquisition-bound; Stalinvast + Sabulorb + Webway erscheinen erst in Books 2/3 der Trilogy = `harlequin` + `chaos-child` — dort sind sie korrekt als `work_locations` resolved).
 
@@ -99,8 +101,8 @@ Replica der `/buecher?audit=…`-Pillen-Logik (`drift` = raw_name ≠ canonical,
 
 - **Pre-Apply, W40K-0001..0100** (die schon vor 074 in DB existierenden 100 Bücher): `drift=72, gap=30, ssot=100, collections=8, drift_and_gap=22`.
 - **Pre-Apply, W40K-0101..0150** (die 50 neuen Bücher): `rows=0` — die Loop-Driver-Subsession hatte sie nicht in die DB geschrieben.
-- **Post-Apply, W40K-0001..0100** (Re-Apply 001..010 mit neuem Resolver-Set): `drift=72, gap=30, ssot=100, collections=8, drift_and_gap=22` — identisch zu pre-apply. Das überrascht: ich hätte einen Drift-Drop ≥ 5 erwartet, weil die neuen Aliase (z. B. „Imperial Guard" → astra_militarum war schon da, aber „Cadian" / „Krieg" / „Death Korps" → death_korps_of_krieg neu) Surface-Forms aus 001..010 hätten auflösen sollen. Erklärung: Die meisten 001..010-Surface-Forms waren bereits aliased nach 072 (das gros der Drift kommt aus Sub-Sub-Granularität wie „Eleventh Antari Rifles" → bleiben raw); meine neuen Aliase wirken hauptsächlich in 011..015. Der raw_name-Audit-Spalt erfasst ALLE Drifts inkl. erwarteter, also keine Reduktion bei reinem Alias-Add ohne Schema-Erweiterung.
-- **Post-Apply, W40K-0101..0150**: `drift=9, gap=32, ssot=50, collections=0, drift_and_gap=3`. 32/50 mit Gap heißt: viele 011..015-Bücher haben 0 Characters oder 0 Locations weil ihre Surface-Forms freq=1 und nicht promoted blieben (z. B. `kasrkin.character=0/0` weil Bharath Obeysekera nicht promoted wurde; `warboss.location=0/0` weil keine on-page-Location explizit). Das ist erwartetes Verhalten — diese Bücher tragen ihre Surface-Forms im `notes`-Surface-Forms-Block.
+- **Post-Apply, W40K-0001..0100** (Re-Apply 001..010 mit Review-Follow-up-Resolver-Set): `drift=72, gap=29, ssot=100, collections=8, drift_and_gap=21` — eine kleine Gap-Reduktion durch den Bree-Jagdea-Cross-Batch-Character aus `ssot-w40k-009`; der Großteil der Drift bleibt erwartete raw_name-vs-canonical-Abweichung.
+- **Post-Apply, W40K-0101..0150**: `drift=34, gap=31, ssot=50, collections=0, drift_and_gap=22`. Die Drift-Zahl steigt gegenüber dem Erst-Report, weil `Imperium` / `Chaos Space Marines` jetzt bewusst resolve'n und damit als raw_name-vs-canonical-Drift sichtbar werden (`Imperium` → `Imperium of Man`, `Chaos Space Marines` → `Heretic Astartes`). Gap sinkt leicht durch die Alias- und Character-Fixes. Rest-Gaps sind erwartetes Verhalten bei Büchern mit 0 Characters oder 0 Locations, weil ihre Surface-Forms freq=1 oder bewusst nicht promoted blieben.
 
 **Cockpit-Quality-Feedback (Brief-074 Open-Questions-Punkt):** Die SQL-Replica der vier Pillen war 1:1 aus der TSX-Datei ablesbar (kein versteckter Filter-State). Die UX-Erkenntnis aus der SQL-Replica: die `drift`-Pille ist primärer Triage-Wert (raw_name-Audit), aber sie unterscheidet nicht zwischen „erwartetes lore-thin-Sub-Regiment-Surface-Form" und „resolver-Promotion-Kandidat" — die nächste Cockpit-Iteration könnte einen `confidence` / `frequency`-Sort innerhalb der drift-gefilterten Liste hinzunehmen, damit Maintainer-Triage die freq≥2-Drifts zuerst sieht. Heute muss man pro Buch auf die `/buch/<slug>/audit`-Route klicken, um die rohen Surface-Forms zu sehen.
 
@@ -108,12 +110,12 @@ Replica der `/buecher?audit=…`-Pillen-Logik (`drift` = raw_name ≠ canonical,
 
 | Check                                            | Status | Note |
 | ------------------------------------------------ | ------ | ---- |
-| `npm run db:seed-resolver-extensions`            | pass   | factions: +20 new, 106 updated (upsert). locations: +19. characters: +23. great_rift skipped (already current). |
+| `npm run db:seed-resolver-extensions`            | pass   | Initial: factions +20, locations +19, characters +23. Review-Follow-up re-run: factions 126 updated, location tags 7 updated, characters +3. |
 | `npm run db:apply-override --batch=ssot-w40k-001..015` | pass | 15 Runs, alle inserts=0|10 / updates=0|10. Persons.json grew from 14 → 31 across runs. |
 | `npm run lint`                                   | pass   | Bestehende `no-page-custom-font`-Warning in `layout.tsx:44` (Pre-074). |
 | `npm run typecheck`                              | pass   | 0 errors. |
 | `npm run brain:lint -- --no-write`               | pass   | 0 blocking, 5 warnings (bestehend, nicht 074-induziert). |
-| `npm run test:resolver`                          | pass   | 75 passed, 0 failed (war 51 vor 074). |
+| `npm run test:resolver`                          | pass   | 78 passed, 0 failed (war 51 vor 074). |
 | `npm run test:resolver-data`                     | pass   | inkl. „coverage smoke slugs exist in 001..015" (Label-Update). |
 | `npm run test:resolver-coverage`                 | pass   | 150 books processed, 7 below-threshold smoke-axes (data findings, keine failures). |
 | `npm run test:apply-override-dry`                | pass   | missing facet ids: 0, dangling: 0, forward refs: 0. |

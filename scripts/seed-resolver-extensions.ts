@@ -5,14 +5,13 @@
  * Inserts the factions / sectors / locations / characters from
  * scripts/seed-data/*.json for Brief 063 and later resolver passes. Factions
  * are upserted from JSON-sourced columns so hierarchy hygiene fixes reach the
- * DB on re-run. Locations and characters remain insert-only, except for the
- * targeted Brief-072 great_rift.tags update that preserves existing tags and
- * adds era_frame.
+ * DB on re-run. Locations and characters remain insert-only for core columns;
+ * location tags are merged from JSON so tag-only fixes reach the DB.
  *
  * Order of inserts respects FK dependencies:
  *   1. Factions
  *   2. Sectors
- *   3. Locations (+ targeted great_rift tag update)
+ *   3. Locations (+ tag merge for existing rows)
  *   4. Characters
  *
  * CLI: npm run db:seed-resolver-extensions
@@ -312,45 +311,54 @@ async function seedLocations(data: SeedLocation[]): Promise<{ added: number; ski
   return { added: toInsert.length, skipped: existingSet.size };
 }
 
-async function updateGreatRiftTags(
-  data: SeedLocation[],
-): Promise<{ updated: boolean; missing: boolean }> {
-  const desiredRow = data.find((location) => location.id === "great_rift");
-  const desiredTags = desiredRow?.tags ?? [];
-  if (desiredTags.length === 0) {
-    console.log("[seed-resolver-extensions] great_rift tags: skipped (no seed tags)");
-    return { updated: false, missing: false };
-  }
-
-  const existing = (await db
-    .select({ tags: locations.tags })
-    .from(locations)
-    .where(eq(locations.id, "great_rift"))
-    .limit(1)) as Array<{ tags: string[] | null }>;
-
-  if (existing.length === 0) {
-    console.warn("[seed-resolver-extensions] great_rift tags: skipped (row missing)");
-    return { updated: false, missing: true };
-  }
-
-  const currentTags = existing[0].tags ?? [];
+function mergeTags(currentTags: string[], desiredTags: string[]): string[] {
   const mergedTags = [...currentTags];
   for (const tag of desiredTags) {
     if (!mergedTags.includes(tag)) mergedTags.push(tag);
   }
-  if (mergedTags.length === currentTags.length) {
-    console.log("[seed-resolver-extensions] great_rift tags: skipped (already current)");
-    return { updated: false, missing: false };
+  return mergedTags;
+}
+
+async function updateLocationTags(
+  data: SeedLocation[],
+): Promise<{ updated: number; skipped: number; missing: number }> {
+  const taggedRows = data.filter((location) => (location.tags ?? []).length > 0);
+  if (taggedRows.length === 0) {
+    console.log("[seed-resolver-extensions] location tags: skipped (no seed tags)");
+    return { updated: 0, skipped: 0, missing: 0 };
   }
 
-  await db
-    .update(locations)
-    .set({ tags: mergedTags })
-    .where(eq(locations.id, "great_rift"));
+  const desiredById = new Map(taggedRows.map((location) => [location.id, location.tags ?? []]));
+  const existingRows = (await db
+    .select({ id: locations.id, tags: locations.tags })
+    .from(locations)
+    .where(inArray(locations.id, taggedRows.map((location) => location.id)))) as Array<{
+      id: string;
+      tags: string[] | null;
+    }>;
+
+  let updated = 0;
+  let skipped = 0;
+  for (const row of existingRows) {
+    const desiredTags = desiredById.get(row.id) ?? [];
+    const currentTags = row.tags ?? [];
+    const mergedTags = mergeTags(currentTags, desiredTags);
+    if (mergedTags.length === currentTags.length) {
+      skipped += 1;
+      continue;
+    }
+    await db
+      .update(locations)
+      .set({ tags: mergedTags })
+      .where(eq(locations.id, row.id));
+    updated += 1;
+  }
+
+  const missing = taggedRows.length - existingRows.length;
   console.log(
-    `[seed-resolver-extensions] great_rift tags: updated (${mergedTags.join(", ")})`,
+    `[seed-resolver-extensions] location tags: ${updated} updated, ${skipped} already current, ${missing} missing`,
   );
-  return { updated: true, missing: false };
+  return { updated, skipped, missing };
 }
 
 async function seedCharacters(data: SeedCharacter[]): Promise<{ added: number; skipped: number }> {
@@ -385,12 +393,12 @@ async function main() {
   const f = await seedFactions(data.factions);
   const s = await seedSectors(data.sectors);
   const l = await seedLocations(data.locations);
-  const greatRift = await updateGreatRiftTags(data.locations);
+  const tagUpdates = await updateLocationTags(data.locations);
   const c = await seedCharacters(data.characters);
   const totalAdded = f.added + s.added + l.added + c.added;
   const totalExisting = f.updated + s.skipped + l.skipped + c.skipped;
   console.log(
-    `[seed-resolver-extensions] done. total: +${totalAdded} new, ${totalExisting} existing (factions upserted, others skipped, great_rift=${greatRift.updated ? "updated" : "skipped"})`,
+    `[seed-resolver-extensions] done. total: +${totalAdded} new, ${totalExisting} existing (factions upserted, others skipped, location_tags=${tagUpdates.updated} updated)`,
   );
   process.exit(0);
 }
