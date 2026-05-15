@@ -11,6 +11,7 @@ links:
   - 2026-05-12-069-impl-resolver-apply-evidence
 commits:
   - 7b86d5c
+  - 546e3e5
 ---
 
 # Resolver-Pass 3 — Surface-Form-Crystallization für ssot-w40k-011..015 (impl)

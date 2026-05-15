@@ -15,6 +15,7 @@ links:
   - 2026-05-15-074-impl-resolver-batch-3
 commits:
   - 7b86d5c
+  - 546e3e5
 ---
 
 # Resolver-Pass 3 — Surface-Form-Crystallization für ssot-w40k-011..015
