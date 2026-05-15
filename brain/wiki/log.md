@@ -418,3 +418,66 @@ Brief 074 verlangt deshalb neu ein maschinenlesbares Ledger `scripts/seed-data/c
 **Pages touched (wiki):** `project-state.md` (Green-Tide-Status auf Collection-Gap-Ledger statt Report-only-Handoff), `pipeline-state.md` (dauerhafte Collection-gap policy), `index.md` (Katalogzeilen), this `log.md`.
 
 **Outside wiki:** `sessions/2026-05-15-074-arch-resolver-batch-3.md` (Erratum/Goal/Context/Acceptance/Open-Questions geschärft), `scripts/seed-data/README.md` (Policy-Hinweis für `collection-gaps.json`).
+
+## 2026-05-15 · Implementer · Resolver-Pass 3 für `ssot-w40k-011..015` (Brief 074-impl, PR #57 `6ac4295`)
+
+Dritte Resolver-Welle gelandet, alle Acceptance-Bullets erfüllt. **22 Dateien geändert**, alles in `scripts/` + `sessions/` (kein Schema-Touch, kein V2-Pipeline-Eingriff, kein UI-Drift). PR-Squash auf `main` am 2026-05-15 ~15:12 Lokal-Zeit (Phil als Author of record).
+
+**Reference-Tables erweitert:**
+
+- `scripts/seed-data/factions.json` +20 Rows: `hydra_cabal` (parent=`inquisition`, `tone: 'historical_canon_layer'`) als Watson-Trilogy-Knoten, `triarch_praetorians` (alignment=`xenos` statt `neutral`-Brief-Tendenz, lore-konsistent), Sororitas-Order-Sub-Factions (`order_of_our_martyred_lady`, `order_of_the_last_candle`), Astartes-Loyalist-Sub-Factions, Aeldari-/Necron-/Navis-Sub-Factions, Goffs als named-Ork-Clan-Anker, Aeronautica Imperialis (freq=4 in 011..015, parent=`astra_militarum`). Plus Squats-`tone`-Update auf `historical_canon_layer` via `onConflictDoUpdate` (Single-Token-Konvention konsistent mit `archive`/`line`/`alien`).
+- `scripts/seed-data/locations.json` +19: Imperium-Nihilus-Frames mit `era_frame`-Tag, Necron-Tomb-Worlds (Orymous, Attilan Gap), Watson-Welten Stalinvast + Sabulorb mit `historical_canon_layer`-Tag, Named-Vehicles. `seed-resolver-extensions.ts` location-Tags wurden auf idempotenten Merge geliftet (Review-Follow-up).
+- `scripts/seed-data/characters.json` +26: Belisarius Cawl als NEUER row (Brief-Erratum #3 widerlegte die Erst-Annahme „existiert schon"), Hadeya Etsul (Steel-Tread/Demolisher-Cross-Batch), Aeronautica-Continuity (Lucille von Shard, Kile Simlex, Bree Jagdea), Watson-Retinue (Jaq Draco / Meh'Lindi / Vitali Googol / Grimm) mit kompakter Marker-Konvention `notes: 'historical_canon_layer; Watson Inquisition-War Trilogy retinue'`, lore-iconic Singletons.
+- Aliases: 17 Faction, 4 Location, 17 Character. Review-Follow-up entfernte zwei riskante Character-Aliases.
+
+**Green-Tide-Collection-Gap-Ledger:** Neu `scripts/seed-data/collection-gaps.json` mit W40K-0147-Eintrag (Status `needs_constituent_roster_entries`, 4 bekannte existierende Constituents + 4 fehlende Short-Story-Constituents). Brief-Erratum #4 vollständig umgesetzt — kein partieller `work_collections`-Eintrag.
+
+**Override-File-Korrekturen:** 13 unbekannte facetIds aus 015-Override gestrippt (`interplanetary`/`freedom`/`discovery`/`duty`/`early_release` — LLM-Typos gegen veralteten facet-catalog-Snapshot, `apply-override.ts:486-499` validiert dagegen und throwt bei Misses). Catachan-Devil-Referenz in Green-Tide-Override auf W40K-0118 korrigiert. `persons.json` +17 Author-Personen (Brief-061-Konvention).
+
+**Counts-Tabelle (Pflicht, 072-Disziplin-Lesson eingehalten):**
+
+| Phase | `work_factions` | `work_locations` | `work_characters` | `work_collections` |
+|---|---|---|---|---|
+| Pre-Apply | 650 | 239 | 475 | 35 |
+| Per-Batch 011 | 697 | 257 | 492 | 35 |
+| Per-Batch 012 | 733 | 265 | 494 | 35 |
+| Per-Batch 013 | 786 | 274 | 498 | 35 |
+| Per-Batch 014 | 843 | 280 | 508 | 35 |
+| Per-Batch 015 | 912 | 287 | 522 | 35 |
+| Post-Re-Apply 001..015 (total) | 912 | 287 | 522 | 35 |
+
+Coverage post-Apply: factions=912/1003 input = **90.9 %**, locations=287/342 = **83.9 %**, characters=522/677 = **77.1 %** direct match.
+
+**Brief-Erst-Annahme-Korrektur:** Brief sagte „150 W40K-Bücher applied" — Reality vor Apply waren 100 (Loop-Driver hatte 011..015 nur als Override-Files committed, nicht via `db:apply-override` in DB geschrieben). CC hat den Reality-Check gefangen; die 15× apply-override war gleichzeitig Drift-Cleanup für 001..010 UND First-Apply für 011..015. Effekt neutral.
+
+**Verifikation:** Watson-Trilogy junction-spot-check: 49 Rows über `inquisitor-draco` + `harlequin` + `chaos-child` sauber resolved. Smoke-Slugs grün (`the-green-tide=6/1/0/0` wie erwartet wegen `roster.collections`-Lücke). Audit-Cockpit-SQL-Replica der vier Pillen: Post-Apply `0001..0100` `drift=72/gap=29/ssot=100/collections=8/drift_and_gap=21`; Post-Apply `0101..0150` `drift=34/gap=31/ssot=50/collections=0/drift_and_gap=22`. CLI: lint/typecheck/brain:lint/test:resolver (78 passed, war 51) alle pass.
+
+**Helper-Scripts (NEU, alle committed):** `aggregate-surface-forms-074.ts`, `snapshot-counts-074.ts`, `audit-cockpit-replica-074.ts`, `smoke-slugs-074.ts`, `watson-trilogy-check.ts`, `strip-unknown-facets-074.ts`. One-shot-Operational-Tools analog 072's Pattern.
+
+**Hand-off zur Vokabular-Hygiene-Session:** 9 Loop-Log-Tag-Kandidaten + 5 Catalog-LLM-Typos + 5 freq=1-Sororitas-Sub-Orders + 5 `data_conflict`-Author-Missing-Flags + Sub-Sub-Regiment-Tier-Liste. Cockpit-Quality-Feedback: Drift-Pille braucht freq-/confidence-Sort innerhalb der Liste.
+
+**Pages touched (wiki):** keine direkt in 074-impl (Brief verbot Brain-Edits). Wiki-Hygiene-Pass 2026-05-15 (Folgeeintrag) hat das nachgezogen.
+
+**Outside wiki:** `scripts/seed-data/{factions,locations,characters,faction-aliases,location-aliases,character-aliases,collection-gaps,manual-overrides-ssot-w40k-015,persons}.json`; `scripts/{seed-resolver-extensions,apply-override-dry,test-resolver-coverage,test-resolver-data-integrity,test-resolver}.ts` plus 6 neue Helper-Scripts; `sessions/2026-05-15-074-arch-resolver-batch-3.md` (status flip), `sessions/2026-05-15-074-impl-resolver-batch-3.md` (neu).
+
+## 2026-05-15 · Cowork-Hygiene-Pass · Post-074-impl Wiki-Catch-up + CC-Direct-Curation-ADR
+
+Cowork-only Brain-Update-Session, kein CC-Brief. Zwei Aufgaben gebündelt: (1) Session-End-Discipline für Brief 074-impl (project-state, open-questions, pipeline-state, sessions/README, index, log auf post-074-Stand), und (2) seit Brief 061 stehende offene Dokumentations-Schuld nachgezogen — ADR `decisions/why-cc-direct-curation.md` geschrieben, V2-LLM-Stage als de-facto ausgemustert formalisiert, OQ1 + OQ2-(c) endgültig moot markiert.
+
+**ADR `decisions/why-cc-direct-curation.md` (NEU)** — kodifiziert: V2-LLM-Stage (`src/lib/ingestion/v2/llm/`) wird seit Brief 061 (2026-05-11) durch eine `claude -p`-Subsession pro 10er-Batch ersetzt. Effektives Decision-Date = 2026-05-11, formal-ADR-Date = 2026-05-15. Vier Why-Argumente: Maintainer-Kontrolle load-bearing in der SSOT-Curation-Phase, kein separates Token-Budget (Maintainer-Claude-Allowance statt Anthropic-API-Key), Modell-Qualität höher (Opus default vs. Sonnet/Haiku der V2-Stage), Latenz drastisch niedriger (Lexicanum-Stage-1-Throttle entfällt). Fünf bewusste Trade-Offs dokumentiert. Fünf Revisit-Trigger formuliert.
+
+**`project-state.md`** — Phase-Paragraph auf „dritte 50er-Welle gemerged + applied, Resolver-Pass 3 geschlossen" umgestellt; 150-Bücher-Pre-074-Mythos korrigiert (Reality: 100 vor 074-impl, 150 erst durch dessen `db:apply-override`-Sequenz); neue Junction-Counts 912/287/522/35 + Coverage 90.9/83.9/77.1; Reference-Counts factions=126 / locations=132 / characters=129 + persons=31. Neue „Latest pipeline state (post-074)"-Sektion mit Watson-Trilogy-Detail, Audit-Cockpit-Tour, Hand-off-Material. What's-open komplett neu sortiert. Recently-shipped: Wiki-Hygiene-Pass + 074-impl + 074-arch + 071-impl. Next-likely-brief auf drei realistische Maintainer-Optionen reduziert.
+
+**`pipeline-state.md`** — Banner-Hinweis im V2-Pipeline-Section-Header und Top-Banner mit Verweis auf den neuen ADR. Resolver-layer-Sektion komplett aktualisiert. What's-next-Liste auf 19 Items + „Closed/superseded"-Sektion.
+
+**`open-questions.md`** — Migration-History-Note um Wiki-Hygiene-Pass-Block ergänzt. OQ1 als „closed 2026-05-13 (Sonnet) und superseded 2026-05-15 (CC-Direct-Curation)" umformuliert. OQ2 als „closed/moot 2026-05-15" konsolidiert; OQ2-(c) verweist auf `deferred-questions.md`. Sources + related erweitert.
+
+**`index.md`** — Updated-Dates auf 2026-05-15. Neue ADR-Row für `decisions/why-cc-direct-curation.md` zwischen faction-policy und why-sonnet-not-haiku. `why-sonnet-not-haiku.md`-Beschreibung um „historisches Artefakt + Reaktivierungs-Sicherung"-Note ergänzt. Frontmatter `updated: 2026-05-15`.
+
+**`sessions/README.md`** — Active-Threads-Tabelle auf post-074-impl-Stand reduziert (074-impl + 074-arch + 071-impl + 071-arch + 061-arch standing). Maintainer-Bedienung-Satz auf drei Optionen umgestellt.
+
+**Pages touched (wiki):** `project-state.md`, `open-questions.md`, `pipeline-state.md`, `index.md`, `decisions/why-cc-direct-curation.md` (NEU), this `log.md`.
+
+**Outside wiki:** `sessions/README.md`.
+
+**Out of scope dieser Hygiene-Session:** Keine Code-Änderungen. Keine Schema-Touches. Kein CC-Brief. Keine session-archive-Moves (separater Cleanup-Pass falls Maintainer einleitet). Kein `brain:lint --no-write`-Run durch Cowork (Sandbox kann es nicht zuverlässig).

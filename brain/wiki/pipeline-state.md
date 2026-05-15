@@ -29,6 +29,7 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-12-067-impl-resolver-apply-readiness.md
   - ../../sessions/archive/2026-05/2026-05-12-069-impl-resolver-apply-evidence.md
   - ../../sessions/2026-05-15-074-arch-resolver-batch-3.md
+  - ../../sessions/2026-05-15-074-impl-resolver-batch-3.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
   - ../../ingest/.archive/v1/backfill-20260508-2101.diff.json
   - ../../ingest/.archive/v2-pilot/v2-pilot-20260509-1934.diff.json
@@ -48,6 +49,8 @@ related:
   - ./project-state.md
   - ./architecture.md
   - ./glossary.md
+  - ./decisions/why-cc-direct-curation.md
+  - ./decisions/why-sonnet-not-haiku.md
   - ./decisions/why-haiku-not-sonnet.md
   - ./decisions/why-multi-source-merge.md
   - ./decisions/why-excel-ssot-not-crawl.md
@@ -55,11 +58,11 @@ related:
 confidence: high
 ---
 
-# Pipeline state (Phase 3, post-074-arch)
+# Pipeline state (Phase 3, post-074-impl)
 
 > The TypeScript ingestion pipeline as it stands today. Sources, modules, current numbers, levers pulled, what's next. Detail-level page; for the high-level "where are we" use [`./project-state.md`](./project-state.md).
 >
-> **Two paths since 054, but SSOT is the active authority path.** V1 remains for reproducibility of old diffs. V2 now has SSOT mode from 058 (`book-roster.json` instead of Wikipedia/TLBranson discovery), a curated override/apply path from 060/061, and a resolver layer from 063–069. OQ4/OQ5 are closed for the first 50 W40K books: canonical Reference rows + Alias JSONs + `raw_name` audit + re-apply `ssot-w40k-001..005` are in place.
+> **V2-LLM-Stage de-facto ausgemustert seit Brief 061 (formal ADR 2026-05-15).** Der V1-Code-Pfad bleibt für Reproduzierbarkeit alter Diffs; die V2-Pipeline-Stages 0–2 + 4 leben weiter (Excel-SSOT als Stage 0 ab 057/058, `apply-override.ts` + Resolver-Schicht für Stage 4). Stage 3 (V2-LLM unter `src/lib/ingestion/v2/llm/`) wird **nicht** mehr aufgerufen — eine `claude -p`-Subsession produziert pro 10er-Batch direkt eine `manual-overrides-ssot-w40k-NNN.json`. Begründung und Trade-Off: [`./decisions/why-cc-direct-curation.md`](./decisions/why-cc-direct-curation.md). Resolver-Pässe 1 (063–069) + 2 (072) + 3 (074-impl) haben die Surface-Form-Crystallization für die ersten 150 W40K-Bücher geschlossen; aktuelle Junction-Counts `work_factions=912`, `work_locations=287`, `work_characters=522`, `work_collections=35`.
 
 ## Architecture
 
@@ -150,7 +153,9 @@ CLI entry: `scripts/ingest-backfill.ts` — `tsx --env-file=.env.local scripts/i
 - **D. Open Library edition filter.** `language=eng` query param + parse-time-Year-Cross-Check. Catches re-issue-trap (older book, modern reprint year on the OL record). 0 `releaseYear`-conflicts in 9-book test (vs 11/15 in 044).
 - **E. Hardcover-Author-Hint in LLM-User-Prompt.** Editor-heuristic for anthologies: when Hardcover's contributor list shows multiple authors but Wikipedia/Lexicanum show one (the editor), the LLM prompt is hinted to flag and reconsider. **Code-verified, not empirically tested** — 0–9 slice had no anthologies. See [open-question 10](./open-questions.md#10-anthologie-re-test-für-hebel-e-hardcover-author-hint).
 
-## V2-Pipeline (Pilot, post-054)
+## V2-Pipeline (Pilot, post-054) — Stage-3-LLM heute ausgemustert
+
+> **Status 2026-05-15 (ADR [`./decisions/why-cc-direct-curation.md`](./decisions/why-cc-direct-curation.md)).** Die strukturelle V2-Architektur (Stages 0–4, deterministische Validatoren, `BookV2Record`-Provenance pro Feld) wird in diesem Abschnitt beschrieben, weil sie der gebaute Code im Repo ist. **Operativ läuft heute nur Stage 0 (Excel-SSOT-Roster, siehe „Excel-SSOT layer" unten), Stage 2 (Validatoren — nicht angewendet weil Stage 1 nicht läuft), Stage 4 (`apply-override.ts` + Resolver-Schicht).** Stage 1 (Source-Claims-Crawl) und Stage 3 (Slim-LLM) sind seit Brief 061 nicht mehr Default-Pfad — eine `claude -p`-Subsession ersetzt Stage 3 und überspringt Stage 1. Der V2-LLM-Code (`src/lib/ingestion/v2/llm/{enrich,prompt,parse}.ts`) bleibt im Repo als Reaktivierungs-Sicherung und historisches Artefakt.
 
 V2 entstand aus drei Befunden, die V1's Härtungs-Hebel (047) nicht adressierten:
 
@@ -338,18 +343,20 @@ Total mit Doppel-Zählung-Korrektur: 772 + 3 + 62 + 23 − 1 = 859. ✓
 
 Maintainer editiert die Excel extern (LLM-assistierter Workflow), committet die neue Version unter `scripts/seed-data/source/Warhammer_Books_SSOT.xlsx`, läuft `npm run import:ssot-roster`, committet die frische `book-roster.json`. Re-Run-Stabilität (SHA256) sorgt dafür, dass identisches Excel = byte-identische JSON.
 
-### Resolver layer (post-063 through 069)
+### Resolver layer (post-063 through 074-impl)
 
-The first 50 W40K authority books (`ssot-w40k-001..005`) now have a concrete resolver/apply layer:
+The first 150 W40K authority books (`ssot-w40k-001..015`) now have a concrete resolver/apply layer, geschlossen über drei Resolver-Wellen (063–069 für 001..005, 072 für 006..010, 074-impl für 011..015):
 
 - `src/lib/resolver/index.ts` resolves Factions, Locations, Characters via direct name + alias JSONs; `src/lib/resolver/roles.ts` normalizes roles before DB writes.
-- `scripts/seed-data/faction-aliases.json`, `location-aliases.json`, `character-aliases.json`, `characters.json`, plus extended `factions.json`, `locations.json`, `sectors.json` are the checked-in resolver sidecars.
-- `src/db/migrations/0009_lucky_pete_wisdom.sql` made `locations.gx/gy` nullable and added `raw_name` audit columns to all three work junctions.
-- `scripts/seed-resolver-extensions.ts` seeds resolver reference rows idempotently with loud preflight validation; 069 seeded +23 Factions, +3 Sectors, +40 Locations, +65 Characters.
-- `scripts/apply-override.ts` writes `work_factions`, `work_locations`, and `work_characters`; 069 re-applied `ssot-w40k-001..005` and verified `work_factions=318`, `work_locations=129`, `work_characters=363`.
-- Safety tests: `test:resolver`, `test:resolver-data`, `test:resolver-coverage`, `test:apply-override-dry`. Runbook: `docs/resolver-apply-runbook.md`.
+- `scripts/seed-data/faction-aliases.json`, `location-aliases.json`, `character-aliases.json`, `characters.json`, plus extended `factions.json`, `locations.json`, `sectors.json` are the checked-in resolver sidecars. Counts post-074: `factions=126`, `locations=132`, `characters=129` reference rows; Aliases je drei JSONs entsprechend gewachsen.
+- `scripts/seed-data/collection-gaps.json` (neu in 074-impl) ist ein maschinenlesbares Ledger für Sammelwerke, deren Constituents noch nicht vollständig als Roster-Works modelliert sind. Erster Eintrag: Green Tide (`W40K-0147`) mit Status `needs_constituent_roster_entries`.
+- `src/db/migrations/0009_lucky_pete_wisdom.sql` made `locations.gx/gy` nullable and added `raw_name` audit columns to all three work junctions. `seed-resolver-extensions.ts` (post-070) lifted faction-Insert auf Upsert; (post-074) macht das Gleiche für Location-Tags (idempotenter Merge aus JSON für `era_frame` etc.).
+- `scripts/apply-override.ts` writes `work_factions`, `work_locations`, `work_characters`, `work_collections` (Cross-Batch via `external_book_id` post-072); 074-impl re-applied `ssot-w40k-001..015` mit lückenloser Counts-Tabelle und verifiziert `work_factions=912`, `work_locations=287`, `work_characters=522`, `work_collections=35`. Coverage `factions=912/1003 = 90.9 %`, `locations=287/342 = 83.9 %`, `characters=522/677 = 77.1 %` direct match.
+- Safety tests: `test:resolver` (78 cases post-074, war 51 vor 074), `test:resolver-data`, `test:resolver-coverage` (Range jetzt 001..015), `test:apply-override-dry`. Runbook: `docs/resolver-apply-runbook.md`.
 
-Known caveat: `nightbringer` has 1/1 resolved Location because the override only supplies Pavonis; this is accepted data truth, not a resolver failure.
+Watson-Trilogy-Konvention aus 074-impl: 1990–1995-Bücher (Ian Watson) tragen `historical_canon_layer`-Marker im `factions.tone`-Feld (`squats`, `hydra_cabal`), im `locations.tags`-Feld (`stalinvast`, `sabulorb`) und im `characters.notes`-Feld (Retinue Jaq Draco / Meh'Lindi / Vitali Googol / Grimm). Surface-Form-treue gegen die pre-modern Codex-Lore; kein Kollabieren auf moderne Codex-Begriffe.
+
+Brief-074-impl Hand-off-Material zur Vokabular-Hygiene-Session (out-of-scope für 074, dokumentiert): 9 Loop-Log-Tag-Kandidaten (`commissar` / `inquisitor` / `squat` / `corsair` / `triarch_praetorian` / `valkyrie_pilot` / `webway_journey` / `omnibus_with_prior_constituents` / `cabal_inquisition` / `rogue_inquisition` / `cw_canon_divergence`), 5 facet-catalog-LLM-Typos aus 015-Override (`interplanetary` scope, `freedom`/`discovery`/`duty` theme, `early_release` entry_point — alle gestrippt, da Brief-074 vocabulary-Promotion verbietet), 5 freq=1-Sororitas-Sub-Orders aus *Triumph of Saint Katherine*, 5 `data_conflict`-Author-Missing-Flags (W40K-0141/0142/0143/0146/0147 → Maintainer-Excel-Workflow).
 
 ### Bekannte Schwächen / Out-of-scope
 
@@ -362,20 +369,30 @@ Known caveat: `nightbringer` has 1/1 resolved Location because the override only
 
 In rough order:
 
-1. ✅ **Brief 055 — V2 Voll-Lauf Decision Gate** — geliefert mit zwei Pre-Lauf-Fixes (`genericityScore` + Web-Search-Prompt-Härtung) und 50-Bücher-Diff (Live-Lauf hat den TaskStop-Halt überlebt, real source claims).
-2. ✅ **Brief 056 — V2 Pre-Roster Fixes** — per-page Lexicanum-Cache (24h TTL + negative caching, ~5000× Speedup auf Cache-Hits), per-book Diff-Checkpointing in `run-batch.ts` (mid-run-Halt verliert State nicht mehr), Cost-Recompute auf Cache-Hits ($0.0352/Buch live verifiziert vs. pre-056 $0/Buch), 9-Datei-Diff-Archivierung nach `ingest/.archive/{v1,v2-pilot,v2-batch}/`.
-3. ✅ **Brief 057 — Excel-SSOT-Import** — Schema-Migration `0008_ssot_schema.sql`, Truncate-Skript, Loader, deterministic `book-roster.json` (859 Bücher + 191 Collections). ADR: [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md).
-4. ✅ **Brief 058 — V2-Pipeline-Refactor + erster 10er-Batch.** SSOT-Mode liest aus `book-roster.json`; erster Batch `ssot-w40k-001` wurde erzeugt.
-5. ✅ **Brief 060/061 — Authority-Layer first 50.** `ssot-w40k-001..005` wurden in Postgres applied; Brief 061 pausierte planmäßig bei der 50er-Resolver-Schwelle.
-6. **Phase-3e Modell-Entscheidung** ([open-question 1](./open-questions.md)). Post-055/056-V2-Batch zeigt Haiku-Cost weiter nach unten ($0.0199/Buch fresh-Smoke → $0.0352/Buch im warm-cache 2-Buch-Smoke). Hochrechnung 750-Bücher-V2-Voll-Lauf ≈ $15–26. Sonnet-Vergleich heute überflüssig — Cost-Argument für Haiku ist erdrückend.
-7. **Vokabular-Erweiterung** ([open-question 2](./open-questions.md)). `duty` (clear promotion candidate), `legion` faceten-dimension (design call), `chaos`-pov_side prompt-härtung.
-8. **Hand-Check + Override-Schema** ([open-question 3](./open-questions.md)). V2's `FieldRecord.override`-Slot ist die natürliche Heimat.
-9. ✅ **Resolver-Brief** (OQ4 + OQ5) — implemented/applied for the first 50 W40K books in 063–069.
-10. **Resume Brief 061 with `ssot-w40k-006`.** Continue the 10er override/apply loop after the remaining Brain/session hygiene from the resolver branch lands on `main`.
-11. **Cross-Batch-Collection-Resolution.** `applyCollections` is still intra-batch; cross-batch omnibus references need a mini-brief.
-12. **3e Voll-Apply** (alle 859 Bücher in DB) once the 10er-loop has enough confidence, with resolver maintenance every 50-book threshold.
-13. **Refresh-Layer für volatile Felder.** Rating + Availability + Cover-URL — separater `rating_snapshots`/`availability_snapshots`-Pfad mit eigener Cadence (weekly/monthly), nicht im Bulk-Crawl.
-14. **3f Maintenance-Crawler.** GH-Action monthly Wikipedia/TLBranson-Diff für new releases — *post-SSOT* nur noch als Vorschlags-Quelle, die Maintainer in die Excel einarbeitet (nicht direkt schreibend).
+1. ✅ **Brief 055 — V2 Voll-Lauf Decision Gate** — geliefert mit zwei Pre-Lauf-Fixes und 50-Bücher-Diff.
+2. ✅ **Brief 056 — V2 Pre-Roster Fixes** — per-page Lexicanum-Cache, per-book Diff-Checkpointing, Cost-Recompute, Diff-Archivierung.
+3. ✅ **Brief 057 — Excel-SSOT-Import** — Schema-Migration `0008_ssot_schema.sql`, Loader, deterministic `book-roster.json` (859 + 191). ADR [`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md).
+4. ✅ **Brief 058 — V2-Pipeline-Refactor + erster 10er-Batch.** SSOT-Mode liest aus `book-roster.json`.
+5. ✅ **Brief 060/061 — Authority-Layer first 50.** Standing-Loop-Konvention für 10er-Batches. **Side-effect:** Stage-3-LLM wird durch `claude -p`-Subsession ersetzt; ADR [`./decisions/why-cc-direct-curation.md`](./decisions/why-cc-direct-curation.md) (2026-05-15) kodifiziert das.
+6. ✅ **Brief 063–069 / Resolver-Welle 1** — first 50 W40K books: Migration 0009, Resolver-Modul, Reference-Rows + Aliases, `raw_name`-Audit, `db:apply-override` schreibt Junctions. Counts post-069: `work_factions=318`, `work_locations=129`, `work_characters=363`.
+7. ✅ **Brief 070 — Faction-Policy & Hierarchie-Hygiene** — Browse-Root vs. Tree-Root, `factions.json` Audit-Pass, `seed-resolver-extensions` faction-Insert auf Upsert, neue `brain:lint`-Kategorie.
+8. ✅ **Brief 071 — Loop-Driver-Script** — `scripts/run-ssot-loop.sh`, produktiver `N=5`-Run als PR #54 (`ssot-w40k-011..015`, 50 Override-Files committed).
+9. ✅ **Brief 072 — Resolver-Welle 2** für `ssot-w40k-006..010`: `heretic_astartes`-Mid-Knoten, Reparents, Cross-Batch-`applyCollections` via `external_book_id`. Counts post-072: `work_factions=650`, `work_locations=239`, `work_characters=475`, `work_collections=35`.
+10. ✅ **Brief 073 — Maintainer-Audit-Cockpit (OQ9)** — `/buch/[slug]/audit` Sub-Route, `/buecher`-Audit-Modus mit vier Pillen (Drift / Junction-Lücke / SSOT / In mehreren Collections, AND-kombiniert), Default-Sort `updatedAt desc`, `src/lib/book-labels.ts`.
+11. ✅ **Brief 074 — Resolver-Welle 3 + Watson-Trilogy historical-canon-layer** für `ssot-w40k-011..015`: 20 neue Factions inkl. `hydra_cabal`, 19 Locations, 26 Characters, Squats-`tone`-Update via Upsert, Green-Tide-`collection-gaps.json`-Ledger statt partieller Collection-Kanten, 13 LLM-Catalog-Typos gestrippt. Counts post-074: `work_factions=912`, `work_locations=287`, `work_characters=522`, `work_collections=35`. Re-Apply 001..015 hat First-Apply für 011..015 mit-erledigt (Loop-Driver-PR #54 hatte nur Override-Files committed, nicht in DB geschrieben).
+12. **Loop-Re-Trigger für `ssot-w40k-016`.** Standing-Brief 061 + Loop-Driver-Skript, `skip-50-stop`-Marker bis zur 200er-Resolver-Pause. CC-Direct-Curation-Pattern (kein V2-LLM-Stage-Aufruf).
+13. **Cockpit-Detail-View-Refinement.** Quality-Feedback aus 074-impl (Drift-Pille braucht freq-/confidence-Sort innerhalb der Liste). Kleiner UI/Backend-Brief; ggf. gebündelt mit DetailPanel "Auch enthalten in:".
+14. **OQ6 — Hardcover-Rating-Promotion + OL-Fallback.** Architectural Brief: `rating: FieldRecord<number>` auf `BookV2Record`, OL-Fallback ja/nein, retroaktive Promote-Strategie. ~10–20 LOC.
+15. **OQ3 — Hand-Check-Workflow + Override-Schema.** Cockpit ist verfügbar; Override-Field-Schema + Triage-Disziplin stehen noch aus. Wahrscheinlich gebündelt mit dem Cockpit-Refinement.
+16. **Collection-Gap-Resolve-Pass für Green Tide.** Wenn der Maintainer-Excel-Workflow die 4 fehlenden Short-Story-Constituents als eigene Roster-Works modelliert, schließt ein Folge-Brief das Ledger.
+17. **3e Voll-Apply** (alle 859 Bücher in DB) sobald die Loop-Iterationen genug Confidence haben, mit Resolver-Pflege je 50er-Schwelle.
+18. **Refresh-Layer für volatile Felder.** Rating + Availability + Cover-URL — separater Pfad mit eigener Cadence.
+19. **3f Maintenance-Crawler.** GH-Action monthly Wikipedia/TLBranson-Diff für new releases — *post-SSOT* nur noch als Vorschlags-Quelle für die Excel-Workflow-Iteration.
+
+**Closed/superseded:**
+
+- ~~Phase-3e Modell-Entscheidung~~ (OQ1) — closed pro Sonnet 2026-05-13 ([`./decisions/why-sonnet-not-haiku.md`](./decisions/why-sonnet-not-haiku.md)), formal superseded 2026-05-15 durch CC-Direct-Curation ADR. Stage-3-LLM läuft nicht mehr.
+- ~~Vokabular-Erweiterung~~ (OQ2) — (a) in Cockpit-Triage, (b) durch Brief 072 in der DB-Hierarchie geschlossen, (c) moot post-Pipeline-Shift in [`./deferred-questions.md`](./deferred-questions.md) geparkt.
 
 ## Sub-phase backlog (concrete to-dos)
 

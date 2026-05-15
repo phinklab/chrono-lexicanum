@@ -2,12 +2,15 @@
 title: Why Sonnet (current major), not Haiku 4.5
 type: decision
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-15
 sources:
   - ../../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
   - ../../../sessions/archive/2026-05/2026-05-04-040-arch-phase3c-haiku-switch.md
+  - ../../../sessions/2026-05-11-061-arch-ssot-loop.md
+  - ../../../sessions/2026-05-15-074-impl-resolver-batch-3.md
   - ../open-questions.md
 related:
+  - ./why-cc-direct-curation.md
   - ./why-haiku-not-sonnet.md
   - ../pipeline-state.md
   - ../open-questions.md
@@ -18,7 +21,7 @@ supersedes: ./why-haiku-not-sonnet.md
 
 # Why Sonnet (current major), not Haiku 4.5
 
-**Status:** active. Supersedes [`./why-haiku-not-sonnet.md`](./why-haiku-not-sonnet.md), die als Stub mit Story-Continuity-Pointer erhalten bleibt.
+**Status:** historical artefact + reactivation guard post-CC-Direct-Curation. Supersedes [`./why-haiku-not-sonnet.md`](./why-haiku-not-sonnet.md), die als Stub mit Story-Continuity-Pointer erhalten bleibt. Operative Wahrheit seit Brief 061 ist [`./why-cc-direct-curation.md`](./why-cc-direct-curation.md): die V2-LLM-Stage läuft nicht mehr als aktiver Bulk-Backfill-Pfad. Falls diese Stage reaktiviert wird, bleibt Sonnet die Default-Wahl gegenüber Haiku.
 
 ## Context
 
@@ -28,9 +31,9 @@ Mit der Cockpit-Phase (OQ9, Trigger 100 Bücher applied) ändert sich die Bewert
 
 ## Decision
 
-**Pipeline-Enrichment-Stage läuft mit Sonnet (current Anthropic stable, CC/Codex pinnt die konkrete Version im shared LLM-Konfigurationspfad `src/lib/ingestion/llm/enrich.ts`; V2 importiert ihn über `src/lib/ingestion/v2/llm/enrich.ts`).** Ad-hoc-Override auf Haiku oder anderes Modell bleibt per Env-Variable möglich für Cost-sensitive Re-Runs.
+**Historische Entscheidung / Reaktivierungs-Sicherung:** Wenn die Pipeline-Enrichment-Stage wieder aktiv wird, läuft sie mit Sonnet (current Anthropic stable, Codex pinnt die konkrete Version im shared LLM-Konfigurationspfad `src/lib/ingestion/llm/enrich.ts`; V2 importiert ihn über `src/lib/ingestion/v2/llm/enrich.ts`). Ad-hoc-Override auf Haiku oder anderes Modell bleibt per Env-Variable möglich für Cost-sensitive Re-Runs.
 
-Implementations-Touch ist eine Konstante — kein eigener Architekt-Brief; wird im nächsten Pipeline-Touch-Brief (voraussichtlich Brief 072 Resolver-Apply für `ssot-w40k-007..010`) als ein-Zeilen-Patch mit eingerollt.
+Seit Brief 061 ist das nicht mehr der aktive Ausführungspfad: `claude -p`-Subsessions produzieren die Override-Dateien direkt, und die V2-LLM-Stage bleibt nur als Reaktivierungs-Sicherung im Repo. Es gibt deshalb keinen offenen Implementations-Touch aus dieser ADR, solange CC-Direct-Curation der operative Pfad bleibt.
 
 ## Why
 
