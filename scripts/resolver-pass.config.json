@@ -1,5 +1,5 @@
 {
-  "$comment": "Template config for scripts/run-resolver-pass.sh. Cowork pflegt diese Datei beim Schreiben jedes neuen Resolver-Pass-Briefs: Trigger-Bodies, Write-Scopes und Status-Files werden pro Pass aktualisiert. Beispiel-Befüllung unten ist für einen hypothetischen Pass 5 (ssot-w40k-021..025) — Pfade müssen vor dem Lauf an die echten Dossier-/Phase-Report-Pfade des Briefs angepasst werden.",
+  "$comment": "Template config for scripts/run-resolver-pass.sh. Cowork pflegt diese Datei beim Schreiben jedes neuen Resolver-Pass-Briefs: Trigger-Bodies, Write-Scopes und Status-Files werden pro Pass aktualisiert. Beispiel-Befüllung unten ist für einen hypothetischen Pass 5 (ssot-w40k-021..025) — Pfade müssen vor dem Lauf an die echten Dossier-/Phase-Report-Pfade des Briefs angepasst werden. Scope-Einträge dürfen exakte Pfade oder einfache Bash-Glob-Patterns sein; NNN ist ein Platzhalter für die echte Sessionnummer und muss vor dem Lauf ersetzt werden.",
   "pass": "5",
   "wave": "ssot-w40k-021..025",
   "brief": "sessions/REPLACE-WITH-PASS-5-ARCH-BRIEF.md",
@@ -51,18 +51,21 @@
     },
     {
       "name": "phase-4-integration",
-      "trigger": "Phase 4 (Integration) ausführen. Sammle die Outputs der Phasen 1-3. Weite die Resolver-Test-Trias (apply-override-dry / test-resolver-coverage / test-resolver-data-integrity) auf die neue Batch-Range aus. db:seed-resolver-extensions ausführen + Output dokumentieren. db:apply-override für jede neue Batch sequenziell ausführen. Counts-Tabelle Pre/Per-Batch/Post-Apply für work_factions / work_locations / work_characters / work_collections. Smoke-Slugs (mind. 8, davon 3 regression). Audit-Cockpit-SQL-Replica für die Vor- und Neu-Range. collection-gaps.json bei Bedarf erweitern. Finalen impl-Report schreiben. Status des Briefs auf implemented setzen. Mehrere commits erlaubt.",
+      "trigger": "Phase 4 (Integration) ausführen. Sammle die Outputs der Phasen 1-3. Weite die Resolver-Test-Trias (apply-override-dry / test-resolver-coverage / test-resolver-data-integrity) auf die neue Batch-Range aus. db:seed-resolver-extensions ausführen + Output dokumentieren. db:apply-override für jede neue Batch sequenziell ausführen. Counts-Tabelle Pre/Per-Batch/Post-Apply für work_factions / work_locations / work_characters / work_collections. Smoke-Slugs (mind. 8, davon 3 regression). Audit-Cockpit-SQL-Replica für die Vor- und Neu-Range. collection-gaps.json bei Bedarf erweitern. Finalen impl-Report schreiben. Status des Briefs auf implemented setzen. Mindestens ein Commit ist Pflicht; mehrere Commits sind erlaubt. No-op-Phasen werden von dieser Driver-Version nicht akzeptiert.",
       "scope": [
         "scripts/seed-resolver-extensions.ts",
         "scripts/apply-override-dry.ts",
         "scripts/test-resolver-coverage.ts",
         "scripts/test-resolver-data-integrity.ts",
         "scripts/seed-data/collection-gaps.json",
+        "scripts/seed-data/persons.json",
         "scripts/seed-data/manual-overrides-ssot-w40k-021.json",
         "scripts/seed-data/manual-overrides-ssot-w40k-022.json",
         "scripts/seed-data/manual-overrides-ssot-w40k-023.json",
         "scripts/seed-data/manual-overrides-ssot-w40k-024.json",
         "scripts/seed-data/manual-overrides-ssot-w40k-025.json",
+        "scripts/*-NNN.ts",
+        "scripts/run-phase4-apply-NNN.sh",
         "sessions/REPLACE-WITH-PASS-5-IMPL-REPORT.md",
         "sessions/REPLACE-WITH-PASS-5-ARCH-BRIEF.md"
       ],

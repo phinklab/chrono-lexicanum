@@ -6,8 +6,9 @@
 # Factions → Locations → Characters → Integration). Each phase is a fresh
 # `claude -p` subsession with a phase-specific trigger and a phase-specific
 # write-scope allowlist; the driver verifies post-phase that the commit diff is
-# a subset of the allowlist, that JSON files validate, and that the per-phase
-# status file does not contain a `## Needs decision` H2 block.
+# a subset of the allowlist (exact paths or Bash-style glob patterns), that JSON
+# files validate, and that the per-phase status file does not contain a
+# `## Needs decision` H2 block.
 #
 # THIS DRIVER IS A DELIVERABLE OF BRIEF 076, NOT THE ORCHESTRATOR FOR BRIEF 076
 # ITSELF. Brief 076 was run manually (5 sequential `claude -p` subsessions with
@@ -29,7 +30,7 @@
 #         {
 #           "name": "phase-0-preflight",
 #           "trigger": "<one-paragraph CC trigger>",
-#           "scope": ["sessions/resolver-dossiers/...-dossier.md", "scripts/aggregate-surface-forms-NNN.ts"],
+#           "scope": ["sessions/resolver-dossiers/...-dossier.md", "scripts/aggregate-surface-forms-077.ts"],
 #           "statusFile": null
 #         },
 #         {
@@ -43,6 +44,8 @@
 #         ... (phases 2, 3, 4 analog)
 #       ]
 #     }
+#   Scope entries may be exact paths or simple Bash globs such as
+#   "scripts/*-077.ts" and "scripts/run-phase4-apply-077.sh".
 #
 # WINDOWS
 #   PowerShell:  & "C:\Program Files\Git\bin\bash.exe" scripts/run-resolver-pass.sh cfg.json
@@ -238,7 +241,9 @@ run_phase_halt_checks() {
     return
   fi
 
-  # 2. HEAD moved (CC committed something)
+  # 2. HEAD moved (CC committed something). Conservative first-driver contract:
+  # every phase must leave at least one commit; no-op status-file escapes are
+  # intentionally not supported yet.
   local head_after
   head_after=$(git rev-parse HEAD)
   if [[ "$head_after" == "$HEAD_BEFORE" ]]; then
@@ -255,16 +260,19 @@ run_phase_halt_checks() {
     return
   fi
 
-  local out_of_scope
-  out_of_scope=$(comm -23 \
-    <(printf '%s\n' "$diff_paths") \
-    <(printf '%s\n' "$PHASE_SCOPE_RAW" | sort -u))
+  local out_of_scope=""
+  while IFS= read -r path; do
+    [[ -z "$path" ]] && continue
+    if ! path_is_in_scope "$path"; then
+      out_of_scope="${out_of_scope}${path}"$'\n'
+    fi
+  done <<<"$diff_paths"
 
   if [[ -n "$out_of_scope" ]]; then
     REASON="commit touched paths outside phase write-scope:
-$(printf '  %s\n' $out_of_scope)
-allowed scope:
-$(printf '  %s\n' $PHASE_SCOPE_RAW)"
+$(printf '%s' "$out_of_scope" | sed 's/^/  /')
+allowed scope (exact paths or Bash globs):
+$(printf '%s\n' "$PHASE_SCOPE_RAW" | sed 's/^/  /')"
     return
   fi
 
@@ -299,6 +307,18 @@ $(printf '  %s\n' $PHASE_SCOPE_RAW)"
   OUTCOME="success"
 }
 
+path_is_in_scope() {
+  local path="$1"
+  local scope_entry
+  while IFS= read -r scope_entry; do
+    [[ -z "$scope_entry" ]] && continue
+    if [[ "$path" == $scope_entry ]]; then
+      return 0
+    fi
+  done <<<"$PHASE_SCOPE_RAW"
+  return 1
+}
+
 # ---------------------------------------------------------------------------
 # Trigger builder
 # ---------------------------------------------------------------------------
@@ -322,11 +342,11 @@ EOF
 Phase-Trigger:
 $phase_trigger_body
 
-Write-Scope (driver verifiziert post-phase, dass git diff --name-only HEAD~..HEAD ⊆ dieser Liste ist):
+Write-Scope (driver verifiziert post-phase, dass git diff --name-only HEAD~..HEAD ⊆ dieser Liste ist; Eintraege duerfen exakte Pfade oder Bash-Glob-Patterns sein):
 $(printf '  - %s\n' $phase_scope_raw)
 
 Halt-Disziplin:
-- Genau ein commit pro Phase (HEAD muss sich bewegen).
+- Mindestens ein commit pro Phase (HEAD muss sich bewegen; no-op-Phasen werden von dieser Driver-Version nicht akzeptiert).
 - JSON-Files müssen syntaktisch valide bleiben.
 - Bei architektonischer Unsicherheit: `## Needs decision`-H2-Block in die Per-Phase-Statusdatei schreiben (falls eine im Scope ist) und stoppen — Driver erkennt das und beendet sauber ohne Folge-Phasen.
 - Keine Touches ausserhalb des oben gelisteten Write-Scopes.

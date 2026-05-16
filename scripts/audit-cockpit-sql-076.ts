@@ -16,9 +16,9 @@ const RANGES: Range[] = [
   { label: "W40K-0151..0200", minId: "W40K-0151", maxId: "W40K-0200" },
 ];
 
-interface CountRow {
+type CountRow = Record<string, unknown> & {
   count: number;
-}
+};
 
 async function probe(range: Range): Promise<void> {
   const where = sql`works.external_book_id between ${range.minId} and ${range.maxId}`;

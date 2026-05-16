@@ -48,6 +48,10 @@ async function main(): Promise<void> {
 
   const out: Row[] = [];
   for (const r of rows) {
+    if (!r.externalBookId) {
+      throw new Error(`[smoke-slugs-076] smoke work ${r.slug} has no externalBookId`);
+    }
+
     const [wf] = (await db
       .select({ n: sql<number>`count(*)::int` })
       .from(workFactions)
@@ -99,13 +103,16 @@ async function main(): Promise<void> {
     "the-inquisition-war-omnibus",
   ];
   for (const slug of omniSlugs) {
-    const [w] = (await db
+    const [w] = await db
       .select({ id: works.id, slug: works.slug, externalBookId: works.externalBookId })
       .from(works)
-      .where(eq(works.slug, slug))) as Array<{ id: string; slug: string; externalBookId: string }>;
+      .where(eq(works.slug, slug));
     if (!w) {
       console.log(`  ${slug.padEnd(45)} MISSING`);
       continue;
+    }
+    if (!w.externalBookId) {
+      throw new Error(`[smoke-slugs-076] omnibus ${w.slug} has no externalBookId`);
     }
     const [{ n }] = (await db
       .select({ n: sql<number>`count(*)::int` })

@@ -21,7 +21,7 @@ commits:
   phase_4b_helpers_audit: f7f9630
   phase_4c_driver: 94c0600
   mini_phase_5_synopsis_discipline: 6810774
-  phase_4_close: pending  # this commit, set by closing commit
+  phase_4_close: f36787c
 ---
 
 # Resolver-Pass 4 — axis-sliced (impl): `ssot-w40k-016..020` / `W40K-0151..W40K-0200`
@@ -113,7 +113,7 @@ Architektonische Decisions (vier cross-batch-Cases einzeln entschieden):
   - `W40K-0177` → `vengeance`
   - `W40K-0178` → `vengeance`
   - `W40K-0180` → `hopeful`
-  
+
   Alle 9 sind LLM-Loop-Catalog-Typos der `ssot-w40k-018`-Iter (modern-Necromunda-Cluster) gegen `scripts/seed-data/facet-catalog.json`. Surface-Forms im Synopsis bleiben unangetastet; nur der `facetIds[]`-Eintrag wird gestrippt. Brief-konformer Override-Edit (Constraint: "Einzige Ausnahme: bestätigte Loop-LLM-Catalog-Typos").
 
 #### Phase-4b: Verifikations-Pipeline
@@ -263,6 +263,14 @@ Alle 7 Omnibi der Welle haben volle Roster-Constituent-Coverage; keine partielle
 
 Brief erlaubt beides; CC wählt mit-committed weil der Edit minimal ist (Constraint-Block in 061 + Trigger-String-Append in run-ssot-loop.sh) und gebündelt mit Phase-4-Closing kommuniziert wird.
 
+## Review-fix (2026-05-16)
+
+- **Typecheck-Blocker geschlossen.** `scripts/audit-cockpit-sql-076.ts` nutzt jetzt einen Drizzle-kompatiblen `CountRow`-Typ (`Record<string, unknown> & { count: number }`). `scripts/smoke-slugs-076.ts` failt explizit, wenn eines der Smoke-Works oder Omnibi keine `externalBookId` hat; danach wird lokal als `string` weitergearbeitet.
+- **`git diff --check`-Findings geschlossen.** Der Public-Synopsis-Block in `sessions/2026-05-11-061-arch-ssot-loop.md` ist im finalen Diff ohne CR-at-EOL-/Trailing-Whitespace-Fehler; der leere facetId-Strip-Abstand in diesem Report ist bereinigt.
+- **Session-Metadaten geschlossen.** `phase_4_close` ist auf `f36787c` gesetzt; der Architect-Brief führt `f36787c` als Phase-4-Close/Status+Report-Commit in der `commits:`-Liste.
+- **Resolver-Driver Pass-5-tauglicher gemacht.** `scripts/resolver-pass.config.json` erlaubt im Phase-4-Template jetzt `scripts/seed-data/persons.json`, `scripts/*-NNN.ts` und `scripts/run-phase4-apply-NNN.sh` im engen Integration-Scope. `scripts/run-resolver-pass.sh` unterstützt dafür einfache Bash-Glob-Patterns im Scope-Matching.
+- **No-op-Vertragsknick konservativ gelöst.** Diese erste Driver-Version akzeptiert keine `no-op: nothing to add`-Statusdatei als HEAD-moved-Ersatz. Jede Phase muss mindestens einen Commit produzieren; Config-Trigger und Driver-Trigger dokumentieren diese Commit-Pflicht explizit.
+
 ## Verification
 
 | Check | Soll | Ist |
@@ -274,6 +282,9 @@ Brief erlaubt beides; CC wählt mit-committed weil der Edit minimal ist (Constra
 | `npm run lint` | grün | 0 errors (1 pre-existing layout warning, unrelated) |
 | `npm run typecheck` | grün | clean |
 | `npm run brain:lint -- --no-write` | 0 blocking | 0 blocking, 5 warnings (inline diff raw 2, brain size 1, stale claim 2) |
+| `git diff --check origin/ingest/batches-016-020..HEAD` | grün | clean after fixup commit |
+| `bash -n scripts/run-resolver-pass.sh` | grün | syntax-ok |
+| `bash -n scripts/run-phase4-apply-076.sh` | grün | syntax-ok |
 | `npm run db:seed-resolver-extensions` | run + log | +20 factions / +25 locations / +40 characters |
 | `npm run db:apply-override` × 20 | run + log | alle 20 Batches grün, Counts dokumentiert |
 | Smoke-Slugs ≥ 8 | 13 geliefert | 3 regression (unverändert) + 10 neu |

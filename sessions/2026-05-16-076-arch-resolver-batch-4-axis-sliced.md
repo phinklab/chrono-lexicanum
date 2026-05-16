@@ -23,6 +23,7 @@ commits:
   - f7f9630  # Phase 4b helpers + persons.json
   - 94c0600  # Phase 4c resolver-pass driver
   - 6810774  # Mini-Phase 5 public synopsis discipline
+  - f36787c  # Phase 4 close: status + report
 ---
 
 # Resolver-Pass 4 — axis-sliced, manuell gefahren (Driver-Deliverable für Pass 5+) (ssot-w40k-016..020 / W40K-0151..W40K-0200)
