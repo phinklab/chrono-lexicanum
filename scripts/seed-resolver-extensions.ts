@@ -28,16 +28,13 @@ import {
   locations,
   sectors,
 } from "@/db/schema";
+import {
+  type Alignment,
+  inferAlignmentFromTree,
+  normalizeAlignment,
+} from "@/lib/seed/alignment";
 
 const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
-
-type Alignment = "imperium" | "chaos" | "xenos" | "neutral";
-const ALIGNMENT_VALUES: readonly Alignment[] = [
-  "imperium",
-  "chaos",
-  "xenos",
-  "neutral",
-];
 
 interface SeedFaction {
   id: string;
@@ -120,24 +117,6 @@ async function loadResolverSeedData(): Promise<ResolverSeedData> {
     locationAliases,
     characterAliases,
   };
-}
-
-function inferAlignmentFromTree(f: SeedFaction): Alignment {
-  if (f.parent === "chaos" || f.id === "chaos") return "chaos";
-  if (f.parent === "imperium" || f.id === "imperium") return "imperium";
-  if (f.tone === "alien") return "xenos";
-  return "neutral";
-}
-
-function normalizeAlignment(f: SeedFaction): Alignment {
-  if (!f.alignment) return inferAlignmentFromTree(f);
-  if (f.alignment === "imperial") return "imperium";
-  if ((ALIGNMENT_VALUES as readonly string[]).includes(f.alignment)) {
-    return f.alignment as Alignment;
-  }
-  throw new Error(
-    `Faction ${f.id}: invalid alignment '${f.alignment}'. Expected imperium, chaos, xenos, neutral, or legacy imperial.`,
-  );
 }
 
 function assertUnique<T>(
