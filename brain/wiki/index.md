@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-05-16
+updated: 2026-05-17
 sources: []
 related:
   - ../CLAUDE.md
@@ -22,7 +22,7 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-075-impl + Wiki-Hygiene-Pass 2026-05-16: 150 W40K-Bücher applied (77 davon mit Hardcover-Rating, 51.3 %), Cockpit-Drift-Frequenz-Sort + slim Public-DetailPanel gelandet, OQ6 closed; Loop-Resume-Kommando auf `--skip-initial-resolver-pause` korrigiert. | 2026-05-16 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Wiki-Hygiene 2026-05-16: OQ6 (Hardcover-Rating-Promotion) durch Brief 075 closed; neue OQ (10) „Hardcover-Hit-Rate-Härtung (Titel-Normalisierung)" promoted (51.3 % Hit-Rate < 70 %-Trigger). Restqueue: Loop-Resume `ssot-w40k-016..020`, OQ (10), Cockpit-Sub-Sortierung, OQ3, Collection-Gap-Resolve. | 2026-05-16 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-077-Review 2026-05-17: 077 accepted (Grand-Alignment-Junction-Hygiene, `work_factions=1185 → 1020 (−165)`), neue OQ (11) „Locations-Axis-Hygiene-Sister-Pass" promoted (Imperium x20 als unresolved Location). Restqueue: 076 + 077 mergen → Wiki-Hygiene-Pass → Loop-Re-Trigger `ssot-w40k-021..025`, OQ (10), OQ (11), Cockpit-Sub-Sortierung, OQ3, Collection-Gap-Resolve. | 2026-05-17 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
@@ -35,7 +35,7 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Decision | Decided | Updated |
 |---|---|---|---|
 | [decisions/why-cc-direct-curation.md](./decisions/why-cc-direct-curation.md) | V2-LLM-Stage de-facto ausgemustert; `claude -p`-Subsession produziert die Override-Datei direkt. Maintainer-Kontrolle + Modell-Qualität + Latenz vs. Reproduzierbarkeit + Field-Provenance. Effektiv entschieden seit Brief 061 (2026-05-11), formal-ADR 2026-05-15. | 2026-05-11 | 2026-05-15 |
-| [decisions/faction-policy.md](./decisions/faction-policy.md) | Browse-Root vs. Tree-Root getrennt: Policy lebt in `scripts/seed-data/faction-policy.json` (16 Browse-Roots, `imperium` als Grand-Alignment-Exception), `factions.parent_id` weiter Single-Parent. `factions.json` audit-patched (Chaos-Rename + 14 Reparents), `brain:lint` neue Kategorie. | 2026-05-13 | 2026-05-13 |
+| [decisions/faction-policy.md](./decisions/faction-policy.md) | Browse-Root vs. Tree-Root getrennt: Policy lebt in `scripts/seed-data/faction-policy.json` (19 Browse-Roots, `imperium` als Grand-Alignment-Exception), `factions.parent_id` weiter Single-Parent. `factions.json` audit-patched (Chaos-Rename + 14 Reparents), `brain:lint` neue Kategorie. **2026-05-16 (Brief 077):** Grand-Alignment-Junction-Skip — `imperium`/`chaos` werden in `work_factions` übersprungen, wenn alignment-gleiche Sub-Faction im selben Override-Block resolved ist; `redundantWhenSubPresent` in der Policy-JSON. | 2026-05-13 | 2026-05-16 |
 | [decisions/why-sonnet-not-haiku.md](./decisions/why-sonnet-not-haiku.md) | Supersedes Haiku-Default: Pipeline-Enrichment soll mit Sonnet (current major) laufen, weil Cockpit-Audit Datenqualitaets-Pathologien sichtbar macht und der Cost-Aufschlag im Hobby-Rahmen tragbar bleibt. **Post-2026-05-15 historisches Artefakt + Reaktivierungs-Sicherung** — die V2-LLM-Stage läuft nicht mehr (siehe `why-cc-direct-curation.md`). | 2026-05-13 | 2026-05-15 |
 | [decisions/why-excel-ssot-not-crawl.md](./decisions/why-excel-ssot-not-crawl.md) | Discovery-Stage durch Maintainer-kuratierte Excel-SSOT ersetzt (859 Bücher + 191 Collections, deterministischer Loader → `book-roster.json`). Crawler bleiben im Code, ab Brief 058 nicht mehr Default-Eingang | 2026-05-10 | 2026-05-10 |
 | [decisions/karpathy-reset-2026-05-08.md](./decisions/karpathy-reset-2026-05-08.md) | Brain (`brain/` in repo) + Atlas (external Obsidian vault, `~/chrono-atlas/`) — Karpathy LLM Wiki pattern, domain-split | 2026-05-08 | 2026-05-09 |

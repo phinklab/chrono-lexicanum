@@ -13,6 +13,8 @@ import {
   resolveFaction,
   resolveLocation,
 } from "../src/lib/resolver";
+import type { Alignment } from "../src/lib/seed/alignment";
+import { decideFactionSkips } from "./apply-override-skip";
 
 let pass = 0;
 let fail = 0;
@@ -509,6 +511,136 @@ check("role - antagonist becomes appears", () => {
 
 check("role - unexpected values throw before DB insert", () => {
   assert.throws(() => normalizeCharacterRole("cameo"), /Unsupported character role/);
+});
+
+// ---------------------------------------------------------------------------
+// Brief 077: grand-alignment-junction-skip
+// ---------------------------------------------------------------------------
+
+console.log("decideFactionSkips");
+
+const REDUNDANT_IDS = new Set<string>(["imperium", "chaos"]);
+// Curated alignment map covering the IDs used in the cases below; real
+// apply-override.ts builds the equivalent map from factions.json via
+// normalizeAlignment(). Hand-curated here for self-documenting test cases.
+const ALIGNMENT_BY_ID = new Map<string, Alignment>([
+  ["imperium", "imperium"],
+  ["chaos", "chaos"],
+  ["space_wolves", "imperium"],
+  ["adeptus_astartes", "imperium"],
+  ["word_bearers", "chaos"],
+  ["khorne_daemons", "chaos"],
+]);
+
+function runSkip(
+  resolved: Array<{ id: string; role: string; rawName: string }>,
+  original: Array<{ name: string; role: string }>,
+) {
+  return decideFactionSkips({
+    resolved,
+    original,
+    alignmentById: ALIGNMENT_BY_ID,
+    redundantIds: REDUNDANT_IDS,
+    resolveFaction,
+  });
+}
+
+check("skip fires - Imperium dropped when Space Wolves is in the block", () => {
+  const original = [
+    { name: "Space Wolves", role: "primary" },
+    { name: "Imperium", role: "primary" },
+  ];
+  const resolved = [
+    { id: "space_wolves", role: "primary", rawName: "Space Wolves" },
+    { id: "imperium", role: "primary", rawName: "Imperium" },
+  ];
+  const { keep, skippedSurfaceForms } = runSkip(resolved, original);
+  assert.deepEqual(keep.map((f) => f.id), ["space_wolves"]);
+  assert.deepEqual(skippedSurfaceForms, ["Imperium"]);
+});
+
+check("skip fires - Chaos dropped when Word Bearers is in the block", () => {
+  const original = [
+    { name: "Word Bearers", role: "primary" },
+    { name: "Chaos", role: "primary" },
+  ];
+  const resolved = [
+    { id: "word_bearers", role: "primary", rawName: "Word Bearers" },
+    { id: "chaos", role: "primary", rawName: "Chaos" },
+  ];
+  const { keep, skippedSurfaceForms } = runSkip(resolved, original);
+  assert.deepEqual(keep.map((f) => f.id), ["word_bearers"]);
+  assert.deepEqual(skippedSurfaceForms, ["Chaos"]);
+});
+
+check("skip does NOT fire - Imperium alone (no peer sub-faction in block)", () => {
+  const original = [{ name: "Imperium", role: "primary" }];
+  const resolved = [
+    { id: "imperium", role: "primary", rawName: "Imperium" },
+  ];
+  const { keep, skippedSurfaceForms } = runSkip(resolved, original);
+  assert.deepEqual(keep.map((f) => f.id), ["imperium"]);
+  assert.deepEqual(skippedSurfaceForms, []);
+});
+
+check("skip does NOT fire - chaos peer is not an imperium peer", () => {
+  // Khorne Daemons (alignment=chaos) shares the block with Imperium
+  // (alignment=imperium). No imperium-aligned peer for Imperium → keep.
+  const original = [
+    { name: "Khorne Daemons", role: "primary" },
+    { name: "Imperium", role: "primary" },
+  ];
+  const resolved = [
+    { id: "khorne_daemons", role: "primary", rawName: "Khorne Daemons" },
+    { id: "imperium", role: "primary", rawName: "Imperium" },
+  ];
+  const { keep, skippedSurfaceForms } = runSkip(resolved, original);
+  assert.deepEqual(
+    keep.map((f) => f.id).sort(),
+    ["imperium", "khorne_daemons"],
+  );
+  assert.deepEqual(skippedSurfaceForms, []);
+});
+
+check("both skips fire - Imperium AND Chaos when each has an alignment-peer sub", () => {
+  // Mixed block: Astartes Loyalist + Word Bearers + both grand-alignment tags.
+  // Imperium has peer in space_wolves, Chaos has peer in word_bearers.
+  const original = [
+    { name: "Space Wolves", role: "primary" },
+    { name: "Word Bearers", role: "primary" },
+    { name: "Imperium", role: "primary" },
+    { name: "Chaos", role: "primary" },
+  ];
+  const resolved = [
+    { id: "space_wolves", role: "primary", rawName: "Space Wolves" },
+    { id: "word_bearers", role: "primary", rawName: "Word Bearers" },
+    { id: "imperium", role: "primary", rawName: "Imperium" },
+    { id: "chaos", role: "primary", rawName: "Chaos" },
+  ];
+  const { keep, skippedSurfaceForms } = runSkip(resolved, original);
+  assert.deepEqual(
+    keep.map((f) => f.id).sort(),
+    ["space_wolves", "word_bearers"],
+  );
+  assert.deepEqual(skippedSurfaceForms.sort(), ["Chaos", "Imperium"]);
+});
+
+check("multiple aliases for the same skipped id are all captured", () => {
+  // "Imperium" and "Imperium of Man" both resolve to imperium. The resolver
+  // dedupes by id, so only one resolved entry; but both raw surface forms
+  // must land in skippedSurfaceForms for audit completeness.
+  const original = [
+    { name: "Adeptus Astartes", role: "primary" },
+    { name: "Imperium", role: "primary" },
+    { name: "Imperium of Man", role: "primary" },
+  ];
+  const resolved = [
+    { id: "adeptus_astartes", role: "primary", rawName: "Adeptus Astartes" },
+    { id: "imperium", role: "primary", rawName: "Imperium" },
+  ];
+  const { keep, skippedSurfaceForms } = runSkip(resolved, original);
+  assert.deepEqual(keep.map((f) => f.id), ["adeptus_astartes"]);
+  assert.deepEqual(skippedSurfaceForms, ["Imperium", "Imperium of Man"]);
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);

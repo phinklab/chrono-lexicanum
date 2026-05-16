@@ -87,10 +87,21 @@ import type {
   FactionJunctionRole,
   LocationJunctionRole,
 } from "@/lib/resolver/roles";
+import {
+  type Alignment,
+  normalizeAlignment,
+} from "@/lib/seed/alignment";
+import {
+  decideFactionSkips,
+  type ResolvedFaction as SkipResolvedFaction,
+  type SkipDecision,
+} from "./apply-override-skip";
 
 const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
 const ROSTER_PATH = resolve(SEED_DIR, "book-roster.json");
 const PERSONS_PATH = resolve(SEED_DIR, "persons.json");
+const FACTIONS_PATH = resolve(SEED_DIR, "factions.json");
+const FACTION_POLICY_PATH = resolve(SEED_DIR, "faction-policy.json");
 const OVERRIDE_FILENAME_PREFIX = "manual-overrides-";
 
 const M41_ERA_ID = "time_ending";
@@ -429,6 +440,7 @@ function resolveCharacters(
 function buildSurfaceFormsBlock(
   override: OverrideBook,
   formatOverride: { from: string | null; to: string; reason: string } | null,
+  skippedSurfaceForms: string[] = [],
 ): string {
   const factionsUnresolved = override.overrides.factions
     .filter((f) => resolveFaction(f.name).id === null)
@@ -445,6 +457,9 @@ function buildSurfaceFormsBlock(
     charactersUnresolved,
     flags: override.overrides.flags,
   };
+  if (skippedSurfaceForms.length > 0) {
+    payload.factionsSkippedRedundant = skippedSurfaceForms;
+  }
   if (formatOverride) payload.formatOverride = formatOverride;
   const json = JSON.stringify(payload, null, 2);
   return `---surfaceForms---\n${json}\n---/surfaceForms---`;
@@ -481,6 +496,63 @@ async function loadOverride(batch: string): Promise<OverrideFile> {
 async function loadRoster(): Promise<RosterFile> {
   const raw = await readFile(ROSTER_PATH, "utf8");
   return JSON.parse(raw) as RosterFile;
+}
+
+interface FactionPolicyFile {
+  browseRoots?: string[];
+  knownTopLevelExceptions?: string[];
+  redundantWhenSubPresent?: string[];
+  specialCases?: Record<string, string>;
+}
+
+interface SeedFactionRow {
+  id: string;
+  name: string;
+  parent?: string | null;
+  alignment?: string | null;
+  tone?: string | null;
+}
+
+/**
+ * Skip-context for Brief 077: the policy-driven set of grand-alignment IDs
+ * that get suppressed in `work_factions` when an alignment-peer sub-faction
+ * is resolved in the same block, plus the lookup of every faction's
+ * normalized alignment used to test the peer condition.
+ */
+interface SkipContext {
+  redundantIds: Set<string>;
+  alignmentById: Map<string, Alignment>;
+}
+
+async function loadSkipContext(): Promise<SkipContext> {
+  const [policyRaw, factionsRaw] = await Promise.all([
+    readFile(FACTION_POLICY_PATH, "utf8"),
+    readFile(FACTIONS_PATH, "utf8"),
+  ]);
+  const policy = JSON.parse(policyRaw) as FactionPolicyFile;
+  const seedFactions = JSON.parse(factionsRaw) as SeedFactionRow[];
+
+  const redundantIds = new Set<string>(policy.redundantWhenSubPresent ?? []);
+  const alignmentById = new Map<string, Alignment>();
+  for (const f of seedFactions) {
+    alignmentById.set(f.id, normalizeAlignment(f));
+  }
+
+  for (const id of redundantIds) {
+    const alignment = alignmentById.get(id);
+    if (alignment === undefined) {
+      throw new Error(
+        `faction-policy.redundantWhenSubPresent contains '${id}' but factions.json has no row with that id.`,
+      );
+    }
+    if (alignment === "neutral") {
+      throw new Error(
+        `faction-policy.redundantWhenSubPresent contains '${id}' but its normalized alignment is 'neutral' — the skip rule needs a discriminating alignment.`,
+      );
+    }
+  }
+
+  return { redundantIds, alignmentById };
 }
 
 async function validateFacetIds(allFacetIds: Set<string>): Promise<void> {
@@ -600,10 +672,34 @@ async function ensurePersonsExist(
 async function applyBook(
   override: OverrideBook,
   roster: RosterBook,
+  skipCtx: SkipContext,
 ): Promise<BookApplyResult> {
   return await db.transaction(async (tx) => {
     const { format, formatOverride } = pickFinalFormat(roster, override);
-    const surfaceFormsBlock = buildSurfaceFormsBlock(override, formatOverride);
+
+    // Faction resolution moved ahead of buildSurfaceFormsBlock (Brief 077):
+    // the skip-decision needs the resolved set to identify grand-alignment
+    // junctions that are redundant given an alignment-peer sub-faction, and
+    // the skipped surface forms get audited inside the surfaceForms block.
+    const resolvedFactions = resolveFactions(override.overrides.factions);
+    const skipDecision: SkipDecision = decideFactionSkips({
+      resolved: resolvedFactions as SkipResolvedFaction[],
+      original: override.overrides.factions,
+      alignmentById: skipCtx.alignmentById,
+      redundantIds: skipCtx.redundantIds,
+      resolveFaction,
+    });
+    const keepFactions = skipDecision.keep as Array<{
+      id: string;
+      role: FactionJunctionRole;
+      rawName: string;
+    }>;
+
+    const surfaceFormsBlock = buildSurfaceFormsBlock(
+      override,
+      formatOverride,
+      skipDecision.skippedSurfaceForms,
+    );
 
     // Authorship resolution from roster (not override). The override carries
     // soft-content authority (synopsis, facets, factions, …) but the persons
@@ -735,10 +831,9 @@ async function applyBook(
     }
 
     await tx.delete(workFactions).where(eq(workFactions.workId, workId));
-    const resolvedFactions = resolveFactions(override.overrides.factions);
-    if (resolvedFactions.length > 0) {
+    if (keepFactions.length > 0) {
       await tx.insert(workFactions).values(
-        resolvedFactions.map((f) => ({
+        keepFactions.map((f) => ({
           workId,
           factionId: f.id,
           role: f.role,
@@ -783,7 +878,7 @@ async function applyBook(
       workId,
       path,
       facetCount: override.overrides.facetIds.length,
-      factionCount: resolvedFactions.length,
+      factionCount: keepFactions.length,
       locationCount: resolvedLocations.length,
       characterCount: resolvedCharacters.length,
       authorCount: roster.authors.length,
@@ -893,9 +988,13 @@ async function main() {
   console.log(`[apply-override] batch=${args.batch}`);
   const override = await loadOverride(args.batch);
   const roster = await loadRoster();
+  const skipCtx = await loadSkipContext();
 
   console.log(
     `[apply-override] loaded override: ${override.books.length} books; createdBy=${override.createdBy}`,
+  );
+  console.log(
+    `[apply-override] skip-context: ${skipCtx.redundantIds.size} redundant ids (${[...skipCtx.redundantIds].join(", ")}); ${skipCtx.alignmentById.size} factions in alignment map`,
   );
 
   const rosterByExternalId = new Map(roster.books.map((b) => [b.externalBookId, b]));
@@ -932,7 +1031,7 @@ async function main() {
         `Override book ${overrideBook.externalBookId} has no matching row in book-roster.json`,
       );
     }
-    const result = await applyBook(overrideBook, rosterBook);
+    const result = await applyBook(overrideBook, rosterBook, skipCtx);
     externalIdToUuid.set(result.externalBookId, result.workId);
     results.push(result);
     console.log(

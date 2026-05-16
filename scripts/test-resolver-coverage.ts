@@ -17,6 +17,11 @@ import {
   resolveFaction,
   resolveLocation,
 } from "../src/lib/resolver";
+import {
+  type Alignment,
+  normalizeAlignment,
+} from "../src/lib/seed/alignment";
+import { decideFactionSkips } from "./apply-override-skip";
 
 const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
 const BATCHES = [
@@ -123,6 +128,57 @@ function uniqueResolved(
   };
 }
 
+interface FactionRow {
+  id: string;
+  parent?: string | null;
+  alignment?: string | null;
+  tone?: string | null;
+}
+interface FactionPolicyRow {
+  redundantWhenSubPresent?: string[];
+}
+
+const FACTION_ROWS = readJson<FactionRow[]>("factions.json");
+const FACTION_POLICY = readJson<FactionPolicyRow>("faction-policy.json");
+const ALIGNMENT_BY_ID = new Map<string, Alignment>();
+for (const row of FACTION_ROWS) ALIGNMENT_BY_ID.set(row.id, normalizeAlignment(row));
+const REDUNDANT_IDS = new Set<string>(FACTION_POLICY.redundantWhenSubPresent ?? []);
+
+/**
+ * Faction coverage after applying the Brief 077 grand-alignment-junction-skip:
+ * a resolved id in REDUNDANT_IDS gets dropped if a peer with matching alignment
+ * is present in the same block. Returns the post-skip resolved count plus a
+ * tally of skipped surface forms so the report can show the delta separately.
+ */
+function factionCoverageWithSkip(
+  input: OverrideEntity[],
+): AxisCoverage & { skipped: number } {
+  const ids = new Set<string>();
+  const unresolved = new Set<string>();
+  for (const entity of input) {
+    const resolved = resolveFaction(entity.name);
+    if (resolved.id === null) {
+      unresolved.add(entity.name);
+    } else {
+      ids.add(resolved.id);
+    }
+  }
+  const resolvedList = [...ids].map((id) => ({ id, role: "primary", rawName: id }));
+  const { keep, skippedSurfaceForms } = decideFactionSkips({
+    resolved: resolvedList,
+    original: input,
+    alignmentById: ALIGNMENT_BY_ID,
+    redundantIds: REDUNDANT_IDS,
+    resolveFaction,
+  });
+  return {
+    resolved: keep.length,
+    input: input.length,
+    unresolved: [...unresolved].sort(),
+    skipped: skippedSurfaceForms.length,
+  };
+}
+
 function characterCoverage(input: OverrideEntity[]): AxisCoverage {
   for (const entity of input) {
     const normalized = normalizeCharacterRole(entity.role);
@@ -143,10 +199,18 @@ const books = BATCHES.flatMap((n) =>
   readJson<OverrideFile>(`manual-overrides-ssot-w40k-${n}.json`).books,
 );
 
-const coverage: BookCoverage[] = books.map((book) => ({
+interface FactionCoverageWithSkip extends AxisCoverage {
+  skipped: number;
+}
+
+interface BookCoverageExt extends BookCoverage {
+  factions: FactionCoverageWithSkip;
+}
+
+const coverage: BookCoverageExt[] = books.map((book) => ({
   externalBookId: book.externalBookId,
   slug: book.slug,
-  factions: uniqueResolved(book.overrides.factions, resolveFaction),
+  factions: factionCoverageWithSkip(book.overrides.factions),
   locations: uniqueResolved(book.overrides.locations, resolveLocation),
   characters: characterCoverage(book.overrides.characters),
 }));
@@ -199,6 +263,7 @@ const totals = coverage.reduce(
   (acc, row) => ({
     factionsResolved: acc.factionsResolved + row.factions.resolved,
     factionInputs: acc.factionInputs + row.factions.input,
+    factionsSkipped: acc.factionsSkipped + row.factions.skipped,
     locationsResolved: acc.locationsResolved + row.locations.resolved,
     locationInputs: acc.locationInputs + row.locations.input,
     charactersResolved: acc.charactersResolved + row.characters.resolved,
@@ -207,6 +272,7 @@ const totals = coverage.reduce(
   {
     factionsResolved: 0,
     factionInputs: 0,
+    factionsSkipped: 0,
     locationsResolved: 0,
     locationInputs: 0,
     charactersResolved: 0,
@@ -215,7 +281,7 @@ const totals = coverage.reduce(
 );
 
 console.log(
-  `totals: factions=${totals.factionsResolved}/${totals.factionInputs}, ` +
+  `totals: factions=${totals.factionsResolved}/${totals.factionInputs} (post-Brief-077-skip, ${totals.factionsSkipped} grand-alignment surface forms suppressed), ` +
     `locations=${totals.locationsResolved}/${totals.locationInputs}, ` +
     `characters=${totals.charactersResolved}/${totals.characterInputs}`,
 );

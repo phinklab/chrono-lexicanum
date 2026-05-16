@@ -2,11 +2,14 @@
 title: Faction-Policy — Browse-Root vs. Tree-Root
 type: decision
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-16
 sources:
   - ../../../sessions/2026-05-13-070-arch-faction-policy-hygiene.md
+  - ../../../sessions/2026-05-16-077-arch-grand-alignment-junction-hygiene.md
   - ../../../scripts/seed-data/faction-policy.json
   - ../../../scripts/seed-data/factions.json
+  - ../../../scripts/apply-override.ts
+  - ../../../scripts/apply-override-skip.ts
 related:
   - ../glossary.md
   - ../project-state.md
@@ -70,6 +73,32 @@ Das Schema bleibt unangetastet. Wenn UI später eine DB-Spalte fürs Konzept bra
 - **`genestealer_cults`:** Sub-Faction der Tyraniden (`parent="tyranids"`, 9th-Ed-Lore), nicht eigener Browse-Root.
 - **`eldar`:** Aeldari-Umbrella; Craftworlds/Drukhari/Harlequins/Ynnari-Split deferred.
 
+## Grand-Alignment-Junction-Skip
+
+Aus Brief 077 (2026-05-16). Schließt die Pipeline-Compliance-Lücke aus Brief 070: Grand-Alignment-Tags (`Imperium of Man`, `Imperium`, `Chaos`) rutschten durch den Resolver als reguläre `work_factions`-Junctions, obwohl Grand-Alignment in `factions.alignment` lebt, nicht als Filter-Surface.
+
+**Skip-Liste** (Policy-driven, in `scripts/seed-data/faction-policy.json` → `redundantWhenSubPresent`):
+
+```json
+"redundantWhenSubPresent": ["imperium", "chaos"]
+```
+
+**Skip-Bedingung** (Apply-Layer, `scripts/apply-override.ts` über `decideFactionSkips()` aus `scripts/apply-override-skip.ts`):
+
+1. Die resolved `faction_id` steht in `redundantWhenSubPresent`.
+2. Im selben Override-Block ist mindestens eine weitere resolved `faction_id` mit gleicher `alignment` wie die Grand-Alignment-Row.
+3. Die andere `faction_id` ist nicht selbst die Grand-Alignment-Row.
+
+Erfüllen alle drei → Junction wird NICHT geschrieben. Die Surface-Form landet im `book_details.notes` `---surfaceForms---`-Block unter neuem Schlüssel `factionsSkippedRedundant` (bare-string-Array, analog zu den existierenden Unresolved-Buckets aus Brief 074/076).
+
+**Erhaltungs-Pfad.** Wenn das Buch im Override-Block nur die Grand-Alignment-Row trägt (keine alignment-gleiche Sub-Faction), bleibt die Junction stehen — sehr seltener Worldbuilding-/Galaxy-Wide-Survey-Fall.
+
+**Semantische Anmerkung — gilt nur für imperium/chaos.** Die Skip-Bedingung vergleicht *Alignments* (nicht Parent-Ketten). Für `imperium` und `chaos` ist das korrekt, weil bei beiden gilt: alignment IS Tree-Root. Wenn künftig `eldar` auf die Skip-Liste käme (post-Aeldari-Sub-Splits), wäre Alignment-Equality ein Fehler: `tau` und `eldar` sind beide `xenos`, aber Tau ist kein Eldar-Sub. Dann muss `decideFactionSkips` auf eine parent-chain-/tree-membership-Bedingung umgestellt werden. Revisit-Trigger unten.
+
+**Backfill für 001..020.** Apply-Override ist DELETE-then-INSERT für `work_factions`; ein Re-Apply über `ssot-w40k-001..020` nach dem Code-Edit putzt die existierenden redundanten Junctions automatisch weg (~165 Junctions weg über 200 Bücher gemessen).
+
+**Forward-Discipline.** Loop-Brief 061 trägt einen `Faction-Granularity-Discipline`-Block ab `ssot-w40k-021`, der die generischen Grand-Alignment-Tags in `overrides.factions[]` schon beim LLM-Authoring verhindert. `scripts/run-ssot-loop.sh` reicht die Discipline an jede Loop-Subsession durch.
+
 ## Was wir bewusst NICHT entscheiden
 
 - **Multi-Parent / DAG.** Einzige Spalte `parent_id` bleibt; Sonderfälle wie Commissariat (Institutional-Parallel) leben in der Policy-Beschreibung, nicht im Schema.
@@ -85,6 +114,7 @@ Das Schema bleibt unangetastet. Wenn UI später eine DB-Spalte fürs Konzept bra
 - **Chaos-Worship-Cluster** häufen sich in Resolver-Outputs → `chaos_undivided` + ggf. Chaos-Gott-Splits werden eigene Rows.
 - **HH-Domain** rollt über → Heresy-spezifische Legions-Disziplinen (Pre-Heresy-Ambivalenz `alpha_legion`/Cabal-Twist) brauchen ggf. eigene Policy-Entscheidung.
 - **Sonderfälle brechen Single-Parent-Limit häufig** (Commissariat, Sisters of Silence, Grey Knights, Inquisition-Astartes-Doppelnaturen) → DAG-Migration wird erwogen.
+- **Aeldari-Sub-Splits aktiviert** (Drukhari / Craftworlds / Harlequins / Ynnari als eigene Rows) → `redundantWhenSubPresent` darf um `eldar` erweitert werden, ABER der `decideFactionSkips`-Algorithmus muss vorher von Alignment-Equality auf Parent-Chain umgestellt werden — `tau` ist `xenos` wie `eldar`, aber kein Sub davon. Gleiche Anpassung wenn Tyraniden-/Genestealer-Splits oder Ork-Klan-Splits Browse-Root-Status bekommen.
 
 ## Aftermath
 

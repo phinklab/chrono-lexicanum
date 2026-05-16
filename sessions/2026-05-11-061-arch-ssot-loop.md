@@ -121,6 +121,19 @@ Die 50er-Schwelle trifft auch mitten in W40K-Domain mehrfach (50, 100, 150, …,
 
   **Begründung.** Synopsen aus `manual-overrides-ssot-w40k-001..020.json` sind public-rendered auf `/buch/[slug]` und wurden teilweise mit internem Curation-Vokabular geschrieben, das für Reddit-Launch / Public-Reader nicht lesbar ist. Die Disziplin trennt sauber: Reader-Copy in `works.synopsis`, Maintainer-Wissen in Loop-Log / Flags / Notes.
 
+- **Faction-Granularity-Discipline (ab `ssot-w40k-021` / `W40K-0201`).** Verankert durch Brief 077 (Grand-Alignment-Junction-Hygiene). Greift forward-only — existierende Override-Files `ssot-w40k-001..020` bleiben unangetastet; die in der DB landenden redundanten Junctions putzt der Backfill-Re-Apply aus Brief 077 (DELETE-then-INSERT).
+
+  **Faction-Tags müssen Browse-Root-Granularität oder spezifischer sein.** Grand-Alignment lebt in `factions.alignment` auf der Sub-Faction-Row, nicht als generischer Filter-Tag. Wikipedia-Style-Umbrella-Tags sind verboten als raw_name; spezifische Sub-Faktionen tragen die Information ohnehin.
+
+  **Verboten als raw_name in `overrides.factions[]`:**
+  - `Imperium`, `Imperium of Man`, `Imperium of Mankind` — Grand-Alignment-Tag. Verwende stattdessen die spezifische Sub-Faction (`Astra Militarum`, `Adeptus Astartes`, `Inquisition`, `Mechanicus`, …).
+  - `Chaos` als alleiniger Tag, wenn lore-konsistent eine spezifische Chaos-Sub-Faction passt. Verwende `Heretic Astartes`, `Word Bearers`, `Thousand Sons`, `Black Legion`, `Khorne Daemons`, etc.
+  - `Xenos`, `Aliens` — niemals. Entweder die konkrete Xenos-Faction (`Eldar` / `Tau` / `Necrons` / `Tyranids` / `Orks`) oder weglassen.
+
+  **Erhaltungs-Pfad.** Wenn das Buch tatsächlich nur generisch über das Imperium / Chaos spricht (Worldbuilding-Sachbuch, Galaxy-Wide-Survey ohne konkrete Faction-POV), darf `Imperium` / `Chaos` als alleiniger Tag stehen — der Apply-Skip greift nicht, weil keine alignment-gleiche Sub-Faction im Block ist (Brief 077 § Constraints). Sehr selten.
+
+  **Begründung.** Brief 070 hat `imperium` als Tree-Root + Grand-Alignment, aber explizit KEIN Browse-Root entschieden (`scripts/seed-data/faction-policy.json` `knownTopLevelExceptions`). Vor Brief 077 hat die LLM den Tag trotzdem konsistent ausgeschrieben, was ~165 redundante `work_factions`-Junctions über `ssot-w40k-001..020` produziert hat (post-Re-Apply weggeputzt). Forward-only-Discipline verhindert die Wiederkehr ab fünfter Welle.
+
 ## Out of scope
 
 - **DB-Apply.** Apply für die produzierte Override-Datei läuft separat per `npm run db:apply-override -- --batch=ssot-{domain}-{NNN}` (Brief 060). NICHT in dieser Iteration.
@@ -324,51 +337,4 @@ Maintainer ruft CC nach jedem `/clear` mit etwa folgender Eröffnung an:
 
 Oder mit Skip-Marker, wenn Maintainer den Resolver bewusst verschiebt:
 
-> „Brief `sessions/2026-05-11-061-arch-ssot-loop.md` ausführen, skip-50-stop."
-
-Bei Loop-Complete oder Resolver-Pause: CC meldet zurück und fragt im Chat, ob Maintainer den Resolver-Brief jetzt schreiben möchte (Cowork-Aufgabe).
-
-### Was nach der ersten Iteration im Repo liegt
-
-Beispiel nach drei Iterationen:
-
-```
-scripts/seed-data/
-  manual-overrides-ssot-w40k-001.json   ← Brief 058 + Cowork-Opus, existing
-  manual-overrides-ssot-w40k-002.json   ← Loop iter 1
-  manual-overrides-ssot-w40k-003.json   ← Loop iter 2
-  manual-overrides-ssot-w40k-004.json   ← Loop iter 3
-sessions/
-  ssot-loop-log.md                       ← Header + 3 H2-Blöcke
-  2026-05-11-061-arch-ssot-loop.md       ← dieser Brief, status: open (Standing)
-  …
-```
-
-`sessions/README.md` zeigt 061 in Active-Threads mit Status `open` und Notiz „Standing-Brief, läuft pro `/clear`-Iteration".
-
-### Brief-Lifecycle (Sonderfall)
-
-Standard-Briefe wechseln nach Implementation auf `status: implemented`. Brief 061 ist anders: er bleibt **dauerhaft `open`**, weil er bei jedem `/clear` neu greift. Cowork schließt 061 erst, wenn entweder (a) Loop-Complete erreicht ist (alle 859 Bücher in Authority-Schicht), oder (b) ein Folge-Brief das Pattern strukturell ersetzt (z.B. Resolver-Brief integriert Loop-Mechanik anders, oder Maintainer entscheidet Authority-Layer-Aufbau zu beenden).
-
-Status-Lifecycle: `open` → (langfristig) `implemented` wenn Loop-Complete-Block in `ssot-loop-log.md` steht.
-
-Die `commits: []`-Liste im Frontmatter wird über die Zeit gefüllt — pro Loop-Iteration ein Commit-Hash. Wenn die Liste unhandlich wird, Cowork kürzt auf die letzten N.
-
-### Closes / supersedes
-
-- **Brief 059** (`cc-direct-overrides-w40k-002`): superseded. 059's Inhalt war Single-Batch-Generate für `ssot-w40k-002` + Sed-Reuse-Anleitung. Beides absorbiert dieser Loop-Brief — 002 entsteht in der ersten Loop-Iteration, 003..057 in den Folge-Iterationen, HH-Batches danach. Cowork setzt 059 auf `status: superseded` und entfernt es aus Active-Threads.
-- Constraints aus 059 (Hallu-Disziplin, WebSearch-Cap, Omnibus-Aggregation, Format-Compliance, Inquisition-Konsistenz, Surface-Form-Treue, Long-Tail-Handling, Roster-Mistag-Verdacht): 1:1 in den Constraints/Open-Questions hier übernommen.
-- **OQ1** (Modell-Entscheidung Haiku vs. Sonnet): strukturell aufgelöst durch den Loop-Pfad (CC-Direct statt Pipeline-Stage-3), wie schon in 059 vermerkt. Cowork prunt in nächster Brain-Hygiene.
-
-### Tracked-for-future-briefs
-
-- **Resolver-Brief** (OQ4 + OQ5): Trigger durch 50er-Pause. Cowork schreibt manuell. Empfehlung: nach erster Pause (50 Bücher cumulative) sofort den Resolver schreiben, statt den `skip-50-stop`-Schalter zu nutzen — sonst pollutet Surface-Form-Long-Tail.
-- **Apply-Sweep nach Resolver:** nach Resolver-Brief läuft `npm run db:apply-override -- --batch=ssot-w40k-002` (+ 003 + 004 + 005) und re-applied 001 für Konsistenz. Eigener kurzer Brief, ggf. inline im Resolver-Brief.
-- **DetailPanel „Auch enthalten in"-Frontend:** sobald Apply von 001 in der DB ist, kann der Mini-Brief greifen — siehe 060-Tracked-for-future.
-- **Pipeline-Stage-3-Dead-Code-Cleanup:** wenn der Loop ein paar Iterationen stabil läuft, kann `src/lib/ingestion/v2/llm/enrich.ts` weg.
-- **Status-Log-Archivierung:** nach jedem Resolver-Pass die abgeschlossenen 50-Bücher-Blöcke nach `sessions/archive/ssot-loop-log-YYYY-MM.md` rotieren. Cowork-Hygiene, nicht Loop-Job.
-- **HH-vs-W40K-Coverage-Empirie:** nach den ersten 5-10 HH-Iterationen vergleicht Cowork die WebSearch-/Coverage-Empirie zwischen den Domains und entscheidet, ob Constraints für eine der beiden domain-spezifisch verschärft werden müssen.
-
----
-
-Brief 061 ist der Standing-Brief für den gesamten Authority-Layer-Aufbau. Nach `/clear` reicht der Hinweis „Brief 061 ausführen" — CC erkennt selbst, was dran ist, und stoppt loud bei der nächsten Resolver-Schwelle. Architektonisch macht das den Sed-Replace-Klon-Schritt aus 059 obsolet und ersetzt ihn durch eine Detection-Funktion im CC-Code-Flow.
+> „Brief `sessions/2026-05-11-061-arch-ssot-loop.m
