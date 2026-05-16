@@ -23,6 +23,10 @@
   "knownTopLevelExceptions": [
     "imperium"
   ],
+  "redundantWhenSubPresent": [
+    "imperium",
+    "chaos"
+  ],
   "specialCases": {
     "chaos": "Synthetischer Umbrella-Row (name='Chaos'). Hosts Heresy-Traitor-Legionen (Sons of Horus, Night Lords, Thousand Sons, World Eaters, Alpha Legion) + Word Bearers / Iron Warriors / Blood Pact / Sons of Sek / Zoican Host / Lords of Unholy Host / Daemons. 'Chaos Undivided' als separater Row ist deferred bis Worship-Form-Spezifik datenrelevant.",
     "commissariat": "Institutionell parallel zu Astra Militarum; im Schema unter Imperium (Single-Parent-Limit). Multi-Parent ist deferred.",

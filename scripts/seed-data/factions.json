@@ -3,6 +3,7 @@
     "id": "imperium",
     "name": "Imperium of Man",
     "parent": null,
+    "alignment": "imperium",
     "tone": "imperial"
   },
   {
