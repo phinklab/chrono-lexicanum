@@ -1,0 +1,527 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-018",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-16",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0171..W40K-0180 — the **modern Necromunda imprint relaunch cluster** of 2018-2021 Black-Library Necromunda titles, tied to the 2017 specialist-game-line re-release. Direct continuation of ssot-w40k-017's early/mid-2000s Necromunda cluster, now in modern-imprint register. Ten Necromunda-set entries: two Black-Library-Novella-Series entries (W40K-0171 *Wanted: Dead*, Mike Brooks 2018, Novella-Series-1-#6 — Jarene of the Escher Wild Cats; W40K-0174 *Low Lives*, Denny Flowers 2019, Novella-Series-2-#9 — Caleb Cursebound + Iktomi the ratskin in Hope's End); one mid-Kal-Jerico-revival novel (W40K-0172 *Sinner's Bounty*, Josh Reynolds 2019 — Reynolds takes over the Jerico baton from Rennie/McDermott, hunting Redemptionist Desolation Zoon); one Justin-D-Hill Escher-coming-of-age (W40K-0173 *Terminal Overkill*, 2019 — Brielle of the Wild Hydras vs Goliath Fettnir in the Dim Zone); one foundational modern-imprint anthology (W40K-0175 *Underhive: A Necromunda Anthology*, 2019 — collects the *Wanted: Dead* novella + nine shorts by Brooks/Harrison/Hinks/Reynolds/Haley/MacNiven/Kyme); one Mike-Brooks Cawdor-redemption novel (W40K-0176 *Road to Redemption*, 2020 — Zeke of House Cawdor, Floodgrave settlement); one Will-McDermott Mad-Donna-vs-Scrutinator-Servalen procedural (W40K-0177 *Soulless Fury*, 2020 — D'onne Ulanti + Scrutinator Primus Servalen with cyber-mastiff KB-88, House Cawdor antagonists); one mis-labelled-as-novel anthology (W40K-0178 *Uprising*, 2020 — actually a multi-author anthology: Annandale + Kloster + Hill + Flowers + Green + Brooks + McDermott + Wiltgren + Rath, framing-piece by Flowers); one Denny-Flowers Guild-of-Light vs Redemptionist novel (W40K-0179 *Fire Made Flesh*, 2021 — Tempes Sol of the Guild of Light vs Lord Silas Pureburn, the Fallen Dome of Periculus); and one Gary-Kloster ogryn-uprising novella (W40K-0180 *Spark of Revolution*, 2020, Novella-Series-3-#5 — Breaker Brass the ogryn, House of Chains / Goliath civil war). **Three format-compliance `data_conflict` flags raised**: W40K-0171 (SSOT `novel` → suggestion `novella`, Black Library Novella Series 1 #6), W40K-0174 (SSOT `novel` → suggestion `novella`, Black Library Novella Series 2 #9), W40K-0178 (SSOT `novel` → suggestion `anthology`, multi-author short-fiction collection per Amazon table-of-contents listing). **Modern-imprint authority surface forms** seeded: Caleb Cursebound + Iktomi (the Cursebound saga that runs W40K-0174 *Low Lives* → W40K-0178 *Uprising* framing piece → an unhandled-here later novel); Jarene + Wild Cats (Escher); Brielle + Wild Hydras + Fettnir + Red Tori + the Dim Zone (Hill's Escher coming-of-age); Desolation Zoon (Redemptionist antagonist of the modern-Kal-Jerico revival); Zeke + Floodgrave (Brooks' Cawdor redemption arc); Scrutinator Primus Servalen + KB-88 + Dog the ogryn (McDermott's Mad-Donna procedural revives the D'onne-Ulanti surface form first registered in ssot-w40k-017 W40K-0162 *Survival Instinct*); Tempes Sol + Guild of Light + Lord Silas Pureburn + the Fallen Dome of Periculus (Flowers' Periculus-arc); Breaker Brass + House of Chains (Kloster's ogryn-revolt). **Continuation of Necromunda factional vocabulary** from ssot-w40k-017: Houses Escher / Cawdor / Goliath / Orlock / Delaque / Van Saar / Helmawr / Ulanti continue; **first authority-layer Guild of Light + Corpse Guild + Spyrer / Venator surface forms** for completeness on Necromunda's Guild-clade taxonomy. **No `low_confidence` flags raised** — all ten have belastbare Lexicanum / Black-Library / Track-of-Words / Goodreads plot summaries; modern-imprint coverage is consistently better than the early/mid-2000s cluster. **Inquisition-consistency**: not triggered — no on-page Inquisitors in any of the ten; closest are Scrutinator Primus Servalen (Necromunda Enforcer rank, not Inquisition) and the Cawdor / Redemption religious-extortion register (which is Imperial-faith-adjacent but not Inquisitorial). **WebSearch: mean = 1.0 / book, max = 1 (over 10 books), 10 total searches** — one obligatory plot-confirmation search each, no books required follow-ups; modern-imprint coverage was uniformly good. **value_outside_vocabulary candidates** (none promoted): `bounty_hunter`, `ganger`, `noble-fallen-to-underhive`, `ogryn-protagonist`, `ratskin` (protagonist_class — Caleb Cursebound is a bounty-hunter/conman, Iktomi is a ratskin, Brielle is a ganger, Breaker Brass is an ogryn, Mad Donna is a fallen-noble; default workaround used is `civilian` since the catalog has no Necromunda-specific class); `novella` (format-field — Brief 061 omnibus-constraint covers anthology, but `novella` is its own SSOT-format-field value that the facet catalog `format` taxonomy doesn't separately model — only `book`); `anthology-mislabelled-as-novel` is structurally captured by the `data_conflict` flag rather than a vocabulary value. **Notable surface-form frequencies within this batch**: *Locations*: Necromunda ×10, Underhive ×10, Hive Primus ×9, The Spire ×2, Hope's End ×2 (W40K-0174 + W40K-0178 framing-piece), Floodgrave ×1, Dim Zone ×1, Periculus ×1; *Factions*: House Escher ×4 (Wild Cats + Wild Hydras), House Cawdor ×5 (W40K-0172 antagonist + W40K-0176 primary + W40K-0177 antagonist + W40K-0178 framing + W40K-0179 antagonist), Redemptionists ×5 (W40K-0172 + W40K-0174 + W40K-0177 + W40K-0178 + W40K-0179), House Goliath ×2 (W40K-0173 + W40K-0180), House Orlock ×2 (W40K-0174 antagonist + W40K-0178 venator-frame), House Helmawr ×3 (W40K-0172 + W40K-0177 Lord-Helmawr-dispatch + W40K-0180 framing), House Ulanti ×2 (W40K-0177 + Mad-Donna-callback-to-0162), Guilders ×6, Guild of Light ×1 (W40K-0179), Corpse Guild ×1 (W40K-0178 framing-piece), Necromunda Enforcers ×1 (W40K-0177 Scrutinator Servalen), Spyrers ×1, Imperium ×10; *Characters*: Caleb Cursebound ×2 (W40K-0174 + W40K-0178 framing-piece), Iktomi ×2 (W40K-0174 + W40K-0178 framing-piece), Kal Jerico ×1 (W40K-0172 — modern-imprint revival, separate from the 2005-2008 trilogy's Kal in ssot-w40k-017), Desolation Zoon ×1 (W40K-0172), Jarene ×1 (W40K-0171), Brielle ×1 (W40K-0173), Red Tori ×1 (W40K-0173 deceased mother), Fettnir ×1 (W40K-0173 antagonist), Zeke ×1 (W40K-0176), D'onne Ulanti / Mad Donna ×1 (W40K-0177 — revival of the W40K-0162 *Survival Instinct* surface form, fifteen years later), Scrutinator Primus Servalen ×1 (W40K-0177), KB-88 ×1 (W40K-0177 cyber-mastiff), Dog (the ogryn) ×1 (W40K-0177), Tempes Sol ×1 (W40K-0179), Lord Silas Pureburn ×1 (W40K-0179 antagonist), Breaker Brass ×1 (W40K-0180), Yar Umbra ×1 (W40K-0178 framing-piece venator). **Brief-071-Vertrag aktiv**: Override-Datei + Status-Log-Append in einem Commit ohne Co-Author-Trailer, keine sonstigen Datei-Edits. **Resolver-Pre-Note**: `cumulativeAfter=180`; **next natural Resolver-Pause-Schwelle ist bei `cumulativeBefore=200`** (`ssot-w40k-021`, W40K-0201..W40K-0210, in two iterations). Surface-form-pile since the last Resolver-Pass in 069 spans ssot-w40k-006..018 = 130 Bücher with the modern-Necromunda surface forms now stacked on top of the early/mid-2000s Necromunda cluster — Cowork-Empfehlung aus ssot-w40k-017 (Resolver-Pass vor cumulative=200 planen) gilt verstärkt: D'onne Ulanti appears in both ssot-w40k-017 (W40K-0162) and ssot-w40k-018 (W40K-0177) with a fifteen-year publication-gap, and the canonical-name choice (D'onne Ulanti vs Mad Donna vs Donna Ulanti vs D'onne) should be resolved before more modern-imprint Necromunda entries land.",
+  "books": [
+    {
+      "externalBookId": "W40K-0171",
+      "slug": "wanted-dead",
+      "overrides": {
+        "synopsis": "**Wanted: Dead** (Mike Brooks, 2018) — opening **novella** of the Black-Library Necromunda modern-imprint relaunch and Mike-Brooks' first Black-Library entry, Novella Series 1 #6. **Jarene** is a hardened **House Escher** ganger of the **Wild Cats** crew in the **Underhive** of **Hive Primus** on **Necromunda**. An ambush goes catastrophically wrong: a **Guilder** is killed in the chaos, the Wild Cats' leader falls with him, and the gang is suddenly **outlawed** — bountied by the **Necromunda Enforcers**, the Guilds, the Houses, and every rival gang who scents an easy kill. Jarene takes operational control of the surviving sisters-in-arms and must keep them alive long enough to reconstruct what actually happened in the ambush — because the killing was no accident, the Wild Cats were set up, and the real culprits will only be brought to honour-restoring justice if Jarene can survive long enough to find them. Brooks' register sits at the Underhive-noir-procedural end of the Necromunda line, leaning on hunted-not-hunter inversion and Escher sisterhood-loyalty rather than gang-warfare set-pieces. **First authority-layer Jarene + first Wild Cats (Escher gang) + first authority-layer modern-imprint Necromunda novella surface forms.** Format-compliance: SSOT-roster tags `novel`, but Black-Library Novella-Series-1-#6 makes this a **novella** — `data_conflict` flag with `field: \"format\"`, `suggestion: \"novella\"`. Subsequently reprinted as the opening piece of W40K-0175 *Underhive: A Necromunda Anthology* (this batch).",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "short",
+          "war_story",
+          "mystery",
+          "character_study",
+          "action_heavy",
+          "grimdark",
+          "loyalty",
+          "betrayal",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Escher", "role": "primary" },
+          { "name": "Guilders", "role": "antagonist" },
+          { "name": "Necromunda Enforcers", "role": "antagonist" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Jarene", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "novella", "note": "Black Library Novella Series 1 #6; SSOT-roster lists as novel" }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0172",
+      "slug": "sinners-bounty",
+      "overrides": {
+        "synopsis": "**Kal Jerico: Sinner's Bounty** (Josh Reynolds, 2019) — modern-imprint **Kal Jerico** revival novel, with Reynolds taking the series-baton from Gordon Rennie and Will McDermott (the original Kal Jerico trilogy in ssot-w40k-017 — W40K-0164 *Blood Royal*, W40K-0169 *Cardinal Crimson*, W40K-0170 *Lasgun Wedding*). Kal Jerico returns to **Hive Primus** on the trail of his biggest bounty yet: **Desolation Zoon**, a maniacal **Redemptionist** preacher racing downhive through the **Underhive** in a mining hauler bristling with stolen **Guilder** weaponry. The prize is large enough that every other **Venator** worth the name is also on Zoon's trail, and the chase devolves into a multi-faction pursuit through the lower hive. Reynolds' register is action-comedy / chase-thriller-with-banter, pitched to introduce Kal to a new generation of Necromunda readers without requiring the original-trilogy background; characterisation is strong, the final third becomes a sustained non-stop action set-piece as every chasing party converges. **First authority-layer modern-imprint Kal Jerico (separate surface form from the 2005-2008 trilogy Kal in ssot-w40k-017) + first authority-layer Desolation Zoon + first authority-layer Venator-as-profession-and-faction-class register surface forms.** Standalone within the modern-imprint Necromunda line; no series-tier (entry_point=standalone).",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "war_story",
+          "journey",
+          "action_heavy",
+          "satirical",
+          "grimdark",
+          "war",
+          "loyalty",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Helmawr", "role": "supporting" },
+          { "name": "Redemptionists", "role": "antagonist" },
+          { "name": "Venators", "role": "supporting" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Kal Jerico", "role": "pov" },
+          { "name": "Desolation Zoon", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0173",
+      "slug": "terminal-overkill",
+      "overrides": {
+        "synopsis": "**Terminal Overkill** (Justin D. Hill, 2019) — **Necromunda** Underhive **coming-of-age** novel told in close-first-person from a single POV across several years. The **Wild Hydras**, a **House Escher** gang led by the legendary **Red Tori**, scraped a living controlling territory in the **Dim Zone** bordering the **Underhive** of **Hive Primus** — until the rise of the brutal **House Goliath** overlord **Fettnir** and the killing of Red Tori shatters everything. **Brielle**, Red Tori's teenage daughter, flees into the darkness of the Underhive carrying nothing but her mother's memory and the certainty that she will return for vengeance. Brielle must first learn to survive alone in the deepest tunnels, then build a new life from the ground up, then claw her way back to a position from which she can finally strike at Fettnir and reclaim her House's territory and her mother's honour. Hill's register pairs grim, somber, slow-burn Underhive-survival with an oral-retelling memoir-frame that gives the novel the feel of a remembered-and-personal account; pacing dwells on pain-and-desperation through the middle act before racing through the revenge-arc in an action-heavy final third. **First authority-layer Brielle + first authority-layer Red Tori (deceased mother) + first authority-layer Fettnir (Goliath antagonist) + first Wild Hydras (Escher gang) + first authority-layer Dim Zone (border-Underhive region) surface forms.** Standalone; protagonist-gender female; tonal-register grim-coming-of-age, distinct from the action-comedy Kal-Jerico modern-imprint register.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "coming_of_age",
+          "character_study",
+          "war_story",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "loss",
+          "vengeance",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Escher", "role": "primary" },
+          { "name": "House Goliath", "role": "antagonist" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" },
+          { "name": "Dim Zone", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Brielle", "role": "pov" },
+          { "name": "Red Tori", "role": "supporting" },
+          { "name": "Fettnir", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0174",
+      "slug": "low-lives",
+      "overrides": {
+        "synopsis": "**Low Lives** (Denny Flowers, 2019) — second novella in the **Caleb Cursebound** saga (after Flowers' debut short *The Hand of Harrow*, not in roster). Black-Library Novella Series 2 #9. **Caleb Cursebound** — the **Underhive**'s self-styled ninth-most-dangerous man — and his ratskin partner **Iktomi** are in hiding after deposing the tyrannical lord of a Necromundan noble House. Pursued by relentless bounty hunters, they descend to the remote mining settlement of **Hope's End**, the last place anyone would think to look. They quickly discover that Hope's End is being terrorised by a powerful **House Orlock** gang, and the settlers are desperate for a hero. Caleb — instinctively unable to back down — promises far more than he can deliver and is forced into the protector-role he never sought. Meanwhile, life on the run has frayed both partners: Caleb drowns his fears in stimm-and-alcohol, Iktomi grows increasingly paranoid and aggressive. The flight to Hope's End has not gone entirely unnoticed: someone with a very personal grudge is hunting Caleb, and they intend to take more than just his life. **First authority-layer Caleb Cursebound + first authority-layer Iktomi + first authority-layer Hope's End settlement + first authority-layer ratskin-as-named-partner-class register surface forms.** Format-compliance: SSOT-roster tags `novel`, but Black-Library Novella-Series-2-#9 makes this a **novella** — `data_conflict` flag with `field: \"format\"`, `suggestion: \"novella\"`. Subsequently reprinted as a framing piece of W40K-0178 *Uprising* (this batch). Saga continues in W40K-0179 *Fire Made Flesh* tonally (Flowers stays on Necromunda) though Cursebound is not the POV of that later novel.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "short",
+          "siege",
+          "war_story",
+          "journey",
+          "character_study",
+          "action_heavy",
+          "satirical",
+          "grimdark",
+          "somber",
+          "brotherhood",
+          "loyalty",
+          "doubt",
+          "vengeance",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_mental_health",
+          "cw_risky_behaviour",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Orlock", "role": "antagonist" },
+          { "name": "Ratskins", "role": "supporting" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "supporting" },
+          { "name": "Underhive", "role": "primary" },
+          { "name": "Hope's End", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Caleb Cursebound", "role": "pov" },
+          { "name": "Iktomi", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "novella", "note": "Black Library Novella Series 2 #9; SSOT-roster lists as novel" }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0175",
+      "slug": "underhive-a-necromunda-anthology",
+      "overrides": {
+        "synopsis": "**Underhive: A Necromunda Anthology** (Black Library, 2019) — foundational modern-imprint Necromunda **anthology** containing the **Wanted: Dead** novella (Mike Brooks; also W40K-0171 this batch as standalone-novella-entry) plus **nine short stories** by Black-Library Necromunda authors. **Contents**: (1) *Wanted: Dead* by Mike Brooks (the novella); (2) *Dirty Dealings* by Rachel Harrison; (3) *Redemption* by Darius Hinks; (4) *Death's Head* by Josh Reynolds; (5) *Emp-rah's Eye* by Guy Haley; (6) *Once a Stimm Queen* by Robbie MacNiven; (7) *Scar Crossed* by Nick Kyme; (8) *Burned* by Darius Hinks; (9) *A Common Ground* by Mike Brooks; (10) *Red Salvage* by Josh Reynolds. The anthology establishes the modern-imprint Necromunda short-fiction register: gang warfare between the Houses (**House Escher**, **House Goliath**, **House Orlock**, **House Cawdor**, **House Delaque**, **House Van Saar**), **Redemptionist** zealotry, **Guilder** caravans, **Spyrer** noble-youth hunts, downhive mutant settlements, and the omnipresent grime-and-violence of the **Underhive** of **Hive Primus** on **Necromunda**. Aggregation per Brief-061 omnibus/anthology-constraint: factions / locations / characters listed across all ten constituent works, tag-tier comparable to the constituent novella. Roster `format=anthology` correct — no `data_conflict` flag. Roster note about \"individual contents not explicitly recoverable from TLBranson list\" is now resolvable via the Black-Library / Goodreads table-of-contents.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "character_study",
+          "mystery",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "war",
+          "loyalty",
+          "betrayal",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Escher", "role": "primary" },
+          { "name": "House Goliath", "role": "primary" },
+          { "name": "House Orlock", "role": "primary" },
+          { "name": "House Cawdor", "role": "primary" },
+          { "name": "House Delaque", "role": "primary" },
+          { "name": "House Van Saar", "role": "primary" },
+          { "name": "Redemptionists", "role": "supporting" },
+          { "name": "Spyrers", "role": "supporting" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Necromunda Enforcers", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Jarene", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0176",
+      "slug": "road-to-redemption",
+      "overrides": {
+        "synopsis": "**Road to Redemption** (Mike Brooks, 2020) — Brooks' second Black-Library novel (after his Navigator-House debut, not in roster), trading the Navigators for **Necromunda**. **Zeke**, a lapsed **House Cawdor** gunfighter who has tried to leave the Cawdor flagellant-and-faith life behind and start over as a simple settler, sees his rebuilt-life shatter when the small settlement of **Floodgrave** is razed: his friends are dead, their children kidnapped by the raiders, the culprits vanished into the **Underhive** of **Hive Primus**. Zeke reluctantly straps on the weapons he swore to leave behind and begins a path downhive that will see him face — and re-become — the violent Cawdor-zealot he used to be. The novel runs on three intertwined themes: **redemption** (Zeke considers himself a failure and sees in this rescue-mission the chance to do something decent, even at the cost of his life); **faith-and-extremism** (Brooks targets the Cawdor / **Redemptionist** religious-extremism complex from within, through Zeke's bitter-and-disillusioned former-believer's lens); and **ends-vs-means** (the further Zeke descends, the more the violence he renounced becomes the violence the rescue requires). **First authority-layer Zeke (House Cawdor) + first authority-layer Floodgrave settlement + first authority-layer modern-imprint Cawdor-as-primary-protagonist-and-internal-critique register surface forms.** Standalone; tonal-register grim-redemption-quest, distinct from both the Underhive-noir and the action-comedy registers in the rest of the batch.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "journey",
+          "character_study",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "faith",
+          "redemption",
+          "doubt",
+          "loyalty",
+          "loss",
+          "vengeance",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Cawdor", "role": "primary" },
+          { "name": "Redemptionists", "role": "primary" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" },
+          { "name": "Floodgrave", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Zeke", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0177",
+      "slug": "soulless-fury",
+      "overrides": {
+        "synopsis": "**Soulless Fury** (Will McDermott, 2020) — modern-imprint **Necromunda** dual-POV manhunt-procedural. **D'onne Ulanti** — the estranged Spire-born daughter of **House Ulanti**, fifteen-publication-years older than her appearance in ssot-w40k-017 W40K-0162 *Survival Instinct*, still trading under the underhive-legend name **'Mad Donna'** — tears a path through the **Underhive** of **Hive Primus** in search of a young man captured by **House Cawdor** gangers, accompanied by her unlikely-companion **Dog** the **ogryn**. **Scrutinator Primus Servalen**, a senior **Necromunda Enforcer** armed with the personal seal of **Lord Helmawr** (to which no request can be denied and no door barred), is dispatched to bring the misbegotten scion of House Ulanti to justice — but first she has to find her. Servalen travels with her own loyal pet: the cyber-mastiff **KB-88**. Where Donna goes, death follows; she leaves devastated settlements and shell casings in her wake; Servalen tracks the bodycount downhive while pursuing both the rescue-mission and the wanted-criminal-named-Mad-Donna. McDermott's register is grim-action-thriller with dual-POV cat-and-mouse, both leads converging on the same Cawdor-held captive from different motivations. **Surface-form revival** of D'onne Ulanti / Mad Donna from ssot-w40k-017 — Resolver should consolidate the canonical name (D'onne Ulanti vs Mad Donna vs Donna Ulanti) across both entries. **First authority-layer Scrutinator Primus Servalen + first authority-layer KB-88 + first authority-layer Dog (the ogryn) + first authority-layer modern-imprint Necromunda Enforcer Scrutinator-rank register surface forms.**",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "war_story",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "loyalty",
+          "vengeance",
+          "doubt",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Ulanti", "role": "primary" },
+          { "name": "Necromunda Enforcers", "role": "primary" },
+          { "name": "House Helmawr", "role": "supporting" },
+          { "name": "House Cawdor", "role": "antagonist" },
+          { "name": "Redemptionists", "role": "antagonist" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" },
+          { "name": "The Spire", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "D'onne Ulanti", "role": "pov" },
+          { "name": "Mad Donna", "role": "pov" },
+          { "name": "Scrutinator Primus Servalen", "role": "pov" },
+          { "name": "Lord Helmawr", "role": "supporting" },
+          { "name": "KB-88", "role": "supporting" },
+          { "name": "Dog", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0178",
+      "slug": "uprising",
+      "overrides": {
+        "synopsis": "**Uprising** (Black Library, 2020) — second modern-imprint **Necromunda anthology**, framed by Denny Flowers' **Caleb Cursebound** material and collecting short fiction by **David Annandale**, **Gary Kloster**, **Justin D. Hill**, **Denny Flowers**, **Jonathan Green**, **Mike Brooks**, **Will McDermott**, **Filip Wiltgren**, and **Robert Rath**. The collection's interconnected storylines include: a **Venator** named **Yar Umbra** cutting a swathe through the **Underhive** of **Hive Primus** seeking escape from **Necromunda**; a **House Cawdor** juve desperate to prove himself who discovers a statue of the Emperor that will change his life; a **Corpse Guild** drudge who learns what his superiors are desperate to keep forbidden; and **Caleb Cursebound** (returning from W40K-0174 *Low Lives*, this batch) — the ninth most dangerous man in the Underhive and thief of the Hand of Harrow — fleeing to the remote mining settlement of **Hope's End**, pursued by those who would see his reputation tarnished (the Cursebound thread serves as the anthology's recurring frame). Aggregation per Brief-061 omnibus/anthology-constraint: factions / locations / characters listed across constituents, tag-tier comparable to a standard Necromunda novel. Format-compliance: SSOT-roster tags `novel`, but the Amazon table-of-contents listing nine separate Black-Library authors plus a framing-novella confirms this is a multi-author **anthology** — `data_conflict` flag with `field: \"format\"`, `suggestion: \"anthology\"`. **First authority-layer Yar Umbra + first authority-layer Corpse Guild + first authority-layer modern-imprint Necromunda multi-author-anthology register surface forms.**",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "character_study",
+          "mystery",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "faith",
+          "war",
+          "loyalty",
+          "betrayal",
+          "vengeance",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Cawdor", "role": "primary" },
+          { "name": "House Orlock", "role": "primary" },
+          { "name": "Redemptionists", "role": "primary" },
+          { "name": "Corpse Guild", "role": "primary" },
+          { "name": "Venators", "role": "supporting" },
+          { "name": "Ratskins", "role": "supporting" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" },
+          { "name": "Hope's End", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Caleb Cursebound", "role": "supporting" },
+          { "name": "Iktomi", "role": "supporting" },
+          { "name": "Yar Umbra", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "anthology", "note": "Multi-author short-fiction collection (Annandale + Kloster + Hill + Flowers + Green + Brooks + McDermott + Wiltgren + Rath) per Amazon table-of-contents; SSOT-roster lists as novel" }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0179",
+      "slug": "fire-made-flesh",
+      "overrides": {
+        "synopsis": "**Fire Made Flesh** (Denny Flowers, 2021) — Flowers' debut full-length **Necromunda** novel (after his earlier short fiction and novellas, including W40K-0174 *Low Lives* in this batch). The **Fallen Dome of Periculus**, once a hub of sanctioned commerce and illicit dealings on **Necromunda**, has been re-discovered: no longer lost, its prizes are now sought by noble, **Guilder**, and hive-scum factions alike. **Tempes Sol** of the **Guild of Light** sees in Periculus the opportunity to both prove his superiority over his superstitious Guild-peers and engineer the end of his most hated rival: **Lord Silas Pureburn**, Keeper of the God-Emperor's Eternal Flame, bringer of fire-and-faith to the rioting masses — a **Redemptionist** demagogue with mass-following in the **Underhive** of **Hive Primus**. As the rival expeditions converge on the dome, dark secrets surface: forbidden archeotech, twisted creatures that feast on flesh, an insidious rage that afflicts everyone who dwells inside its confines. Madness and violence erupt within the fallen dome, and the legacy of Periculus threatens to consume not just the Underhive but Hive Primus itself. Flowers' register is grimdark archeotech-horror with religious-extremism subtext, expanding the Periculus-arc that the Cursebound novella seeded. **First authority-layer Tempes Sol + first authority-layer Lord Silas Pureburn + first authority-layer Guild of Light + first authority-layer Fallen Dome of Periculus + first authority-layer Necromunda-archeotech-horror register surface forms.** Standalone within the modern-imprint Necromunda line (the Cursebound saga's continuation thread is tonal/setting rather than POV-continuous).",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "war_story",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "faith",
+          "hubris",
+          "doubt",
+          "betrayal",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Guild of Light", "role": "primary" },
+          { "name": "Redemptionists", "role": "antagonist" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" },
+          { "name": "Fallen Dome of Periculus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Tempes Sol", "role": "pov" },
+          { "name": "Lord Silas Pureburn", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0180",
+      "slug": "spark-of-revolution",
+      "overrides": {
+        "synopsis": "**Spark of Revolution** (Gary Kloster, 2020) — Kloster's first **Necromunda** novella, Black-Library Novella Series 3 #5, with an unusual-for-Necromunda POV: **Breaker Brass**, an **ogryn** slave-labourer in the foundries of the **House of Chains** (a **House Goliath** sub-faction). Breaker Brass shapes molten metal into machines of war for his Goliath masters and shatters the bones of their enemies with his **steel fists**, working as both factorum-labour and enforcer. When **civil war** wracks the House of Chains — **Goliath fighting Goliath**, with a rival gang taking over the factorum — Breaker Brass is used up, discarded, and left for dead by the callous new gang leader: they tear him apart and spit him out to die. Instead, he is reborn with **golden fists**, with intelligence, and with a purpose. The story builds toward a **servitor revolt** led by an unlikely leader, in the **Underhive** of **Hive Primus** on **Necromunda**. Kloster's register is action-heavy / brutally-violent but pitched at a greater-than-typical-Black-Library degree of **hope** — Breaker Brass is a remarkably sympathetic and compelling ogryn-POV, rare for the line. **First authority-layer Breaker Brass + first authority-layer House of Chains (Goliath sub-faction) + first authority-layer ogryn-as-protagonist-POV register + first authority-layer Necromunda-servitor-revolt register surface forms.** Roster `format=novella` correct — no `data_conflict` flag. Tonal-register: action-heavy + hopeful, distinct from the rest of the batch's grim-Underhive defaults.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "short",
+          "war_story",
+          "character_study",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "hopeful",
+          "redemption",
+          "brotherhood",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Goliath", "role": "primary" },
+          { "name": "House of Chains", "role": "primary" },
+          { "name": "House Helmawr", "role": "supporting" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Breaker Brass", "role": "pov" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}

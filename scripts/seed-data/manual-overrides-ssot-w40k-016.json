@@ -1,0 +1,570 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-016",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-16",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0151..W40K-0160 — the **Space-Wolves-original cluster**: one trilogy-omnibus opener (W40K-0151 *The Inquisition War Omnibus* aggregating the three Watson novels just authored in ssot-w40k-015) followed by the **Ragnar Blackmane saga** as William-King-launched it in 1999-2003 (*Space Wolf* + *Ragnar's Claw* + *Grey Hunter* + *Wolfblade*) and as **Lee Lightner** continued it 2007-2008 (*Sons of Fenris* + *Wolf's Honour*), two Space-Wolf-aggregation-omnibuses (W40K-0158 *The Space Wolf Omnibus* collecting King's first trilogy + W40K-0159 *Space Wolf: The Second Omnibus* collecting King's fourth-volume + the Lightner pair), and one **2025-publication-frontier entry** (W40K-0160 *Krakenblood* by Marc Collins — Wolf-Priest Ivar Krakenblood as a fresh Space-Wolves-protagonist outside the Ragnar-saga register, sixth Marc-Collins Black-Library novel pivoting from Emperor's Children to Space Wolves). **First authority-layer Space-Wolves-as-primary-protagonist-faction cluster**; prior authority-layer Space-Wolves appearances were peripheral (Logan Grimnar mentioned, Russ mentioned, generic Astartes-Space-Wolves-faction-tier) — this batch establishes the chapter as a primary on-page register across **nine** of ten entries (every entry except W40K-0151 itself, which is the Inquisition-War-omnibus). **Three omnibuses in one batch** (W40K-0151 + W40K-0158 + W40K-0159) — the highest omnibus-density of any authority-layer batch so far (prior peak was ssot-w40k-015 with one *Green Tide* omnibus); aggregations per Brief-061 constraint pull factions/locations/characters/facetIds from constituent novels rather than the framing material, and the constituent-content is authority-layer-internal-aggregation from this and the prior batch (W40K-0151 aggregates W40K-0148+0149+0150 from ssot-w40k-015; W40K-0158 aggregates W40K-0152+0153+0154 from this batch; W40K-0159 aggregates W40K-0155+0156+0157 from this batch). **First-authority-layer-as-primary-protagonist surface forms**: Ragnar Blackmane (Ragnar Thunderfist) + Strybjorn Grimskull + Sven Brujothirson + Berek Thunderfist + Wolf-Priest Ranek + Inquisitor Ivan Sternberg + Lady Gabriela Belisarius + Torin + Madox the Thousand-Sons-Sorcerer + Ivar Krakenblood + Ulrik the Slayer as first-authority-layer character surface forms; Fenris + The Fang + Asaheim + Aerius + Galt + Venam + Garm + Terra + Hyades + the Spear of Russ + the Talisman of Lykos + the Russvik tribe + the Thunderfist tribe + the Grimskull tribe + House Belisarius + Wolfblade as first-authority-layer location / faction / artefact surface forms. **`skip-50-stop` marker explicit**: Maintainer-Marker `skip-50-stop` aktiv im Eröffnungs-Prompt (literal substring + German-context-elaboration `Pre-Check übergehen, Override produzieren`); Pre-Check would have fired the natural Resolver-Pause-Schwelle at `cumulativeBefore=150 % 50 == 0` (the third 50er-pause-window since loop-start), but per Brief-071-Vertrag (Acceptance-Bullet auf Brief-061-Zeile 131 als authoritative-Reading) the success-path commits Override + Status-Log together when skip is active, and Brief-061-Constraint-Note auf Zeile 79 ('CC produziert in diesem Fall KEINE neue Override-Datei, KEINEN Status-Log-Eintrag') is explicitly überschrieben für diesen Driver-Lauf. Brief-071-Vertrag-Single-Commit-Discipline: Override-Datei + Status-Log-Append in einem Commit ohne Co-Author-Trailer, keine sonstigen Datei-Edits. **WebSearch: mean ≈ 0.7 / book, max = 1 (over 10 books), 7 total searches** — one obligatory plot-confirmation search per entry for the older 1999-2008 Space-Wolves-novels (W40K-0152 *Space Wolf*, W40K-0153 *Ragnar's Claw*, W40K-0154 *Grey Hunter*, W40K-0155 *Wolfblade*, W40K-0156 *Sons of Fenris*, W40K-0157 *Wolf's Honour*) + one obligatory plot-confirmation search for W40K-0160 *Krakenblood* (2025-publication-frontier, no training-data coverage). Zero searches for the three omnibuses (W40K-0151 + W40K-0158 + W40K-0159 — pure aggregations of just-confirmed-constituent-content) and zero for the W40K-0151 entry whose constituent content was just authored in ssot-w40k-015 last iteration. **Resolver-Pre-Note**: `cumulativeAfter=160`; **next natural Resolver-Pause-Schwelle ist bei `cumulativeBefore=200`** (`ssot-w40k-021`, W40K-0201..W40K-0210). Surface-form-pile since the last Resolver-Pass in 069 spans ssot-w40k-006..016 = 110 Bücher — the resolver-deferred pile is now larger than the prior post-069 pile was at the second resolver-trigger-window; if Cowork does not write the Resolver-Brief before cumulative=200, the third natural Resolver-Pause will fire there. **Brief-071-Vertrag aktiv**: Override-Datei + Status-Log-Append in einem Commit ohne Co-Author-Trailer, keine sonstigen Datei-Edits.",
+  "books": [
+    {
+      "externalBookId": "W40K-0151",
+      "slug": "the-inquisition-war-omnibus",
+      "overrides": {
+        "synopsis": "Three-novel omnibus collection — *The Inquisition War Omnibus* (2009) gathers the founding W40K trilogy by Ian Watson: *Inquisitor / Draco* (W40K-0148 ssot-w40k-015), *Harlequin* (W40K-0149 ssot-w40k-015), and *Chaos Child* (W40K-0150 ssot-w40k-015) into a single 1990-1995 Inquisition-War-arc volume. **Inquisitor Jaq Draco** of the **Ordo Malleus** is dispatched in *Inquisitor* to oversee the cleansing of an alien Genestealer infestation on a hive world and discovers a deeper conspiracy: the **Hydra** — a rogue Inquisition cabal pursuing a 'final solution to the human-soul-question' that Draco recognises as itself a road to Chaos-corruption. The conspiracy moves through *Harlequin* a hundred years later — Draco now a renegade declared excommunicate-tractoris by the Inquisition, pursuing the Hydra-conspiracy beyond sanctioned bounds while **Eldar Harlequins** stage a **Ceremony of Cataclysm** on their orbital theatre circling the devastated world of **Stalinvast** and the **Book of the Rhana Dandra** + **Black Library of Chaos** emerge as load-bearing forbidden-lore-MacGuffins — and concludes in *Chaos Child* via the **Webway** — Draco and the surviving members of his retinue cross the trans-warp network to **Sabulorb**, are intercepted by **Thousand Sons** Marines retrieving the stolen Book for their own Tzeentchian designs, and Draco enters a state of **satori** / enlightenment-death that effectively cliffhangers a sequel that never came. Draco's retinue throughout — established in *Inquisitor* and recurring across both follow-ups — comprises **Meh'Lindi**, a Callidus Assassin of the Officio Assassinorum on long-term-Inquisitorial-secondment; **Vitali Googol**, a Navigator of the Navis Nobilite whose mutant warp-sight gives Draco access to off-Imperial-grid faster-than-light travel; and **Grimm**, a **Squat** engineer-and-sidekick — Squats being the early-40K stout-Imperial-abhuman race subsequently retconned in and out of canon over decades. This omnibus contains the founding-era cosmology-divergences (the 'Emperor's Sons' conspiracy, the controversial reincarnation-and-rebellious-Emperor register) recorded as authoritative-to-the-trilogy without recanonising them, per surface-form treue. **Authority-layer-internal aggregation**: factions / locations / characters / facetIds pulled from W40K-0148+0149+0150 (ssot-w40k-015) per Brief-061 omnibus-aggregation-constraint.",
+        "facetIds": [
+          "book",
+          "male",
+          "inquisitor",
+          "imperium",
+          "galactic",
+          "standalone",
+          "doorstopper",
+          "mystery",
+          "political_thriller",
+          "war_story",
+          "character_study",
+          "journey",
+          "grimdark",
+          "philosophical",
+          "somber",
+          "cosmic_horror",
+          "war",
+          "doubt",
+          "betrayal",
+          "sacrifice",
+          "hubris",
+          "redemption",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Malleus", "role": "primary" },
+          { "name": "Officio Assassinorum", "role": "primary" },
+          { "name": "Callidus Temple", "role": "primary" },
+          { "name": "Navis Nobilite", "role": "primary" },
+          { "name": "Squats", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Harlequins", "role": "primary" },
+          { "name": "Aeldari", "role": "primary" },
+          { "name": "Eldar", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "antagonist" },
+          { "name": "Space Marines", "role": "antagonist" },
+          { "name": "Hydra", "role": "antagonist" },
+          { "name": "Thousand Sons", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Chaos Space Marines", "role": "antagonist" },
+          { "name": "Tzeentch", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Genestealer Cults", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Stalinvast", "role": "primary" },
+          { "name": "Sabulorb", "role": "primary" },
+          { "name": "Webway", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Jaq Draco", "role": "pov" },
+          { "name": "Meh'Lindi", "role": "supporting" },
+          { "name": "Vitali Googol", "role": "supporting" },
+          { "name": "Grimm", "role": "supporting" },
+          { "name": "Obispal", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0152",
+      "slug": "space-wolf",
+      "overrides": {
+        "synopsis": "Space-Wolves series-opener — William King's *Space Wolf* (1999), the founding novel of the Ragnar-Blackmane saga and the **first authority-layer entry where the Space Wolves Chapter is the primary protagonist faction**. On the death-world of **Fenris**, **Ragnar of the Thunderfist tribe** lives the short brutal life of a Fenrisian tribesman until his tribe is ambushed by the rival **Grimskull tribe** under the warrior **Strybjorn Grimskull**, who kills Ragnar's family and mortally wounds Ragnar himself. The Space Wolves descend to harvest the dying — those who fought best — as aspirants for the Chapter, and both Ragnar and Strybjorn are taken up to **The Fang**, the Space-Wolves' fortress-monastery atop the **Asaheim** plateau, to face the Chapter's gene-seed trials. Joined by **Sven Brujothirson**, Ragnar survives the implantation, endures the savage hazing of the Blood Claws under **Wolf Priest Ranek**, and is inducted into his first pack. The blood feud between Ragnar and Strybjorn persists into their shared Blood-Claw existence, complicated by the **Curse of the Wulfen** — the Chapter's gene-seed flaw that, in the worst cases, drives a brother into bestial regression. Ragnar and his pack fight on multiple campaign worlds; in the wild, his only true friend in the Claw, **Kjel**, succumbs to the Curse and attacks Ragnar, who is forced to kill him. The novel ends with Ragnar returning in triumph after slaying a massive **Blackmaned Wolf** whose pelt becomes his cloak and gives him the name by which he will be known thereafter. **First authority-layer Ragnar Blackmane + first Strybjorn Grimskull + first Sven Brujothirson + first Wolf Priest Ranek + first Kjel + first authority-layer Fenris + first The Fang + first Asaheim + first Thunderfist tribe + first Grimskull tribe + first authority-layer Curse of the Wulfen register surface forms.** Series-opener tier — required reading for the Ragnar arc.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "series_start",
+          "standard",
+          "war_story",
+          "character_study",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "betrayal",
+          "sacrifice",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Thunderfist tribe", "role": "primary" },
+          { "name": "Grimskull tribe", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "primary" },
+          { "name": "The Fang", "role": "primary" },
+          { "name": "Asaheim", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ragnar Blackmane", "role": "pov" },
+          { "name": "Ragnar Thunderfist", "role": "pov" },
+          { "name": "Strybjorn Grimskull", "role": "supporting" },
+          { "name": "Sven Brujothirson", "role": "supporting" },
+          { "name": "Kjel", "role": "supporting" },
+          { "name": "Ranek", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0153",
+      "slug": "ragnars-claw",
+      "overrides": {
+        "synopsis": "Space-Wolves series book two — William King's *Ragnar's Claw* (2000), the second volume of the Ragnar-Blackmane saga after *Space Wolf* (W40K-0152 this batch). **Inquisitor Ivan Sternberg** of the Imperium arrives at **The Fang** with a request: the Space Wolves' aid in recovering the ancient **Talisman of Lykos**, an Imperial relic that Sternberg believes can stem the **Chaos** corruption ravaging the planet **Aerius**. **Ragnar Blackmane**, **Strybjorn Grimskull**, and **Sven Brujothirson** — fresh-promoted Blood Claws from the gene-seed-trial cohort of book one — are among the Honour Guard selected by **Wolf Priest Ranek** to escort Sternberg's retinue on what becomes a near-suicidal mission across the galaxy. **Wolf Lord Berek Thunderfist** — patron-and-superior of Ragnar's division of the Chapter — sends the squad onward with Sternberg's party, and the search for the Talisman takes Ragnar from the jungle hell of **Galt** to the polluted hive-cities of **Venam** to the very heart of the Chaos-corrupted enemy on Aerius itself. Ragnar's pack-bond with Strybjorn — once the man who slew his family on Fenris — deepens through campaign-brotherhood under fire; the blood-feud established in *Space Wolf* is reframed by shared cause. The novel resolves Sternberg's quest, recovers the Talisman, and seeds the Chaos-conspiracy register that *Grey Hunter* will pay off. **First authority-layer Inquisitor Ivan Sternberg + first Berek Thunderfist + first Talisman of Lykos + first Aerius + first Galt + first Venam + first authority-layer Inquisition-Space-Wolves-cooperation register surface forms.** **Inquisition-consistency**: Sternberg is an Imperial Inquisitor on-page-as-quest-giver, so `Inquisition` is tagged supporting (no on-page Ordo specified in the novel itself — Sternberg's Ordo affiliation is unspecified in the text). Mid-series tier.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "redemption",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "supporting" },
+          { "name": "The Fang", "role": "supporting" },
+          { "name": "Aerius", "role": "primary" },
+          { "name": "Galt", "role": "primary" },
+          { "name": "Venam", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ragnar Blackmane", "role": "pov" },
+          { "name": "Strybjorn Grimskull", "role": "supporting" },
+          { "name": "Sven Brujothirson", "role": "supporting" },
+          { "name": "Berek Thunderfist", "role": "supporting" },
+          { "name": "Ranek", "role": "supporting" },
+          { "name": "Ivan Sternberg", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0154",
+      "slug": "grey-hunter",
+      "overrides": {
+        "synopsis": "Space-Wolves series book three — William King's *Grey Hunter* (2002), the third volume of the Ragnar-Blackmane saga after *Space Wolf* (W40K-0152 this batch) + *Ragnar's Claw* (W40K-0153 this batch). On the Chaos-corrupted planet **Garm**, a sorcerer known as **Madox** of the **Thousand Sons** Chaos Space Marines has stolen one of the Space Wolves' most sacred relics — the **Spear of Russ**, said to have been wielded by Leman Russ himself — and is using its warp-resonance to execute a summoning ritual that will tear open a portal to the **Planet of the Sorcerers** and allow **Magnus the Red**, the Daemon Primarch of the Thousand Sons, to re-enter the material realm. **Ragnar Blackmane**, **Strybjorn Grimskull**, and **Sven Brujothirson** — now mid-series-veteran Blood Claws under **Wolf Lord Berek Thunderfist** — race to Garm to stop the ritual before the Spear's warp-resonance opens the gate. The novel features the ancient Space-Wolves-Thousand-Sons enmity in its first authority-layer manifestation: the Wolves are Magnus's hereditary executioners (the Chapter Russ raised against the Heresy-era Thousand Sons), and the Thousand Sons remember every grievance. In the climactic confrontation, Ragnar fights Madox at the heart of the ritual and — in a sacrifice that costs the Chapter its most sacred relic — chooses to throw the Spear of Russ into the warp-portal itself, closing the gate at the cost of the relic's loss to the warp. Ragnar's act marks his transition from Blood Claw to **Grey Hunter** — the title and rank that gives the novel its name — and seeds the Spear-recovery arc that will close in *Wolf's Honour* (W40K-0157 this batch). **First authority-layer Madox + first authority-layer Spear of Russ + first Garm + first authority-layer Planet of the Sorcerers + first authority-layer Magnus the Red + first authority-layer Thousand-Sons-Space-Wolves-hereditary-enmity register + first authority-layer Grey-Hunter-rank surface forms.** Mid-series tier; concludes King's opening trilogy.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Thousand Sons", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Chaos Space Marines", "role": "antagonist" },
+          { "name": "Tzeentch", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "supporting" },
+          { "name": "The Fang", "role": "supporting" },
+          { "name": "Garm", "role": "primary" },
+          { "name": "Planet of the Sorcerers", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ragnar Blackmane", "role": "pov" },
+          { "name": "Strybjorn Grimskull", "role": "supporting" },
+          { "name": "Sven Brujothirson", "role": "supporting" },
+          { "name": "Berek Thunderfist", "role": "supporting" },
+          { "name": "Madox", "role": "antagonist" },
+          { "name": "Magnus the Red", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0155",
+      "slug": "wolfblade",
+      "overrides": {
+        "synopsis": "Space-Wolves series book four — William King's *Wolfblade* (2003), the fourth volume of the Ragnar-Blackmane saga after the *Space Wolf* / *Ragnar's Claw* / *Grey Hunter* opening trilogy (W40K-0152 + 0153 + 0154 this batch) and King's final entry before Lee Lightner took over the series for the *Sons of Fenris* / *Wolf's Honour* close (W40K-0156 + 0157 this batch). The ancient **Navis Nobilite House Belisarius** has long been bound to the Space Wolves as oath-allies — in return for navigating the Wolves through the treacherous warp on their long-range crusades, the Chapter provides an honour-guard of elite Space-Marine warriors known as the **Wolfblade** to protect the House on ancient **Terra**. After the events on Garm, **Ragnar Blackmane** — now a Grey Hunter and bearing the political fallout of having committed the Spear of Russ to the warp — is dispatched from Fenris to Terra as a Wolfblade, escorting **Lady Gabriela Belisarius**, daughter of the patriarch, aboard her ship back to the homeworld. Ragnar is taken aback by Gabriela's calm in the face of constant assassination threats — the Navis Nobilite have no shortage of enemies, including each other — and on arrival is briefed by his fellow Wolfblade **Torin** that the political moment is volatile: the **Paternoval Envoy** — the supreme Navigator-representative-to-the-Imperium — is dying, and the Houses' plotting over the succession has reached a fever pitch. What begins as bodyguard duty quickly entangles Ragnar in an assassination plot reaching into the depths of the Imperium's political superstructure, with the Wolfblade caught between Navigator-House inter-rivalries, Chaos infiltration, and the ancient Belisarius-Space-Wolves oath. **First authority-layer entry where the Navis Nobilite is the primary protagonist faction**; **first House Belisarius + first Lady Gabriela Belisarius + first authority-layer Wolfblade duty register + first Torin + first authority-layer Paternoval Envoy + first authority-layer Ragnar-on-Terra register surface forms.** Mid-series tier; second authority-layer Navis-Nobilite appearance after *Rites of Passage* (ssot-w40k-011 W40K-0104) — but first as House-Belisarius-specifically + first as Space-Wolves-oath-bound House.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "political_thriller",
+          "war_story",
+          "court_intrigue",
+          "mystery",
+          "action_heavy",
+          "grimdark",
+          "war",
+          "loyalty",
+          "betrayal",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Navis Nobilite", "role": "primary" },
+          { "name": "House Belisarius", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Fenris", "role": "supporting" },
+          { "name": "The Fang", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ragnar Blackmane", "role": "pov" },
+          { "name": "Gabriela Belisarius", "role": "supporting" },
+          { "name": "Torin", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0156",
+      "slug": "sons-of-fenris",
+      "overrides": {
+        "synopsis": "Space-Wolves series book five — Lee Lightner's *Sons of Fenris* (2007), the fifth volume of the Ragnar-Blackmane saga and Lightner's first contribution after William King left the series at *Wolfblade* (W40K-0155 this batch). After Ragnar's Terra-Wolfblade tour, the Space Wolves' attention returns to the wider galaxy: reports of **Chaos** incursions on the planet **Hyades** have reached Fenris, and the Chapter dispatches a strike force to investigate and purge. **Ragnar Blackmane** and his Wolfblade-veteran-comrades arrive on Hyades to find that the situation is more complicated than the Chaos-cleansing brief suggests — a squad of **Dark Angels** is already on-planet, pursuing their own objective with characteristic secrecy, and the two ancient-rival Chapters' presence on the same battlefield rapidly escalates from wary co-existence to open inter-Chapter confrontation. Each side calls in reinforcements; the Space-Wolves-Dark-Angels feud — rooted in the Heresy-era enmity between Russ and the Lion and the unresolved **Fallen Angels** question that the Dark Angels guard so jealously — threatens to become a chapter-on-chapter shooting war as Chaos exploits the rift. Unless Ragnar and the Dark-Angels commander find a way to step back from the brink and co-ordinate against the actual heretic enemy, the forces of Chaos will triumph by simple opportunism. The novel's central political-military tension is the inter-Chapter trust-deficit — Lightner's register is straighter-action-grimdark than the King-trilogy + *Wolfblade* preceded but holds the same Ragnar-as-developing-leader through-line. **First authority-layer entry where the Dark Angels Chapter is on-page** (prior authority-layer Dark-Angels appearances were faction-tier mentions only); **first authority-layer Hyades + first authority-layer Space-Wolves-Dark-Angels-rivalry register + first authority-layer Russ-Lion-Heresy-feud register surface forms**; second authority-layer Lightner-pen-name (collaborative-pen-name-for-two-Baltimore-authors) appearance. Mid-series tier.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "political_thriller",
+          "action_heavy",
+          "grimdark",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "betrayal",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Chaos Space Marines", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Hyades", "role": "primary" },
+          { "name": "Fenris", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ragnar Blackmane", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0157",
+      "slug": "wolfs-honour",
+      "overrides": {
+        "synopsis": "Space-Wolves series book six and conclusion of the King-launched Ragnar-Blackmane saga — Lee Lightner's *Wolf's Honour* (2008), the sixth volume after *Sons of Fenris* (W40K-0156 this batch) and the gripping conclusion to the **Spear of Russ** story arc that William King opened in *Grey Hunter* (W40K-0154 this batch) when Ragnar threw the relic into the warp-portal on Garm to thwart **Madox** of the **Thousand Sons**. The **Thousand Sons** Chaos Space Marines come for the Space Wolves from all sides, having tracked the Spear's warp-resonance across the years since Garm and now mustering for a coordinated multi-front assault that threatens the Chapter at its core. In a last-ditch attempt to break the Thousand-Sons offensive before the Chapter is crushed by the weight of the multi-front pressure, **Ragnar Blackmane** and his battle-brothers launch a lightning-strike counter-attack on the Thousand-Sons' base of operations — pivoting from defence to offence in the hope of forcing Madox into a decisive confrontation rather than letting him dictate the tempo. The central question driving the novel is whether the Space Wolves can finally retrieve the Spear of Russ from Madox before the Thousand-Sons' designs on the relic come to fruition, or whether Ragnar's Garm-era choice to commit the Spear to the warp has cost the Chapter its most sacred icon for good. The novel resolves the Madox-Ragnar enmity established three books earlier and closes the King-launched Ragnar-arc that had run since 1999. **Series-finale tier for the original-Ragnar-saga**: a successor Ragnar-arc continues in later novels but the *Space Wolf* / *Ragnar's Claw* / *Grey Hunter* / *Wolfblade* / *Sons of Fenris* / *Wolf's Honour* sequence is the closed-and-complete six-volume original. **First authority-layer Spear-of-Russ-recovery-arc closure register + second authority-layer Madox appearance + second authority-layer Thousand-Sons-Space-Wolves-hereditary-enmity climax surface forms.**",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "series_finale",
+          "standard",
+          "war_story",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "redemption",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Thousand Sons", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Chaos Space Marines", "role": "antagonist" },
+          { "name": "Tzeentch", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "supporting" },
+          { "name": "The Fang", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ragnar Blackmane", "role": "pov" },
+          { "name": "Madox", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0158",
+      "slug": "the-space-wolf-omnibus",
+      "overrides": {
+        "synopsis": "Three-novel omnibus collection — *The Space Wolf Omnibus* (2008) gathers William King's opening Ragnar-Blackmane trilogy: *Space Wolf* (W40K-0152 this batch), *Ragnar's Claw* (W40K-0153 this batch), and *Grey Hunter* (W40K-0154 this batch) into a single 1999-2002 volume. The collection follows **Ragnar of the Thunderfist tribe** from his recruitment on **Fenris** by the **Space Wolves** Chapter — after a mortal blow on the battlefield from **Strybjorn Grimskull** of the rival **Grimskull tribe** — through gene-seed-trials at **The Fang** under **Wolf Priest Ranek**, his Blood-Claw initiation and the killing of his Curse-afflicted friend **Kjel**, the **Talisman of Lykos** retrieval mission for **Inquisitor Ivan Sternberg** that takes Ragnar across **Aerius** + **Galt** + **Venam** under **Wolf Lord Berek Thunderfist**, and culminates in the **Spear of Russ** sacrifice on **Garm** that thwarts **Madox** of the **Thousand Sons** from summoning **Magnus the Red** through the **Planet of the Sorcerers** warp-gate — marking Ragnar's transition from Blood Claw to **Grey Hunter**. The collection establishes Ragnar's pack-bond with Strybjorn (the man who killed his family on Fenris) + **Sven Brujothirson**, the **Curse of the Wulfen** gene-seed register, the Space-Wolves-Thousand-Sons hereditary enmity that drives the Spear-of-Russ arc, and the Wolfblade-and-Berek-Thunderfist-command structure that pays off in subsequent volumes. **Authority-layer-internal aggregation**: factions / locations / characters / facetIds pulled from W40K-0152+0153+0154 (this batch) per Brief-061 omnibus-aggregation-constraint.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "series_start",
+          "doorstopper",
+          "war_story",
+          "journey",
+          "character_study",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "betrayal",
+          "sacrifice",
+          "doubt",
+          "hubris",
+          "redemption",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Thunderfist tribe", "role": "primary" },
+          { "name": "Grimskull tribe", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Thousand Sons", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Chaos Space Marines", "role": "antagonist" },
+          { "name": "Tzeentch", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "primary" },
+          { "name": "The Fang", "role": "primary" },
+          { "name": "Asaheim", "role": "supporting" },
+          { "name": "Aerius", "role": "primary" },
+          { "name": "Galt", "role": "primary" },
+          { "name": "Venam", "role": "primary" },
+          { "name": "Garm", "role": "primary" },
+          { "name": "Planet of the Sorcerers", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ragnar Blackmane", "role": "pov" },
+          { "name": "Ragnar Thunderfist", "role": "pov" },
+          { "name": "Strybjorn Grimskull", "role": "supporting" },
+          { "name": "Sven Brujothirson", "role": "supporting" },
+          { "name": "Kjel", "role": "supporting" },
+          { "name": "Ranek", "role": "supporting" },
+          { "name": "Berek Thunderfist", "role": "supporting" },
+          { "name": "Ivan Sternberg", "role": "supporting" },
+          { "name": "Madox", "role": "antagonist" },
+          { "name": "Magnus the Red", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0159",
+      "slug": "space-wolf-the-second-omnibus",
+      "overrides": {
+        "synopsis": "Three-novel omnibus collection — *Space Wolf: The Second Omnibus* (2009) gathers the closing half of the original Ragnar-Blackmane saga: William King's *Wolfblade* (W40K-0155 this batch) and Lee Lightner's *Sons of Fenris* (W40K-0156 this batch) + *Wolf's Honour* (W40K-0157 this batch) into a single 2003-2008 volume. The collection follows **Ragnar Blackmane** from his post-Garm dispatch to **Terra** as a member of the **Wolfblade** honour-guard protecting **House Belisarius** of the **Navis Nobilite** — escorting **Lady Gabriela Belisarius**, working alongside fellow Wolfblade **Torin**, navigating a Paternoval-Envoy-succession assassination plot — through the Lightner-penned **Hyades** campaign where the Space Wolves' Chaos-cleansing brief escalates into open confrontation with a **Dark Angels** strike force on the same battlefield, and culminates in the multi-front **Thousand Sons** offensive that finally forces Ragnar's lightning-strike counter-attack against **Madox** and resolves the **Spear of Russ** arc that William King opened on Garm three books earlier. The collection closes the original six-volume King-and-Lightner Ragnar saga. **Authority-layer-internal aggregation**: factions / locations / characters / facetIds pulled from W40K-0155+0156+0157 (this batch) per Brief-061 omnibus-aggregation-constraint.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "series_finale",
+          "doorstopper",
+          "war_story",
+          "political_thriller",
+          "court_intrigue",
+          "mystery",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "betrayal",
+          "sacrifice",
+          "redemption",
+          "hubris",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Imperium", "role": "primary" },
+          { "name": "Navis Nobilite", "role": "primary" },
+          { "name": "House Belisarius", "role": "primary" },
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Thousand Sons", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Chaos Space Marines", "role": "antagonist" },
+          { "name": "Tzeentch", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Fenris", "role": "supporting" },
+          { "name": "The Fang", "role": "supporting" },
+          { "name": "Hyades", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ragnar Blackmane", "role": "pov" },
+          { "name": "Gabriela Belisarius", "role": "supporting" },
+          { "name": "Torin", "role": "supporting" },
+          { "name": "Madox", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0160",
+      "slug": "krakenblood",
+      "overrides": {
+        "synopsis": "Standalone Space-Wolves novel — Marc Collins's *Krakenblood* (2025), Collins's sixth Black-Library novel since 2021 and his pivot from the Emperor's Children to the Space Wolves. **Ivar Krakenblood**, a **Wolf Priest** born on the ice-world **Fenris**, has been entrusted with a quest by **Ulrik the Slayer** himself — the Chapter's most senior Wolf Priest — to recover a lost relic of the Space Wolves Chapter. Krakenblood seizes the chance to step out from under Ulrik's shadow, forge his own destiny, and challenge the fates as a Fenrisian hero ought; he gathers a band of warriors — old comrades, new allies, and unproven companions — and sets out to pursue the relic across the void. The quest is not the simple retrieval-mission Krakenblood imagines; it leads through all manner of violence and forces him to confront what it means to actively seek one's destiny rather than wait on it. Krakenblood is a mighty hero by the standards of his people, but he is also a complicated one: willing to throw away his own life for the chance at sagas-worthy greatness, and willing — when the choice presents itself — to risk the lives of his brothers-in-arms if it will serve that greater glory. The novel respires with the soul of the Space-Wolves Chapter — Fenrisian pride, arrogance, swagger, boasting and bravado, ferocious independence and grudging respect — and is structured as an outside-the-Ragnar-saga register, establishing Krakenblood as a fresh Space-Wolves-protagonist for a successor-arc. **First authority-layer Ivar Krakenblood + first authority-layer Ulrik the Slayer + first authority-layer Wolf-Priest-as-primary-POV register surface forms**; sixth Marc-Collins authority-layer entry pivot (prior Collins Emperor's-Children-side appearances out-of-scope-to-this-batch). Standalone tier — no Ragnar-saga prerequisite reading required.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "standalone",
+          "standard",
+          "war_story",
+          "journey",
+          "character_study",
+          "action_heavy",
+          "grimdark",
+          "philosophical",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "hubris",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Space Marines", "role": "primary" },
+          { "name": "Imperium", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "primary" },
+          { "name": "The Fang", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ivar Krakenblood", "role": "pov" },
+          { "name": "Ulrik the Slayer", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
