@@ -1,0 +1,545 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-020",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-16",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0191..W40K-0200 — a **two-cluster early-to-mid-2000s Imperial-line continuation slice** that closes one major Ben-Counter arc and opens a brand-new Matthew-Farrer procedural line: **(1) the Soul Drinkers continuation cluster** (W40K-0191..0198, eight entries = Soul Drinkers #3 *Crimson Tears* + first-omnibus + #4 *Chapter War* + #5 *Hellforged* + the *Daenyathos* novella + #6 *Phalanx* + second-omnibus + the 2020 Primaris-reboot novella *Traitor by Deed*) — picking up directly from ssot-w40k-019's W40K-0189..0190 (Soul Drinker + The Bleeding Chalice), so the entire six-novel chapter-tragedy arc + both omnibi + the prequel-novella reveal + the post-Cicatrix Primaris-reboot novella are now all in the authority layer across two consecutive batches; and **(2) the first two Shira-Calpurnia / Adeptus-Arbites entries** (W40K-0199..0200, two entries = Matthew Farrer's *Crossfire* + *Legacy*), a tonally distinct procedural-political-thriller line set on the Hydraphur fortress system. **First authority-layer entries** for: Tellos (the Soul-Drinker-turned-Chaos antagonist re-emerged from apparent death on Stratix Lumine) + the Crimson Fists Space Marine chapter + Dark Eldar surface form + Vanqualis + the Howling Griffons + Necrons + the Brokenback (the chapter's captured Chaos-cruiser hulk) + Iktinos (the antagonist-chaplain whose faithful become Daenyathos's tools) + Selaaca (where Daenyathos lay interred in a dreadnought) + Daenyathos (Chaplain-Philosopher, author of the Catechisms Martial, revealed in the eponymous novella as the centuries-long architect of the Soul Drinkers' eventual fall) + Phalanx (the Imperial Fists' planetoid-fortress) + Sisters of Battle (Phalanx-trial supporting cast) + Imperial Fists; Yeceqath the Voice of All (Primaris-reboot Indomitus-era antagonist on Kepris) + Kepris + the Primaris Soul Drinkers reboot-continuity; Shira Calpurnia (Adeptus Arbites senior, female POV) + Adeptus Arbites as an authority-layer faction + Hydraphur fortress-system + Lord Medell (noble-house assassination-conspirator in *Crossfire*) + Hoyyon Phrax + the Phrax Charter of Trade (Emperor-signed holy relic). **One series-closer** (W40K-0196 *Phalanx*) — the literal end of Sarpedon's arc, structured as a trial-on-the-star-fortress with multiple Imperial factions (Imperial Fists, Inquisitors, Sisters of Battle, Adeptus Mechanicus, several Chapters) as the audience; tonal-and-structural pivot from war_story to court_intrigue, deliberately. **Two omnibus entries** (W40K-0192 *Soul Drinkers Omnibus* aggregating #1-3 + W40K-0197 *Annihilation Second Omnibus* aggregating #4-6 plus shorts) — aggregation per Brief-061 omnibus-constraint, both tagged length_tier=doorstopper. **Two novella entries** (W40K-0195 *Daenyathos* + W40K-0198 *Traitor by Deed*) — both tagged length_tier=novella, both narratively pivotal: *Daenyathos* is the **mid-series prequel-novella twist** (centuries-of-Daenyathos's-life retold, with the Catechisms Martial revealed as a long-game corruption scheme), set between Hellforged (W40K-0194) and Phalanx (W40K-0196); *Traitor by Deed* is the **2020 Primaris-era reboot novella** that re-establishes the Soul Drinkers name and heraldry on a new Primaris chapter (after a fifteen-year publication gap from *Daenyathos*-omnibus material into Indomitus-Crusade continuity). **One series-start entry** (W40K-0199 *Crossfire*) plus its direct sequel (W40K-0200 *Legacy*) — both Matthew Farrer's Calpurnia series, a procedural-and-political-thriller cluster tonally orthogonal to the Ben-Counter Space-Marine grimdark: female-Arbites POV, civilian protagonist_class (no `arbites` value in the catalog), planetary scope, plot_type drawn primarily from `mystery + political_thriller + court_intrigue` rather than `war_story`. **Two Inquisition-consistency triggers** in this batch — **W40K-0196 *Phalanx*** (Inquisitors are present on the Phalanx star fort as part of the trial-audience, mentioned in the Goodreads / Lexicanum coverage — `factions[]` includes `Inquisition` with role=supporting/antagonist) and **W40K-0197 *Annihilation Second Omnibus*** (Phalanx is part of the aggregation, so Inquisition surface form propagates). Not triggered on Crimson Tears / Chapter War / Hellforged / Daenyathos / Traitor by Deed / Crossfire / Legacy (no on-page Inquisitor POVs in available source coverage); the Calpurnia books are Adeptus Arbites procedurals, which are formally Imperial law-enforcement but separate from the Inquisition. **No `low_confidence` flags raised** — all ten have belastbare Lexicanum + Goodreads + Black-Library + secondary-review (theindependentcharacters.com, sfbook.com, grimdarkmagazine.com, adventureswithpeps.com) coverage; the Soul Drinkers cluster is well-documented (six-novel series with an extensive fan-review base), and the Calpurnia books are recognised cult favourites with substantial coverage. **No `data_conflict` flags raised** — SSOT roster formats (novel/omnibus/novel/novel/novella/novel/omnibus/novella/novel/novel) match Black-Library + Lexicanum classification across the slice; the two novellas (*Daenyathos* W40K-0195 + *Traitor by Deed* W40K-0198) are correctly tagged in the roster as `novella`, unlike the modern-Necromunda cluster's three format-conflict cases in ssot-w40k-018. **WebSearch: mean = 0.8 / book, max = 1 (over 10 books), 8 total searches** — *Crimson Tears* (confirmed Tellos's Stratix-Lumine corruption-survival premise + the four-front Chaos/Dark-Eldar/Imperial-Guard/Crimson-Fists antagonist structure + Sarpedon's command-burden character-study spine), *Chapter War* (confirmed Vanqualis-Ork-invasion setting + the Howling-Griffons-arrival three-front structure + internal-factions-moving-toward-Chaos plot — internal-antagonist name not source-confirmed in available coverage, deliberately not named to avoid fabrication), *Hellforged* (confirmed Necron antagonist + Adeptus-Mechanicus pursuit + the Brokenback damage + galactic-rim setting), *Daenyathos* (confirmed Catechisms-Martial-as-long-game-corruption-scheme twist + Second-Siege-of-Terra → dreadnought-interment span + Hellforged-to-Phalanx publication position), *Phalanx* (confirmed Imperial-Fists-trial setting + Inquisitor / Sisters-of-Battle / Mechanicus / multi-Chapter audience + Iktinos-faithful-interrogation revealing Selaaca-vault Daenyathos + bittersweet series-closer tone), *Traitor by Deed* (confirmed Primaris-reboot continuity + Indomitus-Crusade setting + Kepris-world + Yeceqath-the-Voice-of-All antagonist + ancient-enemy-conspiracy ambient threat), *Crossfire* (confirmed Hydraphur-fortress setting + Calpurnia-as-arbiter-senioris promotion-arrival + assassination-attempts-on-herself mystery + Lord-Medell-noble-conspirator antagonist + religious-festival bell-tower climax + Sister-killed and Calpurnia-gravely-injured detail), *Legacy* (confirmed Hoyyon-Phrax-deceased-Rogue-Trader + Phrax-Charter-Emperor-signed holy-relic premise + Calpurnia-administering-will procedural spine + rival-heirs-go-to-arms + ambitious-clerics secondary-threat). Two books needed no search: *Soul Drinkers Omnibus* W40K-0192 (aggregation from W40K-0189..0191) and *Annihilation Second Omnibus* W40K-0197 (aggregation from W40K-0193 + 0194 + 0195 + 0196). **value_outside_vocabulary candidates** (none promoted): `arbites` (protagonist_class for Shira Calpurnia + the entire Calpurnia line — closest catalog value is `civilian`; the same workaround that ssot-w40k-018 used for Scrutinator-Primus Servalen + Necromunda Enforcers); `body_horror` (theme / tone for Soul Drinkers cluster, especially Phalanx's chapter-mutation-climax — closest is `cosmic_horror`; pattern continues from ssot-w40k-019 + ssot-w40k-004 raised the same gap); `chapter_decline` / `gene_seed_collapse` (theme for the chapter-tragedy mid-arc — closest is `doubt + hubris + sacrifice`); `court_intrigue` exists in the catalog (good); `procedural` does not (theme/plot_type workaround for Calpurnia books — used `mystery + political_thriller`); `political_intrigue` does not (used `political_thriller` as catalog-existent surrogate); `vengeance` does not (theme — Phalanx + Chapter War have strong revenge-of-the-Imperium register; closest are `betrayal + hubris`); `duty` does not (Calpurnia's law-enforcement-duty register — closest are `loyalty + sacrifice + faith`); `philosopher_soldier` / `prophet_villain` (no protagonist_class / theme captures Daenyathos's centuries-spanning antagonist-architect role — closest are `space_marine + character_study + hubris`); `Primaris` as a faction-modifier (W40K-0198 Soul Drinkers are Primaris-rebooted; current authority layer has no Primaris-vs-Firstborn distinction — kept the single surface form `Soul Drinkers` and noted Primaris status only in the synopsis, deferring tag-level disambiguation to the Resolver). **Notable surface-form frequencies within this batch**: *Factions*: Imperium ×10 (every entry), Soul Drinkers ×8 (the entire Ben-Counter cluster), Chaos ×6 (W40K-0191 + W40K-0192 omnibus + W40K-0193 + W40K-0196 + W40K-0197 omnibus + W40K-0198 — chaos-incursion + chaos-tainted-chapter recurrence), Adeptus Mechanicus ×4 (W40K-0192 omnibus aggregation + W40K-0194 antagonist + W40K-0196 trial-audience + W40K-0197 omnibus aggregation), Imperial Fists ×4 (W40K-0194 + W40K-0196 + W40K-0197 omnibus + W40K-0198 reference), Inquisition ×3 (W40K-0192 omnibus inheriting W40K-0190 Thaddeus + W40K-0196 trial-audience + W40K-0197 omnibus), Sisters of Battle ×2 (W40K-0196 + W40K-0197 omnibus), Howling Griffons ×2 (W40K-0193 + W40K-0197 omnibus), Crimson Fists ×2 (W40K-0191 + W40K-0192 omnibus), Dark Eldar ×2 (W40K-0191 + W40K-0192 omnibus), Necrons ×3 (W40K-0194 + W40K-0197 omnibus + W40K-0198 implicit-ancient-enemy → not tagged on W40K-0198 since the Lexicanum doesn't name them as Necrons explicitly), Orks ×2 (W40K-0193 + W40K-0197 omnibus), Imperial Guard ×2 (W40K-0191 + W40K-0192 omnibus), Adeptus Arbites ×2 (W40K-0199 + W40K-0200 — **first authority-layer Arbites-as-faction-class**), Rogue Traders ×1 (W40K-0200), Ecclesiarchy ×2 (W40K-0199 festival-context + W40K-0200 ambitious-clerics secondary-threat). *Locations*: Imperium ×10, the Phalanx ×3 (W40K-0196 + W40K-0197 omnibus + W40K-0198 Primaris-context implicit — only tagged on W40K-0196 + W40K-0197 to keep surface forms tight), Selaaca ×2 (W40K-0196 + W40K-0197 omnibus), Vanqualis ×2 (W40K-0193 + W40K-0197 omnibus), Hydraphur ×2 (W40K-0199 + W40K-0200), Kepris ×1 (W40K-0198). *Characters*: Sarpedon ×7 (W40K-0191 + W40K-0192 omnibus + W40K-0193 + W40K-0194 + W40K-0195 implicit-not-on-page + W40K-0196 + W40K-0197 omnibus — listed on six entries explicitly), Daenyathos ×3 (W40K-0195 POV + W40K-0196 antagonist-revealed + W40K-0197 omnibus), Iktinos ×2 (W40K-0196 antagonist + W40K-0197 omnibus), Tellos ×2 (W40K-0191 antagonist + W40K-0192 omnibus), Shira Calpurnia ×2 (W40K-0199 POV + W40K-0200 POV — **first female-POV authority-layer character in the Calpurnia line**), Lord Medell ×1 (W40K-0199), Hoyyon Phrax ×1 (W40K-0200 deceased), Yeceqath the Voice of All ×1 (W40K-0198). **Brief-071-Vertrag aktiv**: Override-Datei + Status-Log-Append in einem Commit ohne Co-Author-Trailer, keine sonstigen Datei-Edits. **Resolver-Pre-Note**: `cumulativeAfter=200`; **die nächste Iteration (`ssot-w40k-021`, W40K-0201..0210) trifft den natürlichen 50er-Stop** — `cumulativeBefore=200`, `200 % 50 == 0`, Resolver-Pause loud-stop guaranteed unless `skip-50-stop` marker. This batch is the last cleanly-produced batch before the resolver pause. Cowork-Empfehlung verstärkt seit ssot-w40k-017/018/019: surface-form-pile since the last Resolver-Pass in 069 now spans ssot-w40k-006..020 = 150 Bücher and includes the entire Necromunda Reynolds-imprint cluster + the modern Necromunda imprint cluster + the Last Chancers / Gothic War / Soul Drinkers opener cluster from ssot-w40k-019 + the full Soul Drinkers continuation cluster + the new Adeptus Arbites / Hydraphur surface-form-set from W40K-0199..0200. **Cross-batch alias-consolidation cases waiting for Resolver**: (1) Mad Donna / D'onne Ulanti (ssot-w40k-017 W40K-0162 + ssot-w40k-018 W40K-0177); (2) Kal Jerico (ssot-w40k-017 W40K-0164..0170 + ssot-w40k-018 W40K-0172 — 2005-2008 classic vs modern-imprint soft-reboot continuity question); (3) Lord Helmawr / Lord Gerontius Helmawr (ssot-w40k-017 assassinated + ssot-w40k-018 alive in modern continuity — distinct entities or soft-reboot revival); (4) Lieutenant Kage / the Burned Man (ssot-w40k-019 W40K-0185 dual-listing as deliberate narrative device); (5) Soul Drinkers Firstborn vs Soul Drinkers Primaris (ssot-w40k-019 + this batch's W40K-0189..0197 vs this batch's W40K-0198 — same chapter-name, different gene-seed-tier-cohort, fifteen-year publication-gap, post-Cicatrix-Maledictum continuity reboot). Five resolver-class problems waiting to be crystallised; the cumulative=200 natural pause is the right moment to write the Resolver-Brief."
+,
+  "books": [
+    {
+      "externalBookId": "W40K-0191",
+      "slug": "crimson-tears",
+      "overrides": {
+        "synopsis": "**Crimson Tears** (Ben Counter, 2005) — Soul Drinkers #3, closing the first-trilogy arc that ran *Soul Drinker* (W40K-0189) → *The Bleeding Chalice* (W40K-0190). Despite having apparently been killed on **Stratix Lumine**, **Tellos** — the former Soul Drinker now wholly succumbed to **Chaos** — and his frenzied warriors have re-emerged on a war-torn Imperial world where the **Imperium** is already fighting **Dark Eldar** raiders. Tellos knows the **Soul Drinkers**' secrets — the chapter's base layout, its dispositions, its weaknesses — and that knowledge is what would let his enemies destroy the chapter once and for all. **Sarpedon**, leading the depleted Astartes he has left, departs to deal with Tellos one final time. The novel is best remembered in the series for the breadth of its faction-set: alongside the central Soul-Drinkers-vs-Tellos hunt, the **Imperial Guard**, the **Crimson Fists**, and the **Dark Eldar** all gain substantial on-page focus — particularly the Imperial Guard, who benefit most from the additional perspective. Tonally a character-study of Sarpedon under command-burden: the cost of decisions, the losses he must absorb, the bargain he has made by becoming Chapter Master of an Excommunicate-Traitoris chapter. **First authority-layer Tellos + first authority-layer Stratix Lumine reference + first authority-layer Crimson Fists + first authority-layer Dark Eldar in the Soul Drinkers line surface forms.**",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "betrayal",
+          "doubt",
+          "hubris",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Soul Drinkers", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Dark Eldar", "role": "antagonist" },
+          { "name": "Crimson Fists", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Imperium", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sarpedon", "role": "pov" },
+          { "name": "Tellos", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0192",
+      "slug": "the-soul-drinkers-omnibus",
+      "overrides": {
+        "synopsis": "**The Soul Drinkers Omnibus** (Ben Counter, 2006) — **omnibus aggregation** of *Soul Drinker* (W40K-0189) + *The Bleeding Chalice* (W40K-0190) + *Crimson Tears* (W40K-0191), the complete first-trilogy arc of the **Soul Drinkers** chapter-tragedy. **Librarian Sarpedon**'s rebellion against his own Chapter Master over the **Soulspear** dispute with the **Adeptus Mechanicus** drives the chapter into **Excommunicate Traitoris** status — and into slow **chaotic mutation**, as Sarpedon himself begins to grow arachnid legs and the chapter's gene-seed is poisoned. Subsequent novels deepen the tragedy: **Inquisitor Thaddeus**'s parallel hunt for the renegade chapter through *The Bleeding Chalice*, with the daemon-prince **Teturact** as the chaos-pole; then *Crimson Tears* closes the trilogy with Sarpedon's hunt for **Tellos**, the former Soul Drinker corrupted by Chaos and re-emerged after his apparent death on **Stratix Lumine**, against a backdrop that incorporates **Crimson Fists** + **Dark Eldar** + **Imperial Guard** as on-page factions. Canonical entry-point omnibus for the Soul Drinkers line — readers can come to all three through this volume. Aggregation per Brief-061 omnibus-constraint: factions / locations / characters listed across all three constituent works, tag-tier comparable to the doorstopper combined length; tone-tags pick up the body-horror / cosmic-horror register that crystallises across the trilogy's mutation arc.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "series_start",
+          "doorstopper",
+          "war_story",
+          "character_study",
+          "mystery",
+          "political_thriller",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "betrayal",
+          "doubt",
+          "faith",
+          "hubris",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "redemption",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Soul Drinkers", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Inquisition", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "antagonist" },
+          { "name": "Imperial Navy", "role": "antagonist" },
+          { "name": "Crimson Fists", "role": "antagonist" },
+          { "name": "Dark Eldar", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Imperium", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sarpedon", "role": "pov" },
+          { "name": "Inquisitor Thaddeus", "role": "pov" },
+          { "name": "Tellos", "role": "antagonist" },
+          { "name": "Teturact", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0193",
+      "slug": "chapter-war",
+      "overrides": {
+        "synopsis": "**Chapter War** (Ben Counter, 2007) — Soul Drinkers #4, opening the second half of the chapter-tragedy. The **Soul Drinkers**, declared **Excommunicate Traitoris** many years ago and still led by **Sarpedon**, are desperate to restore themselves to Imperial good graces. When the planet of **Vanqualis** comes under attack from **Orks**, the chapter answers — Sarpedon sees in the campaign a chance to prove the chapter's loyalty to the Imperium it has been cast from. The situation curdles on two fronts. Internally, **factions within the chapter** are moving against Sarpedon — eager to abandon the renegade-loyalist creed and openly embrace **Chaos**; mutation has carved deep, and a chapter-civil-war is brewing in the chapter's own ranks. Externally, the **Howling Griffons** Space-Marine chapter arrives on Vanqualis — Imperial reinforcements who, for them, the Soul Drinkers are a renegade target rather than an ally. Sarpedon must fight on three fronts at once: the Orks, his own splinter-traitors, and his fellow Astartes. The novel's stakes are survival of Vanqualis, survival of the chapter, and survival of Sarpedon's leadership over both. **First authority-layer Vanqualis + first authority-layer Howling Griffons + first authority-layer chapter-civil-war register surface forms.**",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "political_thriller",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "betrayal",
+          "doubt",
+          "faith",
+          "hubris",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Soul Drinkers", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Howling Griffons", "role": "antagonist" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vanqualis", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sarpedon", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0194",
+      "slug": "hellforged",
+      "overrides": {
+        "synopsis": "**Hellforged** (Ben Counter, 2009) — Soul Drinkers #5. The disgraced **Soul Drinkers** chapter, fresh from the chapter-civil-war losses of *Chapter War*, attempts to elude their pursuers in a desolate region of space at the **galaxy's rim**. **Sarpedon** and his battle-brothers seek refuge in uncharted space, where they encounter a world laid waste — and a **deadly new enemy**: the **Necrons**, ancient star-faring xenos rising from millennia of slumber. The situation worsens when an **Adeptus Mechanicus** fleet, determined to bring the chapter to 'justice' for past offences, arrives in the same region — severely damaging the **Brokenback**, the chapter's vast captured Chaos-cruiser-hulk that serves as its mobile fortress-of-war. The novel becomes a three-faction battle: the Necrons rise from the world's tombs to defend their domain, the Mechanicus presses its pursuit, and the Soul Drinkers fight on two fronts to survive. Tonally a tighter, more contained war-story register than *Chapter War*'s political-internal split, with a strong cosmic-horror layer from the Necron-revival material. **First authority-layer Necrons in the Soul Drinkers line + first authority-layer Brokenback (the chapter's ship) + first authority-layer galactic-rim-uncharted-space register surface forms.**",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "last_stand",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "betrayal",
+          "doubt",
+          "hubris",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Soul Drinkers", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "antagonist" },
+          { "name": "Imperial Fists", "role": "antagonist" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sarpedon", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0195",
+      "slug": "daenyathos",
+      "overrides": {
+        "synopsis": "**Daenyathos** (Ben Counter, 2010) — Soul Drinkers prequel-novella, published in the gap between *Hellforged* (W40K-0194) and *Phalanx* (W40K-0196), and intended as the major twist that reframes the entire series. **Chaplain Daenyathos**, the **Philosopher-Soldier** whose writings — the **Catechisms Martial** — have guided the **Soul Drinkers** for millennia, is the centre of the novella; but his philosophy hides a **dark secret** that will ultimately damn the chapter. The narrative spans centuries — from the **Age of Apostasy**, with Daenyathos as a sergeant at the Second Siege of Terra, through his rise to Chaplain-philosopher, across decades-separated sections of his life, ending with his eventual **interment in a dreadnought** and his subsequent mysterious disappearance. Centuries of observation lead Daenyathos to a damning conclusion: the **Imperium** is corrupt and inefficient, ordinary humans are mere cattle, and humanity can only be elevated through extreme bloodshed and suffering. He chooses the Soul Drinkers to be the agent of that suffering — and seeds the Catechisms Martial with the long-game ideological framework that will eventually, centuries after his death-or-disappearance, turn the chapter against the Imperium. The reveal recontextualises Sarpedon's rebellion, the Excommunicate-Traitoris status, the mutation-arc, and the chapter's entire renegade-loyalist creed: all were engineered by a chaplain who is, by any honest reckoning, the chapter's true antagonist. **First authority-layer Daenyathos + first authority-layer Catechisms Martial + first authority-layer Age-of-Apostasy register + first authority-layer Second-Siege-of-Terra reference + first authority-layer philosopher-soldier surface forms.**",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "requires_context",
+          "novella",
+          "character_study",
+          "political_thriller",
+          "war_story",
+          "journey",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "betrayal",
+          "doubt",
+          "faith",
+          "hubris",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Soul Drinkers", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Imperium", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Daenyathos", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0196",
+      "slug": "phalanx",
+      "overrides": {
+        "synopsis": "**Phalanx** (Ben Counter, 2012) — Soul Drinkers #6, **series finale**. The **Soul Drinkers** have been captured by the **Imperial Fists**, who intend to see them put on **trial** aboard **the Phalanx**, the Fists' planetoid-sized space-fortress — the legendary mobile chapter-monastery of Dorn's gene-sons. Around **Sarpedon** and his chapter gather a remarkable audience: Space Marines from half a dozen chapters, **Inquisitors**, **Sisters of Battle**, and agents of the **Adeptus Mechanicus**, all assembled to witness the end of a Space-Marine chapter — the once-noble Soul Drinkers, now Chaos-tainted renegades and heretics, put on formal trial for their crimes against the Imperium. The proceedings are interrupted by darker discovery: one of the chaplain **Iktinos**'s faithful breaks under interrogation and reveals the location of a vault hidden beneath **Selaaca**, in which **Daenyathos** — supposedly disappeared millennia ago — has been kept alive in his dreadnought body all this time. Daenyathos is brought back to the Phalanx to face trial with the rest of the chapter, and the twist of *Daenyathos* (W40K-0195) — that the Catechisms Martial were a centuries-long corruption scheme — comes home. Sarpedon defends the chapter through the trial; the proceedings collapse into combat across the star-fort; the **Soul Drinkers emerge victorious** at staggering cost, and Sarpedon's final actions make clear that this is the end of his tale. Tonal pivot from war_story to **court_intrigue + character_study**: the trial is the structural spine. The novel ends bittersweet — neither happy nor triumphant — and closes the six-novel chapter-tragedy. **First authority-layer Phalanx (the star-fort) + first authority-layer Imperial Fists in the Soul Drinkers line + first authority-layer Sisters of Battle in the chapter-tragedy + first authority-layer Iktinos + first authority-layer Selaaca + first authority-layer Imperial-Astartes-trial register surface forms.** **Inquisition-consistency triggered** (Brief 061): Inquisitors are an on-page audience-faction at the trial; `factions[]` includes `Inquisition` with role=antagonist.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "series_finale",
+          "standard",
+          "court_intrigue",
+          "war_story",
+          "character_study",
+          "last_stand",
+          "political_thriller",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "betrayal",
+          "doubt",
+          "faith",
+          "hubris",
+          "redemption",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Soul Drinkers", "role": "primary" },
+          { "name": "Imperial Fists", "role": "antagonist" },
+          { "name": "Inquisition", "role": "antagonist" },
+          { "name": "Sisters of Battle", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "the Phalanx", "role": "primary" },
+          { "name": "Selaaca", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sarpedon", "role": "pov" },
+          { "name": "Daenyathos", "role": "antagonist" },
+          { "name": "Iktinos", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0197",
+      "slug": "soul-drinkers-annihilation-second-omnibus",
+      "overrides": {
+        "synopsis": "**Soul Drinkers: Annihilation — The Second Omnibus** (Ben Counter, 2013) — **omnibus aggregation** of *Chapter War* (W40K-0193) + *Hellforged* (W40K-0194) + *Phalanx* (W40K-0196) plus short fiction from the chapter-tragedy's second half. The omnibus traces the second half of **Sarpedon**'s arc: the Ork-invasion of **Vanqualis** and the simultaneous internal **chapter-civil-war** that splits the **Soul Drinkers** between renegade-loyalist and openly-Chaotic factions, while the **Howling Griffons** arrive as Imperial reinforcements (*Chapter War*); the chapter's flight to the galactic rim, where they encounter the **Necrons** in uncharted space while an **Adeptus Mechanicus** fleet pursues, severely damaging the **Brokenback** (*Hellforged*); and finally the **Imperial Fists**' capture of the chapter and the trial-on-**the Phalanx** that closes Sarpedon's tale, during which **Daenyathos**'s centuries-long corruption-scheme is exposed and the **Iktinos**-betrayal is brought into the open (*Phalanx*). Reads as the chapter's slow disintegration after the first-trilogy mutation-arc. Aggregation per Brief-061 omnibus-constraint: factions / locations / characters unioned across the three constituent novels + the included shorts, with role hierarchies preserved (the Howling Griffons remain antagonist-only since *Chapter War* is the only novel they appear in, etc.); tag-tier doorstopper. **Inquisition-consistency triggered** (via Phalanx constituent): `factions[]` includes `Inquisition`.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "requires_context",
+          "doorstopper",
+          "war_story",
+          "court_intrigue",
+          "character_study",
+          "last_stand",
+          "political_thriller",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "betrayal",
+          "doubt",
+          "faith",
+          "hubris",
+          "redemption",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Soul Drinkers", "role": "primary" },
+          { "name": "Imperial Fists", "role": "antagonist" },
+          { "name": "Inquisition", "role": "antagonist" },
+          { "name": "Sisters of Battle", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Howling Griffons", "role": "antagonist" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vanqualis", "role": "primary" },
+          { "name": "the Phalanx", "role": "primary" },
+          { "name": "Selaaca", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sarpedon", "role": "pov" },
+          { "name": "Daenyathos", "role": "antagonist" },
+          { "name": "Iktinos", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0198",
+      "slug": "traitor-by-deed",
+      "overrides": {
+        "synopsis": "**Traitor by Deed** (Ben Counter, 2020) — Black Library Novella Series 3 entry, published fifteen years after *Crimson Tears* (W40K-0191) and eight years after *Phalanx* (W40K-0196). The novella is set in the galaxy-spanning conflict of the **Indomitus Crusade**, the post-Cicatrix-Maledictum reconquest spearheaded by **Roboute Guilliman**'s reborn legions. An Imperial force is sent to bring the Emperor's rule back to the isolated world of **Kepris** — and that force is the **Soul Drinkers**: a chapter of **Primaris Space Marines** bearing the name and heraldry of the chapter lost to Imperial history at the close of *Phalanx*, a deliberate **reboot-continuity** rather than a Firstborn-survival narrative. The Primaris Soul Drinkers find Kepris ruled by a bloodthirsty cult — its cities seized, its loyal shrines under siege — led by the mysterious arch-heretic **Yeceqath, the Voice of All**. Striking swiftly and with cold fury, only the Soul Drinkers can unravel Yeceqath's foul machinations and break the heretic's hold over the world. But there is more at play: **one of mankind's oldest enemies** lies at the heart of a conspiracy to see Kepris fall and the Soul Drinkers fall with it. Tonally a tight war_story + mystery register, shorter than the first six novels, structured around the Indomitus-Crusade reconquest framework. The novella serves as a **soft-reboot** of the Soul Drinkers line in the 9th-edition timeframe: the name continues, the heraldry continues, the chapter-identity is preserved — but the Firstborn-era chapter is closed off, and the Primaris-era chapter is the active fictional vehicle going forward. **First authority-layer Primaris-Soul-Drinkers continuity + first authority-layer Indomitus Crusade reference + first authority-layer Kepris + first authority-layer Yeceqath the Voice of All + first authority-layer Indomitus-era arch-heretic register surface forms.**",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "war_story",
+          "mystery",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "betrayal",
+          "faith",
+          "hubris",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Soul Drinkers", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Kepris", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Yeceqath the Voice of All", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0199",
+      "slug": "crossfire",
+      "overrides": {
+        "synopsis": "**Crossfire** (Matthew Farrer, 2003) — first novel of the **Shira Calpurnia** series and one of the **Adeptus Arbites**' rare central-POV outings in the Black-Library canon. **Shira Calpurnia**, recently promoted to **arbiter senioris**, is newly assigned to the fortress-system of **Hydraphur** — a major **Imperial Navy** harbour and a sector-capital — where she lands in the middle of a tangle of corruption, treachery, civil unrest, and political intrigue threatening the hive cities. The novel opens with a series of assassination attempts on Calpurnia herself; the investigation drives the spine of the plot. The mystery resolves on a noble-house thread: **Lord Medell** of one of Hydraphur's great houses has arranged an assassination attempt against a mid-level Arbites officer specifically to tighten festival-grounds security around a major **Ecclesiarchy** religious festival — and ensure nothing untoward happens during it, while the real conspiracy proceeds beneath that cover. Medell's mistake is to assume the Arbites 'know better' than to pursue a serious investigation of any house as important as the Medells. The climax is a bell-tower confrontation during the festival, where Calpurnia keeps Medell talking long enough to explain the solution to the mystery while his servitor kills a **Sister** present at the proceedings and gravely injures Calpurnia. Tonally a **procedural mystery / political-thriller** — civilian-protagonist register from a female-POV Arbites lead, structurally distinct from the Space-Marine grimdark that dominates the surrounding W40K corpus. **First authority-layer Shira Calpurnia + first authority-layer Adeptus Arbites + first authority-layer Hydraphur + first authority-layer Lord Medell + first authority-layer female-Arbites-POV register surface forms.**",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "planetary",
+          "series_start",
+          "standard",
+          "mystery",
+          "political_thriller",
+          "character_study",
+          "grimdark",
+          "somber",
+          "betrayal",
+          "doubt",
+          "loyalty",
+          "sacrifice",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Arbites", "role": "primary" },
+          { "name": "Ecclesiarchy", "role": "supporting" },
+          { "name": "Imperial Navy", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Hydraphur", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Shira Calpurnia", "role": "pov" },
+          { "name": "Lord Medell", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0200",
+      "slug": "legacy",
+      "overrides": {
+        "synopsis": "**Legacy** (Matthew Farrer, 2004) — Shira Calpurnia #2, direct sequel to *Crossfire* (W40K-0199). The rich and influential **Rogue Trader Hoyyon Phrax** has died, and his **Charter of Trade** — an extremely ancient document **signed by the Emperor Himself**, making it not merely a legal instrument but a **holy relic** in the eyes of ambitious clerics — is being brought to the great fortress-system of **Hydraphur** to be ceremonially bequeathed to Phrax's legitimate heir, who will then claim his rights and the whole fleet attached to the charter. **Shira Calpurnia** of the **Adeptus Arbites** has been appointed to ensure that Phrax's will and testament is carried out according to Imperial law: the legal-procedural spine of the novel. The rival heirs — and they are many, given the value of the prize — decide that due process be damned, and go all-out for the charter. Calpurnia and her Arbites detachment must don armour, take up weapons, and convert from administrators-of-the-will into combatants on the side of legal process. Ambitious **Ecclesiarchy** clerics, attracted to the Emperor-signed-relic dimension of the charter, form a secondary threat-thread alongside the violent rival-heir contest. Tonally continues *Crossfire*'s **procedural-mystery + political-thriller** register, but pivots toward **court_intrigue** as the inheritance-of-charter plot structure dominates. **First authority-layer Hoyyon Phrax + first authority-layer Phrax Trading Charter + first authority-layer Rogue Traders in the Arbites line + first authority-layer Emperor-signed-charter-relic register surface forms.**",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "mystery",
+          "political_thriller",
+          "court_intrigue",
+          "character_study",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "betrayal",
+          "doubt",
+          "loyalty",
+          "sacrifice",
+          "faith",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Arbites", "role": "primary" },
+          { "name": "Rogue Traders", "role": "supporting" },
+          { "name": "Ecclesiarchy", "role": "antagonist" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Hydraphur", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Shira Calpurnia", "role": "pov" },
+          { "name": "Hoyyon Phrax", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
