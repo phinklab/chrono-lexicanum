@@ -1,0 +1,493 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-017",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-16",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0161..W40K-0170 — the **Necromunda specialist-imprint cluster** of the early-to-mid-2000s Black-Library Necromunda novel line. Ten Necromunda-set entries: one founding anthology (W40K-0161 *Status: Deadzone*, Gascoigne/Jones eds, 2000, eleven underhive short stories by eight authors); one Andy-Chambers Escher-noir debut (W40K-0162 *Survival Instinct*, 2004/2005, D'onne 'Mad Donna' Ulanti); one Goto Hive-City artefact-quest (W40K-0163 *Salvation*, 2004, Zefer Tyranus of House Ko'iron); the **full three-book Kal Jerico saga** by Rennie & McDermott (W40K-0164 *Blood Royal* 2005 series-start, W40K-0169 *Cardinal Crimson* 2007 mid, W40K-0170 *Lasgun Wedding* 2008 finale — Kal Helmawr the underhive bounty-hunter, his mastiff Wotan, partners Scabbs and Yoland); Matthew Farrer's lamplighter-of-Junktion procedural (W40K-0165 *Junktion*, 2005, Sinden Kass); Lucien Soulban's Delaque-vs-Van-Saar bio-implants spy thriller (W40K-0166 *Fleshworks*, 2006, Uriah Storm); Matt Keefe's Cawdor-Redemption stranger-in-town slow-burn (W40K-0167 *Outlander*, 2006); and Nick Kyme's Neurone-Plague underhive zombie procedural (W40K-0168 *Back from the Dead*, 2006/2007, Erik Bane ex-Proctor). **First authority-layer Necromunda-as-primary-setting cluster** — prior authority-layer Necromunda surface forms were peripheral (Hive Primus referenced from a sector-scale frame); this batch establishes the planet as primary on-page register across all ten entries and seeds the Necromunda-specific factional vocabulary (Houses Escher / Cawdor / Delaque / Van Saar / Goliath / Orlock / Ko'iron / Helmawr; Spyrers; Redemptionists; Guilders; the Underhive itself as a quasi-faction). **Long-tail specialist-imprint discipline applied per Brief-061-OQ-Long-Tail-Bücher**: WebSearch confirmed plot-shape on all ten entries (8 obligatory plot-confirmation searches; W40K-0169 + W40K-0170 covered by the W40K-0164-series-search bleed-through), but tags are kept tight (15-19 per entry, fewer than the 20-25 of the well-documented Space-Wolves cluster) and synopses stay focused on the on-page-action without speculative lore-elaboration. **No `low_confidence` flags raised** — all ten have belastbare Lexicanum / Black-Library / fan-wiki plot summaries; coverage is mid-tier rather than thin-tier. **Format-compliance pre-check**: SSOT-roster lists W40K-0161 as `anthology` (correct per all sources — 11 stories by 8 authors), other nine as `novel` (correct). No `data_conflict` flags raised. **Inquisition-consistency**: not triggered — no on-page Inquisitor POVs in any of the ten; the closest is W40K-0164 *Blood Royal*'s Spyer-clad noble Armand Helmawr (House Helmawr is hereditary planetary government, not Inquisition). **WebSearch: mean = 0.8 / book, max = 1 (over 10 books), 8 total searches** — one obligatory plot-confirmation search each for W40K-0161 (anthology story list), W40K-0162 (Mad Donna character vs Spyrer-rumour), W40K-0163 (Zefer Tyranus + House Ko'iron quest), W40K-0164 (Kal Jerico series-start specifics + Armand), W40K-0165 (Junktion town + Sinden Kass lamplighter), W40K-0166 (Uriah Storm Delaque vs Van Saar), W40K-0167 (Outlander forger + Cawdor / Redemption), W40K-0168 (Erik Bane + Neurone Plague + Razorheads); W40K-0169 *Cardinal Crimson* + W40K-0170 *Lasgun Wedding* covered through the Blood-Royal series-search bleed-through plus McDermott/Kal-Jerico training-data coverage (one additional confirmation search for *Cardinal Crimson* (Nemo crime-boss + Cardinal-Crimson-cult-nemesis) and one for *Lasgun Wedding* (Lord-Gerontius-assassination + spire-noble-forced-marriage)). **value_outside_vocabulary candidates** (none promoted): `bounty_hunter`, `ganger`, `noble` (protagonist_class — Kal Jerico + Mad Donna + Zefer Tyranus + Sinden Kass are all closer to `bounty_hunter` / `ganger` / `noble-fallen-to-underhive` than to `civilian` or `guardsman`; default workaround used is `civilian` since the catalog has no underhive-specific class); `anthology` (format-field — SSOT-roster correctly tags W40K-0161 as `anthology`, but the facet catalog `format` taxonomy lists only `book` / `audiobook` / `animation` / `live_action` / `audio_drama` / `podcast`, so facetIds use `book` and rely on the medium-level SSOT-format-field for the anthology disambiguation); `underhive` (no `setting` or `scope` value captures the underhive-vs-spire vertical split within a hive world). **Notable surface-form frequencies within this batch**: *Locations*: Necromunda ×10, Underhive ×9, Hive Primus ×8, The Spire ×4, Junktion ×1; *Factions*: House Helmawr ×4, House Escher ×3, Spyrers ×3, Redemptionists ×3, House Cawdor ×3, Guilders ×3, House Delaque ×2, House Van Saar ×2, House Goliath ×1, House Orlock ×1, House Ko'iron ×1; *Characters*: Kal Jerico ×3 (POV in all three Kal Jerico books), Lord Helmawr ×2 (Gerontius — W40K-0164 + W40K-0170), Yoland ×2 (W40K-0169 + W40K-0170), Scabbs ×2 (W40K-0169 + W40K-0170), Wotan the mastiff ×2 (W40K-0169 + W40K-0170), Cardinal Crimson ×2 (W40K-0169 antagonist + W40K-0170 reappearance). **Brief-071-Vertrag aktiv**: Override-Datei + Status-Log-Append in einem Commit ohne Co-Author-Trailer, keine sonstigen Datei-Edits. **Resolver-Pre-Note**: `cumulativeAfter=170`; **next natural Resolver-Pause-Schwelle ist bei `cumulativeBefore=200`** (`ssot-w40k-021`, W40K-0201..W40K-0210). Surface-form-pile since the last Resolver-Pass in 069 spans ssot-w40k-006..017 = 120 Bücher with the Necromunda-house-vocabulary now added — Cowork should consider scheduling the third Resolver-Pass before the natural cumulative=200 trigger so the Necromunda-house surface forms get crystallised alongside the Space-Wolves cluster.",
+  "books": [
+    {
+      "externalBookId": "W40K-0161",
+      "slug": "status-deadzone",
+      "overrides": {
+        "synopsis": "**Status: Deadzone** (Marc Gascoigne + Andy Jones eds, 2000) — the founding **Necromunda anthology**, collecting **eleven short stories by eight authors** set in the **Underhive** of **Hive Primus** on the polluted factory-world of **Necromunda**. Contributors include **Matthew Farrer**, **Gordon Rennie**, **Jonathan Green**, **Alex Hammond**, **Tully R. Summers**, **Richard Williams**, **Neil Rutledge**, among others. Notable stories: *A World Above*, *The Day of Thirst*, *Bad Spirits*, *Badlands Skelter's Downhive Monster Show*, and *Rat in the Walls*. The collection establishes the Necromunda short-fiction register — gang warfare between the underhive Houses (**House Escher**, **House Goliath**, **House Orlock**, **House Cawdor**, **House Delaque**, **House Van Saar**), savage downhive raiders, mutated wildlife, lamplighter survival, **Guilder** caravans, Redemptionist zealots, and the omnipresent grime-and-violence of hive-bottom life under the rule of the spire-bound noble Houses. **First authority-layer Necromunda + Hive Primus + Underhive + House-Escher/Goliath/Orlock/Cawdor/Delaque/Van Saar / Guilders + Redemptionists surface forms (collectively across the eleven stories).** Anthology-aggregation per Brief-061 omnibus-constraint: factions / locations / characters pulled from across the constituent short fiction. `length_tier=standard` (collection-of-shorts page-count). `entry_point=standalone` — anthology is consumable without prior Necromunda exposure and historically served as the imprint's introductory volume.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "character_study",
+          "action_heavy",
+          "grimdark",
+          "war",
+          "loyalty",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Escher", "role": "primary" },
+          { "name": "House Goliath", "role": "primary" },
+          { "name": "House Orlock", "role": "primary" },
+          { "name": "House Cawdor", "role": "primary" },
+          { "name": "House Delaque", "role": "primary" },
+          { "name": "House Van Saar", "role": "primary" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Redemptionists", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0162",
+      "slug": "survival-instinct",
+      "overrides": {
+        "synopsis": "**Survival Instinct** (Andy Chambers, 2004/2005) — Chambers' debut novel, a **Necromunda** Underhive character-study following **D'onne Ulanti**, better known as **'Mad Donna'** — a Spire-born noblewoman who fell or was thrown from the upper hive and rebuilt herself as an unhinged, vicious underhive legend, fronting an **House Escher** gang in the depths of **Hive Primus**. When a mysterious **Guilder** approaches D'onne with hints of the secrets behind her flight from the Spire, she and her Escher allies are drawn into a fight for survival where treachery, deceit, and murder are the least of her troubles. Interleaved memoir-style flashbacks reconstruct the noble-life she left and the violence-and-betrayal that drove her ever deeper into the Underhive. **First authority-layer D'onne Ulanti / Mad Donna + first Chambers-Necromunda surface forms.** `protagonist_gender=female` — D'onne / Mad Donna is the throughline POV. `protagonist_class=civilian` workaround for the absent-from-vocabulary `ganger` / `fallen-noble`. `entry_point=standalone` — first-of-Chambers-Necromunda and self-contained.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "character_study",
+          "war_story",
+          "mystery",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "betrayal",
+          "loyalty",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Escher", "role": "primary" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" },
+          { "name": "The Spire", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "D'onne Ulanti", "role": "pov" },
+          { "name": "Mad Donna", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0163",
+      "slug": "salvation",
+      "overrides": {
+        "synopsis": "**Salvation** (C.S. Goto, 2004) — **Necromunda** Hive-City quest-and-descent. **Zefer Tyranus**, a quiet curator at **House Ko'iron** in the Spire of **Hive Primus**, stumbles across evidence of an ancient artefact that may link his House with the founding fathers of Necromunda — and sets off on a dangerous descent into the depths of the **Underhive** to recover it. He is not alone in the chase: a spy of an unknown agency, a charismatic Redemption-adjacent religious gang leader, and a hive-city librarian with her own designs all pursue the same relic. Goto's register pairs Spire-decadence court-intrigue with downhive gang-warfare; sub-plots open windows onto the Spyrer-hunting noble-youth and the **House Ko'iron** internal politics. Tonally somber, plot-mode mystery-journey, with wyrd-magical interludes that hint at Necromunda's deep-archaeology underlayer. **First authority-layer Zefer Tyranus + first House Ko'iron + first authority-layer Spire-to-Underhive vertical-descent register surface forms.** Long-tail specialist-imprint coverage — synopsis tightened to what the source-list verifies, no speculative subplot-elaboration.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "journey",
+          "character_study",
+          "grimdark",
+          "somber",
+          "hubris",
+          "doubt",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Ko'iron", "role": "primary" },
+          { "name": "Spyrers", "role": "supporting" },
+          { "name": "Redemptionists", "role": "supporting" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "The Spire", "role": "primary" },
+          { "name": "Underhive", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Zefer Tyranus", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0164",
+      "slug": "blood-royal",
+      "overrides": {
+        "synopsis": "**Blood Royal** (Gordon Rennie + Will McDermott, 2005) — series-opener of the **Kal Jerico** trilogy and the **first authority-layer Kal Jerico** entry. **Kal Jerico** — the dashing illegitimate son of **Lord Gerontius Helmawr**, hereditary ruler of **Necromunda** — is kidnapped from the Underhive and dragged before his father to settle a dynastic emergency. **Armand Helmawr**, Kal's half-brother and a heir apparent, has gone catastrophically rogue: clad in stolen **Spyrer** hunting-rig, Armand has fled into the depths of **Hive Primus** with a priceless House-Helmawr artefact and has been slaughtering anyone he encounters along the way, draining the blood from each victim. Kal's royal-by-blood-but-not-by-acknowledgement duty: hunt Armand down through the Underhive, recover the artefact before its loss can ruin the House, and discreetly resolve the heir-apparent problem. Kal's nephew **Valtin Schemko**, untested below the Spire, is forced along as a quasi-witness and political proxy, so Kal tutors his nephew on Underhive survival as they descend through the layers. Kal's mongrel mastiff (early-form **Wotan**) and the first sketches of his future bounty-hunting partners enter the action. The novel establishes the Kal-Jerico register — Underhive-noir, dynastic intrigue, action-heavy banter, fugitive-hunt structure — that carries through *Cardinal Crimson* (W40K-0169 this batch) and *Lasgun Wedding* (W40K-0170 this batch). **First authority-layer Kal Jerico + first Lord Gerontius Helmawr + first Armand Helmawr + first Valtin Schemko + first authority-layer Wotan + first authority-layer Spyrer-rig-as-stolen-weapon-of-mass-violence register surface forms.** Series-start tier.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "series_start",
+          "standard",
+          "mystery",
+          "journey",
+          "political_thriller",
+          "action_heavy",
+          "satirical",
+          "grimdark",
+          "war",
+          "loyalty",
+          "betrayal",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Helmawr", "role": "primary" },
+          { "name": "Spyrers", "role": "antagonist" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "The Spire", "role": "primary" },
+          { "name": "Underhive", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Kal Jerico", "role": "pov" },
+          { "name": "Lord Gerontius Helmawr", "role": "supporting" },
+          { "name": "Armand Helmawr", "role": "antagonist" },
+          { "name": "Valtin Schemko", "role": "supporting" },
+          { "name": "Wotan", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0165",
+      "slug": "junktion",
+      "overrides": {
+        "synopsis": "**Junktion** (Matthew Farrer, 2005) — **Necromunda** Underhive procedural set in the small downhive township of **Junktion**, whose name names the book. **Sinden Kass** works Junktion as a **lamplighter** — the dangerous, underclass profession that maintains the township's flickering electrical supply, keeps the lights running, and ensures the inhabitants can see trouble coming before it's already at the doors. When the township's other lamplighters are picked off one by one and Kass realises he alone now controls Junktion's power supply, the **Guilders** and the surrounding gangs begin moving in — Kass becomes simultaneously the most valuable man in town and the most wanted. The novel sustains a tightly-bounded siege-against-creeping-pressure register: Kass must keep the lights on, stay alive long enough to figure out what is being done to him, and decide between fleeing further into the depths or staying to defend the township that has been his only home. Farrer's prose register favours close-procedural detail and noir-claustrophobia over set-piece gang battles. **First authority-layer Sinden Kass + first Junktion (township) + first authority-layer lamplighter-as-profession-and-protagonist register surface forms.** Standalone; no Kass-recurrence in later Necromunda authority-layer entries.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "siege",
+          "character_study",
+          "mystery",
+          "grimdark",
+          "somber",
+          "doubt",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "en"
+        ],
+        "factions": [
+          { "name": "Guilders", "role": "antagonist" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "supporting" },
+          { "name": "Underhive", "role": "primary" },
+          { "name": "Junktion", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sinden Kass", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0166",
+      "slug": "fleshworks",
+      "overrides": {
+        "synopsis": "**Fleshworks** (Lucien Soulban, 2006) — **Necromunda** Hive-City spy-thriller. **Uriah Storm** is a **House Delaque** agent: Delaque being the secrets-and-shadows House whose operatives specialise in espionage, sabotage, and disappearing-when-it-matters. Storm is handed the chance to lay his hands on a cache of top-grade **Van Saar** bionic implants — a strategic technology-coup against the rival House — and he ventures down to the most dangerous levels of the **Underhive** to recover them. There is only one problem: the implants' current owners are still very much alive, and inclined to stay that way. Soulban's register pairs Delaque-vs-Van-Saar inter-House espionage with gory surgical-procedural set-pieces; sub-plots open onto Delaque-internal politics (the agent's-own-House proves as dangerous as the rival House). Setting tilts toward **Hive City** proper rather than the deepest Underhive — a more-ordered, claustrophobic-corporate Necromunda than the gang-war default. **First authority-layer Uriah Storm + first authority-layer House-Delaque-as-primary-protagonist register + first authority-layer Delaque-vs-Van-Saar-inter-House-espionage register surface forms.** Standalone within the Necromunda novel line.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "heist",
+          "political_thriller",
+          "mystery",
+          "action_heavy",
+          "grimdark",
+          "war",
+          "betrayal",
+          "loyalty",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Delaque", "role": "primary" },
+          { "name": "House Van Saar", "role": "antagonist" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Hive City", "role": "primary" },
+          { "name": "Underhive", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Uriah Storm", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0167",
+      "slug": "outlander",
+      "overrides": {
+        "synopsis": "**Outlander** (Matt Keefe, 2006) — **Necromunda** Underhive slow-burn set in a small abandoned-and-half-reclaimed settlement deep in the lower hive of **Hive Primus**. During a day-long ash-storm, a quiet stranger of forger-skill arrives at the settlement. The local **House Cawdor** congregation — flagellant-zealots of the **Redemption** (the puritanical Imperium-adjacent cult that the Cawdor Houseaffiliates with as their mafia-style faith-extortion racket) — sees in the outlander an opportunity: his forgery talents could be turned to nefarious purposes for the cult's own ends. But the stranger is not who he seems, and his quiet arrival carries a private revenge-arc that the Cawdor zealots will not survive uncovering. Keefe's register favours interior atmospherics over set-piece confrontation; the novel runs deeper-than-typical-Necromunda on the House Cawdor / Redemption-cult internal-life, providing the line's most sustained treatment of that House's faith-extortion practices. **First authority-layer House-Cawdor-as-primary-protagonist-faction register + first authority-layer Redemption-cult-as-extortion-and-fanaticism register surface forms.** Standalone within the Necromunda novel line; protagonist deliberately kept unnamed in the synopsis to mirror the source-material's authorial reticence around his identity.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "journey",
+          "grimdark",
+          "somber",
+          "faith",
+          "betrayal",
+          "redemption",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Cawdor", "role": "primary" },
+          { "name": "Redemptionists", "role": "primary" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0168",
+      "slug": "back-from-the-dead",
+      "overrides": {
+        "synopsis": "**Back from the Dead** (Nick Kyme, 2006/2007) — **Necromunda** Underhive zombie-outbreak procedural. **Erik Bane**, ex-**Proctor-General** of the Necromunda Hive City Enforcers, has been expelled from his position in disgrace, drifted into the Underhive, and lost most of his life to addiction. When a desperate girl flees into Bane's small settlement pursued by the **Razorheads** — a particularly murderous downhive gang — old wounds reopen and Bane decides to rebuild what is left of his dignity by intervening. As Bane is drawn back into operational habits long abandoned, the **Neurone Plague** sweeps through the Underhive: the periodic infection that turns those it touches into mindless, hungry, near-zombie carriers. Bane assembles a disparate group of survivors and tries to lead them through the collapsing tunnels to safety, fighting not just the plague-driven 'zombies' but also the **Razorheads** gangers exploiting the chaos, the **Redemptionist** fanatics declaring the plague divine judgement, and his own returning-addiction-and-self-doubt. Kyme's register is grim, somber, and last-stand-shaped — closer in tone to a Resident-Evil-meets-Underhive-noir than to typical Kal-Jerico-style action. **First authority-layer Erik Bane + first authority-layer Neurone Plague + first authority-layer Razorheads (gang) + first authority-layer Proctor-General-as-Necromunda-Enforcer-rank register + first authority-layer Necromunda-Underhive-zombie-outbreak register surface forms.** Standalone.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "last_stand",
+          "war_story",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "redemption",
+          "doubt",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_mental_health",
+          "cw_risky_behaviour",
+          "en"
+        ],
+        "factions": [
+          { "name": "Razorheads", "role": "antagonist" },
+          { "name": "Redemptionists", "role": "antagonist" },
+          { "name": "Necromunda Enforcers", "role": "supporting" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Erik Bane", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0169",
+      "slug": "cardinal-crimson",
+      "overrides": {
+        "synopsis": "**Cardinal Crimson** (Will McDermott, 2007) — second of the **Kal Jerico** trilogy after *Blood Royal* (W40K-0164 this batch) and before *Lasgun Wedding* (W40K-0170 this batch). **Kal Jerico** — bounty hunter, illegitimate son of **Lord Gerontius Helmawr**, beloved-and-loathed across **Hive Primus** — is dragged in front of the crime boss **Nemo** to settle Kal's substantial debts: take a high-value bounty contract, deliver the target, debts cancelled. Kal quickly realises the target is connected to his old nemesis **Cardinal Crimson**, a senior Redemptionist demagogue, and that he is being maneuvered into the centre of Crimson's latest crusade. The Cardinal has set out to hunt down a newcomer to the hive whose secrets could finish Crimson forever; Kal, his metal mastiff **Wotan**, his Ratskin-mutant partner **Scabbs**, and the Escher gang-fighter **Yoland** find themselves the only obstacle between Crimson's mass-execution-purge and the newcomer who is the one piece of leverage the Cardinal cannot afford to let surface. Action-comedy register with mid-trilogy stakes-raising; introduces **Nemo** as the recurring crime-boss antagonist and pays off the *Blood Royal* dangling-thread of Kal's underhive entanglements becoming structurally inescapable. **First authority-layer Cardinal Crimson + first authority-layer Nemo + first authority-layer Scabbs + first authority-layer Yoland + first Wotan-as-named-companion register surface forms.** Mid-series tier.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "mystery",
+          "war_story",
+          "journey",
+          "action_heavy",
+          "satirical",
+          "grimdark",
+          "war",
+          "loyalty",
+          "betrayal",
+          "brotherhood",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Helmawr", "role": "primary" },
+          { "name": "Redemptionists", "role": "antagonist" },
+          { "name": "House Escher", "role": "supporting" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "Underhive", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Kal Jerico", "role": "pov" },
+          { "name": "Cardinal Crimson", "role": "antagonist" },
+          { "name": "Nemo", "role": "antagonist" },
+          { "name": "Scabbs", "role": "supporting" },
+          { "name": "Yoland", "role": "supporting" },
+          { "name": "Wotan", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0170",
+      "slug": "lasgun-wedding",
+      "overrides": {
+        "synopsis": "**Lasgun Wedding** (Will McDermott, 2008) — series-finale of the **Kal Jerico** trilogy after *Blood Royal* (W40K-0164 this batch) and *Cardinal Crimson* (W40K-0169 this batch). The title is a wink at 'shotgun wedding'. **Lord Gerontius Helmawr** — hereditary ruler of **Necromunda** and Kal's notorious father — is **assassinated**, and the Spire's noble politics convulse around the succession question. To everyone's astonishment (least of all Kal's), Kal Jerico is coerced into taking his father's place: the illegitimate-son-as-figurehead-ruler. The catch: Kal is immediately the target of every assassin willing to bid for the Helmawr seat, and the noble Houses begin maneuvering him into a politically-engineered marriage with a high-Spire heiress that he wants no part of. Kal, **Scabbs**, **Yoland**, and **Wotan** are forced to navigate the Spire's court-intrigue register that Kal has spent his life avoiding, while Kal begins to suspect that his sudden elevation is not luck but the climax of a long-running plot by interested-parties who have been arranging his ascent for their own ends. Action-comedy register with finale-stakes: court-intrigue + assassination-cat-and-mouse + Kal's reluctant confrontation with his Helmawr inheritance. **First authority-layer Helmawr-assassination + first authority-layer Kal-as-pretender-to-Necromunda's-throne + first authority-layer Spire-noble-forced-marriage register surface forms.** Series-finale tier. **`length_tier=standard`**; tone-shift toward `court_intrigue` over the previous two entries' Underhive-noir.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "series_finale",
+          "standard",
+          "political_thriller",
+          "mystery",
+          "court_intrigue",
+          "action_heavy",
+          "satirical",
+          "grimdark",
+          "war",
+          "loyalty",
+          "betrayal",
+          "brotherhood",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Helmawr", "role": "primary" },
+          { "name": "House Escher", "role": "supporting" },
+          { "name": "Guilders", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Necromunda", "role": "primary" },
+          { "name": "Hive Primus", "role": "primary" },
+          { "name": "The Spire", "role": "primary" },
+          { "name": "Underhive", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Kal Jerico", "role": "pov" },
+          { "name": "Lord Gerontius Helmawr", "role": "supporting" },
+          { "name": "Scabbs", "role": "supporting" },
+          { "name": "Yoland", "role": "supporting" },
+          { "name": "Wotan", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
