@@ -1,0 +1,529 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-019",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-16",
+  "model": "claude-opus-4-7",
+  "rationale": "Authority data for W40K-0181..W40K-0190 — a **mixed early-2000s Imperial-line cluster** spanning three distinct sub-series, none of which were covered by ssot-w40k-001..018: the **Last Chancers** penal-legion line (Gav Thorpe, W40K-0181..0185, five entries = the full original trilogy + 2006 omnibus + 2020 sequel *Armageddon Saint* that closes the Kage arc just before the Cicatrix Maledictum); the **Gothic War / Battlefleet Gothic** naval-combat line (Gordon Rennie, W40K-0186..0188, three entries = the two finished novels + 2010 omnibus, where the planned closing third novel never materialised); and the **Soul Drinkers** renegade-loyalist Space Marine line (Ben Counter, W40K-0189..0190, the first two books of the eventually-six-book chapter-tragedy series). **First authority-layer entries** for: Lieutenant Kage + Colonel Schaeffer + the 13th Penal Legion / Last Chancers + Typhos Prime + Tau-world infiltration setting + Overlord von Strab + Acheron (Armageddon hive) + Lorii + the Burned-Man saint-cult-on-Armageddon register; Captain Leoten Sempter + the cruiser Lord Solar Macharius + Battlefleet Gothic + Gothic Sector + Shadow Point + the Planet Killer; Sarpedon + the Soul Drinkers chapter + the Soulspear + Inquisitor Thaddeus + the daemon-prince Teturact + arachnid-Marine body-horror register. **Three series-start entries** (W40K-0181 *13th Legion*, W40K-0186 *Execution Hour*, W40K-0189 *Soul Drinker*) — the batch covers three distinct entry points simultaneously, useful for the Resolver to crystallise per-series faction/character canonical forms. **Two omnibus entries** (W40K-0184 *Last Chancers Omnibus*, W40K-0188 *Gothic War Omnibus*) — aggregation per Brief-061 omnibus-constraint, both tagged length_tier=doorstopper + protagonist_class=multi only where the constituents differ. **One de-facto series-closer** (W40K-0187 *Shadow Point*) — Rennie planned a third Gothic War novel that was never written, so *Shadow Point* sits as series_finale despite the original trilogy intention. **One Inquisition-consistency trigger** on W40K-0190 *The Bleeding Chalice* (Inquisitor Thaddeus is a POV character per the Lexicanum plot summary) — `factions[]` includes `Inquisition` with role=antagonist; `Ordo Hereticus` likely (Soul Drinkers are excommunicate traitoris) but un-confirmed by direct source, so the generic Inquisition surface form is used and Ordo-specifics deferred to the Resolver. **No `low_confidence` flags raised** — all ten have belastbare Lexicanum + Goodreads + Black-Library + Track-of-Words plot coverage; the early-2000s Black-Library cluster is well documented and the 2020 *Armageddon Saint* has detailed Track-of-Words / At-Boundary's-Edge reviews. **No `data_conflict` flags raised** — SSOT roster formats (novel/novel/novel/omnibus/novel/novel/novel/omnibus/novel/novel) match Black-Library + Lexicanum classification across the slice. **WebSearch: mean ≈ 0.5 / book, max = 1 (over 10 books), 5 total searches** — *Kill Team* (confirmed Tau commander as assassination target + diplomatic-delegation cover), *Annihilation Squad* (confirmed Armageddon / Acheron setting + von Strab antagonist + Kage psychic-awakening + Lorii reappearance; corrected previous internal assumption of Coritanorum-as-setting — Coritanorum is referenced as a prior-mission flashback, not the current setting), *Armageddon Saint* (confirmed Kage-as-the-Burned-Man saint-cult premise + Schaeffer hunting his errant charge + pre-Cicatrix-Maledictum timing), *Execution Hour* (confirmed Captain Leoten Sempter + cruiser Lord Solar Macharius + Planet-Killer plot spine), *Bleeding Chalice* (confirmed Inquisitor Thaddeus POV + Teturact as chaos-pole + Sarpedon's gene-stability quest). Five obligatory searches for the less-trained-data entries (Last Chancers continuation, Gothic War naval cluster, Soul Drinkers continuation); five books needed no search (well-covered series-starts + omnibus aggregations). **Inquisition-consistency** triggered only on W40K-0190 (Thaddeus). Not triggered on the Last Chancers books (Kage is Officio Prefectus penal-legion, Schaeffer is Imperial Guard colonel — neither Inquisition) nor the Gothic War cluster (naval officers, no Inquisitor POVs) nor *Soul Drinker* W40K-0189 (Sarpedon is Space Marine Librarian, the chapter-vs-Mechanicus dispute is intra-Imperium, no on-page Inquisitor). **value_outside_vocabulary candidates** (none promoted): `penal_legion` (protagonist_class; Kage / the Last Chancers structural class is not space_marine/guardsman/inquisitor/etc. — closest is `guardsman`); `naval_officer` (protagonist_class; Sempter and the Imperial Navy POVs are not well captured by guardsman/civilian — defaulted here to `civilian` to follow ssot-w40k-018's Necromunda-Enforcer-tagged-as-civilian precedent); `psyker` (protagonist_class for emerging-psychic Kage in *Annihilation Squad* — defaulted to `guardsman`); `naval_combat` / `space_combat` / `fleet_action` (plot_type / tone for Battlefleet Gothic ship-combat — closest workarounds are `war_story + siege` for fleet engagements with Planet-Killer threats and `last_stand` for the rearguard-action register); `hagiography` / `saint_cult` (theme for *Armageddon Saint*'s saint-cult arc — closest is `faith` + `philosophical`); `body_horror` (theme / tone for the Soul Drinkers' mutation arc + Sarpedon's arachnid-leg transformation — closest is `cosmic_horror`); `gene_seed_collapse` / `chapter_decline` (theme for Soul Drinkers' genetic-stability fight — closest is `doubt + hubris + sacrifice`). **Notable surface-form frequencies within this batch**: *Factions*: Imperium ×10, Imperial Guard ×4 (Last Chancers cluster except *Armageddon Saint* tracks 'Imperial Guard' + Last Chancers separately), Last Chancers ×5 (full cluster), Orks ×4 (W40K-0181 + W40K-0183 + W40K-0184 + W40K-0185), Chaos ×6 (Annihilation Squad + Armageddon Saint daemonic threat + Gothic War cluster ×3 + Soul Drinkers latent ×2), Black Legion ×3 (Gothic War cluster), Imperial Navy ×3 (Gothic War cluster), Adeptus Mechanicus ×2 (Soul Drinkers cluster), Soul Drinkers ×2, Inquisition ×1 (W40K-0190 Thaddeus), Tau Empire ×1 (W40K-0182), Ecclesiarchy ×1 (W40K-0185 saint-cult dynamics). *Locations*: Imperium ×10, Armageddon ×3 (W40K-0183 + W40K-0184 omnibus + W40K-0185), Gothic Sector ×3 (W40K-0186 + W40K-0187 + W40K-0188 omnibus), Typhos Prime ×2 (W40K-0181 + W40K-0184 omnibus), Acheron ×2 (W40K-0183 + W40K-0184 omnibus), Shadow Point ×2 (W40K-0187 + W40K-0188 omnibus), Tau Empire space ×2 (W40K-0182 + W40K-0184 omnibus). *Characters*: Lieutenant Kage ×4 (W40K-0181 + W40K-0182 + W40K-0183 + W40K-0184 omnibus — plus W40K-0185 Armageddon Saint as 'the Burned Man' = Kage, listed under both surface forms there), Colonel Schaeffer ×5 (entire Last Chancers cluster), Captain Leoten Sempter ×3 (Gothic War cluster), Abaddon the Despoiler ×3 (Gothic War cluster), Sarpedon ×2 (Soul Drinkers cluster), Overlord von Strab ×2 (W40K-0183 + W40K-0184 omnibus), Lorii ×2 (W40K-0183 + W40K-0184 omnibus), Inquisitor Thaddeus ×1 (W40K-0190), Teturact ×1 (W40K-0190). **Brief-071-Vertrag aktiv**: Override-Datei + Status-Log-Append in einem Commit ohne Co-Author-Trailer, keine sonstigen Datei-Edits. **Resolver-Pre-Note**: `cumulativeAfter=190`; **next natural Resolver-Pause-Schwelle ist bei `cumulativeBefore=200`** (`ssot-w40k-021`, W40K-0201..W40K-0210, in two iterations — so the next-but-one iteration triggers the loud-stop). Cowork-Empfehlung aus ssot-w40k-017/018 (Resolver-Pass vor cumulative=200 planen) gilt unverändert: surface-form-pile since the last Resolver-Pass in 069 now spans ssot-w40k-006..019 = 140 Bücher and the next batch (ssot-w40k-020, cumulative 200) will trigger the natural Resolver pause. Of particular note for the Resolver: **the Burned Man** vs **Kage** canonical-name choice for W40K-0185 (same character, deliberate dual-listing in the synopsis surface forms because the saint-cult-name is the central narrative device).",
+  "books": [
+    {
+      "externalBookId": "W40K-0181",
+      "slug": "13th-legion",
+      "overrides": {
+        "synopsis": "**13th Legion** (Gav Thorpe, 2001) — series-opener of the **Last Chancers** penal-legion line and Thorpe's first Black-Library novel. On the war-torn world of **Typhos Prime**, **Colonel Schaeffer** of the **13th Penal Legion** musters a thousand condemned Imperial Guardsmen — the so-called **Last Chancers** — and forges them by attrition into a strike force capable of impossible-mission redemption. POV is **Lieutenant Kage**, a former Cadian-trained Guardsman now serving as Schaeffer's sergeant-of-the-condemned, narrating in cynical first-person memoir voice. The mission is to survive an **Ork** Waaagh-incursion war on Typhos Prime while Schaeffer routinely sends individual squads on suicidal feints to draw out enemy positions — the cast is intended to attrit, the survivors to harden into the elite cadre Schaeffer needs for later operations. Establishes the **Dirty-Dozen-in-space** Last Chancers premise (Thorpe's own framing): redemption through death-or-mission, an officer who will spend his soldiers to the last man for the Emperor's purposes, and a narrator who has no illusions about either side of that bargain. The bitter **Kage-Schaeffer** dynamic — subordinate-who-survives vs commander-who-keeps-using-him — anchors the series for the next four books. **First authority-layer Last Chancers + first authority-layer Lieutenant Kage + first authority-layer Colonel Schaeffer + first authority-layer 13th Penal Legion + first authority-layer Typhos Prime + first authority-layer penal-legion-first-person-memoir register surface forms.**",
+        "facetIds": [
+          "book",
+          "male",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "series_start",
+          "standard",
+          "war_story",
+          "journey",
+          "character_study",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "satirical",
+          "betrayal",
+          "doubt",
+          "war",
+          "loyalty",
+          "sacrifice",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Last Chancers", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Typhos Prime", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lieutenant Kage", "role": "pov" },
+          { "name": "Colonel Schaeffer", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0182",
+      "slug": "kill-team",
+      "overrides": {
+        "synopsis": "**Kill Team** (Gav Thorpe, 2001) — Last Chancers #2, picking up some time after *13th Legion*. **Lieutenant Kage** is rotting in an Imperial detention centre after failing to achieve full redemption on Typhos Prime when **Colonel Schaeffer** returns with a new assignment — and offers Kage the only thing he ever offers: useful death instead of useless death. The mission is the assassination of a prominent **Tau Empire** commander; the cover is a fake **Imperial diplomatic delegation** travelling to a **Tau** world where the team will be received as state guests. Schaeffer needs a small, disposable Last Chancers selection to pull this off — Kage and a fresh handful of condemned operators must learn to play diplomat long enough to position themselves for the kill, then exfiltrate (or, more honestly, die well). Tonally shorter and tighter than *13th Legion*: a **heist-procedural** with a mystery spine, the Tau-hospitality cover scenes pitched at satirical-grim contrast against the Last Chancers' real intent. Schaeffer's habit of withholding the full mission parameters until the operational point of no return continues — a betrayal-mystery thread runs through the team's discovery of what they were actually sent to do. **First authority-layer Tau-Empire-as-antagonist + first authority-layer Imperial-diplomatic-cover register surface forms for the Last Chancers line.**",
+        "facetIds": [
+          "book",
+          "male",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "heist",
+          "mystery",
+          "war_story",
+          "character_study",
+          "action_heavy",
+          "grimdark",
+          "satirical",
+          "somber",
+          "betrayal",
+          "doubt",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Last Chancers", "role": "primary" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Tau Empire space", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lieutenant Kage", "role": "pov" },
+          { "name": "Colonel Schaeffer", "role": "supporting" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0183",
+      "slug": "annihilation-squad",
+      "overrides": {
+        "synopsis": "**Annihilation Squad** (Gav Thorpe, 2004) — Last Chancers #3, closing the original trilogy. Roughly a year after *Kill Team*, **Lieutenant Kage** and a fresh **Last Chancers** squad have spent the intervening time in a punishing non-stop **warp transit** — nearly **40,000 light-years** without dropping into realspace — to reach **Armageddon**. The mission: hunt down and kill the renegade Imperial Commander of that world, **Overlord von Strab**, who has retreated into the **Ork**-infested rebel hive of **Acheron**. The warp transit shreds the team: navigators die one by one, Geller fields begin to fail, prescient dreams torment the squad, and infighting between Last Chancers turns lethal. **Kage's latent psychic potential** awakens to dangerous levels — his visions and prescience drive him toward self-destruction. The reappearance of **Lorii**, a Last Chancer who calms Kage's guilt about being the sole survivor of a previous mission (referenced as Coritanorum), is short-lived: her motives for joining the squad turn out to be personal hatred of Kage, and the rift reaches conflict point. Once on Armageddon, the team must cross multiple Ork-Imperial warzones, infiltrate Acheron via a bombed-out supply pipe, and reach von Strab's sadistic court. The novel ends with **Kage's apparent death** in a fiery chasm — a setup that hangs unresolved for sixteen years until *Armageddon Saint*. **First authority-layer Armageddon (in the Last Chancers line) + first authority-layer Acheron-hive + first authority-layer Overlord von Strab + first authority-layer Lorii + first authority-layer psyker-emergence-in-Kage register surface forms.**",
+        "facetIds": [
+          "book",
+          "male",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "series_finale",
+          "standard",
+          "war_story",
+          "journey",
+          "last_stand",
+          "character_study",
+          "mystery",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "betrayal",
+          "doubt",
+          "faith",
+          "hubris",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Last Chancers", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" },
+          { "name": "Acheron", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lieutenant Kage", "role": "pov" },
+          { "name": "Colonel Schaeffer", "role": "supporting" },
+          { "name": "Lorii", "role": "supporting" },
+          { "name": "Overlord von Strab", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0184",
+      "slug": "the-last-chancers-omnibus",
+      "overrides": {
+        "synopsis": "**The Last Chancers Omnibus** (Gav Thorpe, 2006) — **omnibus aggregation** of *13th Legion* (W40K-0181) + *Kill Team* (W40K-0182) + *Annihilation Squad* (W40K-0183), the complete original Last Chancers trilogy. **Colonel Schaeffer**'s **13th Penal Legion** procedural across three escalating missions: an attritional Ork-incursion war on **Typhos Prime**; a tight diplomatic-cover assassination operation against a **Tau Empire** commander; and a warp-shredded suicide run to **Armageddon** to kill the renegade Imperial Commander **Overlord von Strab** in the rebel hive of **Acheron**. **Lieutenant Kage**'s cynical first-person memoir voice unifies the trilogy across both ends — his survivor's-guilt arc, the emergence of his latent psychic potential, and his bitter subordinate-to-commander relationship with Schaeffer thread book-to-book. The third novel ends with Kage's apparent death in a fiery chasm — a thread *Armageddon Saint* (W40K-0185) eventually picks up. Canonical entry-point omnibus for the entire Last Chancers line — readers can come to all three through this volume. Aggregation per Brief-061 omnibus-constraint: factions / locations / characters listed across all three constituent works, tag-tier comparable to the doorstopper combined length; tone-tags pick up the cosmic_horror register from the *Annihilation Squad* close.",
+        "facetIds": [
+          "book",
+          "male",
+          "guardsman",
+          "imperium",
+          "sector",
+          "series_start",
+          "doorstopper",
+          "war_story",
+          "journey",
+          "heist",
+          "mystery",
+          "last_stand",
+          "character_study",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "satirical",
+          "cosmic_horror",
+          "betrayal",
+          "doubt",
+          "faith",
+          "hubris",
+          "loyalty",
+          "sacrifice",
+          "brotherhood",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Last Chancers", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Typhos Prime", "role": "primary" },
+          { "name": "Tau Empire space", "role": "primary" },
+          { "name": "Armageddon", "role": "primary" },
+          { "name": "Acheron", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lieutenant Kage", "role": "pov" },
+          { "name": "Colonel Schaeffer", "role": "supporting" },
+          { "name": "Lorii", "role": "supporting" },
+          { "name": "Overlord von Strab", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0185",
+      "slug": "armageddon-saint",
+      "overrides": {
+        "synopsis": "**Armageddon Saint** (Gav Thorpe, 2020) — Last Chancers #4, direct sequel to *Annihilation Squad* (W40K-0183) after a sixteen-year publication gap. Set on the Ork-infested hive world of **Armageddon** just before the **Cicatrix Maledictum** envelops the Imperium — the threshold of the 8th-edition Great Rift opening. **Lieutenant Kage** of the **13th Penal Legion** is officially dead — his charred remains lost to the depths of a fiery chasm at the close of *Annihilation Squad* — but as his old battalion the **Last Chancers** mourns, a new hero rises from the ashes: **the Burned Man**, a Saint-figure whose appearance attracts a cult of desperate followers convinced he was sent to Armageddon by the **God-Emperor** Himself. The Burned Man is Kage, surviving by miracle or by deception or by both. **Colonel Schaeffer**, Kage's former commander, has seen through the saint-cult ploy and will stop at nothing to bring his errant charge to justice — the **Dirty Dozen in space**, trapped on an embattled world about to get overrun by daemons. Meanwhile, darker powers yearn to see Armageddon bathed and bound in blood: with the Great Rift looming, daemonic incursion is imminent. The novel pivots tonally into **faith-and-hagiography** as a central theme — does Kage exploit the saint-cult cynically, or does the cult create something genuinely transcendent? Schaeffer's hunt provides the procedural spine. **First authority-layer 'the Burned Man' surface form + first authority-layer pre-Cicatrix-Maledictum Last Chancers register + first authority-layer Armageddon-saint-cult register.**",
+        "facetIds": [
+          "book",
+          "male",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "standard",
+          "war_story",
+          "character_study",
+          "mystery",
+          "political_thriller",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "faith",
+          "doubt",
+          "hubris",
+          "redemption",
+          "betrayal",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Guard", "role": "primary" },
+          { "name": "Last Chancers", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Ecclesiarchy", "role": "supporting" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lieutenant Kage", "role": "pov" },
+          { "name": "the Burned Man", "role": "pov" },
+          { "name": "Colonel Schaeffer", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0186",
+      "slug": "execution-hour",
+      "overrides": {
+        "synopsis": "**Execution Hour** (Gordon Rennie, 2001) — opening novel of the **Gothic War** naval-combat duology and the first **Black Library** novel set in the **Battlefleet Gothic** wargame's setting. Compiled from Rennie's short stories originally published in *Inferno!* magazine. The vile and unholy shadow of Chaos falls across the **Gothic Sector** at the onslaught of **Warmaster Abaddon the Despoiler**'s **12th Black Crusade** — the **Gothic War** of M41.139-160. The **Imperial Navy** fights a desperate rearguard action, forced to sacrifice dozens of worlds to slow the Chaotic tide. POV is **Captain Leoten Sempter**, freshly promoted, commanding the cruiser **Lord Solar Macharius** as he attempts to stem Abaddon's renegade fleet. Each chapter focuses on a different ship-engagement in the broader campaign to retake the Gothic Sector, culminating in a planetary evacuation attempt before Abaddon's dreaded **Planet Killer** — the Despoiler's planet-cracking super-weapon — can fire. Naval-combat register: POV is fleet officers rather than Marines or Guard; tactics, signals-traffic, and gun-decks substitute for boots-on-the-ground action. **First authority-layer Imperial Navy ship-combat register + first authority-layer Captain Leoten Sempter + first authority-layer Lord Solar Macharius + first authority-layer Battlefleet-Gothic-as-setting-tag + first authority-layer Gothic Sector + first authority-layer Planet Killer surface forms.**",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "sector",
+          "series_start",
+          "standard",
+          "war_story",
+          "siege",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "war",
+          "sacrifice",
+          "hubris",
+          "loyalty",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Navy", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Gothic Sector", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Captain Leoten Sempter", "role": "pov" },
+          { "name": "Abaddon the Despoiler", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0187",
+      "slug": "shadow-point",
+      "overrides": {
+        "synopsis": "**Shadow Point** (Gordon Rennie, 2003) — direct sequel to *Execution Hour* (W40K-0186), continuing the **Gothic War** naval-combat campaign in the **Gothic Sector**. **Captain Leoten Sempter** of the cruiser **Lord Solar Macharius** and the broader **Imperial Navy** fleet command remain the POV cast. The Imperial Navy strikes back against **Warmaster Abaddon the Despoiler**'s **12th Black Crusade**, with the campaign converging on **Shadow Point** — a critical strategic chokepoint that the Navy must hold or recapture to deny the Despoiler's renegade fleet operational freedom. Continues the chapter-per-engagement structure of *Execution Hour*. The **Planet Killer** remains a looming threat — Imperial Navy strategy revolves around denying Abaddon's super-weapon target opportunities and engineering the fleet engagement that could finally cripple it. **Black Legion** + traitor-naval forces continue as the primary antagonist set. Rennie originally planned a third Gothic War novel — set at the war's end — but it was never written, leaving *Shadow Point* the **de-facto series-closer**: the Gothic War's conclusion in the wargame canon happens off-page (and was later closed off by a never-novelised final battle). Naval-combat register continues from *Execution Hour* without tonal shift.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "sector",
+          "series_finale",
+          "standard",
+          "war_story",
+          "siege",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "war",
+          "sacrifice",
+          "hubris",
+          "loyalty",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Navy", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Gothic Sector", "role": "primary" },
+          { "name": "Shadow Point", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Captain Leoten Sempter", "role": "pov" },
+          { "name": "Abaddon the Despoiler", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0188",
+      "slug": "the-gothic-war-omnibus",
+      "overrides": {
+        "synopsis": "**The Gothic War Omnibus** (Gordon Rennie, 2010) — **omnibus aggregation** of *Execution Hour* (W40K-0186) + *Shadow Point* (W40K-0187), plus a **Battlefleet Gothic comic strip** originally featured in the boxed game the novels are based on. Covers the **Imperial Navy**'s campaign against **Warmaster Abaddon the Despoiler**'s **12th Black Crusade** in the **Gothic Sector** (M41.139-160), with the **Planet Killer** as the looming super-weapon threat. **Captain Leoten Sempter** of the cruiser **Lord Solar Macharius** anchors POV across both novels. Rennie originally planned a closing third Gothic War novel — set at the war's end — that was never written; the omnibus is the closest the series has to a complete edition, and stands as the canonical entry point to the Battlefleet-Gothic-novel line. Aggregation per Brief-061 omnibus-constraint: factions / locations / characters listed across both constituent novels + the comic strip; tag-tier comparable to the doorstopper combined length; tone-and-plot-type tags inherit the naval-combat register without expansion (no third-novel material to broaden them).",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "sector",
+          "series_start",
+          "doorstopper",
+          "war_story",
+          "siege",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "war",
+          "sacrifice",
+          "hubris",
+          "loyalty",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Navy", "role": "primary" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Gothic Sector", "role": "primary" },
+          { "name": "Shadow Point", "role": "primary" },
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Captain Leoten Sempter", "role": "pov" },
+          { "name": "Abaddon the Despoiler", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0189",
+      "slug": "soul-drinker",
+      "overrides": {
+        "synopsis": "**Soul Drinker** (Ben Counter, 2002) — first novel of the **Soul Drinkers** series and Counter's debut Black-Library novel, opening one of the line's most enduring renegade-loyalist Space-Marine tragedies. The **Soul Drinkers Space Marine chapter** — a successor of the **Imperial Fists** — clashes with the **Adeptus Mechanicus** over ownership of a sacred relic, the **Soulspear**, recovered from a captured Chaos cruiser. The dispute escalates when the Mechanicus dispatches an **Imperial Navy** task force to take the relic by force; the chapter refuses to yield. **Librarian Sarpedon**, witnessing the elderly Chapter Master defer to Imperial authority and surrender Soul-Drinker honour to inter-Imperial politics, leads a rebellion that ends with Sarpedon killing his Chapter Master and claiming command. The chapter is declared **Excommunicate Traitoris**. Unbeknownst to them, the Soulspear is corrupted: as the Soul Drinkers cling to it as proof of their renegade-loyalist creed, **chaotic mutations** begin to twist their bodies — Sarpedon himself starts to grow **arachnid legs**. Establishes the central tension of the series: a chapter that believes itself loyal to the Emperor, declared traitor by the Imperium, and slowly being corrupted by the very relic they fight to keep. Tonal register grimdark + political-thriller + body-horror; the chapter-tragedy arc is set up for the full six-novel run. **First authority-layer Soul Drinkers + first authority-layer Sarpedon + first authority-layer Soulspear + first authority-layer renegade-loyalist Space-Marine register + first authority-layer arachnid-Marine body-horror surface forms.**",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "series_start",
+          "standard",
+          "war_story",
+          "political_thriller",
+          "character_study",
+          "mystery",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "betrayal",
+          "doubt",
+          "faith",
+          "hubris",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Soul Drinkers", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "antagonist" },
+          { "name": "Imperial Navy", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Imperium", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sarpedon", "role": "pov" }
+        ],
+        "flags": []
+      }
+    },
+    {
+      "externalBookId": "W40K-0190",
+      "slug": "the-bleeding-chalice",
+      "overrides": {
+        "synopsis": "**The Bleeding Chalice** (Ben Counter, 2003) — direct sequel to *Soul Drinker* (W40K-0189), Soul Drinkers #2. Long years have passed since the **Soul Drinkers** were declared **Excommunicate Traitoris**, and many Imperial agents have been dispatched to destroy this once-loyal chapter. **Sarpedon**, the stoic leader of the fallen Marines, has become hellbent on finding some way of curing his battle-brothers of the **cursed mutations** spreading through the chapter — Apothecary-attempts to halt the disease have failed and the chapter's gene-seed approaches collapse. Sarpedon's lead: track down a Mechanicus facility the chapter once saved, to retrieve a sample of pure genetic material the chapter might use to stave off their genetic dissolution. **Two parallel narratives** alternate: Sarpedon's chapter-survival quest, and **Inquisitor Thaddeus**'s hunt for the renegade Soul Drinkers — Thaddeus is a POV character, the Inquisitorial-orthodox counterweight to Sarpedon's renegade-loyalist creed. A third pole — **Teturact**, a daemon-prince / Chaos-warlord figure — provides the chaos-antagonist that Sarpedon, Thaddeus, and the chapter ultimately converge on. The three protagonists serve as deliberate contrasts: Sarpedon (renegade-loyalist), Thaddeus (Imperial-orthodox), Teturact (Chaos-malevolent). **First authority-layer Inquisitor Thaddeus + first authority-layer Teturact + first authority-layer Soul-Drinkers-gene-seed-collapse register + first authority-layer Inquisition-hunt-of-renegade-chapter register surface forms.** Inquisition-consistency (Brief 061): Thaddeus is a POV Inquisitor; `factions[]` includes Inquisition with role=antagonist (the specific Ordo — likely Hereticus given the Excommunicate-Traitoris quarry — is not explicitly named in Goodreads / Lexicanum summaries and is deferred to the Resolver).",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "mid_series",
+          "standard",
+          "war_story",
+          "journey",
+          "character_study",
+          "mystery",
+          "political_thriller",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "betrayal",
+          "doubt",
+          "faith",
+          "hubris",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "redemption",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Soul Drinkers", "role": "primary" },
+          { "name": "Inquisition", "role": "antagonist" },
+          { "name": "Chaos", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Imperium", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Imperium", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sarpedon", "role": "pov" },
+          { "name": "Inquisitor Thaddeus", "role": "pov" },
+          { "name": "Teturact", "role": "antagonist" }
+        ],
+        "flags": []
+      }
+    }
+  ]
+}
