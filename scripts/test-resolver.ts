@@ -270,6 +270,66 @@ check("alias - Serenade routes to Cepharil", () => {
   assert.equal(resolveLocation("Serenade").id, "cepharil");
 });
 
+check("direct match - fourth wave Hive Primus Necromunda sub-location", () => {
+  assert.equal(resolveLocation("Hive Primus").id, "hive_primus");
+});
+
+check("direct match - fourth wave Underhive region-tier", () => {
+  assert.equal(resolveLocation("Underhive").id, "underhive");
+});
+
+check("direct match - fourth wave The Spire Necromunda upper-hive", () => {
+  assert.equal(resolveLocation("The Spire").id, "spire");
+});
+
+check("direct match - fourth wave Junktion eponymous setting", () => {
+  assert.equal(resolveLocation("Junktion").id, "junktion");
+});
+
+check("direct match - fourth wave The Fang Space Wolves monastery", () => {
+  assert.equal(resolveLocation("The Fang").id, "fang");
+});
+
+check("direct match - fourth wave Asaheim Fenris continent", () => {
+  assert.equal(resolveLocation("Asaheim").id, "asaheim");
+});
+
+check("direct match - fourth wave Planet of the Sorcerers Thousand Sons daemon world", () => {
+  assert.equal(resolveLocation("Planet of the Sorcerers").id, "planet_of_the_sorcerers");
+});
+
+check("direct match - fourth wave Gothic Sector region", () => {
+  assert.equal(resolveLocation("Gothic Sector").id, "gothic_sector");
+});
+
+check("direct match - fourth wave Shadow Point Gothic War", () => {
+  assert.equal(resolveLocation("Shadow Point").id, "shadow_point");
+});
+
+check("direct match - fourth wave The Phalanx Imperial Fists star-fort", () => {
+  assert.equal(resolveLocation("The Phalanx").id, "phalanx");
+});
+
+check("alias - fourth wave lowercase the Phalanx routes to phalanx", () => {
+  assert.equal(resolveLocation("the Phalanx").id, "phalanx");
+});
+
+check("direct match - fourth wave Hydraphur Calpurnia fortress system in Pacificus", () => {
+  assert.equal(resolveLocation("Hydraphur").id, "hydraphur");
+});
+
+check("direct match - fourth wave Selaaca Soul Drinkers", () => {
+  assert.equal(resolveLocation("Selaaca").id, "selaaca");
+});
+
+check("alias - fourth wave Tau Empire space routes to tau_empire", () => {
+  assert.equal(resolveLocation("Tau Empire space").id, "tau_empire");
+});
+
+check("unresolved - fourth wave Imperium-as-Location cross-axis frame stays null", () => {
+  assert.equal(resolveLocation("Imperium").id, null);
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {

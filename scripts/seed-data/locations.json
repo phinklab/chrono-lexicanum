@@ -1152,5 +1152,205 @@
     "gx": null,
     "gy": null,
     "tags": []
+  },
+  {
+    "id": "hive_primus",
+    "name": "Hive Primus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "underhive",
+    "name": "Underhive",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "spire",
+    "name": "The Spire",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "hopes_end",
+    "name": "Hope's End",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "dim_zone",
+    "name": "Dim Zone",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "floodgrave",
+    "name": "Floodgrave",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "fallen_dome_of_periculus",
+    "name": "Fallen Dome of Periculus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "junktion",
+    "name": "Junktion",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "fang",
+    "name": "The Fang",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": ["space_wolves"]
+  },
+  {
+    "id": "asaheim",
+    "name": "Asaheim",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": ["space_wolves"]
+  },
+  {
+    "id": "aerius",
+    "name": "Aerius",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "galt",
+    "name": "Galt",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "garm",
+    "name": "Garm",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "hyades",
+    "name": "Hyades",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "planet_of_the_sorcerers",
+    "name": "Planet of the Sorcerers",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["chaos", "thousand_sons"]
+  },
+  {
+    "id": "venam",
+    "name": "Venam",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "acheron",
+    "name": "Acheron",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "gothic_sector",
+    "name": "Gothic Sector",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "shadow_point",
+    "name": "Shadow Point",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "typhos_prime",
+    "name": "Typhos Prime",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "phalanx",
+    "name": "The Phalanx",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "selaaca",
+    "name": "Selaaca",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "vanqualis",
+    "name": "Vanqualis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "hydraphur",
+    "name": "Hydraphur",
+    "sector": "pacificus",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "kepris",
+    "name": "Kepris",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
   }
 ]
