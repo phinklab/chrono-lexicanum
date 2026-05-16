@@ -901,5 +901,285 @@
     "primaryFactionId": "inquisition",
     "lexicanumUrl": null,
     "notes": "Inquisitor POV; Pilgrims of Fire, Awakenings"
+  },
+  {
+    "id": "ragnar_blackmane",
+    "name": "Ragnar Blackmane",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Space-Wolves saga POV across King's Space Wolf / Ragnar's Claw / Grey Hunter / Wolfblade and Lightner's Sons of Fenris / Wolf's Honour; Wolf-Lord. Pre-Blackmane-cloak novitiate surface form 'Ragnar Thunderfist' aliased to this row"
+  },
+  {
+    "id": "strybjorn_grimskull",
+    "name": "Strybjorn Grimskull",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Space-Wolves saga POV; ex-Grimskull-tribe rival who becomes Ragnar's pack-brother across the King saga"
+  },
+  {
+    "id": "sven_brujothirson",
+    "name": "Sven Brujothirson",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Space-Wolves saga pack-brother of Ragnar through King's Space Wolf / Ragnar's Claw / Grey Hunter"
+  },
+  {
+    "id": "ranek",
+    "name": "Ranek",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Wolf Priest mentor to Ragnar's pack across King's Space Wolf / Ragnar's Claw and the Space Wolf Omnibus"
+  },
+  {
+    "id": "kjel",
+    "name": "Kjel",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Bloodclaw pack-brother lost to the Curse of the Wulfen in Space Wolf (W40K-0152); Ragnar's first kill of a fellow Wolf"
+  },
+  {
+    "id": "berek_thunderfist",
+    "name": "Berek Thunderfist",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Wolf-Lord of Ragnar's division; patron and superior across Ragnar's Claw / Grey Hunter / Space Wolf Omnibus"
+  },
+  {
+    "id": "ivan_sternberg",
+    "name": "Ivan Sternberg",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Imperial Inquisitor quest-giver in Ragnar's Claw (W40K-0153); Talisman-of-Lykos plotline plus cross-saga reappearance"
+  },
+  {
+    "id": "madox",
+    "name": "Madox",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": "Thousand-Sons sorcerer arch-antagonist of the King saga (Grey Hunter / Wolfblade / Wolf's Honour); Magnus-tier conspirator"
+  },
+  {
+    "id": "gabriela_belisarius",
+    "name": "Gabriela Belisarius",
+    "primaryFactionId": "house_belisarius",
+    "lexicanumUrl": null,
+    "notes": "Navis-Nobilite Navigator of House Belisarius bonded to Ragnar in Wolfblade (W40K-0155) plus the Space Wolf Second Omnibus arc"
+  },
+  {
+    "id": "torin",
+    "name": "Torin",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Wolfblade-companion of Ragnar in Wolfblade (W40K-0155) and the Space Wolf Second Omnibus (W40K-0159)"
+  },
+  {
+    "id": "ivar_krakenblood",
+    "name": "Ivar Krakenblood",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Krakenblood (W40K-0160, Collins 2025) POV; Wolf-Lord namesake of the Krakenblood pack"
+  },
+  {
+    "id": "ulrik_the_slayer",
+    "name": "Ulrik the Slayer",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Canonical third-edition Space-Wolves Wolf-Priest; quest-giver in Krakenblood (W40K-0160). Promoted freq=1 as lore-iconic"
+  },
+  {
+    "id": "kal_jerico",
+    "name": "Kal Jerico",
+    "primaryFactionId": "necromunda",
+    "lexicanumUrl": null,
+    "notes": "Underhive bounty-hunter, illegitimate son of Lord Helmawr; classic-imprint trilogy Blood Royal / Cardinal Crimson / Lasgun Wedding (Rennie / McDermott, 2005-2007) plus modern-imprint revival Sinner's Bounty (Reynolds, 2019). One canonical row per cross-batch decision — soft-reboot stylistic continuity, not a re-cast"
+  },
+  {
+    "id": "wotan",
+    "name": "Wotan",
+    "primaryFactionId": "necromunda",
+    "lexicanumUrl": null,
+    "notes": "Kal Jerico's cyber-mastiff companion; classic Kal-Jerico-trilogy"
+  },
+  {
+    "id": "scabbs",
+    "name": "Scabbs",
+    "primaryFactionId": "necromunda",
+    "lexicanumUrl": null,
+    "notes": "Kal Jerico's ratskin sidekick; classic Kal-Jerico-trilogy"
+  },
+  {
+    "id": "yoland",
+    "name": "Yoland",
+    "primaryFactionId": "necromunda",
+    "lexicanumUrl": null,
+    "notes": "Kal Jerico's psyker companion; classic Kal-Jerico-trilogy"
+  },
+  {
+    "id": "gerontius_helmawr",
+    "name": "Lord Gerontius Helmawr",
+    "primaryFactionId": "house_helmawr",
+    "lexicanumUrl": null,
+    "notes": "Classic-imprint Spire-Lord of Hive Primus; assassinated in Lasgun Wedding (W40K-0170). Distinct row from the modern-imprint lord_helmawr per the soft-reboot in-fiction-continuity break (Loop-Log: 'Lord Helmawr is alive again' in Soulless Fury)"
+  },
+  {
+    "id": "lord_helmawr",
+    "name": "Lord Helmawr",
+    "primaryFactionId": "house_helmawr",
+    "lexicanumUrl": null,
+    "notes": "Modern-imprint Spire-Lord of Hive Primus in Soulless Fury (W40K-0177); soft-reboot revival of the throne after the classic Lord Gerontius Helmawr's assassination. Distinct row from gerontius_helmawr"
+  },
+  {
+    "id": "cardinal_crimson",
+    "name": "Cardinal Crimson",
+    "primaryFactionId": "redemptionists",
+    "lexicanumUrl": null,
+    "notes": "Redemptionist Cardinal antagonist of the Kal-Jerico arc; Cardinal Crimson (W40K-0169) title-eponym plus Lasgun Wedding reappearance. Promoted freq=2"
+  },
+  {
+    "id": "mad_donna",
+    "name": "Mad Donna",
+    "primaryFactionId": "house_escher",
+    "lexicanumUrl": null,
+    "notes": "Underhive-legend Spire-fallen ex-noblewoman fronting a House Escher gang; classic Survival Instinct (W40K-0162) plus modern-imprint Soulless Fury (W40K-0177) fifteen-year-publication-gap. Cross-batch alias-consolidation: surface form 'D'onne Ulanti' (her House Ulanti birth-name) aliased to this row. primaryFactionId reflects current allegiance per mabbon_etogaur precedent (origin: House Ulanti)"
+  },
+  {
+    "id": "iktomi",
+    "name": "Iktomi",
+    "primaryFactionId": "ratskins",
+    "lexicanumUrl": null,
+    "notes": "Ratskin guide; Low Lives (W40K-0174) plus Uprising (W40K-0178) framing-piece (Cursebound saga)"
+  },
+  {
+    "id": "caleb_cursebound",
+    "name": "Caleb Cursebound",
+    "primaryFactionId": "necromunda",
+    "lexicanumUrl": null,
+    "notes": "Modern-imprint bounty-hunter / conman POV of the Cursebound saga; Low Lives (W40K-0174) plus Uprising (W40K-0178) framing-piece"
+  },
+  {
+    "id": "brielle",
+    "name": "Brielle",
+    "primaryFactionId": "house_escher",
+    "lexicanumUrl": null,
+    "notes": "Escher Wild-Hydras gang POV in Hill's Terminal Overkill (W40K-0173). Promoted freq=1 as lore-iconic Necromunda-modern POV"
+  },
+  {
+    "id": "scrutinator_primus_servalen",
+    "name": "Scrutinator Primus Servalen",
+    "primaryFactionId": "necromunda_enforcers",
+    "lexicanumUrl": null,
+    "notes": "Necromunda Enforcer Scrutinator-rank dual-POV with Mad Donna in Soulless Fury (W40K-0177); dispatched via Lord Helmawr's personal seal, accompanied by cyber-mastiff KB-88. Promoted freq=1 as lore-iconic"
+  },
+  {
+    "id": "jarene",
+    "name": "Jarene",
+    "primaryFactionId": "house_escher",
+    "lexicanumUrl": null,
+    "notes": "Escher Wild-Cats gang POV; Wanted: Dead (W40K-0171) plus Underhive: A Necromunda Anthology (W40K-0175)"
+  },
+  {
+    "id": "colonel_schaeffer",
+    "name": "Colonel Schaeffer",
+    "primaryFactionId": "last_chancers",
+    "lexicanumUrl": null,
+    "notes": "Last Chancers commander across all five Thorpe entries (13th Legion / Kill Team / Annihilation Squad / Last Chancers Omnibus / Armageddon Saint); Officio Prefectus penal-legion lead"
+  },
+  {
+    "id": "lieutenant_kage",
+    "name": "Lieutenant Kage",
+    "primaryFactionId": "last_chancers",
+    "lexicanumUrl": null,
+    "notes": "Last Chancers POV across all five Thorpe entries; latent-psyker arc. Cross-batch alias-consolidation: surface form 'the Burned Man' (saint-cult name in Armageddon Saint W40K-0185) aliased to this row — same person, alt-surface is narrative-device per Loop-Log ('the saint-cult knows the figure as the Burned Man while Schaeffer knows him as Kage')"
+  },
+  {
+    "id": "lorii",
+    "name": "Lorii",
+    "primaryFactionId": "last_chancers",
+    "lexicanumUrl": null,
+    "notes": "Last Chancers sniper-twin POV; Annihilation Squad (W40K-0183) plus Last Chancers Omnibus (W40K-0184)"
+  },
+  {
+    "id": "overlord_von_strab",
+    "name": "Overlord von Strab",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Renegade Imperial Commander of Armageddon retreated into the Ork-infested rebel hive of Acheron; arch-antagonist of Annihilation Squad (W40K-0183) plus omnibus. Imperial-Commander-tier political/military governor — primaryFactionId reflects pre-renegade institutional rank"
+  },
+  {
+    "id": "captain_leoten_sempter",
+    "name": "Captain Leoten Sempter",
+    "primaryFactionId": "imperial_navy",
+    "lexicanumUrl": null,
+    "notes": "Flag-captain of the cruiser Lord Solar Macharius; Gothic War duology plus omnibus POV across Execution Hour (W40K-0186) and Shadow Point (W40K-0187)"
+  },
+  {
+    "id": "sarpedon",
+    "name": "Sarpedon",
+    "primaryFactionId": "soul_drinkers",
+    "lexicanumUrl": null,
+    "notes": "Soul-Drinkers Chapter-Master POV across Counter's firstborn sextet (W40K-0189..0197); arachnid-mutation lead, gene-stability quest spine"
+  },
+  {
+    "id": "daenyathos",
+    "name": "Daenyathos",
+    "primaryFactionId": "soul_drinkers",
+    "lexicanumUrl": null,
+    "notes": "Soul-Drinkers founder-philosopher; Daenyathos (W40K-0195) novella reveal plus Phalanx (W40K-0196) climax. Long-dead-but-active in chapter-myth"
+  },
+  {
+    "id": "iktinos",
+    "name": "Iktinos",
+    "primaryFactionId": "soul_drinkers",
+    "lexicanumUrl": null,
+    "notes": "Soul-Drinkers Chaplain; turn-traitor antagonist in Phalanx (W40K-0196) plus Annihilation Second Omnibus (W40K-0197)"
+  },
+  {
+    "id": "tellos",
+    "name": "Tellos",
+    "primaryFactionId": "soul_drinkers",
+    "lexicanumUrl": null,
+    "notes": "Soul-Drinkers POV-turned-daemon-fallen; Crimson Tears (W40K-0191) plus Soul Drinkers Omnibus (W40K-0192)"
+  },
+  {
+    "id": "teturact",
+    "name": "Teturact",
+    "primaryFactionId": "chaos",
+    "lexicanumUrl": null,
+    "notes": "Chaos-sorcerer / necromancer arch-villain of The Bleeding Chalice (W40K-0190) plus Soul Drinkers Omnibus (W40K-0192); Sarpedon's first major-arc antagonist"
+  },
+  {
+    "id": "inquisitor_thaddeus",
+    "name": "Inquisitor Thaddeus",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Inquisitor hunting Sarpedon; The Bleeding Chalice (W40K-0190) plus Soul Drinkers Omnibus (W40K-0192). Ordo-affiliation unspecified on-page (Soul-Drinkers excommunicate-traitoris would suggest Ordo Hereticus, but the synopsis does not confirm)"
+  },
+  {
+    "id": "yeceqath_voice_of_all",
+    "name": "Yeceqath the Voice of All",
+    "primaryFactionId": "chaos",
+    "lexicanumUrl": null,
+    "notes": "Primaris-era arch-heretic antagonist in Traitor by Deed (W40K-0198); post-Cicatrix-Maledictum chaos-cult-leader fought by the Primaris-Soul-Drinkers continuation. Promoted freq=1 as lore-iconic + Primaris-reboot-era marker"
+  },
+  {
+    "id": "shira_calpurnia",
+    "name": "Shira Calpurnia",
+    "primaryFactionId": "adeptus_arbites",
+    "lexicanumUrl": null,
+    "notes": "Adeptus-Arbites arbiter senioris assigned to Hydraphur; Farrer's Crossfire-trilogy-opener POV across W40K-0199 Crossfire plus W40K-0200 Legacy. First authority-layer non-Necromunda female-POV lead"
+  },
+  {
+    "id": "lord_medell",
+    "name": "Lord Medell",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Hydraphur noble-house head; corrupt-noble antagonist of Crossfire (W40K-0199). Promoted freq=1 as lore-iconic. Generic imperium primary because no house_medell faction-row exists; noble-house promotion would be over-broad for a single-book appearance"
+  },
+  {
+    "id": "hoyyon_phrax",
+    "name": "Hoyyon Phrax",
+    "primaryFactionId": "rogue_traders",
+    "lexicanumUrl": null,
+    "notes": "Deceased Rogue Trader namesake of the Phrax Charter; Legacy (W40K-0200) supporting-deceased focal point. Promoted freq=1 as lore-iconic"
   }
 ]

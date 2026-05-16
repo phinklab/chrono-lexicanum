@@ -429,6 +429,58 @@ check("alias - Lord Castellan Creed routes to Ursarkar Creed", () => {
   assert.equal(resolveCharacter("Lord Castellan Creed").id, "ursarkar_e_creed");
 });
 
+check("direct match - fourth wave Ragnar Blackmane Space Wolves saga POV", () => {
+  assert.equal(resolveCharacter("Ragnar Blackmane").id, "ragnar_blackmane");
+});
+
+check("alias - fourth wave Ragnar Thunderfist pre-Blackmane novitiate routes to ragnar_blackmane", () => {
+  assert.equal(resolveCharacter("Ragnar Thunderfist").id, "ragnar_blackmane");
+});
+
+check("direct match - fourth wave Sarpedon Soul Drinkers Chapter-Master", () => {
+  assert.equal(resolveCharacter("Sarpedon").id, "sarpedon");
+});
+
+check("direct match - fourth wave Daenyathos Soul Drinkers founder-philosopher", () => {
+  assert.equal(resolveCharacter("Daenyathos").id, "daenyathos");
+});
+
+check("direct match - fourth wave Kal Jerico Multi-Era one-row", () => {
+  assert.equal(resolveCharacter("Kal Jerico").id, "kal_jerico");
+});
+
+check("direct match - fourth wave Mad Donna canonical surface", () => {
+  assert.equal(resolveCharacter("Mad Donna").id, "mad_donna");
+});
+
+check("alias - fourth wave D'onne Ulanti cross-batch consolidation routes to mad_donna", () => {
+  assert.equal(resolveCharacter("D'onne Ulanti").id, "mad_donna");
+});
+
+check("direct match - fourth wave Lieutenant Kage Last Chancers POV", () => {
+  assert.equal(resolveCharacter("Lieutenant Kage").id, "lieutenant_kage");
+});
+
+check("alias - fourth wave the Burned Man cross-batch consolidation routes to lieutenant_kage", () => {
+  assert.equal(resolveCharacter("the Burned Man").id, "lieutenant_kage");
+});
+
+check("direct match - fourth wave Lord Gerontius Helmawr classic-imprint (Helmawr split)", () => {
+  assert.equal(resolveCharacter("Lord Gerontius Helmawr").id, "gerontius_helmawr");
+});
+
+check("direct match - fourth wave Lord Helmawr modern-imprint (Helmawr split)", () => {
+  assert.equal(resolveCharacter("Lord Helmawr").id, "lord_helmawr");
+});
+
+check("direct match - fourth wave Shira Calpurnia Adeptus Arbites POV", () => {
+  assert.equal(resolveCharacter("Shira Calpurnia").id, "shira_calpurnia");
+});
+
+check("direct match - fourth wave Captain Leoten Sempter Gothic War", () => {
+  assert.equal(resolveCharacter("Captain Leoten Sempter").id, "captain_leoten_sempter");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {
