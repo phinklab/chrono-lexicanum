@@ -121,6 +121,19 @@ Die 50er-Schwelle trifft auch mitten in W40K-Domain mehrfach (50, 100, 150, …,
 
   **Begründung.** Synopsen aus `manual-overrides-ssot-w40k-001..020.json` sind public-rendered auf `/buch/[slug]` und wurden teilweise mit internem Curation-Vokabular geschrieben, das für Reddit-Launch / Public-Reader nicht lesbar ist. Die Disziplin trennt sauber: Reader-Copy in `works.synopsis`, Maintainer-Wissen in Loop-Log / Flags / Notes.
 
+- **Faction-Granularity-Discipline (ab `ssot-w40k-021` / `W40K-0201`).** Verankert durch Brief 077 (Grand-Alignment-Junction-Hygiene). Greift forward-only — existierende Override-Files `ssot-w40k-001..020` bleiben unangetastet; die in der DB landenden redundanten Junctions putzt der Backfill-Re-Apply aus Brief 077 (DELETE-then-INSERT).
+
+  **Faction-Tags müssen Browse-Root-Granularität oder spezifischer sein.** Grand-Alignment lebt in `factions.alignment` auf der Sub-Faction-Row, nicht als generischer Filter-Tag. Wikipedia-Style-Umbrella-Tags sind verboten als raw_name; spezifische Sub-Faktionen tragen die Information ohnehin.
+
+  **Verboten als raw_name in `overrides.factions[]`:**
+  - `Imperium`, `Imperium of Man`, `Imperium of Mankind` — Grand-Alignment-Tag. Verwende stattdessen die spezifische Sub-Faction (`Astra Militarum`, `Adeptus Astartes`, `Inquisition`, `Mechanicus`, …).
+  - `Chaos` als alleiniger Tag, wenn lore-konsistent eine spezifische Chaos-Sub-Faction passt. Verwende `Heretic Astartes`, `Word Bearers`, `Thousand Sons`, `Black Legion`, `Khorne Daemons`, etc.
+  - `Xenos`, `Aliens` — niemals. Entweder die konkrete Xenos-Faction (`Eldar` / `Tau` / `Necrons` / `Tyranids` / `Orks`) oder weglassen.
+
+  **Erhaltungs-Pfad.** Wenn das Buch tatsächlich nur generisch über das Imperium / Chaos spricht (Worldbuilding-Sachbuch, Galaxy-Wide-Survey ohne konkrete Faction-POV), darf `Imperium` / `Chaos` als alleiniger Tag stehen — der Apply-Skip greift nicht, weil keine alignment-gleiche Sub-Faction im Block ist (Brief 077 § Constraints). Sehr selten.
+
+  **Begründung.** Brief 070 hat `imperium` als Tree-Root + Grand-Alignment, aber explizit KEIN Browse-Root entschieden (`scripts/seed-data/faction-policy.json` `knownTopLevelExceptions`). Vor Brief 077 hat die LLM den Tag trotzdem konsistent ausgeschrieben, was ~165 redundante `work_factions`-Junctions über `ssot-w40k-001..020` produziert hat (post-Re-Apply weggeputzt). Forward-only-Discipline verhindert die Wiederkehr ab fünfter Welle.
+
 ## Out of scope
 
 - **DB-Apply.** Apply für die produzierte Override-Datei läuft separat per `npm run db:apply-override -- --batch=ssot-{domain}-{NNN}` (Brief 060). NICHT in dieser Iteration.
