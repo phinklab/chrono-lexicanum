@@ -88,3 +88,4 @@ yarn-error.log*
 # scripts/run-ssot-loop.sh tees its stdout into this file for post-mortem
 # inspection. Per-run, regenerated on every invocation, irrelevant in git.
 /scripts/.last-loop-run.log
+/scripts/.last-resolver-pass.log

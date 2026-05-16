@@ -271,6 +271,13 @@ Brief erlaubt beides; CC wählt mit-committed weil der Edit minimal ist (Constra
 - **Resolver-Driver Pass-5-tauglicher gemacht.** `scripts/resolver-pass.config.json` erlaubt im Phase-4-Template jetzt `scripts/seed-data/persons.json`, `scripts/*-NNN.ts` und `scripts/run-phase4-apply-NNN.sh` im engen Integration-Scope. `scripts/run-resolver-pass.sh` unterstützt dafür einfache Bash-Glob-Patterns im Scope-Matching.
 - **No-op-Vertragsknick konservativ gelöst.** Diese erste Driver-Version akzeptiert keine `no-op: nothing to add`-Statusdatei als HEAD-moved-Ersatz. Jede Phase muss mindestens einen Commit produzieren; Config-Trigger und Driver-Trigger dokumentieren diese Commit-Pflicht explizit.
 
+## Review-fix 2 (2026-05-16)
+
+- **GitHub-CLI-PR-Detection gefixt.** `scripts/run-resolver-pass.sh` und `scripts/run-ssot-loop.sh` nutzen jetzt `gh pr list --head "$CURRENT_BRANCH" --json url --jq '.[0].url // ""'` statt des nicht unterstützten `gh pr view --head`.
+- **Driver-Log ignoriert.** `.gitignore` ignoriert nun auch `scripts/.last-resolver-pass.log`, analog zum bestehenden Loop-Driver-Step-Log.
+- **Shell-Skript-Modi korrigiert.** `scripts/run-resolver-pass.sh` und `scripts/run-phase4-apply-076.sh` sind ausführbar, passend zur dokumentierten `./scripts/...`-Usage.
+- **`sessions/README.md` auf Post-076-Stand gebracht.** Der vorherige Zwischenstand ("076 ist offen / Maintainer soll Phasen starten") ist durch den PR-ready/Post-Apply-Stand ersetzt.
+
 ## Verification
 
 | Check | Soll | Ist |

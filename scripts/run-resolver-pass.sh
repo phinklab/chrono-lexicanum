@@ -461,7 +461,7 @@ pr_body() {
 }
 
 if (( GH_READY == 1 )); then
-  EXISTING_URL=$(gh pr view --head "$CURRENT_BRANCH" --json url -q .url 2>/dev/null || true)
+  EXISTING_URL=$(gh pr list --head "$CURRENT_BRANCH" --json url --jq '.[0].url // ""' 2>/dev/null || true)
   if [[ -n "$EXISTING_URL" ]]; then
     ok "PR existiert bereits: $EXISTING_URL"
   else
