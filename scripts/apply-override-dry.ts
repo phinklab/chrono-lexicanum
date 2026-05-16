@@ -28,6 +28,11 @@ import type {
   ResolverAxis,
   RoleNormalization,
 } from "../src/lib/resolver/roles";
+import {
+  type Alignment,
+  normalizeAlignment,
+} from "../src/lib/seed/alignment";
+import { decideFactionSkips } from "./apply-override-skip";
 
 const SEED_DIR = join(process.cwd(), "scripts", "seed-data");
 const BATCHES = [
@@ -120,6 +125,12 @@ interface FactionRow {
   id: string;
   name: string;
   parent?: string | null;
+  alignment?: string | null;
+  tone?: string | null;
+}
+
+interface FactionPolicyFile {
+  redundantWhenSubPresent?: string[];
 }
 
 interface SectorRow {
@@ -151,6 +162,8 @@ interface ReferenceData {
   factions: FactionRow[];
   locations: LocationRow[];
   characters: CharacterRow[];
+  alignmentById: Map<string, Alignment>;
+  redundantIds: Set<string>;
 }
 
 interface ResolvedEntity {
@@ -173,6 +186,7 @@ interface BookSimulation {
   factions: AxisSimulation;
   locations: AxisSimulation;
   characters: AxisSimulation;
+  factionsSkippedRedundant: string[];
 }
 
 function readJson<T>(file: string): T {
@@ -186,6 +200,12 @@ function loadReferences(): ReferenceData {
   const sectors = readJson<SectorRow[]>("sectors.json");
   const locations = readJson<LocationRow[]>("locations.json");
   const characters = readJson<CharacterRow[]>("characters.json");
+  const policy = readJson<FactionPolicyFile>("faction-policy.json");
+
+  const alignmentById = new Map<string, Alignment>();
+  for (const row of factions) {
+    alignmentById.set(row.id, normalizeAlignment(row));
+  }
 
   return {
     rosterIds: new Set(roster.books.map((book) => book.externalBookId)),
@@ -204,6 +224,8 @@ function loadReferences(): ReferenceData {
     factions,
     locations,
     characters,
+    alignmentById,
+    redundantIds: new Set(policy.redundantWhenSubPresent ?? []),
   };
 }
 
@@ -298,12 +320,27 @@ function simulateAxis(
 }
 
 function simulateBook(book: OverrideBook, refs: ReferenceData): BookSimulation {
+  const factions = simulateAxis("faction", book.overrides.factions, refs);
+  // Apply Brief 077 skip-decision: drop redundant grand-alignment junctions
+  // when an alignment-peer sub-faction is resolved in the same block.
+  const skipDecision = decideFactionSkips({
+    resolved: factions.rows,
+    original: book.overrides.factions,
+    alignmentById: refs.alignmentById,
+    redundantIds: refs.redundantIds,
+    resolveFaction: (name) => resolveFaction(name),
+  });
+  const factionsPostSkip: AxisSimulation = {
+    ...factions,
+    rows: skipDecision.keep,
+  };
   return {
     externalBookId: book.externalBookId,
     slug: book.slug,
-    factions: simulateAxis("faction", book.overrides.factions, refs),
+    factions: factionsPostSkip,
     locations: simulateAxis("location", book.overrides.locations, refs),
     characters: simulateAxis("character", book.overrides.characters, refs),
+    factionsSkippedRedundant: skipDecision.skippedSurfaceForms,
   };
 }
 
@@ -517,13 +554,29 @@ function main(): void {
     work_locations: simulations.reduce((sum, book) => sum + book.locations.rows.length, 0),
     work_characters: simulations.reduce((sum, book) => sum + book.characters.rows.length, 0),
   };
+  const skippedRedundantTotal = simulations.reduce(
+    (sum, book) => sum + book.factionsSkippedRedundant.length,
+    0,
+  );
+  const booksWithSkips = simulations.filter(
+    (book) => book.factionsSkippedRedundant.length > 0,
+  ).length;
+  const skippedSurfaceCounts = countBy(
+    simulations.flatMap((book) => book.factionsSkippedRedundant),
+    (name) => name,
+  );
 
   console.log(`[apply-override-dry] batches=${batchLabel()}`);
   console.log(`[apply-override-dry] books=${overrideBooks.length}`);
-  console.log("[apply-override-dry] resolved junction counts:");
+  console.log("[apply-override-dry] resolved junction counts (post-skip):");
   console.log(`  work_factions:   ${totals.work_factions}`);
   console.log(`  work_locations:  ${totals.work_locations}`);
   console.log(`  work_characters: ${totals.work_characters}`);
+  console.log("[apply-override-dry] grand-alignment-junction-skip (Brief 077):");
+  console.log(
+    `  skipped surface forms: ${skippedRedundantTotal} across ${booksWithSkips} books`,
+  );
+  console.log(`  by name: ${formatCounts(skippedSurfaceCounts) || "none"}`);
   console.log("");
 
   console.log("[apply-override-dry] smoke detail-page counts:");
