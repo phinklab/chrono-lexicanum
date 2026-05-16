@@ -156,6 +156,46 @@ check("alias - Triarch Council routes to Triarch Praetorians", () => {
   assert.equal(resolveFaction("Triarch Council").id, "triarch_praetorians");
 });
 
+check("direct match - fourth wave Necromunda mid-node", () => {
+  assert.equal(resolveFaction("Necromunda").id, "necromunda");
+});
+
+check("direct match - fourth wave House Escher", () => {
+  assert.equal(resolveFaction("House Escher").id, "house_escher");
+});
+
+check("direct match - fourth wave House Helmawr", () => {
+  assert.equal(resolveFaction("House Helmawr").id, "house_helmawr");
+});
+
+check("direct match - fourth wave House Ko'iron lore-iconic freq=1", () => {
+  assert.equal(resolveFaction("House Ko'iron").id, "house_koiron");
+});
+
+check("direct match - fourth wave Necromunda Enforcers", () => {
+  assert.equal(resolveFaction("Necromunda Enforcers").id, "necromunda_enforcers");
+});
+
+check("direct match - fourth wave Guilders cluster-iconic", () => {
+  assert.equal(resolveFaction("Guilders").id, "guilders");
+});
+
+check("direct match - fourth wave Last Chancers under astra_militarum", () => {
+  assert.equal(resolveFaction("Last Chancers").id, "last_chancers");
+});
+
+check("direct match - fourth wave Soul Drinkers Firstborn-Primaris coexistent", () => {
+  assert.equal(resolveFaction("Soul Drinkers").id, "soul_drinkers");
+});
+
+check("direct match - fourth wave Howling Griffons adeptus_astartes successor", () => {
+  assert.equal(resolveFaction("Howling Griffons").id, "howling_griffons");
+});
+
+check("direct match - fourth wave House Belisarius Navigator House", () => {
+  assert.equal(resolveFaction("House Belisarius").id, "house_belisarius");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
