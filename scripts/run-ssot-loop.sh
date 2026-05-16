@@ -163,6 +163,8 @@ Brief-071-Vertrag (gilt für diesen Driver-Lauf, überschreibt Brief-061-Constra
 - Erfolgspfad: neuer manual-overrides-ssot-{domain}-{NNN}.json + Status-Log-Append in sessions/ssot-loop-log.md, beides in EINEM commit.
 - 50er-Loud-Stop-Pfad: KEINE Override-Datei; aber Pause-Block (## YYYY-MM-DD · ⏸ Resolver-Pause bei N Büchern) in sessions/ssot-loop-log.md, committed.
 
+Public Synopsis Discipline (ab ssot-w40k-021 / W40K-0201 — Brief 061 § Constraints): overrides.synopsis ist public-reader-copy für /buch/[slug]. Kein internes Curation-Vokabular, keine SSOT-IDs (W40K-NNNN), keine Brief-Verweise, keine Resolver-/Authority-Layer-Sprache, keine Audit-Anker. Technische Curation-Infos gehen in overrides.flags / book_details.notes / sessions/ssot-loop-log.md, NICHT in works.synopsis.
+
 Beides ohne Co-Author-Trailer. Keine zweite Iteration in dieser Session, keine sonstigen Datei-Edits ausserhalb der oben genannten Pfade.
 EOF
 }
@@ -469,7 +471,7 @@ pr_title() {
 }
 
 if (( GH_READY == 1 )); then
-  EXISTING_URL=$(gh pr view --head "$CURRENT_BRANCH" --json url -q .url 2>/dev/null || true)
+  EXISTING_URL=$(gh pr list --head "$CURRENT_BRANCH" --json url --jq '.[0].url // ""' 2>/dev/null || true)
   if [[ -n "$EXISTING_URL" ]]; then
     ok "PR existiert bereits: $EXISTING_URL"
   else

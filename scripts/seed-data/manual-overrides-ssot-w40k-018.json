@@ -34,21 +34,50 @@
           "en"
         ],
         "factions": [
-          { "name": "House Escher", "role": "primary" },
-          { "name": "Guilders", "role": "antagonist" },
-          { "name": "Necromunda Enforcers", "role": "antagonist" },
-          { "name": "Imperium", "role": "supporting" }
+          {
+            "name": "House Escher",
+            "role": "primary"
+          },
+          {
+            "name": "Guilders",
+            "role": "antagonist"
+          },
+          {
+            "name": "Necromunda Enforcers",
+            "role": "antagonist"
+          },
+          {
+            "name": "Imperium",
+            "role": "supporting"
+          }
         ],
         "locations": [
-          { "name": "Necromunda", "role": "primary" },
-          { "name": "Hive Primus", "role": "primary" },
-          { "name": "Underhive", "role": "primary" }
+          {
+            "name": "Necromunda",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Primus",
+            "role": "primary"
+          },
+          {
+            "name": "Underhive",
+            "role": "primary"
+          }
         ],
         "characters": [
-          { "name": "Jarene", "role": "pov" }
+          {
+            "name": "Jarene",
+            "role": "pov"
+          }
         ],
         "flags": [
-          { "kind": "data_conflict", "field": "format", "suggestion": "novella", "note": "Black Library Novella Series 1 #6; SSOT-roster lists as novel" }
+          {
+            "kind": "data_conflict",
+            "field": "format",
+            "suggestion": "novella",
+            "note": "Black Library Novella Series 1 #6; SSOT-roster lists as novel"
+          }
         ]
       }
     },
@@ -81,20 +110,50 @@
           "en"
         ],
         "factions": [
-          { "name": "House Helmawr", "role": "supporting" },
-          { "name": "Redemptionists", "role": "antagonist" },
-          { "name": "Venators", "role": "supporting" },
-          { "name": "Guilders", "role": "supporting" },
-          { "name": "Imperium", "role": "supporting" }
+          {
+            "name": "House Helmawr",
+            "role": "supporting"
+          },
+          {
+            "name": "Redemptionists",
+            "role": "antagonist"
+          },
+          {
+            "name": "Venators",
+            "role": "supporting"
+          },
+          {
+            "name": "Guilders",
+            "role": "supporting"
+          },
+          {
+            "name": "Imperium",
+            "role": "supporting"
+          }
         ],
         "locations": [
-          { "name": "Necromunda", "role": "primary" },
-          { "name": "Hive Primus", "role": "primary" },
-          { "name": "Underhive", "role": "primary" }
+          {
+            "name": "Necromunda",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Primus",
+            "role": "primary"
+          },
+          {
+            "name": "Underhive",
+            "role": "primary"
+          }
         ],
         "characters": [
-          { "name": "Kal Jerico", "role": "pov" },
-          { "name": "Desolation Zoon", "role": "antagonist" }
+          {
+            "name": "Kal Jerico",
+            "role": "pov"
+          },
+          {
+            "name": "Desolation Zoon",
+            "role": "antagonist"
+          }
         ],
         "flags": []
       }
@@ -112,15 +171,12 @@
           "planetary",
           "standalone",
           "standard",
-          "coming_of_age",
           "character_study",
           "war_story",
           "journey",
           "action_heavy",
           "grimdark",
           "somber",
-          "loss",
-          "vengeance",
           "loyalty",
           "war",
           "cw_violence",
@@ -130,21 +186,54 @@
           "en"
         ],
         "factions": [
-          { "name": "House Escher", "role": "primary" },
-          { "name": "House Goliath", "role": "antagonist" },
-          { "name": "Guilders", "role": "supporting" },
-          { "name": "Imperium", "role": "supporting" }
+          {
+            "name": "House Escher",
+            "role": "primary"
+          },
+          {
+            "name": "House Goliath",
+            "role": "antagonist"
+          },
+          {
+            "name": "Guilders",
+            "role": "supporting"
+          },
+          {
+            "name": "Imperium",
+            "role": "supporting"
+          }
         ],
         "locations": [
-          { "name": "Necromunda", "role": "primary" },
-          { "name": "Hive Primus", "role": "primary" },
-          { "name": "Underhive", "role": "primary" },
-          { "name": "Dim Zone", "role": "primary" }
+          {
+            "name": "Necromunda",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Primus",
+            "role": "primary"
+          },
+          {
+            "name": "Underhive",
+            "role": "primary"
+          },
+          {
+            "name": "Dim Zone",
+            "role": "primary"
+          }
         ],
         "characters": [
-          { "name": "Brielle", "role": "pov" },
-          { "name": "Red Tori", "role": "supporting" },
-          { "name": "Fettnir", "role": "antagonist" }
+          {
+            "name": "Brielle",
+            "role": "pov"
+          },
+          {
+            "name": "Red Tori",
+            "role": "supporting"
+          },
+          {
+            "name": "Fettnir",
+            "role": "antagonist"
+          }
         ],
         "flags": []
       }
@@ -173,7 +262,6 @@
           "brotherhood",
           "loyalty",
           "doubt",
-          "vengeance",
           "war",
           "cw_violence",
           "cw_death",
@@ -184,23 +272,58 @@
           "en"
         ],
         "factions": [
-          { "name": "House Orlock", "role": "antagonist" },
-          { "name": "Ratskins", "role": "supporting" },
-          { "name": "Guilders", "role": "supporting" },
-          { "name": "Imperium", "role": "supporting" }
+          {
+            "name": "House Orlock",
+            "role": "antagonist"
+          },
+          {
+            "name": "Ratskins",
+            "role": "supporting"
+          },
+          {
+            "name": "Guilders",
+            "role": "supporting"
+          },
+          {
+            "name": "Imperium",
+            "role": "supporting"
+          }
         ],
         "locations": [
-          { "name": "Necromunda", "role": "primary" },
-          { "name": "Hive Primus", "role": "supporting" },
-          { "name": "Underhive", "role": "primary" },
-          { "name": "Hope's End", "role": "primary" }
+          {
+            "name": "Necromunda",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Primus",
+            "role": "supporting"
+          },
+          {
+            "name": "Underhive",
+            "role": "primary"
+          },
+          {
+            "name": "Hope's End",
+            "role": "primary"
+          }
         ],
         "characters": [
-          { "name": "Caleb Cursebound", "role": "pov" },
-          { "name": "Iktomi", "role": "supporting" }
+          {
+            "name": "Caleb Cursebound",
+            "role": "pov"
+          },
+          {
+            "name": "Iktomi",
+            "role": "supporting"
+          }
         ],
         "flags": [
-          { "kind": "data_conflict", "field": "format", "suggestion": "novella", "note": "Black Library Novella Series 2 #9; SSOT-roster lists as novel" }
+          {
+            "kind": "data_conflict",
+            "field": "format",
+            "suggestion": "novella",
+            "note": "Black Library Novella Series 2 #9; SSOT-roster lists as novel"
+          }
         ]
       }
     },
@@ -235,25 +358,70 @@
           "en"
         ],
         "factions": [
-          { "name": "House Escher", "role": "primary" },
-          { "name": "House Goliath", "role": "primary" },
-          { "name": "House Orlock", "role": "primary" },
-          { "name": "House Cawdor", "role": "primary" },
-          { "name": "House Delaque", "role": "primary" },
-          { "name": "House Van Saar", "role": "primary" },
-          { "name": "Redemptionists", "role": "supporting" },
-          { "name": "Spyrers", "role": "supporting" },
-          { "name": "Guilders", "role": "supporting" },
-          { "name": "Necromunda Enforcers", "role": "supporting" },
-          { "name": "Imperium", "role": "supporting" }
+          {
+            "name": "House Escher",
+            "role": "primary"
+          },
+          {
+            "name": "House Goliath",
+            "role": "primary"
+          },
+          {
+            "name": "House Orlock",
+            "role": "primary"
+          },
+          {
+            "name": "House Cawdor",
+            "role": "primary"
+          },
+          {
+            "name": "House Delaque",
+            "role": "primary"
+          },
+          {
+            "name": "House Van Saar",
+            "role": "primary"
+          },
+          {
+            "name": "Redemptionists",
+            "role": "supporting"
+          },
+          {
+            "name": "Spyrers",
+            "role": "supporting"
+          },
+          {
+            "name": "Guilders",
+            "role": "supporting"
+          },
+          {
+            "name": "Necromunda Enforcers",
+            "role": "supporting"
+          },
+          {
+            "name": "Imperium",
+            "role": "supporting"
+          }
         ],
         "locations": [
-          { "name": "Necromunda", "role": "primary" },
-          { "name": "Hive Primus", "role": "primary" },
-          { "name": "Underhive", "role": "primary" }
+          {
+            "name": "Necromunda",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Primus",
+            "role": "primary"
+          },
+          {
+            "name": "Underhive",
+            "role": "primary"
+          }
         ],
         "characters": [
-          { "name": "Jarene", "role": "supporting" }
+          {
+            "name": "Jarene",
+            "role": "supporting"
+          }
         ],
         "flags": []
       }
@@ -281,8 +449,6 @@
           "redemption",
           "doubt",
           "loyalty",
-          "loss",
-          "vengeance",
           "war",
           "cw_violence",
           "cw_death",
@@ -292,19 +458,46 @@
           "en"
         ],
         "factions": [
-          { "name": "House Cawdor", "role": "primary" },
-          { "name": "Redemptionists", "role": "primary" },
-          { "name": "Guilders", "role": "supporting" },
-          { "name": "Imperium", "role": "supporting" }
+          {
+            "name": "House Cawdor",
+            "role": "primary"
+          },
+          {
+            "name": "Redemptionists",
+            "role": "primary"
+          },
+          {
+            "name": "Guilders",
+            "role": "supporting"
+          },
+          {
+            "name": "Imperium",
+            "role": "supporting"
+          }
         ],
         "locations": [
-          { "name": "Necromunda", "role": "primary" },
-          { "name": "Hive Primus", "role": "primary" },
-          { "name": "Underhive", "role": "primary" },
-          { "name": "Floodgrave", "role": "primary" }
+          {
+            "name": "Necromunda",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Primus",
+            "role": "primary"
+          },
+          {
+            "name": "Underhive",
+            "role": "primary"
+          },
+          {
+            "name": "Floodgrave",
+            "role": "primary"
+          }
         ],
         "characters": [
-          { "name": "Zeke", "role": "pov" }
+          {
+            "name": "Zeke",
+            "role": "pov"
+          }
         ],
         "flags": []
       }
@@ -329,7 +522,6 @@
           "grimdark",
           "somber",
           "loyalty",
-          "vengeance",
           "doubt",
           "war",
           "cw_violence",
@@ -341,27 +533,78 @@
           "en"
         ],
         "factions": [
-          { "name": "House Ulanti", "role": "primary" },
-          { "name": "Necromunda Enforcers", "role": "primary" },
-          { "name": "House Helmawr", "role": "supporting" },
-          { "name": "House Cawdor", "role": "antagonist" },
-          { "name": "Redemptionists", "role": "antagonist" },
-          { "name": "Guilders", "role": "supporting" },
-          { "name": "Imperium", "role": "supporting" }
+          {
+            "name": "House Ulanti",
+            "role": "primary"
+          },
+          {
+            "name": "Necromunda Enforcers",
+            "role": "primary"
+          },
+          {
+            "name": "House Helmawr",
+            "role": "supporting"
+          },
+          {
+            "name": "House Cawdor",
+            "role": "antagonist"
+          },
+          {
+            "name": "Redemptionists",
+            "role": "antagonist"
+          },
+          {
+            "name": "Guilders",
+            "role": "supporting"
+          },
+          {
+            "name": "Imperium",
+            "role": "supporting"
+          }
         ],
         "locations": [
-          { "name": "Necromunda", "role": "primary" },
-          { "name": "Hive Primus", "role": "primary" },
-          { "name": "Underhive", "role": "primary" },
-          { "name": "The Spire", "role": "supporting" }
+          {
+            "name": "Necromunda",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Primus",
+            "role": "primary"
+          },
+          {
+            "name": "Underhive",
+            "role": "primary"
+          },
+          {
+            "name": "The Spire",
+            "role": "supporting"
+          }
         ],
         "characters": [
-          { "name": "D'onne Ulanti", "role": "pov" },
-          { "name": "Mad Donna", "role": "pov" },
-          { "name": "Scrutinator Primus Servalen", "role": "pov" },
-          { "name": "Lord Helmawr", "role": "supporting" },
-          { "name": "KB-88", "role": "supporting" },
-          { "name": "Dog", "role": "supporting" }
+          {
+            "name": "D'onne Ulanti",
+            "role": "pov"
+          },
+          {
+            "name": "Mad Donna",
+            "role": "pov"
+          },
+          {
+            "name": "Scrutinator Primus Servalen",
+            "role": "pov"
+          },
+          {
+            "name": "Lord Helmawr",
+            "role": "supporting"
+          },
+          {
+            "name": "KB-88",
+            "role": "supporting"
+          },
+          {
+            "name": "Dog",
+            "role": "supporting"
+          }
         ],
         "flags": []
       }
@@ -390,7 +633,6 @@
           "war",
           "loyalty",
           "betrayal",
-          "vengeance",
           "cw_violence",
           "cw_death",
           "cw_disturbing",
@@ -399,28 +641,78 @@
           "en"
         ],
         "factions": [
-          { "name": "House Cawdor", "role": "primary" },
-          { "name": "House Orlock", "role": "primary" },
-          { "name": "Redemptionists", "role": "primary" },
-          { "name": "Corpse Guild", "role": "primary" },
-          { "name": "Venators", "role": "supporting" },
-          { "name": "Ratskins", "role": "supporting" },
-          { "name": "Guilders", "role": "supporting" },
-          { "name": "Imperium", "role": "supporting" }
+          {
+            "name": "House Cawdor",
+            "role": "primary"
+          },
+          {
+            "name": "House Orlock",
+            "role": "primary"
+          },
+          {
+            "name": "Redemptionists",
+            "role": "primary"
+          },
+          {
+            "name": "Corpse Guild",
+            "role": "primary"
+          },
+          {
+            "name": "Venators",
+            "role": "supporting"
+          },
+          {
+            "name": "Ratskins",
+            "role": "supporting"
+          },
+          {
+            "name": "Guilders",
+            "role": "supporting"
+          },
+          {
+            "name": "Imperium",
+            "role": "supporting"
+          }
         ],
         "locations": [
-          { "name": "Necromunda", "role": "primary" },
-          { "name": "Hive Primus", "role": "primary" },
-          { "name": "Underhive", "role": "primary" },
-          { "name": "Hope's End", "role": "supporting" }
+          {
+            "name": "Necromunda",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Primus",
+            "role": "primary"
+          },
+          {
+            "name": "Underhive",
+            "role": "primary"
+          },
+          {
+            "name": "Hope's End",
+            "role": "supporting"
+          }
         ],
         "characters": [
-          { "name": "Caleb Cursebound", "role": "supporting" },
-          { "name": "Iktomi", "role": "supporting" },
-          { "name": "Yar Umbra", "role": "supporting" }
+          {
+            "name": "Caleb Cursebound",
+            "role": "supporting"
+          },
+          {
+            "name": "Iktomi",
+            "role": "supporting"
+          },
+          {
+            "name": "Yar Umbra",
+            "role": "supporting"
+          }
         ],
         "flags": [
-          { "kind": "data_conflict", "field": "format", "suggestion": "anthology", "note": "Multi-author short-fiction collection (Annandale + Kloster + Hill + Flowers + Green + Brooks + McDermott + Wiltgren + Rath) per Amazon table-of-contents; SSOT-roster lists as novel" }
+          {
+            "kind": "data_conflict",
+            "field": "format",
+            "suggestion": "anthology",
+            "note": "Multi-author short-fiction collection (Annandale + Kloster + Hill + Flowers + Green + Brooks + McDermott + Wiltgren + Rath) per Amazon table-of-contents; SSOT-roster lists as novel"
+          }
         ]
       }
     },
@@ -457,20 +749,50 @@
           "en"
         ],
         "factions": [
-          { "name": "Guild of Light", "role": "primary" },
-          { "name": "Redemptionists", "role": "antagonist" },
-          { "name": "Guilders", "role": "supporting" },
-          { "name": "Imperium", "role": "supporting" }
+          {
+            "name": "Guild of Light",
+            "role": "primary"
+          },
+          {
+            "name": "Redemptionists",
+            "role": "antagonist"
+          },
+          {
+            "name": "Guilders",
+            "role": "supporting"
+          },
+          {
+            "name": "Imperium",
+            "role": "supporting"
+          }
         ],
         "locations": [
-          { "name": "Necromunda", "role": "primary" },
-          { "name": "Hive Primus", "role": "primary" },
-          { "name": "Underhive", "role": "primary" },
-          { "name": "Fallen Dome of Periculus", "role": "primary" }
+          {
+            "name": "Necromunda",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Primus",
+            "role": "primary"
+          },
+          {
+            "name": "Underhive",
+            "role": "primary"
+          },
+          {
+            "name": "Fallen Dome of Periculus",
+            "role": "primary"
+          }
         ],
         "characters": [
-          { "name": "Tempes Sol", "role": "pov" },
-          { "name": "Lord Silas Pureburn", "role": "antagonist" }
+          {
+            "name": "Tempes Sol",
+            "role": "pov"
+          },
+          {
+            "name": "Lord Silas Pureburn",
+            "role": "antagonist"
+          }
         ],
         "flags": []
       }
@@ -493,7 +815,6 @@
           "journey",
           "action_heavy",
           "grimdark",
-          "hopeful",
           "redemption",
           "brotherhood",
           "loyalty",
@@ -506,19 +827,46 @@
           "en"
         ],
         "factions": [
-          { "name": "House Goliath", "role": "primary" },
-          { "name": "House of Chains", "role": "primary" },
-          { "name": "House Helmawr", "role": "supporting" },
-          { "name": "Guilders", "role": "supporting" },
-          { "name": "Imperium", "role": "supporting" }
+          {
+            "name": "House Goliath",
+            "role": "primary"
+          },
+          {
+            "name": "House of Chains",
+            "role": "primary"
+          },
+          {
+            "name": "House Helmawr",
+            "role": "supporting"
+          },
+          {
+            "name": "Guilders",
+            "role": "supporting"
+          },
+          {
+            "name": "Imperium",
+            "role": "supporting"
+          }
         ],
         "locations": [
-          { "name": "Necromunda", "role": "primary" },
-          { "name": "Hive Primus", "role": "primary" },
-          { "name": "Underhive", "role": "primary" }
+          {
+            "name": "Necromunda",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Primus",
+            "role": "primary"
+          },
+          {
+            "name": "Underhive",
+            "role": "primary"
+          }
         ],
         "characters": [
-          { "name": "Breaker Brass", "role": "pov" }
+          {
+            "name": "Breaker Brass",
+            "role": "pov"
+          }
         ],
         "flags": []
       }

@@ -260,5 +260,55 @@
     "id": "jude_reid",
     "name": "Jude Reid",
     "nameSort": "Reid, Jude"
+  },
+  {
+    "id": "lee_lightner",
+    "name": "Lee Lightner",
+    "nameSort": "Lightner, Lee"
+  },
+  {
+    "id": "marc_gascoigne",
+    "name": "Marc Gascoigne",
+    "nameSort": "Gascoigne, Marc"
+  },
+  {
+    "id": "andy_jones",
+    "name": "Andy Jones",
+    "nameSort": "Jones, Andy"
+  },
+  {
+    "id": "andy_chambers",
+    "name": "Andy Chambers",
+    "nameSort": "Chambers, Andy"
+  },
+  {
+    "id": "gordon_rennie",
+    "name": "Gordon Rennie",
+    "nameSort": "Rennie, Gordon"
+  },
+  {
+    "id": "will_mcdermott",
+    "name": "Will McDermott",
+    "nameSort": "McDermott, Will"
+  },
+  {
+    "id": "matthew_farrer",
+    "name": "Matthew Farrer",
+    "nameSort": "Farrer, Matthew"
+  },
+  {
+    "id": "lucien_soulban",
+    "name": "Lucien Soulban",
+    "nameSort": "Soulban, Lucien"
+  },
+  {
+    "id": "matt_keefe",
+    "name": "Matt Keefe",
+    "nameSort": "Keefe, Matt"
+  },
+  {
+    "id": "gary_kloster",
+    "name": "Gary Kloster",
+    "nameSort": "Kloster, Gary"
   }
 ]

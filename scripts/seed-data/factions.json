@@ -869,5 +869,145 @@
     "parent": "orks",
     "alignment": "xenos",
     "tone": "alien"
+  },
+  {
+    "id": "necromunda",
+    "name": "Necromunda",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "house_helmawr",
+    "name": "House Helmawr",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "house_koiron",
+    "name": "House Ko'iron",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "house_ulanti",
+    "name": "House Ulanti",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "house_cawdor",
+    "name": "House Cawdor",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "house_escher",
+    "name": "House Escher",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "house_goliath",
+    "name": "House Goliath",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "house_orlock",
+    "name": "House Orlock",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "house_delaque",
+    "name": "House Delaque",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "house_van_saar",
+    "name": "House Van Saar",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "redemptionists",
+    "name": "Redemptionists",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "guilders",
+    "name": "Guilders",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "spyrers",
+    "name": "Spyrers",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "necromunda_enforcers",
+    "name": "Necromunda Enforcers",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "ratskins",
+    "name": "Ratskins",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "venators",
+    "name": "Venators",
+    "parent": "necromunda",
+    "alignment": "imperium",
+    "tone": "underhive"
+  },
+  {
+    "id": "last_chancers",
+    "name": "Last Chancers",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "house_belisarius",
+    "name": "House Belisarius",
+    "parent": "navis_nobilite",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "soul_drinkers",
+    "name": "Soul Drinkers",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "primaris_reboot_coexistent"
+  },
+  {
+    "id": "howling_griffons",
+    "name": "Howling Griffons",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
   }
 ]

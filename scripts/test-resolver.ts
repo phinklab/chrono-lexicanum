@@ -156,6 +156,46 @@ check("alias - Triarch Council routes to Triarch Praetorians", () => {
   assert.equal(resolveFaction("Triarch Council").id, "triarch_praetorians");
 });
 
+check("direct match - fourth wave Necromunda mid-node", () => {
+  assert.equal(resolveFaction("Necromunda").id, "necromunda");
+});
+
+check("direct match - fourth wave House Escher", () => {
+  assert.equal(resolveFaction("House Escher").id, "house_escher");
+});
+
+check("direct match - fourth wave House Helmawr", () => {
+  assert.equal(resolveFaction("House Helmawr").id, "house_helmawr");
+});
+
+check("direct match - fourth wave House Ko'iron lore-iconic freq=1", () => {
+  assert.equal(resolveFaction("House Ko'iron").id, "house_koiron");
+});
+
+check("direct match - fourth wave Necromunda Enforcers", () => {
+  assert.equal(resolveFaction("Necromunda Enforcers").id, "necromunda_enforcers");
+});
+
+check("direct match - fourth wave Guilders cluster-iconic", () => {
+  assert.equal(resolveFaction("Guilders").id, "guilders");
+});
+
+check("direct match - fourth wave Last Chancers under astra_militarum", () => {
+  assert.equal(resolveFaction("Last Chancers").id, "last_chancers");
+});
+
+check("direct match - fourth wave Soul Drinkers Firstborn-Primaris coexistent", () => {
+  assert.equal(resolveFaction("Soul Drinkers").id, "soul_drinkers");
+});
+
+check("direct match - fourth wave Howling Griffons adeptus_astartes successor", () => {
+  assert.equal(resolveFaction("Howling Griffons").id, "howling_griffons");
+});
+
+check("direct match - fourth wave House Belisarius Navigator House", () => {
+  assert.equal(resolveFaction("House Belisarius").id, "house_belisarius");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
@@ -228,6 +268,66 @@ check("alias - Dark City routes to Commorragh", () => {
 
 check("alias - Serenade routes to Cepharil", () => {
   assert.equal(resolveLocation("Serenade").id, "cepharil");
+});
+
+check("direct match - fourth wave Hive Primus Necromunda sub-location", () => {
+  assert.equal(resolveLocation("Hive Primus").id, "hive_primus");
+});
+
+check("direct match - fourth wave Underhive region-tier", () => {
+  assert.equal(resolveLocation("Underhive").id, "underhive");
+});
+
+check("direct match - fourth wave The Spire Necromunda upper-hive", () => {
+  assert.equal(resolveLocation("The Spire").id, "spire");
+});
+
+check("direct match - fourth wave Junktion eponymous setting", () => {
+  assert.equal(resolveLocation("Junktion").id, "junktion");
+});
+
+check("direct match - fourth wave The Fang Space Wolves monastery", () => {
+  assert.equal(resolveLocation("The Fang").id, "fang");
+});
+
+check("direct match - fourth wave Asaheim Fenris continent", () => {
+  assert.equal(resolveLocation("Asaheim").id, "asaheim");
+});
+
+check("direct match - fourth wave Planet of the Sorcerers Thousand Sons daemon world", () => {
+  assert.equal(resolveLocation("Planet of the Sorcerers").id, "planet_of_the_sorcerers");
+});
+
+check("direct match - fourth wave Gothic Sector region", () => {
+  assert.equal(resolveLocation("Gothic Sector").id, "gothic_sector");
+});
+
+check("direct match - fourth wave Shadow Point Gothic War", () => {
+  assert.equal(resolveLocation("Shadow Point").id, "shadow_point");
+});
+
+check("direct match - fourth wave The Phalanx Imperial Fists star-fort", () => {
+  assert.equal(resolveLocation("The Phalanx").id, "phalanx");
+});
+
+check("alias - fourth wave lowercase the Phalanx routes to phalanx", () => {
+  assert.equal(resolveLocation("the Phalanx").id, "phalanx");
+});
+
+check("direct match - fourth wave Hydraphur Calpurnia fortress system in Pacificus", () => {
+  assert.equal(resolveLocation("Hydraphur").id, "hydraphur");
+});
+
+check("direct match - fourth wave Selaaca Soul Drinkers", () => {
+  assert.equal(resolveLocation("Selaaca").id, "selaaca");
+});
+
+check("alias - fourth wave Tau Empire space routes to tau_empire", () => {
+  assert.equal(resolveLocation("Tau Empire space").id, "tau_empire");
+});
+
+check("unresolved - fourth wave Imperium-as-Location cross-axis frame stays null", () => {
+  assert.equal(resolveLocation("Imperium").id, null);
 });
 
 console.log("\nresolveCharacter");
@@ -327,6 +427,58 @@ check("alias - Inquisitor Draco routes to Jaq Draco", () => {
 
 check("alias - Lord Castellan Creed routes to Ursarkar Creed", () => {
   assert.equal(resolveCharacter("Lord Castellan Creed").id, "ursarkar_e_creed");
+});
+
+check("direct match - fourth wave Ragnar Blackmane Space Wolves saga POV", () => {
+  assert.equal(resolveCharacter("Ragnar Blackmane").id, "ragnar_blackmane");
+});
+
+check("alias - fourth wave Ragnar Thunderfist pre-Blackmane novitiate routes to ragnar_blackmane", () => {
+  assert.equal(resolveCharacter("Ragnar Thunderfist").id, "ragnar_blackmane");
+});
+
+check("direct match - fourth wave Sarpedon Soul Drinkers Chapter-Master", () => {
+  assert.equal(resolveCharacter("Sarpedon").id, "sarpedon");
+});
+
+check("direct match - fourth wave Daenyathos Soul Drinkers founder-philosopher", () => {
+  assert.equal(resolveCharacter("Daenyathos").id, "daenyathos");
+});
+
+check("direct match - fourth wave Kal Jerico Multi-Era one-row", () => {
+  assert.equal(resolveCharacter("Kal Jerico").id, "kal_jerico");
+});
+
+check("direct match - fourth wave Mad Donna canonical surface", () => {
+  assert.equal(resolveCharacter("Mad Donna").id, "mad_donna");
+});
+
+check("alias - fourth wave D'onne Ulanti cross-batch consolidation routes to mad_donna", () => {
+  assert.equal(resolveCharacter("D'onne Ulanti").id, "mad_donna");
+});
+
+check("direct match - fourth wave Lieutenant Kage Last Chancers POV", () => {
+  assert.equal(resolveCharacter("Lieutenant Kage").id, "lieutenant_kage");
+});
+
+check("alias - fourth wave the Burned Man cross-batch consolidation routes to lieutenant_kage", () => {
+  assert.equal(resolveCharacter("the Burned Man").id, "lieutenant_kage");
+});
+
+check("direct match - fourth wave Lord Gerontius Helmawr classic-imprint (Helmawr split)", () => {
+  assert.equal(resolveCharacter("Lord Gerontius Helmawr").id, "gerontius_helmawr");
+});
+
+check("direct match - fourth wave Lord Helmawr modern-imprint (Helmawr split)", () => {
+  assert.equal(resolveCharacter("Lord Helmawr").id, "lord_helmawr");
+});
+
+check("direct match - fourth wave Shira Calpurnia Adeptus Arbites POV", () => {
+  assert.equal(resolveCharacter("Shira Calpurnia").id, "shira_calpurnia");
+});
+
+check("direct match - fourth wave Captain Leoten Sempter Gothic War", () => {
+  assert.equal(resolveCharacter("Captain Leoten Sempter").id, "captain_leoten_sempter");
 });
 
 console.log("\nnormalizeCharacterRole");

@@ -102,6 +102,25 @@ Die 50er-Schwelle trifft auch mitten in W40K-Domain mehrfach (50, 100, 150, …,
 
 - **`npm run lint`** + **`npm run typecheck`** + **`npm run brain:lint -- --no-write`** grün. (Keine Code-Änderungen erwartet, aber Lint-Discipline aus Konvention. CC darf die Befehle bei reinem Daten-Commit überspringen, wenn er es begründet.)
 
+- **Public Synopsis Discipline (ab `ssot-w40k-021` / `W40K-0201`).** Verankert durch Brief 076 (Resolver-Pass 4 axis-sliced) Mini-Phase 5. Greift forward-only — existierende Override-Files `ssot-w40k-001..020` bleiben unangetastet (separater Rewrite-Pass irgendwann später).
+
+  **Synopsen sind public-reader-copy.** `overrides.synopsis` schreibt sich für Leser der Public-Page `/buch/[slug]`: plot-/premise-orientiert, kurz, lesbar. Kein internes Curation-Vokabular, keine Brief-Sprache, keine Audit-Anker.
+
+  **Verboten in `overrides.synopsis`:**
+  - SSOT-IDs (`W40K-NNNN`, `HH-NNNN`).
+  - Brief-Verweise (`Brief 061`, `Resolver-Pass`, `Brief 076`, …).
+  - Authority-Layer-Sprache (`authority layer`, `cumulative=`, `loop-iteration`, `cumulativeBefore`, …).
+  - Resolver-/Workflow-Hinweise (`Resolver-Pass`, `resolver class`, `surface form`, `canonical entity`, `direct match`, `alias lookup`, …).
+  - Interne Curation-Kommentare (`data_conflict`, `low_confidence`, `historical_canon_layer`, …).
+  - Markdown-Fußnoten-/Audit-Stil (`See note:`, `[ref]`, Footnote-Reference-Style, `cf.`-Hinweise).
+
+  **Technische Curation-Infos** gehören stattdessen in:
+  - `sessions/ssot-loop-log.md` — per-batch, ohnehin Loop-Log-Konvention; Surface-Form-Sammlung, `value_outside_vocabulary`-Ledger, cross-batch alias-consolidation-Calls für den nächsten Resolver-Pass.
+  - `overrides.flags` — `data_conflict`, `low_confidence` etc. bleibt Constraint-conform (schema-tragend, vom Apply-Skript ausgewertet).
+  - `book_details.notes` — per-book Maintainer-Notiz für späteres Audit, falls eine über- oder unter-dem-Radar-Bemerkung nötig wird.
+
+  **Begründung.** Synopsen aus `manual-overrides-ssot-w40k-001..020.json` sind public-rendered auf `/buch/[slug]` und wurden teilweise mit internem Curation-Vokabular geschrieben, das für Reddit-Launch / Public-Reader nicht lesbar ist. Die Disziplin trennt sauber: Reader-Copy in `works.synopsis`, Maintainer-Wissen in Loop-Log / Flags / Notes.
+
 ## Out of scope
 
 - **DB-Apply.** Apply für die produzierte Override-Datei läuft separat per `npm run db:apply-override -- --batch=ssot-{domain}-{NNN}` (Brief 060). NICHT in dieser Iteration.
