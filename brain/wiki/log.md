@@ -533,3 +533,56 @@ Codex-Review der Post-075-Hygiene hat einen Bedienungs-Widerspruch gefunden: `se
 **Korrektur:** Der nächste operative Driver-Lauf ist `bash scripts/run-ssot-loop.sh 5 --skip-initial-resolver-pause`. Das Flag injiziert `skip-50-stop` nur in die erste Subsession, also nur für `ssot-w40k-016`; Iterationen 017–020 laufen unmarkiert. Wenn der Lauf bei kumulativ 200 landet, startet der Driver laut Skriptlogik automatisch eine ungeskippte Pause-Probe, sodass der 200er-Resolver-Pause-Block committed wird.
 
 **Pages touched:** `project-state.md` (Next-likely-brief, What's-open, What's-running und operative Step-Form), `pipeline-state.md` (updated 2026-05-16 + sources + next-axis Items 12–14), `index.md` (Katalogzeilen project-state/pipeline-state), `sessions/README.md` (Maintainer-Bedienung + 061-Zeile), this `log.md`.
+
+## 2026-05-17 · Review · 077-impl Grand-Alignment-Junction-Hygiene accepted
+
+Cowork-Review von [`sessions/2026-05-16-077-impl-grand-alignment-junction-hygiene.md`](../../sessions/2026-05-16-077-impl-grand-alignment-junction-hygiene.md). Verdict: **accept, ohne Rework-Anforderungen.** Implementation passt Acceptance-Bullet-für-Bullet zum Brief.
+
+**Spot-checks (read-only):**
+
+- `scripts/seed-data/faction-policy.json` trägt `"redundantWhenSubPresent": ["imperium", "chaos"]` als neues Top-Level-Feld.
+- `scripts/seed-data/factions.json` `imperium`-Row trägt explizit `"alignment": "imperium"` (Erratum-3 Option A).
+- `src/lib/seed/alignment.ts` neu (`Alignment`-Type + `inferAlignmentFromTree` + `normalizeAlignment`); `scripts/seed-resolver-extensions.ts` importiert von dort (Erratum-3 Option B — Belt-and-Suspenders gegenüber Constraint-Wording, defensive Wahl, akzeptiert).
+- `scripts/apply-override-skip.ts` pure helper mit DI-Signatur, Drei-Bedingungen-Skip aus Brief § Constraints korrekt implementiert.
+- `scripts/apply-override.ts` `loadSkipContext()` mit Startup-Validation (Throw wenn `redundantWhenSubPresent`-ID nicht in `factions.json` ODER `alignment === "neutral"`). `applyBook` reordered: Faction-Resolution + `decideFactionSkips()` laufen vor `buildSurfaceFormsBlock`, `keepFactions` füttert das DELETE-then-INSERT-Write.
+- `sessions/2026-05-11-061-arch-ssot-loop.md` trägt neuen `Faction-Granularity-Discipline (ab ssot-w40k-021)`-Block direkt nach dem Public-Synopsis-Block (Pattern analog Mini-Phase 5 aus 076). `scripts/run-ssot-loop.sh` heredoc-Append reicht die Discipline an jede Loop-Subsession durch.
+- `brain/wiki/decisions/faction-policy.md` neue Sektion „Grand-Alignment-Junction-Skip" mit Skip-Liste-Location, Drei-Bedingungen-Regel, Audit-Bucket-Location, Semantik-Anmerkung (Alignment-Equality funktioniert nur für imperium/chaos weil dort alignment = tree-root), Backfill-Path, Forward-Discipline. Neuer Revisit-Trigger für Aeldari-Sub-Splits-Aktivierung (mit explizitem Hinweis: vor `eldar`-Aufnahme in `redundantWhenSubPresent` muss `decideFactionSkips` auf Parent-Chain umgestellt werden, weil `tau`/`eldar` beide `xenos` sind aber Tau kein Eldar-Sub ist). Frontmatter `updated: 2026-05-16` + sources um Brief 077 + die zwei neuen Scripts erweitert.
+- Tests: 6 neue Cases in `scripts/test-resolver.ts` für `decideFactionSkips` (Skip-fires, Skip-fires-nicht-bei-no-sub, both-skip-mixed-block, multi-alias-audit-trail, …). 122/0 grün.
+
+**Counts-Tabelle aus dem 077-Report bestätigt** (alle anderen Axes invariant — erwartet):
+
+| Metrik | Pre (post-076) | Post (post-077) | Delta |
+|---|---:|---:|---:|
+| `work_factions` | 1185 | 1020 | **−165** |
+| `work_factions(imperium\|chaos)` | 214 | 49 | **−165** |
+| `work_factions(imperium)` | 81 | 6 | −75 |
+| `work_factions(chaos)` | 133 | 43 | −90 |
+
+Residual 49 (`imperium=6` / `chaos=43`) sind Bücher ohne alignment-gleiche Sub-Faction im Override — Erhaltungs-Pfad, gewollt.
+
+**Decisions-I-Made-Audit:**
+
+- *factions.json-Patch UND Helper-Extract gleichzeitig:* Brief Constraint § 2 ließ beides offen, Cowork-Empfehlung war Option A (JSON-Patch). CC hat A+B gewählt — defensive Belt-and-Suspenders. Akzeptiert ohne Rework, weil die explizite Row keine Konsistenz-Risiken trägt und die Helper-Extract die Doppel-Pflege beendet.
+- *Pure Skip-Helper in eigener File:* Brief verlangte Skip-Logik im Apply-Layer; CC hat den reinen Entscheidungs-Teil weiter herausgezogen, damit `test-resolver.ts` ohne DB-Client-Side-Effects darauf testen kann. Akzeptiert mit Lob für DI-Signatur.
+- *Skip-Bucket als Bare-String-Array:* Brief-Beispiel zeigte Bare-Strings, existierende Buckets in `buildSurfaceFormsBlock` tragen `{name,role}`-Objects. CC hat Brief-Treue gewählt. Akzeptiert — die Audit-Semantik braucht keine Role.
+- *Dry-Run + Coverage-Test mitziehen:* Brief Notes § 5 hat das explizit erlaubt. Akzeptiert; das `(post-Brief-077-skip, 165 grand-alignment surface forms suppressed)`-Tail im Coverage-Output ist eine saubere Spur.
+- *Smoke-Probe-Logik präzisiert:* CC hat erst hart auf „keine imperium/chaos-Junction" gepruft (4/6 FAIL) und dann auf alignment-aware umgestellt (6/6 OK). Korrekte Brief-Lesung — Acceptance bullet sagt explizit „sofern alignment-gleiche Sub-Tags da sind".
+- *Branch-Strategie:* 077 sitzt auf 076-Tip statt `main` — korrekt, weil 077 logisch auf den 076-Apply-Stand aufsetzt und die Post-076-Counts als Baseline braucht. Maintainer-Sequenz: 076 mergen → 077 rebasen/mergen → Wiki-Hygiene-Pass.
+
+**For-next-session-Items aus 077-impl gehandhabt:**
+
+- (1) Locations-Axis-Hygiene-Sister-Pass (Imperium x20 als unresolved Location) → **neue OQ (11)** in [`./open-questions.md`](./open-questions.md) mit drei Architektur-Calls (Policy-File-Form, Skip-Bedingung Tree-Membership-vs-Allowlist, HH-Domain).
+- (2) HH-Domain Pre-Heresy `alpha_legion` Cabal-Twist → CC hat den Hinweis nicht in `faction-policy.md` § Revisit-Trigger eingearbeitet (HH ist Brief-070-Out-of-Scope-Position). Bleibt bis HH-Domain aktiv wird in der Air; Note hier statt OQ (kein konkreter Architektur-Call nötig).
+- (3) + (4) `smoke-slugs-077.ts` als CI-Smoke + `test:resolver-coverage` Two-Line-Output → Note an existierende „laufende Cockpit-Refinements"-Sektion unter OQ (10) gehängt. Keine eigene OQ.
+- (5) `brain:lint` Size-Budget-Warning auf `faction-policy.md` (108/100) → tolerable für jetzt, Refactor-Move nach `pipeline-state.md` lohnt erst wenn weitere Sektionen dazukommen. Kein OQ.
+
+**Out of scope dieser Review-Session:**
+
+- **Voller Wiki-Hygiene-Pass post-076 + post-077.** `project-state.md` / `pipeline-state.md` zeigen noch die Post-074-Counts (`work_factions=912`, 150 Bücher); die Wahrheit ist Post-077 (`work_factions=1020`, 200 Bücher). Per Maintainer-Tagline in `sessions/README.md` geplant für nach den 076/077-Merges, in einer eigenen Cowork-Session. Hier nur die Delta-Stelle eingehen, die Open-Questions-Pflege braucht.
+- **Session-Archive-Moves.** Keine. 077-Pair bleibt in Active-Threads bis 076 → 077 → Wiki-Hygiene-Pass durchgespielt sind.
+- **`brain:lint --no-write`-Run durch Cowork.** Sandbox-unzuverlässig — bleibt Maintainer-/CC-Aufgabe.
+- **PR-Aktionen.** Cowork mergt nicht; Maintainer-Sequenz steht im README-Tagline.
+
+**Pages touched (wiki):** `open-questions.md` (Frontmatter `updated: 2026-05-17` + neuer Review-Hygiene-Block, neue OQ (11) Locations-Axis-Hygiene, Note an existierender Cockpit-Refinement-Sektion erweitert um 077-impl-Items 3-4), this `log.md`.
+
+**Outside wiki:** keine (`sessions/README.md`-Active-Threads-Tabelle ist schon korrekt — 077-Zeilen wurden von CC bereits eingetragen, Maintainer-Tagline sagt schon „077 implementiert").

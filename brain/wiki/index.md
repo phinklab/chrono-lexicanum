@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-05-16
+updated: 2026-05-17
 sources: []
 related:
   - ../CLAUDE.md
@@ -22,7 +22,7 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-075-impl + Wiki-Hygiene-Pass 2026-05-16: 150 W40K-Bücher applied (77 davon mit Hardcover-Rating, 51.3 %), Cockpit-Drift-Frequenz-Sort + slim Public-DetailPanel gelandet, OQ6 closed; Loop-Resume-Kommando auf `--skip-initial-resolver-pause` korrigiert. | 2026-05-16 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Wiki-Hygiene 2026-05-16: OQ6 (Hardcover-Rating-Promotion) durch Brief 075 closed; neue OQ (10) „Hardcover-Hit-Rate-Härtung (Titel-Normalisierung)" promoted (51.3 % Hit-Rate < 70 %-Trigger). Restqueue: Loop-Resume `ssot-w40k-016..020`, OQ (10), Cockpit-Sub-Sortierung, OQ3, Collection-Gap-Resolve. | 2026-05-16 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-077-Review 2026-05-17: 077 accepted (Grand-Alignment-Junction-Hygiene, `work_factions=1185 → 1020 (−165)`), neue OQ (11) „Locations-Axis-Hygiene-Sister-Pass" promoted (Imperium x20 als unresolved Location). Restqueue: 076 + 077 mergen → Wiki-Hygiene-Pass → Loop-Re-Trigger `ssot-w40k-021..025`, OQ (10), OQ (11), Cockpit-Sub-Sortierung, OQ3, Collection-Gap-Resolve. | 2026-05-17 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
