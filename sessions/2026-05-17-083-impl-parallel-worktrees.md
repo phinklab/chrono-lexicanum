@@ -5,179 +5,140 @@ date: 2026-05-17
 status: complete
 slug: parallel-worktrees
 parent: 2026-05-17-082
-links: []
-commits: []
+links:
+  - https://github.com/phinklab/chrono-lexicanum/pull/68
+commits:
+  - ddc0a8a
 ---
 
-# Parallel-Worktrees — minimaler Bootstrap
+# Parallel-Worktrees - Product/Batches Bootstrap
 
 ## Summary
 
-Zwei neue Worktrees neben dem Originalworktree angelegt —
-`chrono-lexicanum-hud` auf `codex/chrono-hud-map` und
-`chrono-lexicanum-batches` auf `codex/ingest-batches-bootstrap`, beide
-frisch von `origin/main` (`9b9a839…`) abgezweigt. Worktrees sind das
-Deliverable; **keine Commits in dieser Session** — diese Report-Datei
-und der Brief-082-Status-Edit liegen unstaged im Originalworktree, per
-expliziter Plan-Phase-Direktive von Phil. Er committet sie später aus
-dem passenden Worktree.
+Brief 082 ist umgesetzt und nach Phils Addendum auf den besseren Schnitt
+umgestellt: dauerhafte Worktrees fuer Product/UI und Batches, Originalworktree
+als Coordination/Main. Die Regeln fuer "fertig" -> commit/push/PR ohne Merge
+und "PR ist gemerged, bitte aufraeumen" stehen jetzt in `CLAUDE.md` und
+`AGENTS.md`, damit Claude Code und Codex sie automatisch sehen.
 
 ## What I did
 
-Aufrufe in der Reihenfolge, jeweils aus `C:\Users\Phil\chrono-lexicanum`:
+- `C:\Users\Phil\chrono-lexicanum-product` - aktiver Product/UI-Worktree,
+  entstanden durch Umhaengen des zuerst angelegten HUD-Worktrees
+  `C:\Users\Phil\chrono-lexicanum-hud`.
+- `C:\Users\Phil\chrono-lexicanum-batches` - aktiver Batch/Ingestion-Worktree.
+- `CLAUDE.md` - Parallel-Worktree-Git-Protocol fuer Claude Code ergaenzt.
+- `AGENTS.md` - neuer Codex/Agent-Einstieg mit Session-Start-Regeln und
+  demselben Parallel-Worktree-Git-Protocol.
+- `sessions/2026-05-17-082-arch-parallel-worktrees.md` - Brief auf den
+  Product/Batches-Schnitt und die neuen Auto-Instruktionen aktualisiert.
+- `sessions/2026-05-17-083-impl-parallel-worktrees.md` - Report auf den
+  finalen Zielzustand aktualisiert.
+
+## Commands / exact worktree operations
+
+Initiale Bootstrap-Aufrufe aus `C:\Users\Phil\chrono-lexicanum`:
 
 ```
-git fetch origin                                                                            # no-op, origin/main schon aktuell
-git worktree add -b codex/chrono-hud-map ../chrono-lexicanum-hud origin/main                # → C:\Users\Phil\chrono-lexicanum-hud
-git worktree add -b codex/ingest-batches-bootstrap ../chrono-lexicanum-batches origin/main  # → C:\Users\Phil\chrono-lexicanum-batches
-git worktree list                                                                           # 4 Einträge
+git fetch origin
+git worktree add -b codex/chrono-hud-map ../chrono-lexicanum-hud origin/main
+git worktree add -b codex/ingest-batches-bootstrap ../chrono-lexicanum-batches origin/main
+git worktree list
 ```
 
-HEAD-Commit-Hashes (beide identisch zu `origin/main`):
-
-- `chrono-lexicanum-hud`     → `9b9a839baa9c0e10a0998948024e25d607b111cf` (`codex/chrono-hud-map`)
-- `chrono-lexicanum-batches` → `9b9a839baa9c0e10a0998948024e25d607b111cf` (`codex/ingest-batches-bootstrap`)
-
-`git worktree list` am Ende:
+Nach Phils Addendum:
 
 ```
-C:/Users/Phil/chrono-lexicanum         9b9a839 [main]
+git worktree move C:\Users\Phil\chrono-lexicanum-hud C:\Users\Phil\chrono-lexicanum-product
+git -C C:\Users\Phil\chrono-lexicanum-product branch -m codex/product-bootstrap
+git config --global --add safe.directory C:/Users/Phil/chrono-lexicanum-product
+git config --global --add safe.directory C:/Users/Phil/chrono-lexicanum-batches
+```
+
+Finale Worktree-Liste:
+
+```
+C:/Users/Phil/chrono-lexicanum         ddc0a8a [session-082-parallel-worktrees]
 C:/Users/Phil/chrono-batches-011-015   84a3c5f [ingest/batches-011-015]
 C:/Users/Phil/chrono-lexicanum-batches 9b9a839 [codex/ingest-batches-bootstrap]
-C:/Users/Phil/chrono-lexicanum-hud     9b9a839 [codex/chrono-hud-map]
+C:/Users/Phil/chrono-lexicanum-product 9b9a839 [codex/product-bootstrap]
 ```
 
-Beide neuen Worktrees clean (`nothing to commit, working tree clean`),
-beide auf der korrekten `codex/*`-Branch. Originalworktree unverändert
-auf `main` @ `9b9a839…`.
+Product- und Batch-Worktree sind clean und stehen beide auf
+`9b9a839baa9c0e10a0998948024e25d607b111cf`, dem `origin/main`-Tip zum
+Bootstrap-Zeitpunkt.
 
 ## Decisions I made
 
-- **Kein Commit, kein Push, kein PR.** Phils Plan-Phase-Direktive:
-  „Brief 082 nur bis zur Worktree-Anlage ausführen. Kein PR, kein
-  Squash-Merge, kein Branch session-083, kein Pull, kein Löschen einer
-  Plan-Datei." Diese Report-Datei und der `status: open` → `implemented`-
-  Edit in Brief 082 liegen unstaged im Originalworktree; Phil committet
-  sie später (vermutlich aus dem passenden Worktree, wenn dort die
-  erste echte Arbeit committet wird). `commits: []` im Frontmatter
-  spiegelt das.
-- **Plan-Datei NICHT gelöscht** — Phil hat in der Plan-Phase explizit
-  gesagt, sie bleibt stehen
-  (`C:\Users\Phil\.claude\plans\fahre-sessions-…-effervescent-abelson.md`).
-- **`-b codex/...` mit `origin/main` als Start-Ref.** Nebeneffekt: Git
-  hat die beiden neuen Branches mit `origin/main` als Upstream
-  verbunden („branch 'codex/chrono-hud-map' set up to track
-  'origin/main'"). Das heißt: ein nackter `git push` aus einem der
-  neuen Worktrees würde mit `push.default=simple` mit Fehler
-  („upstream branch name does not match") abbrechen — sicher, aber
-  unschön. **Beim ersten Push aus diesen Worktrees explizit `git push
-  -u origin codex/<branch>` verwenden**, um die Upstream-Verbindung
-  auf die passende Remote-Branch zu setzen. Nicht jetzt repariert,
-  weil der Brief jede Config-Änderung in den neuen Worktrees
-  ausschließt.
+- **Product/UI statt HUD-only.** Drei aktive Arbeitsorte sind genug:
+  Original/Coordination, Product/UI, Batches. Ein separater Design- oder
+  Feature-Worktree wuerde dieselben UI-Dateien beruehren und Konflikte eher
+  vermehren.
+- **Bootstrap-Branches bleiben neutral.** `codex/product-bootstrap` und
+  `codex/ingest-batches-bootstrap` sind Wartepositionen. Echte Arbeit startet
+  auf frischen Task-Branches von `origin/main`.
+- **`main` wird read-only kodifiziert.** Der Direkt-Push-Versuch gegen `main`
+  wurde von Branch-Protection blockiert. Die neue Regel verhindert, dass
+  kuenftig ueberhaupt lokale Commits auf `main` entstehen.
+- **PR #68 bleibt der Transport.** Branch-Protection verlangt PRs; die
+  Session-Doku und Instruktionsaenderungen werden deshalb in den offenen PR
+  #68 gepusht. Philipp merged haendisch.
 
 ## Verification
 
-Aus dem Originalworktree:
+- `git worktree list` - zeigt Original, Legacy-Worktree, Product-Worktree und
+  Batch-Worktree.
+- `git -C C:\Users\Phil\chrono-lexicanum-product status --short --branch` -
+  `## codex/product-bootstrap...origin/main`, clean.
+- `git -C C:\Users\Phil\chrono-lexicanum-batches status --short --branch` -
+  `## codex/ingest-batches-bootstrap...origin/main`, clean.
+- `git branch -vv` - Product- und Batch-Branches zeigen auf `9b9a839`; die
+  PR-Branch `session-082-parallel-worktrees` enthaelt den 082-Commit.
 
-- `git worktree list` → 4 Einträge wie oben.
-- `git branch --show-current` → `main`.
-- `git rev-parse HEAD` → `9b9a839baa9c0e10a0998948024e25d607b111cf`
-  (unverändert).
-
-Aus jedem neuen Worktree (per `git -C ../chrono-lexicanum-{hud,batches}`):
-
-- `git rev-parse HEAD` → beide `9b9a839baa9c0e10a0998948024e25d607b111cf`.
-- `git status` → „nothing to commit, working tree clean".
-- `git branch --show-current` → `codex/chrono-hud-map` bzw.
-  `codex/ingest-batches-bootstrap`.
-
-Stop-Bedingung „Cartographer in `origin/main`?" vorab geprüft:
-`git ls-tree -r --name-only origin/main` enthält
-`src/app/lab/cartographer/page.tsx` — 079-impl ist gemerged, also
-gefahrlos fortgesetzt.
-
-Pfad- und Branch-Existenz vorab geprüft: keiner der vier Zielnamen
-(`chrono-lexicanum-hud`, `chrono-lexicanum-batches`,
-`codex/chrono-hud-map`, `codex/ingest-batches-bootstrap`) existierte
-vorher; `git ls C:/Users/Phil/chrono-lexicanum-{hud,batches}` lieferte
-„No such file or directory".
+Nicht gelaufen: `npm run lint`, `npm run typecheck`, `npm run brain:lint`.
+Diese Session aendert nur Markdown/Doku und lokale Worktree-Zuordnung; keine
+App-/TypeScript-/Brain-Wiki-Codepfade.
 
 ## Open issues / blockers
 
-Keine.
+- Lokales `main` ist weiterhin `1 ahead` von `origin/main`, weil der erste
+  Commit vor der Branch-Protection-Erkenntnis lokal auf `main` entstanden ist.
+  Nicht bereinigt, weil das nach PR-Merge ein expliziter Cleanup-Schritt sein
+  soll. Nach Phils "PR ist gemerged, bitte aufraeumen" darf der Worktree sauber
+  auf `origin/main` zurueckgefuehrt werden.
+- `sessions/README.md` und
+  `sessions/2026-05-17-081-arch-ssot-synopsis-backfill-005-019.md` gehoeren zu
+  fremden/inflight Sessions und wurden nicht gestaged.
 
 ## Antworten auf die Open Questions im Brief
 
-**`node_modules` pro Worktree?** Empfehlung: **separates `npm install`
-je Worktree.** Begründung:
+**`node_modules` pro Worktree?** Empfehlung: separates `npm install` je
+Worktree. Junction/Symlink auf Windows ist technisch moeglich, bringt aber bei
+parallelen `npm install` / `npm run build`-Laeufen Race-Conditions zurueck.
+`pnpm` waere eleganter, aber ein eigener Package-Manager-Umzug ist fuer reines
+Speicher-Sparen zu gross.
 
-- Junction/Symlink (`mklink /J node_modules ...`) auf Windows
-  funktioniert technisch, erzeugt aber bei parallelen `npm install` /
-  `npm run build`-Läufen in zwei Worktrees Race-Conditions, weil sich
-  beide denselben Cache + dieselben `.bin/`-Stubs teilen. Das ist
-  genau das Serialisierungs-Problem, das die Worktrees lösen sollen
-  — würde unter dem Tisch wiederkommen.
-- `pnpm` mit Workspaces wäre die eleganteste Lösung
-  (Content-Addressable Store global, je Worktree ein billiges
-  Symlink-Skelett), bedeutet aber Umzug `npm` → `pnpm`:
-  `package.json`-Scripts-Audit, neuer Lockfile,
-  Vercel-Build-Config-Anpassung. Für reines Speicher-Sparen zu groß.
-- Drei `node_modules` (Original + HUD + Batches) à
-  ~500 MB–1 GB sind auf Phils Maschine vermutlich problemlos. Disk
-  ist billiger als ein Bugfix-Tag aus Cache-Inkonsistenzen.
-
-Konkret: Phil läuft `npm install` einmal beim ersten Betreten eines
-neuen Worktrees. Brief hat das richtigerweise schon ausgeschlossen,
-dass ich es jetzt vorab tue.
-
-**`ingest`-Branch-Zustand.** Im Repo existiert **kein** lokaler Branch
-namens schlicht `ingest`. Der einzige Treffer auf `ingest/*` ist
-`ingest/batches-011-015` auf
-`84a3c5f338e4565370dd31db2586cb3062c3c527`, und das ist die Branch des
-Alt-Worktrees `C:\Users\Phil\chrono-batches-011-015` — bleibt per
-Brief unangetastet. `git log --oneline -3 ingest/batches-011-015`:
-
-```
-84a3c5f 061: ssot-w40k resolver-pause bei 150 Büchern (loop iter 16)
-f8a15d4 061: ssot-w40k-015 loop iter 15
-cfb8881 061: ssot-w40k-014 loop iter 14
-```
-
-Trotz des Branch-Namens (`batches-011-015`) ist der Tip aus der
-**061er SSOT-Loop** (Iter 14–16) — also nicht so historisch wie der
-Branchname suggeriert. Ob das noch produktiv ist oder ein
-zurückgelassener Loop-Stub, entscheidet Phil.
-
-Der SHA, den Brief 082 dem `ingest`-Head zuschreibt
-(`9b9a839baa9c0e10a0998948024e25d607b111cf`), ist tatsächlich der
-aktuelle `main`/`origin/main`-Tip — die Brief-Notiz dort verwechselt
-vermutlich `ingest` mit `main`. Praktische Konsequenz: keine.
+**`ingest`-Branch-Zustand.** Kein lokaler Branch namens schlicht `ingest`.
+Der einzige Treffer ist `ingest/batches-011-015` auf
+`84a3c5f338e4565370dd31db2586cb3062c3c527`, der Legacy-Worktree. Der im Brief
+notierte `9b9a839...`-SHA war tatsaechlich `main`/`origin/main`.
 
 ## For next session
 
-- HUD-Session in `chrono-lexicanum-hud` auf `codex/chrono-hud-map`
-  starten; TSX-Port aus `/lab/cartographer` kann dort beginnen, ohne
-  dass Brief-081-Batch-Arbeit im anderen Worktree stört.
-- Batch-Session in `chrono-lexicanum-batches`: vor der ersten echten
-  Aufgabe von `codex/ingest-batches-bootstrap` auf eine
-  task-spezifische Branch wechseln, z. B. `git switch -c
-  codex/ingest-batches-synopsis-005-019`.
-- **Erster Push in jedem neuen Worktree:** `git push -u origin
-  <branch>` (siehe „Decisions I made" zum Upstream-Footgun).
-- Sobald sich die Worktree-Praxis bewährt hat, kann eine Folge-Session
-  die Brief-082-Ownership-Regel („HUD-Worktree schreibt in …,
-  Batch-Worktree schreibt in …") nach `brain/wiki/workflows/`
-  verfestigen — der Brief hat das ausdrücklich erlaubt.
-- Phils dauerhafte Worktree-Workflow-Regeln aus der Plan-Phase
-  (`fertig` / `PR ist gemerged, bitte aufräumen`) sind dort
-  dokumentiert und werden im Anschluss als CC-`feedback`-Memory
-  gespeichert, damit jede künftige Worktree-Session sie automatisch
-  kennt.
+- Product/UI-Session in `C:\Users\Phil\chrono-lexicanum-product` starten.
+  Wenn die Branch noch `codex/product-bootstrap` ist, zuerst eine echte
+  Task-Branch von `origin/main` anlegen, z. B. `codex/product-hud-map`.
+- Batch-Session in `C:\Users\Phil\chrono-lexicanum-batches` starten.
+  Wenn die Branch noch `codex/ingest-batches-bootstrap` ist, zuerst eine echte
+  Task-Branch von `origin/main` anlegen, z. B.
+  `codex/ingest-batches-synopsis-005-019`.
+- Bei "fertig": committen, `git push -u origin <branch>`, PR erstellen, nicht
+  mergen.
+- Nach manuellem Merge: "PR ist gemerged, bitte aufraeumen" sagen; dann wird
+  der jeweilige Worktree auf die Bootstrap-Branch zurueckgefuehrt.
 
 ## References
 
-- Brief: [`sessions/2026-05-17-082-arch-parallel-worktrees.md`](2026-05-17-082-arch-parallel-worktrees.md)
-- Verwandte Sessions: 079 (Lab-Cartographer-Prototyp), 081
-  (SSOT-Synopsis-Backfill, offen).
-- `git worktree add` Doku: <https://git-scm.com/docs/git-worktree>
+- Brief: `sessions/2026-05-17-082-arch-parallel-worktrees.md`
+- PR: https://github.com/phinklab/chrono-lexicanum/pull/68
+- Git worktree docs: https://git-scm.com/docs/git-worktree
