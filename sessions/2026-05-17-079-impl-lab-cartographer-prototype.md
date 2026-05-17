@@ -69,14 +69,12 @@ parallel auf anderen Branches und blieben unangetastet.
   Code-Referenz. Verifikation: Smoke-Test gegen dev-Server (siehe
   Verification-Section) zeigt 200-Status auf alle 13 erwarteten Pfade.
 
-- **`fixed inset-0 z-0` statt offset-für-TopChrome.** Die globale TopChrome
-  (z-20, fixed top) schwebt über dem oberen Iframe-Streifen. Maintainer-
-  Vorgabe „TopChrome darf bleiben" + „großzügig/full-viewport eingebettet"
-  spricht für minimalen Overhead und maximalen Iframe-Raum. Prototype-UI-
-  Layout (Disc zentriert, Tweaks-Panel rechts, Search-Button top-right)
-  überschneidet sich nicht stark mit dem TopChrome-Bar — Akzeptables
-  Trade-off. Eine RootLayout-Anpassung zur Top-Offset-Kalibrierung wäre
-  Stopp-Bedingung gewesen pro Maintainer-Vorgabe; nicht nötig.
+- **Inline `position: fixed` statt nur Tailwind-Utility.** Die globale
+  `main { position: relative; z-index: 1; }`-Regel in `globals.css` kommt nach
+  den Tailwind-Utilities und überschreibt sonst `fixed`, wodurch das Iframe nur
+  inhaltshoch (~150px) rendert. Die Lab-Route setzt `position: fixed; inset: 0;
+  z-index: 1` deshalb seitenlokal inline auf ihrem `<main>`, ohne RootLayout
+  oder globale CSS anzufassen. TopChrome (z-20) bleibt darüber.
 
 - **`bg-[#0a0703]` auf der `<main>`.** Spiegelt den `body { background:
   #0a0703 }`-Inline-Style aus `.scratch/map/Warhammer 40k Map/index.html`
@@ -138,11 +136,10 @@ parallel auf anderen Branches und blieben unangetastet.
     "Cartographer" + "Phase 2" Placeholder-Text (`src/app/map/page.tsx`
     unverändert).
 
-**Manueller Browser-Test nicht durchgeführt** — der CC-Kontext hat keinen
-Browser-Headless-Stack; die statische Plumbing ist via curl-Smoke
-verifiziert, der React+Babel-CDN-Bootstrap im Browser nicht. Risiko ist
-klein (CDN-Files sind public, der Prototype ist iframe-aware), aber bitte
-Sichtprüfung durch Maintainer post-Pull.
+Manual Browser: `/lab/cartographer` im In-App-Browser geöffnet. Der
+React+Babel-CDN-Bootstrap läuft, `iframe` und Lab-`main` messen
+`1280x720` bei `1280x720` Viewport, keine Browser-Error-Logs; nur die
+erwartete Babel-Standalone-Warnung.
 
 ## Open issues / blockers
 

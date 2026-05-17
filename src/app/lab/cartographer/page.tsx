@@ -12,7 +12,10 @@ export const metadata: Metadata = {
 // The TSX port is Phase 2; this route is the standalone preview.
 export default function CartographerLabPage() {
   return (
-    <main className="fixed inset-0 z-0 bg-[#0a0703]">
+    <main
+      className="bg-[#0a0703]"
+      style={{ position: "fixed", inset: 0, zIndex: 1 }}
+    >
       <iframe
         src="/lab/cartographer-prototype/index.html"
         title="Cartographer Prototype"
