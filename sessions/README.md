@@ -20,7 +20,7 @@ For format, naming, status lifecycle, and archive rule, see [`brain/wiki/workflo
 
 ## Active threads
 
-> **Maintainer-Bedienung in einem Satz:** Brief 077 (Grand-Alignment-Junction-Hygiene) ist implementiert (`work_factions=1020 (−165)`, `imperium|chaos`-Junctions `214 → 49`); 076 ist PR-ready. Reihenfolge: 076 mergen → 077 mergen → Wiki-Hygiene (post-076 + post-077) → Loop-Re-Trigger `ssot-w40k-021..025` über Standing-Brief 061 mit `bash scripts/run-ssot-loop.sh 5` (Faction-Granularity-Discipline aus 077 ist im Trigger-Heredoc).
+> **Maintainer-Bedienung in einem Satz:** Brief 076 ist gemerged (PR #62, axis-sliced Resolver-Pass 4 + 200 W40K-Bücher in DB), Brief 077 (Grand-Alignment-Junction-Hygiene, `work_factions=1185 → 1020 (−165)`) ist PR-ready, Wiki-Hygiene-Pass post-076 + post-077 wartet auf separater `brain/hygiene-post-076-077`-Branch. Reihenfolge: 077 mergen → Wiki-Hygiene-PR mergen (rebased auf neuen main) → Loop-Re-Trigger `ssot-w40k-021..025` über Standing-Brief 061 mit `bash scripts/run-ssot-loop.sh 5` (kein Skip-Flag — 200er-Pause durch 076 abgearbeitet; Public-Synopsis- + Faction-Granularity-Disciplines sind im Trigger-Heredoc verankert).
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
