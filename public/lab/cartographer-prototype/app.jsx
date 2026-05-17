@@ -11,7 +11,11 @@ const { useState: __us, useEffect: __ue } = React;
 const __LS_KEY = '40k.galaxy.tweaks.v1';
 const __LS_ELEMENTS_BASE = '40k.galaxy.elements.v1';   // per-era → suffixed by .eraId
 const __LS_ERA_KEY = '40k.galaxy.era.v1';
-const __isStandalone = (typeof window !== 'undefined') && (window === window.top);
+const __forcedStandalone = (() => {
+  try { return new URLSearchParams(window.location.search).get('standalone') === '1'; }
+  catch (e) { return false; }
+})();
+const __isStandalone = (typeof window !== 'undefined') && (window === window.top || __forcedStandalone);
 
 // Snapshot the original (data-file) defaults BEFORE any localStorage load
 // touches the arrays. Each era falls back to these when it has no snapshot

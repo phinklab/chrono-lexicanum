@@ -8,6 +8,7 @@ parent: ""
 links: []
 commits:
   - 4cdf1a6
+  - 4650ac2
 ---
 
 # Lab-Cartographer-Prototype — implemented
@@ -25,18 +26,23 @@ parallel auf anderen Branches und blieben unangetastet.
 ## What I did
 
 - `public/lab/cartographer-prototype/` neu, 13 verbatim-Kopien aus
-  `.scratch/map/Warhammer 40k Map/` via `cp` (byte-identisch, kein
-  Re-Encoding): `index.html`, `app.jsx`, `themes.js`, `eras.js`,
+  `.scratch/map/Warhammer 40k Map/` via `cp` (zunächst byte-identisch, kein
+  Re-Encoding; `app.jsx` später minimal für den iframe-Standalone-Toggle
+  gepatcht): `index.html`, `app.jsx`, `themes.js`, `eras.js`,
   `galaxy-data.js`, `galaxy-share.js`, `tweaks-panel.jsx`,
   `galaxy-parts.jsx`, `galaxy-detail.jsx`, `galaxy-editor.jsx`,
-  `galaxy-add.jsx`, `galaxy-hologram.jsx`, `galaxy-search.jsx`. Source/dest
-  size match auf jedes Byte (Spot-Check vor Commit).
+  `galaxy-add.jsx`, `galaxy-hologram.jsx`, `galaxy-search.jsx`.
 - `src/app/lab/cartographer/page.tsx` neu, ~20-Zeilen Server-Component,
   rendert ein full-viewport-Iframe auf
-  `/lab/cartographer-prototype/index.html`. `metadata.title = "Cartographer
-  Lab — Prototype"`, plus `robots: { index: false, follow: false }` analog
-  zum globalen Layout-Pattern. Keine Hooks, kein `"use client"`, kein
-  Marketingtext, keine Navigation.
+  `/lab/cartographer-prototype/index.html?standalone=1`. `metadata.title =
+  "Cartographer Lab — Prototype"`, plus `robots: { index: false, follow:
+  false }` analog zum globalen Layout-Pattern. Keine Hooks, kein `"use
+  client"`, kein Marketingtext, keine Navigation. Die Route versteckt ihre
+  globale Chrono-TopChrome lokal per `<style>`, damit nur der Prototyp sichtbar
+  ist.
+- `public/lab/cartographer-prototype/app.jsx` minimal gepatcht: `?standalone=1`
+  zählt als Standalone-Modus, damit der im Export vorhandene Zahnrad-/Tweaks-
+  Button auch im Next-iframe sichtbar ist.
 - `eslint.config.mjs` zwei `ignores`-Einträge ergänzt:
   `public/lab/cartographer-prototype/**` (gezielt für den neuen Sandbox-
   Pfad) und `.scratch/**` (Pre-Existing-Lücke — `.scratch/` ist in
@@ -74,7 +80,20 @@ parallel auf anderen Branches und blieben unangetastet.
   den Tailwind-Utilities und überschreibt sonst `fixed`, wodurch das Iframe nur
   inhaltshoch (~150px) rendert. Die Lab-Route setzt `position: fixed; inset: 0;
   z-index: 1` deshalb seitenlokal inline auf ihrem `<main>`, ohne RootLayout
-  oder globale CSS anzufassen. TopChrome (z-20) bleibt darüber.
+  oder globale CSS anzufassen.
+
+- **Chrono-TopChrome auf der Lab-Route versteckt.** Der globale RootLayout-
+  Chrome (`Chrono Lexicanum`, `/buecher`, M30/M31/M42) gehört zur echten App,
+  nicht zum isolierten Claude-Design-Prototyp. Die Lab-Page versteckt ihn mit
+  route-lokalem CSS (`.top-chrome{display:none!important}`); `/map` und andere
+  Routen bleiben unverändert.
+
+- **`?standalone=1` für iframe-Settings.** Claude Design rendert den eigenen
+  Zahnrad-Button nur, wenn `window === window.top`, weil im Design-Host sonst
+  die Host-Toolbar den Edit/Tweaks-Modus öffnet. Im Next-iframe gibt es diese
+  Host-Toolbar nicht. Der Prototyp akzeptiert deshalb in der Lab-Sandbox den
+  Query-Parameter `standalone=1` als expliziten Standalone-Modus und zeigt den
+  bestehenden Gear-Button unten rechts.
 
 - **`bg-[#0a0703]` auf der `<main>`.** Spiegelt den `body { background:
   #0a0703 }`-Inline-Style aus `.scratch/map/Warhammer 40k Map/index.html`
@@ -138,8 +157,11 @@ parallel auf anderen Branches und blieben unangetastet.
 
 Manual Browser: `/lab/cartographer` im In-App-Browser geöffnet. Der
 React+Babel-CDN-Bootstrap läuft, `iframe` und Lab-`main` messen
-`1280x720` bei `1280x720` Viewport, keine Browser-Error-Logs; nur die
-erwartete Babel-Standalone-Warnung.
+`1280x720` bei `1280x720` Viewport. Nach Follow-up-Fix: `.top-chrome`
+computed `display: none`, iframe-src
+`/lab/cartographer-prototype/index.html?standalone=1`, Gear-Button vorhanden
+(`button[title="Open tweaks panel"]`) und öffnet `.twk-panel`; keine
+Browser-Error-Logs, nur die erwartete Babel-Standalone-Warnung.
 
 ## Open issues / blockers
 

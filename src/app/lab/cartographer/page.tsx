@@ -12,15 +12,18 @@ export const metadata: Metadata = {
 // The TSX port is Phase 2; this route is the standalone preview.
 export default function CartographerLabPage() {
   return (
-    <main
-      className="bg-[#0a0703]"
-      style={{ position: "fixed", inset: 0, zIndex: 1 }}
-    >
-      <iframe
-        src="/lab/cartographer-prototype/index.html"
-        title="Cartographer Prototype"
-        className="block h-full w-full border-0"
-      />
-    </main>
+    <>
+      <style>{`.top-chrome{display:none!important}`}</style>
+      <main
+        className="bg-[#0a0703]"
+        style={{ position: "fixed", inset: 0, zIndex: 1 }}
+      >
+        <iframe
+          src="/lab/cartographer-prototype/index.html?standalone=1"
+          title="Cartographer Prototype"
+          className="block h-full w-full border-0"
+        />
+      </main>
+    </>
   );
 }
