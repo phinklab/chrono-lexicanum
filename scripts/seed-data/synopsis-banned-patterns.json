@@ -28,6 +28,10 @@
     { "kind": "substring", "value": "Inquisition-consistency triggered", "label": "audit-marker" },
     { "kind": "substring", "value": "omnibus-constraint", "label": "audit-marker" },
     { "kind": "substring", "value": "aggregation per Brief", "label": "audit-marker" },
-    { "kind": "substring", "value": "value_outside_vocabulary", "label": "audit-marker" }
+    { "kind": "substring", "value": "value_outside_vocabulary", "label": "audit-marker" },
+    { "kind": "substring", "value": "See note:", "label": "footnote-style" },
+    { "kind": "regex", "value": "(?:^|[.!?]\\s+)cf\\.", "label": "footnote-cf" },
+    { "kind": "regex", "value": "\\[[A-Za-z][A-Za-z0-9_-]{1,24}\\]", "label": "footnote-ref" },
+    { "kind": "regex", "value": "\\[\\d{1,3}\\]", "label": "footnote-ref" }
   ]
 }

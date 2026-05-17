@@ -18,7 +18,7 @@ commits: []
 
 Track B (apply-layer forward-guard) and Track A (Batch-020 synopsis pilot)
 shipped on `session-080-synopsis-guard-and-pilot` in two ordered commits. The
-guard now hard-throws on any of 28 banned patterns before `works.synopsis`
+guard now hard-throws on any of 32 banned patterns before `works.synopsis`
 writes; Batch 020's ten synopses rewrote to 412–556-char public-reader prose,
 re-applied clean (10/10 rows updated, 0 throws), with all four re-mess scans =
 0. Maintainer can now hit `/buch/legacy` etc. for the voice review that feeds
@@ -28,15 +28,16 @@ follow-up Brief 081.
 
 ### Track B (commit 1)
 
-- `scripts/seed-data/synopsis-banned-patterns.json` — **new**. 28 banned
+- `scripts/seed-data/synopsis-banned-patterns.json` — **new**. 32 banned
   patterns: Markdown emphasis (`**bold**`, `*italic*` with non-word
   lookarounds, `_under_`), SSOT-IDs (W40K-NNNN, HH-NNNN), batch refs
   (ssot-w40k-NNN, ssot-hh-NNN), Brief-refs (`[Bb]rief[- ]NNN`),
   authority-layer + cumulative/loop-iter audit markers, resolver/curation
   vocabulary (surface form, canonical entity, direct match, alias lookup,
-  Resolver-Pass), and audit markers (data_conflict, low_confidence,
+  Resolver-Pass), audit markers (data_conflict, low_confidence,
   historical_canon_layer, Inquisition-consistency triggered,
-  omnibus-constraint, aggregation per Brief, value_outside_vocabulary).
+  omnibus-constraint, aggregation per Brief, value_outside_vocabulary), and
+  footnote-style markers (`See note:`, sentence-start `cf.`, bracket refs).
 - `scripts/apply-override-synopsis-lint.ts` — **new**. Pure helper mirroring
   the Brief-077 `apply-override-skip.ts` shape: DI signature, no DB, no FS at
   call time, exported `lintSynopsis()` + `loadBannedPatterns()` +
@@ -60,6 +61,8 @@ follow-up Brief 081.
   identifiers passes; case-insensitive `authority layer` match; `Brief 061` +
   `Brief-076` both match; snippet contains the matched text;
   `formatLintError()` shape; zero-width-regex safety.
+  Review fix added three more cases for `See note:`, sentence-start `cf.`,
+  and bracketed references (`[ref]` / `[12]`).
 - `package.json` — added `test:synopsis-lint` script.
 
 ### Track A (commit 2)
@@ -141,9 +144,10 @@ follow-up Brief 081.
 
 - `npm run lint` — pass (1 pre-existing warning in `src/app/layout.tsx`, unrelated).
 - `npm run typecheck` — pass.
-- `npm run test:synopsis-lint` — **11/11** pass (clean, bold, italic, multi,
+- `npm run test:synopsis-lint` — **14/14** pass (clean, bold, italic, multi,
   lone-asterisk, lone-underscore, case-insensitive, brief-ref both forms,
-  snippet shape, formatLintError shape, zero-width safety).
+  snippet shape, formatLintError shape, zero-width safety, footnote-style
+  markers).
 - `npm run test:apply-override-dry` — exit 0. Synopsis-lint section reports
   per-batch + per-label totals; does not fail on hits per P1 design.
 - `npm run brain:lint -- --no-write` — exit 0 (0 blocking, 9 warnings, all
@@ -152,6 +156,8 @@ follow-up Brief 081.
   reported "validated 10 synopses against 28 banned patterns (Brief 080
   guard)", then 10 work_factions/locations/characters/persons writes, 7
   work_collections, 0 throws. Final summary: `inserts=0 updates=10`.
+  Review fix expanded the guard to 32 patterns; the post-fix dry-run loads
+  all 32 and keeps Batch 020 clean.
 - **Re-mess (per brief § Notes mess-Befehl):** `**` = 0, `authority-layer`
   = 0, `Brief-NNN` = 0, `W40K-NNNN` = 0. All four pattern classes = 0.
 - **Smoke verification (3 of 10 pilot slugs):** DB-direct read via
@@ -195,7 +201,7 @@ Brief-080 Open-questions answered:
   this detail); (b) the negative-path probe printed full per-hit listings
   for all 10 polluted books (~5k tokens of one-time diagnostic). Without
   these two: ~90k. The Track-B helper code is itself modest (~250 lines
-  TypeScript + 28-pattern JSON + 11-case test). Cowork should know the
+  TypeScript + 32-pattern JSON + 14-case test). Cowork should know the
   loop-log append is the structural Tax of the pilot-format; trimming the
   voice-notes section would be the obvious lever for Brief 081's per-
   iteration budget (target there is per-batch, so the loop-log append

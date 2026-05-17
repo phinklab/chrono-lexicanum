@@ -155,6 +155,37 @@ check("zero-width-match safety: empty-string-prone regex does not infinite-loop"
   assert.equal(r.hits.length, 0);
 });
 
+check("See note marker trips footnote-style label", () => {
+  const r = lintSynopsis(
+    "W40K-0200",
+    "legacy",
+    "See note: this internal aside should never render in public synopsis prose.",
+    PATTERNS,
+  );
+  assert.ok(r.hits.some((h) => h.patternLabel === "footnote-style"));
+});
+
+check("sentence-start cf. marker trips footnote-cf label", () => {
+  const r = lintSynopsis(
+    "W40K-0200",
+    "legacy",
+    "The case opens on Hydraphur. cf. internal resolver note.",
+    PATTERNS,
+  );
+  assert.ok(r.hits.some((h) => h.patternLabel === "footnote-cf"));
+});
+
+check("bracketed footnote references trip footnote-ref label", () => {
+  const r = lintSynopsis(
+    "W40K-0200",
+    "legacy",
+    "Calpurnia follows the charter dispute through Hydraphur [ref] and [12].",
+    PATTERNS,
+  );
+  const refs = r.hits.filter((h) => h.patternLabel === "footnote-ref");
+  assert.equal(refs.length, 2, JSON.stringify(r.hits));
+});
+
 console.log("");
 console.log(`# pass ${pass}`);
 console.log(`# fail ${fail}`);
