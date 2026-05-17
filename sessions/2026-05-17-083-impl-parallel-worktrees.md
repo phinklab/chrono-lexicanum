@@ -51,6 +51,8 @@ Nach Phils Addendum:
 ```
 git worktree move C:\Users\Phil\chrono-lexicanum-hud C:\Users\Phil\chrono-lexicanum-product
 git -C C:\Users\Phil\chrono-lexicanum-product branch -m codex/product-bootstrap
+git -C C:\Users\Phil\chrono-lexicanum-product branch -m worktree/product-bootstrap
+git -C C:\Users\Phil\chrono-lexicanum-batches branch -m worktree/batches-bootstrap
 git config --global --add safe.directory C:/Users/Phil/chrono-lexicanum-product
 git config --global --add safe.directory C:/Users/Phil/chrono-lexicanum-batches
 ```
@@ -60,8 +62,8 @@ Finale Worktree-Liste:
 ```
 C:/Users/Phil/chrono-lexicanum         ddc0a8a [session-082-parallel-worktrees]
 C:/Users/Phil/chrono-batches-011-015   84a3c5f [ingest/batches-011-015]
-C:/Users/Phil/chrono-lexicanum-batches 9b9a839 [codex/ingest-batches-bootstrap]
-C:/Users/Phil/chrono-lexicanum-product 9b9a839 [codex/product-bootstrap]
+C:/Users/Phil/chrono-lexicanum-batches 9b9a839 [worktree/batches-bootstrap]
+C:/Users/Phil/chrono-lexicanum-product 9b9a839 [worktree/product-bootstrap]
 ```
 
 Product- und Batch-Worktree sind clean und stehen beide auf
@@ -74,8 +76,8 @@ Bootstrap-Zeitpunkt.
   Original/Coordination, Product/UI, Batches. Ein separater Design- oder
   Feature-Worktree wuerde dieselben UI-Dateien beruehren und Konflikte eher
   vermehren.
-- **Bootstrap-Branches bleiben neutral.** `codex/product-bootstrap` und
-  `codex/ingest-batches-bootstrap` sind Wartepositionen. Echte Arbeit startet
+- **Bootstrap-Branches bleiben agent-neutral.** `worktree/product-bootstrap`
+  und `worktree/batches-bootstrap` sind Wartepositionen. Echte Arbeit startet
   auf frischen Task-Branches von `origin/main`.
 - **`main` wird read-only kodifiziert.** Der Direkt-Push-Versuch gegen `main`
   wurde von Branch-Protection blockiert. Die neue Regel verhindert, dass
@@ -89,9 +91,9 @@ Bootstrap-Zeitpunkt.
 - `git worktree list` - zeigt Original, Legacy-Worktree, Product-Worktree und
   Batch-Worktree.
 - `git -C C:\Users\Phil\chrono-lexicanum-product status --short --branch` -
-  `## codex/product-bootstrap...origin/main`, clean.
+  `## worktree/product-bootstrap...origin/main`, clean.
 - `git -C C:\Users\Phil\chrono-lexicanum-batches status --short --branch` -
-  `## codex/ingest-batches-bootstrap...origin/main`, clean.
+  `## worktree/batches-bootstrap...origin/main`, clean.
 - `git branch -vv` - Product- und Batch-Branches zeigen auf `9b9a839`; die
   PR-Branch `session-082-parallel-worktrees` enthaelt den 082-Commit.
 
@@ -126,10 +128,10 @@ notierte `9b9a839...`-SHA war tatsaechlich `main`/`origin/main`.
 ## For next session
 
 - Product/UI-Session in `C:\Users\Phil\chrono-lexicanum-product` starten.
-  Wenn die Branch noch `codex/product-bootstrap` ist, zuerst eine echte
+  Wenn die Branch noch `worktree/product-bootstrap` ist, zuerst eine echte
   Task-Branch von `origin/main` anlegen, z. B. `codex/product-hud-map`.
 - Batch-Session in `C:\Users\Phil\chrono-lexicanum-batches` starten.
-  Wenn die Branch noch `codex/ingest-batches-bootstrap` ist, zuerst eine echte
+  Wenn die Branch noch `worktree/batches-bootstrap` ist, zuerst eine echte
   Task-Branch von `origin/main` anlegen, z. B.
   `codex/ingest-batches-synopsis-005-019`.
 - Bei "fertig": committen, `git push -u origin <branch>`, PR erstellen, nicht

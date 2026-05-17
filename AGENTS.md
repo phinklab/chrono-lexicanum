@@ -51,7 +51,7 @@ When Philipp says `PR ist gemerged, bitte aufraeumen` or equivalent:
 1. Verify the PR is actually merged.
 2. Verify the worktree is clean.
 3. Run `git fetch --prune origin`.
-4. Move the worktree back to its bootstrap branch (`codex/product-bootstrap` or `codex/ingest-batches-bootstrap`) and fast-forward it to `origin/main` when possible.
+4. Move the worktree back to its agent-neutral bootstrap branch (`worktree/product-bootstrap` or `worktree/batches-bootstrap`) and fast-forward it to `origin/main` when possible.
 5. Delete the old local task branch only after verifying the PR was merged or the branch is otherwise preserved.
 6. Do not delete worktrees.
 7. Do not use `git reset --hard` unless Philipp explicitly authorizes it for that cleanup.

@@ -52,19 +52,22 @@ spaetere Hygiene-Session sie nach `brain/wiki/workflows/` heben.
   Inflight-Branch.
 - Genau zwei aktive Arbeits-Worktrees plus Original:
   - `C:\Users\Phil\chrono-lexicanum-product` -> Branch
-    `codex/product-bootstrap` (Platzhalter; spaeter per
+    `worktree/product-bootstrap` (agent-neutraler Platzhalter; spaeter per
     `git switch -c codex/product-{slug}` auf echte Aufgaben-Branches wechseln,
     z. B. `codex/product-hud-map`, `codex/product-music-player`,
     `codex/product-login-settings`).
   - `C:\Users\Phil\chrono-lexicanum-batches` -> Branch
-    `codex/ingest-batches-bootstrap` (Platzhalter; spaeter per
+    `worktree/batches-bootstrap` (agent-neutraler Platzhalter; spaeter per
     `git switch -c codex/ingest-batches-{slug}` auf echte Aufgaben-Branches
     wechseln, z. B. `codex/ingest-batches-synopsis-005-019` oder
     `codex/ingest-batches-021-025`).
 - Der zuerst angelegte `C:\Users\Phil\chrono-lexicanum-hud`-Worktree wird per
   `git worktree move` in `C:\Users\Phil\chrono-lexicanum-product` umgehaengt;
-  die Branch wird von `codex/chrono-hud-map` auf `codex/product-bootstrap`
-  umbenannt. Kein vierter aktiver Product-Strang.
+  die Branch wird von `codex/chrono-hud-map` erst auf
+  `codex/product-bootstrap`, dann agent-neutral auf
+  `worktree/product-bootstrap` umbenannt. Der Batch-Bootstrap wird analog von
+  `codex/ingest-batches-bootstrap` auf `worktree/batches-bootstrap` umbenannt.
+  Kein vierter aktiver Product-Strang.
 - Originalworktree nicht resetten. Der bereits entstandene lokale
   `main`-Ahead-Zustand aus dem Direkt-Push-Versuch wird erst nach PR-Merge auf
   expliziten Cleanup-Trigger bereinigt.
@@ -130,8 +133,8 @@ Claude Code und Codex automatisch greifen:
   aktuell.
 - [x] `git worktree list` zeigt vier Eintraege: Original,
   `chrono-batches-011-015` als unveraenderte Altlast,
-  `chrono-lexicanum-product` auf `codex/product-bootstrap`,
-  `chrono-lexicanum-batches` auf `codex/ingest-batches-bootstrap`.
+  `chrono-lexicanum-product` auf `worktree/product-bootstrap`,
+  `chrono-lexicanum-batches` auf `worktree/batches-bootstrap`.
 - [x] Beide aktiven Arbeits-Worktrees existieren auf der Platte und sind clean.
 - [x] `git rev-parse HEAD` aus Product- und Batch-Worktree entspricht dem
   damaligen `origin/main`-Tip `9b9a839`.
@@ -156,8 +159,8 @@ Aktiver Zielzustand:
 
 ```
 C:\Users\Phil\chrono-lexicanum          # coordination/main, no local commits on main
-C:\Users\Phil\chrono-lexicanum-product  # Product/UI strand, bootstrap branch codex/product-bootstrap
-C:\Users\Phil\chrono-lexicanum-batches  # Batch/Ingestion strand, bootstrap branch codex/ingest-batches-bootstrap
+C:\Users\Phil\chrono-lexicanum-product  # Product/UI strand, bootstrap branch worktree/product-bootstrap
+C:\Users\Phil\chrono-lexicanum-batches  # Batch/Ingestion strand, bootstrap branch worktree/batches-bootstrap
 ```
 
 Spickzettel fuer neue echte Aufgaben:
@@ -165,13 +168,13 @@ Spickzettel fuer neue echte Aufgaben:
 ```
 # im Product-Worktree
 git fetch origin
-git switch codex/product-bootstrap
+git switch worktree/product-bootstrap
 git merge --ff-only origin/main
 git switch -c codex/product-<short-slug>
 
 # im Batch-Worktree
 git fetch origin
-git switch codex/ingest-batches-bootstrap
+git switch worktree/batches-bootstrap
 git merge --ff-only origin/main
 git switch -c codex/ingest-batches-<short-slug>
 ```
