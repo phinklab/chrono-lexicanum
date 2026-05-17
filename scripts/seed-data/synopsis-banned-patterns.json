@@ -1,0 +1,33 @@
+{
+  "$schema": "synopsis-banned-patterns-v1",
+  "patterns": [
+    { "kind": "regex", "value": "\\*\\*", "label": "markdown-bold" },
+    { "kind": "regex", "value": "(?<![A-Za-z0-9])\\*[A-Za-z][^*\\n]{0,80}[A-Za-z]\\*(?![A-Za-z0-9])", "label": "markdown-italic" },
+    { "kind": "regex", "value": "(?<![A-Za-z0-9])_[A-Za-z][^_\\n]{0,80}[A-Za-z]_(?![A-Za-z0-9])", "label": "markdown-underscore-italic" },
+    { "kind": "regex", "value": "\\bW40K-\\d{3,4}\\b", "label": "ssot-id-w40k" },
+    { "kind": "regex", "value": "\\bHH-\\d{3,4}\\b", "label": "ssot-id-hh" },
+    { "kind": "regex", "value": "\\bssot-w40k-\\d+", "label": "ssot-batch-w40k" },
+    { "kind": "regex", "value": "\\bssot-hh-\\d+", "label": "ssot-batch-hh" },
+    { "kind": "regex", "value": "[Bb]rief[- ]\\d+", "label": "brief-ref" },
+    { "kind": "substring", "value": "authority layer", "label": "authority-layer" },
+    { "kind": "substring", "value": "authority-layer", "label": "authority-layer" },
+    { "kind": "substring", "value": "cumulative=", "label": "audit-cumulative" },
+    { "kind": "substring", "value": "cumulativeBefore", "label": "audit-cumulative" },
+    { "kind": "substring", "value": "cumulativeAfter", "label": "audit-cumulative" },
+    { "kind": "substring", "value": "loop-iteration", "label": "audit-loop-iter" },
+    { "kind": "substring", "value": "surface form", "label": "curation-surface-form" },
+    { "kind": "substring", "value": "surface-form", "label": "curation-surface-form" },
+    { "kind": "substring", "value": "canonical entity", "label": "curation-canonical" },
+    { "kind": "substring", "value": "direct match", "label": "curation-match" },
+    { "kind": "substring", "value": "alias lookup", "label": "curation-alias" },
+    { "kind": "substring", "value": "Resolver-Pass", "label": "curation-resolver" },
+    { "kind": "substring", "value": "resolver pass", "label": "curation-resolver" },
+    { "kind": "substring", "value": "data_conflict", "label": "audit-marker" },
+    { "kind": "substring", "value": "low_confidence", "label": "audit-marker" },
+    { "kind": "substring", "value": "historical_canon_layer", "label": "audit-marker" },
+    { "kind": "substring", "value": "Inquisition-consistency triggered", "label": "audit-marker" },
+    { "kind": "substring", "value": "omnibus-constraint", "label": "audit-marker" },
+    { "kind": "substring", "value": "aggregation per Brief", "label": "audit-marker" },
+    { "kind": "substring", "value": "value_outside_vocabulary", "label": "audit-marker" }
+  ]
+}

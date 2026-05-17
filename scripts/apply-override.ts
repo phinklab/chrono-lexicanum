@@ -96,6 +96,13 @@ import {
   type ResolvedFaction as SkipResolvedFaction,
   type SkipDecision,
 } from "./apply-override-skip";
+import {
+  formatLintError,
+  lintSynopsis,
+  loadBannedPatterns,
+  type BannedPattern,
+  type SynopsisLintResult,
+} from "./apply-override-synopsis-lint";
 
 const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
 const ROSTER_PATH = resolve(SEED_DIR, "book-roster.json");
@@ -106,6 +113,11 @@ const OVERRIDE_FILENAME_PREFIX = "manual-overrides-";
 
 const M41_ERA_ID = "time_ending";
 const BATCH_NAME_PATTERN = /^ssot-(w40k|hh)-\d{3}$/;
+
+// Public-Synopsis-Forward-Guard (Brief 080): banned-pattern list loaded once
+// at module init. The real apply throws hard on any hit (gate semantics); the
+// dry-runner imports the same helper but collects hits report-only.
+const BANNED_SYNOPSIS_PATTERNS: readonly BannedPattern[] = loadBannedPatterns(SEED_DIR);
 
 // Eisenhorn/Ravenor are seeded series; Bequin and The Magos have no series row
 // and stay NULL until a future brief decides whether to add one.
@@ -571,6 +583,41 @@ async function validateFacetIds(allFacetIds: Set<string>): Promise<void> {
   }
 }
 
+/**
+ * Public-Synopsis-Forward-Guard (Brief 080): hard-throw pre-pass that runs
+ * `lintSynopsis` against every book's overrides.synopsis. Throws once with
+ * every offending book listed (and every banned-pattern hit per book), so the
+ * maintainer fixes everything in one round rather than book-by-book.
+ *
+ * Sits next to `validateFacetIds` / `validateEntityRoles`: same pre-pass
+ * shape, same halt-before-mutation discipline. Per Brief 080 the dry-run
+ * caller imports `lintSynopsis` directly with report-only semantics —
+ * `validateSynopses` is the gate-semantics wrapper for the real apply only.
+ */
+function validateSynopses(overrideBooks: OverrideBook[], batch: string): void {
+  const polluted: SynopsisLintResult[] = [];
+  for (const book of overrideBooks) {
+    const result = lintSynopsis(
+      book.externalBookId,
+      book.slug,
+      book.overrides.synopsis,
+      BANNED_SYNOPSIS_PATTERNS,
+    );
+    if (result.hits.length > 0) polluted.push(result);
+  }
+  if (polluted.length === 0) return;
+
+  const totalHits = polluted.reduce((sum, r) => sum + r.hits.length, 0);
+  const blocks = polluted.map((r) => formatLintError(r, batch));
+  throw new Error(
+    `Public-Synopsis-Forward-Guard (Brief 080): ${polluted.length} of ` +
+      `${overrideBooks.length} book(s) in batch ${batch} carry banned ` +
+      `patterns in overrides.synopsis (${totalHits} hit(s) total). ` +
+      `Halt before mutation.\n` +
+      blocks.join("\n\n"),
+  );
+}
+
 function validateEntityRoles(overrideBooks: OverrideBook[]): void {
   const invalid: string[] = [];
   for (const book of overrideBooks) {
@@ -1004,6 +1051,11 @@ async function main() {
   console.log(`[apply-override] validated ${allFacetIds.size} distinct facet ids`);
   validateEntityRoles(override.books);
   console.log("[apply-override] validated entity roles after normalization");
+  validateSynopses(override.books, args.batch);
+  console.log(
+    `[apply-override] validated ${override.books.length} synopses against ` +
+      `${BANNED_SYNOPSIS_PATTERNS.length} banned patterns (Brief 080 guard)`,
+  );
 
   // Pre-pass: ensure every roster author + editor exists as a persons row.
   // Runs OUTSIDE the per-book transactions so FK targets are stable when

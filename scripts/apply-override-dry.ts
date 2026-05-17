@@ -33,6 +33,12 @@ import {
   normalizeAlignment,
 } from "../src/lib/seed/alignment";
 import { decideFactionSkips } from "./apply-override-skip";
+import {
+  lintSynopsis,
+  loadBannedPatterns,
+  type BannedPattern,
+  type SynopsisLintResult,
+} from "./apply-override-synopsis-lint";
 
 const SEED_DIR = join(process.cwd(), "scripts", "seed-data");
 const BATCHES = [
@@ -95,6 +101,7 @@ interface OverrideBook {
   externalBookId: string;
   slug: string;
   overrides: {
+    synopsis: string;
     facetIds: string[];
     factions: OverrideEntity[];
     locations: OverrideEntity[];
@@ -455,6 +462,65 @@ function collectReferenceFkFindings(refs: ReferenceData): string[] {
   return findings;
 }
 
+/**
+ * Public-Synopsis-Forward-Guard report (Brief 080, P1 — report-only).
+ *
+ * The dry-runner runs the same `lintSynopsis` helper as the real apply but
+ * **does not fail** on hits. The real apply (scripts/apply-override.ts) is
+ * the gate; the dry is the diagnostic. Hits on the still-polluted batches
+ * 009..019 are out-of-scope for Brief 080 — they belong to the follow-up
+ * loop 081 — and a hard-fail in the dry would block this brief's acceptance
+ * impossibly. The per-batch and per-label aggregates below are the
+ * Pre-Mess-Telemetrie that Brief 081 reads to know what it's facing.
+ *
+ * Future extension point (out-of-scope for Brief 080): a `--strict-synopsis`
+ * CLI flag that flips the dry to hard-fail-on-hits, for CI / pre-commit
+ * integration after 081 finishes the per-batch backfill.
+ */
+interface BatchSynopsisLintReport {
+  batch: string;
+  bookCount: number;
+  booksWithHits: number;
+  totalHits: number;
+  hitsByLabel: Map<string, number>;
+}
+
+function collectSynopsisLintByBatch(
+  patterns: readonly BannedPattern[],
+): BatchSynopsisLintReport[] {
+  const reports: BatchSynopsisLintReport[] = [];
+  for (const batch of BATCHES) {
+    const file = readJson<OverrideFile>(
+      `manual-overrides-ssot-w40k-${batch}.json`,
+    );
+    const hitsByLabel = new Map<string, number>();
+    let booksWithHits = 0;
+    let totalHits = 0;
+    for (const book of file.books) {
+      const result: SynopsisLintResult = lintSynopsis(
+        book.externalBookId,
+        book.slug,
+        book.overrides.synopsis,
+        patterns,
+      );
+      if (result.hits.length === 0) continue;
+      booksWithHits += 1;
+      totalHits += result.hits.length;
+      for (const hit of result.hits) {
+        hitsByLabel.set(hit.patternLabel, (hitsByLabel.get(hit.patternLabel) ?? 0) + 1);
+      }
+    }
+    reports.push({
+      batch: `ssot-w40k-${batch}`,
+      bookCount: file.books.length,
+      booksWithHits,
+      totalHits,
+      hitsByLabel,
+    });
+  }
+  return reports;
+}
+
 function buildBatchByExternalId(overrideBooks: OverrideBook[]): Map<string, string> {
   const batchByExternalId = new Map<string, string>();
   for (const batch of BATCHES) {
@@ -615,6 +681,40 @@ function main(): void {
     }`,
   );
   console.log(`  forward refs in ${batchLabel()}: ${collectionAnalysis.forwardRefs.length}`);
+  console.log("");
+
+  const bannedPatterns = loadBannedPatterns(SEED_DIR);
+  const synopsisLintReports = collectSynopsisLintByBatch(bannedPatterns);
+  const synopsisTotal = synopsisLintReports.reduce(
+    (sum, r) => sum + r.totalHits,
+    0,
+  );
+  const synopsisBooksWithHits = synopsisLintReports.reduce(
+    (sum, r) => sum + r.booksWithHits,
+    0,
+  );
+  const synopsisLabelTotals = new Map<string, number>();
+  for (const r of synopsisLintReports) {
+    for (const [label, n] of r.hitsByLabel) {
+      synopsisLabelTotals.set(label, (synopsisLabelTotals.get(label) ?? 0) + n);
+    }
+  }
+  console.log(
+    "[apply-override-dry] synopsis-lint (Brief 080, report-only — does NOT fail dry):",
+  );
+  console.log(
+    `  patterns:          ${bannedPatterns.length} banned-pattern entries loaded`,
+  );
+  console.log(
+    `  hits across batch: ${synopsisTotal} hit(s) in ${synopsisBooksWithHits} book(s)`,
+  );
+  for (const r of synopsisLintReports) {
+    const tag = r.totalHits === 0 ? "clean" : `${r.totalHits} hits / ${r.booksWithHits}/${r.bookCount} books`;
+    console.log(`  ${r.batch}: ${tag}`);
+  }
+  console.log(
+    `  by label: ${formatCounts(synopsisLabelTotals) || "none"}`,
+  );
   console.log("");
 
   console.log("[apply-override-dry] validation:");
