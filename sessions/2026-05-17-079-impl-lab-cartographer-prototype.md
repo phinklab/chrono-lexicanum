@@ -9,6 +9,7 @@ links: []
 commits:
   - 4cdf1a6
   - 4650ac2
+  - 831c0c1
 ---
 
 # Lab-Cartographer-Prototype — implemented
@@ -43,6 +44,11 @@ parallel auf anderen Branches und blieben unangetastet.
 - `public/lab/cartographer-prototype/app.jsx` minimal gepatcht: `?standalone=1`
   zählt als Standalone-Modus, damit der im Export vorhandene Zahnrad-/Tweaks-
   Button auch im Next-iframe sichtbar ist.
+- `src/app/layout.tsx` minimal gepatcht: `<body suppressHydrationWarning>`, um
+  browser-extension-injizierte Body-Attribute wie `cz-shortcut-listen="true"`
+  nicht als blockierenden Dev-Hydration-Overlay zu melden. Das ist eine
+  explizite Follow-up-Ausnahme zur ursprünglichen "keine RootLayout-Änderung"-
+  Leitplanke, ausgelöst durch den Maintainer-Preview-Fehler.
 - `eslint.config.mjs` zwei `ignores`-Einträge ergänzt:
   `public/lab/cartographer-prototype/**` (gezielt für den neuen Sandbox-
   Pfad) und `.scratch/**` (Pre-Existing-Lücke — `.scratch/` ist in
@@ -94,6 +100,13 @@ parallel auf anderen Branches und blieben unangetastet.
   Host-Toolbar nicht. Der Prototyp akzeptiert deshalb in der Lab-Sandbox den
   Query-Parameter `standalone=1` als expliziten Standalone-Modus und zeigt den
   bestehenden Gear-Button unten rechts.
+
+- **Hydration-Warnung auf `<body>` unterdrückt.** Der gemeldete Next-Dev-Overlay
+  zeigte ein zusätzliches `cz-shortcut-listen="true"`-Attribut auf `<body>`.
+  Dieses Attribut kommt nicht aus dem Repo und wird vor React-Hydration durch
+  eine Browser-Extension injiziert. `suppressHydrationWarning` auf `<body>` ist
+  die engste Suppression für diese Klasse von Extension-Mismatch; App-/Map-HTML
+  wird dadurch nicht geändert.
 
 - **`bg-[#0a0703]` auf der `<main>`.** Spiegelt den `body { background:
   #0a0703 }`-Inline-Style aus `.scratch/map/Warhammer 40k Map/index.html`
