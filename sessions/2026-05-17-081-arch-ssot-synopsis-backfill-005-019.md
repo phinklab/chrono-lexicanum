@@ -2,7 +2,7 @@
 session: 2026-05-17-081
 role: architect
 date: 2026-05-17
-status: open
+status: implemented
 slug: ssot-synopsis-backfill-005-019
 parent: 2026-05-17-080-arch-synopsis-guard-and-pilot
 links:
