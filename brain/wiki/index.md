@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-05-17
+updated: 2026-05-19
 sources: []
 related:
   - ../CLAUDE.md
@@ -21,8 +21,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-076-impl + post-077-impl + Wiki-Hygiene-Pass 2026-05-17: 200 W40K-Bücher applied (post-076 axis-sliced Resolver-Pass 4), post-077 Grand-Alignment-Junction-Skip scharfgeschaltet (`work_factions=1185 → 1020 (−165)`, `imperium 81 → 6`, `chaos 133 → 43`); 250er-Loop-Re-Trigger als nächster Schritt, kein Skip-Flag mehr. | 2026-05-17 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Wiki-Hygiene-Pass 2026-05-17: OQ (11) „Locations-Axis-Hygiene-Sister-Pass" promoted aus 077-impl (Imperium x20 als unresolved Location). Restqueue: Loop-Re-Trigger `ssot-w40k-021..025` (kein Brief), OQ (10) Hardcover-Hit-Rate-Härtung, OQ (11) Locations-Sister, Cockpit-Sub-Sortierung, OQ3, Public-Page-Rating-Render, Collection-Gap-Resolve, `no_author`-Hygiene, Vokabular-Hygiene, Resolver-Driver-Smoke. | 2026-05-17 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Session-start anchor. Post-079/080/081/082 Wiki-Hygiene-Pass 2026-05-19 (auf `codex/ingest-batches-synopsis-005-019` mit-eingearbeitet): alle 200 Public-Synopsen `001..020` clean (post-080 Apply-Layer-Forward-Guard scharf + post-081 15-Iter-Backfill auf codex, 123 Bücher / 502/605/783 chars), Brief-082-Worktree-Konvention etabliert, Brief-079 Lab-Cartographer-Prototype gelandet. Nächster Schritt: Push + PR + Merge Brief 081 → Loop-Re-Trigger `021..025` ohne Skip-Flag. | 2026-05-19 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Wiki-Hygiene-Pass 2026-05-19: keine OQ-Schließung / keine neue numerierte OQ aus 079/080/081/082; neuer operationeller Top-Punkt „Push + PR + Merge Brief 081" (codex-Branch noch nicht gepusht). Restqueue: Loop-Re-Trigger `ssot-w40k-021..025` (kein Brief), OQ (10) Hardcover-Hit-Rate-Härtung, OQ (11) Locations-Sister, Cockpit-Sub-Sortierung, OQ3, Public-Page-Rating-Render, Collection-Gap-Resolve, `no_author`-Hygiene, Vokabular-Hygiene, Resolver-Driver-Smoke. | 2026-05-19 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
@@ -64,8 +64,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Description | Updated |
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-17 |
-| (this file) | Master catalog | 2026-05-17 |
+| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-19 |
+| (this file) | Master catalog | 2026-05-19 |
 
 ## Concept pages
 
