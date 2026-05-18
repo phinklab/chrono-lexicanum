@@ -854,3 +854,14 @@
 - **Unerwartete Finding (Pre-Mess-Telemetrie):** Brief 080 § Context-Tabelle erwartet 001..008 als clean; tatsächlich zeigen 005..008 je 1-31 Treffer. Vermutlich seltene Edge-Cases (z. B. typografische cross-refs wie `*Crossfire*` oder authority-layer-Vokabular in den frühen audit-tails). **Nicht in 080 gefixt** — out-of-scope. Cowork sollte für Folge-Brief 081 entscheiden, ob diese auch rewriten oder als Pattern-Justierung in der banned-patterns.json behandeln.
 - **Maintainer-Bedienung als nächstes:** (a) Public-Review der 10 Pilot-Synopsen auf `/buch/<slug>` — empfohlen: `crossfire` / `legacy` / `the-soul-drinkers-omnibus` / `phalanx` als repräsentativen Querschnitt; (b) Voice-Feedback an Cowork für Folge-Brief 081; (c) Folge-Brief 081 schreiben (Standing-Loop für ssot-w40k-009..019, 1 Batch pro `/clear`-Subsession, kein WebSearch, Voice-Konvention aus dem Pilot oder maintainer-präzisiert).
 - **Brief-080-Vertrag aktiv:** Track B + Track A in separaten Commits ohne Co-Author-Trailer (Track B first so the guard is live when Track A lands); Re-Apply Batch 020 grün; smoke 3 Slugs (legacy + the-soul-drinkers-omnibus + daenyathos) DB-direkt verifiziert (DetailPanel rendert plain `{book.synopsis}` ohne Markdown-Parser — DB-Text = page-output). Lint / typecheck / test:synopsis-lint (14/14) / test:apply-override-dry (Exit 0) / brain:lint --no-write — alle grün.
+
+## 2026-05-18 · 🔄 Synopsis-Rewrite ssot-w40k-005 (Brief 081)
+
+- **Touch-Set:** 1 rewritten / 10 total books in batch (`W40K-0043 sabbat-worlds`)
+- **Length pre → post (chars):** min=1144→707 · mean=1144→707 · max=1144→707
+- **Per-pattern-class post-mess:** `**`/markdown = 0, `authority-layer` = 0, `Brief-NNN` = 0, `W40K-NNNN` = 0, `curation-surface-form` = 0 for `ssot-w40k-005`; dry-run reports the batch clean.
+- **Voice notes:** Anthology copy stayed setup-first, because this book is a Crusade mosaic rather than one POV arc. Preserved Abnett/Tanith framing, the Inquisition thread, Sisters of Battle faith, Volpone/Sirkle/partisan texture, and closed on campaign-fragment tonality.
+- **Touched clean books?** none.
+- **`low_confidence`-/Twist-Policy-Calls:** none.
+- **Iteration time / token estimate:** about 18k-25k tokens; this warm-up batch was dominated by session-start reading rather than the one-book rewrite.
+- **Carry-over notes:** Batch worktree needed local `.env.local` copied from Coordination and `npm install` because `node_modules` was absent; both are local setup only. Detection via Loop-Log tail was clear; next iteration should be `ssot-w40k-006`.
