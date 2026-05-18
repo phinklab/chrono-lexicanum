@@ -865,3 +865,14 @@
 - **`low_confidence`-/Twist-Policy-Calls:** none.
 - **Iteration time / token estimate:** about 18k-25k tokens; this warm-up batch was dominated by session-start reading rather than the one-book rewrite.
 - **Carry-over notes:** Batch worktree needed local `.env.local` copied from Coordination and `npm install` because `node_modules` was absent; both are local setup only. Detection via Loop-Log tail was clear; next iteration should be `ssot-w40k-006`.
+
+## 2026-05-18 · 🔄 Synopsis-Rewrite ssot-w40k-006 (Brief 081)
+
+- **Touch-Set:** 2 rewritten / 10 total books in batch (`W40K-0056 the-uriel-ventris-chronicles-vol-1-omnibus`, `W40K-0057 the-uriel-ventris-chronicles-vol-2-omnibus`)
+- **Length pre → post (chars):** min=505→716 · mean=596→726 · max=688→736
+- **Per-pattern-class post-mess:** `ssot-id-w40k` = 0 (was 2), `**`/markdown = 0, `authority-layer` = 0, `Brief-NNN` = 0, `curation-surface-form` = 0 for `ssot-w40k-006`; dry-run reports the batch clean.
+- **Voice notes:** Both are repackaging omnibi, so structure stayed three-arc-tour rather than single-POV-hook. Vol-1 opens premise-first ("learning what command costs") then runs the Pavonis → Tarsis Ultra → Medrengard tour, closes on entry-point-marker prose. Vol-2 opens with the literal continuation cue ("the arc that follows Uriel and Pasanius back out of the Eye of Terror") and closes with the not-an-entry-point reader-direction. Cross-ref to the older sister-omnibus stayed as plain-language ("content unchanged from the older Ultramarines Omnibus" / "the older Second Omnibus") instead of W40K-id, satisfying the guard while preserving the repackaging fact.
+- **Touched clean books?** none.
+- **`low_confidence`-/Twist-Policy-Calls:** none — both books are repackaging volumes where the constituent novels are already in the loop, no twist scope to gate.
+- **Iteration time / token estimate:** ~15-20k tokens; small touch-set kept the rewrite phase short, most spend went on session-start reading + the lint helper plumbing.
+- **Carry-over notes:** Operated from the durable `chrono-lexicanum-batches` worktree (which already had `node_modules` and `.env.local`) because this Claude-Code task ran in a fresh `.claude/worktrees/festive-tu-964c6b` worktree without those; both worktrees pin the same SHA, so the commit lands on `codex/ingest-batches-synopsis-005-019` either way. Next iteration: `ssot-w40k-007` (5 books with hits, first mid-size batch).
