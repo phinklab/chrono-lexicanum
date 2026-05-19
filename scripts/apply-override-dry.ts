@@ -33,6 +33,7 @@ import {
   normalizeAlignment,
 } from "../src/lib/seed/alignment";
 import { decideFactionSkips } from "./apply-override-skip";
+import { decideLocationSkips } from "./apply-override-location-skip";
 import {
   lintSynopsis,
   loadBannedPatterns,
@@ -140,6 +141,10 @@ interface FactionPolicyFile {
   redundantWhenSubPresent?: string[];
 }
 
+interface LocationPolicyFile {
+  redundantSurfaceForms?: string[];
+}
+
 interface SectorRow {
   id: string;
 }
@@ -171,6 +176,7 @@ interface ReferenceData {
   characters: CharacterRow[];
   alignmentById: Map<string, Alignment>;
   redundantIds: Set<string>;
+  redundantLocationSurfaceForms: ReadonlySet<string>;
 }
 
 interface ResolvedEntity {
@@ -194,6 +200,7 @@ interface BookSimulation {
   locations: AxisSimulation;
   characters: AxisSimulation;
   factionsSkippedRedundant: string[];
+  locationsSkippedRedundant: string[];
 }
 
 function readJson<T>(file: string): T {
@@ -208,11 +215,18 @@ function loadReferences(): ReferenceData {
   const locations = readJson<LocationRow[]>("locations.json");
   const characters = readJson<CharacterRow[]>("characters.json");
   const policy = readJson<FactionPolicyFile>("faction-policy.json");
+  const locationPolicy = readJson<LocationPolicyFile>("location-policy.json");
 
   const alignmentById = new Map<string, Alignment>();
   for (const row of factions) {
     alignmentById.set(row.id, normalizeAlignment(row));
   }
+
+  const redundantLocationSurfaceForms = new Set<string>(
+    (locationPolicy.redundantSurfaceForms ?? []).map((s) =>
+      s.trim().toLowerCase(),
+    ),
+  );
 
   return {
     rosterIds: new Set(roster.books.map((book) => book.externalBookId)),
@@ -233,6 +247,7 @@ function loadReferences(): ReferenceData {
     characters,
     alignmentById,
     redundantIds: new Set(policy.redundantWhenSubPresent ?? []),
+    redundantLocationSurfaceForms,
   };
 }
 
@@ -341,13 +356,37 @@ function simulateBook(book: OverrideBook, refs: ReferenceData): BookSimulation {
     ...factions,
     rows: skipDecision.keep,
   };
+
+  // Brief 084: location umbrella-surface-forms route into a separate
+  // audit-bucket and out of `locationsUnresolved` when at least one other
+  // location resolves in the same block. work_locations rows themselves are
+  // unaffected (umbrellas resolve to null anyway).
+  const locations = simulateAxis("location", book.overrides.locations, refs);
+  const locationSkipDecision = decideLocationSkips({
+    surfaceForms: book.overrides.locations,
+    redundantSurfaceForms: refs.redundantLocationSurfaceForms,
+    resolvedLocationIds: locations.rows.map((r) => r.id),
+  });
+  const locationSkipSet = new Set(
+    locationSkipDecision.skippedSurfaceForms.map((s) =>
+      s.trim().toLowerCase(),
+    ),
+  );
+  const locationsPostSkip: AxisSimulation = {
+    ...locations,
+    unresolved: locations.unresolved.filter(
+      (entity) => !locationSkipSet.has(entity.name.trim().toLowerCase()),
+    ),
+  };
+
   return {
     externalBookId: book.externalBookId,
     slug: book.slug,
     factions: factionsPostSkip,
-    locations: simulateAxis("location", book.overrides.locations, refs),
+    locations: locationsPostSkip,
     characters: simulateAxis("character", book.overrides.characters, refs),
     factionsSkippedRedundant: skipDecision.skippedSurfaceForms,
+    locationsSkippedRedundant: locationSkipDecision.skippedSurfaceForms,
   };
 }
 
@@ -643,6 +682,26 @@ function main(): void {
     `  skipped surface forms: ${skippedRedundantTotal} across ${booksWithSkips} books`,
   );
   console.log(`  by name: ${formatCounts(skippedSurfaceCounts) || "none"}`);
+  console.log("");
+
+  const skippedLocationsTotal = simulations.reduce(
+    (sum, book) => sum + book.locationsSkippedRedundant.length,
+    0,
+  );
+  const booksWithLocationSkips = simulations.filter(
+    (book) => book.locationsSkippedRedundant.length > 0,
+  ).length;
+  const skippedLocationSurfaceCounts = countBy(
+    simulations.flatMap((book) => book.locationsSkippedRedundant),
+    (name) => name,
+  );
+  console.log("[apply-override-dry] location-umbrella-junction-skip (Brief 084):");
+  console.log(
+    `  skipped surface forms: ${skippedLocationsTotal} across ${booksWithLocationSkips} books`,
+  );
+  console.log(
+    `  by name: ${formatCounts(skippedLocationSurfaceCounts) || "none"}`,
+  );
   console.log("");
 
   console.log("[apply-override-dry] smoke detail-page counts:");

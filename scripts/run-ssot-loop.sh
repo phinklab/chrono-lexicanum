@@ -167,6 +167,8 @@ Public Synopsis Discipline (ab ssot-w40k-021 / W40K-0201 — Brief 061 § Constr
 
 Faction-Granularity-Discipline (ab ssot-w40k-021 / W40K-0201 — Brief 061 § Constraints, Brief 077): overrides.factions[].name muss Browse-Root-Granularität oder spezifischer sein. NIE als raw_name: Imperium / Imperium of Man / Imperium of Mankind (Grand-Alignment-Tag — verwende die spezifische Sub-Faction wie Astra Militarum / Adeptus Astartes / Inquisition), generic Chaos wenn spezifische Chaos-Sub passt (verwende Heretic Astartes / Word Bearers / etc.), Xenos / Aliens (verwende die konkrete Xenos-Faction). Grand-Alignment lebt in factions.alignment, nicht als Junction.
 
+Locations-Granularity-Discipline (ab ssot-w40k-021 / W40K-0201 — Brief 061 § Constraints, Brief 084): overrides.locations[].name muss konkret-geographisch sein. NIE als raw_name: Imperium / Imperium of Man / Imperium of Mankind / the Imperium / Chaos / Chaos Space / the Chaos Space / Realm of Chaos / the Warp / Warp Space / Xenos / Aliens / Alien Space (Umbrella-/Politik-/Warp-Surface-Forms — verwende konkrete Sector/World wie Cadia / Armageddon / Hydraphur / Eye of Terror / T'au Empire). Erhaltungs-Pfad: falls das Buch ausschliesslich Umbrella-Tags traegt und keine konkrete Location, darf ein Tag stehen bleiben (sehr selten).
+
 Beides ohne Co-Author-Trailer. Keine zweite Iteration in dieser Session, keine sonstigen Datei-Edits ausserhalb der oben genannten Pfade.
 EOF
 }
