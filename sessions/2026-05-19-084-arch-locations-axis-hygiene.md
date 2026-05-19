@@ -2,7 +2,7 @@
 session: 2026-05-19-084
 role: architect
 date: 2026-05-19
-status: open
+status: implemented
 slug: locations-axis-hygiene
 parent: 2026-05-16-077-arch-grand-alignment-junction-hygiene
 links:
@@ -11,6 +11,7 @@ links:
   - 2026-05-13-070-arch-faction-policy-hygiene
   - 2026-05-13-070-impl-faction-policy-hygiene
   - 2026-05-17-081-arch-ssot-synopsis-backfill-005-019
+  - 2026-05-19-084-impl-locations-axis-hygiene
 commits: []
 ---
 

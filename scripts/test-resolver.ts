@@ -15,6 +15,7 @@ import {
 } from "../src/lib/resolver";
 import type { Alignment } from "../src/lib/seed/alignment";
 import { decideFactionSkips } from "./apply-override-skip";
+import { decideLocationSkips } from "./apply-override-location-skip";
 
 let pass = 0;
 let fail = 0;
@@ -641,6 +642,99 @@ check("multiple aliases for the same skipped id are all captured", () => {
   const { keep, skippedSurfaceForms } = runSkip(resolved, original);
   assert.deepEqual(keep.map((f) => f.id), ["adeptus_astartes"]);
   assert.deepEqual(skippedSurfaceForms, ["Imperium", "Imperium of Man"]);
+});
+
+// ---------------------------------------------------------------------------
+// Brief 084: location umbrella-surface-form-skip
+// ---------------------------------------------------------------------------
+
+console.log("\ndecideLocationSkips");
+
+const REDUNDANT_LOCATION_SURFACE_FORMS = new Set<string>(
+  [
+    "Imperium",
+    "Imperium of Man",
+    "Imperium of Mankind",
+    "Chaos",
+    "Chaos Space",
+    "Realm of Chaos",
+    "the Warp",
+    "Warp Space",
+    "Xenos",
+    "Aliens",
+    "Alien Space",
+  ].map((s) => s.trim().toLowerCase()),
+);
+
+check("location skip fires - Imperium dropped when Cadia is in the block", () => {
+  const decision = decideLocationSkips({
+    surfaceForms: [
+      { name: "Cadia", role: "primary" },
+      { name: "Imperium", role: "primary" },
+    ],
+    redundantSurfaceForms: REDUNDANT_LOCATION_SURFACE_FORMS,
+    resolvedLocationIds: ["cadia"],
+  });
+  assert.deepEqual(
+    decision.keepSurfaceForms.map((sf) => sf.name),
+    ["Cadia"],
+  );
+  assert.deepEqual(decision.skippedSurfaceForms, ["Imperium"]);
+});
+
+check("location skip preserves - Imperium alone (no peer resolved)", () => {
+  // Galaxy-wide-survey / lore-only book: only the umbrella tag is present
+  // and nothing else resolves. The umbrella stays in `locationsUnresolved`
+  // (Erhaltungs-Pfad), no audit-bucket entry.
+  const decision = decideLocationSkips({
+    surfaceForms: [{ name: "Imperium", role: "primary" }],
+    redundantSurfaceForms: REDUNDANT_LOCATION_SURFACE_FORMS,
+    resolvedLocationIds: [],
+  });
+  assert.deepEqual(
+    decision.keepSurfaceForms.map((sf) => sf.name),
+    ["Imperium"],
+  );
+  assert.deepEqual(decision.skippedSurfaceForms, []);
+});
+
+check("location skip fires for multiple umbrellas - Imperium and Chaos both dropped", () => {
+  const decision = decideLocationSkips({
+    surfaceForms: [
+      { name: "Cadia", role: "primary" },
+      { name: "Imperium", role: "primary" },
+      { name: "Chaos", role: "primary" },
+    ],
+    redundantSurfaceForms: REDUNDANT_LOCATION_SURFACE_FORMS,
+    resolvedLocationIds: ["cadia"],
+  });
+  assert.deepEqual(
+    decision.keepSurfaceForms.map((sf) => sf.name),
+    ["Cadia"],
+  );
+  assert.deepEqual(decision.skippedSurfaceForms.sort(), ["Chaos", "Imperium"]);
+});
+
+check("location skip is case-insensitive on the surface form", () => {
+  // IMPERIUM and Imperium of MAN both match (case-insensitive, trimmed)
+  // regardless of the canonical casing in `redundantSurfaceForms`.
+  const decision = decideLocationSkips({
+    surfaceForms: [
+      { name: "Cadia", role: "primary" },
+      { name: "IMPERIUM", role: "primary" },
+      { name: "  Imperium of MAN  ", role: "primary" },
+    ],
+    redundantSurfaceForms: REDUNDANT_LOCATION_SURFACE_FORMS,
+    resolvedLocationIds: ["cadia"],
+  });
+  assert.deepEqual(
+    decision.keepSurfaceForms.map((sf) => sf.name),
+    ["Cadia"],
+  );
+  assert.deepEqual(decision.skippedSurfaceForms.sort(), [
+    "  Imperium of MAN  ",
+    "IMPERIUM",
+  ]);
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);

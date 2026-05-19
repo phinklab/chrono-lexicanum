@@ -97,6 +97,10 @@ import {
   type SkipDecision,
 } from "./apply-override-skip";
 import {
+  decideLocationSkips,
+  type LocationSkipDecision,
+} from "./apply-override-location-skip";
+import {
   formatLintError,
   lintSynopsis,
   loadBannedPatterns,
@@ -109,6 +113,9 @@ const ROSTER_PATH = resolve(SEED_DIR, "book-roster.json");
 const PERSONS_PATH = resolve(SEED_DIR, "persons.json");
 const FACTIONS_PATH = resolve(SEED_DIR, "factions.json");
 const FACTION_POLICY_PATH = resolve(SEED_DIR, "faction-policy.json");
+const LOCATION_POLICY_PATH = resolve(SEED_DIR, "location-policy.json");
+const LOCATIONS_PATH = resolve(SEED_DIR, "locations.json");
+const LOCATION_ALIASES_PATH = resolve(SEED_DIR, "location-aliases.json");
 const OVERRIDE_FILENAME_PREFIX = "manual-overrides-";
 
 const M41_ERA_ID = "time_ending";
@@ -453,12 +460,21 @@ function buildSurfaceFormsBlock(
   override: OverrideBook,
   formatOverride: { from: string | null; to: string; reason: string } | null,
   skippedSurfaceForms: string[] = [],
+  skippedLocationSurfaceForms: string[] = [],
 ): string {
   const factionsUnresolved = override.overrides.factions
     .filter((f) => resolveFaction(f.name).id === null)
     .map((f) => ({ name: f.name, role: f.role }));
+  // Brief 084: surface forms that the location-skip helper already classified
+  // as redundant umbrella tags do not double-up in `locationsUnresolved`.
+  // Case-insensitive trim-match keeps `IMPERIUM` / `Imperium of MAN` aligned
+  // with the skip set.
+  const locationSkipSet = new Set(
+    skippedLocationSurfaceForms.map((s) => s.trim().toLowerCase()),
+  );
   const locationsUnresolved = override.overrides.locations
     .filter((l) => resolveLocation(l.name).id === null)
+    .filter((l) => !locationSkipSet.has(l.name.trim().toLowerCase()))
     .map((l) => ({ name: l.name, role: l.role }));
   const charactersUnresolved = override.overrides.characters
     .filter((c) => resolveCharacter(c.name).id === null)
@@ -471,6 +487,9 @@ function buildSurfaceFormsBlock(
   };
   if (skippedSurfaceForms.length > 0) {
     payload.factionsSkippedRedundant = skippedSurfaceForms;
+  }
+  if (skippedLocationSurfaceForms.length > 0) {
+    payload.locationsSkippedRedundant = skippedLocationSurfaceForms;
   }
   if (formatOverride) payload.formatOverride = formatOverride;
   const json = JSON.stringify(payload, null, 2);
@@ -565,6 +584,87 @@ async function loadSkipContext(): Promise<SkipContext> {
   }
 
   return { redundantIds, alignmentById };
+}
+
+interface LocationPolicyFile {
+  redundantSurfaceForms?: unknown;
+  specialCases?: Record<string, string>;
+}
+
+interface SeedLocationRow {
+  id: string;
+  name: string;
+}
+
+/**
+ * Skip-context for Brief 084: the policy-driven set of umbrella surface forms
+ * (case-insensitive, trimmed) that get routed from `locationsUnresolved` into
+ * the `locationsSkippedRedundant` audit-bucket when at least one other location
+ * in the same override block resolves to a real `locations.json` row.
+ *
+ * Validation triggers (Brief 084 § Constraints): (a) JSON not parsable;
+ * (b) `redundantSurfaceForms` missing or not a string array; (c) any entry
+ * case-insensitively matches an existing `locations.json` name or
+ * `location-aliases.json` key (self-foot-shooting — the maintainer accidentally
+ * put a real location on the skip list).
+ */
+interface LocationSkipContext {
+  redundantSurfaceForms: ReadonlySet<string>;
+}
+
+async function loadLocationSkipContext(): Promise<LocationSkipContext> {
+  const [policyRaw, locationsRaw, aliasesRaw] = await Promise.all([
+    readFile(LOCATION_POLICY_PATH, "utf8"),
+    readFile(LOCATIONS_PATH, "utf8"),
+    readFile(LOCATION_ALIASES_PATH, "utf8"),
+  ]);
+
+  let policy: LocationPolicyFile;
+  try {
+    policy = JSON.parse(policyRaw) as LocationPolicyFile;
+  } catch (err) {
+    throw new Error(
+      `location-policy.json is not parsable JSON: ${(err as Error).message}`,
+    );
+  }
+
+  if (!Array.isArray(policy.redundantSurfaceForms)) {
+    throw new Error(
+      `location-policy.json: 'redundantSurfaceForms' must be a string array.`,
+    );
+  }
+
+  const list: string[] = [];
+  for (const item of policy.redundantSurfaceForms) {
+    if (typeof item !== "string") {
+      throw new Error(
+        `location-policy.redundantSurfaceForms contains a non-string entry: ${JSON.stringify(item)}`,
+      );
+    }
+    list.push(item);
+  }
+
+  const seedLocations = JSON.parse(locationsRaw) as SeedLocationRow[];
+  const aliases = JSON.parse(aliasesRaw) as Record<string, string>;
+  const canonicalLowercased = new Set<string>([
+    ...seedLocations.map((l) => l.name.trim().toLowerCase()),
+    ...Object.keys(aliases).map((k) => k.trim().toLowerCase()),
+  ]);
+  for (const entry of list) {
+    const key = entry.trim().toLowerCase();
+    if (canonicalLowercased.has(key)) {
+      throw new Error(
+        `location-policy.redundantSurfaceForms contains '${entry}' but it ` +
+          `case-insensitively matches a locations.json name or location-aliases.json key — ` +
+          `the skip rule would suppress a real location. Remove the entry or rename the row.`,
+      );
+    }
+  }
+
+  const redundantSurfaceForms = new Set<string>(
+    list.map((s) => s.trim().toLowerCase()),
+  );
+  return { redundantSurfaceForms };
 }
 
 async function validateFacetIds(allFacetIds: Set<string>): Promise<void> {
@@ -720,6 +820,7 @@ async function applyBook(
   override: OverrideBook,
   roster: RosterBook,
   skipCtx: SkipContext,
+  locationSkipCtx: LocationSkipContext,
 ): Promise<BookApplyResult> {
   return await db.transaction(async (tx) => {
     const { format, formatOverride } = pickFinalFormat(roster, override);
@@ -742,10 +843,23 @@ async function applyBook(
       rawName: string;
     }>;
 
+    // Brief 084: location-skip runs after resolveLocations and before
+    // buildSurfaceFormsBlock so umbrella surface forms (Imperium, Chaos, ...)
+    // route into `locationsSkippedRedundant` when at least one other location
+    // in the block resolves to a real row. work_locations writes are
+    // unaffected (umbrellas resolve to null today and stay that way).
+    const resolvedLocations = resolveLocations(override.overrides.locations);
+    const locationSkipDecision: LocationSkipDecision = decideLocationSkips({
+      surfaceForms: override.overrides.locations,
+      redundantSurfaceForms: locationSkipCtx.redundantSurfaceForms,
+      resolvedLocationIds: resolvedLocations.map((r) => r.id),
+    });
+
     const surfaceFormsBlock = buildSurfaceFormsBlock(
       override,
       formatOverride,
       skipDecision.skippedSurfaceForms,
+      locationSkipDecision.skippedSurfaceForms,
     );
 
     // Authorship resolution from roster (not override). The override carries
@@ -890,7 +1004,6 @@ async function applyBook(
     }
 
     await tx.delete(workLocations).where(eq(workLocations.workId, workId));
-    const resolvedLocations = resolveLocations(override.overrides.locations);
     if (resolvedLocations.length > 0) {
       await tx.insert(workLocations).values(
         resolvedLocations.map((l) => ({
@@ -1036,12 +1149,16 @@ async function main() {
   const override = await loadOverride(args.batch);
   const roster = await loadRoster();
   const skipCtx = await loadSkipContext();
+  const locationSkipCtx = await loadLocationSkipContext();
 
   console.log(
     `[apply-override] loaded override: ${override.books.length} books; createdBy=${override.createdBy}`,
   );
   console.log(
     `[apply-override] skip-context: ${skipCtx.redundantIds.size} redundant ids (${[...skipCtx.redundantIds].join(", ")}); ${skipCtx.alignmentById.size} factions in alignment map`,
+  );
+  console.log(
+    `[apply-override] location-skip-context: ${locationSkipCtx.redundantSurfaceForms.size} redundant surface forms (case-insensitive)`,
   );
 
   const rosterByExternalId = new Map(roster.books.map((b) => [b.externalBookId, b]));
@@ -1083,7 +1200,7 @@ async function main() {
         `Override book ${overrideBook.externalBookId} has no matching row in book-roster.json`,
       );
     }
-    const result = await applyBook(overrideBook, rosterBook, skipCtx);
+    const result = await applyBook(overrideBook, rosterBook, skipCtx, locationSkipCtx);
     externalIdToUuid.set(result.externalBookId, result.workId);
     results.push(result);
     console.log(

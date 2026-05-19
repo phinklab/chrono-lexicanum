@@ -134,6 +134,20 @@ Die 50er-Schwelle trifft auch mitten in W40K-Domain mehrfach (50, 100, 150, …,
 
   **Begründung.** Brief 070 hat `imperium` als Tree-Root + Grand-Alignment, aber explizit KEIN Browse-Root entschieden (`scripts/seed-data/faction-policy.json` `knownTopLevelExceptions`). Vor Brief 077 hat die LLM den Tag trotzdem konsistent ausgeschrieben, was ~165 redundante `work_factions`-Junctions über `ssot-w40k-001..020` produziert hat (post-Re-Apply weggeputzt). Forward-only-Discipline verhindert die Wiederkehr ab fünfter Welle.
 
+- **Locations-Granularity-Discipline (ab `ssot-w40k-021` / `W40K-0201`).** Verankert durch Brief 084 (Locations-Axis-Hygiene). Greift forward-only — existierende Override-Files `ssot-w40k-001..020` werden vom Backfill-Re-Apply aus Brief 084 in `book_details.notes` korrigiert (Surface-Form wandert von `locationsUnresolved` nach `locationsSkippedRedundant`); `work_locations` bleibt invariant, weil Umbrella-Surface-Forms ohnehin zu `null` resolven.
+
+  **Location-Tags müssen konkret-geographisch sein.** `overrides.locations[].name` ist eine Sektor- / Sub-Sektor- / Welt- / Sub-Location-Bezeichnung. Politik-/Umbrella-/Warp-Surface-Forms sind verboten — die Locations-Achse trägt physische Orte, nicht Reich-/Alignment-/Realm-Klassen.
+
+  **Verboten als raw_name in `overrides.locations[]`:**
+  - `Imperium`, `Imperium of Man`, `Imperium of Mankind`, `the Imperium` — politische Reich-Klasse, kein Ort. Verwende konkrete Sektor/Welt (`Cadia`, `Armageddon`, `Hydraphur`, `Scarus Sector`, …).
+  - `Chaos`, `Chaos Space`, `the Chaos Space`, `Realm of Chaos` — kein physischer Ort. Verwende konkrete Welten (`Eye of Terror`, `Medrengard`, …) oder weglassen.
+  - `the Warp`, `Warp Space` — kein Ort im Sinne der `locations.json` (kein `gx`/`gy`). Wenn der Warp-Aspect plot-relevant ist: in `overrides.synopsis` schreiben.
+  - `Xenos`, `Aliens`, `Alien Space` — niemals. Verwende konkrete Xenos-Territorien (`T'au Empire`, `Octarius`, `Vigilus`, …).
+
+  **Erhaltungs-Pfad.** Wenn das Buch ausschließlich Umbrella-Tags trägt und keine konkrete Location (Galaxy-Wide-Survey, lore-only-Standalone), darf ein Tag stehen bleiben — der Apply-Skip greift nicht, weil keine andere Location im Block resolved (Brief 084 § Skip-Bedingung). Sehr selten.
+
+  **Begründung.** Vor Brief 084 hat die LLM Umbrella-Strings konsistent als Filter-Surface auf der Locations-Achse mitausgegeben (Empirie: 20× `Imperium` über `ssot-w40k-001..020`). Da `Imperium` keine `locations.json`-Row hat, resolved der Resolver zu `null` und der Surface-Form landete im `locationsUnresolved`-Notes-Bucket statt im sauberen `locationsSkippedRedundant`-Audit-Bucket. Apply-Layer-Skip macht die Disziplin nun deterministisch (Notes-Bucket-Umsortierung), die forward-only-Discipline verhindert die Wiederkehr ab fünfter Welle.
+
 ## Out of scope
 
 - **DB-Apply.** Apply für die produzierte Override-Datei läuft separat per `npm run db:apply-override -- --batch=ssot-{domain}-{NNN}` (Brief 060). NICHT in dieser Iteration.

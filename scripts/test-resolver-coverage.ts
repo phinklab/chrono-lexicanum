@@ -22,6 +22,7 @@ import {
   normalizeAlignment,
 } from "../src/lib/seed/alignment";
 import { decideFactionSkips } from "./apply-override-skip";
+import { decideLocationSkips } from "./apply-override-location-skip";
 
 const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
 const BATCHES = [
@@ -137,12 +138,21 @@ interface FactionRow {
 interface FactionPolicyRow {
   redundantWhenSubPresent?: string[];
 }
+interface LocationPolicyRow {
+  redundantSurfaceForms?: string[];
+}
 
 const FACTION_ROWS = readJson<FactionRow[]>("factions.json");
 const FACTION_POLICY = readJson<FactionPolicyRow>("faction-policy.json");
+const LOCATION_POLICY = readJson<LocationPolicyRow>("location-policy.json");
 const ALIGNMENT_BY_ID = new Map<string, Alignment>();
 for (const row of FACTION_ROWS) ALIGNMENT_BY_ID.set(row.id, normalizeAlignment(row));
 const REDUNDANT_IDS = new Set<string>(FACTION_POLICY.redundantWhenSubPresent ?? []);
+const REDUNDANT_LOCATION_SURFACE_FORMS = new Set<string>(
+  (LOCATION_POLICY.redundantSurfaceForms ?? []).map((s) =>
+    s.trim().toLowerCase(),
+  ),
+);
 
 /**
  * Faction coverage after applying the Brief 077 grand-alignment-junction-skip:
@@ -179,6 +189,41 @@ function factionCoverageWithSkip(
   };
 }
 
+/**
+ * Location coverage after applying the Brief 084 umbrella-surface-form-skip:
+ * resolved IDs are unchanged (umbrellas resolve to null anyway), but the
+ * unresolved surface forms route the umbrellas into the audit-bucket when a
+ * peer location resolves in the same block. Returns coverage + skipped tally
+ * + the post-skip unresolved list so the tail report can split the delta.
+ */
+function locationCoverageWithSkip(
+  input: OverrideEntity[],
+): AxisCoverage & { skipped: number } {
+  const base = uniqueResolved(input, resolveLocation);
+  const decision = decideLocationSkips({
+    surfaceForms: input,
+    redundantSurfaceForms: REDUNDANT_LOCATION_SURFACE_FORMS,
+    resolvedLocationIds: Array.from(
+      new Set(
+        input
+          .map((entity) => resolveLocation(entity.name).id)
+          .filter((id): id is string => id !== null),
+      ),
+    ),
+  });
+  const skipSet = new Set(
+    decision.skippedSurfaceForms.map((s) => s.trim().toLowerCase()),
+  );
+  return {
+    resolved: base.resolved,
+    input: base.input,
+    unresolved: base.unresolved.filter(
+      (name) => !skipSet.has(name.trim().toLowerCase()),
+    ),
+    skipped: decision.skippedSurfaceForms.length,
+  };
+}
+
 function characterCoverage(input: OverrideEntity[]): AxisCoverage {
   for (const entity of input) {
     const normalized = normalizeCharacterRole(entity.role);
@@ -202,16 +247,20 @@ const books = BATCHES.flatMap((n) =>
 interface FactionCoverageWithSkip extends AxisCoverage {
   skipped: number;
 }
+interface LocationCoverageWithSkip extends AxisCoverage {
+  skipped: number;
+}
 
 interface BookCoverageExt extends BookCoverage {
   factions: FactionCoverageWithSkip;
+  locations: LocationCoverageWithSkip;
 }
 
 const coverage: BookCoverageExt[] = books.map((book) => ({
   externalBookId: book.externalBookId,
   slug: book.slug,
   factions: factionCoverageWithSkip(book.overrides.factions),
-  locations: uniqueResolved(book.overrides.locations, resolveLocation),
+  locations: locationCoverageWithSkip(book.overrides.locations),
   characters: characterCoverage(book.overrides.characters),
 }));
 
@@ -266,6 +315,7 @@ const totals = coverage.reduce(
     factionsSkipped: acc.factionsSkipped + row.factions.skipped,
     locationsResolved: acc.locationsResolved + row.locations.resolved,
     locationInputs: acc.locationInputs + row.locations.input,
+    locationsSkipped: acc.locationsSkipped + row.locations.skipped,
     charactersResolved: acc.charactersResolved + row.characters.resolved,
     characterInputs: acc.characterInputs + row.characters.input,
   }),
@@ -275,6 +325,7 @@ const totals = coverage.reduce(
     factionsSkipped: 0,
     locationsResolved: 0,
     locationInputs: 0,
+    locationsSkipped: 0,
     charactersResolved: 0,
     characterInputs: 0,
   },
@@ -282,7 +333,7 @@ const totals = coverage.reduce(
 
 console.log(
   `totals: factions=${totals.factionsResolved}/${totals.factionInputs} (post-Brief-077-skip, ${totals.factionsSkipped} grand-alignment surface forms suppressed), ` +
-    `locations=${totals.locationsResolved}/${totals.locationInputs}, ` +
+    `locations=${totals.locationsResolved}/${totals.locationInputs} (post-Brief-084-skip, ${totals.locationsSkipped} location umbrella surface forms suppressed), ` +
     `characters=${totals.charactersResolved}/${totals.characterInputs}`,
 );
 

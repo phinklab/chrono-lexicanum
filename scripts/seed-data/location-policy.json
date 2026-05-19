@@ -1,0 +1,21 @@
+{
+  "redundantSurfaceForms": [
+    "Imperium",
+    "Imperium of Man",
+    "Imperium of Mankind",
+    "the Imperium",
+    "Chaos",
+    "Chaos Space",
+    "the Chaos Space",
+    "Realm of Chaos",
+    "the Warp",
+    "Warp Space",
+    "Xenos",
+    "Aliens",
+    "Alien Space"
+  ],
+  "specialCases": {
+    "the Warp / Warp Space": "Locations-Achse: der Warp ist kein physischer Ort im Sense der `locations.json` (kein gx/gy). Bücher taggen ihn als Filter-Surface, aber der Resolver matcht ihn nicht. Skip statt unresolved. Begründung analog Imperium.",
+    "Eye of Terror exklusiv": "Eye of Terror IST eine reale Location-Row (id=`eye_of_terror`, sector=`obscurus`, gx=330/gy=120). NICHT in `redundantSurfaceForms`. Wenn ein Buch sowohl `Eye of Terror` als auch `Realm of Chaos` tagged, wird Eye of Terror als Junction geschrieben, Realm of Chaos skipped."
+  }
+}
