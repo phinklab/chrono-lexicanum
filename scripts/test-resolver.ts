@@ -16,6 +16,7 @@ import {
 import type { Alignment } from "../src/lib/seed/alignment";
 import { decideFactionSkips } from "./apply-override-skip";
 import { decideLocationSkips } from "./apply-override-location-skip";
+import { normalizeForHardcover } from "./hardcover-title-normalize";
 
 let pass = 0;
 let fail = 0;
@@ -735,6 +736,101 @@ check("location skip is case-insensitive on the surface form", () => {
     "  Imperium of MAN  ",
     "IMPERIUM",
   ]);
+});
+
+// ---------------------------------------------------------------------------
+// Brief 085: Hardcover title normalization (cleanup + fallback-variants)
+// ---------------------------------------------------------------------------
+
+console.log("\nnormalizeForHardcover");
+
+check("pass-through - clean title without noise", () => {
+  const r = normalizeForHardcover("Xenos");
+  assert.equal(r.primary, "Xenos");
+  assert.deepEqual(r.fallbacks, []);
+});
+
+check("vol-range + founding-omnibus - Gaunt's Ghosts: The Founding Omnibus, 1-3", () => {
+  const r = normalizeForHardcover("Gaunt's Ghosts: The Founding Omnibus, 1-3");
+  assert.equal(r.primary, "Gaunt's Ghosts");
+  assert.deepEqual(r.fallbacks, []);
+});
+
+check("generic omnibus - Eisenhorn Omnibus -> Eisenhorn (no colon, no fallbacks)", () => {
+  const r = normalizeForHardcover("Eisenhorn Omnibus");
+  assert.equal(r.primary, "Eisenhorn");
+  assert.deepEqual(r.fallbacks, []);
+});
+
+check("specific :The Omnibus - Ravenor: The Omnibus (generic must NOT eat to 'Ravenor: The')", () => {
+  const r = normalizeForHardcover("Ravenor: The Omnibus");
+  assert.equal(r.primary, "Ravenor");
+  assert.deepEqual(r.fallbacks, []);
+});
+
+check("(Legends) suffix - 'The Last Chancers (Legends)'", () => {
+  const r = normalizeForHardcover("The Last Chancers (Legends)");
+  assert.equal(r.primary, "The Last Chancers");
+  assert.deepEqual(r.fallbacks, []);
+});
+
+check("Vol + Omnibus - 'Uriel Ventris Omnibus Vol. 1'", () => {
+  const r = normalizeForHardcover("Uriel Ventris Omnibus Vol. 1");
+  assert.equal(r.primary, "Uriel Ventris");
+  assert.deepEqual(r.fallbacks, []);
+});
+
+check("colon-character-prefix - 'Belisarius Cawl: The Great Work' yields BOTH fallbacks", () => {
+  const r = normalizeForHardcover("Belisarius Cawl: The Great Work");
+  assert.equal(r.primary, "Belisarius Cawl: The Great Work");
+  assert.deepEqual(r.fallbacks, ["Belisarius Cawl", "The Great Work"]);
+});
+
+check("colon-series-prefix - 'Imperator: Wrath of the Omnissiah' yields BOTH fallbacks", () => {
+  const r = normalizeForHardcover("Imperator: Wrath of the Omnissiah");
+  assert.equal(r.primary, "Imperator: Wrath of the Omnissiah");
+  assert.deepEqual(r.fallbacks, ["Imperator", "Wrath of the Omnissiah"]);
+});
+
+check("Part marker - 'Horus Rising Part One'", () => {
+  const r = normalizeForHardcover("Horus Rising Part One");
+  assert.equal(r.primary, "Horus Rising");
+  assert.deepEqual(r.fallbacks, []);
+});
+
+check("Complete-X-Omnibus - 'Iron Warriors: The Complete Honsou Omnibus' -> 'Iron Warriors'", () => {
+  const r = normalizeForHardcover("Iron Warriors: The Complete Honsou Omnibus");
+  assert.equal(r.primary, "Iron Warriors");
+  assert.deepEqual(r.fallbacks, []);
+});
+
+check("ordinal-Omnibus - 'Space Wolf: The Second Omnibus' -> 'Space Wolf'", () => {
+  const r = normalizeForHardcover("Space Wolf: The Second Omnibus");
+  assert.equal(r.primary, "Space Wolf");
+  assert.deepEqual(r.fallbacks, []);
+});
+
+check("em-dash vol-range - 'Some Trilogy 1–3' (en-dash variant)", () => {
+  const r = normalizeForHardcover("Some Trilogy, 1–3");
+  assert.equal(r.primary, "Some Trilogy");
+  assert.deepEqual(r.fallbacks, []);
+});
+
+check("colon with no noise stays - 'Mephiston: Lord of Death' yields both fallbacks", () => {
+  // No omnibus/legends/part noise → primary identical, but colon still triggers fallback prep.
+  const r = normalizeForHardcover("Mephiston: Lord of Death");
+  assert.equal(r.primary, "Mephiston: Lord of Death");
+  assert.deepEqual(r.fallbacks, ["Mephiston", "Lord of Death"]);
+});
+
+check("empty cleanup result throws (defensive guard)", () => {
+  // Pathological input: just "(Legends)" — cleanup strips it to empty.
+  assert.throws(() => normalizeForHardcover("(Legends)"));
+});
+
+check("input trimming - leading/trailing whitespace doesn't survive", () => {
+  const r = normalizeForHardcover("  Xenos  ");
+  assert.equal(r.primary, "Xenos");
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);

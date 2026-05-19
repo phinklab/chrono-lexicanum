@@ -1,7 +1,7 @@
 /**
  * backfill-hardcover-rating.ts — write `bookDetails.rating` for the
  * W40K-SSOT applied corpus by re-issuing `discoverHardcoverClaimV2`
- * (Brief 075 Track B, closes OQ6).
+ * (Brief 075 Track B, closes OQ6; Brief 085 hit-rate hardening).
  *
  * Scope (Brief Erratum #2, binding):
  *   works.source_kind='ssot' AND works.external_book_id LIKE 'W40K-%' AND works.kind='book'
@@ -16,6 +16,19 @@
  *   (src/lib/ingestion/v2/sources/hardcover.ts:93-96) — a false-positive
  *   risk this script avoids by design.
  *
+ * Title normalization (Brief 085, binding):
+ *   Each roster title is passed through `normalizeForHardcover()` first.
+ *   Step 1 (cleanup) is always applied — strips trailing volume-range,
+ *   Part markers, `(Legends)` suffix, `Vol.`/`Volume N`, and Omnibus
+ *   variants (specific patterns before generic ` Omnibus`). Step 2
+ *   (fallback variants) only fires on benign-miss (`null_result_zero_hits`,
+ *   `author_mismatch`, or hit-without-numeric-rating) — the two colon-splits
+ *   `dropAfterColon` (-> `colon-suffix-drop`) and `dropBeforeColon`
+ *   (-> `colon-prefix-drop`) are tried in order against the same author.
+ *   Hard errors (`graphql_error`, `token_missing`, ratingsCount-probe error)
+ *   never trigger fallbacks. Win-condition (binding): `result.result !== null`
+ *   AND numeric `audit.averageRating`.
+ *
  * Multi-author books: the lowest `displayOrder` author is used as
  *   `expectedAuthor`. `authorMatches()` does a substring match on the
  *   Hardcover contributor list, so any co-author whose name appears in
@@ -26,7 +39,15 @@
  *   GraphQL schema rejects that field, the script falls back to
  *   `'ratings_count'`. If both fail, `bookDetails.ratingCount` stays NULL
  *   and the rest of the run runs without the extra field. The Report
- *   documents which path the probe took.
+ *   documents which path the probe took. The probe only runs on the
+ *   primary (cleanup) call; fallback variants reuse the settled field.
+ *
+ * Diff-lists (Brief 085):
+ *   - List A (force-overwrites): in `--force` mode, books whose rating
+ *     value changes by ≥0.01 vs. priorRating. Expect 0-3.
+ *   - List B (Hit→Miss regressions): books that had `priorRating !== null`
+ *     but the new run produced a MISS. Expect 0; >0 is a hard signal that
+ *     the cleanup rule is too aggressive.
  *
  * Idempotent default; `--force` is opt-in for refresh runs. No
  * transaction wrap — per-book UPDATE on book_details is a single-row
@@ -51,6 +72,7 @@ import {
   getCircuitBreakerReason,
   isHardcoverEnabled,
 } from "@/lib/ingestion/hardcover/fetch";
+import { normalizeForHardcover } from "./hardcover-title-normalize";
 
 const POLITENESS_DELAY_MS = 200;
 const RATINGS_COUNT_CANDIDATES: HardcoverRatingsCountField[] = [
@@ -65,6 +87,14 @@ type MissBucket =
   | "author_mismatch"
   | "graphql_error"
   | "token_missing";
+
+type VariantUsed = "cleanup" | "colon-suffix-drop" | "colon-prefix-drop";
+
+const VARIANT_KEYS: VariantUsed[] = [
+  "cleanup",
+  "colon-suffix-drop",
+  "colon-prefix-drop",
+];
 
 interface ParsedCliArgs {
   force: boolean;
@@ -121,6 +151,9 @@ Behaviour:
   - Per-book single-row UPDATE on book_details; no transaction wrap.
   - Author-missing books (no role='author' row) are bucketed as no_author
     and skipped — no Hardcover call (Brief 075 Erratum #3).
+  - Title normalization (Brief 085): cleanup-step always applied, fallback
+    colon-splits only on benign miss. Variant-distribution and diff-lists
+    A/B in the final report.
   - First hit probes Hardcover for users_count / ratings_count; both fields
     are tried before giving up. If neither exists, ratingCount stays NULL.
   - Final summary prints per-bucket miss counts and the overall hit-rate.
@@ -137,6 +170,7 @@ interface WorkTarget {
   workId: string;
   externalBookId: string | null;
   title: string;
+  priorRating: string | null;
 }
 
 interface BackfillCounts {
@@ -144,6 +178,22 @@ interface BackfillCounts {
   hits: number;
   ratingCountWrites: number;
   misses: Record<MissBucket, number>;
+  variantHits: Record<VariantUsed, number>;
+}
+
+interface DiffEntryForceOverwrite {
+  externalBookId: string | null;
+  title: string;
+  priorRating: string;
+  newRating: string;
+  variantUsed: VariantUsed;
+}
+
+interface DiffEntryRegression {
+  externalBookId: string | null;
+  title: string;
+  priorRating: string;
+  newBucket: MissBucket;
 }
 
 function newCounts(): BackfillCounts {
@@ -158,6 +208,11 @@ function newCounts(): BackfillCounts {
       author_mismatch: 0,
       graphql_error: 0,
       token_missing: 0,
+    },
+    variantHits: {
+      cleanup: 0,
+      "colon-suffix-drop": 0,
+      "colon-prefix-drop": 0,
     },
   };
 }
@@ -177,6 +232,7 @@ async function loadTargets(force: boolean, limit: number | null): Promise<WorkTa
       workId: works.id,
       externalBookId: works.externalBookId,
       title: works.title,
+      priorRating: bookDetails.rating,
     })
     .from(works)
     .leftJoin(bookDetails, eq(bookDetails.workId, works.id))
@@ -237,12 +293,54 @@ function bucketReason(reason: string | undefined): MissBucket {
   return "graphql_error";
 }
 
+type DiscoverResult = Awaited<ReturnType<typeof discoverHardcoverClaimV2>>;
+
+type VariantOutcome =
+  | {
+      kind: "hit-win";
+      rating: number;
+      ratingCount: number | null;
+    }
+  | {
+      kind: "benign-miss";
+      bucket: MissBucket;
+    }
+  | {
+      kind: "hard-miss";
+      bucket: MissBucket;
+    };
+
+function evaluateResult(result: DiscoverResult): VariantOutcome {
+  if (result.result !== null) {
+    const audit = (result.result.claim.raw as { audit?: Record<string, unknown> } | undefined)?.audit;
+    const rawRating = audit?.["averageRating"];
+    if (typeof rawRating === "number") {
+      const rating = clampRating(rawRating);
+      const rawRatingCount = audit?.["ratingCount"];
+      const ratingCount =
+        typeof rawRatingCount === "number" && Number.isFinite(rawRatingCount)
+          ? Math.max(0, Math.trunc(rawRatingCount))
+          : null;
+      return { kind: "hit-win", rating, ratingCount };
+    }
+    // Hit but no numeric rating → benign miss (re-bucketed as null_result_zero_hits).
+    return { kind: "benign-miss", bucket: "null_result_zero_hits" };
+  }
+  if (result.authorMismatch === true) {
+    return { kind: "benign-miss", bucket: "author_mismatch" };
+  }
+  if (result.reason === undefined) {
+    return { kind: "benign-miss", bucket: "null_result_zero_hits" };
+  }
+  return { kind: "hard-miss", bucket: bucketReason(result.reason) };
+}
+
 function progressLine(
   idx: number,
   total: number,
   target: WorkTarget,
   outcome:
-    | { kind: "hit"; rating: number; ratingCount: number | null }
+    | { kind: "hit"; rating: number; ratingCount: number | null; variantUsed: VariantUsed }
     | { kind: "miss"; bucket: MissBucket }
     | { kind: "skip"; bucket: MissBucket },
 ): string {
@@ -252,12 +350,19 @@ function progressLine(
   if (outcome.kind === "hit") {
     const rc =
       outcome.ratingCount == null ? "" : ` (count=${outcome.ratingCount})`;
-    return `${head} → rating=${outcome.rating.toFixed(2)}${rc}`;
+    return `${head} → rating=${outcome.rating.toFixed(2)}${rc} via=${outcome.variantUsed}`;
   }
   if (outcome.kind === "skip") {
     return `${head} → SKIP (${outcome.bucket})`;
   }
   return `${head} → MISS (${outcome.bucket})`;
+}
+
+function ratingDiffers(prior: string | null, next: number): boolean {
+  if (prior === null) return false;
+  const priorNum = Number.parseFloat(prior);
+  if (!Number.isFinite(priorNum)) return false;
+  return Math.abs(priorNum - next) >= 0.01;
 }
 
 async function main(): Promise<void> {
@@ -302,23 +407,53 @@ async function main(): Promise<void> {
   let ratingsCountProbeSettled = false;
   const ratingsCountAttempts: Array<{ field: HardcoverRatingsCountField; reason: string }> = [];
 
+  const forceOverwrites: DiffEntryForceOverwrite[] = [];
+  const regressions: DiffEntryRegression[] = [];
+
   for (let i = 0; i < targets.length; i++) {
     const target = targets[i];
     const author = authorMap.get(target.workId);
 
     if (author === undefined) {
       counts.misses.no_author += 1;
+      if (target.priorRating !== null) {
+        regressions.push({
+          externalBookId: target.externalBookId,
+          title: target.title,
+          priorRating: target.priorRating,
+          newBucket: "no_author",
+        });
+      }
       console.log(progressLine(i + 1, targets.length, target, { kind: "skip", bucket: "no_author" }));
       continue;
     }
 
-    let result = await discoverHardcoverClaimV2(target.title, author, {
+    // Title normalization (Brief 085).
+    let variants;
+    try {
+      variants = normalizeForHardcover(target.title);
+    } catch (e) {
+      console.error(
+        `  · normalize-failure for "${target.title}": ${e instanceof Error ? e.message : String(e)}`,
+      );
+      counts.misses.null_result_zero_hits += 1;
+      if (target.priorRating !== null) {
+        regressions.push({
+          externalBookId: target.externalBookId,
+          title: target.title,
+          priorRating: target.priorRating,
+          newBucket: "null_result_zero_hits",
+        });
+      }
+      console.log(progressLine(i + 1, targets.length, target, { kind: "miss", bucket: "null_result_zero_hits" }));
+      continue;
+    }
+
+    // Step 1: primary call (cleanup variant) with ratingsCount probe loop.
+    let result = await discoverHardcoverClaimV2(variants.primary, author, {
       ratingsCountField,
     });
 
-    // ratingsCount-field probe: if the chosen field is rejected by the
-    // Hardcover schema, try the next candidate. After both candidates fail,
-    // we stop sending the field and continue without ratingCount.
     while (
       !ratingsCountProbeSettled &&
       ratingsCountField !== null &&
@@ -340,96 +475,116 @@ async function main(): Promise<void> {
           "  · ratingCount-probe: all candidates rejected — continuing without ratingCount.",
         );
       }
-      result = await discoverHardcoverClaimV2(target.title, author, {
+      result = await discoverHardcoverClaimV2(variants.primary, author, {
         ratingsCountField,
       });
     }
-    // First non-error response settles the probe.
     if (!ratingsCountProbeSettled && (result.result !== null || result.reason === undefined || !ratingsCountField || !isUnknownFieldError(result.reason, ratingsCountField))) {
       ratingsCountProbeSettled = true;
     }
 
-    if (result.result === null) {
-      let bucket: MissBucket;
-      if (result.authorMismatch === true) {
-        bucket = "author_mismatch";
-      } else if (result.reason === undefined) {
-        bucket = "null_result_zero_hits";
-      } else {
-        bucket = bucketReason(result.reason);
-        // graphql_error vs null_result_after_filter: a token/auth error trips
-        // the circuit breaker — abort loudly so we don't silently skip the rest.
-        const breaker = getCircuitBreakerReason();
-        if (breaker !== undefined) {
-          console.error(
-            `\nerror: Hardcover circuit-breaker tripped — ${breaker}. ` +
-              `Stopped after ${i + 1} books; subsequent calls would be silent skips.`,
-          );
-          counts.misses[bucket] += 1;
-          printSummary(counts, args, ratingsCountField, ratingsCountAttempts);
-          process.exit(1);
+    let outcome = evaluateResult(result);
+    let usedVariant: VariantUsed = "cleanup";
+
+    // Step 2: fallback variants on benign miss.
+    if (outcome.kind === "benign-miss" && variants.fallbacks.length > 0) {
+      for (let fIdx = 0; fIdx < variants.fallbacks.length; fIdx++) {
+        const fbTitle = variants.fallbacks[fIdx];
+        const fbVariant: VariantUsed = fIdx === 0 ? "colon-suffix-drop" : "colon-prefix-drop";
+        const fbResult = await discoverHardcoverClaimV2(fbTitle, author, {
+          ratingsCountField,
+        });
+        const fbOutcome = evaluateResult(fbResult);
+        if (fbOutcome.kind === "hit-win") {
+          outcome = fbOutcome;
+          usedVariant = fbVariant;
+          break;
         }
+        // miss or hard-miss → keep trying next fallback; primary's outcome remains
+        // the fallback record if all variants miss.
       }
-      counts.misses[bucket] += 1;
-      console.log(progressLine(i + 1, targets.length, target, { kind: "miss", bucket }));
-      continue;
     }
 
-    const audit = (result.result.claim.raw as { audit?: Record<string, unknown> } | undefined)?.audit;
-    const rawRating = audit?.["averageRating"];
-    if (typeof rawRating !== "number") {
-      // Hardcover hit without a rating value: bucket as null_result_zero_hits
-      // (the rating slot is what we actually backfill).
-      counts.misses.null_result_zero_hits += 1;
-      console.log(progressLine(i + 1, targets.length, target, { kind: "miss", bucket: "null_result_zero_hits" }));
-      continue;
-    }
-    const rating = clampRating(rawRating);
-    const rawRatingCount = audit?.["ratingCount"];
-    const ratingCountValue =
-      typeof rawRatingCount === "number" && Number.isFinite(rawRatingCount)
-        ? Math.max(0, Math.trunc(rawRatingCount))
-        : null;
+    if (outcome.kind === "hit-win") {
+      const setPayload: {
+        rating: string;
+        ratingSource: string;
+        ratingCount?: number;
+      } = {
+        rating: outcome.rating.toFixed(2),
+        ratingSource: "hardcover",
+      };
+      if (outcome.ratingCount !== null) setPayload.ratingCount = outcome.ratingCount;
 
-    const setPayload: {
-      rating: string;
-      ratingSource: string;
-      ratingCount?: number;
-    } = {
-      rating: rating.toFixed(2),
-      ratingSource: "hardcover",
-    };
-    if (ratingCountValue !== null) setPayload.ratingCount = ratingCountValue;
-
-    await db
-      .insert(bookDetails)
-      .values({
-        workId: target.workId,
-        rating: setPayload.rating,
-        ratingSource: setPayload.ratingSource,
-        ratingCount: setPayload.ratingCount ?? null,
-      })
-      .onConflictDoUpdate({
-        target: bookDetails.workId,
-        set: {
+      await db
+        .insert(bookDetails)
+        .values({
+          workId: target.workId,
           rating: setPayload.rating,
           ratingSource: setPayload.ratingSource,
-          ratingCount: setPayload.ratingCount ?? sql`${bookDetails.ratingCount}`,
-        },
-      });
+          ratingCount: setPayload.ratingCount ?? null,
+        })
+        .onConflictDoUpdate({
+          target: bookDetails.workId,
+          set: {
+            rating: setPayload.rating,
+            ratingSource: setPayload.ratingSource,
+            ratingCount: setPayload.ratingCount ?? sql`${bookDetails.ratingCount}`,
+          },
+        });
 
-    counts.hits += 1;
-    if (ratingCountValue !== null) counts.ratingCountWrites += 1;
-    console.log(
-      progressLine(i + 1, targets.length, target, {
-        kind: "hit",
-        rating,
-        ratingCount: ratingCountValue,
-      }),
-    );
+      counts.hits += 1;
+      counts.variantHits[usedVariant] += 1;
+      if (outcome.ratingCount !== null) counts.ratingCountWrites += 1;
+
+      if (args.force && ratingDiffers(target.priorRating, outcome.rating)) {
+        forceOverwrites.push({
+          externalBookId: target.externalBookId,
+          title: target.title,
+          priorRating: target.priorRating!,
+          newRating: setPayload.rating,
+          variantUsed: usedVariant,
+        });
+      }
+
+      console.log(
+        progressLine(i + 1, targets.length, target, {
+          kind: "hit",
+          rating: outcome.rating,
+          ratingCount: outcome.ratingCount,
+          variantUsed: usedVariant,
+        }),
+      );
+      continue;
+    }
+
+    // Miss (benign or hard).
+    counts.misses[outcome.bucket] += 1;
+    if (target.priorRating !== null) {
+      regressions.push({
+        externalBookId: target.externalBookId,
+        title: target.title,
+        priorRating: target.priorRating,
+        newBucket: outcome.bucket,
+      });
+    }
+
+    if (outcome.kind === "hard-miss") {
+      const breaker = getCircuitBreakerReason();
+      if (breaker !== undefined) {
+        console.error(
+          `\nerror: Hardcover circuit-breaker tripped — ${breaker}. ` +
+            `Stopped after ${i + 1} books; subsequent calls would be silent skips.`,
+        );
+        printSummary(counts, args, ratingsCountField, ratingsCountAttempts, forceOverwrites, regressions);
+        process.exit(1);
+      }
+    }
+
+    console.log(progressLine(i + 1, targets.length, target, { kind: "miss", bucket: outcome.bucket }));
   }
 
-  printSummary(counts, args, ratingsCountField, ratingsCountAttempts);
+  printSummary(counts, args, ratingsCountField, ratingsCountAttempts, forceOverwrites, regressions);
 }
 
 function printSummary(
@@ -437,6 +592,8 @@ function printSummary(
   args: ParsedCliArgs,
   finalRatingsCountField: HardcoverRatingsCountField | null,
   ratingsCountAttempts: Array<{ field: HardcoverRatingsCountField; reason: string }>,
+  forceOverwrites: DiffEntryForceOverwrite[],
+  regressions: DiffEntryRegression[],
 ): void {
   const totalAttempted = counts.hits + sumMisses(counts.misses);
   const hitRate =
@@ -450,8 +607,16 @@ function printSummary(
   for (const [bucket, n] of Object.entries(counts.misses)) {
     console.log(`  ${bucket.padEnd(28)} ${String(n).padStart(4)}`);
   }
+
+  console.log("\nVariant-distribution (hits only):");
+  for (const v of VARIANT_KEYS) {
+    const n = counts.variantHits[v];
+    const pct = counts.hits === 0 ? 0 : (n / counts.hits) * 100;
+    console.log(`  ${v.padEnd(28)} ${String(n).padStart(4)}  (${pct.toFixed(1)}%)`);
+  }
+
   console.log(
-    `ratingCount written:   ${counts.ratingCountWrites} / ${counts.hits} hits` +
+    `\nratingCount written:   ${counts.ratingCountWrites} / ${counts.hits} hits` +
       (finalRatingsCountField === null
         ? " (probe failed; field unsupported)"
         : ` (using "${finalRatingsCountField}")`),
@@ -461,6 +626,27 @@ function printSummary(
     for (const a of ratingsCountAttempts) {
       console.log(`  - ${a.field}: ${a.reason.slice(0, 140)}`);
     }
+  }
+
+  if (args.force) {
+    console.log(`\nDiff-list A (force overwrites, rating changed by ≥0.01): ${forceOverwrites.length}`);
+    for (const e of forceOverwrites) {
+      console.log(
+        `  ${e.externalBookId ?? "-"} "${e.title}": ${e.priorRating} → ${e.newRating} (via=${e.variantUsed})`,
+      );
+    }
+  }
+
+  console.log(`\nDiff-list B (Hit→Miss regressions, prior rating now missing): ${regressions.length}`);
+  for (const e of regressions) {
+    console.log(
+      `  ${e.externalBookId ?? "-"} "${e.title}": prior=${e.priorRating} → MISS (${e.newBucket})`,
+    );
+  }
+  if (regressions.length > 0) {
+    console.log(
+      "  ⚠ Hit→Miss regression(s) detected — investigate whether the cleanup-rule is too aggressive.",
+    );
   }
 
   if (totalAttempted > 0 && hitRate < 70) {
