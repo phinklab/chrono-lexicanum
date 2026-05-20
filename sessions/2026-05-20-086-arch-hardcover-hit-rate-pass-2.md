@@ -2,7 +2,7 @@
 session: 2026-05-20-086
 role: architect
 date: 2026-05-20
-status: open
+status: implemented
 slug: hardcover-hit-rate-pass-2
 parent: 2026-05-19-085-arch-hardcover-hit-rate-hardening
 links:

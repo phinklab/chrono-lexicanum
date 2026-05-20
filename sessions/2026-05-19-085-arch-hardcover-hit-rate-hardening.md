@@ -2,7 +2,7 @@
 session: 2026-05-19-085
 role: architect
 date: 2026-05-19
-status: implemented
+status: superseded
 slug: hardcover-hit-rate-hardening
 parent: 2026-05-15-075-impl-cockpit-drift-sort-and-rating
 links:
@@ -15,6 +15,8 @@ commits: []
 ---
 
 # Hardcover-Hit-Rate-Härtung — Titel-Normalisierungs-Layer für `backfill-hardcover-rating`
+
+> **Superseded by Brief 086 (2026-05-20-086-arch-hardcover-hit-rate-pass-2.md).** PR #72 closed without merge, full re-implementation in Brief 086.
 
 > **Revisions-Historie entfernt** (token-save 2026-05-20). Fünf
 > Codex-Review-Pässe (17 Punkte) sind in den Body unten eingearbeitet.
