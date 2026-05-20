@@ -173,6 +173,59 @@ Der **erste** Phase-3-Schreiblauf-Versuch lief falsch und musste wiederholt werd
 3. **Optionaler Re-Run** für den 5er-`graphql_error`-Burst (0095–0099, inkl. des einen blockierten Overrides 0096) nach API-Stabilisierung → +5 bis +6 erreichbar (≈ 60–61 %), schiebt aber nicht über 70 %.
 4. **OQ (10) bleibt offen** (Cowork-Flip).
 
+## Phase 4 — Goodreads-Rating-Validierungslauf (Cowork-Nachtrag 2026-05-20)
+
+Phase 4 lief in derselben Session/Branch/PR nach Phase 3. Ziel: jedes nach Phase 3 verbleibende `book_details.rating IS NULL`-Buch über **eine** Websuche `<Titel> <Autor> goodreads rating` mit `ratingSource='goodreads'` füllen — und dabei die Snippet-Technik als Grundlage für einen späteren per-Buch „Refresh"-Button validieren.
+
+### Mechanik (bewusst minimal)
+
+- **Ein Script, zwei Modi:** `scripts/backfill-goodreads-rating.ts` mit `--list=<path>` (read-only Dump der `rating IS NULL`-Ziele) und `--apply=<path>` (Write). Keine Cascade, kein DI-Helper, keine Retry-Policy, keine Override-JSON. Der Write ist ein einzelnes geguardetes `UPDATE … WHERE workId = ? AND rating IS NULL` — fasst nur Null-Zeilen an, überschreibt nie eine Hardcover-Zeile, ist idempotent (Re-Run schrieb **0**, „already had rating: 78").
+- **`ratingSource`-Spaltentyp (OQ Phase 4):** `varchar(32)`, **kein** constrained enum (`src/db/schema.ts:276`). `'goodreads'` passt → **keine Migration nötig**.
+- **Eingabe:** `--list` zog **81** Ziel-Bücher (= DB-Coverage 119/200 nach Phase 3 invertiert). Goodreads-Skala ist 0–5 wie Hardcover → keine Umrechnung.
+
+### Ergebnis
+
+| Metrik | Wert |
+|---|---:|
+| Ziel-Bücher (`rating IS NULL` nach Phase 3) | **81** |
+| Resolved (`ratingSource='goodreads'` geschrieben) | **78** |
+| Skipped (dokumentiert) | **3** |
+| **Trefferquote** | **78/81 = 96.3 %** |
+| DB-Coverage nach Phase 4 (`rating IS NOT NULL`) | **197/200 = 98.5 %** (119 hardcover + 78 goodreads) |
+| Verbleibende `rating IS NULL` | **3** (= exakt die Skips) |
+
+**Die 3 Skips sind alle 2025/2026-Releases** — exakt der von Cowork im Spot-Check vorhergesagte Haupt-Ausfallmodus „sehr junge Bücher":
+
+| Buch | Grund |
+|---|---|
+| W40K-0145 Demolisher (Andy Clark, 2025) | Keine aggregierte Goodreads-Wertung auffindbar — zu jung. Deckt sich mit Cowork-Spot-Check (bekannter Miss). |
+| W40K-0147 The Green Tide (Mike Brooks, Ork-Omnibus, April 2026) | Omnibus-Edition hat keine eigene aggregierte Goodreads-Wertung; nur die Einzel-Bestandteile sind bewertet. Zu jung. |
+| W40K-0160 Krakenblood (Marc Collins, 2025/26) | Keine Goodreads-Buchseite/Wertung gefunden. Zu jung. Deckt sich mit Cowork-Spot-Check (bekannter Miss). |
+
+Kein geratenes Rating — bei Unsicherheit Skip mit Grund, wie vom Brief verlangt.
+
+### WebSearch-Statistik + Snippet-Verlässlichkeit
+
+- **⌀ Calls pro Buch (CC-Self-Estimate):** ~1 Websuche pro Buch als Basis; zusätzlich **~16 `WebFetch`-Disambiguierungen** (~20 % der Bücher) plus 3 gezielte „site:goodreads.com"-Folgesuchen für die jungen Skip-Kandidaten. Grob: 1.0 Search + 0.2 Fetch pro Buch.
+- **Zwei Snippet-Failure-Klassen beobachtet:**
+  1. **Snippet ohne Zahl** (häufig bei Anthologien, Limited-Novellas, 2025/26-Releases) — Google zeigte Reviews statt der Aggregat-Zeile. Lösung: `WebFetch` auf die Goodreads-Buchseite.
+  2. **Snippet mit *falscher* Zahl** — der kritische Fund. Google-Rich-Snippets lieferten mehrfach eine plausible, aber falsche „4.5"/„4.25", die NICHT dem echten Goodreads-Schnitt entsprach: Shadowsun Snippet 4.25 → real **3.62**; Catachan Devil 4.5 → real **4.11**; Duty Calls 4.5 → real **4.19**. Ein reiner Snippet-Parser hätte hier ~3–4 Bücher mit glaubwürdig-falschen Werten geschrieben.
+- **Edition-Disambiguierung** funktionierte (Einzelroman vs. Omnibus): bei Ravenor, Execution Hour, Space Wolf wurde bewusst die zum DB-Buch passende Edition gewählt (Snippet konfundierte teils Omnibus-Wertungen), via `WebFetch` der korrekten Buchseite aufgelöst.
+- **No-author-Bücher kein Problem für Goodreads:** Die 14 Hardcover-`no_author`-Bücher (Anthologien / Roster-Autor fehlt) wurden über reine Titelsuche gefunden und bewertet — Goodreads indexiert sie, die Hardcover-`no_author`-Ausschlussregel gilt hier nicht.
+
+### Verdikt — taugt die Snippet-Technik für einen per-Buch „Refresh-rating"-Button?
+
+**Ja, aber nur Snippet-als-Lokator, nicht Snippet-als-Quelle.** Auf dem härtesten Residual (genau den Büchern, an denen Hardcover scheitert) erreichte die Technik **96.3 %** — das ist mehr als ausreichend Material für einen Refresh-Button. ABER: der pure Such-Snippet ist als *Zahlenquelle* nicht sicher — er lieferte in ~20 % der Fälle keine oder (in ~4 %) eine falsche Zahl. Ein produktiver Refresh-Button muss deshalb so gebaut werden, dass er die Suche nur zum **Auffinden der korrekten Goodreads-Buchseite** nutzt und das Rating + den Count **von der Buchseite selbst** liest (Page-Parse, nicht Snippet-Parse). So gebaut ist die Technik verlässlich; als naiver Snippet-Scraper wäre sie es nicht. Zweiter Befund für den Button: bei sehr jungen Büchern (< ~6–12 Monate) ist mit einer ehrlichen „noch keine Wertung"-Leerstelle zu rechnen statt einem Treffer — der Button braucht einen sauberen No-result-Zustand.
+
+### Phase-4-Artefakte + Scope-Hinweis
+
+- `scripts/backfill-goodreads-rating.ts` (neu), npm-Script `backfill:goodreads-rating`.
+- `scripts/seed-data/hardcover-title-overrides.json` analoge committed Datei: `scripts/seed-data/goodreads-ratings-086-phase4.json` (78 resolved + 3 skipped, Counts-Invariante 78+3=81 ✓, jede Zeile mit `evidenceUrl`).
+- `outputs/goodreads-null-rating-086-phase4.json` (Run-Artefakt, nicht committed — analog zur Phase-1-Miss-Liste).
+- **Gestrichene Hardcover-Follow-ups:** Mit der Phase-4-Maintainer-Entscheidung sind die OL-Fallback-OQ und der Slug/ID-Stage-6-Folgebrief aus „For next session" (#1, #2 oben) **final gestrichen** — Phase 4 ersetzt alle Hardcover-Follow-ups. Out-of-scope für Phase 4 eingehalten: keine Hardcover-Überschreibung, kein Refresh-Button-UI, keine Ingestion-/Batch-Integration, kein Voll-Roster-Lauf.
+
+**Verifikation Phase 4 grün:** `npm run lint` (0 errors, 1 pre-existing custom-font-warning), `npm run typecheck` (clean), Apply idempotent (Re-Run 0 writes), DB-Post-State 197/200 mit sauberem `hardcover`(119)/`goodreads`(78)-Split verifiziert.
+
 ## Status-Lifecycle (dieser Commit)
 
 - Brief 086-arch: `open → implemented`.

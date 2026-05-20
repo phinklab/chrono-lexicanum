@@ -29,7 +29,8 @@
     "test:synopsis-lint": "tsx scripts/test-synopsis-lint.ts",
     "db:seed-resolver-extensions": "tsx --env-file=.env.local scripts/seed-resolver-extensions.ts",
     "analyze:v2-surfaces": "tsx scripts/analyze-v2-surfaces.ts",
-    "backfill:hardcover-rating": "tsx --env-file=.env.local scripts/backfill-hardcover-rating.ts"
+    "backfill:hardcover-rating": "tsx --env-file=.env.local scripts/backfill-hardcover-rating.ts",
+    "backfill:goodreads-rating": "tsx --env-file=.env.local scripts/backfill-goodreads-rating.ts"
   },
   "engines": {
     "node": ">=22"
