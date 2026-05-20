@@ -368,3 +368,44 @@ PR #72 (`codex/ingest-batches-hardcover-normalize`) wird vor dem 086-Run maintai
 ### Coordination-Worktree-Hinweis
 
 Der Main-Worktree (`C:\Users\Phil\chrono-lexicanum`) hat modifizierte Files aus historischem Setup, nicht mit Brief 086 verbunden. Brief 086 läuft im Batches-Worktree; vor dem Run `git status` prüfen, ggf. `git switch` in den Batches-Worktree.
+
+## Phase 4 (Cowork-Nachtrag 2026-05-20) — Goodreads-Rating-Validierungslauf
+
+> **Angehängt nach dem Phase-2-Befund** (20 statt ~40 hitfähige Overrides, ~119/200 projiziert). Maintainer-Entscheidung 2026-05-20: Die Hardcover-Linie wird mit Phase 3 abgeschlossen und nicht weiter gehärtet — **kein Slug/ID-Stage-6-Folgebrief, kein OL-Fallback** (beide aus § Open questions / § Out of scope damit final gestrichen). Stattdessen läuft dieser Phase-4-Schritt in **derselben CC-Session, demselben Branch, derselben PR** wie Phase 1–3; der Closing-Report deckt Phase 4 mit ab. Phase 4 führt bewusst `ratingSource='goodreads'` ein und erweitert damit die „`ratingSource` bleibt `'hardcover'`-only"-Zeile aus § Out of scope (die für Phase 1–3 weiter gilt).
+
+### Goal — Phase 4
+
+Für jedes W40K-SSOT-Buch, das **nach Phase 3 noch `book_details.rating IS NULL`** ist, das Goodreads-Durchschnittsrating über **eine einzige Websuche** holen und mit `ratingSource='goodreads'` schreiben. Zweck doppelt: (a) die nach Phase 3 verbleibende Rating-Lücke füllen, (b) die Websuche-Snippet-Technik als Grundlage für einen späteren per-Buch „Refresh"-Button validieren — die Frage „funktioniert der Google-→-Goodreads-Snippet-Weg verlässlich?" ist das eigentliche Ergebnis dieser Phase.
+
+### Prior signal — Cowork-Spot-Check 2026-05-20
+
+Cowork hat die Technik vorab an 10 der härtesten Titel geprüft — genau den Büchern, an denen Hardcover scheitert (present-but-unrated, ordering-blocked, not-on-Hardcover, title-too-generic). Ergebnis **8/10**: Rating + Ratings-Count standen direkt im Such-Snippet (Steel Tread 4.10/586 · Caves of Ice 4.05/4270 · Ravenor 4.22/6525 · Necropolis 4.38/5491 · Curse of the Wulfen 3.14/125 · Honour Guard 4.21/4234 · Kal Jerico: Sinner's Bounty 4.05/177 · Daenyathos 3.91/74). Die 2 Misses (Krakenblood, Demolisher) sind beide 2025-Releases — zu neu für ein aggregiertes Rating im Snippet. Auf dem überwiegend etablierten Gesamtbestand ist eine höhere Quote zu erwarten. **Erwarteter Haupt-Ausfallmodus: sehr junge Bücher.**
+
+### Approach — bewusst minimal
+
+Der Kontrast zur 6-Stage-Hardcover-Cascade ist Absicht. Eine Suche pro Buch, Snippet parsen, schreiben.
+
+- **Input:** alle W40K-SSOT-Bücher mit `rating IS NULL` nach Phase 3 (CC zieht die Liste per `SELECT` oder leitet sie aus dem Phase-3-Endstand ab).
+- **Pro Buch:** *eine* Websuche, Query-Form `<Titel> <Autor> goodreads rating`. Autor mit rein — er disambiguiert (im Spot-Check korrigiert die Suche sogar einen falsch übergebenen Autor selbst). Durchschnittsrating + Ratings-Count direkt aus dem Result-Snippet lesen. `WebFetch` auf die Goodreads-Buchseite NUR, wenn das Snippet mehrdeutig ist.
+- **Disambiguierung:** bei Serien mit Omnibus + Einzelromanen (Spot-Check Ravenor lieferte 4 Editionen) die Edition wählen, die zum DB-Buch passt — der Einzelroman, nicht der Omnibus, außer das DB-Buch IST der Omnibus.
+- **Kein Treffer:** wenn kein Rating sauber auftaucht (v. a. sehr junge Bücher), dokumentierter Skip mit Grund. Nicht raten.
+- **Schreiben:** die gefundenen Ratings sammeln, dann ein minimaler Apply-Step schreibt `rating`, `ratingCount` und `ratingSource='goodreads'` nach `book_details` — **nur für `rating IS NULL`-Zeilen**, idempotent. Goodreads- und Hardcover-Rating liegen beide auf der 0–5-Skala, keine Umrechnung. CC wählt den Mechanismus (kleines Script o. Ä.); Architektur-Vorgabe ist allein das Outcome.
+
+### Out of scope — Phase 4 (Implementer sind eifrig — das hier ist hart)
+
+- **Keine Hardcover-Ratings überschreiben.** Phase 4 fasst ausschließlich `rating IS NULL`-Zeilen an.
+- **Kein Refresh-Button-UI.** Phase 4 ist reine Validierung + Backfill.
+- **Keine Integration in Ingestion-/Batch-Runs.** Das Einbauen der Goodreads-Rating-Logik in künftige `ssot-w40k-NNN`-Batches wird in einer eigenen Session geplant — nicht hier.
+- **Keine Cascade, kein DI-Helper-Layer, keine Retry-Policy, keine Override-JSON für Phase 4.** Eine Suche, parsen, schreiben. Wenn Phase 4 mehr als ein kleines Apply-Script zu brauchen scheint — Stopp, im Report flaggen, nicht weiterbauen.
+- **Kein Touch an Hardcover-Code oder der Phase-1–3-Logik.**
+- **Kein Voll-Roster-Lauf.** Phase 4 deckt nur die aktuell seedeten ~200 W40K-Bücher.
+
+### Acceptance — Phase 4 (zusätzlich zur Haupt-Acceptance)
+
+- [ ] Jedes Post-Phase-3-`rating IS NULL`-Buch hat entweder ein `ratingSource='goodreads'`-Rating geschrieben oder einen dokumentierten Skip mit Grund.
+- [ ] `ratingSource` unterscheidet `'hardcover'`- und `'goodreads'`-Zeilen sauber. Ist die Spalte ein constrained Type, der den neuen Wert ablehnt: kleinste additive Migration, die `'goodreads'` zulässt — sonst kein Schema-Touch.
+- [ ] Der Closing-Report bekommt einen Phase-4-Block: Anzahl Ziel-Bücher · resolved · skipped · Skip-Gründe (v. a. „zu jung") · Trefferquote · **CCs explizites Urteil, ob die Websuche-Snippet-Technik verlässlich genug für den späteren per-Buch Refresh-Button ist.**
+
+### Offene Frage — Phase 4
+
+- `ratingSource`-Spaltentyp: plain text (kein Migration nötig) vs. constrained enum (kleinste additive Migration). CC prüft und handelt; Wahl im Closing-Report.
