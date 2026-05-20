@@ -1,0 +1,19 @@
+{
+  "$schema-note": "Brief 086 — bidirectional first-name equivalence pairs for hardcover-author-normalize.ts. Each [a, b] pair means a roster first-name 'a' may appear on Hardcover as 'b' AND vice-versa; the lookup is case-insensitive and emits the other side with the table's canonical casing. Seeded from common W40K-author diminutives (Dan/Daniel Abnett, Rob/Robert Sanders, Josh/Joshua Reynolds, Nick/Nicholas Kyme, …); maintainer extends forward. Keep it small — only real, observed first-name variants, not every theoretical nickname.",
+  "pairs": [
+    ["Daniel", "Dan"],
+    ["Robert", "Rob"],
+    ["Joshua", "Josh"],
+    ["Nicholas", "Nick"],
+    ["Christopher", "Chris"],
+    ["Matthew", "Matt"],
+    ["Michael", "Mike"],
+    ["Andrew", "Andy"],
+    ["Benjamin", "Ben"],
+    ["Thomas", "Tom"],
+    ["Jonathan", "Jon"],
+    ["William", "Will"],
+    ["David", "Dave"],
+    ["Samuel", "Sam"]
+  ]
+}
