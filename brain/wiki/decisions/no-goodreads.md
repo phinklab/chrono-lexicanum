@@ -2,12 +2,13 @@
 title: Why no Goodreads
 type: decision
 created: 2026-05-02
-updated: 2026-05-09
+updated: 2026-05-20
 sources:
   - ../../../sessions/archive/2026-05/2026-05-02-031-arch-phase3-ingestion-brainstorm.md
   - ../../../sessions/archive/2026-05/2026-05-02-032-impl-phase3-ingestion-brainstorm.md
   - ../../../sessions/archive/2026-05/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md
 related:
+  - ./hardcover-to-goodreads-pivot.md
   - ./why-multi-source-merge.md
   - ../pipeline-state.md
 confidence: high
@@ -16,7 +17,9 @@ decision-date: 2026-05-02
 
 # Why no Goodreads
 
-**Status:** active · **Decided:** 2026-05-02 · **Sessions:** [031](../../../sessions/archive/2026-05/2026-05-02-031-arch-phase3-ingestion-brainstorm.md), [032-impl](../../../sessions/archive/2026-05/2026-05-02-032-impl-phase3-ingestion-brainstorm.md), [034](../../../sessions/archive/2026-05/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md)
+**Status:** active, but **amended 2026-05-20** for the rating field — see [`./hardcover-to-goodreads-pivot.md`](./hardcover-to-goodreads-pivot.md). · **Decided:** 2026-05-02 · **Sessions:** [031](../../../sessions/archive/2026-05/2026-05-02-031-arch-phase3-ingestion-brainstorm.md), [032-impl](../../../sessions/archive/2026-05/2026-05-02-032-impl-phase3-ingestion-brainstorm.md), [034](../../../sessions/archive/2026-05/2026-05-02-034-arch-phase3a-bulk-backfill-skeleton.md)
+
+> **Amendment 2026-05-20.** This ADR's core finding still holds: the Goodreads *API* is dead and bulk *scraping* it is ToS-fraught. What changed is narrower — Hardcover.app turned out to have no rating for a large share of W40K novels (briefs 075/085/086), so the **rating field specifically** now comes from Goodreads via a low-volume, per-book web-search-then-page-read, *not* an API and *not* a bulk scraper. The bibliographic role of Open Library is unchanged. Full reasoning + revisit triggers: [`./hardcover-to-goodreads-pivot.md`](./hardcover-to-goodreads-pivot.md).
 
 ## Context
 
