@@ -56,7 +56,7 @@ readonly BRIEF_PATH="sessions/2026-05-11-061-arch-ssot-loop.md"
 readonly LOG_PATH="sessions/ssot-loop-log.md"
 readonly OVERRIDE_DIR="scripts/seed-data"
 readonly OVERRIDE_PREFIX="manual-overrides-ssot-"
-readonly ALLOWED_TOOLS="Read Write Edit Bash Glob Grep WebSearch"
+readonly ALLOWED_TOOLS="Read Write Edit Bash Glob Grep WebSearch WebFetch"
 readonly STEP_LOG="scripts/.last-loop-run.log"
 readonly REPO_URL="https://github.com/phinklab/chrono-lexicanum"
 
@@ -169,7 +169,9 @@ Faction-Granularity-Discipline (ab ssot-w40k-021 / W40K-0201 — Brief 061 § Co
 
 Locations-Granularity-Discipline (ab ssot-w40k-021 / W40K-0201 — Brief 061 § Constraints, Brief 084): overrides.locations[].name muss konkret-geographisch sein. NIE als raw_name: Imperium / Imperium of Man / Imperium of Mankind / the Imperium / Chaos / Chaos Space / the Chaos Space / Realm of Chaos / the Warp / Warp Space / Xenos / Aliens / Alien Space (Umbrella-/Politik-/Warp-Surface-Forms — verwende konkrete Sector/World wie Cadia / Armageddon / Hydraphur / Eye of Terror / T'au Empire). Erhaltungs-Pfad: falls das Buch ausschliesslich Umbrella-Tags traegt und keine konkrete Location, darf ein Tag stehen bleiben (sehr selten).
 
-Beides ohne Co-Author-Trailer. Keine zweite Iteration in dieser Session, keine sonstigen Datei-Edits ausserhalb der oben genannten Pfade.
+Goodreads-Rating-Discipline (ab ssot-w40k-021 / W40K-0201 - Brief 061 Constraints, Brief 087): Pro Buch WebSearch nur zum Auffinden der passenden Goodreads-Buchseite, dann WebFetch der Seite. Rating-Wert + Ratings-Count werden von der Seite gelesen, nie aus dem Such-Snippet. Einzelroman/Omnibus/Anthology sauber disambiguieren. Ergebnis in overrides.rating schreiben: status=rated mit value/count/source=goodreads/evidenceUrl oder status=unrated mit source=goodreads/reason/evidenceUrl. Wenn keine aggregierte Wertung existiert: nicht raten, Unrated-Marker setzen.
+
+Alle Disziplinen ohne Co-Author-Trailer. Keine zweite Iteration in dieser Session, keine sonstigen Datei-Edits ausserhalb der oben genannten Pfade.
 EOF
 }
 

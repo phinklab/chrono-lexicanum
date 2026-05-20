@@ -2,7 +2,7 @@
 session: 2026-05-20-087
 role: architect
 date: 2026-05-20
-status: open
+status: implemented
 slug: goodreads-rating-pipeline
 parent: 2026-05-20-086-arch-hardcover-hit-rate-pass-2
 links:
