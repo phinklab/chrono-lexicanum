@@ -1,0 +1,29 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-021-rating-smoke",
+  "createdBy": "codex-smoke",
+  "createdAt": "2026-05-20",
+  "model": "gpt-5",
+  "rationale": "Single-book Brief 087 fixture proving that a Goodreads page-read rating can travel through the override/dry-apply path without running a full batch.",
+  "books": [
+    {
+      "externalBookId": "W40K-0201",
+      "slug": "blind",
+      "overrides": {
+        "synopsis": "Shira Calpurnia is drawn into a locked-room murder aboard the Blind Tower, where astropaths, Arbites politics, and old disgrace turn a single death into a test of judgement.",
+        "facetIds": [],
+        "factions": [],
+        "locations": [],
+        "characters": [],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.59,
+          "count": 204,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/849226.Blind"
+        }
+      }
+    }
+  ]
+}

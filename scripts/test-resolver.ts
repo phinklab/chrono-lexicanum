@@ -16,6 +16,7 @@ import {
 import type { Alignment } from "../src/lib/seed/alignment";
 import { decideFactionSkips } from "./apply-override-skip";
 import { decideLocationSkips } from "./apply-override-location-skip";
+import { normalizeRatingOverride } from "./apply-override-rating";
 import { normalizeForHardcover } from "./hardcover-title-normalize";
 import { normalizeAuthor } from "./hardcover-author-normalize";
 
@@ -908,6 +909,58 @@ check("dedup - input form is never echoed and no duplicates", () => {
   assert.deepEqual(out, ["Dan Abnett", "Daniel Abnett"]);
   assert.equal(new Set(out).size, out.length);
   assert.ok(!out.includes("Dan A. Abnett"));
+});
+
+// ---------------------------------------------------------------------------
+// Brief 087: Goodreads rating override normalization.
+// ---------------------------------------------------------------------------
+
+console.log("\nnormalizeRatingOverride");
+
+check("rating override - rated writes Goodreads value/count/source", () => {
+  const out = normalizeRatingOverride(
+    {
+      status: "rated",
+      source: "goodreads",
+      value: 4.126,
+      count: 1234,
+      evidenceUrl: "https://www.goodreads.com/book/show/1-example",
+    },
+    "W40K-0201",
+  );
+  assert.deepEqual(out, {
+    state: "rated",
+    rating: "4.13",
+    ratingCount: 1234,
+    ratingSource: "goodreads",
+    evidenceUrl: "https://www.goodreads.com/book/show/1-example",
+  });
+});
+
+check("rating override - unrated marker writes checked-goodreads null state", () => {
+  const out = normalizeRatingOverride(
+    {
+      status: "unrated",
+      source: "goodreads",
+      reason: "Goodreads page checked; no aggregate rating yet.",
+      evidenceUrl: "https://www.goodreads.com/book/show/2-example",
+    },
+    "W40K-0202",
+  );
+  assert.deepEqual(out, {
+    state: "unrated",
+    rating: null,
+    ratingCount: null,
+    ratingSource: "goodreads",
+    evidenceUrl: "https://www.goodreads.com/book/show/2-example",
+    reason: "Goodreads page checked; no aggregate rating yet.",
+  });
+});
+
+check("rating override - absent field is no-op", () => {
+  assert.deepEqual(normalizeRatingOverride(undefined, "W40K-0203"), {
+    state: "absent",
+  });
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);

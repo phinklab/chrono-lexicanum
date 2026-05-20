@@ -9,8 +9,9 @@
  */
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import process from "node:process";
+import { parseArgs } from "node:util";
 
 import {
   resolveCharacter,
@@ -40,6 +41,12 @@ import {
   type BannedPattern,
   type SynopsisLintResult,
 } from "./apply-override-synopsis-lint";
+import {
+  formatRatingWrite,
+  normalizeRatingOverride,
+  type OverrideRating,
+  type RatingWrite,
+} from "./apply-override-rating";
 
 const SEED_DIR = join(process.cwd(), "scripts", "seed-data");
 const BATCHES = [
@@ -107,12 +114,23 @@ interface OverrideBook {
     factions: OverrideEntity[];
     locations: OverrideEntity[];
     characters: OverrideEntity[];
+    rating?: OverrideRating;
   };
 }
 
 interface OverrideFile {
   batch: string;
   books: OverrideBook[];
+}
+
+interface LoadedOverrideBatch {
+  batch: string;
+  books: OverrideBook[];
+  sourcePath: string;
+}
+
+interface CliArgs {
+  file: string | null;
 }
 
 interface RosterFile {
@@ -203,8 +221,30 @@ interface BookSimulation {
   locationsSkippedRedundant: string[];
 }
 
+interface RatingSimulation {
+  externalBookId: string;
+  slug: string;
+  write: RatingWrite | null;
+  error: string | null;
+}
+
 function readJson<T>(file: string): T {
   return JSON.parse(readFileSync(join(SEED_DIR, file), "utf8")) as T;
+}
+
+function readJsonPath<T>(path: string): T {
+  return JSON.parse(readFileSync(path, "utf8")) as T;
+}
+
+function parseCliArgs(): CliArgs {
+  const { values } = parseArgs({
+    options: {
+      file: { type: "string" },
+    },
+    strict: true,
+    allowPositionals: false,
+  });
+  return { file: values.file ?? null };
 }
 
 function loadReferences(): ReferenceData {
@@ -251,13 +291,25 @@ function loadReferences(): ReferenceData {
   };
 }
 
-function loadOverrides(): OverrideBook[] {
-  return BATCHES.flatMap((batch) => {
+function loadOverrideBatches(cli: CliArgs): LoadedOverrideBatch[] {
+  if (cli.file !== null) {
+    const sourcePath = resolve(process.cwd(), cli.file);
+    const file = readJsonPath<OverrideFile>(sourcePath);
+    assert.ok(file.batch, `${sourcePath}: batch is required`);
+    assert.ok(Array.isArray(file.books), `${sourcePath}: books must be an array`);
+    return [{ batch: file.batch, books: file.books, sourcePath }];
+  }
+
+  return BATCHES.map((batch) => {
     const file = readJson<OverrideFile>(
       `manual-overrides-ssot-w40k-${batch}.json`,
     );
     assert.equal(file.batch, `ssot-w40k-${batch}`);
-    return file.books;
+    return {
+      batch: file.batch,
+      books: file.books,
+      sourcePath: join(SEED_DIR, `manual-overrides-ssot-w40k-${batch}.json`),
+    };
   });
 }
 
@@ -406,8 +458,15 @@ function formatCounts(counts: Map<string, number>): string {
     .join(", ");
 }
 
-function batchLabel(): string {
-  return `ssot-w40k-${BATCHES[0]}..${BATCHES[BATCHES.length - 1]}`;
+function batchLabel(batches: LoadedOverrideBatch[]): string {
+  if (
+    batches.length === BATCHES.length &&
+    batches[0]?.batch === `ssot-w40k-${BATCHES[0]}` &&
+    batches[batches.length - 1]?.batch === `ssot-w40k-${BATCHES[BATCHES.length - 1]}`
+  ) {
+    return `ssot-w40k-${BATCHES[0]}..${BATCHES[BATCHES.length - 1]}`;
+  }
+  return batches.map((batch) => batch.batch).join(", ");
 }
 
 function collectUnresolved(
@@ -459,6 +518,33 @@ function collectMissingTargets(simulations: BookSimulation[]): string[] {
       (target) => `${book.externalBookId} character ${target.name} -> ${target.id}`,
     ),
   ]);
+}
+
+function simulateRatings(overrideBooks: OverrideBook[]): RatingSimulation[] {
+  return overrideBooks.map((book) => {
+    try {
+      return {
+        externalBookId: book.externalBookId,
+        slug: book.slug,
+        write: normalizeRatingOverride(book.overrides.rating, book.externalBookId),
+        error: null,
+      };
+    } catch (err) {
+      return {
+        externalBookId: book.externalBookId,
+        slug: book.slug,
+        write: null,
+        error: err instanceof Error ? err.message : String(err),
+      };
+    }
+  });
+}
+
+function countRatingState(
+  ratings: RatingSimulation[],
+  state: RatingWrite["state"],
+): number {
+  return ratings.filter((rating) => rating.write?.state === state).length;
 }
 
 function collectReferenceFkFindings(refs: ReferenceData): string[] {
@@ -526,12 +612,10 @@ interface BatchSynopsisLintReport {
 
 function collectSynopsisLintByBatch(
   patterns: readonly BannedPattern[],
+  batches: LoadedOverrideBatch[],
 ): BatchSynopsisLintReport[] {
   const reports: BatchSynopsisLintReport[] = [];
-  for (const batch of BATCHES) {
-    const file = readJson<OverrideFile>(
-      `manual-overrides-ssot-w40k-${batch}.json`,
-    );
+  for (const file of batches) {
     const hitsByLabel = new Map<string, number>();
     let booksWithHits = 0;
     let totalHits = 0;
@@ -550,7 +634,7 @@ function collectSynopsisLintByBatch(
       }
     }
     reports.push({
-      batch: `ssot-w40k-${batch}`,
+      batch: file.batch,
       bookCount: file.books.length,
       booksWithHits,
       totalHits,
@@ -560,14 +644,14 @@ function collectSynopsisLintByBatch(
   return reports;
 }
 
-function buildBatchByExternalId(overrideBooks: OverrideBook[]): Map<string, string> {
+function buildBatchByExternalId(
+  batches: LoadedOverrideBatch[],
+  overrideBooks: OverrideBook[],
+): Map<string, string> {
   const batchByExternalId = new Map<string, string>();
-  for (const batch of BATCHES) {
-    const file = readJson<OverrideFile>(
-      `manual-overrides-ssot-w40k-${batch}.json`,
-    );
+  for (const file of batches) {
     for (const book of file.books) {
-      batchByExternalId.set(book.externalBookId, batch);
+      batchByExternalId.set(book.externalBookId, file.batch);
     }
   }
   assert.equal(
@@ -635,12 +719,20 @@ function assertInRange(label: string, value: number, min: number, max: number): 
 }
 
 function main(): void {
+  const cli = parseCliArgs();
+  const fixtureMode = cli.file !== null;
   const refs = loadReferences();
   const roster = readJson<RosterFile>("book-roster.json");
-  const overrideBooks = loadOverrides();
+  const overrideBatches = loadOverrideBatches(cli);
+  const label = batchLabel(overrideBatches);
+  const overrideBooks = overrideBatches.flatMap((batch) => batch.books);
   const simulations = overrideBooks.map((book) => simulateBook(book, refs));
-  const batchByExternalId = buildBatchByExternalId(overrideBooks);
+  const batchByExternalId = buildBatchByExternalId(overrideBatches, overrideBooks);
   const collectionAnalysis = analyzeCollections(roster, batchByExternalId);
+  const ratingSimulations = simulateRatings(overrideBooks);
+  const invalidRatings = ratingSimulations
+    .filter((rating) => rating.error !== null)
+    .map((rating) => rating.error!);
 
   const missingRoster = overrideBooks
     .filter((book) => !refs.rosterIds.has(book.externalBookId))
@@ -671,7 +763,7 @@ function main(): void {
     (name) => name,
   );
 
-  console.log(`[apply-override-dry] batches=${batchLabel()}`);
+  console.log(`[apply-override-dry] batches=${label}`);
   console.log(`[apply-override-dry] books=${overrideBooks.length}`);
   console.log("[apply-override-dry] resolved junction counts (post-skip):");
   console.log(`  work_factions:   ${totals.work_factions}`);
@@ -704,14 +796,24 @@ function main(): void {
   );
   console.log("");
 
-  console.log("[apply-override-dry] smoke detail-page counts:");
-  for (const slug of SMOKE_SLUGS) {
-    const row = simulations.find((book) => book.slug === slug);
-    assert.ok(row, `Missing smoke slug ${slug}`);
-    console.log(
-      `  /buch/${slug}: factions=${row.factions.rows.length}, ` +
-        `locations=${row.locations.rows.length}, characters=${row.characters.rows.length}`,
-    );
+  if (fixtureMode) {
+    console.log("[apply-override-dry] fixture detail-page counts:");
+    for (const row of simulations) {
+      console.log(
+        `  /buch/${row.slug}: factions=${row.factions.rows.length}, ` +
+          `locations=${row.locations.rows.length}, characters=${row.characters.rows.length}`,
+      );
+    }
+  } else {
+    console.log("[apply-override-dry] smoke detail-page counts:");
+    for (const slug of SMOKE_SLUGS) {
+      const row = simulations.find((book) => book.slug === slug);
+      assert.ok(row, `Missing smoke slug ${slug}`);
+      console.log(
+        `  /buch/${slug}: factions=${row.factions.rows.length}, ` +
+          `locations=${row.locations.rows.length}, characters=${row.characters.rows.length}`,
+      );
+    }
   }
   console.log("");
 
@@ -739,11 +841,26 @@ function main(): void {
         .join(", ") || "none"
     }`,
   );
-  console.log(`  forward refs in ${batchLabel()}: ${collectionAnalysis.forwardRefs.length}`);
+  console.log(`  forward refs in ${label}: ${collectionAnalysis.forwardRefs.length}`);
+  console.log("");
+
+  console.log("[apply-override-dry] Goodreads rating override simulation:");
+  console.log(`  rated:   ${countRatingState(ratingSimulations, "rated")}`);
+  console.log(`  unrated: ${countRatingState(ratingSimulations, "unrated")}`);
+  console.log(`  absent:  ${countRatingState(ratingSimulations, "absent")}`);
+  for (const rating of ratingSimulations) {
+    if (rating.write === null || rating.write.state === "absent") continue;
+    console.log(
+      `  ${rating.externalBookId} /buch/${rating.slug}: ${formatRatingWrite(rating.write)}`,
+    );
+  }
   console.log("");
 
   const bannedPatterns = loadBannedPatterns(SEED_DIR);
-  const synopsisLintReports = collectSynopsisLintByBatch(bannedPatterns);
+  const synopsisLintReports = collectSynopsisLintByBatch(
+    bannedPatterns,
+    overrideBatches,
+  );
   const synopsisTotal = synopsisLintReports.reduce(
     (sum, r) => sum + r.totalHits,
     0,
@@ -780,6 +897,7 @@ function main(): void {
   console.log(`  missing roster externalBookIds: ${missingRoster.length}`);
   console.log(`  missing facet ids:             ${missingFacets.length}`);
   console.log(`  invalid normalized roles:      ${invalidRoles.length}`);
+  console.log(`  invalid rating overrides:      ${invalidRatings.length}`);
   console.log(`  missing resolved FK targets:   ${missingTargets.length}`);
   console.log(`  dangling JSON FK/alias refs:   ${referenceFkFindings.length}`);
   console.log(`  forward collection refs:       ${collectionAnalysis.forwardRefs.length}`);
@@ -787,41 +905,44 @@ function main(): void {
   assert.deepEqual(missingRoster, [], `missing roster ids: ${missingRoster.join(", ")}`);
   assert.deepEqual(missingFacets, [], `missing facet ids: ${missingFacets.join(", ")}`);
   assert.deepEqual(invalidRoles, [], `invalid roles: ${invalidRoles.join("; ")}`);
+  assert.deepEqual(invalidRatings, [], `invalid ratings: ${invalidRatings.join("; ")}`);
   assert.deepEqual(missingTargets, [], `missing resolved targets: ${missingTargets.join("; ")}`);
   assert.deepEqual(
     referenceFkFindings,
     [],
     `dangling JSON FK/alias refs: ${referenceFkFindings.join("; ")}`,
   );
-  assert.deepEqual(
-    collectionAnalysis.forwardRefs,
-    [],
-    `forward collection refs: ${collectionAnalysis.forwardRefs
-      .map((c) => `${c.collectionExternalId}->${c.contentExternalId}`)
-      .join("; ")}`,
-  );
-  assert.ok(
-    collectionAnalysis.crossBatchResolvable.length > 0,
-    "expected at least one cross-batch collection example",
-  );
-  assertInRange(
-    "work_factions",
-    totals.work_factions,
-    EXPECTED_RANGES.factions.min,
-    EXPECTED_RANGES.factions.max,
-  );
-  assertInRange(
-    "work_locations",
-    totals.work_locations,
-    EXPECTED_RANGES.locations.min,
-    EXPECTED_RANGES.locations.max,
-  );
-  assertInRange(
-    "work_characters",
-    totals.work_characters,
-    EXPECTED_RANGES.characters.min,
-    EXPECTED_RANGES.characters.max,
-  );
+  if (!fixtureMode) {
+    assert.deepEqual(
+      collectionAnalysis.forwardRefs,
+      [],
+      `forward collection refs: ${collectionAnalysis.forwardRefs
+        .map((c) => `${c.collectionExternalId}->${c.contentExternalId}`)
+        .join("; ")}`,
+    );
+    assert.ok(
+      collectionAnalysis.crossBatchResolvable.length > 0,
+      "expected at least one cross-batch collection example",
+    );
+    assertInRange(
+      "work_factions",
+      totals.work_factions,
+      EXPECTED_RANGES.factions.min,
+      EXPECTED_RANGES.factions.max,
+    );
+    assertInRange(
+      "work_locations",
+      totals.work_locations,
+      EXPECTED_RANGES.locations.min,
+      EXPECTED_RANGES.locations.max,
+    );
+    assertInRange(
+      "work_characters",
+      totals.work_characters,
+      EXPECTED_RANGES.characters.min,
+      EXPECTED_RANGES.characters.max,
+    );
+  }
 
   console.log("[apply-override-dry] ok");
 }

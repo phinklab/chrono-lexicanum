@@ -107,6 +107,12 @@ import {
   type BannedPattern,
   type SynopsisLintResult,
 } from "./apply-override-synopsis-lint";
+import {
+  formatRatingWrite,
+  normalizeRatingOverride,
+  ratingBookDetailsPatch,
+  type OverrideRating,
+} from "./apply-override-rating";
 
 const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
 const ROSTER_PATH = resolve(SEED_DIR, "book-roster.json");
@@ -167,6 +173,7 @@ interface OverrideBook {
     locations: OverrideEntity[];
     characters: OverrideEntity[];
     flags: OverrideFlag[];
+    rating?: OverrideRating;
   };
 }
 
@@ -224,6 +231,7 @@ interface BookApplyResult {
   authorCount: number;
   editorCount: number;
   unresolvedAuthorship: boolean;
+  ratingSummary: string;
 }
 
 interface AutoCreatedPerson {
@@ -718,6 +726,24 @@ function validateSynopses(overrideBooks: OverrideBook[], batch: string): void {
   );
 }
 
+function validateRatingOverrides(overrideBooks: OverrideBook[]): void {
+  const invalid: string[] = [];
+  for (const book of overrideBooks) {
+    try {
+      normalizeRatingOverride(book.overrides.rating, book.externalBookId);
+    } catch (err) {
+      invalid.push(err instanceof Error ? err.message : String(err));
+    }
+  }
+
+  if (invalid.length > 0) {
+    throw new Error(
+      `Override carries invalid overrides.rating entries: ${invalid.join("; ")}. ` +
+        `Halt before mutation.`,
+    );
+  }
+}
+
 function validateEntityRoles(overrideBooks: OverrideBook[]): void {
   const invalid: string[] = [];
   for (const book of overrideBooks) {
@@ -861,6 +887,13 @@ async function applyBook(
       skipDecision.skippedSurfaceForms,
       locationSkipDecision.skippedSurfaceForms,
     );
+    const ratingPatch = ratingBookDetailsPatch(
+      override.overrides.rating,
+      override.externalBookId,
+    );
+    const ratingSummary = formatRatingWrite(
+      normalizeRatingOverride(override.overrides.rating, override.externalBookId),
+    );
 
     // Authorship resolution from roster (not override). The override carries
     // soft-content authority (synopsis, facets, factions, …) but the persons
@@ -937,6 +970,7 @@ async function applyBook(
         primaryEraId: M41_ERA_ID,
         seriesId: series?.id ?? null,
         seriesIndex: series?.index ?? null,
+        ...ratingPatch,
       })
       .onConflictDoUpdate({
         target: bookDetails.workId,
@@ -946,6 +980,7 @@ async function applyBook(
           primaryEraId: M41_ERA_ID,
           seriesId: series?.id ?? null,
           seriesIndex: series?.index ?? null,
+          ...ratingPatch,
         },
       });
 
@@ -1044,6 +1079,7 @@ async function applyBook(
       authorCount: roster.authors.length,
       editorCount: roster.editors.length,
       unresolvedAuthorship,
+      ratingSummary,
     };
   });
 }
@@ -1173,6 +1209,8 @@ async function main() {
     `[apply-override] validated ${override.books.length} synopses against ` +
       `${BANNED_SYNOPSIS_PATTERNS.length} banned patterns (Brief 080 guard)`,
   );
+  validateRatingOverrides(override.books);
+  console.log("[apply-override] validated optional Goodreads rating overrides");
 
   // Pre-pass: ensure every roster author + editor exists as a persons row.
   // Runs OUTSIDE the per-book transactions so FK targets are stable when
@@ -1204,7 +1242,7 @@ async function main() {
     externalIdToUuid.set(result.externalBookId, result.workId);
     results.push(result);
     console.log(
-      `[apply-override]   ${result.externalBookId.padEnd(9)} ${result.slug.padEnd(22)} path=${result.path} facets=${result.facetCount} factions=${result.factionCount} locations=${result.locationCount} characters=${result.characterCount} authors=${result.authorCount} editors=${result.editorCount}`,
+      `[apply-override]   ${result.externalBookId.padEnd(9)} ${result.slug.padEnd(22)} path=${result.path} facets=${result.facetCount} factions=${result.factionCount} locations=${result.locationCount} characters=${result.characterCount} authors=${result.authorCount} editors=${result.editorCount} ${result.ratingSummary}`,
     );
   }
 

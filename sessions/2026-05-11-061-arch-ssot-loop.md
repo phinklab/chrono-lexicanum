@@ -148,6 +148,20 @@ Die 50er-Schwelle trifft auch mitten in W40K-Domain mehrfach (50, 100, 150, …,
 
   **Begründung.** Vor Brief 084 hat die LLM Umbrella-Strings konsistent als Filter-Surface auf der Locations-Achse mitausgegeben (Empirie: 20× `Imperium` über `ssot-w40k-001..020`). Da `Imperium` keine `locations.json`-Row hat, resolved der Resolver zu `null` und der Surface-Form landete im `locationsUnresolved`-Notes-Bucket statt im sauberen `locationsSkippedRedundant`-Audit-Bucket. Apply-Layer-Skip macht die Disziplin nun deterministisch (Notes-Bucket-Umsortierung), die forward-only-Discipline verhindert die Wiederkehr ab fünfter Welle.
 
+- **Goodreads-Rating-Discipline (ab `ssot-w40k-021` / `W40K-0201`).** Verankert durch Brief 087 (Goodreads-Rating-Pipeline-Integration). Greift forward-only: existierende Override-Files `ssot-w40k-001..020` bleiben unangetastet; ihre Rating-Coverage stammt aus Brief 086 (119 `hardcover` + 78 `goodreads`, 3 junge Unrated-Ausfaelle).
+
+  **Goodreads ist Page-Read, nicht Snippet.** Pro Buch nutzt CC WebSearch ausschliesslich zum Auffinden der passenden Goodreads-Buchseite (`goodreads.com/book/show/...`). Danach wird die Seite per WebFetch gelesen; Durchschnittsrating und Ratings-Count kommen von der Seite selbst, nie aus dem Such-Snippet.
+
+  **Edition disambiguieren.** CC waehlt die Goodreads-Seite, die zum DB-Buch passt: Einzelroman vs. Omnibus/Collection/Anthology nicht vermischen; Serien- oder Reprint-Seiten nur verwenden, wenn sie die richtige Ausgabe/Work-Aggregation tragen. Bei Ambiguitaet im Status-Log kurz notieren, welche Seite gewaehlt wurde.
+
+  **Override-Form.** Das Ergebnis steht pro Buch in `overrides.rating`:
+  - Wert vorhanden: `{ "status": "rated", "source": "goodreads", "value": 4.12, "count": 1234, "evidenceUrl": "https://www.goodreads.com/book/show/..." }`
+  - Geprueft, noch keine aggregierte Wertung: `{ "status": "unrated", "source": "goodreads", "reason": "...", "evidenceUrl": "https://www.goodreads.com/book/show/..." }`
+
+  **Nicht raten.** Wenn Goodreads keine aggregierte Wertung zeigt (typisch junge Buecher < ~6-12 Monate oder frische Omnibus-Ausgaben), setzt CC den Unrated-Marker mit Grund. Kein automatischer Nachzug im Loop; spaeterer Refresh-Button / Refresh-Brief ist separat.
+
+  **Apply-Repraesentation.** `status: "rated"` schreibt `book_details.rating` (0-5, zwei Nachkommastellen), `rating_count`, `rating_source='goodreads'`. `status: "unrated"` schreibt `rating=NULL`, `rating_count=NULL`, `rating_source='goodreads'` - damit ist "Goodreads geprueft, noch keine Wertung" von "nie geprueft" (`rating_source IS NULL`) unterscheidbar.
+
 ## Out of scope
 
 - **DB-Apply.** Apply für die produzierte Override-Datei läuft separat per `npm run db:apply-override -- --batch=ssot-{domain}-{NNN}` (Brief 060). NICHT in dieser Iteration.
@@ -178,7 +192,7 @@ The session is done when:
 
 - [ ] **Override-Datei committed (wenn nicht 50er-Stop).** `scripts/seed-data/manual-overrides-ssot-{domain}-{NNN}.json` mit den 10 (oder 5/4 am Restbatch-Ende) Buch-Einträgen.
 
-- [ ] **Pro Buch enthalten:** `externalBookId` (matched mit Roster), `slug` (matched mit Roster), `overrides.synopsis` (400-1200 Zeichen, plot-konkret, namentliche Charaktere/Locations; bei Long-Tail-Coverage kürzer + `low_confidence`-Flag), `overrides.facetIds` (typisch 15-20 IDs aus `facet-catalog.json`; weniger bei dünner Coverage), `overrides.factions[]`, `overrides.locations[]`, `overrides.characters[]`, `overrides.flags[]`.
+- [ ] **Pro Buch enthalten:** `externalBookId` (matched mit Roster), `slug` (matched mit Roster), `overrides.synopsis` (400-1200 Zeichen, plot-konkret, namentliche Charaktere/Locations; bei Long-Tail-Coverage kürzer + `low_confidence`-Flag), `overrides.facetIds` (typisch 15-20 IDs aus `facet-catalog.json`; weniger bei dünner Coverage), `overrides.factions[]`, `overrides.locations[]`, `overrides.characters[]`, `overrides.flags[]`, ab `ssot-w40k-021` außerdem `overrides.rating`.
 
 - [ ] **Top-Level der Override-Datei:** `$schema: "manual-overrides-v1"`, `batch: "ssot-{domain}-{NNN}"`, `createdBy: "claude-code"` (oder CC's tatsächliche Selbstbenennung), `createdAt: <ISO-Datum>`, `model: <tatsächliches Modell>`, `rationale: <2-3 Satz-Begründung der Batch — was war besonders an dieser 10er-Welle>`.
 
