@@ -2,7 +2,7 @@
 title: Cowork session workflow
 type: workflow
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-20
 sources:
   - ../../../docs/agents/COWORK.md
   - ../../../docs/agents/SESSIONS.md
@@ -42,6 +42,12 @@ Cowork serves two readers: Philipp (human) and Claude Code (implementer). Every 
 - **State what's out of scope.** Implementers are eager. If you don't say "do not refactor X," they sometimes will.
 - **Provide acceptance criteria.** "How do we know this is done?" answerable from the brief alone.
 - **When in doubt, ask Philipp.** The project is his vision. Use `AskUserQuestion`.
+
+## Simplest thing first
+
+Before a brief commits to a data source or a multi-stage pipeline, spot-check the simplest solution first. For data tasks that means trying a plain web search *before* designing an API client, matching stages, override files, or a multi-model loop. Match ambition to scope: Chrono · Lexicanum covers the W40K corpus (hundreds of books), not a general library — a one-time backfill needs no robust, reproducible client. And cost-check before building: N iterations across two models can cost more than one web search, or than just letting an LLM do the task directly.
+
+Origin — the Hardcover-rating arc (briefs 075 / 085 / 086). Effort went into title-normalization and override-matching machinery; the real blocker was source coverage. Hardcover has no rating for a large share of W40K novels, and no matching layer conjures data that isn't there. A short spot-check of ~20 random titles against the API would have surfaced that before a day of briefing. The cheap fix that actually worked: a per-book web search for the Goodreads rating — 96 % coverage where the matching machinery stalled at 58 %. (The follow-on refinement — that the rating must be read from the Goodreads page, not the search snippet — is in [`../decisions/hardcover-to-goodreads-pivot.md`](../decisions/hardcover-to-goodreads-pivot.md).)
 
 ## How a Cowork session usually goes
 

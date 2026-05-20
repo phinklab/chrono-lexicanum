@@ -2,7 +2,7 @@
 title: Roadmap
 type: overview
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-20
 sources:
   - ../raw/historical/2026-05-08-pre-reset/ROADMAP.md
   - ../../sessions/README.md
@@ -37,6 +37,8 @@ confidence: high
 ## Phase 3 — Bulk-Backfill-Pipeline (current focus)
 
 **Strategy** (post-Plan-Reshuffle and post-Bulk-Backfill-decision): all ~600–900 W40k novels with multi-source data + LLM-paraphrased synopses. Wikipedia for discovery; Lexicanum (MediaWiki API via curl-shell-out, Cloudflare-blocked on Node-native) for lore; Open Library for bibliography (ISBN, cover, pub year); Hardcover for ratings/tags; Anthropic Haiku 4.5 + Web-Search for synopsis paraphrase + soft-facets + plausibility cross-check + reader-rating capture. **Goodreads is out** — see [`./decisions/no-goodreads.md`](./decisions/no-goodreads.md).
+
+> **Update 2026-05-20.** This paragraph describes the *original* Phase-3 strategy; several pieces are now superseded — the LLM-enrichment stage by CC-direct curation ([`./decisions/why-cc-direct-curation.md`](./decisions/why-cc-direct-curation.md)), the discovery-crawl by the maintainer-curated Excel-SSOT ([`./decisions/why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md)), and the rating axis pivoted from Hardcover to Goodreads ([`./decisions/hardcover-to-goodreads-pivot.md`](./decisions/hardcover-to-goodreads-pivot.md)). The live pipeline today is: Excel-SSOT roster → `claude -p` standing loop (Brief 061) → `apply-override.ts` → DB.
 
 **Multi-Source-Merge** is field-by-field priority: title from Wikipedia, in-universe years from Lexicanum, cover from Open Library, rating from Hardcover. Deterministic, debuggable. See [`./decisions/why-multi-source-merge.md`](./decisions/why-multi-source-merge.md).
 
@@ -85,6 +87,7 @@ Custom domain. Performance pass (Lighthouse > 95). Real Open Graph images. Reddi
 
 ## Ideas Backlog (not committed)
 
+- **Per-Buch „Rating aktualisieren"-Button** auf `/buch/[slug]` — on-demand-Refresh des Goodreads-Ratings für ein einzelnes Buch. Dieselbe Page-Read-Mechanik wie die Pipeline-Disziplin aus Brief 087: Websuche zum Auffinden der Goodreads-Buchseite, Rating + Count **von der Seite** gelesen (nie aus dem Snippet — 086-Phase-4-Verdikt). Nutzen: zu jung geseedete Bücher (noch keine aggregierte Wertung) später nachziehen, veraltete Ratings auffrischen. Validiert durch Brief 086 Phase 4 (96.3 % auf dem härtesten Residual). Eigener Brief — pro CLAUDE.md-Regel erst hier im Backlog, dann Brief; berührt UI (`/buch/[slug]`), Server-Action o. Ä., und überlappt mit der „noch keine Wertung"-Markierung aus Brief 087.
 - **Book-Cover-Ständer** für Audio-Hörer — physisch oder digital, Erinnerungs-Display für gehörte Bücher. IP-sensitiv (Warhammer-Cover sind GW). Lösungspfade: eigene Cover-Render im Lexicanum-Stil, "Reading-Trophy"-Mockups, oder Lizenz-Klärung mit Black Library. Phase-7+-Bonus.
 - Reading-Order-Presets ("HH chronological," "HH publication," "newcomer-friendly," "audiobook-only")
 - Cross-references: "books featuring Cadia" computed live from `work_locations`

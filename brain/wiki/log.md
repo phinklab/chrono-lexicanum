@@ -662,3 +662,45 @@ Wiki-Hygiene-Pass für die vier zusammenhängenden Sessions seit dem post-076/07
 - Keine PR-Aktionen oder Branch-Merges durch Cowork — Maintainer-Aufgabe.
 
 **Branch:** `codex/ingest-batches-synopsis-005-019` (im `chrono-lexicanum-batches`-Worktree). Cowork-Edits liegen physisch in `chrono-lexicanum/brain/wiki/*` + `chrono-lexicanum/sessions/README.md` (Coordination-Worktree); Maintainer überträgt sie in den Batches-Worktree per `cp` und committet als zusätzlichen Commit auf den codex-Branch — pro Philipps Wahl beim `AskUserQuestion`-Step.
+
+## 2026-05-20 · Ingest · Wiki-Pass post-086-impl (Hardcover→Goodreads rating pivot)
+
+Brain-Update nach dem Merge von Brief 086 (PR #73, `origin/main` `af7d90c`). Ausgelöst durch den 086-Impl-Report: Hardcover-Phasen 1–3 endeten bei 116/200 (58 %, „hard signal"), Phase 4 (Goodreads-Rating per Einzel-Websuche) löste 78/81 = 96.3 % und hob die DB-Rating-Coverage auf 197/200 (98.5 %).
+
+**Read:**
+
+- `sessions/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md` — Closing-Report end-to-end, alle vier Phasen inkl. Phase-4-Verdikt „Websuche nur Lokator, nicht Quelle" (Snippets ~4 % plausibel-falsch).
+- `sessions/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md` — Brief inkl. Phase-4-Nachtrag.
+- `sessions/2026-05-11-061-arch-ssot-loop.md` — Standing-Loop, gelesen für die Brief-087-Planung.
+
+**New decision:**
+
+- `decisions/hardcover-to-goodreads-pivot.md` — ADR für den Rating-Quellen-Pivot. Context (drei Hardcover-Briefs, strukturelle Katalog-Lücke), Decision (Goodreads ersetzt Hardcover, Page-Read statt Snippet, mixed-source bleibt, OL-Fallback + Slug/ID-Stage-6 gestrichen), Why, Revisit-Trigger. Amendet `decisions/no-goodreads.md` fürs Rating-Feld (Banner-Notiz dort ergänzt).
+
+**Closed open-questions:**
+
+- OQ (10) Hardcover-Hit-Rate-Härtung — geschlossen. Nicht weil das 70-%-Ziel erreicht wurde (086 landete bei 58 %), sondern weil das Ziel dahinter (Rating-Coverage) über den Goodreads-Pivot erreicht ist.
+- OQ (12) Goodreads-Rating — geschlossen. Phase-4-Validierung erledigt; Voll-Roster + Batch-Integration in Brief 087 gefaltet, Refresh-Button in den Roadmap-Ideas-Backlog.
+
+**New open-question:**
+
+- OQ (13) Crawl-Simplification-Sichtung — Cowork-Befund aus dem Auftrag, die 086-„Simplest thing first"-Lehre gegen die übrigen Crawls zu halten. Ergebnis: die Vereinfachung ist architektonisch schon passiert (Excel-SSOT + CC-Direct-Curation); was bleibt, ist bypassed-aber-nicht-retired Code (V1-Pipeline, V2-LLM-Stage, V2-Pipeline-Rest) — Kandidat für einen Dead-Code-Retirement-Hygiene-Brief.
+
+**New brief:**
+
+- `sessions/2026-05-20-087-arch-goodreads-rating-pipeline.md` — Goodreads-Rating als vierte Loop-Disziplin in Brief 061: Override-Schema-Erweiterung (`overrides.rating`), Apply-Layer schreibt `book_details`, Discipline-Section + `run-ssot-loop.sh`-Heredoc, Page-Read-Pflicht, „geprüft, noch keine Wertung"-Marker, Single-Book-Smoke. status: open.
+
+**Updated wiki:**
+
+- `project-state.md` — `updated: 2026-05-20`, Header-Datum, Sources um 084/086/087 + ADR, neue „Latest pipeline state (post-086)"-Sektion, Branch-Sektion auf `af7d90c` + reparierte `.git/config` + CRLF-Hinweis, What's-running-Rating-Bullet auf 197/200, What's-open neu sortiert (Brief 087 + Loop-Re-Trigger oben, 084/085/OQ10/OQ11 raus), Recently-shipped um sechs Zeilen, Next-likely-brief neu.
+- `open-questions.md` — `updated: 2026-05-20`, neuer Frontmatter-Header-Kommentar, Sources um 086/087, OQ (10) + OQ (12) auf closed umgeschrieben, OQ (13) neu, Migration-history-Satz angehängt.
+- `index.md` — `updated: 2026-05-20`, Katalog-Zeilen für project-state/open-questions/roadmap/cowork-session/log + Self-Row, neue Decision-Zeile `hardcover-to-goodreads-pivot.md`, `no-goodreads.md`-Zeile als amended markiert.
+- `roadmap.md` — `updated: 2026-05-20`, Supersede-Notiz am Phase-3-Strategie-Absatz, Refresh-Button im Ideas Backlog.
+- `workflows/cowork-session.md` — `updated: 2026-05-20`, neue Section „Simplest thing first" (Cowork-Edit aus dem 086-Arc übernommen, Snippet-Detail an das finale 086-Verdikt angepasst).
+- `decisions/no-goodreads.md` — Amendment-Banner 2026-05-20.
+
+**Not updated in this pass:** `pipeline-state.md` — die Goodreads-Rating-Pipeline ist noch nicht implementiert (Brief 087 offen); pipeline-state wird beim 087-Impl-Hygiene-Pass nachgezogen, zusammen mit dem seit 2026-05-19 deferred post-080+081-Update.
+
+**Outside the wiki:** `sessions/README.md` Active-Threads auf post-086-Stand. Coordination-Worktree-Befund: `.git/config` war NUL-byte-korrupt → 2026-05-20 repariert (Backup `.git/config.corrupt-backup-20260520`); tree-weiter CRLF-Flip + einige Commits hinter `origin/main` — Resync ist Routine-git-Hygiene, in der `project-state.md`-Branch-Sektion vermerkt.
+
+**Branch:** Wiki-Pass-Edits + Brief 087 liegen im Coordination-Worktree; die Commit-Mechanik wird mit dem Maintainer geklärt (die Cowork-Sandbox kann git-Write-Operationen nicht zuverlässig abschließen — unlink von `.git`-Lock-Dateien schlägt fehl).

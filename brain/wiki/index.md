@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-05-19
+updated: 2026-05-20
 sources: []
 related:
   - ../CLAUDE.md
@@ -21,11 +21,11 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's next likely brief. Post-079/080/081/082 Wiki-Hygiene-Pass 2026-05-19 + Brief-084-Draft (Locations-Axis-Hygiene-Sister-Pass, status: open): alle 200 Public-Synopsen `001..020` clean (post-080 Apply-Layer-Forward-Guard + post-081 15-Iter-Backfill, 123 Bücher / 502/605/783 chars), Brief-082-Worktree-Konvention etabliert, Brief-079 Lab-Cartographer-Prototype gelandet. **Reihenfolge post-PR #69: Brief 084 fahren (Locations-Skip + Re-Apply) → Brief 085 (OQ (10) Hardcover-Härtung) → Loop-Re-Trigger `021..025` ohne Skip-Flag** mit vier Disciplines im Apply-Layer/Heredoc. | 2026-05-19 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Wiki-Hygiene-Pass 2026-05-19: **OQ (11) gefaltet in Brief 084 (status: open)**; Brief 081 ist per PR #69 gemerged. Restqueue: Brief 084 (Locations-Skip) → Brief 085 (OQ (10) Hardcover-Hit-Rate-Härtung) → Loop-Re-Trigger `021..025` (kein Brief); danach Cockpit-Sub-Sortierung, OQ3, Public-Page-Rating-Render, Collection-Gap-Resolve, `no_author`-Hygiene, Vokabular-Hygiene, Resolver-Driver-Smoke. | 2026-05-19 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, next likely brief. Post-086-Wiki-Pass 2026-05-20: Brief 086 gemerged (Hardcover-Hit-Rate Pass 2 + Goodreads-Rating-Validierung, vier Phasen), DB-Rating-Coverage **197/200** (119 hardcover + 78 goodreads), neue „Latest pipeline state (post-086)"-Sektion. **Reihenfolge: Brief 087 fahren (Goodreads-Rating-Pipeline-Integration) → Loop-Re-Trigger `021..025`**. | 2026-05-20 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-086-Wiki-Pass 2026-05-20: **OQ (10) + OQ (12) geschlossen** (Hardcover-Linie eingestellt, Coverage über den Goodreads-Pivot; Phase-4-Validierung erledigt, Rest in Brief 087 gefaltet), **neue OQ (13) Crawl-Simplification-Sichtung**. Restqueue: Brief 087 fahren → Loop-Re-Trigger `021..025`; sekundär OQ (3) Hand-Check-Workflow, OQ (13), Cockpit-Sub-Sortierung, Public-Page-Rating-Render, Collection-Gap-Resolve, Vokabular-Hygiene. | 2026-05-20 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
-| [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog.                                  | 2026-05-09 |
+| [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog. Post-086: Phase-3-Strategie-Absatz mit Supersede-Notiz (LLM-Stage / Discovery-Crawl / Hardcover→Goodreads), Refresh-Button im Ideas Backlog. | 2026-05-20 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
 | [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-077-Hygiene: Resolver-Layer auf 200 Bücher + post-077 `work_factions=1020`/`locations=417`/`characters=633`/`collections=56`, axis-sliced Resolver-Pass-4-Konvention + Resolver-Dossiers + Driver-Deliverable dokumentiert, Skip-Logik im Apply-Layer + shared Alignment-Util kodifiziert, Loop-Re-Trigger `021..025` ohne Skip-Flag. | 2026-05-17 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals heute, 859 SSOT-Roster ab 058, ~$0.114/book V1 / $0.0199/Buch V2 fresh-Smoke). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
@@ -41,7 +41,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | [decisions/why-excel-ssot-not-crawl.md](./decisions/why-excel-ssot-not-crawl.md) | Discovery-Stage durch Maintainer-kuratierte Excel-SSOT ersetzt (859 Bücher + 191 Collections, deterministischer Loader → `book-roster.json`). Crawler bleiben im Code, ab Brief 058 nicht mehr Default-Eingang | 2026-05-10 | 2026-05-10 |
 | [decisions/karpathy-reset-2026-05-08.md](./decisions/karpathy-reset-2026-05-08.md) | Brain (`brain/` in repo) + Atlas (external Obsidian vault, `~/chrono-atlas/`) — Karpathy LLM Wiki pattern, domain-split | 2026-05-08 | 2026-05-09 |
 | [decisions/why-drizzle-supabase.md](./decisions/why-drizzle-supabase.md) | Next.js + TS + Tailwind + Drizzle + Supabase + Vercel + custom M-scale + string IDs / UUIDs split | 2026-04-28 | 2026-05-09 |
-| [decisions/no-goodreads.md](./decisions/no-goodreads.md) | Drop Goodreads (API discontinued 2020); use Open Library + Hardcover.app instead | 2026-05-02 | 2026-05-09 |
+| [decisions/hardcover-to-goodreads-pivot.md](./decisions/hardcover-to-goodreads-pivot.md) | Rating-Quelle pivotiert von Hardcover auf Goodreads (Brief 086): Hardcover-Hit-Rate stagnierte bei 58 % wegen struktureller Katalog-Lücke; Goodreads-Einzel-Websuche (Page-Read, nicht Snippet) erreichte 197/200. Amendet `no-goodreads.md` fürs Rating-Feld; OL-Fallback + Slug/ID-Stage-6 gestrichen. | 2026-05-20 | 2026-05-20 |
+| [decisions/no-goodreads.md](./decisions/no-goodreads.md) | Drop Goodreads (API discontinued 2020); use Open Library + Hardcover.app instead. **Amended 2026-05-20** fürs Rating-Feld → `hardcover-to-goodreads-pivot.md`. | 2026-05-02 | 2026-05-20 |
 | [decisions/why-bulk-backfill.md](./decisions/why-bulk-backfill.md) | Bulk-backfill (lokal über Nacht, resumable, batched) + monthly maintenance, NOT daily-drift | 2026-05-02 | 2026-05-09 |
 | [decisions/why-multi-source-merge.md](./decisions/why-multi-source-merge.md) | Field-by-field source priority (deterministic, debuggable, source-aware), NOT first-source-wins / consensus | 2026-05-02 | 2026-05-09 |
 | [decisions/plan-reshuffle-2026-05-02.md](./decisions/plan-reshuffle-2026-05-02.md) | Phase 3 ↔ 4 swap; EntryRail dropped; Cartographer + Ask the Archive moved to Phase 5 | 2026-05-02 | 2026-05-09 |
@@ -51,7 +52,7 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page | Description | Updated |
 |---|---|---|
-| [workflows/cowork-session.md](./workflows/cowork-session.md) | What Cowork (architect) does each session; rules, tools, push-back patterns | 2026-05-09 |
+| [workflows/cowork-session.md](./workflows/cowork-session.md) | What Cowork (architect) does each session; rules, tools, push-back patterns, „Simplest thing first" | 2026-05-20 |
 | [workflows/cc-session.md](./workflows/cc-session.md) | What Claude Code (implementer) does each session; version-research workflow, report tone | 2026-05-09 |
 | [workflows/sessions-format.md](./workflows/sessions-format.md) | Session log format: naming, frontmatter, status lifecycle, brief/report sections | 2026-05-09 |
 | [workflows/session-end.md](./workflows/session-end.md) | Cowork's discipline post-CC-report (replaces pre-049 infrastructure-log discipline) | 2026-05-09 |
@@ -65,8 +66,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Description | Updated |
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-19 |
-| (this file) | Master catalog | 2026-05-19 |
+| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-20 |
+| (this file) | Master catalog | 2026-05-20 |
 
 ## Concept pages
 
