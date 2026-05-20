@@ -16,6 +16,8 @@ import {
 import type { Alignment } from "../src/lib/seed/alignment";
 import { decideFactionSkips } from "./apply-override-skip";
 import { decideLocationSkips } from "./apply-override-location-skip";
+import { normalizeForHardcover } from "./hardcover-title-normalize";
+import { normalizeAuthor } from "./hardcover-author-normalize";
 
 let pass = 0;
 let fail = 0;
@@ -735,6 +737,177 @@ check("location skip is case-insensitive on the surface form", () => {
     "  Imperium of MAN  ",
     "IMPERIUM",
   ]);
+});
+
+// ---------------------------------------------------------------------------
+// Brief 086: Hardcover title normalization (cleanup + colon-fallbacks +
+// originalIfDifferent). 14 cases carried from Brief 085, each now also
+// asserting `originalIfDifferent`, plus 3 dedicated anchors below.
+// ---------------------------------------------------------------------------
+
+console.log("\nnormalizeForHardcover");
+
+check("pass-through - clean title without noise", () => {
+  const r = normalizeForHardcover("Xenos");
+  assert.equal(r.primary, "Xenos");
+  assert.deepEqual(r.fallbacks, []);
+  assert.equal(r.originalIfDifferent, null);
+});
+
+check("vol-range + founding-omnibus - Gaunt's Ghosts: The Founding Omnibus, 1-3", () => {
+  const r = normalizeForHardcover("Gaunt's Ghosts: The Founding Omnibus, 1-3");
+  assert.equal(r.primary, "Gaunt's Ghosts");
+  assert.deepEqual(r.fallbacks, []);
+  assert.equal(r.originalIfDifferent, "Gaunt's Ghosts: The Founding Omnibus, 1-3");
+});
+
+check("generic omnibus - Eisenhorn Omnibus -> Eisenhorn (no colon, original kept)", () => {
+  const r = normalizeForHardcover("Eisenhorn Omnibus");
+  assert.equal(r.primary, "Eisenhorn");
+  assert.deepEqual(r.fallbacks, []);
+  assert.equal(r.originalIfDifferent, "Eisenhorn Omnibus");
+});
+
+check("specific :The Omnibus - Ravenor: The Omnibus (generic must NOT eat to 'Ravenor: The')", () => {
+  const r = normalizeForHardcover("Ravenor: The Omnibus");
+  assert.equal(r.primary, "Ravenor");
+  assert.deepEqual(r.fallbacks, []);
+  assert.equal(r.originalIfDifferent, "Ravenor: The Omnibus");
+});
+
+check("(Legends) suffix - 'The Last Chancers (Legends)'", () => {
+  const r = normalizeForHardcover("The Last Chancers (Legends)");
+  assert.equal(r.primary, "The Last Chancers");
+  assert.deepEqual(r.fallbacks, []);
+  assert.equal(r.originalIfDifferent, "The Last Chancers (Legends)");
+});
+
+check("Vol + Omnibus - 'Uriel Ventris Omnibus Vol. 1'", () => {
+  const r = normalizeForHardcover("Uriel Ventris Omnibus Vol. 1");
+  assert.equal(r.primary, "Uriel Ventris");
+  assert.deepEqual(r.fallbacks, []);
+  assert.equal(r.originalIfDifferent, "Uriel Ventris Omnibus Vol. 1");
+});
+
+check("colon-character-prefix - 'Belisarius Cawl: The Great Work' yields BOTH fallbacks", () => {
+  const r = normalizeForHardcover("Belisarius Cawl: The Great Work");
+  assert.equal(r.primary, "Belisarius Cawl: The Great Work");
+  assert.deepEqual(r.fallbacks, ["Belisarius Cawl", "The Great Work"]);
+  // cleanup left it unchanged → no original-fallback needed.
+  assert.equal(r.originalIfDifferent, null);
+});
+
+check("colon-series-prefix - 'Imperator: Wrath of the Omnissiah' yields BOTH fallbacks", () => {
+  const r = normalizeForHardcover("Imperator: Wrath of the Omnissiah");
+  assert.equal(r.primary, "Imperator: Wrath of the Omnissiah");
+  assert.deepEqual(r.fallbacks, ["Imperator", "Wrath of the Omnissiah"]);
+  assert.equal(r.originalIfDifferent, null);
+});
+
+check("Part marker - 'Horus Rising Part One'", () => {
+  const r = normalizeForHardcover("Horus Rising Part One");
+  assert.equal(r.primary, "Horus Rising");
+  assert.deepEqual(r.fallbacks, []);
+  assert.equal(r.originalIfDifferent, "Horus Rising Part One");
+});
+
+check("Complete-X-Omnibus - 'Iron Warriors: The Complete Honsou Omnibus' -> 'Iron Warriors'", () => {
+  const r = normalizeForHardcover("Iron Warriors: The Complete Honsou Omnibus");
+  assert.equal(r.primary, "Iron Warriors");
+  assert.deepEqual(r.fallbacks, []);
+  assert.equal(r.originalIfDifferent, "Iron Warriors: The Complete Honsou Omnibus");
+});
+
+check("ordinal-Omnibus - 'Space Wolf: The Second Omnibus' -> 'Space Wolf'", () => {
+  const r = normalizeForHardcover("Space Wolf: The Second Omnibus");
+  assert.equal(r.primary, "Space Wolf");
+  assert.deepEqual(r.fallbacks, []);
+  assert.equal(r.originalIfDifferent, "Space Wolf: The Second Omnibus");
+});
+
+check("em-dash vol-range - 'Some Trilogy, 1–3' (en-dash variant)", () => {
+  const r = normalizeForHardcover("Some Trilogy, 1–3");
+  assert.equal(r.primary, "Some Trilogy");
+  assert.deepEqual(r.fallbacks, []);
+  assert.equal(r.originalIfDifferent, "Some Trilogy, 1–3");
+});
+
+check("colon with no noise stays - 'Mephiston: Lord of Death' yields both fallbacks", () => {
+  const r = normalizeForHardcover("Mephiston: Lord of Death");
+  assert.equal(r.primary, "Mephiston: Lord of Death");
+  assert.deepEqual(r.fallbacks, ["Mephiston", "Lord of Death"]);
+  assert.equal(r.originalIfDifferent, null);
+});
+
+check("empty cleanup result throws (defensive guard)", () => {
+  assert.throws(() => normalizeForHardcover("(Legends)"));
+});
+
+check("input trimming - leading/trailing whitespace doesn't survive (original=null)", () => {
+  const r = normalizeForHardcover("  Xenos  ");
+  assert.equal(r.primary, "Xenos");
+  // trimmed roster === primary → not a distinct original.
+  assert.equal(r.originalIfDifferent, null);
+});
+
+// Three dedicated originalIfDifferent anchors (Brief 086 acceptance).
+check("originalIfDifferent anchor - pass-through stays null", () => {
+  assert.equal(normalizeForHardcover("Xenos").originalIfDifferent, null);
+});
+
+check("originalIfDifferent anchor - cleanup-cut keeps the omnibus original", () => {
+  const r = normalizeForHardcover("Eisenhorn Omnibus");
+  assert.equal(r.primary, "Eisenhorn");
+  assert.equal(r.originalIfDifferent, "Eisenhorn Omnibus");
+});
+
+check("originalIfDifferent anchor - Ravenor regression (primary cut, original retained)", () => {
+  const r = normalizeForHardcover("Ravenor: The Omnibus");
+  assert.equal(r.primary, "Ravenor");
+  assert.deepEqual(r.fallbacks, []);
+  assert.equal(r.originalIfDifferent, "Ravenor: The Omnibus");
+});
+
+// ---------------------------------------------------------------------------
+// Brief 086: Hardcover author normalization (initial-drop + bidirectional
+// diminutive alias). Uses the real scripts/seed-data/author-aliases.json.
+// ---------------------------------------------------------------------------
+
+console.log("\nnormalizeAuthor");
+
+check("initial-drop - 'James A. Swallow' -> 'James Swallow'", () => {
+  assert.deepEqual(normalizeAuthor("James A. Swallow"), ["James Swallow"]);
+});
+
+check("diminutive forward - 'Daniel Abnett' -> 'Dan Abnett'", () => {
+  assert.deepEqual(normalizeAuthor("Daniel Abnett"), ["Dan Abnett"]);
+});
+
+check("diminutive backward - 'Dan Abnett' -> 'Daniel Abnett' (bidirectional)", () => {
+  assert.deepEqual(normalizeAuthor("Dan Abnett"), ["Daniel Abnett"]);
+});
+
+check("combined - 'Daniel A. Abnett' -> ['Daniel Abnett', 'Dan Abnett']", () => {
+  assert.deepEqual(normalizeAuthor("Daniel A. Abnett"), ["Daniel Abnett", "Dan Abnett"]);
+});
+
+check("pass-through - first name not in table yields []", () => {
+  assert.deepEqual(normalizeAuthor("Aaron Dembski-Bowden"), []);
+});
+
+check("case-insensitive first-name match - 'dan abnett' -> 'Daniel abnett' (rest verbatim)", () => {
+  // The first name is matched case-insensitively and swapped to the table's
+  // canonical casing; the remainder is preserved verbatim (downstream
+  // authorMatches() lowercases both sides, so casing of the rest is moot).
+  assert.deepEqual(normalizeAuthor("dan abnett"), ["Daniel abnett"]);
+});
+
+check("dedup - input form is never echoed and no duplicates", () => {
+  const out = normalizeAuthor("Dan A. Abnett");
+  // initial-drop → 'Dan Abnett'; diminutive → 'Daniel Abnett'.
+  assert.deepEqual(out, ["Dan Abnett", "Daniel Abnett"]);
+  assert.equal(new Set(out).size, out.length);
+  assert.ok(!out.includes("Dan A. Abnett"));
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);
