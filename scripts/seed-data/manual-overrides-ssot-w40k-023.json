@@ -1,0 +1,140 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-023",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "Two strands meet in this wave: the tail of the Blood Angels novellas (Gav Thorpe's Space Hulk, its 2014 reissue Sin of Damnation, and Guy Haley's post-Devastation-of-Baal Astorath) and the opening run of early Imperial Guard regimental novels (Fifteen Hours, Death World, Rebel Winter, their collecting omnibus, plus Desert Raiders, Ice Guard, Gunheads). W40K-0221 and W40K-0222 are the same core story under two editions, and W40K-0227 aggregates the first three Guard novels.",
+  "books": [
+    {
+      "externalBookId": "W40K-0221",
+      "slug": "space-hulk",
+      "overrides": {
+        "synopsis": "Six centuries ago a force of Blood Angels boarded the drifting space hulk Sin of Damnation to purge a genestealer infestation, and were never seen again. Now Captain Raphael leads a Terminator kill-team back into the hulk's lightless corridors to finish the work and lift the shame from the Chapter's name. Among them is Sergeant Lorenzo, the sole survivor of that earlier disaster, who carries the failure as a personal wound. Vastly outnumbered and harried by the alien hive mind at every junction, the Blood Angels must reach the heart of the hulk before the swarm overwhelms them. A claustrophobic boarding action of flamers, storm bolters and narrow doorways, told at the pace of a mission with no margin for error.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "standalone", "novella", "war_story", "last_stand", "grimdark", "action_heavy", "cosmic_horror", "redemption", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Blood Angels", "role": "primary" }, { "name": "Tyranids", "role": "antagonist" }],
+        "locations": [{ "name": "Sin of Damnation", "role": "primary" }],
+        "characters": [{ "name": "Sergeant Lorenzo", "role": "pov" }, { "name": "Captain Raphael", "role": "supporting" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.37, "count": 217, "evidenceUrl": "https://www.goodreads.com/book/show/9507078-space-hulk" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0222",
+      "slug": "sin-of-damnation",
+      "overrides": {
+        "synopsis": "Centuries after a Blood Angels boarding party vanished aboard the space hulk Sin of Damnation, the Chapter returns to settle the debt. A squad of Terminators pushes into the derelict's corridors to exterminate the genestealers nesting within, hunting the brood toward its source while the alien hive mind turns every shadow against them. Sergeant Lorenzo, who alone walked away from the first catastrophe, fights to redeem both himself and his brothers. This edition pairs the close-quarters boarding tale with the short story Sanguis Irae, a further glimpse of the sons of Sanguinius at war.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "standalone", "novella", "war_story", "last_stand", "grimdark", "action_heavy", "cosmic_horror", "redemption", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Blood Angels", "role": "primary" }, { "name": "Tyranids", "role": "antagonist" }],
+        "locations": [{ "name": "Sin of Damnation", "role": "primary" }],
+        "characters": [{ "name": "Sergeant Lorenzo", "role": "pov" }, { "name": "Captain Raphael", "role": "supporting" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.57, "count": 87, "evidenceUrl": "https://www.goodreads.com/book/show/23204364-sin-of-damnation" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0223",
+      "slug": "astorath-angel-of-mercy",
+      "overrides": {
+        "synopsis": "In the aftermath of the Devastation of Baal, Commander Dante orders the wastes around the Red Scar scouted for reconquest. The task falls to the Red Wings, a young Blood Angels successor Chapter battered by the war and barely rebuilt, who make planetfall on the rotting world of Dulcis at the edge of the great rift. What they uncover there is no ordinary foe but a creeping psychic horror that warps mind and flesh. Drawn across the void by the Black Rage, Astorath the Grim, Lord High Chaplain and Redeemer of the Lost, descends on Dulcis to stand with the survivors, and to confront a truth that could shake every Chapter of the Blood to its foundations.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "war_story", "mystery", "grimdark", "somber", "cosmic_horror", "faith", "doubt", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "cw_mental_health", "en"],
+        "factions": [{ "name": "Blood Angels", "role": "primary" }, { "name": "Red Wings", "role": "supporting" }, { "name": "Enslavers", "role": "antagonist" }],
+        "locations": [{ "name": "Dulcis", "role": "primary" }, { "name": "Baal", "role": "supporting" }],
+        "characters": [{ "name": "Astorath", "role": "pov" }, { "name": "Commander Dante", "role": "supporting" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.66, "count": 327, "evidenceUrl": "https://www.goodreads.com/book/show/56308423-astorath" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0224",
+      "slug": "fifteen-hours",
+      "overrides": {
+        "synopsis": "Seventeen-year-old Arvin Larn is conscripted, drilled and shipped to war, and then, through a clerk's error, delivered to the wrong front entirely. He arrives at Broucheroc, a ruined hive-city that the under-strength Vardan Rifles have held against ceaseless Ork assault for over a decade. The grim arithmetic of the trenches gives a fresh replacement a life expectancy of fifteen hours. Across a single brutal day Larn endures snipers, friendly fire, indifferent officers, foul rations and an all-out greenskin offensive, learning what survival actually costs on a front the Imperium has all but forgotten. A ground-level portrait of the ordinary soldier in an endless war.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "standalone", "standard", "war_story", "siege", "grimdark", "somber", "action_heavy", "war", "sacrifice", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [{ "name": "Imperial Guard", "role": "primary" }, { "name": "Orks", "role": "antagonist" }],
+        "locations": [{ "name": "Broucheroc", "role": "primary" }],
+        "characters": [{ "name": "Arvin Larn", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.93, "count": 1632, "evidenceUrl": "https://www.goodreads.com/book/show/270977.Fifteen_Hours" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0225",
+      "slug": "death-world",
+      "overrides": {
+        "synopsis": "A squad of Catachan Jungle Fighters under hard-bitten Sergeant Greiss is dropped onto Rogar III to break an Ork incursion by stealth and decapitate the warband at its head. But Rogar III is a death world in the truest sense: its jungle is awake, evolving new horrors to drive the intruders out. Venom-maddened troopers turn on their comrades, hypnotic lights lure men into the dark, and the dead come walking back. Between the greenskins and a planet that wants them gone, Greiss, the trooper Lorenzo and the commissar's adjutant Braxton must finish the mission and find a way back out alive. A tense survival war story of soldiers fighting the ground beneath their boots.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "squad", "standalone", "standard", "war_story", "journey", "last_stand", "grimdark", "action_heavy", "cosmic_horror", "war", "brotherhood", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [{ "name": "Imperial Guard", "role": "primary" }, { "name": "Orks", "role": "antagonist" }],
+        "locations": [{ "name": "Rogar III", "role": "primary" }],
+        "characters": [{ "name": "Sergeant Greiss", "role": "pov" }, { "name": "Lorenzo", "role": "supporting" }, { "name": "Braxton", "role": "supporting" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.70, "count": 569, "evidenceUrl": "https://www.goodreads.com/book/show/908617.Death_World" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0226",
+      "slug": "rebel-winter",
+      "overrides": {
+        "synopsis": "Captain Sebastev of the Vostroyan Firstborn has earned his rank the hard way, and the frozen battlefields of Danik's World test every bit of it. Caught between a planet-wide rebellion and marauding Orks, his company is ordered to hold the line while the rest of the army withdraws, but the retreat collapses and Sebastev's men are stranded deep behind enemy lines. Burdened with a captured traitor who must be delivered to high command, and shadowed by Colonel Kabanov's hard counsel, the captain leads the shrinking remnant of his company on a desperate march through ice and ambush toward the safety of Imperial lines. A bleak fighting-retreat across a winter war.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "company", "standalone", "standard", "war_story", "journey", "grimdark", "somber", "action_heavy", "loyalty", "sacrifice", "war", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Imperial Guard", "role": "primary" }, { "name": "Orks", "role": "antagonist" }],
+        "locations": [{ "name": "Danik's World", "role": "primary" }, { "name": "Grazzen", "role": "supporting" }],
+        "characters": [{ "name": "Captain Sebastev", "role": "pov" }, { "name": "Colonel Kabanov", "role": "supporting" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.66, "count": 400, "evidenceUrl": "https://www.goodreads.com/book/show/1041270.Rebel_Winter" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0227",
+      "slug": "imperial-guard-omnibus-volume-one-shield-of-the-emperor",
+      "overrides": {
+        "synopsis": "This omnibus gathers the first three Imperial Guard novels, each paired with a companion short story, into a single volume about the lives of the Emperor's ordinary soldiers. Fifteen Hours follows a green conscript dropped into the decade-long siege of Broucheroc against the Orks. Death World sends a squad of Catachan Jungle Fighters onto a planet whose every plant and beast has turned predator. Rebel Winter strands a Vostroyan company behind enemy lines on an ice world torn by rebellion and greenskin raiders. Together the stories trace one consistent theme: not the heroics of the mighty, but the endurance, dread and grim camaraderie of the men who hold the Imperium's front lines.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "standalone", "doorstopper", "war_story", "siege", "journey", "last_stand", "grimdark", "somber", "action_heavy", "war", "sacrifice", "brotherhood", "loyalty", "faith", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [{ "name": "Imperial Guard", "role": "primary" }, { "name": "Orks", "role": "antagonist" }],
+        "locations": [{ "name": "Broucheroc", "role": "supporting" }, { "name": "Rogar III", "role": "supporting" }, { "name": "Danik's World", "role": "supporting" }],
+        "characters": [{ "name": "Arvin Larn", "role": "supporting" }, { "name": "Sergeant Greiss", "role": "supporting" }, { "name": "Captain Sebastev", "role": "supporting" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.25, "count": 40, "evidenceUrl": "https://www.goodreads.com/book/show/52784662-shield-of-the-emperor" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0228",
+      "slug": "desert-raiders",
+      "overrides": {
+        "synopsis": "When a remote listening station catches a garbled plea for help, a regiment of Tallarn Desert Raiders is sent to the parched world of Khadar to answer it. The regiment is freshly stitched together from two proud older formations, and the seams show: old rivalries and wounded pride keep the soldiers from fighting as one. They have little time to settle their differences. What waits on Khadar is a Tyranid swarm, and soon the Tallarn are locked in a running battle across the dunes, falling back wave after wave as the hive-creatures come on without end. A desert war of attrition in which a divided regiment must become whole or be devoured.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "standalone", "standard", "war_story", "last_stand", "grimdark", "somber", "action_heavy", "brotherhood", "war", "sacrifice", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Imperial Guard", "role": "primary" }, { "name": "Tyranids", "role": "antagonist" }],
+        "locations": [{ "name": "Khadar", "role": "primary" }],
+        "characters": [],
+        "flags": [{ "kind": "low_confidence", "field": "characters", "reason": "limited source coverage on named viewpoint characters" }],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.51, "count": 291, "evidenceUrl": "https://www.goodreads.com/book/show/2204924.Desert_Raiders" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0229",
+      "slug": "ice-guard",
+      "overrides": {
+        "synopsis": "With the ice world of Cressida already written off and slated for destruction, Colonel Stanislav Steele of the Valhallan Ice Warriors is handed one last task: slip onto the doomed planet, find a stranded Imperial confessor, and get him off-world before the fleet above virus-bombs Cressida to ash. Steele hand-picks a squad of nine for the run. But the surface is crawling with an enemy bent on slaughtering every soul left behind, and the clock is merciless. Between hostile ground, an implacable foe and the death sentence hanging in orbit, Steele's stealth mission becomes a race that almost no one is meant to survive. A taut behind-the-lines rescue under a falling sky.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "squad", "standalone", "standard", "war_story", "journey", "grimdark", "somber", "action_heavy", "sacrifice", "loyalty", "faith", "war", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Imperial Guard", "role": "primary" }, { "name": "Chaos", "role": "antagonist" }],
+        "locations": [{ "name": "Cressida", "role": "primary" }],
+        "characters": [{ "name": "Colonel Stanislav Steele", "role": "pov" }],
+        "flags": [{ "kind": "low_confidence", "field": "factions", "reason": "sources confirm a Chaos occupation but name no specific Chaos sub-faction" }],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.45, "count": 293, "evidenceUrl": "https://www.goodreads.com/book/show/5877085-ice-guard" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0230",
+      "slug": "gunheads",
+      "overrides": {
+        "synopsis": "Sergeant Wulfe and the tank crews of the 81st Cadian Armoured, the Gunheads, roll onto Golgotha as part of an Imperial battlegroup with a strange objective: recover the Fortress of Arrogance, the lost battle tank of the legendary Commissar Yarrick, and haul it home to fire the Imperium's war on Armageddon. Golgotha is a furnace world swarming with hundreds of thousands of Orks, and the salvage run quickly becomes a fighting odyssey across hostile ground. Wulfe must hold his crew together while a bitter rival, Corporal Lenck, works against him and a haunting vision gnaws at his nerve. A gritty armoured-warfare tale of tanks, dust and the cost of a symbol.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "company", "standalone", "standard", "war_story", "journey", "grimdark", "action_heavy", "somber", "loyalty", "brotherhood", "war", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Imperial Guard", "role": "primary" }, { "name": "Orks", "role": "antagonist" }],
+        "locations": [{ "name": "Golgotha", "role": "primary" }],
+        "characters": [{ "name": "Sergeant Wulfe", "role": "pov" }, { "name": "Corporal Lenck", "role": "antagonist" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.84, "count": 594, "evidenceUrl": "https://www.goodreads.com/book/show/6339079-gunheads" }
+      }
+    }
+  ]
+}

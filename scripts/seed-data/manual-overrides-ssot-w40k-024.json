@@ -1,0 +1,229 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-024",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "A tightly themed Astra Militarum / Imperial Guard wave: eight regiment-focused novels plus two omnibi. Two omnibi are aggregated from their constituent works (Hammer of the Emperor = Gunheads + Ice Guard + Desert Raiders; Honour Imperialis = Dead Men Walking + Cadian Blood + Redemption Corps), so their tags pool across the contained novels. Iron Guard's xenos affliction is left unnamed (sources confirm xenos origin but not the species), flagged low_confidence.",
+  "books": [
+    {
+      "externalBookId": "W40K-0231",
+      "slug": "cadian-blood",
+      "overrides": {
+        "synopsis": "When the Imperial shrine world of Kathur succumbs to the plague of Nurgle, its population turning renegade or rotting under the Plague of Unbelief, the planet is placed under fleet quarantine and a reclamation force is dispatched to burn the corruption out. The Cadian Shock Troops form the spearhead, fighting alongside a half-company of Raven Guard against an endless tide of the infected and the Death Guard who shepherd them. As officers fall around him, Captain Parmenion Thade is thrust into a command he never sought, holding his soldiers together against a Herald of Nurgle whose every breath spreads despair. A grim, mud-and-blood account of ordinary Cadians enduring the unendurable on a world already lost.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "standalone", "standard", "war_story", "siege", "grimdark", "somber", "action_heavy", "war", "loyalty", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Cadian Shock Troops", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Raven Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Kathur", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Parmenion Thade", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.99, "count": 1029, "evidenceUrl": "https://www.goodreads.com/book/show/6607252-cadian-blood" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0232",
+      "slug": "redemption-corps",
+      "overrides": {
+        "synopsis": "The Redemption Corps are storm troopers thrown into the deadliest warzones of the Imperium, led by the fearsome, fire-scarred Major Mortensen, a man so unbreakable his soldiers half-believe he carries a spark of the Emperor himself. When their troopship erupts in mutiny and an ork invasion bleeds across the warzone below, Mortensen drives his troopers through both at once. But his refusal to die draws darker scrutiny: an Inquisitor and the warrior-fanatics of the Sisters of Battle suspect Mortensen is no holy man but a heretic raising a cult around himself. Caught between the greenskin horde and the fury of his own side, the Major must win an unwinnable war while proving he is not the thing his accusers fear.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "standalone", "standard", "war_story", "war", "loyalty", "faith", "doubt", "grimdark", "action_heavy", "somber", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Adepta Sororitas", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Major Mortensen", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "sources describe the troopship Deliverance and an ork warzone but do not reliably name the planet" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.57, "count": 230, "evidenceUrl": "https://www.goodreads.com/book/show/6887564-redemption-corps" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0233",
+      "slug": "dead-men-walking",
+      "overrides": {
+        "synopsis": "On the young mining colony of Hieronymous Theta, the ground itself betrays the colonists when the Necrons awaken beneath the rock and begin to devour the living. Salvation arrives in a form almost as terrifying as the threat: the Death Korps of Krieg, soldiers as remorseless and self-sacrificing as the metal horror they have come to fight. As the Krieg regiments lay siege to Hieronymous City to retake it from the outside, the survivors slowly realise their rescuers value victory above every human life on the planet, including their own. Told through a commissar, a mine supervisor, a planetary governor and his niece, the story watches an ordinary world ground to nothing between two implacable, unfeeling powers.",
+        "facetIds": ["book", "ensemble", "multi", "imperium", "planetary", "standalone", "standard", "war_story", "siege", "last_stand", "grimdark", "somber", "cosmic_horror", "war", "sacrifice", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Death Korps of Krieg", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Hieronymous Theta", "role": "primary" },
+          { "name": "Hieronymous City", "role": "supporting" }
+        ],
+        "characters": [],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.00, "count": 1478, "evidenceUrl": "https://www.goodreads.com/book/show/7841344-dead-men-walking" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0234",
+      "slug": "hammer-of-the-emperor-omnibus",
+      "overrides": {
+        "synopsis": "Three Imperial Guard novels collected as a tribute to the countless human soldiers who are the Emperor's true hammer. In Gunheads, Sergeant Wulfe and the Cadian armoured crews drive deep into the ork death world of Golgotha to recover the Fortress of Arrogance, the lost battle tank of the hero Commissar Yarrick. In Ice Guard, the Valhallan regiments fight across a frozen warzone where survival is as deadly an enemy as the foe. In Desert Raiders, the Tallarn are dropped onto a scorched world to face a relentless alien swarm. Three short stories round out the collection, ranging from icy wastes to burning sands, each following ordinary Guardsmen holding the line against impossible odds.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "standalone", "doorstopper", "war_story", "journey", "last_stand", "grimdark", "action_heavy", "somber", "war", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Cadian Shock Troops", "role": "primary" },
+          { "name": "Valhallan Ice Warriors", "role": "primary" },
+          { "name": "Tallarn Desert Raiders", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Golgotha", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sergeant Wulfe", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "omnibus tags aggregated across three novels; per-constituent enemy detail for Ice Guard and Desert Raiders is thin in available sources" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.95, "count": 163, "evidenceUrl": "https://www.goodreads.com/book/show/8905948-hammer-of-the-emperor" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0235",
+      "slug": "imperial-glory",
+      "overrides": {
+        "synopsis": "After decades stretched thin across the galaxy, the exhausted veterans of the Brimlock Eleventh are promised one final reward: to win a single last campaign and then settle the distant world of Voor in peace. Standing between them and that retirement is a feral ork infestation, sprung from a crashed ork rok and now spreading unchecked across the planet. Major Stanhope, the haunted Lieutenant Carson, the amnesiac Private Blank and the unbending Commissar Reeve drag their worn-out regiment into a brutal colonial war that grows uglier than any of them imagined. Told partly from the orks' own savage point of view, it is a bleak, Zulu-flavoured study of soldiers fighting one war too many.",
+        "facetIds": ["book", "male", "guardsman", "dual", "planetary", "standalone", "standard", "war_story", "last_stand", "character_study", "grimdark", "somber", "action_heavy", "war", "loyalty", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Brimlock Dragoons", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Voor", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Major Stanhope", "role": "pov" },
+          { "name": "Lieutenant Carson", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.89, "count": 264, "evidenceUrl": "https://www.goodreads.com/book/show/10913533-imperial-glory" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0236",
+      "slug": "iron-guard",
+      "overrides": {
+        "synopsis": "The 114th Mordian, the Iron Guard, are famed for their unbreakable discipline at the Siege of Defure. Sent to the mining world of Belmos VII, Major Geiss leads a strike force to investigate a silence that has fallen over the colony, only to find day turning to night on a world that should be teeming with life. A terrible affliction of alien origin is spreading through the Belmosian population, and as the newly initiated guardsman Fernand Hool and his comrades hunt for its source, panic and corruption close in around them. Surrounded by enemies among the colonists and beyond, the Mordians must hold their iron line or be swallowed by the dying world.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "standalone", "standard", "war_story", "mystery", "siege", "grimdark", "somber", "cosmic_horror", "war", "loyalty", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Mordian Iron Guard", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Belmos VII", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Fernand Hool", "role": "pov" },
+          { "name": "Major Geiss", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "sources confirm the affliction is of xenos origin but do not name the species, so no antagonist faction is asserted" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.79, "count": 198, "evidenceUrl": "https://www.goodreads.com/book/show/17571895" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0237",
+      "slug": "commissar",
+      "overrides": {
+        "synopsis": "Reconstituted from scratch after being wiped out in a previous campaign, the 77th Vostroyan Firstborn carry the shame of their forebears like a wound. Sent to crack a violent uprising on the prison world of Furia Penitens, they face rebels dug into an all-but-impregnable fortified prison-hive. Commissar Flint is charged with forging the broken regiment into a fighting force and deciding whether they can win the victory that restores their honour, or whether they are doomed to fail again. As the siege grinds on, Flint uncovers the regiment's strange and secret chain of command, and the heretical experiments festering inside the prison itself. A story of discipline, disgrace and the price of command.",
+        "facetIds": ["book", "male", "inquisitor", "imperium", "planetary", "standalone", "standard", "war_story", "siege", "mystery", "grimdark", "somber", "action_heavy", "war", "loyalty", "redemption", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Vostroyan Firstborn", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Furia Penitens", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Commissar Flint", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.61, "count": 165, "evidenceUrl": "https://www.goodreads.com/book/show/17263423-commissar" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0238",
+      "slug": "baneblade",
+      "overrides": {
+        "synopsis": "The super-heavy battle tank Mars Triumphant grinds across the war-torn Kalidar system, its crew waging an attritional campaign against a vast ork horde. Honoured Lieutenant Marken Cortein Lo Bannick commands the venerable machine, but he cannot outrun his own past: the old clan prejudices of his homeworld of Paragon have followed him into the regiment, and a dishonour he tried to bury threatens to undo him just as a terrifying new enemy emerges to match the Mars Triumphant gun for gun. As the crew sweats and bleeds inside their rolling fortress, Bannick learns that glory is a trap and that the only road back to honour runs through duty and self-sacrifice. A claustrophobic tank-crew war story.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "series_start", "standard", "war_story", "character_study", "grimdark", "somber", "action_heavy", "war", "loyalty", "redemption", "hubris", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Kalidar", "role": "primary" },
+          { "name": "Paragon", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Marken Cortein Lo Bannick", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.97, "count": 761, "evidenceUrl": "https://www.goodreads.com/book/show/15802988-baneblade" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0239",
+      "slug": "straken",
+      "overrides": {
+        "synopsis": "Pulled out of a catastrophic war against the tyranids, the legendary Colonel Iron Hand Straken and his Catachan Jungle Fighters are redeployed to the cavern world of Dulma'lin to scour it of an ork infestation. Beneath the surface, in a maze of tunnels and caverns, the Catachans are vastly outnumbered by greenskins, and the suspicious Commissar Morrell watches Straken's every move, ready to read mutiny into the colonel's hard-bitten unorthodoxy. To hold the line, Straken must master not only the alien menace but the divisions within his own ranks. A muscular, monster-hunting Imperial Guard adventure built around one of the tabletop's most iconic soldiers.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "standalone", "standard", "war_story", "last_stand", "action_heavy", "grimdark", "war", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Catachan Jungle Fighters", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Dulma'lin", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Colonel Iron Hand Straken", "role": "pov" },
+          { "name": "Commissar Morrell", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.98, "count": 142, "evidenceUrl": "https://www.goodreads.com/book/show/20319430-straken" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0240",
+      "slug": "honour-imperialis-omnibus",
+      "overrides": {
+        "synopsis": "Three Imperial Guard novels and four short stories collected as a monument to the Emperor's most famous regiments. In Cadian Blood, the Cadian Shock Troops and a half-company of Raven Guard reclaim the shrine world of Kathur from the plague of Nurgle. In Dead Men Walking, the remorseless Death Korps of Krieg fight to save a mining colony from the awakening Necrons, at a price the survivors never agreed to pay. In Redemption Corps, the storm troopers of Major Mortensen battle orks and the Imperium's own suspicion at once. The accompanying tales follow Cadians, Krieg and others across blighted worlds, drawing together stories of duty, sacrifice and the cost of holding the line.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "standalone", "doorstopper", "war_story", "siege", "last_stand", "grimdark", "somber", "action_heavy", "cosmic_horror", "war", "loyalty", "sacrifice", "faith", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Cadian Shock Troops", "role": "primary" },
+          { "name": "Death Korps of Krieg", "role": "primary" },
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Kathur", "role": "primary" },
+          { "name": "Hieronymous Theta", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Parmenion Thade", "role": "pov" },
+          { "name": "Major Mortensen", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "omnibus tags aggregated across three novels and four short stories; only the lead novels' POV characters are asserted" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.92, "count": 118, "evidenceUrl": "https://www.goodreads.com/book/show/20694946-honour-imperialis" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-025",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "Heavily Astra Militarum wave: Guard tank warfare, an Imperial Guard omnibus, a Krieg horror novel, two regimental novellas and the 2025 Astra Militarum anthology. Two outliers break the seriesHint: 'The Remnant Blade' is actually a Night Lords (Chaos) novel mistagged 'Imperial Guard', and 'Warrior Brood' opens the Deathwatch line. Several 2025/2026 releases are recent but already carry aggregated Goodreads ratings.",
+  "books": [
+    {
+      "externalBookId": "W40K-0241",
+      "slug": "shadowsword",
+      "overrides": {
+        "synopsis": "Honoured Lieutenant Lo Bannick and the crew of the super-heavy Baneblade Cortein's Honour are thrown into the Geratomro warzone, assigned to support a squadron of Shadowsword tank-hunters in a war that will decide the fate of three star systems. As the campaign grinds on, Bannick discovers that the secessionists he was sent to crush are not the simple traitors he was promised, and the new allies who fight beside his crew test everything he believes about the Imperium he serves. Sealed inside the roaring, oil-stinking belly of his tank, Bannick must hold his men together through armoured battles that threaten not only their lives but the certainties that have carried him this far.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "sector", "war_story", "grimdark", "action_heavy", "war", "loyalty", "brotherhood", "doubt", "cw_violence", "cw_death", "cw_language", "en", "standard", "mid_series"],
+        "factions": [{ "name": "Astra Militarum", "role": "primary" }],
+        "locations": [{ "name": "Geratomro", "role": "primary" }],
+        "characters": [{ "name": "Lo Bannick", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.18, "count": 305, "evidenceUrl": "https://www.goodreads.com/book/show/29430425-shadowsword" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0242",
+      "slug": "glory-imperialis-omnibus",
+      "overrides": {
+        "synopsis": "Three novels of the Imperial Guard collected in one volume, each following ordinary soldiers against impossible odds. In Imperial Glory, the Brimlock Dragoons fight to break a savage ork invasion on a world they have been ordered to reclaim at any cost. In Commissar, the disgraced Vostroyan 77th are sent to a prison world to root out treachery under the eye of a commissar determined to restore their name. In Iron Guard, the disciplined ranks of the Mordian Iron Guard deploy to a mining world plagued by a creeping affliction and alien raiders. Together with several shorter tales, these stories paint the Guard as humanity's countless, expendable shield, and the men and women who endure behind it.",
+        "facetIds": ["book", "ensemble", "guardsman", "imperium", "planetary", "war_story", "siege", "grimdark", "action_heavy", "war", "loyalty", "sacrifice", "brotherhood", "cw_violence", "cw_death", "cw_language", "en", "doorstopper", "standalone"],
+        "factions": [{ "name": "Astra Militarum", "role": "primary" }, { "name": "Orks", "role": "antagonist" }],
+        "locations": [],
+        "characters": [],
+        "flags": [{ "kind": "low_confidence", "field": "locations", "reason": "omnibus spans three novels with worlds not consistently named in available sources" }, { "kind": "low_confidence", "field": "characters", "reason": "ensemble across three constituent novels, no single sustained POV" }],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.24, "count": 50, "evidenceUrl": "https://www.goodreads.com/book/show/35682888-glory-imperialis" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0243",
+      "slug": "final-deployment",
+      "overrides": {
+        "synopsis": "The Tempestus Scions are the Imperium's deadliest mortal soldiers, conditioned from childhood into precision killers. When First Eradicant squad drops into the heart of a planet-wide civil war on Rilis, their commander, Tempestor Traxel, leads with merciless efficiency, but the fighting stirs memories of an old defeat that has never stopped haunting him. Joined by a commissar who embodies the suffering of his past and confronted by an enemy out of the Imperium's darkest history, Traxel's discipline begins to crack. On Rilis he will face the foe that once broke him, and discover there is no price he will refuse to pay for victory. A self-contained story of trauma, command, and the cost of being forged into a weapon.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "war_story", "grimdark", "action_heavy", "somber", "war", "doubt", "sacrifice", "cw_violence", "cw_death", "cw_mental_health", "cw_language", "en", "standard", "standalone"],
+        "factions": [{ "name": "Tempestus Scions", "role": "primary" }, { "name": "Astra Militarum", "role": "supporting" }],
+        "locations": [{ "name": "Rilis", "role": "primary" }],
+        "characters": [{ "name": "Tempestor Traxel", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.79, "count": 112, "evidenceUrl": "https://www.goodreads.com/book/show/224004250-final-deployment" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0244",
+      "slug": "the-remnant-blade",
+      "overrides": {
+        "synopsis": "Dalchian Rassaq, the Skin-Taker, once ruled the Blades of Atrocity, until rivals deposed him, broke him, and left him for dead. Cast out and hunted within his own warband, the Night Lord refuses to fade into the dark. When whispers reach him of a phantom voidship adrift in the void, Rassaq sees a chance to reclaim everything that was taken from him and repay every betrayal in kind. With only a renegade tech-priest at his side and the casual cruelty of his kind as his weapon, he sets out to seize the prize before his rival can. A grim tale of ambition, vengeance, and the endless infighting that defines the Night Lords.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "company", "war_story", "character_study", "grimdark", "action_heavy", "betrayal", "hubris", "war", "cw_violence", "cw_death", "cw_disturbing", "cw_language", "en", "standard", "standalone"],
+        "factions": [{ "name": "Night Lords", "role": "primary" }, { "name": "Blades of Atrocity", "role": "supporting" }],
+        "locations": [],
+        "characters": [{ "name": "Dalchian Rassaq", "role": "pov" }],
+        "flags": [{ "kind": "data_conflict", "field": "seriesHint", "reason": "roster seriesHint is 'Imperial Guard' but the book is a Night Lords (Chaos Space Marines) novel", "suggestion": "Night Lords" }, { "kind": "low_confidence", "field": "locations", "reason": "no clearly named world or sector in available sources" }],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.07, "count": 243, "evidenceUrl": "https://www.goodreads.com/book/show/241815776-the-remnant-blade" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0245",
+      "slug": "death-and-duty",
+      "overrides": {
+        "synopsis": "Twelve stories of the Astra Militarum, the vast human armies that hold the line where no gene-forged superhuman walks. Here are Catachan jungle fighters and indomitable Cadians, stoic Death Korps of Krieg and the countless nameless soldiers who stand against horrors within, without, and beyond the Imperium. Across worlds of mud, fire, and ruin, ordinary men and women rise to extraordinary duty and learn that no act of courage, however small, is ever truly without consequence. A wide-ranging anthology that turns from the front lines to the trenches to the quiet moments before the guns, gathering the voices of the Imperium's most expendable and most enduring defenders.",
+        "facetIds": ["book", "ensemble", "guardsman", "imperium", "planetary", "war_story", "last_stand", "grimdark", "action_heavy", "somber", "war", "loyalty", "sacrifice", "faith", "cw_violence", "cw_death", "cw_language", "en", "standard", "standalone"],
+        "factions": [{ "name": "Astra Militarum", "role": "primary" }],
+        "locations": [],
+        "characters": [],
+        "flags": [{ "kind": "low_confidence", "field": "characters", "reason": "twelve-story multi-author anthology with no single sustained POV" }, { "kind": "low_confidence", "field": "locations", "reason": "anthology spans many worlds; regimental origins (Catachan, Cadia, Krieg) named but not confirmed as settings" }],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.87, "count": 60, "evidenceUrl": "https://www.goodreads.com/book/show/231345495-death-and-duty" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0246",
+      "slug": "the-relentless-dead",
+      "overrides": {
+        "synopsis": "Five centuries ago a Chaos plague consumed Oleris III, leaving a world of tombs, ossuaries, and endless catacombs. Now Colonel Graven and a kill-team of the 401st Death Korps of Krieg are sent into that lightless warren to find an inquisitor who vanished beneath the bone-fields. What they find instead are horrors that should never reach the surface, and whispering spectres that seed fear and suspicion, turning trusted comrades into strangers. As the darkness preys on his men, Graven must wrestle with ghosts of his own: a tragedy of his making that has left him unable to trust anyone, least of all himself. Even the most resolute Korpsman can be unmade in the dark.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "mystery", "war_story", "grimdark", "cosmic_horror", "somber", "faith", "doubt", "war", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "cw_mental_health", "en", "standard", "standalone"],
+        "factions": [{ "name": "Death Korps of Krieg", "role": "primary" }, { "name": "Inquisition", "role": "supporting" }],
+        "locations": [{ "name": "Oleris III", "role": "primary" }],
+        "characters": [{ "name": "Colonel Graven", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.08, "count": 156, "evidenceUrl": "https://www.goodreads.com/book/show/243137437-the-relentless-dead" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0247",
+      "slug": "chem-dog",
+      "overrides": {
+        "synopsis": "Newly posted Commissar Bastun Hasp regards the Savlar Chem-Dogs, a penal legion of addicts, criminals, and castoffs, as mongrels whose worthless lives gain value only when spent in the Emperor's wars. Ordered to lead a kill-team of these unruly soldiers deep into enemy territory, Hasp must wring vital intelligence out of a former Imperial bastion now held by the orks that sacked it. Survival means weathering a doomed counter-offensive against a green tide, assuming the Chem-Dogs do not murder their disdainful new commissar first. A brutal, blackly comic tale of discipline, contempt, and the thin line between a leader and the men he leads.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "squad", "war_story", "last_stand", "grimdark", "action_heavy", "satirical", "war", "loyalty", "doubt", "cw_violence", "cw_death", "cw_language", "cw_crime", "en", "standard", "standalone"],
+        "factions": [{ "name": "Savlar Chem-Dogs", "role": "primary" }, { "name": "Astra Militarum", "role": "supporting" }, { "name": "Orks", "role": "antagonist" }],
+        "locations": [],
+        "characters": [{ "name": "Bastun Hasp", "role": "pov" }],
+        "flags": [{ "kind": "low_confidence", "field": "locations", "reason": "the bastion world is not clearly named in available sources" }],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.06, "count": 69, "evidenceUrl": "https://www.goodreads.com/book/show/249639818-chem-dog" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0248",
+      "slug": "steel-daemon",
+      "overrides": {
+        "synopsis": "When his Marauder bomber is shot down during the 13th Black Crusade, young airman Heit Lytviak finds unlikely refuge aboard the Cadian Leman Russ battle tank Imperial Son, pressed into service as an ill-disciplined gunner under the iron eye of Lieutenant Knispel. But the Crimson Slaughter are loose upon the battlefield, and their champion Hakaron, sane only by the thinnest margin, drives his warband with terrifying lethality. Cut off from their lines and forced ever backward, the tank crew must hold their nerve against an enemy that fights for the sheer joy of slaughter. A claustrophobic story of armoured warfare and the horror that stalks the Imperium's soldiers.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "squad", "war_story", "grimdark", "action_heavy", "war", "doubt", "sacrifice", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "cw_language", "en", "novella", "standalone"],
+        "factions": [{ "name": "Astra Militarum", "role": "primary" }, { "name": "Crimson Slaughter", "role": "antagonist" }],
+        "locations": [],
+        "characters": [{ "name": "Heit Lytviak", "role": "pov" }, { "name": "Lieutenant Knispel", "role": "supporting" }, { "name": "Hakaron", "role": "antagonist" }],
+        "flags": [{ "kind": "low_confidence", "field": "locations", "reason": "13th Black Crusade setting; specific world not clearly named in available sources" }],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.64, "count": 103, "evidenceUrl": "https://www.goodreads.com/book/show/42742205-steel-daemon" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0249",
+      "slug": "iron-resolve",
+      "overrides": {
+        "synopsis": "On the forest world of Kallash, an understaffed field hospital becomes the last refuge for the walking wounded of the Mordian Iron Guard, and the next target of a feral ork horde that cuts a bloody path through its defenders. Among the casualties is Guardsman Lucius Myer, who arrived hoping for a reprieve from the front line and instead finds himself facing the longest night of his life. Surrounded by Mordians whose discipline and courage he fears he can never match, Myer must confront his own terror if any of them are to see the dawn. A tense last-stand drama of ordinary soldiers holding an impossible line.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "company", "siege", "last_stand", "war_story", "grimdark", "action_heavy", "somber", "war", "doubt", "loyalty", "sacrifice", "brotherhood", "cw_violence", "cw_death", "en", "novella", "standalone"],
+        "factions": [{ "name": "Mordian Iron Guard", "role": "primary" }, { "name": "Orks", "role": "antagonist" }],
+        "locations": [{ "name": "Kallash", "role": "primary" }],
+        "characters": [{ "name": "Lucius Myer", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.88, "count": 77, "evidenceUrl": "https://www.goodreads.com/book/show/48735424-iron-resolve" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0250",
+      "slug": "warrior-brood",
+      "overrides": {
+        "synopsis": "The world of Herodian IV is doomed: the great Hive Fleets of the Tyranids have descended from the void, intent on devouring everything that lives. In the hours before the planet falls, Inquisitor Kalypsia and a kill-team of Deathwatch Space Marines, veterans drawn from many Chapters, are dispatched to a remote research outpost to recover a vital secret. But they have been betrayed, and the truth they uncover may be a fate worse than the swarm itself. Hunted by ravenous alien hordes and a traitor hidden among the Imperium's own, Kalypsia and her warriors must escape a dying world before it is stripped to the bone.",
+        "facetIds": ["book", "mixed", "space_marine", "inquisitor", "imperium", "planetary", "war_story", "mystery", "last_stand", "grimdark", "action_heavy", "cosmic_horror", "brotherhood", "betrayal", "war", "cw_violence", "cw_death", "cw_disturbing", "en", "series_start", "standard"],
+        "factions": [{ "name": "Deathwatch", "role": "primary" }, { "name": "Ordo Xenos", "role": "supporting" }, { "name": "Tyranids", "role": "antagonist" }],
+        "locations": [{ "name": "Herodian IV", "role": "primary" }],
+        "characters": [{ "name": "Inquisitor Kalypsia", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.27, "count": 336, "evidenceUrl": "https://www.goodreads.com/book/show/691593.Warrior_Brood" }
+      }
+    }
+  ]
+}

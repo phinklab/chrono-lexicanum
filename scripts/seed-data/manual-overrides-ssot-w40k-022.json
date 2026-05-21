@@ -1,0 +1,259 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-022",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "Two game tie-in Blood Ravens novels (Dawn of War II/III) plus two complete author-arcs: Ben Counter's Grey Knights trilogy with its omnibus, and James Swallow's Rafen-cycle Blood Angels novels. Tight, well-documented Black Library catalog with strong Goodreads aggregation everywhere except Dawn of War III (only 49 ratings) which is kept rated but flagged for thin sample. Grey Knights world-names along the Trail were not reliably sourced, so locations there are left empty with a low_confidence flag rather than invented.",
+  "books": [
+    {
+      "externalBookId": "W40K-0211",
+      "slug": "dawn-of-war-ii",
+      "overrides": {
+        "synopsis": "The Blood Ravens dispatch a company of Space Marines to the embattled worlds of the Aurelia sub-sector, where Imperial defences are buckling under a sustained ork invasion. Captain Davian Thule leads his warriors from world to world, blunting the greenskin assault and hunting their warlords across war-torn frontier planets. But as the Blood Ravens push deeper into enemy territory, they uncover a far greater horror stirring behind the ork tide: the Tyranids, the great devourer, whose hive fleets threaten to consume everything the Chapter has fought to save. From squad-level skirmishes to a desperate company-wide stand, the marines must hold the line against two relentless foes.",
+        "facetIds": ["book", "male", "ensemble", "space_marine", "imperium", "planetary", "standalone", "standard", "war_story", "grimdark", "action_heavy", "war", "brotherhood", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Ravens", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Aurelia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Davian Thule", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "Aurelia sub-sector is the established game setting; individual world names in the novelisation not confirmed in sources" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.11, "count": 131, "evidenceUrl": "https://www.goodreads.com/book/show/4906131-dawn-of-war-ii" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0212",
+      "slug": "dawn-of-war-iii",
+      "overrides": {
+        "synopsis": "Once every five thousand years, the cursed world of Acheron rises from the warp, and with it the legend of a great weapon buried at its heart. Three armies converge to claim it: the Blood Ravens under Gabriel Angelos, the eldar led by the farseer Macha, and the orks of the warlord Gorgutz. As the three forces tear into one another across Acheron's ruined surface, the true nature of the weapon is revealed, and with it a threat so terrible that the rival commanders must set aside generations of hatred and fight side by side, or be annihilated together.",
+        "facetIds": ["book", "male", "mixed", "space_marine", "multi", "imperium", "xenos", "planetary", "standalone", "standard", "war_story", "journey", "grimdark", "action_heavy", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Ravens", "role": "primary" },
+          { "name": "Eldar", "role": "supporting" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Acheron", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Gabriel Angelos", "role": "pov" },
+          { "name": "Macha", "role": "supporting" },
+          { "name": "Gorgutz", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "rating", "reason": "Goodreads aggregation thin (49 ratings) for this niche game tie-in; value retained but small sample" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.73, "count": 49, "evidenceUrl": "https://www.goodreads.com/book/show/34859112-dawn-of-war-iii" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0213",
+      "slug": "grey-knights",
+      "overrides": {
+        "synopsis": "Justicar Alaric of the Grey Knights, the Imperium's secret brotherhood of daemon-hunters, is charged with stopping an ancient prophecy: the return of the daemon prince Ghargatuloth. Guided by the Ordo Malleus and the seer Ligeia, Alaric and his squad follow a trail of corruption across a string of Imperial worlds, battling cultists, sorcerers and lesser daemons as they close on the hidden temple where the fiend is destined to rise again. But the deeper they dig, the more they realise the prophecy may be a trap a thousand years in the making, and that their own crusade could be the very thing that brings the daemon back into the world.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "series_start", "standard", "war_story", "mystery", "journey", "grimdark", "action_heavy", "faith", "doubt", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Grey Knights", "role": "primary" },
+          { "name": "Ordo Malleus", "role": "supporting" },
+          { "name": "Tzeentch", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Alaric", "role": "pov" },
+          { "name": "Ligeia", "role": "supporting" },
+          { "name": "Nyxos", "role": "supporting" },
+          { "name": "Ghargatuloth", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "Story spans worlds along the Trail of Saint Evisser, but specific world names not reliably confirmed in sources; left empty rather than invented" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.96, "count": 1589, "evidenceUrl": "https://www.goodreads.com/book/show/752459" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0214",
+      "slug": "dark-adeptus",
+      "overrides": {
+        "synopsis": "A century after it vanished into the warp, the forge world of Chaeroneia tears its way back into reality, its arrival throwing an entire star system out of alignment. Justicar Alaric and a handful of Grey Knights make planetfall to learn what became of it, and find a nightmare of riotous machinery, where titanic war engines have been possessed and the tech-priests who once served the Machine God have been twisted into something monstrous. Alongside uneasy Adeptus Mechanicus allies, Alaric must fight through the corrupted manufactories to the source of the rot and destroy it, before Chaeroneia's horrors spread to the wider Imperium.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "journey", "grimdark", "action_heavy", "cosmic_horror", "faith", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Grey Knights", "role": "primary" },
+          { "name": "Ordo Malleus", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Dark Mechanicum", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Chaeroneia", "role": "primary" },
+          { "name": "Borosis", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Alaric", "role": "pov" },
+          { "name": "Nyxos", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.79, "count": 838, "evidenceUrl": "https://www.goodreads.com/book/show/488315.Dark_Adeptus" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0215",
+      "slug": "hammer-of-daemons",
+      "overrides": {
+        "synopsis": "Captured in battle and dragged into the Eye of Terror, Justicar Alaric awakens stripped of his armour and weapons on the daemon world of Drakaasi, a hell ruled by the servants of the Blood God. Forced to fight in gladiatorial arenas for the entertainment of his captors, chief among them the cruel Duke Venalitor, Alaric clings to his faith and his sanity while he searches for the one thing that might win his freedom: a legendary weapon said to have the power to slay daemons. To escape, he must survive endless slaughter, resist corruption, and forge alliances with the unlikeliest of fellow prisoners.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "series_finale", "standard", "war_story", "journey", "last_stand", "grimdark", "action_heavy", "faith", "doubt", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "cw_abuse", "en"],
+        "factions": [
+          { "name": "Grey Knights", "role": "primary" },
+          { "name": "Khorne", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Drakaasi", "role": "primary" },
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Alaric", "role": "pov" },
+          { "name": "Duke Venalitor", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.87, "count": 693, "evidenceUrl": "https://www.goodreads.com/book/show/1655815.Hammer_of_Daemons" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0216",
+      "slug": "the-grey-knights-omnibus",
+      "overrides": {
+        "synopsis": "This omnibus collects the complete trilogy following Justicar Alaric of the Grey Knights, the Imperium's hidden brotherhood of daemon-hunters. In Grey Knights, Alaric races to stop the prophesied return of the daemon prince Ghargatuloth. In Dark Adeptus, he descends onto the corrupted forge world of Chaeroneia, where machines run riot and tech-priests have been twisted by the warp. In Hammer of Daemons, captured and cast onto the daemon world of Drakaasi, he fights in the arenas of the Blood God in search of a weapon that can win his freedom. Three linked tales of one warrior tested to the very limits of his faith and endurance.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "planetary", "series_start", "doorstopper", "war_story", "mystery", "journey", "last_stand", "grimdark", "action_heavy", "cosmic_horror", "faith", "doubt", "hubris", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "cw_abuse", "en"],
+        "factions": [
+          { "name": "Grey Knights", "role": "primary" },
+          { "name": "Ordo Malleus", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Tzeentch", "role": "antagonist" },
+          { "name": "Dark Mechanicum", "role": "antagonist" },
+          { "name": "Khorne", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Chaeroneia", "role": "primary" },
+          { "name": "Drakaasi", "role": "primary" },
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Alaric", "role": "pov" },
+          { "name": "Nyxos", "role": "supporting" },
+          { "name": "Ghargatuloth", "role": "antagonist" },
+          { "name": "Duke Venalitor", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.12, "count": 1231, "evidenceUrl": "https://www.goodreads.com/book/show/4084720-grey-knights" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0217",
+      "slug": "deus-encarmine",
+      "overrides": {
+        "synopsis": "On the cemetery world of Cybele, the Blood Angels fight a losing battle against the Word Bearers, until the young battle-brother Arkio turns the tide with a victory so miraculous that his brothers begin to whisper he is the reincarnation of their primarch, Sanguinius. As Arkio takes up the sacred Spear of Telesto and gathers the faithful around him, only his elder brother Rafen senses that something is deeply wrong. Behind the rising cult stands the renegade inquisitor Remius Stele, a secret servant of Chaos engineering a schism that could shatter the Chapter from within. Rafen alone must decide whether his brother is a living saint or a pawn of the Ruinous Powers.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_start", "standard", "war_story", "mystery", "grimdark", "somber", "faith", "betrayal", "doubt", "brotherhood", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Inquisition", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cybele", "role": "primary" },
+          { "name": "Shenlong", "role": "supporting" },
+          { "name": "Baal", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Rafen", "role": "pov" },
+          { "name": "Arkio", "role": "supporting" },
+          { "name": "Remius Stele", "role": "antagonist" },
+          { "name": "Iskavan the Hated", "role": "antagonist" },
+          { "name": "Mephiston", "role": "supporting" },
+          { "name": "Dante", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.57, "count": 627, "evidenceUrl": "https://www.goodreads.com/book/show/199871.Deus_Encarmine" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0218",
+      "slug": "deus-sanguinius",
+      "overrides": {
+        "synopsis": "The Blood Angels stand on the brink of civil war. Proclaiming himself the reborn Sanguinius, Arkio commands his brothers to follow him or die, and the Chapter splinters into rival camps. His elder brother Rafen, certain that Arkio has been corrupted by the schemes of the renegade inquisitor Stele, races to expose the truth before the bloodletting becomes total. As the rivals converge on the shrine world of Sabien, the dread Lord of Death Mephiston arrives to pass judgement, and battle-brother is set against battle-brother in a final, tragic reckoning that will decide the soul of the Chapter.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_finale", "standard", "war_story", "last_stand", "grimdark", "somber", "faith", "betrayal", "redemption", "brotherhood", "loyalty", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Inquisition", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sabien", "role": "primary" },
+          { "name": "Baal", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Rafen", "role": "pov" },
+          { "name": "Arkio", "role": "antagonist" },
+          { "name": "Remius Stele", "role": "antagonist" },
+          { "name": "Mephiston", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.66, "count": 465, "evidenceUrl": "https://www.goodreads.com/book/show/199873.Deus_Sanguinius" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0219",
+      "slug": "red-fury",
+      "overrides": {
+        "synopsis": "Bled white by the civil war that nearly destroyed them, the Blood Angels must rebuild their ranks before their enemies sense the weakness. Newly promoted Sergeant Rafen is sent as an emissary to the Flesh Tearers, the Chapter's volatile cousins, to broker reinforcements, a delicate mission that strains tempers on both sides. But as the successor Chapters gather, the traitor Fabius Bile sets a darker plot in motion: using monstrous, blood-maddened creatures as a distraction, he means to steal a sample of Sanguinius's preserved blood from the Red Grail and bend the primarch's gene-legacy to his own twisted experiments.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "mid_series", "standard", "war_story", "political_thriller", "mystery", "grimdark", "action_heavy", "brotherhood", "loyalty", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Flesh Tearers", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Baal", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Rafen", "role": "pov" },
+          { "name": "Noxx", "role": "supporting" },
+          { "name": "Seth", "role": "supporting" },
+          { "name": "Caecus", "role": "supporting" },
+          { "name": "Fabius Bile", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.70, "count": 461, "evidenceUrl": "https://www.goodreads.com/book/show/2275585.Red_Fury" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0220",
+      "slug": "black-tide",
+      "overrides": {
+        "synopsis": "Having driven off the blood-maddened horrors that menaced their homeworld, the Blood Angels hunt the renegade who set them loose: the infamous Fabius Bile, who has stolen a sample of their primarch's sacred blood. The trail leads to Dynikas V, a death world crawling with Tyranids, where Bile has hidden his secret laboratory. Together with their fierce kin the Flesh Tearers, Rafen and his battle-brothers descend into a nightmare of alien swarms and grotesque experiments, racing to recover what was taken before Bile can unlock the secrets of Sanguinius's gene-line. What they find there is more terrible than anything they imagined.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_finale", "standard", "war_story", "journey", "grimdark", "action_heavy", "cosmic_horror", "brotherhood", "loyalty", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Flesh Tearers", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Dynikas V", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Rafen", "role": "pov" },
+          { "name": "Noxx", "role": "supporting" },
+          { "name": "Fabius Bile", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.73, "count": 332, "evidenceUrl": "https://www.goodreads.com/en/book/show/6660153" }
+      }
+    }
+  ]
+}

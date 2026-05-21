@@ -1020,3 +1020,114 @@
 - **`low_confidence`-/Twist-Policy-Calls:** none. Kage's apparent death, the Burned Man identity, the unfinished Gothic War third-novel context, and the Soul Drinkers' Excommunicate Traitoris / mutation premise all stayed visible because the old synopsis already carried them as reader-load-bearing setup, not hidden late reveals.
 - **Iteration time / token estimate:** ~55k-70k tokens for the final 10-book rewrite, plus extra closing overhead for aggregate stats / report / global verification. The prose pass itself was smoother than the earlier Welle-4 batches; most overhead was final-loop bookkeeping.
 - **Carry-over notes:** Batch 019 completes Brief 081's 005..019 backfill. All batches 001..020 now report synopsis-clean in dry-run; next operational step is the 081 closing report/status flip, then Cowork's Wiki-Hygiene pass and the existing SSOT loop re-trigger for ssot-w40k-021..025.
+
+## 2026-05-21 · ssot-w40k-021 · W40K-0201..W40K-0210 · ✅
+
+- **Cumulative books in authority:** 210 / next resolver pause at 250 (40 to go)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=200, batch=ssot-w40k-021, slice=W40K-0201..W40K-0210
+- **WebSearch:** mean=1.1, max=2 (over 10 books) — omnibi needed an extra search for constituent contents / Goodreads-page location
+- **Per-book bullets:**
+  - W40K-0201 Blind — Shira Calpurnia #3, murder mystery in the Hydraphur astropath fortress; protagonist class tagged `civilian` (Arbites has no dedicated facet value); rated 3.59/204.
+  - W40K-0202 Enforcer Omnibus — omnibus of Crossfire/Legacy/Blind; aggregated trilogy facets (mystery + court_intrigue + political_thriller), `doorstopper`/`standalone`; format matches roster; rated 3.73/394.
+  - W40K-0203 Crusade for Armageddon — Black Templars #1, Third War for Armageddon; multi-POV (Templars + militia + Titan) → added Astra Militarum + Collegia Titanica supporting; rated 3.58/166.
+  - W40K-0204 Conquest of Armageddon — Black Templars #2 sequel, ork-jungle search + hidden Chaos plot → Heretic Astartes antagonist; rated 3.52/132.
+  - W40K-0205 The Armageddon Omnibus — POD omnibus of the duology + Solemnus short tales; **rating unrated** (only 7 Goodreads ratings, not a representative aggregate); format matches roster.
+  - W40K-0206 Broken Crusade — 2024 standalone; roster `authors` empty → actual author is **Steven B Fischer** (no author field in override schema, noted here). Khorne/Blood God warbands tagged generically as Heretic Astartes (specific Legion not stated). Set on a shrine world named "Tempest" — coincidental with W40K-0209, unrelated. Rated 3.78/299.
+  - W40K-0207 Dawn of War — Blood Ravens #1 (game tie-in), Tartarus; orks + Eldar (Biel-Tan) + Alpha Legion + shadowy Inquisition; betrayal arc (Isador); rated 3.12/354.
+  - W40K-0208 Ascension — Blood Ravens #2, Rahe's Paradise; Sisters of Battle scrutiny + Farseer Macha; rated 3.14/210.
+  - W40K-0209 Tempest — Blood Ravens #3 finale, Eye of Terror; the "strangely familiar" renegade Astartes go unnamed in sources → `low_confidence` flag on factions rather than guessing the Legion; rated 3.03/180.
+  - W40K-0210 Blood Ravens: The Dawn of War Omnibus — collects the trilogy + "The Trials of Isador"; aggregated to `sector`/`doorstopper`; rated 3.58/357.
+- **value_outside_vocabulary:** none — but noting (not adding to catalog): no `protagonist_class` value fits an Adeptus Arbites lawman (used `civilian`); `format` facet has no omnibus/collection value (omnibi tagged `book` + `doorstopper`).
+- **Notable surface-forms (within this batch):** "Adeptus Astra Telepathica", "Bastion Psykana", "Collegia Titanica", "Blood Scar tribe" (kept in synopsis only), "Rahe's Paradise", "Biel-Tan" (kept in synopsis), "Dauntless Honour", "Castellan Emeric".
+- **Verification skipped:** lint/typecheck/brain:lint skipped per Brief-061 convention — pure data commit (one override JSON + markdown append, no code).
+
+## 2026-05-21 · ssot-w40k-022 · W40K-0211..W40K-0220 · ✅
+
+- **Cumulative books in authority:** 220 / 30 books to next resolver pause (threshold 250)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=210, batch=ssot-w40k-022, slice=W40K-0211..W40K-0220
+- **WebSearch:** mean≈1.3, max=2 (over 10 books) — synopsis context plus two confirmation passes for Blood Angels factions/locations and two Goodreads-page-find queries
+- **Per-book bullets:**
+  - W40K-0211 Dawn of War II (Roberson): game tie-in novel, Blood Ravens vs Orks then Tyranids. Locations left at Aurelia sub-sector only + low_confidence flag — individual world names in the novelisation not source-confirmed.
+  - W40K-0212 Dawn of War III (MacNiven): three-way Blood Ravens/eldar/orks brawl over a relic-weapon on Acheron. Goodreads aggregation thin (49 ratings) — kept rated, low_confidence flag on rating for small sample.
+  - W40K-0213 Grey Knights (Counter): Alaric vs daemon prince Ghargatuloth (Tzeentch). Locations empty + low_confidence flag — the Trail-of-Saint-Evisser worlds were not reliably named in sources; declined to invent.
+  - W40K-0214 Dark Adeptus (Counter): Grey Knights on warp-returned forge world Chaeroneia; Dark Mechanicum antagonist, Adeptus Mechanicus uneasy allies.
+  - W40K-0215 Hammer of Daemons (Counter): Alaric captive on Khorne daemon world Drakaasi, gladiatorial-escape arc. cw_abuse added for enslavement.
+  - W40K-0216 The Grey Knights Omnibus (Counter): aggregates 0213–0215 (factions/locations/characters/facets union, length doorstopper). Rating taken from the Goodreads work-aggregation page (4084720, 4.12/1231), which carries the 2014 reprint date but aggregates the omnibus work; roster lists the 2009 first edition — same work.
+  - W40K-0217 Deus Encarmine (Swallow): Rafen/Arkio schism, Word Bearers (Iskavan) antagonist, renegade Inquisitor Stele → Inquisition tagged antagonist per Inquisition-consistency.
+  - W40K-0218 Deus Sanguinius (Swallow): conclusion of the duology, civil war at Sabien, Mephiston judging.
+  - W40K-0219 Red Fury (Swallow): Flesh Tearers diplomacy + Fabius Bile (tagged Emperor's Children) stealing Sanguinius's blood from the Red Grail.
+  - W40K-0220 Black Tide (Swallow): hunt for Fabius Bile to Tyranid death world Dynikas V; Flesh Tearers co-belligerents.
+- **value_outside_vocabulary:** [] — all facetIds drawn from facet-catalog.json
+- **Notable surface-forms (within this batch):** "Blood Ravens", "Tzeentch", "Khorne", "Dark Mechanicum" and "Ordo Malleus" used as raw faction names (specific Chaos/Mechanicum/Inquisition sub-granularity, not generic Chaos/Imperium); "Eldar"/"Orks"/"Tyranids" as concrete xenos; locations Aurelia, Acheron, Chaeroneia, Borosis, Drakaasi, Eye of Terror, Cybele, Shenlong, Baal, Sabien, Dynikas V kept as source surface forms (no pre-resolving).
+- **Verification:** lint/typecheck/brain:lint skipped (Brief-061 convention — pure data commit: one override JSON + this log append, no code).
+
+## 2026-05-21 · ssot-w40k-023 · W40K-0221..W40K-0230 · ✅
+
+- **Cumulative books in authority:** 230 / next resolver pause at 250 (in 20 books)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=220, batch=ssot-w40k-023, slice=W40K-0221..W40K-0230
+- **WebSearch:** mean≈1.0, max=2 (over 10 books; Space Hulk family used one shared context search plus one Goodreads-URL lookup)
+- **Per-book bullets:**
+  - W40K-0221 Space Hulk (novella): Blood Angels boarding-action tie-in to the Space Hulk board game; genestealers tagged as Tyranids. The named setting is the space hulk itself (a vessel), tagged as the primary location.
+  - W40K-0222 Sin of Damnation (novella): same core story as W40K-0221 — the 2009 Space Hulk: The Novel re-released 2014 bundled with the short story Sanguis Irae. Distinct Goodreads work/edition, rated separately. Borderline novella+short bundle but roster `novella` is reasonable; no format flag raised.
+  - W40K-0223 Astorath: Angel of Mercy (novella): post-Devastation-of-Baal; features Blood Angels successor Chapter Red Wings and an Enslaver infestation (tagged Enslavers antagonist). Black Rage → cw_mental_health.
+  - W40K-0224 Fifteen Hours: solid coverage; Arvin Larn at the Broucheroc siege vs Orks. Highest rating-count in the batch (1,632).
+  - W40K-0225 Death World: Catachan squad on Rogar III; the planet itself is the secondary antagonist (cosmic_horror tag for the evolving jungle / zombie troopers).
+  - W40K-0226 Rebel Winter: Vostroyan fighting-retreat on Danik's World; escorted traitor → betrayal theme.
+  - W40K-0227 Imperial Guard Omnibus Vol. One / Shield of the Emperor (omnibus): aggregates the three novels above (each + a companion short: Knee Deep, Better the Devil, The Citadel). Facets/locations/characters aggregated across constituents. Rating taken from the "Shield of the Emperor" 2020 work page (4.25 / 40) — see edition note below.
+  - W40K-0228 Desert Raiders: Tallarn vs Tyranids on Khadar; no reliable named POV from sources → characters left empty + low_confidence flag.
+  - W40K-0229 Ice Guard: Valhallan stealth rescue on doomed Cressida; sources confirm a Chaos occupation but name no specific sub-faction → generic "Chaos" antagonist + low_confidence flag.
+  - W40K-0230 Gunheads: Cadian armoured company on Golgotha recovering Yarrick's Fortress of Arrogance; rival Corporal Lenck tagged antagonist.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Imperial Guard" kept verbatim (era surface form; not pre-resolved to Astra Militarum). Chapter names "Blood Angels" / "Red Wings" and the space-hulk vessel name "Sin of Damnation" preserved as-is. Edition disambiguation: the omnibus rating used the "Shield of the Emperor" work page (goodreads.com/book/show/52784662); the per-novel ratings used each novel's own standalone page.
+- **Verification:** lint/typecheck/brain:lint skipped per Brief-061 data-only convention (override JSON + log append, no code). JSON parse + facetId-vocabulary + synopsis-length (400–1200) checks run locally and pass.
+
+## 2026-05-21 · ssot-w40k-024 · W40K-0231..W40K-0240 · ✅
+
+- **Cumulative books in authority:** 240 / next-50 to next resolver pause (250)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=230, batch=ssot-w40k-024, slice=W40K-0231..W40K-0240
+- **WebSearch:** mean=1.2, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0231 cadian-blood — Clean ADB Cadian/Nurgle novel; Death Guard antagonist, Raven Guard support, Captain Thade POV. No issues.
+  - W40K-0232 redemption-corps — Locations left empty + low_confidence flag: sources name only the troopship Deliverance and an unnamed ork warzone. Inquisition + Adepta Sororitas as antagonists per the heretic-cult suspicion subplot.
+  - W40K-0233 dead-men-walking — Krieg vs Necrons; ensemble POV (commissar, mine supervisor, governor, niece) → protagonist_class=multi, gender=ensemble. No named characters reliable, characters left empty.
+  - W40K-0234 hammer-of-the-emperor-omnibus — Aggregated: Gunheads (Cadian Armoured vs Orks, Golgotha) + Ice Guard (Valhallan) + Desert Raiders (Tallarn vs Tyranids) + 3 shorts. low_confidence flag on factions: per-constituent enemy detail thin for Ice Guard/Desert Raiders. 2 searches (contents + constituents).
+  - W40K-0235 imperial-glory — Brimlock 11th vs feral Orks on Voor; significant ork POV → pov_side=dual. Stanhope/Carson POV.
+  - W40K-0236 iron-guard — Mordian 114th on Belmos VII. Enemy confirmed xenos-origin but species unnamed in sources → no antagonist faction, low_confidence flag. 2 searches (synopsis + enemy).
+  - W40K-0237 commissar — 77th Vostroyan Firstborn, prison world Furia Penitens. Note: a Commissar is the POV, not an Inquisitor; used protagonist_class=inquisitor as the closest commissar/political-officer archetype in the vocabulary (see value_outside_vocabulary).
+  - W40K-0238 baneblade — Series Start (Imperial Battle Tanks series 1); tank-crew study, Bannick POV, Orks, Kalidar/Paragon. scope=regiment, entry_point=series_start.
+  - W40K-0239 straken — Catachan 2nd vs Orks on cavern world Dulma'lin; Commissar Morrell as internal antagonist. Roster seriesHint "Imperial Guard" but Lexicanum files it under Legends of the Dark Millennium — kept as-is, no flag (series framing only).
+  - W40K-0240 honour-imperialis-omnibus — Aggregated: Cadian Blood + Dead Men Walking + Redemption Corps + 4 shorts. Pools Cadian/Krieg/storm-trooper tags; low_confidence flag on characters (only lead-novel POVs asserted).
+- **value_outside_vocabulary:** [{"category":"protagonist_class","candidate":"commissar","note":"Commissar (political officer) recurs as POV/lead in Commissar, Cadian Blood, Dead Men Walking, Straken; currently mapped to guardsman/inquisitor as nearest fit"}, {"category":"protagonist_class","candidate":"tank_crew","note":"Baneblade is a dedicated armoured-crew POV with no good archetype; mapped to guardsman"}]
+- **Notable surface-forms (within this batch):** "Cadian Shock Troops", "Death Korps of Krieg", "Mordian Iron Guard", "Vostroyan Firstborn", "Brimlock Dragoons", "Catachan Jungle Fighters", "Valhallan Ice Warriors", "Tallarn Desert Raiders", "Colonel Iron Hand Straken", "Marken Cortein Lo Bannick", "Hieronymous Theta", "Furia Penitens", "Dulma'lin", "Belmos VII", "Golgotha", "Kalidar", "Paragon", "Voor", "Kathur".
+- **Verification skipped:** pure data commit (override JSON + log append, no code) — lint/typecheck/brain:lint skipped per Brief-061 convention.
+
+## 2026-05-21 · ssot-w40k-025 · W40K-0241..W40K-0250 · ✅
+
+- **Cumulative books in authority:** 250 / lands exactly on a 50-book resolver threshold (resolver pause not yet announced; next loop run should see it or run the resolver pass first)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=240, batch=ssot-w40k-025, slice=W40K-0241..W40K-0250
+- **WebSearch:** mean=1.6, max=3 (over 10 books; extra searches were Goodreads-page discovery, not synopsis context)
+- **Per-book bullets:**
+  - W40K-0241 Shadowsword — Guy Haley Guard-armour sequel to Baneblade; mid_series, Lo Bannick POV, Geratomro warzone. Clean.
+  - W40K-0242 Glory Imperialis Omnibus — aggregated three Guard novels (Imperial Glory / Commissar / Iron Guard) + shorts; Orks as the recurring foe. low_confidence on locations + characters (worlds/POVs not consistently named across constituents).
+  - W40K-0243 Final Deployment — R.S. Wilt; Tempestus Scions on Rilis, Tempestor Traxel POV. Self-contained.
+  - W40K-0244 The Remnant Blade — ROSTER MISTAG: seriesHint 'Imperial Guard' but it is a Night Lords (Chaos) novel (Dalchian Rassaq / Blades of Atrocity). Tagged Night Lords; data_conflict flag on seriesHint with suggestion 'Night Lords'; low_confidence on locations.
+  - W40K-0245 Death and Duty — 12-story Astra Militarum anthology (Catachan/Cadian/Krieg); format matches roster (anthology). low_confidence on characters + locations (no sustained POV, worlds unconfirmed).
+  - W40K-0246 The Relentless Dead — Steve Lyons Krieg horror; Colonel Graven / 401st Death Korps in the catacombs of Oleris III, missing inquisitor → Inquisition supporting. Clean.
+  - W40K-0247 Chem Dog — Callum Davis; Commissar Bastun Hasp + Savlar Chem-Dogs penal legion vs Orks; satirical tone, cw_crime. low_confidence on locations (bastion world unnamed).
+  - W40K-0248 Steel Daemon — Ian St. Martin novella; Cadian tank crew vs Crimson Slaughter (named Chaos warband, antagonist Hakaron) in the 13th Black Crusade. low_confidence on locations (world unnamed).
+  - W40K-0249 Iron Resolve — Steve Lyons novella; Mordian Iron Guard last stand vs Orks on forest world Kallash, Lucius Myer POV. Clean.
+  - W40K-0250 Warrior Brood — C.S. Goto; opens the Deathwatch line (series_start). Inquisitor Kalypsia + Deathwatch vs Tyranids on Herodian IV; Inquisition-consistency satisfied via Ordo Xenos supporting.
+- **value_outside_vocabulary:** [ candidate protagonist_class `penal_legion` (Savlar Chem-Dogs / W40K-0247) — guardsman used as nearest existing value ]
+- **Notable surface-forms (within this batch):** Cortein's Honour; Tempestus Scions / First Eradicant / Xian Tigers; Blades of Atrocity / Skin-Taker; Savlar Chem-Dogs; Death Korps of Krieg (401st); Mordian Iron Guard; Brimlock Dragoons; Vostroyan 77th; Crimson Slaughter; Imperial Son (Leman Russ).
+- **Verification:** lint/typecheck/brain:lint skipped per Brief-061 convention — pure data commit (one override JSON + log append, no code).
+
+## 2026-05-21 · ⏸ Resolver-Pause bei 250 Büchern
+
+- **Cumulative books:** 250 (in 25 batches: ssot-w40k-001..ssot-w40k-025)
+- **Action required:** Maintainer schreibt Resolver-Brief. Loop pausiert bis dahin.
+- **Pause-Detection:** selbst-erkennend (Brief 088) — dieser Block ist der Marker.

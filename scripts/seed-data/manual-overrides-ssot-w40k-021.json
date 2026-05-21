@@ -1,0 +1,239 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-021",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "Three series clusters: the closing Shira Calpurnia novel Blind plus its Enforcer omnibus (Matthew Farrer), Jonathan Green's Black Templars Armageddon duology plus its omnibus, and C.S. Goto's Blood Ravens / Dawn of War game-tie-in trilogy plus omnibus, rounded out by the 2024 Black Templars novel Broken Crusade. The Armageddon Omnibus is a print-on-demand edition with only 7 Goodreads ratings, so it is marked unrated rather than carrying a non-representative aggregate.",
+  "books": [
+    {
+      "externalBookId": "W40K-0201",
+      "slug": "blind",
+      "overrides": {
+        "synopsis": "Newly tested and beset by self-doubt, Adeptus Arbites officer Shira Calpurnia is sent into the Bastion Psykana, the fortress-station known as the Blind Tower that looms over the warfleet anchorage of Hydraphur. Its master, a senior astropath, has been murdered, and the killer is somewhere inside a labyrinth of half-mad telepaths whose minds gaze daily into the void. Far from any help and surrounded by seers, deceit and old grudges, Calpurnia must untangle a web of intrigue while the Tower's own inhabitants work to thwart her at every turn. To name the murderer she will have to trust witnesses who can barely trust their own senses, and confront how little she truly understands of the psykers the Imperium both depends upon and fears.",
+        "facetIds": ["book", "female", "civilian", "imperium", "planetary", "series_finale", "standard", "mystery", "political_thriller", "grimdark", "somber", "doubt", "faith", "cw_violence", "cw_death", "cw_mental_health", "en"],
+        "factions": [
+          { "name": "Adeptus Arbites", "role": "primary" },
+          { "name": "Adeptus Astra Telepathica", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Hydraphur", "role": "primary" },
+          { "name": "Bastion Psykana", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Shira Calpurnia", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.59, "count": 204, "evidenceUrl": "https://www.goodreads.com/book/show/849226.Blind" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0202",
+      "slug": "enforcer-omnibus",
+      "overrides": {
+        "synopsis": "Three cases, one unforgiving posting. Newly promoted to the fortress-system of Hydraphur, where the Imperium's warfleets endlessly dock, rearm and depart, Adeptus Arbites officer Shira Calpurnia is plunged straight into the machinery of corruption and murder. In Crossfire she must unravel a string of assassination attempts during a sacred festival; in Legacy she is caught in the vicious, generations-old feud over an ancient trading charter; and in Blind she hunts a killer through a station of half-crazed astropaths. Across all three, Calpurnia's rigid sense of law collides with a society built on ritual, privilege and secrets. This omnibus collects the complete Shira Calpurnia trilogy, a ground-level look at Imperial justice far from the front lines of war.",
+        "facetIds": ["book", "female", "civilian", "imperium", "sector", "standalone", "doorstopper", "mystery", "political_thriller", "court_intrigue", "grimdark", "somber", "faith", "betrayal", "doubt", "cw_violence", "cw_death", "cw_crime", "en"],
+        "factions": [
+          { "name": "Adeptus Arbites", "role": "primary" },
+          { "name": "Adeptus Astra Telepathica", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Hydraphur", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Shira Calpurnia", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.73, "count": 394, "evidenceUrl": "https://www.goodreads.com/book/show/7962251-enforcer" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0203",
+      "slug": "crusade-for-armageddon",
+      "overrides": {
+        "synopsis": "Battle-weary Marshal Brant leads his Black Templars home to Solemnus only to find their world overrun by a marauding ork horde. His brotherhood is shattered, the Chapter's honour stained, and Brant swears a binding vow of vengeance against the warlord responsible. The hunt drives the Templars' crusade fleet to Armageddon, a sulphurous hive-world already drowning in the largest greenskin invasion it has ever faced. Rather than fold into the wider Imperial defence, the Templars pursue their own holy quest for revenge. Told through the eyes of the Space Marines, the planet's hard-pressed militia, and the crew of a towering god-machine, the story builds toward a desperate assault on an ork war-factory where every thread of the battle finally converges.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_start", "standard", "war_story", "grimdark", "action_heavy", "war", "faith", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Black Templars", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Collegia Titanica", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" },
+          { "name": "Solemnus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Marshal Brant", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.58, "count": 166, "evidenceUrl": "https://www.goodreads.com/book/show/566407.Crusade_for_Armageddon" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0204",
+      "slug": "conquest-of-armageddon",
+      "overrides": {
+        "synopsis": "The war for Armageddon grinds on, and one of the Black Templars' fighting companies has vanished into the planet's choking jungles. Marshal Brant leads a force to find his lost brothers, unaware that a band of Imperial ork-hunters is also out in the green hell, searching for a high-ranking officer downed in a crash. None of them realise what else stirs beneath the canopy: the savage greenskins of the Blood Scar tribe stalk them through the undergrowth, and something far older and darker is waking to reach out once more. What begins as a rescue becomes a fight on two fronts as the Templars uncover a corrupting plot and must face renegade Space Marines as well as the endless ork tide.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "journey", "grimdark", "action_heavy", "war", "faith", "brotherhood", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Black Templars", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Marshal Brant", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.52, "count": 132, "evidenceUrl": "https://www.goodreads.com/book/show/1981361.Conquest_of_Armageddon" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0205",
+      "slug": "the-armageddon-omnibus",
+      "overrides": {
+        "synopsis": "Marshal Brant's crusade against the greenskins, collected in full. After orks lay waste to the Black Templars' home of Solemnus, Brant swears vengeance and carries his shattered brotherhood to Armageddon, a hive-world synonymous with endless war. In Crusade for Armageddon the Templars wage their own holy quest amid the largest ork invasion the planet has known, while in Conquest of Armageddon a search for a lost company drags them into the jungles to confront the Blood Scar tribe and a hidden plot of renegade Space Marines. Gathering both novels alongside shorter tales of the Solemnus Crusade, this omnibus follows zealous warriors for whom faith, vengeance and duty are inseparable.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "standalone", "doorstopper", "war_story", "journey", "grimdark", "action_heavy", "war", "faith", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Black Templars", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Collegia Titanica", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" },
+          { "name": "Solemnus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Marshal Brant", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "unrated", "source": "goodreads", "reason": "Print-on-demand omnibus with only 7 Goodreads ratings; sample too small for a representative aggregate.", "evidenceUrl": "https://www.goodreads.com/book/show/17288988-the-armageddon-omnibus" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0206",
+      "slug": "broken-crusade",
+      "overrides": {
+        "synopsis": "The Black Templars of the Second Dorean Crusade race to reinforce the fleet gathering above Tempest, an ancient shrine world being torn apart by the murderous warbands of the Blood God. The Templars mean to burn the world clean of corruption for good, but a violent warp storm scatters the fleet and leaves the warship Dauntless Honour battered and alone in the void. Cut off and besieged by doubt, Castellan Emeric and his brothers must hold to their faith and fight a path back to Tempest, where the true battle awaits. A story of zealotry, destiny and the brutal cost of belief, it follows warriors who measure devotion in blood and ask what victory is worth when faith itself is put to the test.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "war_story", "journey", "grimdark", "action_heavy", "faith", "doubt", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Black Templars", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Tempest", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Castellan Emeric", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.78, "count": 299, "evidenceUrl": "https://www.goodreads.com/book/show/220864963-broken-crusade" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0207",
+      "slug": "dawn-of-war",
+      "overrides": {
+        "synopsis": "Brother-Captain Gabriel Angelos throws his Blood Ravens into a last-ditch defence of Tartarus, a world with a long and troubled past. A brutal ork invasion has reduced the planet to ruins, but the greenskins are only the surface of a deeper, older war: the enigmatic eldar of Biel-Tan move to their own ends, and the treacherous warriors of the Alpha Legion pursue secrets buried on the world. As Gabriel leads his brothers deeper into the conflict, he is forced to confront betrayal within his own ranks, the quiet manipulations of a shadowy Inquisition, and unsettling truths about the origins of his Chapter. The path the eldar foretell may lead to salvation or to damnation, and Gabriel must decide just how much he is willing to sacrifice to walk it.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_start", "standard", "war_story", "action_heavy", "grimdark", "betrayal", "war", "brotherhood", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Ravens", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Eldar", "role": "antagonist" },
+          { "name": "Alpha Legion", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Tartarus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Gabriel Angelos", "role": "pov" },
+          { "name": "Isador Akios", "role": "supporting" },
+          { "name": "Macha", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.12, "count": 354, "evidenceUrl": "https://www.goodreads.com/book/show/438008.Dawn_of_War" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0208",
+      "slug": "ascension-dawn-of-war",
+      "overrides": {
+        "synopsis": "Reeling from the catastrophic losses of the Tartarus campaign, Captain Gabriel Angelos travels to the world of Rahe's Paradise to rebuild the Blood Ravens with desperately needed recruits. There he stumbles on an archaeological dig that threatens to overturn everything he believed about his Chapter's origins. Watched with suspicion by the Sisters of Battle and hunted by his old foe, the eldar Farseer Macha, Gabriel finds himself unwittingly stirring something ancient and terrible from his own past and that of the eldar. As fleets clash overhead and war engulfs the planet, a young aspirant named Ckrius is rushed through the brutal trials of becoming a Space Marine. The secrets buried on this world could remake the Blood Ravens, or destroy them all.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "mystery", "grimdark", "action_heavy", "war", "brotherhood", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Ravens", "role": "primary" },
+          { "name": "Eldar", "role": "antagonist" },
+          { "name": "Adepta Sororitas", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Rahe's Paradise", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Gabriel Angelos", "role": "pov" },
+          { "name": "Macha", "role": "antagonist" },
+          { "name": "Ckrius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.14, "count": 210, "evidenceUrl": "https://www.goodreads.com/book/show/588668.Dawn_of_War" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0209",
+      "slug": "tempest",
+      "overrides": {
+        "synopsis": "Cast into the Eye of Terror, the Blood Ravens Librarian Rhamah crashes onto a strange world of alien libraries and silent museums, an ancient eldar sanctuary hidden within the storms of the warp. Fighting to protect the precious gene-seed in his keeping, Rhamah finds himself stranded and alone, his memory clouded. When a detachment of grimly familiar Space Marines descends to plunder the world's forbidden knowledge, he is drawn into their clash with the planet's enigmatic guardians. As his distant brothers begin a search to recover him, Rhamah struggles to piece together who he truly is, never suspecting that his own allegiance may decide the fate of this world and the secrets it has kept for ten thousand years.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_finale", "standard", "journey", "mystery", "grimdark", "philosophical", "doubt", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Ravens", "role": "primary" },
+          { "name": "Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Rhamah", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "The 'strangely familiar' renegade Space Marines who plunder the world are not named in available source coverage; antagonist Astartes faction left unrecorded rather than guessed." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.03, "count": 180, "evidenceUrl": "https://www.goodreads.com/book/show/12992.Dawn_of_War" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0210",
+      "slug": "blood-ravens-the-dawn-of-war-omnibus",
+      "overrides": {
+        "synopsis": "The complete saga of Captain Gabriel Angelos and the Blood Ravens, collected in one volume. In Dawn of War the Chapter fights to hold the ruined world of Tartarus against orks, scheming eldar and the treacherous Alpha Legion, while betrayal festers within Gabriel's own command. In Ascension the survivors seek new recruits on Rahe's Paradise, only to unearth buried truths about the Chapter's origins under the watchful eyes of the Sisters of Battle and the eldar Farseer Macha. In Tempest a lone Librarian, lost in the Eye of Terror, fights to recover his own identity on an alien world of forbidden knowledge. Together with a shorter tale of the warrior Isador, these stories trace a Chapter haunted by the secrets of its own past.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "standalone", "doorstopper", "war_story", "journey", "mystery", "grimdark", "action_heavy", "war", "brotherhood", "betrayal", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Ravens", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Eldar", "role": "antagonist" },
+          { "name": "Alpha Legion", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Adepta Sororitas", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Tartarus", "role": "primary" },
+          { "name": "Rahe's Paradise", "role": "supporting" },
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Gabriel Angelos", "role": "pov" },
+          { "name": "Isador Akios", "role": "supporting" },
+          { "name": "Macha", "role": "antagonist" },
+          { "name": "Rhamah", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.58, "count": 357, "evidenceUrl": "https://www.goodreads.com/book/show/2616550-blood-ravens" }
+      }
+    }
+  ]
+}
