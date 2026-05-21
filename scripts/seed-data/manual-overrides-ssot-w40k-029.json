@@ -1,0 +1,238 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-029",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "A full ten-book run of the Space Marine Battles series (numbers 4-13), each a self-contained Astartes war story. Two stand apart from the loyalist-siege norm: Architect of Fate is a four-novella Tzeentch anthology (aggregated across its constituents) and The Siege of Castellax is the first SMB title told from a Chaos (Iron Warriors) viewpoint. Ratings read from the Goodreads work pages; surface forms kept verbatim, no pre-resolving.",
+  "books": [
+    {
+      "externalBookId": "W40K-0281",
+      "slug": "the-purging-of-kadillus",
+      "overrides": {
+        "synopsis": "When an ork invasion descends on the mining world of Piscina IV, the Dark Angels Third Company believe the greenskin threat is minor and easily contained. Captain Belial trusts in the strength of his Astartes, but the veteran scout-sergeant Naaman has fought orks before and senses something far more dangerous at work. As the xenos numbers swell and a renewed offensive smashes into the defenders, the orks surge toward the vital settlement of Kadillus Harbour. The Dark Angels are forced into a desperate, grinding siege, holding the line against an enemy wielding unexpected technological power. They must endure until Imperial reinforcements arrive, or watch the planet fall to the green tide.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "siege", "war_story", "last_stand", "grimdark", "action_heavy", "brotherhood", "loyalty", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Piscina IV", "role": "primary" },
+          { "name": "Kadillus Harbour", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Belial", "role": "pov" },
+          { "name": "Naaman", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.59, "count": 737, "evidenceUrl": "https://www.goodreads.com/book/show/8440710-the-purging-of-kadillus" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0282",
+      "slug": "fall-of-damnos",
+      "overrides": {
+        "synopsis": "Cataclysmic earthquakes tear across the world of Damnos, waking an ancient horror buried beneath its frozen crust. The soulless necrons rise in their legions and begin to scour the human population from the surface. With the colony on the brink of annihilation, the Ultramarines brave a punishing orbital descent to make planetfall, led by the celebrated Captain Cato Sicarius and the Chief Librarian Tigurius. They are the last hope of Damnos against a tireless, deathless foe, but pride and rivalry within their own ranks threaten the campaign. As the battle turns ever grimmer, Tigurius is haunted by a prophetic vision foretelling the death of a hero.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "war_story", "last_stand", "grimdark", "action_heavy", "somber", "brotherhood", "hubris", "sacrifice", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Damnos", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Cato Sicarius", "role": "pov" },
+          { "name": "Tigurius", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.60, "count": 747, "evidenceUrl": "https://www.goodreads.com/book/show/8697266-the-fall-of-damnos" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0283",
+      "slug": "battle-of-the-fang",
+      "overrides": {
+        "synopsis": "A thousand years after the Horus Heresy, the daemon primarch Magnus the Red leads his Thousand Sons in a vengeful assault on Fenris, home world of the Space Wolves. While Great Wolf Harek Ironhelm hunts his ancient enemy far across the stars, the great mountain fortress of the Fang is left defended by only a skeleton garrison under Wolf Lord Vaer Greyloss. The Thousand Sons descend in overwhelming numbers, and the Space Wolves must fight a desperate holding action through the fortress's endless halls and ice-locked depths. With their home, their relics and their future at stake, the defenders face a battle whose true cost none of them can yet imagine.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "siege", "last_stand", "war_story", "grimdark", "action_heavy", "somber", "brotherhood", "loyalty", "sacrifice", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Thousand Sons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "primary" },
+          { "name": "The Fang", "role": "supporting" },
+          { "name": "Gangava Prime", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Vaer Greyloss", "role": "pov" },
+          { "name": "Harek Ironhelm", "role": "supporting" },
+          { "name": "Bjorn the Fell-Handed", "role": "supporting" },
+          { "name": "Magnus the Red", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.14, "count": 1242, "evidenceUrl": "https://www.goodreads.com/book/show/10138471-battle-of-the-fang" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0284",
+      "slug": "the-gildar-rift",
+      "overrides": {
+        "synopsis": "When a long-lost Imperial warship drifts out of the warp, boarding parties discover it overrun by the Red Corsairs, the renegade fleet of the infamous Huron Blackheart. Huron's raiders are intent on seizing the Gildar Rift and tightening their grip on the surrounding sector. Standing against them are the Silver Skulls, a proud and superstitious Space Marine Chapter led by Captain Arrun, whose every decision is guided by the omens read by his Prognosticators. As fleets clash in the void and warriors duel among the wreckage, the fate of the Rift comes down to a brutal struggle on the surface of Gildar Secundus below.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "chaos", "sector", "standalone", "standard", "war_story", "grimdark", "action_heavy", "war", "loyalty", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Silver Skulls", "role": "primary" },
+          { "name": "Red Corsairs", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Gildar Rift", "role": "primary" },
+          { "name": "Gildar Secundus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Arrun", "role": "pov" },
+          { "name": "Huron Blackheart", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.50, "count": 380, "evidenceUrl": "https://www.goodreads.com/book/show/10858527-the-gildar-rift" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0285",
+      "slug": "legion-of-the-damned",
+      "overrides": {
+        "synopsis": "Following the path of a blood-red comet, the berserk warbands of the World Eaters carve a trail of slaughter across the stars. The small cemetery world of Certus-Minor begs the Imperium for protection, and the Excoriators answer, dispatching a force led by the disgraced former Chapter Champion Zachariah Kersh. But the defenders are too few, and against the howling horde their losses mount swiftly. As the last lines crumble and hope drains away, salvation arrives from legend itself: silent, spectral warriors clad in black, the Legion of the Damned, who walk out of myth to stand between the living and the doomed. For Kersh, the battle becomes a trial of faith, will and the chance to redeem a tarnished name.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "siege", "last_stand", "war_story", "grimdark", "action_heavy", "somber", "faith", "sacrifice", "redemption", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Excoriators", "role": "primary" },
+          { "name": "World Eaters", "role": "antagonist" },
+          { "name": "Legion of the Damned", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Certus-Minor", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Zachariah Kersh", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.81, "count": 626, "evidenceUrl": "https://www.goodreads.com/book/show/12323666-legion-of-the-damned" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0286",
+      "slug": "architect-of-fate",
+      "overrides": {
+        "synopsis": "Across the war-torn galaxy, the Space Marines fight battles they believe are their own, never suspecting that they move as pieces in the schemes of a single, ancient manipulator. Kairos Fateweaver, the twin-headed greater daemon of Tzeentch, has spun a plan thousands of years in the making, and friend and foe alike unknowingly serve his design. This collection gathers four linked tales: a doomed ship haunted by what the warp left behind, a desperate recovery mission beneath a dying sky, the Imperial Fists' stand against a relentless Iron Warriors assault, and a final reckoning at the very edge of the Eye of Terror. Yet even the Architect of Fate cannot see what waits beyond the end of the age.",
+        "facetIds": ["book", "ensemble", "space_marine", "imperium", "chaos", "sector", "standalone", "standard", "war_story", "siege", "last_stand", "grimdark", "action_heavy", "cosmic_horror", "war", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "supporting" },
+          { "name": "Relictors", "role": "supporting" },
+          { "name": "White Consuls", "role": "supporting" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Daemons of Tzeentch", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ilissus", "role": "supporting" },
+          { "name": "Eye of Terror", "role": "supporting" },
+          { "name": "Claros", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Kairos Fateweaver", "role": "antagonist" },
+          { "name": "Darnath Lysander", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.47, "count": 316, "evidenceUrl": "https://www.goodreads.com/book/show/12649792-architect-of-fate" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0287",
+      "slug": "wrath-of-iron",
+      "overrides": {
+        "synopsis": "For decades the rulers of the Contqual sub-sector have given themselves over to the worship of Slaanesh, and now their corruption bears terrible fruit: a tear in reality through which daemons pour to claim their mortal pawns. The cold, merciless Iron Hands are tasked with burning away the taint, and on the hive world of Shardenus the fate of a billion souls will be decided. Alongside massed Imperial Guard regiments and the towering war-engines of the Titan Legions, the sons of the Gorgon grind toward the heart of the infestation. But the Iron Hands' contempt for human weakness is itself a kind of damnation, and their relentless logic of war spares neither enemy nor ally.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "siege", "war_story", "grimdark", "action_heavy", "somber", "war", "hubris", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Daemons of Slaanesh", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Shardenus", "role": "primary" },
+          { "name": "Contqual", "role": "supporting" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "Named viewpoint characters not confidently attributable from available sources; left empty rather than invented" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.79, "count": 591, "evidenceUrl": "https://www.goodreads.com/book/show/13259827-wrath-of-iron" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0288",
+      "slug": "the-siege-of-castellax",
+      "overrides": {
+        "synopsis": "On the forge world of Castellax, the twisted Warsmith Andraaz drives his enslaved population mercilessly to feed the war-machine of the Iron Warriors. When a system-shattering ork Waaagh descends on the planet, Andraaz's grim legionaries must hold their fortress-walls against an endless green tide. Captain Rhodaan leads the defence with cold Iron Warriors discipline, but the greenskins are not the only threat: among the downtrodden slaves of the underworks, whispers of rebellion begin to spread. As the siege tightens and supplies dwindle, the masters of Castellax find themselves fighting on two fronts at once, against the xenos at the gates and the uprising stirring beneath their feet.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "planetary", "standalone", "standard", "siege", "last_stand", "war_story", "grimdark", "action_heavy", "somber", "betrayal", "hubris", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Castellax", "role": "primary" },
+          { "name": "Medrengard", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Rhodaan", "role": "pov" },
+          { "name": "Andraaz", "role": "supporting" },
+          { "name": "Vallax", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.61, "count": 370, "evidenceUrl": "https://www.goodreads.com/book/show/13547406-the-siege-of-castellax" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0289",
+      "slug": "the-death-of-antagonis",
+      "overrides": {
+        "synopsis": "A plague of undeath sweeps across the world of Antagonis, raising the dead to prey upon the living. The Black Dragons, a grim and mutated Chapter shunned by much of the Imperium, answer the call to save what souls they can. Allied with the Inquisitor Werner Lettinger and a contingent of the Sisters of Battle, Captain Volos and his warriors wade into a nightmare of contagion and horror. But the rising dead are only a symptom: behind the outbreak lurk the dread powers of Chaos, working toward a darker design. As one costly victory follows another, the Black Dragons find their numbers, their certainties and their unity steadily worn away.",
+        "facetIds": ["book", "male", "space_marine", "inquisitor", "imperium", "planetary", "standalone", "standard", "war_story", "grimdark", "somber", "cosmic_horror", "action_heavy", "faith", "doubt", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Black Dragons", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Adepta Sororitas", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Antagonis", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Volos", "role": "pov" },
+          { "name": "Werner Lettinger", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Chaos power behind the undeath plague not confidently attributable to a specific god or legion from available sources; generic Chaos faction omitted" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.64, "count": 316, "evidenceUrl": "https://www.goodreads.com/book/show/15803007-the-death-of-antagonis" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0290",
+      "slug": "death-of-integrity",
+      "overrides": {
+        "synopsis": "Having hunted a genestealer brood across the sector, Chapter Master Caedis of the Blood Drinkers calls upon old allies in the Novamarines to help him destroy a vast, drifting space hulk known as the Death of Integrity. They mean to obliterate it with plasma torpedoes, but the Adeptus Mechanicus intervene, demanding the two Chapters instead board the hulk on a secretive mission into its labyrinthine heart. Amid claustrophobic corridors where lethal xenos wait around every turn, the Astartes press deeper into the dark. For Caedis and his brothers, sons of Sanguinius all, every battle is a struggle against the crimson bloodlust that haunts their gene-line, and the line between glory and damnation grows perilously thin.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "standalone", "standard", "war_story", "mystery", "grimdark", "action_heavy", "cosmic_horror", "brotherhood", "doubt", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Drinkers", "role": "primary" },
+          { "name": "Novamarines", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Death of Integrity", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Caedis", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.84, "count": 468, "evidenceUrl": "https://www.goodreads.com/book/show/19636229" }
+      }
+    }
+  ]
+}

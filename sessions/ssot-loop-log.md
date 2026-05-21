@@ -1194,3 +1194,24 @@
 - **value_outside_vocabulary:** [] (keine neuen Facet-Kandidaten)
 - **Notable surface-forms (within this batch):** „Dragon Warriors" (Nihilans Chaos-Warband), „Blood Gorgons", „Marines Malevolent", „Legio Invigilata", „Sisters of Battle / Ebon Chalice", „Kor'sarro Khan", „Kayvaan Shrike", „Kernax Voldorius", „Pedro Kantor", „Snagrod".
 - **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: Override-JSON + Log-Append); JSON-Parse via `node -e require(...)` bestätigt (10 Bücher).
+
+## 2026-05-21 · ssot-w40k-029 · W40K-0281..W40K-0290 · ✅
+
+- **Cumulative books in authority:** 290 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=280, batch=ssot-w40k-029, slice=W40K-0281..W40K-0290
+- **WebSearch:** mean=1, max=1 (over 10 books) — alle Space Marine Battles, gut aus Trainingsdaten gedeckt; 1 Synopsis-Such-Pass je Buch genügte. Goodreads-Ratings je per WebFetch der Work-Seite (Page-Read, kein Snippet).
+- **Per-book bullets:**
+  - W40K-0281 The Purging of Kadillus — Dark Angels (Belial/Naaman) vs Orks, Piscina IV. Sauberer Loyalist-Siege.
+  - W40K-0282 Fall of Damnos — Ultramarines (Sicarius/Tigurius) vs Necrons; Imperium verliert Damnos → last_stand.
+  - W40K-0283 Battle of the Fang — Space Wolves vs Thousand Sons (Magnus), M32. Surface-Form-Ambiguität Wolf-Lord-Name: Quellen-Snippet schwankt „Vaer Greylock"/„Vaer Greyloss"; Lexicanum-Form „Vaer Greyloss" gewählt — im Resolver-Pass prüfen.
+  - W40K-0284 The Gildar Rift — Silver Skulls (Arrun) vs Red Corsairs (Huron Blackheart); Huron erhält substanzielle POV → pov_side imperium+chaos.
+  - W40K-0285 Legion of the Damned — Excoriators (Kersh) vs World Eaters, Certus-Minor; titelgebende Legion-of-the-Damned als supporting faction.
+  - W40K-0286 Architect of Fate — **anthology**: vier verlinkte Tzeentch-Novellen (Cawkwell/Hinks/Counter/French). Aggregiert über Constituents: Imperial Fists (Lysander), Relictors, White Consuls, Iron Warriors, Daemons of Tzeentch (Kairos Fateweaver). protagonist_gender=ensemble.
+  - W40K-0287 Wrath of Iron — Iron Hands + Astra Militarum + Titan-Legionen vs Daemons of Slaanesh, Shardenus/Contqual. characters leer + low_confidence-Flag (keine belastbaren POV-Namen aus Quellen).
+  - W40K-0288 The Siege of Castellax — **Chaos-POV**: Iron Warriors (Andraaz/Rhodaan/Vallax) verteidigen Castellax gegen Ork-Waaagh; Sklavenaufstand → betrayal. pov_side=chaos.
+  - W40K-0289 The Death of Antagonis — Black Dragons (Volos) + Inquisitor Lettinger + Adepta Sororitas, Antagonis-Untoten-Seuche. Chaos-Urheber nicht sicher einer Macht/Legion zuordenbar → generische Chaos-Faction weggelassen + low_confidence-Flag. Inquisition als supporting (Inquisition-Konsistenz, Lettinger).
+  - W40K-0290 Death of Integrity — Roster/Such-Query nannte „Blood Angels", tatsächlich **Blood Drinkers** (Blutsöhne-Nachfolger) + Novamarines vs Tyranids (Genestealers) auf Space Hulk; Adeptus Mechanicus als supporting. Kein format-Konflikt (novel korrekt).
+- **value_outside_vocabulary:** [] — alle facetIds aus dem Katalog.
+- **Notable surface-forms (within this batch):** „Vaer Greyloss" (vs „Greylock", siehe oben), „Daemons of Tzeentch", „Daemons of Slaanesh", „Red Corsairs", „Blood Drinkers", „Death of Integrity" (Space Hulk als Location). Kein Pre-Resolving.
+- **Verification skipped:** reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code) — lint/typecheck/brain:lint übersprungen per Brief-061-Konvention.
