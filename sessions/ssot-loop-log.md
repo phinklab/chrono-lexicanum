@@ -1215,3 +1215,24 @@
 - **value_outside_vocabulary:** [] — alle facetIds aus dem Katalog.
 - **Notable surface-forms (within this batch):** „Vaer Greyloss" (vs „Greylock", siehe oben), „Daemons of Tzeentch", „Daemons of Slaanesh", „Red Corsairs", „Blood Drinkers", „Death of Integrity" (Space Hulk als Location). Kein Pre-Resolving.
 - **Verification skipped:** reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code) — lint/typecheck/brain:lint übersprungen per Brief-061-Konvention.
+
+## 2026-05-21 · ssot-w40k-030 · W40K-0291..W40K-0300 · ✅
+
+- **Cumulative books in authority:** 300 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=290, batch=ssot-w40k-030, slice=W40K-0291..W40K-0300
+- **WebSearch:** mean=1.2, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0291 Malodrax — Imperial Fists (Lysander) vs Iron Warriors on daemon-world Malodrax; clean novel, well-sourced.
+  - W40K-0292 Pandorax — Dark Angels + Grey Knights + Catachans vs Black Legion/Death Guard on Pythos; Abaddon-led assault, Damnation Cache MacGuffin.
+  - W40K-0293 Overfiend — single-author (Annandale) collection of 3 novellas (Stormseer/Shadow Captain/Forge Master): White Scars, Raven Guard, Salamanders vs Ork Overfiend in Octarius. Roster tag "anthology" technically a single-author collection — left as-is (not a novel mistag). Constituent protagonist names not reliably surfaced → low_confidence flag on characters.
+  - W40K-0294 Damocles — multi-author anthology (Kelly/Haley/Counter/Reynolds), 4 novellas; White Scars/Raven Guard vs Tau (Shadowsun) on Agrellan, 2nd Damocles Gulf Crusade. Two Goodreads works exist (22609176 orig 2015 anthology vs 33539049 reissue) — used the original 2015 anthology page.
+  - W40K-0295 The World Engine — Astral Knights last stand vs Necron World Engine in Vidar sector; whole-Chapter sacrifice → last_stand/somber.
+  - W40K-0296 Sanctus Reach — multi-author anthology; Space Wolves (Ragnar), Imperial Knights, Astra Militarum vs Red Waaagh! (Grukk/Mogrok) on Alaric Prime. Ork-POV novellas present → added pov_side xenos alongside imperium.
+  - W40K-0297 Flesh Tearers — roster says "novel" but it is a single-author collection of 3 novellas (Flesh of Cretacia / Sons of Wrath / Trial by Blood) → data_conflict flag, suggestion=collection. Flesh Tearers + Blood Angels, Gabriel Seth trial.
+  - W40K-0298 Blades of Damocles — Ultramarines (Sicarius/Numitor) vs Tau (Farsight/Shadowsun) on Dal'yth, 1st Damocles Gulf Crusade; near-even dual POV → pov_side dual.
+  - W40K-0299 The Plagues of Orath — multi-author anthology (Scott/Lyons/Lyon), 3 novellas; Ultramarines + Doom Eagles vs Death Guard/Nurgle plague on Orath → cw_disturbing. Thin ratings base (44).
+  - W40K-0300 Crusaders of Dorn — single-author (Haley) collection of 7 Black Templars tales (Helbrecht's crusade, Third War for Armageddon); roster tag "anthology" — left as-is. Spans many crusades; Armageddon the one concrete recurring location.
+- **value_outside_vocabulary:** [] (existing facet vocabulary sufficient for this wave)
+- **Notable surface-forms (within this batch):** "Grukk Face-Rippa", "Red Waaagh!", "Big Mek Mogrok", "Kor'sarro Khan", "Iron Hand Straken", "Artor Amhrad", "Kraegon Thul", "Corvin Golrukhan", "Damnation Cache", "Octarius". Faction surface forms kept raw: "Tau" (concrete xenos), "Doom Eagles", "Astral Knights", "Imperial Knights".
+- **Verifikation:** lint/typecheck/brain:lint skipped per Brief-061 convention (pure data commit: one new override JSON + this log append, no code).
