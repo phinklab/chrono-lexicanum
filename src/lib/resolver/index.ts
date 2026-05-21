@@ -11,7 +11,7 @@
  *   override files shows Stage 1+2 with the Cowork-curated alias tables
  *   resolves the meaningful surface forms cleanly, and slug-match would
  *   false-positively catch "Imperial Guard" → `imperial_guard` instead of
- *   routing it to `astra_militarum` via alias. If a future 50er-resolver-round
+ *   routing it to `astra_militarum` via alias. If a future resolver round
  *   surfaces a gap that only slug-match closes, add Stage 3 then.
  *
  * Data files are imported at module-init via TypeScript's `resolveJsonModule`,

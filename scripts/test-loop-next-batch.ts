@@ -7,9 +7,12 @@
  * Drives the PURE `decideNextBatch` with synthetic inputs only — it never reads
  * or mutates the real book-roster.json / manual-overrides-ssot-*.json /
  * ssot-loop-log.md (the helper's `main()` is behind a run-as-script guard, so
- * importing it does no I/O). Proves the brief's acceptance:
- *   - a blocked 50er-multiple (200 + 200-block in log) → resolverPause:false
- *   - a synthetic un-blocked 50er-multiple → resolverPause:true
+ * importing it does no I/O). Proves the brief's (090) acceptance for the 100er
+ * cadence (pause due at cumulative ≡ 50 mod 100 → 50/150/250/350/450/550):
+ *   - a blocked cadence boundary (250 + 250-block) → resolverPause:false, nextResolverPauseAt:350
+ *   - a round-100 multiple (200/300) is NOT a pause → resolverPause:false
+ *   - an un-blocked boundary (350) → resolverPause:true, nextResolverPauseAt:350
+ *   - a blocked boundary (350 + 350-block) → resolverPause:false, nextResolverPauseAt:450
  * plus normal / domain-handoff / restbatch / loopComplete / anti-bleed cases.
  */
 import assert from "node:assert/strict";
@@ -65,95 +68,155 @@ const HH = range("HH", 1, 294);
 
 // Real-byte pause-block headings (the regex in the helper is \u-escaped, so a
 // match here validates the escapes against genuine UTF-8 ·/⏸/ü bytes).
-const LOG_150 = "## 2026-05-15 · ⏸ Resolver-Pause bei 150 Büchern\n";
-const LOG_200 = "## 2026-05-16 · ⏸ Resolver-Pause bei 200 Büchern\n";
-const LOG_2000 = "## 2026-05-16 · ⏸ Resolver-Pause bei 2000 Büchern\n";
+const LOG_250 = "## 2026-05-21 · ⏸ Resolver-Pause bei 250 Büchern\n";
+const LOG_350 = "## 2026-06-01 · ⏸ Resolver-Pause bei 350 Büchern\n";
+const LOG_2250 = "## 2026-05-16 · ⏸ Resolver-Pause bei 2250 Büchern\n";
 
 console.log("decideNextBatch");
 
-// (a) blocked 50er-multiple → resolverPause false ----------------------------
-check("blocked 50er-multiple (200 + 200-block) → resolverPause false, next ssot-w40k-021", () => {
-  const d = decideNextBatch({
-    w40k: { max: 20, books: 200 },
-    hh: { max: 0, books: 0 },
-    w40kBooks: W40K,
-    hhBooks: HH,
-    logText: LOG_150 + LOG_200,
-  });
-  assert.equal(d.cumulativeBefore, 200);
-  assert.equal(d.resolverPause, false);
-  assert.equal(d.loopComplete, false);
-  assert.equal(d.batch?.id, "ssot-w40k-021");
-  assert.equal(d.batch?.domain, "w40k");
-  assert.equal(d.batch?.number, 21);
-  assert.equal(d.rosterSlice.length, 10);
-  assert.equal(d.rosterSlice[0].externalBookId, "W40K-0201");
-  assert.equal(d.rosterSlice[9].externalBookId, "W40K-0210");
-});
-
-// (b) un-blocked 50er-multiple → resolverPause true --------------------------
-check("un-blocked 50er-multiple (200, no 200-block) → resolverPause true, batch still populated", () => {
-  const d = decideNextBatch({
-    w40k: { max: 20, books: 200 },
-    hh: { max: 0, books: 0 },
-    w40kBooks: W40K,
-    hhBooks: HH,
-    logText: LOG_150,
-  });
-  assert.equal(d.resolverPause, true);
-  assert.equal(d.batch?.id, "ssot-w40k-021");
-  assert.equal(d.rosterSlice.length, 10);
-});
-
-check("un-blocked 50er-multiple: empty log → resolverPause true", () => {
-  const d = decideNextBatch({
-    w40k: { max: 20, books: 200 },
-    hh: { max: 0, books: 0 },
-    w40kBooks: W40K,
-    hhBooks: HH,
-    logText: "",
-  });
-  assert.equal(d.resolverPause, true);
-});
-
-check("250 boundary not satisfied by a 200-block → resolverPause true, next ssot-w40k-026", () => {
+// (a) blocked cadence boundary → resolverPause false; live 001..025 state -----
+check("blocked boundary (250 + 250-block) → resolverPause false, nextResolverPauseAt 350, next ssot-w40k-026", () => {
   const d = decideNextBatch({
     w40k: { max: 25, books: 250 },
     hh: { max: 0, books: 0 },
     w40kBooks: W40K,
     hhBooks: HH,
-    logText: LOG_200,
+    logText: LOG_250,
   });
   assert.equal(d.cumulativeBefore, 250);
-  assert.equal(d.resolverPause, true);
+  assert.equal(d.resolverPause, false);
+  assert.equal(d.nextResolverPauseAt, 350);
+  assert.equal(d.loopComplete, false);
   assert.equal(d.batch?.id, "ssot-w40k-026");
+  assert.equal(d.batch?.domain, "w40k");
+  assert.equal(d.batch?.number, 26);
+  assert.equal(d.rosterSlice.length, 10);
   assert.equal(d.rosterSlice[0].externalBookId, "W40K-0251");
+  assert.equal(d.rosterSlice[9].externalBookId, "W40K-0260");
 });
 
-check("anti-bleed: 200 boundary not satisfied by a 2000-block → resolverPause true", () => {
+// (b) un-blocked cadence boundary → resolverPause true ------------------------
+check("un-blocked boundary (250, no 250-block) → resolverPause true, nextResolverPauseAt 250, batch still populated", () => {
   const d = decideNextBatch({
-    w40k: { max: 20, books: 200 },
-    hh: { max: 0, books: 0 },
-    w40kBooks: W40K,
-    hhBooks: HH,
-    logText: LOG_2000,
-  });
-  assert.equal(d.resolverPause, true);
-});
-
-// (c) non-multiple → false; slice start from max*10, not cumulative ----------
-check("non-multiple (207) → resolverPause false; slice still starts at max*10", () => {
-  const d = decideNextBatch({
-    w40k: { max: 20, books: 207 },
+    w40k: { max: 25, books: 250 },
     hh: { max: 0, books: 0 },
     w40kBooks: W40K,
     hhBooks: HH,
     logText: "",
   });
-  assert.equal(d.cumulativeBefore, 207);
+  assert.equal(d.resolverPause, true);
+  assert.equal(d.nextResolverPauseAt, 250);
+  assert.equal(d.batch?.id, "ssot-w40k-026");
+  assert.equal(d.rosterSlice.length, 10);
+});
+
+// (c) round-100 multiples are NOT pauses (cadence is ≡50 mod 100) -------------
+check("round-100 multiple (200, no block) is NOT a pause → resolverPause false, nextResolverPauseAt 250", () => {
+  const d = decideNextBatch({
+    w40k: { max: 20, books: 200 },
+    hh: { max: 0, books: 0 },
+    w40kBooks: W40K,
+    hhBooks: HH,
+    logText: "",
+  });
+  assert.equal(d.cumulativeBefore, 200);
   assert.equal(d.resolverPause, false);
+  assert.equal(d.nextResolverPauseAt, 250);
   assert.equal(d.batch?.id, "ssot-w40k-021");
-  assert.equal(d.rosterSlice[0].externalBookId, "W40K-0201");
+});
+
+check("round-100 multiple (300, no block) is NOT a pause → resolverPause false, nextResolverPauseAt 350", () => {
+  const d = decideNextBatch({
+    w40k: { max: 30, books: 300 },
+    hh: { max: 0, books: 0 },
+    w40kBooks: W40K,
+    hhBooks: HH,
+    logText: "",
+  });
+  assert.equal(d.cumulativeBefore, 300);
+  assert.equal(d.resolverPause, false);
+  assert.equal(d.nextResolverPauseAt, 350);
+  assert.equal(d.batch?.id, "ssot-w40k-031");
+  assert.equal(d.rosterSlice[0].externalBookId, "W40K-0301");
+});
+
+// (d) 350 boundary: un-blocked → pause; blocked → run on to 450 ---------------
+check("boundary 350 without block → resolverPause true, nextResolverPauseAt 350", () => {
+  const d = decideNextBatch({
+    w40k: { max: 35, books: 350 },
+    hh: { max: 0, books: 0 },
+    w40kBooks: W40K,
+    hhBooks: HH,
+    logText: LOG_250,
+  });
+  assert.equal(d.cumulativeBefore, 350);
+  assert.equal(d.resolverPause, true);
+  assert.equal(d.nextResolverPauseAt, 350);
+});
+
+check("boundary 350 with 350-block → resolverPause false, nextResolverPauseAt 450", () => {
+  const d = decideNextBatch({
+    w40k: { max: 35, books: 350 },
+    hh: { max: 0, books: 0 },
+    w40kBooks: W40K,
+    hhBooks: HH,
+    logText: LOG_350,
+  });
+  assert.equal(d.resolverPause, false);
+  assert.equal(d.nextResolverPauseAt, 450);
+  assert.equal(d.batch?.id, "ssot-w40k-036");
+});
+
+check("boundary 450 without block → resolverPause true, nextResolverPauseAt 450", () => {
+  const d = decideNextBatch({
+    w40k: { max: 45, books: 450 },
+    hh: { max: 0, books: 0 },
+    w40kBooks: W40K,
+    hhBooks: HH,
+    logText: "",
+  });
+  assert.equal(d.resolverPause, true);
+  assert.equal(d.nextResolverPauseAt, 450);
+});
+
+check("boundary 550 without block → resolverPause true, nextResolverPauseAt 550", () => {
+  const d = decideNextBatch({
+    w40k: { max: 55, books: 550 },
+    hh: { max: 0, books: 0 },
+    w40kBooks: W40K,
+    hhBooks: HH,
+    logText: "",
+  });
+  assert.equal(d.resolverPause, true);
+  assert.equal(d.nextResolverPauseAt, 550);
+});
+
+check("anti-bleed: 250 boundary not satisfied by a 2250-block → resolverPause true", () => {
+  const d = decideNextBatch({
+    w40k: { max: 25, books: 250 },
+    hh: { max: 0, books: 0 },
+    w40kBooks: W40K,
+    hhBooks: HH,
+    logText: LOG_2250,
+  });
+  assert.equal(d.resolverPause, true);
+  assert.equal(d.nextResolverPauseAt, 250);
+});
+
+// (e) non-multiple → false; slice start from max*10, not cumulative ----------
+check("non-multiple (257) → resolverPause false, nextResolverPauseAt 350; slice still starts at max*10", () => {
+  const d = decideNextBatch({
+    w40k: { max: 25, books: 257 },
+    hh: { max: 0, books: 0 },
+    w40kBooks: W40K,
+    hhBooks: HH,
+    logText: "",
+  });
+  assert.equal(d.cumulativeBefore, 257);
+  assert.equal(d.resolverPause, false);
+  assert.equal(d.nextResolverPauseAt, 350);
+  assert.equal(d.batch?.id, "ssot-w40k-026");
+  assert.equal(d.rosterSlice[0].externalBookId, "W40K-0251");
 });
 
 // (d) domain handoff ---------------------------------------------------------
@@ -226,10 +289,11 @@ check("loopComplete: both domains done → loopComplete true, batch null, slice 
   assert.equal(d.batch, null);
   assert.equal(d.rosterSlice.length, 0);
   assert.equal(d.resolverPause, false);
+  assert.equal(d.nextResolverPauseAt, null);
 });
 
 // robustness -----------------------------------------------------------------
-check("non-10 counts: 198 books over 20 batches → cumulative 198 (no pause), slice from max*10", () => {
+check("non-10 counts: 198 books over 20 batches → cumulative 198 (no pause), nextResolverPauseAt 250", () => {
   const d = decideNextBatch({
     w40k: { max: 20, books: 198 },
     hh: { max: 0, books: 0 },
@@ -239,6 +303,7 @@ check("non-10 counts: 198 books over 20 batches → cumulative 198 (no pause), s
   });
   assert.equal(d.cumulativeBefore, 198);
   assert.equal(d.resolverPause, false);
+  assert.equal(d.nextResolverPauseAt, 250);
   assert.equal(d.batch?.id, "ssot-w40k-021");
   assert.equal(d.rosterSlice[0].externalBookId, "W40K-0201");
 });
@@ -255,6 +320,7 @@ check("empty roster / zero state → loopComplete, no throw, no false pause at c
   assert.equal(d.batch, null);
   assert.equal(d.rosterSlice.length, 0);
   assert.equal(d.resolverPause, false);
+  assert.equal(d.nextResolverPauseAt, null);
 });
 
 console.log("");

@@ -5,21 +5,23 @@
 # pushes the branch and opens a PR. Each subsession executes one iteration per
 # sessions/ssot-loop-runbook.md (the single operative spec): produce ONE
 # `manual-overrides-ssot-{w40k|hh}-NNN.json` plus a status-block in
-# `sessions/ssot-loop-log.md`, both in a single commit. At a 50er resolver
+# `sessions/ssot-loop-log.md`, both in a single commit. At a resolver-pause
 # threshold the subsession writes only the pause-block and the wrapper exits
 # cleanly (resolver-pause is the expected stop signal).
 #
 # USAGE
 #   ./scripts/run-ssot-loop.sh [N]
-#     N        Number of iterations (default 5, valid 1..20).
-#              Default 5 lines up with the 50er-cadence: one driver run lands
-#              at most 5 batches × 10 books = 50 books before the next pause.
-#              If the requested successful iterations land exactly on the next
-#              50-book boundary, the driver runs one extra pause-confirmation
-#              subsession so the resolver-pause block is committed before push/PR.
-#              Resolver-pause is self-detecting (scripts/loop-next-batch.ts) —
-#              no skip flag; a re-run after a committed pause-block resumes
-#              automatically (the pause-block is its own "announced" marker).
+#     N        Number of iterations (default 10, valid 1..20).
+#              Default 10 lines up with the 100er-cadence (Brief 090): one driver
+#              run lands at most 10 batches × 10 books = 100 books, i.e. one full
+#              wave between resolver pauses (which fall at cumulative ≡ 50 mod 100
+#              → 250, 350, 450, …). If the requested successful iterations land
+#              exactly on the next pause boundary, the driver runs one extra
+#              pause-confirmation subsession so the resolver-pause block is
+#              committed before push/PR. Resolver-pause is self-detecting
+#              (scripts/loop-next-batch.ts) — no skip flag; a re-run after a
+#              committed pause-block resumes automatically (the pause-block is its
+#              own "announced" marker).
 #
 # WINDOWS
 #   PowerShell:  & "C:\Program Files\Git\bin\bash.exe" scripts/run-ssot-loop.sh
@@ -84,12 +86,12 @@ die() {
 # Argument parsing
 # ---------------------------------------------------------------------------
 
-ITERATIONS=5
+ITERATIONS=10
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -h|--help)
-      sed -n '2,40p' "$0"   # print the header docblock
+      sed -n '2,46p' "$0"   # print the header docblock
       exit 0
       ;;
     -*)

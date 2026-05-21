@@ -18,12 +18,18 @@
  * 565 books), then HH (`HH-NNNN`, 294 books); the next batch number is
  * `max(existing batch number per domain) + 1`; the slice is the next 10 (or the
  * 5/4-book restbatch at a domain's end). Cumulative book count (the resolver
- * 50er-cadence) is summed from the override files' `books.length`.
+ * cadence) is summed from the override files' `books.length`.
  *
- * Resolver-pause is self-detecting (Brief 088): a 50er-multiple boundary only
- * reports `resolverPause: true` while the matching `⏸ Resolver-Pause bei N
- * Büchern` block is ABSENT from the log. Once that block exists (its own marker),
- * the loop runs on — no manual `--skip-initial-resolver-pause` flag.
+ * Resolver cadence is 100 books (Brief 090, raised from the original 50): a
+ * pause is due when `cumulativeBefore % 100 === 50` — i.e. at 50, 150, 250, 350,
+ * 450, … (NOT at the round 100/200/300 multiples). The 50-offset keeps the
+ * series passing through the historical 250 boundary so the next pause lands at
+ * 350, then 450, 550. `nextResolverPauseAt` reports where the loop next stops.
+ *
+ * Resolver-pause is self-detecting (Brief 088): a cadence boundary only reports
+ * `resolverPause: true` while the matching `⏸ Resolver-Pause bei N Büchern`
+ * block is ABSENT from the log. Once that block exists (its own marker), the
+ * loop runs on — no manual `--skip-initial-resolver-pause` flag.
  *
  * Run:  npm run loop:next        (optional: --roster-path / --seed-dir / --log-path)
  * Test: npm run test:loop-next
@@ -93,6 +99,14 @@ export interface Decision {
   loopComplete: boolean;
   resolverPause: boolean;
   cumulativeBefore: number;
+  /**
+   * The cumulative count where the loop next *stops* for a resolver pass.
+   * At `resolverPause: true` this is `cumulativeBefore` (the boundary being
+   * paused at); otherwise the smallest cadence boundary strictly greater than
+   * `cumulativeBefore` (e.g. 250→350, 300→350, 350-with-block→450). `null` only
+   * when `loopComplete` (no further pass is due).
+   */
+  nextResolverPauseAt: number | null;
   /** the genuine next batch; null only when loopComplete. */
   batch: BatchRef | null;
   /** the next 10 / 5 / 4 books; empty only when loopComplete. */
@@ -132,6 +146,20 @@ export function logHasPauseBlockFor(logText: string, n: number): boolean {
 
 const pad3 = (n: number): string => String(n).padStart(3, "0");
 
+/** Resolver cadence (Brief 090): a pause is due at cumulative ≡ 50 (mod 100). */
+const CADENCE = 100;
+const CADENCE_OFFSET = 50;
+
+/** True when `n` is a resolver-cadence boundary (50, 150, 250, 350, …). */
+function isCadenceBoundary(n: number): boolean {
+  return n > 0 && n % CADENCE === CADENCE_OFFSET;
+}
+
+/** Smallest cadence boundary strictly greater than `n` (250→350, 300→350, 350→450). */
+function nextCadenceBoundaryAfter(n: number): number {
+  return (Math.floor((n - CADENCE_OFFSET) / CADENCE) + 1) * CADENCE + CADENCE_OFFSET;
+}
+
 function projectSlice(books: RosterBook[]): RosterSliceBook[] {
   return books.map((b) => ({
     externalBookId: b.externalBookId,
@@ -160,9 +188,14 @@ export function decideNextBatch(input: DecideInput): Decision {
 
   const cumulativeBefore = w40k.books + hh.books;
   const resolverPause =
-    cumulativeBefore > 0 &&
-    cumulativeBefore % 50 === 0 &&
+    isCadenceBoundary(cumulativeBefore) &&
     !logHasPauseBlockFor(logText, cumulativeBefore);
+
+  // Where the loop next stops: the boundary we are pausing at if a pause is due,
+  // else the next boundary strictly above the current cumulative count.
+  const nextResolverPauseAt = resolverPause
+    ? cumulativeBefore
+    : nextCadenceBoundaryAfter(cumulativeBefore);
 
   // W40K domain first (Brief 061 § Constraints).
   if (w40k.max * 10 < w40kBooks.length) {
@@ -174,6 +207,7 @@ export function decideNextBatch(input: DecideInput): Decision {
       loopComplete: false,
       resolverPause,
       cumulativeBefore,
+      nextResolverPauseAt,
       batch: { domain: "w40k", number, id },
       rosterSlice: projectSlice(w40kBooks.slice(start, end)),
       note: noteFor(resolverPause, cumulativeBefore, id),
@@ -190,6 +224,7 @@ export function decideNextBatch(input: DecideInput): Decision {
       loopComplete: false,
       resolverPause,
       cumulativeBefore,
+      nextResolverPauseAt,
       batch: { domain: "hh", number, id },
       rosterSlice: projectSlice(hhBooks.slice(start, end)),
       note: noteFor(resolverPause, cumulativeBefore, id),
@@ -201,6 +236,7 @@ export function decideNextBatch(input: DecideInput): Decision {
     loopComplete: true,
     resolverPause: false,
     cumulativeBefore,
+    nextResolverPauseAt: null,
     batch: null,
     rosterSlice: [],
     note: "loop complete: all roster books covered by override files",
