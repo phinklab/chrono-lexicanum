@@ -1083,3 +1083,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Imperial Guard" kept verbatim (era surface form; not pre-resolved to Astra Militarum). Chapter names "Blood Angels" / "Red Wings" and the space-hulk vessel name "Sin of Damnation" preserved as-is. Edition disambiguation: the omnibus rating used the "Shield of the Emperor" work page (goodreads.com/book/show/52784662); the per-novel ratings used each novel's own standalone page.
 - **Verification:** lint/typecheck/brain:lint skipped per Brief-061 data-only convention (override JSON + log append, no code). JSON parse + facetId-vocabulary + synopsis-length (400–1200) checks run locally and pass.
+
+## 2026-05-21 · ssot-w40k-024 · W40K-0231..W40K-0240 · ✅
+
+- **Cumulative books in authority:** 240 / next-50 to next resolver pause (250)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=230, batch=ssot-w40k-024, slice=W40K-0231..W40K-0240
+- **WebSearch:** mean=1.2, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0231 cadian-blood — Clean ADB Cadian/Nurgle novel; Death Guard antagonist, Raven Guard support, Captain Thade POV. No issues.
+  - W40K-0232 redemption-corps — Locations left empty + low_confidence flag: sources name only the troopship Deliverance and an unnamed ork warzone. Inquisition + Adepta Sororitas as antagonists per the heretic-cult suspicion subplot.
+  - W40K-0233 dead-men-walking — Krieg vs Necrons; ensemble POV (commissar, mine supervisor, governor, niece) → protagonist_class=multi, gender=ensemble. No named characters reliable, characters left empty.
+  - W40K-0234 hammer-of-the-emperor-omnibus — Aggregated: Gunheads (Cadian Armoured vs Orks, Golgotha) + Ice Guard (Valhallan) + Desert Raiders (Tallarn vs Tyranids) + 3 shorts. low_confidence flag on factions: per-constituent enemy detail thin for Ice Guard/Desert Raiders. 2 searches (contents + constituents).
+  - W40K-0235 imperial-glory — Brimlock 11th vs feral Orks on Voor; significant ork POV → pov_side=dual. Stanhope/Carson POV.
+  - W40K-0236 iron-guard — Mordian 114th on Belmos VII. Enemy confirmed xenos-origin but species unnamed in sources → no antagonist faction, low_confidence flag. 2 searches (synopsis + enemy).
+  - W40K-0237 commissar — 77th Vostroyan Firstborn, prison world Furia Penitens. Note: a Commissar is the POV, not an Inquisitor; used protagonist_class=inquisitor as the closest commissar/political-officer archetype in the vocabulary (see value_outside_vocabulary).
+  - W40K-0238 baneblade — Series Start (Imperial Battle Tanks series 1); tank-crew study, Bannick POV, Orks, Kalidar/Paragon. scope=regiment, entry_point=series_start.
+  - W40K-0239 straken — Catachan 2nd vs Orks on cavern world Dulma'lin; Commissar Morrell as internal antagonist. Roster seriesHint "Imperial Guard" but Lexicanum files it under Legends of the Dark Millennium — kept as-is, no flag (series framing only).
+  - W40K-0240 honour-imperialis-omnibus — Aggregated: Cadian Blood + Dead Men Walking + Redemption Corps + 4 shorts. Pools Cadian/Krieg/storm-trooper tags; low_confidence flag on characters (only lead-novel POVs asserted).
+- **value_outside_vocabulary:** [{"category":"protagonist_class","candidate":"commissar","note":"Commissar (political officer) recurs as POV/lead in Commissar, Cadian Blood, Dead Men Walking, Straken; currently mapped to guardsman/inquisitor as nearest fit"}, {"category":"protagonist_class","candidate":"tank_crew","note":"Baneblade is a dedicated armoured-crew POV with no good archetype; mapped to guardsman"}]
+- **Notable surface-forms (within this batch):** "Cadian Shock Troops", "Death Korps of Krieg", "Mordian Iron Guard", "Vostroyan Firstborn", "Brimlock Dragoons", "Catachan Jungle Fighters", "Valhallan Ice Warriors", "Tallarn Desert Raiders", "Colonel Iron Hand Straken", "Marken Cortein Lo Bannick", "Hieronymous Theta", "Furia Penitens", "Dulma'lin", "Belmos VII", "Golgotha", "Kalidar", "Paragon", "Voor", "Kathur".
+- **Verification skipped:** pure data commit (override JSON + log append, no code) — lint/typecheck/brain:lint skipped per Brief-061 convention.
