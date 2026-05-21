@@ -1,22 +1,35 @@
 {
-  "$comment": "Filled config for scripts/run-resolver-pass.sh — Resolver-Pass 5 (Brief 089, ssot-w40k-021..025 / W40K-0201..0250). Placeholders replaced (NNN->089, brief/dossier/phase-report/impl-report paths). Phase-4 scope adds facet-catalog.json + the phase-4 trigger carries the Call-2/Call-3 clause. Note: Pass 5 was run manually (supervised, phase-by-phase) per the maintainer decision; this config is left ready for the driver on a later pass. Scope entries may be exact paths or simple Bash globs.",
+  "$comment": "Lean per-pass config for scripts/run-resolver-pass.sh (Brief 090). The operative spec is sessions/resolver-pass-runbook.md (field `runbook`, REQUIRED); `brief` is optional rationale-only (omit to run brief-free). Each phase `trigger` points at a runbook section + only the wave-specific specifics the runbook cannot know — it does NOT duplicate the spec. Scopes reference the stable, wave-parametrized tools (aggregate-surface-forms.ts / db-counts.ts / seed-facets.ts / run-phase4-apply.sh / verify-pass.ts), so a future pass creates no new -NNN clones. Values below are the (already-completed, manually-run) Pass-5 instance, left as a worked example. Scope entries may be exact paths or simple Bash globs.",
   "pass": "5",
   "wave": "ssot-w40k-021..025",
+  "runbook": "sessions/resolver-pass-runbook.md",
   "brief": "sessions/2026-05-21-089-arch-resolver-pass-5.md",
   "dossier": "sessions/resolver-dossiers/2026-05-21-089-resolver-pass-5-dossier.md",
+  "aggregator": {
+    "$comment": "Batch ids this wave's aggregator + phase-4 re-apply operate on. `batches` = the new wave (Phase 0 surface-form aggregate). `applyRange` = the cumulative range Phase 4 re-applies (idempotent delete-then-insert).",
+    "batches": ["ssot-w40k-021", "ssot-w40k-022", "ssot-w40k-023", "ssot-w40k-024", "ssot-w40k-025"],
+    "applyRange": { "domain": "w40k", "from": 1, "to": 25 }
+  },
+  "verify": {
+    "$comment": "Parameters for verify-pass.ts digest. `newRange`/`oldRange` drive the audit-cockpit drift/gap/collection replica; `smokeSlugs` are the junction-count smoke checks.",
+    "newRange": { "from": "W40K-0201", "to": "W40K-0250" },
+    "oldRange": { "from": "W40K-0001", "to": "W40K-0200" },
+    "ratingRange": { "from": "W40K-0201", "to": "W40K-0250" },
+    "smokeSlugs": ["warrior-coven", "inquisitor-draco", "the-green-tide", "blind", "grey-knights", "gunheads", "commissar", "baneblade", "the-remnant-blade", "warrior-brood"]
+  },
   "phases": [
     {
       "name": "phase-0-preflight",
-      "trigger": "Phase 0 (Preflight/Dossier) ausführen. Erstelle das Resolver-Dossier mit den 7 Pflichtsektionen (Scope-Header, Buch-Tabelle, Surface-Form-Aggregat pro Achse, Cross-Axis-Warnungen, Cross-Batch-Alias-Konsolidierungs-Cases, Omnibus-Format-Konflikte, Kandidaten für needs-decision). Aggregator-Helper-Script unter scripts/aggregate-surface-forms-089.ts darf neu geschrieben werden. Keine Reference-Daten-Änderung, kein DB-Touch. Ein commit.",
+      "trigger": "Phase 0 (Preflight/Dossier) — siehe resolver-pass-runbook.md §3 Phase 0 + §6. Aggregator `scripts/aggregate-surface-forms.ts --config scripts/resolver-pass.config.json` laufen lassen, Output (6 der 7 Sektionen) ins Dossier falten, die 7. Sektion (needs-decision-/Cross-Batch-Alias-Kandidaten) als LLM-Synthese ergänzen. Override-Files NICHT in den Kontext lesen. Ein Commit.",
       "scope": [
         "sessions/resolver-dossiers/2026-05-21-089-resolver-pass-5-dossier.md",
-        "scripts/aggregate-surface-forms-089.ts"
+        "scripts/aggregate-surface-forms.ts"
       ],
       "statusFile": null
     },
     {
       "name": "phase-1-factions",
-      "trigger": "Phase 1 (Factions) ausführen. Lies das Phase-0-Dossier. Erweitere factions.json / faction-aliases.json (und ggf. faction-policy.json) um die in der Welle belastbar häufigen Faction-Surface-Forms. Call 1: Astra-Militarum-Regimenter mit freq>=2 als Sub-Factions unter astra_militarum (alignment imperium explizit) — viele existieren bereits (cadian_shock_troops/catachan_jungle_fighters/death_korps_of_krieg/valhallan_597th); Idempotenz pro Row prüfen, nur fehlende anlegen. Mindestens 5 neue Resolver-Test-Cases in scripts/test-resolver.ts. Per-Phase-Statusdatei sessions/resolver-dossiers/2026-05-21-089-resolver-pass-5-phase-1-report.md schreiben (Done-Summary oder ## Needs decision-Block). Ein commit.",
+      "trigger": "Phase 1 (Factions) — siehe resolver-pass-runbook.md §3 Phase 1 + §4 (Promotions-/Alias-Disziplin). Wave-spezifisch: Astra-Militarum-Regimenter mit freq>=2 als Sub-Factions unter astra_militarum (alignment imperium); viele existieren bereits (cadian_shock_troops/catachan_jungle_fighters/death_korps_of_krieg/valhallan_597th) — Idempotenz pro Row, nur fehlende anlegen. >=5 neue Resolver-Test-Cases. Per-Phase-Statusdatei. Ein Commit.",
       "scope": [
         "scripts/seed-data/factions.json",
         "scripts/seed-data/faction-aliases.json",
@@ -28,7 +41,7 @@
     },
     {
       "name": "phase-2-locations",
-      "trigger": "Phase 2 (Locations) ausführen. Lies das Phase-0-Dossier. Erweitere locations.json / location-aliases.json (und ggf. sectors.json) um die belastbar häufigen Location-Surface-Forms. Vessel-/Space-Hulk-Locations nach 072/076-Konvention (tags:['vessel'], gx/gy:null). Mindestens 4 neue Resolver-Test-Cases. Per-Phase-Statusdatei schreiben. Idempotenz prüfen. Ein commit.",
+      "trigger": "Phase 2 (Locations) — siehe resolver-pass-runbook.md §3 Phase 2 + §4. Wave-spezifisch: Vessel-/Space-Hulk-Locations nach 072/076-Konvention (tags:['vessel'], gx/gy:null). >=4 neue Test-Cases. Idempotenz prüfen. Per-Phase-Statusdatei. Ein Commit.",
       "scope": [
         "scripts/seed-data/locations.json",
         "scripts/seed-data/location-aliases.json",
@@ -40,7 +53,7 @@
     },
     {
       "name": "phase-3-characters",
-      "trigger": "Phase 3 (Characters) ausführen. Lies das Phase-0-Dossier. Erweitere characters.json / character-aliases.json mit besonderer Vorsicht für Cross-Batch-Alias-Konsolidierungs-Cases (mind. Lo Bannick = eine Row über W40K-0238 + W40K-0241; Alaric über die Grey-Knights-Trilogie + Omnibus). Mindestens 5 neue Resolver-Test-Cases, davon mindestens 2 für Alias-Konsolidierung. primaryFactionId der neuen Characters muss auf das Phase-1-Faction-Set zeigen. Per-Phase-Statusdatei schreiben. Idempotenz prüfen. Ein commit.",
+      "trigger": "Phase 3 (Characters) — siehe resolver-pass-runbook.md §3 Phase 3 + §4 + §5 (FK-Reihenfolge). Wave-spezifisch: Cross-Batch-Alias-Konsolidierung (mind. Lo Bannick = eine Row über W40K-0238 + W40K-0241; Alaric über die Grey-Knights-Trilogie + Omnibus). primaryFactionId neuer Characters muss auf das Phase-1-Faction-Set zeigen. >=5 neue Test-Cases, davon >=2 Alias-Konsolidierung. Per-Phase-Statusdatei. Ein Commit.",
       "scope": [
         "scripts/seed-data/characters.json",
         "scripts/seed-data/character-aliases.json",
@@ -51,7 +64,7 @@
     },
     {
       "name": "phase-4-integration",
-      "trigger": "Phase 4 (Integration) ausführen. Sammle die Outputs der Phasen 1-3. Weite die Resolver-Test-Trias (apply-override-dry / test-resolver-coverage / test-resolver-data-integrity) auf die Batch-Range 001..025 aus. db:seed-resolver-extensions ausführen + Output dokumentieren. db:apply-override für jede Batch 001..025 sequenziell ausführen. Counts-Tabelle Pre/Per-Batch/Post-Apply für work_factions / work_locations / work_characters / work_collections. Smoke-Slugs (mind. 8, davon 3 regression, plus W40K-0244 Night-Lords-Check + W40K-0250 Deathwatch-Opener). Audit-Cockpit-SQL-Replica für die Vor- und Neu-Range. collection-gaps.json bei Bedarf erweitern. Rating-Coverage 021..025 dokumentieren (~49/50; W40K-0205 unrated). Finalen impl-Report schreiben. Status des Briefs auf implemented setzen. CALL 2 (protagonist_class += commissar): genau einen neuen Wert commissar (Label Commissar, displayOrder zwischen guardsman=20 und inquisitor=30) in scripts/seed-data/facet-catalog.json anlegen; die betroffenen 021..025-Override-Bücher, in denen ein Commissar/politischer Offizier prinzipieller POV oder Co-Lead ist, auf commissar um-taggen (W40K-0237 MUSS von inquisitor weg; bei gemischtem Cast darf guardsman zusätzlich stehen bleiben — protagonist_class ist multiValue); Um-Tag-Liste im Report enumerieren. WICHTIG: apply-override.validateFacetIds prüft gegen die DB-Tabelle facet_values — commissar MUSS vor dem Re-Apply in facet_values stehen; db:seed ist destruktiv (TRUNCATE works/book_details/facets) und db:seed-resolver-extensions seedet keine Facets, daher einen chirurgischen Upsert via scripts/seed-facets-089.ts (ON CONFLICT DO NOTHING) ausführen. Call-2-Teil (c) value_outside_vocabulary-Strip ist ein No-op gegen die Override-Files (die Einträge liegen im append-only ssot-loop-log.md, out-of-scope) — im Report dokumentieren. CALL 3: den erledigten Autoren-Backfill (W40K-0206 Steven B. Fischer, W40K-0244 Mike Vincent) + die resultierenden work_persons-Autor-Zeilen verifizieren; den Remnant-Blade-seriesHint-Mistag NICHT fixen, nur als Maintainer-Handoff notieren. Mindestens ein Commit ist Pflicht; mehrere Commits sind erlaubt.",
+      "trigger": "Phase 4 (Integration) — siehe resolver-pass-runbook.md §3 Phase 4 + §7 (Digest-Disziplin). Digest-only: `scripts/run-phase4-apply.sh scripts/resolver-pass.config.json` (seedet Resolver-Extensions + Facets non-destruktiv, re-applied die applyRange idempotent, schreibt kompakten Digest), dann `scripts/verify-pass.ts --config scripts/resolver-pass.config.json` für den Verify-Digest. Rohe Per-Batch-Ausgabe NICHT in den Kontext. Wave-spezifisch (Pass 5): Call 2 = protagonist_class += commissar in facet-catalog.json (displayOrder zwischen guardsman=20 und inquisitor=30); betroffene 021..025-Bücher um-taggen (W40K-0237 von inquisitor weg); seed via seed-facets.ts VOR Re-Apply (apply-override.validateFacetIds prüft DB facet_values). Call 3 = Autoren-Backfill W40K-0206/0244 verifizieren. Finalen impl-Report schreiben, Brief-Status auf implemented. Mind. ein Commit.",
       "scope": [
         "scripts/seed-resolver-extensions.ts",
         "scripts/apply-override-dry.ts",
@@ -65,8 +78,10 @@
         "scripts/seed-data/manual-overrides-ssot-w40k-023.json",
         "scripts/seed-data/manual-overrides-ssot-w40k-024.json",
         "scripts/seed-data/manual-overrides-ssot-w40k-025.json",
-        "scripts/*-089.ts",
-        "scripts/run-phase4-apply-089.sh",
+        "scripts/db-counts.ts",
+        "scripts/seed-facets.ts",
+        "scripts/run-phase4-apply.sh",
+        "scripts/verify-pass.ts",
         "sessions/2026-05-21-089-impl-resolver-pass-5.md",
         "sessions/2026-05-21-089-arch-resolver-pass-5.md"
       ],
