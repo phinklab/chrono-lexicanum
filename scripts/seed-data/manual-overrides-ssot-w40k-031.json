@@ -1,0 +1,222 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-031",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "A Space Marine Battles wave: three full novels (Calgar's Siege, Storm of Damocles, Tyrant of the Hollow Worlds), two multi-/single-author collections (Shield of Baal, Scythes of the Emperor), one Dark Angels novel (Eye of Ezekiel), the large War for Armageddon omnibus centred on Helsreach, and three Architect of Fate novellas (Accursed Eternity, Endeavour of Will, Fateweaver). Coverage was solid; the omnibus and collections were aggregated across their constituent works.",
+  "books": [
+    {
+      "externalBookId": "W40K-0301",
+      "slug": "calgars-siege",
+      "overrides": {
+        "synopsis": "Fifty years after Hive Fleet Behemoth was thrown back, the realm of Ultramar is secure enough for Marneus Calgar, Chapter Master of the Ultramarines, to make a goodwill tour of the remote colony world of Zalidar. His arrival coincides with a full-scale ork invasion. Calgar's transport is shot from the sky, and with only a handful of Space Marines at his side he must fight across hostile country to reach Zalathras, the besieged colonial capital. There, against a greenskin horde beyond counting, Calgar takes command of the city's defence and holds its gates through a day and a night of relentless slaughter. It is a stand that should be impossible, and from it a legend is forged that will outlast the men who lived it.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "siege", "last_stand", "war_story", "action_heavy", "grimdark", "brotherhood", "loyalty", "war", "sacrifice", "cw_violence", "cw_death", "series_start", "standard", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Zalidar", "role": "primary" },
+          { "name": "Zalathras", "role": "supporting" },
+          { "name": "Ultramar", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Marneus Calgar", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.08, "count": 140, "evidenceUrl": "https://www.goodreads.com/en/book/show/30753547" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0302",
+      "slug": "storm-of-damocles",
+      "overrides": {
+        "synopsis": "The war in the Damocles Gulf grinds on between the Imperium and the expanding tau empire. When two full squads of his battle-brothers vanish, the Deathwatch captain Nergui, once a son of the White Scars, sets out to learn what became of them. What he uncovers is worse than loss: the tau have fielded a colossal new war engine, the Stormsurge, powerful enough to bring down even an Imperial Titan. The Deathwatch alone cannot destroy it, so Nergui must call upon his old chapter brothers among the White Scars for aid. The alliance reopens old wounds and tests how far a warrior can change and still belong, even as the fate of the campaign comes to rest on a single desperate strike.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "war_story", "journey", "action_heavy", "grimdark", "brotherhood", "loyalty", "war", "doubt", "cw_violence", "cw_death", "standalone", "standard", "en"],
+        "factions": [
+          { "name": "Deathwatch", "role": "primary" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Tau", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Damocles Gulf", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nergui", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.78, "count": 81, "evidenceUrl": "https://www.goodreads.com/book/show/31844624-storm-of-damocles" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0303",
+      "slug": "tyrant-of-the-hollow-worlds",
+      "overrides": {
+        "synopsis": "When the renegade warlord Huron Blackheart leads his Red Corsairs against the Hollow Worlds of Lastrati, the artificial planets and their people have little hope of holding out against such a foe. By the time the Space Wolves answer the call, the raiders are already dug in deep, and neither side will withdraw or concede. What begins as a war of liberation becomes a brutal contest of wills that threatens to tear the Hollow Worlds apart entirely. Caught between two implacable enemies, the worlds and their defenders may not survive the price of their own salvation.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "siege", "war_story", "last_stand", "action_heavy", "grimdark", "war", "brotherhood", "loyalty", "cw_violence", "cw_death", "standalone", "standard", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Red Corsairs", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Lastrati", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Huron Blackheart", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.46, "count": 83, "evidenceUrl": "https://www.goodreads.com/book/show/32471138-tyrant-of-the-hollow-worlds" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0304",
+      "slug": "shield-of-baal",
+      "overrides": {
+        "synopsis": "The shieldworlds of the Cryptus system have guarded the approach to Baal for thousands of years. Now the great tyranid swarms of Hive Fleet Leviathan fall upon them, intent on devouring everything in their path before turning toward the Blood Angels' home world itself. As the swarm closes in, Captain Karlaen leads the sons of Sanguinius into the breach, while the soldiers of the Astra Militarum, the battle-sisters of the Adepta Sororitas, and stranger allies still are drawn into the desperate defence. These collected tales follow the war for the Cryptus system from many angles, charting the courage, sacrifice, and horror of a campaign fought to hold the gateway to Baal.",
+        "facetIds": ["book", "ensemble", "space_marine", "imperium", "sector", "war_story", "siege", "last_stand", "action_heavy", "grimdark", "somber", "war", "sacrifice", "brotherhood", "faith", "cw_violence", "cw_death", "standalone", "standard", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Adepta Sororitas", "role": "supporting" },
+          { "name": "Necrons", "role": "supporting" },
+          { "name": "Eldar", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Cryptus System", "role": "primary" },
+          { "name": "Baal", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Karlaen", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.75, "count": 63, "evidenceUrl": "https://www.goodreads.com/en/book/show/29430424" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0305",
+      "slug": "scythes-of-the-emperor",
+      "overrides": {
+        "synopsis": "The Scythes of the Emperor have already lost almost everything. With their home world of Sotha consumed by the tyranids of Hive Fleet Kraken, the survivors of the shattered Chapter regroup at the Giant's Coffin on Miral Prime, hunted and humiliated. Newly raised to command, Chapter Master Thracian must turn his warriors' grief and hunger for vengeance into something that can keep them alive, even as the alien menace closes in once more. Gathering a novel together with short stories and more, this collection follows the Scythes through defeat, exile, and the long, bitter struggle to prove that a Chapter on the edge of extinction still has reason to fight.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "war_story", "last_stand", "journey", "action_heavy", "somber", "grimdark", "war", "sacrifice", "brotherhood", "doubt", "cw_violence", "cw_death", "standalone", "standard", "en"],
+        "factions": [
+          { "name": "Scythes of the Emperor", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Miral Prime", "role": "primary" },
+          { "name": "Sotha", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Thracian", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.66, "count": 148, "evidenceUrl": "https://www.goodreads.com/en/book/show/32902464" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0306",
+      "slug": "the-eye-of-ezekiel",
+      "overrides": {
+        "synopsis": "When the Adeptus Mechanicus calls in an ancient pact, the Dark Angels are bound to answer. Ezekiel, Grand Master of Librarians and Keeper of the Keys, leads the 5th Company to the world of Honoria, where a vast ork army has overrun the population. Even with the regiments of the Astra Militarum fighting beside them, the Space Marines face daunting odds, and the tech-priests who summoned them clearly have purposes of their own. As the battle for Honoria turns, Ezekiel must keep his Chapter's deepest secrets locked away while working to uncover exactly what the Mechanicus hope to gain from this war. The cost of victory may be measured in far more than blood.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "war_story", "siege", "mystery", "action_heavy", "grimdark", "war", "loyalty", "faith", "doubt", "brotherhood", "cw_violence", "cw_death", "standalone", "standard", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Honoria", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ezekiel", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.88, "count": 124, "evidenceUrl": "https://www.goodreads.com/en/book/show/32860990-the-eye-of-ezekiel" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0307",
+      "slug": "war-for-armageddon-omnibus",
+      "overrides": {
+        "synopsis": "Armageddon burns. When the ork warlord Ghazghkull Thraka brings his Waaagh! down upon the hive world for a third time, billions of lives hang on whether its cities can hold. At the heart of this collection stands Helsreach, the story of Chaplain Grimaldus and his Black Templars, who vow to defend a doomed hive to the last and must then make good on that oath against an endless green tide. Around it gather novellas and short stories that widen the lens across the whole campaign, following Salamanders, Imperial Guard, and others who bled for Armageddon. Together they draw the many fronts of one of the Imperium's most famous wars into a single sweeping account of faith, endurance, and sacrifice.",
+        "facetIds": ["book", "ensemble", "space_marine", "imperium", "planetary", "siege", "last_stand", "war_story", "action_heavy", "grimdark", "somber", "war", "faith", "sacrifice", "brotherhood", "cw_violence", "cw_death", "standalone", "doorstopper", "en"],
+        "factions": [
+          { "name": "Black Templars", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Salamanders", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" },
+          { "name": "Hive Helsreach", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Grimaldus", "role": "pov" },
+          { "name": "Ghazghkull Thraka", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.36, "count": 243, "evidenceUrl": "https://www.goodreads.com/book/show/40968019-war-for-armageddon" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0308",
+      "slug": "accursed-eternity",
+      "overrides": {
+        "synopsis": "An Inquisitor of the Ordo Malleus, Remigius, gathers Space Marines of the Blood Swords and Star Dragons for what should be a straightforward boarding action: storm and cleanse the drifting hulk known as the Accursed Eternity. But the ship is no derelict. As the warriors push into its black interior, the vessel reveals itself as a thing of the warp, a snare ten thousand years in the making, and the simple mission collapses into a waking nightmare. Cut off and surrounded, the boarders find themselves matched against one of the most infamous powers ever to sail the void, and survival will demand far more than bolter and blade.",
+        "facetIds": ["book", "multi", "male", "space_marine", "imperium", "squad", "journey", "war_story", "action_heavy", "cosmic_horror", "grimdark", "faith", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "novella", "standalone", "en"],
+        "factions": [
+          { "name": "Ordo Malleus", "role": "primary" },
+          { "name": "Blood Swords", "role": "supporting" },
+          { "name": "Star Dragons", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Remigius", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "daemon antagonist's specific Chaos sub-faction not pinned in available sources; left unnamed rather than tagging generic Chaos" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.63, "count": 80, "evidenceUrl": "https://www.goodreads.com/book/show/12935454-accursed-eternity" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0309",
+      "slug": "endeavour-of-will",
+      "overrides": {
+        "synopsis": "The Iron Warriors fall upon the Imperial Fists without warning, crippling one of the Chapter's great starforts in a single savage stroke. Captain Darnath Lysander pulls his surviving warriors back to a second stronghold, the Endeavour of Will, to ride out the assault, but the enemy's true weapon is not their guns. As the Iron Warriors' methods come to light, Lysander realises that a creeping techno-contagion threatens to spread through the Imperial Fists' fleet and far beyond it. With time running out, hard and unforgiving choices must be made to keep the corruption from taking hold.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "siege", "last_stand", "war_story", "action_heavy", "grimdark", "war", "loyalty", "brotherhood", "cw_violence", "cw_death", "novella", "standalone", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Darnath Lysander", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.77, "count": 71, "evidenceUrl": "https://www.goodreads.com/book/show/12725797-endeavour-of-will" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0310",
+      "slug": "fateweaver",
+      "overrides": {
+        "synopsis": "When the White Consuls answer a distress call from the void, they expect a rescue. What waits for them is far worse than the plea suggested. As a psychic shockwave tears through their astropathic choir, the Space Marines realise they have been drawn into a design far older and subtler than any battle plan. Kairos Fateweaver, the twin-headed oracle of Tzeentch and master of every twisting probability, has been moving them like pieces on a board since long before they arrived. To break free of the daemon's web, the White Consuls must contend with an enemy who has already foreseen every move they might make.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "mystery", "war_story", "cosmic_horror", "philosophical", "grimdark", "faith", "doubt", "hubris", "cw_violence", "cw_death", "cw_disturbing", "novella", "standalone", "en"],
+        "factions": [
+          { "name": "White Consuls", "role": "primary" },
+          { "name": "Daemons of Tzeentch", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Kairos Fateweaver", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.68, "count": 63, "evidenceUrl": "https://www.goodreads.com/book/show/13263707-fateweaver" }
+      }
+    }
+  ]
+}

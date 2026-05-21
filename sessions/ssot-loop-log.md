@@ -1236,3 +1236,24 @@
 - **value_outside_vocabulary:** [] (existing facet vocabulary sufficient for this wave)
 - **Notable surface-forms (within this batch):** "Grukk Face-Rippa", "Red Waaagh!", "Big Mek Mogrok", "Kor'sarro Khan", "Iron Hand Straken", "Artor Amhrad", "Kraegon Thul", "Corvin Golrukhan", "Damnation Cache", "Octarius". Faction surface forms kept raw: "Tau" (concrete xenos), "Doom Eagles", "Astral Knights", "Imperial Knights".
 - **Verifikation:** lint/typecheck/brain:lint skipped per Brief-061 convention (pure data commit: one new override JSON + this log append, no code).
+
+## 2026-05-21 · ssot-w40k-031 · W40K-0301..W40K-0310 · ✅
+
+- **Cumulative books in authority:** 310 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=300, batch=ssot-w40k-031, slice=W40K-0301..W40K-0310
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — alle 10 aus einer Synopsis-Suche je Buch belastbar abgedeckt; Goodreads-Seiten zusätzlich per WebFetch page-read (für Shield of Baal + Eye of Ezekiel separater Such-Schritt zum Auffinden der Buchseite, dann WebFetch).
+- **Per-book bullets:**
+  - W40K-0301 Calgar's Siege — Ultramarines vs Orks, Siege of Zalathras; erstes Buch der Calgar-Trilogie → entry_point series_start.
+  - W40K-0302 Storm of Damocles — Deathwatch/White Scars vs Tau im Damocles Gulf (Stormsurge); POV Nergui.
+  - W40K-0303 Tyrant of the Hollow Worlds — Space Wolves vs Huron Blackhearts Red Corsairs auf Lastrati; Roster/erste Vermutung „Ultramarines/Calgar" war falsch, Quellen klar Space Wolves.
+  - W40K-0304 Shield of Baal — Multi-Author-Anthology aggregiert (Blood Angels/Astra Militarum/Sororitas/Necrons/Eldar vs Hive Fleet Leviathan); zwei Goodreads-Editionen, page-read der Space-Marine-Battles-Ausgabe (29430424, 3.75/63) statt der separaten „Collection".
+  - W40K-0305 Scythes of the Emperor — Single-Author-Collection (L.J. Goulding); Roster sagt anthology — strikt ist es eine Single-Author-Collection, kein data_conflict gesetzt (anthology als Sammel-Format akzeptabel, im Log notiert).
+  - W40K-0306 The Eye of Ezekiel — Dark Angels (Ezekiel) + Mechanicus-Pakt vs Orks auf Honoria; Such-Snippet behauptete 4.23/166, page-read der Goodreads-Seite ergab 3.88/124 → page-read übernommen.
+  - W40K-0307 War for Armageddon: The Omnibus — Omnibus um Helsreach (Black Templars/Grimaldus vs Ghazghkull) + Novellas/Shorts (Salamanders, Guard); Roster releaseYear=null, tatsächlich 2018 (kein Override-Feld dafür, nur notiert). Über Constituent-Werke aggregiert.
+  - W40K-0308 Accursed Eternity — Architect-of-Fate-Novella; Ordo Malleus (Remigius) + Blood Swords/Star Dragons stürmen Daemonschiff. Daemon-Antagonist-Sub-Faction nicht belastbar gepinnt → low_confidence-Flag (factions), generic „Chaos" bewusst vermieden.
+  - W40K-0309 Endeavour of Will — Architect-of-Fate-Novella; Imperial Fists (Lysander) vs Iron Warriors, Techno-Contagion. Keine belastbar benannte Geo-Location → locations leer gelassen.
+  - W40K-0310 Fateweaver — Architect-of-Fate-Novella; White Consuls vs Kairos Fateweaver (Daemons of Tzeentch). Keine belastbar benannte Geo-Location → locations leer.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Red Corsairs", "Scythes of the Emperor", "White Consuls", "Blood Swords", "Star Dragons", "Daemons of Tzeentch", "Ghazghkull Thraka", "Hive Fleet Leviathan", "Hive Fleet Kraken".
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: Override-JSON + Log-Append, kein Code).
