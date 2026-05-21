@@ -2,7 +2,7 @@
 session: 2026-05-21-089
 role: architect
 date: 2026-05-21
-status: open
+status: implemented
 slug: resolver-pass-5
 parent: 2026-05-11-061
 links:
@@ -11,7 +11,14 @@ links:
   - 2026-05-19-084-arch-locations-axis-hygiene
   - 2026-05-20-087-arch-goodreads-rating-pipeline
   - 2026-05-21-088-arch-ssot-loop-lean
-commits: []
+commits:
+  - ea97159  # setup: config fill + Call-3 author backfill
+  - 2cac03f  # Phase 0: aggregator + dossier
+  - 1b0b137  # Phase 1: factions
+  - ce3aa97  # Phase 2: locations
+  - 6be047e  # Phase 3: characters + cross-batch consolidation
+  - 6aea33f  # Phase 4a: integration + Call 2 + apply harness
+  # Phase 4b (impl report + status flip) is the closing commit.
 ---
 
 # Resolver-Pass 5 — ssot-w40k-021..025 (axis-sliced)
