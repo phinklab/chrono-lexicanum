@@ -1299,3 +1299,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Relictors", "Flesh Tearers", "Chaos Daemons", "Astra Militarum", "Grey Knights", "Big Mek Uggrim", "Warlord Grukk", "Harek Ironhelm", "Magnus the Red", "Alaric Prime", "Squire's Rest", "Ghoul Stars".
 - **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention: reiner Daten-Commit — neue Override-JSON + Log-Append, kein Code).
+
+## 2026-05-21 · ssot-w40k-034 · W40K-0331..W40K-0340 · ✅
+
+- **Cumulative books in authority:** 340 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=330, batch=ssot-w40k-034, slice=W40K-0331..W40K-0340
+- **WebSearch:** mean=1.2, max=2 (over 10 books; 2 searches used for the two Damocles novellas lacking individual Goodreads URLs in first results)
+- **Per-book bullets:**
+  - W40K-0331 Lords of the Storm — Roster seriesHint "Space Marine Battles" is wrong; this is Black Library Novella Series 2, a Fulminators (Ultramarines successor) Reiver story. Shrine world unnamed in sources → low_confidence on locations.
+  - W40K-0332 The Unkindness of Ravens — Raven Guard + Brazen Minotaurs vs Nurgle-themed traitors; no specific Chaos legion named, used generic Chaos Space Marines antagonist with low_confidence flag.
+  - W40K-0333 Dark Vengeance — Clean Dark Angels vs Crimson Slaughter tie-in to the boxed set; full named cast and named world (Bane's Landing).
+  - W40K-0334 Lords of Caliban — FORMAT CONFLICT: roster says novella, but this is a six-story short-fiction collection (Honour of the Third, A Hunt in the Dark, Battle-Brothers, Accept No Failure, Holder of the Keys, All Must End). data_conflict flag, suggestion=collection. Aggregated tags across constituents.
+  - W40K-0335 Mephiston: Lord of Death — Blood Angels character study; clean coverage, named world Pallevon.
+  - W40K-0336 Arjac Rockfist: Anvil of Fenris — Space Wolves vs Tyranids defending the Fang on Asaheim/Fenris; norse-saga framing noted.
+  - W40K-0337 Blood Oath — Damocles novella 1/4; White Scars + Raven Guard vs T'au (Shadowsun) on Agrellan. Marked series_start of the Agrellan/Damocles arc.
+  - W40K-0338 Broken Sword — Damocles 2/4; conversion/defection tale heavy on T'au culture, Raven Guard pursue Water Caste envoy. Central figures unnamed in sources → low_confidence on characters.
+  - W40K-0339 Black Leviathan — Damocles 3/4; political subterfuge, Jade Dragons Chapter + Adeptus Mechanicus manipulated by a Water Caste operative. Figures unnamed → low_confidence on characters.
+  - W40K-0340 Hunter's Snare — Damocles 4/4; sequel to Blood Oath, Kor'sarro Khan vs Shadowsun duel on Agrellan. Marked requires_context (sequel).
+- **value_outside_vocabulary:** [{ "facet": "plot_type", "candidate": "duel", "seen_in": "W40K-0340 Hunter's Snare (and the Khan/Shadowsun thread in W40K-0337)", "note": "single-combat hunter-vs-hunter structure; mapped to war_story+journey for now" }]
+- **Notable surface-forms (within this batch):** Fulminators, Brazen Minotaurs, Jade Dragons (Space Marine Chapters); Crimson Slaughter, Fallen Angels (antagonists); Kranon the Relentless, Kor'sarro Khan, Commander Shadowsun, Mephiston, Arjac Rockfist, Belial, Sammael (characters); Bane's Landing, Pallevon, Agrellan, Asaheim, The Fang, Damocles Gulf (locations).
+- **Verification skipped:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: ein Override-JSON + Markdown-Append, kein Code).
