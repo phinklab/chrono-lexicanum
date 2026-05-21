@@ -542,6 +542,35 @@ check("direct match - fourth wave Captain Leoten Sempter Gothic War", () => {
   assert.equal(resolveCharacter("Captain Leoten Sempter").id, "captain_leoten_sempter");
 });
 
+check("direct match - fifth wave Alaric (Grey Knights, freq=4)", () => {
+  assert.equal(resolveCharacter("Alaric").id, "alaric");
+});
+
+check("direct match - fifth wave Gabriel Angelos (Blood Ravens, freq=4)", () => {
+  assert.equal(resolveCharacter("Gabriel Angelos").id, "gabriel_angelos");
+});
+
+check("direct match - fifth wave Macha (Eldar Farseer, freq=4)", () => {
+  assert.equal(resolveCharacter("Macha").id, "macha");
+});
+
+check("direct match - fifth wave Mephiston (Blood Angels, freq=2)", () => {
+  assert.equal(resolveCharacter("Mephiston").id, "mephiston");
+});
+
+check("alias-consolidation - fifth wave Lo Bannick both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Lo Bannick").id, "lo_bannick");
+  assert.equal(
+    resolveCharacter("Marken Cortein Lo Bannick").id,
+    "lo_bannick",
+  );
+});
+
+check("alias-consolidation - fifth wave Dante both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Commander Dante").id, "commander_dante");
+  assert.equal(resolveCharacter("Dante").id, "commander_dante");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {
