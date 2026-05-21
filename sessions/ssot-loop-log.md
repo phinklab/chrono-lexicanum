@@ -1320,3 +1320,24 @@
 - **value_outside_vocabulary:** [{ "facet": "plot_type", "candidate": "duel", "seen_in": "W40K-0340 Hunter's Snare (and the Khan/Shadowsun thread in W40K-0337)", "note": "single-combat hunter-vs-hunter structure; mapped to war_story+journey for now" }]
 - **Notable surface-forms (within this batch):** Fulminators, Brazen Minotaurs, Jade Dragons (Space Marine Chapters); Crimson Slaughter, Fallen Angels (antagonists); Kranon the Relentless, Kor'sarro Khan, Commander Shadowsun, Mephiston, Arjac Rockfist, Belial, Sammael (characters); Bane's Landing, Pallevon, Agrellan, Asaheim, The Fang, Damocles Gulf (locations).
 - **Verification skipped:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: ein Override-JSON + Markdown-Append, kein Code).
+
+## 2026-05-21 · ssot-w40k-035 · W40K-0341..W40K-0350 · ✅
+
+- **Cumulative books in authority:** 350 / nächste Resolver-Pause bei 350 (greift beim nächsten `loop:next`)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=340, batch=ssot-w40k-035, slice=W40K-0341..W40K-0350
+- **WebSearch:** mean≈1.4, max=2 (over 10 books; alle gut aus Quellen/Trainingsdaten belegt, Ratings per Goodreads-Page-Read)
+- **Per-book bullets:**
+  - W40K-0341 The Last Days of Ector (Guy Haley) — Valedor-Prelude-Novella; Crimson Castellans gegen Hive Fleet Leviathan. Keine namentlichen POV-Charaktere belastbar → `low_confidence` auf `characters`, characters leer.
+  - W40K-0342 Crimson Dawn (C.Z. Dunn) — Crimson-Sabres-→-Crimson-Slaughter-Origin; POV Anzo Riegler. Sauber; Black Library führt es als eNovella (= Roster `novella`), kein Format-Konflikt.
+  - W40K-0343 Shield of Baal: Tempestus (Braden Campbell) — Militarum Tempestus + Inquisitor Ulrich + Sororitas auf Lysios. POV Tempestor Chavis ist Scion → protagonist_class `guardsman`+`inquisitor`. Series_start der Shield-of-Baal-Novella-Trilogie.
+  - W40K-0344 Shield of Baal: Deathstorm (Josh Reynolds) — Blood Angels (Karlaen) + Flesh Tearers vs Spawn of Cryptus auf Phodia. mid_series.
+  - W40K-0345 Shield of Baal: Devourer (Joe Parrino) — Blood Angels (Jatiel) + Necron Anrakyr vs Tyranids im Cryptus-System; Doppel-POV (Imperium+Xenos). series_finale.
+  - W40K-0346 Soul Hunter (ADB) — Night-Lords-Trilogie-Auftakt; Talos/First Claw, Crythe, Black Legion, Mechanicus. series_start.
+  - W40K-0347 Blood Reaver (ADB) — Night Lords + Red Corsairs (Huron Blackheart) belagern Marines Errant auf Vilamus; Maelstrom. mid_series.
+  - W40K-0348 Void Stalker (ADB) — Finale; Night Lords vs Eldar (Ulthwé) auf Tsagualsa. series_finale.
+  - W40K-0349 Night Lords: The Omnibus (ADB) — sammelt Soul Hunter/Blood Reaver/Void Stalker + Kurzgeschichten; Tags aggregiert über alle drei Romane (doorstopper). entry_point series_start (ganze Serie). Goodreads-Page = Omnibus-Work, nicht mit Einzelromanen vermischt.
+  - W40K-0350 Shadow Knight (ADB, short_story) — Night-Lords-Prequel #0.5 auf einem Wrack-Schiff vs Blood Angels. Spielt auf unbenanntem Derelict im Deep Space → `low_confidence` auf `locations`, locations leer. length_tier `novella` als kürzester verfügbarer Bucket (kein Short-Story-Tier).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Crimson Castellans, Crimson Sabres, Marines Errant, Red Corsairs, Militarum Tempestus, Flesh Tearers, Anrakyr the Traveller, Huron Blackheart, Variel the Flayer, The Exalted, Spawn of Cryptus, Tsagualsa, Vilamus, Lysios, Phodia, Cryptus, Crythe, the Maelstrom.
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: Override-JSON + Markdown-Append, kein Code).
