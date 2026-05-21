@@ -1173,3 +1173,24 @@
 - **value_outside_vocabulary:** none (12 facet categories sufficed; `Rogue Traders` is a faction surface-form, not a facet)
 - **Notable surface-forms (within this batch):** `Rogue Traders`, `Tau Empire`, `White Scars`, `Word Bearers`, `White Consuls`, `Dark Eldar`, `Ironclads`, `Blood Gorgons`, `Adeptus Mechanicus`; chars `Lucian Gerrit`, `Brielle Gerrit`, `Inquisitor Grand`, `Sarik`, `Marduk`, `Jarulek`, `Kol Badar`, `Burias`, `Inquisitor Obodiah Roth`, `Fyodor Baeder`, `Barsabbas`, `Sargaul`, `Gammadin`. Resolving deferred to Resolver-Pass.
 - **Verification skipped:** pure data commit (override JSON + log append, no code) — lint/typecheck/brain:lint skipped per Brief-061 convention.
+
+## 2026-05-21 · ssot-w40k-028 · W40K-0271..W40K-0280 · ✅
+
+- **Cumulative books in authority:** 280 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=270, batch=ssot-w40k-028, slice=W40K-0271..W40K-0280
+- **WebSearch:** mean≈1.3, max=2 (over 10 books) — meiste Bücher gut aus Trainingsdaten bekannt; Goodreads-Page-Reads separat via WebFetch (alle 10 gewertet)
+- **Per-book bullets:**
+  - W40K-0271 Bastion Wars: The Omnibus (Henry Zou) — omnibus über Emperor's Mercy / Flesh and Iron / Blood Gorgons, auf Trilogie-Tiefe getaggt (Inquisition + Astra Militarum + Blood Gorgons aggregiert). Out-of-print (Flesh and Iron Plagiat-Skandal → BL hat Zou gestrichen); dünne Coverage (nur 39 Ratings) → `low_confidence`-Flag auf characters (sekundäre POV-Identitäten Roth/Barsabbas nur niedrig-konfident). Format ok (omnibus).
+  - W40K-0272 Salamander — Tome of Fire #1, series_start; Dak'ir/Tsu'gan-Rivalität etabliert, Nihilan/Dragon Warriors als Antagonist. Surface-form „Dragon Warriors" beibehalten.
+  - W40K-0273 Firedrake — Tome of Fire #2, mid_series; Dark-Eldar-Kidnapping/Rescue, Port of Anguish. cw_disturbing wegen Dark-Eldar-Folter.
+  - W40K-0274 Nocturne — Tome of Fire #3, series_finale; Verteidigung Nocturnes, planetary/siege/last_stand.
+  - W40K-0275 Tome of Fire — anthology (Format bestätigt, kein Konflikt); Companion zur Trilogie, character_study + war_story; Marines Malevolent als zusätzlicher Antagonist (Hell Night).
+  - W40K-0276 Salamanders: The Omnibus — sammelt die Trilogie + Shorts, doorstopper (~1014 S.), auf Trilogie-Tiefe aggregiert.
+  - W40K-0277 Salamanders: Rebirth — Circle-of-Fire-Auftakt, requires_context („Five years have passed…"); Black Legion auf Heletine, Allianz mit Sisters of Battle (Ebon Chalice). Sisters als supporting-Faction, nicht als protagonist_class (Salamanders sind Protagonisten).
+  - W40K-0278 Rynn's World — Space Marine Battles, Crimson Fists vs Snagrods Orks; last_stand/siege, somber wegen Chapter-Beinahe-Vernichtung.
+  - W40K-0279 Helsreach — Space Marine Battles, Black Templars/Grimaldus auf Armageddon vs Orks; Steel Legion (Astra Militarum) + Legio Invigilata supporting; höchstes Rating der Welle (4.28 / 4535).
+  - W40K-0280 Hunt for Voldorius — Space Marine Battles, White Scars (Kor'sarro Khan) + Raven Guard (Kayvaan Shrike) vs Alpha Legion / Daemon Voldorius. Korrektur ggü. naivem Prior: Verbündete sind Raven Guard, NICHT Salamanders — keine Salamanders-Faction getaggt.
+- **value_outside_vocabulary:** [] (keine neuen Facet-Kandidaten)
+- **Notable surface-forms (within this batch):** „Dragon Warriors" (Nihilans Chaos-Warband), „Blood Gorgons", „Marines Malevolent", „Legio Invigilata", „Sisters of Battle / Ebon Chalice", „Kor'sarro Khan", „Kayvaan Shrike", „Kernax Voldorius", „Pedro Kantor", „Snagrod".
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: Override-JSON + Log-Append); JSON-Parse via `node -e require(...)` bestätigt (10 Bücher).

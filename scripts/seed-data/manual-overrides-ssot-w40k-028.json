@@ -1,0 +1,243 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-028",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "A heavily Salamanders-themed wave: Nick Kyme's complete Tome of Fire trilogy (Salamander, Firedrake, Nocturne) plus its companion anthology, the trilogy omnibus and the Circle-of-Fire opener Rebirth, framed by Henry Zou's out-of-print Bastion Wars omnibus and three early Space Marine Battles novels (Rynn's World, Helsreach, Hunt for Voldorius). Five of ten are aggregate works (one omnibus is the Bastion Wars trilogy, one omnibus is the Tome of Fire trilogy, one anthology), tagged at trilogy depth.",
+  "books": [
+    {
+      "externalBookId": "W40K-0271",
+      "slug": "bastion-wars-the-omnibus",
+      "overrides": {
+        "synopsis": "Three linked campaigns sweep across the embattled Medina Worlds as a tide of daemon-worshipping renegades descends on the sub-sector. Inquisitor Obadiah Roth races to recover a cache of ancient artefacts before the traitors can turn their power against the Imperium. On a drowned frontier world, the Guardsmen of the 31st Riverine are dragged into a brutal counter-insurgency that curdles into something far darker. And far from any aid, the Blood Gorgons find their own ranks rotting from within as a mysterious plague grips one of their recruiting worlds, forcing the warband toward the brink of destruction. Gathered here, these intertwined stories trace heroes and villains alike through a corner of the galaxy where mercy is the rarest commodity of all.",
+        "facetIds": ["book", "male", "inquisitor", "guardsman", "space_marine", "imperium", "chaos", "sector", "doorstopper", "war_story", "mystery", "grimdark", "action_heavy", "war", "faith", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Blood Gorgons", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Medina Worlds", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Obadiah Roth", "role": "pov" },
+          { "name": "Barsabbas", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "out-of-print omnibus with thin online coverage; secondary POV identities verified only at low confidence" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.67, "count": 39, "evidenceUrl": "https://www.goodreads.com/book/show/20821610-bastion-wars" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0272",
+      "slug": "salamander",
+      "overrides": {
+        "synopsis": "On the volcanic death-world of Nocturne, the Salamanders are a Chapter apart, as much artisans and protectors as they are warriors. When the Space Marines of the 3rd Company pursue the trail of an ancient relic, their hunt leads them to a world scarred by Chaos and to the traitors who once murdered their captain. Among them are two very different battle-brothers: the introspective Dak'ir, troubled by strange visions, and the proud, driven Tsu'gan, whose rivalry will shape the company's future. As the renegade sorcerer Nihilan and his Dragon Warriors close in, the Salamanders must rebuild their broken brotherhood even as the thirst for vengeance threatens to consume them. The opening chapter of the Tome of Fire saga.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "series_start", "standard", "war_story", "journey", "grimdark", "action_heavy", "brotherhood", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Dragon Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Nocturne", "role": "primary" },
+          { "name": "Stratos", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Dak'ir", "role": "pov" },
+          { "name": "Tsu'gan", "role": "supporting" },
+          { "name": "Nihilan", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.72, "count": 1136, "evidenceUrl": "https://www.goodreads.com/book/show/6296660" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0273",
+      "slug": "firedrake",
+      "overrides": {
+        "synopsis": "When Chaplain Elysius of the Salamanders is seized by raiding Dark Eldar, his captivity becomes far more than a single warrior's ordeal, for he carries secrets buried beneath Mount Deathfire that could mean salvation or damnation for Nocturne itself. The veteran warriors of the 1st Company, the famed Firedrakes, mount a desperate rescue, fighting their way into the corsair stronghold known as the Port of Anguish to wrest him from his tormentors. Meanwhile Dak'ir endures the brutal trials of Librarian training, and the visions that come to him hint at a darker future still. As old rivalries harden and the mysteries of the Tome of Fire deepen, the Salamanders are drawn ever closer to a reckoning.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "mid_series", "standard", "war_story", "journey", "grimdark", "action_heavy", "brotherhood", "loyalty", "sacrifice", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Dark Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Port of Anguish", "role": "primary" },
+          { "name": "Nocturne", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Dak'ir", "role": "pov" },
+          { "name": "Tsu'gan", "role": "pov" },
+          { "name": "Elysius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.86, "count": 642, "evidenceUrl": "https://www.goodreads.com/book/show/7999419-firedrake" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0274",
+      "slug": "nocturne",
+      "overrides": {
+        "synopsis": "War has come at last to Nocturne. After decades of patient slaughter, the renegade Nihilan has gathered a vast armada of Dragon Warriors, Dark Eldar corsairs and Chaos renegades, and turns it against the Salamanders' volcanic home. As the Chapter marshals its strength, unrest gnaws at its ranks, for an old prophecy foretells a saviour or a destroyer in the Librarian Dak'ir. Held captive amid the enemy fleet, his bitter rival Tsu'gan awaits a final accounting. With fire and ruin closing over their world, the two battle-brothers are driven toward the confrontation that will decide whether Nocturne endures or burns. The climactic battle of the Tome of Fire trilogy.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_finale", "standard", "war_story", "siege", "last_stand", "grimdark", "action_heavy", "brotherhood", "sacrifice", "betrayal", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Dragon Warriors", "role": "antagonist" },
+          { "name": "Dark Eldar", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Nocturne", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Dak'ir", "role": "pov" },
+          { "name": "Tsu'gan", "role": "pov" },
+          { "name": "Nihilan", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.96, "count": 468, "evidenceUrl": "https://www.goodreads.com/book/show/11454774-nocturne" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0275",
+      "slug": "tome-of-fire",
+      "overrides": {
+        "synopsis": "A companion to the Tome of Fire trilogy, this collection gathers short stories and novellas that widen the world of the Salamanders. Across them, battle-brothers face ork raiders, treacherous kin and the corsairs of the Dark Eldar, while the simmering rivalry between Dak'ir and Tsu'gan plays out in the background. Some tales reach back to the Chapter's earlier deeds and the legend of their primarch Vulkan; others fill the spaces between the novels, revealing the hidden costs of duty borne by a Chapter forged in fire. Together they deepen the saga of Nocturne's defenders and the foes who would see their home reduced to ash.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "requires_context", "standard", "war_story", "character_study", "grimdark", "action_heavy", "brotherhood", "loyalty", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Marines Malevolent", "role": "antagonist" },
+          { "name": "Dragon Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Nocturne", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Dak'ir", "role": "pov" },
+          { "name": "Tsu'gan", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.73, "count": 158, "evidenceUrl": "https://www.goodreads.com/book/show/13547435" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0276",
+      "slug": "salamanders-the-omnibus",
+      "overrides": {
+        "synopsis": "The complete Tome of Fire trilogy in a single volume, gathering Salamander, Firedrake and Nocturne along with a selection of short stories. On the volcanic world of Nocturne, the Salamanders are a Chapter apart, equal parts smith and warrior. Across these linked tales two rival battle-brothers, the visionary Dak'ir and the proud Tsu'gan, are caught in the unfolding of an ancient prophecy as the renegade Nihilan musters Dragon Warriors, Dark Eldar and Chaos renegades for a war of vengeance. From the hunt for a lost relic, through a desperate rescue in a corsair port, to the final battle for Nocturne itself, this is the full saga of the sons of Vulkan and the price they pay to defend their home.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "planetary", "series_start", "doorstopper", "war_story", "journey", "siege", "grimdark", "action_heavy", "brotherhood", "loyalty", "sacrifice", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Dragon Warriors", "role": "antagonist" },
+          { "name": "Dark Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Nocturne", "role": "primary" },
+          { "name": "Stratos", "role": "supporting" },
+          { "name": "Port of Anguish", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Dak'ir", "role": "pov" },
+          { "name": "Tsu'gan", "role": "pov" },
+          { "name": "Nihilan", "role": "antagonist" },
+          { "name": "Elysius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.11, "count": 217, "evidenceUrl": "https://www.goodreads.com/book/show/17571896-salamanders" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0277",
+      "slug": "salamanders-rebirth",
+      "overrides": {
+        "synopsis": "Five years have passed since war scarred Nocturne, and the Salamanders are still rebuilding what they lost. While a small party ventures out in search of an errant battle-brother, it falls to the warriors of the 5th Company to take the fight to the enemy. On the war-torn world of Heletine, the Black Legion has come in the name of Chaos, and only Brother-Captain Drakgaard's Salamanders stand against their dark ambition. Victory for the Imperium will depend on an uneasy alliance with the Sisters of Battle of the Ebon Chalice, devout zealots whose faith burns as fiercely as any forge-fire. Amid the ash and ruin of a contested world, old wounds reopen and the Chapter's long road to recovery is tested anew.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "requires_context", "standard", "war_story", "grimdark", "action_heavy", "faith", "war", "redemption", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Sisters of Battle", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Heletine", "role": "primary" },
+          { "name": "Nocturne", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Drakgaard", "role": "primary" },
+          { "name": "Tsu'gan", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.62, "count": 141, "evidenceUrl": "https://www.goodreads.com/book/show/18775062-rebirth" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0278",
+      "slug": "rynns-world",
+      "overrides": {
+        "synopsis": "When the ork hordes of the warlord Snagrod, the Arch-Arsonist of Charadon, sweep through the sector, the Crimson Fists are first to answer, only to be all but annihilated. Worse follows on their home world of Rynn's World, where a single errant missile obliterates the Chapter's fortress-monastery and most of its warriors in an instant. With only a handful of battle-brothers left, Chapter Master Pedro Kantor and the indomitable Captain Cortez must wage a desperate planetary war from the ruins, holding the line at New Rynn City against a green tide that vastly outnumbers them. It is a fight not only for a world, but for the very survival of a proud Chapter teetering on the edge of extinction.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "war_story", "last_stand", "siege", "grimdark", "somber", "action_heavy", "sacrifice", "loyalty", "hubris", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Crimson Fists", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Rynn's World", "role": "primary" },
+          { "name": "Badlanding", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Pedro Kantor", "role": "pov" },
+          { "name": "Alessio Cortez", "role": "supporting" },
+          { "name": "Snagrod", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.95, "count": 1531, "evidenceUrl": "https://www.goodreads.com/book/show/6948743-rynn-s-world" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0279",
+      "slug": "helsreach",
+      "overrides": {
+        "synopsis": "When the orks of a vast Waaagh! descend on the industrial world of Armageddon, the Black Templars are among the Chapters that answer the call. Reclusiarch Grimaldus, newly raised to his office and wrestling with his own crisis of faith, is charged with holding the sprawling Hive Helsreach against the xenos flood. Alongside the soldiers of the Armageddon Steel Legion and the towering war-engines of Legio Invigilata, his small band of Templars must turn the hive into a fortress. As the greenskins keep coming and the defenders dwindle, Grimaldus resolves to sell their lives at a terrible price, making his stand in an Imperial temple where faith and fury are all that remain. A defining tale of the Third War for Armageddon.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "last_stand", "siege", "war_story", "grimdark", "somber", "action_heavy", "faith", "sacrifice", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Black Templars", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Legio Invigilata", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" },
+          { "name": "Helsreach", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Grimaldus", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.28, "count": 4535, "evidenceUrl": "https://www.goodreads.com/book/show/6949471-helsreach" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0280",
+      "slug": "hunt-for-voldorius",
+      "overrides": {
+        "synopsis": "For more than a decade, Kor'sarro Khan of the White Scars has pursued a single quarry across the stars: Kernax Voldorius, a daemon prince and warleader of the treacherous Alpha Legion. The hunt finally runs its prey to ground on Quintus, a world wholly corrupted and given over to the renegades' cause. To bring down so monstrous a foe, the swift riders of the White Scars must forge an unlikely alliance with the shadow-warriors of the Raven Guard and their captain, Kayvaan Shrike. Together they face an entire planet in arms, knowing that a hunt this long can end only in the daemon's death or their own. A relentless story of vengeance, honour and the price of an unbreakable oath.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "war_story", "journey", "grimdark", "action_heavy", "loyalty", "hubris", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Alpha Legion", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Quintus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Kor'sarro Khan", "role": "pov" },
+          { "name": "Kayvaan Shrike", "role": "supporting" },
+          { "name": "Kernax Voldorius", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.44, "count": 635, "evidenceUrl": "https://www.goodreads.com/book/show/7171766-the-hunt-for-voldorius" }
+      }
+    }
+  ]
+}
