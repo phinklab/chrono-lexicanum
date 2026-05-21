@@ -17,6 +17,11 @@ Treat existing references to "Claude Code", "CC", or "Implementer" as a
 reference to the current Codex/agent implementer role, unless the text is
 explicitly about a Claude/Anthropic model or a historical project decision.
 
+**SSOT-Loop iterations are the exception.** A loop iteration
+(`scripts/run-ssot-loop.sh`) is a mechanical task, not a normal session: follow
+`sessions/ssot-loop-runbook.md` and skip the session-start reading routine above
+(Brief 061 itself is not read).
+
 ## Parallel worktree git protocol
 
 Durable local worktrees:

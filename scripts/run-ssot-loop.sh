@@ -1,26 +1,25 @@
 #!/usr/bin/env bash
-# scripts/run-ssot-loop.sh — Headless wrapper around Brief 061 (SSOT-Loop).
+# scripts/run-ssot-loop.sh — Headless wrapper for the SSOT-Loop.
 #
 # Runs N successive `claude -p` subsessions, each with a fresh context, then
-# pushes the branch and opens a PR. Each subsession executes one iteration of
-# Brief 061 (sessions/2026-05-11-061-arch-ssot-loop.md): produce ONE
+# pushes the branch and opens a PR. Each subsession executes one iteration per
+# sessions/ssot-loop-runbook.md (the single operative spec): produce ONE
 # `manual-overrides-ssot-{w40k|hh}-NNN.json` plus a status-block in
-# `sessions/ssot-loop-log.md`, both in a single commit. When Brief 061's
-# 50er-Loud-Stop fires, the subsession writes only the pause-block and the
-# wrapper exits cleanly (resolver-pause is the expected stop signal).
+# `sessions/ssot-loop-log.md`, both in a single commit. At a 50er resolver
+# threshold the subsession writes only the pause-block and the wrapper exits
+# cleanly (resolver-pause is the expected stop signal).
 #
 # USAGE
-#   ./scripts/run-ssot-loop.sh [N] [--skip-initial-resolver-pause]
+#   ./scripts/run-ssot-loop.sh [N]
 #     N        Number of iterations (default 5, valid 1..20).
 #              Default 5 lines up with the 50er-cadence: one driver run lands
 #              at most 5 batches × 10 books = 50 books before the next pause.
-#     --skip-initial-resolver-pause
-#              Inject `skip-50-stop` into the FIRST iteration's trigger only.
-#              Use after a Resolver- or Cockpit-merge when cumulative sits at
-#              a 50-mod boundary and the first iter would otherwise pause.
 #              If the requested successful iterations land exactly on the next
-#              50-book boundary, the driver runs one extra unskipped pause probe
-#              so the resolver-pause block is committed before push/PR.
+#              50-book boundary, the driver runs one extra pause-confirmation
+#              subsession so the resolver-pause block is committed before push/PR.
+#              Resolver-pause is self-detecting (scripts/loop-next-batch.ts) —
+#              no skip flag; a re-run after a committed pause-block resumes
+#              automatically (the pause-block is its own "announced" marker).
 #
 # WINDOWS
 #   PowerShell:  & "C:\Program Files\Git\bin\bash.exe" scripts/run-ssot-loop.sh
@@ -31,6 +30,8 @@
 #   - `claude` CLI in PATH (verified against version printing
 #     `--allowedTools, --allowed-tools <tools...>` in --help)
 #   - Node.js (for JSON halt-checks; no jq dependency)
+#   - tsx + installed node_modules (end-of-run resolver-pause probe via
+#     scripts/loop-next-batch.ts; if missing the probe is skipped, non-fatal)
 # OPTIONAL
 #   - `gh` CLI authenticated (else PR step is skipped, compare URL printed)
 #
@@ -84,14 +85,9 @@ die() {
 # ---------------------------------------------------------------------------
 
 ITERATIONS=5
-SKIP_INITIAL_PAUSE=0
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --skip-initial-resolver-pause)
-      SKIP_INITIAL_PAUSE=1
-      shift
-      ;;
     -h|--help)
       sed -n '2,40p' "$0"   # print the header docblock
       exit 0
@@ -157,31 +153,16 @@ fi
 
 base_trigger() {
   cat <<'EOF'
-Brief sessions/2026-05-11-061-arch-ssot-loop.md ausführen. Genau eine Loop-Iteration.
+Führe genau eine SSOT-Loop-Iteration aus.
 
-Brief-071-Vertrag (gilt für diesen Driver-Lauf, überschreibt Brief-061-Constraint-Note auf Zeile 79 — Acceptance-Bullet auf Zeile 131 ist die Wahrheit):
-- Erfolgspfad: neuer manual-overrides-ssot-{domain}-{NNN}.json + Status-Log-Append in sessions/ssot-loop-log.md, beides in EINEM commit.
-- 50er-Loud-Stop-Pfad: KEINE Override-Datei; aber Pause-Block (## YYYY-MM-DD · ⏸ Resolver-Pause bei N Büchern) in sessions/ssot-loop-log.md, committed.
+Lies sessions/ssot-loop-runbook.md und folge ihm exakt. Lies nichts, was das
+Runbook nicht ausdrücklich nennt.
 
-Public Synopsis Discipline (ab ssot-w40k-021 / W40K-0201 — Brief 061 § Constraints): overrides.synopsis ist public-reader-copy für /buch/[slug]. Kein internes Curation-Vokabular, keine SSOT-IDs (W40K-NNNN), keine Brief-Verweise, keine Resolver-/Authority-Layer-Sprache, keine Audit-Anker. Technische Curation-Infos gehen in overrides.flags / book_details.notes / sessions/ssot-loop-log.md, NICHT in works.synopsis.
-
-Faction-Granularity-Discipline (ab ssot-w40k-021 / W40K-0201 — Brief 061 § Constraints, Brief 077): overrides.factions[].name muss Browse-Root-Granularität oder spezifischer sein. NIE als raw_name: Imperium / Imperium of Man / Imperium of Mankind (Grand-Alignment-Tag — verwende die spezifische Sub-Faction wie Astra Militarum / Adeptus Astartes / Inquisition), generic Chaos wenn spezifische Chaos-Sub passt (verwende Heretic Astartes / Word Bearers / etc.), Xenos / Aliens (verwende die konkrete Xenos-Faction). Grand-Alignment lebt in factions.alignment, nicht als Junction.
-
-Locations-Granularity-Discipline (ab ssot-w40k-021 / W40K-0201 — Brief 061 § Constraints, Brief 084): overrides.locations[].name muss konkret-geographisch sein. NIE als raw_name: Imperium / Imperium of Man / Imperium of Mankind / the Imperium / Chaos / Chaos Space / the Chaos Space / Realm of Chaos / the Warp / Warp Space / Xenos / Aliens / Alien Space (Umbrella-/Politik-/Warp-Surface-Forms — verwende konkrete Sector/World wie Cadia / Armageddon / Hydraphur / Eye of Terror / T'au Empire). Erhaltungs-Pfad: falls das Buch ausschliesslich Umbrella-Tags traegt und keine konkrete Location, darf ein Tag stehen bleiben (sehr selten).
-
-Goodreads-Rating-Discipline (ab ssot-w40k-021 / W40K-0201 - Brief 061 Constraints, Brief 087): Pro Buch WebSearch nur zum Auffinden der passenden Goodreads-Buchseite, dann WebFetch der Seite. Rating-Wert + Ratings-Count werden von der Seite gelesen, nie aus dem Such-Snippet. Einzelroman/Omnibus/Anthology sauber disambiguieren. Ergebnis in overrides.rating schreiben: status=rated mit value/count/source=goodreads/evidenceUrl oder status=unrated mit source=goodreads/reason/evidenceUrl. Wenn keine aggregierte Wertung existiert: nicht raten, Unrated-Marker setzen.
-
-Alle Disziplinen ohne Co-Author-Trailer. Keine zweite Iteration in dieser Session, keine sonstigen Datei-Edits ausserhalb der oben genannten Pfade.
+Das ist eine mechanische Loop-Iteration, keine normale Session: überspringe die
+in CLAUDE.md/AGENTS.md definierte Session-Start-Leseroutine (brain/CLAUDE.md,
+wiki/index.md, project-state.md, open-questions.md, cc-session.md) und lies
+Brief 061 nicht. Kein Co-Author-Trailer im Commit.
 EOF
-}
-
-build_trigger() {
-  local iter="$1"
-  if (( SKIP_INITIAL_PAUSE == 1 )) && (( iter == 1 )); then
-    printf 'Maintainer-Marker: skip-50-stop (Pre-Check übergehen, Override produzieren).\n\n%s\n' "$(base_trigger)"
-  else
-    printf '%s\n' "$(base_trigger)"
-  fi
 }
 
 # ---------------------------------------------------------------------------
@@ -226,25 +207,13 @@ validate_override_json() {
   " "$file"
 }
 
-# Counts all books in committed manual-overrides SSOT files.
-count_override_books() {
-  node --input-type=module -e "
-    import fs from 'node:fs';
-    import path from 'node:path';
-
-    const dir = process.argv[1];
-    let total = 0;
-    for (const name of fs.readdirSync(dir)) {
-      if (!/^manual-overrides-ssot-(w40k|hh)-\\d+\\.json\$/.test(name)) continue;
-      const data = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'));
-      if (!Array.isArray(data.books)) {
-        console.error(name + ': books is not an array');
-        process.exit(21);
-      }
-      total += data.books.length;
-    }
-    console.log(total);
-  " "$OVERRIDE_DIR"
+# Echoes "true"/"false" — the resolverPause flag from scripts/loop-next-batch.ts
+# (the single source of pause detection). Returns non-zero if the helper fails,
+# so a helper failure is never silently read as "false".
+resolver_pause_now() {
+  local json
+  json=$(node_modules/.bin/tsx scripts/loop-next-batch.ts) || return 1
+  node --input-type=module -e 'process.stdout.write(JSON.parse(process.argv[1]).resolverPause ? "true" : "false")' "$json"
 }
 
 # Runs all post-iteration halt-checks.
@@ -359,7 +328,7 @@ FINAL_PAUSE_PROBE=0
 mkdir -p "$(dirname "$STEP_LOG")"
 exec > >(tee "$STEP_LOG") 2>&1
 
-log "${C_BOLD}Driver start${C_RESET} — iterations=$ITERATIONS, branch=$CURRENT_BRANCH, skip-initial-pause=$SKIP_INITIAL_PAUSE"
+log "${C_BOLD}Driver start${C_RESET} — iterations=$ITERATIONS, branch=$CURRENT_BRANCH"
 
 while (( ATTEMPT <= ITERATIONS || FINAL_PAUSE_PROBE == 1 )); do
   IS_FINAL_PAUSE_PROBE=0
@@ -374,11 +343,7 @@ while (( ATTEMPT <= ITERATIONS || FINAL_PAUSE_PROBE == 1 )); do
   HEAD_BEFORE=$(git rev-parse HEAD)
   FILES_BEFORE_RAW=$(list_override_files)
 
-  if (( IS_FINAL_PAUSE_PROBE == 1 )); then
-    TRIGGER=$(build_trigger 0)
-  else
-    TRIGGER=$(build_trigger "$ATTEMPT")
-  fi
+  TRIGGER=$(base_trigger)
   log "  invoking claude -p ..."
 
   set +e
@@ -405,10 +370,13 @@ while (( ATTEMPT <= ITERATIONS || FINAL_PAUSE_PROBE == 1 )); do
       NEW_FILES_COMMITTED+=("$NEW_FILE")
 
       if (( ATTEMPT == ITERATIONS )); then
-        current_total=$(count_override_books)
-        if (( current_total > 0 && current_total % 50 == 0 )); then
-          log "  cumulative=$current_total is a resolver boundary; running one unskipped pause-confirmation subsession"
-          FINAL_PAUSE_PROBE=1
+        if pause_flag=$(resolver_pause_now); then
+          if [[ "$pause_flag" == "true" ]]; then
+            log "  loop-next-batch reports resolverPause=true; running one pause-confirmation subsession"
+            FINAL_PAUSE_PROBE=1
+          fi
+        else
+          warn "  loop-next-batch helper failed; skipping final pause probe (manual check advised)"
         fi
       fi
       ATTEMPT=$(( ATTEMPT + 1 ))
