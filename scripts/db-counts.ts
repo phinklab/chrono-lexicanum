@@ -1,9 +1,11 @@
 /**
- * One-shot DB-counts probe for Brief 089 Phase 4 (Resolver-Pass 5).
+ * db-counts.ts — stable DB-counts probe for Resolver-Pass Phase 4 (Brief 090;
+ * generalized from the per-pass db-counts-NNN.ts clones).
  *
- * Reports junction + reference + works counts. Used pre/per-batch/post for the
- * Phase-4-Counts-Tabelle. `work_persons` is included for the Call-3 author
- * backfill check (W40K-0206/0244); `facet_values` for the Call-2 commissar seed.
+ * Reports junction + reference + works counts as a fixed-size table. Used
+ * pre/per-batch/post by run-phase4-apply.sh to build the Counts digest. Wave-
+ * independent (the same tables every pass), so no new `-NNN` clone is needed.
+ * Read-only.
  */
 import { sql } from "drizzle-orm";
 import { db } from "@/db/client";
@@ -21,7 +23,7 @@ async function countQuery(label: string, table: string): Promise<number> {
 }
 
 async function main(): Promise<void> {
-  console.log("[db-counts-089] start");
+  console.log("[db-counts] start");
   await countQuery("works", "works");
   await countQuery("work_factions", "work_factions");
   await countQuery("work_locations", "work_locations");
@@ -33,11 +35,11 @@ async function main(): Promise<void> {
   await countQuery("locations", "locations");
   await countQuery("characters", "characters");
   await countQuery("facet_values", "facet_values");
-  console.log("[db-counts-089] done");
+  console.log("[db-counts] done");
   process.exit(0);
 }
 
 main().catch((err) => {
-  console.error("[db-counts-089] failed:", err);
+  console.error("[db-counts] failed:", err);
   process.exit(1);
 });

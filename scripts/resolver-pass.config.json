@@ -8,7 +8,14 @@
   "aggregator": {
     "$comment": "Batch ids this wave's aggregator + phase-4 re-apply operate on. `batches` = the new wave (Phase 0 surface-form aggregate). `applyRange` = the cumulative range Phase 4 re-applies (idempotent delete-then-insert).",
     "batches": ["ssot-w40k-021", "ssot-w40k-022", "ssot-w40k-023", "ssot-w40k-024", "ssot-w40k-025"],
-    "applyRange": { "domain": "w40k", "from": 1, "to": 25 }
+    "applyRange": { "domain": "w40k", "from": 1, "to": 25 },
+    "clusters": {
+      "ssot-w40k-021": "calpurnia/templars/dow",
+      "ssot-w40k-022": "grey-knights/blood-angels",
+      "ssot-w40k-023": "space-hulk/guard-open",
+      "ssot-w40k-024": "astra-militarum-main",
+      "ssot-w40k-025": "am-close/deathwatch"
+    }
   },
   "verify": {
     "$comment": "Parameters for verify-pass.ts digest. `newRange`/`oldRange` drive the audit-cockpit drift/gap/collection replica; `smokeSlugs` are the junction-count smoke checks.",
