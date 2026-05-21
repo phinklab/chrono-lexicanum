@@ -1257,3 +1257,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Red Corsairs", "Scythes of the Emperor", "White Consuls", "Blood Swords", "Star Dragons", "Daemons of Tzeentch", "Ghazghkull Thraka", "Hive Fleet Leviathan", "Hive Fleet Kraken".
 - **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: Override-JSON + Log-Append, kein Code).
+
+## 2026-05-21 · ssot-w40k-032 · W40K-0311..W40K-0320 · ✅
+
+- **Cumulative books in authority:** 320 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=310, batch=ssot-w40k-032, slice=W40K-0311..W40K-0320
+- **WebSearch:** mean=1, max=1 (over 10 books) — all ten are well-documented Space Marine Battles novellas; one synopsis search each was sufficient, Goodreads ratings via per-page WebFetch.
+- **Per-book bullets:**
+  - W40K-0311 Sanctus — Relictors loot a doomed shrine world (Ilissus) ahead of Exterminatus, Black Legion antagonist; no single named POV character surfaced in sources → low_confidence flag on characters, left empty.
+  - W40K-0312 Catechism of Hate — Ultramarines Chaplain Ortan Cassius holds Styxia vs Tyranids; clean, no conflicts.
+  - W40K-0313 Flesh of Cretacia — Flesh Tearers under Amit claim their homeworld Cretacia; orks + planetary horrors. Clean.
+  - W40K-0314 Traitor's Gorge — Crimson Fists / Pedro Kantor post-Rynn's World vs orks (Snagrod), eldar aid; sequel to Rynn's World but standalone-readable.
+  - W40K-0315 Stormseer — White Scars (Temur Khan) vs Overfiend orks on Lepidus Prime; Overfiend trilogy part 1. Used surface form "Imperial Guard" (era-appropriate) for the anvil force.
+  - W40K-0316 Blood and Fire — Black Templars Grimaldus + Celestial Lions; Inquisition cast as antagonist driving the Lions to extinction. Highest-rated of the wave (4.11 / 443).
+  - W40K-0317 Spear of Macragge — Ultramarines tank commander Antaro Chronus + Tigurius vs Necrons on Damnos; runs parallel to Fall of Damnos.
+  - W40K-0318 Shadow Captain — Raven Guard (Krevaan) + Saim-Hann eldar vs Overfiend orks on Lepidus Prime; Overfiend trilogy part 2.
+  - W40K-0319 Forge Master — Salamanders Techmarine Ha'garen boards the Overfiend's flagship; Overfiend trilogy part 3. Adeptus Mechanicus tagged supporting (Ha'garen's Mars training drives the identity theme); kept protagonist_class=space_marine (Techmarine), not tech_priest. Location set to "Octavius" (the system the campaign is named for).
+  - W40K-0320 Plague Harvest — Ultramarines Librarian Vabion + Doom Eagles vs a Nurgle incursion on agri-world Orath; antagonist surface form "Daemons of Nurgle" (concrete Chaos sub, not generic Chaos).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Relictors", "Black Legion", "Celestial Lions", "Doom Eagles", "Daemons of Nurgle", "Imperial Guard" (era surface form for Astra Militarum), "Craftworld Saim-Hann" (tagged generic "Eldar" in junction). Three-book Overfiend-of-Octavius arc spans Stormseer/Shadow Captain/Forge Master.
+- **Verification skipped:** reiner Daten-Commit (Override-JSON + Log-Append, kein Code) — lint/typecheck/brain:lint per Brief-061-Konvention übersprungen.
