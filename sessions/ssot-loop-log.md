@@ -1104,3 +1104,24 @@
 - **value_outside_vocabulary:** [{"category":"protagonist_class","candidate":"commissar","note":"Commissar (political officer) recurs as POV/lead in Commissar, Cadian Blood, Dead Men Walking, Straken; currently mapped to guardsman/inquisitor as nearest fit"}, {"category":"protagonist_class","candidate":"tank_crew","note":"Baneblade is a dedicated armoured-crew POV with no good archetype; mapped to guardsman"}]
 - **Notable surface-forms (within this batch):** "Cadian Shock Troops", "Death Korps of Krieg", "Mordian Iron Guard", "Vostroyan Firstborn", "Brimlock Dragoons", "Catachan Jungle Fighters", "Valhallan Ice Warriors", "Tallarn Desert Raiders", "Colonel Iron Hand Straken", "Marken Cortein Lo Bannick", "Hieronymous Theta", "Furia Penitens", "Dulma'lin", "Belmos VII", "Golgotha", "Kalidar", "Paragon", "Voor", "Kathur".
 - **Verification skipped:** pure data commit (override JSON + log append, no code) — lint/typecheck/brain:lint skipped per Brief-061 convention.
+
+## 2026-05-21 · ssot-w40k-025 · W40K-0241..W40K-0250 · ✅
+
+- **Cumulative books in authority:** 250 / lands exactly on a 50-book resolver threshold (resolver pause not yet announced; next loop run should see it or run the resolver pass first)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=240, batch=ssot-w40k-025, slice=W40K-0241..W40K-0250
+- **WebSearch:** mean=1.6, max=3 (over 10 books; extra searches were Goodreads-page discovery, not synopsis context)
+- **Per-book bullets:**
+  - W40K-0241 Shadowsword — Guy Haley Guard-armour sequel to Baneblade; mid_series, Lo Bannick POV, Geratomro warzone. Clean.
+  - W40K-0242 Glory Imperialis Omnibus — aggregated three Guard novels (Imperial Glory / Commissar / Iron Guard) + shorts; Orks as the recurring foe. low_confidence on locations + characters (worlds/POVs not consistently named across constituents).
+  - W40K-0243 Final Deployment — R.S. Wilt; Tempestus Scions on Rilis, Tempestor Traxel POV. Self-contained.
+  - W40K-0244 The Remnant Blade — ROSTER MISTAG: seriesHint 'Imperial Guard' but it is a Night Lords (Chaos) novel (Dalchian Rassaq / Blades of Atrocity). Tagged Night Lords; data_conflict flag on seriesHint with suggestion 'Night Lords'; low_confidence on locations.
+  - W40K-0245 Death and Duty — 12-story Astra Militarum anthology (Catachan/Cadian/Krieg); format matches roster (anthology). low_confidence on characters + locations (no sustained POV, worlds unconfirmed).
+  - W40K-0246 The Relentless Dead — Steve Lyons Krieg horror; Colonel Graven / 401st Death Korps in the catacombs of Oleris III, missing inquisitor → Inquisition supporting. Clean.
+  - W40K-0247 Chem Dog — Callum Davis; Commissar Bastun Hasp + Savlar Chem-Dogs penal legion vs Orks; satirical tone, cw_crime. low_confidence on locations (bastion world unnamed).
+  - W40K-0248 Steel Daemon — Ian St. Martin novella; Cadian tank crew vs Crimson Slaughter (named Chaos warband, antagonist Hakaron) in the 13th Black Crusade. low_confidence on locations (world unnamed).
+  - W40K-0249 Iron Resolve — Steve Lyons novella; Mordian Iron Guard last stand vs Orks on forest world Kallash, Lucius Myer POV. Clean.
+  - W40K-0250 Warrior Brood — C.S. Goto; opens the Deathwatch line (series_start). Inquisitor Kalypsia + Deathwatch vs Tyranids on Herodian IV; Inquisition-consistency satisfied via Ordo Xenos supporting.
+- **value_outside_vocabulary:** [ candidate protagonist_class `penal_legion` (Savlar Chem-Dogs / W40K-0247) — guardsman used as nearest existing value ]
+- **Notable surface-forms (within this batch):** Cortein's Honour; Tempestus Scions / First Eradicant / Xian Tigers; Blades of Atrocity / Skin-Taker; Savlar Chem-Dogs; Death Korps of Krieg (401st); Mordian Iron Guard; Brimlock Dragoons; Vostroyan 77th; Crimson Slaughter; Imperial Son (Leman Russ).
+- **Verification:** lint/typecheck/brain:lint skipped per Brief-061 convention — pure data commit (one override JSON + log append, no code).
