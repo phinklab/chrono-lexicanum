@@ -141,7 +141,7 @@
       "slug": "commissar",
       "overrides": {
         "synopsis": "Reconstituted from scratch after being wiped out in a previous campaign, the 77th Vostroyan Firstborn carry the shame of their forebears like a wound. Sent to crack a violent uprising on the prison world of Furia Penitens, they face rebels dug into an all-but-impregnable fortified prison-hive. Commissar Flint is charged with forging the broken regiment into a fighting force and deciding whether they can win the victory that restores their honour, or whether they are doomed to fail again. As the siege grinds on, Flint uncovers the regiment's strange and secret chain of command, and the heretical experiments festering inside the prison itself. A story of discipline, disgrace and the price of command.",
-        "facetIds": ["book", "male", "inquisitor", "imperium", "planetary", "standalone", "standard", "war_story", "siege", "mystery", "grimdark", "somber", "action_heavy", "war", "loyalty", "redemption", "doubt", "cw_violence", "cw_death", "en"],
+        "facetIds": ["book", "male", "commissar", "imperium", "planetary", "standalone", "standard", "war_story", "siege", "mystery", "grimdark", "somber", "action_heavy", "war", "loyalty", "redemption", "doubt", "cw_violence", "cw_death", "en"],
         "factions": [
           { "name": "Vostroyan Firstborn", "role": "primary" }
         ],

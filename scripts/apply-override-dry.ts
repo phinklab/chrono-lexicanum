@@ -70,6 +70,11 @@ const BATCHES = [
   "018",
   "019",
   "020",
+  "021",
+  "022",
+  "023",
+  "024",
+  "025",
 ] as const;
 const SMOKE_SLUGS = [
   "the-anarch",
@@ -92,6 +97,12 @@ const SMOKE_SLUGS = [
   "crossfire",
   "lasgun-wedding",
   "wanted-dead",
+  "blind",
+  "grey-knights",
+  "gunheads",
+  "baneblade",
+  "the-remnant-blade",
+  "warrior-brood",
 ] as const;
 
 const EXPECTED_RANGES = {
