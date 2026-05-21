@@ -310,5 +310,45 @@
     "id": "gary_kloster",
     "name": "Gary Kloster",
     "nameSort": "Kloster, Gary"
+  },
+  {
+    "id": "james_swallow",
+    "name": "James Swallow",
+    "nameSort": "Swallow, James"
+  },
+  {
+    "id": "mitchel_scanlon",
+    "name": "Mitchel Scanlon",
+    "nameSort": "Scanlon, Mitchel"
+  },
+  {
+    "id": "steve_parker",
+    "name": "Steve Parker",
+    "nameSort": "Parker, Steve"
+  },
+  {
+    "id": "mark_clapham",
+    "name": "Mark Clapham",
+    "nameSort": "Clapham, Mark"
+  },
+  {
+    "id": "andy_hoare",
+    "name": "Andy Hoare",
+    "nameSort": "Hoare, Andy"
+  },
+  {
+    "id": "toby_frost",
+    "name": "Toby Frost",
+    "nameSort": "Frost, Toby"
+  },
+  {
+    "id": "mike_vincent",
+    "name": "Mike Vincent",
+    "nameSort": "Vincent, Mike"
+  },
+  {
+    "id": "callum_davis",
+    "name": "Callum Davis",
+    "nameSort": "Davis, Callum"
   }
 ]

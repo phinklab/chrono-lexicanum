@@ -202,6 +202,41 @@ check("direct match - fourth wave House Belisarius Navigator House", () => {
   assert.equal(resolveFaction("House Belisarius").id, "house_belisarius");
 });
 
+check("direct match - fifth wave Blood Ravens (Dawn of War chapter, freq=6)", () => {
+  assert.equal(resolveFaction("Blood Ravens").id, "blood_ravens");
+});
+
+check("direct match - fifth wave Deathwatch (Ordo Xenos chamber militant)", () => {
+  assert.equal(resolveFaction("Deathwatch").id, "deathwatch");
+});
+
+check("direct match - fifth wave Adeptus Astra Telepathica (freq=2)", () => {
+  assert.equal(
+    resolveFaction("Adeptus Astra Telepathica").id,
+    "adeptus_astra_telepathica",
+  );
+});
+
+check("direct match - fifth wave Mordian Iron Guard (freq>=2 regiment)", () => {
+  assert.equal(resolveFaction("Mordian Iron Guard").id, "mordian_iron_guard");
+});
+
+check("direct match - fifth wave Vostroyan Firstborn (freq=1 iconic regiment)", () => {
+  assert.equal(resolveFaction("Vostroyan Firstborn").id, "vostroyan_firstborn");
+});
+
+check("direct match - fifth wave Tempestus Scions under astra_militarum", () => {
+  assert.equal(resolveFaction("Tempestus Scions").id, "tempestus_scions");
+});
+
+check("direct match - fifth wave Savlar Chem-Dogs (hyphen surface form)", () => {
+  assert.equal(resolveFaction("Savlar Chem-Dogs").id, "savlar_chem_dogs");
+});
+
+check("alias - fifth wave Collegia Titanica routes to Adeptus Titanicus", () => {
+  assert.equal(resolveFaction("Collegia Titanica").id, "adeptus_titanicus");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
@@ -334,6 +369,26 @@ check("alias - fourth wave Tau Empire space routes to tau_empire", () => {
 
 check("unresolved - fourth wave Imperium-as-Location cross-axis frame stays null", () => {
   assert.equal(resolveLocation("Imperium").id, null);
+});
+
+check("direct match - fifth wave Golgotha (Gunheads war world, freq=2)", () => {
+  assert.equal(resolveLocation("Golgotha").id, "golgotha");
+});
+
+check("direct match - fifth wave Sin of Damnation (space hulk vessel)", () => {
+  assert.equal(resolveLocation("Sin of Damnation").id, "sin_of_damnation");
+});
+
+check("direct match - fifth wave Tartarus (Dawn of War, freq=2)", () => {
+  assert.equal(resolveLocation("Tartarus").id, "tartarus");
+});
+
+check("direct match - fifth wave Solemnus (Black Templars homeworld)", () => {
+  assert.equal(resolveLocation("Solemnus").id, "solemnus");
+});
+
+check("direct match - fifth wave Danik's World (apostrophe surface form)", () => {
+  assert.equal(resolveLocation("Danik's World").id, "daniks_world");
 });
 
 console.log("\nresolveCharacter");
@@ -485,6 +540,35 @@ check("direct match - fourth wave Shira Calpurnia Adeptus Arbites POV", () => {
 
 check("direct match - fourth wave Captain Leoten Sempter Gothic War", () => {
   assert.equal(resolveCharacter("Captain Leoten Sempter").id, "captain_leoten_sempter");
+});
+
+check("direct match - fifth wave Alaric (Grey Knights, freq=4)", () => {
+  assert.equal(resolveCharacter("Alaric").id, "alaric");
+});
+
+check("direct match - fifth wave Gabriel Angelos (Blood Ravens, freq=4)", () => {
+  assert.equal(resolveCharacter("Gabriel Angelos").id, "gabriel_angelos");
+});
+
+check("direct match - fifth wave Macha (Eldar Farseer, freq=4)", () => {
+  assert.equal(resolveCharacter("Macha").id, "macha");
+});
+
+check("direct match - fifth wave Mephiston (Blood Angels, freq=2)", () => {
+  assert.equal(resolveCharacter("Mephiston").id, "mephiston");
+});
+
+check("alias-consolidation - fifth wave Lo Bannick both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Lo Bannick").id, "lo_bannick");
+  assert.equal(
+    resolveCharacter("Marken Cortein Lo Bannick").id,
+    "lo_bannick",
+  );
+});
+
+check("alias-consolidation - fifth wave Dante both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Commander Dante").id, "commander_dante");
+  assert.equal(resolveCharacter("Dante").id, "commander_dante");
 });
 
 console.log("\nnormalizeCharacterRole");

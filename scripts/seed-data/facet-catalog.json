@@ -42,6 +42,7 @@
       "values": [
         { "id": "space_marine", "name": "Space Marine", "displayOrder": 10 },
         { "id": "guardsman", "name": "Guardsman", "displayOrder": 20 },
+        { "id": "commissar", "name": "Commissar", "displayOrder": 25 },
         { "id": "inquisitor", "name": "Inquisitor", "displayOrder": 30 },
         { "id": "tech_priest", "name": "Tech-Priest", "displayOrder": 40 },
         { "id": "sister", "name": "Sister of Battle", "displayOrder": 50 },

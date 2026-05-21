@@ -1181,5 +1181,215 @@
     "primaryFactionId": "rogue_traders",
     "lexicanumUrl": null,
     "notes": "Deceased Rogue Trader namesake of the Phrax Charter; Legacy (W40K-0200) supporting-deceased focal point. Promoted freq=1 as lore-iconic"
+  },
+  {
+    "id": "alaric",
+    "name": "Alaric",
+    "primaryFactionId": "grey_knights",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "gabriel_angelos",
+    "name": "Gabriel Angelos",
+    "primaryFactionId": "blood_ravens",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "macha",
+    "name": "Macha",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "rafen",
+    "name": "Rafen",
+    "primaryFactionId": "blood_angels",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "marshal_brant",
+    "name": "Marshal Brant",
+    "primaryFactionId": "black_templars",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "nyxos",
+    "name": "Nyxos",
+    "primaryFactionId": "ordo_malleus",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "arkio",
+    "name": "Arkio",
+    "primaryFactionId": "blood_angels",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "arvin_larn",
+    "name": "Arvin Larn",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "captain_raphael",
+    "name": "Captain Raphael",
+    "primaryFactionId": "blood_angels",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "captain_sebastev",
+    "name": "Captain Sebastev",
+    "primaryFactionId": "vostroyan_firstborn",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "duke_venalitor",
+    "name": "Duke Venalitor",
+    "primaryFactionId": "khorne",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "ghargatuloth",
+    "name": "Ghargatuloth",
+    "primaryFactionId": "tzeentch",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "isador_akios",
+    "name": "Isador Akios",
+    "primaryFactionId": "blood_ravens",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "major_mortensen",
+    "name": "Major Mortensen",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "mephiston",
+    "name": "Mephiston",
+    "primaryFactionId": "blood_angels",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "noxx",
+    "name": "Noxx",
+    "primaryFactionId": "flesh_tearers",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "parmenion_thade",
+    "name": "Parmenion Thade",
+    "primaryFactionId": "cadian_shock_troops",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "remius_stele",
+    "name": "Remius Stele",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Fallen Inquisitor serving the Word Bearers; antagonist of the Deus Encarmine/Sanguinius duology. primaryFactionId = operative allegiance (word_bearers), not loyalist Inquisition."
+  },
+  {
+    "id": "rhamah",
+    "name": "Rhamah",
+    "primaryFactionId": "blood_ravens",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "sergeant_greiss",
+    "name": "Sergeant Greiss",
+    "primaryFactionId": "catachan_jungle_fighters",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "sergeant_lorenzo",
+    "name": "Sergeant Lorenzo",
+    "primaryFactionId": "blood_angels",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "sergeant_wulfe",
+    "name": "Sergeant Wulfe",
+    "primaryFactionId": "cadian_shock_troops",
+    "lexicanumUrl": null,
+    "notes": null
+  },
+  {
+    "id": "astorath",
+    "name": "Astorath",
+    "primaryFactionId": "blood_angels",
+    "lexicanumUrl": null,
+    "notes": "Blood Angels High Chaplain (Redeemer of the Lost). freq=1 lore-iconic promotion (W40K-0223)."
+  },
+  {
+    "id": "colonel_iron_hand_straken",
+    "name": "Colonel Iron Hand Straken",
+    "primaryFactionId": "catachan_jungle_fighters",
+    "lexicanumUrl": null,
+    "notes": "Iconic Catachan hero. freq=1 lore-iconic promotion (W40K-0239)."
+  },
+  {
+    "id": "commissar_flint",
+    "name": "Commissar Flint",
+    "primaryFactionId": "commissariat",
+    "lexicanumUrl": null,
+    "notes": "Commissar protagonist of W40K-0237 Commissar (Vostroyan posting). freq=1 lore-iconic; Call-2 commissar protagonist_class POV."
+  },
+  {
+    "id": "bastun_hasp",
+    "name": "Bastun Hasp",
+    "primaryFactionId": "commissariat",
+    "lexicanumUrl": null,
+    "notes": "Commissar POV of W40K-0247 Chem Dog (Savlar Chem-Dogs). freq=1 lore-iconic; Call-2 commissar protagonist_class POV."
+  },
+  {
+    "id": "dalchian_rassaq",
+    "name": "Dalchian Rassaq",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": "Night Lords POV of W40K-0244 The Remnant Blade. freq=1 lore-iconic."
+  },
+  {
+    "id": "tempestor_traxel",
+    "name": "Tempestor Traxel",
+    "primaryFactionId": "tempestus_scions",
+    "lexicanumUrl": null,
+    "notes": "Tempestus Scion lead of W40K-0243 Final Deployment. freq=1 lore-iconic."
+  },
+  {
+    "id": "lo_bannick",
+    "name": "Lo Bannick",
+    "primaryFactionId": "cadian_shock_troops",
+    "lexicanumUrl": null,
+    "notes": "Cross-batch consolidation (Brief 089): one Cadian armour officer across Guy Haley's tank duology — surface-forms 'Marken Cortein Lo Bannick' (W40K-0238 Baneblade) + 'Lo Bannick' (W40K-0241 Shadowsword). The full-name form is a character-alias."
+  },
+  {
+    "id": "commander_dante",
+    "name": "Commander Dante",
+    "primaryFactionId": "blood_angels",
+    "lexicanumUrl": null,
+    "notes": "Cross-batch consolidation (Brief 089): Blood Angels Chapter Master — surface-forms 'Dante' (W40K-0217 Deus Encarmine) + 'Commander Dante' (W40K-0223 Astorath). Bare 'Dante' is a character-alias."
   }
 ]

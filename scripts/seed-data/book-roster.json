@@ -7899,7 +7899,9 @@
       "externalBookId": "W40K-0206",
       "slug": "broken-crusade",
       "title": "Broken Crusade",
-      "authors": [],
+      "authors": [
+        "Steven B. Fischer"
+      ],
       "editors": [],
       "editorialNote": null,
       "releaseYear": 2024,
@@ -8495,7 +8497,9 @@
       "externalBookId": "W40K-0244",
       "slug": "the-remnant-blade",
       "title": "The Remnant Blade",
-      "authors": [],
+      "authors": [
+        "Mike Vincent"
+      ],
       "editors": [],
       "editorialNote": null,
       "releaseYear": 2025,
