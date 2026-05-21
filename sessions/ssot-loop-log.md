@@ -1152,3 +1152,24 @@
 - **value_outside_vocabulary:** [] (alle facetIds aus dem Katalog)
 - **Notable surface-forms (within this batch):** Deathwatch; Talon Squad; Death Spectres (Lyandro Karras); Inquisitor Sigma; Craftworld Ulthwé; Twisted Kin (Dark Eldar); Order of Our Martyred Lady; Order of the Bloody Rose; Sister Miriya / Sister Verity / Sister Superior Augusta; Torris Vaun; Inquisitor Istrix; Scafidis Zale; Sanctuary 101; Lautis; Lycheate; Neva; Van Horne; Rogue Trader Lucian Gerrit; Eastern Fringe; T'au Empire.
 - **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention — reiner Daten-Commit: Override-JSON + Log-Append, kein Code).
+
+## 2026-05-21 · ssot-w40k-027 · W40K-0261..W40K-0270 · ✅
+
+- **Cumulative books in authority:** 270 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=260, batch=ssot-w40k-027, slice=W40K-0261..W40K-0270
+- **WebSearch:** mean=0.9, max=1 (over 10 books); ratings each via Goodreads page-fetch (10 WebFetch, value+count read off the page)
+- **Per-book bullets:**
+  - W40K-0261 Star of Damocles — Rogue Trader bk2; council-politics + Damocles Gulf tau crusade. Astartes present but chapter unnamed → tagged browse-root `Adeptus Astartes`.
+  - W40K-0262 Savage Scars — Rogue Trader bk3; White Scars ground assault on Dal'yth, Tyranid invasion ends the crusade. Clean.
+  - W40K-0263 Rogue Trader Omnibus — aggregates Rogue Star + Star of Damocles + Savage Scars + 2 shorts (Cold Trade, Ambition Knows No Bounds); doorstopper, series_start entry. Tags aggregated across constituents.
+  - W40K-0264 Dark Apostle — Word Bearers bk1; Tanakreg, gehemehnet tower, dormant Necron monolith. Clean.
+  - W40K-0265 Dark Disciple — Word Bearers bk2; warzone world not clearly named in sources → `low_confidence` flag on locations, locations left empty.
+  - W40K-0266 Dark Creed — Word Bearers bk3; Boros Gate, White Consuls (Adeptus Praeses), Necrons. Clean.
+  - W40K-0267 The Word Bearers Omnibus — aggregates Dark Apostle + Dark Disciple + Dark Creed + short Torment; doorstopper, series_start entry. Tags aggregated.
+  - W40K-0268 Emperor's Mercy — Bastion Wars bk1; Inquisitor Roth + Medina Corridor mystery. Inquisitor POV → `Inquisition` primary (consistency satisfied). Enemy "Ironclads" kept as surface form, antagonist.
+  - W40K-0269 Flesh and Iron — Bastion Wars bk2; 31st Riverine on Solo-Baston, Chaos-fed insurgency under "Dos Pares". No concrete Chaos-sub fits → no generic `Chaos` junction; corruption noted in synopsis (Ruinous Powers).
+  - W40K-0270 Blood Gorgons — Bastion Wars bk3 but Chaos-side & largely self-contained → `standalone` entry. Nurgle-plague + shadowy unnamed xenos (left untagged, not invented).
+- **value_outside_vocabulary:** none (12 facet categories sufficed; `Rogue Traders` is a faction surface-form, not a facet)
+- **Notable surface-forms (within this batch):** `Rogue Traders`, `Tau Empire`, `White Scars`, `Word Bearers`, `White Consuls`, `Dark Eldar`, `Ironclads`, `Blood Gorgons`, `Adeptus Mechanicus`; chars `Lucian Gerrit`, `Brielle Gerrit`, `Inquisitor Grand`, `Sarik`, `Marduk`, `Jarulek`, `Kol Badar`, `Burias`, `Inquisitor Obodiah Roth`, `Fyodor Baeder`, `Barsabbas`, `Sargaul`, `Gammadin`. Resolving deferred to Resolver-Pass.
+- **Verification skipped:** pure data commit (override JSON + log append, no code) — lint/typecheck/brain:lint skipped per Brief-061 convention.
