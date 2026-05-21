@@ -1341,3 +1341,9 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Crimson Castellans, Crimson Sabres, Marines Errant, Red Corsairs, Militarum Tempestus, Flesh Tearers, Anrakyr the Traveller, Huron Blackheart, Variel the Flayer, The Exalted, Spawn of Cryptus, Tsagualsa, Vilamus, Lysios, Phodia, Cryptus, Crythe, the Maelstrom.
 - **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: Override-JSON + Markdown-Append, kein Code).
+
+## 2026-05-21 · ⏸ Resolver-Pause bei 350 Büchern
+
+- **Cumulative books:** 350 (in 35 batches: ssot-w40k-001..ssot-w40k-035)
+- **Action required:** Maintainer schreibt Resolver-Brief. Loop pausiert bis dahin.
+- **Pause-Detection:** selbst-erkennend (Brief 088) — dieser Block ist der Marker.
