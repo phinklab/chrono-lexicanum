@@ -25,6 +25,8 @@ This project's memory is split into two stores. Engineering memory stays in the 
 5. [`brain/wiki/open-questions.md`](./brain/wiki/open-questions.md) — what's queued for the next brief
 6. Whatever is relevant to the actual task (decisions, workflows, pipeline state, …)
 
+> **SSOT-Loop-Iteration?** Eine Loop-Iteration (`scripts/run-ssot-loop.sh`) ist ein mechanischer Task, **keine** normale Session: folge [`sessions/ssot-loop-runbook.md`](./sessions/ssot-loop-runbook.md) und überspringe diese Session-Start-Leseroutine (Brief 061 selbst wird **nicht** gelesen).
+
 Karpathy-Reset historischer Kontext: Brief [049](./sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md), 2026-05-08.
 
 ---

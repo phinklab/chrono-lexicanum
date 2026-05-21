@@ -17,6 +17,8 @@ supersedes: 2026-05-11-059-arch-cc-direct-overrides-w40k-002
 
 # SSOT-Loop — selbst-fortschreibender 10er-Batch-Override-Brief
 
+> **⚠ Operative Spec umgezogen (Brief 088, 2026-05-21).** Die ausführbare Spec für genau eine Loop-Iteration lebt jetzt in [`sessions/ssot-loop-runbook.md`](./ssot-loop-runbook.md); der Loop-Driver (`scripts/run-ssot-loop.sh`) und die CC-Iterationen folgen ihr. Brief 061 bleibt als **Design-Rationale** erhalten (warum es den Loop gibt, die Architektur-Entscheidungen) und wird **nicht mehr direkt ausgeführt**.
+
 > **Maintainer-Bedienung.** Du gibst diesen Brief CC einmal pro `/clear`. CC erkennt selbst, welcher Batch dran ist, produziert die Override-JSON für die nächsten 10 Bücher, hängt einen Block an `sessions/ssot-loop-log.md` an und stoppt. Dann `/clear`, gleiche Eröffnung, nächste 10. Bei kumulativ 50 Büchern in der Authority-Schicht stoppt der Loop loud und meldet „Resolver-Brief fällig".
 
 ## Goal
