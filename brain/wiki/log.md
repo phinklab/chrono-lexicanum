@@ -704,3 +704,38 @@ Brain-Update nach dem Merge von Brief 086 (PR #73, `origin/main` `af7d90c`). Aus
 **Outside the wiki:** `sessions/README.md` Active-Threads auf post-086-Stand. Coordination-Worktree-Befund: `.git/config` war NUL-byte-korrupt → 2026-05-20 repariert (Backup `.git/config.corrupt-backup-20260520`); tree-weiter CRLF-Flip + einige Commits hinter `origin/main` — Resync ist Routine-git-Hygiene, in der `project-state.md`-Branch-Sektion vermerkt.
 
 **Branch:** Wiki-Pass-Edits + Brief 087 liegen im Coordination-Worktree; die Commit-Mechanik wird mit dem Maintainer geklärt (die Cowork-Sandbox kann git-Write-Operationen nicht zuverlässig abschließen — unlink von `.git`-Lock-Dateien schlägt fehl).
+
+## 2026-05-21 · Ingest · Wiki-Hygiene-Pass post-087/088/089 (Resolver-Pass 5, 250 Bücher)
+
+Brain-Update nach dem Merge von Brief 087 (Goodreads-Rating-Pipeline, PR #74/#75), Brief 088 (SSOT-Loop lean, PR #76 `71fb4f1`), dem Loop-Lauf `ssot-w40k-021..025` (PR #77 `c2f53e7`) und Brief 089 (Resolver-Pass 5, PR #78 `d46bf6a`). `origin/main` steht auf `d46bf6a`, 250 W40K-Bücher in der DB. Ausgelöst durch den Maintainer-Auftrag „necessary hygiene across the project" — sammelt vier Sessions Drift seit dem post-086-Pass. Der Coordination-Worktree war hinter `origin/main`; der Maintainer hat ihn zu Session-Beginn per `git pull --ff-only` synct (clean fast-forward, kein Merge-Commit).
+
+**Read:**
+
+- `sessions/2026-05-20-087-impl-goodreads-rating-pipeline.md` — Goodreads-Rating als vierte forward-only Loop-Disziplin, `apply-override-rating.ts` Pure-Helper, `apply-override-dry.ts --file=`-Modus, `test:resolver` 154/0.
+- `sessions/2026-05-21-088-impl-ssot-loop-lean.md` — Loop-Iteration auf drei Dateien / ~6k Tokens, `loop-next-batch.ts`-Detection-Helper, `--skip-initial-resolver-pause` entfernt, selbst-erkennende Resolver-Pause.
+- `sessions/ssot-loop-log.md` Iterationen `021..025` — 50 Bücher W40K-0201..0250, vier Loop-Disziplinen, selbst-erkennender 250er-Pause-Block.
+- `sessions/2026-05-21-089-impl-resolver-pass-5.md` — axis-sliced Resolver-Pass 5, supervised/manuell gefahren, drei Wave-Calls, Counts post-Re-Apply `001..025`.
+
+**No new decision page.** Brief 089 hat `commissar` als ersten `protagonist_class`-Vokabular-Wert promoted — eine Vokabular-Erweiterung, kein ADR-Material (folgt dem etablierten Cockpit-Triage-Muster aus OQ2-(a)). Der `seed-facets-089.ts`-DB-Seed-Pfad ist als Pipeline-Konvention in `pipeline-state.md` § Pass-5-Konvention dokumentiert.
+
+**Closed (aus der Restqueue, keine numerierte OQ):** „Brief 087 fahren" + „Loop-Re-Trigger `ssot-w40k-021..025`" + Resolver-Pass 5 — alle drei erledigt.
+
+**New open-question:** OQ (14) Roster-Excel-Hygiene-Sweep (Maintainer-owned) — bündelt den W40K-0244-`seriesHint`-Mistag (Brief-089-Hand-off) mit den 5 `no_author`-Roster-Pflegelücken aus dem 075-Backfill. Reine Excel-SSOT-Edits, kein Architektur-Brief.
+
+**Updated wiki:**
+
+- `project-state.md` — `updated: 2026-05-21`, Header-Datum, Sources um 087-impl/088/089/`ssot-loop-log`. Phase-Headline auf „fünfte 50er-Welle / 250 Bücher / Goodreads-Rating live / SSOT-Loop schlank". Sequenz-Paragraph um 084/086/087/088/Loop/089 ergänzt. Buch-Domain-Bild auf 250 Bücher + Counts `1153/455/701/79/232` + Rating-Coverage 246/250. Branch-Sektion auf `d46bf6a` (PR #78) + Worktree-Resync-Notiz. What's-running: DB-/Excel-SSOT-/Loop-Driver-/Resolver-Driver-Bullets auf post-089. Neue „Latest pipeline state (post-089)"-Sektion. What's-open neu sortiert (Loop-Re-Trigger `026..030` oben, OQ (14) gebündelt). Recently-shipped um sieben Zeilen. Next-likely-brief auf Loop `026..030` → Resolver-Pass-6.
+- `pipeline-state.md` — `updated: 2026-05-21`, Titel auf `post-089-impl`, Sources um die neuen Sessions + `loop-next-batch.ts` + `apply-override-rating.ts` + `ssot-loop-runbook.md`. Intro-Blockquote auf fünf Resolver-Pässe + 250 Bücher + post-089-Counts. § Resolver layer auf `through 089-impl`, Counts (154/169/199 reference, Aliases 37/13/28), Coverage-Story post-089, Test-Counts (173/0). Drei neue Konventions-Paragraphen (Pass-5-Konvention inkl. `seed-facets-089`-Landmine, Rating-Schicht Brief 087, Loop-Lean-Konvention Brief 088). § What's next: Items 16–19 als ✅, neue Items 20–21 (Loop 026-030, Resolver-Pass 6), Rest renumeriert.
+- `open-questions.md` — `updated: 2026-05-21`, neuer Frontmatter-Header-Kommentar, Sources um die neuen Sessions. Migration-history-Satz angehängt. Neue OQ (14) Roster-Excel-Hygiene-Sweep am Ende.
+- `index.md` — `updated: 2026-05-21`, Katalog-Zeilen project-state/open-questions/pipeline-state/log + Self-Row auf post-089-Stand.
+- This `log.md` — Append-only-Eintrag.
+
+**roadmap.md not touched** — 087/088/089 haben keine Phasen-/Sub-Phasen-Grenze bewegt (alles innerhalb Phase 3). Der „Refresh-Button" steht schon im Ideas Backlog (post-086).
+
+**Session-Archivierung:** geschlossene Session-Files aus `sessions/` root nach `sessions/archive/2026-05/` verschoben (Archive-Regel: root behält nur offene Briefs + die letzten 1–2 geschlossenen Sessions). `git mv`-Liste an den Maintainer übergeben.
+
+**Outside the wiki:** `sessions/README.md` Active-Threads + Kopf-Paragraph + Reihenfolge auf post-089-Stand.
+
+**Out of scope dieser Hygiene-Session:** Keine Code-Änderungen, kein CC-Brief. Kein `brain:lint --no-write`-Run durch Cowork (Sandbox unzuverlässig — Maintainer/CI). Kein ADR für `commissar` (Vokabular, kein Architektur-Call). `deferred-questions.md` unangetastet. Die mittlerweile sieben „Latest pipeline state"-Sektionen in `project-state.md` sind ein bekannter Bloat-Punkt — Collapse der ältesten in einen Pointer ist Kandidat für eine künftige Slim-Pass-Iteration, hier bewusst nicht gemacht (Accuracy-Fokus, kein riskanter 80-Zeilen-Verbatim-Edit).
+
+**Branch:** Wiki-Pass-Edits liegen im Coordination-Worktree; die Commit-Mechanik (Branch `codex/session-090-wiki-hygiene` o. ä. + `git mv` für die Archivierung) klärt der Maintainer — die Cowork-Sandbox kann git-Write-Operationen nicht zuverlässig abschließen.
