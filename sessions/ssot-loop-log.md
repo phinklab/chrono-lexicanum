@@ -1062,3 +1062,24 @@
 - **value_outside_vocabulary:** [] — all facetIds drawn from facet-catalog.json
 - **Notable surface-forms (within this batch):** "Blood Ravens", "Tzeentch", "Khorne", "Dark Mechanicum" and "Ordo Malleus" used as raw faction names (specific Chaos/Mechanicum/Inquisition sub-granularity, not generic Chaos/Imperium); "Eldar"/"Orks"/"Tyranids" as concrete xenos; locations Aurelia, Acheron, Chaeroneia, Borosis, Drakaasi, Eye of Terror, Cybele, Shenlong, Baal, Sabien, Dynikas V kept as source surface forms (no pre-resolving).
 - **Verification:** lint/typecheck/brain:lint skipped (Brief-061 convention — pure data commit: one override JSON + this log append, no code).
+
+## 2026-05-21 · ssot-w40k-023 · W40K-0221..W40K-0230 · ✅
+
+- **Cumulative books in authority:** 230 / next resolver pause at 250 (in 20 books)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=220, batch=ssot-w40k-023, slice=W40K-0221..W40K-0230
+- **WebSearch:** mean≈1.0, max=2 (over 10 books; Space Hulk family used one shared context search plus one Goodreads-URL lookup)
+- **Per-book bullets:**
+  - W40K-0221 Space Hulk (novella): Blood Angels boarding-action tie-in to the Space Hulk board game; genestealers tagged as Tyranids. The named setting is the space hulk itself (a vessel), tagged as the primary location.
+  - W40K-0222 Sin of Damnation (novella): same core story as W40K-0221 — the 2009 Space Hulk: The Novel re-released 2014 bundled with the short story Sanguis Irae. Distinct Goodreads work/edition, rated separately. Borderline novella+short bundle but roster `novella` is reasonable; no format flag raised.
+  - W40K-0223 Astorath: Angel of Mercy (novella): post-Devastation-of-Baal; features Blood Angels successor Chapter Red Wings and an Enslaver infestation (tagged Enslavers antagonist). Black Rage → cw_mental_health.
+  - W40K-0224 Fifteen Hours: solid coverage; Arvin Larn at the Broucheroc siege vs Orks. Highest rating-count in the batch (1,632).
+  - W40K-0225 Death World: Catachan squad on Rogar III; the planet itself is the secondary antagonist (cosmic_horror tag for the evolving jungle / zombie troopers).
+  - W40K-0226 Rebel Winter: Vostroyan fighting-retreat on Danik's World; escorted traitor → betrayal theme.
+  - W40K-0227 Imperial Guard Omnibus Vol. One / Shield of the Emperor (omnibus): aggregates the three novels above (each + a companion short: Knee Deep, Better the Devil, The Citadel). Facets/locations/characters aggregated across constituents. Rating taken from the "Shield of the Emperor" 2020 work page (4.25 / 40) — see edition note below.
+  - W40K-0228 Desert Raiders: Tallarn vs Tyranids on Khadar; no reliable named POV from sources → characters left empty + low_confidence flag.
+  - W40K-0229 Ice Guard: Valhallan stealth rescue on doomed Cressida; sources confirm a Chaos occupation but name no specific sub-faction → generic "Chaos" antagonist + low_confidence flag.
+  - W40K-0230 Gunheads: Cadian armoured company on Golgotha recovering Yarrick's Fortress of Arrogance; rival Corporal Lenck tagged antagonist.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Imperial Guard" kept verbatim (era surface form; not pre-resolved to Astra Militarum). Chapter names "Blood Angels" / "Red Wings" and the space-hulk vessel name "Sin of Damnation" preserved as-is. Edition disambiguation: the omnibus rating used the "Shield of the Emperor" work page (goodreads.com/book/show/52784662); the per-novel ratings used each novel's own standalone page.
+- **Verification:** lint/typecheck/brain:lint skipped per Brief-061 data-only convention (override JSON + log append, no code). JSON parse + facetId-vocabulary + synopsis-length (400–1200) checks run locally and pass.
