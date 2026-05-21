@@ -371,6 +371,26 @@ check("unresolved - fourth wave Imperium-as-Location cross-axis frame stays null
   assert.equal(resolveLocation("Imperium").id, null);
 });
 
+check("direct match - fifth wave Golgotha (Gunheads war world, freq=2)", () => {
+  assert.equal(resolveLocation("Golgotha").id, "golgotha");
+});
+
+check("direct match - fifth wave Sin of Damnation (space hulk vessel)", () => {
+  assert.equal(resolveLocation("Sin of Damnation").id, "sin_of_damnation");
+});
+
+check("direct match - fifth wave Tartarus (Dawn of War, freq=2)", () => {
+  assert.equal(resolveLocation("Tartarus").id, "tartarus");
+});
+
+check("direct match - fifth wave Solemnus (Black Templars homeworld)", () => {
+  assert.equal(resolveLocation("Solemnus").id, "solemnus");
+});
+
+check("direct match - fifth wave Danik's World (apostrophe surface form)", () => {
+  assert.equal(resolveLocation("Danik's World").id, "daniks_world");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {

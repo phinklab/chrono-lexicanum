@@ -1352,5 +1352,101 @@
     "gx": null,
     "gy": null,
     "tags": []
+  },
+  {
+    "id": "tartarus",
+    "name": "Tartarus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "rahes_paradise",
+    "name": "Rahe's Paradise",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "solemnus",
+    "name": "Solemnus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "chaeroneia",
+    "name": "Chaeroneia",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "drakaasi",
+    "name": "Drakaasi",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "sin_of_damnation",
+    "name": "Sin of Damnation",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "broucheroc",
+    "name": "Broucheroc",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "rogar_iii",
+    "name": "Rogar III",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "daniks_world",
+    "name": "Danik's World",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "golgotha",
+    "name": "Golgotha",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "kathur",
+    "name": "Kathur",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "hieronymous_theta",
+    "name": "Hieronymous Theta",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
   }
 ]
