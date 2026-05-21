@@ -22,6 +22,12 @@ explicitly about a Claude/Anthropic model or a historical project decision.
 `sessions/ssot-loop-runbook.md` and skip the session-start reading routine above
 (Brief 061 itself is not read).
 
+**Resolver-Pass phases are likewise the exception.** A phase of an axis-sliced
+Resolver-Pass (`scripts/run-resolver-pass.sh` / per-pass config) is a mechanical
+task, not a normal session: follow `sessions/resolver-pass-runbook.md` plus the
+pass config and skip the session-start reading routine above (Brief 076 and the
+per-pass architect brief are not read to run a phase).
+
 ## Parallel worktree git protocol
 
 Durable local worktrees:

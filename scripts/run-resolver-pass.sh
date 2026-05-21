@@ -12,20 +12,22 @@
 #
 # THIS DRIVER IS A DELIVERABLE OF BRIEF 076, NOT THE ORCHESTRATOR FOR BRIEF 076
 # ITSELF. Brief 076 was run manually (5 sequential `claude -p` subsessions with
-# `/clear` between them); this driver is intended for Resolver-Pass 5+ once the
-# next 50er-wave (`ssot-w40k-021..025`) lands.
+# `/clear` between them). Since Brief 090 the operative spec is the lean runbook
+# `sessions/resolver-pass-runbook.md` — each phase reads runbook + config + its
+# axis-package only; the per-pass architect brief is optional / rationale-only.
+# The driver injects the runbook pointer (not the brief) into every phase trigger.
 #
 # USAGE
 #   ./scripts/run-resolver-pass.sh <pass-config.json>
 #
 #   The config file is a small JSON descriptor produced by Cowork for each
-#   Resolver-Pass; see scripts/resolver-pass.config.json for the Pass-5
-#   template. Shape:
+#   Resolver-Pass; see scripts/resolver-pass.config.json for the template. Shape:
 #     {
-#       "pass":     "5",
-#       "wave":     "ssot-w40k-021..025",
-#       "brief":    "sessions/2026-MM-DD-NNN-arch-resolver-batch-N-axis-sliced.md",
-#       "dossier":  "sessions/resolver-dossiers/2026-MM-DD-NNN-resolver-pass-N-dossier.md",
+#       "pass":     "6",
+#       "wave":     "ssot-w40k-026..030",
+#       "runbook":  "sessions/resolver-pass-runbook.md",   // REQUIRED (operative spec, Brief 090)
+#       "brief":    "sessions/...-arch-resolver-pass-N.md", // OPTIONAL (rationale only; omit to run brief-free)
+#       "dossier":  "sessions/resolver-dossiers/...-resolver-pass-N-dossier.md",
 #       "phases": [
 #         {
 #           "name": "phase-0-preflight",
@@ -191,11 +193,17 @@ parse_config_string() {
 
 PASS_LABEL=$(parse_config_string ".pass" || die 1 "config missing .pass")
 WAVE_LABEL=$(parse_config_string ".wave" || die 1 "config missing .wave")
-BRIEF_PATH=$(parse_config_string ".brief" || die 1 "config missing .brief")
+# Brief 090: the runbook (sessions/resolver-pass-runbook.md) is the required
+# operative spec; the per-pass architect brief is optional / rationale-only.
+RUNBOOK_PATH=$(parse_config_string ".runbook" || die 1 "config missing .runbook (operative spec — see Brief 090)")
+BRIEF_PATH=$(parse_config_string ".brief" 2>/dev/null || true)
 DOSSIER_PATH=$(parse_config_string ".dossier" || die 1 "config missing .dossier")
 
-if [[ ! -f "$BRIEF_PATH" ]]; then
-  die 1 "brief path does not exist: $BRIEF_PATH"
+if [[ ! -f "$RUNBOOK_PATH" ]]; then
+  die 1 "runbook path does not exist: $RUNBOOK_PATH"
+fi
+if [[ -n "$BRIEF_PATH" && ! -f "$BRIEF_PATH" ]]; then
+  die 1 "brief path set in config but does not exist: $BRIEF_PATH"
 fi
 
 PHASE_COUNT=$(node --input-type=module -e "
@@ -205,7 +213,7 @@ PHASE_COUNT=$(node --input-type=module -e "
   process.stdout.write(String(cfg.phases.length));
 " "$CONFIG_PATH" || die 1 "config has no phases array")
 
-ok "  config parsed: pass=$PASS_LABEL, wave=$WAVE_LABEL, phases=$PHASE_COUNT"
+ok "  config parsed: pass=$PASS_LABEL, wave=$WAVE_LABEL, runbook=$RUNBOOK_PATH, phases=$PHASE_COUNT${BRIEF_PATH:+, brief=$BRIEF_PATH (rationale)}"
 
 # get_phase_field <index> <field>
 # Returns the phase's trigger / name as a string, or scope as newline-joined paths.
@@ -332,8 +340,18 @@ build_phase_trigger() {
   cat <<EOF
 Resolver-Pass $PASS_LABEL ($WAVE_LABEL), Phase: $phase_name.
 
-Brief: $BRIEF_PATH
+Dies ist ein mechanischer Task, keine normale Session. Lies $RUNBOOK_PATH und
+folge ihm exakt; lies die Pass-Config $CONFIG_PATH (Phase-Name, Scope, Pfade).
+Lies NUR, was das Runbook ausdrücklich nennt (Runbook + Config + Dossier + das
+Achs-Paket dieser Phase) — NICHT Brief 076, NICHT den per-pass Architect-Brief,
+NICHT die Override-Files, NICHT das volle ssot-loop-log.md. Überspringe die
+Session-Start-Leseroutine aus CLAUDE.md/AGENTS.md. Kein Co-Author-Trailer.
+
+Runbook: $RUNBOOK_PATH
 EOF
+  if [[ -n "$BRIEF_PATH" ]]; then
+    printf 'Brief (nur Rationale, NICHT zum Fahren der Phase lesen): %s\n' "$BRIEF_PATH"
+  fi
   if [[ "$include_dossier" == "1" ]]; then
     printf 'Dossier: %s\n' "$DOSSIER_PATH"
   fi
@@ -456,7 +474,10 @@ pr_body() {
       "$NEEDS_DECISION_PHASE" "$NEEDS_DECISION_FILE"
     printf 'Maintainer follow-up: write a follow-up brief that resolves the question and re-run this driver on the remaining phases.\n\n'
   fi
-  printf 'Brief: `%s`.\n' "$BRIEF_PATH"
+  printf 'Runbook: `%s`.\n' "$RUNBOOK_PATH"
+  if [[ -n "$BRIEF_PATH" ]]; then
+    printf 'Brief (Rationale): `%s`.\n' "$BRIEF_PATH"
+  fi
   printf 'Dossier: `%s`.\n' "$DOSSIER_PATH"
 }
 

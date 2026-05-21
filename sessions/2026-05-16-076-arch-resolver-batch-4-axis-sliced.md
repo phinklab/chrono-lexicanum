@@ -28,6 +28,8 @@ commits:
 
 # Resolver-Pass 4 — axis-sliced, manuell gefahren (Driver-Deliverable für Pass 5+) (ssot-w40k-016..020 / W40K-0151..W40K-0200)
 
+> **⚠ Operative Spec umgezogen (Brief 090, 2026-05-21).** Die ausführbare Spec für genau eine Resolver-Pass-Phase lebt jetzt in [`sessions/resolver-pass-runbook.md`](./resolver-pass-runbook.md); die per-pass Config (`scripts/resolver-pass.config.json`) trägt die wave-spezifischen Parameter. Brief 076 bleibt als **Design-Rationale** erhalten (warum es den axis-sliced Resolver-Pass gibt, die Achsen-Aufteilung, die Driver-Herkunft) und wird **nicht mehr direkt gelesen, um eine Phase zu fahren** — eine Phase liest Runbook + Config + ihr Achs-Paket, sonst nichts (Brief 090 § Lese-Scope).
+
 ## Erratum (2026-05-16, post-Codex-Review, zwei Runden)
 
 Codex hat den Brief zweimal reviewed. **Lies diesen Block, bevor du dem Rest folgst — diese Korrekturen überschreiben gegenteilige Aussagen weiter unten.** Punkte 1–6 stammen aus Review 1 (Vertragslücken zwischen Phasen-Write-Scopes und Acceptance), Punkte 7–9 aus Review 2 (Driver-Rolle, Phase-Report-Wording, stale Begriffe). Direkt-Edits im Body sind nachgepflegt, sodass der Brief beim Top-to-Bottom-Lesen konsistent ist — der Erratum-Block ist primärer Lese-Anchor.
