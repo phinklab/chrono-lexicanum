@@ -1131,3 +1131,24 @@
 - **Cumulative books:** 250 (in 25 batches: ssot-w40k-001..ssot-w40k-025)
 - **Action required:** Maintainer schreibt Resolver-Brief. Loop pausiert bis dahin.
 - **Pause-Detection:** selbst-erkennend (Brief 088) — dieser Block ist der Marker.
+
+## 2026-05-21 · ssot-w40k-026 · W40K-0251..W40K-0260 · ✅
+
+- **Cumulative books in authority:** 260 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=250, batch=ssot-w40k-026, slice=W40K-0251..W40K-0260
+- **WebSearch:** mean=1.1, max=2 (over 10 books) — meist 1 Synopsis-Kontext-Suche/Buch; "The Rose in Anger" brauchte eine 2. Suche, um die korrekte Goodreads-Seite zu finden (Roster-Titel weicht ab). Alle 10 Goodreads-Ratings per Page-Read, nicht aus Snippets.
+- **Per-book bullets:**
+  - W40K-0251 Warrior Coven — Deathwatch-Eldar-Allianz vs. Dark Eldar; Multi-POV (Marine + xenos), daher pov_side imperium+xenos. Inquisition-Geheimmotiv eines Teammitglieds → Inquisition supporting.
+  - W40K-0252 Deathwatch — Talon-Squad-Origin; Genestealer-Lair → Tyranids antagonist, cosmic_horror. Sigma ist Ordo-Xenos-Inquisitor (supporting), Karras kein Inquisitor → Inquisition-Konsistenz erfüllt.
+  - W40K-0253 Shadowbreaker — direkter Sequel zu Deathwatch → entry_point requires_context. T'au-besetzte Welt im Source nicht benannt → locations leer + low_confidence-Flag.
+  - W40K-0254 Faith and Fire — Sisters-of-Battle #1, Sister Miriya/Verity, Heretiker-Psyker Torris Vaun; Neva/Van Horne. series_start.
+  - W40K-0255 Hammer and Anvil — Sanctuary 101, Necrons antagonist; siege/last_stand. mid_series.
+  - W40K-0256 Sisters of Battle: The Omnibus — format omnibus, aggregiert Faith & Fire + Hammer & Anvil + Prosa-Fassung Red & Black + neue Story Heart & Soul. Tags aggregiert über die Constituents (Neva/Van Horne/Sanctuary 101, Necrons, Torris Vaun); length doorstopper.
+  - W40K-0257 The Bloodied Rose — Danie-Ware-Augusta-Novella #1 (nach Kurzgeschichte "Mercy"); Jungelwelt Lautis. Aufsteigender Krypta-Horror im Source nicht als konkrete Faction benannt → Orks (bestätigter Lautis-Threat) antagonist + low_confidence-Flag auf factions.
+  - W40K-0258 Wreck and Ruin — Augusta #2; Forge-World Lycheate, Inquisitor Istrix (supporting), Rogue-Psyker Scafidis Zale antagonist; requires_context.
+  - W40K-0259 The Rose in the Anger — **Roster-Titel-Mistag:** echter Titel ist "The Rose in Anger" (ohne "the"); slug bleibt roster-treu. Augusta #3, Rückkehr nach Lycheate, volle Order-Muster (Panzer/Gunships) → scope planetary, series_finale für Augustas Arc. Antagonist-Faction im Source ungenannt → low_confidence-Flag.
+  - W40K-0260 Rogue Star — Rogue-Trader #1, Lucian Gerrit, Eastern Fringe, T'au-Erstkontakt antagonist. Kein sauberer Browse-Root für Protagonisten-Faction → surface "Rogue Traders" primary, protagonist_class civilian (kein Standard-Militär-Archetyp).
+- **value_outside_vocabulary:** [] (alle facetIds aus dem Katalog)
+- **Notable surface-forms (within this batch):** Deathwatch; Talon Squad; Death Spectres (Lyandro Karras); Inquisitor Sigma; Craftworld Ulthwé; Twisted Kin (Dark Eldar); Order of Our Martyred Lady; Order of the Bloody Rose; Sister Miriya / Sister Verity / Sister Superior Augusta; Torris Vaun; Inquisitor Istrix; Scafidis Zale; Sanctuary 101; Lautis; Lycheate; Neva; Van Horne; Rogue Trader Lucian Gerrit; Eastern Fringe; T'au Empire.
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention — reiner Daten-Commit: Override-JSON + Log-Append, kein Code).
