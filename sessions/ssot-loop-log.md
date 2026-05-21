@@ -1041,3 +1041,24 @@
 - **value_outside_vocabulary:** none — but noting (not adding to catalog): no `protagonist_class` value fits an Adeptus Arbites lawman (used `civilian`); `format` facet has no omnibus/collection value (omnibi tagged `book` + `doorstopper`).
 - **Notable surface-forms (within this batch):** "Adeptus Astra Telepathica", "Bastion Psykana", "Collegia Titanica", "Blood Scar tribe" (kept in synopsis only), "Rahe's Paradise", "Biel-Tan" (kept in synopsis), "Dauntless Honour", "Castellan Emeric".
 - **Verification skipped:** lint/typecheck/brain:lint skipped per Brief-061 convention — pure data commit (one override JSON + markdown append, no code).
+
+## 2026-05-21 · ssot-w40k-022 · W40K-0211..W40K-0220 · ✅
+
+- **Cumulative books in authority:** 220 / 30 books to next resolver pause (threshold 250)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=210, batch=ssot-w40k-022, slice=W40K-0211..W40K-0220
+- **WebSearch:** mean≈1.3, max=2 (over 10 books) — synopsis context plus two confirmation passes for Blood Angels factions/locations and two Goodreads-page-find queries
+- **Per-book bullets:**
+  - W40K-0211 Dawn of War II (Roberson): game tie-in novel, Blood Ravens vs Orks then Tyranids. Locations left at Aurelia sub-sector only + low_confidence flag — individual world names in the novelisation not source-confirmed.
+  - W40K-0212 Dawn of War III (MacNiven): three-way Blood Ravens/eldar/orks brawl over a relic-weapon on Acheron. Goodreads aggregation thin (49 ratings) — kept rated, low_confidence flag on rating for small sample.
+  - W40K-0213 Grey Knights (Counter): Alaric vs daemon prince Ghargatuloth (Tzeentch). Locations empty + low_confidence flag — the Trail-of-Saint-Evisser worlds were not reliably named in sources; declined to invent.
+  - W40K-0214 Dark Adeptus (Counter): Grey Knights on warp-returned forge world Chaeroneia; Dark Mechanicum antagonist, Adeptus Mechanicus uneasy allies.
+  - W40K-0215 Hammer of Daemons (Counter): Alaric captive on Khorne daemon world Drakaasi, gladiatorial-escape arc. cw_abuse added for enslavement.
+  - W40K-0216 The Grey Knights Omnibus (Counter): aggregates 0213–0215 (factions/locations/characters/facets union, length doorstopper). Rating taken from the Goodreads work-aggregation page (4084720, 4.12/1231), which carries the 2014 reprint date but aggregates the omnibus work; roster lists the 2009 first edition — same work.
+  - W40K-0217 Deus Encarmine (Swallow): Rafen/Arkio schism, Word Bearers (Iskavan) antagonist, renegade Inquisitor Stele → Inquisition tagged antagonist per Inquisition-consistency.
+  - W40K-0218 Deus Sanguinius (Swallow): conclusion of the duology, civil war at Sabien, Mephiston judging.
+  - W40K-0219 Red Fury (Swallow): Flesh Tearers diplomacy + Fabius Bile (tagged Emperor's Children) stealing Sanguinius's blood from the Red Grail.
+  - W40K-0220 Black Tide (Swallow): hunt for Fabius Bile to Tyranid death world Dynikas V; Flesh Tearers co-belligerents.
+- **value_outside_vocabulary:** [] — all facetIds drawn from facet-catalog.json
+- **Notable surface-forms (within this batch):** "Blood Ravens", "Tzeentch", "Khorne", "Dark Mechanicum" and "Ordo Malleus" used as raw faction names (specific Chaos/Mechanicum/Inquisition sub-granularity, not generic Chaos/Imperium); "Eldar"/"Orks"/"Tyranids" as concrete xenos; locations Aurelia, Acheron, Chaeroneia, Borosis, Drakaasi, Eye of Terror, Cybele, Shenlong, Baal, Sabien, Dynikas V kept as source surface forms (no pre-resolving).
+- **Verification:** lint/typecheck/brain:lint skipped (Brief-061 convention — pure data commit: one override JSON + this log append, no code).
