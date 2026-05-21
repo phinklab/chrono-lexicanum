@@ -1,0 +1,140 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-033",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "A uniform wave of ten 2014-2015 Space Marine Battles novellas, almost all tie-ins to multi-novella event arcs (Plagues of Orath, the Third War for Armageddon, the Sanctus Reach Red Waaagh!). Many revolve around the same setting (Armageddon, Sanctus Reach) seen from different Chapters, so locations cluster heavily; one entry (Evil Sun Rising) is a rare all-Ork-POV story. All books are well-documented and ratings were read from individual Goodreads pages.",
+  "books": [
+    {
+      "externalBookId": "W40K-0321",
+      "slug": "engines-of-war",
+      "overrides": {
+        "synopsis": "The agri-world of Orath is dying, choked by a spreading plague, and the Ultramarines arrive in force to cut the rot out at its source. Captain Galenus of the Fifth Company leads an armoured spearhead against Fort Kerberos, a stronghold held by the Death Guard, whose corruption-ridden warriors have dug in behind walls of decay. What follows is a punishing campaign of tanks, gunships and grinding ground assault, as the Space Marines bring their full might to bear against an enemy that does not fear death. Yet for all their firepower, Galenus and his brothers must reckon with a deeper question: why have the servants of the Plague God poured such effort into a world the Imperium had all but forgotten? The answer lies buried beneath Orath, and uncovering it will be paid for in blood.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "novella", "mid_series", "war_story", "siege", "action_heavy", "grimdark", "war", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Ultramarines", "role": "primary" }, { "name": "Death Guard", "role": "antagonist" }],
+        "locations": [{ "name": "Orath", "role": "primary" }],
+        "characters": [{ "name": "Galenus", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.15, "count": 41, "evidenceUrl": "https://www.goodreads.com/book/show/22071455-engines-of-war" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0322",
+      "slug": "armour-of-faith",
+      "overrides": {
+        "synopsis": "Sent to hold a seemingly worthless fortress on the war-torn world of Orath, the Ultramarines Chaplain Sentina and his small squad of Centurions discover they stand at the centre of a far darker design. The forces of Chaos mean to tear open a new wound in reality here, a rift that could swallow an entire sector, and only Sentina's faith stands between the Imperium and catastrophe. As daemonic hordes batter the fortress walls and a fell power stirs within its depths, the Chaplain wages two wars at once: one against the inhuman things clawing at the gates, and one against the doubt and temptation rising in his own soul. To prevail he may have to spend not only his life but his faith itself. The concluding chapter of the campaign for Orath.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "novella", "series_finale", "war_story", "last_stand", "action_heavy", "grimdark", "faith", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Ultramarines", "role": "primary" }, { "name": "Death Guard", "role": "antagonist" }, { "name": "Chaos Daemons", "role": "supporting" }],
+        "locations": [{ "name": "Orath", "role": "primary" }],
+        "characters": [{ "name": "Sentina", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.58, "count": 38, "evidenceUrl": "https://www.goodreads.com/book/show/22604910-armour-of-faith" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0323",
+      "slug": "sons-of-wrath",
+      "overrides": {
+        "synopsis": "In the bitter aftermath of the great betrayal that nearly destroyed the Imperium, the warriors who once fought as Blood Angels are broken apart and remade. Among them are the Flesh Tearers, gathered behind their grim Chapter Master Amit, struggling to accept the new name and new identity forced upon them. Still raw with grief over the loss of their primarch and barely able to master the red rage that boils in their blood, they vent their fury first upon one another and then upon a rival Chapter of newly forged Space Marines. A single mistake hardens into a blood feud that will echo for ten thousand years. At the heart of it stands Amit, wrestling with how far he is willing to go, and how much of himself he is willing to lose, in the name of duty.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "novella", "series_start", "war_story", "character_study", "grimdark", "somber", "brotherhood", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Flesh Tearers", "role": "primary" }, { "name": "Blood Angels", "role": "supporting" }],
+        "locations": [],
+        "characters": [{ "name": "Amit", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.68, "count": 96, "evidenceUrl": "https://www.goodreads.com/book/show/23344355-sons-of-wrath" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0324",
+      "slug": "angrons-monolith",
+      "overrides": {
+        "synopsis": "As the Third War for Armageddon rages, the secretive and distrusted Relictors Chapter descends into the equatorial jungles of that ravaged world. Officially they hunt the feral Orks who swarm the green hell, but their true purpose is darker: somewhere in the undergrowth lie battle-brothers who came seeking an ancient relic, an artefact bound to the traitor primarch Angron himself. The Relictors have always walked the knife's edge, gathering tainted weapons to turn against the enemies of mankind, and the prize they seek on Armageddon may be the most dangerous of all. Stalking through choking jungle against an enemy without number, they must decide how much corruption a loyal warrior can carry before he becomes the very thing he hunts.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "novella", "standalone", "war_story", "journey", "action_heavy", "grimdark", "hubris", "doubt", "war", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Relictors", "role": "primary" }, { "name": "Orks", "role": "antagonist" }],
+        "locations": [{ "name": "Armageddon", "role": "primary" }],
+        "characters": [],
+        "flags": [{ "kind": "low_confidence", "field": "characters", "reason": "available sources name no individual viewpoint character" }],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.54, "count": 83, "evidenceUrl": "https://www.goodreads.com/book/show/22895743-angron-s-monolith" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0325",
+      "slug": "the-eternal-crusader",
+      "overrides": {
+        "synopsis": "High Marshal Helbrecht of the Black Templars returns from the lightless reaches of the Ghoul Stars frustrated and unfulfilled, his crusade against an elusive alien horror left unfinished. Then word reaches him of a vast greenskin invasion bearing down on Armageddon, and the High Marshal turns his fleet toward a war he can win. Given command of the void battle above the besieged world, Helbrecht prepares to shatter Ghazghkull's armada as it arrives. Much of the story unfolds aboard the Eternal Crusader, the ancient flagship that is itself a relic of a bygone age, where Helbrecht's iron will collides with the doubts of those around him, not least the newly raised Reclusiarch Grimaldus. It is a portrait of a commander defined by faith, pride and an unquenchable thirst for the destruction of mankind's foes.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "novella", "requires_context", "war_story", "faith", "action_heavy", "grimdark", "war", "brotherhood", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Black Templars", "role": "primary" }, { "name": "Orks", "role": "antagonist" }],
+        "locations": [{ "name": "Armageddon", "role": "primary" }, { "name": "Ghoul Stars", "role": "supporting" }],
+        "characters": [{ "name": "Helbrecht", "role": "pov" }, { "name": "Grimaldus", "role": "supporting" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.64, "count": 112, "evidenceUrl": "https://www.goodreads.com/book/show/22930618-the-eternal-crusader" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0326",
+      "slug": "dantes-canyon",
+      "overrides": {
+        "synopsis": "On the ash wastes of Armageddon, a strike force of White Scars sets a deadly snare for the Orks, luring the greenskin horde toward a promethium refinery where they mean to burn the enemy from existence. But this battle is about more than a single trap. One young warrior among the sons of Chogoris carries a destiny that must not be allowed to die, and it falls to the Stormseer Kanim to keep him alive through the carnage, whatever the price and whatever his brother's own wishes. Amid roaring bikes, blade and bolt, the secrets of the Stormseers and their strange place within the Chapter are laid bare, as Kanim weighs a single life against the storm of war breaking around them all.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "novella", "standalone", "war_story", "action_heavy", "grimdark", "brotherhood", "loyalty", "sacrifice", "war", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "White Scars", "role": "primary" }, { "name": "Orks", "role": "antagonist" }],
+        "locations": [{ "name": "Armageddon", "role": "primary" }],
+        "characters": [{ "name": "Kanim", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.55, "count": 51, "evidenceUrl": "https://www.goodreads.com/book/show/23015899-dante-s-canyon" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0327",
+      "slug": "sanctus-reach-evil-sun-rising",
+      "overrides": {
+        "synopsis": "The Red Waaagh! is burning its way across the Sanctus Reach, and every Ork for light years rushes to join the slaughter. Among them is Big Mek Uggrim and his Red Sunz, hauling their prized Stompa, Fat Mork, into the warhost of the volatile Warlord Grukk. But war, it turns out, is complicated. Between guarding the secrets of their walking war-engine from greedy rival meks, fending off the schemes of the covetous Big Mek Mogrok, and surviving the whims of a warlord as likely to kill his own followers as the enemy, Uggrim finds that getting to the front to actually krump some humans is harder than it should be. Told entirely through the eyes of the greenskins themselves, this is a gleefully brutal look at Ork ambition, invention and infighting.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "planetary", "novella", "standalone", "war_story", "satirical", "action_heavy", "grimdark", "war", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Orks", "role": "primary" }],
+        "locations": [{ "name": "Sanctus Reach", "role": "primary" }],
+        "characters": [{ "name": "Uggrim", "role": "pov" }, { "name": "Grukk", "role": "supporting" }, { "name": "Mogrok", "role": "antagonist" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.81, "count": 86, "evidenceUrl": "https://www.goodreads.com/book/show/22663546-evil-sun-rising" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0328",
+      "slug": "sanctus-reach-blood-on-the-mountain",
+      "overrides": {
+        "synopsis": "The Red Waaagh! has fallen upon the Knight world of Alaric Prime, and its defenders are dying in their thousands beneath the green tide. Then the sons of Fenris arrive. A lone pack of Space Wolves, led by the Rune Priest Ulli Iceclaw, is given a desperate task: scale the Sacred Mountain and destroy the Ork factory churning out the aircraft that rain death on the armies below. Cut off from his brothers, hunted across the heights by a relentless foe, and haunted by visions he cannot escape, Iceclaw must confront his own fears as surely as the greenskins if he is to see the mission done. A grim tale of duty, isolation and the long climb toward an almost certain death.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "squad", "novella", "requires_context", "war_story", "last_stand", "action_heavy", "grimdark", "brotherhood", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Space Wolves", "role": "primary" }, { "name": "Orks", "role": "antagonist" }, { "name": "Astra Militarum", "role": "supporting" }],
+        "locations": [{ "name": "Alaric Prime", "role": "primary" }],
+        "characters": [{ "name": "Ulli Iceclaw", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.49, "count": 45, "evidenceUrl": "https://www.goodreads.com/book/show/22919247-blood-on-the-mountain" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0329",
+      "slug": "sanctus-reach-maledictus",
+      "overrides": {
+        "synopsis": "Drawn by dire prophecy, a cadre of Grey Knights arrives at Squire's Rest, a quiet agri-world where old Guardsmen go to live out their final years. Their auguries warn of a daemonic eruption to come, but the daemon-hunters are not the only force descending on the planet, for the Red Waaagh! has reached Squire's Rest as well. As the Grey Knights wade into battle against the savage Orks, they begin to suspect that their own arrival may have set in motion the very catastrophe they came to prevent. Two mysteries tangle together, and the threat of open conflict between rival branches of the Inquisition looms as darkly as the gathering storm. To save the world, the Knights must first unravel which doom is truly theirs to face.",
+        "facetIds": ["book", "male", "space_marine", "inquisitor", "imperium", "planetary", "novella", "standalone", "war_story", "mystery", "cosmic_horror", "grimdark", "faith", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Grey Knights", "role": "primary" }, { "name": "Orks", "role": "antagonist" }, { "name": "Chaos Daemons", "role": "antagonist" }, { "name": "Inquisition", "role": "supporting" }],
+        "locations": [{ "name": "Squire's Rest", "role": "primary" }, { "name": "Sanctus Reach", "role": "supporting" }],
+        "characters": [],
+        "flags": [{ "kind": "low_confidence", "field": "characters", "reason": "available sources name no individual viewpoint character" }],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.64, "count": 55, "evidenceUrl": "https://www.goodreads.com/book/show/22885976-maledictus" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0330",
+      "slug": "the-hunt-of-magnus",
+      "overrides": {
+        "synopsis": "For two thousand years the Space Wolves have nursed a single, burning grudge: the escape of Magnus the Red, the sorcerer-primarch whose treachery doomed their war on Prospero. Now Great Wolf Harek Ironhelm believes he has caught the scent of his quarry at last. When the ancient enemy resurfaces on the world of Arvion, Ironhelm commits his Chapter to the chase, determined to finish what Leman Russ began and run the traitor to ground no matter the cost. But pride and obsession are perilous guides, and the hunt Ironhelm believes he leads may be a snare laid for him. A tale of vengeance and hubris that sets the stage for the coming battle for the Fang.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "novella", "requires_context", "war_story", "journey", "grimdark", "hubris", "loyalty", "war", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Space Wolves", "role": "primary" }, { "name": "Thousand Sons", "role": "antagonist" }],
+        "locations": [{ "name": "Arvion", "role": "primary" }],
+        "characters": [{ "name": "Harek Ironhelm", "role": "pov" }, { "name": "Magnus the Red", "role": "antagonist" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.65, "count": 65, "evidenceUrl": "https://www.goodreads.com/book/show/25511467-the-hunt-for-magnus" }
+      }
+    }
+  ]
+}

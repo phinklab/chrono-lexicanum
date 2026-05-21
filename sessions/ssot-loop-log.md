@@ -1278,3 +1278,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Relictors", "Black Legion", "Celestial Lions", "Doom Eagles", "Daemons of Nurgle", "Imperial Guard" (era surface form for Astra Militarum), "Craftworld Saim-Hann" (tagged generic "Eldar" in junction). Three-book Overfiend-of-Octavius arc spans Stormseer/Shadow Captain/Forge Master.
 - **Verification skipped:** reiner Daten-Commit (Override-JSON + Log-Append, kein Code) — lint/typecheck/brain:lint per Brief-061-Konvention übersprungen.
+
+## 2026-05-21 · ssot-w40k-033 · W40K-0321..W40K-0330 · ✅
+
+- **Cumulative books in authority:** 330 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=320, batch=ssot-w40k-033, slice=W40K-0321..W40K-0330
+- **WebSearch:** mean=1, max=1 (over 10 books) — alle gut dokumentierte SMB-Novellen; je 1 Synopsis-Kontext-Suche genügte. (Zusätzliche Goodreads-Page-Discovery-Suchen für Blood on the Mountain, da kein direkter /book/show-Link im ersten Treffer; Rating dennoch per Page-Read, nicht Snippet.)
+- **Per-book bullets:**
+  - W40K-0321 Engines of War — Ultramarines vs Death Guard, Plagues-of-Orath-Trilogie Bd. 2 → mid_series; sauber.
+  - W40K-0322 Armour of Faith — Trilogie-Abschluss (series_finale); daemonic Chaos → Chaos Daemons supporting neben Death Guard antagonist.
+  - W40K-0323 Sons of Wrath — Flesh Tearers post-Heresy-Gründung; Blood Angels als Lineage supporting; Rivalen-Chapter im Quellmaterial unbenannt → ausgelassen. Keine belastbare Location → leer.
+  - W40K-0324 Angron's Monolith — Relictors (kein POV-Char in Quellen) → low_confidence-Flag characters. Third War for Armageddon.
+  - W40K-0325 The Eternal Crusader — Black Templars/Helbrecht, Void-War über Armageddon → scope sector; Grimaldus supporting.
+  - W40K-0326 Dante's Canyon — Roster ohne Chapter-Hint; Quellen = White Scars (nicht Blood Angels, wie ein Suchbegriff vermuten ließ).
+  - W40K-0327 Evil Sun Rising — reine Ork-POV-Novelle → pov_side=xenos, pc_xenos, tone satirical.
+  - W40K-0328 Blood on the Mountain — Space Wolves vs Orks auf Alaric Prime; Astra Militarum (Guard) supporting.
+  - W40K-0329 Maledictus — Grey Knights (inquisitor+space_marine) vs Orks + Chaos Daemons; Inquisition supporting (Ordo-Konflikt); kein POV-Char benannt → low_confidence-Flag.
+  - W40K-0330 "The Hunt of Magnus" — Roster-Titel/Slug-Mistag: tatsächlicher Titel ist **The Hunt for Magnus** (Chris Wraight); Rating-Evidence entsprechend goodreads .../the-hunt-for-magnus. Slug/externalBookId unverändert gelassen (Surface-Form-Treue).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Relictors", "Flesh Tearers", "Chaos Daemons", "Astra Militarum", "Grey Knights", "Big Mek Uggrim", "Warlord Grukk", "Harek Ironhelm", "Magnus the Red", "Alaric Prime", "Squire's Rest", "Ghoul Stars".
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention: reiner Daten-Commit — neue Override-JSON + Log-Append, kein Code).
