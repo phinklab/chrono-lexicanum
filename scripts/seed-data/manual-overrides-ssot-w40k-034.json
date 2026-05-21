@@ -1,0 +1,224 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-034",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "A wave of single-Chapter Space Marine novellas (Dark Angels, Blood Angels, Space Wolves, Raven Guard) followed by the four Damocles Gulf novellas that all dramatise the second Tau crusade on Agrellan (Blood Oath, Broken Sword, Black Leviathan, Hunter's Snare). Two roster mistags surfaced: Lords of the Storm's seriesHint says Space Marine Battles but it is a Novella Series 2 / Fulminators story, and Lords of Caliban is tagged novella yet is a six-story collection.",
+  "books": [
+    {
+      "externalBookId": "W40K-0331",
+      "slug": "lords-of-the-storm",
+      "overrides": {
+        "synopsis": "On a penitential shrine world swallowed by the Great Rift, a divine tempest is the only thing keeping the forces of Chaos from the bones of a revered Imperial saint. As the storm begins to fail, the young survivor Montalte is summoned by blue-armoured strangers: a squad of Fulminators Reivers under Sergeant Augustin, sent to recover the saint's relics before they fall to the enemy. Montalte must guide these silent warriors through ruined sanctuaries crawling with cultists and traitor soldiery, while the living storm answers to a will of its own. As they fight toward the reliquary, Montalte wrestles with a harder question than survival: are these towering demigods the shepherds of humanity, or its wolves? A tense, faith-haunted novella about devotion, doubt, and the gulf between mortal worshippers and the Space Marines who do not share their creed.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "war_story", "last_stand", "grimdark", "action_heavy", "faith", "doubt", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Fulminators", "role": "primary" },
+          { "name": "Chaos Cultists", "role": "antagonist" },
+          { "name": "Traitor Guard", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Montalte", "role": "pov" },
+          { "name": "Sergeant Augustin", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "shrine world not clearly named in available sources" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.76, "count": 58, "evidenceUrl": "https://www.goodreads.com/book/show/48735834-lords-of-the-storm" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0332",
+      "slug": "the-unkindness-of-ravens",
+      "overrides": {
+        "synopsis": "Captain Daed and his Brazen Minotaurs are bleeding out against an impregnable traitor fortress, a rotted bastion whose corruption threatens to spread to neighbouring worlds. Their assault is doomed until salvation arrives in shadow and silence: the Raven Guard, led by Daed's old comrade Captain Koryn. But two Chapters could hardly be less alike. The Minotaurs fight head-on, loud and unyielding; the sons of Corax strike from darkness and misdirection. To break the fortress and halt the spreading rot, these proud warriors must learn to fight as one, or die divided before its walls. A grim siege novella about brotherhood across very different temperaments, and the price of pride when the hour is desperate.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "siege", "war_story", "grimdark", "action_heavy", "brotherhood", "loyalty", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Brazen Minotaurs", "role": "supporting" },
+          { "name": "Chaos Space Marines", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Captain Koryn", "role": "pov" },
+          { "name": "Captain Daed", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "traitor foes are Nurgle-themed but no specific Chaos legion named in sources" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.55, "count": 22, "evidenceUrl": "https://www.goodreads.com/book/show/14059210-the-unkindness-of-ravens" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0333",
+      "slug": "dark-vengeance",
+      "overrides": {
+        "synopsis": "Newly raised to Company Master, the Dark Angel Balthasar leads his brethren to Bane's Landing, resting place of the ancient and powerful Hellfire Stone. He is not the only one hunting it. Kranon the Relentless, lord of the renegade Crimson Slaughter, means to use the stone to tear open the veil and call his daemonic masters into the world. As the Dark Angels and their Ravenwing outriders race the traitors to the prize, Balthasar's Chaplain Seraphicus, Librarian Turmiel and Sergeant Arion are drawn into a sprawling battle told from many viewpoints, while old secrets of the Chapter hover at its edges. The clash between the loyal Balthasar and the damned Kranon builds toward a single, decisive confrontation over the fate of a world.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "war_story", "siege", "grimdark", "action_heavy", "loyalty", "faith", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Crimson Slaughter", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Bane's Landing", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Balthasar", "role": "pov" },
+          { "name": "Kranon the Relentless", "role": "antagonist" },
+          { "name": "Seraphicus", "role": "supporting" },
+          { "name": "Turmiel", "role": "supporting" },
+          { "name": "Arion", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.41, "count": 110, "evidenceUrl": "https://www.goodreads.com/book/show/15852343-dark-vengeance" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0334",
+      "slug": "lords-of-caliban",
+      "overrides": {
+        "synopsis": "A collection of Dark Angels tales that circle the Chapter's proudest champions and its oldest shame. Belial, Master of the Deathwing, and Sammael, Master of the Ravenwing, each relive the battles that carried them to their high offices, while other stories reach into the wider war against the Chapter's hidden enemies. Across these pieces the sons of the Lion are shown at their most heroic and their most haunted, bound by oaths they cannot speak aloud and a hunt that never truly ends. Gathered here are short works previously released across ebooks, audio dramas and event anthologies, including a scene from the Chapter's recent history seen from a darker, crueller angle.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "requires_context", "short", "war_story", "character_study", "grimdark", "somber", "loyalty", "brotherhood", "sacrifice", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Fallen Angels", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Belial", "role": "pov" },
+          { "name": "Sammael", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "reason": "roster lists novella but this is a six-story short-fiction collection", "suggestion": "collection" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.66, "count": 59, "evidenceUrl": "https://www.goodreads.com/book/show/25763166-lords-of-caliban" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0335",
+      "slug": "mephiston-lord-of-death",
+      "overrides": {
+        "synopsis": "Mephiston, Chief Librarian of the Blood Angels and the only one of his kind ever to master the Black Rage, marches with the 4th Company toward the Pallevon system, drawn by a rumour touching the memory of their slain primarch. Daemons and renegade Space Marines bar the way, and every battle carries the Blood Angels to the brink of the curse that defines them. But Pallevon hides a truth that strikes deeper than any blade: a question about what, exactly, came back when the warrior Calistarius died and rose again as the Lord of Death. A brooding study of one transhuman hero set amid relentless war, examining the darkness he carries inside himself, and whether he truly commands it.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "character_study", "war_story", "grimdark", "somber", "philosophical", "doubt", "faith", "sacrifice", "cw_violence", "cw_death", "cw_mental_health", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Chaos Space Marines", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Pallevon", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Mephiston", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.78, "count": 200, "evidenceUrl": "https://www.goodreads.com/book/show/17241736-mephiston" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0336",
+      "slug": "arjac-rockfist-anvil-of-fenris",
+      "overrides": {
+        "synopsis": "Told as a Fenrisian saga by a human thrall of the Fang, this is the making of Arjac Rockfist, the Anvil of Fenris and champion of Logan Grimnar. When a tyranid splinter fleet descends on Asaheim itself and the spawn of the great devourer claw their way toward the mountain-fortress of the Space Wolves, it falls to one warrior to hold the line. Between the battles, the saga reaches back through Arjac's humble origins to show how a smith became a legend. As the swarms break against the Fang, Arjac answers the call of destiny with hammer and shield, defending his home world against an enemy that exists only to consume.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "siege", "last_stand", "war_story", "action_heavy", "grimdark", "brotherhood", "loyalty", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "primary" },
+          { "name": "The Fang", "role": "supporting" },
+          { "name": "Asaheim", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Arjac Rockfist", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.03, "count": 65, "evidenceUrl": "https://www.goodreads.com/en/book/show/21860723" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0337",
+      "slug": "blood-oath",
+      "overrides": {
+        "synopsis": "Two centuries after the first clashes in the Damocles Gulf, the T'au Empire returns in force, and the world of Agrellan burns. The White Scars and Raven Guard race to its defence, but the alien host is led by the brilliant Commander Shadowsun, and the Imperium's warriors are pressed to their limit. For Kor'sarro Khan, Huntmaster of the White Scars, the campaign becomes something personal: he swears a blood oath to win in the most direct way imaginable, by riding down Shadowsun and claiming her head. A fast, hard-charging war story of the hunt, pitting the headlong fury of the White Scars against the patient, calculated genius of the T'au commander.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_start", "novella", "war_story", "siege", "action_heavy", "grimdark", "loyalty", "war", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "T'au Empire", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Agrellan", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Kor'sarro Khan", "role": "pov" },
+          { "name": "Commander Shadowsun", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.00, "count": 13, "evidenceUrl": "https://www.goodreads.com/book/show/55819462-blood-oath" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0338",
+      "slug": "broken-sword",
+      "overrides": {
+        "synopsis": "Set during the second campaign for the Damocles Gulf, this is a quieter, stranger story of the war for hearts as much as worlds. As the T'au Empire pulls human populations into the embrace of the Greater Good, one man turns his back on the Imperium entirely and gives himself to the alien cause. Tasked with capturing the silver-tongued Water Caste envoy orchestrating the conversions, the Raven Guard move through a society being remade from within. The novella spends as much time inside T'au culture and ambition as on the battlefield, asking what the Imperium offers its people that an enemy promising peace and purpose cannot. A sombre tale of faith, defection and the slow tightening of an alien net.",
+        "facetIds": ["book", "mixed", "multi", "dual", "planetary", "standalone", "novella", "political_thriller", "character_study", "somber", "philosophical", "faith", "doubt", "betrayal", "cw_violence", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "T'au Empire", "role": "primary" },
+          { "name": "Raven Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Damocles Gulf", "role": "supporting" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "central human convert and Water Caste envoy not named in available sources" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.33, "count": 12, "evidenceUrl": "https://www.goodreads.com/book/show/60816795-broken-sword" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0339",
+      "slug": "black-leviathan",
+      "overrides": {
+        "synopsis": "A tale of subterfuge in which good intentions clear the path to ruin. As the war for the Damocles Gulf grinds on, a cunning T'au Water Caste operative weaves a web of deceit around the Space Marines of the Jade Dragons, their Earth Caste counterparts, and a world's senior tech-priests alike. He plays Fire Warriors, Imperial servants and local tribes against one another like pieces on a board, never seeking open battle when a whisper or a planted relic will do. When a fragment of black leviathan hide finds its way into Adeptus Mechanicus hands, old loyalties curdle into bloodshed between servants of the Emperor. A political, low-trust story where the deadliest weapon is a well-placed lie.",
+        "facetIds": ["book", "male", "space_marine", "dual", "planetary", "standalone", "novella", "political_thriller", "war_story", "grimdark", "somber", "betrayal", "doubt", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Jade Dragons", "role": "primary" },
+          { "name": "T'au Empire", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "Water Caste operative and Jade Dragons figures not named in available sources" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.00, "count": 8, "evidenceUrl": "https://www.goodreads.com/book/show/55819470-black-leviathan" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0340",
+      "slug": "hunters-snare",
+      "overrides": {
+        "synopsis": "The hunt that began on Agrellan reaches its end. In this sequel to the opening clash of the Damocles campaign, Kor'sarro Khan of the White Scars returns to finish what he swore to do: take the head of Commander Shadowsun. What follows is a lethal duel of feints and traps between two hunters who are, for all their differences, mirror images of one another, each setting snares the other must slip. With the Raven Guard and the wider Imperial defence as backdrop, the story narrows to the deadly dance between Huntmaster and T'au commander as the world of Agrellan hangs in the balance. A taut closing chapter to the saga of the second Damocles Gulf Crusade.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "requires_context", "novella", "war_story", "journey", "action_heavy", "grimdark", "loyalty", "war", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "T'au Empire", "role": "antagonist" },
+          { "name": "Raven Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Agrellan", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Kor'sarro Khan", "role": "pov" },
+          { "name": "Commander Shadowsun", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.50, "count": 4, "evidenceUrl": "https://www.goodreads.com/book/show/60816802-hunter-s-snare" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-030",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "Final W40K Space Marine Battles wave (W40K-0291..W40K-0300): a mix of single-Chapter campaign novels (Malodrax, Pandorax, The World Engine, Blades of Damocles) and multi-novella collections/anthologies (Overfiend, Damocles, Sanctus Reach, Flesh Tearers, The Plagues of Orath, Crusaders of Dorn). Anthology entries aggregate factions/locations/characters across constituent novellas. Roster mistags Flesh Tearers as 'novel' (it is a single-author collection of three novellas) — flagged.",
+  "books": [
+    {
+      "externalBookId": "W40K-0291",
+      "slug": "malodrax",
+      "overrides": {
+        "synopsis": "Captain Darnath Lysander of the Imperial Fists once endured captivity on Malodrax, a daemon-haunted world ruled by the Iron Warriors. Now, on the orders of his Chapter Master, he must return at the head of a strike force to raze the fortress of Warsmith Kraegon Thul — a final test before he can reclaim his rank as First Captain. As the Imperial Fists fight their way across a planet that warps flesh and mind alike, Lysander relives the ordeal of his imprisonment and the desperate bargain that bought his escape. An older expedition by an Inquisitor threads through the tale, hinting at secrets Malodrax has kept for centuries. Success means redemption; failure means death — and Lysander must keep the cost of his survival hidden from the brothers who fight at his side.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "war_story", "siege", "grimdark", "action_heavy", "war", "brotherhood", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Malodrax", "role": "primary" },
+          { "name": "Kulgarde", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Darnath Lysander", "role": "pov" },
+          { "name": "Kraegon Thul", "role": "antagonist" },
+          { "name": "Corvin Golrukhan", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.46, "count": 217, "evidenceUrl": "https://www.goodreads.com/book/show/17571832" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0292",
+      "slug": "pandorax",
+      "overrides": {
+        "synopsis": "When the Catachan 183rd is stranded in the lethal jungles of Pythos, a plague of daemons descends from the skies and the Warmaster Abaddon himself leads the assault. With the Death Guard and Black Legion arrayed against them, the Guardsmen seem doomed — until the entire Dark Angels Chapter arrives under Supreme Grand Master Azrael. But the Dark Angels have their own reasons for coming to Pythos, and the daemon-hunting Grey Knights of Grand Master Draigo are drawn by the mystery of the Damnation Cache buried beneath the world. From desperate ground fighting to a void battle and a final confrontation deep below the surface, the fate of Pythos turns on the secret the Cache holds.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "standalone", "standard", "war_story", "siege", "grimdark", "action_heavy", "war", "faith", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Grey Knights", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Pythos", "role": "primary" },
+          { "name": "Pandorax System", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Azrael", "role": "pov" },
+          { "name": "Draigo", "role": "supporting" },
+          { "name": "Iron Hand Straken", "role": "supporting" },
+          { "name": "Abaddon the Despoiler", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.86, "count": 423, "evidenceUrl": "https://www.goodreads.com/book/show/18741581-pandorax" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0293",
+      "slug": "overfiend",
+      "overrides": {
+        "synopsis": "A monstrous Ork warlord known only as the Overfiend has seized the Octarius system, and three Space Marine Chapters answer the threat. The White Scars send a Stormseer to bend the storm against the greenskins; the Raven Guard strike from the shadows; and the Salamanders bring fire and forge-craft to bear. Fighting alongside the Astra Militarum and the unpredictable Eldar, the three brotherhoods wage a converging campaign across the worlds of Octarius, hunting the Overfiend through ruin and battle. Collected here are three linked tales of very different sons of the Emperor united against a single, savage foe.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "standalone", "standard", "war_story", "grimdark", "action_heavy", "war", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Eldar", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Octarius", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "single-author collection of three novellas; individual protagonist names not reliably surfaced by search" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.54, "count": 164, "evidenceUrl": "https://www.goodreads.com/book/show/25110906-overfiend" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0294",
+      "slug": "damocles",
+      "overrides": {
+        "synopsis": "The xenos armies of the Tau Empire surge across the Damocles Gulf, and the world of Agrellan stands in their path. The White Scars and Raven Guard race to its defence, but Commander Shadowsun's forces press them to breaking point. Kor'sarro Khan, Huntmaster of the White Scars, swears a blood oath to take Shadowsun's head before the campaign is done. Across four interlocking novellas, Space Marine and Tau clash for a contested world — strike force against battlesuit, hunter against hunter — in a war neither side can afford to lose.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "standalone", "standard", "war_story", "grimdark", "action_heavy", "war", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Tau", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Agrellan", "role": "primary" },
+          { "name": "Damocles Gulf", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Kor'sarro Khan", "role": "pov" },
+          { "name": "Shadowsun", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.60, "count": 314, "evidenceUrl": "https://www.goodreads.com/book/show/22609176" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0295",
+      "slug": "the-world-engine",
+      "overrides": {
+        "synopsis": "For months the Necron World Engine — a vast, mobile construct the size of a planet — has carved a path of ruin through the Vidar sector, shattering worlds and destroying every fleet sent against it. With billions of lives in the balance, the Astral Knights stake everything on a single desperate plan: crash their battle-barge onto the construct's surface and fight their way to its heart. Led by Chapter Master Artor Amhrad, the Astral Knights land amid tens of thousands of Necrons and wage a relentless war through forge and weapon-node, paying for every yard in blood. It is a battle that will define a Chapter — and demand the ultimate price.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "standalone", "standard", "war_story", "last_stand", "grimdark", "somber", "action_heavy", "sacrifice", "brotherhood", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Astral Knights", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vidar Sector", "role": "primary" },
+          { "name": "World Engine", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Artor Amhrad", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.66, "count": 231, "evidenceUrl": "https://www.goodreads.com/book/show/24092496-the-world-engine" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0296",
+      "slug": "sanctus-reach",
+      "overrides": {
+        "synopsis": "The cunning Ork warboss Grukk Face-Rippa leads the Red Waaagh! against Alaric Prime and its neighbouring worlds, and the earth shakes beneath the green tide. The Astra Militarum, the noble Knight houses of Alaric Prime, and the savage Space Wolves rise to meet the invasion — while within the Ork host, the Big Mek Mogrok schemes to topple Grukk and seize the Waaagh! for himself. These linked tales chart a Chapter's death, the secret missions of inquisitors and assassins, and the moment Ragnar Blackmane's rage threatens to doom his own brothers.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "xenos", "sector", "standalone", "standard", "war_story", "grimdark", "action_heavy", "war", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Imperial Knights", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Alaric Prime", "role": "primary" },
+          { "name": "Sanctus Reach", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ragnar Blackmane", "role": "supporting" },
+          { "name": "Grukk Face-Rippa", "role": "antagonist" },
+          { "name": "Mogrok", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.76, "count": 85, "evidenceUrl": "https://www.goodreads.com/book/show/25111240-sanctus-reach" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0297",
+      "slug": "flesh-tearers",
+      "overrides": {
+        "synopsis": "None of the sons of Sanguinius are as bloody or as wrathful as the Flesh Tearers, a Chapter forever shadowed by the curse of the Black Rage. These tales follow them from the feral jungle world of Cretacia — where Chapter Master Amit hunts orks and uncovers something older and deadlier in the depths — to the trial of Gabriel Seth, who must answer for his Chapter's very right to exist. As Seth recounts the savage history of the Flesh Tearers, the masters of the Blood Angels successors weigh whether his bloodline should be allowed to endure. Brutal, visceral, and haunted by inheritance, this collection gathers the defining stories of the Emperor's angriest warriors.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "company", "standalone", "standard", "war_story", "character_study", "grimdark", "somber", "action_heavy", "brotherhood", "war", "faith", "cw_violence", "cw_death", "cw_mental_health", "en"],
+        "factions": [
+          { "name": "Flesh Tearers", "role": "primary" },
+          { "name": "Blood Angels", "role": "supporting" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cretacia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Gabriel Seth", "role": "pov" },
+          { "name": "Amit", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "collection", "reason": "roster lists 'novel' but the volume is a single-author collection of three novellas (Flesh of Cretacia, Sons of Wrath, Trial by Blood)" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.83, "count": 105, "evidenceUrl": "https://www.goodreads.com/book/show/26029268-flesh-tearers" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0298",
+      "slug": "blades-of-damocles",
+      "overrides": {
+        "synopsis": "In the opening days of the first Damocles Gulf Crusade, the Ultramarines bring war to the Tau sept world of Dal'yth. The daredevil warriors of the Assault Company — among them the glory-hungry sergeants Sicarius and Numitor — fight in the skies, through the streets, and into the Earth caste's testing facilities, chainsword and jump pack against cutting-edge battlesuits. But the brightest stars of the Tau, Commanders Farsight and Shadowsun, hunt the Space Marines toward disaster. Told almost evenly from both sides, this is a clash of doctrines as much as armies — the Codex Astartes against the Code of Fire — and the Ultramarines must master their hunger for glory before it kills them.",
+        "facetIds": ["book", "male", "space_marine", "dual", "planetary", "standalone", "standard", "war_story", "grimdark", "action_heavy", "war", "hubris", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Tau", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Dal'yth", "role": "primary" },
+          { "name": "Damocles Gulf", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Cato Sicarius", "role": "pov" },
+          { "name": "Numitor", "role": "pov" },
+          { "name": "Shadowsun", "role": "antagonist" },
+          { "name": "Farsight", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.68, "count": 249, "evidenceUrl": "https://www.goodreads.com/book/show/29864761-blades-of-damocles" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0299",
+      "slug": "the-plagues-of-orath",
+      "overrides": {
+        "synopsis": "A creeping plague stirs on the quiet agri-world of Orath, and the Ultramarines and their Doom Eagles allies race to find its source before the contagion consumes a sector. Across three linked novellas, Librarian Vabion uncovers the rot's origin, Captain Galenus brings the Chapter's engines of war to bear in grinding tank battles, and Chaplain Sentina faces a final, daemon-haunted reckoning where only the ultimate sacrifice can win the day. From the first whisper of sickness to all-out war against the servants of decay, this is the complete tale of the battle for Orath.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "standard", "war_story", "grimdark", "action_heavy", "war", "faith", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Doom Eagles", "role": "supporting" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Orath", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Vabion", "role": "pov" },
+          { "name": "Galenus", "role": "supporting" },
+          { "name": "Sentina", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.50, "count": 44, "evidenceUrl": "https://www.goodreads.com/book/show/27276166-the-plagues-of-orath" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0300",
+      "slug": "crusaders-of-dorn",
+      "overrides": {
+        "synopsis": "The Black Templars are the most zealous of all the sons of Dorn — an endless crusade of warrior-monks who carry the Emperor's wrath to the farthest reaches of the galaxy. This collection gathers seven tales of the Chapter in chronological order, from the first crusade of High Marshal Helbrecht to three stories drawn from the Third War for Armageddon. Pilgrims and champions, sieges and last stands — each tale burns with the unbending faith and martial fury of Sigismund's heirs.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "standalone", "standard", "war_story", "journey", "grimdark", "action_heavy", "faith", "war", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Black Templars", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Helbrecht", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.67, "count": 220, "evidenceUrl": "https://www.goodreads.com/book/show/27276167-crusaders-of-dorn" }
+      }
+    }
+  ]
+}

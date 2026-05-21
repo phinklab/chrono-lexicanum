@@ -1131,3 +1131,219 @@
 - **Cumulative books:** 250 (in 25 batches: ssot-w40k-001..ssot-w40k-025)
 - **Action required:** Maintainer schreibt Resolver-Brief. Loop pausiert bis dahin.
 - **Pause-Detection:** selbst-erkennend (Brief 088) — dieser Block ist der Marker.
+
+## 2026-05-21 · ssot-w40k-026 · W40K-0251..W40K-0260 · ✅
+
+- **Cumulative books in authority:** 260 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=250, batch=ssot-w40k-026, slice=W40K-0251..W40K-0260
+- **WebSearch:** mean=1.1, max=2 (over 10 books) — meist 1 Synopsis-Kontext-Suche/Buch; "The Rose in Anger" brauchte eine 2. Suche, um die korrekte Goodreads-Seite zu finden (Roster-Titel weicht ab). Alle 10 Goodreads-Ratings per Page-Read, nicht aus Snippets.
+- **Per-book bullets:**
+  - W40K-0251 Warrior Coven — Deathwatch-Eldar-Allianz vs. Dark Eldar; Multi-POV (Marine + xenos), daher pov_side imperium+xenos. Inquisition-Geheimmotiv eines Teammitglieds → Inquisition supporting.
+  - W40K-0252 Deathwatch — Talon-Squad-Origin; Genestealer-Lair → Tyranids antagonist, cosmic_horror. Sigma ist Ordo-Xenos-Inquisitor (supporting), Karras kein Inquisitor → Inquisition-Konsistenz erfüllt.
+  - W40K-0253 Shadowbreaker — direkter Sequel zu Deathwatch → entry_point requires_context. T'au-besetzte Welt im Source nicht benannt → locations leer + low_confidence-Flag.
+  - W40K-0254 Faith and Fire — Sisters-of-Battle #1, Sister Miriya/Verity, Heretiker-Psyker Torris Vaun; Neva/Van Horne. series_start.
+  - W40K-0255 Hammer and Anvil — Sanctuary 101, Necrons antagonist; siege/last_stand. mid_series.
+  - W40K-0256 Sisters of Battle: The Omnibus — format omnibus, aggregiert Faith & Fire + Hammer & Anvil + Prosa-Fassung Red & Black + neue Story Heart & Soul. Tags aggregiert über die Constituents (Neva/Van Horne/Sanctuary 101, Necrons, Torris Vaun); length doorstopper.
+  - W40K-0257 The Bloodied Rose — Danie-Ware-Augusta-Novella #1 (nach Kurzgeschichte "Mercy"); Jungelwelt Lautis. Aufsteigender Krypta-Horror im Source nicht als konkrete Faction benannt → Orks (bestätigter Lautis-Threat) antagonist + low_confidence-Flag auf factions.
+  - W40K-0258 Wreck and Ruin — Augusta #2; Forge-World Lycheate, Inquisitor Istrix (supporting), Rogue-Psyker Scafidis Zale antagonist; requires_context.
+  - W40K-0259 The Rose in the Anger — **Roster-Titel-Mistag:** echter Titel ist "The Rose in Anger" (ohne "the"); slug bleibt roster-treu. Augusta #3, Rückkehr nach Lycheate, volle Order-Muster (Panzer/Gunships) → scope planetary, series_finale für Augustas Arc. Antagonist-Faction im Source ungenannt → low_confidence-Flag.
+  - W40K-0260 Rogue Star — Rogue-Trader #1, Lucian Gerrit, Eastern Fringe, T'au-Erstkontakt antagonist. Kein sauberer Browse-Root für Protagonisten-Faction → surface "Rogue Traders" primary, protagonist_class civilian (kein Standard-Militär-Archetyp).
+- **value_outside_vocabulary:** [] (alle facetIds aus dem Katalog)
+- **Notable surface-forms (within this batch):** Deathwatch; Talon Squad; Death Spectres (Lyandro Karras); Inquisitor Sigma; Craftworld Ulthwé; Twisted Kin (Dark Eldar); Order of Our Martyred Lady; Order of the Bloody Rose; Sister Miriya / Sister Verity / Sister Superior Augusta; Torris Vaun; Inquisitor Istrix; Scafidis Zale; Sanctuary 101; Lautis; Lycheate; Neva; Van Horne; Rogue Trader Lucian Gerrit; Eastern Fringe; T'au Empire.
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention — reiner Daten-Commit: Override-JSON + Log-Append, kein Code).
+
+## 2026-05-21 · ssot-w40k-027 · W40K-0261..W40K-0270 · ✅
+
+- **Cumulative books in authority:** 270 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=260, batch=ssot-w40k-027, slice=W40K-0261..W40K-0270
+- **WebSearch:** mean=0.9, max=1 (over 10 books); ratings each via Goodreads page-fetch (10 WebFetch, value+count read off the page)
+- **Per-book bullets:**
+  - W40K-0261 Star of Damocles — Rogue Trader bk2; council-politics + Damocles Gulf tau crusade. Astartes present but chapter unnamed → tagged browse-root `Adeptus Astartes`.
+  - W40K-0262 Savage Scars — Rogue Trader bk3; White Scars ground assault on Dal'yth, Tyranid invasion ends the crusade. Clean.
+  - W40K-0263 Rogue Trader Omnibus — aggregates Rogue Star + Star of Damocles + Savage Scars + 2 shorts (Cold Trade, Ambition Knows No Bounds); doorstopper, series_start entry. Tags aggregated across constituents.
+  - W40K-0264 Dark Apostle — Word Bearers bk1; Tanakreg, gehemehnet tower, dormant Necron monolith. Clean.
+  - W40K-0265 Dark Disciple — Word Bearers bk2; warzone world not clearly named in sources → `low_confidence` flag on locations, locations left empty.
+  - W40K-0266 Dark Creed — Word Bearers bk3; Boros Gate, White Consuls (Adeptus Praeses), Necrons. Clean.
+  - W40K-0267 The Word Bearers Omnibus — aggregates Dark Apostle + Dark Disciple + Dark Creed + short Torment; doorstopper, series_start entry. Tags aggregated.
+  - W40K-0268 Emperor's Mercy — Bastion Wars bk1; Inquisitor Roth + Medina Corridor mystery. Inquisitor POV → `Inquisition` primary (consistency satisfied). Enemy "Ironclads" kept as surface form, antagonist.
+  - W40K-0269 Flesh and Iron — Bastion Wars bk2; 31st Riverine on Solo-Baston, Chaos-fed insurgency under "Dos Pares". No concrete Chaos-sub fits → no generic `Chaos` junction; corruption noted in synopsis (Ruinous Powers).
+  - W40K-0270 Blood Gorgons — Bastion Wars bk3 but Chaos-side & largely self-contained → `standalone` entry. Nurgle-plague + shadowy unnamed xenos (left untagged, not invented).
+- **value_outside_vocabulary:** none (12 facet categories sufficed; `Rogue Traders` is a faction surface-form, not a facet)
+- **Notable surface-forms (within this batch):** `Rogue Traders`, `Tau Empire`, `White Scars`, `Word Bearers`, `White Consuls`, `Dark Eldar`, `Ironclads`, `Blood Gorgons`, `Adeptus Mechanicus`; chars `Lucian Gerrit`, `Brielle Gerrit`, `Inquisitor Grand`, `Sarik`, `Marduk`, `Jarulek`, `Kol Badar`, `Burias`, `Inquisitor Obodiah Roth`, `Fyodor Baeder`, `Barsabbas`, `Sargaul`, `Gammadin`. Resolving deferred to Resolver-Pass.
+- **Verification skipped:** pure data commit (override JSON + log append, no code) — lint/typecheck/brain:lint skipped per Brief-061 convention.
+
+## 2026-05-21 · ssot-w40k-028 · W40K-0271..W40K-0280 · ✅
+
+- **Cumulative books in authority:** 280 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=270, batch=ssot-w40k-028, slice=W40K-0271..W40K-0280
+- **WebSearch:** mean≈1.3, max=2 (over 10 books) — meiste Bücher gut aus Trainingsdaten bekannt; Goodreads-Page-Reads separat via WebFetch (alle 10 gewertet)
+- **Per-book bullets:**
+  - W40K-0271 Bastion Wars: The Omnibus (Henry Zou) — omnibus über Emperor's Mercy / Flesh and Iron / Blood Gorgons, auf Trilogie-Tiefe getaggt (Inquisition + Astra Militarum + Blood Gorgons aggregiert). Out-of-print (Flesh and Iron Plagiat-Skandal → BL hat Zou gestrichen); dünne Coverage (nur 39 Ratings) → `low_confidence`-Flag auf characters (sekundäre POV-Identitäten Roth/Barsabbas nur niedrig-konfident). Format ok (omnibus).
+  - W40K-0272 Salamander — Tome of Fire #1, series_start; Dak'ir/Tsu'gan-Rivalität etabliert, Nihilan/Dragon Warriors als Antagonist. Surface-form „Dragon Warriors" beibehalten.
+  - W40K-0273 Firedrake — Tome of Fire #2, mid_series; Dark-Eldar-Kidnapping/Rescue, Port of Anguish. cw_disturbing wegen Dark-Eldar-Folter.
+  - W40K-0274 Nocturne — Tome of Fire #3, series_finale; Verteidigung Nocturnes, planetary/siege/last_stand.
+  - W40K-0275 Tome of Fire — anthology (Format bestätigt, kein Konflikt); Companion zur Trilogie, character_study + war_story; Marines Malevolent als zusätzlicher Antagonist (Hell Night).
+  - W40K-0276 Salamanders: The Omnibus — sammelt die Trilogie + Shorts, doorstopper (~1014 S.), auf Trilogie-Tiefe aggregiert.
+  - W40K-0277 Salamanders: Rebirth — Circle-of-Fire-Auftakt, requires_context („Five years have passed…"); Black Legion auf Heletine, Allianz mit Sisters of Battle (Ebon Chalice). Sisters als supporting-Faction, nicht als protagonist_class (Salamanders sind Protagonisten).
+  - W40K-0278 Rynn's World — Space Marine Battles, Crimson Fists vs Snagrods Orks; last_stand/siege, somber wegen Chapter-Beinahe-Vernichtung.
+  - W40K-0279 Helsreach — Space Marine Battles, Black Templars/Grimaldus auf Armageddon vs Orks; Steel Legion (Astra Militarum) + Legio Invigilata supporting; höchstes Rating der Welle (4.28 / 4535).
+  - W40K-0280 Hunt for Voldorius — Space Marine Battles, White Scars (Kor'sarro Khan) + Raven Guard (Kayvaan Shrike) vs Alpha Legion / Daemon Voldorius. Korrektur ggü. naivem Prior: Verbündete sind Raven Guard, NICHT Salamanders — keine Salamanders-Faction getaggt.
+- **value_outside_vocabulary:** [] (keine neuen Facet-Kandidaten)
+- **Notable surface-forms (within this batch):** „Dragon Warriors" (Nihilans Chaos-Warband), „Blood Gorgons", „Marines Malevolent", „Legio Invigilata", „Sisters of Battle / Ebon Chalice", „Kor'sarro Khan", „Kayvaan Shrike", „Kernax Voldorius", „Pedro Kantor", „Snagrod".
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: Override-JSON + Log-Append); JSON-Parse via `node -e require(...)` bestätigt (10 Bücher).
+
+## 2026-05-21 · ssot-w40k-029 · W40K-0281..W40K-0290 · ✅
+
+- **Cumulative books in authority:** 290 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=280, batch=ssot-w40k-029, slice=W40K-0281..W40K-0290
+- **WebSearch:** mean=1, max=1 (over 10 books) — alle Space Marine Battles, gut aus Trainingsdaten gedeckt; 1 Synopsis-Such-Pass je Buch genügte. Goodreads-Ratings je per WebFetch der Work-Seite (Page-Read, kein Snippet).
+- **Per-book bullets:**
+  - W40K-0281 The Purging of Kadillus — Dark Angels (Belial/Naaman) vs Orks, Piscina IV. Sauberer Loyalist-Siege.
+  - W40K-0282 Fall of Damnos — Ultramarines (Sicarius/Tigurius) vs Necrons; Imperium verliert Damnos → last_stand.
+  - W40K-0283 Battle of the Fang — Space Wolves vs Thousand Sons (Magnus), M32. Surface-Form-Ambiguität Wolf-Lord-Name: Quellen-Snippet schwankt „Vaer Greylock"/„Vaer Greyloss"; Lexicanum-Form „Vaer Greyloss" gewählt — im Resolver-Pass prüfen.
+  - W40K-0284 The Gildar Rift — Silver Skulls (Arrun) vs Red Corsairs (Huron Blackheart); Huron erhält substanzielle POV → pov_side imperium+chaos.
+  - W40K-0285 Legion of the Damned — Excoriators (Kersh) vs World Eaters, Certus-Minor; titelgebende Legion-of-the-Damned als supporting faction.
+  - W40K-0286 Architect of Fate — **anthology**: vier verlinkte Tzeentch-Novellen (Cawkwell/Hinks/Counter/French). Aggregiert über Constituents: Imperial Fists (Lysander), Relictors, White Consuls, Iron Warriors, Daemons of Tzeentch (Kairos Fateweaver). protagonist_gender=ensemble.
+  - W40K-0287 Wrath of Iron — Iron Hands + Astra Militarum + Titan-Legionen vs Daemons of Slaanesh, Shardenus/Contqual. characters leer + low_confidence-Flag (keine belastbaren POV-Namen aus Quellen).
+  - W40K-0288 The Siege of Castellax — **Chaos-POV**: Iron Warriors (Andraaz/Rhodaan/Vallax) verteidigen Castellax gegen Ork-Waaagh; Sklavenaufstand → betrayal. pov_side=chaos.
+  - W40K-0289 The Death of Antagonis — Black Dragons (Volos) + Inquisitor Lettinger + Adepta Sororitas, Antagonis-Untoten-Seuche. Chaos-Urheber nicht sicher einer Macht/Legion zuordenbar → generische Chaos-Faction weggelassen + low_confidence-Flag. Inquisition als supporting (Inquisition-Konsistenz, Lettinger).
+  - W40K-0290 Death of Integrity — Roster/Such-Query nannte „Blood Angels", tatsächlich **Blood Drinkers** (Blutsöhne-Nachfolger) + Novamarines vs Tyranids (Genestealers) auf Space Hulk; Adeptus Mechanicus als supporting. Kein format-Konflikt (novel korrekt).
+- **value_outside_vocabulary:** [] — alle facetIds aus dem Katalog.
+- **Notable surface-forms (within this batch):** „Vaer Greyloss" (vs „Greylock", siehe oben), „Daemons of Tzeentch", „Daemons of Slaanesh", „Red Corsairs", „Blood Drinkers", „Death of Integrity" (Space Hulk als Location). Kein Pre-Resolving.
+- **Verification skipped:** reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code) — lint/typecheck/brain:lint übersprungen per Brief-061-Konvention.
+
+## 2026-05-21 · ssot-w40k-030 · W40K-0291..W40K-0300 · ✅
+
+- **Cumulative books in authority:** 300 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=290, batch=ssot-w40k-030, slice=W40K-0291..W40K-0300
+- **WebSearch:** mean=1.2, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0291 Malodrax — Imperial Fists (Lysander) vs Iron Warriors on daemon-world Malodrax; clean novel, well-sourced.
+  - W40K-0292 Pandorax — Dark Angels + Grey Knights + Catachans vs Black Legion/Death Guard on Pythos; Abaddon-led assault, Damnation Cache MacGuffin.
+  - W40K-0293 Overfiend — single-author (Annandale) collection of 3 novellas (Stormseer/Shadow Captain/Forge Master): White Scars, Raven Guard, Salamanders vs Ork Overfiend in Octarius. Roster tag "anthology" technically a single-author collection — left as-is (not a novel mistag). Constituent protagonist names not reliably surfaced → low_confidence flag on characters.
+  - W40K-0294 Damocles — multi-author anthology (Kelly/Haley/Counter/Reynolds), 4 novellas; White Scars/Raven Guard vs Tau (Shadowsun) on Agrellan, 2nd Damocles Gulf Crusade. Two Goodreads works exist (22609176 orig 2015 anthology vs 33539049 reissue) — used the original 2015 anthology page.
+  - W40K-0295 The World Engine — Astral Knights last stand vs Necron World Engine in Vidar sector; whole-Chapter sacrifice → last_stand/somber.
+  - W40K-0296 Sanctus Reach — multi-author anthology; Space Wolves (Ragnar), Imperial Knights, Astra Militarum vs Red Waaagh! (Grukk/Mogrok) on Alaric Prime. Ork-POV novellas present → added pov_side xenos alongside imperium.
+  - W40K-0297 Flesh Tearers — roster says "novel" but it is a single-author collection of 3 novellas (Flesh of Cretacia / Sons of Wrath / Trial by Blood) → data_conflict flag, suggestion=collection. Flesh Tearers + Blood Angels, Gabriel Seth trial.
+  - W40K-0298 Blades of Damocles — Ultramarines (Sicarius/Numitor) vs Tau (Farsight/Shadowsun) on Dal'yth, 1st Damocles Gulf Crusade; near-even dual POV → pov_side dual.
+  - W40K-0299 The Plagues of Orath — multi-author anthology (Scott/Lyons/Lyon), 3 novellas; Ultramarines + Doom Eagles vs Death Guard/Nurgle plague on Orath → cw_disturbing. Thin ratings base (44).
+  - W40K-0300 Crusaders of Dorn — single-author (Haley) collection of 7 Black Templars tales (Helbrecht's crusade, Third War for Armageddon); roster tag "anthology" — left as-is. Spans many crusades; Armageddon the one concrete recurring location.
+- **value_outside_vocabulary:** [] (existing facet vocabulary sufficient for this wave)
+- **Notable surface-forms (within this batch):** "Grukk Face-Rippa", "Red Waaagh!", "Big Mek Mogrok", "Kor'sarro Khan", "Iron Hand Straken", "Artor Amhrad", "Kraegon Thul", "Corvin Golrukhan", "Damnation Cache", "Octarius". Faction surface forms kept raw: "Tau" (concrete xenos), "Doom Eagles", "Astral Knights", "Imperial Knights".
+- **Verifikation:** lint/typecheck/brain:lint skipped per Brief-061 convention (pure data commit: one new override JSON + this log append, no code).
+
+## 2026-05-21 · ssot-w40k-031 · W40K-0301..W40K-0310 · ✅
+
+- **Cumulative books in authority:** 310 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=300, batch=ssot-w40k-031, slice=W40K-0301..W40K-0310
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — alle 10 aus einer Synopsis-Suche je Buch belastbar abgedeckt; Goodreads-Seiten zusätzlich per WebFetch page-read (für Shield of Baal + Eye of Ezekiel separater Such-Schritt zum Auffinden der Buchseite, dann WebFetch).
+- **Per-book bullets:**
+  - W40K-0301 Calgar's Siege — Ultramarines vs Orks, Siege of Zalathras; erstes Buch der Calgar-Trilogie → entry_point series_start.
+  - W40K-0302 Storm of Damocles — Deathwatch/White Scars vs Tau im Damocles Gulf (Stormsurge); POV Nergui.
+  - W40K-0303 Tyrant of the Hollow Worlds — Space Wolves vs Huron Blackhearts Red Corsairs auf Lastrati; Roster/erste Vermutung „Ultramarines/Calgar" war falsch, Quellen klar Space Wolves.
+  - W40K-0304 Shield of Baal — Multi-Author-Anthology aggregiert (Blood Angels/Astra Militarum/Sororitas/Necrons/Eldar vs Hive Fleet Leviathan); zwei Goodreads-Editionen, page-read der Space-Marine-Battles-Ausgabe (29430424, 3.75/63) statt der separaten „Collection".
+  - W40K-0305 Scythes of the Emperor — Single-Author-Collection (L.J. Goulding); Roster sagt anthology — strikt ist es eine Single-Author-Collection, kein data_conflict gesetzt (anthology als Sammel-Format akzeptabel, im Log notiert).
+  - W40K-0306 The Eye of Ezekiel — Dark Angels (Ezekiel) + Mechanicus-Pakt vs Orks auf Honoria; Such-Snippet behauptete 4.23/166, page-read der Goodreads-Seite ergab 3.88/124 → page-read übernommen.
+  - W40K-0307 War for Armageddon: The Omnibus — Omnibus um Helsreach (Black Templars/Grimaldus vs Ghazghkull) + Novellas/Shorts (Salamanders, Guard); Roster releaseYear=null, tatsächlich 2018 (kein Override-Feld dafür, nur notiert). Über Constituent-Werke aggregiert.
+  - W40K-0308 Accursed Eternity — Architect-of-Fate-Novella; Ordo Malleus (Remigius) + Blood Swords/Star Dragons stürmen Daemonschiff. Daemon-Antagonist-Sub-Faction nicht belastbar gepinnt → low_confidence-Flag (factions), generic „Chaos" bewusst vermieden.
+  - W40K-0309 Endeavour of Will — Architect-of-Fate-Novella; Imperial Fists (Lysander) vs Iron Warriors, Techno-Contagion. Keine belastbar benannte Geo-Location → locations leer gelassen.
+  - W40K-0310 Fateweaver — Architect-of-Fate-Novella; White Consuls vs Kairos Fateweaver (Daemons of Tzeentch). Keine belastbar benannte Geo-Location → locations leer.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Red Corsairs", "Scythes of the Emperor", "White Consuls", "Blood Swords", "Star Dragons", "Daemons of Tzeentch", "Ghazghkull Thraka", "Hive Fleet Leviathan", "Hive Fleet Kraken".
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: Override-JSON + Log-Append, kein Code).
+
+## 2026-05-21 · ssot-w40k-032 · W40K-0311..W40K-0320 · ✅
+
+- **Cumulative books in authority:** 320 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=310, batch=ssot-w40k-032, slice=W40K-0311..W40K-0320
+- **WebSearch:** mean=1, max=1 (over 10 books) — all ten are well-documented Space Marine Battles novellas; one synopsis search each was sufficient, Goodreads ratings via per-page WebFetch.
+- **Per-book bullets:**
+  - W40K-0311 Sanctus — Relictors loot a doomed shrine world (Ilissus) ahead of Exterminatus, Black Legion antagonist; no single named POV character surfaced in sources → low_confidence flag on characters, left empty.
+  - W40K-0312 Catechism of Hate — Ultramarines Chaplain Ortan Cassius holds Styxia vs Tyranids; clean, no conflicts.
+  - W40K-0313 Flesh of Cretacia — Flesh Tearers under Amit claim their homeworld Cretacia; orks + planetary horrors. Clean.
+  - W40K-0314 Traitor's Gorge — Crimson Fists / Pedro Kantor post-Rynn's World vs orks (Snagrod), eldar aid; sequel to Rynn's World but standalone-readable.
+  - W40K-0315 Stormseer — White Scars (Temur Khan) vs Overfiend orks on Lepidus Prime; Overfiend trilogy part 1. Used surface form "Imperial Guard" (era-appropriate) for the anvil force.
+  - W40K-0316 Blood and Fire — Black Templars Grimaldus + Celestial Lions; Inquisition cast as antagonist driving the Lions to extinction. Highest-rated of the wave (4.11 / 443).
+  - W40K-0317 Spear of Macragge — Ultramarines tank commander Antaro Chronus + Tigurius vs Necrons on Damnos; runs parallel to Fall of Damnos.
+  - W40K-0318 Shadow Captain — Raven Guard (Krevaan) + Saim-Hann eldar vs Overfiend orks on Lepidus Prime; Overfiend trilogy part 2.
+  - W40K-0319 Forge Master — Salamanders Techmarine Ha'garen boards the Overfiend's flagship; Overfiend trilogy part 3. Adeptus Mechanicus tagged supporting (Ha'garen's Mars training drives the identity theme); kept protagonist_class=space_marine (Techmarine), not tech_priest. Location set to "Octavius" (the system the campaign is named for).
+  - W40K-0320 Plague Harvest — Ultramarines Librarian Vabion + Doom Eagles vs a Nurgle incursion on agri-world Orath; antagonist surface form "Daemons of Nurgle" (concrete Chaos sub, not generic Chaos).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Relictors", "Black Legion", "Celestial Lions", "Doom Eagles", "Daemons of Nurgle", "Imperial Guard" (era surface form for Astra Militarum), "Craftworld Saim-Hann" (tagged generic "Eldar" in junction). Three-book Overfiend-of-Octavius arc spans Stormseer/Shadow Captain/Forge Master.
+- **Verification skipped:** reiner Daten-Commit (Override-JSON + Log-Append, kein Code) — lint/typecheck/brain:lint per Brief-061-Konvention übersprungen.
+
+## 2026-05-21 · ssot-w40k-033 · W40K-0321..W40K-0330 · ✅
+
+- **Cumulative books in authority:** 330 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=320, batch=ssot-w40k-033, slice=W40K-0321..W40K-0330
+- **WebSearch:** mean=1, max=1 (over 10 books) — alle gut dokumentierte SMB-Novellen; je 1 Synopsis-Kontext-Suche genügte. (Zusätzliche Goodreads-Page-Discovery-Suchen für Blood on the Mountain, da kein direkter /book/show-Link im ersten Treffer; Rating dennoch per Page-Read, nicht Snippet.)
+- **Per-book bullets:**
+  - W40K-0321 Engines of War — Ultramarines vs Death Guard, Plagues-of-Orath-Trilogie Bd. 2 → mid_series; sauber.
+  - W40K-0322 Armour of Faith — Trilogie-Abschluss (series_finale); daemonic Chaos → Chaos Daemons supporting neben Death Guard antagonist.
+  - W40K-0323 Sons of Wrath — Flesh Tearers post-Heresy-Gründung; Blood Angels als Lineage supporting; Rivalen-Chapter im Quellmaterial unbenannt → ausgelassen. Keine belastbare Location → leer.
+  - W40K-0324 Angron's Monolith — Relictors (kein POV-Char in Quellen) → low_confidence-Flag characters. Third War for Armageddon.
+  - W40K-0325 The Eternal Crusader — Black Templars/Helbrecht, Void-War über Armageddon → scope sector; Grimaldus supporting.
+  - W40K-0326 Dante's Canyon — Roster ohne Chapter-Hint; Quellen = White Scars (nicht Blood Angels, wie ein Suchbegriff vermuten ließ).
+  - W40K-0327 Evil Sun Rising — reine Ork-POV-Novelle → pov_side=xenos, pc_xenos, tone satirical.
+  - W40K-0328 Blood on the Mountain — Space Wolves vs Orks auf Alaric Prime; Astra Militarum (Guard) supporting.
+  - W40K-0329 Maledictus — Grey Knights (inquisitor+space_marine) vs Orks + Chaos Daemons; Inquisition supporting (Ordo-Konflikt); kein POV-Char benannt → low_confidence-Flag.
+  - W40K-0330 "The Hunt of Magnus" — Roster-Titel/Slug-Mistag: tatsächlicher Titel ist **The Hunt for Magnus** (Chris Wraight); Rating-Evidence entsprechend goodreads .../the-hunt-for-magnus. Slug/externalBookId unverändert gelassen (Surface-Form-Treue).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Relictors", "Flesh Tearers", "Chaos Daemons", "Astra Militarum", "Grey Knights", "Big Mek Uggrim", "Warlord Grukk", "Harek Ironhelm", "Magnus the Red", "Alaric Prime", "Squire's Rest", "Ghoul Stars".
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention: reiner Daten-Commit — neue Override-JSON + Log-Append, kein Code).
+
+## 2026-05-21 · ssot-w40k-034 · W40K-0331..W40K-0340 · ✅
+
+- **Cumulative books in authority:** 340 / nächste Resolver-Pause bei 350
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=330, batch=ssot-w40k-034, slice=W40K-0331..W40K-0340
+- **WebSearch:** mean=1.2, max=2 (over 10 books; 2 searches used for the two Damocles novellas lacking individual Goodreads URLs in first results)
+- **Per-book bullets:**
+  - W40K-0331 Lords of the Storm — Roster seriesHint "Space Marine Battles" is wrong; this is Black Library Novella Series 2, a Fulminators (Ultramarines successor) Reiver story. Shrine world unnamed in sources → low_confidence on locations.
+  - W40K-0332 The Unkindness of Ravens — Raven Guard + Brazen Minotaurs vs Nurgle-themed traitors; no specific Chaos legion named, used generic Chaos Space Marines antagonist with low_confidence flag.
+  - W40K-0333 Dark Vengeance — Clean Dark Angels vs Crimson Slaughter tie-in to the boxed set; full named cast and named world (Bane's Landing).
+  - W40K-0334 Lords of Caliban — FORMAT CONFLICT: roster says novella, but this is a six-story short-fiction collection (Honour of the Third, A Hunt in the Dark, Battle-Brothers, Accept No Failure, Holder of the Keys, All Must End). data_conflict flag, suggestion=collection. Aggregated tags across constituents.
+  - W40K-0335 Mephiston: Lord of Death — Blood Angels character study; clean coverage, named world Pallevon.
+  - W40K-0336 Arjac Rockfist: Anvil of Fenris — Space Wolves vs Tyranids defending the Fang on Asaheim/Fenris; norse-saga framing noted.
+  - W40K-0337 Blood Oath — Damocles novella 1/4; White Scars + Raven Guard vs T'au (Shadowsun) on Agrellan. Marked series_start of the Agrellan/Damocles arc.
+  - W40K-0338 Broken Sword — Damocles 2/4; conversion/defection tale heavy on T'au culture, Raven Guard pursue Water Caste envoy. Central figures unnamed in sources → low_confidence on characters.
+  - W40K-0339 Black Leviathan — Damocles 3/4; political subterfuge, Jade Dragons Chapter + Adeptus Mechanicus manipulated by a Water Caste operative. Figures unnamed → low_confidence on characters.
+  - W40K-0340 Hunter's Snare — Damocles 4/4; sequel to Blood Oath, Kor'sarro Khan vs Shadowsun duel on Agrellan. Marked requires_context (sequel).
+- **value_outside_vocabulary:** [{ "facet": "plot_type", "candidate": "duel", "seen_in": "W40K-0340 Hunter's Snare (and the Khan/Shadowsun thread in W40K-0337)", "note": "single-combat hunter-vs-hunter structure; mapped to war_story+journey for now" }]
+- **Notable surface-forms (within this batch):** Fulminators, Brazen Minotaurs, Jade Dragons (Space Marine Chapters); Crimson Slaughter, Fallen Angels (antagonists); Kranon the Relentless, Kor'sarro Khan, Commander Shadowsun, Mephiston, Arjac Rockfist, Belial, Sammael (characters); Bane's Landing, Pallevon, Agrellan, Asaheim, The Fang, Damocles Gulf (locations).
+- **Verification skipped:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: ein Override-JSON + Markdown-Append, kein Code).
+
+## 2026-05-21 · ssot-w40k-035 · W40K-0341..W40K-0350 · ✅
+
+- **Cumulative books in authority:** 350 / nächste Resolver-Pause bei 350 (greift beim nächsten `loop:next`)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=340, batch=ssot-w40k-035, slice=W40K-0341..W40K-0350
+- **WebSearch:** mean≈1.4, max=2 (over 10 books; alle gut aus Quellen/Trainingsdaten belegt, Ratings per Goodreads-Page-Read)
+- **Per-book bullets:**
+  - W40K-0341 The Last Days of Ector (Guy Haley) — Valedor-Prelude-Novella; Crimson Castellans gegen Hive Fleet Leviathan. Keine namentlichen POV-Charaktere belastbar → `low_confidence` auf `characters`, characters leer.
+  - W40K-0342 Crimson Dawn (C.Z. Dunn) — Crimson-Sabres-→-Crimson-Slaughter-Origin; POV Anzo Riegler. Sauber; Black Library führt es als eNovella (= Roster `novella`), kein Format-Konflikt.
+  - W40K-0343 Shield of Baal: Tempestus (Braden Campbell) — Militarum Tempestus + Inquisitor Ulrich + Sororitas auf Lysios. POV Tempestor Chavis ist Scion → protagonist_class `guardsman`+`inquisitor`. Series_start der Shield-of-Baal-Novella-Trilogie.
+  - W40K-0344 Shield of Baal: Deathstorm (Josh Reynolds) — Blood Angels (Karlaen) + Flesh Tearers vs Spawn of Cryptus auf Phodia. mid_series.
+  - W40K-0345 Shield of Baal: Devourer (Joe Parrino) — Blood Angels (Jatiel) + Necron Anrakyr vs Tyranids im Cryptus-System; Doppel-POV (Imperium+Xenos). series_finale.
+  - W40K-0346 Soul Hunter (ADB) — Night-Lords-Trilogie-Auftakt; Talos/First Claw, Crythe, Black Legion, Mechanicus. series_start.
+  - W40K-0347 Blood Reaver (ADB) — Night Lords + Red Corsairs (Huron Blackheart) belagern Marines Errant auf Vilamus; Maelstrom. mid_series.
+  - W40K-0348 Void Stalker (ADB) — Finale; Night Lords vs Eldar (Ulthwé) auf Tsagualsa. series_finale.
+  - W40K-0349 Night Lords: The Omnibus (ADB) — sammelt Soul Hunter/Blood Reaver/Void Stalker + Kurzgeschichten; Tags aggregiert über alle drei Romane (doorstopper). entry_point series_start (ganze Serie). Goodreads-Page = Omnibus-Work, nicht mit Einzelromanen vermischt.
+  - W40K-0350 Shadow Knight (ADB, short_story) — Night-Lords-Prequel #0.5 auf einem Wrack-Schiff vs Blood Angels. Spielt auf unbenanntem Derelict im Deep Space → `low_confidence` auf `locations`, locations leer. length_tier `novella` als kürzester verfügbarer Bucket (kein Short-Story-Tier).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Crimson Castellans, Crimson Sabres, Marines Errant, Red Corsairs, Militarum Tempestus, Flesh Tearers, Anrakyr the Traveller, Huron Blackheart, Variel the Flayer, The Exalted, Spawn of Cryptus, Tsagualsa, Vilamus, Lysios, Phodia, Cryptus, Crythe, the Maelstrom.
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: Override-JSON + Markdown-Append, kein Code).
+
+## 2026-05-21 · ⏸ Resolver-Pause bei 350 Büchern
+
+- **Cumulative books:** 350 (in 35 batches: ssot-w40k-001..ssot-w40k-035)
+- **Action required:** Maintainer schreibt Resolver-Brief. Loop pausiert bis dahin.
+- **Pause-Detection:** selbst-erkennend (Brief 088) — dieser Block ist der Marker.

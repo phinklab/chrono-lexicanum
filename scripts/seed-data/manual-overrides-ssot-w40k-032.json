@@ -1,0 +1,220 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-032",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "A clean ten-novella wave from the Space Marine Battles line (2012-2014), each a short single-Chapter action piece. Three of them (Stormseer, Shadow Captain, Forge Master) form David Annandale's loosely linked Overfiend-of-Octavius arc told from White Scars, Raven Guard and Salamanders viewpoints; the rest are standalone Chapter showcases (Relictors, Ultramarines, Flesh Tearers, Crimson Fists, Black Templars, Doom Eagles). Roster format tag novella held for all ten.",
+  "books": [
+    {
+      "externalBookId": "W40K-0311",
+      "slug": "sanctus",
+      "overrides": {
+        "synopsis": "The Relictors are a Space Marine Chapter willing to wield the weapons of the enemy against the enemy. Dispatched at the Inquisition's command, they descend on the dying shrine world of Ilissus to plunder its libraries and reliquaries before the planet is scoured clean. With the countdown to annihilation already running, the Relictors fight through the warbands of the Black Legion that infest the ruins, only to realise that the traitor legionaries are far from the deadliest thing waiting for them. As trust frays between the warriors on the surface and their masters in orbit, the Chapter's hunger for forbidden artefacts threatens to damn them more surely than any foe. A tense, claustrophobic tale of zealotry, secrecy, and the cost of fighting fire with fire.",
+        "facetIds": ["book", "novella", "space_marine", "male", "imperium", "planetary", "standalone", "war_story", "mystery", "grimdark", "action_heavy", "faith", "hubris", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Relictors", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Black Legion", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ilissus", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "available sources describe the Relictors and Inquisition factions but name no single clear viewpoint character" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.26, "count": 39, "evidenceUrl": "https://www.goodreads.com/en/book/show/13263718-sanctus" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0312",
+      "slug": "catechism-of-hate",
+      "overrides": {
+        "synopsis": "In the aftermath of the great devourer's assault on Ultramar, the Tyranid menace turns toward the world of Styxia. Chaplain Ortan Cassius, Master of Sanctity of the Ultramarines and a living legend of the Chapter, leads a heavily outnumbered force to hold the planet against the swarm. Where others might feel fear or doubt, Cassius brings only resolve and an unyielding hatred forged in earlier battles against the xenos. As the defence grinds toward its breaking point, the story lays bare the wound at the heart of the old warrior and reveals exactly what fuels his loathing for the alien. A taut last-ditch defence that doubles as a study of one of the Ultramarines' fiercest souls.",
+        "facetIds": ["book", "novella", "space_marine", "male", "imperium", "planetary", "standalone", "war_story", "last_stand", "grimdark", "action_heavy", "faith", "hubris", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Styxia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ortan Cassius", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.62, "count": 111, "evidenceUrl": "https://www.goodreads.com/book/show/13478888-catechism-of-hate" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0313",
+      "slug": "flesh-of-cretacia",
+      "overrides": {
+        "synopsis": "Centuries after the great betrayal that scarred the Imperium, the newly founded Flesh Tearers still wander without a world to call their own. Chapter Master Amit leads his warriors to a savage jungle planet in pursuit of an ork infestation, only to find that the greenskins are the least of the dangers waiting beneath the canopy. As scout teams vanish and ancient predators stalk the defenders, one lone warrior is forced to seek an understanding with the planet's feral human tribes. Out of the bloodshed Amit claims the world for his Chapter and names it Cretacia, a brutal home that will breed brutal sons. A primal survival story about a cursed brotherhood finding its identity in blood.",
+        "facetIds": ["book", "novella", "space_marine", "male", "imperium", "planetary", "standalone", "war_story", "journey", "grimdark", "action_heavy", "brotherhood", "war", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Flesh Tearers", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cretacia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Amit", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.64, "count": 197, "evidenceUrl": "https://www.goodreads.com/book/show/16138233-flesh-of-cretacia" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0314",
+      "slug": "traitors-gorge",
+      "overrides": {
+        "synopsis": "Two years after the orks of the warlord Snagrod nearly annihilated the Crimson Fists, Chapter Master Pedro Kantor leads his rebuilt but still-depleted brethren in the grinding work of reclaiming Rynn's World. When an expedition from New Rynn City goes missing, Kantor marches to find them and walks into a carefully laid ambush at a place called Traitor's Gorge. Outmaneuvered and outnumbered, the Crimson Fists face destruction until aid arrives from the most unexpected of quarters. A tense battle-piece about a proud Chapter clawing back its strength and purpose, and the hard bargains survival sometimes demands.",
+        "facetIds": ["book", "novella", "space_marine", "male", "imperium", "planetary", "standalone", "war_story", "last_stand", "grimdark", "action_heavy", "loyalty", "redemption", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Crimson Fists", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Eldar", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Rynn's World", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Pedro Kantor", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.58, "count": 123, "evidenceUrl": "https://www.goodreads.com/book/show/17835813-traitor-s-gorge" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0315",
+      "slug": "stormseer",
+      "overrides": {
+        "synopsis": "The orks of the Overfiend of Octavius have bled the Imperium for too long, and now the White Scars come to break them. Temur Khan and his brotherhood fall upon the embattled world of Lepidus Prime like a thunderbolt, the swift hammer to the Imperial Guard's anvil. But the battlefront is only half the war: a lone Stormseer, guided by a fragmentary psychic vision and shadowed by enigmatic eldar, slips behind enemy lines to uncover the secret of the greenskins' uncanny ability to appear everywhere at once. Fast, furious, and steeped in the lightning-and-storm mysticism of Chogoris, this is the White Scars at their most kinetic.",
+        "facetIds": ["book", "novella", "space_marine", "male", "imperium", "planetary", "standalone", "war_story", "mystery", "grimdark", "action_heavy", "brotherhood", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Imperial Guard", "role": "supporting" },
+          { "name": "Eldar", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Lepidus Prime", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Temur Khan", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.62, "count": 52, "evidenceUrl": "https://www.goodreads.com/book/show/19440228-stormseer" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0316",
+      "slug": "blood-and-fire",
+      "overrides": {
+        "synopsis": "In the smoking aftermath of the war for Hive Helsreach, the Black Templars Chaplain Grimaldus answers an unexpected distress call from an old comrade. The Celestial Lions, like the Templars sons of Rogal Dorn, have been hunted to the edge of extinction, and they believe the Inquisition itself is engineering their destruction. Honour-bound to stand beside them against a relentless ork horde, Grimaldus must also weigh a far darker truth about the masters he serves. More reflective than the battles that came before it, this is a sombre tale of loyalty, brotherhood, and the uncomfortable secrets buried in the Imperium's wars.",
+        "facetIds": ["book", "novella", "space_marine", "male", "imperium", "planetary", "standalone", "war_story", "grimdark", "somber", "action_heavy", "betrayal", "loyalty", "doubt", "faith", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Black Templars", "role": "primary" },
+          { "name": "Celestial Lions", "role": "supporting" },
+          { "name": "Inquisition", "role": "antagonist" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Grimaldus", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.11, "count": 443, "evidenceUrl": "https://www.goodreads.com/book/show/18144177-blood-and-fire" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0317",
+      "slug": "spear-of-macragge",
+      "overrides": {
+        "synopsis": "On the frozen world of Damnos, the awakened legions of the necrons grind the Ultramarines toward defeat. With Captain Sicarius struck down and the front collapsing, hope rests on Chief Librarian Varro Tigurius and on Antaro Chronus, the Chapter's peerless tank commander known as the Spear of Macragge. As Chronus leads a massed armoured battle across the dying plains and the siege of Kellenport reaches its climax, the Ultramarines stake everything on one desperate gamble to turn the war. Running alongside the fall of Damnos, this novella fills in the armoured clashes and last stands left untold, a grim ode to sacrifice, machine, and will.",
+        "facetIds": ["book", "novella", "space_marine", "male", "imperium", "planetary", "siege", "standalone", "war_story", "grimdark", "action_heavy", "sacrifice", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Damnos", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Antaro Chronus", "role": "pov" },
+          { "name": "Varro Tigurius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.55, "count": 88, "evidenceUrl": "https://www.goodreads.com/en/book/show/18453643-spear-of-macragge" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0318",
+      "slug": "shadow-captain",
+      "overrides": {
+        "synopsis": "The war against the Overfiend of Octavius rages on, and on Lepidus Prime the beleaguered defenders gain an unlikely ally: the eldar of Craftworld Saim-Hann. Shadow Captain Krevaan of the Raven Guard sees in their arrival a chance to strike a decisive blow against the ork invaders before the vital city of Reclamation is overrun. But the sons of Corax are masters of secrets and stratagems themselves, and they suspect the eldar's true purpose is anything but selfless. Forging a brittle alliance with an ancient enemy, Krevaan must decide how far to trust those who never reveal their full design. A shadow-game of misdirection and hard calculation set amid open war.",
+        "facetIds": ["book", "novella", "space_marine", "male", "imperium", "planetary", "standalone", "war_story", "mystery", "grimdark", "action_heavy", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Eldar", "role": "supporting" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Lepidus Prime", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Krevaan", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.65, "count": 48, "evidenceUrl": "https://www.goodreads.com/book/show/20642560-shadow-captain" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0319",
+      "slug": "forge-master",
+      "overrides": {
+        "synopsis": "The campaign against the Overfiend of Octavius reaches its boldest stroke: the Fifth Company of the Salamanders are tasked to board the ork warlord's own flagship and cut the head from the horde. At the heart of the mission stands Techmarine Ha'garen, lately returned from years among the priesthood of Mars and struggling to reconcile the cold logic he learned there with the fire of his Chapter's soul. As the strike team fights through the iron guts of the ork vessel, they uncover a captive whose secret could end the war, if it does not destroy them first. A claustrophobic boarding action threaded with a quiet meditation on what it means to be a son of Nocturne.",
+        "facetIds": ["book", "novella", "space_marine", "male", "imperium", "company", "standalone", "war_story", "grimdark", "philosophical", "action_heavy", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Octavius", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ha'garen", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.63, "count": 49, "evidenceUrl": "https://www.goodreads.com/book/show/20748315-forge-master" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0320",
+      "slug": "plague-harvest",
+      "overrides": {
+        "synopsis": "On the quiet agri-world of Orath, the crops wither and the people sicken as something ancient stirs beneath the soil. Librarian Vabion of the Ultramarines, keeper of the planet's buried secrets and castellan of Fort Kerberos, must set aside old frictions and work with the grim warriors of the Doom Eagles to trace the source of the contagion. But when the dead begin to rise and the true architects of Orath's fate reveal themselves, servants of the plague-god Nurgle, Vabion is left to stand alone against a horror millennia in the making. A creeping tale of corruption and dread that turns a failing harvest into a full daemonic incursion.",
+        "facetIds": ["book", "novella", "space_marine", "male", "imperium", "planetary", "standalone", "war_story", "mystery", "siege", "grimdark", "cosmic_horror", "faith", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Doom Eagles", "role": "supporting" },
+          { "name": "Daemons of Nurgle", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Orath", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Vabion", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.36, "count": 47, "evidenceUrl": "https://www.goodreads.com/book/show/22019422-plague-harvest" }
+      }
+    }
+  ]
+}

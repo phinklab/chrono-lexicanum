@@ -1,0 +1,264 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-035",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "A split batch: five standalone tie-in novellas tied to two GW campaign books (Guy Haley's Valedor prelude, C.Z. Dunn's Crimson Slaughter origin, and the three-part Shield of Baal Cryptus war), followed by Aaron Dembski-Bowden's complete Night Lords trilogy plus its omnibus and the prelude short story Shadow Knight. The Night Lords cluster is well-documented with thousands of Goodreads ratings; the novellas are thinly rated (39-129) but all carry aggregated values.",
+  "books": [
+    {
+      "externalBookId": "W40K-0341",
+      "slug": "the-last-days-of-ector",
+      "overrides": {
+        "synopsis": "A tendril of Hive Fleet Leviathan sweeps into the Valedor system, and one by one its five worlds are stripped of all life. Only Ector still stands, held by the Crimson Castellans Space Marines against an enemy beyond counting. As the tyranid swarms close in and the planet's defences crumble, the Chapter faces a choice that honour cannot answer: die where they stand, as their oaths demand, or break off and preserve the warriors and gene-seed their future depends on. A grim prelude to the wider war for Valedor.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "last_stand", "war_story", "grimdark", "somber", "action_heavy", "sacrifice", "loyalty", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Crimson Castellans", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ector", "role": "primary" },
+          { "name": "Valedor", "role": "supporting" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "no named viewpoint characters confirmed in available sources" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.84, "count": 82, "evidenceUrl": "https://www.goodreads.com/book/show/22059604-the-last-days-of-ector" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0342",
+      "slug": "crimson-dawn",
+      "overrides": {
+        "synopsis": "Before they became the Crimson Slaughter, they were the Crimson Sabres — loyal sons of the Emperor. After the brutal purge of the world of Umidia, where they slaughtered a population they branded heretics, the Sabres find no peace: sleep brings only the faces of the slain, and then their voices. As an Inquisitorial investigation finds no proof of the corruption they claimed to root out, Scout Captain Anzo Riegler watches his brothers unravel, the lone steady voice in a Chapter sliding toward damnation. The origin of one of the galaxy's most feared renegade warbands.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "character_study", "war_story", "grimdark", "somber", "betrayal", "doubt", "faith", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Crimson Sabres", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Umidia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Anzo Riegler", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.87, "count": 39, "evidenceUrl": "https://www.goodreads.com/book/show/20958501-crimson-dawn" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0343",
+      "slug": "shield-of-baal-tempestus",
+      "overrides": {
+        "synopsis": "A tendril of Hive Fleet Leviathan has reached the Cryptus shieldworlds, the last barrier before Baal itself. On the drowned world of Lysios, where a world-circling tidal wave drags eldritch horrors from the deep, the Adepta Sororitas hold the line against the swarm. Into this nightmare comes a platoon of Tempestus Scions, the Imperium's elite storm troopers, seconded to the enigmatic Inquisitor Ulrich on a mission that may decide far more than one battle: to seize a unique tyranid bioform from the surging tides — a prize Tempestor Chavis and his men may not live to deliver.",
+        "facetIds": ["book", "male", "guardsman", "inquisitor", "imperium", "planetary", "series_start", "novella", "war_story", "journey", "grimdark", "action_heavy", "faith", "sacrifice", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Militarum Tempestus", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Adepta Sororitas", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Lysios", "role": "primary" },
+          { "name": "Cryptus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Tempestor Chavis", "role": "pov" },
+          { "name": "Inquisitor Ulrich", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.47, "count": 129, "evidenceUrl": "https://www.goodreads.com/book/show/23562402-tempestus" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0344",
+      "slug": "shield-of-baal-deathstorm",
+      "overrides": {
+        "synopsis": "The sons of Sanguinius descend on the dying world of Phodia, where Hive Fleet Leviathan's swarms already strip the planet bare. First Captain Karlaen, called the Shield of Baal, leads his Blood Angels and the savage Flesh Tearers to find and secure the planetary governor, whose bloodline may hold a cure for the twin curses of the Red Thirst and the Black Rage. But the Spawn of Cryptus, a monstrous tyranid creature, hunts the same prize — and only Karlaen and his Terminators stand between it and the heart of the Chapter's hope.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "novella", "war_story", "siege", "last_stand", "grimdark", "action_heavy", "somber", "brotherhood", "sacrifice", "faith", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Flesh Tearers", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Phodia", "role": "primary" },
+          { "name": "Cryptus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Karlaen", "role": "pov" },
+          { "name": "Spawn of Cryptus", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.58, "count": 89, "evidenceUrl": "https://www.goodreads.com/book/show/23630125-deathstorm" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0345",
+      "slug": "shield-of-baal-devourer",
+      "overrides": {
+        "synopsis": "As Hive Fleet Leviathan grinds toward Baal, Blood Angels Sergeant Jatiel and his squad keep a lonely vigil over a dead world far from the front. When their ship crashes and draws the swarm down upon them, the survivors are driven underground — straight into the path of the necron overlord Anrakyr the Traveller, who has come to wake a slumbering tomb. With the tyranids hungering above, ancient enemies forge a desperate, uneasy alliance to survive the dark beneath the surface, and the battle for the Cryptus shieldworlds reaches its close.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "xenos", "planetary", "series_finale", "novella", "war_story", "journey", "grimdark", "action_heavy", "war", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Necrons", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cryptus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Jatiel", "role": "pov" },
+          { "name": "Anrakyr the Traveller", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.46, "count": 108, "evidenceUrl": "https://www.goodreads.com/book/show/23784581-devourer" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0346",
+      "slug": "soul-hunter",
+      "overrides": {
+        "synopsis": "Ten thousand years after their Primarch's murder, the Night Lords endure as scattered raiders, feared and hunted across the galaxy. Talos, a battle-brother of First Claw and a reluctant prophet cursed with his gene-father's visions, fights to keep his fractured warband alive as it is drawn into one of Abaddon the Despoiler's black crusades against the forge world of Crythe. When Talos returns from a vision with a captured Navigator and new servitors, he provokes the wrath of the warband's tyrannical master — and sets First Claw on a collision course with the Mechanicus, the Black Legion, and the legion's own ruin.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "series_start", "standard", "war_story", "character_study", "grimdark", "somber", "philosophical", "loyalty", "betrayal", "brotherhood", "doubt", "hubris", "cw_violence", "cw_death", "cw_disturbing", "cw_language", "en"],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Black Legion", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Crythe", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Talos", "role": "pov" },
+          { "name": "Cyrion", "role": "supporting" },
+          { "name": "Xarl", "role": "supporting" },
+          { "name": "Uzas", "role": "supporting" },
+          { "name": "Mercutian", "role": "supporting" },
+          { "name": "The Exalted", "role": "antagonist" },
+          { "name": "Octavia", "role": "supporting" },
+          { "name": "Septimus", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.36, "count": 5948, "evidenceUrl": "https://www.goodreads.com/book/show/52837334" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0347",
+      "slug": "blood-reaver",
+      "overrides": {
+        "synopsis": "Hunted and battered, the Night Lords flee into the Maelstrom and throw themselves on the mercy of Huron Blackheart — the Blood Reaver, tyrant of the Red Corsairs. Huron is planning his boldest raid yet: an assault on the fortress-monastery of the Marines Errant to plunder their precious gene-seed and cripple a loyal Chapter. Talos and First Claw join the siege, but the alliance is rotten on both sides, and the Night Lords are playing for a far greater prize than gene-seed. As betrayal stacks on betrayal, the warband must decide how much of itself it is willing to lose to survive.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "planetary", "mid_series", "standard", "siege", "war_story", "heist", "grimdark", "action_heavy", "somber", "betrayal", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "cw_language", "en"],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Red Corsairs", "role": "supporting" },
+          { "name": "Marines Errant", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vilamus", "role": "primary" },
+          { "name": "the Maelstrom", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Talos", "role": "pov" },
+          { "name": "Huron Blackheart", "role": "supporting" },
+          { "name": "Cyrion", "role": "supporting" },
+          { "name": "Xarl", "role": "supporting" },
+          { "name": "Uzas", "role": "supporting" },
+          { "name": "Mercutian", "role": "supporting" },
+          { "name": "Variel", "role": "supporting" },
+          { "name": "Septimus", "role": "supporting" },
+          { "name": "Octavia", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.39, "count": 4014, "evidenceUrl": "https://www.goodreads.com/book/show/8697277" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0348",
+      "slug": "void-stalker",
+      "overrides": {
+        "synopsis": "Talos and First Claw set in motion an audacious plan to throw an entire sector of the Imperium into chaos — but their visions of the future are about to converge with a reckoning they did not foresee. On the craftworld of Ulthwé, the Eldar farseers have read a great threat in the skein of fate, and they move to extinguish the Night Lords before prophecy can be fulfilled. As the alien hunters close in and old loyalties fracture, Talos returns to the haunted world of Tsagualsa for a final, brutal confrontation that brings the Prophet of the Eighth Legion's story to its end.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "xenos", "sector", "series_finale", "standard", "war_story", "character_study", "last_stand", "grimdark", "somber", "philosophical", "betrayal", "brotherhood", "sacrifice", "loyalty", "doubt", "cw_violence", "cw_death", "cw_disturbing", "cw_language", "en"],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Tsagualsa", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Talos", "role": "pov" },
+          { "name": "Cyrion", "role": "supporting" },
+          { "name": "Xarl", "role": "supporting" },
+          { "name": "Uzas", "role": "supporting" },
+          { "name": "Mercutian", "role": "supporting" },
+          { "name": "Variel the Flayer", "role": "supporting" },
+          { "name": "Septimus", "role": "supporting" },
+          { "name": "Octavia", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.48, "count": 3482, "evidenceUrl": "https://www.goodreads.com/book/show/12421773-void-stalker" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0349",
+      "slug": "night-lords-the-omnibus",
+      "overrides": {
+        "synopsis": "The complete saga of the galaxy's most feared traitors, collecting the Night Lords trilogy — Soul Hunter, Blood Reaver and Void Stalker — alongside the short fiction that frames it. Follow Talos, prophet of a murdered Primarch, and his brothers of First Claw across ten thousand years of bitterness: from a black crusade against the forge world of Crythe, through a treacherous alliance with Huron Blackheart's Red Corsairs, to a final hunt on the haunted world of Tsagualsa where the Eldar move to end them. A study of damnation, brotherhood and the long shadow of betrayal, told entirely from the side of the damned.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "xenos", "sector", "galactic", "series_start", "doorstopper", "war_story", "character_study", "siege", "last_stand", "grimdark", "somber", "philosophical", "action_heavy", "betrayal", "loyalty", "brotherhood", "doubt", "hubris", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "cw_language", "en"],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Black Legion", "role": "supporting" },
+          { "name": "Red Corsairs", "role": "supporting" },
+          { "name": "Eldar", "role": "antagonist" },
+          { "name": "Marines Errant", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Crythe", "role": "supporting" },
+          { "name": "Vilamus", "role": "supporting" },
+          { "name": "Tsagualsa", "role": "supporting" },
+          { "name": "the Maelstrom", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Talos", "role": "pov" },
+          { "name": "Cyrion", "role": "supporting" },
+          { "name": "Xarl", "role": "supporting" },
+          { "name": "Uzas", "role": "supporting" },
+          { "name": "Mercutian", "role": "supporting" },
+          { "name": "Variel the Flayer", "role": "supporting" },
+          { "name": "Septimus", "role": "supporting" },
+          { "name": "Octavia", "role": "supporting" },
+          { "name": "Huron Blackheart", "role": "supporting" },
+          { "name": "The Exalted", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.67, "count": 2435, "evidenceUrl": "https://www.goodreads.com/book/show/21019364-night-lords" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0350",
+      "slug": "shadow-knight",
+      "overrides": {
+        "synopsis": "On a derelict, drifting Imperial vessel, the Night Lords of First Claw go hunting for salvage and find prey instead — a band of Blood Angels, cut off from rescue and reinforcement. Talos baits his quarry with patience and cruelty, picking the loyalists apart in the dark corridors while his brothers Uzas, Xarl and Cyrion close the trap. But the prophet is tormented by visions he cannot silence, and a grim premonition of fire and death seizes him mid-battle. A sharp, brutal introduction to Talos and First Claw, and the doorway into the Night Lords saga.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "squad", "series_start", "novella", "war_story", "grimdark", "action_heavy", "brotherhood", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Blood Angels", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Talos", "role": "pov" },
+          { "name": "Uzas", "role": "supporting" },
+          { "name": "Xarl", "role": "supporting" },
+          { "name": "Cyrion", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "set aboard an unnamed derelict ship in deep space; no concrete world to anchor" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.06, "count": 446, "evidenceUrl": "https://www.goodreads.com/book/show/26170380" }
+      }
+    }
+  ]
+}

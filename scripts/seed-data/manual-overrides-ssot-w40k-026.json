@@ -1,0 +1,232 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-026",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "A two-Order Adepta Sororitas wave bracketed by Deathwatch and Rogue Trader. Three Deathwatch kill-team novels (Goto's Eldar-alliance entry, Parker's Talon Squad origin + sequel), James Swallow's classic Sister Miriya duology plus its omnibus, Danie Ware's three Sister Augusta novellas, and Andy Hoare's Rogue Trader opener. Heavy series-internal continuity; two Augusta novellas leave the deep antagonist unnamed in sources (flagged), and the roster mistitles 'The Rose in Anger' as 'The Rose in the Anger'.",
+  "books": [
+    {
+      "externalBookId": "W40K-0251",
+      "slug": "warrior-coven",
+      "overrides": {
+        "synopsis": "A Deathwatch kill-team led by Captain Octavius is bound by an ancient debt to the Eldar of Craftworld Ulthwé. When the craftworld's people are abducted by their cruel kin, the dark eldar raiders of the Twisted Kin, Octavius and his warriors must fight alongside their alien allies to recover the captives in exchange for forbidden knowledge only the Eldar can offer. Trust is nonexistent between Space Marine and xenos, and pragmatism alone holds the uneasy pact together. As the hunt drags the team into the torture-realm of the dark eldar, one of their number carries secret orders that could damn them all, and the warriors face a battle not only for their lives but for their very souls.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "xenos", "squad", "war_story", "journey", "grimdark", "action_heavy", "brotherhood", "war", "loyalty", "cw_violence", "cw_death", "mid_series", "standard", "en"],
+        "factions": [
+          { "name": "Deathwatch", "role": "primary" },
+          { "name": "Eldar", "role": "supporting" },
+          { "name": "Dark Eldar", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Craftworld Ulthwé", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Captain Octavius", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.38, "count": 229, "evidenceUrl": "https://www.goodreads.com/book/show/438109.Warrior_Coven" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0252",
+      "slug": "deathwatch",
+      "overrides": {
+        "synopsis": "Drawn from a dozen different Chapters and forged into a single kill-team within an ironclad watch fortress, the Space Marines of Talon Squad are alien-hunters without equal. Under the cold command of the enigmatic Inquisitor Sigma, and led by the Death Spectres Librarian Lyandro Karras, their first mission together is a brutal one: descend into a genestealer-infested world and burn the xenos brood from its tunnels before an entire planet is consumed. As the team learns to trust one another against borderline-unsurvivable odds, Karras must reconcile honour to his Chapter with the distasteful duties his Inquisitorial master demands. This is the origin of Talon Squad, the tale of how strangers became brothers in the Emperor's deadliest service.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "war_story", "siege", "grimdark", "action_heavy", "cosmic_horror", "brotherhood", "loyalty", "war", "cw_violence", "cw_death", "series_start", "standard", "en"],
+        "factions": [
+          { "name": "Deathwatch", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Chiaro", "role": "primary" },
+          { "name": "Watch Fortress Damaroth", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lyandro Karras", "role": "pov" },
+          { "name": "Inquisitor Sigma", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.20, "count": 856, "evidenceUrl": "https://www.goodreads.com/book/show/15802987-deathwatch" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0253",
+      "slug": "shadowbreaker",
+      "overrides": {
+        "synopsis": "Recovered from the wounds of his last mission, Librarian Lyandro Karras leads Talon Squad on the trail of a missing inquisitor. Their only lead is the name of an Imperial world now overrun by the T'au, and a creeping suspicion that the vanished inquisitor may have turned traitor, threatening one of the Inquisition's most closely guarded secrets. To find the truth, Karras and his kill-team must wage war across a planet swarming with hostile xenos while navigating the lethal internal politics of their own masters. Every step tests the balance between personal honour, Chapter loyalty, and the dark duty laid upon them. Some of the deadliest enemies, Karras learns, wear the Imperium's own colours.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "war_story", "political_thriller", "grimdark", "action_heavy", "brotherhood", "loyalty", "doubt", "war", "cw_violence", "cw_death", "requires_context", "standard", "en"],
+        "factions": [
+          { "name": "Deathwatch", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "T'au", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Lyandro Karras", "role": "pov" },
+          { "name": "Inquisitor Sigma", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "T'au-occupied Imperial world not named in available sources" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.98, "count": 371, "evidenceUrl": "https://www.goodreads.com/book/show/44180902-shadowbreaker" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0254",
+      "slug": "faith-and-fire",
+      "overrides": {
+        "synopsis": "When the dangerous psychic heretic Torris Vaun escapes from her custody, Sister Miriya of the Order of Our Martyred Lady is disgraced before her sisters and superiors. Determined to redeem herself, she pursues Vaun's trail to the hive world of Neva, taking her squad of Battle Sisters with her. There, alongside the gentle Hospitaller Sister Verity, Miriya uncovers a web of political corruption and a conspiracy that threatens not only Neva but the wider Imperium. As faith wars with doubt and duty with self-worth, the two very different sisters forge an unlikely bond. Miriya must rekindle her conviction and bring the Emperor's fire to bear before Vaun's plans ignite a catastrophe.",
+        "facetIds": ["book", "female", "sister", "imperium", "planetary", "war_story", "mystery", "faith", "doubt", "redemption", "somber", "action_heavy", "cw_violence", "cw_death", "series_start", "standard", "en"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Ecclesiarchy", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Neva", "role": "primary" },
+          { "name": "Van Horne", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sister Miriya", "role": "pov" },
+          { "name": "Sister Verity", "role": "supporting" },
+          { "name": "Torris Vaun", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.64, "count": 1432, "evidenceUrl": "https://www.goodreads.com/book/show/1138069.Faith_and_Fire" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0255",
+      "slug": "hammer-and-anvil",
+      "overrides": {
+        "synopsis": "Long ago the convent-outpost of Sanctuary 101 fell silent, overrun by the soulless, deathless necrons, and the truth of its destruction was buried by the Ecclesiarchy. Now Sister Miriya and Hospitaller Sister Verity lead a mission of the Order of Our Martyred Lady back to the dead world to reconsecrate the ground their predecessors died defending. But the metal horrors still stir in the dark, guarding a secret kept for millennia. What begins as a rite of remembrance becomes a desperate battle for survival, one that can end only in the annihilation of the ancient xenos or the destruction of the proud Sisterhood. Faith and bolter, hammer and anvil, Miriya's sisters will need both to endure.",
+        "facetIds": ["book", "female", "sister", "imperium", "planetary", "war_story", "siege", "last_stand", "faith", "sacrifice", "war", "grimdark", "somber", "action_heavy", "cw_violence", "cw_death", "mid_series", "standard", "en"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Ecclesiarchy", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Sanctuary 101", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sister Miriya", "role": "pov" },
+          { "name": "Sister Verity", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.84, "count": 577, "evidenceUrl": "https://www.goodreads.com/book/show/13091852-hammer-and-anvil" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0256",
+      "slug": "sisters-of-battle-the-omnibus",
+      "overrides": {
+        "synopsis": "Two complete novels and two shorter tales collect the early campaigns of the Adepta Sororitas. In Faith and Fire, the disgraced Sister Miriya hunts the escaped heretic Torris Vaun across the hive world of Neva, uncovering a conspiracy that reaches into the Imperium's heart. In Hammer and Anvil, Miriya and the Hospitaller Sister Verity return to the dead world of Sanctuary 101 to face the soulless necrons that slaughtered its defenders. Alongside them, the shorter works Red and Black and Heart and Soul deepen the bond between the Battle Sisters and test their faith against corruption, doubt, and ancient terror. Together they chart the trials of two very different women bound by devotion to the Emperor and the unending wars of the Sisterhood.",
+        "facetIds": ["book", "female", "sister", "imperium", "planetary", "war_story", "mystery", "siege", "last_stand", "faith", "doubt", "redemption", "sacrifice", "grimdark", "somber", "action_heavy", "cw_violence", "cw_death", "series_start", "doorstopper", "en"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Ecclesiarchy", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Neva", "role": "primary" },
+          { "name": "Van Horne", "role": "supporting" },
+          { "name": "Sanctuary 101", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sister Miriya", "role": "pov" },
+          { "name": "Sister Verity", "role": "supporting" },
+          { "name": "Torris Vaun", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.21, "count": 314, "evidenceUrl": "https://www.goodreads.com/en/book/show/32861012-sisters-of-battle" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0257",
+      "slug": "the-bloodied-rose",
+      "overrides": {
+        "synopsis": "Sister Superior Augusta of the Order of the Bloody Rose has barely returned to the convent to rest and induct a new recruit when fresh orders send her squad back to the fetid jungle world of Lautis. The Sisters dispatched to secure the world have fallen silent, and Augusta's earlier account of the fighting there has been called into question. Amid creeping foliage and crumbling cathedrals, a horror is rising from the deep crypts, bloodied nightmares bent on a dark purpose. Augusta must trust her Battle Sisters and lead them into the shadows beneath the ruins to uncover what truly befell the lost mission. Faith and fire are mighty weapons, but against the terror waking on Lautis they may not be enough.",
+        "facetIds": ["book", "female", "sister", "imperium", "squad", "war_story", "mystery", "siege", "faith", "loyalty", "sacrifice", "grimdark", "somber", "cosmic_horror", "action_heavy", "cw_violence", "cw_death", "cw_disturbing", "series_start", "novella", "en"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Lautis", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sister Superior Augusta", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "the rising crypt horror is not clearly identified as a specific faction in available sources; orks confirmed as prior/concurrent threat on Lautis" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.11, "count": 303, "evidenceUrl": "https://www.goodreads.com/book/show/42643269-the-bloodied-rose" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0258",
+      "slug": "wreck-and-ruin",
+      "overrides": {
+        "synopsis": "Returning home from the horrors of Lautis, Sister Superior Augusta and her squad find their service seized by the secretive Inquisitor Istrix. Ordered to the ravaged, abandoned forge world of Lycheate, the Battle Sisters join the hunt for the dangerous rogue psyker Scafidis Zale. Among the rusting steelworks and their desperate, shadowy inhabitants, Augusta's trust in the hardline Inquisitor is tested and her faith challenged anew. What is Istrix hiding from the Sisterhood, and what price will the Adepta Sororitas pay for following an outsider's orders? To survive Lycheate and its secrets, Augusta and her sisters must cling to both their faith and their fury, even as the ground beneath them turns treacherous.",
+        "facetIds": ["book", "female", "sister", "imperium", "squad", "war_story", "mystery", "journey", "faith", "doubt", "loyalty", "grimdark", "somber", "action_heavy", "cw_violence", "cw_death", "requires_context", "novella", "en"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Lycheate", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sister Superior Augusta", "role": "pov" },
+          { "name": "Inquisitor Istrix", "role": "supporting" },
+          { "name": "Scafidis Zale", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.02, "count": 132, "evidenceUrl": "https://www.goodreads.com/book/show/48735825-wreck-and-ruin" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0259",
+      "slug": "the-rose-in-the-anger",
+      "overrides": {
+        "synopsis": "Reeling from all that has befallen her, Sister Augusta of the Adeptus Sororitas is ordered back to the one world she swore she would never set foot upon again. As her Order musters for war, Augusta and her squad deploy in full strength, boots, tanks, and gunships, against the enemies that hold the forge world of Lycheate. This may be her final mission, and the cost of failure has never been higher. Pushed past grief and exhaustion, Augusta must hold her faith and her sisters together through one last brutal trial, where every weapon of the Sisterhood is brought to bear and devotion is the only thing standing between the living and the dark.",
+        "facetIds": ["book", "female", "sister", "imperium", "planetary", "war_story", "last_stand", "faith", "sacrifice", "loyalty", "grimdark", "somber", "action_heavy", "cw_violence", "cw_death", "series_finale", "novella", "en"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Lycheate", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sister Augusta", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "antagonist faction holding Lycheate not named in available sources" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.93, "count": 95, "evidenceUrl": "https://www.goodreads.com/book/show/55890432-the-rose-in-anger" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0260",
+      "slug": "rogue-star",
+      "overrides": {
+        "synopsis": "Lucian Gerrit is a rogue trader, heir to an ancient charter granting trade and conquest rights along the lawless Eastern Fringe. But his inheritance is little more than mounting debt and faded glory. In a final, desperate gamble to restore his dynasty, Gerrit strikes a bargain on a forgotten Imperial world, pledging his family's ships and fortune to one warlord's long war against a rival. As the conflict escalates and his own children pursue their separate ambitions, Gerrit finds himself drawn into something far larger than a frontier squabble: first contact and confrontation with a young, expanding alien power, the T'au Empire. The deal that was meant to save his house may instead cost him everything.",
+        "facetIds": ["book", "male", "civilian", "imperium", "sector", "war_story", "political_thriller", "journey", "action_heavy", "war", "hubris", "betrayal", "cw_violence", "cw_death", "series_start", "standard", "en"],
+        "factions": [
+          { "name": "Rogue Traders", "role": "primary" },
+          { "name": "T'au", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Eastern Fringe", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Lucian Gerrit", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.28, "count": 226, "evidenceUrl": "https://www.goodreads.com/book/show/1001949.Rogue_Star" }
+      }
+    }
+  ]
+}

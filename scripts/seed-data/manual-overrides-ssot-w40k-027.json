@@ -1,0 +1,255 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-027",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-21",
+  "model": "claude-opus-4-7",
+  "rationale": "A tightly-themed wave of three author-trilogies: Andy Hoare's Rogue Trader saga (plus its omnibus), Anthony Reynolds' Word Bearers trilogy (plus its omnibus), and Henry Zou's Bastion Wars trio. Two omnibi aggregate their constituent novels. The Rogue Trader and Word Bearers crusades both pivot on tau/necron antagonists and intra-faction politicking; Bastion Wars splits Imperium-side (Emperor's Mercy, Flesh and Iron) from a loosely-linked Chaos-side closer (Blood Gorgons).",
+  "books": [
+    {
+      "externalBookId": "W40K-0261",
+      "slug": "star-of-damocles",
+      "overrides": {
+        "synopsis": "Rogue trader Lucian Gerrit and his fractious dynasty are swept into a full Imperial crusade against the newly discovered tau, a war that carries the fleet across the desolate void of the Damocles Gulf to the very borders of the alien empire. Lucian sees opportunity where others see only heresy: the tau possess technologies the Imperium could turn to its own ends. But Cardinal Gurney and the fanatical Inquisitor Grand want the xenos exterminated to the last, and much of the campaign is fought not on the battlefield but in the crusade council's chambers, where ambition, faith, and treachery collide. As the human armada finds itself outnumbered and far from home, Lucian's cunning, and the wayward loyalty of his estranged daughter Brielle, may be all that stands between the crusade and disaster.",
+        "facetIds": ["book", "mixed", "multi", "imperium", "sector", "mid_series", "standard", "war_story", "court_intrigue", "political_thriller", "grimdark", "action_heavy", "somber", "war", "hubris", "betrayal", "cw_violence", "cw_death", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "Rogue Traders", "role": "primary" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Adeptus Astartes", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Damocles Gulf", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Lucian Gerrit", "role": "pov" },
+          { "name": "Brielle Gerrit", "role": "supporting" },
+          { "name": "Inquisitor Grand", "role": "antagonist" },
+          { "name": "Cardinal Gurney", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.32, "count": 142, "evidenceUrl": "https://www.goodreads.com/book/show/1001948.Star_of_Damocles" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0262",
+      "slug": "savage-scars",
+      "overrides": {
+        "synopsis": "The crusade against the tau has reached the contested world of Dal'yth, and the time has come for the Imperium to break the Greater Good's grip by force. The White Scars spearhead the ground assault, their riders tearing into the enemy with blistering speed while Lucian Gerrit leads the massed Imperial Guard and his daughter Brielle pursues her own designs. Yet victory hinges on a fractured crusade council, where backstabbing and rival agendas threaten to squander every gain, and Inquisitor Grand readies measures more terrible than the war itself. The Space Marine Sarik must win a swift triumph, for the cost of delay to Dal'yth could be beyond reckoning. When a far greater horror descends on the system, both sides are forced to count what their ambitions have truly bought.",
+        "facetIds": ["book", "mixed", "multi", "imperium", "planetary", "series_finale", "standard", "war_story", "siege", "grimdark", "action_heavy", "war", "loyalty", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Dal'yth", "role": "primary" },
+          { "name": "Damocles Gulf", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sarik", "role": "pov" },
+          { "name": "Lucian Gerrit", "role": "pov" },
+          { "name": "Brielle Gerrit", "role": "supporting" },
+          { "name": "Inquisitor Grand", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.34, "count": 226, "evidenceUrl": "https://www.goodreads.com/book/show/8959571-savage-scars" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0263",
+      "slug": "rogue-trader-omnibus",
+      "overrides": {
+        "synopsis": "Three novels and two short stories chart the rise and ruin of rogue trader Lucian Gerrit, a free captain who plies the lawless edges of Imperial space in search of profit and redemption. Across Rogue Star, Star of Damocles, and Savage Scars, Lucian and his quarrelsome dynasty are drawn from the frontier into a sprawling crusade against the tau, a campaign that carries them over the Damocles Gulf and onto the killing fields of Dal'yth. Alongside the White Scars, the Imperial Guard, and the schemers of the crusade council, the Gerrits navigate treachery, faith, and the temptations of alien knowledge, while Lucian's daughter Brielle walks her own perilous path. This collected edition gathers the complete saga of one of the Imperium's most compromised heroes.",
+        "facetIds": ["book", "mixed", "multi", "imperium", "sector", "series_start", "doorstopper", "war_story", "journey", "court_intrigue", "grimdark", "action_heavy", "somber", "war", "hubris", "betrayal", "cw_violence", "cw_death", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "Rogue Traders", "role": "primary" },
+          { "name": "Tau Empire", "role": "antagonist" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Damocles Gulf", "role": "primary" },
+          { "name": "Dal'yth", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lucian Gerrit", "role": "pov" },
+          { "name": "Brielle Gerrit", "role": "supporting" },
+          { "name": "Sarik", "role": "supporting" },
+          { "name": "Inquisitor Grand", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.91, "count": 141, "evidenceUrl": "https://www.goodreads.com/book/show/35297668-rogue-trader" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0264",
+      "slug": "dark-apostle",
+      "overrides": {
+        "synopsis": "The Word Bearers descend on the world of Tanakreg as a rare alignment of its twelve planets approaches, smashing the planetary defences and enslaving the survivors. At the command of the Dark Apostle Jarulek, the population is set to raising a monstrous tower whose stones seem mortared with the dead, a structure meant to ring out across the warp when the heavens align. The defenders fight back with Elysian drop troops and the war-engines of the Adeptus Mechanicus, but the true battle is one of faith and ambition within the traitor ranks themselves. Marduk, Jarulek's First Acolyte, watches and waits, hungry for his master's power, and when the tower's terrible purpose is revealed and an ancient sleeping enemy stirs beneath the crust, his moment of betrayal arrives. The opening chapter of one zealot's bloody climb toward apostledom.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "planetary", "series_start", "standard", "war_story", "siege", "grimdark", "cosmic_horror", "action_heavy", "faith", "hubris", "betrayal", "war", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Tanakreg", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Marduk", "role": "pov" },
+          { "name": "Jarulek", "role": "supporting" },
+          { "name": "Kol Badar", "role": "supporting" },
+          { "name": "Burias", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.75, "count": 954, "evidenceUrl": "https://www.goodreads.com/book/show/1155173.Dark_Apostle" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0265",
+      "slug": "dark-disciple",
+      "overrides": {
+        "synopsis": "Now bearing a relic of fearsome and uncertain power, Marduk drives the 34th Grand Host of the Word Bearers through the warp in search of the means to unlock its secrets. His hunt plunges the traitors into the heart of a desperate war, where an Imperial fleet fights to buy a doomed world time against the onrushing tide of a tyranid hive fleet. As the battle rages, a crueller predator slips through the frozen dark: dark eldar raiders come to plunder the dying for sport. Surrounded by enemies and rivals alike, Marduk must hold his fractious brethren together and bend every horror of the warzone to his ambition, for among the Word Bearers faith and treachery are never far apart.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "planetary", "mid_series", "standard", "war_story", "grimdark", "cosmic_horror", "action_heavy", "hubris", "betrayal", "war", "faith", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Dark Eldar", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Marduk", "role": "pov" },
+          { "name": "Kol Badar", "role": "supporting" },
+          { "name": "Burias", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "warzone world not clearly named in available sources" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.94, "count": 500, "evidenceUrl": "https://www.goodreads.com/book/show/3063811-dark-disciple" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0266",
+      "slug": "dark-creed",
+      "overrides": {
+        "synopsis": "Dark Apostle Marduk turns his dark crusade against the Boros Gate, a vital nexus of stable passages through the warp that would lay the Imperium's heart open to invasion. Standing in his way are the White Consuls, a proud Space Marine chapter sworn to guard the region, and Marduk means to shatter them with the stolen power of an ancient and malevolent device. But as the Consuls are driven to the brink, an old and implacable enemy returns to throw the entire campaign into ruin, and Marduk finds the deadliest threats rising from within his own Legion. Beset by the necrons, the Space Marines, and the ambitions of his own brothers, he must defy them all if he is to survive and claim the destiny he believes is his. The climax of the Word Bearers trilogy.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "series_finale", "standard", "war_story", "siege", "grimdark", "cosmic_horror", "action_heavy", "hubris", "betrayal", "war", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "White Consuls", "role": "antagonist" },
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Boros Gate", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Marduk", "role": "pov" },
+          { "name": "Kol Badar", "role": "supporting" },
+          { "name": "Burias", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.00, "count": 442, "evidenceUrl": "https://www.goodreads.com/book/show/6948846-dark-creed" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0267",
+      "slug": "the-word-bearers-omnibus",
+      "overrides": {
+        "synopsis": "This collected edition gathers the complete Word Bearers trilogy, Dark Apostle, Dark Disciple, and Dark Creed, plus the short story Torment, charting the relentless ascent of Marduk from ambitious First Acolyte to Dark Apostle of the traitor Legion. From the enslaved world of Tanakreg and its blasphemous tower, through warzones shared with tyranids and dark eldar raiders, to the climactic assault on the Boros Gate and its White Consuls defenders, Marduk schemes, betrays, and butchers his way toward power. Throughout, he wields a fragment of ancient necron technology that draws the attention of enemies on every side. A grim chronicle of faith, ambition, and treachery told entirely from behind the eyes of the damned.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "series_start", "doorstopper", "war_story", "siege", "grimdark", "cosmic_horror", "action_heavy", "faith", "hubris", "betrayal", "war", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "White Consuls", "role": "antagonist" },
+          { "name": "Tyranids", "role": "supporting" },
+          { "name": "Dark Eldar", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Tanakreg", "role": "supporting" },
+          { "name": "Boros Gate", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Marduk", "role": "pov" },
+          { "name": "Kol Badar", "role": "supporting" },
+          { "name": "Burias", "role": "supporting" },
+          { "name": "Jarulek", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.17, "count": 473, "evidenceUrl": "https://www.goodreads.com/book/show/12808098-word-bearers" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0268",
+      "slug": "emperors-mercy",
+      "overrides": {
+        "synopsis": "Inquisitor Obodiah Roth and his retinue are dispatched to the Medina Corridor, a strategically vital cluster of worlds, to recover a set of ancient artefacts before they fall into the wrong hands. But Roth is not the only one hunting them: the Ironclads, a vast and merciless army of traitors, sweep through the subsector crushing all resistance in their search for the same prize. As assassination attempts mount and a terrible cataclysm looms over the Medina worlds, Roth comes to suspect that the deadliest danger may already be inside his own circle, for one of his trusted companions is a traitor. A tense blend of war and mystery that opens the Bastion Wars, pitting one Inquisitor's wits against an enemy that seems unstoppable.",
+        "facetIds": ["book", "male", "inquisitor", "imperium", "sector", "series_start", "standard", "mystery", "war_story", "political_thriller", "grimdark", "action_heavy", "faith", "war", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ironclads", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Medina Corridor", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Inquisitor Obodiah Roth", "role": "pov" },
+          { "name": "Silverstein", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.66, "count": 480, "evidenceUrl": "https://www.goodreads.com/book/show/6535179-emperor-s-mercy" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0269",
+      "slug": "flesh-and-iron",
+      "overrides": {
+        "synopsis": "On the swamp-bound world of Solo-Baston, the Imperium's grip is slipping as an indigenous uprising swells under the banner of the enigmatic Dos Pares. Colonel Fyodor Baeder and the 31st Riverine Regiment, bayou-born guardsmen who cut their teeth fighting swamp orks back home, are sent upriver to reclaim weaponry vital to the war effort, only to be bled white by a ferocious native resistance. As Baeder pushes deeper into the jungle, he uncovers a rebellion that is far more than it seems, its roots fed by the corrupting hand of the Ruinous Powers. A brutal, mud-and-blood campaign of attrition that pushes a single regiment to the edge of annihilation, and its commander to the edge of his faith.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "regiment", "mid_series", "standard", "war_story", "journey", "grimdark", "somber", "action_heavy", "war", "sacrifice", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Solo-Baston", "role": "primary" },
+          { "name": "Medina Corridor", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Fyodor Baeder", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.69, "count": 299, "evidenceUrl": "https://www.goodreads.com/book/show/6568844-flesh-and-iron" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0270",
+      "slug": "blood-gorgons",
+      "overrides": {
+        "synopsis": "The Blood Gorgons, a savage warband of Chaos Space Marines, are summoned back to one of their recruiting worlds when Hauts Bassiq is ravaged by a creeping plague of mutation. With their chapter master lost and the warband teetering on the brink of civil war, Bond-Brother Barsabbas and his squad-lord Sargaul are sent to learn what has befallen the planet. They find a hostile world, a shadowy alien enemy stalking the ruins, and treachery festering within their own ranks. To escape Hauts Bassiq alive, Barsabbas must draw on every reserve of hatred and brotherhood the Legion has bred into him. A largely self-contained tale of corruption and loyalty among the damned.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "planetary", "standalone", "standard", "war_story", "mystery", "grimdark", "cosmic_horror", "betrayal", "loyalty", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Blood Gorgons", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Hauts Bassiq", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Barsabbas", "role": "pov" },
+          { "name": "Sargaul", "role": "supporting" },
+          { "name": "Gammadin", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.80, "count": 347, "evidenceUrl": "https://www.goodreads.com/book/show/8697263-blood-gorgons" }
+      }
+    }
+  ]
+}
