@@ -202,6 +202,41 @@ check("direct match - fourth wave House Belisarius Navigator House", () => {
   assert.equal(resolveFaction("House Belisarius").id, "house_belisarius");
 });
 
+check("direct match - fifth wave Blood Ravens (Dawn of War chapter, freq=6)", () => {
+  assert.equal(resolveFaction("Blood Ravens").id, "blood_ravens");
+});
+
+check("direct match - fifth wave Deathwatch (Ordo Xenos chamber militant)", () => {
+  assert.equal(resolveFaction("Deathwatch").id, "deathwatch");
+});
+
+check("direct match - fifth wave Adeptus Astra Telepathica (freq=2)", () => {
+  assert.equal(
+    resolveFaction("Adeptus Astra Telepathica").id,
+    "adeptus_astra_telepathica",
+  );
+});
+
+check("direct match - fifth wave Mordian Iron Guard (freq>=2 regiment)", () => {
+  assert.equal(resolveFaction("Mordian Iron Guard").id, "mordian_iron_guard");
+});
+
+check("direct match - fifth wave Vostroyan Firstborn (freq=1 iconic regiment)", () => {
+  assert.equal(resolveFaction("Vostroyan Firstborn").id, "vostroyan_firstborn");
+});
+
+check("direct match - fifth wave Tempestus Scions under astra_militarum", () => {
+  assert.equal(resolveFaction("Tempestus Scions").id, "tempestus_scions");
+});
+
+check("direct match - fifth wave Savlar Chem-Dogs (hyphen surface form)", () => {
+  assert.equal(resolveFaction("Savlar Chem-Dogs").id, "savlar_chem_dogs");
+});
+
+check("alias - fifth wave Collegia Titanica routes to Adeptus Titanicus", () => {
+  assert.equal(resolveFaction("Collegia Titanica").id, "adeptus_titanicus");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {

@@ -1010,5 +1010,61 @@
     "parent": "adeptus_astartes",
     "alignment": "imperium",
     "tone": "imperial"
+  },
+  {
+    "id": "blood_ravens",
+    "name": "Blood Ravens",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "deathwatch",
+    "name": "Deathwatch",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "adeptus_astra_telepathica",
+    "name": "Adeptus Astra Telepathica",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "mordian_iron_guard",
+    "name": "Mordian Iron Guard",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "vostroyan_firstborn",
+    "name": "Vostroyan Firstborn",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "tallarn_desert_raiders",
+    "name": "Tallarn Desert Raiders",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "tempestus_scions",
+    "name": "Tempestus Scions",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "savlar_chem_dogs",
+    "name": "Savlar Chem-Dogs",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
   }
 ]
