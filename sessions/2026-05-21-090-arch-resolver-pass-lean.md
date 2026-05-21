@@ -2,7 +2,7 @@
 session: 2026-05-21-090
 role: architect
 date: 2026-05-21
-status: open
+status: implemented
 slug: resolver-pass-lean
 parent: 2026-05-21-089-arch-resolver-pass-5
 links:
