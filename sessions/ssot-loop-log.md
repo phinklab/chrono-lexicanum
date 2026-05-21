@@ -1125,3 +1125,9 @@
 - **value_outside_vocabulary:** [ candidate protagonist_class `penal_legion` (Savlar Chem-Dogs / W40K-0247) — guardsman used as nearest existing value ]
 - **Notable surface-forms (within this batch):** Cortein's Honour; Tempestus Scions / First Eradicant / Xian Tigers; Blades of Atrocity / Skin-Taker; Savlar Chem-Dogs; Death Korps of Krieg (401st); Mordian Iron Guard; Brimlock Dragoons; Vostroyan 77th; Crimson Slaughter; Imperial Son (Leman Russ).
 - **Verification:** lint/typecheck/brain:lint skipped per Brief-061 convention — pure data commit (one override JSON + log append, no code).
+
+## 2026-05-21 · ⏸ Resolver-Pause bei 250 Büchern
+
+- **Cumulative books:** 250 (in 25 batches: ssot-w40k-001..ssot-w40k-025)
+- **Action required:** Maintainer schreibt Resolver-Brief. Loop pausiert bis dahin.
+- **Pause-Detection:** selbst-erkennend (Brief 088) — dieser Block ist der Marker.
