@@ -1020,3 +1020,24 @@
 - **`low_confidence`-/Twist-Policy-Calls:** none. Kage's apparent death, the Burned Man identity, the unfinished Gothic War third-novel context, and the Soul Drinkers' Excommunicate Traitoris / mutation premise all stayed visible because the old synopsis already carried them as reader-load-bearing setup, not hidden late reveals.
 - **Iteration time / token estimate:** ~55k-70k tokens for the final 10-book rewrite, plus extra closing overhead for aggregate stats / report / global verification. The prose pass itself was smoother than the earlier Welle-4 batches; most overhead was final-loop bookkeeping.
 - **Carry-over notes:** Batch 019 completes Brief 081's 005..019 backfill. All batches 001..020 now report synopsis-clean in dry-run; next operational step is the 081 closing report/status flip, then Cowork's Wiki-Hygiene pass and the existing SSOT loop re-trigger for ssot-w40k-021..025.
+
+## 2026-05-21 · ssot-w40k-021 · W40K-0201..W40K-0210 · ✅
+
+- **Cumulative books in authority:** 210 / next resolver pause at 250 (40 to go)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=200, batch=ssot-w40k-021, slice=W40K-0201..W40K-0210
+- **WebSearch:** mean=1.1, max=2 (over 10 books) — omnibi needed an extra search for constituent contents / Goodreads-page location
+- **Per-book bullets:**
+  - W40K-0201 Blind — Shira Calpurnia #3, murder mystery in the Hydraphur astropath fortress; protagonist class tagged `civilian` (Arbites has no dedicated facet value); rated 3.59/204.
+  - W40K-0202 Enforcer Omnibus — omnibus of Crossfire/Legacy/Blind; aggregated trilogy facets (mystery + court_intrigue + political_thriller), `doorstopper`/`standalone`; format matches roster; rated 3.73/394.
+  - W40K-0203 Crusade for Armageddon — Black Templars #1, Third War for Armageddon; multi-POV (Templars + militia + Titan) → added Astra Militarum + Collegia Titanica supporting; rated 3.58/166.
+  - W40K-0204 Conquest of Armageddon — Black Templars #2 sequel, ork-jungle search + hidden Chaos plot → Heretic Astartes antagonist; rated 3.52/132.
+  - W40K-0205 The Armageddon Omnibus — POD omnibus of the duology + Solemnus short tales; **rating unrated** (only 7 Goodreads ratings, not a representative aggregate); format matches roster.
+  - W40K-0206 Broken Crusade — 2024 standalone; roster `authors` empty → actual author is **Steven B Fischer** (no author field in override schema, noted here). Khorne/Blood God warbands tagged generically as Heretic Astartes (specific Legion not stated). Set on a shrine world named "Tempest" — coincidental with W40K-0209, unrelated. Rated 3.78/299.
+  - W40K-0207 Dawn of War — Blood Ravens #1 (game tie-in), Tartarus; orks + Eldar (Biel-Tan) + Alpha Legion + shadowy Inquisition; betrayal arc (Isador); rated 3.12/354.
+  - W40K-0208 Ascension — Blood Ravens #2, Rahe's Paradise; Sisters of Battle scrutiny + Farseer Macha; rated 3.14/210.
+  - W40K-0209 Tempest — Blood Ravens #3 finale, Eye of Terror; the "strangely familiar" renegade Astartes go unnamed in sources → `low_confidence` flag on factions rather than guessing the Legion; rated 3.03/180.
+  - W40K-0210 Blood Ravens: The Dawn of War Omnibus — collects the trilogy + "The Trials of Isador"; aggregated to `sector`/`doorstopper`; rated 3.58/357.
+- **value_outside_vocabulary:** none — but noting (not adding to catalog): no `protagonist_class` value fits an Adeptus Arbites lawman (used `civilian`); `format` facet has no omnibus/collection value (omnibi tagged `book` + `doorstopper`).
+- **Notable surface-forms (within this batch):** "Adeptus Astra Telepathica", "Bastion Psykana", "Collegia Titanica", "Blood Scar tribe" (kept in synopsis only), "Rahe's Paradise", "Biel-Tan" (kept in synopsis), "Dauntless Honour", "Castellan Emeric".
+- **Verification skipped:** lint/typecheck/brain:lint skipped per Brief-061 convention — pure data commit (one override JSON + markdown append, no code).
