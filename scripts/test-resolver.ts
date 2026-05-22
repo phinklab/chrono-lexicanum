@@ -237,6 +237,54 @@ check("alias - fifth wave Collegia Titanica routes to Adeptus Titanicus", () => 
   assert.equal(resolveFaction("Collegia Titanica").id, "adeptus_titanicus");
 });
 
+check("direct match - sixth wave Dragon Warriors (Nihilan's warband, freq=4)", () => {
+  assert.equal(resolveFaction("Dragon Warriors").id, "dragon_warriors");
+});
+
+check("direct match - sixth wave Red Corsairs (Huron's renegades, freq=4)", () => {
+  assert.equal(resolveFaction("Red Corsairs").id, "red_corsairs");
+});
+
+check("direct match - sixth wave White Consuls (Ultramarines successor, freq=4)", () => {
+  assert.equal(resolveFaction("White Consuls").id, "white_consuls");
+});
+
+check("direct match - sixth wave Relictors (radical chapter, freq=3)", () => {
+  assert.equal(resolveFaction("Relictors").id, "relictors");
+});
+
+check("direct match - sixth wave Blood Gorgons (ex-World Eaters warband, freq=2)", () => {
+  assert.equal(resolveFaction("Blood Gorgons").id, "blood_gorgons");
+});
+
+check("direct match - sixth wave Doom Eagles (Ultramarines successor, freq=2)", () => {
+  assert.equal(resolveFaction("Doom Eagles").id, "doom_eagles");
+});
+
+check("direct match - sixth wave Marines Errant (loyalist successor, freq=2)", () => {
+  assert.equal(resolveFaction("Marines Errant").id, "marines_errant");
+});
+
+check("direct match - sixth wave Legion of the Damned (eponymous novel, freq=1)", () => {
+  assert.equal(resolveFaction("Legion of the Damned").id, "legion_of_the_damned");
+});
+
+check("alias - sixth wave Tau (no apostrophe) routes to tau", () => {
+  assert.equal(resolveFaction("Tau").id, "tau");
+});
+
+check("alias - sixth wave Chaos Daemons routes to daemons umbrella", () => {
+  assert.equal(resolveFaction("Chaos Daemons").id, "daemons");
+});
+
+check("alias - sixth wave Daemons of Tzeentch routes to tzeentch god-faction", () => {
+  assert.equal(resolveFaction("Daemons of Tzeentch").id, "tzeentch");
+});
+
+check("alias - sixth wave Militarum Tempestus routes to Tempestus Scions", () => {
+  assert.equal(resolveFaction("Militarum Tempestus").id, "tempestus_scions");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {

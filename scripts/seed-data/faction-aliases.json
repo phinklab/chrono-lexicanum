@@ -35,5 +35,9 @@
   "Craftworld Aeldari": "eldar",
   "Aeldari Corsairs Warhost": "aeldari_corsairs",
   "Ynnead": "ynnari",
-  "Collegia Titanica": "adeptus_titanicus"
+  "Collegia Titanica": "adeptus_titanicus",
+  "Tau": "tau",
+  "Chaos Daemons": "daemons",
+  "Daemons of Tzeentch": "tzeentch",
+  "Militarum Tempestus": "tempestus_scions"
 }
