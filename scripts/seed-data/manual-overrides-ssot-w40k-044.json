@@ -1,0 +1,202 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-044",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-22",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Mixed wave: two Legends of the Dark Millennium anthologies (Tau 'Shas'o', Space Wolves) plus two Space Wolves serial short stories that are constituents of that same anthology, the Shadowsun novella, the Castellan Crowe Grey Knights duology, and the complete Fabius Bile trilogy. Anthology entries aggregate their constituent works per the omnibus rule; the two short-story entries are tagged individually at squad scope.",
+  "books": [
+    {
+      "externalBookId": "W40K-0431",
+      "slug": "shaso",
+      "overrides": {
+        "synopsis": "Ten tales of the T'au Empire at war, gathered from the front lines of its expansion across the stars. Battlesuit commanders duel Imperial tanks, fire warrior snipers stalk Space Marines, and the cool calculus of the Greater Good is tested against fear, grief and the weight of command. Among the heroes whose campaigns are recounted here are Commander Farsight, the rising Commander Shadowsun, and the ethereal Aun'Shi, alongside the brutal defence of Arkunasha and quieter, stranger stories of caste, duty and the cost of conquest. Together the collection ranges from open planetary warfare to intimate studies of what it means to serve a cause larger than any single life.",
+        "facetIds": ["book", "mixed", "pc_xenos", "xenos", "planetary", "sector", "standalone", "standard", "war_story", "character_study", "last_stand", "action_heavy", "grimdark", "somber", "war", "loyalty", "sacrifice", "faith", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Tau", "role": "primary" }],
+        "locations": [{ "name": "Arkunasha", "role": "supporting" }],
+        "characters": [
+          { "name": "Commander Shadowsun", "role": "supporting" },
+          { "name": "Commander Farsight", "role": "supporting" },
+          { "name": "Aun'Shi", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.14, "count": 98, "evidenceUrl": "https://www.goodreads.com/book/show/26859331-shas-o" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0432",
+      "slug": "space-wolves-the-darkness-of-angels",
+      "overrides": {
+        "synopsis": "With Wolf Lord Krom Dragongaze and his warriors trapped fighting for their lives in the dark city of Commorragh, the Space Wolves' hunt for their missing lord Logan Grimnar looks doomed. As Ulrik the Slayer mounts a desperate rescue, Krom finally breaks free of the arena, only to be run down by vengeful dark eldar through the twisting corridors of the city. Salvation comes from the unlikeliest of quarters: Balthus, an Interrogator-Chaplain of the Dark Angels, the Wolves' oldest rivals. Forced into an uneasy alliance, hunter and rival must trust one another long enough to seize a webway portal and tear their way back into real space before the eldar close in.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "requires_context", "war_story", "journey", "action_heavy", "grimdark", "brotherhood", "loyalty", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "Dark Eldar", "role": "antagonist" }
+        ],
+        "locations": [{ "name": "Commorragh", "role": "primary" }],
+        "characters": [
+          { "name": "Krom Dragongaze", "role": "pov" },
+          { "name": "Ulrik the Slayer", "role": "supporting" },
+          { "name": "Balthus", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.86, "count": 35, "evidenceUrl": "https://www.goodreads.com/book/show/27883859-the-darkness-of-angels" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0433",
+      "slug": "space-wolves-wrath-of-the-wolf",
+      "overrides": {
+        "synopsis": "The trail of the missing Logan Grimnar leads Ulrik the Slayer and Krom Dragongaze to a corrupted world deep within the Eye of Terror. Beset by the forces of Chaos and the warped, ever-shifting landscape itself, the Space Wolves must master their own gnawing doubts as much as the horrors arrayed against them. When at last they reach their goal, the enemy waiting there is so overwhelming that the entire quest to recover the Great Wolf seems to have been in vain, until help arrives from a source none of them could have foreseen. This is the final chapter of the Wolves' long hunt, where every thread of their journey is drawn together for one last, apocalyptic stand.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "requires_context", "war_story", "journey", "last_stand", "action_heavy", "grimdark", "loyalty", "brotherhood", "faith", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "antagonist" }
+        ],
+        "locations": [{ "name": "Eye of Terror", "role": "primary" }],
+        "characters": [
+          { "name": "Ulrik the Slayer", "role": "pov" },
+          { "name": "Krom Dragongaze", "role": "supporting" },
+          { "name": "Logan Grimnar", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.94, "count": 33, "evidenceUrl": "https://www.goodreads.com/book/show/28822455-wrath-of-the-wolf" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0434",
+      "slug": "space-wolves-legends",
+      "overrides": {
+        "synopsis": "A Great Hunt is over, and the Space Wolves gather in the Fang to feast and boast of their victories, but one company has not come home: that of Logan Grimnar, the Great Wolf himself. As word of his death spreads, the Chapter refuses to accept it, and Ulrik the Slayer leads a desperate search across the galaxy for the truth. The hunt drags the Wolves from the dark city of Commorragh to the corruption of the Eye of Terror, throwing them into uneasy alliances with old rivals and exposing a traitor in their own ranks. Across eight interlocking tales, the warriors of Fenris fight not only for their lord but for the future of the Chapter itself.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "galactic", "standalone", "standard", "war_story", "journey", "last_stand", "action_heavy", "grimdark", "brotherhood", "loyalty", "betrayal", "faith", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "Dark Eldar", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "The Fang", "role": "supporting" },
+          { "name": "Commorragh", "role": "supporting" },
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ulrik the Slayer", "role": "pov" },
+          { "name": "Krom Dragongaze", "role": "supporting" },
+          { "name": "Logan Grimnar", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.86, "count": 84, "evidenceUrl": "https://www.goodreads.com/book/show/28945607" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0435",
+      "slug": "shadowsun",
+      "overrides": {
+        "synopsis": "Commander Shadowsun, daughter of the famed Kiru and prized pupil of the legendary Commander Puretide, is destined to lead the next great phase of the T'au Empire's expansion, if she can survive the trials before her. Crash-landed on an enemy-held world she believed to be a minor outpost, she instead finds herself stranded on ground the Imperium holds sacred, surrounded by foes and saddled with a mission that seems impossible. Then a message reaches her that shatters everything: her sisters have all fallen in battle, and she is the last of her bloodline. Torn between duty to the Greater Good and the unthinkable T'au choice of abandoning the fight to preserve her family's line, Shadowsun must decide who she truly is.",
+        "facetIds": ["book", "female", "pc_xenos", "xenos", "planetary", "standalone", "novella", "war_story", "character_study", "action_heavy", "somber", "grimdark", "sacrifice", "doubt", "loyalty", "faith", "cw_violence", "cw_death", "en"],
+        "factions": [{ "name": "Tau", "role": "primary" }],
+        "locations": [],
+        "characters": [
+          { "name": "Commander Shadowsun", "role": "pov" },
+          { "name": "Commander Puretide", "role": "supporting" }
+        ],
+        "flags": [{ "kind": "low_confidence", "field": "locations", "reason": "sources name no specific world for the holy Imperial planet; left empty rather than invented" }],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.52, "count": 89, "evidenceUrl": "https://www.goodreads.com/book/show/17617404" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0436",
+      "slug": "warden-of-the-blade",
+      "overrides": {
+        "synopsis": "Garran Crowe, Brotherhood Champion of the Purifiers of the Grey Knights, carries a burden no other warrior could bear: he is the warden of the Blade of Antwyr, a malevolent daemon weapon whose voice never leaves his head, forever urging him to draw on a power he must never unleash. His vigil is first tested at Sandava II, where Crowe and his fellow Purifiers march under Castellan Gavallan to burn out a daemonic plague threatening to consume the world. But the corruption they face is far more cunning and powerful than they expect, and as the battle turns, Crowe must contend not only with the enemy before him but with the Blade itself, which seeks to break its keeper and drown the galaxy in blood.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_start", "standard", "war_story", "character_study", "siege", "grimdark", "somber", "action_heavy", "faith", "doubt", "sacrifice", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Grey Knights", "role": "primary" },
+          { "name": "Chaos Daemons", "role": "antagonist" }
+        ],
+        "locations": [{ "name": "Sandava II", "role": "primary" }],
+        "characters": [
+          { "name": "Garran Crowe", "role": "pov" },
+          { "name": "Castellan Gavallan", "role": "supporting" },
+          { "name": "The Blade of Antwyr", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.69, "count": 188, "evidenceUrl": "https://www.goodreads.com/book/show/32471248" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0437",
+      "slug": "castellan",
+      "overrides": {
+        "synopsis": "Garran Crowe has held the office of Castellan of the Grey Knights for more than a century, and in all that time the daemon voice of the Blade of Antwyr has never ceased its whispering. Now he and his strike force are tested as never before: the world of Sandava III, where they fight, is swallowed whole by the vast warp storm tearing the galaxy in two. Cut off, surrounded by the daemonic and the damned, Crowe must hold his resolve and his sanity together while the Blade seizes on every moment of doubt and despair to work its corruption. With reality itself coming apart around them, the Castellan and his brothers face a trial that will demand everything they have to give.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "last_stand", "siege", "character_study", "grimdark", "somber", "action_heavy", "faith", "doubt", "sacrifice", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Grey Knights", "role": "primary" },
+          { "name": "Chaos Daemons", "role": "antagonist" }
+        ],
+        "locations": [{ "name": "Sandava III", "role": "primary" }],
+        "characters": [
+          { "name": "Garran Crowe", "role": "pov" },
+          { "name": "The Blade of Antwyr", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.74, "count": 126, "evidenceUrl": "https://www.goodreads.com/book/show/36361311-castellan" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0438",
+      "slug": "primogenitor",
+      "overrides": {
+        "synopsis": "Once the chief apothecary of the Emperor's Children and a geneticist without equal, Fabius Bile is now an outcast among traitors, exiled even by his own kind for the monstrous experiments that mark his every step with twisted abominations. Holed up in the depths of the Eye of Terror, he wants only to be left to his work, until a former pupil arrives with word of a prize too great to ignore: a chance, perhaps, to unlock the one secret that has always eluded him and stave off his own inevitable end. Drawn back into the cauldron of war, Bile sets out on a grotesque odyssey through the warbands and horrors of the Eye, surrounded by allies he cannot trust and rivals who would gladly see him dead.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "galactic", "series_start", "standard", "journey", "character_study", "war_story", "grimdark", "philosophical", "satirical", "cosmic_horror", "hubris", "betrayal", "doubt", "cw_violence", "cw_death", "cw_disturbing", "cw_abuse", "en"],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "supporting" }
+        ],
+        "locations": [{ "name": "Eye of Terror", "role": "primary" }],
+        "characters": [{ "name": "Fabius Bile", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.18, "count": 1686, "evidenceUrl": "https://www.goodreads.com/book/show/29430435-fabius-bile" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0439",
+      "slug": "clonelord",
+      "overrides": {
+        "synopsis": "Fabius Bile despises the brothers he once fought beside, but when an old comrade calls in a debt he cannot refuse, he is dragged back into the schemes of the Emperor's Children all the same. The trail leads him to the far edge of the galaxy and a world unlike any other, an abandoned eldar craftworld named Solemnace that may hold the key to his own survival. Surrounded by uneasy allies and bitter enemies, Bile must navigate a maze of plots and counterplots, where the sharpest weapons are words and every companion has a private agenda. As old rivalries resurface among the dead halls of the craftworld, the question is not only what secret waits there, but who will still be standing when it is found.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "mid_series", "standard", "journey", "court_intrigue", "mystery", "character_study", "grimdark", "philosophical", "satirical", "betrayal", "hubris", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "supporting" },
+          { "name": "Eldar", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Solemnace", "role": "primary" },
+          { "name": "Eastern Fringe", "role": "supporting" }
+        ],
+        "characters": [{ "name": "Fabius Bile", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.40, "count": 1094, "evidenceUrl": "https://www.goodreads.com/book/show/37120505" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0440",
+      "slug": "manflayer",
+      "overrides": {
+        "synopsis": "In the long centuries since his escape from Commorragh, Fabius Bile has held himself apart from the wars of friend and foe alike, content to shepherd the slow, cruel evolution of his New Men toward the perfected humanity he calls Homo novus. That isolation shatters when the dread haemonculi of the Thirteen Scars, the dark eldar coven that once schooled him in the arts of torture and flesh-craft, come to claim his work and silence what he knows. To save everything he has built, the Manflayer must once more seek out new allies and old enemies, and reckon with the possibility that his great experiment can only endure if its maker is willing to die for it. This is the final reckoning of his long and monstrous ambition.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "series_finale", "standard", "war_story", "journey", "character_study", "grimdark", "philosophical", "satirical", "cosmic_horror", "hubris", "sacrifice", "betrayal", "doubt", "cw_violence", "cw_death", "cw_disturbing", "cw_abuse", "en"],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "supporting" },
+          { "name": "Drukhari", "role": "antagonist" }
+        ],
+        "locations": [{ "name": "Commorragh", "role": "supporting" }],
+        "characters": [{ "name": "Fabius Bile", "role": "pov" }],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.29, "count": 839, "evidenceUrl": "https://www.goodreads.com/book/show/48845235" }
+      }
+    }
+  ]
+}

@@ -1515,3 +1515,24 @@
 - **value_outside_vocabulary:** [] — Standard-Facet-Set deckte alle 10 ab. (Kein Assassin-protagonist_class im Katalog; The Beheading mit `multi` getaggt — Kandidat nur erwähnt, nicht eingetragen.)
 - **Notable surface-forms (within this batch):** „Koorland", „The Beast", „Vulkan", „Drakan Vangorich", „Maximus Thane", „Asger Warfist", „Sisters of Silence", „Deathwatch", „Officio Assassinorum", „Senatorum Imperialis", „Inwit", „Ullanor", „Kurbynola System", „Artemis", „Ordo Xenos", „Marneus Calgar", „Cato Sicarius", „Torias Telion", „Raven Guard", „Brazen Minotaurs", „Captain Koryn", „Captain Daed", „Heretic Astartes", „Commissar Yarrick", „Colonel Straken", „Lord Castellan Creed", „Ulrik the Slayer", „Thousand Sons", „Dark Angels". Resolving in canonical Tables im nächsten Resolver-Pass.
 - **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: 1 Override-JSON + Log-Append, kein Code). JSON-Parse-Check grün.
+
+## 2026-05-22 · ssot-w40k-044 · W40K-0431..W40K-0440 · ✅
+
+- **Cumulative books in authority:** 440 / nächste Resolver-Pause bei 450
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=430, batch=ssot-w40k-044, slice=W40K-0431..W40K-0440
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — alle Bücher per 1 Synopsis-Suche abgedeckt; Goodreads-Ratings je per Page-WebFetch (nicht als WebSearch gezählt).
+- **Per-book bullets:**
+  - W40K-0431 Shas'o (anthology, Tau): aggregiert die 10 Constituent-Stories (Campbell/Chambers/Fehervari/Parrino/Smillie). Charaktere Shadowsun/Farsight/Aun'Shi als supporting (Ensemble), Location Arkunasha aus „The Arkunasha War". Surface-Form „Tau" (Roster-Hint „T'au").
+  - W40K-0432 The Darkness of Angels (short_story, Rob Sanders): Teil 5 des Space-Wolves-Serials; Krom Dragongaze + Ulrik in Commorragh, Dark-Angels-Hilfe (Balthus). squad-scope, entry_point=requires_context. Keine length_tier (kürzer als novella → value_outside_vocabulary, s. u.).
+  - W40K-0433 Wrath of the Wolf (short_story, C.L. Werner): Serial-Finale; Quest nach Logan Grimnar im Eye of Terror. Chaos-Gegner unspezifisch → `Heretic Astartes` statt generic „Chaos". Keine length_tier.
+  - W40K-0434 Space Wolves (Legends, anthology): aggregiert alle 8 Serial-Teile (Counter/Lyons/Sanders/Werner) inkl. der beiden oben einzeln getaggten Stories; galactic scope (chapter-weite Suche). Betrayal-Theme aus „Scent of a Traitor".
+  - W40K-0435 Shadowsun (novella, Campbell): identisch mit „Shadowsun: The Last of Kiru's Line", auch Constituent von W40K-0431. Opposing Imperial-Faction in Quellen nicht namentlich → low_confidence-Flag auf locations, keine erfundene Imperial-Faction.
+  - W40K-0436 Warden of the Blade (novel, Annandale): Castellan-Crowe #1, Grey Knights vs. Chaos Daemons auf Sandava II; Blade of Antwyr als antagonistischer „Charakter" (sentientes Daemon-Weapon). series_start.
+  - W40K-0437 Castellan (novel, Annandale): Crowe #2, Sandava III von der Cicatrix Maledictum verschluckt — Warp-Storm im Synopsis-Text, nicht als Location getaggt (Runbook §7 Locations-Granularity). mid_series.
+  - W40K-0438 Primogenitor (novel, Reynolds): Fabius-Bile #1, pov_side=chaos, Emperor's Children primary; Eye of Terror. series_start.
+  - W40K-0439 Clonelord (novel, Reynolds): Bile #2, abandoned Eldar craftworld Solemnace am Eastern Fringe; court_intrigue/mystery durch dialog-led Plots. mid_series.
+  - W40K-0440 Manflayer (novel, Reynolds): Bile #3/Finale; Drukhari-Haemonculi der „Thirteen Scars" antagonist, Commorragh als supporting location. series_finale.
+- **value_outside_vocabulary:** length_tier benötigt eine Stufe unterhalb `novella` für echte Short Stories (W40K-0432/0433) — Kandidat z. B. `short_story`/`flash`; vorerst length_tier bei beiden weggelassen statt `novella` zu überstuften.
+- **Notable surface-forms (within this batch):** „Tau" (Roster „T'au"), „Dark Eldar" (W40K-0432/0434) vs. „Drukhari" (W40K-0440) — beide Surface-Forms quellengetreu belassen, Resolver vereint später; „Krom Dragongaze", „Ulrik the Slayer", „Logan Grimnar", „Garran Crowe", „The Blade of Antwyr", „Fabius Bile", „Solemnace", „Sandava II/III".
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: Override-JSON + Log-Append, kein Code).
