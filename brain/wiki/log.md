@@ -739,3 +739,39 @@ Brain-Update nach dem Merge von Brief 087 (Goodreads-Rating-Pipeline, PR #74/#75
 **Out of scope dieser Hygiene-Session:** Keine Code-Änderungen, kein CC-Brief. Kein `brain:lint --no-write`-Run durch Cowork (Sandbox unzuverlässig — Maintainer/CI). Kein ADR für `commissar` (Vokabular, kein Architektur-Call). `deferred-questions.md` unangetastet. Die mittlerweile sieben „Latest pipeline state"-Sektionen in `project-state.md` sind ein bekannter Bloat-Punkt — Collapse der ältesten in einen Pointer ist Kandidat für eine künftige Slim-Pass-Iteration, hier bewusst nicht gemacht (Accuracy-Fokus, kein riskanter 80-Zeilen-Verbatim-Edit).
 
 **Branch:** Wiki-Pass-Edits liegen im Coordination-Worktree; die Commit-Mechanik (Branch `codex/session-090-wiki-hygiene` o. ä. + `git mv` für die Archivierung) klärt der Maintainer — die Cowork-Sandbox kann git-Write-Operationen nicht zuverlässig abschließen.
+
+## 2026-05-22 · Setup + Hygiene · Resolver-Pass-6-Setup + Brain-Hygiene-Pass (post-090)
+
+Brief-freier Cowork-Task (vom Maintainer freigegeben, kein Architekten-Brief): `scripts/resolver-pass.config.json` von Pass 5 auf Pass 6 umstellen + überfälliger Brain-Hygiene-Pass nach Brief 090 (Resolver-Pass lean, PR #80) und dem ersten 100er-Loop-Lauf `ssot-w40k-026..035` (PR #81). `origin/main` `131a8a4`; Working-Tree `codex/session-pass6-setup`.
+
+**Read:**
+
+- `sessions/2026-05-21-090-impl-resolver-pass-lean.md` — Brief 090 umgesetzt (Mess-Gate + Bausteine 2–5: schlankes Runbook, brief-freier Driver, Phase-4-Digest, stabile wave-parametrisierte Tools, Cadence 50→100).
+- `sessions/resolver-pass-runbook.md` + `scripts/resolver-pass.config.json` (Pass-5-Instanz) — Resolver-Pass-Maschinerie.
+- `sessions/ssot-loop-log.md` Iterationen `026..035` (Tail-Read) — 100 Bücher W40K-0251..0350, vier Loop-Disziplinen, Content-Flags, selbst-erkennender 350er-Pause-Block.
+- `scripts/seed-data/book-roster.json` (Range W40K-0251..0350) — Slug-Auswahl für die Verify-`smokeSlugs`.
+
+**Code/Config geändert (kein Wiki):**
+
+- `scripts/resolver-pass.config.json` — Pass 5 → Pass 6: `pass=6`, `wave=ssot-w40k-026..035`, `brief`-Feld entfernt (brief-frei), `dossier`/Phase-Report-Pfade pass-6-gekeyt (`resolver-pass-6-*`), `aggregator.batches` 026..035 + aktualisierte `clusters`-Labels, `applyRange` 1..35, Verify `newRange` W40K-0251..0350 / `oldRange` ..0250 / `ratingRange` W40K-0251..0350 + zehn neue `smokeSlugs` (Bücher aus der `026..035`-Welle), Phase-4-Trigger ohne Facet-Promotion (`facet-catalog.json` bewusst aus dem Phase-4-Scope genommen). JSON-valide.
+- `CLAUDE.md` § Git — neue `⚠ KRITISCH`-Callout: kein `git` in der Sandbox (die Mount-Schicht korrumpiert git-Metadaten, NUL-Byte-Korruption), kein Schreiben in `.git/`; Working-Tree-Dateien nur über die Datei-Tools, git-Operationen Windows-nativ durch den Maintainer.
+
+**Updated wiki:**
+
+- `project-state.md` — `updated: 2026-05-22`, Header-Datum, Sources um 090-arch/impl + Runbook + Config. Phase-Headline + Sequenz-Paragraph + Buch-Domain-Bild auf 350 Override-Files / DB 250 + Brief-090-Maschinerie + 100er-Loop. Branch-Sektion auf `131a8a4` (PR #79/#80/#81) + Worktree `codex/session-pass6-setup`; der stale Coordination-Worktree-Hinweis zum Git-Sandbox-Hinweis mit `CLAUDE.md`-Pointer umgeschrieben. What's-running: DB-/Loop-Driver-/Resolver-Driver-Bullets auf post-090 (Cadence 50→100, brief-frei, Config auf Pass 6). Neue „Latest pipeline state (post-090)"-Sektion. What's-open neu sortiert (Resolver-Pass 6 oben, OQ (14) um (c)+(d) erweitert, Vokabular-Watch um `plot_type=duel`, Resolver-Driver-Smoke auf Pass 6+). Recently-shipped um vier Zeilen. Next-likely-brief auf Resolver-Pass 6.
+- `pipeline-state.md` — `updated: 2026-05-22`, Titel `post-090`, Sources um 090-arch/impl + Runbook. Intro-Blockquote um Brief 090 + 100er-Loop. § Resolver layer auf `through 090`. Neue „Pass-lean-Konvention aus 090-impl"-Sektion. § What's next: Items 20/21 auf Brief 090 + 100er-Loop (✅) bzw. Resolver-Pass 6 umgeschrieben.
+- `open-questions.md` — `updated: 2026-05-22`, neuer Frontmatter-Header-Kommentar, Sources um 090-arch/impl + Loop-Log. Migration-history-Satz angehängt. **OQ (14) erweitert** von zwei auf vier Gruppen: neue Sub-Punkte (c) Format-`data_conflict` W40K-0297/0334 + (d) Titel-Mistags W40K-0259/0330; `plot_type=duel` explizit als Nicht-Roster-Watch-Item abgegrenzt.
+- `index.md` — `updated: 2026-05-22`, Katalog-Zeilen project-state/open-questions/pipeline-state/log + Self-Row auf post-090-Stand.
+- This `log.md` — Append-only-Eintrag.
+
+**No new decision page.** Brief 090 ist Resolver-Pass-Maschinerie-Hygiene (Token-Budget pro Phase), kein Architektur-Call mit Revisit-Trigger; die Pass-lean-Konvention ist in `pipeline-state.md` dokumentiert. Der 100er-Loop ist ein reiner Daten-Lauf.
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** Brief 090 + der Loop adressieren keine offene Queue-Frage. OQ (14) wuchs um vier Roster-Flags (Maintainer-owned, kein Brief).
+
+**Outside the wiki:** `sessions/README.md` Active-Threads — Kopf-Paragraph + Tabelle auf post-090-Stand (Brief 090 + 100er-Loop gemerged, Resolver-Pass 6 als pending-Thread, diese Cowork-Session als complete-Row).
+
+**roadmap.md not touched** — Brief 090 + der Loop bewegen keine Phasen-/Sub-Phasen-Grenze (alles innerhalb Phase 3).
+
+**Out of scope dieser Session:** Keine Code-Änderungen außer der Config + dem `CLAUDE.md`-Callout. Kein `npm install`/Build, kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — Maintainer/CI). Kein Architekten-Brief (Resolver-Pass 6 ist seit Brief 090 brief-frei). Keine Session-Archivierung (der 062–090-Archivierungs-Rückstand bleibt als eigene CC-Aufgabe in `sessions/README.md` vermerkt). Die mittlerweile acht „Latest pipeline state"-Sektionen in `project-state.md` sind ein bekannter Bloat-Punkt — Collapse der ältesten in einen Pointer bleibt Kandidat für eine künftige Slim-Pass-Iteration, hier bewusst nicht gemacht (Accuracy-Fokus).
+
+**Branch:** Edits liegen im Working-Tree `codex/session-pass6-setup`; Philipp committet + pusht Windows-nativ — die Cowork-Sandbox fasst `git` nicht an (siehe `CLAUDE.md` § Git).

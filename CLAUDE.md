@@ -159,6 +159,8 @@ The original HTML prototype lives **outside the repo** (in `archive/` locally, g
 
 ### Git
 
+> **⚠ KRITISCH — kein `git` in einer Sandbox.** Wer in einer Sandbox arbeitet (Cowork-Modus), führt **niemals** `git` in der Sandbox-Shell aus — kein `fetch` / `checkout` / `log` / `show` / `status` / `commit` / `push` — und schreibt **niemals** in `.git/`. Die Mount-Schicht (9P / drvfs) korrumpiert dabei git-Metadaten (NUL-Byte-Korruption — `.git/config` musste deshalb am 2026-05-20 manuell repariert werden, Backup `.git/config.corrupt-backup-20260520`). Working-Tree-Dateien werden ausschließlich über die Datei-Tools (Read / Edit / Write) angefasst; der Working-Tree IST der aktuelle Stand, `git show` ist nicht nötig. Den Git-Stand erfragt Cowork beim Maintainer und liefert ihm die Terminal-Kommandos zum Einfügen zurück. Alle git-Operationen laufen Windows-nativ durch Philipp (oder durch Claude Code in einem nativen, nicht-sandboxed Worktree).
+
 - Commit messages: imperative, concise, German or English (be consistent within one commit).
   Examples: `Add Aquila component`, `Fix M-scale parsing in seed script`, `Schema: add bookLocations.atY`.
 - One logical change per commit. Migrations and the schema change that produced them go together.
