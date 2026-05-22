@@ -28,6 +28,7 @@
     "test:resolver-coverage": "tsx scripts/test-resolver-coverage.ts",
     "test:apply-override-dry": "tsx scripts/apply-override-dry.ts",
     "test:synopsis-lint": "tsx scripts/test-synopsis-lint.ts",
+    "test:collection-refs": "tsx scripts/test-apply-override-collections.ts",
     "test:loop-next": "tsx scripts/test-loop-next-batch.ts",
     "db:seed-resolver-extensions": "tsx --env-file=.env.local scripts/seed-resolver-extensions.ts",
     "analyze:v2-surfaces": "tsx scripts/analyze-v2-surfaces.ts",
