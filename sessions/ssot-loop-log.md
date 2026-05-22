@@ -1452,3 +1452,24 @@
 - **value_outside_vocabulary:** skitarii (protagonist_class), imperial_knight_pilot (protagonist_class), phoenix_lord / aspect_warrior (aeldari protagonist_class) — collected only, not added to catalog.
 - **Notable surface-forms (within this batch):** Haldron-44 Stroika, Omnid Torquora, Idriss Krendl, Velchanos Magna, Dark Mechanicum, House Cadmus / Imperial Knights, Hive Fleet Hydra, Nemonix, Vondrak, Flesh Thieves, Anuiven, Neridiath, Ulthwe, Eldrad Ulthran, Blood Disciples, Phlegethon, Kolovan, Gorkrusha.
 - **Verification skipped:** reiner Daten-Commit (Override-JSON + Log-Append, kein Code) → lint/typecheck/brain:lint per Brief-061-Konvention übersprungen.
+
+## 2026-05-22 · ssot-w40k-041 · W40K-0401..W40K-0410 · ✅
+
+- **Cumulative books in authority:** 410 / nächste Resolver-Pause bei 450
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=400, batch=ssot-w40k-041, slice=W40K-0401..W40K-0410
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — one synopsis-context search per book; Goodreads pages then page-read for ratings.
+- **Per-book bullets:**
+  - W40K-0401 Azrael: genuine Space Marine Legends short novel (Gav Thorpe); Dark Angels with uneasy Eldar allies above Rhamiel; length_tier=novella. Roster-correct.
+  - W40K-0402 Orphans of the Kraken: Scythes of the Emperor scavenging a dead Tyranid hive ship; format conflict (roster=novel, actually a Legends of the Space Marines short story) → data_conflict suggestion short_story.
+  - W40K-0403 Twelve Wolves: Space Wolves on Fenris during Cardinal Bucharis's siege; Wulfen-curse twist. Antagonist (apostate Cardinal's host) is Age-of-Apostasy Imperial heretics, no clean Astartes/Chaos sub → faction left at Space Wolves only. Format conflict → short_story.
+  - W40K-0404 The Relic: Black Templars + ice-entombed Crimson Fists Dreadnought vs Orks on Armageddon; last stand. Format conflict → short_story.
+  - W40K-0405 The Trial of the Mantis Warriors: Badab War tribunal; court_intrigue/character_study; Inquisition on the panel (supporting). Two flags: format → short_story, and title (roster singular "Mantis Warrior" vs published plural "Mantis Warriors").
+  - W40K-0406 The Returned: Doom Eagles (NOT Blood Angels despite Swallow authorship); Tarikus returned after Fabius Bile / Red Corsairs captivity. Format conflict → short_story.
+  - W40K-0407 At Gaius Point: Flesh Tearers + Black Rage on Armageddon, executed by Adepta Sororitas; roster-correct short_story. cw_mental_health for the Black Rage.
+  - W40K-0408 The Last Detail: civilian father+son POV alongside an unnamed wounded Space Marine on Perreken. Two flags: author (roster "Phil Kearney" → actually Paul Kearney) and low_confidence on the Marine's Chapter (tagged only at Adeptus Astartes). Characters left empty (no named figures in sources).
+  - W40K-0409 Hell Night: Salamanders (Dak'ir/Tsu'gan/Pyriel) + Astra Militarum 135th Phalanx vs spectres on Vaporis; cosmic_horror. Roster-correct short_story.
+  - W40K-0410 Farsight: full T'au novel (Crisis of Faith, Farsight #1) — xenos POV crusade across the Damocles Gulf. Format conflict: roster=novella, actually a full-length novel → data_conflict suggestion novel; length_tier=standard. Largest sample of the batch (816 ratings).
+- **value_outside_vocabulary:** length_tier "short_story" — the catalog's smallest length bucket is `novella`, so true short stories (W40K-0402..0409) had length_tier omitted rather than mis-tagged. Collected only, not added to catalog.
+- **Notable surface-forms (within this batch):** Azrael, Naberius, Deathwing, Rhamiel, Eldar; Scythes of the Emperor, Sotha, Tiresias, Cassios; Daegalan, Hrothgar, The Fang, Cardinal Bucharis; Jarold, Rhodomanus, Crimson Fists, Ghazghkull Thraka; Mantis Warriors, Astral Claws, Lugft Huron, Neotera, Maetrus, Badab; Doom Eagles, Tarikus, Zurus, Hearon, Fabius Bile, Red Corsairs, Gathis, Dynikas V; Flesh Tearers, Zavien, Jarl, Dryfield; Perreken; Salamanders, Dak'ir, Tsu'gan, Pyriel, Vaporis, Aphium; T'au Empire, Farsight, Damocles Gulf.
+- **Verification skipped:** reiner Daten-Commit (Override-JSON + Log-Append, kein Code) → lint/typecheck/brain:lint per Brief-061-Konvention übersprungen.
