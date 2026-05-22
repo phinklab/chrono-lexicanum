@@ -740,6 +740,37 @@ Brain-Update nach dem Merge von Brief 087 (Goodreads-Rating-Pipeline, PR #74/#75
 
 **Branch:** Wiki-Pass-Edits liegen im Coordination-Worktree; die Commit-Mechanik (Branch `codex/session-090-wiki-hygiene` o. ä. + `git mv` für die Archivierung) klärt der Maintainer — die Cowork-Sandbox kann git-Write-Operationen nicht zuverlässig abschließen.
 
+## 2026-05-22 · Ingest · Pass-6-Review + Brief 091 (Resolver-Pass Phase-4-Split) + Brain-Hygiene-Pass post-091
+
+Brain-Update nach dem Merge von Resolver-Pass 6 (`ssot-w40k-026..035`, PR #83 `72c8788` — 350 W40K-Bücher applied). Ausgelöst durch den Maintainer-Auftrag, den letzten Resolver-Lauf zu reviewen und zu prüfen, ob Resolver-Pass-Phase 4 weiter splitbar ist (Phase 4 ging in Pass 6 mit dem Kontextfenster Richtung ~300k Token gegen ein ~120k-Per-Phase-Budget). Der Coordination-Worktree wurde zu Session-Beginn vom Maintainer auf `origin/main` (`72c8788`) gebracht — neue Branch `codex/session-091-phase4-split` ab `origin/main`.
+
+**Read:**
+
+- `sessions/resolver-dossiers/resolver-pass-6-impl-report.md` + die drei Phase-Reports (Factions/Locations/Characters) — Resolver-Pass 6, erster Lauf unter dem Brief-090-lean-Kontrakt, supervised/axis-sliced. 350/350 Bücher applied, Dry-Prediction == DB-POST-APPLY exakt, Trias grün, kein `## Needs decision`. Eine Entscheidung: forward-ref-Collection-Guard auf report-only entschärft (erste Welle mit cross-batch collection edges).
+- `sessions/resolver-pass-runbook.md` + `scripts/resolver-pass.config.json` + `scripts/run-resolver-pass.sh` + `scripts/run-phase4-apply.sh` — Resolver-Pass-Maschinerie, für die Phase-4-Split-Analyse.
+
+**Review-Verdikt:** Pass 6 ist ein sauberer Lauf. Phase-4-Token-Befund: Brief 090 hat den *statischen* Lese-Scope schlank gemacht, nicht die *agentische* Arbeitslast — Phase 4 macht fünf Jobs plus ungeplantes Debugging in einem `/clear`. Der 4a/4b-Split ist die strukturelle Antwort.
+
+**New brief:**
+
+- `sessions/2026-05-22-091-arch-resolver-phase4-split.md` — Resolver-Pass-Phase-4-Split: Phase 4 → 4a (Integration/Apply) + 4b (Verify/Report), `/clear`-getrennt, Handoff über eine 4a-Statusdatei; forward-ref-Guard in `apply-override-dry.ts` von report-only auf range-aware gehärtet. Touch-Set: `resolver-pass-runbook.md` + `resolver-pass.config.json` + `apply-override-dry.ts` + Driver-Verifikation. `status: open`.
+
+**No OQ closed, no new numbered OQ.** Der Pass-6-Architektur-Punkt (forward-ref-Guard) ist in Brief 091 gefaltet. OQ (14) um Sub-Punkt (e) erweitert: zwei deferred collection-gaps (Architect of Fate W40K-0286, War for Armageddon Omnibus W40K-0307 — Constituent-Works existieren, nur die Roster-Kanten fehlen).
+
+**Updated wiki:**
+
+- `project-state.md` — Phase-Headline auf 350 Bücher / Resolver-Pass 6; Branch-Sektion auf `72c8788` (PR #82 → #83); Buch-Domain-Bild + DB-/Excel-SSOT-/Resolver-Driver-Bullets auf post-Pass-6-Counts (`1424/543/844/109/325`, Reference `162/189/237`, Rating 346/350); neue „Latest pipeline state (post-091)"-Sektion (Pass-6-Review + Brief 091).
+- `pipeline-state.md` — Titel auf `post-091`; Intro-Blockquote auf sechs Resolver-Pässe / 350 Bücher; § Resolver layer auf `through Pass 6 / Brief 091` + post-Pass-6-Counts; § What's next Item 21 auf ✅ + Brief 091; neuer Pass-6-Konventions-Paragraph.
+- `open-questions.md` — neuer Frontmatter-Header-Kommentar (post-091); OQ (14) Sub-Punkt (e) + Sessions-Zeile um den Pass-6-Report.
+- `index.md` — Katalog-Zeilen project-state / open-questions / pipeline-state auf post-091-Stand.
+- This `log.md` — Append-only-Eintrag.
+
+**Outside the wiki:** `sessions/README.md` Active-Threads + Kopf-Paragraph auf post-Pass-6 + Brief 091.
+
+**Out of scope dieser Session:** Keine Code-Änderungen (Brief 091 ist CC-Arbeit). Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — Maintainer/CI). Die Pass-7-Per-Pass-Config-Werte (Bump auf `ssot-w40k-036..045`) sind ein späterer Setup-Schritt nach dem nächsten Loop-Lauf. Der Archivierungs-Rückstand in `sessions/` root (geschlossene Files 062–090) bleibt — eigener kleiner CC-`git mv`-Task.
+
+**Branch:** Brief 091 + Wiki-Pass-Edits liegen im Coordination-Worktree auf `codex/session-091-phase4-split` (uncommitted; die Cowork-Sandbox fasst `git` nicht an). Brief 091 trägt eine `## Commit & PR`-Sektion, die Claude Code anweist, diesen Architekten-Output beim Implementieren als ersten Commit mitzunehmen und mit der Implementierung in **einen** PR zu bündeln (Workflow-Vereinfachung auf Maintainer-Wunsch 2026-05-22).
+
 ## 2026-05-22 · Setup + Hygiene · Resolver-Pass-6-Setup + Brain-Hygiene-Pass (post-090)
 
 Brief-freier Cowork-Task (vom Maintainer freigegeben, kein Architekten-Brief): `scripts/resolver-pass.config.json` von Pass 5 auf Pass 6 umstellen + überfälliger Brain-Hygiene-Pass nach Brief 090 (Resolver-Pass lean, PR #80) und dem ersten 100er-Loop-Lauf `ssot-w40k-026..035` (PR #81). `origin/main` `131a8a4`; Working-Tree `codex/session-pass6-setup`.

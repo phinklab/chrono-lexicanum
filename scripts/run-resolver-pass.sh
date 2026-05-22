@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # scripts/run-resolver-pass.sh — Headless driver for axis-sliced Resolver-Passes.
 #
-# Mirrors `scripts/run-ssot-loop.sh` (Brief 071) but orchestrates the five
-# subsessions of an axis-sliced Resolver-Pass (Brief 076 — Preflight/Dossier →
-# Factions → Locations → Characters → Integration). Each phase is a fresh
+# Mirrors `scripts/run-ssot-loop.sh` (Brief 071) but orchestrates the six
+# subsessions of an axis-sliced Resolver-Pass (Brief 076/091 — Preflight/Dossier →
+# Factions → Locations → Characters → Integration/Apply (4a) → Verify/Report (4b)). Each phase is a fresh
 # `claude -p` subsession with a phase-specific trigger and a phase-specific
 # write-scope allowlist; the driver verifies post-phase that the commit diff is
 # a subset of the allowlist (exact paths or Bash-style glob patterns), that JSON

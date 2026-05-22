@@ -74,11 +74,12 @@
       "statusFile": "sessions/resolver-dossiers/resolver-pass-6-phase-3-report.md"
     },
     {
-      "name": "phase-4-integration",
-      "trigger": "Phase 4 (Integration) — siehe resolver-pass-runbook.md §3 Phase 4 + §7 (Digest-Disziplin). Digest-only: `scripts/run-phase4-apply.sh scripts/resolver-pass.config.json` (seedet Resolver-Extensions + Facets non-destruktiv, re-applied die applyRange 001..035 idempotent, schreibt kompakten Digest), dann `scripts/verify-pass.ts --config scripts/resolver-pass.config.json` fuer den Verify-Digest. Rohe Per-Batch-Ausgabe NICHT in den Kontext. Wave-spezifisch: KEINE Facet-Promotion — die Welle ist vokabular-sauber, kein Call-2-artiger Facet-Add (facet-catalog.json ist bewusst NICHT im Phase-4-Scope; ein doch noetiger Facet-Add ist ein `## Needs decision`-Stop). Unbekannte facetIds in Override-Files werden gestrippt wie 074/076, nicht in den Catalog aufgenommen. Finalen Report schreiben (sessions/resolver-dossiers/resolver-pass-6-impl-report.md). Mind. ein Commit.",
+      "name": "phase-4a-integration",
+      "trigger": "Phase 4a (Integration/Apply) — siehe resolver-pass-runbook.md §3 Phase 4a + §7 (Digest-Disziplin). Mutations-Haelfte: `seed-resolver-extensions.ts` um neue Reference-Rows erweitern; die Trias-Batch-Ranges (apply-override-dry.ts / test-resolver-coverage.ts / test-resolver-data-integrity.ts) auf die kumulative applyRange ausweiten; dann digest-only `scripts/run-phase4-apply.sh scripts/resolver-pass.config.json` (seedet Resolver-Extensions + Facets non-destruktiv, re-applied die applyRange 001..035 idempotent, schreibt + committet den kompakten Apply-Digest ingest/.last-run/phase4-digest.md). Rohe Per-Batch-Ausgabe NICHT in den Kontext. Wave-spezifisch: KEINE Facet-Promotion — die Welle ist vokabular-sauber, kein Call-2-artiger Facet-Add (facet-catalog.json ist bewusst NICHT im Scope; ein doch noetiger Facet-Add ist ein `## Needs decision`-Stop). Unbekannte facetIds in Override-Files werden gestrippt wie 074/076, nicht in den Catalog aufgenommen. Apply-seitige Trias gruen ziehen (inkl. `npm run test:collection-refs`). Eine selbst-enthaltene 4a-Statusdatei schreiben (Counts-Tabelle Pre/Per-Batch/Post, Reference-Row-Deltas, etwaige Strips/Anomalien, ready-for-4b-Marker oder `## Needs decision`). Ein Commit.",
       "scope": [
         "scripts/seed-resolver-extensions.ts",
         "scripts/apply-override-dry.ts",
+        "scripts/apply-override-collections.ts",
         "scripts/test-resolver-coverage.ts",
         "scripts/test-resolver-data-integrity.ts",
         "scripts/seed-data/collection-gaps.json",
@@ -88,10 +89,19 @@
         "scripts/db-counts.ts",
         "scripts/seed-facets.ts",
         "scripts/run-phase4-apply.sh",
+        "ingest/.last-run/phase4-digest.md",
+        "sessions/resolver-dossiers/resolver-pass-6-phase-4a-report.md"
+      ],
+      "statusFile": "sessions/resolver-dossiers/resolver-pass-6-phase-4a-report.md"
+    },
+    {
+      "name": "phase-4b-verify-report",
+      "trigger": "Phase 4b (Verify/Report) — siehe resolver-pass-runbook.md §3 Phase 4b + §10. Read-only-Haelfte. PFLICHT-LEKTUERE: die 4a-Statusdatei sessions/resolver-dossiers/resolver-pass-6-phase-4a-report.md + der committete Apply-Digest ingest/.last-run/phase4-digest.md. `scripts/verify-pass.ts --config scripts/resolver-pass.config.json` selbst fahren — das emittiert den Verify-Digest nach stdout (es gibt KEINE Verify-Digest-Datei). Dann `npm run lint` + `npm run typecheck`. KEIN zweiter DB-Apply, KEINE Trias-Re-Run (4a hat die Code-Edits bereits gruen gezogen), NICHT die Override-Files / Apply-seitigen Skripte / rohe Apply-Ausgabe lesen. Den finalen Impl-Report (sessions/resolver-dossiers/resolver-pass-6-impl-report.md) aus 4a-Statusdatei + Apply-Digest + verify-pass.ts-stdout polieren — keinen Zustand neu herleiten. Brief-Status auf implemented. Ein Commit.",
+      "scope": [
         "scripts/verify-pass.ts",
         "sessions/resolver-dossiers/resolver-pass-6-impl-report.md"
       ],
-      "statusFile": null
+      "statusFile": "sessions/resolver-dossiers/resolver-pass-6-impl-report.md"
     }
   ]
 }

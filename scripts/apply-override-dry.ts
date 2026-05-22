@@ -47,6 +47,10 @@ import {
   type OverrideRating,
   type RatingWrite,
 } from "./apply-override-rating";
+import {
+  analyzeCollections,
+  type RosterFile,
+} from "./apply-override-collections";
 
 const SEED_DIR = join(process.cwd(), "scripts", "seed-data");
 const BATCHES = [
@@ -162,16 +166,6 @@ interface LoadedOverrideBatch {
 
 interface CliArgs {
   file: string | null;
-}
-
-interface RosterFile {
-  books: Array<{ externalBookId: string }>;
-  collections: RosterCollection[];
-}
-
-interface RosterCollection {
-  contentExternalId: string;
-  collectionExternalId: string;
 }
 
 interface FacetCatalog {
@@ -693,55 +687,6 @@ function buildBatchByExternalId(
   return batchByExternalId;
 }
 
-function analyzeCollections(
-  roster: RosterFile,
-  batchByExternalId: Map<string, string>,
-): {
-  oldSameBatchResolvable: number;
-  newResolvable: number;
-  crossBatchResolvable: RosterCollection[];
-  forwardRefs: RosterCollection[];
-} {
-  const appliedIds = new Set(batchByExternalId.keys());
-  const relevant = roster.collections.filter(
-    (collection) =>
-      appliedIds.has(collection.collectionExternalId) ||
-      appliedIds.has(collection.contentExternalId),
-  );
-  const oldSameBatchResolvable = relevant.filter((collection) => {
-    const collectionBatch = batchByExternalId.get(collection.collectionExternalId);
-    const contentBatch = batchByExternalId.get(collection.contentExternalId);
-    return collectionBatch !== undefined && collectionBatch === contentBatch;
-  }).length;
-  const newResolvable = relevant.filter(
-    (collection) =>
-      appliedIds.has(collection.collectionExternalId) &&
-      appliedIds.has(collection.contentExternalId),
-  ).length;
-  const crossBatchResolvable = relevant.filter((collection) => {
-    const collectionBatch = batchByExternalId.get(collection.collectionExternalId);
-    const contentBatch = batchByExternalId.get(collection.contentExternalId);
-    return (
-      collectionBatch !== undefined &&
-      contentBatch !== undefined &&
-      collectionBatch !== contentBatch
-    );
-  });
-  const forwardRefs = crossBatchResolvable.filter((collection) => {
-    const collectionBatch = batchByExternalId.get(collection.collectionExternalId);
-    const contentBatch = batchByExternalId.get(collection.contentExternalId);
-    return collectionBatch !== undefined && contentBatch !== undefined
-      ? collectionBatch < contentBatch
-      : false;
-  });
-  return {
-    oldSameBatchResolvable,
-    newResolvable,
-    crossBatchResolvable,
-    forwardRefs,
-  };
-}
-
 function assertInRange(label: string, value: number, min: number, max: number): void {
   assert.ok(
     value >= min && value <= max,
@@ -939,6 +884,9 @@ function main(): void {
   console.log(`  missing resolved FK targets:   ${missingTargets.length}`);
   console.log(`  dangling JSON FK/alias refs:   ${referenceFkFindings.length}`);
   console.log(`  forward collection refs:       ${collectionAnalysis.forwardRefs.length}`);
+  console.log(
+    `  unresolvable constituent refs: ${collectionAnalysis.unresolvableConstituentRefs.length}`,
+  );
 
   assert.deepEqual(missingRoster, [], `missing roster ids: ${missingRoster.join(", ")}`);
   assert.deepEqual(missingFacets, [], `missing facet ids: ${missingFacets.join(", ")}`);
@@ -952,20 +900,33 @@ function main(): void {
   );
   if (!fixtureMode) {
     // Forward collection refs (collection book in an earlier batch than its
-    // content) are NOT a failure for the cumulative 001..NNN re-apply this dry
-    // simulates — and this dry only ever runs the full range (non-fixture mode).
-    // apply-override.ts:applyCollections resolves the already-applied endpoint via
-    // works.external_book_id and re-evaluates every collection whose content-side
-    // is in the batch being applied, so an ascending sweep creates the edge when
-    // the content's (later) batch lands. Verified end-to-end in Resolver-Pass 6:
-    // all 10 anthology→novella forward refs (Sanctus Reach W40K-0296, Damocles
-    // W40K-0294, Shield of Baal W40K-0304) were present in work_collections
-    // post-apply. The count + pairs are printed above for visibility; the prior
-    // `forwardRefs === []` hard-assert was correct only while the corpus happened
-    // to carry no forward refs and is dropped here as over-strict.
+    // content) are legitimate for the cumulative 001..NNN re-apply this dry
+    // simulates: apply-override.ts:applyCollections resolves the already-applied
+    // endpoint via works.external_book_id and re-evaluates every collection whose
+    // content-side is in the batch being applied, so an ascending sweep creates
+    // the edge when the content's (later, but in-range) batch lands. Verified
+    // end-to-end in Resolver-Pass 6: all 10 anthology→novella forward refs
+    // (Sanctus Reach W40K-0296, Damocles W40K-0294, Shield of Baal W40K-0304)
+    // were present in work_collections post-apply.
     assert.ok(
       collectionAnalysis.crossBatchResolvable.length > 0,
       "expected at least one cross-batch collection example",
+    );
+    // Brief 091 range-aware guard: the prior `forwardRefs === []` hard-assert was
+    // dropped to report-only in Pass 6 (over-strict — it tripped on the 10 legit
+    // refs above). Report-only caught nothing, though. Restore a real tripwire on
+    // the constituent side: a forward ref whose constituent is out-of-range (a
+    // known roster book the cumulative sweep never reaches) or unknown-work
+    // (absent from the roster — a typo or an unregistered deferred gap) never
+    // resolves and must fail. In-range forward refs stay accepted (printed above).
+    const unresolvable = collectionAnalysis.unresolvableConstituentRefs;
+    assert.deepEqual(
+      unresolvable.map(
+        (u) =>
+          `${u.collection.collectionExternalId}->${u.collection.contentExternalId} (${u.reason})`,
+      ),
+      [],
+      "forward collection refs with an out-of-range / unknown constituent — typo or unregistered deferred gap",
     );
     assertInRange(
       "work_factions",
