@@ -1,0 +1,240 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-039",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-22",
+  "model": "claude-opus-4-7",
+  "rationale": "Three tight author-blocks: Chris Wraight's Space Wolves Jarnhamar arc (Stormcaller + the trilogy-closer The Helwinter Gate), Gav Thorpe's full Dark Angels Legacy of Caliban trilogy plus its omnibus, and a Chaos cluster — two World Eaters / Kharn novels and Aaron Dembski-Bowden's first two Black Legion books. Ratings page-read from Goodreads; the omnibus aggregates the three constituent Dark Angels novels at trilogy tag-depth.",
+  "books": [
+    {
+      "externalBookId": "W40K-0381",
+      "slug": "stormcaller",
+      "overrides": {
+        "synopsis": "On the plague-stricken shrine world of Ras Shakeh, the Space Wolves of the Jarnhamar pack are pushed to breaking point. As corruption spreads and the Imperium descends in force, the Rune Priest Njal Stormcaller arrives to reinforce his embattled brothers — only to find them divided, each pursuing his own purpose. While the warriors of the Ecclesiarchy fight to reclaim their world, a far darker secret festers beneath the conflict: the source of the plague is bound to the schemes of the Death Guard, and its truth could threaten more than a single world. Chris Wraight's sequel to Blood of Asaheim pits Fenrisian fury against the relentless rot of Nurgle, testing the bonds of a pack already strained by grief and rivalry.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "last_stand", "grimdark", "action_heavy", "brotherhood", "loyalty", "faith", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Ecclesiarchy", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Ras Shakeh", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Njal Stormcaller", "role": "supporting" },
+          { "name": "Ingvar", "role": "pov" },
+          { "name": "Gunnlaugur", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.15, "count": 442, "evidenceUrl": "https://www.goodreads.com/book/show/18143886-stormcaller" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0382",
+      "slug": "the-helwinter-gate",
+      "overrides": {
+        "synopsis": "Hunted by the judgement of their own Chapter, the survivors of the Jarnhamar pack flee aboard a stolen vessel into an Imperium sliding toward total war. Still chasing vengeance for old wrongs, they pick through the ruins of dead worlds in search of an enemy who refuses to be found — even as one of their own, his unsanctioned powers swelling beyond control, charts a path none of them can predict. Their dream of returning to Fenris with honour restored grows ever more distant, and their road carries them at last to Cadia as that fortress world burns. Chris Wraight closes his Space Wolves trilogy with a somber story of exile, brotherhood, and what it means to belong to a misunderstood Chapter at the end of the age.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "series_finale", "standard", "war_story", "journey", "grimdark", "somber", "brotherhood", "loyalty", "doubt", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cadia", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ingvar", "role": "pov" },
+          { "name": "Gunnlaugur", "role": "supporting" },
+          { "name": "Baldr Fjolnir", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.12, "count": 289, "evidenceUrl": "https://www.goodreads.com/book/show/56490418-the-helwinter-gate" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0383",
+      "slug": "ravenwing",
+      "overrides": {
+        "synopsis": "The Ravenwing ride to war where their fellow Dark Angels cannot — swift hunters mounted on bikes and speeders, striking from the shadows. When Brother Annael is raised into their ranks, he is drawn into a world of secrets withheld from ordinary battle-brothers. In the aftermath of the war for Kadillus, fragments of a dark conspiracy surface, and it becomes clear that the Ravenwing pursue a duty far graver than slaying orks: the hunt for the Fallen, the renegades whose treachery the Chapter has hidden for ten thousand years. Told through the eyes of the recruit Annael, the veteran Telemenus, and Grand Master Sammael himself, Gav Thorpe opens the Legacy of Caliban trilogy with a layered look at the most secretive of the Space Marines.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_start", "standard", "war_story", "mystery", "grimdark", "action_heavy", "loyalty", "betrayal", "brotherhood", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "The Fallen", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Annael", "role": "pov" },
+          { "name": "Telemenus", "role": "pov" },
+          { "name": "Sammael", "role": "supporting" },
+          { "name": "Asmodai", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.61, "count": 440, "evidenceUrl": "https://www.goodreads.com/book/show/13547117-ravenwing" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0384",
+      "slug": "master-of-sanctity",
+      "overrides": {
+        "synopsis": "The secret war of the Dark Angels grinds on, and the hunt for the Fallen tightens. The newly raised Master of Sanctity, Sapphon, favours cunning over cruelty, manipulating the captured renegade Astelan in hopes of luring still greater traitors into his grasp. But his methods set him against the merciless Interrogator-Chaplain Asmodai, who sees treachery in every shadow and trusts only pain to break his prisoners — a zeal that strains the Chapter's alliances to the edge of ruin. As Annael takes his place among the Black Knights and Telemenus ascends to the Deathwing, their quarry comes within reach at last. Gav Thorpe's second Legacy of Caliban novel turns on the paranoia that defines the Dark Angels and the cost it exacts on those around them.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "mid_series", "standard", "war_story", "mystery", "court_intrigue", "grimdark", "somber", "betrayal", "loyalty", "doubt", "faith", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "The Fallen", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Asmodai", "role": "pov" },
+          { "name": "Sapphon", "role": "pov" },
+          { "name": "Annael", "role": "supporting" },
+          { "name": "Telemenus", "role": "supporting" },
+          { "name": "Astelan", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.95, "count": 250, "evidenceUrl": "https://www.goodreads.com/book/show/17571719-master-of-sanctity" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0385",
+      "slug": "the-unforgiven",
+      "overrides": {
+        "synopsis": "The most infamous of the Fallen, the enigmatic Cypher, has surrendered himself into the hands of the Dark Angels — and with him comes the hope that the Chapter might finally atone for the sins of its past. But Cypher does nothing without purpose, and his game remains hidden. As Supreme Grand Master Azrael uncovers secrets that will reshape his Chapter, the Death Guard descend upon the Rock itself, forcing a decision whose echoes reach back to the Horus Heresy and forward into an uncertain future. Gav Thorpe brings the Legacy of Caliban trilogy to its close, asking whether the sons of Caliban can ever be redeemed — or whether they are doomed to remain the Unforgiven.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "series_finale", "standard", "war_story", "siege", "grimdark", "somber", "betrayal", "redemption", "loyalty", "faith", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "The Fallen", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "The Rock", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Cypher", "role": "supporting" },
+          { "name": "Azrael", "role": "pov" },
+          { "name": "Asmodai", "role": "supporting" },
+          { "name": "Annael", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.82, "count": 209, "evidenceUrl": "https://www.goodreads.com/book/show/23492372" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0386",
+      "slug": "legacy-of-caliban-the-omnibus",
+      "overrides": {
+        "synopsis": "The complete Legacy of Caliban trilogy in one volume, gathering Ravenwing, Master of Sanctity, and The Unforgiven alongside the short-story collection Lords of Caliban. Across these tales, the Dark Angels defend mankind while waging a far older and more secret war — the hunt for the Fallen, their own brothers who turned from the Emperor during the Horus Heresy. Through the eyes of the recruit Annael, the warrior Telemenus, Grand Master Sammael, and the Chaplains Sapphon and Asmodai, Gav Thorpe traces a conspiracy that draws the Chapter into a plot to reshape past and future and deliver the Imperium to Chaos. From the surrender of the renegade Cypher to a Death Guard assault on the Rock, this is the most secretive Chapter of the Space Marines laid bare.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "standalone", "doorstopper", "war_story", "mystery", "siege", "grimdark", "somber", "betrayal", "redemption", "loyalty", "faith", "doubt", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "The Fallen", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "The Rock", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Annael", "role": "pov" },
+          { "name": "Telemenus", "role": "pov" },
+          { "name": "Sammael", "role": "supporting" },
+          { "name": "Asmodai", "role": "supporting" },
+          { "name": "Sapphon", "role": "supporting" },
+          { "name": "Azrael", "role": "supporting" },
+          { "name": "Cypher", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.10, "count": 152, "evidenceUrl": "https://www.goodreads.com/book/show/29430529-legacy-of-caliban" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0387",
+      "slug": "kharn-eater-of-worlds",
+      "overrides": {
+        "synopsis": "The Horus Heresy is broken, and the traitor legions scatter before a vengeful Imperium. The World Eaters are leaderless — their primarch Angron vanished, their greatest champion Kharn lost in a coma — and the Butcher's Nails drive the survivors to ever more savage slaughter. Desperate for fresh blood and a place to rebuild, the Legion fleet descends on a world near the Eye of Terror, only to find the remnants of the Emperor's Children already there. Told largely through Captain Dreagher of the Ninth and Skoral, a human medicae thrall, Anthony Reynolds charts the bloody decline of a Legion devouring itself in the days before the infamous battle of Skalathrax.",
+        "facetIds": ["book", "mixed", "space_marine", "chaos", "company", "standalone", "short", "war_story", "grimdark", "action_heavy", "somber", "betrayal", "brotherhood", "hubris", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Emperor's Children", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Dreagher", "role": "pov" },
+          { "name": "Skoral", "role": "pov" },
+          { "name": "Kharn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.96, "count": 649, "evidenceUrl": "https://www.goodreads.com/book/show/23768412-kh-rn" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0388",
+      "slug": "the-red-path",
+      "overrides": {
+        "synopsis": "Kharn the Betrayer, Chosen of Khorne, is a force unchained — leading a warband of howling berzerkers down the Red Path, carrying slaughter to all who cross him. As Abaddon the Despoiler's Thirteenth Black Crusade engulfs the galaxy, the Warmaster seeks to bend Kharn's savagery to his own ends. But the Champion of the Blood God kneels to no one, and his defiance sets him on a collision course not only with the Imperium — where a living saint returns to the world of Salandraxis from her campaigns near the Eye of Terror — but with the Black Legion itself. Chris Dows' novel of the Eater of Worlds is a relentless tale of carnage in which none who stand before Kharn escape unscathed.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "planetary", "standalone", "standard", "war_story", "grimdark", "action_heavy", "war", "hubris", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Ecclesiarchy", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Salandraxis", "role": "primary" },
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Kharn", "role": "pov" },
+          { "name": "Abaddon", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.60, "count": 137, "evidenceUrl": "https://www.goodreads.com/book/show/32073864-the-red-path" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0389",
+      "slug": "the-talon-of-horus",
+      "overrides": {
+        "synopsis": "When Horus fell, his Legion fell with him. Scattered across the Eye of Terror, hunted by former allies and torn by rivalry, the broken sons of the Warmaster have lost their way — and of Abaddon, his greatest captain, nothing has been heard for years. But when Horus's body is stolen from its tomb, a fragile alliance of legionaries sets out to find the First Captain and convince him to take up the destiny Horus left unfinished. Narrated by Iskandar Khayon, a sorcerer of the Thousand Sons recounting the tale to his Inquisitorial captors, Aaron Dembski-Bowden's novel follows a desperate band — World Eaters, Thousand Sons, and Sons of Horus — as they hunt the lost flagship Vengeful Spirit, clash with Fabius Bile, and witness the birth of the Black Legion.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "series_start", "standard", "war_story", "journey", "grimdark", "philosophical", "somber", "betrayal", "brotherhood", "hubris", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "Emperor's Children", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Iskandar Khayon", "role": "pov" },
+          { "name": "Abaddon", "role": "primary" },
+          { "name": "Fabius Bile", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.45, "count": 2795, "evidenceUrl": "https://www.goodreads.com/book/show/18143891" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0390",
+      "slug": "black-legion",
+      "overrides": {
+        "synopsis": "Picking up the tale after the founding of the Black Legion, Iskandar Khayon recounts how Ezekyle Abaddon fought to forge a single host from the warring renegades of the Eye of Terror. As Abaddon's most trusted assassin, Khayon is set against Thagus Daravek — the self-styled Lord of Hosts, a rival who claims the same dark destiny — yet every attempt on his life seems only to make him stronger. While Daravek bars his path at every turn, Abaddon's gaze fixes on a power that will set him on his fated road: out of the Eye, into the galaxy beyond, and toward a reckoning with an enemy long thought lost. Aaron Dembski-Bowden continues his Black Legion saga with a story of ambition, treachery, and the terrible will of the Despoiler.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "galactic", "mid_series", "standard", "war_story", "political_thriller", "grimdark", "philosophical", "betrayal", "loyalty", "hubris", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Black Legion", "role": "primary" },
+          { "name": "Thousand Sons", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Iskandar Khayon", "role": "pov" },
+          { "name": "Abaddon", "role": "primary" },
+          { "name": "Thagus Daravek", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.45, "count": 2036, "evidenceUrl": "https://www.goodreads.com/book/show/36206468" }
+      }
+    }
+  ]
+}

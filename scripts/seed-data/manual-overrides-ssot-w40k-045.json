@@ -1,0 +1,233 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-045",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-22",
+  "model": "claude-opus-4-7",
+  "rationale": "Space Marine character/series wave: a Fabius Bile omnibus (whole trilogy + shorts), the three-book Carcharodons series (incl. the thin 2025 entry Void Exile), the Imperial Knights duology (Kingsblade/Knightsblade), the Mephiston trilogy, and Guy Haley's Dante. Mostly well-documented Black Library novels; the only soft spots were Void Exile (2025, ~12 Goodreads ratings, sparse plot coverage) and a missing roster author for that same book.",
+  "books": [
+    {
+      "externalBookId": "W40K-0441",
+      "slug": "fabius-bile-the-omnibus",
+      "overrides": {
+        "synopsis": "Fabius Bile — Primogenitor, Clonelord, Manflayer — was once a loyal Apothecary of the Emperor's Children, now a renegade loathed even by the other traitor Legions. Obsessed with perfecting his New Men as the future of a humanity he despises, he pursues his grim genetic craft across the galaxy: from the Eye of Terror to the necron tomb world of Solemnace, and into the dark city of Commorragh itself. This omnibus gathers the three novels Primogenitor, Clonelord and Manflayer alongside their connecting short stories, charting Bile's running war against rival warbands, daemons and harlequins — and against his own failing flesh — as he chases the perfection that has always eluded him.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "galactic", "standalone", "doorstopper", "journey", "character_study", "war_story", "grimdark", "philosophical", "somber", "hubris", "doubt", "betrayal", "cw_violence", "cw_disturbing", "cw_death", "en"],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Drukhari", "role": "supporting" },
+          { "name": "Necrons", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "primary" },
+          { "name": "Solemnace", "role": "supporting" },
+          { "name": "Commorragh", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Fabius Bile", "role": "pov" },
+          { "name": "Oleander Koh", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.49, "count": 185, "evidenceUrl": "https://www.goodreads.com/en/book/show/60604364" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0442",
+      "slug": "carcharadons-red-tithe",
+      "overrides": {
+        "synopsis": "On the prison world of Zartak, convicts toil in the adamantium mines under the watch of the Adeptus Arbites. When the Night Lords descend to harvest slaves and spread terror, another fleet runs silent from the void: the grey-skinned, black-eyed Carcharodons, void-born Space Marines as merciless as the deep-sea predators they are named for. Led by the newly raised Reaper Prime Bail Sharr and the ancient Chief Librarian Te Kahurangi, the Carcharodons hunt for a single gifted inmate whose latent psychic talent makes him worth a red tithe of blood. As two packs of ancient killers stalk Zartak's tunnels, the corridors run red.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_start", "standard", "war_story", "mystery", "grimdark", "action_heavy", "somber", "war", "brotherhood", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Carcharodons", "role": "primary" },
+          { "name": "Night Lords", "role": "antagonist" },
+          { "name": "Adeptus Arbites", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Zartak", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Bail Sharr", "role": "pov" },
+          { "name": "Te Kahurangi", "role": "supporting" },
+          { "name": "Skell", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.00, "count": 1509, "evidenceUrl": "https://www.goodreads.com/book/show/29430417-red-tithe" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0443",
+      "slug": "carcharadons-outer-dark",
+      "overrides": {
+        "synopsis": "With a tendril of a tyranid hive fleet creeping toward the galactic plane, the Carcharodons resolve to make the shrine world of Piety V their bulwark and break the xenos threat before it can spread. Reaper Prime Bail Sharr leads his warriors to rally the planet's defenders, but holding the line means more than slaughtering the swarm — among the cemetery worlds and Inquisition strongholds of the region, the void-born Space Marines are forced to weigh what the lives of ordinary mortals are truly worth to them. Alongside the venerable dreadnought Itako, the Wandering Ancestor, the Carcharodons wage a brutal war of attrition against the Great Devourer.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "siege", "last_stand", "grimdark", "action_heavy", "somber", "war", "sacrifice", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Carcharodons", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Piety V", "role": "primary" },
+          { "name": "Kora", "role": "supporting" },
+          { "name": "Hypasitis", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Bail Sharr", "role": "pov" },
+          { "name": "Itako", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.28, "count": 942, "evidenceUrl": "https://www.goodreads.com/en/book/show/39396373" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0444",
+      "slug": "carcharadons-void-exile",
+      "overrides": {
+        "synopsis": "The isolated forge world of Diamantus faces annihilation as a warped space hulk — infested by the forces of Chaos and commanded by the datagnost Voldire, a disciple of the daemon-machine Vashtorr the Arkifane — bears down upon it. The battle-weary Carcharodons make their stand alongside the Adeptus Mechanicus, fighting through a rain of horrors to reach and destroy the hulk before Diamantus is lost. Amid the grinding war and an uneasy alliance with their tech-priest hosts, the void-born Space Marines are forced to confront their uncertain place within a changed and sundered Imperium.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "siege", "grimdark", "action_heavy", "somber", "war", "loyalty", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Carcharodons", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Diamantus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Voldire", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "authors", "reason": "roster lists no author for this title; Black Library and Goodreads credit Robbie MacNiven", "suggestion": "Robbie MacNiven" },
+          { "kind": "low_confidence", "field": "characters", "reason": "2025 release with sparse plot coverage; only the antagonist Voldire is reliably named in available sources" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.75, "count": 12, "evidenceUrl": "https://www.goodreads.com/book/show/237505772-carcharadons" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0445",
+      "slug": "kingsblade",
+      "overrides": {
+        "synopsis": "The Knight Houses of Adrastapol are noble and righteous, and when the Imperial world of Donatos falls to the heresy of the Word Bearers, High King Tolwyn Draconis leads his towering war-machines in the vanguard to retake it. But when tragedy strikes at the campaign's height, the Imperial advance collapses into anarchy. The unblooded Knights Errant Danial Tan Draconis and Luk Kar Chimaeros must master the ways of war faster than they ever dreamed — racing to stop an unholy ritual before Donatos, and every noble House of Adrastapol with it, is lost forever. A tale of chivalry, honour and duty waged from the cockpits of god-machines.",
+        "facetIds": ["book", "male", "imperium", "planetary", "series_start", "standard", "war_story", "journey", "action_heavy", "grimdark", "loyalty", "war", "sacrifice", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "House Draconis", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "House Chimaeros", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Donatos", "role": "primary" },
+          { "name": "Adrastapol", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Danial Tan Draconis", "role": "pov" },
+          { "name": "Luk Kar Chimaeros", "role": "pov" },
+          { "name": "Tolwyn Draconis", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.81, "count": 301, "evidenceUrl": "https://www.goodreads.com/book/show/32860964-kingsblade" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0446",
+      "slug": "knightsblade",
+      "overrides": {
+        "synopsis": "Five years after House Chimaeros fell to heresy, Luk Kar Chimaeros has cast aside his name to become the Knight of Ashes, a Freeblade hunting his treacherous step-mother Alicia Kar Manticos across the stars with a band of fellow exiles. Just as the chase nears its end, catastrophe descends on his homeworld of Adrastapol — a massive ork invasion that threatens the surviving noble Houses, leaving High King Danial Tan Draconis to unite them or watch his world burn. Luk faces an agonising choice: press on with his quest for justice and honour, or return home to fight beside his former brothers and risk being branded a heretic forever.",
+        "facetIds": ["book", "male", "imperium", "planetary", "series_finale", "standard", "war_story", "journey", "action_heavy", "grimdark", "somber", "redemption", "loyalty", "war", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "House Chimaeros", "role": "primary" },
+          { "name": "House Draconis", "role": "supporting" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Adrastapol", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Luk Kar Chimaeros", "role": "pov" },
+          { "name": "Danial Tan Draconis", "role": "pov" },
+          { "name": "Alicia Kar Manticos", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.22, "count": 131, "evidenceUrl": "https://www.goodreads.com/book/show/38216135-knightsblade" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0447",
+      "slug": "mephiston-blood-of-sanguinius",
+      "overrides": {
+        "synopsis": "The shrine world of Divinatus Prime has vanished from the light of the Astronomican, and no ship can pierce the veil that shrouds it. Only Mephiston, the Lord of Death and Chief Librarian of the Blood Angels, has any hope of learning its fate. After enacting a powerful blood ritual, he leads an honour guard of his battle-brothers to the stricken world — and finds it consumed by religious civil war, the sacred Blade of Petrific lost amid the upheaval. As he hunts the relic, Mephiston wages a deeper battle against his own nature: the Black Rage he alone has mastered, and the buried secret of how he became the being he now is.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_start", "standard", "war_story", "mystery", "character_study", "grimdark", "somber", "philosophical", "faith", "doubt", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Divinatus Prime", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Mephiston", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.63, "count": 612, "evidenceUrl": "https://www.goodreads.com/book/show/32861004-mephiston" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0448",
+      "slug": "mephiston-revenant-crusade",
+      "overrides": {
+        "synopsis": "As the Great Rift splits the galaxy and the dead seem to walk, portents and darkness close in on Mephiston. At the moment he needs his psychic sight most, the Blood Angels Chief Librarian finds his powers struck blind by an inexplicable force and his mind haunted by the ghosts of the damned. Aboard his ship the Blood Oath, he leads his warriors to the embattled world of Morsus, certain the source of his blindness lies there — only to find it locked in an ancient war against the necrons of the Revenant Crusade. To press on with his hunt for the daemon he believes anchors the Great Rift, Mephiston must shatter a necron army and arrest his own slide into inhuman savagery.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "journey", "character_study", "grimdark", "somber", "philosophical", "doubt", "faith", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Morsus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Mephiston", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.80, "count": 324, "evidenceUrl": "https://www.goodreads.com/en/book/show/40737867-mephiston" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0449",
+      "slug": "mephiston-city-of-light",
+      "overrides": {
+        "synopsis": "Deep within Imperium Nihilus, in the shadow of the Great Rift, Blood Angels Chief Librarian Mephiston and his comrades are drawn by cryptic visions to a war-torn world. There the sorcerers of the Thousand Sons labour to unite nine Silver Towers and complete a ritual that would empower their daemon-primarch Magnus the Red and cast the entire sub-sector into Chaos. Having already endured the Devastation of Baal, Mephiston must summon all his strength and will to stop them — confronting a hidden truth that threatens to expose him to his darkest fears. The climactic battle of the Lord of Death's darkest hour.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "series_finale", "standard", "war_story", "character_study", "grimdark", "somber", "philosophical", "cosmic_horror", "doubt", "faith", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Thousand Sons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Imperium Nihilus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Mephiston", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.83, "count": 267, "evidenceUrl": "https://www.goodreads.com/en/book/show/49229915-mephiston" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0450",
+      "slug": "dante",
+      "overrides": {
+        "synopsis": "Commander Dante has led the Blood Angels for over a thousand years, the longest-serving Chapter Master in the Imperium's history. This novel braids two stories fifteen centuries apart: the origin of a boy born in the rad-blasted wastes of Baal Secundus, destined for glory, rising from aspirant to the angelic lord of a Space Marine Chapter; and the present-day commander fighting to save his people as tyranid hive fleets devour the Cryptus system at the edge of Baal. Across both, Dante wrestles with the Flaw in the blood of Sanguinius and the darkness it breeds in every Blood Angel — and with what it costs to wear the Death Mask and never falter.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "standalone", "standard", "war_story", "character_study", "journey", "grimdark", "somber", "action_heavy", "sacrifice", "faith", "doubt", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Baal Secundus", "role": "primary" },
+          { "name": "Cryptus", "role": "supporting" },
+          { "name": "Armageddon", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Dante", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.32, "count": 2036, "evidenceUrl": "https://www.goodreads.com/book/show/30753457-dante" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-042",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-22",
+  "model": "claude-opus-4-7",
+  "rationale": "Two distinct waves: the first three books close out Phil Kelly's Farsight trilogy (a rare sustained T'au/xenos-POV arc, ending with the 2025 finale Blade of Truth), and the last seven open The Beast Arises, the 12-book M32 ork-invasion mega-series. The Beast Arises titles share a rotating ensemble cast (Koorland, Vangorich, the High Lords) and braid Space Marine war with Terran court intrigue, so faction/character tags recur across the slice.",
+  "books": [
+    {
+      "externalBookId": "W40K-0411",
+      "slug": "crisis-of-faith",
+      "overrides": {
+        "synopsis": "Commander Farsight, the T'au Empire's most gifted young warrior, is handed a crusade: lead a vast fleet back across the Damocles Gulf to retake the colony worlds lost to humanity. With superior battlesuits, advanced weaponry and the blessing of the ethereals, the expedition sets out in a mood of triumphant optimism. Early victories come easily. But as the campaign grinds on, Farsight meets enemies he never anticipated and begins to sense secrets festering within his own ranks. Caught between loyalty to the Greater Good and the uncomfortable truths he uncovers about his masters and the galaxy beyond, he finds not only his courage but his very soul put to the test. The opening novel of the Farsight trilogy follows on from the events of the Damocles campaign.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "sector", "series_start", "standard", "war_story", "journey", "action_heavy", "philosophical", "grimdark", "faith", "doubt", "hubris", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "T'au Empire", "role": "primary" },
+          { "name": "Astra Militarum", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Damocles Gulf", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Commander Farsight", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.74, "count": 816, "evidenceUrl": "https://www.goodreads.com/book/show/35150711-crisis-of-faith" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0412",
+      "slug": "empire-of-lies",
+      "overrides": {
+        "synopsis": "Fresh from his costly triumph over the Imperium across the Damocles Gulf, High Commander Farsight turns to his own borders and finds them under siege. Savage ork warbands are tearing through the worlds at the heart of the T'au Empire, and Farsight throws himself into an obsessive war to purge the greenskin infestation, vowing to stop at nothing until every world is cleansed. Yet darker forces move in the shadows of his campaign, forces determined to see the Empire's greatest military mind broken on the daemon-haunted surface of Arthas Moloch. As the fighting drives him toward that cursed world, Farsight is torn between unshakeable faith in the Greater Good and a creeping, monstrous understanding of what the galaxy truly is. The second novel of the Farsight trilogy.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "sector", "mid_series", "standard", "war_story", "action_heavy", "philosophical", "grimdark", "faith", "doubt", "hubris", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "T'au Empire", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Daemons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Arthas Moloch", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Commander Farsight", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.89, "count": 428, "evidenceUrl": "https://www.goodreads.com/book/show/50891589-empire-of-lies" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0413",
+      "slug": "farsight-blade-of-truth",
+      "overrides": {
+        "synopsis": "Farsight has hung up his uncanny alien blade and his battle-worn XV8 suit, hoping his enclaves can finally know peace. That hope dies when a tyranid bio-fleet falls upon Vior'los, the world he has come to call home, and begins to devour it whole. Forced to take up his sword once more, Farsight defends a planet collapsing around him, only to discover a second enemy within: the scheming ethereal Aun'Va, whose ambitions threaten the enclaves as surely as the swarm. As Vior'los is ground down to its last eight warriors, among them the young rebel Torchstar, who has wrested battlesuits from Aun'Va's grip, unlikely allies stand together against impossible odds. Farsight's truest and final test is still to come. The concluding novel of the Farsight trilogy.",
+        "facetIds": ["book", "mixed", "pc_xenos", "xenos", "planetary", "series_finale", "standard", "war_story", "last_stand", "siege", "action_heavy", "philosophical", "grimdark", "faith", "betrayal", "sacrifice", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "T'au Empire", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vior'los", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Commander Farsight", "role": "pov" },
+          { "name": "Aun'Va", "role": "antagonist" },
+          { "name": "Torchstar", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.59, "count": 115, "evidenceUrl": "https://www.goodreads.com/book/show/230632922-farsight" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0414",
+      "slug": "i-am-slaughter",
+      "overrides": {
+        "synopsis": "It is the thirty-second millennium and the Imperium of Man basks in a long, complacent peace. The traitor legions are a fading memory and the alien races that once plagued mankind are held firmly in check. Then a routine mission to exterminate a xenos breed on the world of Ardamantua spirals out of control, drawing in ever more of the enemy, until for the first time in over a thousand years the Imperial Fists abandon the walls of Terra to answer the call. What they meet there is no ordinary foe. A vast and ancient power is stirring at the edge of human space, and against it even the heroic sons of Rogal Dorn may count for nothing. Far away on Terra, Grand Master Vangorich of the Assassins watches the squabbling High Lords with mounting dread. The Beast arises, and it is mighty. The opening novel of the twelve-book Beast Arises series.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "galactic", "series_start", "standard", "war_story", "siege", "political_thriller", "grimdark", "action_heavy", "war", "hubris", "loyalty", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Officio Assassinorum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Ardamantua", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Drakan Vangorich", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.72, "count": 1799, "evidenceUrl": "https://www.goodreads.com/book/show/25111218-i-am-slaughter" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0415",
+      "slug": "predator-prey",
+      "overrides": {
+        "synopsis": "The Imperial Fists are gone, annihilated on Ardamantua, and after centuries of peace the Imperium reels in panic. World after world is menaced by orks whose colossal attack moons cross the void and shatter planets with gravity weapons no human fleet can answer. On Terra the High Lords squander their hours in petty politicking, paralysed by the sheer scale of the threat, while Space Marine homeworlds and Mechanicus forge worlds alike fall before the green tide. Across a dozen embattled fronts, from the warriors of the Fists Exemplar to a lone planetary defence commander making his hopeless stand, ordinary defenders try to hold the line against an enemy that simply cannot be stopped. And in the wreckage of Ardamantua, against all odds, a single Imperial Fist still draws breath. The second novel of the Beast Arises series.",
+        "facetIds": ["book", "ensemble", "space_marine", "imperium", "galactic", "mid_series", "standard", "war_story", "last_stand", "grimdark", "somber", "action_heavy", "war", "sacrifice", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Koorland", "role": "supporting" },
+          { "name": "Drakan Vangorich", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.57, "count": 1048, "evidenceUrl": "https://www.goodreads.com/book/show/28954461-predator-prey" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0416",
+      "slug": "the-emperor-expects",
+      "overrides": {
+        "synopsis": "As the ork onslaught engulfs human space, the squabbling High Lords of Terra are at last shamed into action. High Lord Lansung, master of the Imperial Navy, is manoeuvred into leaving Terra and leading a great fleet to destroy one of the enemy's attack moons, as much to shore up his own standing as to stem the tide. Aboard the warship Colossus, Captain Rafal Kulik is caught between two feuding admirals as the Navy throws itself into a desperate void assault that culminates in a hard-won victory at Port Sanctus. Back on the throneworld, the Inquisition turns on itself as rivals move to unseat Inquisitor Wienand, while Drakan Vangorich watches the rot spread and Koorland, the last of the Imperial Fists, summons a gathering of strength unseen in a thousand years. The third novel of the Beast Arises series.",
+        "facetIds": ["book", "mixed", "multi", "imperium", "galactic", "mid_series", "standard", "war_story", "political_thriller", "court_intrigue", "grimdark", "action_heavy", "war", "hubris", "loyalty", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Navy", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Port Sanctus", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Rafal Kulik", "role": "pov" },
+          { "name": "Lansung", "role": "supporting" },
+          { "name": "Inquisitor Wienand", "role": "supporting" },
+          { "name": "Drakan Vangorich", "role": "supporting" },
+          { "name": "Koorland", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.81, "count": 904, "evidenceUrl": "https://www.goodreads.com/book/show/26029287-the-emperor-expects" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0417",
+      "slug": "the-last-wall",
+      "overrides": {
+        "synopsis": "Every effort to halt the ork plague has failed, and now an enemy attack moon hangs in the sky directly above the Imperial Palace. As its malevolent shadow falls across Terra, panic grips the populace and riots tear through the streets. Juskina Tull, Speaker for the Chartist Captains, seizes the moment to launch an audacious gamble: a Proletarian Crusade that arms billions of ordinary citizens and hurls them at the moon in a vast tide of ships, trusting sheer weight of numbers to do what fleets could not. The landings succeed, and for a heartbeat hope flares, but the orks have not yet sprung their trap. Far away in the Phall system, the surviving Imperial Fists successor chapters answer Koorland's call and muster as the Last Wall, the old defence of Terra reborn for a new and desperate age. The fourth novel of the Beast Arises series.",
+        "facetIds": ["book", "ensemble", "space_marine", "imperium", "galactic", "mid_series", "standard", "war_story", "last_stand", "siege", "grimdark", "somber", "action_heavy", "war", "sacrifice", "hubris", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Phall", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Koorland", "role": "pov" },
+          { "name": "Juskina Tull", "role": "supporting" },
+          { "name": "Drakan Vangorich", "role": "supporting" },
+          { "name": "Inquisitor Wienand", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.84, "count": 787, "evidenceUrl": "https://www.goodreads.com/book/show/26029271-the-last-wall" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0418",
+      "slug": "throneworld",
+      "overrides": {
+        "synopsis": "The Imperium has never stood closer to ruin. An ork attack moon still looms over Terra and greenskin armadas savage human space, and now eldar raiders strike at the very heart of the Imperial Palace, forcing humanity's defenders to fight on two fronts at once. Newly raised as Chapter Master of the Imperial Fists, Koorland brings the reunited successor chapters home to a throneworld in turmoil, determined to take the fight to the moon hanging above their heads. Yet the eldar incursion is no simple raid, and its true purpose may matter more than any battle. Far from Terra, Black Templar Marshal Magneric hunts the Iron Warriors of Warsmith Kalkatos across the stars, his pursuit driving him straight into the path of the oncoming orks. The fifth novel of the Beast Arises series.",
+        "facetIds": ["book", "ensemble", "space_marine", "imperium", "galactic", "mid_series", "standard", "war_story", "siege", "political_thriller", "grimdark", "action_heavy", "war", "loyalty", "sacrifice", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Eldar", "role": "supporting" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Phall", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Koorland", "role": "pov" },
+          { "name": "Marshal Magneric", "role": "supporting" },
+          { "name": "Drakan Vangorich", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.78, "count": 720, "evidenceUrl": "https://www.goodreads.com/book/show/26029276-throneworld" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0419",
+      "slug": "echoes-of-the-long-war",
+      "overrides": {
+        "synopsis": "The ork war has reached its grim halfway point and patience has run out. On Terra, Koorland, the last true son of Dorn, finally loses faith in the paralysed government and, with Drakan Vangorich at his side, moves to seize control of the Imperium's leadership outright. Far from the throneworld, newly promoted First Captain Zerberyn drives the Fists Exemplar fleet into the teeth of the greenskins in support of Black Templar Marshal Magneric, and finds himself forced into an unthinkable alliance with the very Iron Warriors his Chapter is sworn to destroy, raising a question that will haunt them: can a traitor ever truly be trusted? On Mars, the tech-priest Urquidex turns against his own masters, smuggling forbidden knowledge back to Vangorich. The sixth novel of the Beast Arises series.",
+        "facetIds": ["book", "ensemble", "space_marine", "imperium", "galactic", "mid_series", "standard", "war_story", "political_thriller", "court_intrigue", "grimdark", "action_heavy", "war", "betrayal", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Iron Warriors", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "supporting" },
+          { "name": "Mars", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Zerberyn", "role": "pov" },
+          { "name": "Koorland", "role": "supporting" },
+          { "name": "Drakan Vangorich", "role": "supporting" },
+          { "name": "Urquidex", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.60, "count": 651, "evidenceUrl": "https://www.goodreads.com/book/show/29851423-echoes-of-the-long-war" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0420",
+      "slug": "the-hunt-for-vulkan",
+      "overrides": {
+        "synopsis": "At last the Imperium learns where the Beast makes its lair: the ancient ork world of Ullanor, where centuries before a Crusade once triumphed. Koorland resolves to gather an army great enough to strike at its heart and end the war, but Inquisitor Veritus counsels him that such a force needs a living legend to lead it, and points him toward the lost world of Caldera, where one of the Emperor's own sons may yet survive. The hunt carries the Sons of Dorn, a war fleet and the tech-priests of Mars to a planet groaning beneath its own ork moon. There, amid desolation and apocalyptic fire, the Salamanders' primarch Vulkan strides back into the war, and for the first time an ork invasion is hurled back from a world he swore long ago to protect. The seventh novel of the Beast Arises series.",
+        "facetIds": ["book", "ensemble", "space_marine", "imperium", "galactic", "mid_series", "standard", "war_story", "journey", "siege", "grimdark", "action_heavy", "war", "faith", "sacrifice", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Caldera", "role": "primary" },
+          { "name": "Ullanor", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Koorland", "role": "pov" },
+          { "name": "Vulkan", "role": "supporting" },
+          { "name": "Inquisitor Veritus", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.75, "count": 612, "evidenceUrl": "https://www.goodreads.com/book/show/27276164-the-hunt-for-vulkan" }
+      }
+    }
+  ]
+}
