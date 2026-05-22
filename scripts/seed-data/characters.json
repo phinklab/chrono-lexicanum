@@ -1391,5 +1391,271 @@
     "primaryFactionId": "blood_angels",
     "lexicanumUrl": null,
     "notes": "Cross-batch consolidation (Brief 089): Blood Angels Chapter Master — surface-forms 'Dante' (W40K-0217 Deus Encarmine) + 'Commander Dante' (W40K-0223 Astorath). Bare 'Dante' is a character-alias."
+  },
+  {
+    "id": "talos",
+    "name": "Talos",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": "Night Lords First Claw (Soul Hunter), ADB Night Lords trilogy + omnibus (ssot-w40k-035, W40K-0346/0347/0348/0349). freq=5."
+  },
+  {
+    "id": "cyrion",
+    "name": "Cyrion",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": "Night Lords First Claw, ADB Night Lords trilogy + omnibus (ssot-w40k-035). freq=5."
+  },
+  {
+    "id": "uzas",
+    "name": "Uzas",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": "Night Lords First Claw, ADB Night Lords trilogy + omnibus (ssot-w40k-035). freq=5."
+  },
+  {
+    "id": "xarl",
+    "name": "Xarl",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": "Night Lords First Claw, ADB Night Lords trilogy + omnibus (ssot-w40k-035). freq=5."
+  },
+  {
+    "id": "mercutian",
+    "name": "Mercutian",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": "Night Lords First Claw, ADB Night Lords trilogy + omnibus (ssot-w40k-035). freq=4."
+  },
+  {
+    "id": "septimus",
+    "name": "Septimus",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": "Human artificer serving the Night Lords warband; ADB Night Lords trilogy + omnibus (ssot-w40k-035). freq=4."
+  },
+  {
+    "id": "octavia",
+    "name": "Octavia",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": "Navigator serving the Night Lords warband; ADB Night Lords trilogy + omnibus (ssot-w40k-035). freq=4."
+  },
+  {
+    "id": "the_exalted",
+    "name": "The Exalted",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": "Daemon-possessed leader of the Night Lords warband; ADB Night Lords (ssot-w40k-035, W40K-0346/0349). freq=2."
+  },
+  {
+    "id": "tsugan",
+    "name": "Tsu'gan",
+    "primaryFactionId": "salamanders",
+    "lexicanumUrl": null,
+    "notes": "Salamanders, Kyme Tome of Fire trilogy + omnibus (ssot-w40k-028, W40K-0272/0273/0274). freq=6."
+  },
+  {
+    "id": "dakir",
+    "name": "Dak'ir",
+    "primaryFactionId": "salamanders",
+    "lexicanumUrl": null,
+    "notes": "Salamanders, Kyme Tome of Fire trilogy + omnibus (ssot-w40k-028). freq=5."
+  },
+  {
+    "id": "elysius",
+    "name": "Elysius",
+    "primaryFactionId": "salamanders",
+    "lexicanumUrl": null,
+    "notes": "Salamanders Chaplain, Kyme Tome of Fire (ssot-w40k-028, W40K-0273/0276). freq=2."
+  },
+  {
+    "id": "nihilan",
+    "name": "Nihilan",
+    "primaryFactionId": "dragon_warriors",
+    "lexicanumUrl": null,
+    "notes": "Dragon Warriors antagonist warband leader, Kyme Tome of Fire (ssot-w40k-028). freq=3. primaryFactionId dragon_warriors landed by Pass-6 Phase 1."
+  },
+  {
+    "id": "marduk",
+    "name": "Marduk",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Word Bearers Dark Apostle, Reynolds Dark Apostle trilogy + omnibus (ssot-w40k-027, W40K-0264/0265/0266). freq=4."
+  },
+  {
+    "id": "kol_badar",
+    "name": "Kol Badar",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Word Bearers Coryphaus, Reynolds Dark Apostle trilogy + omnibus (ssot-w40k-027). freq=4."
+  },
+  {
+    "id": "burias",
+    "name": "Burias",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Word Bearers Icon Bearer, Reynolds Dark Apostle trilogy + omnibus (ssot-w40k-027). freq=4."
+  },
+  {
+    "id": "jarulek",
+    "name": "Jarulek",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Word Bearers Dark Apostle, Reynolds Dark Apostle (ssot-w40k-027, W40K-0264/0267). freq=2."
+  },
+  {
+    "id": "lucian_gerrit",
+    "name": "Lucian Gerrit",
+    "primaryFactionId": "rogue_traders",
+    "lexicanumUrl": null,
+    "notes": "Rogue Trader protagonist, Hoare Rogue Star trilogy + omnibus (ssot-w40k-026/027, W40K-0260/0261/0262). freq=4."
+  },
+  {
+    "id": "brielle_gerrit",
+    "name": "Brielle Gerrit",
+    "primaryFactionId": "rogue_traders",
+    "lexicanumUrl": null,
+    "notes": "Rogue Trader (Lucian's daughter), Hoare Rogue Star trilogy + omnibus (ssot-w40k-027, W40K-0261/0262/0263). freq=3."
+  },
+  {
+    "id": "inquisitor_grand",
+    "name": "Inquisitor Grand",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Inquisitor antagonist, Hoare Rogue Star trilogy (ssot-w40k-027, W40K-0261/0262/0263). freq=3."
+  },
+  {
+    "id": "sarik",
+    "name": "Sarik",
+    "primaryFactionId": "white_scars",
+    "lexicanumUrl": null,
+    "notes": "White Scars attached to the Rogue Trader arc, Hoare (ssot-w40k-027, W40K-0262/0263). freq=2."
+  },
+  {
+    "id": "sister_miriya",
+    "name": "Sister Miriya",
+    "primaryFactionId": "sisters_of_battle",
+    "lexicanumUrl": null,
+    "notes": "Adepta Sororitas, Swallow Faith and Fire / Hammer and Anvil + omnibus (ssot-w40k-026, W40K-0254/0255/0256). freq=3."
+  },
+  {
+    "id": "sister_verity",
+    "name": "Sister Verity",
+    "primaryFactionId": "sisters_of_battle",
+    "lexicanumUrl": null,
+    "notes": "Sister Hospitaller, Swallow Faith and Fire / Hammer and Anvil + omnibus (ssot-w40k-026). freq=3."
+  },
+  {
+    "id": "grimaldus",
+    "name": "Grimaldus",
+    "primaryFactionId": "black_templars",
+    "lexicanumUrl": null,
+    "notes": "Black Templars Reclusiarch (Helsreach); cross-cluster (ssot-w40k-028..033, W40K-0279/0307/0316). freq=4."
+  },
+  {
+    "id": "helbrecht",
+    "name": "Helbrecht",
+    "primaryFactionId": "black_templars",
+    "lexicanumUrl": null,
+    "notes": "Black Templars High Marshal (ssot-w40k-030/033, W40K-0300/0325). freq=2."
+  },
+  {
+    "id": "huron_blackheart",
+    "name": "Huron Blackheart",
+    "primaryFactionId": "red_corsairs",
+    "lexicanumUrl": null,
+    "notes": "Red Corsairs Tyrant; cross-cluster antagonist (ssot-w40k-029/031/035, W40K-0284/0303/0347). freq=4. primaryFactionId red_corsairs landed by Pass-6 Phase 1."
+  },
+  {
+    "id": "korsarro_khan",
+    "name": "Kor'sarro Khan",
+    "primaryFactionId": "white_scars",
+    "lexicanumUrl": null,
+    "notes": "White Scars Master of the Hunt; Hunt for Voldorius / Damocles (ssot-w40k-028/030/034, W40K-0280/0294/0337). freq=4."
+  },
+  {
+    "id": "amit",
+    "name": "Amit",
+    "primaryFactionId": "flesh_tearers",
+    "lexicanumUrl": null,
+    "notes": "Flesh Tearers; cross-cluster (ssot-w40k-030/032/033, W40K-0297/0313/0323). freq=3."
+  },
+  {
+    "id": "mogrok",
+    "name": "Mogrok",
+    "primaryFactionId": "orks",
+    "lexicanumUrl": null,
+    "notes": "Ork Warboss/Weirdboy of the Sanctus Reach arc (ssot-w40k-030/033, W40K-0296/0327). freq=2."
+  },
+  {
+    "id": "pedro_kantor",
+    "name": "Pedro Kantor",
+    "primaryFactionId": "crimson_fists",
+    "lexicanumUrl": null,
+    "notes": "Crimson Fists Chapter Master; Rynn's World / Traitor's Gorge (ssot-w40k-028/032, W40K-0278/0314). freq=2."
+  },
+  {
+    "id": "harek_ironhelm",
+    "name": "Harek Ironhelm",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Space Wolves Great Wolf; Battle of the Fang / The Hunt of Magnus (ssot-w40k-029/033, W40K-0283/0330). freq=2."
+  },
+  {
+    "id": "kairos_fateweaver",
+    "name": "Kairos Fateweaver",
+    "primaryFactionId": "tzeentch",
+    "lexicanumUrl": null,
+    "notes": "Lord of Change, Greater Daemon of Tzeentch; Architect of Fate / Fateweaver (ssot-w40k-029/031, W40K-0286/0310). freq=2."
+  },
+  {
+    "id": "karlaen",
+    "name": "Karlaen",
+    "primaryFactionId": "blood_angels",
+    "lexicanumUrl": null,
+    "notes": "Blood Angels 1st Company Captain; Shield of Baal (ssot-w40k-031/035, W40K-0304/0344). freq=2."
+  },
+  {
+    "id": "torris_vaun",
+    "name": "Torris Vaun",
+    "primaryFactionId": null,
+    "lexicanumUrl": null,
+    "notes": "Heretic pyromancer antagonist of Swallow's Faith and Fire; single volume + omnibus (ssot-w40k-026, W40K-0254/0256). freq=2. No clean canonical faction -> primaryFactionId null (identity certain, affiliation unmodeled)."
+  },
+  {
+    "id": "variel_the_flayer",
+    "name": "Variel the Flayer",
+    "primaryFactionId": "red_corsairs",
+    "lexicanumUrl": null,
+    "notes": "Cross-batch consolidation (Resolver-Pass 6): Red Corsairs Apothecary of ADB's Night Lords trilogy + omnibus — surface-forms 'Variel the Flayer' (W40K-0348/0349) + 'Variel' (W40K-0347). 'Variel' is a character-alias. primaryFactionId red_corsairs landed by Pass-6 Phase 1."
+  },
+  {
+    "id": "commander_shadowsun",
+    "name": "Commander Shadowsun",
+    "primaryFactionId": "tau",
+    "lexicanumUrl": null,
+    "notes": "Cross-batch consolidation (Resolver-Pass 6): T'au commander across the Damocles anthology + Damocles novellas — surface-forms 'Commander Shadowsun' (W40K-0337/0340) + 'Shadowsun' (W40K-0294/0298). 'Shadowsun' is a character-alias."
+  },
+  {
+    "id": "sister_superior_augusta",
+    "name": "Sister Superior Augusta",
+    "primaryFactionId": "sisters_of_battle",
+    "lexicanumUrl": null,
+    "notes": "Cross-batch consolidation (Resolver-Pass 6): Danie Ware's protagonist across the Bloodied Rose novella arc — surface-forms 'Sister Superior Augusta' (W40K-0257/0258) + 'Sister Augusta' (W40K-0259). 'Sister Augusta' is a character-alias."
+  },
+  {
+    "id": "obadiah_roth",
+    "name": "Obadiah Roth",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Cross-batch consolidation (Resolver-Pass 6): Inquisitor protagonist of Zou's Emperor's Mercy — surface-forms 'Obadiah Roth' (Bastion Wars omnibus W40K-0271) + 'Inquisitor Obadiah Roth' (W40K-0268). The rank-prefixed form is a character-alias."
+  },
+  {
+    "id": "grukk_face_rippa",
+    "name": "Grukk Face-Rippa",
+    "primaryFactionId": "orks",
+    "lexicanumUrl": null,
+    "notes": "Cross-batch consolidation (Resolver-Pass 6): Ork Warboss of the Sanctus Reach arc (freq-1 lore-iconic) — surface-forms 'Grukk Face-Rippa' (W40K-0296) + 'Grukk' (W40K-0327). 'Grukk' is a character-alias."
   }
 ]

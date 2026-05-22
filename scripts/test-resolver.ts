@@ -643,6 +643,75 @@ check("alias-consolidation - fifth wave Dante both surface forms collapse to one
   assert.equal(resolveCharacter("Dante").id, "commander_dante");
 });
 
+check("direct match - sixth wave Talos (Night Lords First Claw, freq=5)", () => {
+  assert.equal(resolveCharacter("Talos").id, "talos");
+});
+
+check("direct match - sixth wave Tsu'gan (Salamanders, freq=6)", () => {
+  assert.equal(resolveCharacter("Tsu'gan").id, "tsugan");
+});
+
+check("direct match - sixth wave Marduk (Word Bearers, freq=4)", () => {
+  assert.equal(resolveCharacter("Marduk").id, "marduk");
+});
+
+check("direct match - sixth wave Lucian Gerrit (Rogue Trader, freq=4)", () => {
+  assert.equal(resolveCharacter("Lucian Gerrit").id, "lucian_gerrit");
+});
+
+check("direct match - sixth wave Grimaldus (Black Templars, freq=4)", () => {
+  assert.equal(resolveCharacter("Grimaldus").id, "grimaldus");
+});
+
+check("direct match - sixth wave Huron Blackheart (Red Corsairs, Phase-1 FK)", () => {
+  assert.equal(resolveCharacter("Huron Blackheart").id, "huron_blackheart");
+});
+
+check("direct match - sixth wave Nihilan (Dragon Warriors, Phase-1 FK)", () => {
+  assert.equal(resolveCharacter("Nihilan").id, "nihilan");
+});
+
+check("direct match - sixth wave Kairos Fateweaver (Tzeentch, freq=2)", () => {
+  assert.equal(resolveCharacter("Kairos Fateweaver").id, "kairos_fateweaver");
+});
+
+check("alias-consolidation - sixth wave Variel both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Variel the Flayer").id, "variel_the_flayer");
+  assert.equal(resolveCharacter("Variel").id, "variel_the_flayer");
+});
+
+check("alias-consolidation - sixth wave Shadowsun both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Commander Shadowsun").id, "commander_shadowsun");
+  assert.equal(resolveCharacter("Shadowsun").id, "commander_shadowsun");
+});
+
+check("alias-consolidation - sixth wave Sister Augusta both surface forms collapse to one row", () => {
+  assert.equal(
+    resolveCharacter("Sister Superior Augusta").id,
+    "sister_superior_augusta",
+  );
+  assert.equal(resolveCharacter("Sister Augusta").id, "sister_superior_augusta");
+});
+
+check("alias-consolidation - sixth wave Obadiah Roth both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Obadiah Roth").id, "obadiah_roth");
+  assert.equal(resolveCharacter("Inquisitor Obadiah Roth").id, "obadiah_roth");
+});
+
+check("alias-consolidation - sixth wave Grukk both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Grukk Face-Rippa").id, "grukk_face_rippa");
+  assert.equal(resolveCharacter("Grukk").id, "grukk_face_rippa");
+});
+
+check("alias-consolidation - sixth wave Varro Tigurius full name resolves to existing Tigurius", () => {
+  assert.equal(resolveCharacter("Tigurius").id, "tigurius");
+  assert.equal(resolveCharacter("Varro Tigurius").id, "tigurius");
+});
+
+check("unknown - sixth wave Galenus stays null (identity-ambiguous, deliberately unpromoted)", () => {
+  assert.equal(resolveCharacter("Galenus").id, null);
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {
