@@ -285,6 +285,38 @@ check("alias - sixth wave Militarum Tempestus routes to Tempestus Scions", () =>
   assert.equal(resolveFaction("Militarum Tempestus").id, "tempestus_scions");
 });
 
+check("direct match - seventh wave Talons of the Emperor (Custodes + Sisters of Silence, freq=3)", () => {
+  assert.equal(resolveFaction("Talons of the Emperor").id, "talons_of_the_emperor");
+});
+
+check("alias - seventh wave Sisters of Silence routes to Talons of the Emperor", () => {
+  assert.equal(resolveFaction("Sisters of Silence").id, "talons_of_the_emperor");
+});
+
+check("direct match - seventh wave Senatorum Imperialis (M32 High Lords body, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Senatorum Imperialis").id, "senatorum_imperialis");
+});
+
+check("alias - seventh wave The Fallen routes to Fallen Angels (Dark Angels' Fallen Brethren)", () => {
+  assert.equal(resolveFaction("The Fallen").id, "fallen_angels");
+});
+
+check("alias - seventh wave Craftworld Eldar routes to Aeldari umbrella", () => {
+  assert.equal(resolveFaction("Craftworld Eldar").id, "eldar");
+});
+
+check("direct match - seventh wave House Chimaeros (Imperial Knight noble house, freq=2)", () => {
+  assert.equal(resolveFaction("House Chimaeros").id, "house_chimaeros");
+});
+
+check("direct match - seventh wave House Draconis (Imperial Knight noble house, freq=2)", () => {
+  assert.equal(resolveFaction("House Draconis").id, "house_draconis");
+});
+
+check("alias - seventh wave Striking Scorpions routes to Aeldari umbrella (Aspect-Warrior sub-form)", () => {
+  assert.equal(resolveFaction("Striking Scorpions").id, "eldar");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {

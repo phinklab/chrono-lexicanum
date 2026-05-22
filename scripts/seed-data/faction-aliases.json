@@ -39,5 +39,12 @@
   "Tau": "tau",
   "Chaos Daemons": "daemons",
   "Daemons of Tzeentch": "tzeentch",
-  "Militarum Tempestus": "tempestus_scions"
+  "Militarum Tempestus": "tempestus_scions",
+  "The Fallen": "fallen_angels",
+  "Sisters of Silence": "talons_of_the_emperor",
+  "Craftworld Eldar": "eldar",
+  "Eldar Corsairs": "eldar",
+  "Incubi": "eldar",
+  "Mandrakes": "eldar",
+  "Striking Scorpions": "eldar"
 }
