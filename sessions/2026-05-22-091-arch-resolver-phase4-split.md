@@ -2,7 +2,7 @@
 session: 2026-05-22-091
 role: architect
 date: 2026-05-22
-status: open
+status: implemented
 slug: resolver-phase4-split
 parent: null
 links:
