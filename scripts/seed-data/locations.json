@@ -1448,5 +1448,165 @@
     "gx": null,
     "gy": null,
     "tags": []
+  },
+  {
+    "id": "orath",
+    "name": "Orath",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "agrellan",
+    "name": "Agrellan",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "cryptus",
+    "name": "Cryptus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "dalyth",
+    "name": "Dal'yth",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "sanctus_reach",
+    "name": "Sanctus Reach",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "alaric_prime",
+    "name": "Alaric Prime",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "boros_gate",
+    "name": "Boros Gate",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "crythe",
+    "name": "Crythe",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ilissus",
+    "name": "Ilissus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "lepidus_prime",
+    "name": "Lepidus Prime",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "lycheate",
+    "name": "Lycheate",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "medina_corridor",
+    "name": "Medina Corridor",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "neva",
+    "name": "Neva",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "port_of_anguish",
+    "name": "Port of Anguish",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "sanctuary_101",
+    "name": "Sanctuary 101",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "stratos",
+    "name": "Stratos",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "tanakreg",
+    "name": "Tanakreg",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "tsagualsa",
+    "name": "Tsagualsa",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "van_horne",
+    "name": "Van Horne",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "vilamus",
+    "name": "Vilamus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
   }
 ]

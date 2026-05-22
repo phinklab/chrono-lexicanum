@@ -1,7 +1,7 @@
 /**
  * Resolver coverage smoke for the first 200 Authority-layer books.
  *
- * Reads manual-overrides-ssot-w40k-001..025 and computes unique resolved
+ * Reads manual-overrides-ssot-w40k-001..035 and computes unique resolved
  * canonical counts per book and axis. This is intentionally observational:
  * sparse books are reported with below-threshold notes, not padded with
  * invented entities and not treated as script failures.
@@ -51,6 +51,16 @@ const BATCHES = [
   "023",
   "024",
   "025",
+  "026",
+  "027",
+  "028",
+  "029",
+  "030",
+  "031",
+  "032",
+  "033",
+  "034",
+  "035",
 ] as const;
 const SMOKE_SLUGS = [
   "the-anarch",
@@ -79,6 +89,16 @@ const SMOKE_SLUGS = [
   "baneblade",
   "the-remnant-blade",
   "warrior-brood",
+  "warrior-coven",
+  "faith-and-fire",
+  "dark-apostle",
+  "blood-gorgons",
+  "legion-of-the-damned",
+  "flesh-tearers",
+  "scythes-of-the-emperor",
+  "stormseer",
+  "lords-of-caliban",
+  "shield-of-baal-devourer",
 ] as const;
 const SMOKE_THRESHOLD = 3;
 
@@ -277,7 +297,7 @@ const coverage: BookCoverageExt[] = books.map((book) => ({
 
 const bySlug = new Map(coverage.map((row) => [row.slug, row]));
 
-console.log("resolver coverage: manual-overrides-ssot-w40k-001..025");
+console.log("resolver coverage: manual-overrides-ssot-w40k-001..035");
 console.log(`books: ${coverage.length}`);
 console.log("");
 

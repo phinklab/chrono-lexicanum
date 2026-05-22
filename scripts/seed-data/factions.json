@@ -1066,5 +1066,61 @@
     "parent": "astra_militarum",
     "alignment": "imperium",
     "tone": "line"
+  },
+  {
+    "id": "dragon_warriors",
+    "name": "Dragon Warriors",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "red_corsairs",
+    "name": "Red Corsairs",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "white_consuls",
+    "name": "White Consuls",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "relictors",
+    "name": "Relictors",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "blood_gorgons",
+    "name": "Blood Gorgons",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "doom_eagles",
+    "name": "Doom Eagles",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "marines_errant",
+    "name": "Marines Errant",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "legion_of_the_damned",
+    "name": "Legion of the Damned",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
   }
 ]

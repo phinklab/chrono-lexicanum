@@ -16,5 +16,29 @@
       "The Enemy of My Enemy"
     ],
     "note": "Keep omnibus as a normal work; defer complete work_collections until missing short-story works/roster rows are modeled. Constituents per override-015 rationale: Warboss (Mike Brooks, W40K-0128), Catachan Devil (Justin Woolley, W40K-0118), novellas Iron Resolve (Steve Lyons, W40K-0249) + Prisoners of Waaagh! (Justin Woolley, W40K-0565), short stories by Graham McNeill and others. Constituent IDs verified against book-roster.json."
+  },
+  {
+    "collectionExternalId": "W40K-0286",
+    "title": "Architect of Fate",
+    "status": "needs_constituent_collection_edges",
+    "knownExistingConstituents": [
+      "W40K-0308",
+      "W40K-0309",
+      "W40K-0310",
+      "W40K-0311"
+    ],
+    "knownMissingConstituents": [],
+    "note": "Space Marine Battles anthology. All four constituent novellas exist as works — Accursed Eternity (W40K-0308), Endeavour of Will (W40K-0309), Fateweaver (W40K-0310), Sanctus (W40K-0311) — but book-roster.json carries no work_collections edges to them, so the anthology resolves with 0 constituents post-apply. Resolver-Pass-6 dossier §7d. Defer until the roster collection edges are added (a roster/SSOT-loop change, out of resolver-pass scope). Constituent works verified present in book-roster.json."
+  },
+  {
+    "collectionExternalId": "W40K-0307",
+    "title": "War for Armageddon Omnibus",
+    "status": "needs_constituent_collection_edges",
+    "knownExistingConstituents": [
+      "W40K-0279",
+      "W40K-0316"
+    ],
+    "knownMissingConstituents": [],
+    "note": "Aaron Dembski-Bowden Armageddon omnibus. book-roster.json links only Helsreach (W40K-0279). Blood and Fire (W40K-0316) — the ADB Armageddon novella — exists as a work and is a candidate co-constituent but has no roster edge. Resolver-Pass-6 dossier §7d. Defer the W40K-0316 edge until confirmed and added to the roster (out of resolver-pass scope). Constituent works verified present in book-roster.json."
   }
 ]
