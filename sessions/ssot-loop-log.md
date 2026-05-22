@@ -1494,3 +1494,24 @@
 - **value_outside_vocabulary:** [] — Standard-Facet-Set deckte alle 10 ab.
 - **Notable surface-forms (within this batch):** „T'au Empire", „Aun'Va", „Torchstar", „Vior'los", „Fists Exemplar", „Officio Assassinorum", „Drakan Vangorich", „Koorland", „Juskina Tull", „Rafal Kulik", „Inquisitor Wienand", „Marshal Magneric", „Zerberyn", „Urquidex", „Inquisitor Veritus", „Eldar" (nicht Aeldari), „Iron Warriors". Resolving in canonical Tables im nächsten Resolver-Pass.
 - **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: 1 Override-JSON + Log-Append, kein Code).
+
+## 2026-05-22 · ssot-w40k-043 · W40K-0421..W40K-0430 · ✅
+
+- **Cumulative books in authority:** 430 / nächste Resolver-Pause bei 450
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=420, batch=ssot-w40k-043, slice=W40K-0421..W40K-0430
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — alle gut aus Quellen/Trainingsdaten bekannt; 1 Synopsis-Such-Query je Buch genügte. Goodreads-Ratings separat per WebFetch (Page-Read).
+- **Per-book bullets:**
+  - W40K-0421 The Beast Must Die — Beast Arises #8 (Gav Thorpe); Imperial-Fists/Koorland-Crusade gegen Ullanor scheitert, Primarch Vulkan beteiligt (`Salamanders` supporting). `requires_context`, `last_stand`.
+  - W40K-0422 Watchers in Death — Beast #9 (Annandale); Geburt der Deathwatch aus Assassinorum-Methoden, gemischte Kill-Teams → `Deathwatch` primary + `squad`-scope, Asger Warfist als Surface-Form-Charakter.
+  - W40K-0423 The Last Son of Dorn — Beast #10 (Guymer); Deathwatch + Sisters of Silence schlagen ins Ork-Herz, Wendepunkt der Serie. Koorland POV.
+  - W40K-0424 Shadow of Ullanor — Beast #11 (Sanders); Imperial-Fists-Successors auf Inwit, letzte Offensive mit Adeptus-Mechanicus-Support; psychische Ork-Schwäche. Maximus Thane eingeführt.
+  - W40K-0425 The Beheading — Beast #12-Finale (Haley); politisches Nachspiel, Vangorich's Purge der High Lords → `Officio Assassinorum` primary, `Senatorum Imperialis` als Antagonist-Surface-Form, `political_thriller`/`court_intrigue`, `series_finale`, `multi`-class (Assassin-POV ohne eigenes Facet → multi).
+  - W40K-0426 Deathwatch (Legends) — Novel (St. Martin); Captain Artemis vs. Ork-Invasion + Tyranid-Hive im Kurbynola-System → `Orks` + `Tyranids` antagonist, `Ordo Xenos` supporting. Sauberer Roster-Tag (novel).
+  - W40K-0427 Ultramarines (Legends) — Anthology; Multi-Author-Sammlung (Calgar/Sicarius/Telion/Cassius/Tigurius). Aggregiert über Constituent-Werke → `ensemble` + `Ultramarines`/`Tyranids`.
+  - W40K-0428 Sons of Corax — Roster sagt `novel`, ist aber George-Mann-Single-Author-Collection von 7 verbundenen Raven-Guard-Stories → **`data_conflict`-Flag** (field=format, suggestion=collection). Nurgle-Feinde als `Heretic Astartes` (browse-root, Plague-God-Aspekt in Synopsis), `Brazen Minotaurs` als Verbündete.
+  - W40K-0429 Astra Militarum (Legends) — Anthology; Yarrick/Straken/Creed + Cadian Eighth (Tyrok Fields). `guardsman`+`commissar`, `ensemble`, `regiment`.
+  - W40K-0430 Space Wolves: Scent of a Traitor — Short story (Werner); Ulrik the Slayer, Dark-Angels-Übergabe-Dilemma, Thousand-Sons-Ritual → `novella`-Length, `mystery`/`journey`. **`low_confidence`-Flag** für locations (keine konkrete benannte Welt belastbar) → locations leer statt erfunden.
+- **value_outside_vocabulary:** [] — Standard-Facet-Set deckte alle 10 ab. (Kein Assassin-protagonist_class im Katalog; The Beheading mit `multi` getaggt — Kandidat nur erwähnt, nicht eingetragen.)
+- **Notable surface-forms (within this batch):** „Koorland", „The Beast", „Vulkan", „Drakan Vangorich", „Maximus Thane", „Asger Warfist", „Sisters of Silence", „Deathwatch", „Officio Assassinorum", „Senatorum Imperialis", „Inwit", „Ullanor", „Kurbynola System", „Artemis", „Ordo Xenos", „Marneus Calgar", „Cato Sicarius", „Torias Telion", „Raven Guard", „Brazen Minotaurs", „Captain Koryn", „Captain Daed", „Heretic Astartes", „Commissar Yarrick", „Colonel Straken", „Lord Castellan Creed", „Ulrik the Slayer", „Thousand Sons", „Dark Angels". Resolving in canonical Tables im nächsten Resolver-Pass.
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: 1 Override-JSON + Log-Append, kein Code). JSON-Parse-Check grün.

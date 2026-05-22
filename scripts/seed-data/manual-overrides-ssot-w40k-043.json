@@ -1,0 +1,243 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-043",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-22",
+  "model": "claude-opus-4-7",
+  "rationale": "Two clean clusters: the closing five novels of The Beast Arises (#8 The Beast Must Die through #12 The Beheading), the M32 ork-WAAAGH! saga that ends in Vangorich's political purge of the High Lords; and five Legends of the Dark Millennium tie-ins (a Deathwatch novel, the Ultramarines and Astra Militarum multi-author anthologies, George Mann's single-author Raven Guard collection, and a Space Wolves short story). Sons of Corax is tagged 'novel' in the roster but is in fact a seven-story collection — flagged as a format conflict.",
+  "books": [
+    {
+      "externalBookId": "W40K-0421",
+      "slug": "the-beast-must-die",
+      "overrides": {
+        "synopsis": "An ork invasion of unimaginable scale has battered the Imperium to the brink of collapse. For every greenskin fleet the defenders destroy, five more descend from the void, and it becomes clear that the only way to end the war is to find and kill the alien warlord at its heart — the colossal creature the Imperium has come to call the Beast. Lord Commander Koorland, last surviving son of Rogal Dorn's Imperial Fists, gathers a vast crusade fleet and leads it to the ork home world to decapitate the horde. But when the assault breaks upon the surface, the Imperium discovers it has catastrophically misjudged the cunning and sheer power of its enemy, and even the return of a primarch may not be enough to spare the army from disaster.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "galactic", "requires_context", "short", "war_story", "last_stand", "grimdark", "action_heavy", "war", "sacrifice", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Salamanders", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Ullanor", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Koorland", "role": "pov" },
+          { "name": "Vulkan", "role": "supporting" },
+          { "name": "The Beast", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.79, "count": 562, "evidenceUrl": "https://www.goodreads.com/book/show/27276162-the-beast-must-die" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0422",
+      "slug": "watchers-in-death",
+      "overrides": {
+        "synopsis": "The grand assault on the ork home world has ended in slaughter, and brute force has failed the Imperium utterly. Lord Commander Koorland refuses to accept defeat. Borrowing the patient, surgical methods of the Officio Assassinorum, he forges something new: small, elite kill-teams drawn from many different Space Marine Chapters, trained to strike at the enemy's heart rather than meet it head-on. Clad in black and answerable only to their mission, these warriors learn to fight as one despite their rival traditions — and in their forming lies the first stirring of the Deathwatch. As Koorland hunts for a weakness in the Beast's empire, his new brotherhood must prove that a blade in the dark can succeed where whole fleets have died.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "galactic", "squad", "requires_context", "short", "war_story", "grimdark", "action_heavy", "war", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Deathwatch", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Sisters of Silence", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Ullanor", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Koorland", "role": "pov" },
+          { "name": "Asger Warfist", "role": "supporting" },
+          { "name": "The Beast", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.79, "count": 538, "evidenceUrl": "https://www.goodreads.com/book/show/27276157-watchers-in-death" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0423",
+      "slug": "the-last-son-of-dorn",
+      "overrides": {
+        "synopsis": "The Imperium stands at its darkest hour. Its fleets are shattered, its armies bled white, and the ork warlord known as the Beast still reigns over a captured world that was once a monument to humanity's triumph. With open battle proving hopeless, Lord Commander Koorland stakes everything on a single audacious strike — sending his new Deathwatch kill-teams and the silent witch-hunters of the Sisters of Silence deep into the enemy's domain. As the last living son of Rogal Dorn, Koorland carries the weight of a legend that demands he never falter, and this gambit will decide whether mankind survives or is finally extinguished beneath the greenskin tide. Everything the war has been building toward turns on what happens next.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "galactic", "requires_context", "short", "war_story", "grimdark", "action_heavy", "war", "sacrifice", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Deathwatch", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Sisters of Silence", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Ullanor", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Koorland", "role": "pov" },
+          { "name": "Drakan Vangorich", "role": "supporting" },
+          { "name": "The Beast", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.76, "count": 505, "evidenceUrl": "https://www.goodreads.com/book/show/29430536-the-last-son-of-dorn" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0424",
+      "slug": "shadow-of-ullanor",
+      "overrides": {
+        "synopsis": "Gathered on the ice world of Inwit for a solemn festival of mourning, the successor Chapters of the Imperial Fists resolve to honour their fallen forebears with one final, all-or-nothing assault on the ork home world. At last the Imperium has uncovered a true weakness in the Beast's power, and a handful of surviving Sisters of Silence may be the key to exploiting it. Backed by the full might and arcane technology of the Adeptus Mechanicus, the Space Marines mount their last crusade against the greenskin empire. Koorland and his brothers know that if this attack fails like all the others, there will be no army left to try again — and the galaxy will belong to the orks.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "galactic", "requires_context", "short", "war_story", "last_stand", "grimdark", "action_heavy", "war", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Sisters of Silence", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Inwit", "role": "primary" },
+          { "name": "Ullanor", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Koorland", "role": "pov" },
+          { "name": "Maximus Thane", "role": "supporting" },
+          { "name": "The Beast", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.54, "count": 485, "evidenceUrl": "https://www.goodreads.com/book/show/29430428-shadow-of-ullanor" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0425",
+      "slug": "the-beheading",
+      "overrides": {
+        "synopsis": "The orks are broken and the galaxy has been saved, but peace brings a reckoning of its own. The long war exposed the rotten core of the Imperium's rulers — the High Lords of Terra, whose vanity and infighting nearly doomed humanity while billions died. One man has watched it all and decided that such failure cannot go unpunished. Drakan Vangorich, Grand Master of the Officio Assassinorum, has spent the entire war waiting in the shadows, and now he makes his move. As his killers move through the halls of power on Terra, the survivors of the crusade must decide who should inherit a wounded Imperium. This is the brutal, political finale of the saga, where the killing does not stop when the enemy is dead.",
+        "facetIds": ["book", "male", "multi", "imperium", "galactic", "sector", "series_finale", "short", "political_thriller", "court_intrigue", "grimdark", "somber", "betrayal", "hubris", "cw_violence", "cw_death", "cw_crime", "en"],
+        "factions": [
+          { "name": "Officio Assassinorum", "role": "primary" },
+          { "name": "Imperial Fists", "role": "supporting" },
+          { "name": "Senatorum Imperialis", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Drakan Vangorich", "role": "pov" },
+          { "name": "Maximus Thane", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.89, "count": 477, "evidenceUrl": "https://www.goodreads.com/book/show/29430423-the-beheading" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0426",
+      "slug": "deathwatch-legends",
+      "overrides": {
+        "synopsis": "The Deathwatch are the Imperium's silent shield against the alien — elite Space Marines drawn from a hundred Chapters and sworn to hunt the xenos wherever it threatens humanity. When two terrible enemies converge on the remote Kurbynola System, an ork invasion crashing headlong into the all-devouring swarm of a tyranid hive fleet, the annihilation that follows threatens to spread across the entire region. Watch Captain Artemis leads his kill-team into the heart of the catastrophe, where they are massively outnumbered and survival seems impossible. As the battle grinds on, Artemis comes to understand the true meaning of duty in the Emperor's service — and the terrible price that must be paid to hold the line.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "planetary", "standalone", "standard", "war_story", "last_stand", "grimdark", "action_heavy", "war", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Deathwatch", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "supporting" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Kurbynola System", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Artemis", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.86, "count": 63, "evidenceUrl": "https://www.goodreads.com/book/show/31565342-deathwatch" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0427",
+      "slug": "ultramarines-legends",
+      "overrides": {
+        "synopsis": "The Ultramarines are the most celebrated of all the Space Marine Chapters, paragons of discipline and honour who guard the realm of Ultramar against every threat the galaxy can muster. This collection gathers tales of the Chapter's greatest heroes across novellas, short stories and prose adaptations of audio dramas. Lord Macragge Marneus Calgar, the proud Captain Cato Sicarius, the legendary scout-sergeant Torias Telion, the fiery Chaplain Cassius and the seer Tigurius all take their turn at the centre of the story, facing tyranid swarms, alien raiders and the enemies of mankind on a dozen battlefields. Together the stories paint a portrait of what it means to wear the blue of Ultramar and bear the burden of its legend.",
+        "facetIds": ["book", "male", "ensemble", "space_marine", "imperium", "company", "planetary", "standalone", "standard", "war_story", "grimdark", "action_heavy", "war", "brotherhood", "loyalty", "faith", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ultramar", "role": "primary" },
+          { "name": "Macragge", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Marneus Calgar", "role": "supporting" },
+          { "name": "Cato Sicarius", "role": "supporting" },
+          { "name": "Torias Telion", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.70, "count": 122, "evidenceUrl": "https://www.goodreads.com/book/show/27830663-ultramarines" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0428",
+      "slug": "sons-of-corax",
+      "overrides": {
+        "synopsis": "The Raven Guard wage war like no other Space Marines, striking from shadow and silence rather than meeting their foes head-on. When the pestilent followers of the Plague God engulf the Sargassion Reach, Captain Koryn leads his Raven Guard into a desperate campaign to hold the region against corruption and decay. They do not fight alone: the headstrong Captain Daed and his Brazen Minotaurs join the war, but the two Chapters could hardly be more different, and their clashing methods threaten the alliance as surely as the enemy does. This collection follows Koryn's shadowed warriors through a series of linked battles, asking whether stealth and patience can prevail where brute strength would fail — before the Reach is lost to damnation.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "company", "standalone", "standard", "war_story", "grimdark", "action_heavy", "war", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Brazen Minotaurs", "role": "supporting" },
+          { "name": "Heretic Astartes", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sargassion Reach", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Captain Koryn", "role": "pov" },
+          { "name": "Captain Daed", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "collection", "reason": "Single-author collection of seven linked Raven Guard stories (Prey, Helion Rain, With Baited Breath, Old Scars, Labyrinth of Sorrows, The Unkindness of Ravens, By Artifice Alone), not a single novel as the roster lists." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.62, "count": 77, "evidenceUrl": "https://www.goodreads.com/book/show/26859398-sons-of-corax" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0429",
+      "slug": "astra-militarum",
+      "overrides": {
+        "synopsis": "For ten thousand years the massed regiments of the Astra Militarum — the Imperial Guard — have thrown themselves into the meat-grinder of endless war, ordinary men and women holding back horrors that would devour the galaxy. This collection gathers tales of the Guard's most famous commanders. The indomitable Commissar Yarrick duels the ork warlord Ghazghkull; the bionic 'Iron Hand' Colonel Straken leads from the front against impossible odds; and a trilogy of stories follows Lord Castellan Creed and his Cadian Eighth as the general forges his legend at the Battle of Tyrok Fields. With courage, stubbornness and an endless supply of lasguns and tanks, these soldiers prove that humanity's greatest weapon is its sheer refusal to die.",
+        "facetIds": ["book", "male", "ensemble", "guardsman", "commissar", "imperium", "regiment", "planetary", "standalone", "standard", "war_story", "last_stand", "grimdark", "action_heavy", "war", "loyalty", "sacrifice", "faith", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cadia", "role": "primary" },
+          { "name": "Armageddon", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Commissar Yarrick", "role": "supporting" },
+          { "name": "Colonel Straken", "role": "supporting" },
+          { "name": "Lord Castellan Creed", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.93, "count": 135, "evidenceUrl": "https://www.goodreads.com/book/show/27871603-astra-militarum" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0430",
+      "slug": "space-wolves-scent-of-a-traitor",
+      "overrides": {
+        "synopsis": "Ulrik the Slayer, ancient Wolf Priest of the Space Wolves, has run his quarry to ground: a renegade Space Marine the Dark Angels have hunted across the stars. Honour demands that Ulrik hand the prisoner over to the secretive sons of the First Legion — but the captive traitor claims to know the fate of the missing Great Wolf, Logan Grimnar, and dangles that knowledge like bait. To listen is to risk corruption; to refuse may doom his Chapter. As Ulrik weighs his oath against his loyalty to a lost lord, he uncovers something far worse: the sorcerous Thousand Sons stand on the brink of completing a terrible ritual, and only the Space Wolves can stop them in time.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "requires_context", "novella", "mystery", "journey", "grimdark", "betrayal", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "Thousand Sons", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Ulrik the Slayer", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "Sources describe the hunt but do not pin a specific named world for this short story; locations left empty rather than invented." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.72, "count": 29, "evidenceUrl": "https://www.goodreads.com/book/show/28582883-scent-of-a-traitor" }
+      }
+    }
+  ]
+}
