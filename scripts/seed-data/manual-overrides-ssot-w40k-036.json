@@ -1,0 +1,237 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-036",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-22",
+  "model": "claude-opus-4-7",
+  "rationale": "A cleanly themed Eldar/Dark Eldar wave: Gav Thorpe's Path of the Eldar trilogy + omnibus (craftworld Alaitoc, three friends each on a different Path) and Andy Chambers' Path of the Dark Eldar trilogy + omnibus (Commorragh politics around Asdrubael Vect), capped by two Aeldari novellas — Chambers' Harlequin mystery The Masque of Vyle and Parrott's Blackstone Fortress survival piece Isha's Lament. Two omnibi aggregate their constituent novels (the Dark Eldar omnibus also bundles three short stories). All ten ratings page-read from Goodreads.",
+  "books": [
+    {
+      "externalBookId": "W40K-0351",
+      "slug": "path-of-the-warrior",
+      "overrides": {
+        "synopsis": "On the craftworld Alaitoc, the Eldar live by discipline, each citizen walking a chosen Path that shapes who they become. Korlandril is a celebrated sculptor — until envy and a sense of betrayal turn him from his art toward the Aspect Temples. Under the Exarch Kenainath he trains as a Striking Scorpion, learning to kill with lethal grace and to wear the war-mask that lets an Eldar fight without losing himself. As Alaitoc braces for an Imperial assault, Korlandril is drawn ever deeper into the warrior's discipline, and the further he walks that road the harder it becomes to set the mask aside and return to the person he once was. The first book of the Path of the Eldar trilogy, told from the warrior's view.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "planetary", "series_start", "standard", "character_study", "war_story", "somber", "philosophical", "grimdark", "war", "hubris", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Craftworld Eldar", "role": "primary" },
+          { "name": "Striking Scorpions", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Alaitoc", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Korlandril", "role": "pov" },
+          { "name": "Kenainath", "role": "supporting" },
+          { "name": "Thirianna", "role": "supporting" },
+          { "name": "Aradryan", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.64, "count": 1079, "evidenceUrl": "https://www.goodreads.com/book/show/7095160-path-of-the-warrior" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0352",
+      "slug": "path-of-the-seer",
+      "overrides": {
+        "synopsis": "Thirianna leaves the quiet life of a poet on the craftworld Alaitoc to walk one of the most perilous of all Eldar disciplines: the Path of the Seer. To master her psychic gift she must open her mind to the other realm where nightmares take shape, learning to wield power in battle and to read the countless threads of fate. As she grows into a farseer, her visions reveal a great danger closing on Alaitoc — a threat that will call both the living and the spirits of the dead to its defence. The second book of the Path of the Eldar trilogy retells the craftworld's ordeal through the eyes of its seer, alongside her friends Korlandril and Aradryan.",
+        "facetIds": ["book", "female", "pc_xenos", "xenos", "planetary", "mid_series", "standard", "character_study", "war_story", "somber", "philosophical", "grimdark", "war", "faith", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Craftworld Eldar", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Alaitoc", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Thirianna", "role": "pov" },
+          { "name": "Korlandril", "role": "supporting" },
+          { "name": "Aradryan", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.77, "count": 632, "evidenceUrl": "https://www.goodreads.com/book/show/10559660-path-of-the-seer" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0353",
+      "slug": "path-of-the-outcast",
+      "overrides": {
+        "synopsis": "Restless and unwilling to be bound by the strict discipline of his craftworld, Aradryan abandons Alaitoc to live as an outcast — first a wandering ranger, then a corsair raiding among the stars. His pursuit of freedom and adventure carries him through the wider Eldar world of rangers, corsairs and stranger kin, but his choices set in motion a chain of events that draws the Imperium's wrath toward the home he left behind. The closing book of the Path of the Eldar trilogy follows the outcast whose flight brings catastrophe to Alaitoc, completing the story told across all three viewpoints.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "sector", "series_finale", "standard", "journey", "war_story", "somber", "philosophical", "betrayal", "hubris", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Craftworld Eldar", "role": "primary" },
+          { "name": "Eldar Corsairs", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Alaitoc", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Aradryan", "role": "pov" },
+          { "name": "Korlandril", "role": "supporting" },
+          { "name": "Thirianna", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.76, "count": 446, "evidenceUrl": "https://www.goodreads.com/en/book/show/13259646" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0354",
+      "slug": "path-of-the-eldar-omnibus",
+      "overrides": {
+        "synopsis": "The complete Path of the Eldar trilogy in one volume. On the craftworld Alaitoc, three friends each walk a different road: Korlandril the sculptor who becomes a Striking Scorpion, Thirianna the poet who trains as a farseer, and Aradryan the outcast who flees to live among rangers and corsairs. The three novels — Path of the Warrior, Path of the Seer and Path of the Outcast — retell the same gathering catastrophe from each of their viewpoints, building a portrait of a proud and ancient people, the discipline that holds them together, and the choices that bring war to their home.",
+        "facetIds": ["book", "ensemble", "pc_xenos", "xenos", "sector", "series_start", "doorstopper", "character_study", "war_story", "journey", "somber", "philosophical", "grimdark", "war", "hubris", "betrayal", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Craftworld Eldar", "role": "primary" },
+          { "name": "Striking Scorpions", "role": "supporting" },
+          { "name": "Eldar Corsairs", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Alaitoc", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Korlandril", "role": "pov" },
+          { "name": "Thirianna", "role": "pov" },
+          { "name": "Aradryan", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.02, "count": 164, "evidenceUrl": "https://www.goodreads.com/book/show/18143882-path-of-the-eldar-omnibus" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0355",
+      "slug": "path-of-the-renegade",
+      "overrides": {
+        "synopsis": "For thousands of years Asdrubael Vect has ruled the hidden Eldar city of Commorragh, crushing every rival who dared challenge him. Now the ambitious archon Nyos Yllithian, aided by the twisted haemonculus Bellathonis, hatches a scheme to revive a long-dead warlord and topple the tyrant. But Commorragh is a city of poison and betrayal, and the plotters cannot see that their own scheming may be hastening a catastrophe that will engulf them all. The first book of the Path of the Dark Eldar trilogy plunges into the murderous politics of the dark city, where every alliance is a knife waiting to turn.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "sector", "series_start", "standard", "court_intrigue", "political_thriller", "grimdark", "somber", "betrayal", "hubris", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Dark Eldar", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Commorragh", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nyos Yllithian", "role": "pov" },
+          { "name": "Asdrubael Vect", "role": "antagonist" },
+          { "name": "Bellathonis", "role": "supporting" },
+          { "name": "Morr", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.83, "count": 545, "evidenceUrl": "https://www.goodreads.com/en/book/show/12674335" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0356",
+      "slug": "path-of-the-incubus",
+      "overrides": {
+        "synopsis": "A cataclysm called the Dysjunction has torn through Commorragh, flooding the dark city's streets with horrors from beyond and throwing its ruling kabals into open war. As archon turns on archon, Asdrubael Vect fights to hold his grip on a city tearing itself apart. The disgraced incubus Morr — wrongly blamed for triggering the disaster — must navigate the chaos to clear his name, and his choices may either save Commorragh or doom it for good. The second book of the Path of the Dark Eldar trilogy raises the stakes amid daemonic invasion and the deadly ambitions of the city's warring lords.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "sector", "mid_series", "standard", "war_story", "court_intrigue", "grimdark", "cosmic_horror", "somber", "redemption", "betrayal", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Dark Eldar", "role": "primary" },
+          { "name": "Incubi", "role": "supporting" },
+          { "name": "Chaos Daemons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Commorragh", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Morr", "role": "pov" },
+          { "name": "Asdrubael Vect", "role": "antagonist" },
+          { "name": "Nyos Yllithian", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.96, "count": 351, "evidenceUrl": "https://www.goodreads.com/book/show/17399713-path-of-the-incubus" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0357",
+      "slug": "path-of-the-archon",
+      "overrides": {
+        "synopsis": "The Dysjunction has passed, but Commorragh still bears the scars of its passage. Asdrubael Vect moves to crush every hidden challenger before any can seize the moment, while Nyos Yllithian scrambles to find allies who might shield him from the overlord's vengeance. As the Mandrake kings stir and Vect readies his most terrible weapons against his own people, the dark city erupts into open war. The closing book of the Path of the Dark Eldar trilogy brings the struggle for Commorragh to its bloody conclusion, where survival depends on cunning as much as cruelty.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "sector", "series_finale", "standard", "court_intrigue", "political_thriller", "war_story", "grimdark", "somber", "betrayal", "hubris", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Dark Eldar", "role": "primary" },
+          { "name": "Mandrakes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Commorragh", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nyos Yllithian", "role": "pov" },
+          { "name": "Asdrubael Vect", "role": "antagonist" },
+          { "name": "Morr", "role": "supporting" },
+          { "name": "Bellathonis", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.95, "count": 261, "evidenceUrl": "https://www.goodreads.com/en/book/show/18143887-path-of-the-archon" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0358",
+      "slug": "path-of-the-dark-eldar-omnibus",
+      "overrides": {
+        "synopsis": "The complete Path of the Dark Eldar trilogy, plus three connected short stories, gathered in one volume. In the hidden city of Commorragh, the archon Nyos Yllithian and the haemonculus Bellathonis scheme to unseat the eternal tyrant Asdrubael Vect — but their plotting helps unleash the Dysjunction, a cataclysm that floods the dark city with horrors and sets kabal against kabal. Across Path of the Renegade, Path of the Incubus and Path of the Archon, alongside the incubus Morr's fight to clear his name, the omnibus charts a war of poison, betrayal and survival in the cruellest city of the Eldar.",
+        "facetIds": ["book", "male", "pc_xenos", "xenos", "sector", "series_start", "doorstopper", "court_intrigue", "political_thriller", "war_story", "grimdark", "cosmic_horror", "somber", "betrayal", "hubris", "redemption", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Dark Eldar", "role": "primary" },
+          { "name": "Incubi", "role": "supporting" },
+          { "name": "Mandrakes", "role": "supporting" },
+          { "name": "Chaos Daemons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Commorragh", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nyos Yllithian", "role": "pov" },
+          { "name": "Morr", "role": "pov" },
+          { "name": "Asdrubael Vect", "role": "antagonist" },
+          { "name": "Bellathonis", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.25, "count": 172, "evidenceUrl": "https://www.goodreads.com/book/show/22609182-path-of-the-dark-eldar" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0359",
+      "slug": "the-masque-of-vyle",
+      "overrides": {
+        "synopsis": "When a troupe of Harlequins — the masked, mysterious performer-warriors of the Eldar — discovers a dead craftworld drifting in the webway, they vow to find whoever was responsible and make them pay. Guided by their Shadowseer's ancient art, the trail leads to the Sable Marches, a lawless fringe realm of the dark city's kin. With several suspects among the gathered archons, the troupe resolves to draw out the guilty by staging a performance: the Masque of Vyle, a play designed to expose the truth and deliver a fatal reckoning. A standalone novella that plays like a grim carnival mystery.",
+        "facetIds": ["book", "ensemble", "pc_xenos", "xenos", "sector", "standalone", "novella", "mystery", "grimdark", "somber", "betrayal", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Harlequins", "role": "primary" },
+          { "name": "Dark Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sable Marches", "role": "primary" },
+          { "name": "Webway", "role": "supporting" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "sources describe the Harlequin troupe and its Shadowseer by role rather than by a confirmed proper name; left empty to avoid invention" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.11, "count": 206, "evidenceUrl": "https://www.goodreads.com/book/show/17376137-the-masque-of-vyle" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0360",
+      "slug": "ishas-lament",
+      "overrides": {
+        "synopsis": "Brakus Andradus was once a sniper in the Astra Militarum; now he is a deserter trying to drink away what he saw on his last expedition into the Blackstone Fortress. When a deadly plague erupts and begins to kill the inhabitants of the frontier station Precipice, Brakus is forced back into the vast alien fortress to hunt for a cure. His only companions are a wary Eldar ranger, Amallyn, and a lethal dark eldar gladiatrix, Maugra — uneasy allies whose own goals could turn on him at any moment. A tense standalone novella of survival and old wounds set in the depths of the Blackstone Fortress.",
+        "facetIds": ["book", "male", "guardsman", "neutral", "squad", "standalone", "novella", "journey", "mystery", "somber", "action_heavy", "grimdark", "doubt", "sacrifice", "cw_violence", "cw_death", "cw_mental_health", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Craftworld Eldar", "role": "supporting" },
+          { "name": "Dark Eldar", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Precipice", "role": "primary" },
+          { "name": "Blackstone Fortress", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Brakus Andradus", "role": "pov" },
+          { "name": "Amallyn", "role": "supporting" },
+          { "name": "Maugra", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.08, "count": 75, "evidenceUrl": "https://www.goodreads.com/en/book/show/48671618" }
+      }
+    }
+  ]
+}

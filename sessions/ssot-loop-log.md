@@ -1347,3 +1347,24 @@
 - **Cumulative books:** 350 (in 35 batches: ssot-w40k-001..ssot-w40k-035)
 - **Action required:** Maintainer schreibt Resolver-Brief. Loop pausiert bis dahin.
 - **Pause-Detection:** selbst-erkennend (Brief 088) — dieser Block ist der Marker.
+
+## 2026-05-22 · ssot-w40k-036 · W40K-0351..W40K-0360 · ✅
+
+- **Cumulative books in authority:** 360 / nächste Resolver-Pause bei 450
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=350, batch=ssot-w40k-036, slice=W40K-0351..W40K-0360
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — well-documented Aeldari titles; ratings page-read via WebFetch, not snippets
+- **Per-book bullets:**
+  - W40K-0351 Path of the Warrior — Gav Thorpe Path-of-the-Eldar #1, Korlandril/Striking Scorpion on craftworld Alaitoc. Clean novel tag. GR 3.64/1079.
+  - W40K-0352 Path of the Seer — #2, Thirianna/farseer, same Alaitoc events from seer POV; warp-aspect kept in synopsis only (location not tagged per Locations-Granularity). GR 3.77/632.
+  - W40K-0353 Path of the Outcast — #3, Aradryan ranger→corsair; wider scope (sector) for the corsair wandering. GR 3.76/446.
+  - W40K-0354 Path of the Eldar Omnibus — aggregates the three novels; ensemble gender, doorstopper, three POVs. GR 4.02/164 (chose the #1-3 omnibus edition 18143882, not the alt 21358931).
+  - W40K-0355 Path of the Renegade — Andy Chambers Dark-Eldar #1, Commorragh court-intrigue, Yllithian vs Vect. GR 3.83/545.
+  - W40K-0356 Path of the Incubus — #2, Dysjunction + daemonic invasion, incubus Morr; added Chaos Daemons antagonist + cosmic_horror tone. GR 3.96/351.
+  - W40K-0357 Path of the Archon — #3, conclusion, Vect vs Yllithian + Mandrakes. GR 3.95/261.
+  - W40K-0358 Path of the Dark Eldar Omnibus — GR page confirms it bundles 3 novels + 3 short stories (The Treasures of Biel-Tanigh, Midnight on the Street of Knives, Bellathonis and the Shadow King); aggregated tags accordingly. GR 4.25/172.
+  - W40K-0359 The Masque of Vyle — Chambers Harlequin mystery novella; characters left empty + low_confidence flag (Shadowseer/troupe known by role, no confirmed proper name). Sable Marches + Webway locations. GR 4.11/206.
+  - W40K-0360 Isha's Lament — Thomas Parrott, Blackstone Fortress setting (Precipice station); Imperial deserter Brakus Andradus POV (neutral side) with Eldar ranger Amallyn + dark eldar gladiatrix Maugra. GR 4.08/75.
+- **value_outside_vocabulary:** [] — facet-catalog covered this wave; no new candidates.
+- **Notable surface-forms (within this batch):** "Dark Eldar" (pre-Drukhari surface form, kept), "Eldar"/"Craftworld Eldar", "Commorragh", "Asdrubael Vect", "Nyos Yllithian", "Bellathonis", "Striking Scorpions", "Sable Marches", "Webway", "Precipice", "Blackstone Fortress". Resolved at the next 100er Resolver-Pass.
+- **Verification skipped (Brief-061-Konvention):** reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code) — lint/typecheck/brain:lint übersprungen.
