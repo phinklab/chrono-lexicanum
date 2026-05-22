@@ -1557,3 +1557,9 @@
 - **value_outside_vocabulary:** [`protagonist_class.knight_noble` (Imperial Knight pilots — Kingsblade/Knightsblade have no fitting protagonist_class; omitted rather than mis-tagged as civilian/multi)]
 - **Notable surface-forms (within this batch):** Carcharodons, Bail Sharr, Te Kahurangi, Wandering Ancestor (Itako), House Draconis, House Chimaeros, Knight of Ashes, Alicia Kar Manticos, Mephiston, Vashtorr the Arkifane, Voldire (datagnost), Revenant Crusade, Blade of Petrific.
 - **Verifikation:** lint/typecheck/brain:lint übersprungen (reiner Daten-Commit: Override-JSON + Log-Append, Brief-061-Konvention).
+
+## 2026-05-22 · ⏸ Resolver-Pause bei 450 Büchern
+
+- **Cumulative books:** 450 (in 45 batches: ssot-w40k-001..ssot-w40k-045)
+- **Action required:** Maintainer schreibt Resolver-Brief. Loop pausiert bis dahin.
+- **Pause-Detection:** selbst-erkennend (Brief 088) — dieser Block ist der Marker.
