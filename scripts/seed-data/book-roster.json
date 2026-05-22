@@ -6868,7 +6868,9 @@
       "externalBookId": "W40K-0141",
       "slug": "voidscarred",
       "title": "Voidscarred",
-      "authors": [],
+      "authors": [
+        "Mike Brooks"
+      ],
       "editors": [],
       "editorialNote": null,
       "releaseYear": 2025,
@@ -6882,7 +6884,9 @@
       "externalBookId": "W40K-0142",
       "slug": "tomb-world",
       "title": "Tomb World",
-      "authors": [],
+      "authors": [
+        "Jonathan D Beer"
+      ],
       "editors": [],
       "editorialNote": null,
       "releaseYear": 2025,
@@ -6896,7 +6900,9 @@
       "externalBookId": "W40K-0143",
       "slug": "vagabond-squadron",
       "title": "Vagabond Squadron",
-      "authors": [],
+      "authors": [
+        "Robbie MacNiven"
+      ],
       "editors": [],
       "editorialNote": null,
       "releaseYear": 2025,
@@ -6910,7 +6916,9 @@
       "externalBookId": "W40K-0144",
       "slug": "archmagos",
       "title": "Archmagos",
-      "authors": [],
+      "authors": [
+        "Justin D Hill"
+      ],
       "editors": [],
       "editorialNote": null,
       "releaseYear": 2025,
@@ -6940,7 +6948,9 @@
       "externalBookId": "W40K-0146",
       "slug": "death-rider",
       "title": "Death Rider",
-      "authors": [],
+      "authors": [
+        "Rhuairidh James"
+      ],
       "editors": [],
       "editorialNote": null,
       "releaseYear": 2026,
@@ -6956,7 +6966,7 @@
       "title": "The Green Tide",
       "authors": [],
       "editors": [],
-      "editorialNote": null,
+      "editorialNote": "various",
       "releaseYear": 2026,
       "format": "omnibus",
       "seriesHint": "Standalone",
@@ -8504,7 +8514,7 @@
       "editorialNote": null,
       "releaseYear": 2025,
       "format": "novel",
-      "seriesHint": "Imperial Guard",
+      "seriesHint": "Night Lords",
       "sourceUrl": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
       "notes": null,
       "sourceRow": 245
@@ -8731,8 +8741,8 @@
     },
     {
       "externalBookId": "W40K-0259",
-      "slug": "the-rose-in-the-anger",
-      "title": "The Rose in the Anger",
+      "slug": "the-rose-in-anger",
+      "title": "The Rose in Anger",
       "authors": [
         "Danie Ware"
       ],
@@ -9341,7 +9351,7 @@
       "editors": [],
       "editorialNote": null,
       "releaseYear": 2016,
-      "format": "novel",
+      "format": "collection",
       "seriesHint": "Space Marine Battles",
       "sourceUrl": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
       "notes": null,
@@ -9853,8 +9863,8 @@
     },
     {
       "externalBookId": "W40K-0330",
-      "slug": "the-hunt-of-magnus",
-      "title": "The Hunt of Magnus",
+      "slug": "the-hunt-for-magnus",
+      "title": "The Hunt for Magnus",
       "authors": [
         "Chris Wraight"
       ],
@@ -9925,7 +9935,7 @@
       "editors": [],
       "editorialNote": null,
       "releaseYear": 2015,
-      "format": "novella",
+      "format": "collection",
       "seriesHint": "Dark Angels",
       "sourceUrl": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
       "notes": null,
@@ -14592,8 +14602,43 @@
       "contentExternalId": "W40K-0279",
       "collectionExternalId": "W40K-0307",
       "displayOrder": 0,
-      "confidence": 0.65,
-      "basis": "War for Armageddon omnibus has Helsreach as a listed Armageddon title; TLBranson does not enumerate all contents"
+      "confidence": 0.95,
+      "basis": "Helsreach is the lead novel of War for Armageddon: The Omnibus (Black Library, 2018); contents enumerated by Lexicanum and Black Library. Updated OQ(14)(e)."
+    },
+    {
+      "contentExternalId": "W40K-0308",
+      "collectionExternalId": "W40K-0286",
+      "displayOrder": 0,
+      "confidence": 0.95,
+      "basis": "Architect of Fate (Space Marine Battles anthology #10, ed. Christian Dunn, 2012) collects exactly these four novellas; contents enumerated by Lexicanum and Black Library. OQ(14)(e) / Resolver-Pass 6."
+    },
+    {
+      "contentExternalId": "W40K-0309",
+      "collectionExternalId": "W40K-0286",
+      "displayOrder": 1,
+      "confidence": 0.95,
+      "basis": "Architect of Fate (Space Marine Battles anthology #10, ed. Christian Dunn, 2012) collects exactly these four novellas; contents enumerated by Lexicanum and Black Library. OQ(14)(e) / Resolver-Pass 6."
+    },
+    {
+      "contentExternalId": "W40K-0310",
+      "collectionExternalId": "W40K-0286",
+      "displayOrder": 2,
+      "confidence": 0.95,
+      "basis": "Architect of Fate (Space Marine Battles anthology #10, ed. Christian Dunn, 2012) collects exactly these four novellas; contents enumerated by Lexicanum and Black Library. OQ(14)(e) / Resolver-Pass 6."
+    },
+    {
+      "contentExternalId": "W40K-0311",
+      "collectionExternalId": "W40K-0286",
+      "displayOrder": 3,
+      "confidence": 0.95,
+      "basis": "Architect of Fate (Space Marine Battles anthology #10, ed. Christian Dunn, 2012) collects exactly these four novellas; contents enumerated by Lexicanum and Black Library. OQ(14)(e) / Resolver-Pass 6."
+    },
+    {
+      "contentExternalId": "W40K-0316",
+      "collectionExternalId": "W40K-0307",
+      "displayOrder": 1,
+      "confidence": 0.95,
+      "basis": "Blood and Fire is collected in War for Armageddon: The Omnibus (Black Library, 2018) alongside Helsreach; contents enumerated by Lexicanum and Black Library. OQ(14)(e) / Resolver-Pass 6."
     },
     {
       "contentExternalId": "W40K-0327",
