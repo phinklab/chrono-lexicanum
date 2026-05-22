@@ -439,6 +439,30 @@ check("direct match - fifth wave Danik's World (apostrophe surface form)", () =>
   assert.equal(resolveLocation("Danik's World").id, "daniks_world");
 });
 
+check("direct match - sixth wave Orath (Plagues of Orath warzone, freq=4)", () => {
+  assert.equal(resolveLocation("Orath").id, "orath");
+});
+
+check("direct match - sixth wave Dal'yth (T'au septworld, apostrophe surface form)", () => {
+  assert.equal(resolveLocation("Dal'yth").id, "dalyth");
+});
+
+check("direct match - sixth wave Sanctuary 101 (Necron massacre site, numeric id)", () => {
+  assert.equal(resolveLocation("Sanctuary 101").id, "sanctuary_101");
+});
+
+check("direct match - sixth wave Cryptus (Shield of Baal system, Case G primary)", () => {
+  assert.equal(resolveLocation("Cryptus").id, "cryptus");
+});
+
+check("alias - sixth wave Cryptus System routes to cryptus (Case G)", () => {
+  assert.equal(resolveLocation("Cryptus System").id, "cryptus");
+});
+
+check("alias - sixth wave the Maelstrom routes to maelstrom (warp-region gap-fix)", () => {
+  assert.equal(resolveLocation("the Maelstrom").id, "maelstrom");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {
