@@ -1473,3 +1473,24 @@
 - **value_outside_vocabulary:** length_tier "short_story" — the catalog's smallest length bucket is `novella`, so true short stories (W40K-0402..0409) had length_tier omitted rather than mis-tagged. Collected only, not added to catalog.
 - **Notable surface-forms (within this batch):** Azrael, Naberius, Deathwing, Rhamiel, Eldar; Scythes of the Emperor, Sotha, Tiresias, Cassios; Daegalan, Hrothgar, The Fang, Cardinal Bucharis; Jarold, Rhodomanus, Crimson Fists, Ghazghkull Thraka; Mantis Warriors, Astral Claws, Lugft Huron, Neotera, Maetrus, Badab; Doom Eagles, Tarikus, Zurus, Hearon, Fabius Bile, Red Corsairs, Gathis, Dynikas V; Flesh Tearers, Zavien, Jarl, Dryfield; Perreken; Salamanders, Dak'ir, Tsu'gan, Pyriel, Vaporis, Aphium; T'au Empire, Farsight, Damocles Gulf.
 - **Verification skipped:** reiner Daten-Commit (Override-JSON + Log-Append, kein Code) → lint/typecheck/brain:lint per Brief-061-Konvention übersprungen.
+
+## 2026-05-22 · ssot-w40k-042 · W40K-0411..W40K-0420 · ✅
+
+- **Cumulative books in authority:** 420 / nächste Resolver-Pause bei 450
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=410, batch=ssot-w40k-042, slice=W40K-0411..W40K-0420
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — alle gut aus Quellen/Trainingsdaten bekannt; 1 Synopsis-Such-Query je Buch genügte. Goodreads-Ratings separat per WebFetch (Page-Read).
+- **Per-book bullets:**
+  - W40K-0411 Crisis of Faith — Farsight #1, T'au/xenos-POV; sauberer Roster-Tag (novel). Imperial enemy als `Astra Militarum` getaggt (Damocles-Gulf-Kreuzzug gegen menschliche Kolonien), nicht generic `Imperium`.
+  - W40K-0412 Empire of Lies — Farsight #2; Orks + Daemons (Arthas Moloch). `Daemons` statt generic `Chaos`.
+  - W40K-0413 Blade of Truth — Farsight #3, 2025-Finale; Tyranid-Belagerung von Vior'los, Aun'Va als Antagonist, Torchstar als Rebellin → `mixed` gender, `series_finale`. Goodreads-Work-Seite zeigt 115 Ratings (junges Buch, aber aggregiert) → rated.
+  - W40K-0414 I Am Slaughter — Beast Arises #1, M32; Imperial Fists + Orks + Officio Assassinorum (Vangorich POV). `series_start`.
+  - W40K-0415 Predator, Prey — Beast #2; breite Multi-Arc-Erzählung → `Adeptus Astartes` (mehrere Chapter, nicht nur Fists), `ensemble`. Koorland-Survival am Ende.
+  - W40K-0416 The Emperor Expects — Beast #3; Imperial-Navy-Fokus (Lansung, Kulik/Colossus, Sieg bei Port Sanctus) + Inquisitions-Intrige (Wienand) → `Imperial Navy` primary, `multi`-class, `mixed`.
+  - W40K-0417 The Last Wall — Beast #4; Proletarian Crusade (Tull) + Last-Wall-Sammlung in Phall; Koorland POV.
+  - W40K-0418 Throneworld — Beast #5; Eldar-Einbruch ins Imperiale Palast + Iron Warriors (Magneric/Kalkatos). `Eldar` (Surface-Form der Quelle, nicht „Aeldari"), `Iron Warriors` als konkrete Chaos-Sub statt generic Chaos.
+  - W40K-0419 Echoes of the Long War — Beast #6; Koorland ergreift Macht auf Terra, Fists Exemplar (Zerberyn POV) im Zweckbündnis mit Iron Warriors → `Iron Warriors` supporting (uneasy ally), `Adeptus Mechanicus` (Urquidex/Mars).
+  - W40K-0420 The Hunt for Vulkan — Beast #7; Jagd nach Primarch Vulkan auf Caldera, Beast auf Ullanor geortet; Inquisitor Veritus. `journey`+`siege`.
+- **value_outside_vocabulary:** [] — Standard-Facet-Set deckte alle 10 ab.
+- **Notable surface-forms (within this batch):** „T'au Empire", „Aun'Va", „Torchstar", „Vior'los", „Fists Exemplar", „Officio Assassinorum", „Drakan Vangorich", „Koorland", „Juskina Tull", „Rafal Kulik", „Inquisitor Wienand", „Marshal Magneric", „Zerberyn", „Urquidex", „Inquisitor Veritus", „Eldar" (nicht Aeldari), „Iron Warriors". Resolving in canonical Tables im nächsten Resolver-Pass.
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: 1 Override-JSON + Log-Append, kein Code).
