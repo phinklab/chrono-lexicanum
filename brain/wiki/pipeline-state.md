@@ -2,7 +2,7 @@
 title: Pipeline state (Phase 3)
 type: overview
 created: 2026-05-09
-updated: 2026-05-21
+updated: 2026-05-22
 sources:
   - ../../src/lib/ingestion/
   - ../../sessions/archive/2026-05/2026-05-08-047-arch-pipeline-hardening.md
@@ -40,6 +40,9 @@ sources:
   - ../../sessions/2026-05-21-088-impl-ssot-loop-lean.md
   - ../../sessions/2026-05-21-089-arch-resolver-pass-5.md
   - ../../sessions/2026-05-21-089-impl-resolver-pass-5.md
+  - ../../sessions/2026-05-21-090-arch-resolver-pass-lean.md
+  - ../../sessions/2026-05-21-090-impl-resolver-pass-lean.md
+  - ../../sessions/resolver-pass-runbook.md
   - ../../sessions/ssot-loop-runbook.md
   - ../../scripts/loop-next-batch.ts
   - ../../scripts/apply-override-rating.ts
@@ -76,11 +79,11 @@ related:
 confidence: high
 ---
 
-# Pipeline state (Phase 3, post-089-impl)
+# Pipeline state (Phase 3, post-090)
 
 > The TypeScript ingestion pipeline as it stands today. Sources, modules, current numbers, levers pulled, what's next. Detail-level page; for the high-level "where are we" use [`./project-state.md`](./project-state.md).
 >
-> **V2-LLM-Stage de-facto ausgemustert seit Brief 061 (formal ADR 2026-05-15).** Der V1-Code-Pfad bleibt für Reproduzierbarkeit alter Diffs; die V2-Pipeline-Stages 0–2 + 4 leben weiter (Excel-SSOT als Stage 0 ab 057/058, `apply-override.ts` + Resolver-Schicht für Stage 4). Stage 3 (V2-LLM unter `src/lib/ingestion/v2/llm/`) wird **nicht** mehr aufgerufen — eine `claude -p`-Subsession produziert pro 10er-Batch direkt eine `manual-overrides-ssot-w40k-NNN.json`. Begründung und Trade-Off: [`./decisions/why-cc-direct-curation.md`](./decisions/why-cc-direct-curation.md). Resolver-Pässe 1 (063–069) + 2 (072) + 3 (074-impl) + 4 (076-impl, **axis-sliced**) + 5 (089-impl, **axis-sliced**) haben die Surface-Form-Crystallization für die ersten 250 W40K-Bücher geschlossen; Brief 077 hat den Grand-Alignment-Junction-Skip im Apply-Layer scharfgeschaltet (`imperium`/`chaos` werden nicht als reguläre Junctions geschrieben, wenn alignment-gleiche Sub-Faction im selben Override-Block resolved ist), Brief 084 den analogen Umbrella-Skip auf der Locations-Achse, Brief 087 die Goodreads-Rating-Beschaffung als vierte Loop-Disziplin. Aktuelle Junction-Counts post-089-Re-Apply 001..025: `work_factions=1153`, `work_locations=455`, `work_characters=701`, `work_collections=79`, `work_persons=232` über 250 W40K-Bücher.
+> **V2-LLM-Stage de-facto ausgemustert seit Brief 061 (formal ADR 2026-05-15).** Der V1-Code-Pfad bleibt für Reproduzierbarkeit alter Diffs; die V2-Pipeline-Stages 0–2 + 4 leben weiter (Excel-SSOT als Stage 0 ab 057/058, `apply-override.ts` + Resolver-Schicht für Stage 4). Stage 3 (V2-LLM unter `src/lib/ingestion/v2/llm/`) wird **nicht** mehr aufgerufen — eine `claude -p`-Subsession produziert pro 10er-Batch direkt eine `manual-overrides-ssot-w40k-NNN.json`. Begründung und Trade-Off: [`./decisions/why-cc-direct-curation.md`](./decisions/why-cc-direct-curation.md). Resolver-Pässe 1 (063–069) + 2 (072) + 3 (074-impl) + 4 (076-impl, **axis-sliced**) + 5 (089-impl, **axis-sliced**) haben die Surface-Form-Crystallization für die ersten 250 W40K-Bücher geschlossen; Brief 077 hat den Grand-Alignment-Junction-Skip im Apply-Layer scharfgeschaltet (`imperium`/`chaos` werden nicht als reguläre Junctions geschrieben, wenn alignment-gleiche Sub-Faction im selben Override-Block resolved ist), Brief 084 den analogen Umbrella-Skip auf der Locations-Achse, Brief 087 die Goodreads-Rating-Beschaffung als vierte Loop-Disziplin. Aktuelle Junction-Counts post-089-Re-Apply 001..025: `work_factions=1153`, `work_locations=455`, `work_characters=701`, `work_collections=79`, `work_persons=232` über 250 W40K-Bücher. Brief 090 hat danach die Resolver-Pass-Maschinerie schlank gemacht (brief-frei + runbook-getrieben, Phase-4 digest-only, stabile wave-parametrisierte Tools, Resolver-Cadence 50→100); der erste 100er-Loop-Lauf `ssot-w40k-026..035` hat W40K-0251..0350 als zehn Override-Files kristallisiert — kumulativ **350 Override-Files, DB weiter bei 250 applied**, Resolver-Pass 6 steht als nächstes an (siehe § Pass-lean-Konvention aus 090-impl + § What's next).
 
 ## Architecture
 
@@ -361,7 +364,7 @@ Total mit Doppel-Zählung-Korrektur: 772 + 3 + 62 + 23 − 1 = 859. ✓
 
 Maintainer editiert die Excel extern (LLM-assistierter Workflow), committet die neue Version unter `scripts/seed-data/source/Warhammer_Books_SSOT.xlsx`, läuft `npm run import:ssot-roster`, committet die frische `book-roster.json`. Re-Run-Stabilität (SHA256) sorgt dafür, dass identisches Excel = byte-identische JSON.
 
-### Resolver layer (post-063 through 089-impl)
+### Resolver layer (post-063 through 090)
 
 The first 250 W40K authority books (`ssot-w40k-001..025`) now have a concrete resolver/apply layer, geschlossen über fünf Resolver-Wellen (063–069 für 001..005, 072 für 006..010, 074-impl für 011..015, 076-impl für 016..020 + 089-impl für 021..025, beide **axis-sliced**), plus Brief 077 (Grand-Alignment-Junction-Skip, Faction-Achse) und Brief 084 (Umbrella-Skip, Locations-Achse) als Pipeline-Compliance-Hygiene:
 
@@ -383,6 +386,8 @@ Pass-5-Konvention aus 089-impl: Brief 089 fuhr den Fünf-Phasen-Vertrag (Preflig
 Rating-Schicht (Brief 087): Goodreads-Rating ist eine vierte Loop-Disziplin im Apply-Pfad. `overrides.rating` (optionales nested object) → Pure-Helper `scripts/apply-override-rating.ts` normalisiert rated/unrated/absent → `apply-override.ts` schreibt `book_details.rating`/`rating_count`/`rating_source` nur bei vorhandenem Feld; `status:"unrated"` schreibt `rating=NULL` + `rating_source='goodreads'`; fehlendes Feld lässt die DB unangetastet. `apply-override-dry.ts` simuliert + trägt `--file=<path>` für Single-Fixture-Dry-Runs. Forward-only ab `ssot-w40k-021`; `001..020` sind durch den Brief-086-Pivot bereits rating-gedeckt. Hard rule: Rating per Page-Read der Goodreads-Buchseite, nie aus dem Snippet.
 
 Loop-Lean-Konvention aus 088-impl: Eine Loop-Iteration liest jetzt genau drei Dateien — `sessions/ssot-loop-runbook.md` + `npm run loop:next` (`scripts/loop-next-batch.ts`, Read-only-Detection-Helper: nächster Batch/Slice/Resolver-Pause-Status als JSON) + `facet-catalog.json` (~6k statt ~55k+ Tokens). `--skip-initial-resolver-pause` ist entfernt; die Resolver-Pause ist selbst-erkennend (`loop-next-batch.ts` liest den `⏸`-Block aus dem Loop-Log). Brief 061 ist auf Design-Rationale reduziert, die operative Iter-Spec lebt im Runbook.
+
+Pass-lean-Konvention aus 090-impl: Brief 090 hat den Resolver-Pass nach demselben Muster wie den SSOT-Loop schlank gemacht. (a) Eine Phase liest jetzt nur [`../../sessions/resolver-pass-runbook.md`](../../sessions/resolver-pass-runbook.md) + die Pass-Config (`scripts/resolver-pass.config.json`) + ihr Achs-Paket + (ab Phase 1) das Phase-0-Dossier — **nicht** Brief 076, **nicht** den per-pass Brief (Mess-Befund: die universelle Vorab-Dokumentenlast war ≈ 22k tok/Phase). (b) Der Pass ist **brief-frei**: `runbook` ist das required Config-Feld, `brief` optional/rationale-only; `run-resolver-pass.sh` injiziert den Runbook-Pointer. (c) **Phase 4 korpus-entkoppelt**: `run-phase4-apply.sh` schreibt einen fix-großen Digest (`ingest/.last-run/phase4-digest.md` ≈ 1k tok), die rohe Per-Batch-Apply-Ausgabe geht in ein gitignored `*-verbose.log`; `verify-pass.ts` emittiert den Verify-Digest. Live gegen die 250-Bücher-DB validiert (idempotenter Re-Apply, byte-stabile Counts). (d) Stabile, wave-parametrisierte Tools (`aggregate-surface-forms.ts`, `db-counts.ts`, `seed-facets.ts`, `run-phase4-apply.sh`, `verify-pass.ts` + geteilter `resolver-pass-config.ts`-Loader) — ein Pass erzeugt keine neuen `-NNN`-Klone mehr, die `-089`-Klone sind gelöscht (074/076/077/084-Klone als historische Records belassen). (e) Resolver-Cadence 50→100 (`loop-next-batch.ts`: Pause bei kumulativ ≡ 50 mod 100 → 250/350/450/550, neues `Decision`-Feld `nextResolverPauseAt`). `CLAUDE.md` + `AGENTS.md` tragen die Resolver-Pass-Phase-Ausnahme von der Session-Start-Leseroutine; Brief 076 trägt einen Rationale-only-Banner. Bekannte Wachstums-Kante (Brief-090-Open-Question): `characters.json` wächst je Welle — Phase 3 wird Richtung ~mid-Korpus die erste Phase, die einen Achs-Slice für die Reference-JSON braucht; bei `001..035` noch unkritisch.
 
 Brief-074-impl Hand-off-Material zur Vokabular-Hygiene-Session (out-of-scope für 074, dokumentiert): 9 Loop-Log-Tag-Kandidaten (`commissar` / `inquisitor` / `squat` / `corsair` / `triarch_praetorian` / `valkyrie_pilot` / `webway_journey` / `omnibus_with_prior_constituents` / `cabal_inquisition` / `rogue_inquisition` / `cw_canon_divergence`), 5 facet-catalog-LLM-Typos aus 015-Override (`interplanetary` scope, `freedom`/`discovery`/`duty` theme, `early_release` entry_point — alle gestrippt, da Brief-074 vocabulary-Promotion verbietet), 5 freq=1-Sororitas-Sub-Orders aus *Triumph of Saint Katherine*, 5 `data_conflict`-Author-Missing-Flags (W40K-0141/0142/0143/0146/0147 → Maintainer-Excel-Workflow). 076-impl ergänzt: 9 unbekannte facetIds aus 018-Override gestrippt (`coming_of_age`/`loss`/`vengeance`/`hopeful`-Quartett × Necromunda-Cluster; vocabulary-Promotion bleibt out-of-scope eines Resolver-Passes).
 
@@ -416,8 +421,8 @@ In rough order:
 17. ✅ **Resolver-Pass 5 für `ssot-w40k-021..025`** (Brief 089, PR #78) — axis-sliced, **manuell/supervised gefahren statt über den Driver** (Maintainer-Wahl stop-before-push). 250 Bücher applied, 250er-Pause geräumt.
 18. ✅ **OQ (11) Locations-Axis-Hygiene** — geschlossen durch Brief 084 (PR #71): Allowlist-Umbrella-Skip auf der Locations-Achse, `location-policy.json` + `apply-override-location-skip.ts`, ADR `decisions/location-policy.md`.
 19. ✅ **OQ (10) Hardcover-Hit-Rate-Härtung** — geschlossen 2026-05-20: Brief 086 (Pass 2) landete bei 58 % (strukturelle Hardcover-Katalog-Lücke); die Rating-Coverage kam stattdessen über den Goodreads-Pivot (ADR `decisions/hardcover-to-goodreads-pivot.md`) + Brief 087 (Goodreads-Rating-Loop-Disziplin).
-20. **Loop-Re-Trigger für `ssot-w40k-026..030`.** `bash scripts/run-ssot-loop.sh 5` (kein Skip-Flag — 250er-Pause durch 089 abgearbeitet, Loop selbst-erkennend seit 088). Vier Disziplinen greifen automatisch. 300er-Pause als nächstes erwartetes Stop.
-21. **Resolver-Pass 6 für `ssot-w40k-026..030`** (analog 076/089 axis-sliced). Maintainer-Wahl: supervised wie 089 oder erstmals über `scripts/run-resolver-pass.sh`.
+20. ✅ **Brief 090 — Resolver-Pass lean** (PR #80) + **erster 100er-Loop-Lauf `ssot-w40k-026..035`** (PR #81). Brief 090: brief-freier, runbook-getriebener Resolver-Pass (`sessions/resolver-pass-runbook.md`), Phase-4 digest-only, stabile wave-parametrisierte Tools (keine `-NNN`-Klone), Resolver-Cadence 50→100. Loop: 100 Bücher W40K-0251..0350 in zehn Iterationen, kumulativ 350 Override-Files, DB bei 250, selbst-erkennender 350er-Resolver-Pause-Block.
+21. **Resolver-Pass 6 für `ssot-w40k-026..035`** — brief-frei, runbook-getrieben (Brief-090-Maschinerie). `scripts/resolver-pass.config.json` ist in der Cowork-Session 2026-05-22 auf Pass 6 gesetzt. Fünf Phasen-Subsessions nach `resolver-pass-runbook.md` + Config, oder optional headless über `scripts/run-resolver-pass.sh`. Welle content-clean, keine Facet-Promotion. Erwartetes Ende: DB von 250 auf 350 applied, 350er-Resolver-Pause geräumt.
 22. **Cockpit-Sub-Sortierung + Public-Rating-Render-Doppelpack.** Innerhalb Drift-Tie-Group sub-sortieren (075/076-impl bestätigen den Bedarf) + `bookDetails.rating` (246/250 in DB) auf `/buch/[slug]` rendern. UI-leicht, gut bündelbar.
 23. **OQ3 — Hand-Check-Workflow + Override-Schema.** Cockpit ist verfügbar; Override-Field-Schema + Triage-Disziplin stehen noch aus. Wahrscheinlich gebündelt mit dem Cockpit-Refinement.
 24. **Collection-Gap-Resolve-Pass für Green Tide.** Wenn der Maintainer-Excel-Workflow die 4 fehlenden Short-Story-Constituents als eigene Roster-Works modelliert, schließt ein Folge-Brief das Ledger.

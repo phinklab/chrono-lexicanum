@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-05-21
+updated: 2026-05-22
 sources: []
 related:
   - ../CLAUDE.md
@@ -21,13 +21,13 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, next likely brief. Post-089-Wiki-Hygiene-Pass 2026-05-21: 250 W40K-Bücher in der DB (Brief 087 Goodreads-Rating-Pipeline + Brief 088 SSOT-Loop lean + Loop `021..025` + Brief 089 Resolver-Pass 5 gemerged, `origin/main` `d46bf6a`), neue „Latest pipeline state (post-089)"-Sektion, Junction-Counts `1153/455/701/79/232`, Rating-Coverage 246/250. **Reihenfolge: Loop-Re-Trigger `ssot-w40k-026..030` → Resolver-Pass-6-Brief @300.** | 2026-05-21 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-089-Wiki-Hygiene-Pass 2026-05-21: „Brief 087 fahren" + „Loop-Re-Trigger `021..025`" + Resolver-Pass 5 erledigt; **neue OQ (14) Roster-Excel-Hygiene-Sweep** (Maintainer-owned). Offene Queue: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung, OQ (14) Roster-Excel-Hygiene. Restqueue: Loop-Re-Trigger `026..030` → Resolver-Pass-6-Brief @300; sekundär OQ (3)/(13)/(14), Cockpit-Sub-Sortierung, Public-Page-Rating-Render, Vokabular-Hygiene. | 2026-05-21 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, next likely brief. Brain-Hygiene-Pass 2026-05-22 (post-090): Brief 090 (Resolver-Pass lean) + erster 100er-Loop-Lauf `ssot-w40k-026..035` gemerged (`origin/main` `131a8a4`), **350 Override-Files / DB bei 250**, neue „Latest pipeline state (post-090)"-Sektion. **Reihenfolge: brief-freier, runbook-getriebener Resolver-Pass 6 (`ssot-w40k-026..035`).** | 2026-05-22 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Brain-Hygiene-Pass 2026-05-22 (post-090): keine OQ-Schließung, keine neue numerierte OQ; **OQ (14) um vier `026..035`-Roster-Flags erweitert** (Format-`data_conflict` W40K-0297/0334, Titel-Mistags W40K-0259/0330). Offene Queue: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung, OQ (14) Roster-Excel-Hygiene. Nächster Schritt: brief-freier, runbook-getriebener Resolver-Pass 6. | 2026-05-22 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog. Post-086: Phase-3-Strategie-Absatz mit Supersede-Notiz (LLM-Stage / Discovery-Crawl / Hardcover→Goodreads), Refresh-Button im Ideas Backlog. | 2026-05-20 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-089: fünf Resolver-Pässe auf 250 Bücher, post-089-Counts `work_factions=1153`/`locations=455`/`characters=701`/`collections=79`/`persons=232`, Pass-5-Konvention (supervised) + `seed-facets-089`-Landmine + Rating-Schicht (Brief 087) + Loop-Lean-Konvention (Brief 088) dokumentiert. | 2026-05-21 |
+| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-090: fünf Resolver-Pässe auf 250 Bücher applied + 350 Override-Files nach dem ersten 100er-Loop-Lauf `ssot-w40k-026..035`; neue Pass-lean-Konvention aus 090-impl (brief-frei, runbook-getrieben, Phase-4 digest-only, stabile wave-parametrisierte Tools, Resolver-Cadence 50→100). | 2026-05-22 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals heute, 859 SSOT-Roster ab 058, ~$0.114/book V1 / $0.0199/Buch V2 fresh-Smoke). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
 
 ## Decision pages (ADRs with revisit-triggers)
@@ -66,8 +66,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Description | Updated |
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-21 |
-| (this file) | Master catalog | 2026-05-21 |
+| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-22 |
+| (this file) | Master catalog | 2026-05-22 |
 
 ## Concept pages
 
