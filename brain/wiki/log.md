@@ -740,6 +740,34 @@ Brain-Update nach dem Merge von Brief 087 (Goodreads-Rating-Pipeline, PR #74/#75
 
 **Branch:** Wiki-Pass-Edits liegen im Coordination-Worktree; die Commit-Mechanik (Branch `codex/session-090-wiki-hygiene` o. ä. + `git mv` für die Archivierung) klärt der Maintainer — die Cowork-Sandbox kann git-Write-Operationen nicht zuverlässig abschließen.
 
+## 2026-05-22 · Ingest · Brain-Hygiene-Pass post-092 (OQ (14) geschlossen, PR #85)
+
+Brain-Update nach dem Merge von PR #85 (Roster-Excel-Hygiene-Sweep, Session 092). Reiner Brain-Ingest-Pass — kein Code-, Schema- oder DB-Touch.
+
+**Source ingested:**
+
+- `sessions/2026-05-22-092-impl-roster-hygiene.md` — OQ-(14)-Roster-Excel-Hygiene-Sweep, alle fünf Gruppen (a)–(e) über Excel-SSOT-Edits + Loader-Regen; `book-roster.json` 191 → 196 Collections, `books` unverändert 859, kein DB-Apply.
+
+**Closed:** OQ (14) Roster-Excel-Hygiene-Sweep — (a) `seriesHint`-Mistag W40K-0244, (b) sechs fehlende Autoren-Felder, (c) zwei Format-`data_conflict` (W40K-0297/0334), (d) zwei Titel-Mistags (W40K-0259/0330), (e) fünf fehlende Collection-Kanten (W40K-0286/0307). Offene Queue danach: OQ (3) Hand-Check-Workflow + OQ (13) Crawl-Simplification-Sichtung.
+
+**Watch-Item (durable in `project-state.md` § What's open):** Slug-Delta aus Gruppe (d) — W40K-0259 → `the-rose-in-anger`, W40K-0330 → `the-hunt-for-magnus` in `book-roster.json`. DB-`works.slug` unverändert, bis Resolver-Pass 7 die Achsen `ssot-w40k-026` / `ssot-w40k-033` kumulativ re-applied.
+
+**Updated wiki:**
+
+- `open-questions.md` — neuer Frontmatter-Header-Eintrag (post-092); OQ (14) auf strike-through-closed + Closing-Note (fünf Gruppen + Slug-Delta + `collection-gaps.json`-Out-of-scope); Migration-history-Blockquote um den post-092-Satz ergänzt; Sources um `092-impl`.
+- `project-state.md` — Roster `191 → 196 Collections` an zwei Stellen (Buch-Domain-Absatz + What's-running-Excel-SSOT-Bullet; `books` 859); § What's open: OQ-(14)-Bullet durch das Slug-Delta-Watch-Item ersetzt; § Next likely brief: OQ-(14)-Sekundär-Option entfernt; Recently-shipped um zwei Zeilen (Session 092 + dieser Pass); Sources um `092-impl`.
+- `pipeline-state.md` — Roster-Collection-Zahl `191 → 196` (§ Excel-SSOT layer: `Collection Links`-Datenzeilen + `book-roster.json`-Shape).
+- `index.md` — Katalog-Beschreibungen für `project-state.md` + `open-questions.md` auf post-092; `updated`-Daten der berührten Seiten bereits 2026-05-22.
+- This `log.md` — Append-only-Eintrag.
+
+**Bewusst NICHT geändert (historische 191-Referenzen):** der „191 vs 192 Collections"-Reconciliation-Hinweis in `pipeline-state.md` § Bekannte Schwächen, das Brief-057-Phasen-Checklist-Item (`book-roster.json` (859 + 191)), die `log.md`-Append-Einträge und der ADR `decisions/why-excel-ssot-not-crawl.md` (das 191-vs-192-Paar ist dort load-bearing für die Off-by-one-Erzählung). Diese 191 sind Brief-057-Zeit-Artefakte, keine Current-Roster-Aussage.
+
+**Out of scope:** `scripts/seed-data/collection-gaps.json` (W40K-0286/0307-Retirement = Resolver-Pass 7 Phase 4a) unangetastet; keine Code-/Schema-/DB-Änderung; keine anderen OQs; **kein Archivierungs-Move** (062–091/092 → `archive/2026-05/` bleibt separate CC-Aufgabe). `book-data-overview.md` trägt keine Roster-Collection-Zahl — nicht berührt. Kein `brain:lint --no-write`-Run durch Cowork (Sandbox unzuverlässig — Maintainer/CI).
+
+**Befund (nicht gefixt, out of scope):** `log.md` hat keine Append-Einträge für die Brain-Hygiene-Pässe post-090 und post-091 — diese Pässe aktualisierten `project-state.md`/`open-questions.md`/`index.md`, ließen aber den `log.md`-Append aus. Kandidat für eine künftige Hygiene-Iteration.
+
+**Branch:** Wiki-Pass-Edits liegen im Coordination-Worktree; die Commit-Mechanik klärt der Maintainer Windows-nativ (die Cowork-Sandbox fasst `git` nicht an). Der Worktree war zu Session-Beginn hinter `origin/main` — der 092-Report + die `book-roster.json`/xlsx-Änderungen aus PR #85 fehlten lokal; die Session-Branch muss von `origin/main` (post-PR-#85) gecuttet werden, damit die neuen `sources:`-Verweise auflösen.
+
 ## 2026-05-22 · Ingest · Pass-6-Review + Brief 091 (Resolver-Pass Phase-4-Split) + Brain-Hygiene-Pass post-091
 
 Brain-Update nach dem Merge von Resolver-Pass 6 (`ssot-w40k-026..035`, PR #83 `72c8788` — 350 W40K-Bücher applied). Ausgelöst durch den Maintainer-Auftrag, den letzten Resolver-Lauf zu reviewen und zu prüfen, ob Resolver-Pass-Phase 4 weiter splitbar ist (Phase 4 ging in Pass 6 mit dem Kontextfenster Richtung ~300k Token gegen ein ~120k-Per-Phase-Budget). Der Coordination-Worktree wurde zu Session-Beginn vom Maintainer auf `origin/main` (`72c8788`) gebracht — neue Branch `codex/session-091-phase4-split` ab `origin/main`.
