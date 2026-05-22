@@ -1410,3 +1410,24 @@
 - **value_outside_vocabulary:** [] (keine neuen Facet-Kandidaten; bestehender Katalog reichte aus)
 - **Notable surface-forms (within this batch):** "Thousand Sons", "Necrons", "Astra Militarum", "Orks", "Adepta Sororitas", "Inquisition", "Ordo Xenos", "Space Wolves", "Death Guard"; Locations "Planet of the Sorcerers", "Eye of Terror", "Golgotha", "Mistral", "Armageddon", "Fenris"; Chars "Ahzek Ahriman", "Ghazghkull Thraka", "Sebastian Yarrick", "Lord Commissar Rasp", "Gunnlaugr".
 - **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: 1 Override-JSON + Markdown-Append, kein Code); Override-JSON mit `node -e JSON.parse` als parsebar verifiziert.
+
+## 2026-05-22 · ssot-w40k-039 · W40K-0381..W40K-0390 · ✅
+
+- **Cumulative books in authority:** 390 / nächste Resolver-Pause bei 450
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=380, batch=ssot-w40k-039, slice=W40K-0381..W40K-0390
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — alle Bücher gut aus Trainingsdaten bekannt; je 1 Synopsis-/Goodreads-Locator-Search, Ratings via Page-Read-WebFetch.
+- **Per-book bullets:**
+  - W40K-0381 Stormcaller — Wraight Space Wolves #2 (Blood of Asaheim-Arc), Ras Shakeh vs. Death Guard; sauber.
+  - W40K-0382 The Helwinter Gate — Jarnhamar-Trilogie-Abschluss, endet auf Cadia; sauber.
+  - W40K-0383 Ravenwing — Legacy of Caliban #1, Dark Angels / Hunt for the Fallen; keine konkrete Haupt-Location → locations leer gelassen (Kadillus nur Rückblick).
+  - W40K-0384 Master of Sanctity — Legacy of Caliban #2; Asmodai/Sapphon, Astelan; locations leer (chapter-internes Geschehen, keine belastbare Einzelwelt).
+  - W40K-0385 The Unforgiven — Legacy of Caliban #3; Cypher-Surrender, Death-Guard-Angriff auf den Rock.
+  - W40K-0386 Legacy of Caliban: The Omnibus — format=omnibus, aggregiert Ravenwing+Master of Sanctity+The Unforgiven (+Lords of Caliban Shorts) auf Trilogie-Tiefe; entry_point=standalone, length=doorstopper (944 S.).
+  - W40K-0387 Khârn: Eater of Worlds — World Eaters post-Heresy (Skalathrax-Vorlauf); Dual-POV Marine Dreagher + Mensch Skoral → protagonist_gender=mixed.
+  - W40K-0388 The Red Path — Chris Dows, Khârn im 13. Schwarzen Kreuzzug. Goodreads listet als „The Red Path #1–8" (ursprünglich 8-teilige Serialisierung), Roster/Black-Library führen es als novel → kein format-Konflikt geflaggt.
+  - W40K-0389 The Talon of Horus — ADB Black Legion #1; Khayon-Ich-Erzähler vor Inquisition (Framing) → Inquisition als supporting; Sons of Horus + Thousand Sons primary.
+  - W40K-0390 Black Legion — ADB Black Legion #2; Khayon vs. Thagus Daravek, erster Schwarzer Kreuzzug.
+- **value_outside_vocabulary:** [] (keine Kandidaten außerhalb facet-catalog.json)
+- **Notable surface-forms (within this batch):** "The Fallen" (Dark-Angels-Renegaten, beibehalten als Surface-Form), "Sons of Horus" (vor-Black-Legion, nicht prä-resolved), "Ecclesiarchy", "Thagus Daravek", "Iskandar Khayon", "Skoral", "Dreagher".
+- **Verifikation:** lint/typecheck/brain:lint übersprungen — reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code), Brief-061-Konvention.
