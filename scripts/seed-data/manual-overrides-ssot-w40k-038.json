@@ -1,0 +1,231 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-038",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-22",
+  "model": "claude-opus-4-7",
+  "rationale": "A tightly clustered wave: five John French Ahriman titles (Thousand Sons sorcery, including the trilogy, its companion anthology and omnibus, and the two later sequels), four David Annandale Yarrick titles (Astra Militarum / Commissar arc plus its omnibus), and one Chris Wraight Space Wolves novel. Author- and series-coherence made faction/location/character tagging unusually consistent; main care points were edition disambiguation for the two omnibi and series-position entry points.",
+  "books": [
+    {
+      "externalBookId": "W40K-0371",
+      "slug": "ahriman-unchanged",
+      "overrides": {
+        "synopsis": "Ahzek Ahriman, once Chief Librarian of the Thousand Sons and now an exiled sorcerer, prepares for the most audacious working of his long life. Every fragment of forbidden knowledge he has gathered, every alliance he has forged and broken, has served a single purpose: to undo the Rubric that hollowed his Legion into dust-filled armour. As he gathers his strength and his followers for a final casting, the warp itself recoils, daemons gather, and the survivors of his shattered brotherhood close in. His quest carries him back to ruined Prospero and the Planet of the Sorcerers, where the price of his ambition - and the wrath of his primarch, Magnus the Red - finally comes due. The concluding volume of the Ahriman trilogy is a study of obsession, hubris and the thin hope of redemption.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "galactic", "series_finale", "standard", "journey", "character_study", "grimdark", "philosophical", "cosmic_horror", "hubris", "redemption", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Prospero", "role": "supporting" },
+          { "name": "Planet of the Sorcerers", "role": "supporting" },
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ahzek Ahriman", "role": "pov" },
+          { "name": "Magnus the Red", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.93, "count": 507, "evidenceUrl": "https://www.goodreads.com/book/show/25805039" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0372",
+      "slug": "ahriman-exodus",
+      "overrides": {
+        "synopsis": "A companion collection to the Ahriman trilogy, these eight tales fill the spaces between the novels and deepen the sorcerer's circle of followers. The longer sequence, The Tale of Ctesias, follows the summoner Ctesias from his uneasy recruitment into Ahriman's cause through the exodus of the Exiles from the Eye of Terror, binding daemons and bargaining with worse things to survive. The shorter pieces turn inward: the fractured, tormented mind of Helio Isidorus, the vast sorrow Ahriman carries, and the tangled pride and madness of Magnus the Red. Together they form a quieter, more intimate portrait of the Thousand Sons in exile - ambition, regret and the slow corrosion of the soul.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "galactic", "requires_context", "standard", "character_study", "journey", "grimdark", "philosophical", "somber", "hubris", "doubt", "redemption", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ctesias", "role": "pov" },
+          { "name": "Ahzek Ahriman", "role": "supporting" },
+          { "name": "Helio Isidorus", "role": "supporting" },
+          { "name": "Magnus the Red", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.85, "count": 107, "evidenceUrl": "https://www.goodreads.com/book/show/26231867" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0373",
+      "slug": "ahriman-the-omnibus",
+      "overrides": {
+        "synopsis": "The complete saga of the Thousand Sons' greatest sorcerer, gathered into a single volume. Ahzek Ahriman, protege of the primarch Magnus the Red, was undone by his own hubris: the Rubric he cast to save his Legion instead reduced his brothers to animate dust within their armour. Spurned and exiled, he refuses to abandon them. Across Exile, Sorcerer and Unchanged - plus eight accompanying short stories - Ahriman braves the horrors of the Eye of Terror and the wider galaxy in search of the knowledge to reverse his catastrophe, gathering followers, betraying allies, and edging ever closer to a confrontation with his own past. A doorstop-sized journey through obsession, sorcery and the faint hope of undoing an eternal curse.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "galactic", "series_start", "doorstopper", "journey", "character_study", "war_story", "grimdark", "philosophical", "cosmic_horror", "hubris", "redemption", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "supporting" },
+          { "name": "Prospero", "role": "supporting" },
+          { "name": "Planet of the Sorcerers", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ahzek Ahriman", "role": "pov" },
+          { "name": "Magnus the Red", "role": "supporting" },
+          { "name": "Ctesias", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.16, "count": 373, "evidenceUrl": "https://www.goodreads.com/book/show/30753526-ahriman" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0374",
+      "slug": "ahriman-eternal",
+      "overrides": {
+        "synopsis": "Doom stalks the Thousand Sons across time and space. In the aftermath of a second Rubric, the spirits bound within the Legion's armour begin to vanish one by one, and living sorcerers are cursed to take their place, consumed by a force called the Pyrodomon that reaches out of the warp to devour them. Driven as ever by the need to save his brothers and redeem his failures, Ahzek Ahriman turns to the time-bending technology of the necrons, seizing a captured xenos named Setekh in the hope of rewriting his past. But the alliance of his Exiles is fracturing, the Pyrodomon is gaining, and the power to master time may cost more than even Ahriman is willing to pay.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "galactic", "requires_context", "standard", "journey", "character_study", "grimdark", "philosophical", "cosmic_horror", "hubris", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "Necrons", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ahzek Ahriman", "role": "pov" },
+          { "name": "Setekh", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.77, "count": 331, "evidenceUrl": "https://www.goodreads.com/book/show/60667813" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0375",
+      "slug": "ahriman-undying",
+      "overrides": {
+        "synopsis": "Adrift on the threshold of space and time, Ahzek Ahriman has finally found what he sought for so long: the ancient necron device known as the Key of Infinity. But he is no longer the sorcerer he once was. Betrayed and alone, stripped of allies and the grand designs that once defined him, he stands amid the wreckage of his ambitions while the fires of the Pyrodomon consume the last of his Legion. To have any hope of a future, Ahriman must fight his way back across the shattered ruins of his own past. The latest chapter in the long saga of the Thousand Sons' arch-sorcerer is its most solitary and haunted yet.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "galactic", "requires_context", "standard", "journey", "character_study", "grimdark", "philosophical", "somber", "hubris", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "Necrons", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ahzek Ahriman", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.07, "count": 214, "evidenceUrl": "https://www.goodreads.com/book/show/216436741" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0376",
+      "slug": "chains-of-golgotha",
+      "overrides": {
+        "synopsis": "Commissar Sebastian Yarrick has hunted the ork warlord Ghazghkull Thraka across the stars, and on the desolate world of Golgotha he means to end the beast at last. Leading an armoured company into the wastes, Yarrick instead walks into a trap of Thraka's devising. His army is all but annihilated, and the commissar himself is taken - waking aboard the warlord's vast space hulk to face a fate worse than death. Atmospheric and tightly paced, this novella pits Yarrick's iron will against the cunning of his greatest foe, and shows how even defeat can forge a legend.",
+        "facetIds": ["book", "male", "commissar", "imperium", "planetary", "standalone", "novella", "war_story", "last_stand", "journey", "grimdark", "action_heavy", "somber", "war", "hubris", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Golgotha", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sebastian Yarrick", "role": "pov" },
+          { "name": "Ghazghkull Thraka", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.96, "count": 212, "evidenceUrl": "https://www.goodreads.com/book/show/17232751-yarrick" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0377",
+      "slug": "imperial-creed",
+      "overrides": {
+        "synopsis": "Before he became the hero of Armageddon, Sebastian Yarrick was a freshly commissioned officer from the schola progenium, sent to the storm-wracked world of Mistral under the watchful eye of his mentor, Lord Commissar Rasp. Mistral is a place where rival barons have schemed for power since time immemorial, and where Imperial truth is rarely clear-cut. As open war engulfs the planet, Yarrick is drawn into a tangle of conspiracy that turns allies into enemies and forces strange bargains - with hidden chaos cults, the fervent Sisters of Battle and clandestine inquisitors all standing between the young commissar and his duty. The first Yarrick novel is a tense political thriller about faith, corruption and the making of a legend.",
+        "facetIds": ["book", "male", "commissar", "imperium", "planetary", "series_start", "standard", "political_thriller", "mystery", "court_intrigue", "war_story", "grimdark", "somber", "faith", "betrayal", "doubt", "cw_violence", "cw_death", "cw_socio_political", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Adepta Sororitas", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Mistral", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sebastian Yarrick", "role": "pov" },
+          { "name": "Lord Commissar Rasp", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.03, "count": 335, "evidenceUrl": "https://www.goodreads.com/book/show/18749592-yarrick" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0378",
+      "slug": "the-pyres-of-armageddon",
+      "overrides": {
+        "synopsis": "When the ork warlord Ghazghkull Thraka hurls the largest greenskin horde seen in centuries against the hive world of Armageddon, Commissar Sebastian Yarrick rises to meet the assault that will make him a legend. As the Second War for Armageddon engulfs the planet, the Imperial defenders are nearly overwhelmed, and Yarrick leads the resistance through a series of desperate, daring strikes against the orks. To hold the world he will defy even Armageddon's corrupt overlord, for Yarrick will not allow it to fall. A relentless, action-heavy war story that brings one of the setting's most iconic confrontations to the page.",
+        "facetIds": ["book", "male", "commissar", "imperium", "planetary", "mid_series", "standard", "war_story", "siege", "last_stand", "grimdark", "action_heavy", "war", "faith", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sebastian Yarrick", "role": "pov" },
+          { "name": "Ghazghkull Thraka", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.97, "count": 208, "evidenceUrl": "https://www.goodreads.com/book/show/23492362-yarrick" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0379",
+      "slug": "yarrick-the-omnibus",
+      "overrides": {
+        "synopsis": "The complete chronicle of Commissar Sebastian Yarrick, gathered into one volume. It follows him from a raw officer freshly out of the schola progenium, navigating the treacherous politics of the world Mistral, through his hunt for the ork warlord Ghazghkull Thraka across Golgotha, to the apocalyptic Second War for Armageddon that cemented his legend. Collecting the novels Imperial Creed and The Pyres of Armageddon, the novella Chains of Golgotha and seven short stories, this omnibus traces the brutal campaigns that transformed a single man into one of the setting's most enduring heroes - and the unbending faith and hatred that drove him.",
+        "facetIds": ["book", "male", "commissar", "imperium", "planetary", "series_start", "doorstopper", "war_story", "siege", "political_thriller", "last_stand", "grimdark", "action_heavy", "somber", "war", "faith", "sacrifice", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Adepta Sororitas", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" },
+          { "name": "Golgotha", "role": "supporting" },
+          { "name": "Mistral", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sebastian Yarrick", "role": "pov" },
+          { "name": "Ghazghkull Thraka", "role": "antagonist" },
+          { "name": "Lord Commissar Rasp", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.26, "count": 268, "evidenceUrl": "https://www.goodreads.com/book/show/36373745-yarrick" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0380",
+      "slug": "blood-of-asaheim",
+      "overrides": {
+        "synopsis": "After fifty-seven years apart - Ingvar serving in the secretive ranks of the Deathwatch, his pack-brothers fighting on without him - the Space Wolves of the Jarnhamar pack are reunited, and the bond between them is no longer what it was. Sent to defend an important shrine world against the plague-ridden warriors of the Death Guard, the Grey Hunters find themselves at odds with the world's pious defenders, the Sisters of Battle, who regard the wild sons of Fenris as little better than the enemy. As the foe closes in and treachery surfaces from within, pack-leader Gunnlaugr must hold his warriors together even as old tensions threaten to tear them apart. A visceral story of brotherhood, loyalty and the fault-lines that war exposes.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "planetary", "series_start", "standard", "war_story", "siege", "grimdark", "action_heavy", "somber", "brotherhood", "loyalty", "betrayal", "faith", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Adepta Sororitas", "role": "supporting" },
+          { "name": "Ordo Xenos", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ingvar", "role": "pov" },
+          { "name": "Gunnlaugr", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.06, "count": 674, "evidenceUrl": "https://www.goodreads.com/book/show/15803005-blood-of-asaheim" }
+      }
+    }
+  ]
+}

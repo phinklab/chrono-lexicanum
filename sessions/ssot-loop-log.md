@@ -1389,3 +1389,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Lord Solar Macharius", "Leo Lemuel", "Dark Eldar" (pre-Drukhari rename, source-true), "Speranza" (Ark Mechanicus), "Galatea", "Lexell Kotov", "Roboute Surcouf", "Athenaeum of Kalimakus", "Thousand Sons", "Inquisitor Iobel". Surface-form-treu belassen — Resolving im 450er-Resolver-Pass.
 - **Verification skipped:** Reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code) — `lint`/`typecheck`/`brain:lint` per Brief-061-Konvention übersprungen.
+
+## 2026-05-22 · ssot-w40k-038 · W40K-0371..W40K-0380 · ✅
+
+- **Cumulative books in authority:** 380 / nächste Resolver-Pause bei 450
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=370, batch=ssot-w40k-038, slice=W40K-0371..W40K-0380
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — alle gut aus Trainingsdaten bekannt; je 1 Synopsis-/Goodreads-Locator-Search, Ratings per WebFetch der Goodreads-Buchseite.
+- **Per-book bullets:**
+  - W40K-0371 Ahriman: Unchanged — Trilogie-Finale (#3), Thousand Sons, POV chaos. Sauber, kein Mistag.
+  - W40K-0372 Ahriman: Exodus — Roster=anthology; Quelle = Single-Author-Story-Collection (8 Stories, Ctesias/Voices of Fate). „anthology" vs. streng „collection" — Roster-Label vom Lexicanum-Naming gedeckt, kein data_conflict-Flag.
+  - W40K-0373 Ahriman: The Omnibus — aggregiert Exile+Sorcerer+Unchanged + 8 Stories; doorstopper, entry_point=series_start (enthält Reihen-Anfang).
+  - W40K-0374 Ahriman: Eternal (#4) — Pyrodomon, Necron Setekh, Zeit-Tech; Necrons als supporting-Faction ergänzt.
+  - W40K-0375 Ahriman: Undying (#5) — solitärer Ahriman, Key of Infinity; entry_point=requires_context.
+  - W40K-0376 Chains of Golgotha — novella, Yarrick vs. Ghazghkull auf Golgotha; standalone.
+  - W40K-0377 Imperial Creed (Yarrick #1) — Mistral, Rasp, Sororitas + Inquisition; political_thriller/court_intrigue.
+  - W40K-0378 The Pyres of Armageddon (Yarrick #2) — Second War for Armageddon, Orks/Ghazghkull.
+  - W40K-0379 Yarrick: The Omnibus — aggregiert Imperial Creed + Pyres + Chains of Golgotha + 7 Stories; doorstopper, series_start.
+  - W40K-0380 Blood of Asaheim — Space Wolves Járnhamar-Pack (Ingvar/Gunnlaugr) vs. Death Guard, Sororitas-Spannung; Ordo-Xenos-Hintergrund (Deathwatch) als supporting.
+- **value_outside_vocabulary:** [] (keine neuen Facet-Kandidaten; bestehender Katalog reichte aus)
+- **Notable surface-forms (within this batch):** "Thousand Sons", "Necrons", "Astra Militarum", "Orks", "Adepta Sororitas", "Inquisition", "Ordo Xenos", "Space Wolves", "Death Guard"; Locations "Planet of the Sorcerers", "Eye of Terror", "Golgotha", "Mistral", "Armageddon", "Fenris"; Chars "Ahzek Ahriman", "Ghazghkull Thraka", "Sebastian Yarrick", "Lord Commissar Rasp", "Gunnlaugr".
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: 1 Override-JSON + Markdown-Append, kein Code); Override-JSON mit `node -e JSON.parse` als parsebar verifiziert.
