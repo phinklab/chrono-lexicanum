@@ -20,6 +20,11 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+# Track whether any seed/apply step failed. The digest is still written in full
+# (all batches, counts, DONE); the script just exits non-zero at the end so a
+# failed re-apply is never silently reported as success.
+FAILED=0
+
 CONFIG="${1:-scripts/resolver-pass.config.json}"
 [[ -f "$CONFIG" ]] || { echo "config not found: $CONFIG" >&2; exit 1; }
 
@@ -84,10 +89,25 @@ dnote ""
 dnote "### Seed resolver-extensions + facets (non-destructive)"
 dnote ""
 dnote '```'
-{ echo "== seed-resolver-extensions =="; npm run db:seed-resolver-extensions; } >> "$VERBOSE" 2>&1 \
-  && dnote "seed-resolver-extensions: ok" || dnote "seed-resolver-extensions: FAILED (see verbose log)"
+if { echo "== seed-resolver-extensions =="; npm run db:seed-resolver-extensions; } >> "$VERBOSE" 2>&1; then
+  dnote "seed-resolver-extensions: ok"
+else
+  dnote "seed-resolver-extensions: FAILED (see verbose log)"
+  FAILED=1
+fi
+# seed-facets: key on the tsx exit status (PIPESTATUS[0]), NOT on grep — grep
+# legitimately exits 1 when there are no [seed-facets] lines to promote. Disable
+# errexit only around the pipeline so a non-zero pipe status can't abort here;
+# capture PIPESTATUS[0] (the brace group = tsx) before any other command resets it.
+set +e
 { echo "== seed-facets =="; npx tsx --env-file=.env.local scripts/seed-facets.ts; } 2>>"$VERBOSE" \
-  | tee -a "$VERBOSE" | grep -E '^\[seed-facets\]' >> "$DIGEST" || true
+  | tee -a "$VERBOSE" | grep -E '^\[seed-facets\]' >> "$DIGEST"
+facets_status=${PIPESTATUS[0]}
+set -e
+if [[ "$facets_status" -ne 0 ]]; then
+  dnote "seed-facets: FAILED (see verbose log)"
+  FAILED=1
+fi
 dnote '```'
 
 # --- apply each batch -------------------------------------------------------
@@ -100,6 +120,7 @@ for batch in $APPLY_BATCHES; do
     dnote "- applied \`$batch\`: ok"
   else
     dnote "- applied \`$batch\`: FAILED (see verbose log)"
+    FAILED=1
   fi
   if [[ "$WAVE_BATCHES" == *" $batch "* ]]; then
     counts_snapshot "POST-BATCH counts — $batch"
@@ -112,3 +133,11 @@ dnote "DONE"
 
 echo "phase4 digest written: $DIGEST"
 echo "verbose log (gitignored): $VERBOSE"
+
+# Surface any swallowed seed/apply failure. The digest is complete (through DONE)
+# and per-step FAILED markers are in place; the exit code is the hard signal.
+if [[ "$FAILED" -ne 0 ]]; then
+  echo "phase4 apply: one or more steps FAILED (see verbose log: $VERBOSE)" >&2
+  exit 1
+fi
+exit 0
