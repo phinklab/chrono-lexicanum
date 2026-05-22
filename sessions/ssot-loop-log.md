@@ -1536,3 +1536,24 @@
 - **value_outside_vocabulary:** length_tier benötigt eine Stufe unterhalb `novella` für echte Short Stories (W40K-0432/0433) — Kandidat z. B. `short_story`/`flash`; vorerst length_tier bei beiden weggelassen statt `novella` zu überstuften.
 - **Notable surface-forms (within this batch):** „Tau" (Roster „T'au"), „Dark Eldar" (W40K-0432/0434) vs. „Drukhari" (W40K-0440) — beide Surface-Forms quellengetreu belassen, Resolver vereint später; „Krom Dragongaze", „Ulrik the Slayer", „Logan Grimnar", „Garran Crowe", „The Blade of Antwyr", „Fabius Bile", „Solemnace", „Sandava II/III".
 - **Verifikation:** lint/typecheck/brain:lint übersprungen (Brief-061-Konvention, reiner Daten-Commit: Override-JSON + Log-Append, kein Code).
+
+## 2026-05-22 · ssot-w40k-045 · W40K-0441..W40K-0450 · ✅
+
+- **Cumulative books in authority:** 450 / nächste Resolver-Pause bei 450 (greift in der nächsten Iteration)
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=440, batch=ssot-w40k-045, slice=W40K-0441..W40K-0450
+- **WebSearch:** mean=1.1, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0441 Fabius Bile: The Omnibus — format `omnibus`; aggregated Primogenitor/Clonelord/Manflayer + shorts. Tagged `pov_side: chaos`, locations Eye of Terror/Solemnace/Commorragh. No mistag.
+  - W40K-0442 Red Tithe — clean; Carcharodons vs Night Lords on prison world Zartak; series_start.
+  - W40K-0443 Outer Dark — clean; tyranid defence of Piety V; mid_series (book 2 of 3).
+  - W40K-0444 Void Exile — **roster authors=[]** → `data_conflict` flag (Black Library/Goodreads credit Robbie MacNiven). 2025 release, sparse plot coverage and only 12 Goodreads ratings → `low_confidence` flag on characters; recorded rating as-is (thin, not unrated, since a real aggregate exists). Antagonist Voldire/Vashtorr Chaos forces have no clean canonical sub-faction → left antagonist faction unset rather than use generic "Chaos".
+  - W40K-0445 Kingsblade — Imperial Knights; **protagonist_class omitted** (no facet for Knight-noble pilots, see value_outside_vocabulary). House Draconis vs Word Bearers on Donatos.
+  - W40K-0446 Knightsblade — sequel/finale of the Imperial Knights duology; ork invasion of Adrastapol; protagonist_class likewise omitted.
+  - W40K-0447 Mephiston: Blood of Sanguinius — clean; series_start; Divinatus Prime.
+  - W40K-0448 Mephiston: Revenant Crusade — clean; mid_series; Necrons on Morsus.
+  - W40K-0449 Mephiston: City of Light — clean; series_finale; Thousand Sons in Imperium Nihilus; cosmic_horror tone.
+  - W40K-0450 Dante — clean; dual-timeline character study; standalone; Blood Angels vs Tyranids (Cryptus/Baal).
+- **value_outside_vocabulary:** [`protagonist_class.knight_noble` (Imperial Knight pilots — Kingsblade/Knightsblade have no fitting protagonist_class; omitted rather than mis-tagged as civilian/multi)]
+- **Notable surface-forms (within this batch):** Carcharodons, Bail Sharr, Te Kahurangi, Wandering Ancestor (Itako), House Draconis, House Chimaeros, Knight of Ashes, Alicia Kar Manticos, Mephiston, Vashtorr the Arkifane, Voldire (datagnost), Revenant Crusade, Blade of Petrific.
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (reiner Daten-Commit: Override-JSON + Log-Append, Brief-061-Konvention).
