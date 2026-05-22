@@ -1,0 +1,263 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-037",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-22",
+  "model": "claude-opus-4-7",
+  "rationale": "Three tidy author-trilogies plus their two omnibi: William King's Macharian Crusade (Imperial Guard conquest saga narrated by Sergeant Lemuel), Graham McNeill's Forges of Mars (Adeptus Mechanicus deep-space exploration), and John French's first two Ahriman novels (Thousand Sons sorcerer in exile). Clean roster — formats matched, no mistags. Omnibi aggregated across their constituent novels.",
+  "books": [
+    {
+      "externalBookId": "W40K-0361",
+      "slug": "angel-of-fire",
+      "overrides": {
+        "synopsis": "The first chronicle of Lord Solar Macharius, the greatest conqueror of the age, told from the foxholes by Sergeant Leo Lemuel of the Imperial Guard. As Macharius drives his crusade across a thousand rebel worlds, Lemuel and his comrades Anton and Ivan are thrown into a brutal planetary war against a heretic cult and the burning daemon-thing it worships — the Angel of Fire. Distinguishing himself amid the slaughter, Lemuel is drawn into the orbit of the Lord Solar himself and the watchful Inquisitor Drake. A grim, ground-level war story about ordinary soldiers caught in the wake of a living legend, and the cost of glory measured in mud and blood.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "series_start", "standard", "war_story", "grimdark", "action_heavy", "war", "loyalty", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Leo Lemuel", "role": "pov" },
+          { "name": "Lord Solar Macharius", "role": "supporting" },
+          { "name": "Anton", "role": "supporting" },
+          { "name": "Ivan", "role": "supporting" },
+          { "name": "Inquisitor Drake", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.93, "count": 498, "evidenceUrl": "https://www.goodreads.com/book/show/13240204-angel-of-fire" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0362",
+      "slug": "fist-of-demetrius",
+      "overrides": {
+        "synopsis": "As the Macharian Crusade reaches its zenith, Lord Solar Macharius is drawn by prophecy toward the world of Demetrius and the relic that gives this tale its name — the Fist of Demetrius, an ancient gauntlet rumoured to have belonged to a primarch of legend. With such a weapon, Macharius believes final victory assured. But the dark eldar covet the artefact too, and their raiders strike from the shadows to claim it. Sergeant Leo Lemuel and his comrades once more find themselves at the heart of the fighting, fighting through ambush and slaughter as the hunt for the relic turns deadly. A relentless war story of conquest, plunder, and the price of obsession.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "mid_series", "standard", "war_story", "journey", "grimdark", "action_heavy", "war", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Dark Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Demetrius", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Leo Lemuel", "role": "pov" },
+          { "name": "Lord Solar Macharius", "role": "supporting" },
+          { "name": "Anton", "role": "supporting" },
+          { "name": "Ivan", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.81, "count": 278, "evidenceUrl": "https://www.goodreads.com/book/show/16002736-fist-of-demetrius" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0363",
+      "slug": "fall-of-macharius",
+      "overrides": {
+        "synopsis": "The conclusion of the Macharian Crusade. In the last years of his conquest, Macharius comes to Loki, a heavily industrialised world held by his arch-nemesis, the traitor Richter — once a trusted advisor, now turned renegade. Richter's betrayal is a symptom of the rot setting into the crusade: dwindling morale, dissent, and exhaustion. Brought to the very edge of the known galaxy and thrust into a plague-ridden hell of trench warfare, Macharius faces his sternest test, while Sergeant Leo Lemuel watches the legend he served begin to crumble. A bleak, mud-and-disease war story about how even the greatest conquests end — in betrayal, attrition, and a slow, grinding fall.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "planetary", "series_finale", "standard", "war_story", "siege", "grimdark", "somber", "betrayal", "war", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Loki", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Leo Lemuel", "role": "pov" },
+          { "name": "Lord Solar Macharius", "role": "supporting" },
+          { "name": "Richter", "role": "antagonist" },
+          { "name": "Anton", "role": "supporting" },
+          { "name": "Ivan", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.84, "count": 205, "evidenceUrl": "https://www.goodreads.com/book/show/20821607-fall-of-macharius" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0364",
+      "slug": "the-macharian-crusade-omnibus",
+      "overrides": {
+        "synopsis": "The complete Macharian Crusade trilogy in one volume — Angel of Fire, Fist of Demetrius, and Fall of Macharius. Across three novels, Sergeant Leo Lemuel of the Imperial Guard narrates the rise and fall of Lord Solar Macharius, the greatest conqueror of his age, whose crusade reclaims a thousand rebel worlds for the Imperium. From a brutal planetary war against a fire-worshipping cult, through the prophecy-driven hunt for a primarch's relic with dark eldar raiders in pursuit, to the plague-ridden trenches of Loki and the betrayal that brings the whole campaign crashing down. A sweeping, ground-level saga of glory, conquest, betrayal, and the bitter cost of legend.",
+        "facetIds": ["book", "male", "guardsman", "imperium", "sector", "series_start", "doorstopper", "war_story", "journey", "grimdark", "action_heavy", "somber", "war", "loyalty", "betrayal", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Dark Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Demetrius", "role": "supporting" },
+          { "name": "Loki", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Leo Lemuel", "role": "pov" },
+          { "name": "Lord Solar Macharius", "role": "supporting" },
+          { "name": "Anton", "role": "supporting" },
+          { "name": "Ivan", "role": "supporting" },
+          { "name": "Inquisitor Drake", "role": "supporting" },
+          { "name": "Richter", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.31, "count": 137, "evidenceUrl": "https://www.goodreads.com/book/show/30753546-the-macharian-crusade-omnibus" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0365",
+      "slug": "priests-of-mars",
+      "overrides": {
+        "synopsis": "The Martian priesthood's thirst for lost knowledge is insatiable. When Archmagos Lexell Kotov learns of an ancient expedition that vanished beyond the galactic rim in search of the source of life itself, he assembles a vast Explorator fleet to follow in its footsteps. Its flagship is the Speranza, a colossal Ark Mechanicus from the Dark Age of Technology. Joined by the rogue trader Roboute Surcouf, a detachment of Cadian Guard, a band of Black Templars, and a Legion of Titans, Kotov's crusade sets out across the perilous Halo Scar. But there are wonders and horrors at the edge of known space — and the strange machine-intelligence Galatea aboard the Speranza has agendas of its own. A grand, cerebral journey into the unknown.",
+        "facetIds": ["book", "mixed", "tech_priest", "imperium", "galactic", "series_start", "doorstopper", "journey", "war_story", "philosophical", "somber", "faith", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Black Templars", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Mars", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lexell Kotov", "role": "pov" },
+          { "name": "Roboute Surcouf", "role": "pov" },
+          { "name": "Galatea", "role": "antagonist" },
+          { "name": "Tarkis Blaylock", "role": "supporting" },
+          { "name": "Linya Tychon", "role": "supporting" },
+          { "name": "Ven Anders", "role": "supporting" },
+          { "name": "Tanna", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.03, "count": 1680, "evidenceUrl": "https://www.goodreads.com/book/show/13259661-priests-of-mars" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0366",
+      "slug": "lords-of-mars",
+      "overrides": {
+        "synopsis": "Having survived the crossing of the Halo Scar, Archmagos Kotov's Explorator fleet pushes deeper into uncharted space aboard the Speranza, chasing the trail of the long-lost Magos Telok and the secret he is said to have found. But the marvels they uncover come at a terrible price: the fleet stumbles into the path of an awakening alien menace whose tombs predate the Imperium, while aboard ship the predatory intelligence Galatea tightens its grip and the rogue trader Roboute Surcouf begins to suspect the expedition is being steered toward catastrophe. A tense, wonder-and-dread middle act about the seductions of forbidden knowledge and the cost of looking too far past the edge of the map.",
+        "facetIds": ["book", "mixed", "tech_priest", "imperium", "galactic", "mid_series", "doorstopper", "journey", "war_story", "philosophical", "cosmic_horror", "hubris", "faith", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Black Templars", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Mars", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lexell Kotov", "role": "pov" },
+          { "name": "Roboute Surcouf", "role": "pov" },
+          { "name": "Galatea", "role": "antagonist" },
+          { "name": "Tarkis Blaylock", "role": "supporting" },
+          { "name": "Linya Tychon", "role": "supporting" },
+          { "name": "Ven Anders", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.95, "count": 998, "evidenceUrl": "https://www.goodreads.com/book/show/16130625-lords-of-mars" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0367",
+      "slug": "gods-of-mars",
+      "overrides": {
+        "synopsis": "The conclusion of the Forges of Mars trilogy. At the very edge of the galaxy, Archmagos Kotov's fleet finally reaches the object of its long pursuit — the lost Magos Telok, who has remade himself into something monstrous and god-like with the forbidden technologies he has hoarded. As Telok's ambitions threaten not only the Speranza but the Imperium itself, and an ancient alien power stirs to reclaim what is theirs, Kotov, the rogue trader Roboute Surcouf, and their allies must confront the true price of the knowledge they have chased across the stars. A climactic, cosmic-scale reckoning about hubris, sacrifice, and the things humanity was never meant to find.",
+        "facetIds": ["book", "mixed", "tech_priest", "imperium", "galactic", "series_finale", "doorstopper", "journey", "war_story", "philosophical", "cosmic_horror", "hubris", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Black Templars", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Mars", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lexell Kotov", "role": "pov" },
+          { "name": "Roboute Surcouf", "role": "pov" },
+          { "name": "Telok", "role": "antagonist" },
+          { "name": "Galatea", "role": "antagonist" },
+          { "name": "Tarkis Blaylock", "role": "supporting" },
+          { "name": "Linya Tychon", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.00, "count": 814, "evidenceUrl": "https://www.goodreads.com/book/show/18649333" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0368",
+      "slug": "forges-of-mars-omnibus",
+      "overrides": {
+        "synopsis": "The complete Forges of Mars trilogy — Priests of Mars, Lords of Mars, and Gods of Mars. Archmagos Lexell Kotov leads a vast Explorator fleet aboard the ancient Ark Mechanicus Speranza on a crusade beyond the galactic rim, following the trail of the lost Magos Telok and the source of life itself. Joined by the rogue trader Roboute Surcouf, Cadian soldiers, Black Templars, and Titan war-engines, the expedition braves the deadly Halo Scar and the uncharted dark beyond — only to find awakening alien tombs, the scheming machine-intelligence Galatea, and a former master remade into a monster. A sweeping deep-space saga of wonder, dread, and the catastrophic price of forbidden knowledge.",
+        "facetIds": ["book", "mixed", "tech_priest", "imperium", "galactic", "series_start", "doorstopper", "journey", "war_story", "philosophical", "cosmic_horror", "hubris", "faith", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Black Templars", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Mars", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lexell Kotov", "role": "pov" },
+          { "name": "Roboute Surcouf", "role": "pov" },
+          { "name": "Galatea", "role": "antagonist" },
+          { "name": "Telok", "role": "antagonist" },
+          { "name": "Tarkis Blaylock", "role": "supporting" },
+          { "name": "Linya Tychon", "role": "supporting" },
+          { "name": "Ven Anders", "role": "supporting" },
+          { "name": "Tanna", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.20, "count": 352, "evidenceUrl": "https://www.goodreads.com/book/show/30753544-forges-of-mars-omnibus" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0369",
+      "slug": "ahriman-exile",
+      "overrides": {
+        "synopsis": "Ahriman, once chief sorcerer of the Thousand Sons, is the architect of the Rubric — the catastrophic spell that doomed his beloved Legion to crumble into dust. Broken by guilt and hunted by his own former brothers, he wanders the Eye of Terror under a false name, reduced to a servant of a Traitor Space Marine warband. But sorcery does not release its masters so easily. Drawn back to the powers of Tzeentch and joined by the renegade Librarian Astraeos, Ahriman begins to gather a following and to plot his return — even as the relentless Inquisitor Iobel closes in on his trail. A dark, introspective study of one of the galaxy's most notorious villains, and the long road of a man who cannot stop trying to undo his greatest mistake.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "series_start", "standard", "character_study", "journey", "grimdark", "philosophical", "cosmic_horror", "redemption", "hubris", "doubt", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "Inquisition", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ahriman", "role": "pov" },
+          { "name": "Astraeos", "role": "supporting" },
+          { "name": "Inquisitor Iobel", "role": "antagonist" },
+          { "name": "Ctesias", "role": "supporting" },
+          { "name": "Carmenta", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.81, "count": 1255, "evidenceUrl": "https://www.goodreads.com/book/show/16130683-ahriman" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0370",
+      "slug": "ahriman-sorcerer",
+      "overrides": {
+        "synopsis": "Ahriman, greatest sorcerer of the Thousand Sons, now commands a fleet of his exiled brothers and has summoned the warlords of his scattered Legion. Still consumed by the need to mend the Rubric that turned his brothers to dust, he hunts a secret artefact — the Athenaeum of Kalimakus, a grimoire said to hold the lost words of his primarch Magnus the Red, and perhaps the flaw at the heart of his great spell. But every move is a layer in a deeper scheme, as befits a servant of Tzeentch, and the Inquisition has not abandoned the chase. The second part of Ahriman's tale tightens the web of manipulation and counter-manipulation, a grim and cerebral descent toward salvation or damnation.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "mid_series", "standard", "character_study", "court_intrigue", "grimdark", "philosophical", "cosmic_horror", "redemption", "hubris", "doubt", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ahriman", "role": "pov" },
+          { "name": "Astraeos", "role": "supporting" },
+          { "name": "Inquisitor Iobel", "role": "supporting" },
+          { "name": "Ctesias", "role": "supporting" },
+          { "name": "Carmenta", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.90, "count": 683, "evidenceUrl": "https://www.goodreads.com/book/show/18775043-ahriman" }
+      }
+    }
+  ]
+}

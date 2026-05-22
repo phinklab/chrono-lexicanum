@@ -1368,3 +1368,24 @@
 - **value_outside_vocabulary:** [] — facet-catalog covered this wave; no new candidates.
 - **Notable surface-forms (within this batch):** "Dark Eldar" (pre-Drukhari surface form, kept), "Eldar"/"Craftworld Eldar", "Commorragh", "Asdrubael Vect", "Nyos Yllithian", "Bellathonis", "Striking Scorpions", "Sable Marches", "Webway", "Precipice", "Blackstone Fortress". Resolved at the next 100er Resolver-Pass.
 - **Verification skipped (Brief-061-Konvention):** reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code) — lint/typecheck/brain:lint übersprungen.
+
+## 2026-05-22 · ssot-w40k-037 · W40K-0361..W40K-0370 · ✅
+
+- **Cumulative books in authority:** 370 / nächste Resolver-Pause bei 450
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=360, batch=ssot-w40k-037, slice=W40K-0361..W40K-0370
+- **WebSearch:** mean=1.0, max=2 (over 10 books; 2 series-level context searches for Forges of Mars + Ahriman, plus per-book Goodreads-locating searches; omnibi resolved from sibling searches)
+- **Per-book bullets:**
+  - W40K-0361 Angel of Fire — Macharian Crusade #1, novel/Imperial Guard. Locations left empty (planet name not source-confirmed; nicht erfunden). Antagonist cult/daemon kept out of factions to avoid a generic-Chaos junction — described in synopsis instead.
+  - W40K-0362 Fist of Demetrius — #2. Dark Eldar as concrete xenos antagonist; location Demetrius confirmed via search.
+  - W40K-0363 Fall of Macharius — #3. Traitor general Richter; location Loki confirmed. Renegade/Nurgle-plague antagonist kept in synopsis only (kein generisches Chaos-Junction, da kein konkreter Astartes-Sub passt).
+  - W40K-0364 Macharian Crusade Omnibus — omnibus, aggregated factions/locations/characters/facetIds across the three novels; doorstopper.
+  - W40K-0365 Priests of Mars — Forges of Mars #1, AdMech deep-space exploration. Black Templars as concrete Astartes chapter; Eldar pursuers mentioned in synopsis but not junctioned (only loosely sourced).
+  - W40K-0366 Lords of Mars — #2. Necrons as the awakening alien antagonist (series-level source); planet names (Hyperion/Exnihlo) not junctioned — unconfirmed surface forms.
+  - W40K-0367 Gods of Mars — #3. Telok antagonist; Necrons; cosmic-scale finale.
+  - W40K-0368 Forges of Mars Omnibus — omnibus, aggregated across trilogy; doorstopper.
+  - W40K-0369 Ahriman: Exile — Ahriman #1, Thousand Sons (Heretic Astartes) surface form kept; Inquisitor Iobel antagonist; Eye of Terror primary location; chaos POV.
+  - W40K-0370 Ahriman: Sorcerer — #2. Athenaeum-of-Kalimakus quest; court_intrigue + character_study; Iobel demoted to supporting.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Lord Solar Macharius", "Leo Lemuel", "Dark Eldar" (pre-Drukhari rename, source-true), "Speranza" (Ark Mechanicus), "Galatea", "Lexell Kotov", "Roboute Surcouf", "Athenaeum of Kalimakus", "Thousand Sons", "Inquisitor Iobel". Surface-form-treu belassen — Resolving im 450er-Resolver-Pass.
+- **Verification skipped:** Reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code) — `lint`/`typecheck`/`brain:lint` per Brief-061-Konvention übersprungen.
