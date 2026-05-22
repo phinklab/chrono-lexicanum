@@ -1,0 +1,233 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-040",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-22",
+  "model": "claude-opus-4-7",
+  "rationale": "A tightly-themed wave: Rob Sanders' two short Adeptus Mechanicus novels plus their omnibus, a McNeill Imperial Knights novella, Gav Thorpe's first two Phoenix Lords aeldari novels, and four Space Marine Legends single-character profiles (Ragnar Blackmane, Lemartes, Cassius, Shrike). Heavy on character-study framing and dual-timeline structures; ratings range from modest (Cassius 3.38, thin sample) to the standout Ragnar Blackmane (4.26).",
+  "books": [
+    {
+      "externalBookId": "W40K-0391",
+      "slug": "skitarius",
+      "overrides": {
+        "synopsis": "On a forge world torn apart by corruption, Alpha Primus Haldron-44 Stroika leads a legion of skitarii into battle. The discovery of an ancient colony ship, the Stella-Xenithica, by the Magos Explorator Omnid Torquora drags Stroika and his cybernetic soldiers into a desperate war against twisted machines, daemon engines, and the servants of the Dark Mechanicum. When a cataclysm severs him from his tech-priest overseers, Stroika must rely on his own augmented instincts to rally his forces and hold the line. Told from the front-line perspective of the Adeptus Mechanicus war machine, this is a portrait of duty and faith expressed through cold steel and ritual, where a soldier built for one purpose discovers the cost of carrying it out alone.",
+        "facetIds": ["book", "male", "tech_priest", "imperium", "planetary", "series_start", "short", "war_story", "grimdark", "action_heavy", "war", "faith", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Dark Mechanicum", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Velchanos Magna", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Haldron-44 Stroika", "role": "pov" },
+          { "name": "Omnid Torquora", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "value_outside_vocabulary", "field": "facetIds", "reason": "skitarii protagonist archetype has no exact protagonist_class value; tech_priest used as nearest Mechanicus class" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.39, "count": 392, "evidenceUrl": "https://www.goodreads.com/book/show/25279422-skitarius" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0392",
+      "slug": "tech-priest",
+      "overrides": {
+        "synopsis": "The sequel to Skitarius shifts the lens upward, away from the front lines and into the orbital command of Magos Omnid Torquora. Six months into a grinding campaign to reclaim a lost forge world, Velchanos Magna, Torquora finds his armies stalled by the cunning of the Iron Warriors and their warsmith, Idriss Krendl. With Titan Legions, Kastelan robots, and battalions of battle-servitors at his command, the Magos believes conquest is within reach, until treachery from within threatens to unravel everything. As Stroika fights on the surface, his master plays a longer, colder game from above. A study of ambition, calculation, and the brittle pride of a being who has traded most of his humanity for the certainty of the machine.",
+        "facetIds": ["book", "male", "tech_priest", "imperium", "planetary", "mid_series", "short", "war_story", "siege", "grimdark", "action_heavy", "war", "hubris", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Velchanos Magna", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Omnid Torquora", "role": "pov" },
+          { "name": "Idriss Krendl", "role": "antagonist" },
+          { "name": "Haldron-44 Stroika", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.54, "count": 229, "evidenceUrl": "https://www.goodreads.com/book/show/25588892-tech-priest" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0393",
+      "slug": "adeptus-mechanicus-omnibus",
+      "overrides": {
+        "synopsis": "This omnibus collects Rob Sanders' two short Adeptus Mechanicus novels, Skitarius and Tech-Priest, into a single campaign arc. On the corrupted forge world of Velchanos Magna, the cybernetic soldier Haldron-44 Stroika leads his skitarii through the wreckage of war while his master, Magos Omnid Torquora, directs the larger conquest from orbit. Together the two stories chart a single war from the mud of the front line to the cold arithmetic of high command, pitting the faithful of the Machine God against the Iron Warriors and the daemon-touched horrors of the Dark Mechanicum. Titan Legions march, robots awaken, and treachery festers, in a portrait of a war machine that runs on devotion as much as on oil and ammunition.",
+        "facetIds": ["book", "male", "tech_priest", "imperium", "planetary", "standalone", "standard", "war_story", "siege", "grimdark", "action_heavy", "war", "faith", "hubris", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Dark Mechanicum", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Velchanos Magna", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Haldron-44 Stroika", "role": "pov" },
+          { "name": "Omnid Torquora", "role": "pov" },
+          { "name": "Idriss Krendl", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.85, "count": 143, "evidenceUrl": "https://www.goodreads.com/book/show/27276161-adeptus-mechanicus" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0394",
+      "slug": "knights-of-the-imperium",
+      "overrides": {
+        "synopsis": "When the bio-ships of Hive Fleet Hydra fall upon the world of Vondrak, the towering war-machines of House Cadmus answer the call. Baron Roland of Cadmus dreams of breaking his house free from the control of the Adeptus Mechanicus, but the lords of Mars do not surrender their vassals lightly, and a feared Martian adept, Nemonix, has his own designs upon the noble house. Caught between a ravenous alien swarm outside the walls and a colder, more patient threat within his own ranks, Roland must hold Vondrak and his honour both. A novella that pairs the spectacle of god-machines against the Tyranids with a quieter study of loyalty, vassalage, and the men who rationalise cruelty as duty.",
+        "facetIds": ["book", "male", "imperium", "planetary", "standalone", "novella", "war_story", "court_intrigue", "grimdark", "action_heavy", "war", "loyalty", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Knights", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Vondrak", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Baron Roland of Cadmus", "role": "pov" },
+          { "name": "Nemonix", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "value_outside_vocabulary", "field": "facetIds", "reason": "Imperial Knight pilot has no protagonist_class value; protagonist_class omitted rather than mis-tagged" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.77, "count": 132, "evidenceUrl": "https://www.goodreads.com/book/show/33132593-knights-of-the-imperium" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0395",
+      "slug": "asurmen-hand-of-asuryan",
+      "overrides": {
+        "synopsis": "Asurmen is the first and greatest of the Phoenix Lords, the legendary warrior-teachers of the aeldari. In the present, he intervenes in a reckless scheme launched by a farseer of Anuiven to reclaim a powerful artefact, a gambit that has drawn the murderous Flesh Thieves down upon the eldar. To avert the coming disaster he co-opts a peaceful pilot, Neridiath, whose calm spirit is unsettled by the warrior soul that walks beside her. As they fight, Asurmen tells her of his past: of the long decline of his people, the cataclysm that shattered their empire, and the choices that turned a survivor of the ruins into the first of the Phoenix Lords. A dual-timeline meditation on grief, duty, and the long shadow of a fallen civilisation.",
+        "facetIds": ["book", "pc_xenos", "mixed", "xenos", "planetary", "series_start", "standard", "war_story", "journey", "character_study", "somber", "philosophical", "war", "sacrifice", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Eldar", "role": "primary" },
+          { "name": "Flesh Thieves", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Anuiven", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Asurmen", "role": "pov" },
+          { "name": "Neridiath", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "value_outside_vocabulary", "field": "facetIds", "reason": "Phoenix Lord / aspect-warrior aeldari protagonist mapped to pc_xenos; no aeldari-specific protagonist_class value" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.77, "count": 204, "evidenceUrl": "https://www.goodreads.com/book/show/25410816-asurmen" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0396",
+      "slug": "jain-zar-the-storm-of-silence",
+      "overrides": {
+        "synopsis": "Jain Zar, the Storm of Silence, was the first warrior recruited by Asurmen and became the deadliest of the Phoenix Lords, founder of the shrieking Howling Banshees. In the present, a swelling ork empire threatens the eldar, and Jain Zar travels to the craftworld Ulthwe to warn of the danger, only to find her plans opposed by the seer Eldrad, who reads a different future in the skein of fate. The second thread reaches back to her origin: a gladiatrix lost and despairing in the wreckage of the Fall, drawn onto a new path by Asurmen, learning to turn her rage into something that might save her people rather than consume them. A study of fury harnessed, and of the burden borne by those who become living legends.",
+        "facetIds": ["book", "pc_xenos", "female", "xenos", "sector", "mid_series", "standard", "war_story", "character_study", "journey", "somber", "action_heavy", "war", "sacrifice", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Eldar", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ulthwe", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Jain Zar", "role": "pov" },
+          { "name": "Eldrad Ulthran", "role": "supporting" },
+          { "name": "Asurmen", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "value_outside_vocabulary", "field": "facetIds", "reason": "Phoenix Lord / aspect-warrior aeldari protagonist mapped to pc_xenos; no aeldari-specific protagonist_class value" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.83, "count": 225, "evidenceUrl": "https://www.goodreads.com/book/show/33837137-jain-zar" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0397",
+      "slug": "ragnar-blackmane",
+      "overrides": {
+        "synopsis": "Ragnar Blackmane is the youngest warrior ever to rise to command a Great Company of the Space Wolves. As he fights the armies of Abaddon the Despoiler on the war-ravaged world of Cadia, Ragnar's mind turns back across the decades to two great sagas from his past, each setting him against Space Marines of other Chapters: the secretive Dark Angels and the savage Flesh Tearers. The novel braids these two timelines together, the seasoned Wolf Lord of the present and the headstrong young Wolf Guard of the past, until the reader sees how the rash decisions of youth ripple forward into the battles of the present. A character portrait of pride, brotherhood, and a hero learning that his choices have consequences he cannot outrun.",
+        "facetIds": ["book", "space_marine", "male", "imperium", "planetary", "standalone", "standard", "war_story", "last_stand", "character_study", "grimdark", "action_heavy", "brotherhood", "loyalty", "war", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "Flesh Tearers", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Cadia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ragnar Blackmane", "role": "pov" },
+          { "name": "Abaddon the Despoiler", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.26, "count": 469, "evidenceUrl": "https://www.goodreads.com/book/show/26129760-ragnar-blackmane" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0398",
+      "slug": "lemartes-guardian-of-the-lost",
+      "overrides": {
+        "synopsis": "Lemartes is the Guardian of the Lost, the Blood Angels warrior who walks forever on the knife-edge of the Black Rage, the curse that drives his Chapter's most afflicted brothers into berserk fury. Awakened to lead the Death Company into battle on the war-wracked world of Phlegethon, Lemartes finds himself facing a dark mirror of his own kind: the Blood Disciples, blood-crazed servants of Chaos whose madness echoes his own. As he fights, his mind slips between past and present, reliving the defence of the Imperial Palace through the eyes of his lost primarch even as the battle rages around him. To win, he must cling to the last threads of his own sanity while the enemy tries to tear them apart.",
+        "facetIds": ["book", "space_marine", "male", "imperium", "planetary", "standalone", "short", "war_story", "character_study", "grimdark", "somber", "faith", "sacrifice", "doubt", "cw_violence", "cw_death", "cw_mental_health", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Blood Disciples", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Phlegethon", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Lemartes", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.65, "count": 113, "evidenceUrl": "https://www.goodreads.com/book/show/23377682-lemartes" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0399",
+      "slug": "cassius",
+      "overrides": {
+        "synopsis": "When a Tyranid hive fleet is detected dangerously close to the Sol system, two whole companies of Ultramarines are dispatched to find and destroy the alien menace, led by their legendary Chaplain, Ortan Cassius. Grizzled and scarred after centuries of unending war, Cassius brings bravery, faith, and an impetuous streak to the defence of the strategically vital world of Kolovan. But against the endless, evolving waves of the swarm, even his fury and resolve may not be enough, and his own headstrong nature could prove as great a danger as the xenos themselves. A profile of the Ultramarines' fiercest spiritual leader, told as a relentless war against a tide that never stops coming.",
+        "facetIds": ["book", "space_marine", "male", "imperium", "planetary", "standalone", "short", "war_story", "last_stand", "grimdark", "action_heavy", "faith", "war", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Kolovan", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ortan Cassius", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.38, "count": 53, "evidenceUrl": "https://www.goodreads.com/book/show/30180677-cassius" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0400",
+      "slug": "shrike",
+      "overrides": {
+        "synopsis": "Kayvaan Shrike is one of the most famous warriors of the Raven Guard, a master of the lightning strike from the shadows. Told as a portrait across three moments of his life, the story follows him from a veteran fighting behind enemy lines with his squad, to a Shadow Captain covering the desperate evacuation of a doomed world, to the heights of Chapter Master. Binding all three together is a single foe: the ork warboss Gorkrusha, who brands every Imperial world he conquers, and whom Shrike faces again and again across the years. As his rank rises, so does his hatred, until the need for vengeance threatens to curdle into an obsession that could cost him everything he has become.",
+        "facetIds": ["book", "space_marine", "male", "imperium", "planetary", "standalone", "short", "war_story", "character_study", "grimdark", "action_heavy", "hubris", "war", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Kayvaan Shrike", "role": "pov" },
+          { "name": "Gorkrusha", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "the three life-snapshot worlds are not reliably named in available sources; locations left empty rather than invented" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.67, "count": 144, "evidenceUrl": "https://www.goodreads.com/book/show/30753545-shrike-3" }
+      }
+    }
+  ]
+}

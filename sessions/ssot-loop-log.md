@@ -1431,3 +1431,24 @@
 - **value_outside_vocabulary:** [] (keine Kandidaten außerhalb facet-catalog.json)
 - **Notable surface-forms (within this batch):** "The Fallen" (Dark-Angels-Renegaten, beibehalten als Surface-Form), "Sons of Horus" (vor-Black-Legion, nicht prä-resolved), "Ecclesiarchy", "Thagus Daravek", "Iskandar Khayon", "Skoral", "Dreagher".
 - **Verifikation:** lint/typecheck/brain:lint übersprungen — reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code), Brief-061-Konvention.
+
+## 2026-05-22 · ssot-w40k-040 · W40K-0391..W40K-0400 · ✅
+
+- **Cumulative books in authority:** 400 / nächste Resolver-Pause bei 450
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=390, batch=ssot-w40k-040, slice=W40K-0391..W40K-0400
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — all well-documented BL titles; one search per book sufficed (omnibus search confirmed it collects Skitarius + Tech-Priest only).
+- **Per-book bullets:**
+  - W40K-0391 Skitarius: skitarii front-line POV; no exact protagonist_class for a skitarii warrior → tech_priest used as nearest Mechanicus class (flagged value_outside_vocabulary). Antagonist surface form "Dark Mechanicum"; shared forge world Velchanos Magna with the sequel.
+  - W40K-0392 Tech-Priest: sequel, POV shifts to Magos Omnid Torquora; antagonist Iron Warriors (warsmith Idriss Krendl). Now a genuine tech_priest protagonist. mid_series.
+  - W40K-0393 Adeptus Mechanicus Omnibus: omnibus of Skitarius + Tech-Priest; aggregated factions/characters/locations across both. length_tier=standard (two short novels). entry_point=standalone (complete arc).
+  - W40K-0394 Knights of the Imperium: Imperial Knight pilot has no protagonist_class value → omitted rather than mis-tagged (flagged). Dual threat: Tyranids (Hive Fleet Hydra) + internal Adeptus Mechanicus (Adept Nemonix).
+  - W40K-0395 Asurmen: aeldari Phoenix Lord; pc_xenos used for aeldari protagonist (flagged value_outside_vocabulary). Chaos antagonist kept as surface form "Flesh Thieves". Dual past/present timeline, protagonist_gender=mixed (Asurmen + pilot Neridiath).
+  - W40K-0396 Jain Zar: Phoenix Lords #2; female aeldari POV → pc_xenos (flagged). Orks antagonist; craftworld Ulthwe location; seer "Eldrad Ulthran" surface form.
+  - W40K-0397 Ragnar Blackmane: Space Wolves; dual timeline (Cadia vs Black Legion / past clashes with Dark Angels + Flesh Tearers). Highest rating of the batch (4.26).
+  - W40K-0398 Lemartes: Blood Angels Death Company; Black Rage drives cw_mental_health + cw_disturbing. Antagonist surface form "Blood Disciples". World Phlegethon.
+  - W40K-0399 Cassius: Ultramarines Chaplain vs Tyranids on Kolovan; thinnest sample of the batch (53 ratings) but a real aggregate, so rated.
+  - W40K-0400 Shrike: Raven Guard; three-life-snapshot structure vs recurring ork warboss Gorkrusha. Snapshot worlds not reliably named in sources → locations left empty (low_confidence flag).
+- **value_outside_vocabulary:** skitarii (protagonist_class), imperial_knight_pilot (protagonist_class), phoenix_lord / aspect_warrior (aeldari protagonist_class) — collected only, not added to catalog.
+- **Notable surface-forms (within this batch):** Haldron-44 Stroika, Omnid Torquora, Idriss Krendl, Velchanos Magna, Dark Mechanicum, House Cadmus / Imperial Knights, Hive Fleet Hydra, Nemonix, Vondrak, Flesh Thieves, Anuiven, Neridiath, Ulthwe, Eldrad Ulthran, Blood Disciples, Phlegethon, Kolovan, Gorkrusha.
+- **Verification skipped:** reiner Daten-Commit (Override-JSON + Log-Append, kein Code) → lint/typecheck/brain:lint per Brief-061-Konvention übersprungen.
