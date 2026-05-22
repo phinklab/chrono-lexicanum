@@ -350,5 +350,55 @@
     "id": "callum_davis",
     "name": "Callum Davis",
     "nameSort": "Davis, Callum"
+  },
+  {
+    "id": "anthony_reynolds",
+    "name": "Anthony Reynolds",
+    "nameSort": "Reynolds, Anthony"
+  },
+  {
+    "id": "henry_zou",
+    "name": "Henry Zou",
+    "nameSort": "Zou, Henry"
+  },
+  {
+    "id": "c_l_werner",
+    "name": "C.L. Werner",
+    "nameSort": "Werner, C.L."
+  },
+  {
+    "id": "c_z_dunn",
+    "name": "C.Z. Dunn",
+    "nameSort": "Dunn, C.Z."
+  },
+  {
+    "id": "andy_smillie",
+    "name": "Andy Smillie",
+    "nameSort": "Smillie, Andy"
+  },
+  {
+    "id": "laurie_goulding",
+    "name": "Laurie Goulding",
+    "nameSort": "Goulding, Laurie"
+  },
+  {
+    "id": "john_french",
+    "name": "John French",
+    "nameSort": "French, John"
+  },
+  {
+    "id": "cavan_scott",
+    "name": "Cavan Scott",
+    "nameSort": "Scott, Cavan"
+  },
+  {
+    "id": "graeme_lyon",
+    "name": "Graeme Lyon",
+    "nameSort": "Lyon, Graeme"
+  },
+  {
+    "id": "braden_campbell",
+    "name": "Braden Campbell",
+    "nameSort": "Campbell, Braden"
   }
 ]
