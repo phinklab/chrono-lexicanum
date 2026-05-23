@@ -317,6 +317,54 @@ check("alias - seventh wave Striking Scorpions routes to Aeldari umbrella (Aspec
   assert.equal(resolveFaction("Striking Scorpions").id, "eldar");
 });
 
+check("alias - eighth wave Adeptus Ministorum routes to Ecclesiarchy (freq=11 wave-top surface form)", () => {
+  assert.equal(resolveFaction("Adeptus Ministorum").id, "ecclesiarchy");
+});
+
+check("alias - eighth wave High Lords of Terra routes to Senatorum Imperialis (M42 governance body)", () => {
+  assert.equal(resolveFaction("High Lords of Terra").id, "senatorum_imperialis");
+});
+
+check("alias - eighth wave Cadian Shock routes to Cadian Shock Troops regiment", () => {
+  assert.equal(resolveFaction("Cadian Shock").id, "cadian_shock_troops");
+});
+
+check("alias - eighth wave Officio Prefectus routes to Commissariat (formal institutional name)", () => {
+  assert.equal(resolveFaction("Officio Prefectus").id, "commissariat");
+});
+
+check("alias - eighth wave Ordo Sepulturum routes to Inquisition umbrella (sub-Ordo)", () => {
+  assert.equal(resolveFaction("Ordo Sepulturum").id, "inquisition");
+});
+
+check("alias - eighth wave Saim-Hann routes to Aeldari umbrella (Craftworld sub-form)", () => {
+  assert.equal(resolveFaction("Saim-Hann").id, "eldar");
+});
+
+check("alias - eighth wave Ziasuthra routes to Aeldari umbrella (Iyanden-cluster cross-axis surface)", () => {
+  assert.equal(resolveFaction("Ziasuthra").id, "eldar");
+});
+
+check("direct match - eighth wave Kroot (T'au auxiliary xenos species, freq=3)", () => {
+  assert.equal(resolveFaction("Kroot").id, "kroot");
+});
+
+check("direct match - eighth wave Ratlings (Astra Militarum abhuman auxiliaries, freq=3)", () => {
+  assert.equal(resolveFaction("Ratlings").id, "ratlings");
+});
+
+check("direct match - eighth wave Traitor Guard (renegade Imperial Guard, freq=3, parent=chaos)", () => {
+  assert.equal(resolveFaction("Traitor Guard").id, "traitor_guard");
+});
+
+check("direct match - eighth wave Lamenters (Blood Angels successor chapter, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Lamenters").id, "lamenters");
+});
+
+check("direct match - eighth wave Blood Drinkers (Blood Angels successor chapter, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Blood Drinkers").id, "blood_drinkers");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {

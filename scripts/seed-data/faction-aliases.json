@@ -46,5 +46,12 @@
   "Eldar Corsairs": "eldar",
   "Incubi": "eldar",
   "Mandrakes": "eldar",
-  "Striking Scorpions": "eldar"
+  "Striking Scorpions": "eldar",
+  "Adeptus Ministorum": "ecclesiarchy",
+  "High Lords of Terra": "senatorum_imperialis",
+  "Cadian Shock": "cadian_shock_troops",
+  "Officio Prefectus": "commissariat",
+  "Ordo Sepulturum": "inquisition",
+  "Saim-Hann": "eldar",
+  "Ziasuthra": "eldar"
 }
