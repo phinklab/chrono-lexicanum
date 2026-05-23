@@ -1671,3 +1671,24 @@
   - `pov_side: order` / `sigmar` — AoS-side POV not covered by the 40K-leaning `imperium / chaos / xenos / dual / neutral` values; AoS entries had `pov_side` omitted.
 - **Notable surface-forms (within this batch):** Zelia, Talen (Warped Galaxies); Silence (cemetery world); Free City of Everyth, Realm of Ghur, Bered Davan; Sarastus, Carceri Hive, Chel, Skreech, Dark Coil; Ballard's Run, Kavel; Shyish, Nagash's domain; Vardan IV, Eremus, St. Solangia's, Dominic Seroff, Monika; Malveil, Maeson Strock; Vansen Falls, Grayloc Manor, Teresina Sullo, Elena Grayloc, Dawn of the Dark Suns; Officio Prefectus.
 - **Verification:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief-061-Konvention (data-only commit: override JSON + log append).
+
+## 2026-05-23 · ssot-w40k-051 · W40K-0501..W40K-0510 · ✅
+
+- **Cumulative books in authority:** 510
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=500, batch=ssot-w40k-051, slice=W40K-0501..W40K-0510
+- **WebSearch:** mean=1.1, max=2 (over 10 books; 11 plot/context searches + 10 Goodreads page fetches; one extra search to confirm The Oubliette length)
+- **Per-book bullets:**
+  - W40K-0501 The Oubliette — 40K novella-length single novel (~7h53m audio). Imperial planetary court intrigue (Ceocan, Ashielle Matkosen). No Browse-Root faction surfaces; `low_confidence` on factions.
+  - W40K-0502 Five Candles — **Roster mistag**: released as a Warhammer Horror Week 2020 eShort, not a novel; and it's an **Age of Sigmar** story (Aqshy, Nagash's necroquake) sitting under a W40K-prefixed slot. Two `data_conflict` flags (format → short_story, setting → age_of_sigmar). Thin Goodreads (n=25).
+  - W40K-0503 A Moment of Cruelty — **Roster mistag**: eShort (originally The Leper of Mhurghast) and **Age of Sigmar** (Mhurghast/Shyish, Valenth nobility). Two `data_conflict` flags. Thin Goodreads (n=21).
+  - W40K-0504 Pentimento — **Roster mistag**: Warhammer Horror Week 2020 eShort, later reprinted inside The Harrowed Paths anthology. Setting plausibly 40K hive (Lexicanum URL is wh40k); civilian sketch-artist plot leaves no clear Browse-Root faction. `data_conflict` on format, `low_confidence` on factions.
+  - W40K-0505 The Cache — **Roster mistag**: eShort, not a novel. Self-contained Spike/Clan-Urretzi vertical-warren setting; Lexicanum places it in 40K but no canonical Browse-Root faction lands cleanly. `data_conflict` on format, `low_confidence` on factions. Used "Clan Urretzi" as primary faction surface form.
+  - W40K-0506 The Reverie — Confirmed 40K novel (Peter Fehervari). Angels Resplendent chapter on their homeworld; three travellers (Knight Exemplar, Muse, scholar) named only by archetype in source coverage. `low_confidence` on characters.
+  - W40K-0507 Anathemas — Confirmed anthology (14 stories, 13 authors). Aggregated factions/locations/characters left empty with three `low_confidence` flags: mixed 40K + AoS settings per story, no continuous protagonist, per-story enumeration would need deeper coverage.
+  - W40K-0508 Sepulturum — Confirmed 40K novel. Morgravia Sanctus, Inquisitor of Ordo Sepulturum, hides in low-hive Blackgeist amid plague-zombie outbreak. Inquisition-Konsistenz applied: both `Inquisition` and `Ordo Sepulturum` as `primary` factions.
+  - W40K-0509 The Deacon of Wounds — Confirmed 40K novel (Annandale, gothic-plague gothic). Adeptus Ministorum on dying planet Theotokos; Arch-Deacon Ambrose (pov) vs corrupt-then-dead Cardinal Lorenz. Clean overrides, no flags.
+  - W40K-0510 The Harrowed Paths — **Roster mistag**: actually a seven-story Warhammer Horror anthology (McNeill, Gray, Strachan, Sheil, Kyme, Hinks, Ozga); roster has it as a novel by Graham McNeill (he wrote only the opening story, The Colonel's Monograph). Mixed 40K + AoS contents; `data_conflict` on format with suggestion `anthology`, plus `low_confidence` on factions/locations. Note: Anathemas + Harrowed Paths together reprint Lora Gray's "Five Candles" and Nick Kyme's "Pentimento", which also appear in this same batch as standalone slots — duplicate-roster signal worth surfacing in a future cleanup brief.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Angels Resplendent (Adeptus Astartes chapter, 40K); Adeptus Ministorum, Inquisition, Ordo Sepulturum (40K factions); Ceocan, Theotokos, Blackgeist, Durgov, The Spike, The Reverie (40K locations/settings); Mhurghast, Shyish, Aqshy (Age-of-Sigmar locations from the two AoS-misslotted entries); Clan Urretzi, Valenth (in-story group/family names); Ashielle Matkosen, Ruprekt Matkosen, Havisa, Alabastian Valenth, Mabeth, Lyse, Morgravia Sanctus, The Broker, Arch-Deacon Ambrose, Cardinal Lorenz (characters).
+- **Verification skipped:** Reiner Daten-Commit (eine neue Override-JSON + Log-Append, kein Code) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` per Brief-061-Konvention übersprungen.
