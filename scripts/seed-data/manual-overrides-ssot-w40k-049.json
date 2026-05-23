@@ -1,0 +1,527 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-049",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7",
+  "rationale": "10er-Welle in drei sauberen Strängen: zwei Aeldari/Ynnari-Novellen von Gav Thorpe (Rise of the Ynnari), drei Blackstone-Fortress-Beitraege von Darius Hinks (zwei Romane plus die Multi-Author-Anthology Vaults of Obsidian) und die fuenf bisherigen Warped-Galaxies-Mittelstufenromane von Cavan Scott. Tag-Profil wechselt entsprechend stark zwischen cosmic-horror Adult-SF (Blackstone) und actionorientierter Hopepunk-Kinderbuchreihe (Warped Galaxies, cw_parental_guidance, civilian ensemble, length short).",
+  "books": [
+    {
+      "externalBookId": "W40K-0481",
+      "slug": "ghost-warrior",
+      "overrides": {
+        "synopsis": "In the wake of the Great Rift, the craftworld of Iyanden reels from successive Tyranid invasions and the fracturing of the galaxy. Then a signal arrives from Ziasuthra, a craftworld lost to memory for millennia, now suddenly returned from sanctuary in the warp. The Spiritseer Iyanna Arienal and Yvraine, Emissary of Ynnead, lead a small Aeldari delegation to open negotiations with their long-vanished kin. Officially they come bearing offers of alliance; in truth, both women seek the last of the croneswords, a relic rumoured to lie behind an ancient webway portal somewhere on Ziasuthra. As they tread carefully through unfamiliar halls and meet the Ziasuthrans face to face, it becomes clear that their hosts have agendas of their own, and that the gathered followers of the Whispering God may be as much in danger as in welcome.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "female",
+          "pc_xenos",
+          "xenos",
+          "planetary",
+          "series_start",
+          "standard",
+          "mystery",
+          "journey",
+          "war_story",
+          "somber",
+          "philosophical",
+          "faith",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ynnari", "role": "primary" },
+          { "name": "Iyanden", "role": "supporting" },
+          { "name": "Ziasuthra", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Iyanden", "role": "supporting" },
+          { "name": "Ziasuthra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Yvraine", "role": "pov" },
+          { "name": "Iyanna Arienal", "role": "pov" },
+          { "name": "The Visarch", "role": "supporting" },
+          { "name": "The Yncarne", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.60,
+          "count": 231,
+          "evidenceUrl": "https://www.goodreads.com/book/show/36452571-ghost-warrior"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0482",
+      "slug": "wild-rider",
+      "overrides": {
+        "synopsis": "Nuadhu Fireheart, headstrong Wild Lord of the Saim-Hann craftworld, has always been first to ride toward danger. When an emissary of Yvraine seeks him out, he agrees to investigate a stirring on the world of Agarimethea, and unwittingly wakes the necrontyr from a slumber that has lasted aeons. With his ailing grandfather Naiall, chieftain of Clan Fireheart, watching from afar, Nuadhu must turn to the followers of the Whispering God for an alliance his proud kin would never normally accept. Riders, Spiritseers and Ynnari race back to Agarimethea to break the Necron tomb before its strength becomes unstoppable. But Yvraine's interest in Naiall runs deeper than diplomacy, and Nuadhu begins to suspect his clan has been brought to the brink of something far older than a single battle.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "journey",
+          "action_heavy",
+          "grimdark",
+          "loyalty",
+          "war",
+          "sacrifice",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Saim-Hann", "role": "primary" },
+          { "name": "Ynnari", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Saim-Hann", "role": "supporting" },
+          { "name": "Agarimethea", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nuadhu Fireheart", "role": "pov" },
+          { "name": "Yvraine", "role": "supporting" },
+          { "name": "Naiall Fireheart", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.50,
+          "count": 115,
+          "evidenceUrl": "https://www.goodreads.com/book/show/42740946-wild-rider"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0483",
+      "slug": "blackstone-fortress",
+      "overrides": {
+        "synopsis": "Janus Draik is a Rogue Trader who has spent his fortune chasing the kind of glory his father refuses to acknowledge. Disowned in all but name, he lingers on the space port of Precipice, a ramshackle outpost clinging to the side of an immense, ancient void-fortress that nobody truly understands. To save his name, Draik gathers an unlikely crew, the missionary Taddeus and his protege Vorne, the kroot tracker Grekh, the ratlings Rein and Raus, and his loyal companions Audus and Isola, and resolves not merely to plunder the Blackstone but to seize it for the Imperium. As the expedition pushes through halls that bend the mind and rooms that should not exist, Draik begins to fear that the Fortress is not being explored so much as it is choosing whom it will let inside.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "multi",
+          "imperium",
+          "planetary",
+          "series_start",
+          "standard",
+          "mystery",
+          "journey",
+          "character_study",
+          "somber",
+          "cosmic_horror",
+          "hubris",
+          "doubt",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Rogue Traders", "role": "primary" },
+          { "name": "Adeptus Ministorum", "role": "supporting" },
+          { "name": "Kroot", "role": "supporting" },
+          { "name": "Ratlings", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Precipice", "role": "primary" },
+          { "name": "Blackstone Fortress", "role": "primary" },
+          { "name": "Western Reaches", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Janus Draik", "role": "pov" },
+          { "name": "Audus", "role": "supporting" },
+          { "name": "Isola", "role": "supporting" },
+          { "name": "Taddeus", "role": "supporting" },
+          { "name": "Vorne", "role": "supporting" },
+          { "name": "Grekh", "role": "supporting" },
+          { "name": "Rein", "role": "supporting" },
+          { "name": "Raus", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.62,
+          "count": 648,
+          "evidenceUrl": "https://www.goodreads.com/book/show/42840234-blackstone-fortress"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0484",
+      "slug": "vaults-of-obsidian",
+      "overrides": {
+        "synopsis": "The space port of Precipice clings to the edge of the Blackstone Fortress, an unfathomable construct adrift in the Western Reaches, lit by uneasy alliances and unsteady fortunes. This anthology gathers a dozen short stories from across that strange frontier. A ratling pair scheme over a salvage haul; a robot of the Mechanicus broods on its long memory; a kroot tracker tests the limits of an oath; a tech-priest hunts for relics that should never have been built. Rogue traders, hereteks and zealots brush past one another in cantinas and corridors, while inside the Fortress itself ancient mechanisms wake to the presence of those bold or foolish enough to wander deeper. The pieces sit close enough to the wider Blackstone novels to enrich them, but each stands on its own as a sketch from a haunted, half-explored world.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "mystery",
+          "character_study",
+          "war_story",
+          "somber",
+          "cosmic_horror",
+          "brotherhood",
+          "hubris",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Rogue Traders", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Adeptus Ministorum", "role": "supporting" },
+          { "name": "Kroot", "role": "supporting" },
+          { "name": "Ratlings", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Precipice", "role": "primary" },
+          { "name": "Blackstone Fortress", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Janus Draik", "role": "supporting" },
+          { "name": "Grekh", "role": "supporting" },
+          { "name": "Rein", "role": "supporting" },
+          { "name": "Raus", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.86,
+          "count": 106,
+          "evidenceUrl": "https://www.goodreads.com/book/show/52757645-vaults-of-obsidian"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0485",
+      "slug": "ascension-blackstone-fortress",
+      "overrides": {
+        "synopsis": "Precipice is dying. For weeks the makeshift space port has been hammered by warp-born storms boiling out of the Blackstone Fortress, severing docking arms and snuffing out any chance of evacuation. Inside the storm Janus Draik reads, almost calmly, the letter that has just stripped him of his rank, his titles and his inheritance. He has one last chance to make his name mean something, and only one place left to look. With the help of the missionary Taddeus and his disciple Vorne, the kroot Grekh, the ratlings Rein and Raus, his companions Audus and Isola, and an unnerving alien called the Archivist, Draik leads the survivors deeper into the Fortress than anyone has yet dared to go. To stop the abomination at its heart he will have to rebuild a fragile trust between humans and xenos who have every reason to turn on each other.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "multi",
+          "imperium",
+          "planetary",
+          "series_finale",
+          "standard",
+          "mystery",
+          "last_stand",
+          "journey",
+          "somber",
+          "cosmic_horror",
+          "grimdark",
+          "doubt",
+          "sacrifice",
+          "brotherhood",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Rogue Traders", "role": "primary" },
+          { "name": "Adeptus Ministorum", "role": "supporting" },
+          { "name": "Kroot", "role": "supporting" },
+          { "name": "Ratlings", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Precipice", "role": "primary" },
+          { "name": "Blackstone Fortress", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Janus Draik", "role": "pov" },
+          { "name": "Audus", "role": "supporting" },
+          { "name": "Isola", "role": "supporting" },
+          { "name": "Taddeus", "role": "supporting" },
+          { "name": "Vorne", "role": "supporting" },
+          { "name": "Grekh", "role": "supporting" },
+          { "name": "Rein", "role": "supporting" },
+          { "name": "Raus", "role": "supporting" },
+          { "name": "The Archivist", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.74,
+          "count": 160,
+          "evidenceUrl": "https://www.goodreads.com/book/show/55233434"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0486",
+      "slug": "attack-of-the-necron",
+      "overrides": {
+        "synopsis": "On the windswept plains of the hive world Targian, twelve-year-old Zelia Lor helps her mother dig for the relics of vanished civilisations. Their quiet life ends the day the sky fills with the angular ships of the Necrons. Without warning, the soulless robotic army begins to tear Targian apart. Separated from her mother in the chaos, Zelia escapes in a battered pod, clutching only a scrambled message that promises sanctuary at a place called the Emperor's Seat. She crashes far from home, on a freezing world she does not recognise, and meets an unlikely band of fellow survivors: the streetwise juve Talen, the gadget-obsessed Martian boy Mekki, and a startlingly clever alien-ape named Fleapit. Together they will have to learn to trust one another long enough to survive the galaxy that just shattered their world.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "ensemble",
+          "civilian",
+          "imperium",
+          "planetary",
+          "series_start",
+          "short",
+          "war_story",
+          "journey",
+          "action_heavy",
+          "hopepunk",
+          "loyalty",
+          "brotherhood",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_parental_guidance",
+          "en"
+        ],
+        "factions": [
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Targian", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Zelia Lor", "role": "pov" },
+          { "name": "Talen", "role": "pov" },
+          { "name": "Mekki", "role": "pov" },
+          { "name": "Fleapit", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.62,
+          "count": 316,
+          "evidenceUrl": "https://www.goodreads.com/book/show/40680054"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0487",
+      "slug": "claws-of-the-genestealer",
+      "overrides": {
+        "synopsis": "Marooned on a remote ice world after fleeing the destruction of Targian, Zelia Lor and her newfound companions are still learning how to survive, and how to put up with each other. Talen distrusts the alien-ape Fleapit, resents the Martian boy Mekki, and bristles at every order Zelia gives. Then something far worse than the cold begins to stalk them through the snow: a Genestealer, one of the most feared xenos in the galaxy, hunting with eerie patience. A faint distress beacon offers the slimmest hope of rescue, but other things move in the white silence, watching the children with hungry eyes. To live long enough to reach the Emperor's Seat, and any clue to Zelia's missing mother, the four of them will have to outpace the creature and learn to rely on one another in the process.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "ensemble",
+          "civilian",
+          "imperium",
+          "squad",
+          "mid_series",
+          "short",
+          "last_stand",
+          "journey",
+          "war_story",
+          "action_heavy",
+          "somber",
+          "brotherhood",
+          "loyalty",
+          "doubt",
+          "cw_violence",
+          "cw_parental_guidance",
+          "en"
+        ],
+        "factions": [
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Zelia Lor", "role": "pov" },
+          { "name": "Talen", "role": "pov" },
+          { "name": "Mekki", "role": "pov" },
+          { "name": "Fleapit", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.83,
+          "count": 146,
+          "evidenceUrl": "https://www.goodreads.com/book/show/43122046-claws-of-the-genestealer"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0488",
+      "slug": "secrets-of-the-tau",
+      "overrides": {
+        "synopsis": "Plucked out of the ice by a slippery rogue trader, Zelia Lor, Talen, Mekki and Fleapit reach Hinterland, a bustling and chaotic spaceport at the edge of Imperial space. Aliens of every shape brush shoulders with grubby human traders, and almost nothing on offer is quite what it claims to be. Among the throng moves Captain Harleen Amity, a sharp-tongued pirate with a tragic past, who reluctantly takes the children under her wing. They are still chasing the same scrambled signal as before, a route to the Emperor's Seat and, with luck, Zelia's missing mother, but Hinterland is a place where information is currency, suspicion is sensible, and the secrets of the Tau turn out to be far more dangerous than anyone in their little crew can yet imagine.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "ensemble",
+          "civilian",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "short",
+          "mystery",
+          "journey",
+          "action_heavy",
+          "hopepunk",
+          "loyalty",
+          "brotherhood",
+          "doubt",
+          "cw_violence",
+          "cw_parental_guidance",
+          "en"
+        ],
+        "factions": [
+          { "name": "T'au Empire", "role": "primary" },
+          { "name": "Rogue Traders", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Hinterland", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Zelia Lor", "role": "pov" },
+          { "name": "Talen", "role": "pov" },
+          { "name": "Mekki", "role": "pov" },
+          { "name": "Fleapit", "role": "supporting" },
+          { "name": "Harleen Amity", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.84,
+          "count": 96,
+          "evidenceUrl": "https://www.goodreads.com/book/show/43122048-secrets-of-the-tau"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0489",
+      "slug": "war-of-the-orks",
+      "overrides": {
+        "synopsis": "Still searching for the Emperor's Seat and any clue to her mother's fate, Zelia Lor and her friends, Talen, the Martian boy Mekki, the brilliant alien-ape Fleapit and the dashing pirate captain Harleen Amity, set down on the steaming jungle world of Weald. They have come for water and shelter; what they find is a war. Two enormous tribes of greenskin Orks are fighting each other to extinction beneath the canopy, and a handful of off-worlders blundering through the trees draws the attention of both. Outnumbered and outgunned, the children will have to outthink savage warlords who measure worth in noise and violence. Wits, gadgets and a great deal of luck are all that stand between Zelia's small crew and being trampled underfoot.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "ensemble",
+          "civilian",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "short",
+          "war_story",
+          "journey",
+          "last_stand",
+          "action_heavy",
+          "satirical",
+          "brotherhood",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "cw_parental_guidance",
+          "en"
+        ],
+        "factions": [
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Rogue Traders", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Weald", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Zelia Lor", "role": "pov" },
+          { "name": "Talen", "role": "pov" },
+          { "name": "Mekki", "role": "pov" },
+          { "name": "Fleapit", "role": "supporting" },
+          { "name": "Harleen Amity", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.08,
+          "count": 59,
+          "evidenceUrl": "https://www.goodreads.com/book/show/45032700-war-of-the-orks"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0490",
+      "slug": "plague-of-the-nurglings",
+      "overrides": {
+        "synopsis": "Zelia Lor and her friends arrive on Aparitus, a roaring forge world of immense industrial cathedrals tended by the cybernetic priests of the Adeptus Mechanicus. They are no longer travelling alone: the stern Inquisitor Jeremias has taken them under his protection, and his presence opens doors that would otherwise stay closed. But Aparitus is not the safe haven it appears to be. A strange sickness begins to spread, leaping from machine to machine and birthing crowds of giggling little daemons, Nurglings, that swarm through the corridors. When Jeremias reaches into the warp to track down a renegade rogue trader, he tears open a wound that the children are unprepared for: their first true encounter with the daemonic servants of the plague god Nurgle.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "ensemble",
+          "civilian",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "short",
+          "war_story",
+          "mystery",
+          "journey",
+          "action_heavy",
+          "cosmic_horror",
+          "faith",
+          "brotherhood",
+          "doubt",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_parental_guidance",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Chaos Daemons", "role": "antagonist" },
+          { "name": "Nurgle", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Aparitus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Zelia Lor", "role": "pov" },
+          { "name": "Talen", "role": "pov" },
+          { "name": "Mekki", "role": "pov" },
+          { "name": "Fleapit", "role": "supporting" },
+          { "name": "Inquisitor Jeremias", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.04,
+          "count": 46,
+          "evidenceUrl": "https://www.goodreads.com/book/show/50891100-plague-of-the-nurglings"
+        }
+      }
+    }
+  ]
+}

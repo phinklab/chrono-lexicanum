@@ -1625,3 +1625,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Traitor Guard (recurring antagonist surface for Cadia titles); Cadian Shock (Astra Militarum sub); T'au Empire (concrete xenos sub); Genesis Chapter (Ultramarines successor surface); Genestealer Cults (kept distinct from Tyranids); Flesh Tearers / Blood Drinkers / Lamenters (Blood Angels successor surfaces); Drakul-zar / Bolaraphon / Izaak / Zaeroph (named antagonist characters); Ursarkar Creed (Cadia legacy figure).
 - **Verifikation:** lint/typecheck/brain:lint übersprungen (reiner Daten-Commit, Brief-061-Konvention).
+
+## 2026-05-23 · ssot-w40k-049 · W40K-0481..W40K-0490 · ✅
+
+- **Cumulative books in authority:** 490
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=480, batch=ssot-w40k-049, slice=W40K-0481..W40K-0490
+- **WebSearch:** mean=1, max=1 (over 10 books — 1 synopsis-context search per book, all Goodreads ratings page-read via WebFetch)
+- **Per-book bullets:**
+  - W40K-0481 Ghost Warrior: clean. Two female Aeldari POVs (Yvraine, Iyanna Arienal). Ziasuthra carried both as faction (long-lost craftworld grouping) and location. Tyranid attacks mentioned as backdrop only — kept out of `factions`.
+  - W40K-0482 Wild Rider: clean. Saim-Hann + Ynnari vs awakening Necrons on Agarimethea. Lowest rating count in batch (115) but a single canonical Goodreads work, no disambiguation needed.
+  - W40K-0483 Blackstone Fortress: companion cohort split into `Rogue Traders` / `Adeptus Ministorum` (Taddeus, Vorne) / `Kroot` (Grekh) / `Ratlings` (Rein & Raus). UR-025 / negavolt / heretek elements present in source game but not foregrounded in this novel — Mechanicus omitted here, included in `W40K-0484` anthology where Mechanicus-protagonist stories appear.
+  - W40K-0484 Vaults of Obsidian: anthology aggregated across ~12 stories / ~10 authors per the §6 omnibus rule. `audiobook` tag deliberately omitted — could not confirm a Black Library audiobook edition from sources; left at `book` only.
+  - W40K-0485 Ascension: tagged `series_finale` — Blackstone Fortress novel arc is a 2-book Hinks set (BSF + Ascension); the anthology sits between them but doesn't continue Draik's POV thread. The Archivist mapped to `antagonist` per source's "duplicitous alien" framing.
+  - W40K-0486 Attack of the Necron: middle-grade Warhammer Adventures conventions applied throughout the next 5 entries — `civilian`, `ensemble`, `short`, `cw_parental_guidance`. Mekki's Martian/Mechanicus origin is backstory only this volume; not added to `factions`.
+  - W40K-0487 Claws of the Genestealer: `locations` left empty — synopsis names only an unnamed "remote ice world"; refused to invent a place name. Genestealer mapped to `Tyranids` faction (canonical parent).
+  - W40K-0488 Secrets of the Tau: `T'au Empire` carried as primary (apostrophe surface form per current BL canon; book title drops the apostrophe). Captain Harleen Amity tagged supporting under `Rogue Traders` — synopsis calls her a "pirate" but Black Library positions her as a rogue trader captain.
+  - W40K-0489 War of the Orks: added `satirical` tone for the Ork tribal warfare framing. Amity again under `Rogue Traders`.
+  - W40K-0490 Plague of the Nurglings: `Adeptus Mechanicus` primary (forge world Aparitus), `Inquisition` supporting (Jeremias, Ordo unspecified — kept generic), `Chaos Daemons` + `Nurgle` both `antagonist`. Per §7 Inquisition-Konsistenz, Jeremias is supporting not POV so this is just safe coverage.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Ziasuthra (craftworld surface — post-Great Rift introduction in Ghost Warrior), Saim-Hann (canonical hyphenation), Ynnari (canonical), T'au Empire (apostrophe form vs book title's apostrophe-less "Tau"), Adeptus Mechanicus (full canonical name preferred over short "Mechanicus"), The Archivist, Inquisitor Jeremias.
+- **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief-061-Konvention (reiner Daten-Commit, Override-JSON + Markdown-Append, kein Code).
