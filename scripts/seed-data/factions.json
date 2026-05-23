@@ -1150,5 +1150,40 @@
     "parent": "imperial_knights",
     "alignment": "imperium",
     "tone": "imperial"
+  },
+  {
+    "id": "kroot",
+    "name": "Kroot",
+    "parent": "tau",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "ratlings",
+    "name": "Ratlings",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "traitor_guard",
+    "name": "Traitor Guard",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "lamenters",
+    "name": "Lamenters",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "blood_drinkers",
+    "name": "Blood Drinkers",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
   }
 ]

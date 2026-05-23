@@ -2077,5 +2077,201 @@
     "primaryFactionId": "house_chimaeros",
     "lexicanumUrl": null,
     "notes": "Resolver-Pass 7: Imperial Knight noble of the Chimaeros confederacy in Clark's Knightsblade (W40K-0446), freq 1. Phase-1 FK target (anticipated companion to luk_kar_chimaeros); primaryFactionId house_chimaeros landed by Pass-7 Phase 1."
+  },
+  {
+    "id": "zelia_lor",
+    "name": "Zelia Lor",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: civilian xenoarchaeologist's daughter and POV of Cavan Scott's Warped Galaxies kids' series (W40K-0486..0490) + sequel-opener Tomb of the Necron (W40K-0491). Dossier 7a Case A: combined freq 6 (Zelia Lor freq 5 + bare-given-name 'Zelia' freq 1). One row + alias 'Zelia' → zelia_lor (character-aliases.json). primaryFactionId imperium per dossier 7d Note 1 (civilian fallback to broad row)."
+  },
+  {
+    "id": "talen",
+    "name": "Talen",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Imperial Guardsman boy companion in Cavan Scott's Warped Galaxies kids' series (W40K-0486..0490) + Tomb of the Necron (W40K-0491). freq 6 (top character of the wave). primaryFactionId astra_militarum (Cadian-boy framing per dossier 7b)."
+  },
+  {
+    "id": "mekki",
+    "name": "Mekki",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Forge-World tech-priest novice companion in Cavan Scott's Warped Galaxies kids' series (W40K-0486..0490). freq 5 across all five batch-049 Warped Galaxies novels. primaryFactionId mechanicus per dossier 7b."
+  },
+  {
+    "id": "fleapit",
+    "name": "Fleapit",
+    "primaryFactionId": null,
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: abhuman/robot companion in Cavan Scott's Warped Galaxies kids' series (W40K-0486..0490). freq 5. primaryFactionId null per dossier 7d Note 1 (no clean canonical faction; abhumans row does not exist, broader 'imperium' would mis-represent affiliation — Torris-Vaun precedent for unmodeled affiliation)."
+  },
+  {
+    "id": "minka_lesk",
+    "name": "Minka Lesk",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Cadian POV of Justin D. Hill's Cadian Saga (W40K-0469 Cadia Stands, W40K-0470 Cadian Honour, W40K-0471 Traitor Rock, W40K-0472 Shadow of the Eighth, W40K-0473 Last Whiteshield collection). freq 5 — single most recurrent unresolved Phase-3 row in this wave (dossier 7b). primaryFactionId astra_militarum (Cadian Shock Troops regiment grain handled at faction-axis via Phase-1 alias)."
+  },
+  {
+    "id": "erasmus_crowl",
+    "name": "Erasmus Crowl",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Imperial Inquisitor POV of Chris Wraight's Vaults of Terra trilogy (W40K-0456 The Carrion Throne, W40K-0457 The Hollow Mountain, W40K-0458 The Dark City) + the omnibus W40K-0459. freq 4 across trilogy + omnibus. primaryFactionId inquisition per dossier 7b."
+  },
+  {
+    "id": "luce_spinoza",
+    "name": "Luce Spinoza",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Crowl's interrogator-acolyte in Chris Wraight's Vaults of Terra trilogy (W40K-0456..0458) + omnibus W40K-0459. freq 4. primaryFactionId inquisition (Inquisitorial Interrogator grain shares the Ordo umbrella)."
+  },
+  {
+    "id": "grekh",
+    "name": "Grekh",
+    "primaryFactionId": "kroot",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Kroot tracker / mercenary in Darius Hinks' Blackstone Fortress duology + Vaults of Obsidian anthology (W40K-0483/0484/0485). freq 3. primaryFactionId kroot — first character to bind the Phase-1 promotion (kroot row landed by Phase 1, parent tau), runbook §5 FK chain green."
+  },
+  {
+    "id": "inquisitor_covenant",
+    "name": "Inquisitor Covenant",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Inquisitor protagonist of John French's Horusian Wars trilogy (W40K-0466 Resurrection, W40K-0467 Incarnation, W40K-0468 Divination). freq 3 (one per volume). primaryFactionId inquisition per dossier 7b."
+  },
+  {
+    "id": "janus_draik",
+    "name": "Janus Draik",
+    "primaryFactionId": "rogue_traders",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Rogue Trader POV of Darius Hinks' Blackstone Fortress duology + Vaults of Obsidian anthology (W40K-0483/0484/0485). freq 3. primaryFactionId rogue_traders per dossier 7b."
+  },
+  {
+    "id": "mortarion",
+    "name": "Mortarion",
+    "primaryFactionId": "death_guard",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Daemon Primarch of the Death Guard, central antagonist of Guy Haley's Dark Imperium trilogy (W40K-0463 Dark Imperium, W40K-0464 Plague War, W40K-0465 Godblight). freq 3 — both lore-iconic primarch and freq≥2 evidence. primaryFactionId death_guard."
+  },
+  {
+    "id": "raus",
+    "name": "Raus",
+    "primaryFactionId": "ratlings",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Ratling twin (with rein) in Darius Hinks' Blackstone Fortress duology + Vaults of Obsidian anthology (W40K-0483/0484/0485). freq 3. primaryFactionId ratlings — binds the Phase-1 abhuman-auxiliary promotion (ratlings row landed by Phase 1, parent astra_militarum)."
+  },
+  {
+    "id": "rein",
+    "name": "Rein",
+    "primaryFactionId": "ratlings",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Ratling twin (with raus) in Darius Hinks' Blackstone Fortress duology + Vaults of Obsidian anthology (W40K-0483/0484/0485). freq 3. primaryFactionId ratlings (Phase-1 abhuman-auxiliary row)."
+  },
+  {
+    "id": "aleksei_lev_tieron",
+    "name": "Aleksei Lev Tieron",
+    "primaryFactionId": "senatorum_imperialis",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Chancellor of the Senatorum Imperialis (High Twelve official) in Chris Wraight's Watchers of the Throne duology (W40K-0452 The Emperor's Legion, W40K-0453 The Regent's Shadow). freq 2. primaryFactionId senatorum_imperialis (Pass-7 promotion)."
+  },
+  {
+    "id": "audus",
+    "name": "Audus",
+    "primaryFactionId": "rogue_traders",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Draik's retainer / crew (pilot) in Darius Hinks' Blackstone Fortress duology (W40K-0483, W40K-0485). freq 2. primaryFactionId rogue_traders (Rogue-Trader-retinue grain matches Draik)."
+  },
+  {
+    "id": "harleen_amity",
+    "name": "Harleen Amity",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Inquisitor introduced in Cavan Scott's Warped Galaxies cluster — Secrets of the Tau (W40K-0488) + War of the Orks (W40K-0489). freq 2. primaryFactionId inquisition per dossier 7b."
+  },
+  {
+    "id": "isola",
+    "name": "Isola",
+    "primaryFactionId": "rogue_traders",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Draik's retainer (factotum/seneschal) in Darius Hinks' Blackstone Fortress duology (W40K-0483, W40K-0485). freq 2. primaryFactionId rogue_traders (Rogue-Trader-retinue grain)."
+  },
+  {
+    "id": "taddeus",
+    "name": "Taddeus",
+    "primaryFactionId": "ecclesiarchy",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Ecclesiarchy preacher attached to Draik's expedition in Darius Hinks' Blackstone Fortress duology (W40K-0483, W40K-0485). freq 2. primaryFactionId ecclesiarchy per dossier 7b."
+  },
+  {
+    "id": "tanau_aleya",
+    "name": "Tanau Aleya",
+    "primaryFactionId": "talons_of_the_emperor",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Sister of Silence Vigilator paired with Valerian across Chris Wraight's Watchers of the Throne duology (W40K-0452, W40K-0453). freq 2. primaryFactionId talons_of_the_emperor (Sisters-of-Silence axis already aliased)."
+  },
+  {
+    "id": "valerian",
+    "name": "Valerian",
+    "primaryFactionId": "custodes",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Custodian Companion paired with Tanau Aleya across Chris Wraight's Watchers of the Throne duology (W40K-0452, W40K-0453). freq 2. primaryFactionId custodes."
+  },
+  {
+    "id": "vorne",
+    "name": "Vorne",
+    "primaryFactionId": "rogue_traders",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Draik retainer (gun-servant / heavy weapons) in Darius Hinks' Blackstone Fortress duology (W40K-0483, W40K-0485). freq 2. primaryFactionId rogue_traders (Rogue-Trader-retinue grain)."
+  },
+  {
+    "id": "yvraine",
+    "name": "Yvraine",
+    "primaryFactionId": "ynnari",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Emissary of Ynnead / Daughter of Shades, prophetess of the Ynnari. Cameos across Gav Thorpe's Iyanden duology (W40K-0481 Ghost Warrior, W40K-0482 Wild Rider). freq 2 — lore-iconic Ynnari leader (dossier 7b)."
+  },
+  {
+    "id": "gabriel_seth",
+    "name": "Gabriel Seth",
+    "primaryFactionId": "flesh_tearers",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Chapter Master of the Flesh Tearers, lore-iconic Blood-Angels-successor figure. Appears in Guy Haley's Devastation of Baal (W40K-0474). freq 1 lore-iconic per dossier 7b cluster."
+  },
+  {
+    "id": "kardan_stronos",
+    "name": "Kardan Stronos",
+    "primaryFactionId": "iron_hands",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Iron Council Chapter Master of the Iron Hands, lore-iconic anchor of David Guymer's Iron Hands cluster (W40K-0460 Eye of Medusa, W40K-0461 Voice of Mars, W40K-0462 Meduson Wings). freq 1 strict; lore-iconic per dossier 7b (Eye of Medusa / Voice of Mars are his story)."
+  },
+  {
+    "id": "the_visarch",
+    "name": "The Visarch",
+    "primaryFactionId": "ynnari",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Sword of Ynnead, Yvraine's bodyguard. Cameo in Gav Thorpe's Ghost Warrior (W40K-0481). freq 1 lore-iconic per dossier 7b/7c — part of the Ynnari triumvirate (Yvraine / Visarch / Yncarne)."
+  },
+  {
+    "id": "the_yncarne",
+    "name": "The Yncarne",
+    "primaryFactionId": "ynnari",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Avatar of Ynnead, manifested via Yvraine's rituals. Cameo in Gav Thorpe's Ghost Warrior (W40K-0481). freq 1 lore-iconic per dossier 7b/7c (Ynnari triumvirate)."
+  },
+  {
+    "id": "iyanna_arienal",
+    "name": "Iyanna Arienal",
+    "primaryFactionId": "ynnari",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Iyanden Spiritseer aligned with the Ynnari, central figure of Gav Thorpe's Ghost Warrior (W40K-0481). freq 1 lore-iconic per dossier 7c (Ynnari & Iyanden lore-iconic). primaryFactionId ynnari (post-Yvraine alignment context)."
+  },
+  {
+    "id": "typhus",
+    "name": "Typhus",
+    "primaryFactionId": "death_guard",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 8 Phase 3: Herald of Nurgle, host of the Destroyer Hive, lord of the Death Guard. Appears in Guy Haley's Plague War (W40K-0464). freq 1 lore-iconic per dossier 7c (Plague Lord of the Death Guard, primarch-tier antagonist)."
   }
 ]

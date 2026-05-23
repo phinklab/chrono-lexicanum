@@ -1704,5 +1704,109 @@
     "gx": null,
     "gy": null,
     "tags": ["blood_angels"]
+  },
+  {
+    "id": "blackstone_fortress",
+    "name": "Blackstone Fortress",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "precipice",
+    "name": "Precipice",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "crannog_mons",
+    "name": "Crannog Mons",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "malouri",
+    "name": "Malouri",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "almace",
+    "name": "Almace",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "tizca",
+    "name": "Tizca",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": ["thousand_sons"]
+  },
+  {
+    "id": "thennos",
+    "name": "Thennos",
+    "sector": "tempestus",
+    "gx": null,
+    "gy": null,
+    "tags": ["iron_hands"]
+  },
+  {
+    "id": "saim_hann",
+    "name": "Saim-Hann",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["eldar"]
+  },
+  {
+    "id": "dominicus_prime",
+    "name": "Dominicus Prime",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "malveil",
+    "name": "Malveil",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "theotokos",
+    "name": "Theotokos",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "vansen_falls",
+    "name": "Vansen Falls",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "grayloc_manor",
+    "name": "Grayloc Manor",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
   }
 ]

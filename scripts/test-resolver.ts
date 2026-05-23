@@ -317,6 +317,54 @@ check("alias - seventh wave Striking Scorpions routes to Aeldari umbrella (Aspec
   assert.equal(resolveFaction("Striking Scorpions").id, "eldar");
 });
 
+check("alias - eighth wave Adeptus Ministorum routes to Ecclesiarchy (freq=11 wave-top surface form)", () => {
+  assert.equal(resolveFaction("Adeptus Ministorum").id, "ecclesiarchy");
+});
+
+check("alias - eighth wave High Lords of Terra routes to Senatorum Imperialis (M42 governance body)", () => {
+  assert.equal(resolveFaction("High Lords of Terra").id, "senatorum_imperialis");
+});
+
+check("alias - eighth wave Cadian Shock routes to Cadian Shock Troops regiment", () => {
+  assert.equal(resolveFaction("Cadian Shock").id, "cadian_shock_troops");
+});
+
+check("alias - eighth wave Officio Prefectus routes to Commissariat (formal institutional name)", () => {
+  assert.equal(resolveFaction("Officio Prefectus").id, "commissariat");
+});
+
+check("alias - eighth wave Ordo Sepulturum routes to Inquisition umbrella (sub-Ordo)", () => {
+  assert.equal(resolveFaction("Ordo Sepulturum").id, "inquisition");
+});
+
+check("alias - eighth wave Saim-Hann routes to Aeldari umbrella (Craftworld sub-form)", () => {
+  assert.equal(resolveFaction("Saim-Hann").id, "eldar");
+});
+
+check("alias - eighth wave Ziasuthra routes to Aeldari umbrella (Iyanden-cluster cross-axis surface)", () => {
+  assert.equal(resolveFaction("Ziasuthra").id, "eldar");
+});
+
+check("direct match - eighth wave Kroot (T'au auxiliary xenos species, freq=3)", () => {
+  assert.equal(resolveFaction("Kroot").id, "kroot");
+});
+
+check("direct match - eighth wave Ratlings (Astra Militarum abhuman auxiliaries, freq=3)", () => {
+  assert.equal(resolveFaction("Ratlings").id, "ratlings");
+});
+
+check("direct match - eighth wave Traitor Guard (renegade Imperial Guard, freq=3, parent=chaos)", () => {
+  assert.equal(resolveFaction("Traitor Guard").id, "traitor_guard");
+});
+
+check("direct match - eighth wave Lamenters (Blood Angels successor chapter, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Lamenters").id, "lamenters");
+});
+
+check("direct match - eighth wave Blood Drinkers (Blood Angels successor chapter, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Blood Drinkers").id, "blood_drinkers");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
@@ -533,6 +581,34 @@ check("direct match - seventh wave Ulthwe (Craftworld, freq=1 lore-iconic)", () 
 
 check("direct match - seventh wave Baal Secundus (Blood Angels recruitment moon, distinct row from baal, freq=1 lore-iconic)", () => {
   assert.equal(resolveLocation("Baal Secundus").id, "baal_secundus");
+});
+
+check("direct match - eighth wave Blackstone Fortress (Hinks' eponymous artefact-fortress, freq=3)", () => {
+  assert.equal(resolveLocation("Blackstone Fortress").id, "blackstone_fortress");
+});
+
+check("direct match - eighth wave Precipice (free-trade outpost docked to Blackstone Fortress, freq=3)", () => {
+  assert.equal(resolveLocation("Precipice").id, "precipice");
+});
+
+check("direct match - eighth wave Crannog Mons (Cadian feature, Cadian Saga, freq=2)", () => {
+  assert.equal(resolveLocation("Crannog Mons").id, "crannog_mons");
+});
+
+check("direct match - eighth wave Malouri (Cadian feature, Cadian Saga, freq=2)", () => {
+  assert.equal(resolveLocation("Malouri").id, "malouri");
+});
+
+check("direct match - eighth wave Almace (Cardinal world, Charadon Crusade target, freq=1 lore-iconic M42)", () => {
+  assert.equal(resolveLocation("Almace").id, "almace");
+});
+
+check("direct match - eighth wave Thennos (Iron Hands forge moon, Eye of Medusa, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Thennos").id, "thennos");
+});
+
+check("direct match - eighth wave Saim-Hann (Aeldari craftworld, location-axis row; faction-axis aliases to eldar)", () => {
+  assert.equal(resolveLocation("Saim-Hann").id, "saim_hann");
 });
 
 console.log("\nresolveCharacter");
@@ -835,6 +911,56 @@ check("alias-consolidation - seventh wave Commander Farsight both surface forms 
 check("alias-consolidation - seventh wave Gunnlaugur both surface forms collapse to one row", () => {
   assert.equal(resolveCharacter("Gunnlaugur").id, "gunnlaugur");
   assert.equal(resolveCharacter("Gunnlaugr").id, "gunnlaugur");
+});
+
+check("alias-consolidation - eighth wave Zelia Lor + bare given name 'Zelia' collapse to one row (7a Case A)", () => {
+  assert.equal(resolveCharacter("Zelia Lor").id, "zelia_lor");
+  assert.equal(resolveCharacter("Zelia").id, "zelia_lor");
+});
+
+check("alias-consolidation - eighth wave Ursarkar Creed + Lord Castellan Creed collapse to one row (wave §3 alias-resolved surface)", () => {
+  assert.equal(resolveCharacter("Ursarkar Creed").id, "ursarkar_e_creed");
+  assert.equal(resolveCharacter("Lord Castellan Creed").id, "ursarkar_e_creed");
+});
+
+check("direct match - eighth wave Mortarion (Daemon Primarch / Death Guard, Dark Imperium trilogy freq=3)", () => {
+  assert.equal(resolveCharacter("Mortarion").id, "mortarion");
+});
+
+check("direct match - eighth wave Minka Lesk (Cadian POV, Cadian Saga freq=5)", () => {
+  assert.equal(resolveCharacter("Minka Lesk").id, "minka_lesk");
+});
+
+check("direct match - eighth wave Erasmus Crowl (Inquisitor POV, Vaults of Terra trilogy freq=4)", () => {
+  assert.equal(resolveCharacter("Erasmus Crowl").id, "erasmus_crowl");
+});
+
+check("direct match - eighth wave Janus Draik (Rogue Trader POV, Blackstone Fortress duology freq=3)", () => {
+  assert.equal(resolveCharacter("Janus Draik").id, "janus_draik");
+});
+
+check("direct match - eighth wave Grekh (Kroot tracker, primaryFactionId binds Phase-1 kroot row, freq=3)", () => {
+  assert.equal(resolveCharacter("Grekh").id, "grekh");
+});
+
+check("direct match - eighth wave Yvraine (Ynnari prophetess, Iyanden duology freq=2)", () => {
+  assert.equal(resolveCharacter("Yvraine").id, "yvraine");
+});
+
+check("direct match - eighth wave Talen (Warped Galaxies Imperial Guardsman boy, freq=6 wave-top character)", () => {
+  assert.equal(resolveCharacter("Talen").id, "talen");
+});
+
+check("direct match - eighth wave Mekki (Warped Galaxies tech-priest novice, freq=5)", () => {
+  assert.equal(resolveCharacter("Mekki").id, "mekki");
+});
+
+check("direct match - eighth wave Kardan Stronos (Iron Council Chapter Master, freq=1 lore-iconic Iron Hands cluster anchor)", () => {
+  assert.equal(resolveCharacter("Kardan Stronos").id, "kardan_stronos");
+});
+
+check("direct match - eighth wave Typhus (Herald of Nurgle / Death Guard, freq=1 lore-iconic primarch-tier)", () => {
+  assert.equal(resolveCharacter("Typhus").id, "typhus");
 });
 
 console.log("\nnormalizeCharacterRole");
