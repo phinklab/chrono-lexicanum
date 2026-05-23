@@ -89,3 +89,10 @@ yarn-error.log*
 # inspection. Per-run, regenerated on every invocation, irrelevant in git.
 /scripts/.last-loop-run.log
 /scripts/.last-resolver-pass.log
+/scripts/.last-resolver-loop.log
+
+# --- resolver-pass state file (Brief 094) ----------------------------------
+# scripts/run-resolver-pass.sh writes per-phase progress here so the
+# resolver-loop wrapper can record outcomes in sessions/resolver-loop-log.md.
+# Regenerated on every invocation; irrelevant in git.
+/scripts/.last-resolver-pass-state.json

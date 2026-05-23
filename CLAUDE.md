@@ -27,7 +27,7 @@ This project's memory is split into two stores. Engineering memory stays in the 
 
 > **SSOT-Loop-Iteration?** Eine Loop-Iteration (`scripts/run-ssot-loop.sh`) ist ein mechanischer Task, **keine** normale Session: folge [`sessions/ssot-loop-runbook.md`](./sessions/ssot-loop-runbook.md) und überspringe diese Session-Start-Leseroutine (Brief 061 selbst wird **nicht** gelesen).
 
-> **Resolver-Pass-Phase?** Eine Phase eines axis-sliced Resolver-Passes (`scripts/run-resolver-pass.sh` / per-pass Config) ist ebenfalls ein mechanischer Task, **keine** normale Session: folge [`sessions/resolver-pass-runbook.md`](./sessions/resolver-pass-runbook.md) + der Pass-Config und überspringe diese Session-Start-Leseroutine (Brief 076 + der per-pass Architect-Brief werden **nicht** gelesen, um eine Phase zu fahren).
+> **Resolver-Welle?** Eine Welle — headless via `scripts/run-resolver-loop.sh` oder einzeln via `scripts/run-resolver-pass.sh <config>` — ist ein mechanischer Task, **keine** normale Session: folge [`sessions/resolver-pass-runbook.md`](./sessions/resolver-pass-runbook.md) + der per-Welle-Config und überspringe diese Session-Start-Leseroutine. **Lies keinen Brief** — weder einen per-pass Architect-Brief (existiert seit Brief 094 nicht mehr) noch den „höchsten offenen Brief". Operative Spec ist ausschließlich das Runbook; Herkunft der Rationale steht im Runbook-Anhang.
 
 Karpathy-Reset historischer Kontext: Brief [049](./sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md), 2026-05-08.
 

@@ -1,10 +1,10 @@
 # Resolver-Pass Runbook — eine Phase
 
-> **Mechanischer Task, keine normale Session.** Dies ist die ausführbare Spec für **genau eine** Phase eines axis-sliced Resolver-Passes (Brief 076 = Design, Brief 090 = lean-Umbau). Wer dieses Runbook, die Pass-Config (`scripts/resolver-pass.config.json`) und das Achs-Paket der eigenen Phase gelesen hat, hat alles, was er braucht — sonst nichts. Das Design-Rationale (warum es den Resolver-Pass gibt, die Achsen-Aufteilung, der Driver) steht in Brief 076; **für eine Phase nicht lesen.** Der per-pass Architect-Brief (`*-arch-resolver-pass-N.md`) ist optional und ebenfalls Rationale — er wird **nicht** zum Fahren einer Phase gelesen.
+> **Mechanischer Task, keine normale Session.** Dies ist die ausführbare Spec für **genau eine** Phase eines axis-sliced Resolver-Passes. Wer dieses Runbook, die Pass-Config (`scripts/resolver-pass.config.json`) und das Achs-Paket der eigenen Phase gelesen hat, hat alles, was er braucht — sonst nichts. **Kein Brief** wird gelesen, weder Brief 076 noch ein per-pass Architect-Brief (existiert seit Brief 094 nicht mehr), noch der „höchste offene Brief". Die Herkunft der Rationale (Briefs 076 / 090 / 091 / 094) steht im Anhang am Ende — für eine Phase ebenfalls nicht lesen.
 
 ## 0. Bedienung
 
-Ein Resolver-Pass ist eine Sequenz von 6 Phasen-Subsessions (Phase 0 → 1 → 2 → 3 → 4a → 4b), je ein frischer `/clear`-Kontext, je **ein** Commit. Der Maintainer gibt pro `/clear` an, welche Phase dran ist; CC liest dieses Runbook + die Config und fährt genau diese eine Phase. Phasen laufen **strikt sequenziell** (Phase 1 muss vor Phase 3 liegen — `primaryFactionId` neuer Characters zeigt auf das Phase-1-Faction-Set, sonst FK-Trap). Optional fährt `scripts/run-resolver-pass.sh <config>` die Phasen headless hintereinander (gleiche Spec, gleiche Halt-Checks) — Driver bleibt konsistent zu diesem Runbook, ist aber nicht „scharf" (supervised by default).
+Ein Resolver-Pass ist eine Sequenz von 6 Phasen-Subsessions (Phase 0 → 1 → 2 → 3 → 4a → 4b), je ein frischer `/clear`-Kontext, je **ein** Commit. Phasen laufen **strikt sequenziell** (Phase 1 muss vor Phase 3 liegen — `primaryFactionId` neuer Characters zeigt auf das Phase-1-Faction-Set, sonst FK-Trap). `scripts/run-resolver-loop.sh` ist der scharfe Pfad: Detektor → Auto-Config → Pass-Driver → Loop-Log, fährt aufeinanderfolgende Wellen automatisch (Brief 094). `scripts/run-resolver-pass.sh <config>` fährt eine einzelne Welle standalone — gezielter Re-Run, Diagnose, Ein-Wellen-Manuell-Lauf. Beide Pfade nutzen denselben Phase-Driver, dieselben Halt-Checks, dieselbe Config-Shape.
 
 **Die Config (`scripts/resolver-pass.config.json`) ist der Parameter-Träger.** Sie nennt für genau diesen Pass: `pass`, `wave` (z. B. `ssot-w40k-026..030`), `dossier`-Pfad, `runbook`-Pfad und pro Phase `name` / `trigger` / `scope` / `statusFile`. Die wave-spezifischen Pfade (Dossier, Phase-Reports, Override-Range) kommen **aus der Config**, nicht aus diesem Runbook — das Runbook ist wave-unabhängig.
 
@@ -16,8 +16,8 @@ Ein Resolver-Pass ist eine Sequenz von 6 Phasen-Subsessions (Phase 0 → 1 → 2
 - das **Achs-Paket der eigenen Phase** (siehe §3 — der kleine File-Set = Write-Scope der Phase),
 - ab Phase 1: das **Phase-0-Dossier** (Config-Feld `.dossier`) — der vom Aggregator erzeugte, vorverdichtete Input.
 
-**Lies NICHT** — eine Phase braucht nichts davon, und es ist budget-kritisch (Brief 090 § Mess-Befund):
-- **Brief 076** oder den per-pass Architect-Brief (`*-arch-resolver-pass-N.md`) — beides Rationale, ~22k Token, die jede Phase sechsmal frisch laden würde.
+**Lies NICHT** — eine Phase braucht nichts davon, und es ist budget-kritisch:
+- **Keinen Brief** — weder Brief 076 noch einen per-pass Architect-Brief (existiert seit Brief 094 nicht mehr). Beides Rationale, ~20k+ Token, die jede Phase sechsmal frisch laden würde. Die Herkunft steht im Anhang.
 - die **`manual-overrides-ssot-*.json`-Files** — der Aggregator (Phase 0) hat sie verarbeitet; ab Phase 1 steht alles im Dossier. (Phase 4a wendet sie über Scripts an, **liest** sie aber nicht in den Kontext.)
 - das **volle `sessions/ssot-loop-log.md`** (≫100k Token) — nur Tail-Read der relevanten Wellen-Blöcke (§8), nie Volltext.
 - die anderen Achs-Pakete (Phase 2 liest nicht `characters.json`, usw.).
@@ -36,7 +36,7 @@ Jede Phase berührt **nur** Files in ihrem Scope (Driver-Halt-Check = Diff-Set-S
 - **Lies NUR:** Runbook + Config. **Nicht** die Override-Files, **nicht** das volle Loop-Log.
 - **Achs-Paket (Write-Scope):** das Dossier (Config `.dossier`) + der Aggregator `scripts/aggregate-surface-forms.ts` (stabil, wave-parametrisiert — Wave aus Config/Arg, kein neues `-NNN`-Klon).
 - **Tun:** `npx tsx scripts/aggregate-surface-forms.ts --config scripts/resolver-pass.config.json` laufen lassen; der deterministische Output liefert 6 der 7 Dossier-Sektionen (Buch-Tabelle, Surface-Form-Aggregat pro Achse, Cross-Axis-Konflikte, Omnibus-Scan, data_conflict-Scan). Den Aggregator-Output ins Dossier falten; die 7. Sektion (Kandidaten für `needs-decision` / Cross-Batch-Alias-Konsolidierung) als LLM-Synthese ergänzen, dafür ggf. **Tail**-Read der Wellen-Blöcke aus dem Loop-Log (§8). Ein Commit.
-- **Budget:** Phase 0 liest **nie** die 10–100 Override-Files — der Aggregator hat sie verarbeitet (Brief 090 Baustein 3).
+- **Budget:** Phase 0 liest **nie** die 10–100 Override-Files — der Aggregator hat sie verarbeitet.
 
 ### Phase 1 — Factions
 - **Lies NUR:** Runbook + Config + Dossier + Achs-Paket.
@@ -46,10 +46,10 @@ Jede Phase berührt **nur** Files in ihrem Scope (Driver-Halt-Check = Diff-Set-S
 ### Phase 2 — Locations
 - **Lies NUR:** Runbook + Config + Dossier + Achs-Paket.
 - **Achs-Paket:** `scripts/seed-data/locations.json`, `location-aliases.json`, ggf. `sectors.json` (nur falls eine neue Location einen Sector-FK braucht), `scripts/test-resolver.ts`, Per-Phase-Statusdatei.
-- **Tun:** häufige Location-Surface-Forms aufnehmen; Vessel-/Space-Hulk-Locations nach 072/076-Konvention (`tags:['vessel']`, `gx/gy:null`). ≥ 4 neue Test-Cases. Idempotenz prüfen. Statusdatei. Ein Commit.
+- **Tun:** häufige Location-Surface-Forms aufnehmen; Vessel-/Space-Hulk-Locations mit `tags:['vessel']`, `gx/gy:null` (Welt-Geographie schreibt sie nicht auf die Karte). ≥ 4 neue Test-Cases. Idempotenz prüfen. Statusdatei. Ein Commit.
 
 ### Phase 3 — Characters
-- **Lies NUR:** Runbook + Config + Dossier + Achs-Paket. (⚠ `characters.json` ist die größte Reference-JSON und wächst je Welle — Brief 090 § For next session: ab ~mid-Korpus ggf. Achs-Slice nötig. Bei `001..025` unkritisch.)
+- **Lies NUR:** Runbook + Config + Dossier + Achs-Paket. (⚠ `characters.json` ist die größte Reference-JSON und wächst je Welle; ab mid-Korpus ggf. weiteres Achs-Slicing nötig.)
 - **Achs-Paket:** `scripts/seed-data/characters.json`, `character-aliases.json`, `scripts/test-resolver.ts`, Per-Phase-Statusdatei.
 - **Tun:** Character-Surface-Forms aufnehmen, mit besonderer Vorsicht bei Cross-Batch-Alias-Konsolidierung (ein Charakter über mehrere Batches → **eine** Row). `primaryFactionId` neuer Characters muss auf das Phase-1-Faction-Set zeigen (darum Phase 1 strikt zuvor). ≥ 5 neue Test-Cases, davon ≥ 2 für Alias-Konsolidierung. Statusdatei. Ein Commit.
 
@@ -61,9 +61,9 @@ Jede Phase berührt **nur** Files in ihrem Scope (Driver-Halt-Check = Diff-Set-S
 ### Phase 4b — Verify / Report
 - **Lies NUR:** Runbook + Config + die **4a-Statusdatei** + den committeten **Apply-Digest** (`ingest/.last-run/phase4-digest.md`) — **nie** rohe Apply-Ausgabe, **nie** die Override-Files, **nie** die Apply-seitigen Skripte.
 - **Achs-Paket:** `scripts/verify-pass.ts`, der finale impl-Report, das Status-Update des Briefs.
-- **Tun:** Read-only-Hälfte. `verify-pass.ts --config …` selbst fahren — es **emittiert** den Verify-Digest nach stdout (es gibt **keine** Verify-Digest-Datei; §7). Dann `lint` + `typecheck` (§10) — **keine** Trias-Re-Run (4a hat die Code-Edits bereits grün gezogen; 4b schreibt nur Markdown), **kein** zweiter DB-Apply. Den finalen Impl-Report aus 4a-Statusdatei + Apply-Digest + verify-pass.ts-stdout polieren (Counts-Tabelle, Smoke-Slugs, Audit-Replica) — **keinen** Zustand neu herleiten. Brief-Status auf `implemented`. Ein Commit.
+- **Tun:** Read-only-Hälfte. `verify-pass.ts --config …` selbst fahren — es **emittiert** den Verify-Digest nach stdout (es gibt **keine** Verify-Digest-Datei; §7). Dann `lint` + `typecheck` (§10) — **keine** Trias-Re-Run (4a hat die Code-Edits bereits grün gezogen; 4b schreibt nur Markdown), **kein** zweiter DB-Apply. Den finalen Impl-Report aus 4a-Statusdatei + Apply-Digest + verify-pass.ts-stdout polieren (Counts-Tabelle, Smoke-Slugs, Audit-Replica) — **keinen** Zustand neu herleiten. Ein Commit.
 
-## 4. Promotions- & Alias-Disziplin (stabile Regel, aus 072/074/076)
+## 4. Promotions- & Alias-Disziplin
 
 - **Promotion nur bei Evidenz.** Default-Schwelle: **freq ≥ 2 strict** + eine kuratierte Liste lore-ikonischer **freq=1**-Promotionen (aus Dossier / Loop-Log / source-backed Notes). Bei Identitäts-Unsicherheit → `needs-decision`, **nicht** raten.
 - **Keine over-broad Aliases.** Ein `*-aliases.json`-Eintrag ist nur legitim, wenn (a) die Surface-Form in der Welle konkret auftaucht, (b) die Ziel-Canonical-ID lore-eindeutig ist, (c) keine Cross-Axis-Disambiguation-Falle besteht (Surface-Form auf zwei Achsen). Sonst unresolved lassen.
@@ -77,7 +77,7 @@ Phase 1 (Factions) **strikt vor** Phase 3 (Characters). Phase 4a läuft nach 1�
 
 Phase 0 liest **nur** den Aggregator-Output + (bei Bedarf) Tail-Blöcke des Loop-Logs. Die Override-Files werden **nie** von der Phase-0-Subsession gelesen — der Aggregator (`scripts/aggregate-surface-forms.ts`, deterministisch, byte-identisch re-runnable) hat sie verarbeitet und emittiert 6 der 7 Dossier-Sektionen mechanisch. Darf der Aggregator mehr emittieren (z. B. Cross-Batch-Alias-Kandidaten-Liste, `needs-decision`-Heuristik), um die LLM-Synthese zu verkleinern, ist das erlaubt — solange der Output deterministisch bleibt.
 
-## 7. Phase-4a/4b-Digest-Disziplin (Baustein 4, korpus-unabhängig)
+## 7. Phase-4a/4b-Digest-Disziplin (korpus-unabhängig)
 
 Jeder Phase-4a-Schritt, dessen Kosten mit der Gesamt-Buchzahl wächst — das Re-Apply über `001..NNN`, die Smoke-Slug-Checks, die Audit-Cockpit-SQL-Replica — läuft als **Script, das einen fix-großen Digest emittiert** (Counts-Tabelle, Inserts/Updates-pro-Batch-Tabelle, Smoke-Tabelle). Phase 4a schreibt + committet den Apply-Digest; Phase 4b liest **den committeten Apply-Digest, nie die rohe Per-Batch-Ausgabe**, und fährt `verify-pass.ts` selbst für den Verify-Digest (s. u.). Damit ist Phase-4a/4b-Kontext korpus-**un**abhängig (~konstant, egal ob 250 oder 859 Bücher).
 
@@ -86,7 +86,7 @@ Jeder Phase-4a-Schritt, dessen Kosten mit der Gesamt-Buchzahl wächst — das Re
 - `scripts/seed-facets.ts` — idempotenter Facet-Catalog-Upsert (`ON CONFLICT DO NOTHING`).
 - `scripts/verify-pass.ts --config …` — **Phase 4b** fährt es selbst; es **emittiert** den Verify-Digest nach **stdout** (keine Datei): Smoke-Slug-Junction-Counts für die Config-Slug-Liste, Rating-Coverage der Wellen-Range, Drift/Gap/Collection-Audit-Replica für Alt- + Neu-Range. Pass-spezifische Einzel-Checks ergänzt die Phase als ad-hoc-SQL, falls nötig.
 
-**Validierung (Brief 090):** der Re-Apply ist idempotent (delete-then-insert pro Junction über die existierenden Bücher) — genau das, was Phase 4a ohnehin tut. Das ist **kein** Production-Pass und mutiert keinen neuen Inhalt.
+**Validierung:** der Re-Apply ist idempotent (delete-then-insert pro Junction über die existierenden Bücher) — genau das, was Phase 4a ohnehin tut. Das ist **kein** Production-Pass und mutiert keinen neuen Inhalt.
 
 ## 8. Loop-Log Tail-Read & Append ohne Voll-Last
 
@@ -101,3 +101,7 @@ Jeder Phase-4a-Schritt, dessen Kosten mit der Gesamt-Buchzahl wächst — das Re
 
 Code-berührende Phasen (1–3, 4a) halten die Resolver-Trias grün, bevor committet wird:
 `npm run test:resolver`, `npm run test:resolver-data`, `npm run test:resolver-coverage`, `npm run test:apply-override-dry` (Phase 4a zusätzlich `npm run test:collection-refs`). Phase 4a zusätzlich `npm run lint` + `npm run typecheck`, wenn Scripts geändert wurden. Phase 4b läuft **read-only**: `scripts/verify-pass.ts --config …` (DB-Verify-Digest) + `npm run lint` + `npm run typecheck`, **keine** Trias-Re-Run (4a hat die Code-Edits bereits grün gezogen; 4b schreibt nur Markdown). Phase 0 (reines Dossier-Markdown + deterministischer Aggregator) darf die Trias überspringen — im Phase-Report kurz vermerken.
+
+## Anhang — Herkunft (überspringbar, nur Background)
+
+Die operative Spec hier konsolidiert die Rationale aus den Briefs 076 (Design des axis-sliced Resolver-Passes), 090 (lean-Umbau: Runbook statt Volltext-Brief, Aggregator-Digest, Phase-4-Apply-Digest), 091 (Phase-4-Split in 4a/4b + range-aware forward-ref Guard) und 094 (headless Resolver-Loop + brief-freier Runbook). Ein per-pass Architect-Brief existiert seit Brief 094 **nicht mehr**; das `brief`-Feld in der Config wurde entfernt. Wer das Runbook fährt — egal ob via `scripts/run-resolver-loop.sh` (Loop) oder `scripts/run-resolver-pass.sh` (Einzel-Welle) — liest **keinen** dieser Briefs.

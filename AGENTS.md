@@ -22,11 +22,15 @@ explicitly about a Claude/Anthropic model or a historical project decision.
 `sessions/ssot-loop-runbook.md` and skip the session-start reading routine above
 (Brief 061 itself is not read).
 
-**Resolver-Pass phases are likewise the exception.** A phase of an axis-sliced
-Resolver-Pass (`scripts/run-resolver-pass.sh` / per-pass config) is a mechanical
-task, not a normal session: follow `sessions/resolver-pass-runbook.md` plus the
-pass config and skip the session-start reading routine above (Brief 076 and the
-per-pass architect brief are not read to run a phase).
+**Resolver waves are likewise the exception.** A wave — driven headless via
+`scripts/run-resolver-loop.sh` or standalone via `scripts/run-resolver-pass.sh
+<config>` — is a mechanical task, not a normal session: follow
+`sessions/resolver-pass-runbook.md` plus the per-wave config and skip step 6
+of the session-start reading routine (do **not** read the highest open
+Architect-Brief). **No brief is read** to run a wave or a phase, headless or
+standalone — per-pass architect briefs no longer exist (Brief 094 removed
+them) and Brief 076 stays as Rationale-only. The runbook appendix lists the
+provenance for anyone curious.
 
 ## Parallel worktree git protocol
 
