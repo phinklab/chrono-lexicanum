@@ -5,23 +5,18 @@
 # pushes the branch and opens a PR. Each subsession executes one iteration per
 # sessions/ssot-loop-runbook.md (the single operative spec): produce ONE
 # `manual-overrides-ssot-{w40k|hh}-NNN.json` plus a status-block in
-# `sessions/ssot-loop-log.md`, both in a single commit. At a resolver-pause
-# threshold the subsession writes only the pause-block and the wrapper exits
-# cleanly (resolver-pause is the expected stop signal).
+# `sessions/ssot-loop-log.md`, both in a single commit.
 #
 # USAGE
 #   ./scripts/run-ssot-loop.sh [N]
 #     N        Number of iterations (default 10, valid 1..20).
-#              Default 10 lines up with the 100er-cadence (Brief 090): one driver
-#              run lands at most 10 batches × 10 books = 100 books, i.e. one full
-#              wave between resolver pauses (which fall at cumulative ≡ 50 mod 100
-#              → 250, 350, 450, …). If the requested successful iterations land
-#              exactly on the next pause boundary, the driver runs one extra
-#              pause-confirmation subsession so the resolver-pause block is
-#              committed before push/PR. Resolver-pause is self-detecting
-#              (scripts/loop-next-batch.ts) — no skip flag; a re-run after a
-#              committed pause-block resumes automatically (the pause-block is its
-#              own "announced" marker).
+#
+# Brief 094 decoupled the SSOT-Loop from the resolver: this driver no longer
+# pauses on the 100er-cadence and no longer probes loop-next-batch for a pause
+# flag. Each iteration produces exactly one override file + one log block, and
+# the driver runs the requested N iterations straight through (or until
+# loopComplete / a halt-check violation). The resolver loop is now a separate
+# headless wrapper (scripts/run-resolver-loop.sh) over its own waves.
 #
 # WINDOWS
 #   PowerShell:  & "C:\Program Files\Git\bin\bash.exe" scripts/run-ssot-loop.sh
@@ -32,13 +27,11 @@
 #   - `claude` CLI in PATH (verified against version printing
 #     `--allowedTools, --allowed-tools <tools...>` in --help)
 #   - Node.js (for JSON halt-checks; no jq dependency)
-#   - tsx + installed node_modules (end-of-run resolver-pause probe via
-#     scripts/loop-next-batch.ts; if missing the probe is skipped, non-fatal)
 # OPTIONAL
 #   - `gh` CLI authenticated (else PR step is skipped, compare URL printed)
 #
 # EXIT CODES
-#   0  success: N iterations completed OR resolver-pause cleanly detected
+#   0  success: N iterations completed (or loopComplete reached)
 #   1  pre-run check failed (worktree dirty, on main, claude missing, ...)
 #   2  halt-check violation inside an iteration (CC misbehaved)
 #   3  `claude -p` returned non-zero exit
@@ -209,18 +202,9 @@ validate_override_json() {
   " "$file"
 }
 
-# Echoes "true"/"false" — the resolverPause flag from scripts/loop-next-batch.ts
-# (the single source of pause detection). Returns non-zero if the helper fails,
-# so a helper failure is never silently read as "false".
-resolver_pause_now() {
-  local json
-  json=$(node_modules/.bin/tsx scripts/loop-next-batch.ts) || return 1
-  node --input-type=module -e 'process.stdout.write(JSON.parse(process.argv[1]).resolverPause ? "true" : "false")' "$json"
-}
-
 # Runs all post-iteration halt-checks.
 # Inputs (globals): HEAD_BEFORE, FILES_BEFORE_RAW, ITER (for log)
-# Outputs (globals): OUTCOME=success|resolver_pause|violation, REASON, NEW_FILE
+# Outputs (globals): OUTCOME=success|violation, REASON, NEW_FILE
 run_halt_checks() {
   OUTCOME="violation"
   REASON=""
@@ -254,12 +238,14 @@ run_halt_checks() {
   local new_count
   new_count=$(printf '%s' "$new_files" | grep -c . || true)
 
-  if (( new_count > 1 )); then
-    REASON="more than one new override file produced ($new_count): $new_files"
+  if (( new_count != 1 )); then
+    REASON="iteration must commit exactly 1 new override file (got $new_count): $new_files"
     return
   fi
 
-  # Log diff (used by both success and pause paths)
+  NEW_FILE="$new_files"
+
+  # Log diff
   local log_diff
   log_diff=$(git diff "$HEAD_BEFORE" HEAD -- "$LOG_PATH")
 
@@ -272,47 +258,23 @@ run_halt_checks() {
     return
   fi
 
-  if (( new_count == 1 )); then
-    # ---- success path ----
-    NEW_FILE="$new_files"
-
-    # Check 4 strict: diff paths must equal exactly {NEW_FILE, LOG_PATH}
-    local expected
-    expected=$(printf '%s\n%s\n' "$NEW_FILE" "$LOG_PATH" | sort)
-    if [[ "$diff_paths" != "$expected" ]]; then
-      REASON="commit touched unexpected paths
+  # Check 4 strict: diff paths must equal exactly {NEW_FILE, LOG_PATH}
+  local expected
+  expected=$(printf '%s\n%s\n' "$NEW_FILE" "$LOG_PATH" | sort)
+  if [[ "$diff_paths" != "$expected" ]]; then
+    REASON="commit touched unexpected paths
   expected: $(echo "$expected" | tr '\n' ' ')
   got:      $(echo "$diff_paths" | tr '\n' ' ')"
-      return
-    fi
-
-    # Check 6+7: JSON valid + top-level form
-    if ! validate_override_json "$NEW_FILE"; then
-      REASON="override-JSON validation failed for $NEW_FILE"
-      return
-    fi
-
-    OUTCOME="success"
     return
   fi
 
-  # ---- resolver-pause path (new_count == 0) ----
-
-  # Check 4 strict: diff paths must equal exactly {LOG_PATH}
-  if [[ "$diff_paths" != "$LOG_PATH" ]]; then
-    REASON="resolver-pause path: commit touched unexpected paths
-  expected: $LOG_PATH
-  got:      $(echo "$diff_paths" | tr '\n' ' ')"
+  # Check 6+7: JSON valid + top-level form
+  if ! validate_override_json "$NEW_FILE"; then
+    REASON="override-JSON validation failed for $NEW_FILE"
     return
   fi
 
-  # Check 9: pause marker in log diff
-  if ! grep -q '⏸' <<<"$log_diff"; then
-    REASON="0 new override files but no ⏸ pause marker in log diff"
-    return
-  fi
-
-  OUTCOME="resolver_pause"
+  OUTCOME="success"
 }
 
 # ---------------------------------------------------------------------------
@@ -320,11 +282,8 @@ run_halt_checks() {
 # ---------------------------------------------------------------------------
 
 ITER_SUCCESS_COUNT=0
-RESOLVER_PAUSE_HIT=0
 NEW_FILES_COMMITTED=()
-CUMULATIVE_AT_PAUSE=""
 ATTEMPT=1
-FINAL_PAUSE_PROBE=0
 
 # tee stdout into a step log (gitignored)
 mkdir -p "$(dirname "$STEP_LOG")"
@@ -332,15 +291,8 @@ exec > >(tee "$STEP_LOG") 2>&1
 
 log "${C_BOLD}Driver start${C_RESET} — iterations=$ITERATIONS, branch=$CURRENT_BRANCH"
 
-while (( ATTEMPT <= ITERATIONS || FINAL_PAUSE_PROBE == 1 )); do
-  IS_FINAL_PAUSE_PROBE=0
-  if (( FINAL_PAUSE_PROBE == 1 )); then
-    IS_FINAL_PAUSE_PROBE=1
-    FINAL_PAUSE_PROBE=0
-    log "${C_BOLD}=== Resolver-pause confirmation ===${C_RESET}"
-  else
-    log "${C_BOLD}=== Iteration $ATTEMPT/$ITERATIONS ===${C_RESET}"
-  fi
+while (( ATTEMPT <= ITERATIONS )); do
+  log "${C_BOLD}=== Iteration $ATTEMPT/$ITERATIONS ===${C_RESET}"
 
   HEAD_BEFORE=$(git rev-parse HEAD)
   FILES_BEFORE_RAW=$(list_override_files)
@@ -363,35 +315,10 @@ while (( ATTEMPT <= ITERATIONS || FINAL_PAUSE_PROBE == 1 )); do
   run_halt_checks
   case "$OUTCOME" in
     success)
-      if (( IS_FINAL_PAUSE_PROBE == 1 )); then
-        err "final resolver-pause probe produced an override instead of a pause block: $NEW_FILE"
-        exit 2
-      fi
       ok "  ✓ all halt-checks green — committed $NEW_FILE"
       ITER_SUCCESS_COUNT=$(( ITER_SUCCESS_COUNT + 1 ))
       NEW_FILES_COMMITTED+=("$NEW_FILE")
-
-      if (( ATTEMPT == ITERATIONS )); then
-        if pause_flag=$(resolver_pause_now); then
-          if [[ "$pause_flag" == "true" ]]; then
-            log "  loop-next-batch reports resolverPause=true; running one pause-confirmation subsession"
-            FINAL_PAUSE_PROBE=1
-          fi
-        else
-          warn "  loop-next-batch helper failed; skipping final pause probe (manual check advised)"
-        fi
-      fi
       ATTEMPT=$(( ATTEMPT + 1 ))
-      ;;
-    resolver_pause)
-      ok "  ✓ resolver-pause detected — stopping driver cleanly"
-      RESOLVER_PAUSE_HIT=1
-      # try to extract the cumulative-count from the new pause-block in log
-      CUMULATIVE_AT_PAUSE=$(git diff "$HEAD_BEFORE" HEAD -- "$LOG_PATH" \
-        | grep -oE '⏸ Resolver-Pause bei [0-9]+ Büchern' \
-        | head -n1 \
-        | grep -oE '[0-9]+' || true)
-      break
       ;;
     violation)
       err "halt-check violation: $REASON"
@@ -425,25 +352,13 @@ pr_body() {
     done
     printf '\n'
   else
-    printf 'Keine neuen Override-Files (Driver hit Resolver-Pause sofort).\n\n'
-  fi
-  if (( RESOLVER_PAUSE_HIT == 1 )); then
-    if [[ -n "$CUMULATIVE_AT_PAUSE" ]]; then
-      printf 'Resolver-Pause bei kumulativ %s Büchern (Brief 061-Loud-Stop).\n\n' "$CUMULATIVE_AT_PAUSE"
-    else
-      printf 'Resolver-Pause hit (Brief 061-Loud-Stop).\n\n'
-    fi
+    printf 'Keine neuen Override-Files.\n\n'
   fi
   printf 'Per-Buch-Notes: sessions/ssot-loop-log.md.\n'
 }
 
 pr_title() {
-  local suffix=""
-  if (( RESOLVER_PAUSE_HIT == 1 )); then
-    suffix=", resolver-pause"
-  fi
-  printf 'Loop-Iterationen via run-ssot-loop.sh (%d iter%s)' \
-    "$ITER_SUCCESS_COUNT" "$suffix"
+  printf 'Loop-Iterationen via run-ssot-loop.sh (%d iter)' "$ITER_SUCCESS_COUNT"
 }
 
 if (( GH_READY == 1 )); then
@@ -472,8 +387,4 @@ fi
 log "${C_BOLD}Done${C_RESET}"
 log "  iterations completed:    $ITER_SUCCESS_COUNT / $ITERATIONS"
 log "  new override files:      ${#NEW_FILES_COMMITTED[@]}"
-log "  resolver-pause hit:      $([[ $RESOLVER_PAUSE_HIT == 1 ]] && echo yes || echo no)"
-if [[ -n "$CUMULATIVE_AT_PAUSE" ]]; then
-  log "  cumulative at pause:     $CUMULATIVE_AT_PAUSE"
-fi
 log "  step-log:                $STEP_LOG (gitignored)"
