@@ -60,7 +60,7 @@ Jede Phase berührt **nur** Files in ihrem Scope (Driver-Halt-Check = Diff-Set-S
 
 ### Phase 4b — Verify / Report
 - **Lies NUR:** Runbook + Config + die **4a-Statusdatei** + den committeten **Apply-Digest** (`ingest/.last-run/phase4-digest.md`) — **nie** rohe Apply-Ausgabe, **nie** die Override-Files, **nie** die Apply-seitigen Skripte.
-- **Achs-Paket:** `scripts/verify-pass.ts`, der finale impl-Report, das Status-Update des Briefs.
+- **Achs-Paket:** `scripts/verify-pass.ts` und der finale impl-Report.
 - **Tun:** Read-only-Hälfte. `verify-pass.ts --config …` selbst fahren — es **emittiert** den Verify-Digest nach stdout (es gibt **keine** Verify-Digest-Datei; §7). Dann `lint` + `typecheck` (§10) — **keine** Trias-Re-Run (4a hat die Code-Edits bereits grün gezogen; 4b schreibt nur Markdown), **kein** zweiter DB-Apply. Den finalen Impl-Report aus 4a-Statusdatei + Apply-Digest + verify-pass.ts-stdout polieren (Counts-Tabelle, Smoke-Slugs, Audit-Replica) — **keinen** Zustand neu herleiten. Ein Commit.
 
 ## 4. Promotions- & Alias-Disziplin

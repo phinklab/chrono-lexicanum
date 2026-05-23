@@ -425,7 +425,7 @@ write_state_file() {
   local nd_file="${NEEDS_DECISION_FILE:-}"
   local shas_csv=""
   for entry in "${PHASES_RAN_SHAS[@]}"; do
-    shas_csv="${shas_csv}${entry}\n"
+    shas_csv="${shas_csv}${entry}"$'\n'
   done
   CONFIG_VAL="$CONFIG_PATH" \
   PASS_VAL="$PASS_LABEL" \
@@ -438,7 +438,7 @@ write_state_file() {
   PHASES_RAN_SHAS_VAL="$(printf '%s' "$shas_csv")" \
   node --input-type=module -e "
     import fs from 'node:fs';
-    const phasesShas = (process.env.PHASES_RAN_SHAS_VAL || '').split('\\n')
+    const phasesShas = (process.env.PHASES_RAN_SHAS_VAL || '').split(/\r?\n/)
       .filter(Boolean)
       .map((row) => {
         const [name, sha] = row.split('|');
@@ -549,12 +549,9 @@ while (( INDEX < PHASE_COUNT )); do
       ;;
     needs_decision)
       ok "  ⚑ needs-decision detected in $PHASE_STATUS_FILE — stopping driver cleanly"
-      PHASE_SHA=$(git rev-parse HEAD)
       NEEDS_DECISION_HIT=1
       NEEDS_DECISION_PHASE="$PHASE_NAME"
       NEEDS_DECISION_FILE="$PHASE_STATUS_FILE"
-      PHASES_RAN_SHAS+=("${PHASE_NAME}|${PHASE_SHA}")
-      PHASES_COMPLETED=$(( PHASES_COMPLETED + 1 ))
       write_state_file "needs_decision"
       break
       ;;

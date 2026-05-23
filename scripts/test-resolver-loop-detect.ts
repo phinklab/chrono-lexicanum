@@ -31,6 +31,7 @@ import {
   type CrystallizedBatch,
   type DetectInput,
 } from "./resolver-loop-detect";
+import { parseWaveBlockShas, renderWaveBlock } from "./resolver-loop-log-update";
 
 let pass = 0;
 let fail = 0;
@@ -298,9 +299,11 @@ check("per-wave block with all 6 phases checked → progress advances, nextPass 
   assert.equal(p.nextPassNumber, 9);
 });
 
-check("partially-complete wave (4 of 6 phases) does NOT advance progress", () => {
+check("partially-complete wave (4 of 6 phases) reserves same pass for resume", () => {
   const log =
     "# Resolver-Loop Log\n\n" +
+    "## 2026-05-23 · Bootstrap (Pre-Loop-State)\n\n" +
+    "- [x] Pass 1..7 (Welle ssot-w40k-001..045, 450 Bücher) — supervised\n\n" +
     "## 2026-05-25 · Resolver-Pass 8 (Welle ssot-w40k-046..051, 60 Bücher)\n\n" +
     "- [x] Phase 0 — abc1234\n" +
     "- [x] Phase 1 — def5678\n" +
@@ -309,9 +312,53 @@ check("partially-complete wave (4 of 6 phases) does NOT advance progress", () =>
     "- [ ] Phase 4a\n" +
     "- [ ] Phase 4b\n";
   const p = parseResolverLoopLog(log);
-  assert.equal(p.resolverProgressBatch, 0);
-  // Pass 8 IS referenced → nextPass = 9 (re-runs of pass 8 stay on the same block).
-  assert.equal(p.nextPassNumber, 9);
+  assert.equal(p.resolverProgressBatch, 45);
+  assert.equal(p.nextPassNumber, 8);
+});
+
+check("partial pass followed by later completed pass does not drag nextPass backwards", () => {
+  const log =
+    "## 2026-05-25 · Resolver-Pass 8 (Welle ssot-w40k-046..051, 60 Bücher)\n\n" +
+    "- [x] Phase 0 — abc1234\n" +
+    "- [ ] Phase 1\n\n" +
+    "## 2026-05-26 · Resolver-Pass 9 (Welle ssot-w40k-052..057, 55 Bücher)\n\n" +
+    "- [x] Phase 0 — a\n" +
+    "- [x] Phase 1 — b\n" +
+    "- [x] Phase 2 — c\n" +
+    "- [x] Phase 3 — d\n" +
+    "- [x] Phase 4a — e\n" +
+    "- [x] Phase 4b — f\n";
+  const p = parseResolverLoopLog(log);
+  assert.equal(p.resolverProgressBatch, 57);
+  assert.equal(p.nextPassNumber, 10);
+});
+
+check("parser + detector resume a partial wave with the same pass number", () => {
+  const log =
+    "## 2026-05-23 · Bootstrap (Pre-Loop-State)\n\n" +
+    "- [x] Pass 1..7 (Welle ssot-w40k-001..045, 450 Bücher) — supervised\n\n" +
+    "## 2026-05-25 · Resolver-Pass 8 (Welle ssot-w40k-046..051, 60 Bücher)\n\n" +
+    "- [x] Phase 0 — abc1234\n" +
+    "- [x] Phase 1 — def5678\n" +
+    "- [x] Phase 2 — 1111111\n" +
+    "- [x] Phase 3 — 2222222\n" +
+    "- [ ] Phase 4a\n" +
+    "- [ ] Phase 4b\n";
+  const p = parseResolverLoopLog(log);
+  const r = detectNextWave({
+    w40kRosterCount: W40K_ROSTER,
+    crystallizedBatches: ALL_CRYSTALLIZED_57,
+    resolverProgressBatch: p.resolverProgressBatch,
+    nextPassNumber: p.nextPassNumber,
+  });
+  assert.equal(r.status, "open-wave");
+  if (r.status !== "open-wave") return;
+  assert.equal(r.wave.pass, 8);
+  assert.equal(r.config.wave, "ssot-w40k-046..051");
+  assert.equal(
+    r.config.phases.find((phase) => phase.name === "phase-4a-integration")?.statusFile,
+    "sessions/resolver-dossiers/resolver-pass-8-phase-4a-report.md",
+  );
 });
 
 check("empty log → progress=0, nextPass=1", () => {
@@ -334,6 +381,46 @@ check("bootstrap followed by completed pass 8 → progress=51, nextPass=9", () =
   const p = parseResolverLoopLog(log);
   assert.equal(p.resolverProgressBatch, 51);
   assert.equal(p.nextPassNumber, 9);
+});
+
+console.log("");
+console.log("resolver-loop-log-update — needs-decision resume");
+
+check("needs-decision phase renders unchecked and does not count as completed", () => {
+  const block = renderWaveBlock({
+    date: "2026-05-25",
+    pass: 8,
+    wave: "ssot-w40k-046..051",
+    bookCount: 60,
+    outcome: "needs_decision",
+    outcomeNote: "phase phase-1-factions",
+    phases: [
+      { name: "phase-0-preflight", sha: "abcdef123456", annotation: null },
+      {
+        name: "phase-1-factions",
+        sha: null,
+        annotation: "needs-decision in sessions/resolver-dossiers/resolver-pass-8-phase-1-report.md",
+      },
+    ],
+  });
+
+  assert.match(block, /- \[x\] Phase 0 \(Preflight\) — commit abcdef1/);
+  assert.match(block, /- \[ \] Phase 1 \(Factions\) — needs-decision/);
+  const shas = parseWaveBlockShas(block, "ssot-w40k-046..051");
+  assert.equal(shas?.has("phase-0-preflight"), true);
+  assert.equal(shas?.has("phase-1-factions"), false);
+});
+
+check("legacy checked needs-decision phase is ignored for resume SHA preservation", () => {
+  const block =
+    "## 2026-05-25 · Resolver-Pass 8 (Welle ssot-w40k-046..051, 60 Bücher)\n\n" +
+    "- [x] Phase 0 (Preflight) — commit abcdef1\n" +
+    "- [x] Phase 1 (Factions) — commit 1234567 (needs-decision in sessions/resolver-dossiers/resolver-pass-8-phase-1-report.md)\n" +
+    "- [ ] Phase 2 (Locations)\n";
+
+  const shas = parseWaveBlockShas(block, "ssot-w40k-046..051");
+  assert.equal(shas?.get("phase-0-preflight"), "abcdef1");
+  assert.equal(shas?.has("phase-1-factions"), false);
 });
 
 console.log("");

@@ -120,12 +120,11 @@ export function parseWaveBlockShas(
       if (inBlock) break;
     }
     if (!inBlock) continue;
-    const m = line.match(
-      /^\s*-\s*\[(x| )\]\s*(Phase\s+(?:\d+[a-z]?))\b.*?(?:commit\s+([0-9a-f]{7,}))?/i,
-    );
+    const m = line.match(/^\s*-\s*\[(x| )\]\s*(Phase\s+(?:\d+[a-z]?))/i);
     if (m && m[1] === "x") {
+      if (/needs-decision/i.test(line)) continue;
       const phaseLabel = m[2].trim();
-      const sha = m[3];
+      const sha = line.match(/\bcommit\s+([0-9a-f]{7,})/i)?.[1];
       const found = PHASE_ORDER.find((p) =>
         p.label.toLowerCase().startsWith(phaseLabel.toLowerCase()),
       );
@@ -327,6 +326,7 @@ function main(): void {
       : "needs-decision";
     const existingEntry = args.phases.find((p) => p.name === args.needsDecisionPhase);
     if (existingEntry) {
+      existingEntry.sha = null;
       existingEntry.annotation = ann;
     } else {
       args.phases.push({ name: args.needsDecisionPhase, sha: null, annotation: ann });

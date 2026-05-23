@@ -204,7 +204,7 @@ validate_override_json() {
 
 # Runs all post-iteration halt-checks.
 # Inputs (globals): HEAD_BEFORE, FILES_BEFORE_RAW, ITER (for log)
-# Outputs (globals): OUTCOME=success|violation, REASON, NEW_FILE
+# Outputs (globals): OUTCOME=success|loop_complete|violation, REASON, NEW_FILE
 run_halt_checks() {
   OUTCOME="violation"
   REASON=""
@@ -238,12 +238,10 @@ run_halt_checks() {
   local new_count
   new_count=$(printf '%s' "$new_files" | grep -c . || true)
 
-  if (( new_count != 1 )); then
+  if (( new_count > 1 )); then
     REASON="iteration must commit exactly 1 new override file (got $new_count): $new_files"
     return
   fi
-
-  NEW_FILE="$new_files"
 
   # Log diff
   local log_diff
@@ -257,6 +255,23 @@ run_halt_checks() {
     REASON="$LOG_PATH grew but no new H2-block was appended"
     return
   fi
+
+  if (( new_count == 0 )); then
+    if [[ "$diff_paths" != "$LOG_PATH" ]]; then
+      REASON="loop-complete path: commit touched unexpected paths
+  expected: $LOG_PATH
+  got:      $(echo "$diff_paths" | tr '\n' ' ')"
+      return
+    fi
+    if ! grep -Eiq 'Loop complete|loop-complete|🏁' <<<"$log_diff"; then
+      REASON="0 new override files but no loop-complete marker in log diff"
+      return
+    fi
+    OUTCOME="loop_complete"
+    return
+  fi
+
+  NEW_FILE="$new_files"
 
   # Check 4 strict: diff paths must equal exactly {NEW_FILE, LOG_PATH}
   local expected
@@ -282,6 +297,7 @@ run_halt_checks() {
 # ---------------------------------------------------------------------------
 
 ITER_SUCCESS_COUNT=0
+LOOP_COMPLETE_HIT=0
 NEW_FILES_COMMITTED=()
 ATTEMPT=1
 
@@ -320,6 +336,11 @@ while (( ATTEMPT <= ITERATIONS )); do
       NEW_FILES_COMMITTED+=("$NEW_FILE")
       ATTEMPT=$(( ATTEMPT + 1 ))
       ;;
+    loop_complete)
+      ok "  ✓ loop-complete detected — stopping driver cleanly"
+      LOOP_COMPLETE_HIT=1
+      break
+      ;;
     violation)
       err "halt-check violation: $REASON"
       err "—— git status ——"
@@ -352,13 +373,24 @@ pr_body() {
     done
     printf '\n'
   else
-    printf 'Keine neuen Override-Files.\n\n'
+    if (( LOOP_COMPLETE_HIT == 1 )); then
+      printf 'Keine neuen Override-Files (Loop complete reached).\n\n'
+    else
+      printf 'Keine neuen Override-Files.\n\n'
+    fi
+  fi
+  if (( LOOP_COMPLETE_HIT == 1 )); then
+    printf 'Loop complete: alle Roster-Bücher sind in der Authority-Schicht abgedeckt.\n\n'
   fi
   printf 'Per-Buch-Notes: sessions/ssot-loop-log.md.\n'
 }
 
 pr_title() {
-  printf 'Loop-Iterationen via run-ssot-loop.sh (%d iter)' "$ITER_SUCCESS_COUNT"
+  local suffix=""
+  if (( LOOP_COMPLETE_HIT == 1 )); then
+    suffix=", loop-complete"
+  fi
+  printf 'Loop-Iterationen via run-ssot-loop.sh (%d iter%s)' "$ITER_SUCCESS_COUNT" "$suffix"
 }
 
 if (( GH_READY == 1 )); then
@@ -387,4 +419,5 @@ fi
 log "${C_BOLD}Done${C_RESET}"
 log "  iterations completed:    $ITER_SUCCESS_COUNT / $ITERATIONS"
 log "  new override files:      ${#NEW_FILES_COMMITTED[@]}"
+log "  loop-complete hit:       $([[ $LOOP_COMPLETE_HIT == 1 ]] && echo yes || echo no)"
 log "  step-log:                $STEP_LOG (gitignored)"

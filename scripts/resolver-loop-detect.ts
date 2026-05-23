@@ -411,21 +411,16 @@ export function buildWaveConfig(wave: WaveDescriptor): ResolverPassConfig {
  *      `Resolver-Pass <N> (... ssot-w40k-AAA..BBB ...)`.
  *      The wave counts as fully complete iff the body has ≥6 `[x] Phase`
  *      bullets; only then does `BBB` advance the progress.
- *      The pass number always advances `maxPass`, even on a partial wave —
- *      so a re-run is assigned pass `<N>` still, not `<N>+1`. (Re-using the
- *      same pass on a stuck wave is fine; the resume mechanism overwrites the
- *      phase status file. We only burn a pass number when 4b commits.)
- *
- *      Subtle: a partial wave's heading bumps `maxPass`. To keep the
- *      "re-use same pass" property, callers should write the block at the
- *      START of phase 0 (with all `[ ]` markers), not at the end. The bootstrap
- *      block sidesteps this by using shape #2 below.
+ *      A complete wave advances both progress and the next-pass counter. A
+ *      partial wave does NOT advance progress and reserves its own pass number
+ *      for resume, so a re-run of stuck Pass 8 stays Pass 8 instead of
+ *      regenerating `resolver-pass-9-*` paths.
  *
  *   2. **Bootstrap/summary** — any block whose body has a `[x]` bullet
  *      matching `Pass(?:\s\d+\s*\.\.\s*)?<N>` AND `ssot-w40k-AAA..BBB`.
  *      Used by the one-line pre-094 history marker
  *      (`- [x] Pass 1..7 (Welle ssot-w40k-001..045, …)`).
- *      Both `maxPass` and `maxBatch` advance from the bullet.
+ *      Both completed-pass and progress counters advance from the bullet.
  *
  * Empty / missing log → `{ resolverProgressBatch: 0, nextPassNumber: 1 }`.
  */
@@ -434,7 +429,8 @@ export function parseResolverLoopLog(content: string): {
   nextPassNumber: number;
 } {
   let maxBatch = 0;
-  let maxPass = 0;
+  let maxCompletedPass = 0;
+  let maxPartialPass = 0;
 
   const lines = content.split(/\r?\n/);
   let blockHeading = "";
@@ -448,9 +444,13 @@ export function parseResolverLoopLog(content: string): {
     if (headingMatch) {
       const pass = Number(headingMatch[1]);
       const last = Number(headingMatch[3]);
-      if (pass > maxPass) maxPass = pass;
       const phaseChecked = blockBody.filter((l) => /^\s*-\s*\[x\]\s*Phase/i.test(l)).length;
-      if (phaseChecked >= 6 && last > maxBatch) maxBatch = last;
+      if (phaseChecked >= 6) {
+        if (pass > maxCompletedPass) maxCompletedPass = pass;
+        if (last > maxBatch) maxBatch = last;
+      } else if (pass > maxPartialPass) {
+        maxPartialPass = pass;
+      }
     } else {
       for (const line of blockBody) {
         const m = line.match(
@@ -459,7 +459,7 @@ export function parseResolverLoopLog(content: string): {
         if (m) {
           const pass = Number(m[1]);
           const last = Number(m[3]);
-          if (pass > maxPass) maxPass = pass;
+          if (pass > maxCompletedPass) maxCompletedPass = pass;
           if (last > maxBatch) maxBatch = last;
         }
       }
@@ -477,7 +477,9 @@ export function parseResolverLoopLog(content: string): {
   }
   flush();
 
-  return { resolverProgressBatch: maxBatch, nextPassNumber: maxPass + 1 };
+  const nextPassNumber =
+    maxPartialPass > maxCompletedPass ? maxPartialPass : maxCompletedPass + 1;
+  return { resolverProgressBatch: maxBatch, nextPassNumber };
 }
 
 // ---------------------------------------------------------------------------

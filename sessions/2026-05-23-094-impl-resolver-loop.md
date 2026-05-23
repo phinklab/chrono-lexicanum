@@ -153,6 +153,34 @@ ist scharf, sobald der SSOT-Loop weiter läuft.
   X._`) statt nur an die betroffene Bullet. Schneller fürs Auge,
   Block-Boundary klar.
 
+## Post-review fix pass
+
+Nach Codex-Review gegen Brief 094 nachgezogen:
+
+- **Partial-Resume-Passnummer.** `parseResolverLoopLog()` reserviert bei einer
+  unvollstaendigen Welle jetzt dieselbe Passnummer fuer den Re-Run
+  (`Pass 8` bleibt `Pass 8`, keine `resolver-pass-9-*`-Phantom-Pfade).
+  Der Fall ist als Test abgedeckt.
+- **State-File-Phase-SHAs.** `run-resolver-pass.sh` serialisiert die
+  `phasesRan`-Liste jetzt mit echten Newlines statt literal `\n`; der
+  Loop-Updater bekommt dadurch wieder alle erfolgreich gefahrenen Phasen und
+  kann 6/6-Wellen als abgeschlossen markieren.
+- **Needs-Decision-Resume.** Eine Phase mit `## Needs decision` wird im
+  Resolver-Loop-Log als offen (`[ ]`) gerendert, nicht als abgeschlossen.
+  Der naechste Loop-Lauf setzt dadurch an genau dieser Phase wieder auf; alte
+  checked+needs-decision-Zeilen werden bei der SHA-Preservation defensiv
+  ignoriert.
+- **SSOT-Loop-Complete.** `scripts/run-ssot-loop.sh` erlaubt den expliziten
+  `loopComplete`-Pfad als reinen Log-Commit ohne neues Override-File; normale
+  Iterationen bleiben weiter streng `1 Override + 1 Log-Block`.
+- **Config-Snapshot entstaled.** `scripts/resolver-pass.config.json` ist kein
+  Pass-7-/Brief-093-Artefakt mehr, sondern eine generische Auto-Config-Form
+  fuer die erste erwartete Restwelle `ssot-w40k-046..051` (ohne `brief`,
+  ohne `clusters`, ohne handgeschriebene Pass-Lore, ohne Brief-Status-Flip).
+  Der echte Loop ueberschreibt sie beim naechsten offenen Wellen-Lauf ohnehin.
+- **Runbook-Restbriefing entfernt.** Phase 4b nennt kein Brief-Status-Update
+  mehr als Achs-Paket.
+
 ## Verification
 
 - `npm run lint` — pass (nur das vorbestehende `pages/_document.js`-Warning
@@ -163,16 +191,21 @@ ist scharf, sobald der SSOT-Loop weiter läuft.
 - `npm run test:resolver-coverage` — pass (below-threshold rows sind data
   findings, kein Failure).
 - `npm run test:apply-override-dry` — pass.
+- `npm run test:collection-refs` — 7 / 7 pass.
 - `npm run test:loop-next` — 9 / 9 pass.
-- `npm run test:resolver-loop-detect` — 18 / 18 pass.
+- `npm run test:resolver-loop-detect` — 22 / 22 pass.
 - `npm run brain:lint -- --no-write` — 0 blocking, 14 warnings (alle aus
   Pre-094-Inhalten).
+- `bash -n scripts/run-ssot-loop.sh` — clean.
 - `bash -n scripts/run-resolver-loop.sh` — clean.
 - `bash -n scripts/run-resolver-pass.sh` — clean.
 - **Live-Smoke `npm run resolver:next-wave`** gegen Repo-Stand →
   `{ "status": "idle", "reason": "progress at ssot-w40k-045; no later batches
   crystallized" }` (erwartet — Pass 7 gemerged, SSOT-Loop hat noch keine
   046+ kristallisiert).
+- **Synthetic Resume-Smoke**: Bootstrap bis `045` + partial Pass 8 für
+  `046..051` liefert `nextPassNumber=8`, `pass=8`,
+  `phase4aStatus=sessions/resolver-dossiers/resolver-pass-8-phase-4a-report.md`.
 - **Live-Smoke `bash scripts/run-resolver-loop.sh --dry-run`** —
   pre-checks alle grün, detektiert `idle`, exit 0 ohne `claude -p`-Aufruf.
 
