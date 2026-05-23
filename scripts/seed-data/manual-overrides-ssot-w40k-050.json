@@ -1,0 +1,470 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-050",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Cluster of early Warhammer Horror releases (2019-2020) plus the Warped Galaxies YA finale. Heavy format-conflict batch: five entries the roster labels 'novel' are actually Black Library eShorts (The Hunt, Nightbleed, The Child Foretold, Skull Throne) and one is a 12-story multi-author anthology (Invocations, with Lora Gray miscredited as sole author). Two of the Horror entries are also Age of Sigmar pieces (The Hunt in Ghur, Skull Throne in Shyish) shelved under the W40K domain.",
+  "books": [
+    {
+      "externalBookId": "W40K-0491",
+      "slug": "tomb-of-the-necron",
+      "overrides": {
+        "synopsis": "Guided by the vision of a mysterious psyker, Zelia finally tracks down her mother on a distant world after a galaxy-spanning quest. But the ancient relic she and her friends still carry — the same one that destroyed Talen's home planet — has drawn the attention of an unstoppable Necron army that will tear the world apart to claim it. As loyalties are tested, destinies decided, and the Space Marines arrive in force, a young heroine must work out what she is willing to lose to keep her newfound family together. The sixth and final volume of the middle-grade Warped Galaxies sequence brings the Warhammer Adventures arc to its blockbuster close.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "galactic",
+          "series_finale",
+          "short",
+          "journey",
+          "last_stand",
+          "hopepunk",
+          "action_heavy",
+          "brotherhood",
+          "sacrifice",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Adeptus Astartes", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Zelia", "role": "pov" },
+          { "name": "Talen", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.69,
+          "count": 13,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/58920025-warhammer-adventures"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0492",
+      "slug": "the-wicked-and-the-damned",
+      "overrides": {
+        "synopsis": "Three strangers — a commissar, an officer of the Astra Militarum, and an Imperial priest — find themselves stranded together on the mist-shrouded cemetery world of Silence, surrounded by the dead and tended by sinister mortuary-servitors. As they wait for an unknown reckoning, each is compelled in turn to tell the last thing they remember: a ghost story, a monster saga, and a tale of psychological horror that, braided together, draw the strangers towards one terrible truth. The opening volume of the Warhammer Horror imprint links three Warhammer 40,000 novellas — by Josh Reynolds, Phil Kelly, and David Annandale — through a frame whose meaning only sharpens in the final pages.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "faith",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Officio Prefectus", "role": "supporting" },
+          { "name": "Adeptus Ministorum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Silence", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.72,
+          "count": 732,
+          "evidenceUrl": "https://www.goodreads.com/book/show/40744547-the-wicked-and-the-damned"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0493",
+      "slug": "the-hunt",
+      "overrides": {
+        "synopsis": "In the Free City of Everyth, in the Realm of Ghur, witch hunter Bered Davan waits for the doom he knows is coming for him. He has been hunting the source of a creeping contagion across the Mortal Realms, but the further he goes, the more he is haunted by the figures from his own past — until guilt and disease begin to look uncomfortably like the same shape. Told in an unusual second-person voice that pulls the reader gradually into Davan's own undoing, this Age of Sigmar Horror short is a slow, deliberate meditation on duty, dread, and the price of business left unfinished.",
+        "facetIds": [
+          "book",
+          "male",
+          "planetary",
+          "standalone",
+          "novella",
+          "mystery",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "philosophical",
+          "doubt",
+          "faith",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [],
+        "locations": [
+          { "name": "Free City of Everyth", "role": "primary" },
+          { "name": "Realm of Ghur", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Bered Davan", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story" },
+          { "kind": "data_conflict", "field": "setting", "suggestion": "age_of_sigmar" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.54,
+          "count": 50,
+          "evidenceUrl": "https://www.goodreads.com/book/show/45483821-the-hunt"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0494",
+      "slug": "invocations",
+      "overrides": {
+        "synopsis": "The second Warhammer Horror anthology gathers twelve short tales from ten authors, set across both the 41st millennium and the Mortal Realms. An Imperial priest extracts a monstrous confession; a widower embarks on a doomed pilgrimage; a witch hunter returns to a place of nightmares. From abandoned medicae facilities and frostbitten Imperial outposts to ghostly castle dungeons in the realms of Sigmar, the contributors — David Annandale, Lora Gray, Steven Sheil, Richard Strachan, Jake Ozga, C L Werner, Ray Cluley, Justin D Hill, Nick Kyme, and Peter McLean — reach for everything from creeping cosmic horror to outright body horror.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "faith",
+          "doubt",
+          "betrayal",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "anthology" },
+          { "kind": "data_conflict", "field": "authors", "suggestion": "multi-author (Annandale, Gray, Sheil, Strachan, Ozga, Werner, Cluley, Hill, Kyme, McLean)" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.90,
+          "count": 178,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/49921986"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0495",
+      "slug": "nightbleed",
+      "overrides": {
+        "synopsis": "On the night-shrouded hive world of Sarastus, disgraced former medicae Chel works under-the-table for a dubious synth-protein supplier, refusing to ask where the raw material comes from. Her nights bring waking horrors and her days bring worse dreams. Down in Carceri Hive, a self-styled missionary called Skreech moves through the crowd, choosing his initiates and revealing to them what he calls the True Night. When their paths cross, Chel discovers that her quiet refusal to look may have made her exactly the kind of receptive soul Skreech has been hunting. A low-key Peter Fehervari short that quietly extends his loose Dark Coil sequence of interconnected stories.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "mystery",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "doubt",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health",
+          "cw_crime",
+          "en"
+        ],
+        "factions": [],
+        "locations": [
+          { "name": "Sarastus", "role": "primary" },
+          { "name": "Carceri Hive", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Chel", "role": "pov" },
+          { "name": "Skreech", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.19,
+          "count": 237,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/55815522"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0496",
+      "slug": "the-child-foretold",
+      "overrides": {
+        "synopsis": "On the agri world of Ballard's Run, an invasive 'warrior weed' is choking the crops and blighting the farmers who have dedicated their lives to working the land. Kavel, a former planetary militiaman who lost his family to an ork incursion a decade earlier, has retreated to a quiet plot where there is nothing left for the weed to take. Then a dying woman stumbles onto his property and presses an infant into his arms, begging him to keep the child safe. As strangers move on the settlement looking for the woman and the babe, Kavel finds a fragile second chance at purpose — and a slow-burning question about where the real threat to Ballard's Run is actually coming from.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "mystery",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "doubt",
+          "faith",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_parental_guidance",
+          "en"
+        ],
+        "factions": [],
+        "locations": [
+          { "name": "Ballard's Run", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Kavel", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.46,
+          "count": 52,
+          "evidenceUrl": "https://www.goodreads.com/book/show/49204047-the-child-foretold"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0497",
+      "slug": "skull-throne",
+      "overrides": {
+        "synopsis": "In a silent corner of Shyish, the Realm of Death, a young woman drifts through what little remains of her life in a detached haze. When Chaos raiders cross her path and claim a skull as tribute for their dark god, something stirs in her that wakes her up to herself again. In Nagash's domain even death is not always permanent, and the road that now opens before her is one of patient, mournful vengeance. A short, hypnotic Age of Sigmar Horror tale that pushes its mood and second-person rhythms further than most of the imprint's more conventional offerings.",
+        "facetIds": [
+          "book",
+          "female",
+          "planetary",
+          "standalone",
+          "novella",
+          "last_stand",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "philosophical",
+          "hubris",
+          "sacrifice",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [],
+        "locations": [
+          { "name": "Shyish", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story" },
+          { "kind": "data_conflict", "field": "setting", "suggestion": "age_of_sigmar" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.84,
+          "count": 61,
+          "evidenceUrl": "https://www.goodreads.com/book/show/49618269-skull-throne"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0498",
+      "slug": "maledictions",
+      "overrides": {
+        "synopsis": "Eleven short stories from the darker corners of the worlds of Warhammer, brought together under the Warhammer Horror imprint. Imperial Guard hunt and are hunted in jungle warfare on Vardan IV; a disgraced commissar fights a creeping plague on the toxic world of Eremus; an interrogator broken by drukhari captivity tries to put herself back together at the remote convent of St. Solangia's; orphan children grow up in a hidden valley they can never leave without dooming everyone within. Contributors include Graham McNeill, Cassandra Khaw, Alec Worley, David Annandale, C L Werner, Peter McLean, J C Stearns, Paul Kane, and Lora Gray.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "war_story",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "faith",
+          "doubt",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Officio Prefectus", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Drukhari", "role": "antagonist" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vardan IV", "role": "supporting" },
+          { "name": "Eremus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Dominic Seroff", "role": "pov" },
+          { "name": "Monika", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.71,
+          "count": 485,
+          "evidenceUrl": "https://www.goodreads.com/book/show/40744548-maledictions"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0499",
+      "slug": "the-house-of-the-night-and-chain",
+      "overrides": {
+        "synopsis": "Maeson Strock — colonel of the Astra Militarum, broken by war and personal loss — returns to his ancestral home of Malveil to take up the mantle of Planetary Governor. He hopes to purge the political corruption that has settled over his world and to rebuild the relationship with his estranged son and daughter. But the old house has its own pace, its own appetites, and its own ideas about the man it has summoned back. As Strock tries to root out corruption from one direction and reach his children from another, the line between haunted house and haunted mind narrows to a single thread. A first-person Warhammer 40,000 horror novel about trauma, paranoia, and a slow descent into madness.",
+        "facetIds": [
+          "book",
+          "male",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "political_thriller",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "doubt",
+          "hubris",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Malveil", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Maeson Strock", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.76,
+          "count": 508,
+          "evidenceUrl": "https://www.goodreads.com/book/show/44451857-the-house-of-night-and-chain"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0500",
+      "slug": "the-colonels-monograph",
+      "overrides": {
+        "synopsis": "Retired Imperial archivist Teresina Sullo accepts a private commission to catalogue the library of celebrated war hero Colonel Elena Grayloc, who returned from a long campaign only to die at her ancestral seat under circumstances no one will quite explain. Working alone in mist-shrouded Grayloc Manor at Vansen Falls, Sullo finds herself increasingly fixated on a single missing volume — a monograph said to contain the colonel's own account of an event called the Dawn of the Dark Suns. The deeper she digs, the more certain she becomes that the colonel's heroic legend conceals something darker, and the less certain she is whether what answers her in the manor is her own imagination or something worse.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "mystery",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "philosophical",
+          "doubt",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Vansen Falls", "role": "primary" },
+          { "name": "Grayloc Manor", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Teresina Sullo", "role": "pov" },
+          { "name": "Elena Grayloc", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.97,
+          "count": 138,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/48735819"
+        }
+      }
+    }
+  ]
+}

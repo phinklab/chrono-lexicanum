@@ -1646,3 +1646,28 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Ziasuthra (craftworld surface — post-Great Rift introduction in Ghost Warrior), Saim-Hann (canonical hyphenation), Ynnari (canonical), T'au Empire (apostrophe form vs book title's apostrophe-less "Tau"), Adeptus Mechanicus (full canonical name preferred over short "Mechanicus"), The Archivist, Inquisitor Jeremias.
 - **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief-061-Konvention (reiner Daten-Commit, Override-JSON + Markdown-Append, kein Code).
+
+## 2026-05-23 · ssot-w40k-050 · W40K-0491..W40K-0500 · ✅
+
+- **Cumulative books in authority:** 500
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=490, batch=ssot-w40k-050, slice=W40K-0491..W40K-0500
+- **WebSearch:** mean=1.2, max=2 (over 10 books) — extra search on Invocations (anthology contents) and The Hunt (setting confirm)
+- **Per-book bullets:**
+  - W40K-0491 *Tomb of the Necron*: Warped Galaxies finale; Necrons + Adeptus Astartes named, mother/world unnamed in sources so locations left empty.
+  - W40K-0492 *The Wicked and the Damned*: roster `format: anthology` matches; three POVs unnamed in available sources, so `characters: []`.
+  - W40K-0493 *The Hunt*: roster mistag — Black Library eShort, not novel, and **Age of Sigmar** (Realm of Ghur, Free City of Everyth, witch hunter Bered Davan). Double `data_conflict` flag (format → short_story, setting → age_of_sigmar). No 40K facet for Sigmarite witch hunter — class omitted.
+  - W40K-0494 *Invocations*: roster mistag — 12-story multi-author anthology, not a Lora Gray novel. `data_conflict` flags on format (→ anthology) and authors (multi-author with full contributor list in suggestion). Aggregated facets only; factions/locations/characters left empty (too varied).
+  - W40K-0495 *Nightbleed*: roster mistag — Fehervari eShort (Warhammer Horror Week 2020 #2), not a novel. Carceri Hive / Sarastus / Chel / Skreech all named directly. Dark Coil connection mentioned in synopsis as in-universe-flavored author note.
+  - W40K-0496 *The Child Foretold*: roster mistag — Kaufmann eShort, not novel. Ballard's Run agri-world setting; threat-source deliberately ambiguous per the story's premise, so no antagonist faction named.
+  - W40K-0497 *Skull Throne*: roster mistag — Ozga eShort and **Age of Sigmar** (Shyish). Double `data_conflict`. Khorne strongly implied by title but not confirmed by sources → no factions listed (Plot-Halluzinations-Disziplin).
+  - W40K-0498 *Maledictions*: roster `format: anthology` matches; partial named-story coverage (Predation of the Eagle / Last Ascension of Dominic Seroff / The Marauder Lives / The Nothings) — listed two POVs with confident attribution.
+  - W40K-0499 *The House of the Night and Chain*: clean 40K novel (Annandale); first-person Strock POV, descent-into-madness frame.
+  - W40K-0500 *The Colonel's Monograph*: clean 40K Novella Series 2 entry; first-person Sullo POV, mirrors W40K-0499's haunted-elder-officer pattern.
+- **value_outside_vocabulary:**
+  - `length_tier: short_story` / `eshort` — five books in this batch are eShorts shorter than the catalog's `novella` tier; used `novella` as the smallest available bucket but a `short_story` value would be cleaner.
+  - `setting: age_of_sigmar` — flagged twice via `data_conflict`, but there is no top-level domain/setting facet category in `facet-catalog.json`.
+  - `protagonist_class: sigmarite_witch_hunter` (W40K-0493) — Order of Azyr / Sigmarite witch hunter has no analogue in the 40K-centric `protagonist_class` enum; closest is `inquisitor` lore-wise but lore-incorrect.
+  - `pov_side: order` / `sigmar` — AoS-side POV not covered by the 40K-leaning `imperium / chaos / xenos / dual / neutral` values; AoS entries had `pov_side` omitted.
+- **Notable surface-forms (within this batch):** Zelia, Talen (Warped Galaxies); Silence (cemetery world); Free City of Everyth, Realm of Ghur, Bered Davan; Sarastus, Carceri Hive, Chel, Skreech, Dark Coil; Ballard's Run, Kavel; Shyish, Nagash's domain; Vardan IV, Eremus, St. Solangia's, Dominic Seroff, Monika; Malveil, Maeson Strock; Vansen Falls, Grayloc Manor, Teresina Sullo, Elena Grayloc, Dawn of the Dark Suns; Officio Prefectus.
+- **Verification:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief-061-Konvention (data-only commit: override JSON + log append).
