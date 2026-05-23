@@ -1,24 +1,34 @@
 import type { Metadata } from "next";
+import SiteBackground from "@/components/chrome/SiteBackground";
+import CornerAuspex from "@/components/chrono/CornerAuspex";
 
-export const metadata: Metadata = { title: "Cartographer — Galaxy Map" };
+export const metadata: Metadata = { title: "Cartographer — Chrono Lexicanum" };
 
 /**
  * Map route. Will host the ported GalaxyMode component (SVG segmentum map).
  *
- * Phase 2 work (see ROADMAP.md):
- *   - port GalaxyMode.jsx → src/components/map/Galaxy.tsx
- *   - swap window.LOCATIONS / window.SECTORS for DB-driven data
- *   - add a time-slider (filter visible books by in-universe year)
+ * Brief 096 keeps the layout exactly as it stands today and only re-themes
+ * the global shell — Cartographer's bespoke redesign is explicitly out of
+ * scope for this brief. So this page stays a stub shell until the real
+ * GalaxyMode is ported.
  */
 export default function MapPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-24">
-      <p className="font-mono text-xs uppercase tracking-[0.3em] text-frost-400">Phase 2</p>
-      <h1 className="mt-3 font-cinzel text-4xl text-aquila">Cartographer</h1>
-      <p className="mt-6 font-cormorant text-xl italic text-frost-50/80">
-        The interactive galaxy map lives here. Sectors, worlds, and books-per-place — with a time
-        slider to watch the Imperium fracture.
-      </p>
+    <main className="stub-shell">
+      <SiteBackground variant="cartog" position="center" />
+      <div className="stub-shell__decor" aria-hidden>
+        <CornerAuspex size={140} label="CARTOG // 1011" />
+      </div>
+      <div className="stub-shell__inner">
+        <p className="stub-shell__eyebrow">{"// PHASE-3 · IN VORBEREITUNG"}</p>
+        <h1 className="stub-shell__title">CARTOGRAPHER</h1>
+        <span className="c-hairline stub-shell__rule" aria-hidden />
+        <p className="stub-shell__body">
+          Galaktische Karte — Segmenta, Sektoren, Welten, Buch-Pins. Mit Zeitschieber,
+          um dem Imperium beim Zerfallen zuzusehen. Erscheint, sobald GalaxyMode
+          aus dem alten Prototyp portiert ist.
+        </p>
+      </div>
     </main>
   );
 }

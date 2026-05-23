@@ -4054,3 +4054,236 @@ main.book-detail {
     max-width: 220px;
   }
 }
+
+/* =============================================================================
+ * Stub-route shell — shared layout for /fraktion, /welt, /charakter, /map
+ * Eyebrow + Cinzel title + Cormorant body + decorative CornerAuspex.
+ * ============================================================================= */
+
+main.stub-shell {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 120px 32px 120px;
+  min-height: calc(100vh - 48px);
+}
+
+.stub-shell__decor {
+  position: absolute;
+  top: 80px;
+  right: 32px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.stub-shell__inner {
+  position: relative;
+  max-width: 620px;
+}
+
+.stub-shell__eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  margin: 0;
+}
+
+.stub-shell__title {
+  margin: 14px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4vw, 56px);
+  letter-spacing: 0.05em;
+  color: var(--cl-bone);
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+.stub-shell__rule {
+  margin: 24px 0 28px;
+  max-width: 280px;
+}
+
+.stub-shell__body {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.6;
+  color: rgba(232, 220, 192, 0.82);
+  max-width: 56ch;
+}
+
+@media (max-width: 720px) {
+  main.stub-shell {
+    padding: 96px 20px 96px;
+  }
+  .stub-shell__decor {
+    top: 64px;
+    right: 16px;
+    transform: scale(0.78);
+    transform-origin: top right;
+  }
+}
+
+/* =============================================================================
+ * /ask — visual preview of the planned 6-path Oraculum selection grid.
+ * Cards are aria-disabled stubs. Real funnel state machine lands later.
+ * ============================================================================= */
+
+main.ask {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 32px 120px;
+}
+
+.ask__decor {
+  position: absolute;
+  top: 80px;
+  right: 32px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.ask__header {
+  max-width: 640px;
+  position: relative;
+}
+
+.ask__eyebrow {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+
+.ask__title {
+  margin: 14px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(40px, 4.4vw, 62px);
+  letter-spacing: 0.06em;
+  color: var(--cl-bone);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+.ask__rule {
+  margin: 22px 0 22px;
+  max-width: 280px;
+}
+
+.ask__lede {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.55;
+  color: rgba(232, 220, 192, 0.82);
+  max-width: 60ch;
+}
+
+.ask__status {
+  margin: 18px 0 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+
+.ask__paths {
+  margin: 56px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ask__path {
+  position: relative;
+  padding: 22px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0.55;
+  pointer-events: none;
+  filter: saturate(0.85);
+}
+
+.ask__path-number {
+  font-family: var(--font-cinzel), serif;
+  font-size: 24px;
+  letter-spacing: 0.16em;
+  color: var(--cl-cyan);
+}
+
+.ask__path-label {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-bone);
+}
+
+.ask__path-rule {
+  margin: 4px 0 6px;
+}
+
+.ask__path-copy {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: rgba(232, 220, 192, 0.78);
+}
+
+.ask__path-foot {
+  margin-top: auto;
+  padding-top: 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+
+.ask__footer {
+  margin-top: 64px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cl-ghost);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+
+@media (max-width: 980px) {
+  .ask__paths {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  main.ask {
+    padding: 80px 18px 96px;
+  }
+  .ask__paths {
+    grid-template-columns: 1fr;
+  }
+  .ask__decor {
+    top: 64px;
+    right: 16px;
+    transform: scale(0.78);
+    transform-origin: top right;
+  }
+}
