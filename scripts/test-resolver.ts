@@ -495,6 +495,46 @@ check("alias - sixth wave the Maelstrom routes to maelstrom (warp-region gap-fix
   assert.equal(resolveLocation("the Maelstrom").id, "maelstrom");
 });
 
+check("direct match - seventh wave Ullanor (Beast Arises M32 throneworld of orks, freq=5)", () => {
+  assert.equal(resolveLocation("Ullanor").id, "ullanor");
+});
+
+check("direct match - seventh wave Alaitoc (Craftworld, Path of the Eldar trilogy, freq=4)", () => {
+  assert.equal(resolveLocation("Alaitoc").id, "alaitoc");
+});
+
+check("direct match - seventh wave Velchanos Magna (Forge World, Sanders Mechanicus trilogy, freq=3)", () => {
+  assert.equal(resolveLocation("Velchanos Magna").id, "velchanos_magna");
+});
+
+check("direct match - seventh wave Adrastapol (Imperial Knight noble homeworld, freq=2)", () => {
+  assert.equal(resolveLocation("Adrastapol").id, "adrastapol");
+});
+
+check("direct match - seventh wave The Rock (Dark Angels mobile fortress-monastery, freq=2)", () => {
+  assert.equal(resolveLocation("The Rock").id, "rock");
+});
+
+check("direct match - seventh wave Phall (Beast Arises Imperial Navy contested system, freq=2)", () => {
+  assert.equal(resolveLocation("Phall").id, "phall");
+});
+
+check("direct match - seventh wave Mistral (Yarrick Hades-class hive world, freq=2)", () => {
+  assert.equal(resolveLocation("Mistral").id, "mistral");
+});
+
+check("direct match - seventh wave Inwit (Imperial Fists homeworld, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Inwit").id, "inwit");
+});
+
+check("direct match - seventh wave Ulthwe (Craftworld, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Ulthwe").id, "ulthwe");
+});
+
+check("direct match - seventh wave Baal Secundus (Blood Angels recruitment moon, distinct row from baal, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Baal Secundus").id, "baal_secundus");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {

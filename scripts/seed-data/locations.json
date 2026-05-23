@@ -1608,5 +1608,101 @@
     "gx": null,
     "gy": null,
     "tags": []
+  },
+  {
+    "id": "ullanor",
+    "name": "Ullanor",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["orks"]
+  },
+  {
+    "id": "alaitoc",
+    "name": "Alaitoc",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["eldar"]
+  },
+  {
+    "id": "velchanos_magna",
+    "name": "Velchanos Magna",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["mechanicus"]
+  },
+  {
+    "id": "adrastapol",
+    "name": "Adrastapol",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["imperial_knights"]
+  },
+  {
+    "id": "demetrius",
+    "name": "Demetrius",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["astra_militarum"]
+  },
+  {
+    "id": "loki",
+    "name": "Loki",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["astra_militarum"]
+  },
+  {
+    "id": "mistral",
+    "name": "Mistral",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["astra_militarum"]
+  },
+  {
+    "id": "phall",
+    "name": "Phall",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["imperial_navy"]
+  },
+  {
+    "id": "rock",
+    "name": "The Rock",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["dark_angels"]
+  },
+  {
+    "id": "ulthwe",
+    "name": "Ulthwe",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["eldar"]
+  },
+  {
+    "id": "inwit",
+    "name": "Inwit",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["imperial_fists"]
+  },
+  {
+    "id": "baal_secundus",
+    "name": "Baal Secundus",
+    "sector": "tempestus",
+    "gx": null,
+    "gy": null,
+    "tags": ["blood_angels"]
   }
 ]
