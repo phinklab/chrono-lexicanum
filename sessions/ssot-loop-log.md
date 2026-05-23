@@ -1692,3 +1692,25 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Angels Resplendent (Adeptus Astartes chapter, 40K); Adeptus Ministorum, Inquisition, Ordo Sepulturum (40K factions); Ceocan, Theotokos, Blackgeist, Durgov, The Spike, The Reverie (40K locations/settings); Mhurghast, Shyish, Aqshy (Age-of-Sigmar locations from the two AoS-misslotted entries); Clan Urretzi, Valenth (in-story group/family names); Ashielle Matkosen, Ruprekt Matkosen, Havisa, Alabastian Valenth, Mabeth, Lyse, Morgravia Sanctus, The Broker, Arch-Deacon Ambrose, Cardinal Lorenz (characters).
 - **Verification skipped:** Reiner Daten-Commit (eine neue Override-JSON + Log-Append, kein Code) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` per Brief-061-Konvention übersprungen.
+
+## 2026-05-23 · ssot-w40k-052 · W40K-0511..W40K-0520 · ✅
+
+- **Cumulative books in authority:** 520
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=510, batch=ssot-w40k-052, slice=W40K-0511..W40K-0520
+- **WebSearch:** mean=1.1, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0511 The Vampire Genevieve — omnibus collecting Drachenfels / Genevieve Undead / Beasts in Velvet / Silver Nails (Kim Newman, 2021 reissue); roster says novel → format-conflict suggestion=omnibus. Warhammer Fantasy Old World setting → setting-conflict suggestion=warhammer_fantasy.
+  - W40K-0512 The Vintage — Black Library eShort, not novel → format-conflict suggestion=novella. Age of Sigmar (Freeguild soldier, Vyrkos vampire Anasta Malkorion) → setting-conflict suggestion=age_of_sigmar. Soldier POV unnamed in coverage.
+  - W40K-0513 The Isenbrach Horror — eShort, not novel → format-conflict suggestion=novella. 40K feudal world, planetary Governor assassination plot. Conspirators and world unnamed in coverage.
+  - W40K-0514 Aberration — eShort, not novel → format-conflict. AoS Vyrkos vampire dynasty → setting-conflict suggestion=age_of_sigmar. Both characters unnamed.
+  - W40K-0515 Blood Drinker — eShort → format-conflict suggestion=novella. 40K Blood Drinkers chapter (Black Rage); names not in coverage.
+  - W40K-0516 Bird of Change — eShort → format-conflict suggestion=novella. Black Library product page says Mortal Realms → setting-conflict suggestion=age_of_sigmar. Tzeentch cult sacrifice plot; names not in coverage.
+  - W40K-0517 The Accursed — anthology (correct roster format). Mixed AoS + 40K horror, 12 stories, 12 named contributors aggregated. Faction set aggregated low-confidence from story-title signals; no individual characters tagged.
+  - W40K-0518 The Bookkeeper's Skull — 40K novel (Justin D Hill), Enforcer cadet Rudgard Howe at agri-belt farmstead Thorsarbour, sanguinary cult. Enforcers ≠ strictly Adeptus Arbites but tagged as nearest Browse-Root with low_confidence note.
+  - W40K-0519 Gothgul Hollow — AoS novel, Realm of Shyish, series Tales of Mhurghast #1 → entry_point=series_start. Setting-conflict suggestion=age_of_sigmar. Title-conflict: Black Library publishes as "Gothghul Hollow" (two h's), roster slug drops the second h → suggestion=gothghul-hollow.
+  - W40K-0520 The Stacks — eShort → format-conflict suggestion=novella. 40K Inquisitorial archivist, name not in coverage.
+- **value_outside_vocabulary:** []
+  - Considered: a `setting` facet (40k / warhammer_fantasy / age_of_sigmar / horus_heresy) would resolve the W40K-bucket-mistag pattern across this whole batch and presumably future Horror waves; logged via per-book `data_conflict` flags rather than written into the catalog (own brief). Also: `omnibus`, `anthology`, `eShort` / `short_story` would round out `length_tier` / `format` for non-novel formats, currently expressed via flags.
+- **Notable surface-forms (within this batch):** Genevieve Dieudonne · Detlef Sierck · Constant Drachenfels · Anasta Malkorion · Vyrkos Dynasty / Soulblight Gravelords · Freeguild · Disciples of Tzeentch · Bird of Change · Blood Drinkers · Black Rage · Sanguinius · Rudgard Howe · Thorsarbour · Lex Imperialis · Gothghul Hollow · Aaric Gothghul · Mhurghast · Realm of Shyish · Cities of Sigmar · Imperator Gladio · Nightbleed · The Reaper's Gift · Tithemarked · Elloth IX · Stormcast Eternals
+- **Lint skipped:** pure data commit (override JSON + log append, no code) per Brief 061 §10 convention.
