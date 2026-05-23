@@ -2,10 +2,11 @@
 title: Cowork session workflow
 type: workflow
 created: 2026-05-09
-updated: 2026-05-20
+updated: 2026-05-23
 sources:
   - ../../../docs/agents/COWORK.md
   - ../../../docs/agents/SESSIONS.md
+  - ../../../sessions/2026-05-23-095-arch-rollup-ownership.md
 related:
   - ./cc-session.md
   - ./sessions-format.md
@@ -64,6 +65,8 @@ If Philipp wants Cowork to push code or run builds: gently redirect. "That's a C
 
 ## After reading a CC implementer report
 
+**Cowork is the sole writer of the coordination-only set** (Brief 095) — `sessions/README.md` plus everything under `brain/` (wiki pages, `brain/CLAUDE.md`, `decisions/`, `workflows/`, `index.md`, `log.md`, `glossary.md`, `outputs/`). CC in a strand worktree (Product/Batches) never touches these files; substantive system facts arrive via the impl report's "What I did" / "For next session", and Cowork folds them in here. **The post-merge coordination pass is the only path through which the rollup files change** — there is no "CC quickly updates `pipeline-state.md` in the same commit as the code" anymore for strand worktrees. The cadence (per merged PR, or batched across several) is Cowork's and Philipp's choice. Detail in [`/CLAUDE.md`](../../../CLAUDE.md) § "Parallel worktrees" → "Rollup-Ownership" + § "Brain & Atlas".
+
 Per [`./session-end.md`](./session-end.md), the routine is:
 
 1. Read the report end-to-end (not just Summary).
@@ -73,6 +76,7 @@ Per [`./session-end.md`](./session-end.md), the routine is:
 5. Update system pages (`architecture.md`, `pipeline-state.md`, `roadmap.md`) if structural change.
 6. Handle external reviews if any (raw → `brain/raw/reviews/<date>-<source>.md` with banner; findings → open-questions).
 7. Update [`../index.md`](../index.md) and [`../log.md`](../log.md) (the catalog and the operation log).
+8. Update [`../../../sessions/README.md`](../../../sessions/README.md) — Active-threads + the session-table row for the merged PR. (Coordination worktree only — strand worktrees never touch this file.)
 
 ## Tools Cowork actually uses
 
