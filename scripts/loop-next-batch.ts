@@ -11,27 +11,17 @@
  *
  * Pure core + thin CLI (same shape as scripts/apply-override-skip.ts):
  *   - `decideNextBatch(input)` is pure (no FS/DB) and is the unit-test seam.
- *   - `main()` does the file I/O (roster + seed dir + log), then calls the core.
+ *   - `main()` does the file I/O (roster + seed dir), then calls the core.
  * Read-only, idempotent, re-runnable: no writes, no git, no DB.
  *
  * Detection mirrors Brief 061 § Notes: W40K domain first (ids `W40K-NNNN`,
  * 565 books), then HH (`HH-NNNN`, 294 books); the next batch number is
  * `max(existing batch number per domain) + 1`; the slice is the next 10 (or the
- * 5/4-book restbatch at a domain's end). Cumulative book count (the resolver
- * cadence) is summed from the override files' `books.length`.
+ * 5/4-book restbatch at a domain's end). Cumulative book count is summed from
+ * the override files' `books.length` (informational; the SSOT-Loop no longer
+ * pauses for the resolver — see Brief 094 which decoupled the two loops).
  *
- * Resolver cadence is 100 books (Brief 090, raised from the original 50): a
- * pause is due when `cumulativeBefore % 100 === 50` — i.e. at 50, 150, 250, 350,
- * 450, … (NOT at the round 100/200/300 multiples). The 50-offset keeps the
- * series passing through the historical 250 boundary so the next pause lands at
- * 350, then 450, 550. `nextResolverPauseAt` reports where the loop next stops.
- *
- * Resolver-pause is self-detecting (Brief 088): a cadence boundary only reports
- * `resolverPause: true` while the matching `⏸ Resolver-Pause bei N Büchern`
- * block is ABSENT from the log. Once that block exists (its own marker), the
- * loop runs on — no manual `--skip-initial-resolver-pause` flag.
- *
- * Run:  npm run loop:next        (optional: --roster-path / --seed-dir / --log-path)
+ * Run:  npm run loop:next        (optional: --roster-path / --seed-dir)
  * Test: npm run test:loop-next
  */
 
@@ -85,8 +75,6 @@ export interface DecideInput {
   w40kBooks: RosterBook[];
   /** roster filtered to HH books, in roster order. */
   hhBooks: RosterBook[];
-  /** raw ssot-loop-log.md content, LF-normalized. */
-  logText: string;
 }
 
 export interface BatchRef {
@@ -97,16 +85,7 @@ export interface BatchRef {
 
 export interface Decision {
   loopComplete: boolean;
-  resolverPause: boolean;
   cumulativeBefore: number;
-  /**
-   * The cumulative count where the loop next *stops* for a resolver pass.
-   * At `resolverPause: true` this is `cumulativeBefore` (the boundary being
-   * paused at); otherwise the smallest cadence boundary strictly greater than
-   * `cumulativeBefore` (e.g. 250→350, 300→350, 350-with-block→450). `null` only
-   * when `loopComplete` (no further pass is due).
-   */
-  nextResolverPauseAt: number | null;
   /** the genuine next batch; null only when loopComplete. */
   batch: BatchRef | null;
   /** the next 10 / 5 / 4 books; empty only when loopComplete. */
@@ -115,50 +94,10 @@ export interface Decision {
 }
 
 // ---------------------------------------------------------------------------
-// Pure: resolver-pause detection
-// ---------------------------------------------------------------------------
-
-/**
- * Matcher for the invariant pause-block heading at a specific cumulative count:
- *   ## YYYY-MM-DD · ⏸ Resolver-Pause bei {n} Büchern
- *
- * The middot (·, U+00B7), pause emoji (⏸, U+23F8) and ü (U+00FC) are written as
- * \u escapes so this source file stays pure-ASCII — no risk of an editor on a
- * Windows host re-encoding those bytes and silently breaking the match. The
- * regex still matches the UTF-8-decoded log string. The literal ` Büchern$` after
- * the count prevents prefix bleed (e.g. matching `200` against `2000 Büchern`).
- */
-export function buildPauseHeadingRegex(n: number): RegExp {
-  const safeN = String(Math.trunc(n));
-  return new RegExp(
-    `^## \\d{4}-\\d{2}-\\d{2} \\u00B7 \\u23F8 Resolver-Pause bei ${safeN} B\\u00FCchern$`,
-    "mu",
-  );
-}
-
-export function logHasPauseBlockFor(logText: string, n: number): boolean {
-  return buildPauseHeadingRegex(n).test(logText);
-}
-
-// ---------------------------------------------------------------------------
 // Pure: next-batch decision
 // ---------------------------------------------------------------------------
 
 const pad3 = (n: number): string => String(n).padStart(3, "0");
-
-/** Resolver cadence (Brief 090): a pause is due at cumulative ≡ 50 (mod 100). */
-const CADENCE = 100;
-const CADENCE_OFFSET = 50;
-
-/** True when `n` is a resolver-cadence boundary (50, 150, 250, 350, …). */
-function isCadenceBoundary(n: number): boolean {
-  return n > 0 && n % CADENCE === CADENCE_OFFSET;
-}
-
-/** Smallest cadence boundary strictly greater than `n` (250→350, 300→350, 350→450). */
-function nextCadenceBoundaryAfter(n: number): number {
-  return (Math.floor((n - CADENCE_OFFSET) / CADENCE) + 1) * CADENCE + CADENCE_OFFSET;
-}
 
 function projectSlice(books: RosterBook[]): RosterSliceBook[] {
   return books.map((b) => ({
@@ -172,30 +111,16 @@ function projectSlice(books: RosterBook[]): RosterSliceBook[] {
   }));
 }
 
-function noteFor(pause: boolean, n: number, id: string): string {
-  return pause
-    ? `resolver pause due at ${n} books: no matching pause-block in log yet — write the pause-block and hold batch ${id}`
-    : `next batch: ${id}`;
-}
-
 /**
- * Pure decision. `batch`/`rosterSlice` always describe the genuine next unit of
- * work; `resolverPause` and `loopComplete` are orthogonal status flags the
- * consumer (runbook / driver) gates on. `loopComplete` forces an empty batch.
+ * Pure decision. `batch`/`rosterSlice` describe the genuine next unit of work;
+ * `loopComplete` forces an empty batch. The SSOT-Loop runs straight through to
+ * loopComplete — Brief 094 removed the resolver-pause cadence that used to gate
+ * iteration here, decoupling the SSOT-Loop from the now-headless resolver loop.
  */
 export function decideNextBatch(input: DecideInput): Decision {
-  const { w40k, hh, w40kBooks, hhBooks, logText } = input;
+  const { w40k, hh, w40kBooks, hhBooks } = input;
 
   const cumulativeBefore = w40k.books + hh.books;
-  const resolverPause =
-    isCadenceBoundary(cumulativeBefore) &&
-    !logHasPauseBlockFor(logText, cumulativeBefore);
-
-  // Where the loop next stops: the boundary we are pausing at if a pause is due,
-  // else the next boundary strictly above the current cumulative count.
-  const nextResolverPauseAt = resolverPause
-    ? cumulativeBefore
-    : nextCadenceBoundaryAfter(cumulativeBefore);
 
   // W40K domain first (Brief 061 § Constraints).
   if (w40k.max * 10 < w40kBooks.length) {
@@ -205,12 +130,10 @@ export function decideNextBatch(input: DecideInput): Decision {
     const id = `ssot-w40k-${pad3(number)}`;
     return {
       loopComplete: false,
-      resolverPause,
       cumulativeBefore,
-      nextResolverPauseAt,
       batch: { domain: "w40k", number, id },
       rosterSlice: projectSlice(w40kBooks.slice(start, end)),
-      note: noteFor(resolverPause, cumulativeBefore, id),
+      note: `next batch: ${id}`,
     };
   }
 
@@ -222,21 +145,17 @@ export function decideNextBatch(input: DecideInput): Decision {
     const id = `ssot-hh-${pad3(number)}`;
     return {
       loopComplete: false,
-      resolverPause,
       cumulativeBefore,
-      nextResolverPauseAt,
       batch: { domain: "hh", number, id },
       rosterSlice: projectSlice(hhBooks.slice(start, end)),
-      note: noteFor(resolverPause, cumulativeBefore, id),
+      note: `next batch: ${id}`,
     };
   }
 
   // Both domains fully covered.
   return {
     loopComplete: true,
-    resolverPause: false,
     cumulativeBefore,
-    nextResolverPauseAt: null,
     batch: null,
     rosterSlice: [],
     note: "loop complete: all roster books covered by override files",
@@ -258,7 +177,6 @@ interface RawOverrideFile {
 interface LoadPaths {
   rosterPath: string;
   seedDir: string;
-  logPath: string;
 }
 
 function parseArgs(argv: string[]): LoadPaths {
@@ -266,7 +184,6 @@ function parseArgs(argv: string[]): LoadPaths {
   const paths: LoadPaths = {
     rosterPath: path.join(repo, "scripts", "seed-data", "book-roster.json"),
     seedDir: path.join(repo, "scripts", "seed-data"),
-    logPath: path.join(repo, "sessions", "ssot-loop-log.md"),
   };
   for (let i = 2; i < argv.length; i += 1) {
     const a = argv[i];
@@ -276,11 +193,8 @@ function parseArgs(argv: string[]): LoadPaths {
     } else if (a === "--seed-dir") {
       i += 1;
       paths.seedDir = argv[i];
-    } else if (a === "--log-path") {
-      i += 1;
-      paths.logPath = argv[i];
     } else {
-      throw new Error(`unknown arg: ${a} (expected --roster-path/--seed-dir/--log-path)`);
+      throw new Error(`unknown arg: ${a} (expected --roster-path/--seed-dir)`);
     }
   }
   return paths;
@@ -312,8 +226,7 @@ function loadInputs(p: LoadPaths): DecideInput {
     bucket.books += data.books.length;
   }
 
-  const logText = fs.readFileSync(p.logPath, "utf8").replace(/\r\n/g, "\n");
-  return { w40k, hh, w40kBooks, hhBooks, logText };
+  return { w40k, hh, w40kBooks, hhBooks };
 }
 
 function main(): void {
