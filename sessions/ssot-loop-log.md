@@ -1756,3 +1756,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Order of Our Martyred Lady, Mordian Iron Guard, Howling Griffons, Red Corsairs, Black Legion, Enforcers, Probators, Anaxian Line, Pariah Nexus, Golden Chain, Eye of Terror, Kamidar, Velua, Srinagar, Varangantua, Iron Queen Orlah, Probator Agusto Zidarov, Ferren Areios, Tharador Yheng, Tenebrus, Graeyl Herek, Magda Kesh, Sister Isobel, Canoness Irinya, Gaheris, Katla Helvintr, Szarekh, Kor Phaeron, Roboute Guilliman, Inquisitor Rostov, Udmil Terashova, Iota-11.
 - **Verification:** lint/typecheck/brain:lint skipped per Brief 061 (pure data commit).
+
+## 2026-05-23 · ssot-w40k-055 · W40K-0541..W40K-0550 · ✅
+
+- **Cumulative books in authority:** 550
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=540, batch=ssot-w40k-055, slice=W40K-0541..W40K-0550
+- **WebSearch:** mean=1.1, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0541 Flesh and Steel — Varangantua probator novel (Symeon Noctis × tech-priest Rho-1 Lux); clean tagging, no conflicts.
+  - W40K-0542 Grim Repast — Varangantua serial-killer procedural in Polaris district (probator Quillon Drask); clean tagging.
+  - W40K-0543 Broken City — Warhammer Crime anthology (7 stories incl. Bleedout/Rath, Sanctioner/Wraight); ensemble pov, aggregated factions=Arbites.
+  - W40K-0544 Sanction and Sin — Warhammer Crime anthology (9 stories, first BL anthology with four female authors); ensemble pov, aggregated factions=Arbites.
+  - W40K-0545 The King of the Spoil — cartel/info-broker thriller (Melita Voronova × Haska Jovanic, Sorokin murder); surface-form raw_names Valtteri Cartel / Har Dhrol preserved (Varangantua-specific orgs, resolver-loop will canonicalise).
+  - W40K-0546 Once a Killer — Warhammer Crime anthology (8 stories, title piece by Mitchel Scanlon); ensemble pov, aggregated.
+  - W40K-0547 Dredge Runners — **format conflict flagged** (roster=novella, but Dredge Runners shipped as a 2020 full-cast audio drama, Black Library, ~1h); abhuman pov pair Baggit (ratling) + Clodde (ogryn); facetIds set format=audio_drama + length_tier=novella to match the actual artefact.
+  - W40K-0548 The Wraithbone Phoenix — Baggit-and-Clodde caper novel; Aeldari relic on a wrecked voidship; clean tagging.
+  - W40K-0549 Urdesh: The Serpent and the Saint — Iron Snakes Astartes escort Saint Sabbat on Urdesh (Sabbat Worlds Crusade, Anarch Sek); series_start of the Urdesh duology.
+  - W40K-0550 Urdesh: The Magister and the Martyr — direct continuation, Damocles Squad in Ghereppan; series_finale of the duology.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Probator (Arbites rank), Sanctioner (Arbites rank, Varangantua-flavoured), Steelmound, Nearsteel, Polaris, The Spoil, Valtteri Cartel, Har Dhrol, Damocles Squad, Iron Snakes, Sons of Sek, Anarch Sek / Magister Sek, Beati, Ghereppan, Tabidiah Kruger, Savriel Sabbriatti.
+- **Verifikation skipped:** Reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code); npm lint/typecheck/brain:lint per Brief-061-Konvention übersprungen.
