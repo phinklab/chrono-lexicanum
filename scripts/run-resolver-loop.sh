@@ -241,10 +241,15 @@ update_loop_log() {
   date=$(date -u +%Y-%m-%d)
 
   # Pull per-phase SHAs out of the state file.
+  # NB: `STATE_FILE` is declared `readonly` above — re-using it as a
+  # command-prefix env assignment (`STATE_FILE="$STATE_FILE" node …`) would
+  # crash with "STATE_FILE: readonly variable". Forward under a fresh
+  # `STATE_FILE_ENV` name (same shape as `LOG_PATH_ENV` in
+  # `resolve_start_phase`).
   local phase_args
-  phase_args=$(STATE_FILE="$STATE_FILE" node --input-type=module -e "
+  phase_args=$(STATE_FILE_ENV="$STATE_FILE" node --input-type=module -e "
     import fs from 'node:fs';
-    const state = JSON.parse(fs.readFileSync(process.env.STATE_FILE, 'utf8'));
+    const state = JSON.parse(fs.readFileSync(process.env.STATE_FILE_ENV, 'utf8'));
     const parts = [];
     for (const { name, sha } of (state.phasesRan || [])) {
       parts.push('--phase');
@@ -390,19 +395,21 @@ while (( WAVES_RUN < MAX_WAVES )); do
     exit 1
   fi
 
-  STATE_OUTCOME=$(STATE_FILE="$STATE_FILE" node --input-type=module -e "
+  # `STATE_FILE` is readonly above — forward via fresh `STATE_FILE_ENV`
+  # (see comment in `update_loop_log`).
+  STATE_OUTCOME=$(STATE_FILE_ENV="$STATE_FILE" node --input-type=module -e "
     import fs from 'node:fs';
-    const s = JSON.parse(fs.readFileSync(process.env.STATE_FILE,'utf8'));
+    const s = JSON.parse(fs.readFileSync(process.env.STATE_FILE_ENV,'utf8'));
     process.stdout.write(s.outcome || 'unknown');
   ")
-  NEEDS_DECISION_PHASE=$(STATE_FILE="$STATE_FILE" node --input-type=module -e "
+  NEEDS_DECISION_PHASE=$(STATE_FILE_ENV="$STATE_FILE" node --input-type=module -e "
     import fs from 'node:fs';
-    const s = JSON.parse(fs.readFileSync(process.env.STATE_FILE,'utf8'));
+    const s = JSON.parse(fs.readFileSync(process.env.STATE_FILE_ENV,'utf8'));
     process.stdout.write(s.needsDecision?.phase || '');
   ")
-  NEEDS_DECISION_FILE=$(STATE_FILE="$STATE_FILE" node --input-type=module -e "
+  NEEDS_DECISION_FILE=$(STATE_FILE_ENV="$STATE_FILE" node --input-type=module -e "
     import fs from 'node:fs';
-    const s = JSON.parse(fs.readFileSync(process.env.STATE_FILE,'utf8'));
+    const s = JSON.parse(fs.readFileSync(process.env.STATE_FILE_ENV,'utf8'));
     process.stdout.write(s.needsDecision?.file || '');
   ")
 
