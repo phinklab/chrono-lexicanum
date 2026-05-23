@@ -285,6 +285,38 @@ check("alias - sixth wave Militarum Tempestus routes to Tempestus Scions", () =>
   assert.equal(resolveFaction("Militarum Tempestus").id, "tempestus_scions");
 });
 
+check("direct match - seventh wave Talons of the Emperor (Custodes + Sisters of Silence, freq=3)", () => {
+  assert.equal(resolveFaction("Talons of the Emperor").id, "talons_of_the_emperor");
+});
+
+check("alias - seventh wave Sisters of Silence routes to Talons of the Emperor", () => {
+  assert.equal(resolveFaction("Sisters of Silence").id, "talons_of_the_emperor");
+});
+
+check("direct match - seventh wave Senatorum Imperialis (M32 High Lords body, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Senatorum Imperialis").id, "senatorum_imperialis");
+});
+
+check("alias - seventh wave The Fallen routes to Fallen Angels (Dark Angels' Fallen Brethren)", () => {
+  assert.equal(resolveFaction("The Fallen").id, "fallen_angels");
+});
+
+check("alias - seventh wave Craftworld Eldar routes to Aeldari umbrella", () => {
+  assert.equal(resolveFaction("Craftworld Eldar").id, "eldar");
+});
+
+check("direct match - seventh wave House Chimaeros (Imperial Knight noble house, freq=2)", () => {
+  assert.equal(resolveFaction("House Chimaeros").id, "house_chimaeros");
+});
+
+check("direct match - seventh wave House Draconis (Imperial Knight noble house, freq=2)", () => {
+  assert.equal(resolveFaction("House Draconis").id, "house_draconis");
+});
+
+check("alias - seventh wave Striking Scorpions routes to Aeldari umbrella (Aspect-Warrior sub-form)", () => {
+  assert.equal(resolveFaction("Striking Scorpions").id, "eldar");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
@@ -461,6 +493,46 @@ check("alias - sixth wave Cryptus System routes to cryptus (Case G)", () => {
 
 check("alias - sixth wave the Maelstrom routes to maelstrom (warp-region gap-fix)", () => {
   assert.equal(resolveLocation("the Maelstrom").id, "maelstrom");
+});
+
+check("direct match - seventh wave Ullanor (Beast Arises M32 throneworld of orks, freq=5)", () => {
+  assert.equal(resolveLocation("Ullanor").id, "ullanor");
+});
+
+check("direct match - seventh wave Alaitoc (Craftworld, Path of the Eldar trilogy, freq=4)", () => {
+  assert.equal(resolveLocation("Alaitoc").id, "alaitoc");
+});
+
+check("direct match - seventh wave Velchanos Magna (Forge World, Sanders Mechanicus trilogy, freq=3)", () => {
+  assert.equal(resolveLocation("Velchanos Magna").id, "velchanos_magna");
+});
+
+check("direct match - seventh wave Adrastapol (Imperial Knight noble homeworld, freq=2)", () => {
+  assert.equal(resolveLocation("Adrastapol").id, "adrastapol");
+});
+
+check("direct match - seventh wave The Rock (Dark Angels mobile fortress-monastery, freq=2)", () => {
+  assert.equal(resolveLocation("The Rock").id, "rock");
+});
+
+check("direct match - seventh wave Phall (Beast Arises Imperial Navy contested system, freq=2)", () => {
+  assert.equal(resolveLocation("Phall").id, "phall");
+});
+
+check("direct match - seventh wave Mistral (Yarrick Hades-class hive world, freq=2)", () => {
+  assert.equal(resolveLocation("Mistral").id, "mistral");
+});
+
+check("direct match - seventh wave Inwit (Imperial Fists homeworld, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Inwit").id, "inwit");
+});
+
+check("direct match - seventh wave Ulthwe (Craftworld, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Ulthwe").id, "ulthwe");
+});
+
+check("direct match - seventh wave Baal Secundus (Blood Angels recruitment moon, distinct row from baal, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Baal Secundus").id, "baal_secundus");
 });
 
 console.log("\nresolveCharacter");
@@ -710,6 +782,59 @@ check("alias-consolidation - sixth wave Varro Tigurius full name resolves to exi
 
 check("unknown - sixth wave Galenus stays null (identity-ambiguous, deliberately unpromoted)", () => {
   assert.equal(resolveCharacter("Galenus").id, null);
+});
+
+check("direct match - seventh wave Asdrubael Vect (Supreme Overlord of Commorragh, freq 4)", () => {
+  assert.equal(resolveCharacter("Asdrubael Vect").id, "asdrubael_vect");
+});
+
+check("direct match - seventh wave Lord Solar Macharius (lore-iconic Macharian Crusade, freq 4)", () => {
+  assert.equal(resolveCharacter("Lord Solar Macharius").id, "lord_solar_macharius");
+});
+
+check("direct match - seventh wave Koorland (Beast Arises POV, freq 10)", () => {
+  assert.equal(resolveCharacter("Koorland").id, "koorland");
+});
+
+check("direct match - seventh wave Drakan Vangorich (Officio Assassinorum, freq 8)", () => {
+  assert.equal(resolveCharacter("Drakan Vangorich").id, "drakan_vangorich");
+});
+
+check("direct match - seventh wave Cypher (fallen_angels FK via Phase-1 alias decision)", () => {
+  assert.equal(resolveCharacter("Cypher").id, "cypher");
+});
+
+check("direct match - seventh wave The Blade of Antwyr (weapon-as-character edge case, daemons FK)", () => {
+  assert.equal(resolveCharacter("The Blade of Antwyr").id, "the_blade_of_antwyr");
+});
+
+check("direct match - seventh wave Danial Tan Draconis (house_draconis, Phase-1 FK)", () => {
+  assert.equal(resolveCharacter("Danial Tan Draconis").id, "danial_tan_draconis");
+});
+
+check("alias-consolidation - seventh wave Ahzek Ahriman both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Ahzek Ahriman").id, "ahzek_ahriman");
+  assert.equal(resolveCharacter("Ahriman").id, "ahzek_ahriman");
+});
+
+check("alias-consolidation - seventh wave Abaddon the Despoiler both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Abaddon the Despoiler").id, "abaddon_the_despoiler");
+  assert.equal(resolveCharacter("Abaddon").id, "abaddon_the_despoiler");
+});
+
+check("alias-consolidation - seventh wave Sebastian Yarrick both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Sebastian Yarrick").id, "sebastian_yarrick");
+  assert.equal(resolveCharacter("Commissar Yarrick").id, "sebastian_yarrick");
+});
+
+check("alias-consolidation - seventh wave Commander Farsight both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Commander Farsight").id, "commander_farsight");
+  assert.equal(resolveCharacter("Farsight").id, "commander_farsight");
+});
+
+check("alias-consolidation - seventh wave Gunnlaugur both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Gunnlaugur").id, "gunnlaugur");
+  assert.equal(resolveCharacter("Gunnlaugr").id, "gunnlaugur");
 });
 
 console.log("\nnormalizeCharacterRole");

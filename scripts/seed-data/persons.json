@@ -400,5 +400,30 @@
     "id": "braden_campbell",
     "name": "Braden Campbell",
     "nameSort": "Campbell, Braden"
+  },
+  {
+    "id": "jonathan_d_beer",
+    "name": "Jonathan D Beer",
+    "nameSort": "Beer, Jonathan D"
+  },
+  {
+    "id": "rhuairidh_james",
+    "name": "Rhuairidh James",
+    "nameSort": "James, Rhuairidh"
+  },
+  {
+    "id": "thomas_parrott",
+    "name": "Thomas Parrott",
+    "nameSort": "Parrott, Thomas"
+  },
+  {
+    "id": "chris_dows",
+    "name": "Chris Dows",
+    "nameSort": "Dows, Chris"
+  },
+  {
+    "id": "phil_kearney",
+    "name": "Phil Kearney",
+    "nameSort": "Kearney, Phil"
   }
 ]

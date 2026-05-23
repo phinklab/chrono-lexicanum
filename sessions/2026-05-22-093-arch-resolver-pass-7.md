@@ -2,14 +2,21 @@
 session: 2026-05-22-093
 role: architect
 date: 2026-05-22
-status: open
+status: implemented
 slug: resolver-pass-7
 parent: null
 links:
   - 2026-05-22-091-arch-resolver-phase4-split
   - 2026-05-21-090-arch-resolver-pass-lean
   - 2026-05-16-076-arch-resolver-batch-4-axis-sliced
-commits: []
+implementer_report: sessions/resolver-dossiers/resolver-pass-7-impl-report.md
+commits:
+  - b1af27b  # Phase 0 (Preflight/Dossier)
+  - e891151  # Phase 1 (Factions)
+  - c63b181  # Phase 2 (Locations)
+  - 64643ba  # Phase 3 (Characters)
+  - d2c9590  # Phase 4a (Integration/Apply)
+  # Phase 4b (Verify/Report) is the commit carrying the impl-report.
 ---
 
 # Resolver-Pass 7 — ssot-w40k-036..045 (W40K-0351..0450, 450 Bücher)

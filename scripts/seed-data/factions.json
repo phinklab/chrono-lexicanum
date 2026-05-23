@@ -1122,5 +1122,33 @@
     "parent": "adeptus_astartes",
     "alignment": "imperium",
     "tone": "imperial"
+  },
+  {
+    "id": "talons_of_the_emperor",
+    "name": "Talons of the Emperor",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "gold"
+  },
+  {
+    "id": "senatorum_imperialis",
+    "name": "Senatorum Imperialis",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "house_chimaeros",
+    "name": "House Chimaeros",
+    "parent": "imperial_knights",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "house_draconis",
+    "name": "House Draconis",
+    "parent": "imperial_knights",
+    "alignment": "imperium",
+    "tone": "imperial"
   }
 ]

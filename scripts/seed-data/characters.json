@@ -1657,5 +1657,425 @@
     "primaryFactionId": "orks",
     "lexicanumUrl": null,
     "notes": "Cross-batch consolidation (Resolver-Pass 6): Ork Warboss of the Sanctus Reach arc (freq-1 lore-iconic) — surface-forms 'Grukk Face-Rippa' (W40K-0296) + 'Grukk' (W40K-0327). 'Grukk' is a character-alias."
+  },
+  {
+    "id": "korlandril",
+    "name": "Korlandril",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Aeldari Striking-Scorpion-turned-Exarch POV of Thorpe's Path of the Warrior (W40K-0351 + omnibus W40K-0354), freq 4 across the Path of the Eldar trilogy."
+  },
+  {
+    "id": "thirianna",
+    "name": "Thirianna",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Aeldari Seer POV of Thorpe's Path of the Seer (W40K-0352 + omnibus W40K-0354), freq 4 across the Path of the Eldar trilogy."
+  },
+  {
+    "id": "aradryan",
+    "name": "Aradryan",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Aeldari Outcast-turned-Corsair-Prince POV of Thorpe's Path of the Outcast (W40K-0353 + omnibus W40K-0354), freq 4 across the Path of the Eldar trilogy."
+  },
+  {
+    "id": "asdrubael_vect",
+    "name": "Asdrubael Vect",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Supreme Overlord of Commorragh (lore-iconic) across Andy Chambers' Path of the Dark Eldar trilogy + omnibus (W40K-0355..W40K-0358), freq 4."
+  },
+  {
+    "id": "morr",
+    "name": "Morr",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Mandrake assassin of Chambers' Path of the Dark Eldar trilogy + omnibus (W40K-0355..W40K-0358), freq 4."
+  },
+  {
+    "id": "nyos_yllithian",
+    "name": "Nyos Yllithian",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Archon POV of Chambers' Path of the Renegade / Incubus / Archon trilogy + omnibus (W40K-0355..W40K-0358), freq 4."
+  },
+  {
+    "id": "bellathonis",
+    "name": "Bellathonis",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Haemonculus of Chambers' Path of the Dark Eldar (W40K-0355/0357/0358), freq 3."
+  },
+  {
+    "id": "lord_solar_macharius",
+    "name": "Lord Solar Macharius",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic conqueror of the Macharian Crusade (M41), POV/title across William King's trilogy + omnibus (W40K-0361..W40K-0364), freq 4."
+  },
+  {
+    "id": "leo_lemuel",
+    "name": "Leo Lemuel",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Commissar / Macharian Crusade chronicler POV of King's Macharian Crusade trilogy + omnibus (W40K-0361..W40K-0364), freq 4."
+  },
+  {
+    "id": "anton",
+    "name": "Anton",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Praetorian Guard ensemble member of King's Macharian Crusade trilogy + omnibus (W40K-0361..W40K-0364), freq 4."
+  },
+  {
+    "id": "ivan",
+    "name": "Ivan",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Praetorian Guard ensemble member of King's Macharian Crusade trilogy + omnibus (W40K-0361..W40K-0364), freq 4."
+  },
+  {
+    "id": "inquisitor_drake",
+    "name": "Inquisitor Drake",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Inquisitor accompanying Macharius in King's trilogy (W40K-0361 + omnibus W40K-0364), freq 2."
+  },
+  {
+    "id": "richter",
+    "name": "Richter",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Praetorian Guard ensemble member of King's Fall of Macharius + omnibus (W40K-0363/0364), freq 2."
+  },
+  {
+    "id": "lexell_kotov",
+    "name": "Lexell Kotov",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Archmagos leader of the Speranza expedition in Graham McNeill's Forges of Mars trilogy + omnibus (W40K-0365..W40K-0368), freq 4."
+  },
+  {
+    "id": "tarkis_blaylock",
+    "name": "Tarkis Blaylock",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Magos / second of Kotov's expedition in McNeill's Forges of Mars trilogy + omnibus (W40K-0365..W40K-0368), freq 4."
+  },
+  {
+    "id": "roboute_surcouf",
+    "name": "Roboute Surcouf",
+    "primaryFactionId": "rogue_traders",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Rogue Trader of the Renard accompanying Kotov's expedition in McNeill's Forges of Mars trilogy + omnibus (W40K-0365..W40K-0368), freq 4. primaryFactionId rogue_traders (Pass-6 row)."
+  },
+  {
+    "id": "linya_tychon",
+    "name": "Linya Tychon",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Mechanicus adept and daughter of Vitali Tychon in McNeill's Forges of Mars trilogy + omnibus (W40K-0365..W40K-0368), freq 4."
+  },
+  {
+    "id": "galatea",
+    "name": "Galatea",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: abominable intelligence / proto-AI antagonist embedded in the Speranza in McNeill's Forges of Mars trilogy + omnibus (W40K-0365..W40K-0368), freq 4. primaryFactionId mechanicus per dossier default (Mechanicum-built construct); identity is technically heretek-AI but no closer canonical."
+  },
+  {
+    "id": "ven_anders",
+    "name": "Ven Anders",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Cadian Colonel of the 71st escorting the Speranza in McNeill's Forges of Mars (W40K-0365/0366 + omnibus W40K-0368), freq 3."
+  },
+  {
+    "id": "tanna",
+    "name": "Tanna",
+    "primaryFactionId": "black_templars",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Black Templars Reclusiarch leading the Crusade aboard the Speranza in McNeill's Priests of Mars + Forges of Mars Omnibus (W40K-0365/0368), freq 2."
+  },
+  {
+    "id": "telok",
+    "name": "Telok",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lost Archmagos turned dark-mechanicum antagonist in McNeill's Gods of Mars + omnibus (W40K-0367/0368), freq 2."
+  },
+  {
+    "id": "ctesias",
+    "name": "Ctesias",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Thousand Sons sorcerer / Ahriman's cabal-mate across John French's Ahriman trilogy + Exodus anthology (W40K-0369/0370/0372 + omnibus W40K-0373), freq 4."
+  },
+  {
+    "id": "astraeos",
+    "name": "Astraeos",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: renegade Astartes (former Howling Griffon) bound to Ahriman's cabal in French's Ahriman: Exile / Sorcerer (W40K-0369/0370), freq 2. primaryFactionId thousand_sons per dossier-default for the cluster (he serves Ahriman's exile cabal; no closer canonical faction)."
+  },
+  {
+    "id": "carmenta",
+    "name": "Carmenta",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Mechanicum tech-priestess bound to Ahriman's cabal in French's Ahriman: Exile / Sorcerer (W40K-0369/0370), freq 2. primaryFactionId thousand_sons per dossier-default (operates inside the cabal); strictly Mechanicum-origin."
+  },
+  {
+    "id": "inquisitor_iobel",
+    "name": "Inquisitor Iobel",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Inquisitor hunting Ahriman in French's Exile / Sorcerer (W40K-0369/0370), freq 2."
+  },
+  {
+    "id": "sebastian_yarrick",
+    "name": "Sebastian Yarrick",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic Commissar / Hero of Hades Hive, POV/title of David Annandale's Yarrick trilogy + omnibus (W40K-0376..W40K-0379), freq 4. Cross-batch consolidation (7a Case C): 'Commissar Yarrick' (W40K-0429 LtDM anthology cameo) is a character-alias on this same row."
+  },
+  {
+    "id": "ghazghkull_thraka",
+    "name": "Ghazghkull Thraka",
+    "primaryFactionId": "orks",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic Ork Warboss / Prophet of the Waaagh!, antagonist of Annandale's Yarrick trilogy + omnibus (W40K-0376/0378/0379), freq 3."
+  },
+  {
+    "id": "lord_commissar_rasp",
+    "name": "Lord Commissar Rasp",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Lord Commissar / Yarrick's mentor in Annandale's Imperial Creed + omnibus (W40K-0377/0379), freq 2."
+  },
+  {
+    "id": "gunnlaugur",
+    "name": "Gunnlaugur",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Vlka Fenryka Wolf Guard / Jarl of Járnhamar Pack, POV of Chris Wraight's Blood of Asaheim trilogy (W40K-0380..W40K-0382), freq 2 strict + 1 alias. Cross-batch consolidation (7a Case E): 'Gunnlaugr' (W40K-0380, missing-vowel spelling) is a character-alias on this same row."
+  },
+  {
+    "id": "ingvar",
+    "name": "Ingvar",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Vlka Fenryka returnee / Járnhamar Pack member in Wraight's Blood of Asaheim trilogy (W40K-0380..W40K-0382), freq 3."
+  },
+  {
+    "id": "asmodai",
+    "name": "Asmodai",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic Dark Angels Interrogator-Chaplain / Master of Sanctity, central to Gav Thorpe's Legacy of Caliban trilogy + omnibus (W40K-0383..W40K-0386), freq 4."
+  },
+  {
+    "id": "annael",
+    "name": "Annael",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Ravenwing Black Knight POV of Thorpe's Legacy of Caliban trilogy + omnibus (W40K-0383..W40K-0386), freq 4."
+  },
+  {
+    "id": "telemenus",
+    "name": "Telemenus",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Deathwing / Fifth Company POV of Thorpe's Legacy of Caliban (W40K-0383/0384 + omnibus W40K-0386), freq 3."
+  },
+  {
+    "id": "sammael",
+    "name": "Sammael",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic Master of the Ravenwing, in Thorpe's Ravenwing + Legacy of Caliban omnibus (W40K-0383/0386), freq 2."
+  },
+  {
+    "id": "sapphon",
+    "name": "Sapphon",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Dark Angels Chaplain in Thorpe's Master of Sanctity + Legacy of Caliban omnibus (W40K-0384/0386), freq 2."
+  },
+  {
+    "id": "cypher",
+    "name": "Cypher",
+    "primaryFactionId": "fallen_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic Lord of the Fallen, central enigma of Thorpe's The Unforgiven + Legacy of Caliban omnibus (W40K-0385/0386), freq 2. primaryFactionId fallen_angels per Phase-1 alias decision (The Fallen → fallen_angels)."
+  },
+  {
+    "id": "azrael",
+    "name": "Azrael",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic Supreme Grand Master of the Dark Angels, POV/title across Thorpe's The Unforgiven + Legacy of Caliban omnibus + eponymous Azrael (W40K-0385/0386/0401), freq 3."
+  },
+  {
+    "id": "iskandar_khayon",
+    "name": "Iskandar Khayon",
+    "primaryFactionId": "black_legion",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: ex-Thousand-Sons sorcerer / POV of Aaron Dembski-Bowden's The Talon of Horus + Black Legion (W40K-0389/0390), freq 2."
+  },
+  {
+    "id": "haldron_44_stroika",
+    "name": "Haldron-44 Stroika",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Skitarius Alpha POV of Rob Sanders' Skitarius + Tech-Priest + Adeptus Mechanicus omnibus (W40K-0391..W40K-0393), freq 3."
+  },
+  {
+    "id": "omnid_torquora",
+    "name": "Omnid Torquora",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Tech-Priest POV / Stroika's superior in Sanders' Skitarius / Tech-Priest + omnibus (W40K-0391..W40K-0393), freq 3."
+  },
+  {
+    "id": "idriss_krendl",
+    "name": "Idriss Krendl",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Tech-Priest in Sanders' Tech-Priest + omnibus (W40K-0392/0393), freq 2."
+  },
+  {
+    "id": "asurmen",
+    "name": "Asurmen",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic first Phoenix Lord, Hand of Asuryan; eponymous of Thorpe's Asurmen: Hand of Asuryan + cameo in Jain Zar (W40K-0395/0396), freq 2."
+  },
+  {
+    "id": "commander_farsight",
+    "name": "Commander Farsight",
+    "primaryFactionId": "tau",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic T'au commander of the Farsight Enclaves, POV/title of Phil Kelly's standalone Farsight + Crisis of Faith / Empire of Lies / Blade of Truth trilogy (W40K-0410..W40K-0413), freq 4 + 1 alias. Cross-batch consolidation (7a Case D): 'Farsight' (W40K-0410, bare-form on the standalone novella) is a character-alias on this same row."
+  },
+  {
+    "id": "koorland",
+    "name": "Koorland",
+    "primaryFactionId": "imperial_fists",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Imperial Fists Captain → Last Wall Chapter Master / Lord Commander of the Imperium, central POV of the M32 Beast Arises mega-series (W40K-0414..W40K-0423), freq 10."
+  },
+  {
+    "id": "drakan_vangorich",
+    "name": "Drakan Vangorich",
+    "primaryFactionId": "officio_assassinorum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Grand Master of Assassins / High Lord antagonist of the M32 Beast Arises mega-series (W40K-0414..W40K-0421), freq 8."
+  },
+  {
+    "id": "the_beast",
+    "name": "The Beast",
+    "primaryFactionId": "orks",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic Ork Warlord (the Beast) of M32, antagonist of the Beast Arises mega-series (W40K-0421/0422/0423), freq 4."
+  },
+  {
+    "id": "maximus_thane",
+    "name": "Maximus Thane",
+    "primaryFactionId": "imperial_fists",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Fists Exemplar Chapter Master, Koorland successor in the Beast Arises close (W40K-0424/0425), freq 2."
+  },
+  {
+    "id": "inquisitor_wienand",
+    "name": "Inquisitor Wienand",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Inquisitorial Representative on the Senatorum during the Beast Arises (W40K-0416/0417), freq 2."
+  },
+  {
+    "id": "vulkan",
+    "name": "Vulkan",
+    "primaryFactionId": "salamanders",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic Salamanders Primarch / Perpetual; M32 cameo in the Beast Arises (W40K-0420/0421), freq 2."
+  },
+  {
+    "id": "garran_crowe",
+    "name": "Garran Crowe",
+    "primaryFactionId": "grey_knights",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Grey Knight Castellan of the Purifier Order, POV/title of David Annandale's Warden of the Blade + Castellan (W40K-0436/0437), freq 2."
+  },
+  {
+    "id": "the_blade_of_antwyr",
+    "name": "The Blade of Antwyr",
+    "primaryFactionId": "daemons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: sentient Slaanesh-daemon-bound sword Crowe carries through Annandale's Warden of the Blade + Castellan (W40K-0436/0437), freq 2. Weapon-as-character edge case promoted per dossier §7b: it speaks/acts as a character; primaryFactionId daemons (Slaanesh daemon)."
+  },
+  {
+    "id": "bail_sharr",
+    "name": "Bail Sharr",
+    "primaryFactionId": "carcharodons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Carcharodons Captain / POV of Robbie MacNiven's Red Tithe + Outer Dark (W40K-0442/0443), freq 2."
+  },
+  {
+    "id": "danial_tan_draconis",
+    "name": "Danial Tan Draconis",
+    "primaryFactionId": "house_draconis",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Imperial Knight Scion of House Draconis (Adrastapol), POV/title of Andy Clark's Kingsblade + Knightsblade (W40K-0445/0446), freq 2. primaryFactionId house_draconis landed by Pass-7 Phase 1."
+  },
+  {
+    "id": "luk_kar_chimaeros",
+    "name": "Luk Kar Chimaeros",
+    "primaryFactionId": "house_chimaeros",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Imperial Knight antagonist Scion of House Chimaeros in Clark's Kingsblade + Knightsblade (W40K-0445/0446), freq 2. primaryFactionId house_chimaeros landed by Pass-7 Phase 1."
+  },
+  {
+    "id": "krom_dragongaze",
+    "name": "Krom Dragongaze",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Wolf Lord of the Drakeslayers Great Company in the Space Wolves LtDM shorts cluster (W40K-0432/0433 + W40K-0434 anthology), freq 3."
+  },
+  {
+    "id": "njal_stormcaller",
+    "name": "Njal Stormcaller",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic Space Wolves Rune Priest, eponymous of Wraight's Stormcaller (W40K-0381). freq-1 lore-iconic promotion (eponymous-of-wave-book criterion, matches Phase-1/2 discipline)."
+  },
+  {
+    "id": "jain_zar",
+    "name": "Jain Zar",
+    "primaryFactionId": "eldar",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic second Phoenix Lord / Storm of Silence, eponymous of Thorpe's Jain Zar: The Storm of Silence (W40K-0396). freq-1 lore-iconic promotion (eponymous-of-wave-book criterion); dossier §7b explicit ('two eponymous novels = two character rows')."
+  },
+  {
+    "id": "lemartes",
+    "name": "Lemartes",
+    "primaryFactionId": "blood_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: lore-iconic Blood Angels Death Company Chaplain / Guardian of the Lost, eponymous of Annandale's Lemartes (W40K-0398) + cameo in Hinks' Mephiston trilogy. freq-1 strict (eponymous-of-wave-book), freq 2 cumulative per dossier §7b."
+  },
+  {
+    "id": "tolwyn_draconis",
+    "name": "Tolwyn Draconis",
+    "primaryFactionId": "house_draconis",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Imperial Knight pilot of House Draconis (Adrastapol) in Clark's Kingsblade (W40K-0445), freq 1. Phase-1 FK target (anticipated companion to danial_tan_draconis); primaryFactionId house_draconis landed by Pass-7 Phase 1."
+  },
+  {
+    "id": "alicia_kar_manticos",
+    "name": "Alicia Kar Manticos",
+    "primaryFactionId": "house_chimaeros",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 7: Imperial Knight noble of the Chimaeros confederacy in Clark's Knightsblade (W40K-0446), freq 1. Phase-1 FK target (anticipated companion to luk_kar_chimaeros); primaryFactionId house_chimaeros landed by Pass-7 Phase 1."
   }
 ]
