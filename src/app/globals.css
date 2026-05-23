@@ -3860,3 +3860,197 @@ main.hub {
   .hub-title-block { top: 30%; }
   .hub-title { font-size: clamp(34px, 8vw, 56px); }
 }
+
+/* =============================================================================
+ * /buch/[slug] — bespoke detail page: c-glass cover panel + title block with
+ * cyan-chip junctions. The audit cockpit at /buch/[slug]/audit keeps its own
+ * legacy stylesheet block (.dm-*) and must stay untouched.
+ * ============================================================================= */
+
+main.book-detail {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 96px 32px 120px;
+}
+
+.book-detail__layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.book-detail__cover-panel {
+  padding: 14px;
+  display: block;
+}
+
+.book-detail__cover-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.book-detail__cover-missing {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  font-family: var(--font-cinzel), serif;
+  font-size: 64px;
+  color: var(--cl-faint);
+  background: rgba(2, 3, 10, 0.4);
+}
+
+.book-detail__title-block {
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.book-detail__eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+
+.book-detail__title {
+  margin: 14px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4vw, 56px);
+  letter-spacing: 0.04em;
+  color: var(--cl-bone);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+  line-height: 1.1;
+}
+
+.book-detail__byline {
+  margin: 16px 0 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--cl-bone);
+}
+
+.book-detail__meta {
+  margin: 18px 0 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+
+.book-detail__contained {
+  margin: 6px 0 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+
+.book-detail__contained-link {
+  color: var(--cl-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cl-cyan-dim);
+}
+
+.book-detail__contained-link:hover {
+  color: var(--cl-bone);
+  border-bottom-color: var(--cl-bone);
+}
+
+.book-detail__synopsis {
+  margin: 32px 0 0;
+  max-width: 60ch;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(232, 220, 192, 0.86);
+}
+
+.book-detail__section {
+  margin-top: 36px;
+}
+
+.book-detail__section-label {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  margin-bottom: 8px;
+}
+
+.book-detail__section .c-hairline {
+  margin-bottom: 14px;
+}
+
+.book-detail__chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.book-detail__chip {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid var(--cl-cyan-dim);
+  color: var(--cl-cyan);
+  background: rgba(156, 230, 255, 0.04);
+  border-radius: 2px;
+}
+
+.book-detail__chip--mute {
+  color: var(--cl-dim);
+  border-color: var(--cl-ghost);
+  background: transparent;
+}
+
+.book-detail__footer {
+  margin-top: 56px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cl-ghost);
+}
+
+.book-detail__audit-link {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.18s, border-color 0.18s;
+}
+
+.book-detail__audit-link:hover {
+  color: var(--cl-cyan);
+  border-bottom-color: var(--cl-cyan-dim);
+}
+
+@media (max-width: 820px) {
+  main.book-detail {
+    padding: 80px 20px 96px;
+  }
+  .book-detail__layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .book-detail__cover-panel {
+    max-width: 220px;
+  }
+}
