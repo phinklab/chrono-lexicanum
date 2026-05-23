@@ -425,5 +425,35 @@
     "id": "phil_kearney",
     "name": "Phil Kearney",
     "nameSort": "Kearney, Phil"
+  },
+  {
+    "id": "matt_westbrook",
+    "name": "Matt Westbrook",
+    "nameSort": "Westbrook, Matt"
+  },
+  {
+    "id": "lora_gray",
+    "name": "Lora Gray",
+    "nameSort": "Gray, Lora"
+  },
+  {
+    "id": "nicholas_kaufmann",
+    "name": "Nicholas Kaufmann",
+    "nameSort": "Kaufmann, Nicholas"
+  },
+  {
+    "id": "jake_ozga",
+    "name": "Jake Ozga",
+    "nameSort": "Ozga, Jake"
+  },
+  {
+    "id": "j_s_stearns",
+    "name": "J.S. Stearns",
+    "nameSort": "Stearns, J.S."
+  },
+  {
+    "id": "james_brogden",
+    "name": "James Brogden",
+    "nameSort": "Brogden, James"
   }
 ]

@@ -1,5 +1,5 @@
 /**
- * Dry simulation for the resolver apply sweep (ssot-w40k-001..010).
+ * Dry simulation for the resolver apply sweep (ssot-w40k-001..051).
  *
  * This intentionally does not import the DB client and performs no mutations.
  * It mirrors the resolver-facing parts of scripts/apply-override.ts:
@@ -99,6 +99,12 @@ const BATCHES = [
   "043",
   "044",
   "045",
+  "046",
+  "047",
+  "048",
+  "049",
+  "050",
+  "051",
 ] as const;
 const SMOKE_SLUGS = [
   "the-anarch",
