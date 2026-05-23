@@ -3,12 +3,12 @@
  * sit over a photo's existing painted rings (vista.webp) to "activate"
  * them with a moving arm and a few blips.
  *
- * Pure SVG + CSS keyframes. Server component.
+ * Pure SVG + CSS keyframes. Server component. The SVG fills its parent
+ * via viewBox scaling; positioning is the parent's job.
  */
 
 type AuspexSweepProps = {
-  cx: number;
-  cy: number;
+  /** Conceptual radius in design units; sets the viewBox coordinate scale. */
   r?: number;
   accent?: string;
   blips?: boolean;
@@ -16,15 +16,13 @@ type AuspexSweepProps = {
 };
 
 export default function AuspexSweep({
-  cx,
-  cy,
   r = 240,
   accent = "var(--cl-cyan)",
   blips = true,
   sweepDuration = 14,
 }: AuspexSweepProps) {
   const dim = accent;
-  const uid = `as-${r}-${cx}-${cy}`;
+  const uid = `as-${r}`;
   const blipsList: Array<[number, number]> = [
     [0.55, -36],
     [0.42, 28],
@@ -36,14 +34,7 @@ export default function AuspexSweep({
 
   return (
     <svg
-      style={{
-        position: "absolute",
-        left: cx - r,
-        top: cy - r,
-        width: r * 2,
-        height: r * 2,
-        pointerEvents: "none",
-      }}
+      style={{ display: "block", width: "100%", height: "100%", overflow: "visible" }}
       viewBox={`-${r} -${r} ${r * 2} ${r * 2}`}
       aria-hidden
     >
