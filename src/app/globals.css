@@ -23,6 +23,81 @@
  * ============================================================================= */
 
 @theme {
+  /* ── Chrono palette (the new void/cyan direction, post-096) ─────────────── */
+  --color-cl-void: #02030a;
+  --color-cl-void-2: #06080f;
+  --color-cl-plate: rgba(8, 12, 20, 0.78);
+  --color-cl-plate-2: rgba(4, 8, 14, 0.86);
+  --color-cl-bone: #e8dcc0;
+  --color-cl-dim: rgba(232, 220, 192, 0.62);
+  --color-cl-faint: rgba(232, 220, 192, 0.28);
+  --color-cl-ghost: rgba(232, 220, 192, 0.14);
+  --color-cl-cyan: #9ce6ff;
+  --color-cl-cyan-dim: rgba(156, 230, 255, 0.45);
+  --color-cl-cyan-fnt: rgba(156, 230, 255, 0.18);
+  --color-cl-gold: #c9a65a;
+  --color-cl-gold-dim: #8a6f2c;
+  --color-cl-blood: #a51c1c;
+
+  /* ── Chrono keyframes ────────────────────────────────────────────────── */
+  @keyframes chronoSweep {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes chronoSpin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes chronoSpinRev {
+    from { transform: rotate(360deg); }
+    to   { transform: rotate(0deg); }
+  }
+  @keyframes chronoPulse {
+    0%, 100% { opacity: 0.55; }
+    50%      { opacity: 1; }
+  }
+  @keyframes chronoBlink {
+    0%, 100% { opacity: 0.3; }
+    50%      { opacity: 1; }
+  }
+  @keyframes chronoTwinkle {
+    0%, 100% { opacity: 0.4; }
+    50%      { opacity: 1; }
+  }
+  @keyframes chronoFade {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes chronoCursor {
+    0%, 45%   { opacity: 1; }
+    50%, 95%  { opacity: 0; }
+    100%      { opacity: 1; }
+  }
+  @keyframes chronoScanV {
+    0%   { transform: translateY(-100%); opacity: 0; }
+    5%   { opacity: 0.7; }
+    95%  { opacity: 0.7; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+  @keyframes chronoScanH {
+    0%   { transform: translateX(-100%); opacity: 0; }
+    5%   { opacity: 0.6; }
+    95%  { opacity: 0.6; }
+    100% { transform: translateX(100%); opacity: 0; }
+  }
+  @keyframes chronoRiseFade {
+    0%   { opacity: 0; transform: translateY(6px); }
+    30%  { opacity: 1; transform: translateY(0); }
+    70%  { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-4px); }
+  }
+  @keyframes chronoLetter {
+    0%   { opacity: 0; transform: scale(0.7); }
+    25%  { opacity: 1; transform: scale(1); }
+    75%  { opacity: 1; }
+    100% { opacity: 0; transform: scale(1.2); }
+  }
+
   /* ── Phase 1 palette (still used by stub routes) ────────────────────────── */
   --color-void-600: #26304a;
   --color-void-700: #1a2238;
@@ -116,6 +191,22 @@
  * ============================================================================= */
 
 :root {
+  /* Short-name aliases for the Chrono palette (used by ported components). */
+  --cl-void:     var(--color-cl-void);
+  --cl-void-2:   var(--color-cl-void-2);
+  --cl-plate:    var(--color-cl-plate);
+  --cl-plate-2:  var(--color-cl-plate-2);
+  --cl-bone:     var(--color-cl-bone);
+  --cl-dim:      var(--color-cl-dim);
+  --cl-faint:    var(--color-cl-faint);
+  --cl-ghost:    var(--color-cl-ghost);
+  --cl-cyan:     var(--color-cl-cyan);
+  --cl-cyan-dim: var(--color-cl-cyan-dim);
+  --cl-cyan-fnt: var(--color-cl-cyan-fnt);
+  --cl-gold:     var(--color-cl-gold);
+  --cl-gold-dim: var(--color-cl-gold-dim);
+  --cl-blood:    var(--color-cl-blood);
+
   --bg-strong: var(--color-bg-0);
   --fg-strong: var(--color-ink-0);
   --fg:        var(--color-ink-1);
@@ -154,20 +245,27 @@
 
 html,
 body {
-  background: var(--color-bg-0);
-  color: var(--color-ink-0);
+  background: var(--cl-void);
+  color: var(--cl-bone);
   min-height: 100%;
 }
 
 body {
-  font-family: var(--font-grotesk);
-  font-feature-settings: 'ss01', 'cv11';
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-feature-settings: 'ss01';
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1, h2, h3 {
-  font-family: var(--font-cinzel);
+  font-family: var(--font-cinzel), serif;
   letter-spacing: 0.02em;
+}
+
+:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(156, 230, 255, 0.18);
 }
 
 /* Every route's <main> sits above the fixed Starfield (z-index 0) and below
@@ -316,155 +414,18 @@ main {
 .era-toggle button.active:hover { color: var(--color-bg-0); }
 
 /* =============================================================================
- * Hub.
- * Painterly hand-written CSS for the entry-route Hub: cogitator eyebrow,
- * Aquila glow, terminal-panel doorway tiles with cross-bracketed corners and
- * staggered entry, multi-segment footer.
+ * Shared cross-bracket corners + alpha PNG mask.
+ * `.mt-corner` is the four-span L-shape used by /ingest's cards (and by the
+ * Timeline overview as a focus-ring vocabulary echo). `.aquila` enforces alpha
+ * masking for the shared Aquila component. The pre-096 Hub markup that
+ * originated this section is gone; what remains here is genuinely shared.
  * ============================================================================= */
 
-.hub-main {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(48px, 7vw, 88px);
-  width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: clamp(120px, 16vh, 200px) clamp(20px, 5vw, 64px) clamp(80px, 12vh, 140px);
-  text-align: center;
-  background:
-    radial-gradient(ellipse 60% 40% at 50% 18%, var(--hl-faint) 0%, transparent 70%);
-}
-
-.hub-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: var(--animate-fade-slide);
-}
-
-.hub-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  margin: 0 0 28px;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--color-ink-2);
-}
-.hub-eyebrow-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: var(--color-lum);
-  border-radius: 50%;
-  box-shadow: 0 0 12px var(--color-lum);
-  animation: var(--animate-eyebrow-dot);
-}
-
-.hub-aquila-wrap {
-  display: grid;
-  place-items: center;
-  margin-bottom: 28px;
-}
-.hub-aquila {
-  color: var(--color-lum);
-  opacity: 0.95;
-}
-
-/* Force alpha-mode for the PNG mask. Some browsers default to luminance for
-   image masks, which would render the eagle's dark pixels as the masked-out
-   region (i.e., a coloured rectangle with an eagle-shaped hole). React's
-   CSSProperties type doesn't yet expose mask-mode, so it lives here. */
 .aquila {
   -webkit-mask-mode: alpha;
   mask-mode: alpha;
 }
 
-.hub-title {
-  display: inline-flex;
-  align-items: center;
-  gap: clamp(12px, 1.6vw, 24px);
-  margin: 0;
-  font-family: var(--font-cinzel);
-  font-weight: 500;
-  font-size: clamp(40px, 6vw, 72px);
-  letter-spacing: 0.06em;
-  line-height: 1;
-  text-transform: uppercase;
-  color: var(--color-ink-0);
-}
-.hub-title-sep {
-  font-size: 0.55em;
-  color: var(--color-lum);
-  text-shadow: 0 0 14px color-mix(in oklch, var(--color-lum) 50%, transparent);
-  transform: translateY(-0.06em);
-}
-.hub-sub {
-  margin: 22px auto 0;
-  max-width: 56ch;
-  font-family: var(--font-reader);
-  font-style: italic;
-  font-size: clamp(15px, 1.4vw, 18px);
-  line-height: 1.6;
-  color: var(--color-ink-1);
-}
-
-/* ─── Doorway grid ─── */
-.hub-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: clamp(18px, 2vw, 28px);
-  width: 100%;
-  max-width: 1100px;
-}
-
-.mode-tile {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  padding: 32px 28px 24px;
-  min-height: 360px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  color: var(--color-ink-1);
-  text-decoration: none;
-  cursor: pointer;
-  opacity: 0;
-  animation: var(--animate-tile-rise);
-  animation-delay: var(--delay, 0ms);
-  transition:
-    transform 360ms cubic-bezier(.2,.8,.2,1),
-    border-color 280ms,
-    background 280ms,
-    box-shadow 280ms;
-}
-.mode-tile:hover,
-.mode-tile:focus-visible {
-  border-color: var(--hl);
-  background: var(--panel-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 24px 60px -22px var(--hl-glow);
-  outline: none;
-}
-.mode-tile:hover .mt-icon,
-.mode-tile:focus-visible .mt-icon {
-  color: var(--hl);
-  transform: scale(1.04);
-}
-.mode-tile:hover .mt-arrow,
-.mode-tile:focus-visible .mt-arrow {
-  transform: translateX(6px);
-}
-
-/* Cross-bracketed corners. 4 spans, 1 per corner, each renders an L-shape
-   via two of the four borders. Brighter on hover. */
 .mt-corner {
   position: absolute;
   width: 14px;
@@ -473,111 +434,10 @@ main {
   opacity: 0.5;
   transition: opacity 280ms;
 }
-.mode-tile:hover .mt-corner,
-.mode-tile:focus-visible .mt-corner { opacity: 1; }
 .mt-corner.tl { top: -1px; left: -1px;  border-top-width: 1.5px; border-left-width: 1.5px; }
 .mt-corner.tr { top: -1px; right: -1px; border-top-width: 1.5px; border-right-width: 1.5px; }
 .mt-corner.bl { bottom: -1px; left: -1px;  border-bottom-width: 1.5px; border-left-width: 1.5px; }
 .mt-corner.br { bottom: -1px; right: -1px; border-bottom-width: 1.5px; border-right-width: 1.5px; }
-
-.mt-icon {
-  width: 86px;
-  height: 86px;
-  margin-bottom: 24px;
-  color: var(--color-ink-0);
-  opacity: 0.85;
-  transition: color 280ms, transform 480ms cubic-bezier(.2,.8,.2,1);
-}
-.mt-icon svg { width: 100%; height: 100%; }
-
-.mt-body { flex: 1; }
-.mt-kicker {
-  margin-bottom: 10px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--hl);
-}
-.mt-title {
-  margin: 0 0 12px;
-  font-family: var(--font-cinzel);
-  font-weight: 500;
-  font-size: 26px;
-  line-height: 1.1;
-  color: var(--color-ink-0);
-  letter-spacing: 0.02em;
-}
-.mt-desc {
-  margin: 0;
-  font-family: var(--font-reader);
-  font-style: italic;
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--color-ink-1);
-}
-.mt-enter {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--hl);
-}
-.mt-arrow {
-  display: inline-block;
-  transition: transform 280ms cubic-bezier(.2,.8,.2,1);
-}
-
-/* ─── Multi-segment footer ─── */
-.hub-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  margin-top: clamp(24px, 4vh, 48px);
-  animation: fadeSlide 1200ms 600ms both;
-}
-.hub-footer-line {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-ink-2);
-}
-.hub-footer-line strong {
-  color: var(--hl);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-}
-.hub-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--color-ink-3);
-  opacity: 0.7;
-}
-.hub-footer-fineprint {
-  margin: 0;
-  max-width: 60ch;
-  text-align: center;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-ink-3);
-}
 
 /* =============================================================================
  * Timeline.
@@ -2682,35 +2542,6 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
 }
 
 /* =============================================================================
- * Top-nav link.
- * Single primary link in the fixed TopChrome — sits between the wordmark and
- * the era-toggle (flex justify-content: space-between distributes the three).
- * Mono small-caps to echo the wordmark's voice, ink-2 muted by default and
- * lifting to the highlight on hover/focus.
- * ============================================================================= */
-
-.top-nav {
-  display: inline-flex;
-  align-items: center;
-  gap: 18px;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-.top-nav-link {
-  color: var(--color-ink-2);
-  text-decoration: none;
-  padding: 6px 4px;
-  transition: color 220ms;
-}
-.top-nav-link:hover,
-.top-nav-link:focus-visible {
-  color: var(--hl);
-  outline: none;
-}
-
-/* =============================================================================
  * Catalogue (/buecher).
  * Flat all-books table with an "enriched vs. stub" status column. The cyan
  * left-accent on enriched rows is the at-a-glance signal of "filled with
@@ -3468,4 +3299,515 @@ a.ingest-card:focus-visible .ingest-card-arrow { transform: translateX(4px); }
   .audit-back-link {
     justify-self: start;
   }
+}
+
+/* =============================================================================
+ * Chrono primitives — utility classes ported from the design handoff
+ * (chrono.jsx). New routes consume these directly; legacy per-component CSS
+ * sticks around until each route is re-skinned.
+ * ============================================================================= */
+
+.c-glass {
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.72) 0%, rgba(4, 8, 14, 0.82) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(156, 230, 255, 0.18);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.c-glass:hover {
+  border-color: rgba(156, 230, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.c-corners { position: relative; }
+.c-corners::before,
+.c-corners::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--cl-cyan);
+  border-style: solid;
+  pointer-events: none;
+}
+.c-corners::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.c-corners::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+.c-hairline {
+  display: block;
+  background: linear-gradient(90deg, transparent, rgba(156, 230, 255, 0.53), transparent);
+  height: 1px;
+}
+.c-vhair {
+  display: block;
+  background: linear-gradient(180deg, transparent, rgba(156, 230, 255, 0.4), transparent);
+  width: 1px;
+}
+
+.c-shadow-text {
+  text-shadow: 0 0 32px rgba(156, 230, 255, 0.18), 0 4px 14px rgba(0, 0, 0, 0.95);
+}
+.c-shadow-text-sm {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+.c-link-cyan {
+  color: var(--cl-cyan);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.c-link-cyan:hover {
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-pulse   { animation: chronoPulse 3s ease-in-out infinite; }
+  .c-blink   { animation: chronoBlink 2.4s ease-in-out infinite; }
+  .c-twinkle { animation: chronoTwinkle 3s ease-in-out infinite; }
+  .c-fade-in { animation: chronoFade 0.5s ease-out both; }
+  .c-cursor  { animation: chronoCursor 1s steps(1) infinite; }
+}
+
+.font-display {
+  font-family: var(--font-cinzel), serif;
+  letter-spacing: 0.32em;
+  font-weight: 400;
+}
+.font-display2 {
+  font-family: var(--font-cinzel), serif;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+}
+.font-serif {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+.font-mono {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.font-mono-sm {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+/* =============================================================================
+ * SiteBackground — full-bleed photo + vignette + grain.
+ * ============================================================================= */
+
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--cl-void);
+}
+.site-bg__photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.site-bg__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 38%,
+    transparent 30%,
+    rgba(2, 3, 10, 0.55) 95%
+  );
+}
+.site-bg__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+}
+
+/* =============================================================================
+ * TopNav — fixed top bar in the new Chrono direction.
+ * ============================================================================= */
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  background: linear-gradient(180deg, rgba(2, 3, 10, 0.85) 0%, rgba(2, 3, 10, 0) 100%);
+  border-bottom: 1px solid var(--cl-ghost);
+  z-index: 50;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+}
+.top-nav__mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--cl-bone);
+}
+.top-nav__logo {
+  height: 30px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(232, 220, 192, 0.35));
+}
+.top-nav__name {
+  font-family: var(--font-cinzel), serif;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  color: var(--cl-bone);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+.top-nav__links {
+  display: flex;
+  gap: 4px;
+}
+.top-nav__link {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  color: var(--cl-dim);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  transition: color 0.18s, background 0.18s, border-color 0.18s;
+  border-radius: 2px;
+}
+.top-nav__link:hover {
+  color: var(--cl-bone);
+}
+.top-nav__link--active,
+.top-nav__link[aria-current="page"] {
+  color: var(--cl-cyan);
+  background: rgba(156, 230, 255, 0.1);
+  border-color: var(--cl-cyan-dim);
+}
+.top-nav__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.top-nav__signal {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cl-cyan);
+  box-shadow: 0 0 6px var(--cl-cyan);
+}
+.top-nav__status {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Restyled .era-toggle to match the Chrono direction. Behaviour is unchanged
+   — this only re-skins the existing client island in TopChrome/TopNav. */
+.era-toggle {
+  display: inline-flex;
+  gap: 0;
+  padding: 2px 3px;
+  border: 1px solid var(--cl-cyan-dim);
+  border-radius: 14px;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.era-toggle button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--cl-dim);
+  padding: 3px 9px;
+  border-radius: 11px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.18s, background 0.18s;
+}
+.era-toggle button:hover {
+  color: var(--cl-bone);
+}
+.era-toggle button.active,
+.era-toggle button[aria-pressed="true"] {
+  color: var(--cl-cyan);
+  background: rgba(156, 230, 255, 0.15);
+}
+
+/* Push every route's <main> below the fixed TopNav. */
+main {
+  padding-top: 48px;
+}
+
+/* =============================================================================
+ * BottomConsole — fixed bottom telemetry strip + optional 3 doorway cards.
+ * ============================================================================= */
+
+.bottom-console {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(2, 3, 10, 0.92) 0%,
+    rgba(2, 3, 10, 0.5) 70%,
+    rgba(2, 3, 10, 0) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding-top: 28px;
+  padding-bottom: 14px;
+  z-index: 30;
+}
+.bottom-console__strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  padding: 0 24px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.bottom-console__cog {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cl-cyan);
+}
+.bottom-console__cog-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cl-cyan);
+  box-shadow: 0 0 6px var(--cl-cyan);
+}
+.bottom-console__cog-label {
+  color: var(--cl-cyan);
+}
+.bottom-console__dot {
+  color: var(--cl-dim);
+}
+.bottom-console__index {
+  color: var(--cl-dim);
+}
+.bottom-console__stamp {
+  color: var(--cl-gold);
+}
+.bottom-console__cards {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  padding: 0 24px;
+  flex-wrap: wrap;
+}
+.bottom-console__card {
+  width: clamp(260px, 26vw, 320px);
+  padding: 14px 18px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.bottom-console__card:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 4px;
+}
+.bottom-console__card-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.bottom-console__card-kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+.bottom-console__card-rule { flex: 1; }
+.bottom-console__card-sect {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.bottom-console__card-title {
+  font-family: var(--font-cinzel), serif;
+  font-size: 22px;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+  color: var(--cl-bone);
+  margin-top: 8px;
+}
+.bottom-console__card-desc {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  color: var(--cl-dim);
+  font-size: 13px;
+  margin-top: 6px;
+  line-height: 1.45;
+}
+.bottom-console__card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--cl-faint);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.bottom-console__card-enter {
+  color: var(--cl-cyan);
+}
+.bottom-console__card-kbd {
+  color: var(--cl-dim);
+  font-size: 9px;
+}
+
+@media (max-width: 900px) {
+  .top-nav { padding: 0 14px; }
+  .top-nav__links { gap: 2px; }
+  .top-nav__link { padding: 6px 8px; font-size: 9px; }
+  .top-nav__name { display: none; }
+  .top-nav__status { display: none; }
+  .bottom-console__strip { gap: 14px; font-size: 9px; }
+}
+
+/* =============================================================================
+ * Hub (/) — full-bleed cathedral vista with offset dual auspex, centred
+ * title, ambient cyan ghost readout, BottomConsole doorways. Overrides the
+ * global `main { padding-top: 48px }` so the photo extends behind the TopNav.
+ * ============================================================================= */
+
+main.hub {
+  position: relative;
+  height: 100vh;
+  padding-top: 0;
+  overflow: hidden;
+}
+
+.hub-auspex {
+  position: absolute;
+  pointer-events: none;
+}
+.hub-auspex svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hub-auspex--main {
+  --auspex-size: min(78vh, 42vw, 620px);
+  width: var(--auspex-size);
+  height: var(--auspex-size);
+  left: calc(84vw - var(--auspex-size) / 2);
+  top: calc(78vh - var(--auspex-size) / 2);
+  opacity: 0.30;
+}
+.hub-auspex--secondary {
+  --auspex-size: min(43vh, 23vw, 341px);
+  width: var(--auspex-size);
+  height: var(--auspex-size);
+  left: calc(12vw - var(--auspex-size) / 2);
+  top: calc(82vh - var(--auspex-size) / 2);
+  opacity: 0.12;
+}
+
+.hub-title-block {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 34%;
+  transform: translateY(-50%);
+  text-align: center;
+  pointer-events: none;
+}
+.hub-title-eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+.hub-title {
+  margin: 18px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(40px, 4.6vw, 68px);
+  letter-spacing: 0.06em;
+  color: var(--cl-bone);
+  text-shadow:
+    0 0 36px rgba(156, 230, 255, 0.22),
+    0 4px 14px rgba(0, 0, 0, 0.95);
+}
+.hub-title span {
+  display: inline-block;
+  margin: 0 18px;
+  color: var(--cl-cyan);
+  font-size: 0.62em;
+  vertical-align: middle;
+}
+.hub-title-sub {
+  margin: 14px auto 0;
+  max-width: 520px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--cl-bone);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+.hub-title-stats {
+  margin: 14px 0 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+}
+
+.hub-ghost {
+  position: absolute;
+  right: 32px;
+  top: 70px;
+  width: 260px;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .hub-auspex--secondary { display: none; }
+  .hub-auspex--main {
+    --auspex-size: min(64vh, 76vw, 480px);
+    left: calc(76vw - var(--auspex-size) / 2);
+    top: calc(82vh - var(--auspex-size) / 2);
+  }
+  .hub-ghost { display: none; }
+  .hub-title-block { top: 30%; }
+  .hub-title { font-size: clamp(34px, 8vw, 56px); }
 }
