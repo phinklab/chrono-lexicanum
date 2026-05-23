@@ -2,12 +2,13 @@
 title: Session log format
 type: workflow
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-23
 sources:
   - ../../../docs/agents/SESSIONS.md
   - ../../../sessions/_templates/architect-brief.md
   - ../../../sessions/_templates/implementer-report.md
   - ../../../sessions/archive/2026-05/2026-05-09-051-arch-brain-slim-pass.md
+  - ../../../sessions/2026-05-23-095-arch-rollup-ownership.md
 related:
   - ./cowork-session.md
   - ./cc-session.md
@@ -119,6 +120,8 @@ See `sessions/_templates/implementer-report.md`. Non-negotiable sections:
 - **Open issues / blockers** — anything that didn't get done and why.
 - **For next session** — bullet suggestions for the next architect brief.
 
+For sessions in a **strand worktree** (Product/Batches), the report is also the mechanism for substantive system facts to reach Brain: anything that would normally land in `pipeline-state.md`, `architecture.md`, `project-state.md`, or `log.md` goes into **What I did** or **For next session**, and Cowork folds it into the relevant wiki page during the post-merge coordination pass. The strand commit itself never touches `brain/**` or `sessions/README.md` (Brief 095, Rollup-Ownership — detail in [`../../../CLAUDE.md`](../../../CLAUDE.md) § "Parallel worktrees").
+
 ## Carry-over → open-questions (post-049)
 
 Pre-049 ("Carry-over for the next architect brief" section in `sessions/README.md`):
@@ -152,7 +155,7 @@ The root of `sessions/` contains only:
 
 Everything else moves to `sessions/archive/YYYY-MM/` promptly — don't wait for a phase to wrap. A session is "everything else" once its brief reaches `implemented` / `answered` and its impl report is `complete`, AND it isn't the parent of an open thread. Cowork archives during session-end (or at the start of the next session, if it slipped).
 
-Per-move discipline: any wiki page or top-level doc that referenced `sessions/<id>.md` needs its relative path updated to `sessions/archive/YYYY-MM/<id>.md`. A grep across `brain/wiki/**`, `sessions/README.md`, top-level `CLAUDE.md`, and `docs/**` catches them.
+Per-move discipline: any wiki page or top-level doc that referenced `sessions/<id>.md` needs its relative path updated to `sessions/archive/YYYY-MM/<id>.md`. A grep across `brain/wiki/**`, `sessions/README.md`, top-level `CLAUDE.md`, and `docs/**` catches them. The move and the reference rewrite happen from the **coordination worktree** only — `sessions/README.md` and `brain/**` are coord-only writes (Brief 095, Rollup-Ownership).
 
 Phase-2 closure (2026-05-02) moved 21 sessions (008, 011–030) to `sessions/archive/2026-04/` (008, 011–013) and `sessions/archive/2026-05/` (014–030). The Phase-3 archive sweep happened in two passes: 049-Karpathy-Reset moved 033 + 046 (the two retracted briefs) into `sessions/archive/2026-05/`; 051-Slim-Pass (2026-05-09) archived the remaining closed Phase-3 sessions 031–048 (12 brief/report pairs) under the same rule.
 

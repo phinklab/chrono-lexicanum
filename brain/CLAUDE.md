@@ -60,6 +60,8 @@ Each takes specific inputs and produces specific outputs. Following them rigorou
 
 **Output:** updates to one or more `wiki/` pages, plus an entry in `wiki/log.md`.
 
+**Where:** the **coordination worktree only** (`chrono-lexicanum`). `wiki/**` and `wiki/log.md` are part of the coordination-only set (Brief 095, [`./wiki/workflows/cowork-session.md`](./wiki/workflows/cowork-session.md)) — Ingest never runs from a strand worktree (Product/Batches), even when the facts originate there. Strand reports surface those facts in their impl-report's "What I did" / "For next session"; Cowork picks them up in the post-merge coordination pass.
+
 **Rules:**
 
 - Synthesize, don't copy. A wiki page is *the current state*, not the history of how we got there. The history lives in `raw/` and `sessions/`.
