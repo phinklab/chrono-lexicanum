@@ -1,0 +1,422 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-056",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Xenos-heavy slice: Nate Crowley's Twice-Dead King duology plus its 2025 omnibus, the four-novella Da Red Gobbo line (Brooks → Flowers → Woolley → Ewington), two Ghazghkull novels (Crowley's interrogation-frame Prophet and Flowers' 2026 Warlord of Warlords), and Mike Brooks' Alpha Legion opener Renegades: Harrowmaster. Two roster gaps flagged (missing authors on the two later Red Gobbo novellas). Three titles unrated on Goodreads at lookup (omnibus has thin count but is rated; Ewington 2025 and Flowers 2026 have no indexed page yet).",
+  "books": [
+    {
+      "externalBookId": "W40K-0551",
+      "slug": "ruin",
+      "overrides": {
+        "synopsis": "Exiled to the rotting jungle world of Sedh for crimes against his own court, the necron lord Oltyx commands a dwindling garrison against an endless tide of ork invaders, gnawed by bitterness over the dynasty he once stood to inherit. When the orks' assaults take on a desperate cast and a far worse predator begins to drift through the canopy, Oltyx realises Sedh is only the first stone falling. Returning to the Ithakas crownworld means crossing the brother who exiled him, a court rotted through with denial, and a horror tangled with the buried origin of the necrons themselves. Nate Crowley's debut Necron novel reads as a tragedy of memory: an immortal warrior whose mind is fraying piece by piece, fighting to remember why his species ever chose this kind of life.",
+        "facetIds": [
+          "book",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "sector",
+          "series_start",
+          "standard",
+          "war_story",
+          "journey",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "hubris",
+          "doubt",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Necrons", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sedh", "role": "primary" },
+          { "name": "Antikef", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Oltyx", "role": "pov" },
+          { "name": "Djoseras", "role": "supporting" },
+          { "name": "Yenekh", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.30, "count": 1963, "evidenceUrl": "https://www.goodreads.com/book/show/59156350-the-twice-dead-king" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0552",
+      "slug": "reign",
+      "overrides": {
+        "synopsis": "Crowned at last over a dynasty that no longer has a world to rule, Oltyx leads the surviving Ithakas necrons aboard the dying battleship Akrops, harried across the void by an Imperial crusade fleet large enough to blot stars. Kingship is nothing like the prize his exile turned it into: scheming nobles whisper about the throne, the ship itself is decaying around him, and somewhere in its sepulchral holds the flayer curse — the species' own particular damnation — is quietly spreading among his lords. Nate Crowley's second Twice-Dead King novel is the king's tragedy in close-up: an immortal who finally has what he wanted, and is losing pieces of himself faster than he can defend it, while the dynasty he is supposed to save begins to forget what it was for.",
+        "facetIds": [
+          "book",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "galactic",
+          "series_finale",
+          "standard",
+          "war_story",
+          "last_stand",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "hubris",
+          "sacrifice",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Necrons", "role": "primary" },
+          { "name": "Imperial Navy", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Antikef", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Oltyx", "role": "pov" },
+          { "name": "Djoseras", "role": "supporting" },
+          { "name": "Yenekh", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.21, "count": 1292, "evidenceUrl": "https://www.goodreads.com/book/show/59361173-the-twice-dead-king" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0553",
+      "slug": "the-twice-dead-king-omnibus",
+      "overrides": {
+        "synopsis": "Nate Crowley's complete Twice-Dead King in one volume: the duology Ruin and Reign — exiled lord Oltyx's reckoning with the brother who broke him, the orks at his gates, and the flayer curse rotting his own court from within — together with the novella Severed and a clutch of shorter pieces that fill out the same dynasty's long, weary history. Read end to end, the omnibus traces a kind of necron tragedy: a species that traded life for immortality and now spends eternity defending the bargain it made, told through one disgraced lord who is slowly remembering what was taken from him. A natural entry point for readers who want the whole arc — court intrigue, crownworld siege, fleet exodus — in a single doorstopper.",
+        "facetIds": [
+          "book",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "galactic",
+          "standalone",
+          "doorstopper",
+          "war_story",
+          "last_stand",
+          "journey",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "hubris",
+          "sacrifice",
+          "loyalty",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Necrons", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Imperial Navy", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sedh", "role": "primary" },
+          { "name": "Antikef", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Oltyx", "role": "pov" },
+          { "name": "Djoseras", "role": "supporting" },
+          { "name": "Yenekh", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.42, "count": 57, "evidenceUrl": "https://www.goodreads.com/book/show/221160726-the-twice-dead-king" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0554",
+      "slug": "da-gobbos-revenge",
+      "overrides": {
+        "synopsis": "Fingwit is a grot, which is to say he sits at the bottom of ork society and is reminded of it daily by the mek who owns him and the larger orks who don't bother to. When his mek's ramshackle warband boards an Imperial vessel as part of a wider void war, Fingwit notices that down in the lower decks, away from the orks, a grot with the right idea in his head and a bit of nerve in his belly can do remarkable things. Mike Brooks' first Red Gobbo novella is short, funny, and quietly serious: a tale of how a downtrodden runt becomes the symbol the smaller greenskins have always needed, and how the legend of Da Red Gobbo — patron of grot revolution against ork tyranny — first walks into the universe wearing a battered red hat.",
+        "facetIds": [
+          "book",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "squad",
+          "series_start",
+          "novella",
+          "war_story",
+          "character_study",
+          "satirical",
+          "action_heavy",
+          "hopepunk",
+          "brotherhood",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Orks", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Fingwit", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.19, "count": 346, "evidenceUrl": "https://www.goodreads.com/book/show/59557261-da-gobbo-s-revenge" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0555",
+      "slug": "da-gobbos-demise",
+      "overrides": {
+        "synopsis": "Redsnot was Runtherd Killaskun's least-worst grot, a rank he held by being a more cunning little weasel than his peers. Now Killaskun is dead, the herd is leaderless, and Chaos cultists are closing on their position fast enough that the runts will tear each other apart before the heretics arrive. Just as Redsnot is poised to make himself their new boss, Da Red Gobbo — the legendary patron of grot revolution — saunters in wearing the snazzy goggles and steals the room. Denny Flowers' second Red Gobbo novella treats the legend as something more like a costume than a person: anyone with enough belief and the right gear can be Da Red Gobbo, which is exactly what makes Redsnot dangerous, because he knows it too.",
+        "facetIds": [
+          "book",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "squad",
+          "mid_series",
+          "novella",
+          "war_story",
+          "satirical",
+          "action_heavy",
+          "hopepunk",
+          "betrayal",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Orks", "role": "primary" },
+          { "name": "Chaos Cultists", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Redsnot", "role": "pov" },
+          { "name": "Gitzit", "role": "supporting" },
+          { "name": "Da Red Gobbo", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.21, "count": 179, "evidenceUrl": "https://www.goodreads.com/book/show/63291607-da-gobbo-s-demise" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0556",
+      "slug": "long-live-da-red-gobbo",
+      "overrides": {
+        "synopsis": "When the kill kroozer Big Thumpa crashes on a barren world ruled by warboss Brukka Bludspilla and his Snakebites clan, the current Da Red Gobbo decides the mantle is too heavy for him and passes it to his reluctant second, Slipbit. Slipbit would much rather not be a symbol of grot revolution, but the grots conscripted into Bludspilla's mob would much rather not be slaves either, so he picks up the snazzy goggles and starts a small, badly-organised, very loud uprising. Justin Woolley's Red Gobbo novella is gleeful, episodic and surprisingly tender: a tale of small creatures pulling off an outsized stunt against an oppressor who never quite believes runts can hurt him until they do.",
+        "facetIds": [
+          "book",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "planetary",
+          "mid_series",
+          "novella",
+          "war_story",
+          "satirical",
+          "action_heavy",
+          "hopepunk",
+          "brotherhood",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Orks", "role": "primary" },
+          { "name": "Snakebites", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Slipbit", "role": "pov" },
+          { "name": "Brukka Bludspilla", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "authors", "reason": "roster authors[] is empty; sources consistently credit Justin Woolley", "suggestion": "Justin Woolley" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.04, "count": 85, "evidenceUrl": "https://www.goodreads.com/book/show/221124965-long-live-da-red-gobbo" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0557",
+      "slug": "da-red-gobbos-last-stand",
+      "overrides": {
+        "synopsis": "Bodgit is a grot aboard the Freebooter kroozer Da Jolly Smasha, the kind of grot Kaptin Bludhook sends into hopeless places so the kaptin doesn't have to look at him anymore. When Bludhook orders Bodgit to creep through a freshly-emerged space hulk and bring back loot, every reasonable expectation is that Bodgit will die in something's mouth. Instead, somewhere in the dark, the spirit of Da Red Gobbo wakes up inside him. Andi Ewington's first Black Library outing is a tight, hulk-set Christmas novella: a small creature finding spine in the worst conditions imaginable, with Bludhook and his Flash Gitz waiting at the other end of the corridor for whoever — or whatever — walks back out.",
+        "facetIds": [
+          "book",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "squad",
+          "mid_series",
+          "novella",
+          "war_story",
+          "satirical",
+          "action_heavy",
+          "hopepunk",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Orks", "role": "primary" },
+          { "name": "Freebooterz", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Bodgit", "role": "pov" },
+          { "name": "Kaptin Bludhook", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "authors", "reason": "roster authors[] is empty; sources consistently credit Andi Ewington", "suggestion": "Andi Ewington" }
+        ],
+        "rating": { "status": "unrated", "source": "goodreads", "reason": "no Goodreads page found at lookup (Nov 2025 release, may not yet be indexed under a stable book_id)", "evidenceUrl": "https://www.blacklibrary.com/warhammer-40000/featured/ebook-da-red-gobbos-last-stand-eng-2025.html" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0558",
+      "slug": "ghazghkull-thraka-prophet-of-the-waaagh",
+      "overrides": {
+        "synopsis": "A radical Ordo Xenos inquisitor named Falx has captured a grot calling himself Makari, the personal banner-bearer of Ghazghkull Mag Uruk Thraka — the warlord whose Waaagh! has eaten worlds. Across the length of a long, distrustful interrogation, Makari pours out the warlord's story: a runt of a beast on a green moon, a head injury, a series of visions, a procession of larger and louder orks who somehow keep ending up dead at the right moment. Inquisitor Falx and her retinue listen, argue, drink, and slowly come unstuck — because if any of what Makari is saying is true, the orks are not the brute, dying species the Imperium has insisted on for centuries. Nate Crowley's Ghazghkull novel uses the interrogation as a back door into ork psychology, ork theology, and the uncomfortable possibility that the Beast was made, not born.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "multi",
+          "dual",
+          "galactic",
+          "standalone",
+          "standard",
+          "war_story",
+          "character_study",
+          "philosophical",
+          "satirical",
+          "grimdark",
+          "hubris",
+          "doubt",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Orks", "role": "primary" },
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Xenos", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Ullanor", "role": "supporting" },
+          { "name": "Armageddon", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Makari", "role": "pov" },
+          { "name": "Falx", "role": "pov" },
+          { "name": "Ghazghkull Mag Uruk Thraka", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.30, "count": 1648, "evidenceUrl": "https://www.goodreads.com/book/show/58272429-ghazghkull-thraka" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0559",
+      "slug": "ghazghkull-thraka-warlord-of-warlords",
+      "overrides": {
+        "synopsis": "Slitta da Stabba is a new Blood Axes warboss, freshly elevated, freshly nervous, and now answerable directly to Ghazghkull Mag Uruk Thraka — the unchallenged warlord of the greatest Waaagh! in the galaxy. The Blood Axes have offered up the world of Gabal as tribute: a planet where they have nearly tamed the local humans and now intend to feast on the spectacle. Ghazghkull, of course, decides to come and look at it himself, with six clan heads in tow, each one trying to undercut the others. Then the Black Templars arrive. Denny Flowers' second Ghazghkull novel is a Blood Axes ensemble piece — half political comedy of bickering warbosses, half siege — and asks the very ork question of whether anyone can survive being a courtier to a god of war.",
+        "facetIds": [
+          "book",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "siege",
+          "court_intrigue",
+          "action_heavy",
+          "satirical",
+          "grimdark",
+          "betrayal",
+          "hubris",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Orks", "role": "primary" },
+          { "name": "Blood Axes", "role": "primary" },
+          { "name": "Black Templars", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Gabal", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Slitta da Stabba", "role": "pov" },
+          { "name": "Ghazghkull Mag Uruk Thraka", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "unrated", "source": "goodreads", "reason": "no Goodreads page found at lookup (released 28 March 2026; not yet indexed under a stable book_id)", "evidenceUrl": "https://wh40k.lexicanum.com/wiki/Ghazghkull_Thraka:_Warlord_of_Warlords_(Novel)" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0560",
+      "slug": "renegades-harrowmaster",
+      "overrides": {
+        "synopsis": "Harrowmaster Drazus Jate dies in the opening pages, and with him goes the fragile leash holding the Serpent's Teeth warband together. Solomon Akurra, lieutenant and chief schemer, decides he is the only one who can take the title — not by acclaim but by being the last of his rivals still breathing when the dust settles. Around him the Indomitus Crusade pushes deeper into the Ultima Segmentum, the new Primaris Marines are uglier news than the warband expected, and the hydra-headed Alpha Legion is feuding with itself across half a sector. Mike Brooks' first Renegades novel is a slow, paranoid power struggle inside a Chaos legion famous for never showing its real face, told from the inside by someone who knows every knife in every back is meant to look like it belongs there.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "sector",
+          "series_start",
+          "standard",
+          "war_story",
+          "political_thriller",
+          "court_intrigue",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "betrayal",
+          "hubris",
+          "loyalty",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Alpha Legion", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ultima Segmentum", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Solomon Akurra", "role": "pov" },
+          { "name": "Drazus Jate", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.20, "count": 789, "evidenceUrl": "https://www.goodreads.com/book/show/63123245-harrowmaster" }
+      }
+    }
+  ]
+}

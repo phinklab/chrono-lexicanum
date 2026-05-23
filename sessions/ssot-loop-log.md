@@ -1777,3 +1777,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Probator (Arbites rank), Sanctioner (Arbites rank, Varangantua-flavoured), Steelmound, Nearsteel, Polaris, The Spoil, Valtteri Cartel, Har Dhrol, Damocles Squad, Iron Snakes, Sons of Sek, Anarch Sek / Magister Sek, Beati, Ghereppan, Tabidiah Kruger, Savriel Sabbriatti.
 - **Verifikation skipped:** Reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code); npm lint/typecheck/brain:lint per Brief-061-Konvention übersprungen.
+
+## 2026-05-23 · ssot-w40k-056 · W40K-0551..W40K-0560 · ✅
+
+- **Cumulative books in authority:** 560
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=550, batch=ssot-w40k-056, slice=W40K-0551..W40K-0560
+- **WebSearch:** mean=1.4, max=3 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0551 Ruin — Crowley Necron debut; rated Goodreads.
+  - W40K-0552 Reign — direct sequel; rated Goodreads. Imperial crusade-fleet pursuer surfaced only as "armada of the Imperium" in summaries, so used `Imperial Navy` (antagonist) as conservative tag rather than naming a specific Chapter/Crusade.
+  - W40K-0553 Twice-Dead King Omnibus — 2025 bundle (Ruin + Reign + Severed + shorts); rated Goodreads but thin count (57).
+  - W40K-0554 Da Gobbo's Revenge — Brooks novella; rated. No named in-universe location (boarding action aboard an unnamed Imperial vessel) — `locations` left empty.
+  - W40K-0555 Da Gobbo's Demise — Flowers novella; rated. Antagonist "worshippers of the Dark Gods" tagged as `Chaos Cultists` (specific-enough Chaos sub) since no Heretic Astartes legion is named in available sources.
+  - W40K-0556 Long Live Da Red Gobbo — Woolley novella; rated. Roster authors[] empty → `data_conflict` flag (suggestion: Justin Woolley). Barren unnamed world, no location.
+  - W40K-0557 Da Red Gobbo's Last Stand — Ewington novella, Nov 2025. Roster authors[] empty → `data_conflict` flag (suggestion: Andi Ewington). No Goodreads page indexed at lookup → `unrated` with Black Library evidence URL.
+  - W40K-0558 Ghazghkull Thraka: Prophet of the Waaagh! — Crowley; rated. Inquisition-Konsistenz: Falx is Ordo Xenos inquisitor → `Inquisition` + `Ordo Xenos` primary alongside `Orks`.
+  - W40K-0559 Ghazghkull Thraka: Warlord of Warlords — Flowers, March 2026. No Goodreads page indexed at lookup → `unrated` with Lexicanum evidence URL.
+  - W40K-0560 Renegades: Harrowmaster — Brooks; rated. Alpha Legion POV vs. Primaris antagonists; tagged `Adeptus Astartes` (antagonist) — no specific loyal Chapter named in summaries.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** `Necrons`, `Orks`, `Snakebites`, `Blood Axes`, `Freebooterz`, `Chaos Cultists`, `Imperial Navy`, `Alpha Legion`, `Adeptus Astartes`, `Black Templars`, `Inquisition`, `Ordo Xenos`. Locations: `Sedh`, `Antikef`, `Ullanor`, `Armageddon`, `Gabal`, `Ultima Segmentum`. Characters with grot-naming convention preserved as-is (`Fingwit`, `Redsnot`, `Slipbit`, `Bodgit`, `Makari`).
+- **Verifikation:** Reiner Daten-Commit (Override-JSON + Markdown-Append) — `npm run lint` / `typecheck` / `brain:lint` per Brief-061-Konvention übersprungen.
