@@ -40,5 +40,17 @@
     ],
     "knownMissingConstituents": [],
     "note": "Aaron Dembski-Bowden Armageddon omnibus. book-roster.json links only Helsreach (W40K-0279). Blood and Fire (W40K-0316) — the ADB Armageddon novella — exists as a work and is a candidate co-constituent but has no roster edge. Resolver-Pass-6 dossier §7d. Defer the W40K-0316 edge until confirmed and added to the roster (out of resolver-pass scope). Constituent works verified present in book-roster.json."
+  },
+  {
+    "collectionExternalId": "W40K-0434",
+    "title": "Space Wolves (Legends)",
+    "status": "needs_constituent_collection_edges",
+    "knownExistingConstituents": [
+      "W40K-0430",
+      "W40K-0432",
+      "W40K-0433"
+    ],
+    "knownMissingConstituents": [],
+    "note": "Legends of the Dark Millennium anthology focused on the Space Wolves. book-roster.json carries 0 constituent edges. Three explicitly Space-Wolves-titled shorts exist as works in the cumulative roster and are confident constituents — Scent of a Traitor (W40K-0430, C.L. Werner, 2016, short_story), The Darkness of Angels (W40K-0432, Rob Sanders, 2016, short_story), Wrath of the Wolf (W40K-0433, C.L. Werner, 2016, short_story). All three share the anthology's 2016 publication year + the explicit \"Space Wolves:\" title prefix. Resolver-Pass-7 dossier §7d spot-check. Defer the edges until added to the roster (out of resolver-pass scope). Constituent works verified present in book-roster.json."
   }
 ]
