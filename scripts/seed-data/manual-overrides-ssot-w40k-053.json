@@ -1,0 +1,211 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-053",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Warhammer Horror short-story wave (W40K-0521..W40K-0527) plus the first three Dawn of Fire novels (W40K-0528..W40K-0530). Heavy data-conflict surface: four Horror eShorts mis-tagged as novels; two shorts (The Somewhere Sister, The Gnarled Bough) and one full novel (Black-Eyed Saint) live in the Age of Sigmar setting rather than W40K; Unholy is an omnibus of four novels, not an anthology of shorts; The Gate of Bones is mis-titled 'The Gates of Bones' in the roster.",
+  "books": [
+    {
+      "externalBookId": "W40K-0521",
+      "slug": "king-of-pigs",
+      "overrides": {
+        "synopsis": "A diary recovered from the ruins of Hive Blackbracken records the last weeks of a slaughterhouse labourer as the great hive falls to the Plague God. Page by page the entries drift from grim shift-routines and ration counts into something stranger and worse — pestilent dreams, a creeping rot at the meat-pits, neighbours who will not stop changing. Beyond the broken plascrete a green-skied garden grows where the manufactorum streets used to be, and a horned, swine-headed shape begins to walk among the surviving butchers. The diarist's small kindnesses sharpen the dread rather than soften it. Less a story of armies than of one ordinary mortal trying to put a shape to the end of his world.",
+        "facetIds": ["book", "civilian", "imperium", "planetary", "cosmic_horror", "grimdark", "somber", "character_study", "doubt", "faith", "cw_violence", "cw_disturbing", "cw_death", "cw_mental_health", "novella", "standalone", "en"],
+        "factions": [{ "name": "Nurgle", "role": "antagonist" }],
+        "locations": [{ "name": "Hive Blackbracken", "role": "primary" }],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story", "note": "Roster marks 'novel' but King of Pigs is a Black Library eShort (~31 pp), later collected in The Resting Places anthology" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.01, "count": 102, "evidenceUrl": "https://www.goodreads.com/book/show/63115976-king-of-pigs" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0522",
+      "slug": "the-somewhere-sister",
+      "overrides": {
+        "synopsis": "A grief-stricken innkeeper, marked by old loss and fresh trauma, tends a mirror at the edge of her common room and learns that it will listen — and then answer. As her sorrow deepens, the glass becomes a confidant, then a weapon, then something that begins to demand a price she cannot count beforehand. This is a quiet, claustrophobic horror about how mourning can be turned outward as easily as it can be turned inward, set in a small inn far from any field of battle. The story works at the scale of one woman's pain rather than any wider conflict, and asks what survives at the end of a long bargain — and what remains of the person who struck it.",
+        "facetIds": ["book", "female", "civilian", "neutral", "planetary", "cosmic_horror", "somber", "grimdark", "character_study", "doubt", "cw_disturbing", "cw_mental_health", "cw_death", "novella", "standalone", "en"],
+        "factions": [],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story", "note": "Roster marks 'novel' but The Somewhere Sister is a Black Library eShort, later collected in The Resting Places anthology" },
+          { "kind": "data_conflict", "field": "domain", "suggestion": "age_of_sigmar", "note": "Roster places this in the W40K domain, but The Somewhere Sister is an Age of Sigmar story per Lexicanum and the Resting Places anthology classification" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.29, "count": 21, "evidenceUrl": "https://www.goodreads.com/book/show/63116070-the-somewhere-sister" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0523",
+      "slug": "the-gnarled-bough",
+      "overrides": {
+        "synopsis": "In an outlying manor in the realm of death, a servant — a transplant from the verdant realm of life — watches uneasily as his master returns with a desiccated husk taken from the bough of a hateful Spite-Revenant and installs it as a curiosity in the great hall. From the moment the relic crosses the threshold, the manor's quiet routines begin to fray: footfalls in empty corridors, sap-stains where there should be none, dreams full of grasping roots. The servant, who still remembers the living forests of his birth-realm, recognises the trespass for what it is long before his master will, and the small household closes in on the slow harvest the bough has come to take.",
+        "facetIds": ["book", "male", "civilian", "neutral", "planetary", "cosmic_horror", "grimdark", "somber", "character_study", "cw_disturbing", "cw_violence", "cw_death", "novella", "standalone", "en"],
+        "factions": [],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story", "note": "Roster marks 'novel' but The Gnarled Bough is a Black Library eShort, later collected in The Resting Places anthology" },
+          { "kind": "data_conflict", "field": "domain", "suggestion": "age_of_sigmar", "note": "Roster places this in the W40K domain, but The Gnarled Bough is an Age of Sigmar story set across the realms of Shyish and Ghyran" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.68, "count": 22, "evidenceUrl": "https://www.goodreads.com/book/show/63134448-the-gnarled-bough" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0524",
+      "slug": "pain-engine",
+      "overrides": {
+        "synopsis": "A drukhari haemonculus — one of the sadistic flesh-shapers who pluck art from agony — sets out to trace and acquire the most legendary pain engine ever built by a now-vanished master of the coven craft. The search winds through galleries of living statuary, traps left by jealous rivals, and corridors where the line between hunter and exhibit blurs. The story turns on twists rather than scale: small reveals, paid in screams, that fold back on the seeker until the engine he came to possess has begun to possess him in return. Compact, sharp, and intentionally disorienting — a dive into the cold aesthetics of drukhari craftsmanship, where the prize is never the prize the seeker thought he was chasing.",
+        "facetIds": ["book", "pc_xenos", "xenos", "cosmic_horror", "grimdark", "mystery", "character_study", "hubris", "cw_violence", "cw_disturbing", "cw_death", "novella", "standalone", "en"],
+        "factions": [{ "name": "Drukhari", "role": "primary" }],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story", "note": "Roster marks 'novel' but Pain Engine is a Black Library eShort (~31 pp), later collected in The Resting Places anthology" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 2.96, "count": 53, "evidenceUrl": "https://www.goodreads.com/book/show/63134446-pain-engine" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0525",
+      "slug": "black-eyed-saint",
+      "overrides": {
+        "synopsis": "A girl stumbles half-dead across the moors and tells the strangers who shelter her of Calignius — a smog-shrouded mining town high in the Blood-Rock Peaks, gripped by a strange epidemic and the slow, watchful sway of a forlorn-looking statue at its centre. Runar Skoldolfr, a hunter, and Tiberius Grim, a veteran priest of Sigmar, lead a small expedition into the haunted vales to answer her plea. What they find is a settlement ruled by old fears and louder fanaticism — friendships souring, faith boiling into anguish, long-buried nightmares stirring under the streets. Separated and isolated, hunter and priest learn there are far worse fates than death, and must find a way to stand together against the daemons that have set themselves between them.",
+        "facetIds": ["book", "male", "civilian", "neutral", "planetary", "cosmic_horror", "grimdark", "somber", "mystery", "journey", "faith", "doubt", "cw_violence", "cw_disturbing", "cw_death", "cw_mental_health", "standard", "mid_series", "en"],
+        "factions": [],
+        "locations": [
+          { "name": "Calignius", "role": "primary" },
+          { "name": "Blood-Rock Peaks", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Runar Skoldolfr", "role": "pov" },
+          { "name": "Tiberius Grim", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "domain", "suggestion": "age_of_sigmar", "note": "Roster places this in the W40K domain, but Black-Eyed Saint is an Age of Sigmar novel and the third entry in Dale Lucas' Tales of Mhurghast series" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.04, "count": 76, "evidenceUrl": "https://www.goodreads.com/book/show/65640680-black-eyed-saint" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0526",
+      "slug": "the-resting-places",
+      "overrides": {
+        "synopsis": "A horror anthology gathering thirteen short stories from the imprint's 2021 and 2022 Horror Week eShort bundles, with two pieces newly written for the volume. The collection ranges across the breadth of the imprint — hive-city body horror and Chaos cult slow burns from the war-torn future; pestilent gardens and quiet domestic dread from the realms of magic and storm — and brings together a roster of horror voices including David Annandale, Richard Strachan, Darius Hinks, Jake Ozga, James Brogden, R S Wilt, Chris Winterton, J H Archer, Jeremy Lambert, Jamie Mistry-Evans and Chris Thursten. The stories are stand-alone and require no prior reading; together they sketch a map of how the imprint thinks about fear at the small, personal, intimate scale.",
+        "facetIds": ["book", "ensemble", "neutral", "dual", "planetary", "cosmic_horror", "grimdark", "somber", "mystery", "character_study", "doubt", "cw_violence", "cw_disturbing", "cw_death", "cw_mental_health", "standard", "standalone", "en"],
+        "factions": [
+          { "name": "Nurgle", "role": "supporting" },
+          { "name": "Drukhari", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Hive Blackbracken", "role": "supporting" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "domain", "suggestion": "mixed_w40k_aos", "note": "Anthology contains both Warhammer 40,000 and Age of Sigmar horror short stories; cannot be cleanly classified to a single domain" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.56, "count": 117, "evidenceUrl": "https://www.goodreads.com/book/show/112087511-the-resting-places" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0527",
+      "slug": "unholy-tales-of-horror-woe-from-the-imperium",
+      "overrides": {
+        "synopsis": "An omnibus collecting four full-length horror novels from the grim-future imprint. J C Stearns' The Oubliette opens with a young noblewoman dragged into a sealed-off oubliette of a forgotten subsector and the maddening creature waiting for her there. Nick Kyme's Sepulturum follows a medicae in a hive that is going wrong from the inside out as the dead refuse to stay dead. David Annandale's The Deacon of Wounds plunges a parched, plague-touched cardinal-world into a slow rot of body and faith. Justin D Hill's The Bookkeeper's Skull centres on an Adeptus Administratum auditor who finds a heretical reliquary buried in his stack of dusty ledgers. Four novels, four corners of the same idea: that the quieter horrors of the grim-dark future are the ones that walk in unannounced.",
+        "facetIds": ["book", "ensemble", "mixed", "civilian", "imperium", "planetary", "cosmic_horror", "grimdark", "somber", "mystery", "faith", "doubt", "cw_violence", "cw_disturbing", "cw_death", "cw_mental_health", "doorstopper", "standalone", "en"],
+        "factions": [
+          { "name": "Adeptus Ministorum", "role": "primary" },
+          { "name": "Adeptus Administratum", "role": "supporting" },
+          { "name": "Nurgle", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "omnibus", "note": "Roster marks 'anthology' but Unholy is an omnibus of four full-length novels (The Oubliette by J C Stearns, Sepulturum by Nick Kyme, The Deacon of Wounds by David Annandale, The Bookkeeper's Skull by Justin D Hill), not a collection of short stories" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.07, "count": 68, "evidenceUrl": "https://www.goodreads.com/book/show/63291897-unholy" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0528",
+      "slug": "avenging-son",
+      "overrides": {
+        "synopsis": "The Indomitus Crusade begins. With the galaxy split by the Great Rift and Chaos warbands rampant across dozens of sectors, the reborn primarch Roboute Guilliman commits his fleets out of Terra in the largest military undertaking in living memory. The novel braids three perspectives: Guilliman himself, weighing what an Imperium under siege can afford; Fleetmistress VanLeskus, whose eye turns to the Machorta Sound where a Slaughter Host of the Dark Gods has dug in; and Lieutenant Vitrian Messinius of the White Consuls, whose Battlegroup Saint Aster is sent to break the Slaughter Host before it can shut a critical warp lane. By the climax it is clear that Abaddon the Despoiler intends to wall Terra off behind a stone of his own choosing, and that the Crusade's first victory will be measured not in worlds taken but in routes kept open. A series opener that doubles as a state-of-the-Imperium briefing.",
+        "facetIds": ["book", "space_marine", "male", "mixed", "imperium", "galactic", "war_story", "action_heavy", "grimdark", "faith", "war", "sacrifice", "loyalty", "hubris", "cw_violence", "cw_death", "doorstopper", "series_start", "en"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "White Consuls", "role": "supporting" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Machorta Sound", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "pov" },
+          { "name": "Vitrian Messinius", "role": "pov" },
+          { "name": "VanLeskus", "role": "pov" },
+          { "name": "Belisarius Cawl", "role": "supporting" },
+          { "name": "Abaddon the Despoiler", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.95, "count": 2275, "evidenceUrl": "https://www.goodreads.com/book/show/54999448-avenging-son" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0529",
+      "slug": "the-gates-of-bones",
+      "overrides": {
+        "synopsis": "The second movement of the Dawn of Fire saga turns from Terra outward. Guilliman commits a great fleet toward the shrine-world of Gathalamor, where a stable warp-route would let the Indomitus Crusade pour into the southern half of the Imperium. The garrison force already on Gathalamor has gone ominously silent, and an ancient xenos race sends warnings the Regent cannot ignore. Guilliman dispatches a reconnaissance: Shield-Captain Achallor of the Adeptus Custodes, an embattled Mordian general's surviving regiment, and a depleted preceptory of Sisters of the Argent Shroud, who together find a world cracking open. Word Bearers and Iron Warriors are dug in beneath the cathedrals, hunting for a blackstone weapon that, if waked, threatens not merely the Crusade but the Throne itself.",
+        "facetIds": ["book", "custodes", "sister", "mixed", "imperium", "planetary", "war_story", "siege", "action_heavy", "grimdark", "faith", "war", "sacrifice", "loyalty", "cw_violence", "cw_death", "standard", "mid_series", "en"],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Argent Shroud", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Gathalamor", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Achallor", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "title", "suggestion": "The Gate of Bones", "note": "Roster title 'The Gates of Bones' (plural) — Black Library, Goodreads and Lexicanum all list the canonical title as 'The Gate of Bones' (singular). Slug 'the-gates-of-bones' inherits the same error." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.04, "count": 1494, "evidenceUrl": "https://www.goodreads.com/book/show/56269793-the-gate-of-bones" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0530",
+      "slug": "the-wolftime",
+      "overrides": {
+        "synopsis": "The third Dawn of Fire novel turns to Fenris, depleted by the Indomitus Crusade's calls and now staring down a migration of greenskins under Ghazghkull Mag Uruk Thraka. Guilliman asks more of the Vlka Fenryka than they have left to give. Logan Grimnar and his Great Companions must weigh whether to bind themselves to an ancient rival to hold their world — at the cost of much of what makes them the Wolves of Fenris — or to refuse, hold the line at the prophecy of the Wolftime, and wait for the return of a primarch who may not come in time. The book moves between high-table debate among the Wolf-priests and the brutal pressure of an ork migration that does not negotiate, and reads as much like a story of decisions as of battles.",
+        "facetIds": ["book", "space_marine", "male", "mixed", "imperium", "galactic", "war_story", "siege", "action_heavy", "grimdark", "brotherhood", "loyalty", "sacrifice", "doubt", "war", "cw_violence", "cw_death", "standard", "mid_series", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Ultramarines", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Logan Grimnar", "role": "pov" },
+          { "name": "Ghazghkull Mag Uruk Thraka", "role": "antagonist" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.80, "count": 1134, "evidenceUrl": "https://www.goodreads.com/book/show/58853222-the-wolftime" }
+      }
+    }
+  ]
+}

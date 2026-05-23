@@ -1714,3 +1714,24 @@
   - Considered: a `setting` facet (40k / warhammer_fantasy / age_of_sigmar / horus_heresy) would resolve the W40K-bucket-mistag pattern across this whole batch and presumably future Horror waves; logged via per-book `data_conflict` flags rather than written into the catalog (own brief). Also: `omnibus`, `anthology`, `eShort` / `short_story` would round out `length_tier` / `format` for non-novel formats, currently expressed via flags.
 - **Notable surface-forms (within this batch):** Genevieve Dieudonne · Detlef Sierck · Constant Drachenfels · Anasta Malkorion · Vyrkos Dynasty / Soulblight Gravelords · Freeguild · Disciples of Tzeentch · Bird of Change · Blood Drinkers · Black Rage · Sanguinius · Rudgard Howe · Thorsarbour · Lex Imperialis · Gothghul Hollow · Aaric Gothghul · Mhurghast · Realm of Shyish · Cities of Sigmar · Imperator Gladio · Nightbleed · The Reaper's Gift · Tithemarked · Elloth IX · Stormcast Eternals
 - **Lint skipped:** pure data commit (override JSON + log append, no code) per Brief 061 §10 convention.
+
+## 2026-05-23 · ssot-w40k-053 · W40K-0521..W40K-0530 · ✅
+
+- **Cumulative books in authority:** 530
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=520, batch=ssot-w40k-053, slice=W40K-0521..W40K-0530
+- **WebSearch:** mean=1.2, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0521 King of Pigs — Roster says 'novel', actually a Black Library eShort (~31 pp) later collected in The Resting Places; data_conflict format=short_story flagged.
+  - W40K-0522 The Somewhere Sister — eShort (not novel) AND Age of Sigmar (not W40K); two data_conflict flags. Thin coverage — no named characters or locations surfaced in the search synopsis; left empty per halluzination discipline.
+  - W40K-0523 The Gnarled Bough — eShort (not novel) AND Age of Sigmar (Shyish/Ghyran realms); two data_conflict flags. Thin coverage; no proper-noun characters/locations surfaced.
+  - W40K-0524 Pain Engine — eShort (not novel); drukhari haemonculus hunt for a legendary engine. No specific haemonculus name or Commorragh-quadrant confirmed in sources — characters/locations left empty.
+  - W40K-0525 Black-Eyed Saint — Age of Sigmar novel (Tales of Mhurghast #3), not W40K; data_conflict domain=age_of_sigmar flagged. Two named POVs (Runar Skoldolfr, Tiberius Grim), named town (Calignius) and peaks (Blood-Rock Peaks) captured.
+  - W40K-0526 The Resting Places — anthology mixing W40K and Age of Sigmar shorts; data_conflict domain=mixed_w40k_aos flagged. Aggregated factions from constituents (Nurgle from King of Pigs, Drukhari from Pain Engine); other AoS stories' factions not added to keep W40K vocab clean.
+  - W40K-0527 Unholy: Tales of Horror & Woe From The Imperium — roster says 'anthology' but it is an omnibus of four full-length novels (The Oubliette / Sepulturum / The Deacon of Wounds / The Bookkeeper's Skull); data_conflict format=omnibus flagged.
+  - W40K-0528 Avenging Son — clean Dawn of Fire #1, no roster issues. Three POVs captured (Guilliman / Messinius / VanLeskus), Black Legion as antagonist Chaos faction, Belisarius Cawl and Abaddon as supporting/antagonist principals.
+  - W40K-0529 The Gates of Bones — title is wrong in roster: canonical is 'The Gate of Bones' (singular) per Black Library / Goodreads / Lexicanum. Slug 'the-gates-of-bones' inherits the typo. data_conflict field=title flagged.
+  - W40K-0530 The Wolftime — clean Dawn of Fire #3, Space Wolves vs an ork migration under Ghazghkull. Logan Grimnar POV, Ghazghkull antagonist, Guilliman supporting.
+- **value_outside_vocabulary:** ["short_story (suggested format-facet for eShorts — not in current facet-catalog: format=book/audiobook/animation/live_action/audio_drama/podcast)", "omnibus (suggested format-facet for collected-novels volumes like Unholy)", "age_of_sigmar / mixed_w40k_aos (suggested domain-flag values; no domain facet today, surfaced via data_conflict flags only)"]
+- **Notable surface-forms (within this batch):** "Vlka Fenryka" (Space Wolves chapter-tongue), "Ghazghkull Mag Uruk Thraka" (preserved verbatim per surface-form treue), "Argent Shroud" (specific Sisters of Battle preceptory under Adepta Sororitas), "White Consuls" (Ultramarines successor chapter), "Battlegroup Saint Aster" (Indomitus Crusade formation), "Tales of Mhurghast" (AoS series Black-Eyed Saint belongs to).
+- **Verifikation:** lint / typecheck / brain:lint übersprungen — reiner Daten-Commit (Override-JSON + Log-Append), keine Code-Pfade berührt (Brief-061-Konvention).
