@@ -21,13 +21,13 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, next likely brief. Brain-Hygiene-Pass 2026-05-22 (post-092): Roster-Excel-Hygiene-Sweep (PR #85 / Session 092) eingearbeitet — `book-roster.json` 191 → 196 Collections (`books` 859), OQ (14) geschlossen, Slug-Delta-Watch-Item (W40K-0259/0330) für Resolver-Pass 7 in § What's open. Pipeline-Stand unverändert post-091 (Resolver-Pass 6 / 350 W40K-Bücher applied; Brief 091 Phase-4-Split offen). **Reihenfolge: Brief 091 implementieren → SSOT-Loop-Lauf `ssot-w40k-036..045`.** | 2026-05-22 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Brain-Hygiene-Pass 2026-05-22 (post-092): OQ (14) Roster-Excel-Hygiene-Sweep geschlossen (PR #85 / Session 092 — alle fünf Gruppen a–e, Roster 191 → 196 Collections). Offene Queue: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung. Nächster Schritt: Brief 091 implementieren → SSOT-Loop-Lauf `ssot-w40k-036..045`. | 2026-05-22 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, next likely brief. Post-Merge-Koordinations-Pass 2026-05-23 (post-093/094/095): Resolver-Pass 7 (450 W40K-Bücher applied), Brief 094 (Resolver vom SSOT-Loop entkoppelt + headless automatisiert) und Brief 095 (Rollup-Ownership) eingearbeitet. **Nächster Schritt brief-frei + operativ: die headless Loops weiterlaufen lassen — SSOT-Loop → Resolver-Loop, die 115 W40K-Reste.** | 2026-05-23 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Merge-Koordinations-Pass 2026-05-23 (post-093/094/095): keine OQ-Schließung, keine neue numerierte OQ. Offene Queue: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung. Nächster Schritt brief-frei + operativ (headless Loops); nächster Brief = Konsolidierungs-Pass am W40K-complete-Meilenstein. | 2026-05-23 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog. Post-086: Phase-3-Strategie-Absatz mit Supersede-Notiz (LLM-Stage / Discovery-Crawl / Hardcover→Goodreads), Refresh-Button im Ideas Backlog. | 2026-05-20 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-091: sechs Resolver-Pässe auf 350 Bücher applied (Pass 6 = erste 100er-Welle, brief-frei/runbook-getrieben, supervised); Brief 091 splittet Resolver-Pass-Phase 4 in 4a/4b + härtet den forward-ref-Guard auf range-aware. | 2026-05-22 |
+| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-095: sieben Resolver-Pässe auf 450 Bücher applied; Brief 094 hat den Resolver vom SSOT-Loop entkoppelt + headless automatisiert (Wellen-Detektor + brief-freies Runbook + `run-resolver-loop.sh`). | 2026-05-23 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals heute, 859 SSOT-Roster ab 058, ~$0.114/book V1 / $0.0199/Buch V2 fresh-Smoke). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
 
 ## Decision pages (ADRs with revisit-triggers)
@@ -66,8 +66,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Description | Updated |
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-22 |
-| (this file) | Master catalog | 2026-05-22 |
+| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-23 |
+| (this file) | Master catalog | 2026-05-23 |
 
 ## Concept pages
 
