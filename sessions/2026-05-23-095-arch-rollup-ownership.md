@@ -2,7 +2,7 @@
 session: 2026-05-23-095
 role: architect
 date: 2026-05-23
-status: open
+status: implemented
 slug: rollup-ownership
 parent: null
 links:
