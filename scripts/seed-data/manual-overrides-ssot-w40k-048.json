@@ -1,0 +1,513 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-048",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7",
+  "rationale": "Schließt die mittleren Cadia-Bücher von Justin D. Hill (Minka-Lesk-Arc inkl. Omnibus-Sammelband) ab und nimmt den kompletten Space-Marine-Conquests-Block (Bücher 1–7) auf, der die frühe Indomitus-Crusade-Ära von Black Library trägt. Auffällig: ein Format-Konflikt beim Minka-Lesk-Omnibus (Roster sagt novel, Quellen sagen Sammelband), und ein effektiv unbewerteter Schlussband (Masters of Shadow) mit 1 Goodreads-Rating und ungeklärtem Publikationsstatus.",
+  "books": [
+    {
+      "externalBookId": "W40K-0471",
+      "slug": "traitor-rock",
+      "overrides": {
+        "synopsis": "On the war-torn world of Malouri, traitorous forces have entrenched themselves on the supposedly impregnable island fortress of Crannog Mons. After years of stalemate, the task of cracking the siege falls to Minka Lesk and her Cadian 101st — survivors of a homeworld that no longer exists, sent into a meat-grinder mission that threatens to consume them. Amid the slaughter, sacrifice and brutal attrition, the question that haunts Lesk's regiment grows louder with every casualty: what does it mean to be Cadian in a galaxy without Cadia?",
+        "facetIds": [
+          "book",
+          "female",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "siege",
+          "war_story",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Cadian Shock", "role": "primary" },
+          { "name": "Traitor Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Malouri", "role": "primary" },
+          { "name": "Crannog Mons", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Minka Lesk", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.00,
+          "count": 402,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/58488271"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0472",
+      "slug": "shadow-of-the-eighth",
+      "overrides": {
+        "synopsis": "When Minka Lesk and the Cadian 101st recover a relic belonging to the missing Cadian 8th — long thought destroyed in the fall of their homeworld — they follow the trail to Telken's Rest, an ice-locked world at the heart of the Chaos warlord Drakul-zar's crumbling regime. Rumours hint that Lord Castellan Ursarkar Creed himself may still be alive there. The Cadians know the lead may be bait, but heritage runs too deep to ignore, and what waits in the frozen hab-sprawl will force them to choose between the duty they have now and the past they cannot let go.",
+        "facetIds": [
+          "book",
+          "female",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "journey",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "loyalty",
+          "doubt",
+          "war",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Cadian Shock", "role": "primary" },
+          { "name": "Traitor Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Telken's Rest", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Minka Lesk", "role": "pov" },
+          { "name": "Ursarkar Creed", "role": "supporting" },
+          { "name": "Drakul-zar", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.87,
+          "count": 279,
+          "evidenceUrl": "https://www.goodreads.com/book/show/194574811-shadow-of-the-eighth"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0473",
+      "slug": "minka-lesk-the-last-whiteshield",
+      "overrides": {
+        "synopsis": "Five linked stories trace Minka Lesk's path from frightened recruit to seasoned officer of the Cadian Shock. The collection opens as the Thirteenth Black Crusade breaks Cadia and a teenage Whiteshield fights for survival among the ruins of the only home she has ever known. It follows her through the painful task of carrying Cadian honour to a fallen Ecclesiarchy world, where rot in the faith proves as dangerous as any traitor, and into the grinding stalemate of Crannog Mons, where her 101st must end a siege that has already broken better regiments. Across each story the question is the same: what becomes of a soldier whose homeworld no longer exists?",
+        "facetIds": [
+          "book",
+          "female",
+          "guardsman",
+          "imperium",
+          "sector",
+          "series_start",
+          "doorstopper",
+          "war_story",
+          "siege",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "brotherhood",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Cadian Shock", "role": "primary" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Traitor Guard", "role": "antagonist" },
+          { "name": "Adeptus Ministorum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Cadia", "role": "primary" },
+          { "name": "Crannog Mons", "role": "supporting" },
+          { "name": "Malouri", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Minka Lesk", "role": "pov" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "format",
+            "suggestion": "collection",
+            "reason": "Roster lists format as novel; Black Library and Goodreads describe the title as a single-author omnibus collecting three novels (Cadia Stands, Cadian Honour, Traitor Rock) and two short stories (The Place of Pain and Healing, The Battle of Markgraaf Hive)."
+          }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.91,
+          "count": 104,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/138538490-minka-lesk"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0474",
+      "slug": "the-devastation-of-baal",
+      "overrides": {
+        "synopsis": "Hive Fleet Leviathan has been winnowed but never stopped, and now it bears down on Baal itself. Commander Dante recalls every Blood Angel and every successor Chapter he can reach — Flesh Tearers, Blood Drinkers, Lamenters and more — and prepares a defence that no one truly believes will hold. Petitions to Terra return with silence. The Tyranid swarm grinds through void engagements, breaches the fortress-monastery, and threatens to consume the chapter's birthworld for ever. Only when all hope has been spent does another fleet break translation at the system's edge, bearing a banner thought lost for ten thousand years.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "series_start",
+          "doorstopper",
+          "war_story",
+          "siege",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "sacrifice",
+          "brotherhood",
+          "faith",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Flesh Tearers", "role": "supporting" },
+          { "name": "Blood Drinkers", "role": "supporting" },
+          { "name": "Lamenters", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Baal", "role": "primary" },
+          { "name": "Cryptus System", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Dante", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "supporting" },
+          { "name": "Gabriel Seth", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.17,
+          "count": 3081,
+          "evidenceUrl": "https://www.goodreads.com/book/show/34466779-the-devastation-of-baal"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0475",
+      "slug": "the-ashes-of-prospero",
+      "overrides": {
+        "synopsis": "With his Chapter's numbers dwindling and a long-dead Thousand Sons sorcerer whispering in his mind, High Rune Priest Njal Stormcaller assembles a hand-picked warband of Space Wolves for a journey no living son of Russ has dared. The shade of Izaak claims that warriors of the lost Thirteenth Company are still trapped in the ruined city of Tizca, on the burned world of Prospero — and that freeing them will end his torment. To cross the Great Rift and walk the ashes of an old crime is risky enough; to reckon with what the Thousand Sons left behind, and with the truth of who first sent the Wolves to Prospero, may cost more than Njal can pay.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "standard",
+          "war_story",
+          "journey",
+          "grimdark",
+          "action_heavy",
+          "philosophical",
+          "brotherhood",
+          "hubris",
+          "faith",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Thousand Sons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Prospero", "role": "primary" },
+          { "name": "Tizca", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Njal Stormcaller", "role": "pov" },
+          { "name": "Logan Grimnar", "role": "supporting" },
+          { "name": "Izaak", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.92,
+          "count": 389,
+          "evidenceUrl": "https://www.goodreads.com/book/show/35297659-the-ashes-of-prospero"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0476",
+      "slug": "war-of-secrets",
+      "overrides": {
+        "synopsis": "On the industrial world of Saltire Vex, Primaris Lieutenant Xedro Farren and his new-forged brothers are deployed alongside the Dark Angels and find their welcome cold. The t'au they face there are wounded and erratic, turning on their own as if driven by something they cannot name. As the campaign drags on, Farren comes to suspect that Interrogator-Chaplain Zaeroph's true quarry is not the xenos at all, but a psychic curse with the power to madden whole worlds. Pursuing the truth means pulling at threads the Unforgiven would rather leave knotted, and what Farren uncovers will test where his loyalty truly belongs.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "mystery",
+          "grimdark",
+          "action_heavy",
+          "doubt",
+          "loyalty",
+          "betrayal",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "T'au Empire", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Saltire Vex", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Xedro Farren", "role": "pov" },
+          { "name": "Zaeroph", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.44,
+          "count": 445,
+          "evidenceUrl": "https://www.goodreads.com/book/show/36373744-war-of-secrets"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0477",
+      "slug": "of-honour-and-iron",
+      "overrides": {
+        "synopsis": "During the Indomitus Crusade, Chaplain Helios of the Ultramarines is dispatched on a mission Roboute Guilliman entrusts to no one else — to retrieve a relic from the ravaged world of Quradim before it can be lost. Helios takes Sergeant Theron and a handful of the strange new Primaris reinforcements he barely trusts. On Quradim the Genesis Chapter is dying in defence of the same prize, hunted by Warsmith Bolaraphon and his Iron Warriors, who buried it there during the Great Crusade and have returned to claim it back. What Helios finds will force him to weigh honour, oath, and the cost of giving any weapon, however holy, a second life.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "journey",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "brotherhood",
+          "hubris",
+          "sacrifice",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Genesis Chapter", "role": "supporting" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Quradim", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Helios", "role": "pov" },
+          { "name": "Theron", "role": "supporting" },
+          { "name": "Bolaraphon", "role": "antagonist" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.90,
+          "count": 268,
+          "evidenceUrl": "https://www.goodreads.com/book/show/41454832-of-honour-and-iron"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0478",
+      "slug": "apocalypse",
+      "overrides": {
+        "synopsis": "With the Great Rift torn across the galaxy, Lieutenant Heyd Calder is sent by Roboute Guilliman to hold the cardinal world of Almace against an oncoming Word Bearers crusade. He arrives commanding Primaris brothers drawn from Imperial Fists, White Scars and Raven Guard, and finds the Cardinal-Governor as guarded as any besieger. As traitor fleets close in and the system burns, Calder pieces together what the Ecclesiarchy on Almace is hiding — and why this minor seat suddenly matters to the Heretic Astartes. To save the world, he must convince the priesthood to fight beside him before the cathedral cities are lost altogether.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "mid_series",
+          "standard",
+          "war_story",
+          "siege",
+          "political_thriller",
+          "grimdark",
+          "action_heavy",
+          "faith",
+          "loyalty",
+          "doubt",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Adeptus Ministorum", "role": "supporting" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Almace", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Heyd Calder", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.01,
+          "count": 446,
+          "evidenceUrl": "https://www.goodreads.com/book/show/43257540-apocalypse"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0479",
+      "slug": "fist-of-the-imperium",
+      "overrides": {
+        "synopsis": "On the mining world of Ghyre, an Imperial Fists Honour Guard has been butchered upon ground they swore to defend, and a hidden cult is poisoning the planet's miners and its complacent aristocracy alike. Primaris Librarian Aster Lydorran is sent to root it out and finds himself locked in a duel of minds with a psyker whose strength rivals his own. Forced to assume command of a fractious Imperial defence, Lydorran must drag the proud sons of Dorn out from behind their walls and accept allies they would normally disdain — because the cult feeding on Ghyre is the harbinger of something far larger, and it is reaching towards Terra itself.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "mystery",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "loyalty",
+          "doubt",
+          "faith",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Genestealer Cults", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ghyre", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Aster Lydorran", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.63,
+          "count": 236,
+          "evidenceUrl": "https://www.goodreads.com/book/show/51086040-fist-of-the-imperium"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0480",
+      "slug": "masters-of-shadow",
+      "overrides": {
+        "synopsis": "Perdition was once a cemetery world; under Word Bearer occupation it has become a chain of mines where its surviving people are forced to break and defile the relics of the Imperial dead. Primaris Lieutenant Turan Raakis leads a Raven Guard Vanguard team into Perdition's wastes to wage the kind of patient, lightless war his primarch would recognise: sabotage, ambush, and the slow forging of a rebellion out of the world's broken inhabitants. To free Perdition, Raakis must convince mortals who have nothing left to gamble what little remains — and live up to a legacy that demands every shadow be made into a weapon.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "journey",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "sacrifice",
+          "faith",
+          "loyalty",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Perdition", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Turan Raakis", "role": "pov" }
+        ],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "rating",
+            "reason": "Goodreads page records only 1 rating (1.00, 0 reviews) — too thin to aggregate; publication status disputed in third-party reporting (some sources describe the title as never released by Black Library)."
+          }
+        ],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "Only 1 rating and 0 reviews on the Goodreads page — not a meaningful aggregate; will revisit if reader engagement grows or if publication status is clarified.",
+          "evidenceUrl": "https://www.goodreads.com/book/show/52757606-masters-of-shadow"
+        }
+      }
+    }
+  ]
+}

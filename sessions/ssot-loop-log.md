@@ -1604,3 +1604,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Iron Hands; Eldar; Orks; Adeptus Mechanicus; Ultramarines; Death Guard; Adeptus Ministorum; Inquisition; Astra Militarum; Black Legion; Heretic Astartes; Iron Father Kristos; Atraxii; Oblexus; Roboute Guilliman; Mortarion; Belisarius Cawl; Mathieu; Typhus; Inquisitor Covenant; Talicto; Major Bendikt; Minka Lesk; General Grüber; Abaddon the Despoiler; Fabris Calivant; Medusa; Ultramar; Macragge; Parmenio; Iax; Caradryad Sector; Dominicus Prime; Pilgrim Drift; Cadia; Eye of Terror; Potence; Gallows Cluster.
 - **Verification:** `npm run lint` / `typecheck` / `brain:lint` skipped — pure data commit (Brief-061-Konvention).
+
+## 2026-05-23 · ssot-w40k-048 · W40K-0471..W40K-0480 · ✅
+
+- **Cumulative books in authority:** 480
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=470, batch=ssot-w40k-048, slice=W40K-0471..W40K-0480
+- **WebSearch:** mean=1.2, max=2 (over 10 books) — most Goodreads URLs surfaced in the first plot search, only Traitor Rock and Devastation of Baal needed a dedicated rating search.
+- **Per-book bullets:**
+  - W40K-0471 Traitor Rock: clean Cadia-series mid-arc; antagonist surface "Traitor Guard" used (no specific Chaos sub identifiable from public sources without speculation).
+  - W40K-0472 Shadow of the Eighth: same Cadia regiment; Drakul-zar named as antagonist warlord but Chaos sub-faction unidentified in public sources.
+  - W40K-0473 Minka Lesk: The Last Whiteshield: **format conflict** — roster format=novel, sources describe a single-author omnibus collecting 3 novels (Cadia Stands, Cadian Honour, Traitor Rock) + 2 shorts (The Place of Pain and Healing, The Battle of Markgraaf Hive); flagged data_conflict (field=format, suggestion=collection). Aggregated factions/locations/characters across constituent works (Cadia, Crannog Mons, Malouri; added Black Legion + Adeptus Ministorum surfaces present in the constituent novels).
+  - W40K-0474 The Devastation of Baal: large Blood Angels successor ensemble; tagged Flesh Tearers/Blood Drinkers/Lamenters as supporting; very thick rating sample (3,081).
+  - W40K-0475 The Ashes of Prospero: Heresy-lore-heavy entry → tagged requires_context.
+  - W40K-0476 War of Secrets: Dark Angels + Primaris integration vs t'au — "T'au Empire" used as antagonist faction (concrete xenos sub, not generic Xenos/Aliens).
+  - W40K-0477 Of Honour and Iron: Iron Warriors used as Heretic Astartes sub; Genesis Chapter retained as supporting (Ultramarines successor surface form).
+  - W40K-0478 Apocalypse: tri-chapter Primaris ensemble (Imperial Fists primary, White Scars + Raven Guard supporting); Word Bearers as antagonist.
+  - W40K-0479 Fist of the Imperium: Genestealer Cults tagged as antagonist (distinct from generic Tyranids).
+  - W40K-0480 Masters of Shadow: **unrated** — Goodreads page shows only 1 rating (1.00) and 0 reviews; flagged low_confidence (field=rating). Some third-party sources report Black Library never released the title despite the Goodreads page listing a 2020 publication date — left as published in the rating evidenceUrl, noted in the flag reason.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Traitor Guard (recurring antagonist surface for Cadia titles); Cadian Shock (Astra Militarum sub); T'au Empire (concrete xenos sub); Genesis Chapter (Ultramarines successor surface); Genestealer Cults (kept distinct from Tyranids); Flesh Tearers / Blood Drinkers / Lamenters (Blood Angels successor surfaces); Drakul-zar / Bolaraphon / Izaak / Zaeroph (named antagonist characters); Ursarkar Creed (Cadia legacy figure).
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (reiner Daten-Commit, Brief-061-Konvention).
