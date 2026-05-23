@@ -13,7 +13,7 @@
 
 This project's memory is split into two stores. Engineering memory stays in the repo and is always loaded; the book domain (entity data) lives in an external Obsidian vault and is loaded only on demand.
 
-- **Brain** ([`brain/`](./brain/CLAUDE.md)) — small, always-mitgeladen, LLM-pflegt. Contains *what the project is, how it works, what was decided, what's open*. Karpathy-style LLM Wiki (`raw/` immutable + `wiki/` synthesized + Schema-Datei + three operations Ingest/Query/Lint). Cowork and Claude Code update Brain alongside code changes; an "atomic commit" pairs a code change with its Brain update.
+- **Brain** ([`brain/`](./brain/CLAUDE.md)) — small, always-mitgeladen, LLM-pflegt. Contains *what the project is, how it works, what was decided, what's open*. Karpathy-style LLM Wiki (`raw/` immutable + `wiki/` synthesized + Schema-Datei + three operations Ingest/Query/Lint). Cowork is the primary Brain-editor. The atomic-commit pairing of "code change + Brain update in one commit" applies **only inside the coordination worktree** (`chrono-lexicanum`) — Brief 095, § "Parallel worktrees" → "Rollup-Ownership". In the Product- and Batches-strand worktrees `brain/**` stays untouched; substantive system facts go into the impl report, and Cowork backfills the rollup files in a post-merge coordination pass.
 - **Atlas** (`chrono-atlas/`, **außerhalb dieses Repos**, default `~/chrono-atlas/`) — external Obsidian vault, mechanical mirror of Postgres. Generated via `npm run atlas:regen`. Read-only. **Never auto-loaded** — only opened on explicit "schau in den Atlas". Postgres is single-source-of-truth for the book domain; Atlas spiegelt, bestimmt nicht.
 
 **Read-order on session start** (every Cowork-/CC-Session, before turning to the task):
@@ -177,15 +177,28 @@ Durable local worktrees:
 
 `main` is read-only for local work. Never commit on `main`.
 
+**Rollup-Ownership (coordination-worktree-only).** The two strand worktrees (`chrono-lexicanum-product`, `chrono-lexicanum-batches`) **never write** the following files — only the coordination worktree (`chrono-lexicanum`) does:
+
+- `sessions/README.md`
+- everything under `brain/` (`brain/**`) — wiki pages, `brain/CLAUDE.md`, `decisions/`, `workflows/`, `index.md`, `log.md`, `glossary.md`, `outputs/`.
+
+The rule holds in normal sessions, in mechanical runbooks, and as a "short wiki note on the side" — there is no exception. A strand that would previously have updated `project-state.md` / `log.md` / `index.md` / `README.md` records the same facts in its **impl report** (a fresh per-session file — single-writer, conflict-free) instead. Cowork backfills the coordination-only set in a post-merge pass from the coordination worktree; that is the **only** path through which these files change.
+
+What strands **do** keep writing (unchanged): their own code/data paths (Product: `src/app/**`, `src/components/**`, `public/lab/**`, `docs/ui-backlog.md`; Batches: `scripts/**`, `src/lib/{seed,resolver,ingestion}/**`, override JSONs under `scripts/seed-data/`, `sessions/ssot-loop-log.md`, `sessions/resolver-dossiers/`), plus their own new per-session impl report. All per-session files are single-writer and never collide.
+
+The rule is bound to the **worktree path**, not to the agent — the path is pinned at session-start (below). The question "may I write `brain/`?" reduces to "am I in the coordination worktree?". CC implementing a meta/session brief in the coordination worktree (like Brief 095 itself) edits `brain/` freely; CC in a strand worktree never does.
+
 At the start of any implementation session:
 
 1. Run `git branch --show-current` and `git status --short --branch`.
-2. Infer the strand from the current worktree path.
+2. Infer the strand from the current worktree path. CC always derives the strand itself — never ask the maintainer which worktree this is.
 3. If the current branch is `main`, detached, a bootstrap branch, or a previously merged task branch, create a fresh task branch from `origin/main` before editing:
    - Product/UI: `codex/product-<short-slug>`
    - Batch/Ingestion: `codex/ingest-batches-<short-slug>`
    - Meta/session-only: `codex/session-<NNN>-<short-slug>`
 4. Do not branch from an inflight feature branch unless Philipp explicitly says this session continues that exact branch.
+5. **Before editing any files, announce the detected worktree, strand, and task-branch in one sentence** (e.g. *"Worktree: `chrono-lexicanum-batches`, Strang: Batch/Ingestion, Branch: `codex/ingest-batches-foo`."*). A wrong-folder mistake becomes visible immediately.
+6. **If the task does not match the detected strand** — UI work in the Batches worktree, batch/resolver work in the Product worktree, a Brain/Rollup edit asked for from a strand worktree, or vice versa — **halt and ask back** instead of starting in the wrong place. This is a self-check, not a maintainer question; CC reads the path and decides.
 
 When Philipp says `fertig`, `PR erstellen`, or equivalent:
 
