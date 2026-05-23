@@ -1563,3 +1563,23 @@
 - **Cumulative books:** 450 (in 45 batches: ssot-w40k-001..ssot-w40k-045)
 - **Action required:** Maintainer schreibt Resolver-Brief. Loop pausiert bis dahin.
 - **Pause-Detection:** selbst-erkennend (Brief 088) — dieser Block ist der Marker.
+
+## 2026-05-23 · ssot-w40k-046 · W40K-0451..W40K-0460 · ✅
+
+- **Cumulative books in authority:** 460
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=450, batch=ssot-w40k-046, slice=W40K-0451..W40K-0460
+- **WebSearch:** mean=1.2, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0451 (Darkness in the Blood, Haley, 2020): single plot search sufficed; clean Blood Angels follow-up to Devastation of Baal.
+  - W40K-0452 (The Emperor's Legion, Wraight, 2017): clean Watchers-of-the-Throne opener; ensemble POV (Custodes, Sister of Silence, chancellor).
+  - W40K-0453 (The Regent's Shadow, Wraight, 2020): straightforward mid-series; same trio of POVs, Terra/Luna setting.
+  - W40K-0454 (Cult of the Warmason, Werner, 2017): Sororitas-vs-Iron-Warriors-vs-Genestealer-Cult three-way; pov_side covers imperium + chaos.
+  - W40K-0455 (Cult of the Spiral Dawn, Fehervari, 2018): ensemble cast, no firm named POVs in reviews — characters left empty with low_confidence flag.
+  - W40K-0456 (The Carrion Throne, Wraight, 2017): clean Vaults-of-Terra opener; Crowl + Spinoza on Terra.
+  - W40K-0457 (The Hollow Mountain, Wraight, 2019): clean Vaults-of-Terra middle volume; Terra-bound.
+  - W40K-0458 (The Dark City, Wraight, 2022): title strongly alludes to Commorragh and a Drukhari character is confirmed, but no reliable source places the on-page setting in the Dark City itself; Drukhari listed as antagonist faction, Commorragh omitted from locations with low_confidence flag. Extra search consumed verifying this.
+  - W40K-0459 (Vaults of Terra: The Omnibus, Wraight, 2026): brand-new omnibus (37 ratings); aggregated factions/locations/characters from the trilogy per omnibus-discipline; companion stories Argent/Sanguine/Okira noted in synopsis but not over-claimed in entity lists. Extra search consumed to find the omnibus Goodreads URL (snippet rejected per §7).
+  - W40K-0460 (The Eye of Medusa, Guymer, 2017): clean Iron Hands opener; Stronos sergeant-era; Medusa + Thennos as primary locations.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Adeptus Custodes" vs. "Custodes" (kept "Adeptus Custodes" where referenced as the order, bare "Custodes" only inside synopsis prose); "Sisters of Silence" preferred over "Silent Sisterhood" / "Null-maidens"; "High Lords of Terra" (Senatorum Imperialis) at browse-root granularity instead of "Imperium"; "Drukhari" (modern) over "Dark Eldar" (legacy) for W40K-0458/0459; "Adepta Sororitas" used for W40K-0454 in lieu of the more specific "Order of the Sombre Vow" which remains in synopsis only.
