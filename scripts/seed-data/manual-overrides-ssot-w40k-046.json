@@ -1,0 +1,242 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-046",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Wraight-heavy wave: full Vaults of Terra trilogy (Crowl/Spinoza) plus the brand-new 2026 omnibus, the first two Watchers of the Throne novels (Custodes/Sisters of Silence/High Lords on Terra), bracketed by Haley's Dante-era Blood Angels follow-up to Devastation of Baal, two unrelated Genestealer Cults openers (Werner's Sororitas-vs-Iron-Warriors siege and Fehervari's Dark Coil pilgrimage), and Guymer's Iron Hands opener. Three series-shape inflections in one slice (Carrion Throne start, Dark City finale, Eye of Medusa start) — and the omnibus aggregates the same trilogy.",
+  "books": [
+    {
+      "externalBookId": "W40K-0451",
+      "slug": "darkness-in-the-blood",
+      "overrides": {
+        "synopsis": "In the aftermath of Hive Fleet Leviathan's defeat at Baal and the arrival of Primaris reinforcements, Chapter Master Dante shoulders a new burden — Warden of Imperium Nihilus, charged with holding the galaxy's benighted half together while the Indomitus Crusade pushes outward. He plans a campaign to purge the lingering Tyranid splinters and reclaim lost worlds, but the war he must fight inside his Chapter may prove the crueller one. Chief Librarian Mephiston's psychic might has swelled past anything the Blood Angels have ever sanctioned, and the Flaw — the gene-curse of Sanguinius that drives sons of the Lord of Angels into the Black Rage — is surfacing in the new Primaris brothers who were supposed to be free of it. Admiral Danakan, traumatised by the void-war over Baal, struggles to muster the fleet Dante's offensive demands. And from Mars comes an envoy of Belisarius Cawl, bearing gifts of arcane science that might shore up the Chapter's failing future — or unravel what little remains of its soul.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "sector", "mid_series", "standard", "war_story", "character_study", "grimdark", "somber", "philosophical", "war", "faith", "doubt", "brotherhood", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Imperial Navy", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Baal", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Dante", "role": "pov" },
+          { "name": "Mephiston", "role": "pov" },
+          { "name": "Admiral Danakan", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.94, "count": 748, "evidenceUrl": "https://www.goodreads.com/book/show/50437534" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0452",
+      "slug": "the-emperors-legion",
+      "overrides": {
+        "synopsis": "Cadia has fallen. The Cicatrix Maledictum has torn the galaxy in two, and Terra reels under the shock of psykers awakening and warp-storms tearing at her sky. Three sets of eyes track the crisis. Valerian, of the Adeptus Custodes, stalks the lower vaults of the Imperial Palace where things never meant to walk among men have begun to stir. Tanau Aleya, a Sister of Silence, is recalled with her order from a millennium of self-imposed exile to face the daemonic tide. And Aleksei Lev Tieron, chancellor of the Senatorum Imperialis, fights a quieter war in the council chambers — pleading with the Lord of Terra to lift an ancient edict and unleash the Imperium's strongest weapons before the throneworld is overrun. As a daemonic incursion bursts into the Palace itself, the three threads converge: the Custodian and the Null-maiden race to thwart a Black Legion plot to sever Terra from the warp's last conduits, and a returning Primarch sets foot once more on the holy soil his father trod.",
+        "facetIds": ["book", "audiobook", "ensemble", "custodes", "imperium", "planetary", "series_start", "standard", "war_story", "political_thriller", "court_intrigue", "grimdark", "action_heavy", "philosophical", "war", "faith", "loyalty", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Sisters of Silence", "role": "primary" },
+          { "name": "High Lords of Terra", "role": "primary" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Black Legion", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Luna", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Valerian", "role": "pov" },
+          { "name": "Tanau Aleya", "role": "pov" },
+          { "name": "Aleksei Lev Tieron", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.29, "count": 2661, "evidenceUrl": "https://www.goodreads.com/book/show/32861039-the-emperor-s-legion" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0453",
+      "slug": "the-regents-shadow",
+      "overrides": {
+        "synopsis": "Guilliman, Lord Commander and Regent of Terra, has departed for the Indomitus Crusade, taking the Imperium's freshest legions with him. The throneworld he leaves behind is wounded — bled of armies, riddled with cults that bred during the long years of warp-storm, and ruled by High Lords who never wanted his return in the first place. Valerian of the Adeptus Custodes patrols a Palace whose security walls are thinner than they look. Tanau Aleya rebuilds the Silent Sisterhood's citadel on Luna under the gaze of a court that fears any blade outside its grip. Chancellor Tieron tries to keep the Council's factions from devouring one another while the Phalanx returns to anchor a tentative peace. But as reconquest pushes deeper into Terra's slum-cities, a new pattern emerges in the unrest — and it is not Chaos. Some who oppose the Regent's vision of a renewed Imperium are willing to bleed the planet to prevent its survival, and the prospect of a Terran civil war begins to take shape in the shadows of the Senatorum.",
+        "facetIds": ["book", "audiobook", "ensemble", "custodes", "imperium", "planetary", "mid_series", "standard", "political_thriller", "court_intrigue", "war_story", "grimdark", "philosophical", "somber", "loyalty", "faith", "doubt", "betrayal", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Sisters of Silence", "role": "primary" },
+          { "name": "High Lords of Terra", "role": "primary" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Luna", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Valerian", "role": "pov" },
+          { "name": "Tanau Aleya", "role": "pov" },
+          { "name": "Aleksei Lev Tieron", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.30, "count": 1497, "evidenceUrl": "https://www.goodreads.com/book/show/52757636-the-regent-s-shadow" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0454",
+      "slug": "cult-of-the-warmason",
+      "overrides": {
+        "synopsis": "Lubentina is a shrine world living off the pilgrims who flock to the cathedral that holds the relics of Vadok Singh, the Warmason. When militia patrols start vanishing into the back-alleys, Sister Superior Trishala of the Order of the Sombre Vow follows the rumours and uncovers what no shrine world is meant to harbour: a hidden brood of genestealer cultists, generations deep, ready to surface. Her distress signal is intercepted before it can reach the Imperium proper — and answered by exactly the wrong listeners. Cornak, an Iron Warriors sorcerer hungry for the Warmason's secrets, drags the warband of Warsmith Rhodaan into a planet-side war for the cathedral's vaults. Three forces collide across the shrine city: a small order of Battle-Sisters defending their holiest relics, an Iron Warriors strike force grinding through the streets, and a cult that has been waiting under the basilicas for decades to call down its true gods.",
+        "facetIds": ["book", "audiobook", "mixed", "sister", "imperium", "chaos", "planetary", "standalone", "standard", "war_story", "siege", "grimdark", "action_heavy", "faith", "war", "betrayal", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Genestealer Cults", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Lubentina", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sister Superior Trishala", "role": "pov" },
+          { "name": "Warsmith Rhodaan", "role": "pov" },
+          { "name": "Cornak", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.54, "count": 150, "evidenceUrl": "https://www.goodreads.com/book/show/34678312" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0455",
+      "slug": "cult-of-the-spiral-dawn",
+      "overrides": {
+        "synopsis": "The Spiral Dawn is one of the countless sanctioned sects of the Imperial Cult, an inward-looking faith whose Spiralytes seek introspection and the slow turn of the soul. When a pilgrimage makes the long voyage to Redemption, the sect's birthplace and a shrine world of the Imperium, the wide-eyed faithful expect a haven of contemplation. What they find is a soot-choked hellhole — a stripped, smoke-stained world where the Spiral Dawn's founders maintain a brittle peace with an Astra Militarum regiment whose paranoia has had decades to fester. As tensions between serene congregation and superstitious guardsmen mount, the new arrivals start to unravel the dark thing concealed at the heart of their faith. The pilgrimage is no accident. Redemption is no shrine. And the cycle that the Spiral Dawn turns is older and hungrier than any of them dared imagine.",
+        "facetIds": ["book", "audiobook", "ensemble", "guardsman", "civilian", "imperium", "xenos", "planetary", "standalone", "standard", "mystery", "character_study", "journey", "grimdark", "cosmic_horror", "somber", "philosophical", "faith", "doubt", "betrayal", "hubris", "cw_violence", "cw_disturbing", "cw_death", "cw_stigma", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Genestealer Cults", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Redemption", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "ensemble cast of pilgrims and guardsmen; named POVs not reliably surfaced in available reviews" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.09, "count": 595, "evidenceUrl": "https://www.goodreads.com/book/show/35297660-cult-of-the-spiral-dawn" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0456",
+      "slug": "the-carrion-throne",
+      "overrides": {
+        "synopsis": "Pilgrims pour into Terra by the millions as the sacred festival of Sanguinala approaches, and the underhives of the throneworld bloat with them. Among the pious masses, a cult worshipping a being called the False Angel has begun to take root. Inquisitor Erasmus Crowl of the Ordo Hereticus follows the rot down through forgotten levels, dragging with him a freshly-assigned acolyte — Interrogator Luce Spinoza, severe, idealistic, and entirely unconvinced by her new master's quiet methods. The deeper they push, the more they realise that the cult is merely the surface of something much worse: a conspiracy that lifts the carpet on the Imperium's highest offices, and on the Inquisition itself. Heretics close in. So do xenos. So do men with credentials that ought to forbid their presence here. As the festival's processions swell across the Palatine districts, Crowl and Spinoza race a clock no one but they can see — and circle a truth that, if ever spoken aloud, would not survive the speaking.",
+        "facetIds": ["book", "audiobook", "mixed", "inquisitor", "imperium", "planetary", "series_start", "standard", "mystery", "political_thriller", "court_intrigue", "character_study", "grimdark", "philosophical", "somber", "faith", "doubt", "betrayal", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "cw_stigma", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Hereticus", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Erasmus Crowl", "role": "pov" },
+          { "name": "Luce Spinoza", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.16, "count": 2524, "evidenceUrl": "https://www.goodreads.com/book/show/30753525-the-carrion-throne" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0457",
+      "slug": "the-hollow-mountain",
+      "overrides": {
+        "synopsis": "Crowl has seen too much. The cult of the False Angel was a door, and the things behind it reach into chambers of the Imperial Palace where his warrant should not even permit him to stand. He and Spinoza follow the conspiracy further down — a quiet hunt for the men and women who arranged to bring a xenos creature onto Terra itself, and the deeper questions of what they hoped to do with it. Every move invites danger; rival Inquisitors begin to ask why Crowl's name keeps surfacing in places where it should not. And then the sky changes. The Cicatrix Maledictum tears open across half the galaxy, the Astronomican's light wavers, and pilgrims at the Palace gates begin to scream in tongues they were not born to. As madness threatens to crack Terra from the heavens down, Crowl's small island of acolytes is set upon at home — base ravaged, allies bleeding — and Spinoza must hold the line while her master pushes toward an answer no Inquisitor was ever supposed to find.",
+        "facetIds": ["book", "audiobook", "mixed", "inquisitor", "imperium", "planetary", "mid_series", "standard", "mystery", "political_thriller", "court_intrigue", "siege", "grimdark", "cosmic_horror", "somber", "philosophical", "faith", "doubt", "betrayal", "sacrifice", "war", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Hereticus", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Erasmus Crowl", "role": "pov" },
+          { "name": "Luce Spinoza", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.09, "count": 1514, "evidenceUrl": "https://www.goodreads.com/book/show/46221875-the-hollow-mountain" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0458",
+      "slug": "the-dark-city",
+      "overrides": {
+        "synopsis": "The Great Rift has opened, the Astronomican is failing, and Terra is a place where night arrives in the middle of the day. Crowl is missing, his mind broken by what he saw in the Hollow Mountain, the threads of the conspiracy he chased disappearing with him. Spinoza, his interrogator, is forced to choose: hunt the man she swore to follow, or hold what is left of their small house against the many enemies still circling. A grand expedition is being assembled — Custodes, Mechanicum savants, the Inquisition, the Imperial Army — bent on a task so grave that even speaking it aloud is forbidden: the repair of the Golden Throne itself. Spinoza's path drags her past the bounds of permitted thought, into chambers where humans are not meant to walk, and into bargains with creatures whose courtesies are an insult. As the truth Crowl bled for narrows to a single, brutal answer, Spinoza must decide what she is willing to lose to keep speaking it.",
+        "facetIds": ["book", "audiobook", "female", "inquisitor", "imperium", "sector", "series_finale", "standard", "mystery", "political_thriller", "journey", "court_intrigue", "grimdark", "cosmic_horror", "somber", "philosophical", "faith", "doubt", "sacrifice", "loyalty", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Hereticus", "role": "primary" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Drukhari", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Luce Spinoza", "role": "pov" },
+          { "name": "Erasmus Crowl", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "title alludes to Commorragh and Drukhari appear; available reviews confirm Drukhari presence but do not firmly establish Commorragh as an on-page setting, so the canonical Drukhari capital is omitted from locations" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.22, "count": 1138, "evidenceUrl": "https://www.goodreads.com/book/show/61661304-the-dark-city" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0459",
+      "slug": "vaults-of-terra-the-omnibus",
+      "overrides": {
+        "synopsis": "Three novels and three companion stories trace the slow uncovering of a conspiracy that reaches all the way to the foot of the Golden Throne. Inquisitor Erasmus Crowl of the Ordo Hereticus, a quiet, methodical, lonely heretic-hunter, drags his new interrogator Luce Spinoza into an investigation that begins beneath the festival processions of Terra — a cult worshipping a False Angel — and that does not stop until the throneworld itself has been changed beyond recognition. Across The Carrion Throne, The Hollow Mountain, and The Dark City, Crowl and Spinoza pursue agents inside the Imperial Palace whose plans involve xenos creatures, faltering Astronomicons, and an ancient machine that holds the soul of mankind together. By the time the Cicatrix Maledictum tears open and the night refuses to leave Terra's sky, the question is no longer who is guilty — it is whether knowing the answer is itself a heresy. Companion stories Argent, Sanguine, and Okira widen the lens on the trilogy's mythos.",
+        "facetIds": ["book", "audiobook", "mixed", "inquisitor", "imperium", "sector", "series_finale", "doorstopper", "mystery", "political_thriller", "court_intrigue", "siege", "character_study", "grimdark", "cosmic_horror", "somber", "philosophical", "faith", "doubt", "betrayal", "sacrifice", "loyalty", "war", "cw_violence", "cw_death", "cw_disturbing", "cw_stigma", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Hereticus", "role": "primary" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Drukhari", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Erasmus Crowl", "role": "pov" },
+          { "name": "Luce Spinoza", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.22, "count": 37, "evidenceUrl": "https://www.goodreads.com/book/show/236668748-vaults-of-terra" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0460",
+      "slug": "the-eye-of-medusa",
+      "overrides": {
+        "synopsis": "The forge world of Thennos lies under the gunmetal aegis of Medusa, homeworld of the Iron Hands, by treaty as old as the Imperium. When Thennos's population turns traitor, the treaty becomes a death warrant. The Iron Hands fall on the world with the cold, calculating brutality that has long since replaced their compassion. Brother-sergeant Kardan Stronos, newly inducted into Clan Garrsak, leads his squad into the smoke of the burning forges expecting to find the heresy his masters described to him. What he finds instead is silence: secrets the planet refuses to give up, atrocities his Clan father insists are necessary, and an answer no Iron Hand is meant to look at. Beneath the soot and the welded plate, something dark is waiting in Thennos — something that does not respect the purity of cold logic or the holy machine, and that offers Stronos a question his Chapter has spent ten thousand years training him not to ask.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "planetary", "series_start", "standard", "war_story", "mystery", "character_study", "grimdark", "action_heavy", "philosophical", "war", "loyalty", "doubt", "hubris", "brotherhood", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Medusa", "role": "primary" },
+          { "name": "Thennos", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Kardan Stronos", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.59, "count": 147, "evidenceUrl": "https://www.goodreads.com/book/show/35175175-the-eye-of-medusa" }
+      }
+    }
+  ]
+}

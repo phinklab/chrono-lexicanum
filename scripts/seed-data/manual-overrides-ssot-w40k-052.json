@@ -1,0 +1,497 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-052",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7",
+  "rationale": "Warhammer Horror Week 2021 and the surrounding Black Library horror line. Heavy roster mistags: six of the ten entries are Black Library eShorts (~30-60 page short stories) tagged as 'novel', one is a doorstopper omnibus tagged as 'novel', and five entries are set in Warhammer Fantasy (Old World) or Age of Sigmar (Mortal Realms) rather than the 41st Millennium. Format and setting both flagged per entry; descriptions stay setting-honest in prose while leaving canonical resolution for downstream work.",
+  "books": [
+    {
+      "externalBookId": "W40K-0511",
+      "slug": "the-vampire-genevieve",
+      "overrides": {
+        "synopsis": "This omnibus gathers four interconnected works following Genevieve Dieudonne, a four-hundred-year-old vampire of unusual conscience who wanders the Old World as a reluctant heroine. In Drachenfels she joins playwright Detlef Sierck and a doomed adventuring party to confront the Great Enchanter in his cursed mountain fortress. Genevieve Undead continues her story through three loosely connected hauntings of theatre, court and forest, while Beasts in Velvet pivots to a serial-killer hunt through the rain-slicked alleys of Altdorf. Silver Nails closes the cycle with a sweep of shorter Empire and Bretonnian tales reuniting Genevieve, Detlef and other Old World survivors against monsters human and otherwise.",
+        "facetIds": [
+          "book",
+          "female",
+          "mixed",
+          "neutral",
+          "planetary",
+          "standalone",
+          "doorstopper",
+          "mystery",
+          "character_study",
+          "journey",
+          "somber",
+          "grimdark",
+          "cosmic_horror",
+          "hubris",
+          "loyalty",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Vampire Counts", "role": "primary" },
+          { "name": "The Empire", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "The Old World", "role": "primary" },
+          { "name": "Altdorf", "role": "supporting" },
+          { "name": "Drachenfels", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Genevieve Dieudonne", "role": "pov" },
+          { "name": "Detlef Sierck", "role": "supporting" },
+          { "name": "Constant Drachenfels", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "reason": "omnibus collecting Drachenfels, Genevieve Undead, Beasts in Velvet and Silver Nails into one ~720pp volume", "suggestion": "omnibus" },
+          { "kind": "data_conflict", "field": "setting", "reason": "Warhammer Fantasy Old World (pre-AoS), not Warhammer 40,000", "suggestion": "warhammer_fantasy" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.89,
+          "count": 654,
+          "evidenceUrl": "https://www.goodreads.com/book/show/55830164-vampire-genevieve"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0512",
+      "slug": "the-vintage",
+      "overrides": {
+        "synopsis": "A weary Freeguild soldier holds the line at a remote stronghold and turns the cup over in his hands, remembering a childhood the war never quite let him bury. Years ago his village paid its tithe of blood to Anasta Malkorion, a vampire whose appetites his family barely survived, and he was promised to her when he came of age. He grew up, he marched away in Sigmar's livery, and he kept moving so she could not find him. Now the watchfires gutter, the wind off the moor smells wrong, and the old debt is coming due.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "neutral",
+          "squad",
+          "standalone",
+          "novella",
+          "character_study",
+          "last_stand",
+          "somber",
+          "cosmic_horror",
+          "grimdark",
+          "doubt",
+          "sacrifice",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_mental_health",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Freeguild", "role": "primary" },
+          { "name": "Soulblight Gravelords", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Anasta Malkorion", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "reason": "Black Library eShort, short story length", "suggestion": "novella" },
+          { "kind": "data_conflict", "field": "setting", "reason": "Age of Sigmar Mortal Realms (Freeguild, Vyrkos), not Warhammer 40,000", "suggestion": "age_of_sigmar" },
+          { "kind": "low_confidence", "field": "characters", "reason": "POV soldier unnamed in available source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.96,
+          "count": 28,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59448129"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0513",
+      "slug": "the-isenbrach-horror",
+      "overrides": {
+        "synopsis": "Two men meet in secret beneath the broken vaults of a ruined cathedral on a feudal world to plot the death of its planetary Governor. The site is well chosen for whispered treason: nobody walks these woods after dark, because of the old peasant tales about the Isenbrach Horror, a beast said to drag stragglers from the path and leave nothing behind. The conspirators trade in oaths, names and the names of accomplices, and trust the dark to keep their voices safe. They forget that some folklore is older than the Imperium and was true long before anyone thought to be afraid of it.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "court_intrigue",
+          "mystery",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "betrayal",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_crime",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Nobility", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "reason": "Black Library eShort, short story length", "suggestion": "novella" },
+          { "kind": "low_confidence", "field": "characters", "reason": "conspirators and Governor unnamed in available source coverage" },
+          { "kind": "low_confidence", "field": "locations", "reason": "feudal world unnamed in available source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.60,
+          "count": 42,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59451465-the-isenbrach-horror"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0514",
+      "slug": "aberration",
+      "overrides": {
+        "synopsis": "A young woman wakes to find herself the honoured guest of a courteous stranger in a candlelit hall whose silver service shows no reflection. Her host is a vampire of the Vyrkos line, gentle in manner and absolute in patience, and the question he is too polite to ask aloud hangs over every meal: will she take the Blood Kiss willingly, choose his darkness, become the bride he has decided she is? Footmen close the shutters when the sun rises. The food keeps coming. Each evening the conversation circles a little closer to the answer he expects, and her own resolve grows a little harder to find.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "neutral",
+          "squad",
+          "standalone",
+          "novella",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "doubt",
+          "hubris",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_abuse",
+          "en"
+        ],
+        "factions": [
+          { "name": "Soulblight Gravelords", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "reason": "Black Library eShort, short story length", "suggestion": "novella" },
+          { "kind": "data_conflict", "field": "setting", "reason": "Age of Sigmar Mortal Realms (Vyrkos Dynasty), not Warhammer 40,000", "suggestion": "age_of_sigmar" },
+          { "kind": "low_confidence", "field": "characters", "reason": "neither host nor guest named in available source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.96,
+          "count": 27,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59461682-the-aberration"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0515",
+      "slug": "blood-drinker",
+      "overrides": {
+        "synopsis": "Aboard a drifting spacecraft, life support failing and the lights guttering down corridor by corridor, a lone Blood Drinker has gone berserk. The Black Rage that haunts every son of Sanguinius has taken him fully, and he stalks the halls reliving battles only he can see. Two survivors realise they cannot outrun him and cannot match him, so they try the one thing left: to reach the man behind the visions, to remind him who he was before the curse closed over him. The ship groans toward its final orbit while they choose between running, dying, and answering the warrior's grief.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "space_marine",
+          "imperium",
+          "squad",
+          "standalone",
+          "novella",
+          "character_study",
+          "last_stand",
+          "somber",
+          "grimdark",
+          "cosmic_horror",
+          "action_heavy",
+          "brotherhood",
+          "sacrifice",
+          "doubt",
+          "redemption",
+          "cw_violence",
+          "cw_death",
+          "cw_mental_health",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Drinkers", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "reason": "Black Library eShort, short story length", "suggestion": "novella" },
+          { "kind": "low_confidence", "field": "characters", "reason": "Marine and survivors unnamed in available source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.59,
+          "count": 29,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59471045-blood-drinker"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0516",
+      "slug": "bird-of-change",
+      "overrides": {
+        "synopsis": "Each year in a remote forest community the village elders bind a chosen youth to the sacred tree and offer their life to the Bird of Change, a benevolence they have served for as long as anyone can remember. This year the chosen is younger than most and not at all ready to die for the favour of a god he no longer trusts. As the dawn ceremony approaches and the cultists chant the names the bird is said to like, he begins to listen properly to the wind in the branches above him, and to understand that what answers their prayers each year is not the patron they imagine.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "neutral",
+          "squad",
+          "standalone",
+          "novella",
+          "character_study",
+          "cosmic_horror",
+          "grimdark",
+          "somber",
+          "faith",
+          "doubt",
+          "sacrifice",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Disciples of Tzeentch", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "reason": "Black Library eShort, short story length", "suggestion": "novella" },
+          { "kind": "data_conflict", "field": "setting", "reason": "Age of Sigmar Mortal Realms per Black Library product page, not Warhammer 40,000", "suggestion": "age_of_sigmar" },
+          { "kind": "low_confidence", "field": "characters", "reason": "youth and elders unnamed in available source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.17,
+          "count": 24,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59478074-bird-of-change"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0517",
+      "slug": "the-accursed",
+      "overrides": {
+        "synopsis": "Twelve original tales of dread gathered from the Mortal Realms and the Imperium of Man. The collection moves between Age of Sigmar haunting and forty-first millennium dread without smoothing the seams, letting each writer bring their own kind of fear: clinical Imperial procedurals that turn inside out, slow-burning folk horror in lonely Shyishan towns, cold cosmic dread on the edge of Imperial space, quiet domestic terror in households that should be safe. Twelve narrators, twelve registers, one shared insistence that the worst thing in either setting is rarely the monster the reader expected. Contributing writers include Peter Fehervari, David Annandale, Ray Cluley, James Brogden, Jake Ozga, Nicholas Kaufmann, Steven Sheil, Richard Strachan, Phil Kelly, Jude Reid, Justin D Hill and Darius Hinks.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "multi",
+          "dual",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "war_story",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "faith",
+          "doubt",
+          "hubris",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Adeptus Astartes", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Heretic Astartes", "role": "supporting" },
+          { "name": "Soulblight Gravelords", "role": "supporting" },
+          { "name": "Stormcast Eternals", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Shyish", "role": "supporting" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "anthology faction set aggregated from individual story titles and authors; per-story coverage thin in available sources" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.79,
+          "count": 140,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59136038-the-accursed"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0518",
+      "slug": "the-bookkeepers-skull",
+      "overrides": {
+        "synopsis": "Rudgard Howe is barely an enforcer cadet, and yet his father, the planet's Chief Enforcer, is already grooming him to inherit a job other men want enough to kill for. As the tithe fleet approaches, Rudgard is sent on his first solo posting to the agri-belt: a chain of distant farmsteads run by ex-Militarum overseers and worked by serfs, where production is everything and the Lex Imperialis is mostly a rumour. At Thorsarbour the crops are rotting in the fields, the workers are no longer working, and something has settled into the silence between them. As Rudgard tries to impose order, he begins to recognise the contours of a cult, the unmistakable joy of those who have stopped fearing pain, and the slow drain of his own certainty about why he came.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "court_intrigue",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "doubt",
+          "faith",
+          "hubris",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_abuse",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Arbites", "role": "primary" },
+          { "name": "Chaos Cults", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Thorsarbour", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Rudgard Howe", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "planetary Enforcers serve local Imperial law and are not strictly Adeptus Arbites; tagged as nearest Browse-Root match" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.82,
+          "count": 330,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59136039-the-bookkeeper-s-skull"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0519",
+      "slug": "gothgul-hollow",
+      "overrides": {
+        "synopsis": "A lonely moorland town huddles in the wet half-light of Shyish, and on the hill above it the remnants of the Gothghul family keep themselves to themselves. Aaric Gothghul broods in his library over texts no one else will read; his daughter walks the woods alone and unsettles everyone she does not entirely ignore. When fresh terrors begin to manifest in the town below, the disturbance shakes loose a family secret Aaric has spent twenty-five years burying and forces father and daughter, who barely speak, to ride out together. Joined by a plain-spoken sharpshooter and a watchful man of faith, four strangers bound by horror find themselves following a single unfamiliar word, Mhurghast, into a mystery older and hungrier than the family curse they came to break.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "civilian",
+          "neutral",
+          "planetary",
+          "series_start",
+          "standard",
+          "mystery",
+          "journey",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "betrayal",
+          "doubt",
+          "sacrifice",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Cities of Sigmar", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Shyish", "role": "primary" },
+          { "name": "Gothghul Hollow", "role": "primary" },
+          { "name": "Mhurghast", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Aaric Gothghul", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "setting", "reason": "Age of Sigmar Mortal Realms (Realm of Shyish), not Warhammer 40,000; series Tales of Mhurghast", "suggestion": "age_of_sigmar" },
+          { "kind": "data_conflict", "field": "title", "reason": "Black Library title is 'Gothghul Hollow' (with second h), roster slug uses 'gothgul-hollow'", "suggestion": "gothghul-hollow" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.74,
+          "count": 416,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59251746-gothghul-hollow"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0520",
+      "slug": "the-stacks",
+      "overrides": {
+        "synopsis": "An Inquisitorial archivist is sent into the deepest, most disused racks of a forgotten library to retrieve a single book. The orders are precise: title, shelfmark, no questions. She has done this work long enough to know that the Inquisition only ever asks once, and that asking why the volume has waited so long without anyone fetching it would be its own kind of disobedience. The stacks go on for kilometres. The lamps fail in patches. The further she walks, the more clearly she can hear something that is not quite a voice reading aloud from the book she has come to collect.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "squad",
+          "standalone",
+          "novella",
+          "mystery",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "doubt",
+          "hubris",
+          "faith",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_mental_health",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "reason": "Black Library eShort, short story length", "suggestion": "novella" },
+          { "kind": "low_confidence", "field": "characters", "reason": "archivist protagonist unnamed in available source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.36,
+          "count": 28,
+          "evidenceUrl": "https://www.goodreads.com/book/show/63116069-the-stacks"
+        }
+      }
+    }
+  ]
+}

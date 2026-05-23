@@ -1,0 +1,451 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-051",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7",
+  "rationale": "Warhammer Horror 2020 Halloween-Week eShorts gemischt mit zwei vollen Romanen (Sepulturum, The Reverie), Deacon of Wounds und zwei Anthologies (Anathemas, The Harrowed Paths). Roster trägt vier eShorts (Five Candles, A Moment of Cruelty, Pentimento, The Cache) als 'novel' und The Harrowed Paths ebenfalls als 'novel' statt 'anthology'; zwei der eShorts (Five Candles, A Moment of Cruelty) sind zudem Age-of-Sigmar-Stoffe, die unter W40K-Prefix einsortiert wurden. Hohe Flag-Dichte, dünne Coverage bei den Halloween-Week-eShorts (kleine Goodreads-Counts, kaum Sekundärquellen).",
+  "books": [
+    {
+      "externalBookId": "W40K-0501",
+      "slug": "the-oubliette",
+      "overrides": {
+        "synopsis": "Ashielle Matkosen has just inherited Ceocan from her assassinated father, Lord Governor Ruprekt — and the same conspirators who killed him now mean to end the bloodline. Surrounded by courtiers she dares not trust, she descends into a forgotten oubliette beneath the palace and revives an ancient pact with the creature chained there: a hunter older than any assassin, more comfortable in the dark than any traitor. The pact bites. As Ashielle turns the beast loose on her enemies, she discovers that the conspiracy is only the smaller of the two evils she has invited into her household, and that the line between deliverance and damnation can be crossed without ever knowing the moment of the crossing.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "court_intrigue",
+          "mystery",
+          "grimdark",
+          "cosmic_horror",
+          "hubris",
+          "doubt",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [],
+        "locations": [
+          { "name": "Ceocan", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ashielle Matkosen", "role": "pov" },
+          { "name": "Ruprekt Matkosen", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Imperial planetary nobility plot with no clearly identified Browse-Root faction in source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.69,
+          "count": 323,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/52078075"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0502",
+      "slug": "five-candles",
+      "overrides": {
+        "synopsis": "Havisa has outlived her friends, her usefulness, and the patience of her village in a corner of Aqshy where the fires of life have guttered for a generation. When Nagash's necroquake shudders through the realms and twists the wildlife around her hut into something worse, the old Aqshian spark in her flares again. A kind stranger appears at her door with warnings for the village and an unsettling familiarity, and Havisa, who knows she is too old for second chances, takes the road with him anyway. Whether her last candle burns out as warning or as kindling for something darker depends on whether the stranger is who he claims to be.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "neutral",
+          "planetary",
+          "standalone",
+          "novella",
+          "character_study",
+          "somber",
+          "grimdark",
+          "doubt",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [],
+        "locations": [
+          { "name": "Aqshy", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Havisa", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story", "reason": "Released as a Warhammer Horror Week 2020 eShort (Black Library short story), not a novel" },
+          { "kind": "data_conflict", "field": "setting", "suggestion": "age_of_sigmar", "reason": "Age of Sigmar Mortal Realms story (Aqshy, Nagash's necroquake) populated under a W40K-prefixed roster slot" },
+          { "kind": "low_confidence", "field": "factions", "reason": "AoS folk-horror with no specific Grand Alliance faction in source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.28,
+          "count": 25,
+          "evidenceUrl": "https://www.goodreads.com/book/show/55801283-five-candles"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0503",
+      "slug": "a-moment-of-cruelty",
+      "overrides": {
+        "synopsis": "In Mhurghast, mist-bound city of Shyish, the noble Valenth dwell in distant Azyrite splendour while the streets below seethe with beggars and broken veterans. Alabastian Valenth, an ambitious young scion whose appetite for status outstrips his talents, dismisses one such beggar with the petty cruelty of his kind — and finds, to his horror, that the man begins to appear wherever he goes. The pursuit closes by degrees, herding him back to the family estate and a mirror whose surface has been waiting for him. By the time Alabastian understands the shape of the game, he no longer has the standing to refuse the next move.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "neutral",
+          "planetary",
+          "standalone",
+          "novella",
+          "character_study",
+          "mystery",
+          "grimdark",
+          "cosmic_horror",
+          "hubris",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [],
+        "locations": [
+          { "name": "Mhurghast", "role": "primary" },
+          { "name": "Shyish", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Alabastian Valenth", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story", "reason": "Released as a Warhammer Horror Week 2020 eShort (originally The Leper of Mhurghast), not a novel" },
+          { "kind": "data_conflict", "field": "setting", "suggestion": "age_of_sigmar", "reason": "Age of Sigmar story set in Shyish (Mhurghast, Azyrite nobility) populated under a W40K-prefixed roster slot" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.48,
+          "count": 21,
+          "evidenceUrl": "https://www.goodreads.com/book/show/55815529-a-moment-of-cruelty"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0504",
+      "slug": "pentimento",
+      "overrides": {
+        "synopsis": "In the city of Durgov, a killer is dissecting their victims and arranging them in tableaux that no honest mind could mistake for the work of madness. Mabeth, a forensic sketch-artist called from one of these scenes to the next, finds herself convinced that the murderer is an artist of some terrible kind — and that what she is being asked to copy is a series of works in progress. As she begins, almost without noticing, to restore old paintings of her own and to lose track of which images are hers and which were already there, the gap between hunter and accomplice narrows. The title is a painter's term for what hides beneath a finished surface; the story circles what hides beneath Mabeth's.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "cosmic_horror",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [],
+        "locations": [
+          { "name": "Durgov", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Mabeth", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story", "reason": "Released as a Warhammer Horror Week 2020 eShort; later reprinted inside The Harrowed Paths anthology, not a standalone novel" },
+          { "kind": "low_confidence", "field": "factions", "reason": "Civilian sketch-artist plot; no Browse-Root 40K faction clearly attached in source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.79,
+          "count": 42,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/55818612"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0505",
+      "slug": "the-cache",
+      "overrides": {
+        "synopsis": "Lyse of Clan Urretzi is a sworn guardian of the Spike — a colossal vertical warren stitched together from failing machinery, hoarded scraps and the bones of older ages, sustained against the Outside by ritual and rationing. When she finds a strange medallion on a brutalised corpse, the rival clan she is supposed to marry into accuses her of theft, and the alliance that had been her only future becomes the proof of her guilt. Lyse goes to ground in the Spike's lower levels, hunting the truth of the medallion through galleries her people no longer remember they built. What she finds about her home is worse than exile.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "mystery",
+          "journey",
+          "grimdark",
+          "cosmic_horror",
+          "cw_violence",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Clan Urretzi", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "The Spike", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Lyse", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "short_story", "reason": "Released as a Warhammer Horror Week 2020 eShort, not a novel" },
+          { "kind": "low_confidence", "field": "factions", "reason": "Self-contained Spike-clan setting; no Browse-Root 40K faction reliably surfaces in source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.66,
+          "count": 29,
+          "evidenceUrl": "https://www.goodreads.com/book/show/55818638-the-cache"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0506",
+      "slug": "the-reverie",
+      "overrides": {
+        "synopsis": "The homeworld of the Angels Resplendent is a planet of marble galleries, hymnal silences and immaculate Astartes who pride themselves on living a chapter culture closer to enlightenment than war. Three travellers arrive together: a Knight Exemplar troubled by what is left of his humanity, a Muse — the human poet bound to him — who refuses the dignified retirement his age demands, and a scholar who has come looking for something to redeem mankind in the chapter's example. None of them quite belong to the order they admire. None of them can stop their attention drifting toward the Reverie, a snow-shrouded forest at the heart of the world where the seasons do not behave and the wound that keeps the chapter's secret will not close.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "character_study",
+          "mystery",
+          "cosmic_horror",
+          "grimdark",
+          "philosophical",
+          "somber",
+          "hubris",
+          "doubt",
+          "faith",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Angels Resplendent", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "The Reverie", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "Source coverage names protagonists only by archetype/rank (Knight Exemplar, the Muse, the scholar) without proper names" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.06,
+          "count": 695,
+          "evidenceUrl": "https://www.goodreads.com/book/show/55467845-the-reverie"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0507",
+      "slug": "anathemas",
+      "overrides": {
+        "synopsis": "Fourteen stories from thirteen authors gather under the Anathemas banner — Warhammer Horror at the scale of ordinary lives, threaded through hive sumps, mist-bound Mortal Realm cities and the quiet villages between. A musician hears voices in glass; a witch hunter learns to fear the woods he was meant to clear; a hab-block locks down around a plague that does not behave; families, priests and nobles each discover, in their own small way, what it costs to look too long at the dark behind the world. Most of the pieces leave the war stories at the door and concentrate, with a kind of patient cruelty, on the small lives the war is not about.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "civilian",
+          "neutral",
+          "planetary",
+          "standalone",
+          "standard",
+          "character_study",
+          "mystery",
+          "cosmic_horror",
+          "grimdark",
+          "somber",
+          "doubt",
+          "faith",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Anthology with 14 stories spanning 40K hive cities and AoS Mortal Realms; per-story aggregation would need deeper coverage than this pass provides" },
+          { "kind": "low_confidence", "field": "locations", "reason": "Aggregated locations span multiple unrelated 40K/AoS settings; insufficient source coverage to enumerate reliably" },
+          { "kind": "low_confidence", "field": "characters", "reason": "Anthology has no continuous protagonist; aggregated cast not reliably surfaced in source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.72,
+          "count": 186,
+          "evidenceUrl": "https://www.goodreads.com/book/show/52078021-anathemas"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0508",
+      "slug": "sepulturum",
+      "overrides": {
+        "synopsis": "Morgravia Sanctus does not, at first, know that she is an inquisitor. She knows only that she is hunted, that her memory is broken in red and jagged pieces, and that the low-hive of Blackgeist is the deepest place she can hide while she works out who she has been. She means to find a memory-broker called the Broker and trade for what was taken from her — and instead a plague catches the hive first, peeling its citizens into blood-hungry things in the time it takes a shift to end. Two threads — Morgravia's and a second, parallel descent through the same dying districts — converge toward the truth of the Ordo Sepulturum and the work she had been doing before the red dreams began.",
+        "facetIds": [
+          "book",
+          "female",
+          "inquisitor",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "journey",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "cosmic_horror",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ordo Sepulturum", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Blackgeist", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Morgravia Sanctus", "role": "pov" },
+          { "name": "The Broker", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.40,
+          "count": 318,
+          "evidenceUrl": "https://www.goodreads.com/book/show/52078125-sepulturum"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0509",
+      "slug": "the-deacon-of-wounds",
+      "overrides": {
+        "synopsis": "Theotokos is dying of thirst. Above the ration queues sits Cardinal Lorenz, who has spent a long career hoarding the planet's last water beneath the Ecclesiarchal Palace; beside him serves Arch-Deacon Ambrose, charismatic and devout, beloved by a people for whom Lorenz is the face of everything wrong with the Imperial Creed. When Lorenz dies, Ambrose's moment finally arrives — and so does a plague, the Grey Tears, that runs ahead of every measure he can devise. The more Ambrose intends mercy, the more extreme the means by which he reaches for it, until the question is no longer whether Theotokos can be saved, but what malign thing he has been negotiating with all along.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "character_study",
+          "political_thriller",
+          "mystery",
+          "grimdark",
+          "cosmic_horror",
+          "somber",
+          "philosophical",
+          "faith",
+          "hubris",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Ministorum", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Theotokos", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Arch-Deacon Ambrose", "role": "pov" },
+          { "name": "Cardinal Lorenz", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.71,
+          "count": 357,
+          "evidenceUrl": "https://www.goodreads.com/book/show/55711318-the-deacon-of-wounds"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0510",
+      "slug": "the-harrowed-paths",
+      "overrides": {
+        "synopsis": "Seven Warhammer Horror stories collected as The Harrowed Paths, ranging from a colonel's haunted monograph and a planet that registers only as a ghost on the auspex to a sketch-artist drawn into the work of a serial killer and an old woman whose last candle gutters under the weight of a necroquake. Voices in mosaic tile, a cutter who works in bone, and a quiet drowning under dark water round out the collection. The book travels between 40K hive cities and the Mortal Realms without ever quite settling, and the throughline is less a setting than a tone — the patient, attentive horror of being noticed by something you should have left undisturbed.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "neutral",
+          "planetary",
+          "standalone",
+          "standard",
+          "character_study",
+          "mystery",
+          "cosmic_horror",
+          "grimdark",
+          "somber",
+          "doubt",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "anthology", "reason": "The Harrowed Paths is a seven-story Warhammer Horror anthology (McNeill, Gray, Strachan, Sheil, Kyme, Hinks, Ozga), not a single-author novel; Graham McNeill is the contributing author of one story" },
+          { "kind": "low_confidence", "field": "factions", "reason": "Anthology spans 40K hive cities and AoS Mortal Realms; per-story aggregation not reliably surfaced in this pass" },
+          { "kind": "low_confidence", "field": "locations", "reason": "Per-story locations span multiple unrelated 40K/AoS settings; insufficient source coverage to enumerate reliably" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.83,
+          "count": 115,
+          "evidenceUrl": "https://www.goodreads.com/book/show/55892287-the-harrowed-paths"
+        }
+      }
+    }
+  ]
+}

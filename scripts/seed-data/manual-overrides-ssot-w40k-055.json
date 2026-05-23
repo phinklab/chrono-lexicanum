@@ -1,0 +1,448 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-055",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Warhammer Crime-heavy slice: 6 Varangantua titles (2 detective novels, 3 anthologies, 1 cartel-thriller), the two Baggit-and-Clodde abhuman-caper entries (Dredge Runners as audio drama, Wraithbone Phoenix as novel), and the Iron-Snakes/Saint-Sabbat Urdesh duology by Matthew Farrer. One format conflict flagged (Dredge Runners is a full-cast audio drama, not a novella).",
+  "books": [
+    {
+      "externalBookId": "W40K-0541",
+      "slug": "flesh-and-steel",
+      "overrides": {
+        "synopsis": "In the monolithic hive-city of Varangantua, Probator Symeon Noctis works the Nearsteel beat to atone for a noble past he refuses to claim. When a corpse is found bisected on the cobbles between Nearsteel and the Adeptus Mechanicus enclave of Steelmound, jurisdiction breaks down and the investigation drags Noctis past the cog-and-skull frontier. He is paired with Rho-1 Lux, a Collegiate Extremis tech-priest sent to look into her own kind, and the two outsiders pick their way through illegal servitor mills, smuggled augmetic parts and a quietly mechanised murder weapon. Guy Haley's procedural opens the seam between the city's Lex and the Mechanicus' own laws, and asks how much of a person you can replace before the law on either side stops caring whether they live.",
+        "facetIds": [
+          "book",
+          "male",
+          "mixed",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "political_thriller",
+          "grimdark",
+          "somber",
+          "doubt",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_crime",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Arbites", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Varangantua", "role": "primary" },
+          { "name": "Nearsteel", "role": "primary" },
+          { "name": "Steelmound", "role": "supporting" },
+          { "name": "Alecto", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Symeon Noctis", "role": "pov" },
+          { "name": "Rho-1 Lux", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.19, "count": 925, "evidenceUrl": "https://www.goodreads.com/book/show/55509453-flesh-and-steel" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0542",
+      "slug": "grim-repast",
+      "overrides": {
+        "synopsis": "Probator Quillon Drask works the cold southern district of Polaris in Varangantua, the kind of investigator superiors quietly hand the cases nobody else wants. A single mutilated body draws him into a string of killings whose savagery and ritual frame feel deliberate, and the trail climbs from gutter habs through merchant houses to the polished offices of the dynasties that own the district outright. Drask's own scars — the things he has seen, the things he has done to close earlier files — turn into investigative tools, and into liabilities. Marc Collins' debut is a serial-killer procedural that treats the city as the real perpetrator, with corruption woven so thoroughly through Polaris that catching the killer barely dents the appetite that made him.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "somber",
+          "doubt",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_crime",
+          "cw_disturbing",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Arbites", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Varangantua", "role": "primary" },
+          { "name": "Polaris", "role": "primary" },
+          { "name": "Alecto", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Quillon Drask", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.85, "count": 432, "evidenceUrl": "https://www.goodreads.com/book/show/58484893-grim-repast" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0543",
+      "slug": "broken-city",
+      "overrides": {
+        "synopsis": "Seven stories prowl the back alleys of Varangantua, this time leaning away from the badge and toward everyone else who has to live in the hive. Robert Rath's opening novella Bleedout sets the tone; Chris Wraight returns to his sanctioner Agusto Zidarov, Gary Kloster sends a courier into a parish gone wrong, and Jonathan D. Beer, Gareth Hanrahan, Noah Nguyen and J. C. Stearns each carve out a different precinct of crooks, fixers, civilians and lawmen. The shared city is vast, ancient and crumbling — gangs and criminal cabals run whole territories, the Lex appears only when it suits the powerful, and even small mercies cost. Together the pieces map a place where survival is a negotiated thing, and nobody comes out clean.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "neutral",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "somber",
+          "doubt",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_crime",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Arbites", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Varangantua", "role": "primary" },
+          { "name": "Alecto", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Agusto Zidarov", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.05, "count": 175, "evidenceUrl": "https://www.goodreads.com/book/show/58326581-broken-city" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0544",
+      "slug": "sanction-and-sin",
+      "overrides": {
+        "synopsis": "The third Warhammer Crime anthology gathers nine short stories from across the choking hive of Varangantua — sanctioners and gangers, devout citizens and the cults that prey on them, syndicates so large they amount to a second government. J. S. Collyer, Mike Brooks, Gary Kloster, Victoria Hayward, Jonathan D. Beer, Jude Reid and Danie Ware (among others) take turns at the door: a ballot count run by killers, a bodyguarding job that turns into an ambush, a confession dragged out of a fire, an enforcer's siege in the spires of Ismyr. The collection's pleasure is breadth, not arc; it pans the camera across a city where almost everyone is both the law's target and the law's last hope.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "neutral",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "somber",
+          "doubt",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_crime",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Arbites", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Varangantua", "role": "primary" },
+          { "name": "Alecto", "role": "supporting" }
+        ],
+        "characters": [],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.99, "count": 164, "evidenceUrl": "https://www.goodreads.com/book/show/58326583-sanction-and-sin" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0545",
+      "slug": "the-king-of-the-spoil",
+      "overrides": {
+        "synopsis": "Andreti Sorokin, the gangster-king whose iron hand kept the Spoil from eating itself, has been killed in a way that was meant to be witnessed. Into the vacuum step two women: Melita Voronova, a careful info-broker now collared by the Valtteri cartel and ordered to find the killer before Sorokin's coalition of pushers, smugglers and street captains tears itself to pieces; and Haska Jovanic, a hopeful at the edge of the Har Dhrol gang who keeps getting swept further into the rising tide of anger on the wards. Jonathan D. Beer's first Warhammer Crime novel follows both — the investigator looking up and the would-be soldier looking out — as the question shifts from who killed Sorokin to who wanted the Spoil set on fire, and why Varangantua's untouchable cartels might be the answer.",
+        "facetIds": [
+          "book",
+          "female",
+          "mixed",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "political_thriller",
+          "grimdark",
+          "somber",
+          "betrayal",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_crime",
+          "cw_disturbing",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Valtteri Cartel", "role": "primary" },
+          { "name": "Har Dhrol", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Varangantua", "role": "primary" },
+          { "name": "The Spoil", "role": "primary" },
+          { "name": "Alecto", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Melita Voronova", "role": "pov" },
+          { "name": "Haska Jovanic", "role": "pov" },
+          { "name": "Andreti Sorokin", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.81, "count": 211, "evidenceUrl": "https://www.goodreads.com/book/show/138538196-the-king-of-the-spoil" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0546",
+      "slug": "once-a-killer",
+      "overrides": {
+        "synopsis": "Eight short stories returning to Varangantua, with the camera trained equally on the killers and on those paid to clean up after them. Mitchel Scanlon's title piece follows Sanctioner Kirian Malenko after a former pit fighter on a spree he half-understands; Jonathan D. Beer pits a cartel against a gang-lord over the price of a prisoner in Chains; Mike Brooks' Slate Run drops a bodyguard into a gilded function that turns into a trap. Victoria Hayward, Denny Flowers, Nick Kyme, Gareth Hanrahan and Jude Reid round out the run with stories about old debts, framed corpses and people the city forgot. The collection's recurring question is the title's: whether anyone in Varangantua really leaves what they were before behind.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "neutral",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "somber",
+          "doubt",
+          "redemption",
+          "cw_violence",
+          "cw_death",
+          "cw_crime",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Arbites", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Varangantua", "role": "primary" },
+          { "name": "Alecto", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Kirian Malenko", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.96, "count": 103, "evidenceUrl": "https://www.goodreads.com/book/show/123273902-once-a-killer" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0547",
+      "slug": "dredge-runners",
+      "overrides": {
+        "synopsis": "Baggit, a fast-talking ratling sniper with a flexible conscience, and Clodde, an ogryn with a decent heart and big plans, have landed in the wrong column of a vicious crime lord's ledger. Tabidiah Kruger doesn't take losses well — and to get clear of him, the two abhuman deserters are pushed into digging up dirt on the puritan sanctioner Savriel Sabbriatti, supposedly the cleanest badge in Varangantua. The job is meant to be impossible; Sabbriatti's real face turns out to be worse. Caught between a gangster who wants them dead and a lawman whose mercy might be worse than his condemnation, Baggit and Clodde scramble through dredge yards, smoke-houses and rooftop sniping nests, hustling and lying and occasionally shooting their way toward something resembling daylight.",
+        "facetIds": [
+          "audio_drama",
+          "mixed",
+          "pc_xenos",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "mystery",
+          "heist",
+          "grimdark",
+          "action_heavy",
+          "satirical",
+          "betrayal",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_crime",
+          "cw_stigma",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ratlings", "role": "primary" },
+          { "name": "Ogryns", "role": "primary" },
+          { "name": "Adeptus Arbites", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Varangantua", "role": "primary" },
+          { "name": "Alecto", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Baggit", "role": "pov" },
+          { "name": "Clodde", "role": "pov" },
+          { "name": "Tabidiah Kruger", "role": "antagonist" },
+          { "name": "Savriel Sabbriatti", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "audio_drama", "reason": "Roster lists format=novella, but Dredge Runners shipped as a 2020 full-cast audio drama (Black Library, ~1h)." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.08, "count": 247, "evidenceUrl": "https://www.goodreads.com/book/show/54894837" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0548",
+      "slug": "the-wraithbone-phoenix",
+      "overrides": {
+        "synopsis": "Baggit and Clodde are back on the run — a bounty on both their heads, a smuggling job spectacularly gone wrong, and Tabidiah Kruger's memory of them very much intact. Holed up in a Varangantuan reclamation yard, Baggit hears a rumour with teeth: somewhere in the bones of a wrecked Imperial voidship scheduled for breaking lies the Wraithbone Phoenix, a xenos relic worth enough to buy their lives back twice over. The catch is that everyone else in the city seems to have heard the same rumour. Alec Worley's full-length follow-up to Dredge Runners turns the ratling-and-ogryn double act into a deceptively dark caper — chases through ship-hulks, double-crosses among bounty hunters, and a friendship that keeps surviving the worst decisions the two of them can make.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "pc_xenos",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "heist",
+          "mystery",
+          "grimdark",
+          "action_heavy",
+          "satirical",
+          "betrayal",
+          "loyalty",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "cw_crime",
+          "cw_stigma",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ratlings", "role": "primary" },
+          { "name": "Ogryns", "role": "primary" },
+          { "name": "Aeldari", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Varangantua", "role": "primary" },
+          { "name": "Alecto", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Baggit", "role": "pov" },
+          { "name": "Clodde", "role": "pov" },
+          { "name": "Tabidiah Kruger", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.09, "count": 317, "evidenceUrl": "https://www.goodreads.com/book/show/60871891-the-wraithbone-phoenix" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0549",
+      "slug": "the-serpent-and-the-saint",
+      "overrides": {
+        "synopsis": "The forge world Urdesh is burning — volcanic skies, manufactoria turned to siegeworks, the Anarch Sek's hosts dug into the bones of the planet. The Sabbat Worlds Crusade pivots on whether the Imperium can hold this single world, and the Imperium is holding it in part because of Saint Sabbat herself, the Beati, walking the line again in mortal flesh. Brother-Captain Priad and the warriors of Damocles Squad — Iron Snakes, oath-bound and superstitious in their Veteran-Chapter way — are tasked with keeping her alive. Matthew Farrer's first Urdesh novel braids two unfamiliar things together: a Space Marine commando piece across ash-choked battlefields, and a quiet, shamanic study of what it costs to escort a living miracle when both the warp and the Archenemy want her dead.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "series_start",
+          "standard",
+          "war_story",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "philosophical",
+          "faith",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Snakes", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Adeptus Ministorum", "role": "supporting" },
+          { "name": "Sons of Sek", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Urdesh", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Priad", "role": "pov" },
+          { "name": "Saint Sabbat", "role": "supporting" },
+          { "name": "Magister Sek", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.72, "count": 253, "evidenceUrl": "https://www.goodreads.com/book/show/58356250-urdesh" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0550",
+      "slug": "the-magister-and-the-martyr",
+      "overrides": {
+        "synopsis": "Saint Sabbat has wrought a miracle in the forge-city of Ghereppan, but Urdesh is not won — the Anarch Sek's voice still moves through the cult cells in the manufactoria, mocking the Imperium's victory, salting its faith. Damocles Squad of the Iron Snakes pick up where the previous campaign left off: short Astartes detachments running linked raids, securing the Beati's lines of approach, breaking heretek networks one cellar at a time. Matthew Farrer's continuation tightens to a handful of Space Marines and the question they cannot ignore. Sabbat's visions point at one final stroke against Sek; the Archenemy is too obviously letting them see it. Priad must decide whether to trust a saint whose mind is half elsewhere, and whether the chance she offers them is a war's end or a trap baited with one.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "series_finale",
+          "standard",
+          "war_story",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "philosophical",
+          "faith",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Snakes", "role": "primary" },
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Adeptus Ministorum", "role": "supporting" },
+          { "name": "Sons of Sek", "role": "antagonist" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Urdesh", "role": "primary" },
+          { "name": "Ghereppan", "role": "primary" },
+          { "name": "Sabbat Worlds", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Priad", "role": "pov" },
+          { "name": "Saint Sabbat", "role": "supporting" },
+          { "name": "Magister Sek", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.81, "count": 156, "evidenceUrl": "https://www.goodreads.com/book/show/59616967-urdesh" }
+      }
+    }
+  ]
+}

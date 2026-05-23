@@ -1563,3 +1563,255 @@
 - **Cumulative books:** 450 (in 45 batches: ssot-w40k-001..ssot-w40k-045)
 - **Action required:** Maintainer schreibt Resolver-Brief. Loop pausiert bis dahin.
 - **Pause-Detection:** selbst-erkennend (Brief 088) — dieser Block ist der Marker.
+
+## 2026-05-23 · ssot-w40k-046 · W40K-0451..W40K-0460 · ✅
+
+- **Cumulative books in authority:** 460
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=450, batch=ssot-w40k-046, slice=W40K-0451..W40K-0460
+- **WebSearch:** mean=1.2, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0451 (Darkness in the Blood, Haley, 2020): single plot search sufficed; clean Blood Angels follow-up to Devastation of Baal.
+  - W40K-0452 (The Emperor's Legion, Wraight, 2017): clean Watchers-of-the-Throne opener; ensemble POV (Custodes, Sister of Silence, chancellor).
+  - W40K-0453 (The Regent's Shadow, Wraight, 2020): straightforward mid-series; same trio of POVs, Terra/Luna setting.
+  - W40K-0454 (Cult of the Warmason, Werner, 2017): Sororitas-vs-Iron-Warriors-vs-Genestealer-Cult three-way; pov_side covers imperium + chaos.
+  - W40K-0455 (Cult of the Spiral Dawn, Fehervari, 2018): ensemble cast, no firm named POVs in reviews — characters left empty with low_confidence flag.
+  - W40K-0456 (The Carrion Throne, Wraight, 2017): clean Vaults-of-Terra opener; Crowl + Spinoza on Terra.
+  - W40K-0457 (The Hollow Mountain, Wraight, 2019): clean Vaults-of-Terra middle volume; Terra-bound.
+  - W40K-0458 (The Dark City, Wraight, 2022): title strongly alludes to Commorragh and a Drukhari character is confirmed, but no reliable source places the on-page setting in the Dark City itself; Drukhari listed as antagonist faction, Commorragh omitted from locations with low_confidence flag. Extra search consumed verifying this.
+  - W40K-0459 (Vaults of Terra: The Omnibus, Wraight, 2026): brand-new omnibus (37 ratings); aggregated factions/locations/characters from the trilogy per omnibus-discipline; companion stories Argent/Sanguine/Okira noted in synopsis but not over-claimed in entity lists. Extra search consumed to find the omnibus Goodreads URL (snippet rejected per §7).
+  - W40K-0460 (The Eye of Medusa, Guymer, 2017): clean Iron Hands opener; Stronos sergeant-era; Medusa + Thennos as primary locations.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Adeptus Custodes" vs. "Custodes" (kept "Adeptus Custodes" where referenced as the order, bare "Custodes" only inside synopsis prose); "Sisters of Silence" preferred over "Silent Sisterhood" / "Null-maidens"; "High Lords of Terra" (Senatorum Imperialis) at browse-root granularity instead of "Imperium"; "Drukhari" (modern) over "Dark Eldar" (legacy) for W40K-0458/0459; "Adepta Sororitas" used for W40K-0454 in lieu of the more specific "Order of the Sombre Vow" which remains in synopsis only.
+
+## 2026-05-23 · ssot-w40k-047 · W40K-0461..W40K-0470 · ✅
+
+- **Cumulative books in authority:** 470
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=460, batch=ssot-w40k-047, slice=W40K-0461..W40K-0470
+- **WebSearch:** mean=1.2, max=2 (over 10 books); 10 obligatory synopsis-context queries + 2 Goodreads-page-locator queries for Voice of Mars and Medusan Wings whose URLs the synopsis search did not surface directly.
+- **Per-book bullets:**
+  - W40K-0461 The Voice of Mars (Guymer): Iron Hands #2, Knight World Fabris Calivant, Eldar manipulators + Ork invasion + intra-clan power struggle; clean coverage.
+  - W40K-0462 'Meduson Wings' (Westbrook novella): roster-mistag — Goodreads/Black Library/Amazon all publish this as 'Medusan Wings'. data_conflict flag with suggestion='Medusan Wings'. Rating sample small (34) but the page returns an aggregation, marked rated.
+  - W40K-0463 Dark Imperium (Haley): Indomitus-era series_start, Guilliman vs. Mortarion, Cawl + Mathieu in supporting cast.
+  - W40K-0464 Plague War (Haley): mid_series, Parmenio campaign, Mortarion/Typhus schism inside the Death Guard, miracle-faith subplot.
+  - W40K-0465 Godblight (Haley): series_finale on Iax, last_stand framing, Nurgle-disease climax.
+  - W40K-0466 Resurrection (French): Horusian Wars #1, Inquisitor Covenant POV (Inquisition-Konsistenz satisfied — Covenant is the POV inquisitor), Caradryad Sector hunt of Talicto and the Unseen cult.
+  - W40K-0467 Incarnation (French): Horusian Wars #2 on shrineworld Dominicus Prime, Triumvirate/Horusian antagonists; Adeptus Ministorum supporting.
+  - W40K-0468 Divination (French): roster says novel, sources (Goodreads + Lexicanum) say single-author short-story anthology — data_conflict flag with suggestion='collection'. Aggregated facetIds/factions from the framing; locations left empty (stories range too wide for a single primary).
+  - W40K-0469 Cadia Stands (Hill): Cadia #1, ensemble of Cadian POVs (Bendikt male, Minka female, Grüber male) → protagonist_gender=mixed. Siege/last_stand combo with Abaddon as named antagonist.
+  - W40K-0470 Cadian Honour (Hill): Cadia #2, Minka Lesk solo POV (female), garrison-and-rot political thriller on Potence; Chaos antagonist named in sources but no sub-faction confirmed → low_confidence flag on factions rather than naming a guess.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Iron Hands; Eldar; Orks; Adeptus Mechanicus; Ultramarines; Death Guard; Adeptus Ministorum; Inquisition; Astra Militarum; Black Legion; Heretic Astartes; Iron Father Kristos; Atraxii; Oblexus; Roboute Guilliman; Mortarion; Belisarius Cawl; Mathieu; Typhus; Inquisitor Covenant; Talicto; Major Bendikt; Minka Lesk; General Grüber; Abaddon the Despoiler; Fabris Calivant; Medusa; Ultramar; Macragge; Parmenio; Iax; Caradryad Sector; Dominicus Prime; Pilgrim Drift; Cadia; Eye of Terror; Potence; Gallows Cluster.
+- **Verification:** `npm run lint` / `typecheck` / `brain:lint` skipped — pure data commit (Brief-061-Konvention).
+
+## 2026-05-23 · ssot-w40k-048 · W40K-0471..W40K-0480 · ✅
+
+- **Cumulative books in authority:** 480
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=470, batch=ssot-w40k-048, slice=W40K-0471..W40K-0480
+- **WebSearch:** mean=1.2, max=2 (over 10 books) — most Goodreads URLs surfaced in the first plot search, only Traitor Rock and Devastation of Baal needed a dedicated rating search.
+- **Per-book bullets:**
+  - W40K-0471 Traitor Rock: clean Cadia-series mid-arc; antagonist surface "Traitor Guard" used (no specific Chaos sub identifiable from public sources without speculation).
+  - W40K-0472 Shadow of the Eighth: same Cadia regiment; Drakul-zar named as antagonist warlord but Chaos sub-faction unidentified in public sources.
+  - W40K-0473 Minka Lesk: The Last Whiteshield: **format conflict** — roster format=novel, sources describe a single-author omnibus collecting 3 novels (Cadia Stands, Cadian Honour, Traitor Rock) + 2 shorts (The Place of Pain and Healing, The Battle of Markgraaf Hive); flagged data_conflict (field=format, suggestion=collection). Aggregated factions/locations/characters across constituent works (Cadia, Crannog Mons, Malouri; added Black Legion + Adeptus Ministorum surfaces present in the constituent novels).
+  - W40K-0474 The Devastation of Baal: large Blood Angels successor ensemble; tagged Flesh Tearers/Blood Drinkers/Lamenters as supporting; very thick rating sample (3,081).
+  - W40K-0475 The Ashes of Prospero: Heresy-lore-heavy entry → tagged requires_context.
+  - W40K-0476 War of Secrets: Dark Angels + Primaris integration vs t'au — "T'au Empire" used as antagonist faction (concrete xenos sub, not generic Xenos/Aliens).
+  - W40K-0477 Of Honour and Iron: Iron Warriors used as Heretic Astartes sub; Genesis Chapter retained as supporting (Ultramarines successor surface form).
+  - W40K-0478 Apocalypse: tri-chapter Primaris ensemble (Imperial Fists primary, White Scars + Raven Guard supporting); Word Bearers as antagonist.
+  - W40K-0479 Fist of the Imperium: Genestealer Cults tagged as antagonist (distinct from generic Tyranids).
+  - W40K-0480 Masters of Shadow: **unrated** — Goodreads page shows only 1 rating (1.00) and 0 reviews; flagged low_confidence (field=rating). Some third-party sources report Black Library never released the title despite the Goodreads page listing a 2020 publication date — left as published in the rating evidenceUrl, noted in the flag reason.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Traitor Guard (recurring antagonist surface for Cadia titles); Cadian Shock (Astra Militarum sub); T'au Empire (concrete xenos sub); Genesis Chapter (Ultramarines successor surface); Genestealer Cults (kept distinct from Tyranids); Flesh Tearers / Blood Drinkers / Lamenters (Blood Angels successor surfaces); Drakul-zar / Bolaraphon / Izaak / Zaeroph (named antagonist characters); Ursarkar Creed (Cadia legacy figure).
+- **Verifikation:** lint/typecheck/brain:lint übersprungen (reiner Daten-Commit, Brief-061-Konvention).
+
+## 2026-05-23 · ssot-w40k-049 · W40K-0481..W40K-0490 · ✅
+
+- **Cumulative books in authority:** 490
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=480, batch=ssot-w40k-049, slice=W40K-0481..W40K-0490
+- **WebSearch:** mean=1, max=1 (over 10 books — 1 synopsis-context search per book, all Goodreads ratings page-read via WebFetch)
+- **Per-book bullets:**
+  - W40K-0481 Ghost Warrior: clean. Two female Aeldari POVs (Yvraine, Iyanna Arienal). Ziasuthra carried both as faction (long-lost craftworld grouping) and location. Tyranid attacks mentioned as backdrop only — kept out of `factions`.
+  - W40K-0482 Wild Rider: clean. Saim-Hann + Ynnari vs awakening Necrons on Agarimethea. Lowest rating count in batch (115) but a single canonical Goodreads work, no disambiguation needed.
+  - W40K-0483 Blackstone Fortress: companion cohort split into `Rogue Traders` / `Adeptus Ministorum` (Taddeus, Vorne) / `Kroot` (Grekh) / `Ratlings` (Rein & Raus). UR-025 / negavolt / heretek elements present in source game but not foregrounded in this novel — Mechanicus omitted here, included in `W40K-0484` anthology where Mechanicus-protagonist stories appear.
+  - W40K-0484 Vaults of Obsidian: anthology aggregated across ~12 stories / ~10 authors per the §6 omnibus rule. `audiobook` tag deliberately omitted — could not confirm a Black Library audiobook edition from sources; left at `book` only.
+  - W40K-0485 Ascension: tagged `series_finale` — Blackstone Fortress novel arc is a 2-book Hinks set (BSF + Ascension); the anthology sits between them but doesn't continue Draik's POV thread. The Archivist mapped to `antagonist` per source's "duplicitous alien" framing.
+  - W40K-0486 Attack of the Necron: middle-grade Warhammer Adventures conventions applied throughout the next 5 entries — `civilian`, `ensemble`, `short`, `cw_parental_guidance`. Mekki's Martian/Mechanicus origin is backstory only this volume; not added to `factions`.
+  - W40K-0487 Claws of the Genestealer: `locations` left empty — synopsis names only an unnamed "remote ice world"; refused to invent a place name. Genestealer mapped to `Tyranids` faction (canonical parent).
+  - W40K-0488 Secrets of the Tau: `T'au Empire` carried as primary (apostrophe surface form per current BL canon; book title drops the apostrophe). Captain Harleen Amity tagged supporting under `Rogue Traders` — synopsis calls her a "pirate" but Black Library positions her as a rogue trader captain.
+  - W40K-0489 War of the Orks: added `satirical` tone for the Ork tribal warfare framing. Amity again under `Rogue Traders`.
+  - W40K-0490 Plague of the Nurglings: `Adeptus Mechanicus` primary (forge world Aparitus), `Inquisition` supporting (Jeremias, Ordo unspecified — kept generic), `Chaos Daemons` + `Nurgle` both `antagonist`. Per §7 Inquisition-Konsistenz, Jeremias is supporting not POV so this is just safe coverage.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Ziasuthra (craftworld surface — post-Great Rift introduction in Ghost Warrior), Saim-Hann (canonical hyphenation), Ynnari (canonical), T'au Empire (apostrophe form vs book title's apostrophe-less "Tau"), Adeptus Mechanicus (full canonical name preferred over short "Mechanicus"), The Archivist, Inquisitor Jeremias.
+- **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief-061-Konvention (reiner Daten-Commit, Override-JSON + Markdown-Append, kein Code).
+
+## 2026-05-23 · ssot-w40k-050 · W40K-0491..W40K-0500 · ✅
+
+- **Cumulative books in authority:** 500
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=490, batch=ssot-w40k-050, slice=W40K-0491..W40K-0500
+- **WebSearch:** mean=1.2, max=2 (over 10 books) — extra search on Invocations (anthology contents) and The Hunt (setting confirm)
+- **Per-book bullets:**
+  - W40K-0491 *Tomb of the Necron*: Warped Galaxies finale; Necrons + Adeptus Astartes named, mother/world unnamed in sources so locations left empty.
+  - W40K-0492 *The Wicked and the Damned*: roster `format: anthology` matches; three POVs unnamed in available sources, so `characters: []`.
+  - W40K-0493 *The Hunt*: roster mistag — Black Library eShort, not novel, and **Age of Sigmar** (Realm of Ghur, Free City of Everyth, witch hunter Bered Davan). Double `data_conflict` flag (format → short_story, setting → age_of_sigmar). No 40K facet for Sigmarite witch hunter — class omitted.
+  - W40K-0494 *Invocations*: roster mistag — 12-story multi-author anthology, not a Lora Gray novel. `data_conflict` flags on format (→ anthology) and authors (multi-author with full contributor list in suggestion). Aggregated facets only; factions/locations/characters left empty (too varied).
+  - W40K-0495 *Nightbleed*: roster mistag — Fehervari eShort (Warhammer Horror Week 2020 #2), not a novel. Carceri Hive / Sarastus / Chel / Skreech all named directly. Dark Coil connection mentioned in synopsis as in-universe-flavored author note.
+  - W40K-0496 *The Child Foretold*: roster mistag — Kaufmann eShort, not novel. Ballard's Run agri-world setting; threat-source deliberately ambiguous per the story's premise, so no antagonist faction named.
+  - W40K-0497 *Skull Throne*: roster mistag — Ozga eShort and **Age of Sigmar** (Shyish). Double `data_conflict`. Khorne strongly implied by title but not confirmed by sources → no factions listed (Plot-Halluzinations-Disziplin).
+  - W40K-0498 *Maledictions*: roster `format: anthology` matches; partial named-story coverage (Predation of the Eagle / Last Ascension of Dominic Seroff / The Marauder Lives / The Nothings) — listed two POVs with confident attribution.
+  - W40K-0499 *The House of the Night and Chain*: clean 40K novel (Annandale); first-person Strock POV, descent-into-madness frame.
+  - W40K-0500 *The Colonel's Monograph*: clean 40K Novella Series 2 entry; first-person Sullo POV, mirrors W40K-0499's haunted-elder-officer pattern.
+- **value_outside_vocabulary:**
+  - `length_tier: short_story` / `eshort` — five books in this batch are eShorts shorter than the catalog's `novella` tier; used `novella` as the smallest available bucket but a `short_story` value would be cleaner.
+  - `setting: age_of_sigmar` — flagged twice via `data_conflict`, but there is no top-level domain/setting facet category in `facet-catalog.json`.
+  - `protagonist_class: sigmarite_witch_hunter` (W40K-0493) — Order of Azyr / Sigmarite witch hunter has no analogue in the 40K-centric `protagonist_class` enum; closest is `inquisitor` lore-wise but lore-incorrect.
+  - `pov_side: order` / `sigmar` — AoS-side POV not covered by the 40K-leaning `imperium / chaos / xenos / dual / neutral` values; AoS entries had `pov_side` omitted.
+- **Notable surface-forms (within this batch):** Zelia, Talen (Warped Galaxies); Silence (cemetery world); Free City of Everyth, Realm of Ghur, Bered Davan; Sarastus, Carceri Hive, Chel, Skreech, Dark Coil; Ballard's Run, Kavel; Shyish, Nagash's domain; Vardan IV, Eremus, St. Solangia's, Dominic Seroff, Monika; Malveil, Maeson Strock; Vansen Falls, Grayloc Manor, Teresina Sullo, Elena Grayloc, Dawn of the Dark Suns; Officio Prefectus.
+- **Verification:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief-061-Konvention (data-only commit: override JSON + log append).
+
+## 2026-05-23 · ssot-w40k-051 · W40K-0501..W40K-0510 · ✅
+
+- **Cumulative books in authority:** 510
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=500, batch=ssot-w40k-051, slice=W40K-0501..W40K-0510
+- **WebSearch:** mean=1.1, max=2 (over 10 books; 11 plot/context searches + 10 Goodreads page fetches; one extra search to confirm The Oubliette length)
+- **Per-book bullets:**
+  - W40K-0501 The Oubliette — 40K novella-length single novel (~7h53m audio). Imperial planetary court intrigue (Ceocan, Ashielle Matkosen). No Browse-Root faction surfaces; `low_confidence` on factions.
+  - W40K-0502 Five Candles — **Roster mistag**: released as a Warhammer Horror Week 2020 eShort, not a novel; and it's an **Age of Sigmar** story (Aqshy, Nagash's necroquake) sitting under a W40K-prefixed slot. Two `data_conflict` flags (format → short_story, setting → age_of_sigmar). Thin Goodreads (n=25).
+  - W40K-0503 A Moment of Cruelty — **Roster mistag**: eShort (originally The Leper of Mhurghast) and **Age of Sigmar** (Mhurghast/Shyish, Valenth nobility). Two `data_conflict` flags. Thin Goodreads (n=21).
+  - W40K-0504 Pentimento — **Roster mistag**: Warhammer Horror Week 2020 eShort, later reprinted inside The Harrowed Paths anthology. Setting plausibly 40K hive (Lexicanum URL is wh40k); civilian sketch-artist plot leaves no clear Browse-Root faction. `data_conflict` on format, `low_confidence` on factions.
+  - W40K-0505 The Cache — **Roster mistag**: eShort, not a novel. Self-contained Spike/Clan-Urretzi vertical-warren setting; Lexicanum places it in 40K but no canonical Browse-Root faction lands cleanly. `data_conflict` on format, `low_confidence` on factions. Used "Clan Urretzi" as primary faction surface form.
+  - W40K-0506 The Reverie — Confirmed 40K novel (Peter Fehervari). Angels Resplendent chapter on their homeworld; three travellers (Knight Exemplar, Muse, scholar) named only by archetype in source coverage. `low_confidence` on characters.
+  - W40K-0507 Anathemas — Confirmed anthology (14 stories, 13 authors). Aggregated factions/locations/characters left empty with three `low_confidence` flags: mixed 40K + AoS settings per story, no continuous protagonist, per-story enumeration would need deeper coverage.
+  - W40K-0508 Sepulturum — Confirmed 40K novel. Morgravia Sanctus, Inquisitor of Ordo Sepulturum, hides in low-hive Blackgeist amid plague-zombie outbreak. Inquisition-Konsistenz applied: both `Inquisition` and `Ordo Sepulturum` as `primary` factions.
+  - W40K-0509 The Deacon of Wounds — Confirmed 40K novel (Annandale, gothic-plague gothic). Adeptus Ministorum on dying planet Theotokos; Arch-Deacon Ambrose (pov) vs corrupt-then-dead Cardinal Lorenz. Clean overrides, no flags.
+  - W40K-0510 The Harrowed Paths — **Roster mistag**: actually a seven-story Warhammer Horror anthology (McNeill, Gray, Strachan, Sheil, Kyme, Hinks, Ozga); roster has it as a novel by Graham McNeill (he wrote only the opening story, The Colonel's Monograph). Mixed 40K + AoS contents; `data_conflict` on format with suggestion `anthology`, plus `low_confidence` on factions/locations. Note: Anathemas + Harrowed Paths together reprint Lora Gray's "Five Candles" and Nick Kyme's "Pentimento", which also appear in this same batch as standalone slots — duplicate-roster signal worth surfacing in a future cleanup brief.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Angels Resplendent (Adeptus Astartes chapter, 40K); Adeptus Ministorum, Inquisition, Ordo Sepulturum (40K factions); Ceocan, Theotokos, Blackgeist, Durgov, The Spike, The Reverie (40K locations/settings); Mhurghast, Shyish, Aqshy (Age-of-Sigmar locations from the two AoS-misslotted entries); Clan Urretzi, Valenth (in-story group/family names); Ashielle Matkosen, Ruprekt Matkosen, Havisa, Alabastian Valenth, Mabeth, Lyse, Morgravia Sanctus, The Broker, Arch-Deacon Ambrose, Cardinal Lorenz (characters).
+- **Verification skipped:** Reiner Daten-Commit (eine neue Override-JSON + Log-Append, kein Code) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` per Brief-061-Konvention übersprungen.
+
+## 2026-05-23 · ssot-w40k-052 · W40K-0511..W40K-0520 · ✅
+
+- **Cumulative books in authority:** 520
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=510, batch=ssot-w40k-052, slice=W40K-0511..W40K-0520
+- **WebSearch:** mean=1.1, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0511 The Vampire Genevieve — omnibus collecting Drachenfels / Genevieve Undead / Beasts in Velvet / Silver Nails (Kim Newman, 2021 reissue); roster says novel → format-conflict suggestion=omnibus. Warhammer Fantasy Old World setting → setting-conflict suggestion=warhammer_fantasy.
+  - W40K-0512 The Vintage — Black Library eShort, not novel → format-conflict suggestion=novella. Age of Sigmar (Freeguild soldier, Vyrkos vampire Anasta Malkorion) → setting-conflict suggestion=age_of_sigmar. Soldier POV unnamed in coverage.
+  - W40K-0513 The Isenbrach Horror — eShort, not novel → format-conflict suggestion=novella. 40K feudal world, planetary Governor assassination plot. Conspirators and world unnamed in coverage.
+  - W40K-0514 Aberration — eShort, not novel → format-conflict. AoS Vyrkos vampire dynasty → setting-conflict suggestion=age_of_sigmar. Both characters unnamed.
+  - W40K-0515 Blood Drinker — eShort → format-conflict suggestion=novella. 40K Blood Drinkers chapter (Black Rage); names not in coverage.
+  - W40K-0516 Bird of Change — eShort → format-conflict suggestion=novella. Black Library product page says Mortal Realms → setting-conflict suggestion=age_of_sigmar. Tzeentch cult sacrifice plot; names not in coverage.
+  - W40K-0517 The Accursed — anthology (correct roster format). Mixed AoS + 40K horror, 12 stories, 12 named contributors aggregated. Faction set aggregated low-confidence from story-title signals; no individual characters tagged.
+  - W40K-0518 The Bookkeeper's Skull — 40K novel (Justin D Hill), Enforcer cadet Rudgard Howe at agri-belt farmstead Thorsarbour, sanguinary cult. Enforcers ≠ strictly Adeptus Arbites but tagged as nearest Browse-Root with low_confidence note.
+  - W40K-0519 Gothgul Hollow — AoS novel, Realm of Shyish, series Tales of Mhurghast #1 → entry_point=series_start. Setting-conflict suggestion=age_of_sigmar. Title-conflict: Black Library publishes as "Gothghul Hollow" (two h's), roster slug drops the second h → suggestion=gothghul-hollow.
+  - W40K-0520 The Stacks — eShort → format-conflict suggestion=novella. 40K Inquisitorial archivist, name not in coverage.
+- **value_outside_vocabulary:** []
+  - Considered: a `setting` facet (40k / warhammer_fantasy / age_of_sigmar / horus_heresy) would resolve the W40K-bucket-mistag pattern across this whole batch and presumably future Horror waves; logged via per-book `data_conflict` flags rather than written into the catalog (own brief). Also: `omnibus`, `anthology`, `eShort` / `short_story` would round out `length_tier` / `format` for non-novel formats, currently expressed via flags.
+- **Notable surface-forms (within this batch):** Genevieve Dieudonne · Detlef Sierck · Constant Drachenfels · Anasta Malkorion · Vyrkos Dynasty / Soulblight Gravelords · Freeguild · Disciples of Tzeentch · Bird of Change · Blood Drinkers · Black Rage · Sanguinius · Rudgard Howe · Thorsarbour · Lex Imperialis · Gothghul Hollow · Aaric Gothghul · Mhurghast · Realm of Shyish · Cities of Sigmar · Imperator Gladio · Nightbleed · The Reaper's Gift · Tithemarked · Elloth IX · Stormcast Eternals
+- **Lint skipped:** pure data commit (override JSON + log append, no code) per Brief 061 §10 convention.
+
+## 2026-05-23 · ssot-w40k-053 · W40K-0521..W40K-0530 · ✅
+
+- **Cumulative books in authority:** 530
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=520, batch=ssot-w40k-053, slice=W40K-0521..W40K-0530
+- **WebSearch:** mean=1.2, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0521 King of Pigs — Roster says 'novel', actually a Black Library eShort (~31 pp) later collected in The Resting Places; data_conflict format=short_story flagged.
+  - W40K-0522 The Somewhere Sister — eShort (not novel) AND Age of Sigmar (not W40K); two data_conflict flags. Thin coverage — no named characters or locations surfaced in the search synopsis; left empty per halluzination discipline.
+  - W40K-0523 The Gnarled Bough — eShort (not novel) AND Age of Sigmar (Shyish/Ghyran realms); two data_conflict flags. Thin coverage; no proper-noun characters/locations surfaced.
+  - W40K-0524 Pain Engine — eShort (not novel); drukhari haemonculus hunt for a legendary engine. No specific haemonculus name or Commorragh-quadrant confirmed in sources — characters/locations left empty.
+  - W40K-0525 Black-Eyed Saint — Age of Sigmar novel (Tales of Mhurghast #3), not W40K; data_conflict domain=age_of_sigmar flagged. Two named POVs (Runar Skoldolfr, Tiberius Grim), named town (Calignius) and peaks (Blood-Rock Peaks) captured.
+  - W40K-0526 The Resting Places — anthology mixing W40K and Age of Sigmar shorts; data_conflict domain=mixed_w40k_aos flagged. Aggregated factions from constituents (Nurgle from King of Pigs, Drukhari from Pain Engine); other AoS stories' factions not added to keep W40K vocab clean.
+  - W40K-0527 Unholy: Tales of Horror & Woe From The Imperium — roster says 'anthology' but it is an omnibus of four full-length novels (The Oubliette / Sepulturum / The Deacon of Wounds / The Bookkeeper's Skull); data_conflict format=omnibus flagged.
+  - W40K-0528 Avenging Son — clean Dawn of Fire #1, no roster issues. Three POVs captured (Guilliman / Messinius / VanLeskus), Black Legion as antagonist Chaos faction, Belisarius Cawl and Abaddon as supporting/antagonist principals.
+  - W40K-0529 The Gates of Bones — title is wrong in roster: canonical is 'The Gate of Bones' (singular) per Black Library / Goodreads / Lexicanum. Slug 'the-gates-of-bones' inherits the typo. data_conflict field=title flagged.
+  - W40K-0530 The Wolftime — clean Dawn of Fire #3, Space Wolves vs an ork migration under Ghazghkull. Logan Grimnar POV, Ghazghkull antagonist, Guilliman supporting.
+- **value_outside_vocabulary:** ["short_story (suggested format-facet for eShorts — not in current facet-catalog: format=book/audiobook/animation/live_action/audio_drama/podcast)", "omnibus (suggested format-facet for collected-novels volumes like Unholy)", "age_of_sigmar / mixed_w40k_aos (suggested domain-flag values; no domain facet today, surfaced via data_conflict flags only)"]
+- **Notable surface-forms (within this batch):** "Vlka Fenryka" (Space Wolves chapter-tongue), "Ghazghkull Mag Uruk Thraka" (preserved verbatim per surface-form treue), "Argent Shroud" (specific Sisters of Battle preceptory under Adepta Sororitas), "White Consuls" (Ultramarines successor chapter), "Battlegroup Saint Aster" (Indomitus Crusade formation), "Tales of Mhurghast" (AoS series Black-Eyed Saint belongs to).
+- **Verifikation:** lint / typecheck / brain:lint übersprungen — reiner Daten-Commit (Override-JSON + Log-Append), keine Code-Pfade berührt (Brief-061-Konvention).
+
+## 2026-05-23 · ssot-w40k-054 · W40K-0531..W40K-0540 · ✅
+
+- **Cumulative books in authority:** 540
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=530, batch=ssot-w40k-054, slice=W40K-0531..W40K-0540
+- **WebSearch:** mean=1.7, max=3 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0531 Throne of Light: multi-POV Dawn-of-Fire installment, factions stayed at chapter/legion granularity.
+  - W40K-0532 The Iron Kingdom: antagonist sub-faction (Black Legion) inferred from "agents of Abaddon" phrasing — flagged low_confidence on factions.
+  - W40K-0533 The Martyr's Tomb: clean three-POV map (Sororitas/Templars/Rogue Trader vs Death Guard).
+  - W40K-0534 Sea of Souls: confined-ship piece; specific Chaos antagonist sub-faction not nameable from public sources — flagged low_confidence on factions.
+  - W40K-0535 Hand of Abaddon: large dramatis personae with sustained dual POV across Imperium/Chaos; Mordian Iron Guard used as Astra Militarum sub.
+  - W40K-0536 The Silent King: Dawn-of-Fire finale, Ultramarines-vs-Necrons frame; entry_point=series_finale.
+  - W40K-0537 No Peace Among Stars: anthology, very recent (2025-11) — Goodreads page unreachable, marked unrated. Howling Griffons surfaced as a named sub-Astartes faction.
+  - W40K-0538 Master of Rites: recent (2025-12), Ferren-Areios spin-off — Goodreads page unreachable, marked unrated.
+  - W40K-0539 No Good Men: Warhammer Crime anthology — first appearance of Varangantua / Enforcers / Probators surface forms in the authority layer.
+  - W40K-0540 Bloodlines: Warhammer Crime debut novel; Probator Zidarov POV, civilian protagonist_class.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Order of Our Martyred Lady, Mordian Iron Guard, Howling Griffons, Red Corsairs, Black Legion, Enforcers, Probators, Anaxian Line, Pariah Nexus, Golden Chain, Eye of Terror, Kamidar, Velua, Srinagar, Varangantua, Iron Queen Orlah, Probator Agusto Zidarov, Ferren Areios, Tharador Yheng, Tenebrus, Graeyl Herek, Magda Kesh, Sister Isobel, Canoness Irinya, Gaheris, Katla Helvintr, Szarekh, Kor Phaeron, Roboute Guilliman, Inquisitor Rostov, Udmil Terashova, Iota-11.
+- **Verification:** lint/typecheck/brain:lint skipped per Brief 061 (pure data commit).
+
+## 2026-05-23 · ssot-w40k-055 · W40K-0541..W40K-0550 · ✅
+
+- **Cumulative books in authority:** 550
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=540, batch=ssot-w40k-055, slice=W40K-0541..W40K-0550
+- **WebSearch:** mean=1.1, max=2 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0541 Flesh and Steel — Varangantua probator novel (Symeon Noctis × tech-priest Rho-1 Lux); clean tagging, no conflicts.
+  - W40K-0542 Grim Repast — Varangantua serial-killer procedural in Polaris district (probator Quillon Drask); clean tagging.
+  - W40K-0543 Broken City — Warhammer Crime anthology (7 stories incl. Bleedout/Rath, Sanctioner/Wraight); ensemble pov, aggregated factions=Arbites.
+  - W40K-0544 Sanction and Sin — Warhammer Crime anthology (9 stories, first BL anthology with four female authors); ensemble pov, aggregated factions=Arbites.
+  - W40K-0545 The King of the Spoil — cartel/info-broker thriller (Melita Voronova × Haska Jovanic, Sorokin murder); surface-form raw_names Valtteri Cartel / Har Dhrol preserved (Varangantua-specific orgs, resolver-loop will canonicalise).
+  - W40K-0546 Once a Killer — Warhammer Crime anthology (8 stories, title piece by Mitchel Scanlon); ensemble pov, aggregated.
+  - W40K-0547 Dredge Runners — **format conflict flagged** (roster=novella, but Dredge Runners shipped as a 2020 full-cast audio drama, Black Library, ~1h); abhuman pov pair Baggit (ratling) + Clodde (ogryn); facetIds set format=audio_drama + length_tier=novella to match the actual artefact.
+  - W40K-0548 The Wraithbone Phoenix — Baggit-and-Clodde caper novel; Aeldari relic on a wrecked voidship; clean tagging.
+  - W40K-0549 Urdesh: The Serpent and the Saint — Iron Snakes Astartes escort Saint Sabbat on Urdesh (Sabbat Worlds Crusade, Anarch Sek); series_start of the Urdesh duology.
+  - W40K-0550 Urdesh: The Magister and the Martyr — direct continuation, Damocles Squad in Ghereppan; series_finale of the duology.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Probator (Arbites rank), Sanctioner (Arbites rank, Varangantua-flavoured), Steelmound, Nearsteel, Polaris, The Spoil, Valtteri Cartel, Har Dhrol, Damocles Squad, Iron Snakes, Sons of Sek, Anarch Sek / Magister Sek, Beati, Ghereppan, Tabidiah Kruger, Savriel Sabbriatti.
+- **Verifikation skipped:** Reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code); npm lint/typecheck/brain:lint per Brief-061-Konvention übersprungen.
+
+## 2026-05-23 · ssot-w40k-056 · W40K-0551..W40K-0560 · ✅
+
+- **Cumulative books in authority:** 560
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=550, batch=ssot-w40k-056, slice=W40K-0551..W40K-0560
+- **WebSearch:** mean=1.4, max=3 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0551 Ruin — Crowley Necron debut; rated Goodreads.
+  - W40K-0552 Reign — direct sequel; rated Goodreads. Imperial crusade-fleet pursuer surfaced only as "armada of the Imperium" in summaries, so used `Imperial Navy` (antagonist) as conservative tag rather than naming a specific Chapter/Crusade.
+  - W40K-0553 Twice-Dead King Omnibus — 2025 bundle (Ruin + Reign + Severed + shorts); rated Goodreads but thin count (57).
+  - W40K-0554 Da Gobbo's Revenge — Brooks novella; rated. No named in-universe location (boarding action aboard an unnamed Imperial vessel) — `locations` left empty.
+  - W40K-0555 Da Gobbo's Demise — Flowers novella; rated. Antagonist "worshippers of the Dark Gods" tagged as `Chaos Cultists` (specific-enough Chaos sub) since no Heretic Astartes legion is named in available sources.
+  - W40K-0556 Long Live Da Red Gobbo — Woolley novella; rated. Roster authors[] empty → `data_conflict` flag (suggestion: Justin Woolley). Barren unnamed world, no location.
+  - W40K-0557 Da Red Gobbo's Last Stand — Ewington novella, Nov 2025. Roster authors[] empty → `data_conflict` flag (suggestion: Andi Ewington). No Goodreads page indexed at lookup → `unrated` with Black Library evidence URL.
+  - W40K-0558 Ghazghkull Thraka: Prophet of the Waaagh! — Crowley; rated. Inquisition-Konsistenz: Falx is Ordo Xenos inquisitor → `Inquisition` + `Ordo Xenos` primary alongside `Orks`.
+  - W40K-0559 Ghazghkull Thraka: Warlord of Warlords — Flowers, March 2026. No Goodreads page indexed at lookup → `unrated` with Lexicanum evidence URL.
+  - W40K-0560 Renegades: Harrowmaster — Brooks; rated. Alpha Legion POV vs. Primaris antagonists; tagged `Adeptus Astartes` (antagonist) — no specific loyal Chapter named in summaries.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** `Necrons`, `Orks`, `Snakebites`, `Blood Axes`, `Freebooterz`, `Chaos Cultists`, `Imperial Navy`, `Alpha Legion`, `Adeptus Astartes`, `Black Templars`, `Inquisition`, `Ordo Xenos`. Locations: `Sedh`, `Antikef`, `Ullanor`, `Armageddon`, `Gabal`, `Ultima Segmentum`. Characters with grot-naming convention preserved as-is (`Fingwit`, `Redsnot`, `Slipbit`, `Bodgit`, `Makari`).
+- **Verifikation:** Reiner Daten-Commit (Override-JSON + Markdown-Append) — `npm run lint` / `typecheck` / `brain:lint` per Brief-061-Konvention übersprungen.
+
+## 2026-05-23 · ssot-w40k-057 · W40K-0561..W40K-0565 · ✅
+
+- **Cumulative books in authority:** 565
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=560, batch=ssot-w40k-057, slice=W40K-0561..W40K-0565 (5 books — final W40K wave)
+- **WebSearch:** mean=1.2, max=2 (over 5 books; +1 supplemental for Ghost Legion to find Goodreads URL)
+- **Per-book bullets:**
+  - W40K-0561 Ghost Legion (Mike Brooks, 2026) — sequel to *Harrowmaster*; entry_point=mid_series; surprisingly thick coverage for a Feb-2026 release (130 Goodreads ratings already).
+  - W40K-0562 Lord of the Fallen (John French, 2023) — marketplace metadata uses the full title "Cypher: Lord of the Fallen", roster slug `lord-of-the-fallen` already matches BL spine; no format conflict.
+  - W40K-0563 Auric Gods (Nick Kyme, 2018) — Chaos antagonist on Vorganthian described only as 'cultists' in available coverage; no specific Chaos sub-faction named, `low_confidence` flag set on factions rather than guessing.
+  - W40K-0564 Severed (Nate Crowley, 2019) — Necron-POV novella; `Sautekh Dynasty` and `Necrons` both tagged `primary` so dynasty browse-root and species browse-root each surface it.
+  - W40K-0565 Prisoners of Waaagh! (Justin Woolley, 2020) — roster lists author as "Justin Wooley" (one L); Black Library / Goodreads canonical spelling is "Woolley" (two L). Author-string is informational here (no override field for author), so noted only.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "The Fallen" (Dark Angels splinter), "Officio Assassinorum" (Imperial assassin temples), "Sautekh Dynasty" (Necron dynasty), "Pale Spear" (artefact, synopsis only), "Ghoul Stars" (region), "'Eadbasha" (Ork warboss, leading apostrophe).
+- **Verification skipped:** lint / typecheck / brain:lint per Brief-061 (pure-data commit: one new override JSON + one log append, no code).
+- **Milestone:** cumulativeBefore=560 + slice=5 reaches 565/565 W40K. Loop helper should now flip into HH domain on next run; no Loop-Complete yet (HH still pending).

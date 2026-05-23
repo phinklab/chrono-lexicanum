@@ -1,0 +1,255 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-057",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Final 5-book W40K wave closes the loop at 565/565 (cumulativeBefore=560). Three Black Library novellas frame tight single-faction character pieces (Custodes hunt on Vorganthian, Necron court at Doahht, Imperial Guard breakout from an ork camp), and two full novels bookend the Imperium's edges — Alpha Legion empire-building under Solomon Akurra and Cypher's unreliable raid on the Throneworld during the Great Rift. Coverage solid across all five, including freshly-rated Ghost Legion (Feb 2026).",
+  "books": [
+    {
+      "externalBookId": "W40K-0561",
+      "slug": "ghost-legion",
+      "overrides": {
+        "synopsis": "Solomon Akurra, the Alpha Legion Harrowmaster known as the Ghost, has united warring renegade factions under his banner and conquered entire star systems. Wielding what he claims is the Pale Spear — the lost weapon of his primarch — Solomon dreams not of plunder but of empire: a future in which the Imperium is shattered and humanity rebuilt in his own image. As his burgeoning new world draws the gaze of the Imperium, Officio Assassinorum killers begin to circle in the shadows and fury festers within his own ranks. Forced to play the long game against enemies without and dissent within, the Ghost must decide what price he is willing to pay for a vision that may yet consume him and the Legion he has only just begun to forge.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "chaos",
+          "sector",
+          "mid_series",
+          "standard",
+          "war_story",
+          "political_thriller",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "hubris",
+          "betrayal",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Alpha Legion", "role": "primary" },
+          { "name": "Officio Assassinorum", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Solomon Akurra", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.01,
+          "count": 130,
+          "evidenceUrl": "https://www.goodreads.com/book/show/247963085-ghost-legion"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0562",
+      "slug": "lord-of-the-fallen",
+      "overrides": {
+        "synopsis": "As the Great Rift tears open the sky above Terra and daemons walk upon the Throneworld for the first time in ten thousand years, Cypher and a small band of the Fallen escape from the most secure prison in the Imperium. Loose within the Imperial Palace itself, they are hunted by warriors of the Dark Angels, the golden Custodes of the Adeptus Custodes and the killers of the Officio Assassinorum — yet Cypher's true agenda runs far beyond mere escape. He intends to stand before the Emperor on the Golden Throne, though whether he comes to bow, to plead or to murder his god, even his closest companions cannot say. Told through Cypher's own unreliable voice, this is a tale of secrets, lies and a war waged at the heart of mankind.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "dual",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "journey",
+          "character_study",
+          "political_thriller",
+          "grimdark",
+          "philosophical",
+          "betrayal",
+          "doubt",
+          "redemption",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "The Fallen", "role": "primary" },
+          { "name": "Dark Angels", "role": "antagonist" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Officio Assassinorum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Cypher", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.91,
+          "count": 810,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/101151817"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0563",
+      "slug": "auric-gods",
+      "overrides": {
+        "synopsis": "When Shield-Captain Cartovandis receives a mysterious distress call from the world of Vorganthian, out on the fringe of the Sol system, he gathers a small band of Custodians to investigate. They arrive to find a planet in the grip of self-annihilation, its cities overrun and its peacekeepers vanished or worse. Meanwhile on Terra, Captain-General Trajann Valoris dispatches a second hand-picked trio of his order on the trail of a dangerous artefact stolen from deep beneath the Imperial Palace itself. As the two missions slowly converge, the Custodes must hunt down the conspirators behind Vorganthian's fall before the madness consuming that world reaches its true target — something far closer to the Throne than any of them had ever feared.",
+        "facetIds": [
+          "book",
+          "male",
+          "custodes",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "mystery",
+          "war_story",
+          "grimdark",
+          "action_heavy",
+          "loyalty",
+          "sacrifice",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Vorganthian", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Cartovandis", "role": "pov" },
+          { "name": "Trajann Valoris", "role": "supporting" },
+          { "name": "Meroved", "role": "supporting" },
+          { "name": "Ursula Gedd", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Chaos antagonist on Vorganthian described as 'cultists' in available coverage; no specific Chaos sub-faction named, so the cult is left unbound rather than mis-tagged." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.82,
+          "count": 159,
+          "evidenceUrl": "https://www.goodreads.com/book/show/42740938-auric-gods"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0564",
+      "slug": "severed",
+      "overrides": {
+        "synopsis": "Deep in the Ghoul Stars, a rebellion threatens the long, deathless reign of Nemesor Zahndrekh and his ever-watchful bodyguard, Vargard Obyron. Tasked by the Phaeron of the Sautekh Dynasty to put the uprising down, the two ancient necrons join forces with an old acquaintance, the Nemesor Setekh, and set course for the world of Doahht — a place where the slumbering legions never woke properly, and the dead now stagger as little more than empty shells. As Zahndrekh, still convinced his court is one of flesh and blood, dreams his stately way through the campaign, Obyron alone must reckon with the horror beneath the broken world, the ghosts of his own ages-long service, and what Setekh truly wants from the dark.",
+        "facetIds": [
+          "book",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "planetary",
+          "standalone",
+          "novella",
+          "mystery",
+          "journey",
+          "character_study",
+          "somber",
+          "philosophical",
+          "loyalty",
+          "brotherhood",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Sautekh Dynasty", "role": "primary" },
+          { "name": "Necrons", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Doahht", "role": "primary" },
+          { "name": "Ghoul Stars", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Nemesor Zahndrekh", "role": "pov" },
+          { "name": "Vargard Obyron", "role": "pov" },
+          { "name": "Setekh", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.48,
+          "count": 340,
+          "evidenceUrl": "https://www.goodreads.com/book/show/48737441-severed"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0565",
+      "slug": "prisoners-of-waaagh",
+      "overrides": {
+        "synopsis": "Veteran Guardsman Marcus van Veenan thought he had found a quiet posting to see out the last of his years in the Astra Militarum — until the world of Rotauri fell beneath Warboss 'Eadbasha's gathering Waaagh!. Taken alive together with several hundred of his comrades, van Veenan is dragged into the heart of the orks' nightmarish stronghold and put to work building a colossal idol to their savage gods. With Imperial discipline crumbling around him and the fate of his regiment resting on shoulders far older than they once were, the weary sergeant must rally the prisoners for a desperate breakout — not only to escape the camp alive, but to carry warning back to the Imperium of the storm now gathering across the sector.",
+        "facetIds": [
+          "book",
+          "male",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "war_story",
+          "last_stand",
+          "journey",
+          "grimdark",
+          "action_heavy",
+          "brotherhood",
+          "sacrifice",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Rotauri", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Marcus van Veenan", "role": "pov" },
+          { "name": "'Eadbasha", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.02,
+          "count": 60,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/55919783"
+        }
+      }
+    }
+  ]
+}
