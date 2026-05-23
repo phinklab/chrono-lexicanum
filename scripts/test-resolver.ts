@@ -913,6 +913,56 @@ check("alias-consolidation - seventh wave Gunnlaugur both surface forms collapse
   assert.equal(resolveCharacter("Gunnlaugr").id, "gunnlaugur");
 });
 
+check("alias-consolidation - eighth wave Zelia Lor + bare given name 'Zelia' collapse to one row (7a Case A)", () => {
+  assert.equal(resolveCharacter("Zelia Lor").id, "zelia_lor");
+  assert.equal(resolveCharacter("Zelia").id, "zelia_lor");
+});
+
+check("alias-consolidation - eighth wave Ursarkar Creed + Lord Castellan Creed collapse to one row (wave §3 alias-resolved surface)", () => {
+  assert.equal(resolveCharacter("Ursarkar Creed").id, "ursarkar_e_creed");
+  assert.equal(resolveCharacter("Lord Castellan Creed").id, "ursarkar_e_creed");
+});
+
+check("direct match - eighth wave Mortarion (Daemon Primarch / Death Guard, Dark Imperium trilogy freq=3)", () => {
+  assert.equal(resolveCharacter("Mortarion").id, "mortarion");
+});
+
+check("direct match - eighth wave Minka Lesk (Cadian POV, Cadian Saga freq=5)", () => {
+  assert.equal(resolveCharacter("Minka Lesk").id, "minka_lesk");
+});
+
+check("direct match - eighth wave Erasmus Crowl (Inquisitor POV, Vaults of Terra trilogy freq=4)", () => {
+  assert.equal(resolveCharacter("Erasmus Crowl").id, "erasmus_crowl");
+});
+
+check("direct match - eighth wave Janus Draik (Rogue Trader POV, Blackstone Fortress duology freq=3)", () => {
+  assert.equal(resolveCharacter("Janus Draik").id, "janus_draik");
+});
+
+check("direct match - eighth wave Grekh (Kroot tracker, primaryFactionId binds Phase-1 kroot row, freq=3)", () => {
+  assert.equal(resolveCharacter("Grekh").id, "grekh");
+});
+
+check("direct match - eighth wave Yvraine (Ynnari prophetess, Iyanden duology freq=2)", () => {
+  assert.equal(resolveCharacter("Yvraine").id, "yvraine");
+});
+
+check("direct match - eighth wave Talen (Warped Galaxies Imperial Guardsman boy, freq=6 wave-top character)", () => {
+  assert.equal(resolveCharacter("Talen").id, "talen");
+});
+
+check("direct match - eighth wave Mekki (Warped Galaxies tech-priest novice, freq=5)", () => {
+  assert.equal(resolveCharacter("Mekki").id, "mekki");
+});
+
+check("direct match - eighth wave Kardan Stronos (Iron Council Chapter Master, freq=1 lore-iconic Iron Hands cluster anchor)", () => {
+  assert.equal(resolveCharacter("Kardan Stronos").id, "kardan_stronos");
+});
+
+check("direct match - eighth wave Typhus (Herald of Nurgle / Death Guard, freq=1 lore-iconic primarch-tier)", () => {
+  assert.equal(resolveCharacter("Typhus").id, "typhus");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {
