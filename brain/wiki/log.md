@@ -834,3 +834,34 @@ Brief-freier Cowork-Task (vom Maintainer freigegeben, kein Architekten-Brief): `
 **Out of scope dieser Session:** Keine Code-Änderungen außer der Config + dem `CLAUDE.md`-Callout. Kein `npm install`/Build, kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — Maintainer/CI). Kein Architekten-Brief (Resolver-Pass 6 ist seit Brief 090 brief-frei). Keine Session-Archivierung (der 062–090-Archivierungs-Rückstand bleibt als eigene CC-Aufgabe in `sessions/README.md` vermerkt). Die mittlerweile acht „Latest pipeline state"-Sektionen in `project-state.md` sind ein bekannter Bloat-Punkt — Collapse der ältesten in einen Pointer bleibt Kandidat für eine künftige Slim-Pass-Iteration, hier bewusst nicht gemacht (Accuracy-Fokus).
 
 **Branch:** Edits liegen im Working-Tree `codex/session-pass6-setup`; Philipp committet + pusht Windows-nativ — die Cowork-Sandbox fasst `git` nicht an (siehe `CLAUDE.md` § Git).
+
+## 2026-05-23 · Ingest + Hygiene · Post-Merge-Koordinations-Pass (Pass 7 + Brief 094 + Brief 095)
+
+Brief-freier Cowork-Task: der überfällige Post-Merge-Koordinations-Pass für die drei Stränge, die seit dem post-092-Stand gemergt sind. Erster Pass unter der frisch implementierten Brief-095-Rollup-Ownership-Regel — Cowork ist ab jetzt der alleinige Schreiber von `sessions/README.md` + `brain/**`, und dieser Post-Merge-Pass ist der definierte Pfad dafür. Maintainer hat alle drei Merges bestätigt; Coordination-Worktree `C:\Users\Phil\chrono-lexicanum`.
+
+**Read (raw sources):**
+
+- `sessions/resolver-dossiers/resolver-pass-7-impl-report.md` — Resolver-Pass 7 (`ssot-w40k-036..045`, PR #90): 450/450 W40K-Bücher applied, Counts, EXPECTED_RANGES-Bump, `collection-gaps.json` +1.
+- `sessions/2026-05-23-094-impl-resolver-loop.md` + `sessions/2026-05-23-094-arch-resolver-loop.md` — Resolver-Loop: SSOT-Loop ↔ Resolver entkoppelt, Wellen-Detektor `resolver-loop-detect.ts`, brief-freies Runbook, headless `run-resolver-loop.sh`.
+- `sessions/2026-05-23-095-impl-rollup-ownership.md` + `sessions/2026-05-23-095-arch-rollup-ownership.md` — Rollup-Ownership: `sessions/README.md` + `brain/**` coordination-worktree-only, Worktree-Selbstprüfung am Session-Start.
+- `sessions/2026-05-22-093-arch-resolver-pass-7.md` (`status: implemented`), `sessions/resolver-loop-log.md` (Bootstrap-Block), `scripts/resolver-pass.config.json` (auf Welle `046..051` auto-gekeyt), `sessions/README.md` Active-Threads.
+
+**Updated wiki:**
+
+- `project-state.md` — `updated: 2026-05-23`, Header-Datum, Sources um 093/094/095 + resolver-loop-Dateien. Phase-Headline + Sequenz-Paragraph + Buch-Domain-Bild auf 450 W40K-Bücher + entkoppelte Headless-Loops. Branch-Sektion auf post-095 (Pass 7 PR #90 + Brief 094 + Brief 095 gemergt; exakte HEAD-SHA nicht gepinnt — Sandbox fasst `git` nicht an). What's-running: DB-/Excel-SSOT-/Loop-Driver-Bullets auf post-Pass-7-Counts (`1659/638/1074/142/424`, Reference `166/201/297`, Rating 446/450), der Resolver-Driver-Bullet auf den headless Resolver-Loop (Brief 094) umgeschrieben. Neue „Latest pipeline state (post-095)"-Sektion (Pass 7 + Brief 094 + Brief 095). What's-open neu sortiert (operativer Headless-Loop-Schritt oben, Resolver-Pass-7-Item raus, Slug-Delta + Collection-Gap + Vokabular-Watch + Resolver-Loop-Smoke aktualisiert). Recently-shipped um sechs Zeilen. Next-likely-brief auf die headless-Loop-Sequenz + Konsolidierungs-Pass + HH.
+- `pipeline-state.md` — `updated: 2026-05-23`, Titel `post-095`, Sources um 093/094 + resolver-loop-Dateien. Intro-Blockquote auf sieben Resolver-Pässe / 450 Bücher / Brief-094-Entkopplung. § Resolver layer auf `through Pass 7 / Brief 094` + post-Pass-7-Counts + Test-Counts (`test:resolver` 236). Neue Sektion „Resolver-Loop-Konvention (Pass-7-impl + 094-impl)" mit den vier Brief-094-Bausteinen. § What's next: Item 21 auf die Resolver-Maschinerie-Reihe (Pass 6/7 + 091 + 094/095) umgeschrieben, neues Item 23 (Konsolidierungs-Pass), Items 24–28 nachnumeriert.
+- `open-questions.md` — `updated: 2026-05-23`, neuer Frontmatter-Header-Kommentar (post-093/094/095), Sources um 093/094/095 + resolver-pass-7-impl-report + resolver-loop-log. Migration-history-Satz angehängt. Keine OQ-Schließung, keine neue numerierte OQ.
+- `index.md` — `updated: 2026-05-23`, Katalog-Zeilen project-state / open-questions / pipeline-state / log + Self-Row auf post-095-Stand.
+- This `log.md` — Append-only-Eintrag.
+
+**No new decision page.** Resolver-Pass 7 ist ein reiner Daten-Lauf; Brief 094 ist Resolver-Pass-Maschinerie-Hygiene (Entkopplung + Headless-Automatisierung) ohne Architektur-Call mit Revisit-Trigger — die Konvention lebt in `pipeline-state.md` § Resolver-Loop-Konvention; Brief 095 ist Workflow-/Doku-Hygiene (die operativen Regeln stehen in `CLAUDE.md`/`AGENTS.md` + den Workflow-Pages, von 095-impl gepflegt).
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** Die drei Stränge adressieren keine offene Queue-Frage; OQ (3) Hand-Check-Workflow + OQ (13) Crawl-Simplification-Sichtung bleiben offen.
+
+**Outside the wiki:** `sessions/README.md` Active-Threads — Kopf-Paragraph + Tabelle auf post-095-Stand (Pass 7 + Brief 094 + Brief 095 als complete/merged, headless-Loop-Sequenz als nächste Reihenfolge, diese Cowork-Session als complete-Row).
+
+**roadmap.md not touched** — Pass 7 + Brief 094/095 bewegen keine Phasen-Grenze (alles innerhalb Phase 3).
+
+**Out of scope dieser Session:** Keine Code-Änderungen (alle drei Stränge sind implementiert + gemergt). Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — Maintainer/CI). Keine Session-Archivierung — der `sessions/`-root-Archivierungs-Rückstand (geschlossene Files 062–095) bleibt als eigene kleine CC-`git mv`-Aufgabe. Die mittlerweile zehn „Latest pipeline state"-Sektionen in `project-state.md` bleiben ein bekannter Bloat-Punkt (Collapse der ältesten in einen Pointer = künftige Slim-Pass-Iteration, hier bewusst nicht gemacht — Accuracy-Fokus, Präzedenz post-090-Eintrag).
+
+**Branch:** Edits liegen im Coordination-Worktree; Philipp committet + pusht Windows-nativ — die Cowork-Sandbox fasst `git` nicht an (siehe `CLAUDE.md` § Git).
