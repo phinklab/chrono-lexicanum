@@ -1,0 +1,237 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-047",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7",
+  "rationale": "Trilogy-heavy slice anchored by Guy Haley's three Dark Imperium novels (the central Indomitus-era Guilliman-vs-Mortarion arc) and John French's three Horusian Wars books for Inquisitor Covenant, plus the two opening Cadia novels by Justin D. Hill and an Iron Hands continuation. Two roster anomalies: 'meduson-wings' / 'Meduson Wings' is the Matt Westbrook novella consistently published as 'Medusan Wings' across Goodreads, Black Library, and Amazon; and John French's Divination is an eleven-story single-author anthology, not a novel.",
+  "books": [
+    {
+      "externalBookId": "W40K-0461",
+      "slug": "the-voice-of-mars",
+      "overrides": {
+        "synopsis": "In the Iron Council of the Iron Hands, the seat called the Voice of Mars has long pursued ambitions seeded during the Horus Heresy. Iron Father Kristos has been charged with unlocking the Dawnbreak Technologies — mysterious devices of Eldar origin scattered across forge worlds and shrine vaults. When Kristos moves to recover the first relic from the knight world Fabris Calivant, the Eldar steer a ravening greenskin invasion onto its plains, and Kristos discovers that the xenos are only one set of enemies arrayed against him. Within his own brotherhood, rival clans of the Iron Hands move to seize the Dawnbreak prize for themselves. As clan turns against clan and iron clashes with iron above the burning forges of Fabris Calivant, Kristos must decide how much of his Chapter he is willing to break to keep the Voice of Mars whole.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "action_heavy", "grimdark", "war", "loyalty", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Eldar", "role": "antagonist" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Fabris Calivant", "role": "primary" },
+          { "name": "Medusa", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Iron Father Kristos", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.90, "count": 82, "evidenceUrl": "https://www.goodreads.com/book/show/38747880-the-voice-of-mars" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0462",
+      "slug": "meduson-wings",
+      "overrides": {
+        "synopsis": "Atraxii is a gifted pilot of Clan Company Kaargul, newly ordained as a Techmarine and freshly returned to Medusa. Almost at once he is thrown back into the void: the Medusan Wing, an Iron Hands fighter squadron led by his mentor Oblexus, is scrambling to defend a forge world refinery against a ramshackle ork airfleet. Side by side with Mechanicus tech-priests and their void-pilots, Atraxii throws his interceptor into running dogfights above the smelters. But as the orks press harder and the alliance with the Mechanicus begins to strain, Atraxii learns that his hosts are hiding secrets of their own, and that holding the line will demand more from him as a son of Medusa than as a tool of the Omnissiah.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "novella", "war_story", "action_heavy", "brotherhood", "war", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Medusa", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Atraxii", "role": "pov" },
+          { "name": "Oblexus", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "title", "suggestion": "Medusan Wings", "reason": "Goodreads, Black Library, and Amazon all publish this Matt Westbrook novella as 'Medusan Wings'; roster title 'Meduson Wings' appears to be a typo." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.62, "count": 34, "evidenceUrl": "https://www.goodreads.com/book/show/30807620-medusan-wings" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0463",
+      "slug": "dark-imperium",
+      "overrides": {
+        "synopsis": "Ten thousand years after he was struck down at the Battle of Thessala, Roboute Guilliman walks the galaxy once more. The first phase of the Indomitus Crusade has bought the Imperium a breath; now Guilliman turns toward Ultramar, where his brother Mortarion and the Death Guard march from the wounded warp to drown the Ultramarines' realm in pestilence. Belisarius Cawl, the strange archmagos who pulled the primarch from his stasis, has gifted Guilliman a new breed of Space Marines — taller, harder, never quite at ease in their own skin. As Mortarion's plague-fleets close on the heart of Ultramar, Guilliman must rebuild his fractured kingdom, take the measure of his Primaris sons, and decide whether the Imperium he means to save still resembles the one he was born to build.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "series_start", "standard", "war_story", "grimdark", "action_heavy", "war", "betrayal", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Adeptus Ministorum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Ultramar", "role": "primary" },
+          { "name": "Macragge", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "pov" },
+          { "name": "Mortarion", "role": "antagonist" },
+          { "name": "Belisarius Cawl", "role": "supporting" },
+          { "name": "Mathieu", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.87, "count": 4560, "evidenceUrl": "https://www.goodreads.com/book/show/35318921-dark-imperium" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0464",
+      "slug": "plague-war",
+      "overrides": {
+        "synopsis": "The Death Guard hold Ultramar by the throat. Roboute Guilliman gathers his armies and his miraculous new Primaris brothers and breaks for Parmenio, where Mortarion's host has dug into rotted soil and hopes to drag the primarch into open battle. Around them, plagues of impossible specificity ravage Ultramar's worlds, while the Death Guard itself begins to split along old Heresy-era seams: Mortarion's command of his Legion is challenged by Typhus and his Plague Marines, each pulling Nurgle's grace in a different direction. As the Plague War rages, strange miracles erupt across Ultramar's shrines and battlefields — saints walking, daemons recoiling, common Guardsmen testifying to glimpses of the Emperor — and the rationalist Guilliman must decide what to do with the faith that is bleeding through the cracks of his own design.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "mid_series", "standard", "war_story", "grimdark", "action_heavy", "war", "faith", "doubt", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Adeptus Ministorum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Ultramar", "role": "primary" },
+          { "name": "Parmenio", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "pov" },
+          { "name": "Mortarion", "role": "antagonist" },
+          { "name": "Typhus", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.04, "count": 2827, "evidenceUrl": "https://www.goodreads.com/book/show/40593242-plague-war" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0465",
+      "slug": "godblight",
+      "overrides": {
+        "synopsis": "The Plague War comes to its end on Iax, the garden world of Ultramar that Mortarion has chosen as his fulcrum. The Death Lord intends to crack Iax open like an egg and let its dying soul widen a wound in the warp wide enough to drag the entire stellar realm in after it. To finish the work he has prepared a weapon Nurgle himself spent eternities brewing: the Godblight, a disease cunning enough and patient enough to kill a son of the Emperor. Roboute Guilliman lands on Iax to stop his brother and finds gods walking the ash-fields beside him. As primarchs grapple in the dying gardens and the powers of the warp lean in over the battlefield, the long Plague War turns on a single duel — and the galaxy holds its breath.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "series_finale", "standard", "war_story", "last_stand", "grimdark", "action_heavy", "war", "sacrifice", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Iax", "role": "primary" },
+          { "name": "Ultramar", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "pov" },
+          { "name": "Mortarion", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.25, "count": 2219, "evidenceUrl": "https://www.goodreads.com/book/show/59365851" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0466",
+      "slug": "resurrection",
+      "overrides": {
+        "synopsis": "In the Caradryad Sector, worlds are burning. Whole populations rise against the Imperium in fits of madness; rumours of a cult called the Unseen pass between Inquisitorial cells. Summoned to a conclave of his peers, Inquisitor Covenant — Puritan, psyker, master swordsman — arrives meaning to denounce his colleague Talicto as a heretic. Then the gathering is attacked. Half the conclave is left dead in the wreckage, and Talicto walks away into the shadows. Covenant follows. His hunt sends him through ruined hive worlds and across the chambers of his own Ordo, where the line between Puritan and Radical, between holy and heretical, has been growing thinner for centuries — and where each step toward Talicto brings him closer to the Unseen, and to the larger horror the heretic is shepherding into the sector.",
+        "facetIds": ["book", "male", "inquisitor", "imperium", "sector", "series_start", "standard", "mystery", "philosophical", "grimdark", "betrayal", "doubt", "faith", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Caradryad Sector", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Inquisitor Covenant", "role": "pov" },
+          { "name": "Talicto", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.82, "count": 467, "evidenceUrl": "https://www.goodreads.com/book/show/32861023-resurrection" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0467",
+      "slug": "incarnation",
+      "overrides": {
+        "synopsis": "Dominicus Prime is in the Season of Night, a long darkness that the shrineworld's calendars have always treated with reverence and that this time arrives wrong. At the Monastery of the Last Candle, the keepers of the Emperor's light try to keep the rites; in the Pilgrim Drift, the great orbiting shanty of penitents, hunger spreads and discord with it. Cardinals plot, bishops scheme, and beneath all of it a new cult whispers of blood. Inquisitor Covenant arrives drawn by the Emperor's Tarot, hunting agents of the Triumvirate — Horusians who believe that mankind's salvation must be embodied in an unkillable god-tyrant. As the Last Candle gutters and the Drift turns on itself, Covenant must decide what he is willing to burn to stop a worse fire.",
+        "facetIds": ["book", "male", "inquisitor", "imperium", "planetary", "mid_series", "standard", "mystery", "political_thriller", "philosophical", "grimdark", "faith", "doubt", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Adeptus Ministorum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Dominicus Prime", "role": "primary" },
+          { "name": "Pilgrim Drift", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Inquisitor Covenant", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.87, "count": 257, "evidenceUrl": "https://www.goodreads.com/book/show/43253923-incarnation" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0468",
+      "slug": "divination",
+      "overrides": {
+        "synopsis": "As Inquisitor Covenant moves against the Triumvirate, the labour of his hunt falls across a small army of allies, rogues and rivals. Divination gathers their stories. A swordmistress weighs the weight of her own oaths; a covert agent runs the alleys of a shrineworld in pursuit of cult cells; a psyker peers through the Emperor's Tarot at futures that refuse to settle. Each story turns a card from Covenant's deck and lets the reader sit a moment with the people on its face — the killers, the savants, the broken servants of the Ordo Malleus and the Ordo Hereticus who keep his war going while he is elsewhere. Read together, the stories sketch the wider battlefield of the Horusian Wars from below, where the work is done not by primarchs but by mortals and their nerve.",
+        "facetIds": ["book", "mixed", "multi", "imperium", "sector", "requires_context", "standard", "character_study", "mystery", "philosophical", "grimdark", "faith", "doubt", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Inquisitor Covenant", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "collection", "reason": "Goodreads and Lexicanum identify Divination as a single-author anthology of eleven short stories, not a novel as the roster lists." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.21, "count": 107, "evidenceUrl": "https://www.goodreads.com/book/show/48503778-divination" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0469",
+      "slug": "cadia-stands",
+      "overrides": {
+        "synopsis": "Abaddon the Despoiler's Thirteenth Black Crusade has come at last. The Black Legion and the warlords of the Eye of Terror are battering Cadia, the fortress world that has stood as the Imperium's bulwark for ten thousand years. Cadia Stands tells the planet's defence from inside the Cadian regiments themselves. Major Bendikt, a tank commander stranded at a remote outpost, watches the invasion fall through binoculars and broken vox channels. Minka, a Whiteshield barely old enough to be a soldier, holes up with a ragged company in the rubble of a Kasr. General Grüber commands from the High Command bunkers as one ruined city falls after another. The pylons that have kept Cadia stable since the dawn of the Imperium begin to fail. And the planet's defenders — stoic, stubborn, justifiably proud — discover what their oath of loyalty actually costs.",
+        "facetIds": ["book", "mixed", "guardsman", "imperium", "planetary", "series_start", "standard", "war_story", "siege", "last_stand", "grimdark", "action_heavy", "war", "sacrifice", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Black Legion", "role": "antagonist" },
+          { "name": "Heretic Astartes", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Cadia", "role": "primary" },
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Major Bendikt", "role": "pov" },
+          { "name": "Minka Lesk", "role": "pov" },
+          { "name": "General Grüber", "role": "supporting" },
+          { "name": "Abaddon the Despoiler", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.77, "count": 1429, "evidenceUrl": "https://www.goodreads.com/book/show/35297654" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0470",
+      "slug": "cadian-honour",
+      "overrides": {
+        "synopsis": "Cadia has fallen, and the survivors of the Cadian 101st have been posted to Potence, capital of the distant Gallows Cluster. The other Imperial regiments look at them coldly; orders read like exile dressed in courtesy; even the local Ecclesiarchy seems to want them gone. Sergeant Minka Lesk, who once held a Kasr against the Black Legion as a Whiteshield, finds herself on what should be an easy garrison world. Then Chaos begins to move through Potence's shrines and palaces, using devotion as its lever. As the rot reaches into the capital itself and Imperial faith is turned into a weapon against loyal subjects, Lesk and what remains of her company must defend not only the Gallows Cluster but the meaning of the word 'Cadian' itself.",
+        "facetIds": ["book", "female", "guardsman", "imperium", "planetary", "mid_series", "standard", "war_story", "political_thriller", "grimdark", "war", "faith", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Adeptus Ministorum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Potence", "role": "primary" },
+          { "name": "Gallows Cluster", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Minka Lesk", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Chaos antagonist named in plot summary but no specific sub-faction (Heretic Astartes lineage, daemonic, or pure cult) confirmed in available sources." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.80, "count": 704, "evidenceUrl": "https://www.goodreads.com/book/show/55946813-cadian-honour" }
+      }
+    }
+  ]
+}

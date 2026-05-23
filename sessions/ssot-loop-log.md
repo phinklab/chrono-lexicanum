@@ -1583,3 +1583,24 @@
   - W40K-0460 (The Eye of Medusa, Guymer, 2017): clean Iron Hands opener; Stronos sergeant-era; Medusa + Thennos as primary locations.
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Adeptus Custodes" vs. "Custodes" (kept "Adeptus Custodes" where referenced as the order, bare "Custodes" only inside synopsis prose); "Sisters of Silence" preferred over "Silent Sisterhood" / "Null-maidens"; "High Lords of Terra" (Senatorum Imperialis) at browse-root granularity instead of "Imperium"; "Drukhari" (modern) over "Dark Eldar" (legacy) for W40K-0458/0459; "Adepta Sororitas" used for W40K-0454 in lieu of the more specific "Order of the Sombre Vow" which remains in synopsis only.
+
+## 2026-05-23 · ssot-w40k-047 · W40K-0461..W40K-0470 · ✅
+
+- **Cumulative books in authority:** 470
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=460, batch=ssot-w40k-047, slice=W40K-0461..W40K-0470
+- **WebSearch:** mean=1.2, max=2 (over 10 books); 10 obligatory synopsis-context queries + 2 Goodreads-page-locator queries for Voice of Mars and Medusan Wings whose URLs the synopsis search did not surface directly.
+- **Per-book bullets:**
+  - W40K-0461 The Voice of Mars (Guymer): Iron Hands #2, Knight World Fabris Calivant, Eldar manipulators + Ork invasion + intra-clan power struggle; clean coverage.
+  - W40K-0462 'Meduson Wings' (Westbrook novella): roster-mistag — Goodreads/Black Library/Amazon all publish this as 'Medusan Wings'. data_conflict flag with suggestion='Medusan Wings'. Rating sample small (34) but the page returns an aggregation, marked rated.
+  - W40K-0463 Dark Imperium (Haley): Indomitus-era series_start, Guilliman vs. Mortarion, Cawl + Mathieu in supporting cast.
+  - W40K-0464 Plague War (Haley): mid_series, Parmenio campaign, Mortarion/Typhus schism inside the Death Guard, miracle-faith subplot.
+  - W40K-0465 Godblight (Haley): series_finale on Iax, last_stand framing, Nurgle-disease climax.
+  - W40K-0466 Resurrection (French): Horusian Wars #1, Inquisitor Covenant POV (Inquisition-Konsistenz satisfied — Covenant is the POV inquisitor), Caradryad Sector hunt of Talicto and the Unseen cult.
+  - W40K-0467 Incarnation (French): Horusian Wars #2 on shrineworld Dominicus Prime, Triumvirate/Horusian antagonists; Adeptus Ministorum supporting.
+  - W40K-0468 Divination (French): roster says novel, sources (Goodreads + Lexicanum) say single-author short-story anthology — data_conflict flag with suggestion='collection'. Aggregated facetIds/factions from the framing; locations left empty (stories range too wide for a single primary).
+  - W40K-0469 Cadia Stands (Hill): Cadia #1, ensemble of Cadian POVs (Bendikt male, Minka female, Grüber male) → protagonist_gender=mixed. Siege/last_stand combo with Abaddon as named antagonist.
+  - W40K-0470 Cadian Honour (Hill): Cadia #2, Minka Lesk solo POV (female), garrison-and-rot political thriller on Potence; Chaos antagonist named in sources but no sub-faction confirmed → low_confidence flag on factions rather than naming a guess.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Iron Hands; Eldar; Orks; Adeptus Mechanicus; Ultramarines; Death Guard; Adeptus Ministorum; Inquisition; Astra Militarum; Black Legion; Heretic Astartes; Iron Father Kristos; Atraxii; Oblexus; Roboute Guilliman; Mortarion; Belisarius Cawl; Mathieu; Typhus; Inquisitor Covenant; Talicto; Major Bendikt; Minka Lesk; General Grüber; Abaddon the Despoiler; Fabris Calivant; Medusa; Ultramar; Macragge; Parmenio; Iax; Caradryad Sector; Dominicus Prime; Pilgrim Drift; Cadia; Eye of Terror; Potence; Gallows Cluster.
+- **Verification:** `npm run lint` / `typecheck` / `brain:lint` skipped — pure data commit (Brief-061-Konvention).
