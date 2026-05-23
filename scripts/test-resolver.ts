@@ -583,6 +583,34 @@ check("direct match - seventh wave Baal Secundus (Blood Angels recruitment moon,
   assert.equal(resolveLocation("Baal Secundus").id, "baal_secundus");
 });
 
+check("direct match - eighth wave Blackstone Fortress (Hinks' eponymous artefact-fortress, freq=3)", () => {
+  assert.equal(resolveLocation("Blackstone Fortress").id, "blackstone_fortress");
+});
+
+check("direct match - eighth wave Precipice (free-trade outpost docked to Blackstone Fortress, freq=3)", () => {
+  assert.equal(resolveLocation("Precipice").id, "precipice");
+});
+
+check("direct match - eighth wave Crannog Mons (Cadian feature, Cadian Saga, freq=2)", () => {
+  assert.equal(resolveLocation("Crannog Mons").id, "crannog_mons");
+});
+
+check("direct match - eighth wave Malouri (Cadian feature, Cadian Saga, freq=2)", () => {
+  assert.equal(resolveLocation("Malouri").id, "malouri");
+});
+
+check("direct match - eighth wave Almace (Cardinal world, Charadon Crusade target, freq=1 lore-iconic M42)", () => {
+  assert.equal(resolveLocation("Almace").id, "almace");
+});
+
+check("direct match - eighth wave Thennos (Iron Hands forge moon, Eye of Medusa, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Thennos").id, "thennos");
+});
+
+check("direct match - eighth wave Saim-Hann (Aeldari craftworld, location-axis row; faction-axis aliases to eldar)", () => {
+  assert.equal(resolveLocation("Saim-Hann").id, "saim_hann");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {
