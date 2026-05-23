@@ -1798,3 +1798,20 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** `Necrons`, `Orks`, `Snakebites`, `Blood Axes`, `Freebooterz`, `Chaos Cultists`, `Imperial Navy`, `Alpha Legion`, `Adeptus Astartes`, `Black Templars`, `Inquisition`, `Ordo Xenos`. Locations: `Sedh`, `Antikef`, `Ullanor`, `Armageddon`, `Gabal`, `Ultima Segmentum`. Characters with grot-naming convention preserved as-is (`Fingwit`, `Redsnot`, `Slipbit`, `Bodgit`, `Makari`).
 - **Verifikation:** Reiner Daten-Commit (Override-JSON + Markdown-Append) — `npm run lint` / `typecheck` / `brain:lint` per Brief-061-Konvention übersprungen.
+
+## 2026-05-23 · ssot-w40k-057 · W40K-0561..W40K-0565 · ✅
+
+- **Cumulative books in authority:** 565
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=560, batch=ssot-w40k-057, slice=W40K-0561..W40K-0565 (5 books — final W40K wave)
+- **WebSearch:** mean=1.2, max=2 (over 5 books; +1 supplemental for Ghost Legion to find Goodreads URL)
+- **Per-book bullets:**
+  - W40K-0561 Ghost Legion (Mike Brooks, 2026) — sequel to *Harrowmaster*; entry_point=mid_series; surprisingly thick coverage for a Feb-2026 release (130 Goodreads ratings already).
+  - W40K-0562 Lord of the Fallen (John French, 2023) — marketplace metadata uses the full title "Cypher: Lord of the Fallen", roster slug `lord-of-the-fallen` already matches BL spine; no format conflict.
+  - W40K-0563 Auric Gods (Nick Kyme, 2018) — Chaos antagonist on Vorganthian described only as 'cultists' in available coverage; no specific Chaos sub-faction named, `low_confidence` flag set on factions rather than guessing.
+  - W40K-0564 Severed (Nate Crowley, 2019) — Necron-POV novella; `Sautekh Dynasty` and `Necrons` both tagged `primary` so dynasty browse-root and species browse-root each surface it.
+  - W40K-0565 Prisoners of Waaagh! (Justin Woolley, 2020) — roster lists author as "Justin Wooley" (one L); Black Library / Goodreads canonical spelling is "Woolley" (two L). Author-string is informational here (no override field for author), so noted only.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "The Fallen" (Dark Angels splinter), "Officio Assassinorum" (Imperial assassin temples), "Sautekh Dynasty" (Necron dynasty), "Pale Spear" (artefact, synopsis only), "Ghoul Stars" (region), "'Eadbasha" (Ork warboss, leading apostrophe).
+- **Verification skipped:** lint / typecheck / brain:lint per Brief-061 (pure-data commit: one new override JSON + one log append, no code).
+- **Milestone:** cumulativeBefore=560 + slice=5 reaches 565/565 W40K. Loop helper should now flip into HH domain on next run; no Loop-Complete yet (HH still pending).
