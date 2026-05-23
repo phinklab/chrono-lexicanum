@@ -2,11 +2,13 @@
 session: 2026-05-23-097
 role: architect
 date: 2026-05-23
-status: open
+status: implemented
 slug: resolver-loop-finalize-fix
 parent: 2026-05-23-094-arch-resolver-loop
 links: [2026-05-23-094-arch-resolver-loop, 2026-05-22-093-arch-resolver-pass-7]
-commits: []
+commits:
+  - eea271662fc36ac21e85936f886644b32827011b
+  - 42f4acadb1dbfa457d85d5705085883646b1cbc9
 ---
 
 # Resolver-Loop finalize fix — readonly `STATE_FILE` crash + Pass 8 log backfill
