@@ -2,10 +2,11 @@
 title: Claude Code session workflow
 type: workflow
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-23
 sources:
   - ../../../docs/agents/CLAUDE_CODE.md
   - ../../../docs/agents/SESSIONS.md
+  - ../../../sessions/2026-05-23-095-arch-rollup-ownership.md
 related:
   - ./cowork-session.md
   - ./sessions-format.md
@@ -20,9 +21,10 @@ confidence: high
 ## How a CC session begins
 
 1. `git pull` (or `git status` if Philipp already pulled).
-2. List recent files in `sessions/` — sort by name. The brief to pick up is the highest-numbered `*-arch-*.md` with `status: open`.
-3. Read it end-to-end. Read referenced files (`brain/wiki/architecture.md`, `brain/wiki/roadmap.md`, `brain/wiki/pipeline-state.md`, etc.) the brief points at.
-4. **If anything in the brief is ambiguous or wrong, do NOT silently fix it.** Either ask Philipp in the terminal, or — if Philipp isn't around — write a short `*-impl-*.md` with `status: needs-decision` describing what's unclear, commit, stop.
+2. **Self-check the worktree.** Run `git branch --show-current` and `git status --short --branch`. Infer the strand from the worktree path — CC always derives the strand itself, never asks the maintainer which worktree this is. **Announce the detected worktree, strand, and task-branch in one sentence** before touching any files (e.g. *"Worktree: `chrono-lexicanum-batches`, Strang: Batch/Ingestion, Branch: `codex/ingest-batches-foo`."*). If the task Philipp gave doesn't match the detected strand — UI work in the Batches worktree, batch/resolver work in the Product worktree, a Brain/Rollup edit from a strand worktree, or vice versa — **halt and ask back** before starting. Detail in [`/CLAUDE.md`](../../../CLAUDE.md) § "Parallel worktrees" + [`/AGENTS.md`](../../../AGENTS.md) § "Parallel worktree git protocol".
+3. List recent files in `sessions/` — sort by name. The brief to pick up is the highest-numbered `*-arch-*.md` with `status: open`.
+4. Read it end-to-end. Read referenced files (`brain/wiki/architecture.md`, `brain/wiki/roadmap.md`, `brain/wiki/pipeline-state.md`, etc.) the brief points at.
+5. **If anything in the brief is ambiguous or wrong, do NOT silently fix it.** Either ask Philipp in the terminal, or — if Philipp isn't around — write a short `*-impl-*.md` with `status: needs-decision` describing what's unclear, commit, stop.
 
 ## Read-order on session-start (post-049)
 
@@ -105,6 +107,9 @@ Same as commits: terse, factual, useful. No marketing voice, no apologies, no "I
 
 ## Brain updates from CC?
 
-Cowork is the primary Brain-editor. CC's main contribution is via the implementer-report (which Cowork then ingests into the wiki post-session). **However:** if a CC implementation embodies a substantive new fact about the system that Cowork would obviously want in the wiki (e.g. a migration shipped, a new module landed, a flag was renamed), CC may update the relevant wiki pages **as part of the same commit** — reduces Cowork's session-end overhead. Pages like `pipeline-state.md` are obvious candidates.
+**The rule is worktree-bound (Brief 095).** Cowork is the sole writer of the **coordination-only set** — `sessions/README.md` plus everything under `brain/` (wiki pages, `brain/CLAUDE.md`, `decisions/`, `workflows/`, `index.md`, `log.md`, `glossary.md`, `outputs/`). Two cases for CC:
 
-If unsure: leave the wiki update to Cowork's session-end pass. Brain pages with stale facts are catchable by Lint; not-yet-written facts in the next brief are catchable by Cowork's read of the report.
+- **CC in a strand worktree** (`chrono-lexicanum-product` or `chrono-lexicanum-batches`): **never** writes `brain/**`, **never** writes `sessions/README.md` — not in a normal session, not in a mechanical runbook, not as a "short wiki note on the side". Substantive system facts that Cowork would want in the wiki (a migration shipped, a new module landed, a flag was renamed) go into the impl report's **"What I did"** or **"For next session"**. Cowork picks them up in the post-merge coordination pass and folds them into the relevant `brain/wiki/*` page.
+- **CC in the coordination worktree** (`chrono-lexicanum`, meta/session briefs like the one that introduced this rule): edits `brain/` freely — that is the place for it. The atomic-commit pairing "code change + Brain update in one commit" survives only here.
+
+The point of the rule is **conflict-freeness for parallel strand PRs.** Briefs and reports are always fresh files and never collide; only the rollup/index files get rewritten in every session and would otherwise tear when two strand branches pushed in parallel. Single-writer discipline on `sessions/README.md` + `brain/**` lets the two strands rebase against `origin/main` without merge conflicts. Detail in [`/CLAUDE.md`](../../../CLAUDE.md) § "Brain & Atlas" + § "Parallel worktrees" → "Rollup-Ownership".
