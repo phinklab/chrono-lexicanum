@@ -1,0 +1,487 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-054",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-23",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Closing six-book stretch of the Dawn of Fire mainline (#4-#9) plus its 2025 Imperial-soldier anthology and a Ferren-Areios captaincy spin-off, then the first two Warhammer Crime releases that launched the imprint in 2020. Two very recent (Nov/Dec 2025) titles - No Peace Among Stars and Master of Rites - return unrated because no Goodreads page could be reached during research.",
+  "books": [
+    {
+      "externalBookId": "W40K-0531",
+      "slug": "throne-of-light",
+      "overrides": {
+        "synopsis": "The Indomitus Crusade marches on, but the heart of the Imperium is buckling. With Roboute Guilliman finally pushing past the ork threat near Fenris and turning his armies toward Imperium Sanctus, Kor Phaeron - the Dark Cardinal of the Word Bearers - stirs rebellion across Segmentum Solar and sends his priests to hunt the Black Ships before they can ferry Terra's psykers home. As waves of heresy threaten to choke the throneworld itself, Inquisitor Rostov hunts the elusive Hand of Abaddon. When astropathic visions of strange, hopeful miracles bleed out of the relay on Srinagar, his search pivots - the foretelling may be the only light the Imperium has left.",
+        "facetIds": [
+          "book",
+          "male",
+          "multi",
+          "imperium",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "grimdark",
+          "action_heavy",
+          "war",
+          "faith",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Inquisition", "role": "primary" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Segmentum Solar", "role": "primary" },
+          { "name": "Srinagar", "role": "supporting" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Inquisitor Rostov", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "supporting" },
+          { "name": "Kor Phaeron", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.04,
+          "count": 968,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59893653-throne-of-light"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0532",
+      "slug": "the-iron-kingdom",
+      "overrides": {
+        "synopsis": "Battle Group Praxis arrives at Kamidar bearing the body of the Iron Queen Orlah's slain daughter, killed serving Guilliman's crusade. The mission is meant to look like alliance, but the Imperium has come to strip the Knight world's foundries bare and bind it into the Anaxian Line - the great defensive wall meant to hold the Indomitus Crusade together. Kamidar has stood alone for generations and does not bend easily. Old loyalties curdle, the funeral becomes a flashpoint, and as the Iron Queen's grief turns to fury, agents of Abaddon move in the shadows to widen every crack they can find. What was offered as homecoming hardens into siege, and the war for the Anaxian Line begins on the very planet that was meant to defend it.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "multi",
+          "imperium",
+          "sector",
+          "mid_series",
+          "standard",
+          "war_story",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "war",
+          "betrayal",
+          "loyalty",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Knights", "role": "primary" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Black Legion", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Kamidar", "role": "primary" },
+          { "name": "Anaxian Line", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Iron Queen Orlah", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "antagonist subfaction inferred from 'agents of Abaddon' framing; specific Black Legion identification not directly confirmed in available sources" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.57,
+          "count": 674,
+          "evidenceUrl": "https://www.goodreads.com/book/show/65640678-the-iron-kingdom"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0533",
+      "slug": "the-martyrs-tomb",
+      "overrides": {
+        "synopsis": "The shrine worlds of the Golden Chain are crumbling, all but Velua, where Canoness Irinya of the Order of Our Martyred Lady and Champion Gaheris of the Black Templars hold the line against plague-stricken cultists tearing the planet to anarchy. As the Death Guard's true face emerges from the rot, the fate of Velua - and of the wider Indomitus Crusade - turns on the disgraced Rogue Trader Katla Helvintr, called in by Guilliman to do what neither prayer nor blade has managed. Faith, fury and old debts converge over a tomb that was never meant to be opened.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "multi",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "war",
+          "faith",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Order of Our Martyred Lady", "role": "primary" },
+          { "name": "Black Templars", "role": "supporting" },
+          { "name": "Rogue Traders", "role": "supporting" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Velua", "role": "primary" },
+          { "name": "Golden Chain", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Canoness Irinya", "role": "pov" },
+          { "name": "Gaheris", "role": "pov" },
+          { "name": "Katla Helvintr", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.51,
+          "count": 572,
+          "evidenceUrl": "https://www.goodreads.com/book/show/124943688-the-martyr-s-tomb"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0534",
+      "slug": "sea-of-souls",
+      "overrides": {
+        "synopsis": "Fleet Secundus carves a course straight toward the Eye of Terror, and the Imperial Navy battle cruiser Judgement of the Void leads it. A handful of Adeptus Astartes, a squad of Adepta Sororitas including the hospitaller Sister Isobel, and a tightly drawn crew of mortals must endure a journey that becomes its own kind of warfare: nightmares bleeding through hull-plating, treachery splitting the bridge, the deep warp pressing on every soul aboard. The deeper they sail, the more clearly the ship - and its passengers - become the battlefield. By the time the enemy closes in for real, the Judgement of the Void's crew are already half-broken, and the wider schemes of the Indomitus Crusade have begun to unravel.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "multi",
+          "imperium",
+          "sector",
+          "mid_series",
+          "standard",
+          "war_story",
+          "journey",
+          "grimdark",
+          "cosmic_horror",
+          "somber",
+          "war",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Navy", "role": "primary" },
+          { "name": "Adepta Sororitas", "role": "supporting" },
+          { "name": "Adeptus Astartes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sister Isobel", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Chaos antagonist sub-faction not confidently identifiable from public sources for this Eye-of-Terror voyage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.06,
+          "count": 625,
+          "evidenceUrl": "https://www.goodreads.com/book/show/202445877-sea-of-souls"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0535",
+      "slug": "hand-of-abaddon",
+      "overrides": {
+        "synopsis": "Inquisitor Rostov's hunt for the Hand of Abaddon finally turns up the intelligence he has been chasing across the crusade, and he calls in every blade he can still trust. On the Anaxian Line, Ultramarines Lieutenant Ferren Areios stumbles into a dread vision that ties him to an old comrade's path. Magda Kesh marches with the 84th Mordian, refusing the destiny pressed onto her by the men and miracles that surround her. And inside the shifting court of the Archenemy, the acolyte Tharador Yheng strains to slip free of her master Tenebrus's shadow, while the Red Corsair Graeyl Herek chases his own claim on the Dark Gods' favour. Both want the same ancient evil - and whichever one of them takes it will reshape the war between the Imperium and Chaos.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "multi",
+          "dual",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "war",
+          "betrayal",
+          "faith",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Inquisition", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Mordian Iron Guard", "role": "supporting" },
+          { "name": "Red Corsairs", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Anaxian Line", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Inquisitor Rostov", "role": "pov" },
+          { "name": "Ferren Areios", "role": "pov" },
+          { "name": "Magda Kesh", "role": "pov" },
+          { "name": "Tharador Yheng", "role": "pov" },
+          { "name": "Graeyl Herek", "role": "pov" },
+          { "name": "Tenebrus", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.91,
+          "count": 458,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/215697629-hand-of-abaddon"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0536",
+      "slug": "the-silent-king",
+      "overrides": {
+        "synopsis": "The first phase of the Indomitus Crusade closes with Imperium Sanctus tenuously held, Roboute Guilliman fighting wars on every horizon, and Ultramar itself once again under threat. But the Avenging Son's road bends south - Battlefleet Kallides, dispatched into the deathly null space of the Pariah Nexus, has not been heard from in years. The necron dynasties are knitting themselves into a single power, and an old name is rising again from the dust of long-dead empires: Szarekh, the Silent King. Guilliman gathers the heart of his crusade and turns it toward a foe older than the Emperor, knowing that whatever he finds in the Pariah Nexus may be what finally turns the war.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "series_finale",
+          "doorstopper",
+          "war_story",
+          "grimdark",
+          "action_heavy",
+          "war",
+          "hubris",
+          "sacrifice",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Pariah Nexus", "role": "primary" },
+          { "name": "Ultramar", "role": "supporting" },
+          { "name": "Imperium Nihilus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "pov" },
+          { "name": "Szarekh", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.96,
+          "count": 388,
+          "evidenceUrl": "https://www.goodreads.com/book/show/221160754-the-silent-king"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0537",
+      "slug": "no-peace-among-stars",
+      "overrides": {
+        "synopsis": "Sixteen short stories from across the 41st Millennium, each cut to the rhythm of a single battlefield. Space Marines hold ridge-lines and reliquaries; Astra Militarum guardsmen and -women fight in trenches that swallow them whole; Adeptus Mechanicus skitarii probe the edges of forge worlds against rising xenos tides and the renewed thunder of Chaos. The Howling Griffons answer the Guns of Enth. Skitarius Ranger Iota-11 walks a colder kind of patrol. Across continents and crusade lines, the Imperium's three core soldier-castes go to work - and pay for every metre.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "war",
+          "sacrifice",
+          "brotherhood",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Adeptus Mechanicus", "role": "primary" },
+          { "name": "Howling Griffons", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Iota-11", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "Released 2025-11-07; no reachable Goodreads page during research window.",
+          "evidenceUrl": "https://www.goodreads.com/search?q=No+Peace+Among+Stars+Warhammer"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0538",
+      "slug": "master-of-rites",
+      "overrides": {
+        "synopsis": "Newly raised to Captain of the Ultramarines Sixth Company and burdened with the chapter's old title of Master of Rites, Ferren Areios is sent to the far reaches of Ultramar to take back worlds long abandoned to the Death Guard. Out here the Great Rift hangs close enough to fatten Nurgle's strength, and the Plague Marines have settled in like rot in a wound. As the offensive bogs down and casualty rolls climb to ruinous heights, Areios is pushed to the bone of his chapter's creed - alone in the Plague God's country, fighting not only for the worlds of the Reach but for the parts of himself he can still recognise.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "mid_series",
+          "standard",
+          "war_story",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "war",
+          "faith",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ultramar", "role": "primary" },
+          { "name": "Great Rift", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ferren Areios", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "Released 2025-12-05; no reachable Goodreads page during research window.",
+          "evidenceUrl": "https://www.goodreads.com/search?q=Master+of+Rites+Rob+Young"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0539",
+      "slug": "no-good-men",
+      "overrides": {
+        "synopsis": "Seven stories of justice as it is actually practised on the rain-slick streets of Varangantua - a city where the law is a job, not a virtue, and most of the people doing it would rather not have to remember their day. Probators chasing inquiries that pay better than they should; sanctioners running into walls they were not warned about; ordinary citizens trying to live one more month without becoming a case file. Chris Wraight, Darius Hinks, Gareth Hanrahan, Graham McNeill, Guy Haley, Marc Collins and Nick Kyme each take a corner of the same hive and show how the Imperium's largest exports are inequality and the people willing to enforce it.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "somber",
+          "betrayal",
+          "doubt",
+          "cw_violence",
+          "cw_crime",
+          "cw_death",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Enforcers", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Varangantua", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.03,
+          "count": 283,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/54861107-no-good-men"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0540",
+      "slug": "bloodlines",
+      "overrides": {
+        "synopsis": "In the towering hive city of Varangantua, Probator Agusto Zidarov is handed the kind of job no honest enforcer wants: find the missing son and heir of the wealthy magnate Udmil Terashova, and find him alive. The trail leads through cell-draining gangs, corporate warfare and the cartel courts that sit above the law. A bust goes bad; a sanctioner dies; a small inquiry becomes an open street war between the gangs and the Lucid Palace. As Zidarov pushes further into the city's dark plumbing, he stops asking who took the boy and starts asking what the powerful are willing to break to keep him quiet.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "series_start",
+          "standard",
+          "mystery",
+          "political_thriller",
+          "grimdark",
+          "somber",
+          "betrayal",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_crime",
+          "cw_death",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Enforcers", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Varangantua", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Probator Agusto Zidarov", "role": "pov" },
+          { "name": "Udmil Terashova", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.08,
+          "count": 1327,
+          "evidenceUrl": "https://www.goodreads.com/book/show/49090039-bloodlines"
+        }
+      }
+    }
+  ]
+}

@@ -1735,3 +1735,24 @@
 - **value_outside_vocabulary:** ["short_story (suggested format-facet for eShorts — not in current facet-catalog: format=book/audiobook/animation/live_action/audio_drama/podcast)", "omnibus (suggested format-facet for collected-novels volumes like Unholy)", "age_of_sigmar / mixed_w40k_aos (suggested domain-flag values; no domain facet today, surfaced via data_conflict flags only)"]
 - **Notable surface-forms (within this batch):** "Vlka Fenryka" (Space Wolves chapter-tongue), "Ghazghkull Mag Uruk Thraka" (preserved verbatim per surface-form treue), "Argent Shroud" (specific Sisters of Battle preceptory under Adepta Sororitas), "White Consuls" (Ultramarines successor chapter), "Battlegroup Saint Aster" (Indomitus Crusade formation), "Tales of Mhurghast" (AoS series Black-Eyed Saint belongs to).
 - **Verifikation:** lint / typecheck / brain:lint übersprungen — reiner Daten-Commit (Override-JSON + Log-Append), keine Code-Pfade berührt (Brief-061-Konvention).
+
+## 2026-05-23 · ssot-w40k-054 · W40K-0531..W40K-0540 · ✅
+
+- **Cumulative books in authority:** 540
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=530, batch=ssot-w40k-054, slice=W40K-0531..W40K-0540
+- **WebSearch:** mean=1.7, max=3 (over 10 books)
+- **Per-book bullets:**
+  - W40K-0531 Throne of Light: multi-POV Dawn-of-Fire installment, factions stayed at chapter/legion granularity.
+  - W40K-0532 The Iron Kingdom: antagonist sub-faction (Black Legion) inferred from "agents of Abaddon" phrasing — flagged low_confidence on factions.
+  - W40K-0533 The Martyr's Tomb: clean three-POV map (Sororitas/Templars/Rogue Trader vs Death Guard).
+  - W40K-0534 Sea of Souls: confined-ship piece; specific Chaos antagonist sub-faction not nameable from public sources — flagged low_confidence on factions.
+  - W40K-0535 Hand of Abaddon: large dramatis personae with sustained dual POV across Imperium/Chaos; Mordian Iron Guard used as Astra Militarum sub.
+  - W40K-0536 The Silent King: Dawn-of-Fire finale, Ultramarines-vs-Necrons frame; entry_point=series_finale.
+  - W40K-0537 No Peace Among Stars: anthology, very recent (2025-11) — Goodreads page unreachable, marked unrated. Howling Griffons surfaced as a named sub-Astartes faction.
+  - W40K-0538 Master of Rites: recent (2025-12), Ferren-Areios spin-off — Goodreads page unreachable, marked unrated.
+  - W40K-0539 No Good Men: Warhammer Crime anthology — first appearance of Varangantua / Enforcers / Probators surface forms in the authority layer.
+  - W40K-0540 Bloodlines: Warhammer Crime debut novel; Probator Zidarov POV, civilian protagonist_class.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Order of Our Martyred Lady, Mordian Iron Guard, Howling Griffons, Red Corsairs, Black Legion, Enforcers, Probators, Anaxian Line, Pariah Nexus, Golden Chain, Eye of Terror, Kamidar, Velua, Srinagar, Varangantua, Iron Queen Orlah, Probator Agusto Zidarov, Ferren Areios, Tharador Yheng, Tenebrus, Graeyl Herek, Magda Kesh, Sister Isobel, Canoness Irinya, Gaheris, Katla Helvintr, Szarekh, Kor Phaeron, Roboute Guilliman, Inquisitor Rostov, Udmil Terashova, Iota-11.
+- **Verification:** lint/typecheck/brain:lint skipped per Brief 061 (pure data commit).
