@@ -42,15 +42,28 @@ Durable local worktrees:
 
 `main` is read-only for local work. Never commit on `main`.
 
+**Rollup-Ownership (coordination-worktree-only).** The two strand worktrees (`chrono-lexicanum-product`, `chrono-lexicanum-batches`) **never write** the following files — only the coordination worktree (`chrono-lexicanum`) does:
+
+- `sessions/README.md`
+- everything under `brain/` (`brain/**`) — wiki pages, `brain/CLAUDE.md`, `decisions/`, `workflows/`, `index.md`, `log.md`, `glossary.md`, `outputs/`.
+
+The rule holds in normal sessions, in mechanical runbooks, and as a "short wiki note on the side" — there is no exception. A strand that would previously have updated `project-state.md` / `log.md` / `index.md` / `README.md` records the same facts in its **impl report** (a fresh per-session file, single-writer, conflict-free). Cowork backfills the coordination-only set in a post-merge pass from the coordination worktree; that is the **only** path through which these files change.
+
+What strands **do** keep writing (unchanged): their own code/data paths (Product: `src/app/**`, `src/components/**`, `public/lab/**`, `docs/ui-backlog.md`; Batches: `scripts/**`, `src/lib/{seed,resolver,ingestion}/**`, override JSONs under `scripts/seed-data/`, `sessions/ssot-loop-log.md`, `sessions/resolver-dossiers/`), plus their own new per-session impl report. All per-session files are single-writer and never collide.
+
+The rule is bound to the **worktree path**, not to the agent — the path is pinned at session-start (below). The question "may I write `brain/`?" reduces to "am I in the coordination worktree?". An agent implementing a meta/session brief in the coordination worktree edits `brain/` freely; an agent in a strand worktree never does.
+
 At the start of any implementation session:
 
 1. Run `git branch --show-current` and `git status --short --branch`.
-2. Infer the strand from the current worktree path.
+2. Infer the strand from the current worktree path. The agent always derives the strand itself — never ask the maintainer which worktree this is.
 3. If the current branch is `main`, detached, a bootstrap branch, or a previously merged task branch, create a fresh task branch from `origin/main` before editing:
    - Product/UI: `codex/product-<short-slug>`
    - Batch/Ingestion: `codex/ingest-batches-<short-slug>`
    - Meta/session-only: `codex/session-<NNN>-<short-slug>`
 4. Do not branch from an inflight feature branch unless Philipp explicitly says this session continues that exact branch.
+5. **Before editing any files, announce the detected worktree, strand, and task-branch in one sentence** (e.g. *"Worktree: `chrono-lexicanum-batches`, Strang: Batch/Ingestion, Branch: `codex/ingest-batches-foo`."*). A wrong-folder mistake becomes visible immediately.
+6. **If the task does not match the detected strand** — UI work in the Batches worktree, batch/resolver work in the Product worktree, a Brain/Rollup edit asked for from a strand worktree, or vice versa — **halt and ask back** instead of starting in the wrong place. This is a self-check, not a maintainer question; the agent reads the path and decides.
 
 When Philipp says `fertig`, `PR erstellen`, or equivalent:
 
