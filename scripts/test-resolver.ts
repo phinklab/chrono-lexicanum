@@ -784,6 +784,59 @@ check("unknown - sixth wave Galenus stays null (identity-ambiguous, deliberately
   assert.equal(resolveCharacter("Galenus").id, null);
 });
 
+check("direct match - seventh wave Asdrubael Vect (Supreme Overlord of Commorragh, freq 4)", () => {
+  assert.equal(resolveCharacter("Asdrubael Vect").id, "asdrubael_vect");
+});
+
+check("direct match - seventh wave Lord Solar Macharius (lore-iconic Macharian Crusade, freq 4)", () => {
+  assert.equal(resolveCharacter("Lord Solar Macharius").id, "lord_solar_macharius");
+});
+
+check("direct match - seventh wave Koorland (Beast Arises POV, freq 10)", () => {
+  assert.equal(resolveCharacter("Koorland").id, "koorland");
+});
+
+check("direct match - seventh wave Drakan Vangorich (Officio Assassinorum, freq 8)", () => {
+  assert.equal(resolveCharacter("Drakan Vangorich").id, "drakan_vangorich");
+});
+
+check("direct match - seventh wave Cypher (fallen_angels FK via Phase-1 alias decision)", () => {
+  assert.equal(resolveCharacter("Cypher").id, "cypher");
+});
+
+check("direct match - seventh wave The Blade of Antwyr (weapon-as-character edge case, daemons FK)", () => {
+  assert.equal(resolveCharacter("The Blade of Antwyr").id, "the_blade_of_antwyr");
+});
+
+check("direct match - seventh wave Danial Tan Draconis (house_draconis, Phase-1 FK)", () => {
+  assert.equal(resolveCharacter("Danial Tan Draconis").id, "danial_tan_draconis");
+});
+
+check("alias-consolidation - seventh wave Ahzek Ahriman both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Ahzek Ahriman").id, "ahzek_ahriman");
+  assert.equal(resolveCharacter("Ahriman").id, "ahzek_ahriman");
+});
+
+check("alias-consolidation - seventh wave Abaddon the Despoiler both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Abaddon the Despoiler").id, "abaddon_the_despoiler");
+  assert.equal(resolveCharacter("Abaddon").id, "abaddon_the_despoiler");
+});
+
+check("alias-consolidation - seventh wave Sebastian Yarrick both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Sebastian Yarrick").id, "sebastian_yarrick");
+  assert.equal(resolveCharacter("Commissar Yarrick").id, "sebastian_yarrick");
+});
+
+check("alias-consolidation - seventh wave Commander Farsight both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Commander Farsight").id, "commander_farsight");
+  assert.equal(resolveCharacter("Farsight").id, "commander_farsight");
+});
+
+check("alias-consolidation - seventh wave Gunnlaugur both surface forms collapse to one row", () => {
+  assert.equal(resolveCharacter("Gunnlaugur").id, "gunnlaugur");
+  assert.equal(resolveCharacter("Gunnlaugr").id, "gunnlaugur");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {
