@@ -365,6 +365,30 @@ check("direct match - eighth wave Blood Drinkers (Blood Angels successor chapter
   assert.equal(resolveFaction("Blood Drinkers").id, "blood_drinkers");
 });
 
+check("direct match - ninth wave Ogryns (Astra Militarum abhuman auxiliaries, freq=2 strict, Baggit-and-Clodde duology)", () => {
+  assert.equal(resolveFaction("Ogryns").id, "ogryns");
+});
+
+check("direct match - ninth wave Sautekh Dynasty (Necron dynasty grain, freq=1 lore-iconic, Severed)", () => {
+  assert.equal(resolveFaction("Sautekh Dynasty").id, "sautekh_dynasty");
+});
+
+check("alias - ninth wave Enforcers routes to Adeptus Arbites (Varangantua Crime sub-faction, freq=2 strict)", () => {
+  assert.equal(resolveFaction("Enforcers").id, "adeptus_arbites");
+});
+
+check("alias - ninth wave Argent Shroud routes to Sisters of Battle (Sororitas preceptory, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Argent Shroud").id, "sisters_of_battle");
+});
+
+check("alias - ninth wave Chaos Cultists routes to Chaos umbrella (generic Chaos surface form, freq=1)", () => {
+  assert.equal(resolveFaction("Chaos Cultists").id, "chaos");
+});
+
+check("alias - ninth wave Chaos Cults routes to Chaos umbrella (generic Chaos surface form, freq=1)", () => {
+  assert.equal(resolveFaction("Chaos Cults").id, "chaos");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {

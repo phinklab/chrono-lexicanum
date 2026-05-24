@@ -1185,5 +1185,19 @@
     "parent": "adeptus_astartes",
     "alignment": "imperium",
     "tone": "imperial"
+  },
+  {
+    "id": "ogryns",
+    "name": "Ogryns",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "sautekh_dynasty",
+    "name": "Sautekh Dynasty",
+    "parent": "necrons",
+    "alignment": "xenos",
+    "tone": "alien"
   }
 ]
