@@ -455,5 +455,65 @@
     "id": "james_brogden",
     "name": "James Brogden",
     "nameSort": "Brogden, James"
+  },
+  {
+    "id": "kim_newman",
+    "name": "Kim Newman",
+    "nameSort": "Newman, Kim"
+  },
+  {
+    "id": "james_brogdan",
+    "name": "James Brogdan",
+    "nameSort": "Brogdan, James"
+  },
+  {
+    "id": "richard_strachan",
+    "name": "Richard Strachan",
+    "nameSort": "Strachan, Richard"
+  },
+  {
+    "id": "anna_stephens",
+    "name": "Anna Stephens",
+    "nameSort": "Stephens, Anna"
+  },
+  {
+    "id": "chris_winterton",
+    "name": "Chris Winterton",
+    "nameSort": "Winterton, Chris"
+  },
+  {
+    "id": "j_h_archer",
+    "name": "J. H. Archer",
+    "nameSort": "Archer, J. H."
+  },
+  {
+    "id": "jeremy_lambert",
+    "name": "Jeremy Lambert",
+    "nameSort": "Lambert, Jeremy"
+  },
+  {
+    "id": "jamie_mistry_evans",
+    "name": "Jamie Mistry-Evans",
+    "nameSort": "Mistry-Evans, Jamie"
+  },
+  {
+    "id": "chris_thursten",
+    "name": "Chris Thursten",
+    "nameSort": "Thursten, Chris"
+  },
+  {
+    "id": "dale_lucas",
+    "name": "Dale Lucas",
+    "nameSort": "Lucas, Dale"
+  },
+  {
+    "id": "alec_worley",
+    "name": "Alec Worley",
+    "nameSort": "Worley, Alec"
+  },
+  {
+    "id": "justin_wooley",
+    "name": "Justin Wooley",
+    "nameSort": "Wooley, Justin"
   }
 ]
