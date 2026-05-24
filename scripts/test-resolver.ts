@@ -635,6 +635,34 @@ check("direct match - eighth wave Saim-Hann (Aeldari craftworld, location-axis r
   assert.equal(resolveLocation("Saim-Hann").id, "saim_hann");
 });
 
+check("direct match - ninth wave Varangantua (Warhammer Crime hive city, master Crime setting, freq=10 wave-top surface form)", () => {
+  assert.equal(resolveLocation("Varangantua").id, "varangantua");
+});
+
+check("direct match - ninth wave Alecto (Sector grain containing Varangantua, freq=8)", () => {
+  assert.equal(resolveLocation("Alecto").id, "alecto");
+});
+
+check("direct match - ninth wave Antikef (Necron crownworld, Twice-Dead King trilogy + omnibus, freq=3)", () => {
+  assert.equal(resolveLocation("Antikef").id, "antikef");
+});
+
+check("direct match - ninth wave Sedh (Necron-adjacent world to Antikef, Twice-Dead King cluster, freq=2)", () => {
+  assert.equal(resolveLocation("Sedh").id, "sedh");
+});
+
+check("direct match - ninth wave Anaxian Line (Dawn-of-Fire strategic region, Iron Kingdom + Hand of Abaddon, freq=2)", () => {
+  assert.equal(resolveLocation("Anaxian Line").id, "anaxian_line");
+});
+
+check("direct match - ninth wave Hive Blackbracken (King of Pigs + Resting Places anthology, freq=2)", () => {
+  assert.equal(resolveLocation("Hive Blackbracken").id, "hive_blackbracken");
+});
+
+check("direct match - ninth wave Imperial Palace (Terra sub-location, Lord of the Fallen, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Imperial Palace").id, "imperial_palace");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {
