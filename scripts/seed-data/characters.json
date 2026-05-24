@@ -2273,5 +2273,145 @@
     "primaryFactionId": "death_guard",
     "lexicanumUrl": null,
     "notes": "Resolver-Pass 8 Phase 3: Herald of Nurgle, host of the Destroyer Hive, lord of the Death Guard. Appears in Guy Haley's Plague War (W40K-0464). freq 1 lore-iconic per dossier 7c (Plague Lord of the Death Guard, primarch-tier antagonist)."
+  },
+  {
+    "id": "agusto_zidarov",
+    "name": "Agusto Zidarov",
+    "primaryFactionId": "adeptus_arbites",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7a Case A): Varangantua Probator (Warhammer Crime), POV of Chris Wraight's Bloodlines (W40K-0540) and recurring in the Broken City anthology (W40K-0543). freq 2 strict (combined across two books); the Probator-rank prefix is consolidated via alias 'Probator Agusto Zidarov'. primaryFactionId adeptus_arbites per dossier 7a (Probators surface as both Arbites rank and Enforcer role across these books — Pass-9 Phase-1 alias Enforcers→adeptus_arbites confirms the Browse-Root)."
+  },
+  {
+    "id": "djoseras",
+    "name": "Djoseras",
+    "primaryFactionId": "necrons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7b spine): Necron, Oltyx's brother in Nate Crowley's Twice-Dead King trilogy + omnibus (W40K-0551 Ruin, W40K-0552 Reign, W40K-0553 omnibus). freq 3 strict — anchored across the trilogy and the 2025 omnibus reissue."
+  },
+  {
+    "id": "oltyx",
+    "name": "Oltyx",
+    "primaryFactionId": "necrons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7b spine): Necron Nemesor protagonist of Nate Crowley's Twice-Dead King trilogy + omnibus (W40K-0551, W40K-0552, W40K-0553). freq 3 strict — POV across the entire trilogy."
+  },
+  {
+    "id": "yenekh",
+    "name": "Yenekh",
+    "primaryFactionId": "necrons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7b spine): Necron Cryptek, Oltyx's vizier in Nate Crowley's Twice-Dead King trilogy + omnibus (W40K-0551, W40K-0552, W40K-0553). freq 3 strict."
+  },
+  {
+    "id": "magister_sek",
+    "name": "Magister Sek",
+    "primaryFactionId": "sons_of_sek",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7b spine): Anarch Sek, leader of the Sons of Sek pact during the Urdesh campaign; antagonist of Matthew Farrer's Urdesh duology (W40K-0549 The Serpent and the Saint, W40K-0550 The Magister and the Martyr). freq 2 strict."
+  },
+  {
+    "id": "priad",
+    "name": "Priad",
+    "primaryFactionId": "iron_snakes",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7b spine): Iron Snakes Astartes (Damocles-Squad sergeant), POV across Matthew Farrer's Urdesh duology (W40K-0549, W40K-0550). freq 2 strict; primaryFactionId iron_snakes (Chapter-level grain)."
+  },
+  {
+    "id": "baggit",
+    "name": "Baggit",
+    "primaryFactionId": "ratlings",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7b spine): Ratling POV of Alec Worley's Baggit-and-Clodde duology (W40K-0547 Dredge Runners, W40K-0548 The Wraithbone Phoenix). freq 2 strict; primaryFactionId ratlings (Pass-8 promoted row — abhuman auxiliary grain)."
+  },
+  {
+    "id": "clodde",
+    "name": "Clodde",
+    "primaryFactionId": "ogryns",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7b spine): Ogryn POV of Alec Worley's Baggit-and-Clodde duology (W40K-0547 Dredge Runners, W40K-0548 The Wraithbone Phoenix). freq 2 strict; primaryFactionId ogryns — uses the Phase-1 new row (grain parity with Baggit/ratlings inside the same duology, dossier 7b/7c)."
+  },
+  {
+    "id": "tabidiah_kruger",
+    "name": "Tabidiah Kruger",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7b spine): Imperial handler / fixer paired with Baggit and Clodde across Alec Worley's duology (W40K-0547, W40K-0548). freq 2 strict; primaryFactionId astra_militarum as Imperial-line fallback (Kruger is a civilian-edge fixer with no clean sub-faction — broader Imperial-Guard umbrella per dossier 7b)."
+  },
+  {
+    "id": "inquisitor_rostov",
+    "name": "Inquisitor Rostov",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7b spine): John French's Ordo Hereticus Inquisitor across the Dawn of Fire spine (W40K-0531 Throne of Light, W40K-0535 Hand of Abaddon). freq 2 strict; primaryFactionId inquisition (parent grain)."
+  },
+  {
+    "id": "ferren_areios",
+    "name": "Ferren Areios",
+    "primaryFactionId": "salamanders",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7b spine): Salamanders Captain across Nick Kyme's Dawn of Fire entries (W40K-0535 Hand of Abaddon, W40K-0538 Master of Rites — the Areios spin-off). freq 2 strict; primaryFactionId salamanders."
+  },
+  {
+    "id": "solomon_akurra",
+    "name": "Solomon Akurra",
+    "primaryFactionId": "alpha_legion",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7b spine): Alpha Legion Harrowmaster, POV across Mike Brooks' Renegades duology (W40K-0560 Renegades: Harrowmaster, W40K-0561 Ghost Legion). freq 2 strict; primaryFactionId alpha_legion (direct § 3)."
+  },
+  {
+    "id": "szarekh",
+    "name": "Szarekh",
+    "primaryFactionId": "necrons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7c lore-iconic freq=1): The Silent King of the Necrons, primarch-tier Necron figure; antagonist of Guy Haley's The Silent King (W40K-0536, Dawn of Fire finale)."
+  },
+  {
+    "id": "nemesor_zahndrekh",
+    "name": "Nemesor Zahndrekh",
+    "primaryFactionId": "sautekh_dynasty",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7c lore-iconic freq=1): Sautekh Nemesor, eccentric Necron Lord still fighting his Imperial-era war; POV of Nate Crowley's Severed (W40K-0564). primaryFactionId sautekh_dynasty — uses the Phase-1 new finer-grain row (broader-grain fallback would be necrons)."
+  },
+  {
+    "id": "vargard_obyron",
+    "name": "Vargard Obyron",
+    "primaryFactionId": "sautekh_dynasty",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7c lore-iconic freq=1): Zahndrekh's loyal Vargard (bodyguard); Severed (W40K-0564). primaryFactionId sautekh_dynasty (Phase-1 finer-grain row; pair with nemesor_zahndrekh)."
+  },
+  {
+    "id": "trajann_valoris",
+    "name": "Trajann Valoris",
+    "primaryFactionId": "custodes",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7c lore-iconic freq=1): Captain-General of the Adeptus Custodes; Nick Kyme's Auric Gods (W40K-0563)."
+  },
+  {
+    "id": "kor_phaeron",
+    "name": "Kor Phaeron",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7c lore-iconic freq=1): Word Bearers Master of the Faith, Erebus's peer, Heresy-era Chaos lord; Guy Haley's Throne of Light (W40K-0531, Dawn of Fire #4)."
+  },
+  {
+    "id": "makari",
+    "name": "Makari",
+    "primaryFactionId": "orks",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7c lore-iconic freq=1): Ghazghkull's grot banner-bearer (Da Lucky 'Un); Nate Crowley's Ghazghkull Thraka: Prophet of the Waaagh! (W40K-0558)."
+  },
+  {
+    "id": "falx",
+    "name": "Falx",
+    "primaryFactionId": "ordo_xenos",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7c lore-iconic freq=1): Ordo Xenos Inquisitor in Nate Crowley's Ghazghkull Thraka: Prophet of the Waaagh! (W40K-0558). primaryFactionId ordo_xenos (direct § 3) per loop-log batch 056 primary-tagging."
+  },
+  {
+    "id": "iron_queen_orlah",
+    "name": "Iron Queen Orlah",
+    "primaryFactionId": "imperial_knights",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 9 Phase 3 (7c lore-iconic freq=1): Imperial Knight Queen of House Kamidar; Nick Kyme's The Iron Kingdom (W40K-0532, Dawn of Fire #5). primaryFactionId imperial_knights (direct § 3)."
   }
 ]

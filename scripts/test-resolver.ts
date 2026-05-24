@@ -1015,6 +1015,36 @@ check("direct match - eighth wave Typhus (Herald of Nurgle / Death Guard, freq=1
   assert.equal(resolveCharacter("Typhus").id, "typhus");
 });
 
+check("alias-consolidation - ninth wave Agusto Zidarov + Probator Agusto Zidarov collapse to one row (7a Case A, Bloodlines + Broken City)", () => {
+  assert.equal(resolveCharacter("Agusto Zidarov").id, "agusto_zidarov");
+  assert.equal(resolveCharacter("Probator Agusto Zidarov").id, "agusto_zidarov");
+});
+
+check("alias-consolidation - ninth wave Ghazghkull Mag Uruk Thraka + Ghazghkull Thraka collapse to one row (cross-pass 7a — Pass-7 ghazghkull_thraka row from Yarrick trilogy + full Pass-9 surface form across W40K-0530/0558/0559)", () => {
+  assert.equal(resolveCharacter("Ghazghkull Thraka").id, "ghazghkull_thraka");
+  assert.equal(resolveCharacter("Ghazghkull Mag Uruk Thraka").id, "ghazghkull_thraka");
+});
+
+check("direct match - ninth wave Oltyx (Necron Nemesor protagonist of Twice-Dead King trilogy + omnibus, freq=3)", () => {
+  assert.equal(resolveCharacter("Oltyx").id, "oltyx");
+});
+
+check("direct match - ninth wave Inquisitor Rostov (John French's Ordo Hereticus inquisitor across Dawn of Fire spine, freq=2)", () => {
+  assert.equal(resolveCharacter("Inquisitor Rostov").id, "inquisitor_rostov");
+});
+
+check("direct match - ninth wave Clodde (Ogryn POV of Baggit-and-Clodde duology, primaryFactionId=ogryns binds Phase-1 row, freq=2)", () => {
+  assert.equal(resolveCharacter("Clodde").id, "clodde");
+});
+
+check("direct match - ninth wave Trajann Valoris (Captain-General of the Adeptus Custodes, Auric Gods, freq=1 lore-iconic)", () => {
+  assert.equal(resolveCharacter("Trajann Valoris").id, "trajann_valoris");
+});
+
+check("direct match - ninth wave Szarekh (Necron Silent King, Dawn of Fire finale, freq=1 lore-iconic primarch-tier)", () => {
+  assert.equal(resolveCharacter("Szarekh").id, "szarekh");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {
