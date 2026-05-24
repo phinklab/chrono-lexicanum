@@ -365,6 +365,30 @@ check("direct match - eighth wave Blood Drinkers (Blood Angels successor chapter
   assert.equal(resolveFaction("Blood Drinkers").id, "blood_drinkers");
 });
 
+check("direct match - ninth wave Ogryns (Astra Militarum abhuman auxiliaries, freq=2 strict, Baggit-and-Clodde duology)", () => {
+  assert.equal(resolveFaction("Ogryns").id, "ogryns");
+});
+
+check("direct match - ninth wave Sautekh Dynasty (Necron dynasty grain, freq=1 lore-iconic, Severed)", () => {
+  assert.equal(resolveFaction("Sautekh Dynasty").id, "sautekh_dynasty");
+});
+
+check("alias - ninth wave Enforcers routes to Adeptus Arbites (Varangantua Crime sub-faction, freq=2 strict)", () => {
+  assert.equal(resolveFaction("Enforcers").id, "adeptus_arbites");
+});
+
+check("alias - ninth wave Argent Shroud routes to Sisters of Battle (Sororitas preceptory, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Argent Shroud").id, "sisters_of_battle");
+});
+
+check("alias - ninth wave Chaos Cultists routes to Chaos umbrella (generic Chaos surface form, freq=1)", () => {
+  assert.equal(resolveFaction("Chaos Cultists").id, "chaos");
+});
+
+check("alias - ninth wave Chaos Cults routes to Chaos umbrella (generic Chaos surface form, freq=1)", () => {
+  assert.equal(resolveFaction("Chaos Cults").id, "chaos");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
@@ -609,6 +633,34 @@ check("direct match - eighth wave Thennos (Iron Hands forge moon, Eye of Medusa,
 
 check("direct match - eighth wave Saim-Hann (Aeldari craftworld, location-axis row; faction-axis aliases to eldar)", () => {
   assert.equal(resolveLocation("Saim-Hann").id, "saim_hann");
+});
+
+check("direct match - ninth wave Varangantua (Warhammer Crime hive city, master Crime setting, freq=10 wave-top surface form)", () => {
+  assert.equal(resolveLocation("Varangantua").id, "varangantua");
+});
+
+check("direct match - ninth wave Alecto (Sector grain containing Varangantua, freq=8)", () => {
+  assert.equal(resolveLocation("Alecto").id, "alecto");
+});
+
+check("direct match - ninth wave Antikef (Necron crownworld, Twice-Dead King trilogy + omnibus, freq=3)", () => {
+  assert.equal(resolveLocation("Antikef").id, "antikef");
+});
+
+check("direct match - ninth wave Sedh (Necron-adjacent world to Antikef, Twice-Dead King cluster, freq=2)", () => {
+  assert.equal(resolveLocation("Sedh").id, "sedh");
+});
+
+check("direct match - ninth wave Anaxian Line (Dawn-of-Fire strategic region, Iron Kingdom + Hand of Abaddon, freq=2)", () => {
+  assert.equal(resolveLocation("Anaxian Line").id, "anaxian_line");
+});
+
+check("direct match - ninth wave Hive Blackbracken (King of Pigs + Resting Places anthology, freq=2)", () => {
+  assert.equal(resolveLocation("Hive Blackbracken").id, "hive_blackbracken");
+});
+
+check("direct match - ninth wave Imperial Palace (Terra sub-location, Lord of the Fallen, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Imperial Palace").id, "imperial_palace");
 });
 
 console.log("\nresolveCharacter");
@@ -961,6 +1013,36 @@ check("direct match - eighth wave Kardan Stronos (Iron Council Chapter Master, f
 
 check("direct match - eighth wave Typhus (Herald of Nurgle / Death Guard, freq=1 lore-iconic primarch-tier)", () => {
   assert.equal(resolveCharacter("Typhus").id, "typhus");
+});
+
+check("alias-consolidation - ninth wave Agusto Zidarov + Probator Agusto Zidarov collapse to one row (7a Case A, Bloodlines + Broken City)", () => {
+  assert.equal(resolveCharacter("Agusto Zidarov").id, "agusto_zidarov");
+  assert.equal(resolveCharacter("Probator Agusto Zidarov").id, "agusto_zidarov");
+});
+
+check("alias-consolidation - ninth wave Ghazghkull Mag Uruk Thraka + Ghazghkull Thraka collapse to one row (cross-pass 7a — Pass-7 ghazghkull_thraka row from Yarrick trilogy + full Pass-9 surface form across W40K-0530/0558/0559)", () => {
+  assert.equal(resolveCharacter("Ghazghkull Thraka").id, "ghazghkull_thraka");
+  assert.equal(resolveCharacter("Ghazghkull Mag Uruk Thraka").id, "ghazghkull_thraka");
+});
+
+check("direct match - ninth wave Oltyx (Necron Nemesor protagonist of Twice-Dead King trilogy + omnibus, freq=3)", () => {
+  assert.equal(resolveCharacter("Oltyx").id, "oltyx");
+});
+
+check("direct match - ninth wave Inquisitor Rostov (John French's Ordo Hereticus inquisitor across Dawn of Fire spine, freq=2)", () => {
+  assert.equal(resolveCharacter("Inquisitor Rostov").id, "inquisitor_rostov");
+});
+
+check("direct match - ninth wave Clodde (Ogryn POV of Baggit-and-Clodde duology, primaryFactionId=ogryns binds Phase-1 row, freq=2)", () => {
+  assert.equal(resolveCharacter("Clodde").id, "clodde");
+});
+
+check("direct match - ninth wave Trajann Valoris (Captain-General of the Adeptus Custodes, Auric Gods, freq=1 lore-iconic)", () => {
+  assert.equal(resolveCharacter("Trajann Valoris").id, "trajann_valoris");
+});
+
+check("direct match - ninth wave Szarekh (Necron Silent King, Dawn of Fire finale, freq=1 lore-iconic primarch-tier)", () => {
+  assert.equal(resolveCharacter("Szarekh").id, "szarekh");
 });
 
 console.log("\nnormalizeCharacterRole");

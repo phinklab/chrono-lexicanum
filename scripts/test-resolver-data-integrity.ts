@@ -69,6 +69,12 @@ const OVERRIDE_BATCHES = [
   "049",
   "050",
   "051",
+  "052",
+  "053",
+  "054",
+  "055",
+  "056",
+  "057",
 ] as const;
 const EXPECTED_SMOKE_SLUGS = [
   "the-anarch",
@@ -309,7 +315,7 @@ function main(): void {
     }
   });
 
-  check("coverage smoke slugs exist in 001..051", () => {
+  check("coverage smoke slugs exist in 001..057", () => {
     const slugs = new Set<string>();
     for (const batch of OVERRIDE_BATCHES) {
       const override = readJson<OverrideFile>(

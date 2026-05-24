@@ -52,5 +52,39 @@
     ],
     "knownMissingConstituents": [],
     "note": "Legends of the Dark Millennium anthology focused on the Space Wolves. book-roster.json carries 0 constituent edges. Three explicitly Space-Wolves-titled shorts exist as works in the cumulative roster and are confident constituents — Scent of a Traitor (W40K-0430, C.L. Werner, 2016, short_story), The Darkness of Angels (W40K-0432, Rob Sanders, 2016, short_story), Wrath of the Wolf (W40K-0433, C.L. Werner, 2016, short_story). All three share the anthology's 2016 publication year + the explicit \"Space Wolves:\" title prefix. Resolver-Pass-7 dossier §7d spot-check. Defer the edges until added to the roster (out of resolver-pass scope). Constituent works verified present in book-roster.json."
+  },
+  {
+    "collectionExternalId": "W40K-0553",
+    "title": "The Twice-Dead King Omnibus",
+    "status": "needs_constituent_collection_edges",
+    "knownExistingConstituents": [
+      "W40K-0564"
+    ],
+    "knownMissingConstituents": [],
+    "note": "Crowley's 2025 Necron omnibus. book-roster.json already links the Twice-Dead King novels Ruin (W40K-0551) and Reign (W40K-0552). Per Resolver-Pass-9 dossier §7d + ssot-loop-log batch 056 note: the 2025 omnibus actually bundles 'Ruin + Reign + Severed + shorts'. Severed (W40K-0564, Crowley, 2019, novella) is the third confident constituent — same author, same Necron protagonist cluster (Sautekh Dynasty: Zahndrekh / Obyron / Setekh) — but roster carries no edge. All endpoints inside applyRange 001..057 (Brief 091 range-aware forward-ref guard green). Defer the edge until added to the roster (out of resolver-pass scope). Constituent work verified present in book-roster.json."
+  },
+  {
+    "collectionExternalId": "W40K-0527",
+    "title": "Unholy Tales of Horror & Woe From The Imperium",
+    "status": "needs_constituent_collection_edges",
+    "knownExistingConstituents": [
+      "W40K-0501",
+      "W40K-0508",
+      "W40K-0509",
+      "W40K-0518"
+    ],
+    "knownMissingConstituents": [],
+    "note": "Warhammer Horror 4-novel omnibus collecting The Oubliette (W40K-0501, J.S. Stearns, 2020), Sepulturum (W40K-0508, Nick Kyme, 2020), The Deacon of Wounds (W40K-0509, David Annandale, 2020), and The Bookkeeper's Skull (W40K-0518, Justin D. Hill, 2022). book-roster.json carries 0 constituent edges. Per Resolver-Pass-9 dossier §7d + ssot-loop-log batch 053 note: explicit constituent list. All four constituents verified present in book-roster.json and inside applyRange 001..057 (Brief 091 range-aware forward-ref guard green). Override flagged format->omnibus on W40K-0527 (advisory, not resolver-actionable). Defer the edges until added to the roster (out of resolver-pass scope)."
+  },
+  {
+    "collectionExternalId": "W40K-0526",
+    "title": "The Resting Places",
+    "status": "needs_constituent_collection_edges",
+    "knownExistingConstituents": [
+      "W40K-0521",
+      "W40K-0524"
+    ],
+    "knownMissingConstituents": [],
+    "note": "Mixed-domain Warhammer Horror anthology (per data_conflict:domain->mixed_w40k_aos flag). book-roster.json carries 0 constituent edges. Per Resolver-Pass-9 dossier §7d: aggregates King of Pigs (W40K-0521, J. H. Archer, 2022) and Pain Engine (W40K-0524, Chris Thursten, 2022) plus AoS-flagged shorts not in W40K roster. Both confident in-range constituents verified present in book-roster.json and inside applyRange 001..057 (Brief 091 range-aware forward-ref guard green). Defer the edges until added to the roster (out of resolver-pass scope)."
   }
 ]

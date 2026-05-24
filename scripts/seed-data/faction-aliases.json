@@ -53,5 +53,9 @@
   "Officio Prefectus": "commissariat",
   "Ordo Sepulturum": "inquisition",
   "Saim-Hann": "eldar",
-  "Ziasuthra": "eldar"
+  "Ziasuthra": "eldar",
+  "Enforcers": "adeptus_arbites",
+  "Argent Shroud": "sisters_of_battle",
+  "Chaos Cultists": "chaos",
+  "Chaos Cults": "chaos"
 }

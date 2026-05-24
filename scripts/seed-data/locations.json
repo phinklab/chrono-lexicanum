@@ -1808,5 +1808,93 @@
     "gx": null,
     "gy": null,
     "tags": []
+  },
+  {
+    "id": "varangantua",
+    "name": "Varangantua",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "alecto",
+    "name": "Alecto",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "antikef",
+    "name": "Antikef",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["necrons"]
+  },
+  {
+    "id": "sedh",
+    "name": "Sedh",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["necrons"]
+  },
+  {
+    "id": "anaxian_line",
+    "name": "Anaxian Line",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "hive_blackbracken",
+    "name": "Hive Blackbracken",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "imperial_palace",
+    "name": "Imperial Palace",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium", "custodes"]
+  },
+  {
+    "id": "ghoul_stars",
+    "name": "Ghoul Stars",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region", "necrons"]
+  },
+  {
+    "id": "gathalamor",
+    "name": "Gathalamor",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["ecclesiarchy"]
+  },
+  {
+    "id": "kamidar",
+    "name": "Kamidar",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["imperial_knights"]
+  },
+  {
+    "id": "the_spoil",
+    "name": "The Spoil",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
   }
 ]
