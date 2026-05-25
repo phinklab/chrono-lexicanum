@@ -1,0 +1,133 @@
+{
+  "$schema": "consolidation-pass-db-snapshot-v1",
+  "pass": 1,
+  "scope": "W40K-Entity-Set (Pässe 1..9, batches ssot-w40k-001..057)",
+  "generatedAt": "2026-05-25T12:16:43.238Z",
+  "purpose": "Self-contained DB-side snapshot of every row touched by the merge plan, captured BEFORE the first Prod-DB mutation (Re-Apply). Pairs with the reference-premerge-snapshot (JSON side) for full JSON+DB rollback.",
+  "merges": [
+    {
+      "axis": "locations",
+      "mergee": "vigilus_s",
+      "keeper": "vigilus",
+      "loreDepth": "mechanical",
+      "evidence": "Phantom-Row mit name=\"Vigilus Core\" und falscher Metadata (sector=tempestus, gx=520, gy=520) statt korrekt (sector=ultima, gx=730, gy=355). Keine Override-Datei verweist auf die Surface-Form \"Vigilus Core\".",
+      "fieldRetention": {
+        "policy": "keeper-wins",
+        "fromMergee": []
+      },
+      "newAlias": {
+        "surface": "Vigilus Core",
+        "targetId": "vigilus",
+        "addTo": "scripts/seed-data/location-aliases.json"
+      }
+    },
+    {
+      "axis": "characters",
+      "mergee": "magister_sek",
+      "keeper": "anakwanar_sek",
+      "loreDepth": "mechanical",
+      "evidence": "Beide Rows verweisen auf den Anarch der Sons of Sek (Gaunt-Ghosts-Sabbat-Worlds-Lore). Pass-1-Row anakwanar_sek (referenziert in batches/ssot-w40k-004.json für Salvation's Reach + The Anarch) wurde von Pass-9-Phase-3 für die Urdesh-Duology W40K-0549/0550 nicht erkannt; Pass 9 erzeugte stattdessen magister_sek mit identischer primaryFactionId='sons_of_sek'.",
+      "fieldRetention": {
+        "policy": "fill-keeper-nulls-from-mergee",
+        "fromMergee": [
+          {
+            "field": "notes",
+            "reason": "keeper.notes was null; mergee.notes carries Urdesh-duology context worth preserving",
+            "newValue": "Anarch of the Sons of Sek, antagonist of Matthew Farrer's Urdesh duology (W40K-0549 The Serpent and the Saint, W40K-0550 The Magister and the Martyr); cross-cluster appearance in Sabbat-Worlds-Crusade-Saga (Salvation's Reach, The Anarch). Consolidation-Pass 1 merge of magister_sek into anakwanar_sek."
+          }
+        ]
+      },
+      "newAlias": {
+        "surface": "Magister Sek",
+        "targetId": "anakwanar_sek",
+        "addTo": "scripts/seed-data/character-aliases.json"
+      }
+    }
+  ],
+  "rows": {
+    "factions": [],
+    "locations": [
+      {
+        "id": "vigilus",
+        "name": "Vigilus",
+        "sectorId": "ultima",
+        "gx": 730,
+        "gy": 355,
+        "capital": false,
+        "warp": false,
+        "lexicanumUrl": null,
+        "tags": [
+          "ultramarines",
+          "astra_militarum"
+        ]
+      },
+      {
+        "id": "vigilus_s",
+        "name": "Vigilus Core",
+        "sectorId": "tempestus",
+        "gx": 520,
+        "gy": 520,
+        "capital": false,
+        "warp": false,
+        "lexicanumUrl": null,
+        "tags": []
+      }
+    ],
+    "characters": [
+      {
+        "id": "anakwanar_sek",
+        "name": "Anakwanar Sek",
+        "primaryFactionId": "sons_of_sek",
+        "lexicanumUrl": null,
+        "notes": null
+      },
+      {
+        "id": "magister_sek",
+        "name": "Magister Sek",
+        "primaryFactionId": "sons_of_sek",
+        "lexicanumUrl": null,
+        "notes": "Resolver-Pass 9 Phase 3 (7b spine): Anarch Sek, leader of the Sons of Sek pact during the Urdesh campaign; antagonist of Matthew Farrer's Urdesh duology (W40K-0549 The Serpent and the Saint, W40K-0550 The Magister and the Martyr). freq 2 strict."
+      }
+    ]
+  },
+  "logicalFkTouches": {
+    "factionsParentIdPointingAtTouchedFactions": [],
+    "charactersPrimaryFactionIdPointingAtTouchedFactions": []
+  },
+  "junctionRefs": {
+    "workFactions": [],
+    "workLocations": [],
+    "workCharacters": [
+      {
+        "workId": "ef521667-5e47-443b-b7fb-64d8bca3d1f3",
+        "characterId": "anakwanar_sek",
+        "role": "appears",
+        "rawName": "Anakwanar Sek"
+      },
+      {
+        "workId": "5d95d3fb-f4be-4cbb-9c3b-0d95f6f3cb5a",
+        "characterId": "anakwanar_sek",
+        "role": "appears",
+        "rawName": "Anakwanar Sek"
+      },
+      {
+        "workId": "9a3f3b73-82f1-4a0d-8f2b-d63a79d42534",
+        "characterId": "magister_sek",
+        "role": "appears",
+        "rawName": "Magister Sek"
+      },
+      {
+        "workId": "98aa0f7d-4412-4358-803a-790e9651e335",
+        "characterId": "magister_sek",
+        "role": "appears",
+        "rawName": "Magister Sek"
+      }
+    ]
+  },
+  "rollbackProcedure": [
+    "1. Use the rows.* arrays above to restore touched DB rows (re-insert deleted mergees with their captured values; revert field-retention column updates on keepers to the values captured here).",
+    "2. Use logicalFkTouches to re-assert factions.parent_id and characters.primary_faction_id values that were remapped by stage (ii) of the DB-sync transaction.",
+    "3. The junctionRefs arrays document the pre-Re-Apply junction state for touched IDs — they are informational; re-running scripts/run-phase4-apply.sh <config> reconciles junctions deterministically from the reference layer.",
+    "4. Pair with sessions/resolver-dossiers/consolidation-pass-1-reference-premerge-snapshot.json to also restore the JSON side."
+  ]
+}

@@ -1,22 +1,22 @@
 # Phase-4 apply digest
 
-Config: `scripts/resolver-pass.config.json` · apply-range: `ssot-w40k-001 ssot-w40k-002 ssot-w40k-003 ssot-w40k-004 ssot-w40k-005 ssot-w40k-006 ssot-w40k-007 ssot-w40k-008 ssot-w40k-009 ssot-w40k-010 ssot-w40k-011 ssot-w40k-012 ssot-w40k-013 ssot-w40k-014 ssot-w40k-015 ssot-w40k-016 ssot-w40k-017 ssot-w40k-018 ssot-w40k-019 ssot-w40k-020 ssot-w40k-021 ssot-w40k-022 ssot-w40k-023 ssot-w40k-024 ssot-w40k-025 ssot-w40k-026 ssot-w40k-027 ssot-w40k-028 ssot-w40k-029 ssot-w40k-030 ssot-w40k-031 ssot-w40k-032 ssot-w40k-033 ssot-w40k-034 ssot-w40k-035 ssot-w40k-036 ssot-w40k-037 ssot-w40k-038 ssot-w40k-039 ssot-w40k-040 ssot-w40k-041 ssot-w40k-042 ssot-w40k-043 ssot-w40k-044 ssot-w40k-045 ssot-w40k-046 ssot-w40k-047 ssot-w40k-048 ssot-w40k-049 ssot-w40k-050 ssot-w40k-051 ssot-w40k-052 ssot-w40k-053 ssot-w40k-054 ssot-w40k-055 ssot-w40k-056 ssot-w40k-057` · new wave:` ssot-w40k-052 ssot-w40k-053 ssot-w40k-054 ssot-w40k-055 ssot-w40k-056 ssot-w40k-057 `
+Config: `scripts/consolidation-pass.config.json` · apply-range: `ssot-w40k-001 ssot-w40k-002 ssot-w40k-003 ssot-w40k-004 ssot-w40k-005 ssot-w40k-006 ssot-w40k-007 ssot-w40k-008 ssot-w40k-009 ssot-w40k-010 ssot-w40k-011 ssot-w40k-012 ssot-w40k-013 ssot-w40k-014 ssot-w40k-015 ssot-w40k-016 ssot-w40k-017 ssot-w40k-018 ssot-w40k-019 ssot-w40k-020 ssot-w40k-021 ssot-w40k-022 ssot-w40k-023 ssot-w40k-024 ssot-w40k-025 ssot-w40k-026 ssot-w40k-027 ssot-w40k-028 ssot-w40k-029 ssot-w40k-030 ssot-w40k-031 ssot-w40k-032 ssot-w40k-033 ssot-w40k-034 ssot-w40k-035 ssot-w40k-036 ssot-w40k-037 ssot-w40k-038 ssot-w40k-039 ssot-w40k-040 ssot-w40k-041 ssot-w40k-042 ssot-w40k-043 ssot-w40k-044 ssot-w40k-045 ssot-w40k-046 ssot-w40k-047 ssot-w40k-048 ssot-w40k-049 ssot-w40k-050 ssot-w40k-051 ssot-w40k-052 ssot-w40k-053 ssot-w40k-054 ssot-w40k-055 ssot-w40k-056 ssot-w40k-057` · new wave:`  `
 Raw per-batch output (unbounded, NOT read by the LLM): `ingest/.last-run/phase4-apply-verbose.log` (gitignored).
 
 ### PRE-APPLY counts
 
 ```
 [db-counts] start
-works                510
-work_factions        1795
-work_locations       683
-work_characters      1170
-work_collections     145
-work_persons         480
-work_facets          10242
-factions             171
-locations            214
-characters           325
+works                565
+work_factions        1903
+work_locations       733
+work_characters      1220
+work_collections     147
+work_persons         524
+work_facets          11291
+factions             173
+locations            225
+characters           345
 facet_values         86
 [db-counts] done
 ```
@@ -81,119 +81,11 @@ seed-resolver-extensions: ok
 - applied `ssot-w40k-050`: ok
 - applied `ssot-w40k-051`: ok
 - applied `ssot-w40k-052`: ok
-
-### POST-BATCH counts — ssot-w40k-052
-
-```
-[db-counts] start
-works                520
-work_factions        1804
-work_locations       684
-work_characters      1171
-work_collections     145
-work_persons         489
-work_facets          10447
-factions             173
-locations            225
-characters           345
-facet_values         86
-[db-counts] done
-```
 - applied `ssot-w40k-053`: ok
-
-### POST-BATCH counts — ssot-w40k-053
-
-```
-[db-counts] start
-works                530
-work_factions        1824
-work_locations       689
-work_characters      1178
-work_collections     145
-work_persons         497
-work_facets          10623
-factions             173
-locations            225
-characters           345
-facet_values         86
-[db-counts] done
-```
 - applied `ssot-w40k-054`: ok
-
-### POST-BATCH counts — ssot-w40k-054
-
-```
-[db-counts] start
-works                540
-work_factions        1851
-work_locations       701
-work_characters      1188
-work_collections     145
-work_persons         504
-work_facets          10807
-factions             173
-locations            225
-characters           345
-facet_values         86
-[db-counts] done
-```
 - applied `ssot-w40k-055`: ok
-
-### POST-BATCH counts — ssot-w40k-055
-
-```
-[db-counts] start
-works                550
-work_factions        1873
-work_locations       722
-work_characters      1201
-work_collections     145
-work_persons         511
-work_facets          11004
-factions             173
-locations            225
-characters           345
-facet_values         86
-[db-counts] done
-```
 - applied `ssot-w40k-056`: ok
-
-### POST-BATCH counts — ssot-w40k-056
-
-```
-[db-counts] start
-works                560
-work_factions        1892
-work_locations       729
-work_characters      1215
-work_collections     147
-work_persons         519
-work_facets          11191
-factions             173
-locations            225
-characters           345
-facet_values         86
-[db-counts] done
-```
 - applied `ssot-w40k-057`: ok
-
-### POST-BATCH counts — ssot-w40k-057
-
-```
-[db-counts] start
-works                565
-work_factions        1903
-work_locations       733
-work_characters      1220
-work_collections     147
-work_persons         524
-work_facets          11291
-factions             173
-locations            225
-characters           345
-facet_values         86
-[db-counts] done
-```
 
 ### POST-APPLY counts
 

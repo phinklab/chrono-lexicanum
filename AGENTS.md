@@ -32,6 +32,16 @@ standalone — per-pass architect briefs no longer exist (Brief 094 removed
 them) and Brief 076 stays as Rationale-only. The runbook appendix lists the
 provenance for anyone curious.
 
+**Consolidation passes are likewise the exception.** A consolidation pass —
+driven phase-wise through `scripts/consolidation-aggregate.ts`,
+`scripts/consolidation-db-snapshot.ts`, `scripts/consolidation-db-sync.ts`
+and the shared `scripts/run-phase4-apply.sh
+scripts/consolidation-pass.config.json` — is a mechanical task, not a normal
+session: follow `sessions/consolidation-pass-runbook.md` plus the dedicated
+`scripts/consolidation-pass.config.json` and skip the session-start reading
+routine. **No brief is read** — neither Brief 094 nor Brief 098. The runbook
+is the operative spec; the runbook appendix lists the provenance.
+
 ## Parallel worktree git protocol
 
 Durable local worktrees:
