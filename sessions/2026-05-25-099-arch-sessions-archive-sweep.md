@@ -2,7 +2,7 @@
 session: 2026-05-25-099
 role: architect
 date: 2026-05-25
-status: open
+status: implemented
 slug: sessions-archive-sweep
 parent: null
 links:

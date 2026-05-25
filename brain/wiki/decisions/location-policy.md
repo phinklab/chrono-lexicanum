@@ -4,8 +4,8 @@ type: decision
 created: 2026-05-19
 updated: 2026-05-19
 sources:
-  - ../../../sessions/2026-05-19-084-arch-locations-axis-hygiene.md
-  - ../../../sessions/2026-05-19-084-impl-locations-axis-hygiene.md
+  - ../../../sessions/archive/2026-05/2026-05-19-084-arch-locations-axis-hygiene.md
+  - ../../../sessions/archive/2026-05/2026-05-19-084-impl-locations-axis-hygiene.md
   - ../../../scripts/seed-data/location-policy.json
   - ../../../scripts/seed-data/locations.json
   - ../../../scripts/seed-data/location-aliases.json
@@ -22,7 +22,7 @@ decision-date: 2026-05-19
 
 # Locations-Policy + Umbrella-Surface-Form-Skip
 
-**Status:** active · **Decided:** 2026-05-19 · **Sessions:** [084-arch](../../../sessions/2026-05-19-084-arch-locations-axis-hygiene.md) · [084-impl](../../../sessions/2026-05-19-084-impl-locations-axis-hygiene.md)
+**Status:** active · **Decided:** 2026-05-19 · **Sessions:** [084-arch](../../../sessions/archive/2026-05/2026-05-19-084-arch-locations-axis-hygiene.md) · [084-impl](../../../sessions/archive/2026-05/2026-05-19-084-impl-locations-axis-hygiene.md)
 
 ## Context
 

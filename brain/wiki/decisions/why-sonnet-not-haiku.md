@@ -7,7 +7,7 @@ sources:
   - ../../../sessions/archive/2026-05/2026-05-05-045-impl-cc-vs-pipeline-comparison.md
   - ../../../sessions/archive/2026-05/2026-05-04-040-arch-phase3c-haiku-switch.md
   - ../../../sessions/2026-05-11-061-arch-ssot-loop.md
-  - ../../../sessions/2026-05-15-074-impl-resolver-batch-3.md
+  - ../../../sessions/archive/2026-05/2026-05-15-074-impl-resolver-batch-3.md
   - ../open-questions.md
 related:
   - ./why-cc-direct-curation.md

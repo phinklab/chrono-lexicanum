@@ -4,8 +4,8 @@ type: decision
 created: 2026-05-13
 updated: 2026-05-16
 sources:
-  - ../../../sessions/2026-05-13-070-arch-faction-policy-hygiene.md
-  - ../../../sessions/2026-05-16-077-arch-grand-alignment-junction-hygiene.md
+  - ../../../sessions/archive/2026-05/2026-05-13-070-arch-faction-policy-hygiene.md
+  - ../../../sessions/archive/2026-05/2026-05-16-077-arch-grand-alignment-junction-hygiene.md
   - ../../../scripts/seed-data/faction-policy.json
   - ../../../scripts/seed-data/factions.json
   - ../../../scripts/apply-override.ts
@@ -20,7 +20,7 @@ decision-date: 2026-05-13
 
 # Faction-Policy — Browse-Root vs. Tree-Root
 
-**Status:** active · **Decided:** 2026-05-13 · **Sessions:** [070-arch](../../../sessions/2026-05-13-070-arch-faction-policy-hygiene.md)
+**Status:** active · **Decided:** 2026-05-13 · **Sessions:** [070-arch](../../../sessions/archive/2026-05/2026-05-13-070-arch-faction-policy-hygiene.md)
 
 ## Context
 

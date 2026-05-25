@@ -28,20 +28,20 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-12-063-impl-resolver-50-books.md
   - ../../sessions/archive/2026-05/2026-05-12-067-impl-resolver-apply-readiness.md
   - ../../sessions/archive/2026-05/2026-05-12-069-impl-resolver-apply-evidence.md
-  - ../../sessions/2026-05-13-071-impl-loop-driver.md
-  - ../../sessions/2026-05-15-074-arch-resolver-batch-3.md
-  - ../../sessions/2026-05-15-074-impl-resolver-batch-3.md
-  - ../../sessions/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md
-  - ../../sessions/2026-05-16-076-arch-resolver-batch-4-axis-sliced.md
-  - ../../sessions/2026-05-16-076-impl-resolver-batch-4-axis-sliced.md
-  - ../../sessions/2026-05-16-077-arch-grand-alignment-junction-hygiene.md
-  - ../../sessions/2026-05-16-077-impl-grand-alignment-junction-hygiene.md
-  - ../../sessions/2026-05-20-087-impl-goodreads-rating-pipeline.md
-  - ../../sessions/2026-05-21-088-impl-ssot-loop-lean.md
-  - ../../sessions/2026-05-21-089-arch-resolver-pass-5.md
-  - ../../sessions/2026-05-21-089-impl-resolver-pass-5.md
-  - ../../sessions/2026-05-21-090-arch-resolver-pass-lean.md
-  - ../../sessions/2026-05-21-090-impl-resolver-pass-lean.md
+  - ../../sessions/archive/2026-05/2026-05-13-071-impl-loop-driver.md
+  - ../../sessions/archive/2026-05/2026-05-15-074-arch-resolver-batch-3.md
+  - ../../sessions/archive/2026-05/2026-05-15-074-impl-resolver-batch-3.md
+  - ../../sessions/archive/2026-05/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md
+  - ../../sessions/archive/2026-05/2026-05-16-076-arch-resolver-batch-4-axis-sliced.md
+  - ../../sessions/archive/2026-05/2026-05-16-076-impl-resolver-batch-4-axis-sliced.md
+  - ../../sessions/archive/2026-05/2026-05-16-077-arch-grand-alignment-junction-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-16-077-impl-grand-alignment-junction-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-20-087-impl-goodreads-rating-pipeline.md
+  - ../../sessions/archive/2026-05/2026-05-21-088-impl-ssot-loop-lean.md
+  - ../../sessions/archive/2026-05/2026-05-21-089-arch-resolver-pass-5.md
+  - ../../sessions/archive/2026-05/2026-05-21-089-impl-resolver-pass-5.md
+  - ../../sessions/archive/2026-05/2026-05-21-090-arch-resolver-pass-lean.md
+  - ../../sessions/archive/2026-05/2026-05-21-090-impl-resolver-pass-lean.md
   - ../../sessions/resolver-pass-runbook.md
   - ../../sessions/ssot-loop-runbook.md
   - ../../scripts/loop-next-batch.ts
@@ -66,10 +66,10 @@ sources:
   - ../../src/lib/resolver/index.ts
   - ../../scripts/apply-override.ts
   - ../../docs/resolver-apply-runbook.md
-  - ../../sessions/2026-05-22-093-arch-resolver-pass-7.md
+  - ../../sessions/archive/2026-05/2026-05-22-093-arch-resolver-pass-7.md
   - ../../sessions/resolver-dossiers/resolver-pass-7-impl-report.md
-  - ../../sessions/2026-05-23-094-arch-resolver-loop.md
-  - ../../sessions/2026-05-23-094-impl-resolver-loop.md
+  - ../../sessions/archive/2026-05/2026-05-23-094-arch-resolver-loop.md
+  - ../../sessions/archive/2026-05/2026-05-23-094-impl-resolver-loop.md
   - ../../sessions/resolver-loop-log.md
   - ../../scripts/resolver-loop-detect.ts
   - ../../scripts/run-resolver-loop.sh

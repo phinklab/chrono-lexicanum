@@ -38,43 +38,43 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-12-063-impl-resolver-50-books.md
   - ../../sessions/archive/2026-05/2026-05-12-067-impl-resolver-apply-readiness.md
   - ../../sessions/archive/2026-05/2026-05-12-069-impl-resolver-apply-evidence.md
-  - ../../sessions/2026-05-13-070-arch-faction-policy-hygiene.md
-  - ../../sessions/2026-05-13-070-impl-faction-policy-hygiene.md
-  - ../../sessions/2026-05-14-072-arch-resolver-batch-2.md
-  - ../../sessions/2026-05-14-072-impl-resolver-batch-2.md
-  - ../../sessions/2026-05-15-074-arch-resolver-batch-3.md
-  - ../../sessions/2026-05-15-074-impl-resolver-batch-3.md
-  - ../../sessions/2026-05-15-075-arch-cockpit-drift-sort-and-rating.md
-  - ../../sessions/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md
-  - ../../sessions/2026-05-16-076-arch-resolver-batch-4-axis-sliced.md
-  - ../../sessions/2026-05-16-076-impl-resolver-batch-4-axis-sliced.md
-  - ../../sessions/2026-05-16-077-arch-grand-alignment-junction-hygiene.md
-  - ../../sessions/2026-05-16-077-impl-grand-alignment-junction-hygiene.md
-  - ../../sessions/2026-05-17-079-impl-lab-cartographer-prototype.md
-  - ../../sessions/2026-05-17-080-arch-synopsis-guard-and-pilot.md
-  - ../../sessions/2026-05-17-080-impl-synopsis-guard-and-pilot.md
-  - ../../sessions/2026-05-17-081-arch-ssot-synopsis-backfill-005-019.md
-  - ../../sessions/2026-05-18-081-impl-ssot-synopsis-backfill-005-019.md
-  - ../../sessions/2026-05-17-082-arch-parallel-worktrees.md
-  - ../../sessions/2026-05-17-083-impl-parallel-worktrees.md
+  - ../../sessions/archive/2026-05/2026-05-13-070-arch-faction-policy-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-13-070-impl-faction-policy-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-14-072-arch-resolver-batch-2.md
+  - ../../sessions/archive/2026-05/2026-05-14-072-impl-resolver-batch-2.md
+  - ../../sessions/archive/2026-05/2026-05-15-074-arch-resolver-batch-3.md
+  - ../../sessions/archive/2026-05/2026-05-15-074-impl-resolver-batch-3.md
+  - ../../sessions/archive/2026-05/2026-05-15-075-arch-cockpit-drift-sort-and-rating.md
+  - ../../sessions/archive/2026-05/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md
+  - ../../sessions/archive/2026-05/2026-05-16-076-arch-resolver-batch-4-axis-sliced.md
+  - ../../sessions/archive/2026-05/2026-05-16-076-impl-resolver-batch-4-axis-sliced.md
+  - ../../sessions/archive/2026-05/2026-05-16-077-arch-grand-alignment-junction-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-16-077-impl-grand-alignment-junction-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-17-079-impl-lab-cartographer-prototype.md
+  - ../../sessions/archive/2026-05/2026-05-17-080-arch-synopsis-guard-and-pilot.md
+  - ../../sessions/archive/2026-05/2026-05-17-080-impl-synopsis-guard-and-pilot.md
+  - ../../sessions/archive/2026-05/2026-05-17-081-arch-ssot-synopsis-backfill-005-019.md
+  - ../../sessions/archive/2026-05/2026-05-18-081-impl-ssot-synopsis-backfill-005-019.md
+  - ../../sessions/archive/2026-05/2026-05-17-082-arch-parallel-worktrees.md
+  - ../../sessions/archive/2026-05/2026-05-17-083-impl-parallel-worktrees.md
   - ../raw/reviews/2026-05-09-codex-v2-pilot-review.md
-  - ../../sessions/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md
-  - ../../sessions/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md
-  - ../../sessions/2026-05-20-087-arch-goodreads-rating-pipeline.md
-  - ../../sessions/2026-05-20-087-impl-goodreads-rating-pipeline.md
-  - ../../sessions/2026-05-21-088-arch-ssot-loop-lean.md
-  - ../../sessions/2026-05-21-088-impl-ssot-loop-lean.md
-  - ../../sessions/2026-05-21-089-arch-resolver-pass-5.md
-  - ../../sessions/2026-05-21-089-impl-resolver-pass-5.md
-  - ../../sessions/2026-05-21-090-arch-resolver-pass-lean.md
-  - ../../sessions/2026-05-21-090-impl-resolver-pass-lean.md
-  - ../../sessions/2026-05-22-092-impl-roster-hygiene.md
-  - ../../sessions/2026-05-22-093-arch-resolver-pass-7.md
+  - ../../sessions/archive/2026-05/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md
+  - ../../sessions/archive/2026-05/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md
+  - ../../sessions/archive/2026-05/2026-05-20-087-arch-goodreads-rating-pipeline.md
+  - ../../sessions/archive/2026-05/2026-05-20-087-impl-goodreads-rating-pipeline.md
+  - ../../sessions/archive/2026-05/2026-05-21-088-arch-ssot-loop-lean.md
+  - ../../sessions/archive/2026-05/2026-05-21-088-impl-ssot-loop-lean.md
+  - ../../sessions/archive/2026-05/2026-05-21-089-arch-resolver-pass-5.md
+  - ../../sessions/archive/2026-05/2026-05-21-089-impl-resolver-pass-5.md
+  - ../../sessions/archive/2026-05/2026-05-21-090-arch-resolver-pass-lean.md
+  - ../../sessions/archive/2026-05/2026-05-21-090-impl-resolver-pass-lean.md
+  - ../../sessions/archive/2026-05/2026-05-22-092-impl-roster-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-22-093-arch-resolver-pass-7.md
   - ../../sessions/resolver-dossiers/resolver-pass-7-impl-report.md
-  - ../../sessions/2026-05-23-094-arch-resolver-loop.md
-  - ../../sessions/2026-05-23-094-impl-resolver-loop.md
-  - ../../sessions/2026-05-23-095-arch-rollup-ownership.md
-  - ../../sessions/2026-05-23-095-impl-rollup-ownership.md
+  - ../../sessions/archive/2026-05/2026-05-23-094-arch-resolver-loop.md
+  - ../../sessions/archive/2026-05/2026-05-23-094-impl-resolver-loop.md
+  - ../../sessions/archive/2026-05/2026-05-23-095-arch-rollup-ownership.md
+  - ../../sessions/archive/2026-05/2026-05-23-095-impl-rollup-ownership.md
   - ../../sessions/2026-05-25-098-arch-w40k-consolidation-pass.md
   - ../../sessions/2026-05-25-098-impl-w40k-consolidation-pass.md
   - ../../sessions/2026-05-25-099-arch-sessions-archive-sweep.md
@@ -144,7 +144,7 @@ Brief 075-impl ist gemerged (Commits `61d4ff5`/`e0c7575`/`7f3f14f`). `scripts/ba
 
 ## (9) ~~Maintainer-Audit-Cockpit für Buch-Seiten~~ — folded into Brief 073 (2026-05-14)
 
-Brief 073 (`sessions/2026-05-14-073-arch-maintainer-audit-cockpit.md`) bündelt OQ9 vollständig: Sub-Route `/buch/[slug]/audit` (Read-only, alle DB-Felder), Audit-Filter-Pillen auf `/buecher` (Drift / Junction-Lücke / SSOT / In mehreren Collections, AND-kombiniert), Default-Sort `updatedAt desc`, Audit-Route `noindex`, keine Schema-Migration. `confidence < 0.7`-Filter wurde bewusst nicht aufgenommen — wird scharf, wenn der Sonnet-Pipeline-Lauf wieder läuft (post-OQ2-(c)). Implementer-Report wird OQ9 abschließen.
+Brief 073 (`sessions/archive/2026-05/2026-05-14-073-arch-maintainer-audit-cockpit.md`) bündelt OQ9 vollständig: Sub-Route `/buch/[slug]/audit` (Read-only, alle DB-Felder), Audit-Filter-Pillen auf `/buecher` (Drift / Junction-Lücke / SSOT / In mehreren Collections, AND-kombiniert), Default-Sort `updatedAt desc`, Audit-Route `noindex`, keine Schema-Migration. `confidence < 0.7`-Filter wurde bewusst nicht aufgenommen — wird scharf, wenn der Sonnet-Pipeline-Lauf wieder läuft (post-OQ2-(c)). Implementer-Report wird OQ9 abschließen.
 
 ## (7) ~~Master-Liste-Erstellung~~ — closed by 057-impl
 
@@ -160,7 +160,7 @@ Drei Briefs (075 / 085 / 086) haben die Hardcover-Hit-Rate gejagt; Brief 086 (Pa
 
 ## (10-historic) Hardcover-Hit-Rate-Härtung (Titel-Normalisierungs-Layer) — promoted aus 075-impl
 
-**Owner:** Cowork (architectural call: Welche Normalisierungs-Regeln, in welcher Reihenfolge, abbruch wenn Confidence sinkt?) → CC (Implementation, ~30–60 LOC in `scripts/backfill-hardcover-rating.ts` oder neuer Library-Funktion in `src/lib/ingestion/v2/sources/hardcover.ts`). **Sessions:** [075-impl](../../sessions/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md) "For next session" Punkt 1. **Follow-up brief:** klein, eigenständig oder mit 200er-Resolver-Pass gebündelt.
+**Owner:** Cowork (architectural call: Welche Normalisierungs-Regeln, in welcher Reihenfolge, abbruch wenn Confidence sinkt?) → CC (Implementation, ~30–60 LOC in `scripts/backfill-hardcover-rating.ts` oder neuer Library-Funktion in `src/lib/ingestion/v2/sources/hardcover.ts`). **Sessions:** [075-impl](../../sessions/archive/2026-05/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md) "For next session" Punkt 1. **Follow-up brief:** klein, eigenständig oder mit 200er-Resolver-Pass gebündelt.
 
 Promote-Trigger ist gefeuert: 075-Backfill hat 51.3 % Hit-Rate (77/150) ergeben, unter dem 70 %-Schwellenwert aus Brief 075. 075-impl-Argumentation: die Miss-Profile sind primär Titel-Normalisierungs-Lücken, nicht Coverage-Lücken — von den 73 NULL-Rows sind 40 `null_result_zero_hits` (Hardcover-`_eq` matcht den Titel überhaupt nicht — wahrscheinlich Subtitle-/Series-Number-/Omnibus-Suffix-Mismatch) und 19 `author_mismatch` (Hardcover hat den Titel, aber andere Edition oder anderer Author). Ein OL-Fallback würde dieselben Miss-Profile haben (OL hat ebenfalls Slug-/Title-Matching und dünne 40K-Statistik); ein Normalisierungs-Layer attackiert die strukturelle Wurzel.
 
@@ -176,11 +176,11 @@ Out of scope dieser OQ: OL-Fallback bleibt eine separate Option für später, we
 
 ## (11) ~~Locations-Axis-Hygiene-Sister-Pass~~ — gefaltet in Brief 084 (2026-05-19)
 
-Brief 084 (`sessions/2026-05-19-084-arch-locations-axis-hygiene.md`, status: open) übernimmt OQ (11) vollständig. Cowork-Architektur-Calls per AskUserQuestion 2026-05-19 entschieden: (a) eigene `scripts/seed-data/location-policy.json` (keine Subbaum-Erweiterung von `faction-policy.json`), (b) **Allowlist-Skip mit Erhaltungs-Pfad** statt Tree-Membership-Regel (Maintainer-Wahl: „broad in der Absicht, explizit in der Liste, dazu Audit-Ausgabe um False-Positives sichtbar zu machen"); Initial-Liste ist 13 Surface-Forms (Imperium-Varianten + Chaos-Varianten + Warp/Realm of Chaos + Xenos/Aliens), maintainer-pflegbar, Codex extends sie in 084 NICHT eigenmächtig, (c) HH-Domain Pre-Heresy `Terra + Imperium`-Block-Handling als Revisit-Trigger im neuen ADR `decisions/location-policy.md` (Forward-Behavior — Erhaltungs-Pfad fängt das im Default-Case), keine HH-spezifische Logik. Implementer-Report wird OQ (11) abschließen.
+Brief 084 (`sessions/archive/2026-05/2026-05-19-084-arch-locations-axis-hygiene.md`, status: open) übernimmt OQ (11) vollständig. Cowork-Architektur-Calls per AskUserQuestion 2026-05-19 entschieden: (a) eigene `scripts/seed-data/location-policy.json` (keine Subbaum-Erweiterung von `faction-policy.json`), (b) **Allowlist-Skip mit Erhaltungs-Pfad** statt Tree-Membership-Regel (Maintainer-Wahl: „broad in der Absicht, explizit in der Liste, dazu Audit-Ausgabe um False-Positives sichtbar zu machen"); Initial-Liste ist 13 Surface-Forms (Imperium-Varianten + Chaos-Varianten + Warp/Realm of Chaos + Xenos/Aliens), maintainer-pflegbar, Codex extends sie in 084 NICHT eigenmächtig, (c) HH-Domain Pre-Heresy `Terra + Imperium`-Block-Handling als Revisit-Trigger im neuen ADR `decisions/location-policy.md` (Forward-Behavior — Erhaltungs-Pfad fängt das im Default-Case), keine HH-spezifische Logik. Implementer-Report wird OQ (11) abschließen.
 
 ## (11-historic) Locations-Axis-Hygiene-Sister-Pass (Grand-Alignment-Filter analog 077, aber für Locations) — promoted aus 077-impl
 
-**Owner:** Cowork (Architektur-Call: wie eng spiegelt der Locations-Pfad den Faction-Pfad — gleiche `redundantWhenSubPresent`-Konvention auf Locations-Policy-File, gleicher Skip-Helper-Shape, gleicher `factionsSkippedRedundant`-equivalent Audit-Bucket?). → CC (Implementation analog Brief 077, ~150–200 LOC). **Sessions:** [077-impl](../../sessions/2026-05-16-077-impl-grand-alignment-junction-hygiene.md) „For next session" Punkt 1. **Follow-up brief:** klein, gebündelt mit dem nächsten Resolver-Pass oder vor dem UI-Rollup-Brief.
+**Owner:** Cowork (Architektur-Call: wie eng spiegelt der Locations-Pfad den Faction-Pfad — gleiche `redundantWhenSubPresent`-Konvention auf Locations-Policy-File, gleicher Skip-Helper-Shape, gleicher `factionsSkippedRedundant`-equivalent Audit-Bucket?). → CC (Implementation analog Brief 077, ~150–200 LOC). **Sessions:** [077-impl](../../sessions/archive/2026-05/2026-05-16-077-impl-grand-alignment-junction-hygiene.md) „For next session" Punkt 1. **Follow-up brief:** klein, gebündelt mit dem nächsten Resolver-Pass oder vor dem UI-Rollup-Brief.
 
 077-impl-Beobachtung: `test:resolver-coverage`-Output hat `Imperium x20` als unresolved Location auf der Locations-Axis (Bücher taggen `Imperium` als Filter-Surface auch dort, nicht nur als Faction). Strukturell analog zur Brief-077-Lücke: „Imperium" ist keine Location, eher ein politisches Konzept — vermutlich auch andere Grand-Alignment-Begriffe wie „Chaos Space" / „Eye of Terror"-als-Umbrella vs. konkretes Galactic-Feature. Der Locations-Pfad fehlt heute (a) eine explizite Policy-File analog `faction-policy.json` und (b) den Skip-Pfad in `apply-override.ts` (`resolveLocations`-Pendant).
 
@@ -194,12 +194,12 @@ Out of scope: UI-Filter-Layer für Locations-Hierarchie (kommt im UI-Rollup-Brie
 
 ## (12) ~~Goodreads-Rating — Voll-Roster-Lauf + Batch-Integration + Refresh-Button~~ — closed 2026-05-20 (Validierung erledigt, Rest in Brief 087 + Roadmap gefaltet)
 
-**Sessions:** [Brief 086](../../sessions/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md) Phase 4 + [086-impl](../../sessions/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md); Cowork-Maintainer-Diskussion 2026-05-20.
+**Sessions:** [Brief 086](../../sessions/archive/2026-05/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md) Phase 4 + [086-impl](../../sessions/archive/2026-05/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md); Cowork-Maintainer-Diskussion 2026-05-20.
 
 Die drei Teile von OQ (12) sind alle abgeräumt:
 
 - **Validierung — erledigt in 086 Phase 4.** Der Goodreads-Rating-Lauf über die 81 nach Phase 3 noch rating-losen Bücher löste 78 auf (96.3 %); die 3 Misses sind 2025/26-Releases ohne aggregierte Wertung. Verdikt aus dem Closing-Report: die Technik trägt, **aber nur Snippet-als-Lokator, nicht Snippet-als-Quelle** — Google-Rich-Snippets lieferten in ~20 % keine und in ~4 % eine plausibel-falsche Zahl (Shadowsun 4.25 → real 3.62 u. a.). Jeder Vorwärts-Konsument MUSS das Rating von der Goodreads-Buchseite parsen, nicht aus dem Snippet.
-- **Voll-Roster-Lauf + Batch-Integration — gefaltet in Brief 087.** [`sessions/2026-05-20-087-arch-goodreads-rating-pipeline.md`](../../sessions/2026-05-20-087-arch-goodreads-rating-pipeline.md) baut die Goodreads-Rating-Logik als Disziplin fest in den Standing-Loop (Brief 061) ein — jeder neue `ssot-w40k-NNN`-Batch holt sein Rating automatisch. Damit ist der „Voll-Roster"-Bedarf abgedeckt: die Coverage wächst inkrementell mit dem Loop (`021 → 057` W40K, dann HH), kein separater Bulk-Lauf nötig (die geseedeten `001..020` sind durch Brief 086 bereits abgedeckt).
+- **Voll-Roster-Lauf + Batch-Integration — gefaltet in Brief 087.** [`sessions/archive/2026-05/2026-05-20-087-arch-goodreads-rating-pipeline.md`](../../sessions/archive/2026-05/2026-05-20-087-arch-goodreads-rating-pipeline.md) baut die Goodreads-Rating-Logik als Disziplin fest in den Standing-Loop (Brief 061) ein — jeder neue `ssot-w40k-NNN`-Batch holt sein Rating automatisch. Damit ist der „Voll-Roster"-Bedarf abgedeckt: die Coverage wächst inkrementell mit dem Loop (`021 → 057` W40K, dann HH), kein separater Bulk-Lauf nötig (die geseedeten `001..020` sind durch Brief 086 bereits abgedeckt).
 - **Refresh-Button — in den Roadmap-Ideas-Backlog.** Der per-Buch on-demand Refresh-Button ist als Feature in [`./roadmap.md`](./roadmap.md) § Ideas Backlog notiert; eigener Brief später (CLAUDE.md-Regel: Feature zuerst in den Backlog, dann Brief).
 
 Offener Architektur-Call, in Brief 087 mitgenommen + entschieden: mixed-source-tagged (Hardcover + Goodreads nebeneinander) wird **beibehalten** — `ratingSource` unterscheidet die Zeilen sauber, ein Re-Fetch der 119 Hardcover-Zeilen nur für Uniformität wäre Make-Work.
@@ -221,6 +221,6 @@ Grobe Einordnung: ein **Hygiene-Brief mittlerer Größe**, kein „komplex-durch
 
 ## (14) ~~Roster-Excel-Hygiene-Sweep~~ — closed 2026-05-22 (PR #85 / Session 092)
 
-PR #85 ([Session 092](../../sessions/2026-05-22-092-impl-roster-hygiene.md) — Roster-Excel-Hygiene-Sweep) ist gemerged; alle fünf Gruppen (a)–(e) sind über reine Excel-SSOT-Edits + Loader-Regen (`npm run import:ssot-roster`) erledigt: **(a)** W40K-0244 *The Remnant Blade* `seriesHint` `Imperial Guard` → `Night Lords`; **(b)** sechs fehlende Autoren-Felder gefüllt (`W40K-0141..0144/0146` Einzelautoren, `W40K-0147 The Green Tide` als `editorialNote: "various"`); **(c)** Format-`data_conflict` W40K-0297 *Flesh Tearers* + W40K-0334 *Lords of Caliban* von `novel`/`novella` auf `collection` korrigiert; **(d)** Titel-Mistags W40K-0259 (→ *The Rose in Anger*) + W40K-0330 (→ *The Hunt for Magnus*); **(e)** fünf fehlende Collection-Kanten ergänzt (vier Constituents für *Architect of Fate* W40K-0286, *Blood and Fire* für *War for Armageddon Omnibus* W40K-0307). `book-roster.json` wuchs dadurch von 191 auf **196 Collections** — `books` unverändert 859. Kein DB-Touch.
+PR #85 ([Session 092](../../sessions/archive/2026-05/2026-05-22-092-impl-roster-hygiene.md) — Roster-Excel-Hygiene-Sweep) ist gemerged; alle fünf Gruppen (a)–(e) sind über reine Excel-SSOT-Edits + Loader-Regen (`npm run import:ssot-roster`) erledigt: **(a)** W40K-0244 *The Remnant Blade* `seriesHint` `Imperial Guard` → `Night Lords`; **(b)** sechs fehlende Autoren-Felder gefüllt (`W40K-0141..0144/0146` Einzelautoren, `W40K-0147 The Green Tide` als `editorialNote: "various"`); **(c)** Format-`data_conflict` W40K-0297 *Flesh Tearers* + W40K-0334 *Lords of Caliban* von `novel`/`novella` auf `collection` korrigiert; **(d)** Titel-Mistags W40K-0259 (→ *The Rose in Anger*) + W40K-0330 (→ *The Hunt for Magnus*); **(e)** fünf fehlende Collection-Kanten ergänzt (vier Constituents für *Architect of Fate* W40K-0286, *Blood and Fire* für *War for Armageddon Omnibus* W40K-0307). `book-roster.json` wuchs dadurch von 191 auf **196 Collections** — `books` unverändert 859. Kein DB-Touch.
 
 **Slug-Delta — Watch-Item, durable in [`./project-state.md`](./project-state.md) § What's open.** Die zwei Titel-Fixes aus (d) haben in `book-roster.json` auch die Slugs geändert (W40K-0259 → `the-rose-in-anger`, W40K-0330 → `the-hunt-for-magnus`). Die bereits applied DB-`works.slug` dieser Bücher bleiben **unverändert**, bis ein künftiger Resolver-Pass 7 die Achsen `ssot-w40k-026` / `ssot-w40k-033` kumulativ re-applied. `scripts/seed-data/collection-gaps.json` blieb bewusst unangetastet — das Retirement der W40K-0286/0307-Einträge dort ist Resolver-Pass 7 Phase 4a.
