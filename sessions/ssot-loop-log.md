@@ -2109,3 +2109,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Knights-Errant; Officio Assassinorum; Adeptus Custodes; Third Hand Chapter (in synopsis only, not as faction); Charchera System; Alaxxes Nebula; Salvaguardia; Desh'ea; the Wrought (in synopsis only).
 - **Verification skipped:** pure data commit (override JSON + markdown log append, no code) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` skipped per Brief-061 convention.
+
+## 2026-05-26 · ssot-hh-015 · HH-0141..HH-0150 · ✅
+
+- **Cumulative books in authority:** 715
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=705, batch=ssot-hh-015, slice=HH-0141..HH-0150
+- **WebSearch:** mean=3.0, max=5 (over 10 books) — Echoes of Revelation hit max because three constituent shorts (Perpetual, The Soul Severed, Valerius) each needed a dedicated lookup
+- **Per-book bullets:**
+  - HH-0141 Sedition's Gate: clean text anthology of five stories; aggregated Salamanders/Alpha Legion/Thousand Sons/White Scars/Ultramarines/Word Bearers.
+  - HH-0142 Echoes of Ruin: roster format=collection, source confirms audio anthology (seven shorts) — no novel→collection conflict, but format facet resolved to `audio_drama` rather than `book`.
+  - HH-0143 Death and Defiance: clean text anthology of five stories; deep tagging because most constituents are well-documented Primarch- or named-Astartes pieces.
+  - HH-0144 Blades of the Traitor: clean text anthology of five stories, all traitor-Legion focus (Mortarion/Iron Warriors/Sons of Horus/Fabius Bile).
+  - HH-0145 Meduson: shattered-legions guerrilla campaign moves across many minor worlds and ships, no single location dominates → low_confidence flag on `locations` (left empty rather than guessing).
+  - HH-0146 Betrayal at Calth: paired-novella set, dual POV Ultramarines/Word Bearers; clean.
+  - HH-0147 Echoes of Imperium: audio anthology of four shorts; two constituents ("Stratagem" by Kyme, "The Watcher" by C Z Dunn) had thin accessible source coverage → low_confidence flag on `factions` and conservative aggregation from the two well-documented shorts (Herald of Sanguinius, Shadowmasters).
+  - HH-0148 Virtues of the Sons / Sins of the Father: paired audio dramas, Blood Angels focus, Khârn/Lucius as antagonists; clean.
+  - HH-0149 Echoes of Revelation: audio anthology of three shorts; per-story searches confirmed Perpetual (Oll Persson/Grammaticus journey), The Soul Severed (Emperor's Children/Eidolon — NOT White Scars as the title might suggest), Valerius (Imperial Army/Beta-Garmon under Corax).
+  - HH-0150 Blood Games: roster format=short_story; length_tier facet has no `short_story` value → used `novella` as nearest bucket. Standalone-readable origin story for the Custodes in the Heresy.
+- **value_outside_vocabulary:** `[{ "facet": "length_tier", "value": "short_story", "context": "HH-0150 Blood Games is a short story shorter than novella; closest catalog value used" }]`
+- **Notable surface-forms (within this batch):** "Sons of Horus" (not Luna Wolves at this point in the timeline); "Khârn" (with circumflex); "Lord Commander Primus Eidolon"; "Mor Deythan" (Raven Guard stealth elite); "Therion Cohort" (Imperial Army formation); "Hy Brasil" (Terran hive in Blood Games); "Vice-Caesari" rank style; "Imperium Secundus".
+- **Verification skipped:** pure data commit (override JSON + log append, no code) — `npm run lint` / `typecheck` / `brain:lint` skipped per Brief 061 convention.

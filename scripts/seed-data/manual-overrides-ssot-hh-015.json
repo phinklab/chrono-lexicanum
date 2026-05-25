@@ -1,0 +1,566 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-015",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "Welle ist fast vollständig Horus-Heresy-Anthologien aus der mittleren Serien-Phase (2014–2017): neun Multi-Autor-Sammlungen (Text und Audio) plus Dan Abnetts Custodes-Kurzgeschichte „Blood Games“. Tagging muss konstituierende Werke aggregieren, Coverage einzelner Audio-Shorts ist teils dünn (Stratagem/The Watcher in Echoes of Imperium).",
+  "books": [
+    {
+      "externalBookId": "HH-0141",
+      "slug": "seditions-gate",
+      "overrides": {
+        "synopsis": "Released at the 2014 Horus Heresy Weekender, Sedition's Gate gathers five short stories from across the galaxy at war. Nick Kyme's \"Artefacts\" sees Primarch Vulkan entrust his legacy to a Salamander who will carry it forward as the first Forgefather. In Rob Sanders's \"The Harrowing\", an Alpha Legion infiltration team boards an Imperial vessel and dismantles its crew with cold, methodical precision. Chris Wraight's \"Allegiance\" follows Arvida, an orphaned Thousand Son taken in by the White Scars on Chogoris, as he searches for a place among Jaghatai Khan's warriors. Guy Haley's \"The Laurel of Defiance\" pits the 90th Company of the Ultramarines against a towering Chaos Titan on the world of Astagar. David Annandale's \"Sermon of Exodus\" sends the faithful of Davin out into the void to prove themselves to the dark gods, setting the stage for the doom of Pythos.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "space_marine",
+          "multi",
+          "imperium",
+          "chaos",
+          "company",
+          "planetary",
+          "requires_context",
+          "short",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "betrayal",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Alpha Legion", "role": "primary" },
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Word Bearers", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Astagar", "role": "primary" },
+          { "name": "Chogoris", "role": "supporting" },
+          { "name": "Davin", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Vulkan", "role": "supporting" },
+          { "name": "Arvida", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.68,
+          "count": 106,
+          "evidenceUrl": "https://www.goodreads.com/book/show/22215392-sedition-s-gate"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0142",
+      "slug": "echoes-of-ruin",
+      "overrides": {
+        "synopsis": "Echoes of Ruin is the first audio drama anthology of the Horus Heresy, collecting seven short pieces from the years of betrayal. David Annandale's \"Veritas Ferrum\" drops listeners into the fleet battle above Isstvan V as the Iron Hands try to survive the treachery of their brothers. John French's \"Warmaster\" is a monologue from Horus himself, brooding on his father, his rebel sons, and the burden of the title that has become his name. Guy Haley's \"Strike and Fade\" follows Salamander survivors of the Drop Site Massacre as they bait an ambush for hunting Night Lords. Graham McNeill's \"Lucius: The Eternal Blade\" and Anthony Reynolds's \"Khârn: The Eightfold Path\" study the swordsman of the Emperor's Children and the equerry of Angron in moments of butchery. Gav Thorpe's \"Cypher: Guardian of Order\" turns to the Dark Angels, and Chris Wraight's \"Wolf's Claw\" finds a young Bjorn of the Space Wolves earning the augmetic that will outlast every brother he serves with.",
+        "facetIds": [
+          "audio_drama",
+          "ensemble",
+          "space_marine",
+          "multi",
+          "imperium",
+          "chaos",
+          "squad",
+          "company",
+          "requires_context",
+          "novella",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "betrayal",
+          "war",
+          "brotherhood",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Night Lords", "role": "antagonist" },
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Space Wolves", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Horus", "role": "pov" },
+          { "name": "Lucius", "role": "pov" },
+          { "name": "Khârn", "role": "pov" },
+          { "name": "Cypher", "role": "pov" },
+          { "name": "Bjorn", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.59,
+          "count": 61,
+          "evidenceUrl": "https://www.goodreads.com/book/show/49870858-echoes-of-ruin"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0143",
+      "slug": "death-and-defiance",
+      "overrides": {
+        "synopsis": "Death and Defiance gathers five short stories from the deepening Horus Heresy, originally exclusive to Warhammer Fest 2014. Andy Smillie's \"Virtues of the Sons\" pairs the Blood Angels Amit and Azkaellon against Khârn of the World Eaters and Lucius of the Emperor's Children, drawing out the twin natures Sanguinius's sons inherit from him. Nick Kyme's \"Imperfect\" frames a game of regicide between Fulgrim and Ferrus Manus that is anything but a game. Aaron Dembski-Bowden's \"Howl of the Hearthworld\" follows a pack of Space Wolves recalled to Terra and chafing against Rogal Dorn's quiet command. Guy Haley's \"A Safe and Shadowed Place\" sends the broken Night Lords fleet drifting into the borders of Imperium Secundus. James Swallow's \"Gunsight\" plants an assassin aboard the Vengeful Spirit with the Warmaster himself in the crosshairs.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "space_marine",
+          "multi",
+          "imperium",
+          "chaos",
+          "squad",
+          "company",
+          "requires_context",
+          "short",
+          "war_story",
+          "character_study",
+          "court_intrigue",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "betrayal",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "World Eaters", "role": "antagonist" },
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Imperial Fists", "role": "supporting" },
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Officio Assassinorum", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "supporting" },
+          { "name": "Macragge", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Amit", "role": "pov" },
+          { "name": "Khârn", "role": "antagonist" },
+          { "name": "Azkaellon", "role": "pov" },
+          { "name": "Lucius", "role": "antagonist" },
+          { "name": "Fulgrim", "role": "pov" },
+          { "name": "Ferrus Manus", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "supporting" },
+          { "name": "Horus", "role": "antagonist" },
+          { "name": "Sanguinius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.61,
+          "count": 137,
+          "evidenceUrl": "https://www.goodreads.com/book/show/22796935-death-and-defiance"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0144",
+      "slug": "blades-of-the-traitor",
+      "overrides": {
+        "synopsis": "Blades of the Traitor collects five short stories from the Horus Heresy Weekender of February 2015, each turning a hard light on one of the traitor Legions. Chris Wraight's \"Daemonology\" follows Mortarion as he abandons the hunt for the White Scars and drives the Death Guard across the Prosperine systems toward an answer about his own sinister heritage on Terathalion. John French's \"Black Oculus\" is the testimony of an Iron Warriors Navigator driven half-mad after guiding the fleet through a warp anomaly on the road to Tallarn. Guy Haley's \"Twisted\" turns to Maloghurst, the broken equerry of the Sons of Horus. Nick Kyme's \"Chirurgeon\" steps into the laboratories of Fabius Bile and his experiments on the Emperor's Children. Graham McNeill's \"Wolf Mother\" picks up where the novel Vengeful Spirit left off, with the Sons of Horus reckoning with what they have unleashed.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "space_marine",
+          "multi",
+          "chaos",
+          "company",
+          "planetary",
+          "requires_context",
+          "short",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "cosmic_horror",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "hubris",
+          "war",
+          "doubt",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Emperor's Children", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terathalion", "role": "primary" },
+          { "name": "Tallarn", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Mortarion", "role": "pov" },
+          { "name": "Maloghurst", "role": "pov" },
+          { "name": "Fabius Bile", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.74,
+          "count": 125,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24620784-blades-of-the-traitor"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0145",
+      "slug": "meduson",
+      "overrides": {
+        "synopsis": "Meduson is the Warhammer World exclusive anthology of the Shattered Legions, gathered around a single name. Dan Abnett's title novella gives Shadrak Meduson of the Iron Hands the role of insurgent commander hunting the Sons of Horus from the shadows after the Drop Site Massacre. Guy Haley's \"Unforged\" and \"Unspoken\" widen the war to the brothers who fight beside him. Nick Kyme's \"Immortal Duty\" brings the Salamanders into the alliance. Chris Wraight's \"Grey Talon\" — and, in the Ultimate Edition, \"Hand Elect\" — and John French's \"The Keys of Hel\" chronicle Iron Hands operations across stolen ships and ruined worlds. David Annandale's \"The Noose\", Gav Thorpe's \"Deeds Endure\" and Graham McNeill's \"The Either\" close out the collection as the noose tightens around Meduson himself and the Warmaster's loyalists move to end the insurgency.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "space_marine",
+          "multi",
+          "imperium",
+          "chaos",
+          "company",
+          "galactic",
+          "requires_context",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "betrayal",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Sons of Horus", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Shadrak Meduson", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "shattered-legions guerrilla campaign moves across many minor worlds and ships; no single location dominates the collection" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.71,
+          "count": 253,
+          "evidenceUrl": "https://www.goodreads.com/book/show/25661843-meduson"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0146",
+      "slug": "betrayal-at-calth",
+      "overrides": {
+        "synopsis": "Betrayal at Calth pairs two novellas of the Underworld War, the long subterranean campaign that follows the Word Bearers' treacherous strike on the Ultramarines' parade world. Rob Sanders's \"The Honoured\" follows Steloc Aethon, captain of the Ultramarines' Honoured 19th Company, as he hunts traitors through the caverns beneath a scorched surface while his vengeance threatens to consume him. David Annandale's \"The Unburdened\" turns the same darkness around to the other side, where Dark Apostle Kurtha Sedd of the Word Bearers must set aside his doubts and embrace what he has become if his warriors are to survive an old comrade who now means to kill him. Released alongside the Betrayal at Calth wargame box, the two novellas were also published together as a limited duology.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "space_marine",
+          "multi",
+          "dual",
+          "company",
+          "planetary",
+          "requires_context",
+          "short",
+          "war_story",
+          "siege",
+          "character_study",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "war",
+          "brotherhood",
+          "doubt",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Word Bearers", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Calth", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Steloc Aethon", "role": "pov" },
+          { "name": "Kurtha Sedd", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.53,
+          "count": 40,
+          "evidenceUrl": "https://www.goodreads.com/book/show/27556206-betrayal-at-calth"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0147",
+      "slug": "echoes-of-imperium",
+      "overrides": {
+        "synopsis": "Echoes of Imperium is an audio anthology of four short dramas set inside the fragile realm of Imperium Secundus, the loyalist remnant cut off from Terra. Andy Smillie's \"The Herald of Sanguinius\" finds the newly crowned Emperor-Regent on Macragge under threat from within, with Commander Azkaellon of the Sanguinary Guard forced into the darkest of measures to keep his primarch alive. Nick Kyme's \"Stratagem\" and C Z Dunn's \"The Watcher\" extend the picture of the loyalist remnant in further short pieces. Gav Thorpe's dramatised version of \"The Shadowmasters\" cuts away to Sergeant Chamell and his Mor Deythan of the Raven Guard, slipping behind enemy lines on Atlas to break a forge-temple from within during the Soulforge campaign.",
+        "facetIds": [
+          "audio_drama",
+          "ensemble",
+          "space_marine",
+          "multi",
+          "imperium",
+          "company",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "court_intrigue",
+          "character_study",
+          "somber",
+          "grimdark",
+          "action_heavy",
+          "loyalty",
+          "betrayal",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Ultramarines", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Macragge", "role": "primary" },
+          { "name": "Atlas", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sanguinius", "role": "supporting" },
+          { "name": "Azkaellon", "role": "pov" },
+          { "name": "Chamell", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "limited source coverage for the constituent shorts 'Stratagem' and 'The Watcher'; their faction focus could not be confirmed from accessible sources" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.76,
+          "count": 17,
+          "evidenceUrl": "https://www.goodreads.com/book/show/32073771-echoes-of-imperium"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0148",
+      "slug": "virtues-of-the-sons-sins-of-the-father",
+      "overrides": {
+        "synopsis": "This paired audio release puts the two Blood Angels short dramas by Andy Smillie back-to-back. In the prequel \"Sins of the Father\", Sanguinius sits alone with his thoughts in a dark hour, brooding on the futures of his sons and the shadow he sees waiting for them. In \"Virtues of the Sons\" those futures play out: Amit the Flesh Tearer is set against the killer Khârn of the World Eaters, while Azkaellon of the Sanguinary Guard takes up steel against Lucius of the Emperor's Children. Through these duels Sanguinius's chosen confront the twin halves of what their primarch has shaped them to be — the gentle and the savage, the noble and the merciless.",
+        "facetIds": [
+          "audio_drama",
+          "mixed",
+          "space_marine",
+          "imperium",
+          "chaos",
+          "squad",
+          "company",
+          "requires_context",
+          "novella",
+          "war_story",
+          "character_study",
+          "somber",
+          "action_heavy",
+          "grimdark",
+          "brotherhood",
+          "doubt",
+          "sacrifice",
+          "hubris",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "World Eaters", "role": "antagonist" },
+          { "name": "Emperor's Children", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Sanguinius", "role": "pov" },
+          { "name": "Amit", "role": "pov" },
+          { "name": "Azkaellon", "role": "pov" },
+          { "name": "Khârn", "role": "antagonist" },
+          { "name": "Lucius", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.68,
+          "count": 31,
+          "evidenceUrl": "https://www.goodreads.com/book/show/32471064-virtues-of-the-sons-sins-of-the-father"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0149",
+      "slug": "echoes-of-revelation",
+      "overrides": {
+        "synopsis": "Echoes of Revelation is the second audio drama anthology of the Horus Heresy, collecting three short pieces that turn on faith, severance and revelation. Dan Abnett's \"Perpetual\" picks up Oll Persson and his band of refugees, becalmed somewhere in the warp on their long road from Calth toward Terra, where the road ends at a dead city and the Cabal's hunters finally close in. Chris Wraight's \"The Soul, Severed\" follows Lord Commander Primus Eidolon of the Emperor's Children as he answers a challenge from within his own Legion, setting his Kakophoni against a rival officer who would see the III Legion returned to a glory it has long since left behind. Gav Thorpe's \"Valerius\" sends Vice-Caesari Marcus Valerius of the Therion Cohort, an Imperial Army officer haunted by holy visions, into the slaughter of Beta-Garmon under Corax's orders for one final stand against the Archtraitor.",
+        "facetIds": [
+          "audio_drama",
+          "ensemble",
+          "space_marine",
+          "guardsman",
+          "civilian",
+          "multi",
+          "imperium",
+          "chaos",
+          "company",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "journey",
+          "last_stand",
+          "character_study",
+          "somber",
+          "grimdark",
+          "cosmic_horror",
+          "philosophical",
+          "faith",
+          "betrayal",
+          "hubris",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Alpha Legion", "role": "antagonist" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Imperial Army", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Calth", "role": "supporting" },
+          { "name": "Beta-Garmon", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Oll Persson", "role": "pov" },
+          { "name": "John Grammaticus", "role": "supporting" },
+          { "name": "Eidolon", "role": "pov" },
+          { "name": "Marcus Valerius", "role": "pov" },
+          { "name": "Corax", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.68,
+          "count": 31,
+          "evidenceUrl": "https://www.goodreads.com/book/show/35318917-echoes-of-revelation"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0150",
+      "slug": "blood-games",
+      "overrides": {
+        "synopsis": "Originally published in the Tales of Heresy anthology, Dan Abnett's \"Blood Games\" is the first true outing for the Adeptus Custodes inside the Horus Heresy. Amon Tauromachian, a Custodian Guard, returns to the Imperial Palace after a year on one of the Blood Games — the training exercises in which the Custodes test the security of the Throneworld by trying to break it themselves. He is given a new mission: travel down into the hives of Hy Brasil and quietly take the measure of a notorious troublemaker whose loyalty has come into question. With half the galaxy already in open rebellion, no hint of sedition can be tolerated on Terra. What Amon finds in the hive draws him into a knot of deceit where nothing and no one is what it seems.",
+        "facetIds": [
+          "book",
+          "male",
+          "custodes",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "mystery",
+          "political_thriller",
+          "character_study",
+          "somber",
+          "grimdark",
+          "philosophical",
+          "loyalty",
+          "doubt",
+          "faith",
+          "betrayal",
+          "cw_violence",
+          "cw_crime",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Hy Brasil", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Amon Tauromachian", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.04,
+          "count": 290,
+          "evidenceUrl": "https://www.goodreads.com/book/show/27413500-blood-games"
+        }
+      }
+    }
+  ]
+}
