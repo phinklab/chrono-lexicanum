@@ -2173,3 +2173,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** `Khârn` (preserved â), `Hibou Khan`, `Shadrak Meduson`, `Barabas Dantioch`, `Idriss Krendl`, `Jago Sevatarion` (alongside the short `Sevatar`), `Nykona Sharrowkyn`, `Sabik Wayland`, `Tylos Rubio`, `Hastur Sejanus`, `Branne Nev`, `Schadenhold`, `Tsagualsa`, `Aegis sector`, `Proxima Apocryphis`.
 - **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` skipped per Brief-061-convention (data-only commit — single override JSON + this log append, no code/schema touched).
+
+## 2026-05-26 · ssot-hh-018 · HH-0171..HH-0180 · ✅
+
+- **Cumulative books in authority:** 745
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=735, batch=ssot-hh-018, slice=HH-0171..HH-0180
+- **WebSearch:** mean=1.1, max=2 (over 10 books) — one re-search needed for "Serpent" (first query with `Alpha Legion / Alpharius` heuristic was wrong; the story is actually a Davinite Serpent Lodge cult vignette around the priest Thoros).
+- **Per-book bullets:**
+  - **HH-0171 The Divine Word** — Therion Cohort POV (Marcus Valerius) embedded with Raven Guard; no specific named planet in available sources, locations left empty.
+  - **HH-0172 The Kaban Project** — Clean Mechanicum prequel-to-*Mechanicum*; Sons of Horus listed as supporting because the machine was Horus-commissioned, not because the Legion appears on-page.
+  - **HH-0173 The Gates of Terra** — Roster mistag risk avoided: it's an Ultramarine (Arcadese) POV under a Malcador frame, not an Imperial Fists story despite the Terra/Dorn dressing. Scope=sector for the Ardent Reef ring.
+  - **HH-0174 Lord of the Red Sands** — Single-POV Angron interior monologue on Isstvan III; Nuceria added as supporting location because the slave-pit chains are explicitly the spine of his hunger for freedom.
+  - **HH-0175 Serpent** — Surface form **Davinite Serpent Lodge** kept verbatim (no canonical-resolver hop); "Word Bearers" deliberately *not* listed because they do not appear on-page even though they later co-opt the lodge. Rating 2.80/152 is unusually low but matches the page — no edition ambiguity (single-story work record).
+  - **HH-0176 Luna Mendax** — Loken catalogued as Sons of Horus (his Legion identity) plus Crusader Host supporting; Caliban surfaces only as the *referenced* errand location (role: supporting).
+  - **HH-0177 Riven** — Crius is on Terra under the Crusader Host; both Iron Hands (primary) and Imperial Fists (supporting, Dorn) carried. Cosmic-horror tone tag justified by Civilian Reader and Lexicanum framings of the survivors.
+  - **HH-0178 Bjorn: Lone Wolf** — No specific named daemon in available sources; antagonist faction intentionally omitted rather than tagging the generic "Chaos" forbidden by §7 (Faction-Granularity).
+  - **HH-0179 The Wolf of Ash and Fire** — Great-Crusade-era piece (pre-Heresy); only HH 10er-batch entry tagged `hopepunk` because the father/son tone is the explicit point.
+  - **HH-0180 Heart of the Conqueror** — Female civilian Navigator POV (rare in the HH short-story stack); Word Bearers added as antagonist for Lorgar's role in finishing the Nails on Nuceria. Scope=galactic reflects the shipboard arc spanning the war.
+- **value_outside_vocabulary:** [`format.short_story` (10×, all of this batch — none of these e-shorts map cleanly to `book` / `audiobook` granularity, falling back to both); `length_tier.short_story` (10×, novella is the smallest available bucket)]
+- **Notable surface-forms (within this batch):** "Therion Cohort" (Imperial Army regiment, kept raw — more specific than Astra Militarum browse-root), "Davinite Serpent Lodge" (Davin cult, kept raw, not collapsed to generic "Word Bearers"), "Crusader Host" (Terran multi-Legion delegation, kept across HH-0176 and HH-0177), "Navis Nobilite" (House faction for the Navigator POV in HH-0180), "The Emperor of Mankind" (kept verbatim rather than aliased to "Emperor").
+- **Verification skipped per Brief 061 convention:** Pure data-commit (override JSON + log append, no code touched), so `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` not run.

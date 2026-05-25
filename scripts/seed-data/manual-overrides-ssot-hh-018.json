@@ -1,0 +1,223 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-018",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "Tenth full HH wave is all 2012-2014 short stories (HH-0171..HH-0180): loyalist mood pieces (The Divine Word, Riven, Luna Mendax, Bjorn: Lone Wolf), traitor character studies (Lord of the Red Sands, Heart of the Conqueror, Serpent), and three pre-/early-Heresy curtain-raisers (The Kaban Project, The Gates of Terra, The Wolf of Ash and Fire). All ten have rated Goodreads pages; edition disambiguation was clean because each entry is a single-story e-short with its own work record, not bundled into the Legacies of Betrayal/Silent War/Eye of Terra anthology aggregates. Length tier is forced to novella throughout — the closest available bucket below short-novel — and noted once in the log rather than per book.",
+  "books": [
+    {
+      "externalBookId": "HH-0171",
+      "slug": "the-divine-word",
+      "overrides": {
+        "synopsis": "Commander Marcus Valerius of the Therion Cohort marches alongside the Raven Guard, a soldier of the new Imperium who has always scorned the whispered cult of the Lectitio Divinitatus. Then a sudden flash of certainty — call it instinct, call it prayer — pulls his column off a road that would have been their grave. As Valerius questions whether the vision was a guiding hand or only his own frightened mind, the first quiet seeds of what will one day become the Imperial Creed are sown on a war-torn field. A pocket-sized meditation on faith, doubt, and the difference between hearing the divine and inventing it.",
+        "facetIds": ["book", "audiobook", "male", "guardsman", "imperium", "planetary", "requires_context", "novella", "character_study", "philosophical", "somber", "faith", "doubt", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Therion Cohort", "role": "primary" },
+          { "name": "Raven Guard", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Marcus Valerius", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.55, "count": 172, "evidenceUrl": "https://www.goodreads.com/book/show/18243200-the-divine-word" }
+      }
+    },
+    {
+      "externalBookId": "HH-0172",
+      "slug": "the-kaban-project",
+      "overrides": {
+        "synopsis": "Adept Pallas Ravachol is plucked from the forge-temples of Mars to serve on a project so secret even its name is whispered: the Kaban Machine, a war-engine built in deepest violation of the Emperor's prohibition on thinking machines. The dream posting curdles fast — Ravachol discovers the engine is sentient, then learns it was commissioned by Horus Lupercal himself, and finally that his master Lukas Chrom has sent armed Protectors to silence the inconvenient questions he keeps asking. Speaking the wrong heresy aloud in front of a friend who happens to be a war machine turns out to have a very direct cost. A short, sharp prequel to the Mechanicum civil war on Mars.",
+        "facetIds": ["book", "audiobook", "male", "tech_priest", "imperium", "planetary", "requires_context", "novella", "mystery", "somber", "philosophical", "betrayal", "hubris", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Mechanicum", "role": "primary" },
+          { "name": "Sons of Horus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Mars", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Pallas Ravachol", "role": "pov" },
+          { "name": "Lukas Chrom", "role": "antagonist" },
+          { "name": "Kaban Machine", "role": "supporting" },
+          { "name": "Horus Lupercal", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.78, "count": 352, "evidenceUrl": "https://www.goodreads.com/book/show/17409544" }
+      }
+    },
+    {
+      "externalBookId": "HH-0173",
+      "slug": "the-gates-of-terra",
+      "overrides": {
+        "synopsis": "With the Heresy tearing the galaxy in half, Captain Arcadese of the Ultramarines finds himself thrust into command of the Ardent Reef, a ring of gun-bastions and asteroid forts encircling Sol. As Horus's traitor fleet burns toward the Throneworld, Arcadese must hold the line against impossible odds — until the battle takes a final, unexpected turn that reveals just how the Sigillite measures the men he is about to put in charge of Terra's outer wall. A short, claustrophobic piece about duty and the weight of being tested by Malcador without knowing it.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "sector", "requires_context", "novella", "war_story", "siege", "action_heavy", "somber", "loyalty", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Ardent Reef", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Arcadese", "role": "pov" },
+          { "name": "Malcador the Sigillite", "role": "supporting" },
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.45, "count": 216, "evidenceUrl": "https://www.goodreads.com/book/show/17649776-the-gates-of-terra" }
+      }
+    },
+    {
+      "externalBookId": "HH-0174",
+      "slug": "lord-of-the-red-sands",
+      "overrides": {
+        "synopsis": "On the murdered surface of Isstvan III, Angron of the World Eaters wades through the smoke and the ash and the dying. He kills his own wayward sons as readily as the enemy, and yet in the carnage he finds an unfamiliar quiet — something close to peace. The gladiator-primarch is renowned across the galaxy for savagery, but the Eater of Worlds carries another hunger underneath, older than the Heresy: not honour, not vengeance, but freedom from the chains the cosmos has wrapped around him since the day the Emperor pulled him off the slave-pits of Nuceria. A short, brutal interior portrait of the angriest of the primarchs.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "chaos", "planetary", "requires_context", "novella", "war_story", "character_study", "action_heavy", "grimdark", "somber", "betrayal", "hubris", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Isstvan III", "role": "primary" },
+          { "name": "Nuceria", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Angron", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.07, "count": 303, "evidenceUrl": "https://www.goodreads.com/book/show/25262003-lord-of-the-red-sands" }
+      }
+    },
+    {
+      "externalBookId": "HH-0175",
+      "slug": "serpent",
+      "overrides": {
+        "synopsis": "On the swamp-shrouded world of Davin, the cult-priest Thoros calls upon his patron gods to drive out the pretenders and the doubters who would corrupt the Serpent Lodge from within. Only the true disciples of the dark powers, he believes, should be allowed to live — let alone to rule. A short, ritual-soaked glimpse at the chaos cult that first turned Davin and its moon into a wound on the galaxy, and at the kind of zealot from which the rot beneath the Horus Heresy first crept upward.",
+        "facetIds": ["book", "audiobook", "male", "civilian", "chaos", "planetary", "requires_context", "novella", "character_study", "cosmic_horror", "grimdark", "faith", "hubris", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Davinite Serpent Lodge", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Davin", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Thoros", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 2.80, "count": 152, "evidenceUrl": "https://www.goodreads.com/book/show/18907513-serpent" }
+      }
+    },
+    {
+      "externalBookId": "HH-0176",
+      "slug": "luna-mendax",
+      "overrides": {
+        "synopsis": "Garviel Loken, the last loyalist of the broken Mournival, comes back from a secret errand to Caliban at Malcador the Sigillite's bidding and goes to ground in a long-abandoned bio-dome on Luna. Battered by betrayal and bewildered by a galaxy he no longer recognises, he is visited there by his dead brother Tarik Torgaddon — laughing, irreverent, exactly as he was — and cannot tell whether it is a fractured mind speaking back to itself, or whether the dead really do walk on the Mendax side of the Moon. A quiet, melancholic interlude that bridges Loken's resurrection and his return to the war for Terra.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "squad", "requires_context", "novella", "character_study", "mystery", "somber", "philosophical", "betrayal", "doubt", "brotherhood", "loyalty", "cw_violence", "cw_death", "cw_mental_health", "en"],
+        "factions": [
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Crusader Host", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Luna", "role": "primary" },
+          { "name": "Caliban", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Garviel Loken", "role": "pov" },
+          { "name": "Malcador the Sigillite", "role": "supporting" },
+          { "name": "Tarik Torgaddon", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.93, "count": 169, "evidenceUrl": "https://www.goodreads.com/book/show/22738295" }
+      }
+    },
+    {
+      "externalBookId": "HH-0177",
+      "slug": "riven",
+      "overrides": {
+        "synopsis": "Brother Crius of the Iron Hands has spent the war on Terra, chained to the Crusader Host as the Tenth Legion's ceremonial token, only to learn that his father Ferrus Manus is dead at Isstvan V. Rogal Dorn cuts him loose and sends him into the dark on a quiet, half-mad errand: find any of his brothers who survived the slaughter and bring them home for the last defence of the Throne. What Crius finds out among the stars is not the kin he remembers, but something the killing fields have hammered into a stranger, colder shape. A creeping, almost cosmic-horror look at what loss has done to the Sons of Medusa.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "squad", "requires_context", "novella", "journey", "mystery", "cosmic_horror", "grimdark", "somber", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Imperial Fists", "role": "supporting" },
+          { "name": "Crusader Host", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Crius", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.59, "count": 200, "evidenceUrl": "https://www.goodreads.com/book/show/18827371-riven" }
+      }
+    },
+    {
+      "externalBookId": "HH-0178",
+      "slug": "bjorn-lone-wolf",
+      "overrides": {
+        "synopsis": "On the fields of Velbayne, daemons spill out of every shadow and brotherhood is the only thing keeping the Rout alive. Packs of Space Wolves fight back to back — except for one. Bjorn, the warrior who has lost his entire pack, walks the line alone, sworn to a silence he will not break until he has put steel through the beast that killed them. As Leman Russ and the VIth Legion hold their ground, Bjorn hunts. A small, perfect grace note about grief, vengeance, and the particular loneliness of the Space Wolf who has outlived everyone he ever called brother.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "squad", "requires_context", "novella", "last_stand", "war_story", "action_heavy", "grimdark", "somber", "brotherhood", "loyalty", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Velbayne", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Bjorn", "role": "pov" },
+          { "name": "Leman Russ", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.39, "count": 196, "evidenceUrl": "https://www.goodreads.com/book/show/19079995-bjorn" }
+      }
+    },
+    {
+      "externalBookId": "HH-0179",
+      "slug": "the-wolf-of-ash-and-fire",
+      "overrides": {
+        "synopsis": "During the high days of the Great Crusade, long before the Heresy, the Emperor of Mankind takes the field at his favoured son's side. Horus Lupercal leads the Luna Wolves into the ork-infested wastes of Gorro, and the Master of Mankind himself comes with him — fighting shoulder-to-shoulder with the Warmaster against a greenskin warboss the size of a fortress. A short, fond piece set in the unbroken father-and-son moment that the rest of the Horus Heresy will spend forty books destroying, written as a quiet counterweight to everything that comes after.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "planetary", "requires_context", "novella", "war_story", "action_heavy", "hopepunk", "brotherhood", "loyalty", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Luna Wolves", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Gorro", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Horus Lupercal", "role": "pov" },
+          { "name": "The Emperor of Mankind", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.71, "count": 548, "evidenceUrl": "https://www.goodreads.com/book/show/20592013-the-wolf-of-ash-and-fire" }
+      }
+    },
+    {
+      "externalBookId": "HH-0180",
+      "slug": "heart-of-the-conqueror",
+      "overrides": {
+        "synopsis": "For more than a century the Navigator Nisha Andrasta has steered the flagship Conqueror through the warp, first for the War Hounds and then, after their primarch was found, for the World Eaters of Angron. She has watched the Legion shift around her — the reunion, the joy, the slow ruin — and now, after Lorgar Aurelian's gift on Nuceria has turned her primarch into the maddened thing he was always meant to become, she still pilots a traitor ship with a heart that beats for the Emperor. A short, intimate study of loyalty, complicity, and the cost of seeing too much from the bridge of a Legion gone over.",
+        "facetIds": ["book", "audiobook", "female", "civilian", "imperium", "galactic", "requires_context", "novella", "character_study", "political_thriller", "somber", "grimdark", "loyalty", "doubt", "faith", "sacrifice", "cw_violence", "cw_death", "cw_mental_health", "en"],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Navis Nobilite", "role": "supporting" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Nuceria", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Nisha Andrasta", "role": "pov" },
+          { "name": "Angron", "role": "supporting" },
+          { "name": "Lorgar Aurelian", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.79, "count": 179, "evidenceUrl": "https://www.goodreads.com/book/show/23261482-heart-of-the-conqueror" }
+      }
+    }
+  ]
+}
