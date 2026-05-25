@@ -937,3 +937,33 @@ Cowork-Session: Post-Merge-Koordinations-Pass für den gemergten Brief 098 (W40K
 **Out of scope:** Kein Code-/Schema-/DB-Touch. Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — CI/Maintainer). Die Session-Archivierung selbst ist Brief 099 (CC), nicht dieser Pass.
 
 **Branch:** Edits im Coordination-Worktree; Philipp `git pull` → committet + pusht Windows-nativ.
+
+---
+
+## 2026-05-25 · Ingest · Post-#099-Koordinations-Pass (Brief 099 gemergt)
+
+Cowork-Session: Post-Merge-Koordinations-Pass für den gemergten Brief 099 (Sessions-Archiv-Sweep). Coordination-Worktree `C:\Users\Phil\chrono-lexicanum`. Auslöser: Maintainer-Meldung „PR 99 ist gemerged".
+
+**Read (raw sources):**
+
+- `sessions/2026-05-25-099-impl-sessions-archive-sweep.md` — 099-Impl-Report: 53 geschlossene Session-Files (NNN 062–095 + 097) per `git mv` nach `sessions/archive/2026-05/`, 188 relative Pfad-Referenzen in 12 `brain/wiki/**`-Files umgeschrieben (Konzentration: project-state 51 / log 51 / open-questions 44 / pipeline-state 17 / Rest in Decision-/Workflow-Pages). `brain:lint --no-write` 0 blocking, `lint` 0 errors, `typecheck` clean. Keine Top-Level-Doc-/`docs/**`-/`scripts/**`-Treffer. Stop-before-push eingehalten.
+- `scripts/loop-next-batch.ts` + `scripts/resolver-loop-detect.ts` — gelesen für die HH-Ausblick-Frage des Maintainers (Befund unten).
+
+**Befund — SSOT-Loop vs. Resolver für HH.** Maintainer fragte, ob HH ohne Rewrite laufen kann. Am Code festgemacht: **SSOT-Loop ja** — `loop-next-batch.ts` ist zweidomänen-fähig (filtert `W40K-*` / `HH-*`, gibt nach dem letzten W40K-Batch automatisch `ssot-hh-001` aus, Override-File-Regex matcht `ssot-(w40k|hh)-*`). **Resolver nein** — `resolver-loop-detect.ts` ist hart W40K-only (Override-File-Regex nur `ssot-w40k-*`, ID-Präfixe + `ApplyRange.domain` fix, Terminal-Zustand `w40k-complete`); HH-Override-Files werden ignoriert. Der HH-Resolver-Brief braucht eine Domain-Generalisierung des Detektors. In `project-state.md` § Next likely brief eingearbeitet.
+
+**Updated wiki:**
+
+- `project-state.md` — Phase-Headline + Buch-Domain-Bild (Brief 099 gemergt, `sessions/`-Root aufgeräumt); What's-open (098+099-erledigt-Zeile, HH als nächster Schritt); Recently-shipped um zwei Zeilen (Brief 099 merged + dieser Pass); Next-likely-brief neu nummeriert (HH-Resolver = 1, finaler Konsolidierungs-Pass = 2) + SSOT-Loop-vs-Resolver-Befund.
+- `pipeline-state.md` — Intro-Blockquote: Brief 099 gemergt, nächster Strang HH.
+- `open-questions.md` — neuer Frontmatter-Header-Kommentar (Post-#099). Keine OQ-Schließung, keine neue numerierte OQ; die zwei 099-impl-Material-Punkte (`sources:`-Frontmatter-Konvention, `brain:lint`-Coverage-Erweiterung) als Notiz, nicht numeriert.
+- `index.md` — Katalog-Zeilen project-state / open-questions auf post-099.
+- `sessions/README.md` — Active-Threads-Kopf + Tabelle auf post-099 (Brief 099 merged, HH als nächster großer Schritt).
+- This `log.md` — Append-only-Eintrag.
+
+**No new decision page.** Brief 099 war reine Repo-Hygiene; kein Architektur-Call.
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** Offene Queue unverändert: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung.
+
+**Out of scope:** Kein Code-/Schema-/DB-Touch. Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — CI/Maintainer).
+
+**Branch:** Edits im Coordination-Worktree; Philipp committet + pusht + PR Windows-nativ.
