@@ -2152,3 +2152,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** `Dark Eldar` (Wolf at the Door), `Kabal of the Shrieking Heart` (in synopsis only), `Sisters of Silence`, `War Hounds` → `World Eaters` transition (After Desh'ea uses World Eaters as faction surface-form, War Hounds appears in synopsis), `Lacrymole` shape-shifter (Forgotten Sons, synopsis only), `Knight-Errant Iacton Qruze` (The Last Remembrancer).
 - **Verification:** lint/typecheck/brain:lint skipped — pure data commit (one new override JSON + this log append), per Brief 061 convention.
+
+## 2026-05-26 · ssot-hh-017 · HH-0161..HH-0170 · ✅
+
+- **Cumulative books in authority:** 735
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=725, batch=ssot-hh-017, slice=HH-0161..HH-0170
+- **WebSearch:** mean=1, max=1 (over 10 books) — one synopsis search per title was enough; Goodreads page-reads via WebFetch separately
+- **Per-book bullets:**
+  - HH-0161 Rebirth — Kalliston-vs-Khârn confrontation on the cinders of Tizca; Arvida's "knowledge is power" escape closes the Prospero arc-thread. Standard tags.
+  - HH-0162 The Face of Treachery — Branne-led Raven Guard rescue of Corax from Isstvan V; the central twist is an Alpha Legion infiltrator inside the rebel fleet, captured as `Alpha Legion: supporting` rather than antagonist (the story does not surface him as enemy until late). Commander Branne's surname appears in some sources as "Nev"; kept that form pending Resolver pass.
+  - HH-0163 Little Horus — Aximand-POV with a wide character list (Aximand, Noctua, Meduson, Hibou Khan, Henricos, Loken-as-dream-figure); the chiselled-face injury and the haunting Loken-figure both anchor downstream Sons-of-Horus arcs.
+  - HH-0164 The Iron Within — Dantioch's loyalist-Iron-Warrior debut at the Schadenhold; batch's highest GR (4.26 / 330). Standard siege/last-stand tags.
+  - HH-0165 Savage Weapons — Tsagualsa parlay turning to single combat; first cross of Lion vs. Curze and first appearance of Sevatar/Jago Sevatarion. Dual-POV (Jonson + Corswain) reflected in characters.
+  - HH-0166 Army of One — Eversor-assassin one-shot; the assassin is unnamed in available coverage → `low_confidence` flag on `characters`. Only Malcador is named.
+  - HH-0167 Kryptos — Sharrowkyn/Wayland debut + origin of the Sisypheum's Shattered-Legions doctrine; `locations` left empty (the Sisypheum is a ship, not a place; named in-synopsis).
+  - HH-0168 Distant Echoes of Old Night — Death Guard Destroyers' first big spotlight; the forest moon is unnamed in coverage → `locations` empty.
+  - HH-0169 Lost Sons — Baal-side Blood Angels at the news of Sanguinius's "death"; Warden Arkad POV + Tylos Rubio's Errant Knight visit; reads as the Death Company colour-shift's origin.
+  - HH-0170 Death of a Silversmith — silversmith-remembrancer POV aboard the Vengeful Spirit, killed by an unnamed Luna Wolf captain; the "returning friend" in the dying moment is presumably the false-Sejanus thread from Erebus's cult, but the source only names Sejanus by his pre-Davin commission → `low_confidence` flag on `characters`. Faction filed as `Sons of Horus: antagonist` (post-Heresy-name; the killer is post-Davin).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** `Khârn` (preserved â), `Hibou Khan`, `Shadrak Meduson`, `Barabas Dantioch`, `Idriss Krendl`, `Jago Sevatarion` (alongside the short `Sevatar`), `Nykona Sharrowkyn`, `Sabik Wayland`, `Tylos Rubio`, `Hastur Sejanus`, `Branne Nev`, `Schadenhold`, `Tsagualsa`, `Aegis sector`, `Proxima Apocryphis`.
+- **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` skipped per Brief-061-convention (data-only commit — single override JSON + this log append, no code/schema touched).
