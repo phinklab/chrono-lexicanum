@@ -1,0 +1,588 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-006",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Final original-HH novel (Buried Dagger, HH #54) plus the opening run of the Siege of Terra arc (Solar War through Saturnine, with the Sons of the Selenar and Fury of Magnus companion novellas). One pre-Siege anthology (Heralds of the Siege) where per-story TOC was unavailable from accessible sources, so factions/characters/locations were left empty under low_confidence flags rather than fabricated. One title-casing mismatch on HH-0058 flagged as data_conflict.",
+  "books": [
+    {
+      "externalBookId": "HH-0051",
+      "slug": "slaves-to-darkness",
+      "overrides": {
+        "synopsis": "After seven years of bitter war, the Warmaster's host approaches Terra, but the alliance Horus has forged is fracturing. With Horus himself stricken and unconscious aboard the Vengeful Spirit, his equerry Maloghurst struggles to hold the Sons of Horus together while Lorgar is dispatched to retrieve the daemon-ascended Fulgrim and Perturabo is sent to wrestle Angron back into the war. Three viewpoints carry the novel: Maloghurst's grim stewardship, the Word Bearer acolyte Zardu Layak's spiralling devotion, and the Iron Warrior Volk's single-minded pursuit of purpose. Across fleet councils, warp-corrupted rituals, and the slow gathering of a galactic host, the traitor primarchs reveal just how unstable the Heresy has become, even on the eve of its final blow against the Throneworld.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "chaos",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "cosmic_horror",
+          "betrayal",
+          "hubris",
+          "brotherhood",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Emperor's Children", "role": "supporting" },
+          { "name": "World Eaters", "role": "supporting" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "Thousand Sons", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Maloghurst the Twisted", "role": "pov" },
+          { "name": "Zardu Layak", "role": "pov" },
+          { "name": "Volk", "role": "pov" },
+          { "name": "Horus Lupercal", "role": "supporting" },
+          { "name": "Lorgar Aurelian", "role": "supporting" },
+          { "name": "Perturabo", "role": "supporting" },
+          { "name": "Fulgrim", "role": "supporting" },
+          { "name": "Angron", "role": "supporting" },
+          { "name": "Mortarion", "role": "supporting" },
+          { "name": "Ekaddon", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.91,
+          "count": 2081,
+          "evidenceUrl": "https://www.goodreads.com/book/show/40542346-slaves-to-darkness"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0052",
+      "slug": "heralds-of-the-siege",
+      "overrides": {
+        "synopsis": "Sixteen short stories and two novellas mark the threshold of the Horus Heresy's final act. As the traitor warhost gathers for the assault on Sol, loyalist remnants on Terra and beyond reckon with their place in the war's closing chapters: a primarch lays down a final ultimatum to a defeated world; Knights-Errant carry out Malcador's quiet errands; voices from the Sol defence, the Mechanicum, and the scattered legions speak across the void. The anthology serves as the bridge between the original Horus Heresy and the Siege of Terra, drawing together a generation of contributing authors — John French, James Swallow, Gav Thorpe, Chris Wraight, Guy Haley, Nick Kyme, Rob Sanders, and Anthony Reynolds — to set the stage for the Throneworld's siege.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "ensemble",
+          "mixed",
+          "space_marine",
+          "dual",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "war",
+          "loyalty",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "factions",
+            "reason": "anthology table of contents not retrievable from accessible sources; per-story faction aggregation skipped rather than fabricated"
+          },
+          {
+            "kind": "low_confidence",
+            "field": "characters",
+            "reason": "anthology table of contents not retrievable from accessible sources; per-story character list skipped rather than fabricated"
+          },
+          {
+            "kind": "low_confidence",
+            "field": "locations",
+            "reason": "anthology table of contents not retrievable from accessible sources; per-story location list skipped rather than fabricated"
+          }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.95,
+          "count": 1180,
+          "evidenceUrl": "https://www.goodreads.com/book/show/40593237-heralds-of-the-siege"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0053",
+      "slug": "titandeath",
+      "overrides": {
+        "synopsis": "On the war-ravaged moons of Beta-Garmon, the Adeptus Titanicus fights the largest god-engine engagement the Imperium has ever seen. Rogal Dorn has poured the loyalist Titan reserve into the system to bleed Horus's advance before he reaches Sol, and at the centre of the carnage stand the Imperial Hunters of Legio Solaria, an all-female princeps order led by the Great Mother Mohana Mankata Vi. Across the campaign, the young princeps Esha Ani Mohana finds herself drawn deeper into the line, while the Death Stalker Terent Hartekk of Legio Vulpa serves as Horus's blade. Titandeath is a story of attrition: how much can be sacrificed, and at what price, to win even a few more days for Terra.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "female",
+          "ensemble",
+          "dual",
+          "sector",
+          "mid_series",
+          "standard",
+          "war_story",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "war",
+          "sacrifice",
+          "brotherhood",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Legio Solaria", "role": "primary" },
+          { "name": "Legio Vulpa", "role": "antagonist" },
+          { "name": "Collegia Titanica", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Beta-Garmon", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Esha Ani Mohana", "role": "pov" },
+          { "name": "Mohana Mankata Vi", "role": "supporting" },
+          { "name": "Terent Hartekk", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.84,
+          "count": 1554,
+          "evidenceUrl": "https://www.goodreads.com/book/show/42892331"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0054",
+      "slug": "the-buried-dagger",
+      "overrides": {
+        "synopsis": "The final original Horus Heresy novel braids two strands. Ahead of the traitor armada, Mortarion drives the Death Guard fleet into the warp, only to find it becalmed and rotting, his sons slowly succumbing to a plague unlike any they have known. To save his Legion, the primarch must bargain with the powers of the warp and pay an ancient debt to Nurgle. On Terra, Malcador the Sigillite turns to Nathaniel Garro and the Knights-Errant to unmask an infiltration meant to break the Throneworld before the siege even begins. Garro's loyalty, Mortarion's pride, and Malcador's quiet calculation converge in the moment that closes the Heresy as it was, and opens the road to the Siege of Terra.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "mixed",
+          "space_marine",
+          "dual",
+          "galactic",
+          "series_finale",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "betrayal",
+          "faith",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "Adeptus Custodes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Mortarion", "role": "pov" },
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Malcador the Sigillite", "role": "supporting" },
+          { "name": "Calas Typhon", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.15,
+          "count": 2054,
+          "evidenceUrl": "https://www.goodreads.com/book/show/44009586-the-buried-dagger"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0055",
+      "slug": "the-solar-war",
+      "overrides": {
+        "synopsis": "After seven years of war, Horus's armada arrives in the Sol system and the long-prepared defence of Terra finally begins. Rogal Dorn's outer cordon stretches from Pluto inward — a screen of fortresses, void stations, and bled Imperial Navy squadrons meant not to win, but to slow the Warmaster long enough for the inner walls to be ready. Admiral Su-Kassen marshals what remains of the Sol fleet; Sigismund of the Imperial Fists seeks atonement in single combat; the remembrancer Mersadie Oliton looks for any way back to a Terra she may not recognise. On the traitor side, Abaddon executes Horus's plan as surely as Ahriman bends the warp around it. The first wall, in the void, falls hard.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "dual",
+          "galactic",
+          "series_start",
+          "standard",
+          "war_story",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "war",
+          "loyalty",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Imperial Navy", "role": "supporting" },
+          { "name": "Thousand Sons", "role": "supporting" },
+          { "name": "Word Bearers", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Sol System", "role": "primary" },
+          { "name": "Pluto", "role": "supporting" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Rogal Dorn", "role": "supporting" },
+          { "name": "Sigismund", "role": "pov" },
+          { "name": "Mersadie Oliton", "role": "pov" },
+          { "name": "Su-Kassen", "role": "pov" },
+          { "name": "Ezekyle Abaddon", "role": "pov" },
+          { "name": "Ahzek Ahriman", "role": "supporting" },
+          { "name": "Horus Lupercal", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.02,
+          "count": 4259,
+          "evidenceUrl": "https://www.goodreads.com/book/show/42944438-the-solar-war"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0056",
+      "slug": "the-lost-and-the-damned",
+      "overrides": {
+        "synopsis": "With the Solar defences shattered, the traitor host descends on Terra and the ground war for the Imperial Palace begins. The outer walls bear the brunt: trench-lines stretch for hundreds of kilometres, the air is poisoned by Mortarion's plagues, and entire conscript regiments are fed into the line to buy hours. Rogal Dorn, Sanguinius, the Khan, Malcador, and Constantin Valdor coordinate a defence that bends but does not break, while Horus, Angron, Mortarion, and Abaddon test every weak point of the bastion walls. Through the eyes of the mortal Katsuhiro — a press-ganged conscript dragged into the worst of it — the novel makes plain what the Siege costs the trillions for whom no primarch ever speaks.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "civilian",
+          "dual",
+          "planetary",
+          "mid_series",
+          "doorstopper",
+          "war_story",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "cosmic_horror",
+          "war",
+          "sacrifice",
+          "doubt",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "World Eaters", "role": "antagonist" },
+          { "name": "Word Bearers", "role": "supporting" },
+          { "name": "Night Lords", "role": "supporting" },
+          { "name": "Alpha Legion", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Adeptus Custodes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Katsuhiro", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "supporting" },
+          { "name": "Sanguinius", "role": "supporting" },
+          { "name": "Jaghatai Khan", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" },
+          { "name": "Constantin Valdor", "role": "supporting" },
+          { "name": "Horus Lupercal", "role": "antagonist" },
+          { "name": "Mortarion", "role": "antagonist" },
+          { "name": "Angron", "role": "antagonist" },
+          { "name": "Ezekyle Abaddon", "role": "antagonist" },
+          { "name": "Zardu Layak", "role": "antagonist" },
+          { "name": "Gendor Skraivok", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.23,
+          "count": 3629,
+          "evidenceUrl": "https://www.goodreads.com/book/show/44451854-the-lost-and-the-damned"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0057",
+      "slug": "the-first-wall",
+      "overrides": {
+        "synopsis": "Perturabo and his Iron Warriors arrive on Terra to do what they were forged to do: break a wall. The Lion's Gate Spaceport becomes the hinge of the assault — if the traitors take it, they can land the heaviest siege engines directly on the Throneworld's doorstep. Rogal Dorn's Imperial Fists hold the line with every defensive stratagem they know, but the price climbs hour by hour. Around the duel of the two siege-primarchs, a new faith rises inside the Palace as the Lectitio Divinitatus spreads, and a fresh regiment levied from former Africa marches across the ruined continent to reinforce the defenders. The First Wall is the moment the Siege stops being about voids and bastions and starts being about people.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "dual",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "war",
+          "faith",
+          "sacrifice",
+          "loyalty",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" },
+          { "name": "Lion's Gate Spaceport", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Perturabo", "role": "antagonist" },
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.76,
+          "count": 3142,
+          "evidenceUrl": "https://www.goodreads.com/book/show/51086021-the-first-wall"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0058",
+      "slug": "the-sons-of-selenar",
+      "overrides": {
+        "synopsis": "The Sisypheum, the Shattered Legions strike cruiser that has spent the war hunting traitors deep behind their lines, intercepts a garbled signal from Luna and follows it to the cratered surface of a moon scarred by the bombardment of Terra. The crew is divided: some want to obey orders and rejoin their parent Legions on the Throneworld, others trust their resurrected captain's hunch and descend to the ruins. What they find in the lunar laboratories of the Selenar gene-cult is a relic of the earliest days of the Astartes project — a buried secret about the Space Marines that will outlast the Heresy itself. This novella closes the Sisypheum's long campaign and quietly answers a question that has shadowed the Horus Heresy from the start.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "journey",
+          "mystery",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Salamanders", "role": "supporting" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Selenar Gene-Cult", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Luna", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "title",
+            "currentValue": "The Sons of Selenar",
+            "suggestion": "Sons of the Selenar",
+            "evidenceUrl": "https://www.goodreads.com/book/show/52385692-sons-of-the-selenar"
+          },
+          {
+            "kind": "low_confidence",
+            "field": "characters",
+            "reason": "Sisypheum crew rota across the Shattered Legions arc could not be confirmed from accessible sources; left empty rather than fabricated"
+          }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.90,
+          "count": 1070,
+          "evidenceUrl": "https://www.goodreads.com/book/show/52385692-sons-of-the-selenar"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0059",
+      "slug": "saturnine",
+      "overrides": {
+        "synopsis": "Dorn cannot defend everything. The Iron Warriors have taken the Lion's Gate Spaceport; the Eternity Wall Spaceport is the next blow; the inner walls are bleeding faster than the Imperial Fists can reinforce them. With his ammunition spheres draining and no sign of Guilliman or the Lion, the Praetorian of Terra is forced into a series of brutal arithmetic decisions about which gates can be held and which must fall. Saturnine — a fortification deep behind the front line — becomes the staging ground for a gambit that could turn the entire siege. Around Dorn's calculus, Sanguinius takes the field, Perturabo and Mortarion press their assaults, and Abaddon stands at Horus's right hand as the Warmaster prepares the next escalation. Saturnine is the novel where the Siege of Terra becomes a battle of wills between two siegemasters.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "dual",
+          "planetary",
+          "mid_series",
+          "doorstopper",
+          "war_story",
+          "siege",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "war",
+          "sacrifice",
+          "loyalty",
+          "hubris",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Blood Angels", "role": "supporting" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Adeptus Custodes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" },
+          { "name": "Saturnine Gate", "role": "primary" },
+          { "name": "Lion's Gate Spaceport", "role": "supporting" },
+          { "name": "Eternity Wall Spaceport", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Rogal Dorn", "role": "pov" },
+          { "name": "Sanguinius", "role": "supporting" },
+          { "name": "Perturabo", "role": "antagonist" },
+          { "name": "Mortarion", "role": "antagonist" },
+          { "name": "Ezekyle Abaddon", "role": "antagonist" },
+          { "name": "Horus Lupercal", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.56,
+          "count": 3390,
+          "evidenceUrl": "https://www.goodreads.com/book/show/49090040-saturnine"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0060",
+      "slug": "fury-of-magnus",
+      "overrides": {
+        "synopsis": "While the Siege of Terra rages around the Imperial Palace, Magnus the Red makes a war of his own. A fragment of his shattered soul still lies hidden in the inner sanctum of the Palace, and to be whole again the Crimson King must take it back — even if that means walking into his father's stronghold and facing the Emperor of Mankind. Magnus and an inner cabal of Thousand Sons sorcerers slip past void shields and Custodian wards, threading their way through ruined corridors a knife's-width from the Throne itself. The novella is a quiet, philosophical counterweight to the larger battle: a primarch who chose his exile being asked, one last time, whether he can stand against the father who broke him.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "dual",
+          "planetary",
+          "requires_context",
+          "novella",
+          "character_study",
+          "war_story",
+          "philosophical",
+          "cosmic_horror",
+          "grimdark",
+          "somber",
+          "sacrifice",
+          "hubris",
+          "betrayal",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Magnus the Red", "role": "pov" },
+          { "name": "Emperor of Mankind", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.18,
+          "count": 1273,
+          "evidenceUrl": "https://www.goodreads.com/book/show/54303504-fury-of-magnus"
+        }
+      }
+    }
+  ]
+}

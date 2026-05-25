@@ -1920,3 +1920,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "The Emperor" (Master of Mankind POV — kept as surface form, no canonical-entity lookup), "Lectitio Divinitatus" (Garro — faith movement carried as a faction surface alongside Death Guard/Knights Errant), "Lion El'Jonson" (Ruinstorm — exact Black Library spelling preserved), "Vlka Fenryka" (Burden of Loyalty — alternative Space Wolves surface from the Thirteenth Wolf story, but the aggregate faction line uses "Space Wolves"), "Imperial Army" (Tallarn — pre-Imperial-Guard designation kept as the source surface), "Knights Errant" (Garro and Burden of Loyalty — Malcador's hidden order, surface form), "Draaksward" (Old Earth — Vulkan's three-Salamander guard; carried in synopsis, not as a faction).
 - **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` skipped per Brief-061-Konvention (pure data commit: one new override JSON + this log append, no code).
+
+## 2026-05-25 · ssot-hh-006 · HH-0051..HH-0060 · ✅
+
+- **Cumulative books in authority:** 625
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=615, batch=ssot-hh-006, slice=HH-0051..HH-0060
+- **WebSearch:** mean=1.1, max=2 (over 10 books) — one synopsis-context search per book, plus a second TOC search on Heralds of the Siege.
+- **Per-book bullets:**
+  - HH-0051 Slaves to Darkness: traitor-only POV novel; primary POVs Maloghurst / Layak / Volk; clean.
+  - HH-0052 Heralds of the Siege: anthology TOC not retrievable via WebFetch (Lexicanum returned HTTP 402, Fandom HTTP 403); factions / characters / locations left empty under three `low_confidence` flags rather than fabricated. Synopsis stays general.
+  - HH-0053 Titandeath: titan-crew (princeps) protagonists; no clean facet_value match for "princeps", so `protagonist_class` was omitted entirely. Candidate `princeps` collected below.
+  - HH-0054 The Buried Dagger: closes the original HH arc → `entry_point: series_finale`. Clean.
+  - HH-0055 The Solar War: opens the Siege of Terra arc → `entry_point: series_start`. Clean.
+  - HH-0056 The Lost and the Damned: trench-warfare doorstopper; civilian POV (Katsuhiro) → `civilian` chosen for `protagonist_class`.
+  - HH-0057 The First Wall: clean.
+  - HH-0058 Sons of the Selenar: roster title "The Sons of Selenar" vs Goodreads canonical "Sons of the Selenar" → `data_conflict` flag on `title` with suggestion. Sisypheum crew rota across the Shattered Legions arc not confirmable from accessible sources → `low_confidence` flag on `characters`, list left empty rather than fabricated.
+  - HH-0059 Saturnine: clean; doorstopper length tier.
+  - HH-0060 Fury of Magnus: clean; companion novella → `requires_context`.
+- **value_outside_vocabulary:** [{"category": "protagonist_class", "value": "princeps", "evidence": "HH-0053 Titandeath — Adeptus Titanicus titan crew POV; no existing facet_value captures it; multi/space_marine/guardsman all misleading"}]
+- **Notable surface-forms (within this batch):** "Knights-Errant" (HH-0054), "Selenar Gene-Cult" (HH-0058), "Legio Solaria" / "Legio Vulpa" (HH-0053), "Saturnine Gate" / "Eternity Wall Spaceport" / "Lion's Gate Spaceport" (HH-0057 / HH-0059), "Crimson King" referenced in synopsis but not as a surface-form entry (HH-0060).
+- **Verifikation:** `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` übersprungen — reiner Daten-Commit (Override-JSON + Markdown-Append), Brief-061-Konvention.
