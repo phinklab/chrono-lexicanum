@@ -2067,3 +2067,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "The Fallen" (Dark Angels splinter), "Lorgar Aurelian" (primarch full surface form), "Targutai Yesugei" (full Khan surface form), "Tenebrae 9-50" (Alpha Legion installation), "One-Five-Four Four" (compliance-target world).
 - **Skipped verification:** npm run lint / typecheck / brain:lint — Brief-061-Konvention für reinen Daten-Commit (override-JSON + log append, kein Code).
+
+## 2026-05-25 · ssot-hh-013 · HH-0121..HH-0130 · ✅
+
+- **Cumulative books in authority:** 695
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=685, batch=ssot-hh-013, slice=HH-0121..HH-0130
+- **WebSearch:** mean=1.1, max=2 (over 10 books)
+- **Per-book bullets:**
+  - HH-0121 Corax: Soulforge — coverage strong; needed a follow-up search to disambiguate the novella's Goodreads work page from the later "Corax" omnibus (same author, similar slug).
+  - HH-0122 Scorched Earth — coverage strong (Lexicanum + Track of Words + Black Library).
+  - HH-0123 Tallarn: Executioner — coverage strong; Tahirah as a female Guardsman POV is the unusual tag for this batch.
+  - HH-0124 Prince of Crows — coverage strong; outlier high Goodreads rating (4.41/743) but consistent across reviews.
+  - HH-0125 The Crimson Fist — coverage strong.
+  - HH-0126 The Purge — coverage strong.
+  - HH-0127 Ravenlord — coverage strong; locations include Carandiru/Deliverance/Lycaeus — Lycaeus surface-form kept (Raven Guard homeworld, also called Deliverance).
+  - HH-0128 The Seventh Serpent — coverage strong; no named Alpha Legion outpost in sources, so locations[] left empty rather than invent.
+  - HH-0129 Tallarn: Ironclad — Lexicanum carries both "Novel" and "Novella" pages for this title; roster says novella, kept that — no data_conflict flag raised.
+  - HH-0130 Cybernetica — coverage strong; "Knights-Errant" used as the primary faction surface-form per the protagonist's designation.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Knights-Errant; Imperial Army (Heresy-era Astra Militarum analogue, used for the Jurnian 701st in both Tallarn pieces); Sons of Horus (used in Ravenlord, distinct from the era-earlier Luna Wolves); Atesh Tarsa (Salamander aboard the Sisypheum); Shadrak Meduson (Iron Hands warleader); Hrend (Iron Warriors line officer).
+- **Lint skipped:** Brief-061 convention — reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code).
