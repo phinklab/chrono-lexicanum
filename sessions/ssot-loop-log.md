@@ -2130,3 +2130,25 @@
 - **value_outside_vocabulary:** `[{ "facet": "length_tier", "value": "short_story", "context": "HH-0150 Blood Games is a short story shorter than novella; closest catalog value used" }]`
 - **Notable surface-forms (within this batch):** "Sons of Horus" (not Luna Wolves at this point in the timeline); "Khârn" (with circumflex); "Lord Commander Primus Eidolon"; "Mor Deythan" (Raven Guard stealth elite); "Therion Cohort" (Imperial Army formation); "Hy Brasil" (Terran hive in Blood Games); "Vice-Caesari" rank style; "Imperium Secundus".
 - **Verification skipped:** pure data commit (override JSON + log append, no code) — `npm run lint` / `typecheck` / `brain:lint` skipped per Brief 061 convention.
+
+## 2026-05-26 · ssot-hh-016 · HH-0151..HH-0160 · ✅
+
+- **Cumulative books in authority:** 725
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=715, batch=ssot-hh-016, slice=HH-0151..HH-0160
+- **WebSearch:** mean=1, max=1 (over 10 books) — well-covered Black Library shorts, one synopsis search per book sufficed
+- **Per-book bullets:**
+  - HH-0151 Wolf at the Door: clean Space Wolves vs Dark Eldar piece; Bulveye + Andras well-attested.
+  - HH-0152 Scions of the Storm: Sor Talgron's introspection arc, Word Bearers post-Monarchia — coverage solid.
+  - HH-0153 The Voice: Sisters of Silence aboard Black Ship Validus; no concrete geographic location (warp setting), `locations: []`. No `protagonist_class` value fits Sisters of Silence — facet `sister` is Sister of Battle only; omitted rather than conflate.
+  - HH-0154 Call of the Lion: Astelan/Belath compliance-debate around Byzanthis; lowest GR rating in batch (3.14).
+  - HH-0155 The Last Church: standout of the batch (GR 4.27/812); no Legion faction list (pre-Imperial, civilian-priest POV with Emperor in disguise), `factions: []`.
+  - HH-0156 After Desh'ea: Kharn ↔ Angron origin; surface-form choice — listed faction as `World Eaters` (post-name) since the transition is the story's climax. War Hounds name stays in synopsis.
+  - HH-0157 Rules of Engagement: post-Calth Codex test; `requires_context` (depends on Calth aftermath).
+  - HH-0158 Liar's Due: Alpha Legion propaganda piece on Virger-Mos II; clean civilian-POV thriller.
+  - HH-0159 Forgotten Sons: dual-Astartes ambassador story on Bastion; two primary factions (Salamanders + Ultramarines), Iron Warriors antagonist.
+  - HH-0160 The Last Remembrancer: Dorn/Qruze/Voss execution argument on Titan; `requires_context`.
+- **length_tier:** omitted for entire batch — all 10 are sub-novella short stories; the smallest catalog bucket (`novella`) would overstate length. Browse axis stays honest by not asserting a bucket.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** `Dark Eldar` (Wolf at the Door), `Kabal of the Shrieking Heart` (in synopsis only), `Sisters of Silence`, `War Hounds` → `World Eaters` transition (After Desh'ea uses World Eaters as faction surface-form, War Hounds appears in synopsis), `Lacrymole` shape-shifter (Forgotten Sons, synopsis only), `Knight-Errant Iacton Qruze` (The Last Remembrancer).
+- **Verification:** lint/typecheck/brain:lint skipped — pure data commit (one new override JSON + this log append), per Brief 061 convention.
