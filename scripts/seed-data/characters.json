@@ -417,7 +417,7 @@
     "name": "Anakwanar Sek",
     "primaryFactionId": "sons_of_sek",
     "lexicanumUrl": null,
-    "notes": null
+    "notes": "Anarch of the Sons of Sek, antagonist of Matthew Farrer's Urdesh duology (W40K-0549 The Serpent and the Saint, W40K-0550 The Magister and the Martyr); cross-cluster appearance in Sabbat-Worlds-Crusade-Saga (Salvation's Reach, The Anarch). Consolidation-Pass 1 merge of magister_sek into anakwanar_sek."
   },
   {
     "id": "captain_idaeus",
@@ -2301,13 +2301,6 @@
     "primaryFactionId": "necrons",
     "lexicanumUrl": null,
     "notes": "Resolver-Pass 9 Phase 3 (7b spine): Necron Cryptek, Oltyx's vizier in Nate Crowley's Twice-Dead King trilogy + omnibus (W40K-0551, W40K-0552, W40K-0553). freq 3 strict."
-  },
-  {
-    "id": "magister_sek",
-    "name": "Magister Sek",
-    "primaryFactionId": "sons_of_sek",
-    "lexicanumUrl": null,
-    "notes": "Resolver-Pass 9 Phase 3 (7b spine): Anarch Sek, leader of the Sons of Sek pact during the Urdesh campaign; antagonist of Matthew Farrer's Urdesh duology (W40K-0549 The Serpent and the Saint, W40K-0550 The Magister and the Martyr). freq 2 strict."
   },
   {
     "id": "priad",

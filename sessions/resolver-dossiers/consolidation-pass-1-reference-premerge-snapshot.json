@@ -1,0 +1,109 @@
+{
+  "$schema": "consolidation-pass-reference-premerge-snapshot-v1",
+  "pass": 1,
+  "scope": "W40K-Entity-Set (Pässe 1..9, batches ssot-w40k-001..057)",
+  "generatedAt": "2026-05-25",
+  "purpose": "Self-contained pre-merge snapshot of all reference-JSON rows and alias entries the merge plan touches. Captured BEFORE the first JSON edit (Schritt 4) so a full rollback can reset the JSON side without git archaeology. Pairs with consolidation-pass-1-db-snapshot.json (captured before Re-Apply) to cover both JSON and DB rollback.",
+  "rollbackProcedure": [
+    "1. Reset the rows below into their respective scripts/seed-data/*.json files (re-insert the removed mergee rows verbatim; revert keeper-row field-retention edits to the pre-merge values shown here).",
+    "2. Remove the newly added alias entries listed in 'aliasesAdded' from scripts/seed-data/*-aliases.json.",
+    "3. Apply the db-snapshot rollback (separate artifact) to restore DB-side state.",
+    "4. Re-run scripts/run-phase4-apply.sh sessions/resolver-dossiers/consolidation-pass.config.json (or the resolver-pass config) to reconcile junction state."
+  ],
+  "touchedReferenceRows": {
+    "factions": [],
+    "locations": [
+      {
+        "preMergeRow": {
+          "id": "vigilus",
+          "name": "Vigilus",
+          "sector": "ultima",
+          "gx": 730,
+          "gy": 355,
+          "tags": ["ultramarines", "astra_militarum"]
+        },
+        "role": "keeper",
+        "fieldRetentionAppliedInThisMerge": []
+      },
+      {
+        "preMergeRow": {
+          "id": "vigilus_s",
+          "name": "Vigilus Core",
+          "sector": "tempestus",
+          "gx": 520,
+          "gy": 520,
+          "tags": []
+        },
+        "role": "mergee",
+        "removedInMerge": "vigilus_s -> vigilus"
+      }
+    ],
+    "characters": [
+      {
+        "preMergeRow": {
+          "id": "anakwanar_sek",
+          "name": "Anakwanar Sek",
+          "primaryFactionId": "sons_of_sek",
+          "lexicanumUrl": null,
+          "notes": null
+        },
+        "role": "keeper",
+        "fieldRetentionAppliedInThisMerge": [
+          {
+            "field": "notes",
+            "preMergeValue": null,
+            "postMergeValue": "Anarch of the Sons of Sek, antagonist of Matthew Farrer's Urdesh duology (W40K-0549 The Serpent and the Saint, W40K-0550 The Magister and the Martyr); cross-cluster appearance in Sabbat-Worlds-Crusade-Saga (Salvation's Reach, The Anarch). Consolidation-Pass 1 merge of magister_sek into anakwanar_sek.",
+            "sourceMergee": "magister_sek"
+          }
+        ]
+      },
+      {
+        "preMergeRow": {
+          "id": "magister_sek",
+          "name": "Magister Sek",
+          "primaryFactionId": "sons_of_sek",
+          "lexicanumUrl": null,
+          "notes": "Resolver-Pass 9 Phase 3 (7b spine): Anarch Sek, leader of the Sons of Sek pact during the Urdesh campaign; antagonist of Matthew Farrer's Urdesh duology (W40K-0549 The Serpent and the Saint, W40K-0550 The Magister and the Martyr). freq 2 strict."
+        },
+        "role": "mergee",
+        "removedInMerge": "magister_sek -> anakwanar_sek"
+      }
+    ]
+  },
+  "touchedAliasEntries": {
+    "factionAliases": [],
+    "locationAliases": [
+      {
+        "preMergeAliasesForKeeper": [],
+        "keeper": "vigilus",
+        "note": "No pre-existing alias entries pointed at vigilus before this merge."
+      }
+    ],
+    "characterAliases": [
+      {
+        "preMergeAliasesForKeeper": [],
+        "keeper": "anakwanar_sek",
+        "note": "No pre-existing alias entries pointed at anakwanar_sek before this merge."
+      },
+      {
+        "preMergeAliasesForMergee": [],
+        "mergee": "magister_sek",
+        "note": "No pre-existing alias entries pointed at magister_sek before this merge — no nested alias-folding required."
+      }
+    ]
+  },
+  "aliasesAdded": {
+    "locationAliases": [
+      { "surface": "Vigilus Core", "targetId": "vigilus" }
+    ],
+    "characterAliases": [
+      { "surface": "Magister Sek", "targetId": "anakwanar_sek" }
+    ],
+    "factionAliases": []
+  },
+  "factionPolicyTouches": [],
+  "logicalFkTouches": {
+    "factionsParentIdRemap": [],
+    "charactersPrimaryFactionIdRemap": []
+  }
+}

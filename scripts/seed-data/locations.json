@@ -268,14 +268,6 @@
     ]
   },
   {
-    "id": "vigilus_s",
-    "name": "Vigilus Core",
-    "sector": "tempestus",
-    "gx": 520,
-    "gy": 520,
-    "tags": []
-  },
-  {
     "id": "great_rift",
     "name": "The Great Rift",
     "sector": "solar",
