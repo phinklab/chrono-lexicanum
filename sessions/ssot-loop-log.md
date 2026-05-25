@@ -1941,3 +1941,24 @@
 - **value_outside_vocabulary:** [{"category": "protagonist_class", "value": "princeps", "evidence": "HH-0053 Titandeath — Adeptus Titanicus titan crew POV; no existing facet_value captures it; multi/space_marine/guardsman all misleading"}]
 - **Notable surface-forms (within this batch):** "Knights-Errant" (HH-0054), "Selenar Gene-Cult" (HH-0058), "Legio Solaria" / "Legio Vulpa" (HH-0053), "Saturnine Gate" / "Eternity Wall Spaceport" / "Lion's Gate Spaceport" (HH-0057 / HH-0059), "Crimson King" referenced in synopsis but not as a surface-form entry (HH-0060).
 - **Verifikation:** `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` übersprungen — reiner Daten-Commit (Override-JSON + Markdown-Append), Brief-061-Konvention.
+
+## 2026-05-25 · ssot-hh-007 · HH-0061..HH-0070 · ✅
+
+- **Cumulative books in authority:** 635
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=625, batch=ssot-hh-007, slice=HH-0061..HH-0070
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — all entries Siege-of-Terra-arc novels with extensive online coverage, single context search per book was sufficient
+- **Per-book bullets:**
+  - HH-0061 Mortis: clean; Mercury Wall titan duel, Dorn/Sigismund/Horus/Mortarion as primary character anchors only (deliberately not naming secondary princeps without strong source confirmation).
+  - HH-0062 Warhawk: clean; Jaghatai-Khan/Mortarion duel as climactic beat, Shiban Khan added as POV (well-documented in reviews).
+  - HH-0063 Echoes of Eternity: clean; Sanguinius/Ka'Bandha duel, Daemons-of-Khorne as concrete-faction granularity (not generic "Chaos").
+  - HH-0064 Garro: Knight of Grey: clean novella; Knights-Errant surface form, Mortarion as antagonist.
+  - HH-0065 TEATD Vol. 1: clean; doorstopper length_tier, 4-POV ensemble (Emperor/Horus/Dorn/Sanguinius).
+  - HH-0066 TEATD Vol. 2: clean; Sanguinius-vs-Horus duel + Oll Persson/Grammaticus perpetuals strand as the two interleaved threads.
+  - HH-0067 TEATD Vol. 3: clean; Emperor-vs-Horus final duel, Hollow Mountain / Dark Angels / Typhus subplot, Malcador on Golden Throne.
+  - HH-0068 Era of Ruin: **format data_conflict** — roster says novel, source is a multi-author Siege-of-Terra anthology (Abnett/ADB/French/Haley/Kyme/Thorpe/Wraight); suggestion: anthology. Per-story character lists left under low_confidence rather than fabricated.
+  - HH-0069 Flames of Betrayal: **format data_conflict** — roster says novel, source is an omnibus pairing the Garro: Knight of Grey novella with the Era of Ruin anthology; suggestion: omnibus. **Unrated** — July 2026 forward release, no aggregated Goodreads data yet.
+  - HH-0070 Restorer: clean; short_story tagged at "novella" length_tier (catalog has no shorter bucket), introspective post-Path-of-Heaven coda.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Legio Ignatum, Legio Mortis, Knights Errant, Sanguinary Guard, Daemons of Khorne, Daemons of Chaos, Ka'Bandha, Vengeful Spirit, Hollow Mountain, Lion's Gate Spaceport, Mercury Wall, Delphic Battlement, Eternity Gate, Sanctum Imperialis, Golden Throne.
+- **Skipped checks:** `npm run lint` / `npm run typecheck` / `npm run brain:lint` skipped per Brief-061 convention (pure data commit — new override JSON + log append, no code).

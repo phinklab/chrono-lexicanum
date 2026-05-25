@@ -1,0 +1,621 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-007",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Closing run of the Siege of Terra arc (Mortis through The End and The Death Vol. III) plus two post-Siege follow-ups (Era of Ruin anthology, Flames of Betrayal omnibus) and one pre-Siege White Scars epilogue short (Restorer). Two roster format-mistags flagged: HH-0068 Era of Ruin is a multi-author anthology, HH-0069 Flames of Betrayal collects the Garro: Knight of Grey novella plus the Era of Ruin anthology (omnibus). HH-0069 is a July 2026 forward release with no Goodreads aggregation yet — status: unrated.",
+  "books": [
+    {
+      "externalBookId": "HH-0061",
+      "slug": "mortis",
+      "overrides": {
+        "synopsis": "The victories of Saturnine have faded into yesterday's hope. Horus's host intensifies its assault on the Imperial Palace, the principal spaceports already lost. Now the Warmaster commits the god-engines of Legio Mortis to breach the Mercury Wall, where the loyalist Legio Ignatum stands as the last barrier between Titan and Throne. Ancient rivals among the war-engine legions meet in titanic duel across shattered ramparts, while behind the walls a small band of defenders works to push back the warp's malign intrusion before the Palace's wards collapse entirely. Rogal Dorn, Sigismund, and the Imperial Fists hold the line as Mortarion presses ever closer to the Sanctum, and the Heresy edges another step toward its ending.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "dual",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "war",
+          "loyalty",
+          "brotherhood",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Legio Ignatum", "role": "primary" },
+          { "name": "Legio Mortis", "role": "antagonist" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Adeptus Mechanicum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" },
+          { "name": "Mercury Wall", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Rogal Dorn", "role": "pov" },
+          { "name": "Horus Lupercal", "role": "pov" },
+          { "name": "Mortarion", "role": "supporting" },
+          { "name": "Sigismund", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.56,
+          "count": 2654,
+          "evidenceUrl": "https://www.goodreads.com/book/show/56269795-mortis"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0062",
+      "slug": "warhawk",
+      "overrides": {
+        "synopsis": "Jaghatai Khan, Warhawk of Chogoris, prepares the most audacious strike of the war: nothing less than the liberation of the Lion's Gate spaceport, the traitor's foothold on Terra. Cut off from reinforcement and weighed down by the death of his sons, the Khan stakes everything on one desperate counter-offensive against an old enemy made far greater than he ever was before. The White Scars charge into open battle rather than wait behind walls to die, and at the height of the assault Jaghatai meets Mortarion in single combat — a clash of ideologies as much as a contest of strength, two brothers whose paths diverged long before the Heresy began. Shiban Khan and the surviving White Scar brotherhoods ride at their primarch's side for what may be the legion's last great charge.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "dual",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "siege",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "philosophical",
+          "war",
+          "brotherhood",
+          "sacrifice",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Lion's Gate Spaceport", "role": "primary" },
+          { "name": "Imperial Palace", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Jaghatai Khan", "role": "pov" },
+          { "name": "Shiban Khan", "role": "pov" },
+          { "name": "Mortarion", "role": "antagonist" },
+          { "name": "Horus Lupercal", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.30,
+          "count": 2593,
+          "evidenceUrl": "https://www.goodreads.com/book/show/58058574-warhawk"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0063",
+      "slug": "echoes-of-eternity",
+      "overrides": {
+        "synopsis": "Horus's host advances through the fire and ash of Terra's dying breaths, forcing the loyalists back to the Delphic Battlement — the very walls of the Sanctum Imperialis. Sanguinius, the Angel of the Ninth Legion, waits on the final battlements, rallying a desperate band of Blood Angels, refugees, and exhausted defenders for one last stand at the Eternity Gate. Above them descends Ka'Bandha, greater daemon of Khorne, the Blood Angels' ancient hunter, leading a Neverborn tide unloosed from the Warp. The legend says the Great Angel held the Eternity Gate alone against the hordes of the enemy and duelled the Daemon of the Blood God in the skies above it. This is the true story behind that myth — a confrontation of spirit as much as blade, and the Blood Angels' last hours before the final hour of the final day.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "siege",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "cosmic_horror",
+          "somber",
+          "sacrifice",
+          "brotherhood",
+          "faith",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Sanguinary Guard", "role": "primary" },
+          { "name": "Daemons of Khorne", "role": "antagonist" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "World Eaters", "role": "antagonist" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Eternity Gate", "role": "primary" },
+          { "name": "Sanctum Imperialis", "role": "primary" },
+          { "name": "Delphic Battlement", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sanguinius", "role": "pov" },
+          { "name": "Ka'Bandha", "role": "antagonist" },
+          { "name": "Azkaellon", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.54,
+          "count": 2630,
+          "evidenceUrl": "https://www.goodreads.com/book/show/60484063-echoes-of-eternity"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0064",
+      "slug": "garro-knight-of-grey",
+      "overrides": {
+        "synopsis": "Among the ashes and fire of the embattled Imperial Palace, the former Knight Errant Nathaniel Garro carries his blade Libertas one last time. The shadow of Horus Lupercal's triumph looms over Terra, and Garro's path — from the brutal betrayal at Isstvan, through his missions as Malcador the Sigillite's Agentia Primus, to the burning Throneworld — has led him toward a destiny that can only end in bloodshed. As he struggles to protect Euphrati Keeler, the first Saint of the nascent Imperial Church, from the horrors of this titanic war, Garro must face his greatest enemy: Mortarion, his former master, the monstrous liege-lord of the traitor Death Guard, and the primarch he once swore unbreakable oaths to. The last knight of grey walks toward a final, shattering confrontation with the father he refused to follow into damnation.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "novella",
+          "war_story",
+          "siege",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "loyalty",
+          "betrayal",
+          "faith",
+          "redemption",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Knights Errant", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Euphrati Keeler", "role": "supporting" },
+          { "name": "Mortarion", "role": "antagonist" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.97,
+          "count": 877,
+          "evidenceUrl": "https://www.goodreads.com/book/show/61677233-garro"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0065",
+      "slug": "the-end-and-the-death-vol-1",
+      "overrides": {
+        "synopsis": "After seven brutal years of civil war, the Warmaster stands on the verge of victory. Horus Lupercal, once the Emperor's beloved son, has come to murder his father. Terra burns, the Palace lies in ruins, and the dream of a united Imperium is in tatters — but a sliver of hope remains. At the final hour of the final day, the Emperor rises. With Him come His Angel Sanguinius, His Praetorian Rogal Dorn, and His Captain-General Constantin Valdor, all bent on terrible vengeance. The novel weaves the Throneworld's last fight from many viewpoints: vignettes from the rubble of the global war, councils aboard the Vengeful Spirit where Horus and his sons reflect on what they have become, and Malcador the Sigillite's quiet counsel as the Emperor's full strategy at last begins to surface. The Siege of Terra reaches its turning point.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "dual",
+          "galactic",
+          "series_finale",
+          "doorstopper",
+          "war_story",
+          "siege",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "philosophical",
+          "cosmic_horror",
+          "war",
+          "betrayal",
+          "loyalty",
+          "sacrifice",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "World Eaters", "role": "antagonist" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Thousand Sons", "role": "antagonist" },
+          { "name": "Daemons of Chaos", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" },
+          { "name": "Vengeful Spirit", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "The Emperor", "role": "pov" },
+          { "name": "Horus Lupercal", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "pov" },
+          { "name": "Sanguinius", "role": "pov" },
+          { "name": "Constantin Valdor", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" },
+          { "name": "Oll Persson", "role": "supporting" },
+          { "name": "John Grammaticus", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.40,
+          "count": 2991,
+          "evidenceUrl": "https://www.goodreads.com/book/show/62609258-the-end-and-the-death"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0066",
+      "slug": "the-end-and-the-death-vol-2",
+      "overrides": {
+        "synopsis": "The Warmaster's bloody seven-year crusade has reached the cradle of mankind. Now Sanguinius, primarch of the Blood Angels, braves the horrors of Horus's flagship Vengeful Spirit with a single purpose: to slay his brother, decapitate the Heresy once and for all, and stop the powers of Chaos from claiming Holy Terra. Far below, Oll Persson, John Grammaticus, and their small band of perpetuals push through the ruined Palace on their own quiet mission to save the Emperor — bearing burdens older than the Imperium itself. The novel alternates between two converging threads: the duel that ends in Sanguinius's death at his brother's hand, and the long pilgrimage of Oll's company through a Terra unmade by warp incursion. Between them, the stage is set for the last confrontation between father and son.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "dual",
+          "galactic",
+          "series_finale",
+          "doorstopper",
+          "war_story",
+          "siege",
+          "journey",
+          "grimdark",
+          "action_heavy",
+          "cosmic_horror",
+          "somber",
+          "war",
+          "betrayal",
+          "sacrifice",
+          "brotherhood",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Daemons of Chaos", "role": "antagonist" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Vengeful Spirit", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sanguinius", "role": "pov" },
+          { "name": "Horus Lupercal", "role": "pov" },
+          { "name": "Oll Persson", "role": "pov" },
+          { "name": "John Grammaticus", "role": "pov" },
+          { "name": "The Emperor", "role": "supporting" },
+          { "name": "Rogal Dorn", "role": "supporting" },
+          { "name": "Constantin Valdor", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.22,
+          "count": 2396,
+          "evidenceUrl": "https://www.goodreads.com/book/show/172922673-the-end-and-the-death"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0067",
+      "slug": "the-end-and-the-death-vol-3",
+      "overrides": {
+        "synopsis": "The Great Angel Sanguinius lies slain at his brother's hand, and Terra burns as reality itself unravels around the last bastion of mankind. The Hollow Mountain, host to the pilgrims of Saint Euphrati Keeler, becomes one of the final redoubts, held by the Dark Angels while Typhus and the unclean host of the Death Guard tighten their siege. On the Golden Throne, Malcador the Sigillite sits ablaze, burning his soul to buy his master more time. Across the stars, Roboute Guilliman races his Ultramarines fleet toward the Throneworld, hoping to arrive before the end. And aboard the Vengeful Spirit it all comes down to one final, climactic confrontation: the Emperor versus Horus, father against son, blade and wit and will spent in a duel whose outcome will shape ten thousand years of darkness to come.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "dual",
+          "galactic",
+          "series_finale",
+          "doorstopper",
+          "war_story",
+          "siege",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "cosmic_horror",
+          "somber",
+          "philosophical",
+          "war",
+          "sacrifice",
+          "betrayal",
+          "loyalty",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Daemons of Chaos", "role": "antagonist" },
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Blood Angels", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Vengeful Spirit", "role": "primary" },
+          { "name": "Golden Throne", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" },
+          { "name": "Hollow Mountain", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "The Emperor", "role": "pov" },
+          { "name": "Horus Lupercal", "role": "pov" },
+          { "name": "Malcador the Sigillite", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "supporting" },
+          { "name": "Typhus", "role": "antagonist" },
+          { "name": "Euphrati Keeler", "role": "supporting" },
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.49,
+          "count": 2438,
+          "evidenceUrl": "https://www.goodreads.com/book/show/199239938"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0068",
+      "slug": "era-of-ruin",
+      "overrides": {
+        "synopsis": "The Heresy is over, but the wounds it left behind are only beginning to fester. In the ashes of Terra, the shattered Imperium gathers itself: surviving primarchs, broken legions, ordinary men and women whose worlds were unmade and must now be rebuilt. This collection draws together Black Library's principal Horus Heresy authors — Dan Abnett, Aaron Dembski-Bowden, Guy Haley, John French, Nick Kyme, Gav Thorpe, and Chris Wraight — for short fiction set in the immediate aftermath of the Siege. Stories range from Dan Abnett's \"Fragments (All We Have Left)\" through John French's \"Ex Libris\", Chris Wraight's \"Homebound\", and Aaron Dembski-Bowden's \"The Carrion Lord of the Imperium\", glimpsing the threads that will spin out across ten thousand years of grim darkness to come.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "ensemble",
+          "mixed",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "series_finale",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "war",
+          "loyalty",
+          "sacrifice",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Blood Angels", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "format",
+            "reason": "roster lists this as a novel, but Era of Ruin is a multi-author Siege of Terra anthology (short stories by Abnett, Dembski-Bowden, French, Haley, Kyme, Thorpe, Wraight)",
+            "suggestion": "anthology"
+          },
+          {
+            "kind": "low_confidence",
+            "field": "characters",
+            "reason": "per-story character lists for the anthology not reliably enumerable from accessible sources beyond the headline appearances; conservative aggregation chosen over fabrication"
+          }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.94,
+          "count": 689,
+          "evidenceUrl": "https://www.goodreads.com/book/show/229201702-era-of-ruin"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0069",
+      "slug": "flames-of-betrayal",
+      "overrides": {
+        "synopsis": "In the ashes of Terra, the wounds of the Horus Heresy fester. The conflict between Horus Lupercal and the Emperor has reached its bloody end, but the cost of that ending has barely begun to be reckoned. This collected volume brings together two threads of the immediate aftermath: Nathaniel Garro's final confrontation with his former primarch Mortarion as he shields Saint Euphrati Keeler in the dying Palace, and a constellation of short fiction by Dan Abnett, Aaron Dembski-Bowden, James Swallow, John French, Guy Haley, Nick Kyme, Gav Thorpe, and Chris Wraight tracing the first stumbling steps of the shattered Imperium as it tries to put itself back together. The death throes and immediate aftermath of the Siege, gathered for the first time.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "series_finale",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "philosophical",
+          "war",
+          "loyalty",
+          "betrayal",
+          "faith",
+          "sacrifice",
+          "redemption",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Knights Errant", "role": "primary" },
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Blood Angels", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Sons of Horus", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Euphrati Keeler", "role": "supporting" },
+          { "name": "Mortarion", "role": "antagonist" },
+          { "name": "Malcador the Sigillite", "role": "supporting" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [
+          {
+            "kind": "data_conflict",
+            "field": "format",
+            "reason": "roster lists this as a novel, but Flames of Betrayal is an omnibus pairing the Garro: Knight of Grey novella with the Era of Ruin anthology; aggregation reflects both constituent works",
+            "suggestion": "omnibus"
+          }
+        ],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "July 2026 forward release; Goodreads page exists but no aggregated rating data yet at time of curation",
+          "evidenceUrl": "https://www.goodreads.com/book/show/9781836090212-flames-of-betrayal"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0070",
+      "slug": "restorer",
+      "overrides": {
+        "synopsis": "Shiban Khan has returned to Terra. The White Scar's body has been remade and his mechanical shackles cast aside, but there are other, deeper wounds — older than Prospero, older than the legion's long ride across the wilds of the galaxy — that must still be confronted before he can stand in the line again. As the Warmaster's host draws ever closer to the Throneworld, Shiban walks the pre-Siege corridors of the Imperial Palace and the wild places of Terra not yet bombarded into ruin, taking stock of the brother he once was and the warrior he must become. A quiet, introspective coda to one White Scar's long arc through the Heresy, set on the threshold of the war's final act.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "character_study",
+          "somber",
+          "philosophical",
+          "redemption",
+          "doubt",
+          "brotherhood",
+          "loyalty",
+          "cw_violence",
+          "en"
+        ],
+        "factions": [
+          { "name": "White Scars", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Shiban Khan", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.08,
+          "count": 110,
+          "evidenceUrl": "https://www.goodreads.com/book/show/36134201-restorer"
+        }
+      }
+    }
+  ]
+}
