@@ -1,0 +1,481 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-011",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7-1m",
+  "rationale": "Eleventh HH wave — nine Primarchs / Heresy short stories (HH-0101..HH-0109) plus the short novel Valdor: Birth of the Imperium (HH-0110). Mixed primarch focus across the legion roster (Mortarion-as-daemon, Guilliman, Ferrus Manus, Angron, Sanguinius, Curze/Magnus framed through Sevatar, Vulkan, Dorn, Perturabo, Valdor). Two roster snags noted in the log: The Will of the Legion was easy to mis-attribute (the roster gives no primarch hint, and Andy Clark also writes Death Guard elsewhere) — source confirms Dorn / Imperial Fists; the roster spells HH-0109 'Ember of Extinction' but the canonical title is 'Embers of Extinction' (plural).",
+  "books": [
+    {
+      "externalBookId": "HH-0101",
+      "slug": "grandfathers-gift",
+      "overrides": {
+        "synopsis": "Mortarion wakes in a vast, fetid garden with no memory of how he came to be there or of who he once was. As he wanders the orchards and bone-choked ponds of this rotting realm, a great daemon called Kau'gath plays host, leading him along paths sown with old grievances. Each step strips away another layer of his pride, until the truth of his bargain with Grandfather Nurgle lies bare. The story reads as a dark fairy tale — a daemon primarch coaxed through blighted gardens, granted the slow, cruel kind of gift only that power can give. By the close, Mortarion has the revenge he has waited centuries to take, and the price of it is etched into his hands.",
+        "facetIds": [
+          "book",
+          "male",
+          "daemon",
+          "chaos",
+          "squad",
+          "standalone",
+          "novella",
+          "character_study",
+          "journey",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "hubris",
+          "betrayal",
+          "sacrifice",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "Daemons of Nurgle", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Garden of Nurgle", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Mortarion", "role": "pov" },
+          { "name": "Kau'gath", "role": "supporting" },
+          { "name": "Nurgle", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.83,
+          "count": 152,
+          "evidenceUrl": "https://www.goodreads.com/book/show/36096300-grandfather-s-gift"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0102",
+      "slug": "the-atonement-of-fire",
+      "overrides": {
+        "synopsis": "With Imperium Secundus collapsed and the brotherhood of the lost triumvirate scattering for the war-front, Roboute Guilliman drives his fleet toward the heart of the rebellion. A vision granted to Sanguinius has confirmed the Emperor still lives, and the architect of Secundus carries that knowledge as a wound — convinced that, for all his good intentions, he is no less a traitor than the warriors he must now hunt. When a host of World Eaters falls on Diavanos, a world that embodies the ideals of the Imperium he meant to build, he sees the chance he has been hunting for: a clean fight, a clean enemy, a clean price for the sin he carries. What follows is a grinding boarding action in which the Ultramarines pour their grief and anger into the boltguns and blades of their primarch.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "novella",
+          "war_story",
+          "character_study",
+          "action_heavy",
+          "somber",
+          "philosophical",
+          "redemption",
+          "doubt",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Blood Angels", "role": "supporting" },
+          { "name": "World Eaters", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Diavanos", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "pov" },
+          { "name": "Sanguinius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.61,
+          "count": 101,
+          "evidenceUrl": "https://www.goodreads.com/book/show/43246479-the-atonement-of-fire"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0103",
+      "slug": "a-lesson-in-iron",
+      "overrides": {
+        "synopsis": "Late in the Great Crusade, the Iron Hands flagship Fist of Iron chases a fleeing ork cruiser into the pull of a treacherous warp rift. The hunt should have ended there. Instead, a sister ship of unmistakably Iron Hands make drifts derelict in the same disturbed currents, her hull bearing scars from battles that have not yet been fought. Ferrus Manus boards her with a hand-picked retinue and finds proof that the future has a way of leaving fingerprints. The story is built as a tight ship-board piece — corridors, gun-decks, half-burned banners — but its weight lies in what those discoveries say about the primarch's hardening soul and the legion-fate hanging over the Iron Tenth.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "company",
+          "requires_context",
+          "novella",
+          "mystery",
+          "character_study",
+          "somber",
+          "philosophical",
+          "hubris",
+          "doubt",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Ferrus Manus", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.50,
+          "count": 115,
+          "evidenceUrl": "https://www.goodreads.com/book/show/43181001-a-lesson-in-iron"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0104",
+      "slug": "ghost-of-nuceria",
+      "overrides": {
+        "synopsis": "On the dying world of Nuceria, the last day of the slave rebellion is bleeding into the next. Of the hundreds Angron freed from the fighting pits, barely fifty remain — starved, hounded into the mountains, sustained on the rich blood of their saviour. As the High-Riders muster their household troops for a final reckoning, the Eater of Cities prepares to sell his life beside the brothers and sisters who pulled him from the sand. Far above the ash-clouds, an unfamiliar fleet has slid into orbit, and the Emperor of Mankind is preparing to set foot on Nuceria for the first time. The story sits in the breath before that meeting: a portrait of who Angron was, who he chose to die with, and the kind of son the Imperium was about to inherit.",
+        "facetIds": [
+          "book",
+          "male",
+          "multi",
+          "neutral",
+          "regiment",
+          "standalone",
+          "novella",
+          "last_stand",
+          "character_study",
+          "somber",
+          "grimdark",
+          "sacrifice",
+          "brotherhood",
+          "loyalty",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_abuse",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperium", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Nuceria", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Angron", "role": "pov" },
+          { "name": "Emperor of Mankind", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "story sits before Angron's elevation to the World Eaters — slave rebellion has no canonical Legion affiliation; only the arriving Imperium counts as a faction in scope" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.06,
+          "count": 136,
+          "evidenceUrl": "https://www.goodreads.com/book/show/44087359-ghost-of-nuceria"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0105",
+      "slug": "the-passing-of-angels",
+      "overrides": {
+        "synopsis": "When a world refuses the Imperial Truth and turns to weapons no civilised power should still possess, the duty of bringing it to compliance falls to the Blood Angels. Sanguinius calls forward the Legion's Destroyer Host, the executioners who fight behind faceless death-masks so that the deeds they perform need not follow them home. As his sons burn the proscribed arsenal from the earth, only the primarch himself stands bare-faced before the slaughter, taking each soul into the ledger of his own conscience. Set during the Great Crusade, the piece trades on the contradiction at the centre of Sanguinius — the most luminous of his father's sons, asked to wield the legion's darkest tools — and on a brief, unsettling exchange with Horus that hints at battles yet to come.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "character_study",
+          "philosophical",
+          "somber",
+          "grimdark",
+          "doubt",
+          "sacrifice",
+          "faith",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Sanguinius", "role": "pov" },
+          { "name": "Horus", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.90,
+          "count": 134,
+          "evidenceUrl": "https://www.goodreads.com/book/show/44130002"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0106",
+      "slug": "the-abyssal-edge",
+      "overrides": {
+        "synopsis": "An archivist of the Imperial bureaucracy, Orthos Ulatal, lives a small life pieced together from a once-promising career as a fighter pilot. Buried in the files crossing his desk he finds a report that should not exist: a record of Night Lords and Thousand Sons setting blade against blade on the compliance world of Zoah. The trail draws the attention of Sevatar, First Captain of the Eighth, who arrives to make the archivist a different kind of audience. What Sevatar tells him is the version that never made it into Imperial record — the day Konrad Curze and Magnus the Red came within a heartbeat of open war between their legions. The story is shaped as a fireside confession, all the violence carried in a single voice, and ends on a quiet, deeply unsettling note about what the Eighth Legion truly knows of its own future.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "mystery",
+          "character_study",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "doubt",
+          "betrayal",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Thousand Sons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Zoah", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sevatar", "role": "pov" },
+          { "name": "Konrad Curze", "role": "supporting" },
+          { "name": "Magnus the Red", "role": "supporting" },
+          { "name": "Orthos Ulatal", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.17,
+          "count": 164,
+          "evidenceUrl": "https://www.goodreads.com/book/show/44235093-the-abyssal-edge"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0107",
+      "slug": "mercy-of-the-dragon",
+      "overrides": {
+        "synopsis": "A stranger walks the black-glass paths of Nocturne in a worn travelling cloak, and the people he passes call him the Outlander. Only Vulkan — Lord of Drakes, foster-son of Nocturne — knows him for what he is, and only Vulkan can be asked what he is being asked. To leave. To lead a legion. To take his place among brothers he has never met and burn the unspoken corners of the galaxy for an Imperium that does not yet exist. The conversation between father and son moves in one strand; in the other, the story flashes forward to Vulkan's first battle at the head of the Salamanders, watched from afar by the Emperor and the molten gaze of Ferrus Manus. The piece is quiet, almost domestic, weighing the cost of leaving a world that has only ever known you as its protector.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "standalone",
+          "novella",
+          "character_study",
+          "journey",
+          "somber",
+          "philosophical",
+          "hopepunk",
+          "loyalty",
+          "doubt",
+          "sacrifice",
+          "brotherhood",
+          "cw_violence",
+          "en"
+        ],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Iron Hands", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Nocturne", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Vulkan", "role": "pov" },
+          { "name": "Emperor of Mankind", "role": "supporting" },
+          { "name": "Ferrus Manus", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.88,
+          "count": 97,
+          "evidenceUrl": "https://www.goodreads.com/book/show/44361058"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0108",
+      "slug": "the-will-of-the-legion",
+      "overrides": {
+        "synopsis": "Deep in the campaigns of the Great Crusade, the Imperial Fists' Third Expeditionary Fleet drops out of the warp expecting to meet a long-lost human settlement and welcome it back into the Imperial fold. What greets them instead is a planetary defence that fights as if every concession would be a defeat — and that fights with weapons no separated colony should possess. Rogal Dorn answers the rebuff in the only language his legion was forged to speak. The story is built around the moment a Compliance turns into a punitive war, and around the doubts of the captains nearest the primarch: whether Dorn will choose the world's survival or the Imperium's lesson, and whether those two things have ever truly been the same.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "siege",
+          "character_study",
+          "somber",
+          "action_heavy",
+          "doubt",
+          "loyalty",
+          "war",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.48,
+          "count": 61,
+          "evidenceUrl": "https://www.goodreads.com/book/show/51827314-the-will-of-the-legion"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0109",
+      "slug": "ember-of-extinction",
+      "overrides": {
+        "synopsis": "The Battle of Phall is over, and Perturabo's revenge against Rogal Dorn has slipped through his fingers again — Alexis Pollux and the survivors of the Retribution Fleet have escaped, and the Lord of Iron is left with a forge full of black mood and a hammer waiting to be reborn. Forgebreaker has been entrusted to him to remake, and there is a measure of grim peace in the labour of remaking it, but the rage that returns afterwards is sharper than anything the work could quench. The story is a tight character study: Perturabo at the anvil, Perturabo before his architects, Perturabo plotting the next strike of the Iron Warriors against the Imperial Fists. It is short, but the heat in it carries far past its final page.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "squad",
+          "mid_series",
+          "novella",
+          "character_study",
+          "somber",
+          "grimdark",
+          "hubris",
+          "betrayal",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Imperial Fists", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Phall", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Perturabo", "role": "pov" },
+          { "name": "Alexis Pollux", "role": "supporting" },
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "title", "suggestion": "Embers of Extinction", "reason": "roster has singular 'Ember of Extinction' but Black Library / Goodreads / Lexicanum spell the canonical title 'Embers of Extinction' (plural)" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.27,
+          "count": 70,
+          "evidenceUrl": "https://www.goodreads.com/book/show/56308892-embers-of-extinction"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0110",
+      "slug": "valdor-birth-of-the-imperium",
+      "overrides": {
+        "synopsis": "Terra at the close of the Unification Wars: the great cities of the Imperial Palace have only just stopped burning, and the men and women who fought to put the Emperor on his throne are already turning on each other. Constantin Valdor, first Captain-General of the Legio Custodes, stands at the centre of the storm. A High Lord — Grand Provost Kandawire — has begun assembling the case that the destruction of the Thunder Warriors, and the killing field at Mount Ararat that ended their service, were neither honourable nor lawful. The novel weaves three points of view: Valdor in the gallery of the Custodes, Kandawire as she builds her indictment, and the gene-mage Amar Astarte as she watches the first Astartes rise to replace what was so quietly buried. The book is short for its weight: a study of the bargains that make an empire, and of what they cost the woman who tries to bring them to court.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "custodes",
+          "imperium",
+          "planetary",
+          "standalone",
+          "short",
+          "court_intrigue",
+          "political_thriller",
+          "mystery",
+          "character_study",
+          "somber",
+          "philosophical",
+          "doubt",
+          "betrayal",
+          "hubris",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Thunder Warriors", "role": "supporting" },
+          { "name": "Adeptus Astartes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Mount Ararat", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Constantin Valdor", "role": "pov" },
+          { "name": "Kandawire", "role": "pov" },
+          { "name": "Amar Astarte", "role": "supporting" },
+          { "name": "Emperor of Mankind", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.13,
+          "count": 2585,
+          "evidenceUrl": "https://www.goodreads.com/book/show/51085922-valdor"
+        }
+      }
+    }
+  ]
+}

@@ -2025,3 +2025,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Carinae Sodality, Sable Brand, Zenith, Kiavahr, Nuceria, Butcher's Nails, High Riders, War Hounds, Xyrokles, Ghoul Stars, Khrave, Rangdan, Omegon, The Order (Galaspar), Galaspar, Barbarus, Pale King, Occluda Noctis, Night Haunter.
 - **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint` skipped (Brief-061 convention — pure JSON + log append, no code).
+
+## 2026-05-25 · ssot-hh-011 · HH-0101..HH-0110 · ✅
+
+- **Cumulative books in authority:** 675
+- **CC model:** claude-opus-4-7-1m
+- **Pre-check:** cumulativeBefore=665, batch=ssot-hh-011, slice=HH-0101..HH-0110
+- **WebSearch:** mean=1.1, max=2 (over 10 books)
+- **Per-book bullets:**
+  - HH-0101 Grandfather's Gift — clean; Mortarion-in-Nurgle's-garden setting handled with named sub-location ("Garden of Nurgle") rather than a catch-all warp/realm string.
+  - HH-0102 The Atonement of Fire — clean; Guilliman/Ultramarines vs World Eaters at Diavanos, post-Ruinstorm.
+  - HH-0103 A Lesson in Iron — clean; primarch focus is Ferrus Manus / Iron Hands (not Perturabo/Iron Warriors as my own first search query mistakenly implied — corrected from the source).
+  - HH-0104 Ghost of Nuceria — flagged low_confidence on `factions`: story sits before Angron joins the Imperium, his slave army has no Legion affiliation, only the arriving Imperium qualifies as a faction in scope.
+  - HH-0105 The Passing of Angels — clean; no concrete compliance-world named in the source coverage, so `locations` left empty rather than guessed.
+  - HH-0106 The Abyssal Edge — clean; Sevatar/Curze/Magnus at Zoah told through archivist frame (Orthos Ulatal).
+  - HH-0107 Mercy of the Dragon — clean; Vulkan + Emperor on Nocturne with a Ferrus Manus cameo in the cross-cut.
+  - HH-0108 The Will of the Legion — roster-attribution snag: author Andy Clark also writes Death Guard elsewhere, but the source is unambiguous that this story is Imperial Fists / Rogal Dorn (Third Expeditionary Fleet, lost colony Compliance). One extra WebSearch spent on this resolution (max=2 in this batch).
+  - HH-0109 Ember of Extinction — flagged data_conflict on `title`: roster spells singular 'Ember', Black Library / Goodreads / Lexicanum spell canonical plural 'Embers of Extinction'.
+  - HH-0110 Valdor: Birth of the Imperium — clean; three-POV court-intrigue at the close of the Unification Wars; Black Library catalogues it as a novel (~190 pp.) so kept format=novel with length_tier=short, no format flag raised.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Daemons of Nurgle"; "Garden of Nurgle"; "Kau'gath"; "Diavanos"; "Sevatar"; "Konrad Curze"; "Magnus the Red"; "Orthos Ulatal"; "Zoah"; "Alexis Pollux"; "Phall"; "Constantin Valdor"; "Kandawire"; "Amar Astarte"; "Mount Ararat".
+- **Verification skipped:** reiner Daten-Commit (Override-JSON + Log-Append, kein Code) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` per Brief-061-Konvention übersprungen.
