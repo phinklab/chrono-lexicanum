@@ -1899,3 +1899,24 @@
 - **value_outside_vocabulary:** plot_type `spy_thriller` / `infiltration_thriller` (would fit HH-0037 The Silent War and HH-0039 Praetorian of Dorn more tightly than the current `political_thriller` + `mystery` combo); tone `tragic` (would fit HH-0036 Path of Heaven endgame and HH-0038 Angels of Caliban).
 - **Notable surface-forms (within this batch):** `Knights-Errant` (hyphenated), `Mount Pharos`, `Imperium Secundus`, `Sol System`, `Kalium Gate`, `Sotha`, `Mount Deathfire`, `Ruinstorm`, `Lion El'Jonson`, `Konrad Curze`, `Roboute Guilliman`, `Malcador the Sigillite`, `Selenar`, `Sisters of Silence`, `Adeptus Custodes`, `Aeonid Thiel`, `Krukesh the Pale`, `Artellus Numeon`, `Ilya Ravallion`, `Constantin Valdor`.
 - **Verification:** Pure data commit (override JSON + markdown log append, no code) — `npm run lint` / `typecheck` / `brain:lint` skipped per Brief-061 convention.
+
+## 2026-05-25 · ssot-hh-005 · HH-0041..HH-0050 · ✅
+
+- **Cumulative books in authority:** 615
+- **CC model:** claude-opus-4-7-1m
+- **Pre-check:** cumulativeBefore=605, batch=ssot-hh-005, slice=HH-0041..HH-0050
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — every book was well-attested in the canon corpus, so a single context query plus the dedicated Goodreads page-read was sufficient.
+- **Per-book bullets:**
+  - HH-0041 (The Master of Mankind): single-novel, Custodes/Sisters/Mechanicum vs Webway-daemon incursion; tagged scope=galactic since the underlying war is the rebellion's outcome, even though the action is sub-Terra.
+  - HH-0042 (Garro: Weapons of Fate): roster says `anthology`, but Black Library and trade reviews catalogue this as a single-author novelisation that consolidates the Garro audio dramas plus the Vow of Faith novella — flagged `data_conflict` with `suggestion=novel`. Tagged as an anthology aggregate to match the roster setting.
+  - HH-0043 (Shattered Legions): true multi-author anthology; left `locations` empty and added a `low_confidence`/`locations` flag because the constituent stories range across many one-off settings with no anchoring world.
+  - HH-0044 (The Crimson King): single-novel, Thousand Sons + Emperor's Children; POV is split between Magnus and Ahriman so `protagonist_gender=male` only (both male) and `pov_side=chaos` only.
+  - HH-0045 (Tallarn): single-planet armoured war; female Vanus POV (Iaeo) plus male Iron Warriors and Imperial Army POVs ⇒ `protagonist_gender=mixed`; class facets cover `guardsman` + `multi` to span tank crews and operatives.
+  - HH-0046 (Ruinstorm): three loyal-primarch POVs (Sanguinius, Guilliman, Lion); used `journey` + `war_story` over `siege` because the volume is the breakout from Macragge, not the defence of any one world.
+  - HH-0047 (Old Earth): closes Kyme's Salamanders trilogy; aggregates Vulkan/Meduson dual narrative; included `Eldar` faction with role=supporting because Eldrad's strings are explicit, not background.
+  - HH-0048 (The Burden of Loyalty): true multi-author anthology; left `characters` thin and added a `low_confidence`/`characters` flag — only the Wolf King and Sigillite POVs surfaced cleanly from external coverage.
+  - HH-0049 (Wolfsbane): single-novel; included Belisarius Cawl as a supporting character per his first-fiction appearance (notable for later 40k continuity), Mechanicum supporting via the Trisolian forge fleet.
+  - HH-0050 (Born of Flame): Salamanders anthology; aggregates Promethean Sun, Scorched Earth and the Sons of the Forge novel; antagonist tags Word Bearers + Night Lords come from the Isstvan V / Nocturne arcs covered by the constituent works.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "The Emperor" (Master of Mankind POV — kept as surface form, no canonical-entity lookup), "Lectitio Divinitatus" (Garro — faith movement carried as a faction surface alongside Death Guard/Knights Errant), "Lion El'Jonson" (Ruinstorm — exact Black Library spelling preserved), "Vlka Fenryka" (Burden of Loyalty — alternative Space Wolves surface from the Thirteenth Wolf story, but the aggregate faction line uses "Space Wolves"), "Imperial Army" (Tallarn — pre-Imperial-Guard designation kept as the source surface), "Knights Errant" (Garro and Burden of Loyalty — Malcador's hidden order, surface form), "Draaksward" (Old Earth — Vulkan's three-Salamander guard; carried in synopsis, not as a faction).
+- **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` skipped per Brief-061-Konvention (pure data commit: one new override JSON + this log append, no code).
