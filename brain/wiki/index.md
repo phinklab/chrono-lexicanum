@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-05-23
+updated: 2026-05-25
 sources: []
 related:
   - ../CLAUDE.md
@@ -21,13 +21,13 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, next likely brief. Post-Merge-Koordinations-Pass 2026-05-23 (post-093/094/095): Resolver-Pass 7 (450 W40K-Bücher applied), Brief 094 (Resolver vom SSOT-Loop entkoppelt + headless automatisiert) und Brief 095 (Rollup-Ownership) eingearbeitet. **Nächster Schritt brief-frei + operativ: die headless Loops weiterlaufen lassen — SSOT-Loop → Resolver-Loop, die 115 W40K-Reste.** | 2026-05-23 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Merge-Koordinations-Pass 2026-05-23 (post-093/094/095): keine OQ-Schließung, keine neue numerierte OQ. Offene Queue: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung. Nächster Schritt brief-frei + operativ (headless Loops); nächster Brief = Konsolidierungs-Pass am W40K-complete-Meilenstein. | 2026-05-23 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, next likely brief. Post-Merge-Koordinations-Pass 2026-05-25 (post-098): Brief 098 (W40K-Konsolidierungs-Pass) gemergt — **W40K ist datenkomplett *und* konsolidiert, 565/565 Bücher in Postgres**. Nächster Schritt: Brief 099 (Sessions-Archiv-Sweep, reine Repo-Hygiene). | 2026-05-25 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Merge-Koordinations-Pass 2026-05-25 (post-098): Brief 098 gemergt, keine OQ-Schließung / keine neue numerierte OQ; Brief 099 (Sessions-Archiv-Sweep, Hygiene) geschrieben. Offene Queue: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung. | 2026-05-25 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog. Post-086: Phase-3-Strategie-Absatz mit Supersede-Notiz (LLM-Stage / Discovery-Crawl / Hardcover→Goodreads), Refresh-Button im Ideas Backlog. | 2026-05-20 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-095: sieben Resolver-Pässe auf 450 Bücher applied; Brief 094 hat den Resolver vom SSOT-Loop entkoppelt + headless automatisiert (Wellen-Detektor + brief-freies Runbook + `run-resolver-loop.sh`). | 2026-05-23 |
+| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-098: neun Resolver-Pässe + erster Konsolidierungs-Pass — **W40K datenkomplett *und* konsolidiert**, 565 Bücher applied; nächster Schritt Brief 099 (Sessions-Archiv-Sweep, Hygiene). | 2026-05-25 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals heute, 859 SSOT-Roster ab 058, ~$0.114/book V1 / $0.0199/Buch V2 fresh-Smoke). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
 
 ## Decision pages (ADRs with revisit-triggers)
@@ -66,8 +66,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Description | Updated |
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-23 |
-| (this file) | Master catalog | 2026-05-23 |
+| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-25 |
+| (this file) | Master catalog | 2026-05-25 |
 
 ## Concept pages
 
