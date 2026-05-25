@@ -1878,3 +1878,24 @@
 - **value_outside_vocabulary:** none (all facetIds map to existing catalog entries)
 - **Notable surface-forms (within this batch):** Madail, Ka'Bandha, Lotara Sarrin, Artellus Numeon, Rhydia Erephren, Durun Atticus, Khi'dem, Targutai Yesugei, Shiban Khan, Torghun Khan, House Devine, Tsagualsa, Iydris, Alaxxes Nebula, Armatura, Traoris, Sotha, Molech, Pythos, Vengeful Spirit (ship-as-location).
 - **Verifikation:** Reiner Daten-Commit (Override-JSON + Markdown-Append) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` per Runbook §10 / Brief-061-Konvention übersprungen.
+
+## 2026-05-25 · ssot-hh-004 · HH-0031..HH-0040 · ✅
+
+- **Cumulative books in authority:** 605
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=595, batch=ssot-hh-004, slice=HH-0031..HH-0040
+- **WebSearch:** mean=1.2, max=2 (over 10 books — anthology batch, but per-book synopsis lookups stayed lean because anthology ToC + headline novella plot summaries were exposed by a single search; the conditional second hits were Goodreads URL lookups for the three anthologies whose Goodreads page did not appear in the first synopsis search)
+- **Per-book bullets:**
+  - HH-0031 Legacies of Betrayal — 18-story Original HH anthology; lead is Chris Wraight's Brotherhood of the Storm (White Scars / Chondax). Tag-depth aggregated across constituents. No conflicts.
+  - HH-0032 Deathfire — Numeon-led Salamander voyage Macragge → Nocturne with Vulkan's body; roster format `novel` matches. Synopsis grounded in widely-covered plot beats.
+  - HH-0033 War Without End — 21-story HH anthology that bundles the previously digital-only Imperial Truth / Sedition's Gate / Death and Defiance / Blades of the Traitor sets; tag-depth broad.
+  - HH-0034 Pharos — Night Lords assault on Sotha + Sanguinius/Curze on Macragge; high Goodreads rating (4.01 / 2680). No conflicts.
+  - HH-0035 Eye of Terra — 15-piece anthology fronted by Dembski-Bowden's Aurelian novella (Lorgar in the warp). Added `cosmic_horror` tone for the Aurelian strand.
+  - HH-0036 The Path of Heaven — White Scars run for Terra via the Kalium Gate; high Goodreads rating (4.11 / 2502) — long-awaited payoff for the Scars / Khan arc.
+  - HH-0037 The Silent War — Malcador / Knights-Errant anthology; public ToC is sparse (BL/Lexicanum list only a fraction of the 14 stories by title), so characters were intentionally kept short with a `low_confidence` flag rather than guessed.
+  - HH-0038 Angels of Caliban — Dual-track Dark Angels novel (Lion on Macragge / Luther on Caliban). No conflicts.
+  - HH-0039 Praetorian of Dorn — Imperial Fists vs Alpha Legion in Sol; high Goodreads rating (4.12 / 2799). Custodes + Sisters of Silence noted as supporting Sol-defenders alongside the Fists.
+  - HH-0040 Corax — single-author Gav Thorpe Raven Guard collection of novellas + shorts; roster format `anthology` matches both Black Library and Lexicanum nomenclature, so no `data_conflict` flag — but worth remembering for a later collection/anthology semantics pass.
+- **value_outside_vocabulary:** plot_type `spy_thriller` / `infiltration_thriller` (would fit HH-0037 The Silent War and HH-0039 Praetorian of Dorn more tightly than the current `political_thriller` + `mystery` combo); tone `tragic` (would fit HH-0036 Path of Heaven endgame and HH-0038 Angels of Caliban).
+- **Notable surface-forms (within this batch):** `Knights-Errant` (hyphenated), `Mount Pharos`, `Imperium Secundus`, `Sol System`, `Kalium Gate`, `Sotha`, `Mount Deathfire`, `Ruinstorm`, `Lion El'Jonson`, `Konrad Curze`, `Roboute Guilliman`, `Malcador the Sigillite`, `Selenar`, `Sisters of Silence`, `Adeptus Custodes`, `Aeonid Thiel`, `Krukesh the Pale`, `Artellus Numeon`, `Ilya Ravallion`, `Constantin Valdor`.
+- **Verification:** Pure data commit (override JSON + markdown log append, no code) — `npm run lint` / `typecheck` / `brain:lint` skipped per Brief-061 convention.
