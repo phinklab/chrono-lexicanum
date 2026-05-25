@@ -2004,3 +2004,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Covenant of Colchis, Brotherhood of Lorgar (proto-Word Bearers institutions, pre-Imperium Colchis); Nephilim (xenos species, HH-0088); Hrud (xenos species, HH-0084); Taras Division (region, HH-0089); Gardinaal (stellar empire, HH-0087 — not tagged as a faction, only referenced in synopsis); Jorin Bloodhowl, Targutai Yesugei, Hasik Khan, Akurduana, Moses Trurakk, Calliphone, Kor Phaeron, Nairo, Dantioch, Forrix (named non-primarch characters).
 - **Verification skipped:** lint/typecheck/brain:lint not run — pure data commit (override JSON + log append), per Brief 061 § 10.
+
+## 2026-05-25 · ssot-hh-010 · HH-0091..HH-0100 · ✅
+
+- **Cumulative books in authority:** 665
+- **CC model:** claude-opus-4-7-1m
+- **Pre-check:** cumulativeBefore=655, batch=ssot-hh-010, slice=HH-0091..HH-0100
+- **WebSearch:** mean=1.0, max=1 (over 10 books)
+- **Per-book bullets:**
+  - HH-0091 Corax: Lord of Shadows — clean primarch novella; new surface forms `Carinae Sodality`, `Zenith`, `Kiavahr`, `Sable Brand` (Sable Brand kept in synopsis only — internal sub-group, not faction).
+  - HH-0092 Angron: Slave of Nuceria — clean; legacy name `War Hounds` referenced in synopsis only (no faction junction — surface-form-treue would conflict with the rename).
+  - HH-0093 Scions of the Emperor — anthology, aggregated 8 constituent stories across 10 named primarchs and Iron Warriors/`Xyrokles` antagonist; included Sanguinius/Curze/Alpharius/Lion as supporting characters since each story orbits a primarch even when narrated by a marine or remembrancer.
+  - HH-0094 Konrad Curze: The Night Haunter — added `cw_mental_health` and `cw_abuse` for the Nostramo upbringing and the final-hours madness frame.
+  - HH-0095 Lion El'Jonson: Lord of the First — Khrave as xenos antagonist (recurring HH-era surface form); `Ghoul Stars` as primary location.
+  - HH-0096 Alpharius: Head of the Hydra — Rangdan as xenos antagonist (anchored by Rangdan Xenocides framing); included Omegon as supporting; Terra as supporting location (childhood claim) — no Rangdan-front location named to avoid fabrication.
+  - HH-0097 Blood of the Emperor — anthology, aggregated 6 constituent stories; included Horus/Russ as characters but skipped Sons of Horus / Space Wolves factions since both stories are pre-primarch-discovery (faction not yet existing in story-time); Death Guard kept since Terminus is post-fall.
+  - HH-0098 Mortarion: The Pale King — `The Order` as one-off antagonist faction (Galaspar's ruling tyranny); Horus/Sanguinius cameo as judging brothers, no Luna Wolves/Blood Angels Legion-junction since their legions don't act in the present scenes (only the primarchs do).
+  - HH-0099 Rogal Dorn: The Emperor's Crusader — `Occluda Noctis` as primary location (region beyond the Northern Major Warp Storm); no named xenos enemy in available sources (book describes the foe by behaviour only) → factions list intentionally Imperial-Fists-only.
+  - HH-0100 Sanguinius: The Great Angel — `locations: []` deliberately empty: source emphasises that Sanguinius's homeworld is off-limits in-book and no other concrete world is named; flagged here rather than guessing `Baal`.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Carinae Sodality, Sable Brand, Zenith, Kiavahr, Nuceria, Butcher's Nails, High Riders, War Hounds, Xyrokles, Ghoul Stars, Khrave, Rangdan, Omegon, The Order (Galaspar), Galaspar, Barbarus, Pale King, Occluda Noctis, Night Haunter.
+- **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint` skipped (Brief-061 convention — pure JSON + log append, no code).
