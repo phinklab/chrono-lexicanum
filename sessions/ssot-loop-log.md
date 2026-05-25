@@ -2046,3 +2046,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Daemons of Nurgle"; "Garden of Nurgle"; "Kau'gath"; "Diavanos"; "Sevatar"; "Konrad Curze"; "Magnus the Red"; "Orthos Ulatal"; "Zoah"; "Alexis Pollux"; "Phall"; "Constantin Valdor"; "Kandawire"; "Amar Astarte"; "Mount Ararat".
 - **Verification skipped:** reiner Daten-Commit (Override-JSON + Log-Append, kein Code) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` per Brief-061-Konvention übersprungen.
+
+## 2026-05-25 · ssot-hh-012 · HH-0111..HH-0120 · ✅
+
+- **Cumulative books in authority:** 685
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=675, batch=ssot-hh-012, slice=HH-0111..HH-0120
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — single context query sufficed per title; ratings obtained via direct WebFetch of Goodreads page (no extra search hop required).
+- **Per-book bullets:**
+  - HH-0111 Luther: First of the Fallen — clean. First-person Caliban/Rock framing; Dark Angels + The Fallen as primary factions.
+  - HH-0112 Sigismund: The Eternal Crusader — clean. Interview framing with Solomon Voss; Imperial Fists + World Eaters (Kharn supporting); Terra as scene-setting.
+  - HH-0113 Eidolon: The Auric Hammer — clean. Tatricala as primary world; Fulgrim omitted from characters (not confirmed on-page in sources).
+  - HH-0114 Promethean Sun — Exodite Eldar world unnamed in available sources, locations[] left empty rather than guess; Vulkan / Ferrus Manus / Mortarion all attested.
+  - HH-0115 Aurelian — Eye of Terror used as concrete location (per runbook examples it is permitted, distinct from generic Warp Space); Isstvan V supporting.
+  - HH-0116 Brotherhood of the Storm — three-POV ensemble (Shiban, Yesugei, Ilya) all marked pov; Orks as antagonist xenos faction.
+  - HH-0117 The Reflection Crack'd — ship-board setting not specifically named in available sources, locations[] left empty; Lucius as primary POV per conspiracy framing; cw_sex included (Slaanesh-cult content).
+  - HH-0118 Feat of Iron — One-Five-Four Four explicitly named in source; Eldar as antagonist (companion Legions are Salamanders + Death Guard).
+  - HH-0119 The Lion — fleet-mobile, no single planet named; Typhon and Nemiel both as supporting characters; Death Guard as antagonist (Typhon faction).
+  - HH-0120 The Serpent Beneath — Alpha-Legion-only faction (in-Legion ops); pov_side=chaos given canonical traitor alignment, despite Omegon's ambiguous true loyalty.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "The Fallen" (Dark Angels splinter), "Lorgar Aurelian" (primarch full surface form), "Targutai Yesugei" (full Khan surface form), "Tenebrae 9-50" (Alpha Legion installation), "One-Five-Four Four" (compliance-target world).
+- **Skipped verification:** npm run lint / typecheck / brain:lint — Brief-061-Konvention für reinen Daten-Commit (override-JSON + log append, kein Code).
