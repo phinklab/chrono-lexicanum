@@ -1,0 +1,557 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-001",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7",
+  "rationale": "Erste HH-Welle — die Foundational Ten der Original-Horus-Heresy-Serie (Hardcover-2006-2009). Coverage in Trainingsdaten + Lexicanum sehr dicht; WebSearch primär für Goodreads-Disambiguation (Singles vs. Omnibus-Reprints) und Tales-of-Heresy-Anthologie-Aggregation. Faction-Granularität durchgehend Legion-level (Luna Wolves / Sons of Horus / Death Guard / …), kein generisches Imperium / Chaos.",
+  "books": [
+    {
+      "externalBookId": "HH-0001",
+      "slug": "horus-rising",
+      "overrides": {
+        "synopsis": "Two centuries into the Great Crusade, the Emperor has retired to Terra and named his most beloved son Warmaster of the war that will reunite humanity. The 63rd Expedition under Horus, the primarch of the Luna Wolves, moves from world to world, demanding compliance and crushing what refuses. Newly chosen for Horus's inner council — the Mournival — Captain Garviel Loken trades the certainty of war for the harder business of speaking truth to a brother who has begun to need it. On the fleet, remembrancer Mersadie Oliton and the iterator Kyril Sindermann record what they see, and a forbidden cult worshipping the Emperor as a god begins to spread among soldiers and civilians. By the time the expedition reaches a feral world called Davin, the threads of the war that will follow have already been pulled tight.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "series_start",
+          "doorstopper",
+          "war_story",
+          "character_study",
+          "action_heavy",
+          "philosophical",
+          "grimdark",
+          "brotherhood",
+          "loyalty",
+          "hubris",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Luna Wolves", "role": "primary" },
+          { "name": "Imperial Army", "role": "supporting" },
+          { "name": "Mechanicum", "role": "supporting" },
+          { "name": "Interex", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sixty-Three Nineteen", "role": "primary" },
+          { "name": "Murder", "role": "supporting" },
+          { "name": "Xenobia", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Garviel Loken", "role": "pov" },
+          { "name": "Horus", "role": "supporting" },
+          { "name": "Tarik Torgaddon", "role": "supporting" },
+          { "name": "Ezekyle Abaddon", "role": "supporting" },
+          { "name": "Horus Aximand", "role": "supporting" },
+          { "name": "Kyril Sindermann", "role": "supporting" },
+          { "name": "Mersadie Oliton", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.26,
+          "count": 41579,
+          "evidenceUrl": "https://www.goodreads.com/book/show/625603.Horus_Rising"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0002",
+      "slug": "false-gods",
+      "overrides": {
+        "synopsis": "After Ullanor, Horus rides the wave of his own glory and his Legion bleeds for it. When a ritual duel on the feral world of Davin leaves the Warmaster mortally wounded, the Word Bearers chaplain Erebus and a serpent-lodge of native priests have him carried to a sealed temple, where a long spirit-walk through the warp shows Horus a future in which the Emperor of Mankind has discarded the species he built. Horus rises restored in body, broken in faith. Garviel Loken senses the change before he can name it. The Mournival splinters; old brothers begin to speak in coded loyalties; an entire Crusade quietly bends toward the conflagration to come.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "doorstopper",
+          "war_story",
+          "character_study",
+          "philosophical",
+          "grimdark",
+          "cosmic_horror",
+          "betrayal",
+          "hubris",
+          "doubt",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Luna Wolves", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Davin", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Horus", "role": "pov" },
+          { "name": "Garviel Loken", "role": "pov" },
+          { "name": "Erebus", "role": "antagonist" },
+          { "name": "Tarik Torgaddon", "role": "supporting" },
+          { "name": "Ezekyle Abaddon", "role": "supporting" },
+          { "name": "Horus Aximand", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.15,
+          "count": 28641,
+          "evidenceUrl": "https://www.goodreads.com/book/show/381817.False_Gods"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0003",
+      "slug": "galaxy-in-flames",
+      "overrides": {
+        "synopsis": "The Warmaster returns from Davin a different man, and the Legions he can trust go where he sends them. On the dead-grey world of Isstvan III, four Legions — Sons of Horus, World Eaters, Emperor's Children, Death Guard — deploy in force against a recalcitrant planetary governor. What they cannot know is that the deployment is the trap. From orbit their own brothers burn loyalist elements to ash with life-eater virus and atomic fire; in the ruins, Garviel Loken, Tarik Torgaddon, Saul Tarvitz and Nathaniel Garro hold cathedral and bunker as the bombardment turns the world into a graveyard. The Horus Heresy is no longer a rumour. Let the galaxy burn.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "cosmic_horror",
+          "betrayal",
+          "sacrifice",
+          "loyalty",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "World Eaters", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "supporting" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Isstvan III", "role": "primary" },
+          { "name": "Isstvan System", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Garviel Loken", "role": "pov" },
+          { "name": "Tarik Torgaddon", "role": "pov" },
+          { "name": "Saul Tarvitz", "role": "pov" },
+          { "name": "Nathaniel Garro", "role": "supporting" },
+          { "name": "Horus", "role": "antagonist" },
+          { "name": "Erebus", "role": "antagonist" },
+          { "name": "Angron", "role": "supporting" },
+          { "name": "Mortarion", "role": "supporting" },
+          { "name": "Fulgrim", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.19,
+          "count": 24749,
+          "evidenceUrl": "https://www.goodreads.com/book/show/815091.Galaxy_in_Flames"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0004",
+      "slug": "the-flight-of-the-eisenstein",
+      "overrides": {
+        "synopsis": "Battle-captain Nathaniel Garro of the Death Guard learns of his primarch's treason at Isstvan III and refuses it. With the few loyalist Astartes he can gather, he commandeers the frigate Eisenstein, breaks the traitor blockade above the killing-world, and runs for Terra to warn the Emperor. The price is paid by his ship, his crew, and ultimately his own body as daemons of the warp claw at the hull and his closest brother is taken by plague. By the time the Eisenstein limps into the Sol system, gaunt and burning, Garro is the first man to speak the word 'heresy' inside the Imperial palace — and the first of a quieter brotherhood that will follow.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "journey",
+          "grimdark",
+          "action_heavy",
+          "cosmic_horror",
+          "betrayal",
+          "loyalty",
+          "faith",
+          "sacrifice",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Adeptus Custodes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Isstvan III", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Mortarion", "role": "antagonist" },
+          { "name": "Kaleb Arin", "role": "supporting" },
+          { "name": "Solun Decius", "role": "supporting" },
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.13,
+          "count": 20766,
+          "evidenceUrl": "https://www.goodreads.com/book/show/22571995"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0005",
+      "slug": "fulgrim",
+      "overrides": {
+        "synopsis": "Fulgrim, primarch of the Emperor's Children, is the finest of the Emperor's sons: beautiful, brilliant, devoted to perfection. On the murder-world of Laer, a Legion compliance brings home a daemon-bound sword that has been waiting for him. The blade is patient. The Legion that once aspired to flawless service turns slowly, exquisitely, to excess: composers cut themselves to chase the perfect note, captains take cosmetic mutations as ornament, the seeds of the Noise Marines are sown. Fulgrim carries his treason to bloom at Isstvan V, where the Dropsite Massacre is consummated and he kills his oldest brother, Ferrus Manus of the Iron Hands. By the close he has taken every step the daemon needed him to.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "dual",
+          "galactic",
+          "mid_series",
+          "doorstopper",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "cosmic_horror",
+          "philosophical",
+          "hubris",
+          "betrayal",
+          "sacrifice",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_sex",
+          "en"
+        ],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Iron Hands", "role": "supporting" },
+          { "name": "Laer", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Laeran", "role": "primary" },
+          { "name": "Isstvan V", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Fulgrim", "role": "pov" },
+          { "name": "Ferrus Manus", "role": "supporting" },
+          { "name": "Lucius", "role": "supporting" },
+          { "name": "Julius Kaesoron", "role": "supporting" },
+          { "name": "Eidolon", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.05,
+          "count": 17163,
+          "evidenceUrl": "https://www.goodreads.com/book/show/957931.Fulgrim"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0006",
+      "slug": "descent-of-angels",
+      "overrides": {
+        "synopsis": "On the feral world of Caliban, the great beasts hunt children in the woods and the knightly Order under Lion El'Jonson hunts them back. Two young cousins, Zahariel and Nemiel, rise from squire to knight through the Order's long apprenticeship, learning steel and stoicism under masters whose loyalties to the Lion and to his old companion Luther do not always run the same way. When the Imperium arrives and the Lion is named primarch of the Dark Angels Legion, the Order is folded in. Years later on Sarosh, far from home, news of Horus's betrayal forces a son of Caliban to choose between the men who taught him to fight and the larger war demanding his sword.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "character_study",
+          "war_story",
+          "somber",
+          "philosophical",
+          "brotherhood",
+          "loyalty",
+          "faith",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "The Order", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Caliban", "role": "primary" },
+          { "name": "Sarosh", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Zahariel", "role": "pov" },
+          { "name": "Nemiel", "role": "supporting" },
+          { "name": "Lion El'Jonson", "role": "supporting" },
+          { "name": "Luther", "role": "supporting" },
+          { "name": "Sar Daviel", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.63,
+          "count": 11903,
+          "evidenceUrl": "https://www.goodreads.com/book/show/768929.Descent_of_Angels"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0007",
+      "slug": "legion",
+      "overrides": {
+        "synopsis": "On the dust-blown Imperial world of Nurth, an Imperial Army officer named Peto Soneka is fighting a colonial counter-insurgency that will not end. Strange men in green and gold — the Alpha Legion — arrive late and seem to know more about the war than the men fighting it. Beyond the battlefield, the perfumed xenos cabal known only as the Cabal walks the spy John Grammaticus through prophecy: the war to come, they tell him, ends only one way, and to save the human species the species must lose. By the close, the brothers who lead the Alpha Legion — primarchs whose number history will misremember — have made the most cynical bet in the Heresy.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "dual",
+          "galactic",
+          "mid_series",
+          "doorstopper",
+          "political_thriller",
+          "mystery",
+          "war_story",
+          "philosophical",
+          "grimdark",
+          "betrayal",
+          "doubt",
+          "sacrifice",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Alpha Legion", "role": "primary" },
+          { "name": "Imperial Army", "role": "supporting" },
+          { "name": "Cabal", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Nurth", "role": "primary" },
+          { "name": "Eolith", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "John Grammaticus", "role": "pov" },
+          { "name": "Peto Soneka", "role": "pov" },
+          { "name": "Hurtado Bronzi", "role": "supporting" },
+          { "name": "Alpharius", "role": "supporting" },
+          { "name": "Omegon", "role": "supporting" },
+          { "name": "Sheed Ranko", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.17,
+          "count": 14320,
+          "evidenceUrl": "https://www.goodreads.com/book/show/1678745.Legion"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0008",
+      "slug": "battle-for-the-abyss",
+      "overrides": {
+        "synopsis": "Word Bearers primarch Lorgar consecrates the largest warship ever built — the Furious Abyss — and slips her into the warp aimed at Macragge, with orders to gut the Ultramarines' homeworld from the void before the Heresy is even declared. A scratch fleet of loyalist Space Marines — Ultramarines under Captain Cestus, a Thousand Sons Librarian, a Space Wolf and a World Eater — hunts her down across the empyrean. A void chase becomes a boarding action becomes a last stand inside the engines of the Abyss herself. The Heresy's most divisive opening chapter: less politics than steel and self-sacrifice.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "dual",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "brotherhood",
+          "sacrifice",
+          "loyalty",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Thousand Sons", "role": "supporting" },
+          { "name": "Space Wolves", "role": "supporting" },
+          { "name": "World Eaters", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Ultramar", "role": "supporting" },
+          { "name": "Macragge", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Cestus", "role": "pov" },
+          { "name": "Brynngar", "role": "supporting" },
+          { "name": "Mhotep", "role": "supporting" },
+          { "name": "Skraal", "role": "supporting" },
+          { "name": "Zadkiel", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.42,
+          "count": 9009,
+          "evidenceUrl": "https://www.goodreads.com/book/show/2322177.Battle_for_the_Abyss"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0009",
+      "slug": "mechanicum",
+      "overrides": {
+        "synopsis": "While Horus burns Isstvan, Mars chooses sides. Fabricator-General Kelbor-Hal makes deals in the deep forges that bind the Mechanicum to the Warmaster; the heretic Magos Regulus opens the noosphere to corruption. Adept Koriel Zeth and her loyalist Magma City refuse, holding to the Emperor's compact. Lowly tech-savant Dalia Cythera is gathered into a secret project to recover the lost machine-spirits of an ancient intelligence buried beneath the Red Planet. Titan Legions begin to march on one another. Knights of Taranis bleed at the gates. The Mechanicum civil war is told from inside Mars itself — its priests, its calculators, the women and men who built the engines that now hunt each other.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "tech_priest",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "standard",
+          "war_story",
+          "political_thriller",
+          "mystery",
+          "grimdark",
+          "somber",
+          "betrayal",
+          "loyalty",
+          "faith",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Mechanicum", "role": "primary" },
+          { "name": "Knights of Taranis", "role": "supporting" },
+          { "name": "Legio Tempestus", "role": "supporting" },
+          { "name": "Legio Mortis", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Mars", "role": "primary" },
+          { "name": "Magma City", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Dalia Cythera", "role": "pov" },
+          { "name": "Koriel Zeth", "role": "pov" },
+          { "name": "Kelbor-Hal", "role": "antagonist" },
+          { "name": "Regulus", "role": "antagonist" },
+          { "name": "Caxton", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.88,
+          "count": 9692,
+          "evidenceUrl": "https://www.goodreads.com/book/show/2941259-mechanicum"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0010",
+      "slug": "tales-of-heresy",
+      "overrides": {
+        "synopsis": "Seven novellas circling the early Heresy. In 'Blood Games' the Adeptus Custodes police the noble courts of Terra under Constantin Valdor. In 'Wolf at the Door' Russ's Space Wolves crash into Dark Eldar raiders at the edge of the Imperium. 'Scions of the Storm' watches a Word Bearers compliance turn into sacred genocide. In 'The Voice' a witch-hunter of the Sisters of Silence walks an empty world hearing voices that should not be there. 'Call of the Lion' weighs Dark Angels allegiance after Caliban. In 'The Last Church' the Emperor sits with the last priest left on Terra and argues about faith on the eve of unification. 'After Desh'ea' is the warband-meeting that forges Kharn to Angron and the World Eaters.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "dual",
+          "galactic",
+          "mid_series",
+          "standard",
+          "war_story",
+          "character_study",
+          "philosophical",
+          "somber",
+          "grimdark",
+          "faith",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "betrayal",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Sisters of Silence", "role": "primary" },
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Dark Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Caliban", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Constantin Valdor", "role": "pov" },
+          { "name": "Leman Russ", "role": "supporting" },
+          { "name": "Lorgar", "role": "supporting" },
+          { "name": "Amendera Kendel", "role": "pov" },
+          { "name": "Astelan", "role": "pov" },
+          { "name": "Uriah Olathaire", "role": "pov" },
+          { "name": "The Emperor", "role": "supporting" },
+          { "name": "Kharn", "role": "pov" },
+          { "name": "Angron", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.80,
+          "count": 7213,
+          "evidenceUrl": "https://www.goodreads.com/book/show/6296659"
+        }
+      }
+    }
+  ]
+}

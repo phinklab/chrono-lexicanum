@@ -1815,3 +1815,24 @@
 - **Notable surface-forms (within this batch):** "The Fallen" (Dark Angels splinter), "Officio Assassinorum" (Imperial assassin temples), "Sautekh Dynasty" (Necron dynasty), "Pale Spear" (artefact, synopsis only), "Ghoul Stars" (region), "'Eadbasha" (Ork warboss, leading apostrophe).
 - **Verification skipped:** lint / typecheck / brain:lint per Brief-061 (pure-data commit: one new override JSON + one log append, no code).
 - **Milestone:** cumulativeBefore=560 + slice=5 reaches 565/565 W40K. Loop helper should now flip into HH domain on next run; no Loop-Complete yet (HH still pending).
+
+## 2026-05-25 · ssot-hh-001 · HH-0001..HH-0010 · ✅
+
+- **Cumulative books in authority:** 575
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=565, batch=ssot-hh-001, slice=HH-0001..HH-0010
+- **WebSearch:** mean=1.1, max=2 (over 10 books — HH-0010 anthology needed second search for constituent-stories list; rest 1× for Goodreads-page discovery, dann WebFetch der Buchseite für Rating)
+- **Per-book bullets:**
+  - HH-0001 *Horus Rising*: foundational, dense Trainings-Coverage; rating 4.26 (41 579) clean single-novel.
+  - HH-0002 *False Gods*: rating 4.15 (28 641) clean single-novel.
+  - HH-0003 *Galaxy in Flames*: rating 4.19 (24 749); Sons-of-Horus surface-form (rebranding der Luna Wolves) hier zum ersten Mal aktiv genutzt.
+  - HH-0004 *Flight of the Eisenstein*: rating 4.13 (20 766); knappe Adeptus-Custodes-Rolle als „supporting" (Empfang auf Terra), kein Inquisitor-POV.
+  - HH-0005 *Fulgrim*: rating 4.05 (17 163); pov_side=`dual` (Loyalist-Bogen kippt zu Chaos); `Laer` als Xenos-Faction + `Laeran` als Welt — Faction-vs-Location-Trennung sauber gehalten.
+  - HH-0006 *Descent of Angels*: rating 3.63 (11 903) — der niedrigste der HH-1..10-Welle, deckt sich mit Reviewer-Konsens; „The Order" als Caliban-Pre-Legion-Knight-Order, separate von Dark Angels — Surface-Form-Treue.
+  - HH-0007 *Legion*: rating 4.17 (14 320); pov_side=`dual` (Imperial Army + xenos-Cabal); `Cabal` bewusst als Faction, nicht generisch „Xenos".
+  - HH-0008 *Battle for the Abyss*: rating 3.42 (9 009) — schwächster der ersten Zehn; Multi-Legion-Loyalist-Squad, daher fünf Faktionen.
+  - HH-0009 *Mechanicum*: rating 3.88 (9 692); Dalia Cythera + Koriel Zeth als weibliche Mechanicum-POVs → `protagonist_gender: mixed`, `protagonist_class: tech_priest`. Titan Legions (Tempestus loyalist / Mortis traitor) als eigene Faktionen, Knights of Taranis separat.
+  - HH-0010 *Tales of Heresy* (anthology): 7 Novellen, Faktionen + POVs aggregiert (Custodes / Space Wolves / Word Bearers / Sisters of Silence / Dark Angels / World Eaters); `Dark Eldar` als einziger Xenos-Antagonist (Wolf at the Door); facet `multi` + `ensemble`; rating 3.80 (7 213).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** „Luna Wolves" vs. „Sons of Horus" (gleiche Legion, prä- vs. post-Davin — beide stehen jeweils im Buch, in dem sie gebräuchlich sind); „The Order" (Caliban-Ritterorden, prä-Legion, distinkt von „Dark Angels"); „Cabal" (xenos-Konklave); „Laer" (Faction) vs. „Laeran" (Welt); „The Emperor" als nominierter Charakter in „The Last Church"; „Sixty-Three Nineteen" als 63rd-Expedition-Compliance-Welt (Roman-Auftakt, kein offizieller Eigenname).
+- **Verifikation:** Reiner Daten-Commit (Override-JSON + Markdown-Append) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` per Runbook §10 / Brief-061-Konvention übersprungen.
