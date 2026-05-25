@@ -2194,3 +2194,24 @@
 - **value_outside_vocabulary:** [`format.short_story` (10×, all of this batch — none of these e-shorts map cleanly to `book` / `audiobook` granularity, falling back to both); `length_tier.short_story` (10×, novella is the smallest available bucket)]
 - **Notable surface-forms (within this batch):** "Therion Cohort" (Imperial Army regiment, kept raw — more specific than Astra Militarum browse-root), "Davinite Serpent Lodge" (Davin cult, kept raw, not collapsed to generic "Word Bearers"), "Crusader Host" (Terran multi-Legion delegation, kept across HH-0176 and HH-0177), "Navis Nobilite" (House faction for the Navigator POV in HH-0180), "The Emperor of Mankind" (kept verbatim rather than aliased to "Emperor").
 - **Verification skipped per Brief 061 convention:** Pure data-commit (override JSON + log append, no code touched), so `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` not run.
+
+## 2026-05-26 · ssot-hh-019 · HH-0181..HH-0190 · ✅
+
+- **Cumulative books in authority:** 755
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=745, batch=ssot-hh-019, slice=HH-0181..HH-0190
+- **WebSearch:** mean=1, max=1 (over 10 books) — one synopsis-context search per title, then one WebFetch to Goodreads for the rating.
+- **Per-book bullets:**
+  - HH-0181 Child of Night — Night Lords character study; Zharost is a lapsed Librarian who left after Nikaea, so pov_side=chaos was chosen by legion identity rather than current allegiance.
+  - HH-0182 The Devine Adoratrice — Knight-house pre-Vengeful-Spirit setup; no clean protagonist_class fit for Knight-house nobility, so the field was omitted; House Devine + Serpent Cult preserved as raw surface forms.
+  - HH-0183 Daemonology — Mortarion / Death Guard piece, Terathalion and Terra both load-bearing (the Malcador interludes are not framing decoration).
+  - HH-0184 Sins of the Father — originally released as an audio drama and later as ebook; format facet carries both `book` and `audio_drama`.
+  - HH-0185 The Final Compliance of Sixty-Three Fourteen — planetary-governor character study; no specific Imperial sub-faction fit cleanly beyond the Sons of Horus pressing him, so the Imperial side is implicit in pov_side rather than as a faction entry.
+  - HH-0186 Vorax — the Dark Mechanicum adept is unnamed in the available source coverage; flagged `low_confidence` on characters; Ring of Iron preserved alongside Mars as separate locations.
+  - HH-0187 The Value of Fear — rare configuration: Night Lord as `supporting` loyalist rather than antagonist; Alpha Legion holds the antagonist slot; planet unnamed in source coverage.
+  - HH-0188 Brotherhood of the Moon — Torghun's recollections of the Lunar Wolves are the substance of the trial, so Luna Wolves is preserved as a separate `supporting` faction (not collapsed into Sons of Horus).
+  - HH-0189 Virtues of the Sons — dual-POV duels: Amit vs Khârn, Azkaellon vs Lucius; format facet carries both `book` and `audio_drama`.
+  - HH-0190 Imperfect — Fulgrim's daemon-prince POV (post-Angel-Exterminatus ascension); protagonist_class set to `daemon`; Ferrus Manus listed as `supporting` via the cloned variants Fulgrim plays against.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** House Devine, Serpent Cult, Ring of Iron, Goughen (= Sixty-Three Fourteen), Luna Wolves (held distinct from Sons of Horus where the source frame demanded it), Lermenta, Mayder Oquin, Torghun Khan, Ashel, Fel Zharost.
+- **Verification skipped:** pure data commit (override-JSON + Markdown-append, no code touched) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` skipped per Brief-061 convention.
