@@ -1857,3 +1857,24 @@
 - **value_outside_vocabulary:** none (all facetIds map to existing catalog entries)
 - **Notable surface-forms (within this batch):** Vlka Fenryka, Rout, Officio Assassinorum, Black Sentinels, Adeptus Astra Telepathica, Avenii, Atramentar, Iesta Veracrux, Dagonet, Hydra Cordatus, Hollow Mountain, Five Hundred Worlds.
 - **Verification skip:** lint/typecheck/brain:lint skipped per Brief-061-Konvention (pure data commit: one JSON + log append).
+
+## 2026-05-25 · ssot-hh-003 · HH-0021..HH-0030 · ✅
+
+- **Cumulative books in authority:** 595
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=585, batch=ssot-hh-003, slice=HH-0021..HH-0030
+- **WebSearch:** mean=1.0, max=1 (10 books × 1 Goodreads-URL-discovery query, dann WebFetch der Buchseite für Rating)
+- **Per-book bullets:**
+  - HH-0021 Fear to Tread — Blood Angels at Signus; Madail (Dark Apostle) + Ka'Bandha (Bloodthirster) as Word Bearers/Khornate antagonists; clean single-novel, rating 3.95 (5 011).
+  - HH-0022 Shadows of Treachery — anthology aggregation across 2 novellas + 5 short stories; `dual` pov_side (Imperial Fists/Raven Guard/Dorn loyalist arcs alongside Night Lords/Curze traitor arcs); Phall + Tsagualsa + Nostramo as distinct geographic anchors.
+  - HH-0023 Angel Exterminatus — `chaos` pov_side (Perturabo + Fulgrim primary; Sharrowkyn + Rylanor as imperial-supporting infiltrators); "Iydris" (crystal world inside Eye of Terror) as primary location; rating 4.08 (4 510).
+  - HH-0024 Betrayer — surface-form "Khârn" carries circumflex; "Lotara Sarrin" listed as POV character (mortal flag-captain of the *Conqueror*) — World Eaters faction tag covers her chain of command, not pov_class.
+  - HH-0025 Mark of Calth — anthology aggregating 8 stories spanning Calth-undercity warfare + the Erebus-knife/Oll-Persson framing thread; `dual` pov_side; rating 3.68 (2 993). Roster releaseYear=2017 differs from BL original 2013-hardback (likely later reprint date) — informational, not flagged.
+  - HH-0026 Vulkan Lives — `Cabal` listed as supporting faction (xenos collective steering Grammaticus's path); torture-cell location kept deliberately unnamed in-book, not listed; rating 3.59 (3 119).
+  - HH-0027 The Unremembered Empire — five primarchs converge on Macragge; Konrad Curze given dual `antagonist` faction-role + his POV chapters retained (infiltration arc); `political_thriller` + `court_intrigue` to cover the Secundus founding politics.
+  - HH-0028 Scars — originally weekly serial (12 episodes 2014) collected as one novel; Goodreads page 18143803 is the work-aggregation for the collected edition. Stormseer surface-form "Targutai Yesugei" given full.
+  - HH-0029 Vengeful Spirit — "House Devine" carried as Knight-household faction surface-form (browse-root-granular for Knight houses, not raw "Knights of House Devine"); `dual` pov_side (Horus + Loken).
+  - HH-0030 The Damnation of Pythos — last-stand cosmic-horror on a single death world; locations[] intentionally just `Pythos` (no sub-location named in-book worth surfacing); rating 3.26 (2 206) — lowest in batch.
+- **value_outside_vocabulary:** none (all facetIds map to existing catalog entries)
+- **Notable surface-forms (within this batch):** Madail, Ka'Bandha, Lotara Sarrin, Artellus Numeon, Rhydia Erephren, Durun Atticus, Khi'dem, Targutai Yesugei, Shiban Khan, Torghun Khan, House Devine, Tsagualsa, Iydris, Alaxxes Nebula, Armatura, Traoris, Sotha, Molech, Pythos, Vengeful Spirit (ship-as-location).
+- **Verifikation:** Reiner Daten-Commit (Override-JSON + Markdown-Append) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` per Runbook §10 / Brief-061-Konvention übersprungen.
