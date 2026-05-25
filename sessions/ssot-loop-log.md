@@ -2236,3 +2236,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Thirteen Falling Stars (Space Wolves watch-pack), Vlka Fenryka (used in synopsis flavour only, faction kept as Space Wolves), Ironfire protocol, Selenic palace, Iron Blood, Molech's Enlightenment, Davinite Lodge, Officio Assassinorum, Navis Nobilite, Schadenhold (referenced in Ironfire synopsis only).
 - **Verification:** lint/typecheck/brain:lint skipped per Brief-061-Konvention (pure data commit — new override JSON + Markdown-Append, no code change).
+
+## 2026-05-26 · ssot-hh-021 · HH-0201..HH-0210 · ✅
+
+- **Cumulative books in authority:** 775
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=765, batch=ssot-hh-021, slice=HH-0201..HH-0210
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — all ten single-author shorts had ample dedicated coverage (Lexicanum + Black Library + Track of Words + Adventures with Peps + author sites); one synopsis-context query per book sufficed, no follow-up queries needed.
+- **Per-book bullets:**
+  - HH-0201 By the Lion's Command — Dark Angels Seneschal Corswain confronts the neutral system Terra Nullius while pursuing Typhon's Death Guard; political_thriller + war_story; clean coverage.
+  - HH-0202 All That Remains — anonymous Imperial Army survivors aboard a warp-marooned hospital transport discover the seeds of the Knights Errant / Grey Knights programme; low_confidence on characters (no named troopers in summaries) and locations (unnamed ship).
+  - HH-0203 The Phoenician — dying Iron Hand Gabriel Santar's vantage on the Fulgrim/Ferrus Manus duel at Isstvan V; cosmic_horror layered on top of war_story for the daemonic recognition beat.
+  - HH-0204 Artefacts — Vulkan-and-son framing conversation on the eve of Isstvan V seeding the Forgefather duty and the relics later hunted in M41; low_confidence flag on location (Nocturne vs. flagship not pinned down).
+  - HH-0205 Ghosts Speak Not & Patience — paired Knights Errant shorts (Garro+Kendel; Garro+Gallor) sold as one e-book; format kept as short_story per roster since combined length sits ~50pp; pov is mixed (Garro + Kendel both PoV).
+  - HH-0206 Tallarn: Siren — opening Tallarn underground shelter siege as Marshal Lycus tries to push the warning past the Iron Warriors; characters thin (only Lycus named in summaries — astropath and civilians unnamed).
+  - HH-0207 Inheritor — Torquill Eliphas of the Word Bearers / Ark of Testimony Chapter constructs a Templum Daemonarchia on Kronus during the Shadow Crusade; clean coverage and clear Dawn of War prequel framing.
+  - HH-0208 Blackshield — renegade Deathshroud Khorak vs. Blackshield Crysos Morturg at the fringe of the Imperium; both treated as POVs; locations left empty (unnamed fringe worlds) with low_confidence flag; pov_side=dual because Blackshields are explicitly unaligned and Khorak is renegade Death Guard.
+  - HH-0209 Myriad — loyalist Mechanicum guerrilla cell on Mars finds a Kastelan robot carrying forbidden lore; direct sequel to Cybernetica; characters left empty (only ensemble Titan crew / enginseers / adepts in summaries) with low_confidence flag.
+  - HH-0210 Into Exile — Imperial Fists led by Nicanor extract Arkhan Land from Mars; data_conflict flag on slug (roster says 'into-exhile', canonical title and all sources are 'Into Exile' / 'into-exile').
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Terra Nullius (neutral system), Knights Errant, Ark of Testimony Chapter (Word Bearers sub-chapter), Templum Daemonarchia, Deathshroud, Blackshields, Kastelan robot, Legio Cybernetica, Shadow Crusade, Dropsite Massacre, Eisenstein.
+- **Verification:** lint/typecheck/brain:lint skipped per Brief-061-Konvention (pure data commit — new override JSON + Markdown-Append, no code change).
