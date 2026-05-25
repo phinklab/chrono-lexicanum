@@ -1,0 +1,454 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-020",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "This wave gathers the 2015 Death and Defiance and Blades of the Traitor anthology shorts together with the Tallarn Weekender programme piece, Wolf Mother's Vengeful Spirit follow-up, and the Imperial Truth carry-over Hands of the Emperor. Tight character studies and intimate single-scene set-pieces dominate; Goodreads counts cluster in the 120-200 band typical of Heresy quick-reads, and faction POVs are split almost evenly between traitor (Sons of Horus, Iron Warriors, Night Lords, Emperor's Children) and loyalist (Space Wolves, Custodes, Knights Errant) viewpoints.",
+  "books": [
+    {
+      "externalBookId": "HH-0191",
+      "slug": "howl-of-the-hearthworld",
+      "overrides": {
+        "synopsis": "After Prospero burns, watch packs of the Space Wolves are sent across the galaxy to keep an eye on each primarch in turn, ready to strike if any of them follows Magnus into ruin. The pack Thirteen Falling Stars draws what the others call the worst posting of all: Terra itself, and the Praetorian Rogal Dorn. Sergeant Kargir leads his brothers through the marbled fortress of the Imperial Palace, chafing at standing leash to the Sigillite's design while their Legion bleeds elsewhere, measuring the Imperial Fists against the suspicion that the Vlka Fenryka alone keep faith with the Allfather. The story is a quiet, smouldering portrait of Russ's sons cast as guard-dogs in a court that has never wanted them, told around the campfires they raise in the corners of another Legion's stronghold.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "character_study",
+          "somber",
+          "grimdark",
+          "loyalty",
+          "doubt",
+          "brotherhood",
+          "en",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Kargir", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.52,
+          "count": 195,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24492398-howl-of-the-hearthworld"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0192",
+      "slug": "a-safe-and-shadowed-place",
+      "overrides": {
+        "synopsis": "Scattered and leaderless after the Dark Angels broke their pursuit, the remnants of the Night Lords fleet limp toward a long-held rallying point: the world of Sotha, on the fringes of Ultramar. Without Konrad Curze to bind them, the Eighth Legion has fractured into rival warbands, their officers feuding over scraps of authority and revenge. They expect, at worst, a token resistance from Guilliman's sons. What they find is a frontier world that has become one of the strangest and most jealously guarded prizes of the broken Imperium, and a Legion that means to keep it that way. A short prelude to the war that follows, told from inside the disintegrating fleet of the Haunter's children as they discover what Imperium Secundus is willing to hide on a small, dark planet.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "planetary",
+          "requires_context",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "betrayal",
+          "doubt",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Ultramarines", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sotha", "role": "primary" },
+          { "name": "Ultramar", "role": "supporting" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "available coverage names the warbands collectively rather than identifying individual POV legionaries" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.60,
+          "count": 145,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24513508-a-safe-and-shadowed-place"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0193",
+      "slug": "gunsight",
+      "overrides": {
+        "synopsis": "Eristede Kell of the Vindicare temple is the only survivor of the assassination cabal that hunted Horus on Dagonet. Years later he is still aboard the Vengeful Spirit, half-mad and rotting in the ship's poisoned underdecks, his rifle still trained on the man he was sent to kill. A serf named Letae stumbles onto his hiding place and is drawn into an alliance of pity and fear, smuggling food and parts to a killer whose grip on time has snapped. When Kell finally takes his shot, every certainty he came aboard with collapses in the seconds that follow, and the Warmaster reaches into the wreckage with a far older invitation than vengeance. A bleak coda to Nemesis, set in the corroding belly of the ship that will carry the Heresy to Terra.",
+        "facetIds": [
+          "book",
+          "male",
+          "multi",
+          "imperium",
+          "squad",
+          "requires_context",
+          "character_study",
+          "grimdark",
+          "cosmic_horror",
+          "somber",
+          "doubt",
+          "hubris",
+          "betrayal",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_mental_health",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Officio Assassinorum", "role": "primary" },
+          { "name": "Sons of Horus", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vengeful Spirit", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Eristede Kell", "role": "pov" },
+          { "name": "Horus Lupercal", "role": "antagonist" },
+          { "name": "Letae", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.56,
+          "count": 132,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24525024-gunsight"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0194",
+      "slug": "black-oculus",
+      "overrides": {
+        "synopsis": "Perturabo drove the Iron Warriors fleet into the heart of a dying star at the edge of the Eye of Terror, and only one mind plotted the course through. The Prime Navigator of the Iron Blood comes back from that passage hollowed out, his third eye burned open onto something that should never have been seen, and is sealed away in a stone cell beneath the flagship so that no one else can hear what now whispers to him. The story is the long, broken monologue he gives to his keepers and to himself: a portrait of an old Navigator family in the Warmaster's service, of the price the warp asks of those who pilot armies through it, and of the further crossings that are still to come.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "chaos",
+          "sector",
+          "requires_context",
+          "character_study",
+          "cosmic_horror",
+          "grimdark",
+          "philosophical",
+          "hubris",
+          "doubt",
+          "en",
+          "cw_disturbing",
+          "cw_mental_health"
+        ],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Navis Nobilite", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "primary" },
+          { "name": "Iron Blood", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Perturabo", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "the Prime Navigator is the sole POV but is not named in available coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.19,
+          "count": 165,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24575257-black-oculus"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0195",
+      "slug": "wolf-mother",
+      "overrides": {
+        "synopsis": "Aboard the Molech's Enlightenment, the great refugee transport carrying the survivors of Horus's invasion of Molech away into the dark, an old enemy makes its nest. The Serpent Cult that brought House Devine down from inside lives on, hidden among the wounded and the desperate, and it has begun to take children. Alivia Sureka, the woman who has stood quiet sentinel over Molech's secret for longer than the Imperium has existed, must walk those crowded decks to find her adopted daughter before the cult does. Her only ally is the Knight Errant Severian, a lone hunter cast out of his Legion's shadow, and his methods are not gentle ones. A short, taut sequel to Vengeful Spirit, set in the corridors of a wounded ship full of frightened civilians.",
+        "facetIds": [
+          "book",
+          "female",
+          "civilian",
+          "imperium",
+          "squad",
+          "requires_context",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "somber",
+          "faith",
+          "sacrifice",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Knights Errant", "role": "supporting" },
+          { "name": "Serpent Cult", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Molech's Enlightenment", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Alivia Sureka", "role": "pov" },
+          { "name": "Severian", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.78,
+          "count": 147,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24888323-wolf-mother"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0196",
+      "slug": "twisted",
+      "overrides": {
+        "synopsis": "Maloghurst the Twisted, crippled equerry to the Warmaster, has been Horus's closest political mind since the Crusade began. With the Sixteenth Legion bloated on its own ambition and the daemon ever closer to the Vengeful Spirit's deckplates, Maloghurst turns to the only allies he has left who know that kind of war: the priests of Davin, the lodge-masters who first opened the door. The Davinites think they have found their leverage; that a maimed councillor at the heart of the Warmaster's court will be easy to break and easier to ride. They have misread him on every count. A short, knife-edged piece of court politics set just below the Warmaster's chamber, in which the man behind the throne reminds the people who sold him to Chaos who has the last word.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "squad",
+          "requires_context",
+          "court_intrigue",
+          "character_study",
+          "grimdark",
+          "somber",
+          "loyalty",
+          "betrayal",
+          "hubris",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Davinite Lodge", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vengeful Spirit", "role": "primary" },
+          { "name": "Davin", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Maloghurst", "role": "pov" },
+          { "name": "Horus Lupercal", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.82,
+          "count": 138,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24888270-twisted"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0197",
+      "slug": "chirurgeon",
+      "overrides": {
+        "synopsis": "Long before the III Legion was given a new name and a new primarch, a flaw ran in its gene-seed that threatened to end it before it ever marched. Apothecary Fabius worked in those years to keep his brothers alive, cataloguing failures of the flesh that no one outside his surgeries was supposed to know about. Years later, with the Phoenician fallen and the Heresy in full song, Fabius lays a screaming legionary open on the slab and revisits the same problem with no constraint of conscience left to slow him. The story moves between the two timeframes, an unflinching character study of the man who would become the most infamous Apothecary in the galaxy, and of the III Legion's oldest secret learning to bloom again.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "squad",
+          "requires_context",
+          "character_study",
+          "mystery",
+          "grimdark",
+          "cosmic_horror",
+          "somber",
+          "hubris",
+          "doubt",
+          "en",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_mental_health"
+        ],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Fabius Bile", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "the surgery scene takes place aboard an Emperor's Children vessel not named in available coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.53,
+          "count": 166,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24888290-chirurgeon"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0198",
+      "slug": "tallarn-witness",
+      "overrides": {
+        "synopsis": "The largest tank battle in human history has just ended in the dust of Tallarn, and the victors are still counting. Susada Syn, raised from the survivors of the planet's ruined cities, has been named its first governor-militant, charged with the impossible task of looking at what is left and deciding whether anything can be built from it. Carried over the battlefield on the bridge of a Warlord Titan, he watches a horizon of broken tanks stretch beyond the limits of vision and listens to the artillery commanders and Legion officers around him give him their measure of the cost. A short, quiet coda to the long Tallarn campaign, told entirely in the silence after victory.",
+        "facetIds": [
+          "book",
+          "male",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "character_study",
+          "somber",
+          "grimdark",
+          "philosophical",
+          "war",
+          "sacrifice",
+          "doubt",
+          "en",
+          "cw_death",
+          "cw_violence"
+        ],
+        "factions": [
+          { "name": "Imperial Army", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Tallarn", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Susada Syn", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.40,
+          "count": 144,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24947140-tallarn"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0199",
+      "slug": "ironfire",
+      "overrides": {
+        "synopsis": "Warsmith Idriss Krendl is a broken man. The fall of the Schadenhold cost him the favour of his primarch and the use of half his body, and he has been kept alive on Perturabo's sufferance ever since, hauling himself between councils on a litter and a sneer. He has one chance left: two enormous siege guns prised out of the forges of Diamat, and a fortress on the world of Euphoros that no one before him has been able to crack. Krendl's plan, the Ironfire protocol, is as much an experiment in artillery as it is in spite. It exists to bring down a single palace, to wring the data he needs for the walls of Terra from its dying stones, and to put a once-disgraced warsmith back at his primarch's right hand.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "planetary",
+          "requires_context",
+          "siege",
+          "war_story",
+          "grimdark",
+          "action_heavy",
+          "hubris",
+          "redemption",
+          "war",
+          "en",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Euphoros", "role": "primary" },
+          { "name": "Diamat", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Idriss Krendl", "role": "pov" },
+          { "name": "Perturabo", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.49,
+          "count": 150,
+          "evidenceUrl": "https://www.goodreads.com/book/show/25478843-ironfire"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0200",
+      "slug": "hands-of-the-emperor",
+      "overrides": {
+        "synopsis": "Shield-Captain Enobar Stentonox of the Custodian Guard is Master of the Watch above the Imperial Palace, and the Palace's airspace is the most jealously kept sky in the galaxy. When an Imperial Fists working party begins manoeuvring a continent-sized orbital plate into restricted space without warning, the alarms go up and a fleet of unarmed work-engines abruptly becomes a security incident. Stentonox sets out to defuse the standoff before it becomes a shooting war between the Emperor's own protectors, only to discover that the Seventh Legion's commander has reasons of his own for not standing down. A quiet, sharp piece of palace politics, told between two soldiers who would rather die than disgrace the man they both serve.",
+        "facetIds": [
+          "book",
+          "male",
+          "custodes",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "political_thriller",
+          "character_study",
+          "somber",
+          "loyalty",
+          "doubt",
+          "brotherhood",
+          "en",
+          "cw_violence"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Imperial Fists", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Enobar Stentonox", "role": "pov" },
+          { "name": "Constantin Valdor", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.48,
+          "count": 122,
+          "evidenceUrl": "https://www.goodreads.com/book/show/25248604-hands-of-the-emperor"
+        }
+      }
+    }
+  ]
+}

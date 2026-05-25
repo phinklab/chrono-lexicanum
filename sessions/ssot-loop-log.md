@@ -2215,3 +2215,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** House Devine, Serpent Cult, Ring of Iron, Goughen (= Sixty-Three Fourteen), Luna Wolves (held distinct from Sons of Horus where the source frame demanded it), Lermenta, Mayder Oquin, Torghun Khan, Ashel, Fel Zharost.
 - **Verification skipped:** pure data commit (override-JSON + Markdown-append, no code touched) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` skipped per Brief-061 convention.
+
+## 2026-05-26 · ssot-hh-020 · HH-0191..HH-0200 · ✅
+
+- **Cumulative books in authority:** 765
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=755, batch=ssot-hh-020, slice=HH-0191..HH-0200
+- **WebSearch:** mean=1.0, max=1 (over 10 books; one synopsis-context query per book sufficed because all ten are well-covered single-scene 2015 shorts on Goodreads / Lexicanum / Fandom)
+- **Per-book bullets:**
+  - HH-0191 Howl of the Hearthworld — Space Wolves watch-pack on Terra; Kargir of Thirteen Falling Stars is sole named POV; Imperial Fists and Malcador the Sigillite are supporting; clean.
+  - HH-0192 A Safe and Shadowed Place — Night Lords remnants reach Sotha as Pharos prologue; available coverage names the warbands collectively rather than a single POV legionary, so characters left empty with low_confidence flag.
+  - HH-0193 Gunsight — Vindicare assassin Eristede Kell aboard Vengeful Spirit; protagonist_class=multi (Officio Assassinorum has no dedicated catalog class, closest is multi); Vengeful Spirit kept as a location per prior batch precedent.
+  - HH-0194 Black Oculus — Iron Warriors Navigator monologue after passage through the Eye of Terror; navigator is sole POV but unnamed in available coverage → low_confidence on characters; Iron Blood and Eye of Terror as locations; Navis Nobilite added as supporting faction.
+  - HH-0195 Wolf Mother — Alivia Sureka and Severian aboard Molech's Enlightenment post-Vengeful-Spirit; Serpent Cult antagonist; protagonist_class=civilian (Alivia is the POV, not Severian); Knights Errant supporting only.
+  - HH-0196 Twisted — Maloghurst counter-plots the Davinite Lodge from inside the Vengeful Spirit; court_intrigue/character_study; Davin as supporting location for the lodge's origin.
+  - HH-0197 Chirurgeon — Fabius Bile two-timeframe character study; no named ship in available coverage → locations empty with low_confidence flag.
+  - HH-0198 Tallarn: Witness — Susada Syn as new governor-militant of Tallarn, surveying the post-battle waste from a Titan; protagonist_class=guardsman (governor-militant rising from Imperial Army survivors); Imperial Army primary, Iron Warriors antagonist.
+  - HH-0199 Ironfire — Warsmith Idriss Krendl's Ironfire protocol against the Selenic palace on Euphoros, siege guns prised from Diamat; siege plot_type; redemption + hubris themes.
+  - HH-0200 Hands of the Emperor — Shield-Captain Enobar Stentonox vs an Imperial Fists working party over restricted Palace airspace; political_thriller/character_study; Constantin Valdor as supporting.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Thirteen Falling Stars (Space Wolves watch-pack), Vlka Fenryka (used in synopsis flavour only, faction kept as Space Wolves), Ironfire protocol, Selenic palace, Iron Blood, Molech's Enlightenment, Davinite Lodge, Officio Assassinorum, Navis Nobilite, Schadenhold (referenced in Ironfire synopsis only).
+- **Verification:** lint/typecheck/brain:lint skipped per Brief-061-Konvention (pure data commit — new override JSON + Markdown-Append, no code change).
