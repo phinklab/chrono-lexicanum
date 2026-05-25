@@ -169,6 +169,19 @@ The original HTML prototype lives **outside the repo** (in `archive/` locally, g
 - Never commit `.env.local`, `node_modules/`, `.next/`, or `archive/`. (Already in `.gitignore`.)
 - Session logs (`sessions/*.md`) ARE committed — they are the project's history.
 
+#### PR policy — docs land direct on `main`, code gets a PR
+
+A pull request is a code-review + CI mechanism. A change that touches **only documentation** carries no build risk — there is nothing for a PR to catch — so it commits **directly to `main`**, no branch, no PR. Ceremony matched to risk: a hygiene cycle of architect brief + coordination pass no longer costs three PRs. Decided 2026-05-25 with Philipp (Model 1 of three).
+
+- **Doc-only → direct to `main`.** A diff that touches *only* Markdown / docs: architect briefs and implementer reports under `sessions/`, `sessions/README.md`, everything under `brain/**`, `docs/**`, and the top-level `*.md` files (`CLAUDE.md`, `AGENTS.md`, `README.md`, `ROADMAP.md`, …). Covers coordination passes, doc-only briefs (e.g. a repo-hygiene sweep), and pure file moves among those paths. Commit straight to `main` and push. The coordination worktree (`chrono-lexicanum`) sits on `main` for exactly this.
+- **Code / data / config → branch + PR.** A diff that touches anything else — `src/`, `scripts/`, `src/db/` (incl. migrations), `package.json` / `package-lock.json`, `.github/**`, the root `*.config.*` files — goes through a task branch + PR, reviewed and merged as before. The classifier is the **file set**, not the worktree.
+- **Mixed change → PR.** If one logical change genuinely touches docs *and* code, the code drags the docs along — the whole thing goes through the PR. The rule removes the *requirement* of a separate doc PR; it never forbids docs riding inside a code PR.
+- **A code-handing brief.** The architect brief is doc-only → it lands on `main` directly. CC then branches from `main`, implements, and flips the brief's `status: open → implemented` as a one-line edit *inside that code PR*. No separate PR for the brief, none for the status flip.
+- **CI caveat.** `.github/workflows/ci.yml` runs `on: pull_request` only, so direct-to-`main` commits currently skip `brain:lint`. Until `ci.yml` also carries a `push: branches: [main]` trigger (itself a code change → its own PR), run `npm run brain:lint -- --no-write` locally green before pushing a doc-only commit.
+- **Branch-protection caveat.** This rule assumes `main` accepts direct pushes. If GitHub branch protection rejects them, relax it for this single-maintainer repo, or fall back to bundling the doc change into the next PR.
+
+Cowork never runs `git` (sandbox — see the KRITISCH banner above): it writes the files and hands Philipp the exact `git add … && git commit … && git push origin main` line.
+
 ### Parallel worktrees
 
 Durable local worktrees:
@@ -177,7 +190,7 @@ Durable local worktrees:
 - `C:\Users\Phil\chrono-lexicanum-product` = Product/UI strand: HUD, Map, design polish, app shell, music player, login/settings UI, frontend features.
 - `C:\Users\Phil\chrono-lexicanum-batches` = Batch/Ingestion strand: SSOT batches, overrides, resolver, DB-apply, ingestion scripts.
 
-`main` is read-only for local work. Never commit on `main`.
+`main` is read-only for **code** work — every code/data/config change goes through a task branch + PR, never a direct commit. **Doc-only changes are the deliberate exception** (§ Git → "PR policy"): they commit straight to `main`, and the coordination worktree (`chrono-lexicanum`) sits on `main` to receive them.
 
 **Rollup-Ownership (coordination-worktree-only).** The two strand worktrees (`chrono-lexicanum-product`, `chrono-lexicanum-batches`) **never write** the following files — only the coordination worktree (`chrono-lexicanum`) does:
 
@@ -194,15 +207,15 @@ At the start of any implementation session:
 
 1. Run `git branch --show-current` and `git status --short --branch`.
 2. Infer the strand from the current worktree path. CC always derives the strand itself — never ask the maintainer which worktree this is.
-3. If the current branch is `main`, detached, a bootstrap branch, or a previously merged task branch, create a fresh task branch from `origin/main` before editing:
+3. If the current branch is `main`, detached, a bootstrap branch, or a previously merged task branch, create a fresh task branch from `origin/main` before editing — **unless the whole session is doc-only** (§ Git → "PR policy"), in which case edit and commit on `main` directly, no branch:
    - Product/UI: `codex/product-<short-slug>`
    - Batch/Ingestion: `codex/ingest-batches-<short-slug>`
-   - Meta/session-only: `codex/session-<NNN>-<short-slug>`
+   - Meta/session-only: `codex/session-<NNN>-<short-slug>` (code-touching meta work only — doc-only meta work needs no branch)
 4. Do not branch from an inflight feature branch unless Philipp explicitly says this session continues that exact branch.
 5. **Before editing any files, announce the detected worktree, strand, and task-branch in one sentence** (e.g. *"Worktree: `chrono-lexicanum-batches`, Strang: Batch/Ingestion, Branch: `codex/ingest-batches-foo`."*). A wrong-folder mistake becomes visible immediately.
 6. **If the task does not match the detected strand** — UI work in the Batches worktree, batch/resolver work in the Product worktree, a Brain/Rollup edit asked for from a strand worktree, or vice versa — **halt and ask back** instead of starting in the wrong place. This is a self-check, not a maintainer question; CC reads the path and decides.
 
-When Philipp says `fertig`, `PR erstellen`, or equivalent:
+When Philipp says `fertig`, `PR erstellen`, or equivalent (code/data/config work — a doc-only change never reaches this step, see § Git → "PR policy"):
 
 1. Verify the current worktree status.
 2. Stage only files changed for the current task in this worktree.

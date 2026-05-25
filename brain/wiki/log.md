@@ -967,3 +967,28 @@ Cowork-Session: Post-Merge-Koordinations-Pass für den gemergten Brief 099 (Sess
 **Out of scope:** Kein Code-/Schema-/DB-Touch. Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — CI/Maintainer).
 
 **Branch:** Edits im Coordination-Worktree; Philipp committet + pusht + PR Windows-nativ.
+
+---
+
+## 2026-05-25 · Decision · PR-Policy — Doku committet direkt auf `main`
+
+Cowork-Session mit Philipp. Auslöser: der jüngste Hygiene-Zyklus produzierte drei PRs (coord-098, Brief 099, coord-099) für reine Markdown-Arbeit — Philipp empfand die PR-Last als zu hoch.
+
+**Entscheidung.** Drei Modelle wurden mit Trade-offs vorgelegt (1 = Doku direkt auf `main`; 2 = ein PR pro Cowork-Session; 3 = Koordinations-Pässe gebündelt); Philipp wählte **Modell 1**. Ein PR ist ein Code-Review-/CI-Mechanismus; eine reine Doku-Änderung trägt kein Build-Risiko. Regel: ein Diff, der **nur** Markdown/Docs berührt (`sessions/**`, `sessions/README.md`, `brain/**`, `docs/**`, Top-Level-`*.md`), committet **direkt auf `main`** — kein Branch, kein PR. Ein Diff, der Code/Daten/Config berührt (`src/`, `scripts/`, `src/db/`, `package.json`, `.github/**`, Root-`*.config.*`), läuft weiter über Branch + PR. Mixed → PR. Klassifikator = Dateimenge, nicht Worktree. Ein code-übergebender Brief ist doc-only (direkt auf `main`); CC branched von `main`, implementiert, flippt `status: open → implemented` im Code-PR.
+
+**Verankert in (diese vier Docs sind die Single Source — keine separate ADR-Page):**
+
+- `CLAUDE.md` § Git — neue Subsektion „PR policy — docs land direct on `main`, code gets a PR" (autoritative Form mit allen Edge-Cases); die „`main` is read-only"-Zeile in § „Parallel worktrees" auf „read-only für Code-Arbeit" amendiert; Item 3 der Session-Start-Sequenz + der `fertig`-Block um die Doc-only-Ausnahme ergänzt.
+- `AGENTS.md` § „Parallel worktree git protocol" — gespiegelter PR-Policy-Paragraph + dieselben Amendments (damit Codex die Regel sieht).
+- `brain/wiki/workflows/cowork-session.md` — neue Sektion „PR policy — Cowork's output lands direct on `main`"; Handoff-Schritt 7 auf die Direkt-Commit-Übergabe umgestellt; `updated: 2026-05-25` + `CLAUDE.md` als Source.
+- `brain/wiki/workflows/cc-session.md` — neue Sektion „PR policy — code gets a PR, docs don't"; `updated: 2026-05-25` + `CLAUDE.md` als Source.
+
+**Companion / offene Punkte.** (a) `ci.yml` läuft `on: pull_request` only — Direkt-`main`-Commits durchlaufen kein `brain:lint`. Empfohlener Folge-Fix: `push: branches: [main]`-Trigger in `ci.yml` (selbst ein Code-Change → eigener PR). Bis dahin `brain:lint -- --no-write` lokal grün vor dem Doc-Push. (b) Branch-Protection: die Regel setzt voraus, dass `main` Direkt-Pushes annimmt — falls GitHub-Branch-Protection sie ablehnt, lockern oder den Doc-Change in den nächsten PR bündeln.
+
+**No new decision page.** Per Maintainer-Scope in den vier Workflow-Docs verankert, nicht als separate `decisions/`-ADR. Lässt sich später zur ADR promovieren, falls sich die Policy als revisit-würdig erweist.
+
+**Updated wiki:** `brain/wiki/workflows/cowork-session.md`, `brain/wiki/workflows/cc-session.md`, `index.md` (Katalog-Zeilen + Updated-Dates der zwei Workflow-Pages), this `log.md`. **Outside wiki:** `CLAUDE.md`, `AGENTS.md`.
+
+**Out of scope:** Kein Code-Touch (auch nicht die `ci.yml`-Push-Trigger-Ergänzung — eigener Folge-PR), kein Schema/DB. Kein `brain:lint`-Run durch Cowork (Sandbox).
+
+**Branch.** Diese Änderung ist selbst doc-only — der erste Anwendungsfall der neuen Regel: kein Branch, kein PR, direkt auf `main`. Philipp committet + pusht Windows-nativ.

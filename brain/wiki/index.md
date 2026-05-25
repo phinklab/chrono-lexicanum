@@ -52,8 +52,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page | Description | Updated |
 |---|---|---|
-| [workflows/cowork-session.md](./workflows/cowork-session.md) | What Cowork (architect) does each session; rules, tools, push-back patterns, „Simplest thing first"; post-095 sole writer of `sessions/README.md` + `brain/**` | 2026-05-23 |
-| [workflows/cc-session.md](./workflows/cc-session.md) | What Claude Code (implementer) does each session; version-research workflow, report tone; post-095 worktree-self-check + strand worktrees never write `brain/**` | 2026-05-23 |
+| [workflows/cowork-session.md](./workflows/cowork-session.md) | What Cowork (architect) does each session; rules, tools, push-back patterns, „Simplest thing first"; post-095 sole writer of `sessions/README.md` + `brain/**`; post-2026-05-25 § „PR policy" — Cowork's doc-only output commits direct to `main` | 2026-05-25 |
+| [workflows/cc-session.md](./workflows/cc-session.md) | What Claude Code (implementer) does each session; version-research workflow, report tone; post-095 worktree-self-check + strand worktrees never write `brain/**`; post-2026-05-25 § „PR policy" — code gets a PR, docs don't | 2026-05-25 |
 | [workflows/sessions-format.md](./workflows/sessions-format.md) | Session log format: naming, frontmatter, status lifecycle, brief/report sections; post-095 strand reports carry the rollup conduit | 2026-05-23 |
 | [workflows/session-end.md](./workflows/session-end.md) | Cowork's discipline post-CC-report (replaces pre-049 infrastructure-log discipline) | 2026-05-09 |
 | [workflows/ingest.md](./workflows/ingest.md) | Karpathy operation 1/3: how new material flows into wiki synthesis pages | 2026-05-09 |
