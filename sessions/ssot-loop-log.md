@@ -1983,3 +1983,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Thunder Warriors" (Faction-Root-Kandidat, sehr selten — Resolver-Pass entscheidet); "Malcador the Sigillite", "The Emperor", "Constantin Valdor", "Rogal Dorn", "Maximus Thane", "Lotara Sarrin", "Arkhan Land", "Zephon", "Dahren Heruk", "Kabe", "Samonas", "Alivia Sureka" als Surface-Forms.
 - **Verifikation:** lint/typecheck/brain:lint uebersprungen — reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code), Brief-061-Konvention.
+
+## 2026-05-25 · ssot-hh-009 · HH-0081..HH-0090 · ✅
+
+- **Cumulative books in authority:** 655
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=645, batch=ssot-hh-009, slice=HH-0081..HH-0090
+- **WebSearch:** mean=1.1, max=2 (over 10 books)
+- **Per-book bullets:**
+  - HH-0081 Roboute Guilliman: Lord of Ultramar — well-covered, single-PoV Ultramarines vs Orks on Thoas plus Destroyers-company subplot. Clean.
+  - HH-0082 Leman Russ: The Great Wolf — Russ vs the Lion on Dulan, framed by post-Heresy scenes. Both Wolves and Dark Angels carry the campaign; tagged Dark Angels as supporting since the framing follows Russ's side.
+  - HH-0083 Magnus the Red: Master of Prospero — joint Thousand Sons + Iron Warriors evacuation of Morningstar with a buried-knowledge subplot; both Legions tagged primary.
+  - HH-0084 Perturabo: The Hammer of Olympia — origin/present dual-timeline. Hrud campaign is backdrop, Olympia rebellion is foreground; Olympia kept as the only primary location.
+  - HH-0085 Lorgar: Bearer of the Word — pre-discovery Colchis origin tale; no Astartes Legion yet, so factions are the proto-religious bodies (Covenant of Colchis, Brotherhood of Lorgar). Both feed Word Bearers lineage downstream.
+  - HH-0086 Fulgrim: The Palatine Phoenix — solo compliance on Byzas; almost no warfare, more dialogue-and-court-intrigue beat, tagged accordingly.
+  - HH-0087 Ferrus Manus: The Gorgon of Medusa — Iron Hands lead, Emperor's Children + Ultramarines as supporting, Gardinaal as antagonist (left untagged in factions array — no canonical surface form for the human stellar empire).
+  - HH-0088 Jaghatai Khan: Warhawk of Chogoris — episodic structure spanning Crusade years; Sanguinius and Magnus appear as supporting cameos around the Librarius arc.
+  - HH-0089 Vulkan: Lord of Drakes — Salamanders origin / Terran-Nocturne reunification; orks as antagonist, no humans on the other side.
+  - HH-0090 Sons of the Emperor — anthology, eight stories aggregated. Six primarchs listed as POV across the constituent stories; locations array left empty since no single setting dominates and per-story locations would not aggregate meaningfully.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Covenant of Colchis, Brotherhood of Lorgar (proto-Word Bearers institutions, pre-Imperium Colchis); Nephilim (xenos species, HH-0088); Hrud (xenos species, HH-0084); Taras Division (region, HH-0089); Gardinaal (stellar empire, HH-0087 — not tagged as a faction, only referenced in synopsis); Jorin Bloodhowl, Targutai Yesugei, Hasik Khan, Akurduana, Moses Trurakk, Calliphone, Kor Phaeron, Nairo, Dantioch, Forrix (named non-primarch characters).
+- **Verification skipped:** lint/typecheck/brain:lint not run — pure data commit (override JSON + log append), per Brief 061 § 10.
