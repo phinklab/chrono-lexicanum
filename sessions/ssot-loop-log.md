@@ -1962,3 +1962,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Legio Ignatum, Legio Mortis, Knights Errant, Sanguinary Guard, Daemons of Khorne, Daemons of Chaos, Ka'Bandha, Vengeful Spirit, Hollow Mountain, Lion's Gate Spaceport, Mercury Wall, Delphic Battlement, Eternity Gate, Sanctum Imperialis, Golden Throne.
 - **Skipped checks:** `npm run lint` / `npm run typecheck` / `npm run brain:lint` skipped per Brief-061 convention (pure data commit — new override JSON + log append, no code).
+
+## 2026-05-25 · ssot-hh-008 · HH-0071..HH-0080 · ✅
+
+- **Cumulative books in authority:** 645
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=635, batch=ssot-hh-008, slice=HH-0071..HH-0080
+- **WebSearch:** mean=1.1, max=2 (over 10 books; Ashes of the Imperium brauchte eine Extra-Suche zum Auffinden der Goodreads-ID)
+- **Per-book bullets:**
+  - HH-0071 Duty Waits: Standard-Advent-Short, Imperial-Fists-POV, sauberes Tagging.
+  - HH-0072 Magisterium: contemplativer Konflikt Valdor/Dorn nach Webway-War; pov_side=imperium, court_intrigue als sekundaerer Plot.
+  - HH-0073 Now Peals Midnight: Vignetten-Struktur — low_confidence-Flag auf characters gesetzt, nur Dorn ist namentlich verankert.
+  - HH-0074 Dreams of Unity: Thunder-Warriors-Faction auf Browse-Root-Niveau; Custodian-Verfolger als antagonist.
+  - HH-0075 The Board is Set: nur Malcador + Emperor — low_confidence-Flag auf factions, Adeptus Custodes nur als supporting belassen.
+  - HH-0076 Old Wounds New Scars: Alivia Sureka als Perpetual — low_confidence-Flag auf factions; keine Browse-Root-Faction passt.
+  - HH-0077 The Last Council: drei anonyme Primarchen in den oeffentlichen Synopsen — low_confidence-Flag auf factions; cw_socio_political fuer politischen Sitzungsinhalt.
+  - HH-0078 A Rose Watered with Blood: Lotara Sarrin POV (civilian/female), pov_side=chaos, World Eaters / Heretic Astartes; low_confidence-Flag auf locations (Story spielt im Warp-Transit).
+  - HH-0079 Bringer of Sorrow: Arkhan Land POV + Zephon supporting, Blood Angels + Mechanicum.
+  - HH-0080 Ashes of the Imperium: Roster-Mistag — Autor "Charles Wraight" tatsaechlich "Chris Wraight"; data_conflict-Flag auf authors mit suggestion. Zusaetzlich low_confidence auf characters (keine konkreten POVs in oeffentlichen Plot-Synopsen). Goodreads aggregiert bereits 787 Ratings trotz Erstauflage 12/2025.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Thunder Warriors" (Faction-Root-Kandidat, sehr selten — Resolver-Pass entscheidet); "Malcador the Sigillite", "The Emperor", "Constantin Valdor", "Rogal Dorn", "Maximus Thane", "Lotara Sarrin", "Arkhan Land", "Zephon", "Dahren Heruk", "Kabe", "Samonas", "Alivia Sureka" als Surface-Forms.
+- **Verifikation:** lint/typecheck/brain:lint uebersprungen — reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code), Brief-061-Konvention.

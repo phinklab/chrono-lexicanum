@@ -1,0 +1,501 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-008",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7",
+  "rationale": "Welle aus dem Siege-of-Terra-Prequel-Korridor: neun Advent-Shorts 2017/2018 plus der Scouring-Auftakt von 2025. Charakterstücke und politische Vignetten dominieren statt grosser Schlachten; mehrere Geschichten leben fast nur durch zwei Gespraechspartner (Malcador/Emperor, Valdor/Dorn, Land/Zephon), entsprechend zurueckhaltend bleiben Faction- und Location-Tags. Eine Roster-Korrektur: HH-0080 Ashes of the Imperium ist von Chris Wraight, nicht Charles Wraight.",
+  "books": [
+    {
+      "externalBookId": "HH-0071",
+      "slug": "duty-waits",
+      "overrides": {
+        "synopsis": "After the Alpha Legion's brazen infiltration of the Imperial Palace, security on Terra has hardened to a knife edge. Captain Maximus Thane and his Imperial Fists company stand watch over a populace pushed to its limit by rationing, curfew, and the suffocating expectation that Horus will arrive at any moment. When a civilian crowd snaps into open riot in one of the lower precincts, Thane must choose between the patience Rogal Dorn demands of his sons and the discipline his oath demands of him. The choice carries a cost that no parade-ground drill prepared him for, and the brief, ugly engagement leaves both the city and his company changed in ways that cannot be unmade before the real war begins.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "space_marine",
+          "male",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "loyalty",
+          "doubt",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Maximus Thane", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.70,
+          "count": 148,
+          "evidenceUrl": "https://www.goodreads.com/book/show/36868195-duty-waits"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0072",
+      "slug": "magisterium",
+      "overrides": {
+        "synopsis": "Days after the daemonic flood-tide of the Webway War broke the Adeptus Custodes against the lower Imperial Palace, the survivors gather their dead and count what is left of them. Samonas, one of the few who walked back out of the ruined undercrofts, watches as Constantin Valdor confronts the Lord Commander of the Imperium over what the Custodian Guard is now permitted to be. Valdor remembers Prospero, and the bitter compromises set against a primarch's will; Rogal Dorn answers as a primarch must. The argument is quiet, civil, and merciless, and Samonas understands that the role of his order at the coming siege has already been decided in this room, by men who do not need to raise their voices.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "custodes",
+          "male",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "character_study",
+          "court_intrigue",
+          "philosophical",
+          "somber",
+          "grimdark",
+          "loyalty",
+          "doubt",
+          "sacrifice",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Samonas", "role": "pov" },
+          { "name": "Constantin Valdor", "role": "supporting" },
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.86,
+          "count": 182,
+          "evidenceUrl": "https://www.goodreads.com/book/show/36987503-magisterium"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0073",
+      "slug": "now-peals-midnight",
+      "overrides": {
+        "synopsis": "Four hours from midnight, the watchstations of Sol register a shadow in the void that should not be there. Rogal Dorn knows what it means without needing to be told, and across Terra the long-rehearsed order to stand to begins its slow, irrevocable cascade. From silent counsels among the assembled primarchs to the small, ordinary dread of soldiers checking ammunition, civilians locking doors, and astropaths weeping at what they cannot un-hear, the final hours of peace are told in a chain of short vignettes, each one moving the clock closer to the first siren. By the last stroke of midnight, the Warmaster is here, and an age of the Imperium ends in the lifting of a hundred million eyes to the sky.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "multi",
+          "ensemble",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "character_study",
+          "somber",
+          "grimdark",
+          "war",
+          "loyalty",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Astra Militarum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Sol System", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "Vignette-Struktur springt durch viele POVs ohne klare Haupthandlung; nur Dorn ist sicher namentlich verankert." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.99,
+          "count": 158,
+          "evidenceUrl": "https://www.goodreads.com/book/show/37120511-now-peals-midnight"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0074",
+      "slug": "dreams-of-unity",
+      "overrides": {
+        "synopsis": "Decades after the last surviving Thunder Warriors were hunted from the Throneworld, a handful still walk Terra's underlevels, their failing bodies leased out as muscle and curiosity. Dahren Heruk is one such relic, too stubborn to die quickly and too useful to die in peace, and when a job in the gladiator pits of The Maw turns into a killing he finds himself drawn into a conspiracy that reaches up into the upper Palace. A Custodian shadows his trail, patient and inevitable, and Heruk has to decide whether the answer he is uncovering is worth the manner of death it will earn him. Both an unlikely murder mystery and an elegy for warriors that the new Imperium has chosen to forget.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "multi",
+          "male",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "mystery",
+          "character_study",
+          "somber",
+          "grimdark",
+          "redemption",
+          "doubt",
+          "sacrifice",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Thunder Warriors", "role": "primary" },
+          { "name": "Adeptus Custodes", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Dahren Heruk", "role": "pov" },
+          { "name": "Kabe", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.08,
+          "count": 191,
+          "evidenceUrl": "https://www.goodreads.com/book/show/37459851-dreams-of-unity"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0075",
+      "slug": "the-board-is-set",
+      "overrides": {
+        "synopsis": "Malcador the Sigillite climbs to one of the highest, quietest chambers of the Imperial Palace and sits down opposite the Master of Mankind across a strange and ancient game-board. The traitor fleets are nearly here; the pieces on the board are a count of all the primarchs, the captains, the worlds and the secrets the Imperium still possesses. As Malcador and the Emperor talk through openings, traps and sacrifices, the game shades into a frank reckoning of what victory will cost, and which pieces, both of them included, will not be left on the table when it is over. A short, contemplative interlude before the Siege, written almost entirely as two voices and one quiet move at a time.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "multi",
+          "male",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "novella",
+          "character_study",
+          "court_intrigue",
+          "philosophical",
+          "somber",
+          "sacrifice",
+          "hubris",
+          "loyalty",
+          "war",
+          "doubt",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Malcador the Sigillite", "role": "pov" },
+          { "name": "The Emperor", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Story ist im Kern ein privater Dialog Malcador/Emperor; keine Faction-Browse-Root passt sauber als 'primary'." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.23,
+          "count": 230,
+          "evidenceUrl": "https://www.goodreads.com/book/show/37660385-the-board-is-set"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0076",
+      "slug": "old-wounds-new-scars",
+      "overrides": {
+        "synopsis": "Returning to Terra is not a thing the Perpetual Alivia Sureka chose lightly, but the call she cannot name has only grown louder, and the children she calls her own deserve at least the protection of walls. The warp passage from ruined Molech is a long, brutal one: a battered transport carrying refugees, a crew dwindling under spiritual strain, and an old soldier who is not so old as he looks. As Alivia steadies the ship through storms that bite at the hull and at her memory, she catches premonitions of what waits ahead and remembers more than she would like of what she has already buried. The Throneworld is close. So is the war.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "civilian",
+          "female",
+          "imperium",
+          "sector",
+          "requires_context",
+          "novella",
+          "journey",
+          "character_study",
+          "somber",
+          "philosophical",
+          "faith",
+          "sacrifice",
+          "doubt",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [],
+        "locations": [
+          { "name": "Molech", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Alivia Sureka", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Alivia Sureka ist Perpetual ohne formelle Faction-Bindung; Refugee-Transport ist nicht eindeutig Astra-Militarum oder Mechanicus." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.59,
+          "count": 101,
+          "evidenceUrl": "https://www.goodreads.com/book/show/43069017-old-wounds-new-scars"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0077",
+      "slug": "the-last-council",
+      "overrides": {
+        "synopsis": "The Council of Terra has shouldered the civilian governance of an Imperium at war for as long as anyone now living can remember, and in a hall behind locked doors it must vote itself out of existence one last time. Three primarchs stand in attendance, present to formalise the transfer of authority back to the war hierarchy, while High Lords bicker over budgets, jurisdictions and old grievances that, until today, mattered. Malcador the Sigillite sits as Regent and watches it all, his mind returning again and again to the half-truths and convenient histories the Imperium has been built on. What the records will say of this session, and what actually happened, will not be the same thing.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "multi",
+          "mixed",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "novella",
+          "court_intrigue",
+          "political_thriller",
+          "character_study",
+          "philosophical",
+          "somber",
+          "doubt",
+          "loyalty",
+          "betrayal",
+          "hubris",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Malcador the Sigillite", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Council of Terra liegt nicht im Faction-Browse-Root; die drei anwesenden Primarchen sind in den Sekundaerquellen nicht eindeutig identifiziert." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.19,
+          "count": 173,
+          "evidenceUrl": "https://www.goodreads.com/book/show/43204380-the-last-council"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0078",
+      "slug": "a-rose-watered-with-blood",
+      "overrides": {
+        "synopsis": "The Conqueror is not the ship Lotara Sarrin took command of years ago. Bulkheads twist when no one is looking, paint runs in the wrong direction, and the human crew on whom she still relies has learned to listen to the walls. Below decks, something far older and angrier than any of them remains chained in the dark, and the warp is eating its way slowly into the steel that surrounds it. As the World Eaters' flagship grinds toward Terra and the Siege, Lotara takes her own quiet measure of what the journey is doing to her vessel, her crew and her own command, and lands on a conclusion she would much rather not have reached.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "civilian",
+          "female",
+          "chaos",
+          "company",
+          "requires_context",
+          "novella",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "doubt",
+          "betrayal",
+          "hubris",
+          "faith",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_mental_health",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lotara Sarrin", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "Story spielt fast komplett an Bord der Conqueror im Warp-Transit; geographische Orte sind nur als Ziel (Terra) relevant." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.29,
+          "count": 198,
+          "evidenceUrl": "https://www.goodreads.com/book/show/43328271-a-rose-watered-with-blood"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0079",
+      "slug": "bringer-of-sorrow",
+      "overrides": {
+        "synopsis": "After the Blood Angels return from the wars beyond Mars and the Webway, Sanguinius's broken son Zephon comes back to the workshops of the technoarchaeologist Arkhan Land for a problem neither of them is in a hurry to face. The bionics Land once patched into Zephon's ruined frame are themselves now failing, and the only honest fix involves rebuilding work that Land alone is arrogant enough, and gifted enough, to attempt. What unfolds is less a procedure than a long, awkward conversation between two men who do not have many friends, weighed against the question of what Land is willing to do, and to bend, to give Zephon a few more years on his feet.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "multi",
+          "male",
+          "imperium",
+          "company",
+          "requires_context",
+          "novella",
+          "character_study",
+          "somber",
+          "philosophical",
+          "brotherhood",
+          "redemption",
+          "loyalty",
+          "sacrifice",
+          "hubris",
+          "cw_disturbing",
+          "cw_mental_health",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Mechanicum", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Arkhan Land", "role": "pov" },
+          { "name": "Zephon", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.16,
+          "count": 158,
+          "evidenceUrl": "https://www.goodreads.com/book/show/44048368-bringer-of-sorrow"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0080",
+      "slug": "ashes-of-the-imperium",
+      "overrides": {
+        "synopsis": "Horus is dead. The Emperor is silent. Terra lies in ruin, and the survivors of the longest civil war in human history are left to discover what holds an Imperium together when the man who founded it can no longer answer. As the Loyalist primarchs argue over how to pursue the broken traitor legions back into the dark, opportunists move into the gaps in authority, the High Lords measure each other for new crowns, and ordinary citizens try to live in cities that still smoke. The first novel of The Scouring follows the great houses and the small ones across that uncertain morning, asking what a victory paid in this much blood is actually worth, and who decides what comes next.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "multi",
+          "ensemble",
+          "imperium",
+          "galactic",
+          "series_start",
+          "standard",
+          "political_thriller",
+          "war_story",
+          "court_intrigue",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "betrayal",
+          "loyalty",
+          "faith",
+          "war",
+          "hubris",
+          "sacrifice",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "cw_socio_political",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Heretic Astartes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Sol System", "role": "supporting" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "data_conflict", "field": "authors", "reason": "Roster fuehrt 'Charles Wraight'; Black-Library-Publikation, Simon & Schuster und Goodreads listen 'Chris Wraight'.", "suggestion": "Chris Wraight" },
+          { "kind": "low_confidence", "field": "characters", "reason": "Erstauflage-Roman einer neuen Serie; konkrete POV-Charaktere sind aus oeffentlichen Plot-Synopsen noch nicht eindeutig benennbar." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.20,
+          "count": 787,
+          "evidenceUrl": "https://www.goodreads.com/book/show/240894912"
+        }
+      }
+    }
+  ]
+}
