@@ -23,52 +23,52 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-11-060-arch-ssot-w40k-001-db-apply.md
   - ../../sessions/archive/2026-05/2026-05-11-060-impl-ssot-w40k-001-db-apply.md
   - ../../sessions/2026-05-11-061-arch-ssot-loop.md
-  - ../../sessions/2026-05-11-062-arch-apply-override-author-fix.md
-  - ../../sessions/2026-05-11-062-impl-apply-override-author-fix.md
+  - ../../sessions/archive/2026-05/2026-05-11-062-arch-apply-override-author-fix.md
+  - ../../sessions/archive/2026-05/2026-05-11-062-impl-apply-override-author-fix.md
   - ../../sessions/archive/2026-05/2026-05-12-063-arch-resolver-50-books.md
   - ../../sessions/archive/2026-05/2026-05-12-063-impl-resolver-50-books.md
   - ../../sessions/archive/2026-05/2026-05-12-067-impl-resolver-apply-readiness.md
   - ../../sessions/archive/2026-05/2026-05-12-069-impl-resolver-apply-evidence.md
-  - ../../sessions/2026-05-13-070-arch-faction-policy-hygiene.md
-  - ../../sessions/2026-05-13-070-impl-faction-policy-hygiene.md
-  - ../../sessions/2026-05-13-071-arch-loop-driver.md
-  - ../../sessions/2026-05-13-071-impl-loop-driver.md
-  - ../../sessions/2026-05-14-072-arch-resolver-batch-2.md
-  - ../../sessions/2026-05-14-072-impl-resolver-batch-2.md
-  - ../../sessions/2026-05-15-074-arch-resolver-batch-3.md
-  - ../../sessions/2026-05-15-074-impl-resolver-batch-3.md
-  - ../../sessions/2026-05-15-075-arch-cockpit-drift-sort-and-rating.md
-  - ../../sessions/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md
-  - ../../sessions/2026-05-16-076-arch-resolver-batch-4-axis-sliced.md
-  - ../../sessions/2026-05-16-076-impl-resolver-batch-4-axis-sliced.md
-  - ../../sessions/2026-05-16-077-arch-grand-alignment-junction-hygiene.md
-  - ../../sessions/2026-05-16-077-impl-grand-alignment-junction-hygiene.md
-  - ../../sessions/2026-05-17-079-impl-lab-cartographer-prototype.md
-  - ../../sessions/2026-05-17-080-arch-synopsis-guard-and-pilot.md
-  - ../../sessions/2026-05-17-080-impl-synopsis-guard-and-pilot.md
-  - ../../sessions/2026-05-17-081-arch-ssot-synopsis-backfill-005-019.md
-  - ../../sessions/2026-05-18-081-impl-ssot-synopsis-backfill-005-019.md
-  - ../../sessions/2026-05-17-082-arch-parallel-worktrees.md
-  - ../../sessions/2026-05-17-083-impl-parallel-worktrees.md
-  - ../../sessions/2026-05-19-084-arch-locations-axis-hygiene.md
-  - ../../sessions/2026-05-19-084-impl-locations-axis-hygiene.md
-  - ../../sessions/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md
-  - ../../sessions/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md
-  - ../../sessions/2026-05-20-087-arch-goodreads-rating-pipeline.md
-  - ../../sessions/2026-05-20-087-impl-goodreads-rating-pipeline.md
-  - ../../sessions/2026-05-21-088-arch-ssot-loop-lean.md
-  - ../../sessions/2026-05-21-088-impl-ssot-loop-lean.md
-  - ../../sessions/2026-05-21-089-arch-resolver-pass-5.md
-  - ../../sessions/2026-05-21-089-impl-resolver-pass-5.md
-  - ../../sessions/2026-05-21-090-arch-resolver-pass-lean.md
-  - ../../sessions/2026-05-21-090-impl-resolver-pass-lean.md
-  - ../../sessions/2026-05-22-092-impl-roster-hygiene.md
-  - ../../sessions/2026-05-22-093-arch-resolver-pass-7.md
+  - ../../sessions/archive/2026-05/2026-05-13-070-arch-faction-policy-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-13-070-impl-faction-policy-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-13-071-arch-loop-driver.md
+  - ../../sessions/archive/2026-05/2026-05-13-071-impl-loop-driver.md
+  - ../../sessions/archive/2026-05/2026-05-14-072-arch-resolver-batch-2.md
+  - ../../sessions/archive/2026-05/2026-05-14-072-impl-resolver-batch-2.md
+  - ../../sessions/archive/2026-05/2026-05-15-074-arch-resolver-batch-3.md
+  - ../../sessions/archive/2026-05/2026-05-15-074-impl-resolver-batch-3.md
+  - ../../sessions/archive/2026-05/2026-05-15-075-arch-cockpit-drift-sort-and-rating.md
+  - ../../sessions/archive/2026-05/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md
+  - ../../sessions/archive/2026-05/2026-05-16-076-arch-resolver-batch-4-axis-sliced.md
+  - ../../sessions/archive/2026-05/2026-05-16-076-impl-resolver-batch-4-axis-sliced.md
+  - ../../sessions/archive/2026-05/2026-05-16-077-arch-grand-alignment-junction-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-16-077-impl-grand-alignment-junction-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-17-079-impl-lab-cartographer-prototype.md
+  - ../../sessions/archive/2026-05/2026-05-17-080-arch-synopsis-guard-and-pilot.md
+  - ../../sessions/archive/2026-05/2026-05-17-080-impl-synopsis-guard-and-pilot.md
+  - ../../sessions/archive/2026-05/2026-05-17-081-arch-ssot-synopsis-backfill-005-019.md
+  - ../../sessions/archive/2026-05/2026-05-18-081-impl-ssot-synopsis-backfill-005-019.md
+  - ../../sessions/archive/2026-05/2026-05-17-082-arch-parallel-worktrees.md
+  - ../../sessions/archive/2026-05/2026-05-17-083-impl-parallel-worktrees.md
+  - ../../sessions/archive/2026-05/2026-05-19-084-arch-locations-axis-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-19-084-impl-locations-axis-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md
+  - ../../sessions/archive/2026-05/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md
+  - ../../sessions/archive/2026-05/2026-05-20-087-arch-goodreads-rating-pipeline.md
+  - ../../sessions/archive/2026-05/2026-05-20-087-impl-goodreads-rating-pipeline.md
+  - ../../sessions/archive/2026-05/2026-05-21-088-arch-ssot-loop-lean.md
+  - ../../sessions/archive/2026-05/2026-05-21-088-impl-ssot-loop-lean.md
+  - ../../sessions/archive/2026-05/2026-05-21-089-arch-resolver-pass-5.md
+  - ../../sessions/archive/2026-05/2026-05-21-089-impl-resolver-pass-5.md
+  - ../../sessions/archive/2026-05/2026-05-21-090-arch-resolver-pass-lean.md
+  - ../../sessions/archive/2026-05/2026-05-21-090-impl-resolver-pass-lean.md
+  - ../../sessions/archive/2026-05/2026-05-22-092-impl-roster-hygiene.md
+  - ../../sessions/archive/2026-05/2026-05-22-093-arch-resolver-pass-7.md
   - ../../sessions/resolver-dossiers/resolver-pass-7-impl-report.md
-  - ../../sessions/2026-05-23-094-arch-resolver-loop.md
-  - ../../sessions/2026-05-23-094-impl-resolver-loop.md
-  - ../../sessions/2026-05-23-095-arch-rollup-ownership.md
-  - ../../sessions/2026-05-23-095-impl-rollup-ownership.md
+  - ../../sessions/archive/2026-05/2026-05-23-094-arch-resolver-loop.md
+  - ../../sessions/archive/2026-05/2026-05-23-094-impl-resolver-loop.md
+  - ../../sessions/archive/2026-05/2026-05-23-095-arch-rollup-ownership.md
+  - ../../sessions/archive/2026-05/2026-05-23-095-impl-rollup-ownership.md
   - ../../sessions/2026-05-25-098-arch-w40k-consolidation-pass.md
   - ../../sessions/2026-05-25-098-impl-w40k-consolidation-pass.md
   - ../../sessions/2026-05-25-099-arch-sessions-archive-sweep.md
@@ -140,11 +140,11 @@ Das Buch-Domain-Bild post-098: **565 W40K-Bücher** (`ssot-w40k-001..057`) liege
 
 Drei zusammenhängende Stränge seit dem post-092-Stand: Resolver-Pass 7 hat die DB auf 450 gebracht, Brief 094 hat die Resolver-Maschinerie headless gemacht, Brief 095 die Rollup-Ownership geklärt. Alle drei sind implementiert + gemerged (Maintainer-bestätigt).
 
-**Resolver-Pass 7 — `ssot-w40k-036..045`** ([Brief 093](../../sessions/2026-05-22-093-arch-resolver-pass-7.md) rationale-only, [impl-report](../../sessions/resolver-dossiers/resolver-pass-7-impl-report.md), PR #90). Die siebte Welle (W40K-0351..0450, 100 Bücher) in den Authority-Layer und nach Postgres — **450/450 W40K-Bücher applied**. Erster echter Lauf auf der von Brief 091 gesplitteten 6-Phasen-Maschinerie (0/1/2/3/4a/4b, `/clear`-getrennt, 4b nur aus 4a-Statusdatei + Apply-Digest); brief-frei + runbook-getrieben, supervised/axis-sliced gefahren (nicht über den Driver). Counts PRE→POST (idempotenter Re-Apply `001..045`): `work_factions 1424→1659` (+235), `work_locations 543→638` (+95), `work_characters 844→1074` (+230), `work_collections 109→142` (+33), `work_persons 325→424` (+99), `work_facets 7227→9087` (+1860). Reference-Rows `factions 162→166`, `locations 189→201`, `characters 237→297`; Aliases faction 41→48, location 15→15, character 34→39. `facet_values 86→86` — keine Facet-Promotion (Welle vokabular-sauber). Dry-Run-Prediction == DB-POST-APPLY exakt; Trias + lint + typecheck grün, kein `## Needs decision`. Ein wave-spezifischer Call: `EXPECTED_RANGES` in `apply-override-dry.ts` angehoben (factions 1500→1900, locations 600→800, characters 1200→1400) — Headroom-Sizing, kein Guard-Relax. Der range-aware forward-ref-Guard (Brief 091) blieb über den ganzen kumulativen Sweep grün (15 in-range forward refs); die fünf Collection-Kanten aus OQ (14) / PR #85 (Architect of Fate W40K-0286 + War for Armageddon Omnibus W40K-0307) landeten beim Re-Apply idempotent. `collection-gaps.json` wuchs um einen Eintrag (W40K-0434 *Space Wolves (Legends)*, drei confident Constituents); vier weitere Spot-Checks bewusst deferred (Maintainer-/Roster-Arbeit, kein Resolver-Job).
+**Resolver-Pass 7 — `ssot-w40k-036..045`** ([Brief 093](../../sessions/archive/2026-05/2026-05-22-093-arch-resolver-pass-7.md) rationale-only, [impl-report](../../sessions/resolver-dossiers/resolver-pass-7-impl-report.md), PR #90). Die siebte Welle (W40K-0351..0450, 100 Bücher) in den Authority-Layer und nach Postgres — **450/450 W40K-Bücher applied**. Erster echter Lauf auf der von Brief 091 gesplitteten 6-Phasen-Maschinerie (0/1/2/3/4a/4b, `/clear`-getrennt, 4b nur aus 4a-Statusdatei + Apply-Digest); brief-frei + runbook-getrieben, supervised/axis-sliced gefahren (nicht über den Driver). Counts PRE→POST (idempotenter Re-Apply `001..045`): `work_factions 1424→1659` (+235), `work_locations 543→638` (+95), `work_characters 844→1074` (+230), `work_collections 109→142` (+33), `work_persons 325→424` (+99), `work_facets 7227→9087` (+1860). Reference-Rows `factions 162→166`, `locations 189→201`, `characters 237→297`; Aliases faction 41→48, location 15→15, character 34→39. `facet_values 86→86` — keine Facet-Promotion (Welle vokabular-sauber). Dry-Run-Prediction == DB-POST-APPLY exakt; Trias + lint + typecheck grün, kein `## Needs decision`. Ein wave-spezifischer Call: `EXPECTED_RANGES` in `apply-override-dry.ts` angehoben (factions 1500→1900, locations 600→800, characters 1200→1400) — Headroom-Sizing, kein Guard-Relax. Der range-aware forward-ref-Guard (Brief 091) blieb über den ganzen kumulativen Sweep grün (15 in-range forward refs); die fünf Collection-Kanten aus OQ (14) / PR #85 (Architect of Fate W40K-0286 + War for Armageddon Omnibus W40K-0307) landeten beim Re-Apply idempotent. `collection-gaps.json` wuchs um einen Eintrag (W40K-0434 *Space Wolves (Legends)*, drei confident Constituents); vier weitere Spot-Checks bewusst deferred (Maintainer-/Roster-Arbeit, kein Resolver-Job).
 
-**Brief 094 — Resolver-Loop entkoppelt + headless** ([Brief 094](../../sessions/2026-05-23-094-arch-resolver-loop.md), [094-impl](../../sessions/2026-05-23-094-impl-resolver-loop.md)). Der Resolver war bis Pass 7 an die SSOT-Loop-Cadence gekoppelt (Pause alle 100 Bücher, dann supervised Resolver-Pass). Brief 094 entkoppelt beide und automatisiert den Resolver headless — vier Bausteine: (1) Entkopplung — Resolver-Pause-Cadence aus `run-ssot-loop.sh` + `loop-next-batch.ts` raus, der SSOT-Loop läuft cadence-frei bis 859 durch. (2) Wellen-Detektor `scripts/resolver-loop-detect.ts` (pure-core) — greedy ≤60-Buch-Partition offener kristallisierter Batches + mechanische `resolver-pass.config.json`-Auto-Generierung pro Welle. (3) Brief-freies Runbook — `brief`-Feld aus der Config raus, `sessions/resolver-loop-log.md` als append-only Fortschritts-Marker (Bootstrap: Pässe 1..7 / `001..045`). (4) Headless Loop-Driver `scripts/run-resolver-loop.sh` mit Resume + Halt-Disziplin + State-File. Tests: `test:resolver-loop-detect` 22/22, Trias grün, Live-Smoke `idle` (erwartet — `046+` noch nicht kristallisiert). Erster scharfer headless Lauf = die 115 W40K-Reste in zwei Wellen (`046..051` + `052..057`); operativ von Philipp getriggert. Der Detektor ist W40K-only — am W40K-complete-Meilenstein wechselt er auf `w40k-complete` und der Loop verlässt; HH braucht später eine Detektor-Erweiterung. Ein **Konsolidierungs-Pass** (eigener Pass-Typ, erster Lauf am W40K-complete-Meilenstein, doubles as Maschinerie-Test vor HH) ist als eigener Folge-Brief abgegrenzt — noch nicht geschrieben.
+**Brief 094 — Resolver-Loop entkoppelt + headless** ([Brief 094](../../sessions/archive/2026-05/2026-05-23-094-arch-resolver-loop.md), [094-impl](../../sessions/archive/2026-05/2026-05-23-094-impl-resolver-loop.md)). Der Resolver war bis Pass 7 an die SSOT-Loop-Cadence gekoppelt (Pause alle 100 Bücher, dann supervised Resolver-Pass). Brief 094 entkoppelt beide und automatisiert den Resolver headless — vier Bausteine: (1) Entkopplung — Resolver-Pause-Cadence aus `run-ssot-loop.sh` + `loop-next-batch.ts` raus, der SSOT-Loop läuft cadence-frei bis 859 durch. (2) Wellen-Detektor `scripts/resolver-loop-detect.ts` (pure-core) — greedy ≤60-Buch-Partition offener kristallisierter Batches + mechanische `resolver-pass.config.json`-Auto-Generierung pro Welle. (3) Brief-freies Runbook — `brief`-Feld aus der Config raus, `sessions/resolver-loop-log.md` als append-only Fortschritts-Marker (Bootstrap: Pässe 1..7 / `001..045`). (4) Headless Loop-Driver `scripts/run-resolver-loop.sh` mit Resume + Halt-Disziplin + State-File. Tests: `test:resolver-loop-detect` 22/22, Trias grün, Live-Smoke `idle` (erwartet — `046+` noch nicht kristallisiert). Erster scharfer headless Lauf = die 115 W40K-Reste in zwei Wellen (`046..051` + `052..057`); operativ von Philipp getriggert. Der Detektor ist W40K-only — am W40K-complete-Meilenstein wechselt er auf `w40k-complete` und der Loop verlässt; HH braucht später eine Detektor-Erweiterung. Ein **Konsolidierungs-Pass** (eigener Pass-Typ, erster Lauf am W40K-complete-Meilenstein, doubles as Maschinerie-Test vor HH) ist als eigener Folge-Brief abgegrenzt — noch nicht geschrieben.
 
-**Brief 095 — Rollup-Ownership** ([Brief 095](../../sessions/2026-05-23-095-arch-rollup-ownership.md), [095-impl](../../sessions/2026-05-23-095-impl-rollup-ownership.md)). Reine Workflow-/Doku-Änderung, die die zwei Implementer-Stränge (Product/UI, Batches/Ingestion) konfliktfrei macht: die Rollup-/Index-Dateien `sessions/README.md` + `brain/**` werden ab jetzt **ausschließlich im Koordinations-Worktree** geschrieben, nie in den Strang-Worktrees. Strang-Reports tragen substantielle System-Fakten in „What I did" / „For next session"; Cowork zieht sie im Post-Merge-Koordinations-Pass nach (genau dieser Pass ist ein solcher). Zusätzlich gehärtet: eine Worktree-Selbstprüfung am Session-Start (Ansage von Worktree/Strang/Branch + Halt-mit-Rückfrage bei Strang-Mismatch). Verankert in `CLAUDE.md`, `AGENTS.md`, `brain/wiki/workflows/cc-session.md` + `cowork-session.md`, mit Konsistenz-Sweep in `sessions-format.md` + `brain/CLAUDE.md`. Kein Code, kein Schema, kein DB-Touch.
+**Brief 095 — Rollup-Ownership** ([Brief 095](../../sessions/archive/2026-05/2026-05-23-095-arch-rollup-ownership.md), [095-impl](../../sessions/archive/2026-05/2026-05-23-095-impl-rollup-ownership.md)). Reine Workflow-/Doku-Änderung, die die zwei Implementer-Stränge (Product/UI, Batches/Ingestion) konfliktfrei macht: die Rollup-/Index-Dateien `sessions/README.md` + `brain/**` werden ab jetzt **ausschließlich im Koordinations-Worktree** geschrieben, nie in den Strang-Worktrees. Strang-Reports tragen substantielle System-Fakten in „What I did" / „For next session"; Cowork zieht sie im Post-Merge-Koordinations-Pass nach (genau dieser Pass ist ein solcher). Zusätzlich gehärtet: eine Worktree-Selbstprüfung am Session-Start (Ansage von Worktree/Strang/Branch + Halt-mit-Rückfrage bei Strang-Mismatch). Verankert in `CLAUDE.md`, `AGENTS.md`, `brain/wiki/workflows/cc-session.md` + `cowork-session.md`, mit Konsistenz-Sweep in `sessions-format.md` + `brain/CLAUDE.md`. Kein Code, kein Schema, kein DB-Touch.
 
 ## Latest pipeline state (post-091, Resolver-Pass 6 applied — 350 W40K-Bücher + Phase-4-Split-Brief)
 
@@ -154,7 +154,7 @@ Counts PRE→POST (idempotenter Re-Apply `001..035`): `work_factions 1153→1424
 
 Pass 6 hat **eine** Architektur-Entscheidung produziert, von Phase 4 korrekt geflaggt: die Welle ist die erste mit *forward-referencing collection edges* — drei Anthologien (Sanctus Reach W40K-0296, Damocles W40K-0294, Shield of Baal W40K-0304) liegen in früheren Batches als ihre Novellen. Der harte `forwardRefs === []`-Assert im `apply-override-dry` fiel mit 10 legitimen Refs; Phase 4 hat ihn auf report-only entschärft und end-to-end verifiziert (10/10 Edges landen in `work_collections`; `applyCollections` ist für cross-batch-Refs gebaut). Zwei deferred collection-gaps (Architect of Fate W40K-0286, War for Armageddon Omnibus W40K-0307 — Constituent-Works existieren, nur die Roster-`collections[]`-Kanten fehlen) sind als Excel-SSOT-Arbeit zurückgestellt → OQ (14).
 
-**Brief 091 — Resolver-Pass Phase-4-Split** ([`sessions/2026-05-22-091-arch-resolver-phase4-split.md`](../../sessions/2026-05-22-091-arch-resolver-phase4-split.md), `status: implemented`, gemerged). Phase 4 des Resolver-Passes ging in Pass 6 mit dem Kontextfenster Richtung ~300k Token (gegen ein ~120k-Per-Phase-Budget) — Brief 090 hatte den *statischen* Lese-Scope schlank gemacht, nicht die *agentische* Arbeitslast: Phase 4 erledigt fünf Jobs plus etwaiges ungeplantes Debugging in einem `/clear`. Brief 091 splittet Phase 4 in **4a Integration/Apply** + **4b Verify/Report** (`/clear`-getrennt, Handoff über eine 4a-Statusdatei) und härtet den forward-ref-Guard von report-only auf **range-aware** (Fehler nur, wenn die Konstituente außerhalb der applyRange liegt). Reine Resolver-Pass-Maschinerie — kein DB-Touch, vorwärtsgerichtet für Pass 7+. **Implementiert + gemerged** ([`091-impl`](../../sessions/2026-05-22-091-impl-resolver-phase4-split.md)): `resolver-pass-runbook.md` + `resolver-pass.config.json` tragen die 6-Phasen-Struktur (0/1/2/3/4a/4b), der forward-ref-Guard ist range-aware (neues Modul `apply-override-collections.ts` + `npm run test:collection-refs`). Erster produktiver Lauf darauf ist Resolver-Pass 7 (Brief 093).
+**Brief 091 — Resolver-Pass Phase-4-Split** ([`sessions/archive/2026-05/2026-05-22-091-arch-resolver-phase4-split.md`](../../sessions/archive/2026-05/2026-05-22-091-arch-resolver-phase4-split.md), `status: implemented`, gemerged). Phase 4 des Resolver-Passes ging in Pass 6 mit dem Kontextfenster Richtung ~300k Token (gegen ein ~120k-Per-Phase-Budget) — Brief 090 hatte den *statischen* Lese-Scope schlank gemacht, nicht die *agentische* Arbeitslast: Phase 4 erledigt fünf Jobs plus etwaiges ungeplantes Debugging in einem `/clear`. Brief 091 splittet Phase 4 in **4a Integration/Apply** + **4b Verify/Report** (`/clear`-getrennt, Handoff über eine 4a-Statusdatei) und härtet den forward-ref-Guard von report-only auf **range-aware** (Fehler nur, wenn die Konstituente außerhalb der applyRange liegt). Reine Resolver-Pass-Maschinerie — kein DB-Touch, vorwärtsgerichtet für Pass 7+. **Implementiert + gemerged** ([`091-impl`](../../sessions/archive/2026-05/2026-05-22-091-impl-resolver-phase4-split.md)): `resolver-pass-runbook.md` + `resolver-pass.config.json` tragen die 6-Phasen-Struktur (0/1/2/3/4a/4b), der forward-ref-Guard ist range-aware (neues Modul `apply-override-collections.ts` + `npm run test:collection-refs`). Erster produktiver Lauf darauf ist Resolver-Pass 7 (Brief 093).
 
 ## Latest pipeline state (post-090, Resolver-Pass lean + erster 100er-Loop-Lauf — 350 Override-Files, DB bei 250)
 
@@ -188,7 +188,7 @@ Brief 086 (PR #73, `af7d90c`, 2026-05-20) lief in vier Phasen und hat die Rating
 
 **Verdikt — der Design-Constraint für alles Weitere.** Der 086-Closing-Report: die Websuche trägt, **aber nur als Lokator, nicht als Quelle.** Google-Rich-Snippets lieferten ~20 % keine und ~4 % eine plausibel-falsche Zahl. Jeder produktive Goodreads-Konsument MUSS das Rating von der Goodreads-Buchseite parsen (Page-Read), nicht aus dem Snippet.
 
-**ADR + Folge-Brief.** Der Pivot ist als ADR [`./decisions/hardcover-to-goodreads-pivot.md`](./decisions/hardcover-to-goodreads-pivot.md) kodifiziert (amendet `no-goodreads.md` für das Rating-Feld; OL-Fallback + Slug/ID-Stage-6-Folgebrief final gestrichen). **Brief 087** (`sessions/2026-05-20-087-arch-goodreads-rating-pipeline.md`; inzwischen implementiert + gemerged, PR #74/#75 — siehe „Latest pipeline state (post-089)" oben) baut die Goodreads-Rating-Beschaffung als vierte Loop-Disziplin fest in Brief 061 ein — ab `ssot-w40k-021` holt jeder Batch sein Rating selbst (WebSearch zum Auffinden, Page-Read der Goodreads-Seite, neues optionales `overrides.rating`-Feld, Apply-Layer schreibt `book_details.rating`/`ratingCount`/`ratingSource`; Bücher ohne Wertung bekommen einen „geprüft, noch keine Wertung"-Marker). OQ (10) + OQ (12) sind damit geschlossen.
+**ADR + Folge-Brief.** Der Pivot ist als ADR [`./decisions/hardcover-to-goodreads-pivot.md`](./decisions/hardcover-to-goodreads-pivot.md) kodifiziert (amendet `no-goodreads.md` für das Rating-Feld; OL-Fallback + Slug/ID-Stage-6-Folgebrief final gestrichen). **Brief 087** (`sessions/archive/2026-05/2026-05-20-087-arch-goodreads-rating-pipeline.md`; inzwischen implementiert + gemerged, PR #74/#75 — siehe „Latest pipeline state (post-089)" oben) baut die Goodreads-Rating-Beschaffung als vierte Loop-Disziplin fest in Brief 061 ein — ab `ssot-w40k-021` holt jeder Batch sein Rating selbst (WebSearch zum Auffinden, Page-Read der Goodreads-Seite, neues optionales `overrides.rating`-Feld, Apply-Layer schreibt `book_details.rating`/`ratingCount`/`ratingSource`; Bücher ohne Wertung bekommen einen „geprüft, noch keine Wertung"-Marker). OQ (10) + OQ (12) sind damit geschlossen.
 
 ## Latest pipeline state (post-080+081, Public-Synopsis-Forward-Guard + Backfill `005..019` complete)
 
@@ -317,7 +317,7 @@ Top items from [`./open-questions.md`](./open-questions.md), neu sortiert post-0
 | 2026-05-23 | 094-impl + merge | complete | **Resolver-Loop entkoppelt + headless.** Vier Bausteine: SSOT-Loop ↔ Resolver entkoppelt (Cadence raus, Loop läuft bis 859 durch), pure-core Wellen-Detektor `resolver-loop-detect.ts` (≤60-Buch-Wellen + Auto-Config), brief-freies Runbook (`brief`-Feld raus, `resolver-loop-log.md` als Fortschritts-Marker), headless Loop-Driver `run-resolver-loop.sh` (Resume + Halt-Disziplin + State-File). `test:resolver-loop-detect` 22/22, Trias grün, Live-Smoke `idle`. |
 | 2026-05-23 | 094-arch | implemented | Brief Resolver-Loop — Resolver vom SSOT-Loop entkoppeln + brief-frei headless automatisieren; Wellengröße 50–60, Konsolidierungs-Pass als eigener Folge-Brief abgegrenzt (erster Lauf am W40K-complete-Meilenstein). |
 | 2026-05-23 | Resolver-Pass 7 (`ssot-w40k-036..045`) + PR #90 | merged | **Resolver-Pass 7 — W40K-0351..0450, 450/450 W40K-Bücher applied.** Erster echter Lauf auf der Brief-091-6-Phasen-4a/4b-Maschinerie; supervised/axis-sliced. Counts PRE→POST `work_factions 1424→1659`, `work_locations 543→638`, `work_characters 844→1074`, `work_collections 109→142`, `work_persons 325→424`. Reference factions 162→166 / locations 189→201 / characters 237→297. `EXPECTED_RANGES` angehoben (Headroom-Sizing). Dry-Prediction == DB-POST-APPLY exakt, Trias grün, kein needs-decision. |
-| 2026-05-22 | Resolver-Pass-7-Setup (Brief 093 + Config-Re-Key) | complete | Per-pass Brief [`093`](../../sessions/2026-05-22-093-arch-resolver-pass-7.md) für Resolver-Pass 7 geschrieben; `scripts/resolver-pass.config.json` von Pass 6 auf Pass 7 re-keyed (wave `036..045`, `applyRange` 1..45, Verify-Ranges W40K-0351..0450, `clusters` + `smokeSlugs` aus den Override-Files, `brief`-Feld auf Brief 093). Slug-/Title-Delta-Befund korrigiert (`apply-override` friert `slug`/`title` on update ein → out of scope für Pass 7). `sessions/README.md` + diese Seite nachgezogen. |
+| 2026-05-22 | Resolver-Pass-7-Setup (Brief 093 + Config-Re-Key) | complete | Per-pass Brief [`093`](../../sessions/archive/2026-05/2026-05-22-093-arch-resolver-pass-7.md) für Resolver-Pass 7 geschrieben; `scripts/resolver-pass.config.json` von Pass 6 auf Pass 7 re-keyed (wave `036..045`, `applyRange` 1..45, Verify-Ranges W40K-0351..0450, `clusters` + `smokeSlugs` aus den Override-Files, `brief`-Feld auf Brief 093). Slug-/Title-Delta-Befund korrigiert (`apply-override` friert `slug`/`title` on update ein → out of scope für Pass 7). `sessions/README.md` + diese Seite nachgezogen. |
 | 2026-05-22 | SSOT-Loop-Lauf `ssot-w40k-036..045` + PR #87 | merged | Standing-Loop (Brief 061), zweite volle 100er-Welle: 100 Bücher W40K-0351..0450 in zehn Iterationen, zehn Override-JSONs + Loop-Log-Appends, diff-only, kein DB-Touch. Kumulativ 450 Override-Files, selbst-erkennender `⏸ Resolver-Pause bei 450 Büchern`-Block. |
 | 2026-05-22 | 091-impl + merge | complete | **Resolver-Pass Phase-4-Split.** Phase 4 → 4a (Integration/Apply) + 4b (Verify/Report), `/clear`-getrennt mit selbst-enthaltener 4a-Statusdatei; forward-ref-Collection-Guard in `apply-override-dry.ts` von report-only auf range-aware gehärtet (neues Pure-Modul `apply-override-collections.ts` + `test:collection-refs`, 7 Cases). `resolver-pass-runbook.md` + `resolver-pass.config.json` auf 6 Phasen; Driver comment-only. Trias + lint + typecheck grün. |
 | 2026-05-22 | Brain-Hygiene-Pass (post-092) | complete | OQ (14) Roster-Excel-Hygiene-Sweep nach PR #85 / Session 092 in die Wiki eingearbeitet: `open-questions.md` (OQ (14) strike-through-closed + Frontmatter-Header + Migration-history), `project-state.md` (Roster 191→196 Collections, Slug-Delta-Watch-Item in § What's open), `pipeline-state.md` (191→196), `index.md`/`log.md`, `sessions/README.md`. Kein Code-/Schema-/DB-Touch; kein Archivierungs-Move. |

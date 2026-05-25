@@ -6,7 +6,7 @@ updated: 2026-05-23
 sources:
   - ../../../docs/agents/COWORK.md
   - ../../../docs/agents/SESSIONS.md
-  - ../../../sessions/2026-05-23-095-arch-rollup-ownership.md
+  - ../../../sessions/archive/2026-05/2026-05-23-095-arch-rollup-ownership.md
 related:
   - ./cc-session.md
   - ./sessions-format.md

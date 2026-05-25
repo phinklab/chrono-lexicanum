@@ -5,11 +5,11 @@ created: 2026-05-15
 updated: 2026-05-15
 sources:
   - ../../../sessions/2026-05-11-061-arch-ssot-loop.md
-  - ../../../sessions/2026-05-13-071-arch-loop-driver.md
-  - ../../../sessions/2026-05-13-071-impl-loop-driver.md
-  - ../../../sessions/2026-05-14-072-impl-resolver-batch-2.md
-  - ../../../sessions/2026-05-15-074-arch-resolver-batch-3.md
-  - ../../../sessions/2026-05-15-074-impl-resolver-batch-3.md
+  - ../../../sessions/archive/2026-05/2026-05-13-071-arch-loop-driver.md
+  - ../../../sessions/archive/2026-05/2026-05-13-071-impl-loop-driver.md
+  - ../../../sessions/archive/2026-05/2026-05-14-072-impl-resolver-batch-2.md
+  - ../../../sessions/archive/2026-05/2026-05-15-074-arch-resolver-batch-3.md
+  - ../../../sessions/archive/2026-05/2026-05-15-074-impl-resolver-batch-3.md
   - ../../../scripts/run-ssot-loop.sh
   - ../../../scripts/apply-override.ts
   - ../../../src/lib/ingestion/v2/llm/enrich.ts
@@ -28,7 +28,7 @@ decision-date: 2026-05-11
 
 # Why CC-Direct-Curation, not V2-LLM-Pipeline (für laufende SSOT-Batches)
 
-**Status:** active · **Effectively decided:** 2026-05-11 (Brief 061, Standing-Loop) · **Formal-ADR-written:** 2026-05-15 (Post-074-Wiki-Hygiene-Pass) · **Sessions:** [061-arch](../../../sessions/2026-05-11-061-arch-ssot-loop.md), [071-arch](../../../sessions/2026-05-13-071-arch-loop-driver.md), [071-impl](../../../sessions/2026-05-13-071-impl-loop-driver.md), [074-arch](../../../sessions/2026-05-15-074-arch-resolver-batch-3.md), [074-impl](../../../sessions/2026-05-15-074-impl-resolver-batch-3.md)
+**Status:** active · **Effectively decided:** 2026-05-11 (Brief 061, Standing-Loop) · **Formal-ADR-written:** 2026-05-15 (Post-074-Wiki-Hygiene-Pass) · **Sessions:** [061-arch](../../../sessions/2026-05-11-061-arch-ssot-loop.md), [071-arch](../../../sessions/archive/2026-05/2026-05-13-071-arch-loop-driver.md), [071-impl](../../../sessions/archive/2026-05/2026-05-13-071-impl-loop-driver.md), [074-arch](../../../sessions/archive/2026-05/2026-05-15-074-arch-resolver-batch-3.md), [074-impl](../../../sessions/archive/2026-05/2026-05-15-074-impl-resolver-batch-3.md)
 
 ## Context
 
