@@ -2088,3 +2088,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Knights-Errant; Imperial Army (Heresy-era Astra Militarum analogue, used for the Jurnian 701st in both Tallarn pieces); Sons of Horus (used in Ravenlord, distinct from the era-earlier Luna Wolves); Atesh Tarsa (Salamander aboard the Sisypheum); Shadrak Meduson (Iron Hands warleader); Hrend (Iron Warriors line officer).
 - **Lint skipped:** Brief-061 convention — reiner Daten-Commit (Override-JSON + Markdown-Append, kein Code).
+
+## 2026-05-26 · ssot-hh-014 · HH-0131..HH-0140 · ✅
+
+- **Cumulative books in authority:** 705
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=695, batch=ssot-hh-014, slice=HH-0131..HH-0140
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — one synopsis-context search per book; Goodreads pages reached via WebFetch in every case
+- **Per-book bullets:**
+  - HH-0131 Wolf King — clean Heresy novella; bridges Scars and Vengeful Spirit; clear Space Wolves / Alpha Legion / White Scars triangle.
+  - HH-0132 The Honoured — Calth Underworld War, loyalist side; named POV (Steloc Aethon) and named antagonist (Kurtha Sedd) lift directly from search coverage.
+  - HH-0133 The Unburdened — Calth Underworld War, traitor side; companion to HH-0132; Monarchia listed as supporting location for the flashback frame.
+  - HH-0134 Garro: Vow of Faith — Knights-Errant tagged as primary faction (Garro is no longer Death Guard); on-page antagonists are an Officio-Assassinorum operative (Kell) and an Alpha Legion shadow (Haln).
+  - HH-0135 Sons of the Forge — Salamanders-only primary; antagonist faction omitted with low_confidence flag (search coverage names "unexpected foes" without specifying who).
+  - HH-0136 Dreadwing — Lion / Redloss / Holguin dynamic; Caliban listed as supporting because Luther's defection is the named off-page pressure.
+  - HH-0137 Spear of Ultramar — Charchera System engagement; Iron Warriors antagonist via Warsmith Khrossus; first time the canon explains why Ultramarines missed the Siege.
+  - HH-0138 Angron — short-story compilation; format flagged as data_conflict → anthology (two-author: Dembski-Bowden + Farrer); tagged at the Angron/Kharn/Lorgar level.
+  - HH-0139 The Imperial Truth — 2013 Weekender limited; format flagged as data_conflict → anthology (six-author, editor L.J. Goulding); pov_side carries both imperium and chaos; low_confidence flag noted because each story has its own cast.
+  - HH-0140 Visions of Heresy — art/reference book, not narrative; factions/locations/characters deliberately left empty with a low_confidence flag rather than aggregated to an "all eighteen Legions" pseudo-list.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Knights-Errant; Officio Assassinorum; Adeptus Custodes; Third Hand Chapter (in synopsis only, not as faction); Charchera System; Alaxxes Nebula; Salvaguardia; Desh'ea; the Wrought (in synopsis only).
+- **Verification skipped:** pure data commit (override JSON + markdown log append, no code) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` skipped per Brief-061 convention.
