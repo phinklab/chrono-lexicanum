@@ -1,0 +1,292 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-002",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7",
+  "rationale": "Original Horus Heresy Bände 11–20 — die erste vollständige Welle nach der Eröffnungs-Trilogie, mit zwei New-York-Times-Bestsellern (A Thousand Sons, Know No Fear), dem zweiten Anthologie-Band der Serie (Age of Darkness) und der Primarchs-Novella-Sammlung. Acht Romane plus zwei Anthologien — Aggregation für letztere über alle enthaltenen Einzelstories.",
+  "books": [
+    {
+      "externalBookId": "HH-0011",
+      "slug": "fallen-angels",
+      "overrides": {
+        "synopsis": "Two parallel storylines track the Dark Angels Legion in the early days of the Heresy. In the void, Brother-Chaplain Nemiel rides with Lion El'Jonson as the primarch leads a raid on the forge world Diamat to deny vital siege weapons to Horus, learning only fragments of the wider treachery. Down on Caliban, Librarian Zahariel and the exiled Luther struggle to hold a homeworld sliding into open insurrection, while an ancient evil stirs beneath the forests of the First Legion's cradle. As loyalties fracture across two fronts, the seeds of the Lion's eventual sundering with his old friend take root, foreshadowing the catastrophe that will scatter the Dark Angels.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "requires_context", "standard", "war_story", "betrayal", "grimdark", "somber", "loyalty", "brotherhood", "doubt", "hubris", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Caliban", "role": "primary" },
+          { "name": "Diamat", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nemiel", "role": "pov" },
+          { "name": "Zahariel", "role": "pov" },
+          { "name": "Lion El'Jonson", "role": "supporting" },
+          { "name": "Luther", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.76, "count": 7853, "evidenceUrl": "https://www.goodreads.com/book/show/6022863-fallen-angels" }
+      }
+    },
+    {
+      "externalBookId": "HH-0012",
+      "slug": "a-thousand-sons",
+      "overrides": {
+        "synopsis": "Censured at the Council of Nikaea for the Legion's open use of psychic sorcery, Magnus the Red withdraws with his Thousand Sons to the crystal city of Tizca on Prospero. There the primarch peers into the warp and glimpses Horus' coming betrayal, and he hurls his mind across the void to warn the Emperor on Terra — only to crash through the half-built webway gate beneath the Imperial Palace, tearing it open to daemons. Followed through the eyes of Captain Ahzek Ahriman and the chronicler Lemuel Gaumon, the novel charts a tragedy of brilliant minds undone by hubris and good intentions, and ends with the Wolf King's pyres already kindling over the City of Light.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "requires_context", "doorstopper", "character_study", "hubris", "betrayal", "grimdark", "somber", "philosophical", "faith", "doubt", "cosmic_horror", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "Space Wolves", "role": "supporting" },
+          { "name": "Custodes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Prospero", "role": "primary" },
+          { "name": "Tizca", "role": "primary" },
+          { "name": "Terra", "role": "supporting" },
+          { "name": "Aghoru", "role": "supporting" },
+          { "name": "Nikaea", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Magnus the Red", "role": "pov" },
+          { "name": "Ahzek Ahriman", "role": "pov" },
+          { "name": "Lemuel Gaumon", "role": "pov" },
+          { "name": "Leman Russ", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.27, "count": 10635, "evidenceUrl": "https://www.goodreads.com/book/show/6465063-a-thousand-sons" }
+      }
+    },
+    {
+      "externalBookId": "HH-0013",
+      "slug": "nemesis",
+      "overrides": {
+        "synopsis": "After the slaughter at Isstvan V, Malcador the Sigillite quietly summons one operative from each Officio Assassinorum clade — Vindicare sniper, Eversor berserker, Venenum poisoner, Callidus shapeshifter, Culexus null and Vanus infocyte — and forges them into an Execution Force with a single brief: kill the Warmaster. While the killers cross the void towards Horus on Dagonet, a parallel manhunt unfolds on the sleepy world of Iesta Veracrux, where Arbites investigator Yosef Sabrat tracks a serial killer whose murders fit no pattern a human profiler can read. The two threads collide as a Word Bearers-engineered weapon designed to slay the Emperor himself reveals its hand.",
+        "facetIds": ["book", "mixed", "multi", "imperium", "sector", "requires_context", "standard", "political_thriller", "mystery", "war_story", "grimdark", "action_heavy", "hubris", "betrayal", "sacrifice", "cw_violence", "cw_death", "cw_crime"],
+        "factions": [
+          { "name": "Officio Assassinorum", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Adeptus Arbites", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Iesta Veracrux", "role": "primary" },
+          { "name": "Dagonet", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Eristede Kell", "role": "pov" },
+          { "name": "Yosef Sabrat", "role": "pov" },
+          { "name": "Spear", "role": "antagonist" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.72, "count": 6161, "evidenceUrl": "https://www.goodreads.com/book/show/7113690-nemesis" }
+      }
+    },
+    {
+      "externalBookId": "HH-0014",
+      "slug": "the-first-heretic",
+      "overrides": {
+        "synopsis": "Half a century before Isstvan, the Emperor descends on the freshly compliant world of Khur and razes the city of Monarchia that the Word Bearers had raised in His name, denouncing his most devout son Lorgar for the sin of religion. Shamed and adrift, the XVII Legion begins a Pilgrimage to find any truth that might fill the void the Emperor's silence has left behind. Through the eyes of Captain Argel Tal of the Serrated Sun chapter and his Custodes warden Aquillon, the novel follows the Word Bearers from the burning of Monarchia across the Eye of Terror to Cadia and the gods that wait beyond it, and finally back to a horror at Isstvan that turns Lorgar's first faith into the Imperium's first heresy.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "galactic", "requires_context", "doorstopper", "character_study", "war_story", "journey", "grimdark", "philosophical", "cosmic_horror", "faith", "betrayal", "doubt", "hubris", "cw_violence", "cw_death", "cw_disturbing"],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Custodes", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Khur", "role": "primary" },
+          { "name": "Monarchia", "role": "primary" },
+          { "name": "Colchis", "role": "supporting" },
+          { "name": "Cadia", "role": "supporting" },
+          { "name": "Eye of Terror", "role": "supporting" },
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Argel Tal", "role": "pov" },
+          { "name": "Lorgar", "role": "supporting" },
+          { "name": "Aquillon", "role": "supporting" },
+          { "name": "Erebus", "role": "supporting" },
+          { "name": "Kor Phaeron", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.35, "count": 10455, "evidenceUrl": "https://www.goodreads.com/book/show/7922982-the-first-heretic" }
+      }
+    },
+    {
+      "externalBookId": "HH-0015",
+      "slug": "prospero-burns",
+      "overrides": {
+        "synopsis": "Decades before the Council of Nikaea, Terran scholar Kasper Hawser leaves the Conservatory and follows a fragment of his childhood — a wolf with a man's voice — to the icy oceans of Fenris. There the Rout, the Sixth Legion that other men call the Space Wolves, take him in as a skjald, and Hawser slowly learns that nothing about the Vlka Fenryka is what the Imperium thinks it is. By the time the Emperor's writ to muster against Magnus the Red reaches Fenris, the skjald has glimpsed enough of the Changer of Ways' hand to suspect that the Wolves are the only weapon precisely shaped to break the Thousand Sons.",
+        "facetIds": ["book", "male", "space_marine", "civilian", "imperium", "planetary", "requires_context", "doorstopper", "character_study", "journey", "war_story", "somber", "grimdark", "philosophical", "brotherhood", "loyalty", "doubt", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Thousand Sons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Fenris", "role": "primary" },
+          { "name": "Terra", "role": "supporting" },
+          { "name": "Prospero", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Kasper Hawser", "role": "pov" },
+          { "name": "Leman Russ", "role": "supporting" },
+          { "name": "Longfang", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.11, "count": 8773, "evidenceUrl": "https://www.goodreads.com/book/show/6109704-prospero-burns" }
+      }
+    },
+    {
+      "externalBookId": "HH-0016",
+      "slug": "age-of-darkness",
+      "overrides": {
+        "synopsis": "Nine novellas drawn from the months after the Dropsite Massacre at Isstvan V, each visiting a different corner of the new war. Graham McNeill puts Roboute Guilliman's officers through a training scenario that already smells like the disaster waiting at Calth; James Swallow watches a single agitator unravel a peaceful Ultima Segmentum world; Nick Kyme sends Salamander and Ultramarine envoys on a diplomatic errand; John French interrogates the last Remembrancer in Imperial custody; Chris Wraight follows Thousand Sons survivors fleeing burning Prospero; Gav Thorpe joins Raven Guard and Iron Hands picking their way out of the slaughter; Dan Abnett rides with Little Horus Aximand; Rob Sanders garrisons the loyalist Iron Warrior Barabas Dantioch at Hydra Cordatus; and Aaron Dembski-Bowden brokers a black parley between the Lion and Konrad Curze.",
+        "facetIds": ["book", "ensemble", "multi", "dual", "sector", "mid_series", "standard", "war_story", "character_study", "last_stand", "grimdark", "somber", "loyalty", "betrayal", "brotherhood", "sacrifice", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Thousand Sons", "role": "supporting" },
+          { "name": "Iron Warriors", "role": "supporting" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Iron Hands", "role": "supporting" },
+          { "name": "Salamanders", "role": "supporting" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "Night Lords", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ultramar", "role": "primary" },
+          { "name": "Isstvan V", "role": "supporting" },
+          { "name": "Prospero", "role": "supporting" },
+          { "name": "Hydra Cordatus", "role": "supporting" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "supporting" },
+          { "name": "Iacton Qruze", "role": "supporting" },
+          { "name": "Little Horus Aximand", "role": "supporting" },
+          { "name": "Barabas Dantioch", "role": "supporting" },
+          { "name": "Lion El'Jonson", "role": "supporting" },
+          { "name": "Konrad Curze", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.73, "count": 4692, "evidenceUrl": "https://www.goodreads.com/book/show/8697285-age-of-darkness" }
+      }
+    },
+    {
+      "externalBookId": "HH-0017",
+      "slug": "the-outcast-dead",
+      "overrides": {
+        "synopsis": "When the astropath Kai Zulane returns from Calth with the wreckage of the Ultramarines vessel Argo still ringing in his skull, the Imperial Palace finds in his mind the one piece of intelligence both sides of the war want most — a vision of how the Heresy ends. Hidden in the cells of the Hollow Mountain while interrogators try to draw the secret out, Kai is broken free by a handful of marooned Legionaries from Traitor Legions whose orders may or may not still apply. Hunted through Terra's choked under-hives by the Black Sentinels of the Astra Telepathica, Kai must decide what to do with knowledge that could decide a civil war — and the renegades around him must decide whether they still answer to the Emperor, to Horus, or only to each other.",
+        "facetIds": ["book", "male", "civilian", "imperium", "planetary", "mid_series", "standard", "mystery", "political_thriller", "journey", "grimdark", "somber", "betrayal", "doubt", "loyalty", "cw_violence", "cw_death", "cw_mental_health"],
+        "factions": [
+          { "name": "Adeptus Astra Telepathica", "role": "primary" },
+          { "name": "Custodes", "role": "supporting" },
+          { "name": "Thousand Sons", "role": "supporting" },
+          { "name": "World Eaters", "role": "supporting" },
+          { "name": "Sons of Horus", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "supporting" },
+          { "name": "Death Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" },
+          { "name": "Hollow Mountain", "role": "supporting" },
+          { "name": "Calth", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Kai Zulane", "role": "pov" },
+          { "name": "Atharva", "role": "supporting" },
+          { "name": "Severian", "role": "supporting" },
+          { "name": "Tagore", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.74, "count": 4650, "evidenceUrl": "https://www.goodreads.com/book/show/11161595-the-outcast-dead" }
+      }
+    },
+    {
+      "externalBookId": "HH-0018",
+      "slug": "deliverance-lost",
+      "overrides": {
+        "synopsis": "Cut down to a few hundred warriors by the trap on Isstvan V, Corax brings what is left of the Raven Guard back to Terra and begs an audience with the Emperor. Granted access to the original gene-tech of the Primarch Project, he returns to Deliverance to forge a new generation of legionaries at a speed no other Legion has dared. But Alpharius and Omegon have already inserted infiltrators wearing the faces of dead Raven Guard among the survivors, and as Corax's new sons begin to take shape on the operating slabs, the Alpha Legion move to either steal his work for Horus or twist the Nineteenth Legion until it can never be trusted again. Hovering above the whole conspiracy, the xenos Cabal weighs the long galactic future against the short Imperial one.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "mystery", "betrayal", "grimdark", "somber", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Alpha Legion", "role": "antagonist" },
+          { "name": "Custodes", "role": "supporting" },
+          { "name": "Mechanicum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Deliverance", "role": "primary" },
+          { "name": "Terra", "role": "supporting" },
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Corax", "role": "pov" },
+          { "name": "Branne", "role": "supporting" },
+          { "name": "Alpharius", "role": "antagonist" },
+          { "name": "Omegon", "role": "antagonist" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.86, "count": 5134, "evidenceUrl": "https://www.goodreads.com/book/show/10838911-deliverance-lost" }
+      }
+    },
+    {
+      "externalBookId": "HH-0019",
+      "slug": "know-no-fear",
+      "overrides": {
+        "synopsis": "Roboute Guilliman musters his Five Hundred Worlds for what he believes will be a campaign against orks in Veridia, with the Word Bearers riding alongside as allies. Instead, on a single afternoon at Calth, Lorgar's Legion executes the most devastating treacherous strike of the Heresy: orbital ships gut the Ultramarines fleet, ritualists raise daemons through wounds torn in the warp, and the system's own star is wrenched out of true. Told in clipped present-tense reports from sergeants, captains, deck officers and the primarch himself, the novel follows Guilliman as he scrambles to organise an underground war from below Calth's poisoned skies and to turn what the Word Bearers meant as annihilation into the Ultramarines' first defiant stand.",
+        "facetIds": ["book", "ensemble", "space_marine", "imperium", "planetary", "mid_series", "doorstopper", "war_story", "siege", "last_stand", "action_heavy", "grimdark", "somber", "betrayal", "loyalty", "brotherhood", "sacrifice", "cosmic_horror", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Mechanicum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Calth", "role": "primary" },
+          { "name": "Ultramar", "role": "supporting" },
+          { "name": "Veridia", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "pov" },
+          { "name": "Remus Ventanus", "role": "pov" },
+          { "name": "Lorgar", "role": "antagonist" },
+          { "name": "Kor Phaeron", "role": "antagonist" },
+          { "name": "Erebus", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.30, "count": 8105, "evidenceUrl": "https://www.goodreads.com/book/show/11797636-know-no-fear" }
+      }
+    },
+    {
+      "externalBookId": "HH-0020",
+      "slug": "the-primarchs",
+      "overrides": {
+        "synopsis": "Four novellas, one each for a primarch caught at a turning point of the war. Graham McNeill writes Fulgrim's senior captains watching their primarch unravel under a daemon's hand in The Reflection Crack'd. Nick Kyme rewinds to Ferrus Manus's earliest campaigns and the prophecy the Avenii Eldar try to leave with him in Feat of Iron. Gav Thorpe joins the Lion as the Dark Angels carve a planet apart hunting the World Eater Atramentar through the Iron Hands fortress of Perditus in The Lion. Rob Sanders sets Alpharius and Omegon hunting a hydra inside their own Legion's intelligence network in The Serpent Beneath. The collection trades the Heresy's set-piece battles for character pieces of the men leading them.",
+        "facetIds": ["book", "ensemble", "space_marine", "dual", "sector", "mid_series", "standard", "character_study", "war_story", "mystery", "court_intrigue", "grimdark", "somber", "betrayal", "hubris", "loyalty", "doubt", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Alpha Legion", "role": "primary" },
+          { "name": "Eldar", "role": "supporting" },
+          { "name": "World Eaters", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Perditus", "role": "primary" },
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Fulgrim", "role": "supporting" },
+          { "name": "Ferrus Manus", "role": "supporting" },
+          { "name": "Lion El'Jonson", "role": "supporting" },
+          { "name": "Alpharius", "role": "supporting" },
+          { "name": "Omegon", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.60, "count": 3551, "evidenceUrl": "https://www.goodreads.com/book/show/13258970-the-primarchs" }
+      }
+    }
+  ]
+}

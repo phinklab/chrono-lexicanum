@@ -1836,3 +1836,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** „Luna Wolves" vs. „Sons of Horus" (gleiche Legion, prä- vs. post-Davin — beide stehen jeweils im Buch, in dem sie gebräuchlich sind); „The Order" (Caliban-Ritterorden, prä-Legion, distinkt von „Dark Angels"); „Cabal" (xenos-Konklave); „Laer" (Faction) vs. „Laeran" (Welt); „The Emperor" als nominierter Charakter in „The Last Church"; „Sixty-Three Nineteen" als 63rd-Expedition-Compliance-Welt (Roman-Auftakt, kein offizieller Eigenname).
 - **Verifikation:** Reiner Daten-Commit (Override-JSON + Markdown-Append) — `npm run lint` / `npm run typecheck` / `npm run brain:lint -- --no-write` per Runbook §10 / Brief-061-Konvention übersprungen.
+
+## 2026-05-25 · ssot-hh-002 · HH-0011..HH-0020 · ✅
+
+- **Cumulative books in authority:** 585
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=575, batch=ssot-hh-002, slice=HH-0011..HH-0020
+- **WebSearch:** mean=1.1, max=2 (10 synopsis-context queries + 1 extra URL lookup for Prospero Burns)
+- **Per-book bullets:**
+  - HH-0011 Fallen Angels — straightforward Dark Angels mid-series novel, two parallel POV arcs (Diamat raid + Caliban garrison); no concerns.
+  - HH-0012 A Thousand Sons — doorstopper; aggregated POVs across Magnus + Ahriman + Lemuel Gaumon; Custodes (Aghoru) and Space Wolves (end) included as supporting.
+  - HH-0013 Nemesis — multi-clade assassin team + Arbites manhunt on Iesta Veracrux; Officio Assassinorum used as raw_name (not yet a 40k faction lookup target — flag for resolver).
+  - HH-0014 The First Heretic — chaos POV side (Pilgrimage to Cadia/Eye of Terror); Word Bearers + Custodes warden Aquillon + Argel Tal as confident anchors.
+  - HH-0015 Prospero Burns — civilian POV (Hawser); used in-universe "Vlka Fenryka"/"Rout"; Longfang as supporting character may need resolver attention.
+  - HH-0016 Age of Darkness — anthology aggregation across 9 stories; 9 legions touched; chose `dual` pov_side (loyalist + traitor stories alternate); large faction list intentional per Omnibus/Collection-Aggregation rule.
+  - HH-0017 The Outcast Dead — "Adeptus Astra Telepathica" used for the astropathic apparatus + Black Sentinels; thin character coverage outside Kai Zulane — conservative listing (Atharva, Severian, Tagore).
+  - HH-0018 Deliverance Lost — Cabal mentioned in synopsis but not as character (xenos collective, not single named entity); Branne as Raven Guard captain confident, others deferred.
+  - HH-0019 Know No Fear — present-tense doorstopper; "Remus Ventanus" full name used as surface form.
+  - HH-0020 The Primarchs — novella anthology, 4 primarchs aggregated; Eldar (Avenii) appears as xenos faction in Feat of Iron; World Eater Atramentar as antagonist in The Lion.
+- **value_outside_vocabulary:** none (all facetIds map to existing catalog entries)
+- **Notable surface-forms (within this batch):** Vlka Fenryka, Rout, Officio Assassinorum, Black Sentinels, Adeptus Astra Telepathica, Avenii, Atramentar, Iesta Veracrux, Dagonet, Hydra Cordatus, Hollow Mountain, Five Hundred Worlds.
+- **Verification skip:** lint/typecheck/brain:lint skipped per Brief-061-Konvention (pure data commit: one JSON + log append).
