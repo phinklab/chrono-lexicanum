@@ -865,3 +865,75 @@ Brief-freier Cowork-Task: der überfällige Post-Merge-Koordinations-Pass für d
 **Out of scope dieser Session:** Keine Code-Änderungen (alle drei Stränge sind implementiert + gemergt). Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — Maintainer/CI). Keine Session-Archivierung — der `sessions/`-root-Archivierungs-Rückstand (geschlossene Files 062–095) bleibt als eigene kleine CC-`git mv`-Aufgabe. Die mittlerweile zehn „Latest pipeline state"-Sektionen in `project-state.md` bleiben ein bekannter Bloat-Punkt (Collapse der ältesten in einen Pointer = künftige Slim-Pass-Iteration, hier bewusst nicht gemacht — Accuracy-Fokus, Präzedenz post-090-Eintrag).
 
 **Branch:** Edits liegen im Coordination-Worktree; Philipp committet + pusht Windows-nativ — die Cowork-Sandbox fasst `git` nicht an (siehe `CLAUDE.md` § Git).
+
+## 2026-05-25 · Ingest + Architektur · Post-Merge-Koordinations-Pass (#94/#95/#96) + Brief 098 (W40K-Konsolidierungs-Pass)
+
+Cowork-Session: Post-Merge-Koordinations-Pass für die drei seit post-095 gemergten Stränge (SSOT-Loop-Lauf PR #94, Resolver-Pass 8 + Brief 097 PR #95, Resolver-Pass 9 PR #96 — **W40K datenkomplett, 565/565 Bücher**) plus Architekten-Brief 098. Coordination-Worktree `C:\Users\Phil\chrono-lexicanum`, Branch `codex/session-098-w40k-consolidation`. Auslöser: Maintainer-Frage „wie geht es weiter" nach dem Resolver-Lauf.
+
+**Read (raw sources):**
+
+- `sessions/resolver-dossiers/resolver-pass-8-impl-report.md` + `resolver-pass-9-impl-report.md` — Pässe 8 + 9, W40K 450 → 510 → 565, Counts + EXPECTED_RANGES-Bump.
+- `sessions/2026-05-23-097-impl-resolver-loop-finalize-fix.md` — Brief-097-Hotfix (`readonly STATE_FILE`-Crash + Pass-8-Loop-Log-Backfill).
+- `sessions/2026-05-23-094-arch-resolver-loop.md` — Konsolidierungs-Pass-Eckpunkte (§ Notes) als Brief-098-Grundlage.
+- `sessions/resolver-pass-runbook.md`, `sessions/resolver-loop-log.md`, `scripts/resolver-pass.config.json` — Maschinerie-Stand.
+
+**Befund — `resolver-loop-log.md`-Marker-Drift:** die Datei auf `origin/main` trägt nur den Bootstrap-Block (Pässe 1–7); die Pass-8-/9-Blöcke fehlen. `resolver-loop-detect.ts` würde falsch rechnen. Als Brief 098 Teil 1 gefaltet.
+
+**Geschrieben:**
+
+- `sessions/2026-05-25-098-arch-w40k-consolidation-pass.md` — Brief 098: der W40K-Konsolidierungs-Pass (Cross-Wave-Canonical-Row-Dedup als eigener Pass-Typ + schlankes Geschwister-Runbook + Dubletten-Kandidaten-Aggregator, erstmals über das W40K-Entitäten-Set gefahren) + Teil 1 `resolver-loop-log`-Hygiene. `status: open`.
+
+**Updated wiki:**
+
+- `project-state.md` — `updated: 2026-05-25`, Header-Datum, Phase-Headline + Buch-Domain-Bild auf 565 W40K-Bücher / W40K datenkomplett / Post-Pass-9-Counts, Branch-Sektion auf post-094/095/096 (HEAD `b1c8b37`), What's-running (Excel-SSOT- + Resolver-Loop-Bullet), What's-open neu sortiert (Brief 098 oben, resolver-loop-log + HH-Schiene), Recently-shipped um vier Zeilen, Next-likely-brief auf Brief 098 → HH-Resolver → finaler Konsolidierungs-Pass.
+- `pipeline-state.md` — `updated: 2026-05-25`, Titel `post-098`, Intro-Blockquote auf Pässe 8/9 + 565 Bücher + Brief 098.
+- `open-questions.md` — `updated: 2026-05-25`, neuer Frontmatter-Header-Kommentar. Keine OQ-Schließung, keine neue numerierte OQ.
+- `index.md` — `updated: 2026-05-25`, Katalog-Zeilen project-state / open-questions / pipeline-state / log + Self-Row.
+- This `log.md` — Append-only-Eintrag.
+
+**No new decision page.** Pässe 8/9 sind reine Daten-Läufe; Brief 098 setzt die in Brief 094 § Notes bereits per AskUserQuestion entschiedenen Konsolidierungs-Pass-Eckpunkte um — kein neuer Architektur-Call mit Revisit-Trigger.
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** OQ (3) Hand-Check-Workflow + OQ (13) Crawl-Simplification bleiben offen; Brief 098 § Notes deferred beide explizit (OQ 13 = eigener Retirement-Brief wert; OQ 3 = auf Aktualität prüfen).
+
+**Git-Untangling (Session-Befund):** Der Coordination-Worktree stand auf dem Altbranch `codex/brain-coordination-post-095`; dessen Commit `03fe7c2` (Brain-Pass post-093/094/095) war bereits als PR #93 in `origin/main` (der Rebase erkannte ihn als „previously applied"). Brief 096 (Design-Direction) lag nur lokal auf diesem Altbranch und ist via `git checkout` ins Repo zurückgeholt worden. Frischer Session-Branch `codex/session-098-w40k-consolidation` aus `origin/main` (`b1c8b37`).
+
+**Outside the wiki:** `sessions/README.md` Active-Threads — Kopf + Tabelle auf post-098-Stand (W40K complete, Brief 098 open, Brief 096 in Arbeit, #94/#95/#96 merged).
+
+**roadmap.md not touched** — W40K-complete bewegt keine Phasen-Grenze (alles innerhalb Phase 3).
+
+**Out of scope:** Kein Code-/Schema-/DB-Touch. Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — CI/Maintainer). Keine Session-Archivierung (062–097-Rückstand bleibt eigene CC-Aufgabe). Fokussierter Pass — die zehn „Latest pipeline state"-Sektionen in `project-state.md` wurden bewusst nicht um eine elfte erweitert (das aktualisierte Buch-Domain-Bild trägt den post-098-Stand); der Bloat-Collapse bleibt Kandidat für eine Slim-Pass-Iteration.
+
+**Branch:** Edits im Coordination-Worktree auf `codex/session-098-w40k-consolidation`; Philipp committet + pusht + PR Windows-nativ.
+
+---
+
+## 2026-05-25 · Ingest + Architektur · Post-Merge-Koordinations-Pass (#98) + Brief 099 (Sessions-Archiv-Sweep)
+
+Cowork-Session: Post-Merge-Koordinations-Pass für den gemergten Brief 098 (W40K-Konsolidierungs-Pass) plus Architekten-Brief 099. Coordination-Worktree `C:\Users\Phil\chrono-lexicanum`. Auslöser: Maintainer-Frage „Brief 098 ist durch, wie gehts weiter?".
+
+**Read (raw sources):**
+
+- Der von Philipp übermittelte Brief-098-Impl-Report (PR-Beschreibung) — Konsolidierungs-Pass: 15 Dubletten-Kandidaten → 2 Merges (`vigilus_s`→`vigilus` Phantom-Row, `magister_sek`→`anakwanar_sek` von Pass 9 übersehene Pass-1-Row), 13 no-merges, 0 geflaggt; Reference-Deltas `locations 225→224`, `characters 345→344`, `factions` unverändert; alle Junction-Counts invariant; Maintainer-Review-Gate eingehalten. Teil 1 (`resolver-loop-log.md`-Verifikation): kein Drift.
+- `sessions/2026-05-25-098-arch-w40k-consolidation-pass.md` — Brief 098 als Spec-Referenz.
+
+**Befund — Working-Tree stale:** Der Coordination-Worktree lag bei der Session auf dem Vor-#98-Merge-Stand (098-Impl-Datei + `consolidation-*`-Artefakte fehlen lokal). `brain/**` + `sessions/README.md` sind davon nicht betroffen — Brief 098 war ein Batches-Strang-Task und hat sie per Constraint nicht angefasst —, der Koordinations-Pass ist also auf dem aktuellen Stand korrekt. Philipp zieht den Worktree per `git pull` nach, bevor er die Cowork-Änderungen committet und bevor CC Brief 099 implementiert.
+
+**Geschrieben:**
+
+- `sessions/2026-05-25-099-arch-sessions-archive-sweep.md` — Brief 099: Sessions-Archiv-Sweep (geschlossene Root-Session-Files 062–097 nach `sessions/archive/2026-05/` + Referenz-Rewrite über `brain/**` / Top-Level-Docs + `brain:lint` grün). Koordinations-Worktree, Meta/Session-Task, reine Repo-Hygiene. `status: open`.
+
+**Updated wiki:**
+
+- `project-state.md` — Phase-Headline + Buch-Domain-Bild auf W40K datenkomplett *und* konsolidiert (Reference `factions 173` / `locations 224` / `characters 344`); What's-running neuer Konsolidierungs-Pass-Bullet; What's-open (Brief 098 erledigt, Brief 099 oben, HH-Schiene, UI-Posten an Brief 096 angedockt); Recently-shipped um zwei Zeilen; Next-likely-brief auf Brief 099 → HH-Resolver → finaler Konsolidierungs-Pass. `sources:` um 098/099 erweitert.
+- `pipeline-state.md` — Intro-Blockquote: Brief 098 gemergt, Konsolidierungs-Pass-Maschinerie, nächster Schritt Brief 099.
+- `open-questions.md` — neuer Frontmatter-Header-Kommentar (post-098); `sources:` um 098/099 erweitert. Keine OQ-Schließung, keine neue numerierte OQ. Die in Brief 098 Teil 1 gefaltete `resolver-loop-log.md`-Marker-Drift ist verifiziert erledigt.
+- `index.md` — Katalog-Zeilen project-state / open-questions / pipeline-state auf post-098.
+- This `log.md` — Append-only-Eintrag.
+
+**Entscheidung — UI-Posten an Brief 096 angedockt.** Der vom Maintainer gewünschte „Hygiene-Doppelpack" zerfiel bei Prüfung in zwei Worktree-Stränge: Archiv-Cleanup ist Coordination-Strang (→ Brief 099), Public-Page-Rating-Render + Cockpit-Drift-Tie-Group-Sub-Sortierung sind Product/UI und fassen genau die Seiten an, die das in-flight Brief-096-Redesign umbaut. Ein paralleler Product-Brief würde im `chrono-lexicanum-product`-Worktree mit dem lokal-iterativen 096-Stand kollidieren. Per AskUserQuestion entschieden: die zwei UI-Posten docken an Brief 096 an statt eigener Brief; als Notiz in `project-state.md` § What's open + § Next likely brief, keine numerierte OQ.
+
+**No new decision page.** Brief 099 ist reine Repo-Hygiene; das UI-Routing ist eine Scope-/Timing-Entscheidung ohne Revisit-Trigger.
+
+**Out of scope:** Kein Code-/Schema-/DB-Touch. Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — CI/Maintainer). Die Session-Archivierung selbst ist Brief 099 (CC), nicht dieser Pass.
+
+**Branch:** Edits im Coordination-Worktree; Philipp `git pull` → committet + pusht Windows-nativ.
