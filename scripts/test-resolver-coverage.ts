@@ -1,10 +1,14 @@
 /**
  * Resolver coverage smoke for the cumulative Authority-layer books.
  *
- * Reads manual-overrides-ssot-w40k-001..057 and computes unique resolved
- * canonical counts per book and axis. This is intentionally observational:
- * sparse books are reported with below-threshold notes, not padded with
- * invented entities and not treated as script failures.
+ * Reads manual-overrides-ssot-w40k-001..057 (+ ssot-hh-NNN after each HH
+ * resolver pass) and computes unique resolved canonical counts per book and
+ * axis. This is intentionally observational: sparse books are reported with
+ * below-threshold notes, not padded with invented entities and not treated
+ * as script failures.
+ *
+ * Brief 100: two-domain (W40K + HH). BATCHES carries `{ domain, n }`-tuples
+ * so each HH resolver pass extends the materially-checked range.
  */
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -25,65 +29,69 @@ import { decideFactionSkips } from "./apply-override-skip";
 import { decideLocationSkips } from "./apply-override-location-skip";
 
 const SEED_DIR = resolve(process.cwd(), "scripts", "seed-data");
+/**
+ * Domain-aware batch list (Brief 100). After each resolver pass, append
+ * `{ domain, n }`-tuples for the newly resolved batches.
+ */
 const BATCHES = [
-  "001",
-  "002",
-  "003",
-  "004",
-  "005",
-  "006",
-  "007",
-  "008",
-  "009",
-  "010",
-  "011",
-  "012",
-  "013",
-  "014",
-  "015",
-  "016",
-  "017",
-  "018",
-  "019",
-  "020",
-  "021",
-  "022",
-  "023",
-  "024",
-  "025",
-  "026",
-  "027",
-  "028",
-  "029",
-  "030",
-  "031",
-  "032",
-  "033",
-  "034",
-  "035",
-  "036",
-  "037",
-  "038",
-  "039",
-  "040",
-  "041",
-  "042",
-  "043",
-  "044",
-  "045",
-  "046",
-  "047",
-  "048",
-  "049",
-  "050",
-  "051",
-  "052",
-  "053",
-  "054",
-  "055",
-  "056",
-  "057",
-] as const;
+  { domain: "w40k", n: "001" },
+  { domain: "w40k", n: "002" },
+  { domain: "w40k", n: "003" },
+  { domain: "w40k", n: "004" },
+  { domain: "w40k", n: "005" },
+  { domain: "w40k", n: "006" },
+  { domain: "w40k", n: "007" },
+  { domain: "w40k", n: "008" },
+  { domain: "w40k", n: "009" },
+  { domain: "w40k", n: "010" },
+  { domain: "w40k", n: "011" },
+  { domain: "w40k", n: "012" },
+  { domain: "w40k", n: "013" },
+  { domain: "w40k", n: "014" },
+  { domain: "w40k", n: "015" },
+  { domain: "w40k", n: "016" },
+  { domain: "w40k", n: "017" },
+  { domain: "w40k", n: "018" },
+  { domain: "w40k", n: "019" },
+  { domain: "w40k", n: "020" },
+  { domain: "w40k", n: "021" },
+  { domain: "w40k", n: "022" },
+  { domain: "w40k", n: "023" },
+  { domain: "w40k", n: "024" },
+  { domain: "w40k", n: "025" },
+  { domain: "w40k", n: "026" },
+  { domain: "w40k", n: "027" },
+  { domain: "w40k", n: "028" },
+  { domain: "w40k", n: "029" },
+  { domain: "w40k", n: "030" },
+  { domain: "w40k", n: "031" },
+  { domain: "w40k", n: "032" },
+  { domain: "w40k", n: "033" },
+  { domain: "w40k", n: "034" },
+  { domain: "w40k", n: "035" },
+  { domain: "w40k", n: "036" },
+  { domain: "w40k", n: "037" },
+  { domain: "w40k", n: "038" },
+  { domain: "w40k", n: "039" },
+  { domain: "w40k", n: "040" },
+  { domain: "w40k", n: "041" },
+  { domain: "w40k", n: "042" },
+  { domain: "w40k", n: "043" },
+  { domain: "w40k", n: "044" },
+  { domain: "w40k", n: "045" },
+  { domain: "w40k", n: "046" },
+  { domain: "w40k", n: "047" },
+  { domain: "w40k", n: "048" },
+  { domain: "w40k", n: "049" },
+  { domain: "w40k", n: "050" },
+  { domain: "w40k", n: "051" },
+  { domain: "w40k", n: "052" },
+  { domain: "w40k", n: "053" },
+  { domain: "w40k", n: "054" },
+  { domain: "w40k", n: "055" },
+  { domain: "w40k", n: "056" },
+  { domain: "w40k", n: "057" },
+] as const satisfies ReadonlyArray<{ domain: "w40k" | "hh"; n: string }>;
 const SMOKE_SLUGS = [
   "the-anarch",
   "calgars-fury",
@@ -293,9 +301,27 @@ function pad(value: string, width: number): string {
   return value.padEnd(width, " ");
 }
 
-const books = BATCHES.flatMap((n) =>
-  readJson<OverrideFile>(`manual-overrides-ssot-w40k-${n}.json`).books,
+const books = BATCHES.flatMap((b) =>
+  readJson<OverrideFile>(`manual-overrides-ssot-${b.domain}-${b.n}.json`).books,
 );
+
+function batchRangeLabel(): string {
+  const groups = new Map<string, string[]>();
+  for (const b of BATCHES) {
+    const arr = groups.get(b.domain) ?? [];
+    arr.push(b.n);
+    groups.set(b.domain, arr);
+  }
+  const parts: string[] = [];
+  for (const [domain, ns] of groups) {
+    parts.push(
+      ns.length === 1
+        ? `manual-overrides-ssot-${domain}-${ns[0]}`
+        : `manual-overrides-ssot-${domain}-${ns[0]}..${ns[ns.length - 1]}`,
+    );
+  }
+  return parts.join(" + ");
+}
 
 interface FactionCoverageWithSkip extends AxisCoverage {
   skipped: number;
@@ -319,7 +345,7 @@ const coverage: BookCoverageExt[] = books.map((book) => ({
 
 const bySlug = new Map(coverage.map((row) => [row.slug, row]));
 
-console.log("resolver coverage: manual-overrides-ssot-w40k-001..057");
+console.log(`resolver coverage: ${batchRangeLabel()}`);
 console.log(`books: ${coverage.length}`);
 console.log("");
 

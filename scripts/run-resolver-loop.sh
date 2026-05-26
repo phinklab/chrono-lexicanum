@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
-# scripts/run-resolver-loop.sh — Headless driver for the Resolver-Loop (Brief 094).
+# scripts/run-resolver-loop.sh — Headless driver for the Resolver-Loop (Brief 094 / Brief 100).
 #
-# Drives successive Resolver-Waves over the open W40K-Roster without supervision:
+# Drives successive Resolver-Waves over the open W40K + HH roster without
+# supervision. Sequential domains: W40K must complete before any HH wave is
+# produced (Brief 100 — HH Cross-Era aliases anchor to W40K canonical rows):
 #
 #   1. `scripts/resolver-loop-detect.ts` picks the next wave (or signals
-#      idle / w40k-complete).
+#      idle / all-complete). Domain comes from the detector; the wrapper is
+#      domain-agnostic.
 #   2. The detector writes a fresh per-wave `ResolverPassConfig` to
 #      `scripts/resolver-pass.config.json` (overwriting the previous one).
 #   3. The config change is committed (clean worktree is a precondition for
@@ -17,7 +20,7 @@
 #      is forwarded to `scripts/resolver-loop-log-update.ts`, which renders
 #      the wave block (full or partial) in `sessions/resolver-loop-log.md`.
 #   7. That update is committed.
-#   8. Loop continues until idle / w40k-complete / needs-decision / halt /
+#   8. Loop continues until idle / all-complete / needs-decision / halt /
 #      timeout, then pushes the branch and opens (or updates) the PR once.
 #
 # A wave is the unit of supervision; phases inside a wave are mechanical.
@@ -44,7 +47,7 @@
 #   - `gh` CLI authenticated (else PR step is skipped, compare URL printed)
 #
 # EXIT CODES
-#   0  driver stopped cleanly (idle / w40k-complete / needs-decision /
+#   0  driver stopped cleanly (idle / all-complete / needs-decision /
 #      success at end of max-waves)
 #   1  pre-run check failed (worktree dirty, on main, claude missing, …)
 #   2  halt-check violation inside a phase (pass-driver exit 2)
@@ -334,9 +337,9 @@ while (( WAVES_RUN < MAX_WAVES )); do
       TERMINAL_REASON="idle: $REASON"
       break
       ;;
-    w40k-complete)
-      ok "  status: w40k-complete — all W40K books resolved"
-      TERMINAL_REASON="w40k-complete"
+    all-complete)
+      ok "  status: all-complete — all W40K + HH books resolved"
+      TERMINAL_REASON="all-complete"
       break
       ;;
     open-wave)
@@ -348,16 +351,17 @@ while (( WAVES_RUN < MAX_WAVES )); do
       ;;
   esac
 
-  # Pull wave + pass + bookCount from the detector output.
+  # Pull wave label + pass + bookCount from the detector output. The detector
+  # owns the full domain-bearing label (`ssot-w40k-AAA..BBB` or
+  # `ssot-hh-AAA..BBB`) — the wrapper never reconstructs it, so domain is
+  # never guessed here (Brief 100).
   read -r WAVE PASS BOOK_COUNT < <(printf '%s' "$DETECT_JSON" | node --input-type=module -e "
     let s=''; process.stdin.on('data',(c)=>{s+=c;});
     process.stdin.on('end',()=>{
       const r = JSON.parse(s);
-      process.stdout.write(r.wave.first.toString().padStart(3,'0') + '..' + r.wave.last.toString().padStart(3,'0'));
-      process.stdout.write(' ' + r.wave.pass + ' ' + r.wave.bookCount + '\\n');
+      process.stdout.write(r.wave.label + ' ' + r.wave.pass + ' ' + r.wave.bookCount + '\\n');
     });
   ")
-  WAVE="ssot-w40k-${WAVE}"
 
   log "  status: open-wave — wave=$WAVE pass=$PASS bookCount=$BOOK_COUNT"
 
