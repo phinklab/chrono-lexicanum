@@ -2424,3 +2424,19 @@
 - **value_outside_vocabulary:** [] — all facet IDs used are present in `facet-catalog.json`.
 - **Notable surface-forms (within this batch):** "Blackshields" (cross-batch warband faction, Endryd Haar), "Cabal" (xenos secret society, Perpetual), "Red-Marked" (Ultramarines sub-formation, Nightfane), "Therion Cohort" (Imperial Army cohort, Valerius), "Kakophoni" (Emperor's Children sonic-warrior sub-group, The Soul Severed), "Cicatrix Tyrannis" (Blackshields warship, False War).
 - **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint` skipped per Brief-061 convention (pure data commit: one JSON file + Markdown append, no code/schema/config changes).
+
+## 2026-05-26 · ssot-hh-030 · HH-0291..HH-0294 · ✅
+
+- **Cumulative books in authority:** 859
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=855, batch=ssot-hh-030, slice=HH-0291..HH-0294 (final HH wave, 4 books — 5/4-er domain tail)
+- **WebSearch:** mean=1.5, max=3 (over 4 books) — HH-0291 needed a separate Kaban-Project query for the embedded short-story content; other three were single-query.
+- **Per-book bullets:**
+  - HH-0291 Collected Visions — 2007 artbook omnibus (414 pages) of the four original Visions volumes (War, Darkness, Treachery, Death) plus Graham McNeill's "The Kaban Project" short story. Aggregated factions/characters/locations across the constituent volumes per omnibus rule (broad Heresy-era roster); the Kaban Project supplies the only true narrative content (Pallas Ravachol, Mechanicum, Mars).
+  - HH-0292 The Scripts: Volume I — script-book printing production texts for the first six HH audio dramas (The Dark King, The Lightning Tower, Raven's Flight, Garro: Oath of Moment, Garro: Legion of One, Butcher's Nails). Aggregated per audio drama: Night Lords / Imperial Fists / Raven Guard / Death Guard / World Eaters; POV characters Curze, Dorn, Corax, Garro, Angron. pov_side=dual (Curze + Angron are chaos, others loyalist).
+  - HH-0293 The Scripts: Volume II — script-book for The Sigillite, Honour to the Dead, Garro: Sword of Truth, Garro: Burden of Duty, Grey Angel, Censure. This volume skews loyalist (pov_side=imperium). Grey Angel features Inquisitor Veritus → applied Inquisition-consistency rule (Inquisition tagged with role=supporting). Word Bearers tagged antagonist (Censure).
+  - HH-0294 Visions of Heresy (2018 ed.) — 2018 hardback re-release of Collected Visions in Forge-World black-book layout; Alan Merrett text revised/extended by Guy Haley, plus new Neil Roberts art. Same constituent content as HH-0291 (four Visions volumes + Kaban Project), so faction/location/character aggregation is identical to HH-0291 by design — these two share the same source material.
+- **value_outside_vocabulary:** [] — all facet IDs used are present in `facet-catalog.json`.
+- **Notable surface-forms (within this batch):** "Visions of War", "Visions of Darkness", "Visions of Treachery", "Visions of Death" (the four constituent artbook volumes), "The Kaban Project" (Graham McNeill short story embedded in both artbooks), "Pallas Ravachol" (Mechanicum adept, Kaban Project POV), "Knight-Errant" (Garro arc, consistent with prior HH batches), "Aeonid Thiel" (Censure, also tagged in ssot-hh-029 Nightfane), "Sons of Horus"/"Luna Wolves" (kept both surface forms — same Legion, different eras, both appear in the constituent volumes).
+- **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint` skipped per Brief-061 convention (pure data commit: one JSON file + Markdown append, no code/schema/config changes).
+- **Note:** This batch closes out the HH domain (290 + 4 = 294 HH books) and the full 859-book roster. The next `loop:next` invocation is expected to return `loopComplete: true`; that complete-block will be appended in the next iteration per runbook §4.

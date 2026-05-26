@@ -1,0 +1,271 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-030",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "Final HH wave (4 books). All four are non-narrative meta-volumes: the 2007 Collected Visions artbook omnibus, both Scripts script-books printing audio-drama production texts, and the 2018 hardback Visions of Heresy re-release. Per the omnibus/collection/scriptbook rule, factions/locations/characters/facets aggregate the constituent works (the four original Visions volumes + Kaban Project for the artbooks; six audio dramas per script volume).",
+  "books": [
+    {
+      "externalBookId": "HH-0291",
+      "slug": "collected-visions",
+      "overrides": {
+        "synopsis": "The Horus Heresy: Collected Visions gathers the four original Visions volumes — Visions of War, Darkness, Treachery, and Death — alongside the exclusive short story 'The Kaban Project' by Graham McNeill. Alan Merrett's text threads concept art, illustration, and rulebook panels into a chronological reference for the civil war that breaks the Emperor's Legiones Astartes, from the Great Crusade's triumphs to Horus Lupercal's fall, the purge of Isstvan III, the Drop Site Massacre at Isstvan V, and the long road to the siege of Terra. 'The Kaban Project' shadows Mechanicum adept Pallas Ravachol on Mars as he uncovers a sentient war-machine commissioned for the Warmaster and is hunted across the Red Planet for knowing it lives.",
+        "facetIds": [
+          "book",
+          "male",
+          "mixed",
+          "multi",
+          "space_marine",
+          "tech_priest",
+          "dual",
+          "galactic",
+          "requires_context",
+          "doorstopper",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "war",
+          "hubris",
+          "loyalty",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Luna Wolves", "role": "supporting" },
+          { "name": "Imperial Fists", "role": "supporting" },
+          { "name": "Word Bearers", "role": "supporting" },
+          { "name": "World Eaters", "role": "supporting" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "supporting" },
+          { "name": "Night Lords", "role": "supporting" },
+          { "name": "Iron Warriors", "role": "supporting" },
+          { "name": "Alpha Legion", "role": "supporting" },
+          { "name": "Thousand Sons", "role": "supporting" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Salamanders", "role": "supporting" },
+          { "name": "Iron Hands", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Space Wolves", "role": "supporting" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Blood Angels", "role": "supporting" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Mechanicum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Mars", "role": "supporting" },
+          { "name": "Isstvan III", "role": "supporting" },
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Horus Lupercal", "role": "pov" },
+          { "name": "The Emperor", "role": "supporting" },
+          { "name": "Pallas Ravachol", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.41,
+          "count": 581,
+          "evidenceUrl": "https://www.goodreads.com/book/show/654442"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0292",
+      "slug": "horus-heresy-the-scripts-volume-i",
+      "overrides": {
+        "synopsis": "This script collection prints the production texts behind the first six Black Library Horus Heresy audio dramas, with editor Christian Dunn's introduction, soundtrack cues, and character notes. Readers follow Konrad Curze hunting deserters in 'The Dark King,' Rogal Dorn arguing with Sigismund atop the Lightning Tower over Terra, Corvus Corax leading the broken Raven Guard out of the Isstvan V trap in 'Raven's Flight,' and Nathaniel Garro's renegade Death Guard in 'Oath of Moment' and 'Legion of One' as they take ship from Isstvan back toward Terra. 'Butcher's Nails' rides with Angron and Kharn through a World Eaters compliance, the implants ever louder. A volume for readers who already know the audios and want the bones beneath the sound.",
+        "facetIds": [
+          "book",
+          "male",
+          "multi",
+          "space_marine",
+          "dual",
+          "galactic",
+          "requires_context",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "betrayal",
+          "war",
+          "loyalty",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "World Eaters", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Nostramo", "role": "supporting" },
+          { "name": "Terra", "role": "supporting" },
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Konrad Curze", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "pov" },
+          { "name": "Sigismund", "role": "supporting" },
+          { "name": "Corvus Corax", "role": "pov" },
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Angron", "role": "pov" },
+          { "name": "Kharn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.91,
+          "count": 22,
+          "evidenceUrl": "https://www.goodreads.com/book/show/18080631"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0293",
+      "slug": "horus-heresy-the-scripts-volume-ii",
+      "overrides": {
+        "synopsis": "The second script collection prints the production texts behind six further Horus Heresy audio dramas, with editor Laurie Goulding's introduction, soundtrack cues, and character notes. Malcador the Sigillite shapes a quiet war on Terra in 'The Sigillite.' Captain Garro returns three times — 'Sword of Truth' and 'Burden of Duty' continue his Knight-Errant arc, while 'Honour to the Dead' tracks a haunted Death Guard frigate. 'Grey Angel' sends an Inquisitor and a Knight-Errant chasing rumours of one of the Lion's sons. 'Censure' drops Aeonid Thiel and a handful of Ultramarines onto a fractured world to hunt a Word Bearers preacher dug in among the rubble. A reference volume for listeners who want the page behind the audio.",
+        "facetIds": [
+          "book",
+          "male",
+          "multi",
+          "space_marine",
+          "inquisitor",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "standard",
+          "war_story",
+          "character_study",
+          "mystery",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "war",
+          "faith",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Court", "role": "primary" },
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Calth", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Malcador the Sigillite", "role": "pov" },
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Aeonid Thiel", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.73,
+          "count": 22,
+          "evidenceUrl": "https://goodreads.com/book/show/29436892-the-scripts"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0294",
+      "slug": "visions-of-heresy-2018-ed",
+      "overrides": {
+        "synopsis": "The 2018 hardback Visions of Heresy re-presents the four original art volumes — War, Darkness, Treachery, Death — and the short story 'The Kaban Project' by Graham McNeill in the layout of Forge World's Heresy black-books. Alan Merrett's original text, revised and extended by Guy Haley, threads concept art, illustration, and new Neil Roberts pieces into a chronological reference for the civil war that breaks Horus Lupercal's loyalty and shatters the Emperor's Legiones Astartes — Isstvan III's purge, the Drop Site Massacre at Isstvan V, and the long road to the siege of Terra. 'The Kaban Project' shadows Mechanicum adept Pallas Ravachol as he uncovers a sentient war-machine commissioned for the Warmaster and is hunted across Mars for knowing it lives.",
+        "facetIds": [
+          "book",
+          "male",
+          "mixed",
+          "multi",
+          "space_marine",
+          "tech_priest",
+          "dual",
+          "galactic",
+          "requires_context",
+          "doorstopper",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "war",
+          "hubris",
+          "loyalty",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Luna Wolves", "role": "supporting" },
+          { "name": "Imperial Fists", "role": "supporting" },
+          { "name": "Word Bearers", "role": "supporting" },
+          { "name": "World Eaters", "role": "supporting" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "supporting" },
+          { "name": "Night Lords", "role": "supporting" },
+          { "name": "Iron Warriors", "role": "supporting" },
+          { "name": "Alpha Legion", "role": "supporting" },
+          { "name": "Thousand Sons", "role": "supporting" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Salamanders", "role": "supporting" },
+          { "name": "Iron Hands", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Space Wolves", "role": "supporting" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Blood Angels", "role": "supporting" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Mechanicum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Mars", "role": "supporting" },
+          { "name": "Isstvan III", "role": "supporting" },
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Horus Lupercal", "role": "pov" },
+          { "name": "The Emperor", "role": "supporting" },
+          { "name": "Pallas Ravachol", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.36,
+          "count": 248,
+          "evidenceUrl": "https://www.goodreads.com/book/show/16130681-horus-heresy"
+        }
+      }
+    }
+  ]
+}
