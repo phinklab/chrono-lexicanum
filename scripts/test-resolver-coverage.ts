@@ -1,8 +1,8 @@
 /**
  * Resolver coverage smoke for the cumulative Authority-layer books.
  *
- * Reads manual-overrides-ssot-w40k-001..057 (+ ssot-hh-NNN after each HH
- * resolver pass) and computes unique resolved canonical counts per book and
+ * Reads manual-overrides-ssot-w40k-001..057 + ssot-hh-001..002 (extended
+ * after each HH resolver pass) and computes unique resolved canonical counts per book and
  * axis. This is intentionally observational: sparse books are reported with
  * below-threshold notes, not padded with invented entities and not treated
  * as script failures.
@@ -91,6 +91,8 @@ const BATCHES = [
   { domain: "w40k", n: "055" },
   { domain: "w40k", n: "056" },
   { domain: "w40k", n: "057" },
+  { domain: "hh", n: "001" },
+  { domain: "hh", n: "002" },
 ] as const satisfies ReadonlyArray<{ domain: "w40k" | "hh"; n: string }>;
 const SMOKE_SLUGS = [
   "the-anarch",

@@ -79,6 +79,8 @@ const OVERRIDE_BATCHES = [
   { domain: "w40k", n: "055" },
   { domain: "w40k", n: "056" },
   { domain: "w40k", n: "057" },
+  { domain: "hh", n: "001" },
+  { domain: "hh", n: "002" },
 ] as const satisfies ReadonlyArray<{ domain: "w40k" | "hh"; n: string }>;
 const EXPECTED_SMOKE_SLUGS = [
   "the-anarch",
@@ -319,7 +321,7 @@ function main(): void {
     }
   });
 
-  check("coverage smoke slugs exist in 001..057", () => {
+  check("coverage smoke slugs exist in w40k-001..057 + hh-001..002", () => {
     const slugs = new Set<string>();
     for (const batch of OVERRIDE_BATCHES) {
       const override = readJson<OverrideFile>(

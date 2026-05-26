@@ -1,5 +1,5 @@
 /**
- * Dry simulation for the resolver apply sweep (ssot-w40k-001..057 + ssot-hh-001..030).
+ * Dry simulation for the resolver apply sweep (ssot-w40k-001..057 + ssot-hh-001..002).
  *
  * This intentionally does not import the DB client and performs no mutations.
  * It mirrors the resolver-facing parts of scripts/apply-override.ts:
@@ -120,6 +120,8 @@ const BATCHES = [
   { domain: "w40k", n: "055" },
   { domain: "w40k", n: "056" },
   { domain: "w40k", n: "057" },
+  { domain: "hh", n: "001" },
+  { domain: "hh", n: "002" },
 ] as const satisfies ReadonlyArray<{ domain: "w40k" | "hh"; n: string }>;
 const SMOKE_SLUGS = [
   "the-anarch",
