@@ -2382,3 +2382,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Sevatar" (also rendered "Jago Sevatarion" in some sources), "Knights Errant" (also hyphenated "Knights-Errant" in titles), "Lectitio Divinitatus" (mis-typoed "Lectito Devinatus" in one source), "Ostentio Contritio" (Warlord-class titan name), "Othrys" (codename for the Titan build-up).
 - **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief 061 convention (pure data commit — single new override JSON + this log append, no code).
+
+## 2026-05-26 · ssot-hh-028 · HH-0271..HH-0280 · ✅
+
+- **Cumulative books in authority:** 845
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=835, batch=ssot-hh-028, slice=HH-0271..HH-0280
+- **WebSearch:** mean=1.0, max=1 (over 10 books)
+- **Per-book bullets:**
+  - HH-0271 Garro: Ashes of Fealty — 18-min Garro/Voyen confrontation about a sealed casket; clean facets. Roster releaseYear=2017 reflects the "Even More Audio Dramas" anthology bundle, original MP3 was 2015 — not a roster-mistag.
+  - HH-0272 Garro: Burden of Duty — Phalanx infiltration, recruits Yored Massak under Dorn's nose. Roster releaseYear=2017 (original MP3 2012) — same anthology bundling, not a mistag.
+  - HH-0273 Garro: Oath of Moment — Calth tunnels, recruits Tylos Rubio from the 21st Company. Roster releaseYear=2017 (original MP3 2010) — same anthology bundling.
+  - HH-0274 Raptor — Raven Guard Raptors hunt Wulfen, suppress Malcador's loyalty-test on Corax; clean.
+  - HH-0275 Grey Talon — loyalist Henricos (Iron Hands) + Hibou Khan (White Scars) sailing a captured Sons-of-Horus destroyer; clean.
+  - HH-0276 Red-Marked — Thiel and censured Ultramarine veterans hunt the "Nightfane" mystery on Oran. Used "Heretic Astartes" as raw antagonist faction (specific traitor warband not named in surfaces).
+  - HH-0277 The Either — Sons-of-Horus traitor POV (Tybalt Marr on Dwell vs Shattered Legions); pov_side=chaos.
+  - HH-0278 The Heart of the Pharos — Scouts Oberdeii and Tebecai of the 199th Company descend beneath Mount Pharos on Sotha; prequel to the Pharos novel.
+  - HH-0279 The Thirteenth Wolf — Bulveye and the 13th Great Company chase a Thousand Sons sorcerer through a Prospero Portal-Maze; in-universe origin of the company's ten-thousand-year warp exile.
+  - HH-0280 Children of Sicarus — Word Bearers traitor POV; Kor Phaeron beached on Sicarus vs Kairic Adept Larazzar. Used "Daemons of Tzeentch" for the Kairic-Adept warband (Kairic = Tzeentch surface-form, Larazzar is a daemonic warlord, not a Word Bearer).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Knights-Errant" (hyphenated per Black Library titles), "Phalanx" (Imperial Fists starfort), "Yored Massak", "Tylos Rubio", "Numinus" (Calth capital), "Navar Hef" (Raven Guard Raptor sergeant), "Bion Henricos", "Hibou Khan", "Aeonid Thiel", "Tybalt Marr", "Shadrak Meduson", "Oberdeii"/"Tebecai" (Ultramarine Scouts of 199th Company, Sotha), "Mount Pharos", "Bulveye" (13th Great Company sergeant), "Kor Phaeron", "Larazzar" (Kairic Adept), "Sicarus" (daemon world in Eye of Terror), "Daemons of Tzeentch" (Kairic→Tzeentch derivation).
+- **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief 061 convention (pure data commit — single new override JSON + this log append, no code).
