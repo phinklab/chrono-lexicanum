@@ -940,8 +940,16 @@ function main(): void {
   console.log(`  missing resolved FK targets:   ${missingTargets.length}`);
   console.log(`  dangling JSON FK/alias refs:   ${referenceFkFindings.length}`);
   console.log(`  forward collection refs:       ${collectionAnalysis.forwardRefs.length}`);
+  const unresolvableByReason = countBy(
+    collectionAnalysis.unresolvableConstituentRefs,
+    (u) => u.reason,
+  );
   console.log(
     `  unresolvable constituent refs: ${collectionAnalysis.unresolvableConstituentRefs.length}`,
+  );
+  console.log(
+    `  by reason: out-of-range=${unresolvableByReason.get("out-of-range") ?? 0}, ` +
+      `unknown-work=${unresolvableByReason.get("unknown-work") ?? 0}`,
   );
 
   assert.deepEqual(missingRoster, [], `missing roster ids: ${missingRoster.join(", ")}`);
@@ -968,21 +976,27 @@ function main(): void {
       collectionAnalysis.crossBatchResolvable.length > 0,
       "expected at least one cross-batch collection example",
     );
-    // Brief 091 range-aware guard: the prior `forwardRefs === []` hard-assert was
-    // dropped to report-only in Pass 6 (over-strict — it tripped on the 10 legit
-    // refs above). Report-only caught nothing, though. Restore a real tripwire on
-    // the constituent side: a forward ref whose constituent is out-of-range (a
-    // known roster book the cumulative sweep never reaches) or unknown-work
-    // (absent from the roster — a typo or an unregistered deferred gap) never
-    // resolves and must fail. In-range forward refs stay accepted (printed above).
-    const unresolvable = collectionAnalysis.unresolvableConstituentRefs;
+    // Brief 091 range-aware guard, Brief 101 reason-split: in-range forward
+    // refs (above) stay accepted. The tripwire is the constituent side, and it
+    // splits by reason. `out-of-range` is a consistent deferred state — the
+    // constituent is in the roster, just not in the cumulative apply range
+    // yet, and applyCollections re-evaluates the edge when the constituent's
+    // wave lands (Pass 6's anthology forward refs proved this end-to-end).
+    // `unknown-work` is the real error — constituent absent from the roster
+    // entirely (typo or unregistered deferred gap) → never resolves. Out-of-
+    // range refs are reported in the reason-breakdown above as informational
+    // deferred edges; only unknown-work refs abort the dry, and only those
+    // are listed in the failure message (the actionable set).
+    const unknownWorkRefs = collectionAnalysis.unresolvableConstituentRefs.filter(
+      (u) => u.reason === "unknown-work",
+    );
     assert.deepEqual(
-      unresolvable.map(
+      unknownWorkRefs.map(
         (u) =>
-          `${u.collection.collectionExternalId}->${u.collection.contentExternalId} (${u.reason})`,
+          `${u.collection.collectionExternalId}->${u.collection.contentExternalId}`,
       ),
       [],
-      "forward collection refs with an out-of-range / unknown constituent — typo or unregistered deferred gap",
+      "forward collection refs with an unknown constituent — typo or unregistered deferred gap",
     );
     assertInRange(
       "work_factions",
