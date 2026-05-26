@@ -1,0 +1,468 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-023",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "Ten Horus Heresy eShorts released between 2018 and 2021 (Black Library Advent and Celebration runs). The batch leans hard on character-study set pieces — Mortarion before the Lantern, Malcador before Nikaea, Eidolon after Fulgrim — rather than battles, with two direct sequels to existing HH novels (Lightning Hall to Mechanicum, Lantern's Light to the early Death Guard arc). Goodreads rating counts run between 75 and 248, which is normal for solo eShorts of this period.",
+  "books": [
+    {
+      "externalBookId": "HH-0221",
+      "slug": "massacre",
+      "overrides": {
+        "synopsis": "On the killing fields of Isstvan V, the Night Lords answer Horus's summons and march with the traitor primarchs against three loyalist Legions caught in the open. Apothecary Talos of the Tenth Company has fought beside his brothers Xarl, Cyrion, and the Exalted for so long that he can read the curl of his squadmates' helms before they speak — and tonight, with Konrad Curze stalking the battlefield in person, the dropsite slaughter pulls every dark inheritance of the VIII Legion to the surface. Through Talos's eyes the reader watches First Claw work the cooling pyres of Iron Hands and Raven Guard armour, trading black jokes over the dying, and grasping with growing certainty that whatever they call this — duty, vengeance, the Night Haunter's will — there is no going back from what they are about to become.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "betrayal",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Iron Hands", "role": "antagonist" },
+          { "name": "Raven Guard", "role": "antagonist" },
+          { "name": "Salamanders", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Talos", "role": "pov" },
+          { "name": "Xarl", "role": "supporting" },
+          { "name": "Cyrion", "role": "supporting" },
+          { "name": "the Exalted", "role": "supporting" },
+          { "name": "Konrad Curze", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.79,
+          "count": 247,
+          "evidenceUrl": "https://www.goodreads.com/book/show/27270872-massacre"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0222",
+      "slug": "two-metaphysical-blades",
+      "overrides": {
+        "synopsis": "Long before the Imperium had a name, in the deep places beneath Terra, the Emperor forged a matched pair of spears — Apollonian and Dionysian, equal and opposite, made to be wielded by two of the great souls He intended to set against the Long Night. The story follows the spears across centuries: Constantin Valdor carries the savant's weapon at his master's side; Leman Russ takes the brawler's blade with him into the wilds of Fenris and the wars of the Great Crusade. As the Heresy splinters everything the Emperor built, Valdor and Russ end up measuring not only their spears against each other, but the very different ways they each chose to serve. A meditation, in episodic vignettes, on what the Emperor was making when He made these two.",
+        "facetIds": [
+          "book",
+          "male",
+          "multi",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "novella",
+          "character_study",
+          "philosophical",
+          "somber",
+          "brotherhood",
+          "loyalty",
+          "faith",
+          "cw_violence",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Space Wolves", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Constantin Valdor", "role": "pov" },
+          { "name": "Leman Russ", "role": "pov" },
+          { "name": "the Emperor", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.21,
+          "count": 248,
+          "evidenceUrl": "https://www.goodreads.com/book/show/41271254"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0223",
+      "slug": "prologue-to-nikaea",
+      "overrides": {
+        "synopsis": "Long before the council on Nikaea forced the Emperor to weigh the future of the Librarius, Malcador the Sigillite is already worried. A storm coils in the warp that no diviner can read clearly, and its echoes brush against the material plane. Tracing the disturbance to the world of Thawra, Malcador finds a civilization where psykers walk openly — and where they have begun to organise themselves into an army, fighting witch-war against witch-war. Working his way through the burning provinces of Thawra, the Sigillite tries to learn what shape this new power could take if it were not contained, and whether what he is seeing here is a glimpse of the fate that hangs over Magnus and his sons. He leaves the world with answers that will haunt him.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "mystery",
+          "political_thriller",
+          "philosophical",
+          "somber",
+          "grimdark",
+          "doubt",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [],
+        "locations": [
+          { "name": "Thawra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Malcador the Sigillite", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "story focuses on Malcador's investigation and Thawran psykers; no canonical Astartes/Mechanicus faction confirmed on-page beyond the Sigillite himself" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.63,
+          "count": 152,
+          "evidenceUrl": "https://www.goodreads.com/book/show/41461631-prologue-to-nikaea"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0224",
+      "slug": "abyssal",
+      "overrides": {
+        "synopsis": "Aveth Vairon is a clerk of the Administratum, a man whose life shrank, one wax-sealed page at a time, until the day a single rune burned itself into his mind and refused to leave. Since then he has followed it. The rune brought him out of his quiet province, brought the Silent Sisters to his door, and brought him at last into the lightless holds of the black ship Irkalla, where psykers and witches are kept under the numbing aura of the witch-seekers. Aveth is sure his rune is leading him still — toward another prisoner, a faceless woman whose power he can feel like a tide behind the bulkheads. When the Irkalla comes under attack and her hull begins to fail, Aveth has to decide whether the path his vision laid out is destiny or the long, careful work of something else entirely.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "squad",
+          "requires_context",
+          "novella",
+          "character_study",
+          "mystery",
+          "cosmic_horror",
+          "grimdark",
+          "somber",
+          "faith",
+          "doubt",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Sisters of Silence", "role": "primary" },
+          { "name": "Adeptus Administratum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Irkalla", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Aveth Vairon", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.58,
+          "count": 91,
+          "evidenceUrl": "https://www.goodreads.com/book/show/43159822-abyssal"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0225",
+      "slug": "lanterns-light",
+      "overrides": {
+        "synopsis": "A year after the Emperor descended onto Barbarus, Mortarion's Legion still hangs back from the Great Crusade. The Death Lord has been given a new name, a new armour, and a future as one of the Emperor's gene-sons — but he has not been given the one thing he came for: the head of the alien tyrant who raised him. Summoned aboard the Emperor's flagship, Mortarion arrives with that old resentment burning behind his rebreather, certain he will be lectured into obedience. Instead the Emperor places a long, slender pistol in his hands — a weapon He calls the Lantern — and over the slow course of a single conversation forces His son to examine why he is angry, what he has already become, and what kind of crusade he means to fight. A quiet story about a primarch on the verge of choosing wrong.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "character_study",
+          "philosophical",
+          "somber",
+          "doubt",
+          "loyalty",
+          "faith",
+          "en"
+        ],
+        "factions": [
+          { "name": "Death Guard", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Barbarus", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Mortarion", "role": "pov" },
+          { "name": "the Emperor", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.19,
+          "count": 152,
+          "evidenceUrl": "https://www.goodreads.com/book/show/44073884-lantern-s-light"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0226",
+      "slug": "the-serpents-dance",
+      "overrides": {
+        "synopsis": "Once an Oblivion Knight of the Silent Sisterhood, Amendera Kendel now wears no rank that the Imperium openly names — she works for Malcador the Sigillite, and she works alone. A trail of betrayed loyalties has led her to the Jovian shipyards above the orbits of Sol, where someone is reshaping a battle-fleet meant for the Warmaster. Disguised as nobility at a glittering function, Kendel moves through aristocrats and minor naval lords, hunting for the right throat to crush, while Helig Gallor — the loyal Death Guard who took the grey of the Knights-Errant — watches her back from the shadows. The deeper she digs, the more certain she becomes that the hand behind the conspiracy belongs to a Legion that does not announce itself, and that the dance she is in is the kind that ends only with a knife.",
+        "facetIds": [
+          "book",
+          "female",
+          "multi",
+          "imperium",
+          "sector",
+          "requires_context",
+          "novella",
+          "mystery",
+          "political_thriller",
+          "court_intrigue",
+          "grimdark",
+          "action_heavy",
+          "betrayal",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Sisters of Silence", "role": "primary" },
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "Alpha Legion", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Jupiter", "role": "primary" },
+          { "name": "Sol System", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Amendera Kendel", "role": "pov" },
+          { "name": "Helig Gallor", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.68,
+          "count": 81,
+          "evidenceUrl": "https://www.goodreads.com/book/show/56157413-the-serpent-s-dance"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0227",
+      "slug": "the-lightning-hall",
+      "overrides": {
+        "synopsis": "On the conquered face of Mars, House Taranis is in ruins. Its forges burn under Dark Mechanicum colours, its knights lie broken in the dust, and its servants huddle in places where the new masters have not yet come. Then, across a vox-band that should be empty, a ghost-signal speaks: an old call-tone from the Lightning Hall, the holy seat of House Taranis itself. Raf Maven, one of the last surviving scions, rides to answer it. Picking his way through ash-fields haunted by the corrupted Mechanicum and by their suborned war-engines, Raf finds his house's heart not destroyed but waiting — and with it, the slim chance that Taranis can be rebuilt as the spear of a counter-strike against Kelbor-Hal and his red-eyed allies. The story is a direct sequel to the fall of Mars.",
+        "facetIds": [
+          "book",
+          "male",
+          "multi",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "loyalty",
+          "sacrifice",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "House Taranis", "role": "primary" },
+          { "name": "Dark Mechanicum", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Mars", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Raf Maven", "role": "pov" },
+          { "name": "Kelbor-Hal", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.03,
+          "count": 89,
+          "evidenceUrl": "https://www.goodreads.com/book/show/56397512-the-lightning-hall"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0228",
+      "slug": "eater-of-dreams",
+      "overrides": {
+        "synopsis": "Fel Zharost used to be the Chief Librarian of the VIII Legion. He saw what was coming in the Night Lords and walked away long before Isstvan, exiling himself to the warrens of old Albia, where he tried to die quietly under another name. He does not get to. Malcador the Sigillite has a use for a Night Lords witch with a guilty conscience, and offers him the grey of the Knights-Errant — a chance to bury a sin Fel still carries from his service to Konrad Curze. Riding with him on this first outing is his blood-cousin Macer Varren, late of the World Eaters, who has his own reasons for taking the grey. Together the two failed Legionaries hunt down something Fel left behind a long time ago, and learn whether redemption is a thing the Imperium still gives, or only sells.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "character_study",
+          "journey",
+          "somber",
+          "grimdark",
+          "redemption",
+          "doubt",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "Night Lords", "role": "supporting" },
+          { "name": "World Eaters", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Albia", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Fel Zharost", "role": "pov" },
+          { "name": "Macer Varren", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.12,
+          "count": 85,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59764745-eater-of-dreams"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0229",
+      "slug": "bloodhowl",
+      "overrides": {
+        "synopsis": "Jorin Bloodhowl, Jarl of Dekk-Tra, has been given an unwelcome hunt: a pack of Space Wolves has broken away from the Sixth Legion, refusing the war that Russ now fights against Horus, and Bloodhowl has been told to bring them home or put them down. Tracking them to a wilderness world, his great-company is jumped by Night Lords skirmishers — and survives, only to walk straight into the camp of the wolves he came to judge. Their leader, Gunnar Thorolfsson, will not return. He argues, in the cold around their fire, that what was done at Prospero and what is being done in the wider Heresy is exactly what blind obedience to a primarch's leash produces, and that the wyrd of the Rout demands more than that. Bloodhowl has to decide what his orders weigh against his brother's words — and against something Russ once said to him, in a quieter year.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "character_study",
+          "action_heavy",
+          "philosophical",
+          "grimdark",
+          "brotherhood",
+          "loyalty",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Night Lords", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Jorin Bloodhowl", "role": "pov" },
+          { "name": "Gunnar Thorolfsson", "role": "supporting" },
+          { "name": "Leman Russ", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "wilderness world where Bloodhowl confronts Gunnar Thorolfsson is not named on-page in available source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.59,
+          "count": 75,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59831870-bloodhowl"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0230",
+      "slug": "amor-fati",
+      "overrides": {
+        "synopsis": "Lord Commander Eidolon used to be the finest blade of the Emperor's Children. Then Fulgrim took his head off, Fabius Bile pieced him back together, and the warrior who walks the deck now drags his own body around like a borrowed coat. Sluggish, slurred, only half-obeyed by his own muscles, Eidolon has convinced himself that a transfusion of pure unaltered geneseed from his Legion's earliest sons will return him to what he was. The hunt takes him through ruined chapter-houses and apothecaria his brothers stripped a long time ago. What he eventually finds is not a cure but a choice: cling to the perfection he used to embody, or accept the new, broken creature he has become — and, in accepting, discover that there is a kind of power in being something the Phoenician never imagined.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "squad",
+          "requires_context",
+          "novella",
+          "character_study",
+          "journey",
+          "philosophical",
+          "grimdark",
+          "cosmic_horror",
+          "hubris",
+          "doubt",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Eidolon", "role": "pov" },
+          { "name": "Fabius Bile", "role": "supporting" },
+          { "name": "Fulgrim", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "the ruined Emperor's Children chapter-houses Eidolon visits are not named on-page in available source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.82,
+          "count": 79,
+          "evidenceUrl": "https://www.goodreads.com/book/show/59910857-amor-fati"
+        }
+      }
+    }
+  ]
+}

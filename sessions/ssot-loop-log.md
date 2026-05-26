@@ -2278,3 +2278,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Legio Audax, Legio Castigatra, Ordo Sinister, Medusan Immortal, Imperial Webway, Ionus Plateau, Temple of Oaths, Borealis Thoon, Hydragyrum, Tantorus Magnificat.
 - **Verification:** lint/typecheck/brain-lint skipped per Brief-061 convention (pure data commit — one new override JSON + this log append, no code touched).
+
+## 2026-05-26 · ssot-hh-023 · HH-0221..HH-0230 · ✅
+
+- **Cumulative books in authority:** 795
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=785, batch=ssot-hh-023, slice=HH-0221..HH-0230
+- **WebSearch:** mean=1.0, max=1 (over 10 books)
+- **Per-book bullets:**
+  - HH-0221 Massacre — Night Lords / Talos's First Claw on Isstvan V dropsite; canonical Black Library eShort with strong source coverage.
+  - HH-0222 Two Metaphysical Blades — Apollonian/Dionysian spear-frame for Valdor and Russ across centuries; protagonist_class set to `multi` since Custodes + Space Wolf split the POV.
+  - HH-0223 Prologue to Nikaea — Malcador on Thawra; flagged `low_confidence: factions` because no canonical Astartes/Mechanicus body is confirmed on-page beyond the Sigillite himself.
+  - HH-0224 Abyssal — civilian POV inside Black Ship Irkalla; surface form `Irkalla` kept as named ship/location.
+  - HH-0225 Lantern's Light — Mortarion on Barbarus pre-Crusade; protagonist_class `space_marine` even though primarch (no primarch facet exists).
+  - HH-0226 The Serpent's Dance — Amendera Kendel (Sisters of Silence → Sigillite agent) and Helig Gallor (Knights-Errant) vs Alpha Legion cell in Jovian shipyards; female POV.
+  - HH-0227 The Lightning Hall — direct sequel to *Mechanicum*; House Taranis vs Kelbor-Hal on Mars; protagonist_class `multi` (Knight scion is noble pilot, not Astartes).
+  - HH-0228 Eater of Dreams — Fel Zharost (ex-Night Lords Librarian) takes the Grey alongside ex-World Eater Macer Varren; redemption arc. Albia kept as Terran region surface form with Terra as supporting location.
+  - HH-0229 Bloodhowl — Space Wolves internal philosophical fracture; flagged `low_confidence: locations` because the wilderness world is unnamed on-page in available source coverage.
+  - HH-0230 Amor Fati — post-decapitation Eidolon (chaos POV) seeks Emperor's Children geneseed; flagged `low_confidence: locations` (chapter-houses not named).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Apollonian / Dionysian (paired spears); the Lantern (Mortarion's pistol); Knights-Errant (with hyphen, per source); Sisters of Silence / Silent Sisterhood / Oblivion Knight; Dekk-Tra (Space Wolves great-company); House Taranis; the Lightning Hall; Albia (Terran region); Irkalla (Black Ship); the Exalted (Night Lords).
+- **Verification:** lint/typecheck/brain:lint skipped per Brief 061 runbook §10 (reine Daten-Commit: Override-JSON + Markdown-Append, kein Code).
