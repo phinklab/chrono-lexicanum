@@ -1,0 +1,225 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-025",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "Tenth batch of Horus Heresy audio dramas — the 'Even More Audio Dramas' cluster spanning 2010–2012. Character-driven shorts: Curze/Dorn philosophical conflict, Dorn's introspection on Terra, Raven Guard survival after Isstvan V, the Garro/Knights-Errant procedural arc, Angron/Lorgar friction en route to Calth, and a Horus monologue. All audio_drama format, all English, all novella-tier runtime (~10–120 minutes).",
+  "books": [
+    {
+      "externalBookId": "HH-0241",
+      "slug": "the-dark-king",
+      "overrides": {
+        "synopsis": "Konrad Curze, primarch of the Night Lords, has earned the wrath of his brother Rogal Dorn through acts of terror against a newly compliant world during the Great Crusade. Wracked by visions of a galaxy in flames, Curze and Dorn trade philosophical blows over how humanity should be ruled — fear, or order. The Night Haunter escapes an Imperial Fists orbital station and turns his cruel gifts on his brother's sons, setting himself on an inexorable course toward damnation long before the Heresy openly breaks.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "character_study", "grimdark", "somber", "philosophical", "hubris", "doubt", "betrayal", "cw_violence", "cw_disturbing", "cw_mental_health", "en"],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Konrad Curze", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.68, "count": 206, "evidenceUrl": "https://www.goodreads.com/book/show/27774075" }
+      }
+    },
+    {
+      "externalBookId": "HH-0242",
+      "slug": "the-lightning-tower",
+      "overrides": {
+        "synopsis": "Rogal Dorn, primarch of the Imperial Fists, must tear down the magnificence of the Emperor's Palace and turn it into a fortress as Horus's host bears down on Terra. Wandering into the Investiary, he is met by Malcador the Sigillite, who quietly asks him what he is afraid of. Dorn answers honestly — he fears whatever it was that turned his brothers against the Imperium of Man. A reflective piece, more interior than martial, set in the long months of preparation before the Siege.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "character_study", "somber", "philosophical", "doubt", "loyalty", "faith", "cw_violence", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Rogal Dorn", "role": "pov" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.89, "count": 197, "evidenceUrl": "https://www.goodreads.com/book/show/27774064-the-lightning-tower" }
+      }
+    },
+    {
+      "externalBookId": "HH-0243",
+      "slug": "ravens-flight",
+      "overrides": {
+        "synopsis": "In the aftermath of the Dropsite Massacre on Isstvan V, the Raven Guard are reduced from eighty thousand Astartes to barely three thousand survivors hunted through the caves and mountains by the traitor legions. Primarch Corax leads a multi-stage ambush against a column of Iron Warriors, looting the dead and waging hit-and-run war just to stay alive. On Deliverance, Praefector Marcus Valerius is haunted by a dream of dying ravens and risks everything to persuade Commander Branne to launch a relief mission against impossible odds.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "last_stand", "war_story", "grimdark", "action_heavy", "loyalty", "sacrifice", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "World Eaters", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "primary" },
+          { "name": "Deliverance", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Corax", "role": "pov" },
+          { "name": "Marcus Valerius", "role": "pov" },
+          { "name": "Branne", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.84, "count": 593, "evidenceUrl": "https://www.goodreads.com/book/show/6465065-raven-s-flight" }
+      }
+    },
+    {
+      "externalBookId": "HH-0244",
+      "slug": "garro-legion-of-one",
+      "overrides": {
+        "synopsis": "Nathaniel Garro, Tylos Rubio and Macer Varren land on the ruined world of Isstvan III, where Horus first turned on his battle-brothers, hunting an Astartes warrior that Lord Malcador has commanded them to find. The world's wretched refugees rise as plague zombies and the dead climb from the rubble to attack. Among the survivors, Garro recognises a hollowed-out fighter and presses him to remember who he truly is — Garviel Loken, former captain of the Luna Wolves. Loken's mind gradually returns, and the Knights-Errant carry him back toward Terra.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "journey", "war_story", "grimdark", "somber", "loyalty", "redemption", "brotherhood", "cw_violence", "cw_disturbing", "cw_death", "en"],
+        "factions": [
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Luna Wolves", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Isstvan III", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Tylos Rubio", "role": "supporting" },
+          { "name": "Macer Varren", "role": "supporting" },
+          { "name": "Garviel Loken", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.08, "count": 662, "evidenceUrl": "https://www.goodreads.com/book/show/10146826-garro" }
+      }
+    },
+    {
+      "externalBookId": "HH-0245",
+      "slug": "butchers-nails",
+      "overrides": {
+        "synopsis": "A year after Isstvan, the World Eaters and Word Bearers escort their primarchs Angron and Lorgar toward Terra at Horus's command, but Angron's appetite for wanton slaughter on every world they encounter is slowing the war and fraying the fragile alliance. As the two legions square off against each other over their differing methods, an unexpected intervention by Dark Eldar raiders, determined to murder Angron and prevent his future elevation as a daemon prince of the Blood God, pulls both sides back from the brink. A study of two primarchs already half-lost to the powers they will one day serve.",
+        "facetIds": ["audio_drama", "male", "space_marine", "chaos", "sector", "standalone", "novella", "character_study", "war_story", "grimdark", "philosophical", "cosmic_horror", "hubris", "brotherhood", "doubt", "cw_violence", "cw_disturbing", "cw_mental_health", "en"],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Dark Eldar", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Angron", "role": "pov" },
+          { "name": "Lorgar", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.94, "count": 688, "evidenceUrl": "https://www.goodreads.com/book/show/12923435-butcher-s-nails" }
+      }
+    },
+    {
+      "externalBookId": "HH-0246",
+      "slug": "grey-angel",
+      "overrides": {
+        "synopsis": "On the distant world of Caliban, an agent of Rogal Dorn finds himself the prisoner of a legion whose loyalties may be divided. Garviel Loken, on his first mission as a Knight-Errant, has deliberately allowed himself to be captured inside the Dark Angels' fortress of Aldurukh to engineer a face-to-face meeting with Luther, while Iacton Cruze slips deeper into the citadel in search of answers. Shackled and bound, the former Luna Wolf must fight a battle of wits, lest his very presence push another legion into the arms of the Warmaster.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "mystery", "political_thriller", "character_study", "somber", "philosophical", "loyalty", "doubt", "betrayal", "cw_violence", "en"],
+        "factions": [
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "Dark Angels", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Caliban", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Garviel Loken", "role": "pov" },
+          { "name": "Luther", "role": "supporting" },
+          { "name": "Iacton Cruze", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.64, "count": 258, "evidenceUrl": "https://www.goodreads.com/book/show/15787528-grey-angel" }
+      }
+    },
+    {
+      "externalBookId": "HH-0247",
+      "slug": "burden-of-duty",
+      "overrides": {
+        "synopsis": "Battle-Captain Nathaniel Garro, moving among the Knights-Errant in search of new recruits for Malcador the Sigillite's elite cadre, makes his way to the Imperial Fists' star-fortress Phalanx. His objective is to reach the legion's librarians, kept in isolation since the Emperor forbade all use of psychic powers at Nikaea. Disabling the guard-servitors, Garro confronts six former librarians who have had no contact with their brothers or their primarch for years and are unaware that the Great Crusade has dissolved into civil war. One of them, Yored Massak, has had troubling dreams — but Dorn's standing order will not break.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "heist", "character_study", "somber", "loyalty", "doubt", "faith", "cw_violence", "en"],
+        "factions": [
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Phalanx", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Yored Massak", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.67, "count": 230, "evidenceUrl": "https://www.goodreads.com/book/show/17192485-garro" }
+      }
+    },
+    {
+      "externalBookId": "HH-0248",
+      "slug": "garro-sword-of-truth",
+      "overrides": {
+        "synopsis": "Nathaniel Garro, Knight-Errant and agent of the Sigillite, returns from the battlefields of Calth to find a new mission already waiting. A ragged fleet of Space Marines from several legions lingers at the edge of the Sol System claiming loyalty; the presence of World Eaters and Emperor's Children warriors among them draws an uneasy parallel with his own desperate flight on the Eisenstein, and Garro must look beneath the obvious to tell friend from foe. As hidden hands sacrifice their own men and tamper with evidence to frame the innocent, the truth Garro hunts proves more dangerous than the lie.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "sector", "standalone", "novella", "mystery", "political_thriller", "grimdark", "somber", "loyalty", "betrayal", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "World Eaters", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Sol System", "role": "primary" },
+          { "name": "Calth", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Hakeem", "role": "antagonist" },
+          { "name": "Tylos Rubio", "role": "supporting" },
+          { "name": "Macer Varren", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.09, "count": 458, "evidenceUrl": "https://www.goodreads.com/book/show/13547110" }
+      }
+    },
+    {
+      "externalBookId": "HH-0249",
+      "slug": "warmaster",
+      "overrides": {
+        "synopsis": "In the strategium of his flagship, Warmaster Horus lays out the next moves of his assault on his father's Imperium. He speaks of his brothers — those who stand with him and those who stand against — and weighs his hopes and fears for the war he has begun, including whether he truly believes it can be ended. Alone with his thoughts, Horus admits that for all the righteousness he claims, only the worst of the primarchs have answered his call: broken monsters with which he must somehow remake the galaxy.",
+        "facetIds": ["audio_drama", "male", "space_marine", "chaos", "galactic", "standalone", "novella", "character_study", "somber", "philosophical", "hubris", "doubt", "betrayal", "cw_violence", "en"],
+        "factions": [
+          { "name": "Sons of Horus", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Horus Lupercal", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.63, "count": 234, "evidenceUrl": "https://www.goodreads.com/book/show/16281442-warmaster" }
+      }
+    },
+    {
+      "externalBookId": "HH-0250",
+      "slug": "strike-and-fade",
+      "overrides": {
+        "synopsis": "In the broken aftermath of the Isstvan V massacre, a battered handful of Salamanders survivors lay a trap among the mountains for a Night Lords patrol they have spotted herding a captive legionnaire into the heights. Drawing the Night Haunter's murderous sons into a kill-zone meant to even the odds for a few moments, the survivors of the Dropsite Massacre weigh how long they can keep fighting, how long they can stay hidden, and for some of them, how soon their end will come.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "squad", "standalone", "novella", "war_story", "last_stand", "grimdark", "action_heavy", "brotherhood", "sacrifice", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Night Lords", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "limited source coverage of named POV/supporting characters" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.48, "count": 234, "evidenceUrl": "https://www.goodreads.com/book/show/16679677-strike-and-fade" }
+      }
+    }
+  ]
+}

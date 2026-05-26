@@ -2257,3 +2257,186 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Terra Nullius (neutral system), Knights Errant, Ark of Testimony Chapter (Word Bearers sub-chapter), Templum Daemonarchia, Deathshroud, Blackshields, Kastelan robot, Legio Cybernetica, Shadow Crusade, Dropsite Massacre, Eisenstein.
 - **Verification:** lint/typecheck/brain:lint skipped per Brief-061-Konvention (pure data commit — new override JSON + Markdown-Append, no code change).
+
+## 2026-05-26 · ssot-hh-022 · HH-0211..HH-0220 · ✅
+
+- **Cumulative books in authority:** 785
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=775, batch=ssot-hh-022, slice=HH-0211..HH-0220
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — all ten well-documented Advent shorts; one synopsis query each was sufficient.
+- **Per-book bullets:**
+  - HH-0211 The Grey Raven: standard Raven-Guard character beat that hooks into Weregeld; entry_point=requires_context.
+  - HH-0212 The Painted Count: action is shipboard on the Nightfall (no concrete world for the scene itself); used Sotha as supporting location for the daemon-blade backstory.
+  - HH-0213 Exocytosis: explicit sequel to Angels of Caliban, lone location is Zaramund; requires_context.
+  - HH-0214 The Last Son of Prospero: tight Arvida-saved-by-Malcador piece; Sigillite included as character, not as faction.
+  - HH-0215 Ordo Sinister: female pariah-princeps protagonist (Hydragyrum) → protagonist_gender=female, protagonist_class=multi (Titan crew). Primary location "Imperial Webway" — concrete-geographical enough (Eldar construct, not the warp), Terra as supporting since they defend it.
+  - HH-0216 The Ember Wolves: Titan-vs-Titan told from the traitor princeps' viewpoint → pov_side=chaos; Legio Audax + Legio Castigatra as the only factions (more specific than "Mechanicus").
+  - HH-0217 The Laurel of Defiance: ceremony-on-Macragge frame with Astagar battle in flashback; full Shadow-Crusade antagonist set kept (Word Bearers + World Eaters).
+  - HH-0218 Immortal Duty: Iron Hands Medusan Immortal at Isstvan V boarding; sole faction.
+  - HH-0219 Champion of Oaths: two-scene Sigismund vignette, both scenes on Terra; flagged data_conflict on releaseYear (roster 2017, Goodreads/BL first publication 2018 Events Anthology, Goodreads count is only 29 but is the canonical aggregation).
+  - HH-0220 Child of Chaos: Erebus monologue from Davin's ruined temple, framed by Colchisian flashback; same 2017→2018 releaseYear conflict flagged.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Legio Audax, Legio Castigatra, Ordo Sinister, Medusan Immortal, Imperial Webway, Ionus Plateau, Temple of Oaths, Borealis Thoon, Hydragyrum, Tantorus Magnificat.
+- **Verification:** lint/typecheck/brain-lint skipped per Brief-061 convention (pure data commit — one new override JSON + this log append, no code touched).
+
+## 2026-05-26 · ssot-hh-023 · HH-0221..HH-0230 · ✅
+
+- **Cumulative books in authority:** 795
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=785, batch=ssot-hh-023, slice=HH-0221..HH-0230
+- **WebSearch:** mean=1.0, max=1 (over 10 books)
+- **Per-book bullets:**
+  - HH-0221 Massacre — Night Lords / Talos's First Claw on Isstvan V dropsite; canonical Black Library eShort with strong source coverage.
+  - HH-0222 Two Metaphysical Blades — Apollonian/Dionysian spear-frame for Valdor and Russ across centuries; protagonist_class set to `multi` since Custodes + Space Wolf split the POV.
+  - HH-0223 Prologue to Nikaea — Malcador on Thawra; flagged `low_confidence: factions` because no canonical Astartes/Mechanicus body is confirmed on-page beyond the Sigillite himself.
+  - HH-0224 Abyssal — civilian POV inside Black Ship Irkalla; surface form `Irkalla` kept as named ship/location.
+  - HH-0225 Lantern's Light — Mortarion on Barbarus pre-Crusade; protagonist_class `space_marine` even though primarch (no primarch facet exists).
+  - HH-0226 The Serpent's Dance — Amendera Kendel (Sisters of Silence → Sigillite agent) and Helig Gallor (Knights-Errant) vs Alpha Legion cell in Jovian shipyards; female POV.
+  - HH-0227 The Lightning Hall — direct sequel to *Mechanicum*; House Taranis vs Kelbor-Hal on Mars; protagonist_class `multi` (Knight scion is noble pilot, not Astartes).
+  - HH-0228 Eater of Dreams — Fel Zharost (ex-Night Lords Librarian) takes the Grey alongside ex-World Eater Macer Varren; redemption arc. Albia kept as Terran region surface form with Terra as supporting location.
+  - HH-0229 Bloodhowl — Space Wolves internal philosophical fracture; flagged `low_confidence: locations` because the wilderness world is unnamed on-page in available source coverage.
+  - HH-0230 Amor Fati — post-decapitation Eidolon (chaos POV) seeks Emperor's Children geneseed; flagged `low_confidence: locations` (chapter-houses not named).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Apollonian / Dionysian (paired spears); the Lantern (Mortarion's pistol); Knights-Errant (with hyphen, per source); Sisters of Silence / Silent Sisterhood / Oblivion Knight; Dekk-Tra (Space Wolves great-company); House Taranis; the Lightning Hall; Albia (Terran region); Irkalla (Black Ship); the Exalted (Night Lords).
+- **Verification:** lint/typecheck/brain:lint skipped per Brief 061 runbook §10 (reine Daten-Commit: Override-JSON + Markdown-Append, kein Code).
+
+## 2026-05-26 · ssot-hh-024 · HH-0231..HH-0240 · ✅
+
+- **Cumulative books in authority:** 805
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=795, batch=ssot-hh-024, slice=HH-0231..HH-0240
+- **WebSearch:** mean=1.2, max=2 (over 10 books) — 2 each on HH-0231 (contents + Goodreads link) and HH-0238 (contents + Goodreads link); 1 each on the rest. Goodreads page reads via WebFetch on every book.
+- **Per-book bullets:**
+  - HH-0231 Crusade's End — Standard HH Omnibus #1 (Horus Rising + False Gods + Galaxy in Flames + the three interleaved shorts The Wolf of Ash and Fire, Death of a Silversmith, Lord of the Red Sands). Short-story titles pulled from heresyomnibus.com.
+  - HH-0232 The Razing of Prospero — HH Omnibus #3 (A Thousand Sons + Prospero Burns + ~half a dozen shorts). Dual POV captured; Custodes and Sisters of Silence carried as supporting per Russ's hosts at Tizca.
+  - HH-0233 The Last Phoenix — HH Omnibus #2 (Fulgrim + Angel Exterminatus + the novellas The Crimson Fist and The Reflection Crack'd + five shorts). Mixed pov_side (chaos+imperium) because Phall is loyalist-side material.
+  - HH-0234 Perturabo Stone and Iron — Greenskin-world location not named in any review surface; low_confidence flag on locations.
+  - HH-0235 Malcador First Lord of the Imperium — Two-hander between Malcador and Sibel Niasta; mixed-gender protagonist tag chosen over male-only because Niasta carries half the script weight.
+  - HH-0236 Konrad Curze A Lesson in Darkness — Piamen named; iterator unnamed in available coverage, kept off the character list.
+  - HH-0237 The Lords of Terra — Format-Konflikt: roster says `audio_drama` but this release is structurally an anthology re-issuing HH-0234/HH-0235/HH-0236 (three separately released solo-author audio dramas). Flagged data_conflict, suggestion `anthology`. Tags aggregated across the three constituent works per Omnibus/Anthology rule.
+  - HH-0238 Illyrium — Macragge, the Illyrium province, and the flagship Macragge's Honour all named on-page; Tarasha Euten + Ammon co-POV.
+  - HH-0239 The Revelation of the Word — Specific Five Hundred Worlds planet not named; low_confidence flag on locations. Word Bearer chaplain and Lectitio worshipper unnamed in coverage.
+  - HH-0240 Morningstar — Tizca and Prospero named; Beta-Garmon used as a time-marker in the synopsis, not as a setting tag.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Sons of Horus" and "Luna Wolves" both used (pre/post rename); "Crimson Fists" carried separately from "Imperial Fists"; "Adeptus Astra Telepathica" for Niasta's astropath corps; "Macragge's Honour" (ship), "Illyrium" (Macragge province — coincides with the book title), "Iydris" and "Eye of Terror" both kept (region + sub-region); "60-Sixty" (the Murder system from Horus Rising); "Piamen" (compliance world).
+
+## 2026-05-26 · ssot-hh-025 · HH-0241..HH-0250 · ✅
+
+- **Cumulative books in authority:** 815
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=805, batch=ssot-hh-025, slice=HH-0241..HH-0250
+- **WebSearch:** mean=1.1, max=2 (over 10 books) — one extra search for HH-0250 to find its Goodreads ID
+- **Per-book bullets:**
+  - HH-0241 The Dark King: pre-Heresy Curze/Dorn philosophical clash on an unnamed compliant world — no concrete planet to record, locations left empty.
+  - HH-0242 The Lightning Tower: Dorn introspection on Terra; clean primary location set (Terra, Imperial Palace).
+  - HH-0243 Raven's Flight: Isstvan V survival; Iron Warriors and World Eaters as antagonists; both Isstvan V and Deliverance recorded.
+  - HH-0244 Garro: Legion of One: Knights-Errant recover Loken on Isstvan III — surface-form "Knights-Errant" as primary faction plus legions-of-origin (Death Guard / Ultramarines / Luna Wolves) for the three operatives.
+  - HH-0245 Butcher's Nails: Angron/Lorgar tension en route to Calth; no specific planet (in transit) so locations left empty; pov_side=chaos because both POV primarchs are mid-fall.
+  - HH-0246 Grey Angel: Loken on Caliban testing Dark Angels' loyalty; clean planet primary.
+  - HH-0247 Burden of Duty: Garro on the Phalanx attempting to recruit librarians; Phalanx as primary location (star-fortress / sub-location).
+  - HH-0248 Garro: Sword of Truth: investigation across Sol System; the longer runtime (~2h) still bucketed length_tier=novella because there is no audio_drama-specific tier and the work remains far below short-novel scale.
+  - HH-0249 Warmaster: 9-minute Horus monologue on the Vengeful Spirit; ship-only setting, no planet/sector, locations left empty per granularity rule.
+  - HH-0250 Strike and Fade: Salamanders ambush on Isstvan V; WebSearch returned no named POV/supporting characters, characters left empty with low_confidence flag.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Knights-Errant" (Garro/Loken/Cruze/Rubio/Varren — recurring across HH-0244/0246/0247/0248), "Night Haunter" (epithet for Konrad Curze in HH-0241 and HH-0250), "Luna Wolves" (still used for Loken's prior identity in HH-0244 even though the legion has since been renamed Sons of Horus, which surfaces in HH-0249), "Phalanx" (Imperial Fists star-fortress as a sub-location), "Vengeful Spirit" (Horus's flagship — recorded only via context, not as a `locations[]` entry).
+- **Verifikation:** Reiner Daten-Commit (eine neue Override-JSON + ein Markdown-Append). `npm run lint` / `typecheck` / `brain:lint` übersprungen per Brief-061-Konvention (§10).
+
+## 2026-05-26 · ssot-hh-026 · HH-0251..HH-0260 · ✅
+
+- **Cumulative books in authority:** 825
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=815, batch=ssot-hh-026, slice=HH-0251..HH-0260
+- **WebSearch:** mean=1.4, max=2 (over 10 books) — short, well-documented Black Library Advent shorts; one extra disambiguation query each for Veritas Ferrum (captain name), Honour to the Dead (Titan legions/characters), Lucius (Goodreads URL), Hunter's Moon (Pelago characters)
+- **Per-book bullets:**
+  - HH-0251 Veritas Ferrum — 11-minute Advent short; one source suggested "Captain Atticus" but appears to conflate with another Black Library work, so characters left empty with low_confidence flag rather than guess the Iron Hands captain.
+  - HH-0252 The Sigillite — Two named operatives surface in summaries ("Khalid Hassan" debriefing, "Hasani Sabbyat" on the Gyptus mission); unclear whether the same person under two names, so listed only Khalid Hassan to stay safe. Used "Officio Sigillite" as primary faction (Malcador's operative network is closer to the audio's framing than "Imperial Army").
+  - HH-0253 Honour to the Dead — Three-strand POV (Praesagius princeps + Ultramarines squad + Ithracan civilian woman with infant) → protagonist_class=multi, gender=mixed; available summaries name no specific characters → low_confidence flag.
+  - HH-0254 Wolf Hunt — Direct sequel to The Outcast Dead → requires_context.
+  - HH-0255 Censure — Calth Underworld War tie-in to Mark of Calth → requires_context; length_tier=short since the audio runs ~75 minutes and stitches a substantial arc.
+  - HH-0256 Thief of Revelations — Post-Prospero on the Planet of Sorcerers; Magnus listed as supporting character (primarch), Thousand Sons as the sole faction.
+  - HH-0257 Khârn: The Eightfold Path — Set immediately after Betrayer → requires_context; locations left empty (the action takes place aboard the Conqueror; ships skipped per prior batches' convention).
+  - HH-0258 Lucius: The Eternal Blade — Post-Angel Exterminatus / Iydris → requires_context; Sanakht of the Thousand Sons listed as supporting (he is the duelist Lucius hunts, antagonist-coded but not violently so in this duel framing).
+  - HH-0259 Cypher: Guardian of Order — Caliban pre-Fallen; "Lord Cypher" is a title-holder (not yet the 41st-millennium Cypher); kept as surface form.
+  - HH-0260 Hunter's Moon — Named POV trio (Tidon/Ven/Sareo) plus the Space Wolf watcher Felbjorn from solid source coverage; civilian framing → protagonist_class=multi, pov_side=imperium.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Fire Masters" retained as the audio drama's term for the traitor Titan legion in Honour to the Dead (canonical Legio Infernus — surface kept for fidelity); "Officio Sigillite" as the primary faction for The Sigillite; "Planet of Sorcerers" recurs in both Thief of Revelations and Lucius: The Eternal Blade; "Khârn" with circumflex; "Vlka Fenryka" appears in Hunter's Moon source text but the legion is listed as "Space Wolves" to match prior batches.
+- **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief 061 convention (pure data commit — single new override JSON + this log append, no code).
+
+## 2026-05-26 · ssot-hh-027 · HH-0261..HH-0270 · ✅
+
+- **Cumulative books in authority:** 835
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=825, batch=ssot-hh-027, slice=HH-0261..HH-0270
+- **WebSearch:** mean=1, max=1 (over 10 books)
+- **Per-book bullets:**
+  - HH-0261 Wolf's Claw — Bjorn-claw-origin short, Space Wolves vs Alpha Legion at the Alaxxes Nebula; no issues.
+  - HH-0262 Templar — Sigismund / Word Bearers Sol-System ambush with Khan/Kharn flashbacks; no issues.
+  - HH-0263 Garro: Shield of Lies — Garro + Tallery investigating the Othrys conspiracy on Terra, Malcador reveal; no issues.
+  - HH-0264 Master of the First — Astelan / Luther political piece on Caliban; no issues.
+  - HH-0265 The Long Night — Sevatar in a Dark Angels gaol-ship; no concrete geographic anchor → locations left empty with a low_confidence flag on field=locations.
+  - HH-0266 Strategem — Roster spells the work "Strategem" (slug strategem) but Black Library / Lexicanum / Goodreads all use "Stratagem". Surface form preserved; data_conflict flag on field=title with suggestion "Stratagem".
+  - HH-0267 The Herald of Sanguinius — Imperium-Secundus / Sanguinary-Guard piece on Macragge; no issues.
+  - HH-0268 The Watcher — Knight-Errant Ison reading a dying Space Wolf's memories of the Night Lords; cosmic-horror leaning, no issues.
+  - HH-0269 The Eagle's Talon — Imperial-Fists boarding action over Tallarn told via seven vox transmissions; sources name squads (Gamus, Theophon, Arcad) but no individual POV → characters left empty with a low_confidence flag on field=characters.
+  - HH-0270 Iron Corpses — Warsmith Koparnos in the wreck-field of the Eagle's Talon on Tallarn, climbs into the Warlord titan Ostentio Contritio; no issues.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Sevatar" (also rendered "Jago Sevatarion" in some sources), "Knights Errant" (also hyphenated "Knights-Errant" in titles), "Lectitio Divinitatus" (mis-typoed "Lectito Devinatus" in one source), "Ostentio Contritio" (Warlord-class titan name), "Othrys" (codename for the Titan build-up).
+- **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief 061 convention (pure data commit — single new override JSON + this log append, no code).
+
+## 2026-05-26 · ssot-hh-028 · HH-0271..HH-0280 · ✅
+
+- **Cumulative books in authority:** 845
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=835, batch=ssot-hh-028, slice=HH-0271..HH-0280
+- **WebSearch:** mean=1.0, max=1 (over 10 books)
+- **Per-book bullets:**
+  - HH-0271 Garro: Ashes of Fealty — 18-min Garro/Voyen confrontation about a sealed casket; clean facets. Roster releaseYear=2017 reflects the "Even More Audio Dramas" anthology bundle, original MP3 was 2015 — not a roster-mistag.
+  - HH-0272 Garro: Burden of Duty — Phalanx infiltration, recruits Yored Massak under Dorn's nose. Roster releaseYear=2017 (original MP3 2012) — same anthology bundling, not a mistag.
+  - HH-0273 Garro: Oath of Moment — Calth tunnels, recruits Tylos Rubio from the 21st Company. Roster releaseYear=2017 (original MP3 2010) — same anthology bundling.
+  - HH-0274 Raptor — Raven Guard Raptors hunt Wulfen, suppress Malcador's loyalty-test on Corax; clean.
+  - HH-0275 Grey Talon — loyalist Henricos (Iron Hands) + Hibou Khan (White Scars) sailing a captured Sons-of-Horus destroyer; clean.
+  - HH-0276 Red-Marked — Thiel and censured Ultramarine veterans hunt the "Nightfane" mystery on Oran. Used "Heretic Astartes" as raw antagonist faction (specific traitor warband not named in surfaces).
+  - HH-0277 The Either — Sons-of-Horus traitor POV (Tybalt Marr on Dwell vs Shattered Legions); pov_side=chaos.
+  - HH-0278 The Heart of the Pharos — Scouts Oberdeii and Tebecai of the 199th Company descend beneath Mount Pharos on Sotha; prequel to the Pharos novel.
+  - HH-0279 The Thirteenth Wolf — Bulveye and the 13th Great Company chase a Thousand Sons sorcerer through a Prospero Portal-Maze; in-universe origin of the company's ten-thousand-year warp exile.
+  - HH-0280 Children of Sicarus — Word Bearers traitor POV; Kor Phaeron beached on Sicarus vs Kairic Adept Larazzar. Used "Daemons of Tzeentch" for the Kairic-Adept warband (Kairic = Tzeentch surface-form, Larazzar is a daemonic warlord, not a Word Bearer).
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Knights-Errant" (hyphenated per Black Library titles), "Phalanx" (Imperial Fists starfort), "Yored Massak", "Tylos Rubio", "Numinus" (Calth capital), "Navar Hef" (Raven Guard Raptor sergeant), "Bion Henricos", "Hibou Khan", "Aeonid Thiel", "Tybalt Marr", "Shadrak Meduson", "Oberdeii"/"Tebecai" (Ultramarine Scouts of 199th Company, Sotha), "Mount Pharos", "Bulveye" (13th Great Company sergeant), "Kor Phaeron", "Larazzar" (Kairic Adept), "Sicarus" (daemon world in Eye of Terror), "Daemons of Tzeentch" (Kairic→Tzeentch derivation).
+- **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief 061 convention (pure data commit — single new override JSON + this log append, no code).
+
+## 2026-05-26 · ssot-hh-029 · HH-0281..HH-0290 · ✅
+
+- **Cumulative books in authority:** 855
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=845, batch=ssot-hh-029, slice=HH-0281..HH-0290
+- **WebSearch:** mean=1.1, max=2 (over 10 books) — extra targeted query needed only for HH-0287 (Goodreads URL for Red Fief not surfaced by the synopsis search)
+- **Per-book bullets:**
+  - HH-0281 Perpetual — late Oll Persson arc; Cabal/Alpha Legion impostor ambush in Andrioch. Surface forms: "Cabal", "John Grammaticus", "athame".
+  - HH-0282 The Soul, Severed — Eidolon vs Archorian schism, no concrete geographic setting in available sources → `low_confidence` flag on `locations`.
+  - HH-0283 Valerius — Therion Cohort suicide column at Beta-Garmon under Corax; clean granularity (Therion Cohort + Raven Guard, no "Imperium" raw_name).
+  - HH-0284 The Binary Succession — Mechanicum political drama on Terra; POV is Ambassador Vethorel (female, rare for HH protagonist_gender).
+  - HH-0285 Dark Compliance — framing story; POV is the Sons of Horus emissary Argonis recounting the Accazzar-Beta atrocity, not the defiant lord receiving it.
+  - HH-0286 Blackshields: The False War — kicks off the Endryd Haar/Blackshields sub-arc; pov_side=neutral (Blackshields swear no oath), Mechanicum tagged antagonist for the Xana-Tisiphone defection.
+  - HH-0287 Blackshields: The Red Fief — middle of the Haar sub-arc, Malcador courting Haar; Goodreads URL for this title was not in the synopsis search's link block, needed one extra targeted search (still well inside the 5-call soft cap).
+  - HH-0288 Hubris of Monarchia — pre-Calth muster piece; Word Bearers tagged antagonist for the latent betrayal that is the whole point of the story; Orks tagged antagonist for Alcaeus's actual on-screen hunt.
+  - HH-0289 Nightfane — post-Ultramar Aenoid Thiel "Red-Marked" mystery on the moon of Bael. Surface form worth tracking: "Red-Marked" (Ultramarines sub-formation under Thiel).
+  - HH-0290 Blackshields: The Broken Chain — shipboard setting (Sons of Horus warship), no geographic location in source coverage → `low_confidence` flag on `locations`.
+- **value_outside_vocabulary:** [] — all facet IDs used are present in `facet-catalog.json`.
+- **Notable surface-forms (within this batch):** "Blackshields" (cross-batch warband faction, Endryd Haar), "Cabal" (xenos secret society, Perpetual), "Red-Marked" (Ultramarines sub-formation, Nightfane), "Therion Cohort" (Imperial Army cohort, Valerius), "Kakophoni" (Emperor's Children sonic-warrior sub-group, The Soul Severed), "Cicatrix Tyrannis" (Blackshields warship, False War).
+- **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint` skipped per Brief-061 convention (pure data commit: one JSON file + Markdown append, no code/schema/config changes).
+
+## 2026-05-26 · ssot-hh-030 · HH-0291..HH-0294 · ✅
+
+- **Cumulative books in authority:** 859
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=855, batch=ssot-hh-030, slice=HH-0291..HH-0294 (final HH wave, 4 books — 5/4-er domain tail)
+- **WebSearch:** mean=1.5, max=3 (over 4 books) — HH-0291 needed a separate Kaban-Project query for the embedded short-story content; other three were single-query.
+- **Per-book bullets:**
+  - HH-0291 Collected Visions — 2007 artbook omnibus (414 pages) of the four original Visions volumes (War, Darkness, Treachery, Death) plus Graham McNeill's "The Kaban Project" short story. Aggregated factions/characters/locations across the constituent volumes per omnibus rule (broad Heresy-era roster); the Kaban Project supplies the only true narrative content (Pallas Ravachol, Mechanicum, Mars).
+  - HH-0292 The Scripts: Volume I — script-book printing production texts for the first six HH audio dramas (The Dark King, The Lightning Tower, Raven's Flight, Garro: Oath of Moment, Garro: Legion of One, Butcher's Nails). Aggregated per audio drama: Night Lords / Imperial Fists / Raven Guard / Death Guard / World Eaters; POV characters Curze, Dorn, Corax, Garro, Angron. pov_side=dual (Curze + Angron are chaos, others loyalist).
+  - HH-0293 The Scripts: Volume II — script-book for The Sigillite, Honour to the Dead, Garro: Sword of Truth, Garro: Burden of Duty, Grey Angel, Censure. This volume skews loyalist (pov_side=imperium). Grey Angel features Inquisitor Veritus → applied Inquisition-consistency rule (Inquisition tagged with role=supporting). Word Bearers tagged antagonist (Censure).
+  - HH-0294 Visions of Heresy (2018 ed.) — 2018 hardback re-release of Collected Visions in Forge-World black-book layout; Alan Merrett text revised/extended by Guy Haley, plus new Neil Roberts art. Same constituent content as HH-0291 (four Visions volumes + Kaban Project), so faction/location/character aggregation is identical to HH-0291 by design — these two share the same source material.
+- **value_outside_vocabulary:** [] — all facet IDs used are present in `facet-catalog.json`.
+- **Notable surface-forms (within this batch):** "Visions of War", "Visions of Darkness", "Visions of Treachery", "Visions of Death" (the four constituent artbook volumes), "The Kaban Project" (Graham McNeill short story embedded in both artbooks), "Pallas Ravachol" (Mechanicum adept, Kaban Project POV), "Knight-Errant" (Garro arc, consistent with prior HH batches), "Aeonid Thiel" (Censure, also tagged in ssot-hh-029 Nightfane), "Sons of Horus"/"Luna Wolves" (kept both surface forms — same Legion, different eras, both appear in the constituent volumes).
+- **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint` skipped per Brief-061 convention (pure data commit: one JSON file + Markdown append, no code/schema/config changes).
+- **Note:** This batch closes out the HH domain (290 + 4 = 294 HH books) and the full 859-book roster. The next `loop:next` invocation is expected to return `loopComplete: true`; that complete-block will be appended in the next iteration per runbook §4.

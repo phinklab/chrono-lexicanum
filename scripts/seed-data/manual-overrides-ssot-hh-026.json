@@ -1,0 +1,227 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-026",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "Eleventh batch of Horus Heresy audio dramas — the 2012–2014 'Even More Audio Dramas' cluster, mostly 11–75-minute Advent shorts later folded into Legacies of Betrayal and Echoes of Ruin. Iron Hands retreating from Isstvan V, Malcador's espionage on Terra, Calth's burning at the Titan and street level, Severian's chase across Terra, the Calth Underworld War, post-Prospero Thousand Sons sorcery, Khârn in the Conqueror's pits, Lucius vs. Sanakht on the Planet of Sorcerers, an ancient Caliban evil, and a Space Wolf watcher washed up on a fishing world.",
+  "books": [
+    {
+      "externalBookId": "HH-0251",
+      "slug": "veritas-ferrum",
+      "overrides": {
+        "synopsis": "When Horus's treachery is declared, the Iron Hands strike-cruiser Veritas Ferrum runs hard for the Isstvan system in the Imperial second wave, expecting to reinforce a victory. What they find is a slaughtered loyalist host and a primarch dead on the Urgall Depression. Battered by the traitor legions and forced to retreat, the warship's captain receives an open channel from survivors of the Dropsite Massacre begging for evacuation — a rescue that will cost the ship its only chance of escape. In eleven taut minutes the X Legion must decide whether the war has already burned the humanity out of them, or whether stopping for one's brothers still means something at all.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "sector", "standalone", "novella", "war_story", "last_stand", "grimdark", "somber", "loyalty", "sacrifice", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "limited source coverage of named POV/supporting characters in this 11-minute Advent short" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.47, "count": 226, "evidenceUrl": "https://www.goodreads.com/book/show/17166478-veritas-ferrum" }
+      }
+    },
+    {
+      "externalBookId": "HH-0252",
+      "slug": "the-sigillite",
+      "overrides": {
+        "synopsis": "Malcador the Sigillite — Regent of Terra in his Emperor's absence and arguably the most powerful man in the galaxy — receives a debrief in his Imperial Palace chambers from Khalid Hassan, who has just returned from a calamitous covert raid in the wastelands of Gyptus. Hassan recounts his failure in flashback while Malcador, by turns kindly, unassuming, sinister and terrifying, probes the gaps. By the end the listener understands that very little Malcador does is what it appears to be, and that the war for Terra is already being fought by men no one will ever name. A quiet, dialogue-driven study of the Heresy's most enigmatic operator.",
+        "facetIds": ["audio_drama", "male", "mixed", "civilian", "imperium", "planetary", "standalone", "novella", "mystery", "political_thriller", "somber", "philosophical", "doubt", "faith", "cw_violence", "en"],
+        "factions": [
+          { "name": "Officio Sigillite", "role": "primary" },
+          { "name": "Imperial Army", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" },
+          { "name": "Gyptus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Malcador the Sigillite", "role": "pov" },
+          { "name": "Khalid Hassan", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.89, "count": 476, "evidenceUrl": "https://www.goodreads.com/book/show/15802986-the-sigillite" }
+      }
+    },
+    {
+      "externalBookId": "HH-0253",
+      "slug": "honour-to-the-dead",
+      "overrides": {
+        "synopsis": "Calth burns. In the city of Ithraca, the colossal Battle Titans of the Fire Masters legion stride through the streets, levelling civilian quarters in the name of their new dark masters. The loyalist god-engines of Legio Praesagius — the True Messengers — answer with their own walking arsenals, knowing the fight is almost certainly their last. Three threads weave through the rubble: a Praesagius princeps holding the line, a combat squad of Ultramarines protecting the helpless, and an Ithracan woman fleeing through looters and cultists with her baby boy. As the sky bleeds and the streets crack open, the meaning of the title becomes plain.",
+        "facetIds": ["audio_drama", "mixed", "multi", "imperium", "planetary", "standalone", "novella", "war_story", "last_stand", "grimdark", "somber", "sacrifice", "loyalty", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Legio Praesagius", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Fire Masters", "role": "antagonist" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Calth", "role": "primary" },
+          { "name": "Ithraca", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "available summaries name no specific POV princeps, sergeant, or Ithracan civilian" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.65, "count": 306, "evidenceUrl": "https://www.goodreads.com/book/show/16130718-honour-to-the-dead" }
+      }
+    },
+    {
+      "externalBookId": "HH-0254",
+      "slug": "wolf-hunt",
+      "overrides": {
+        "synopsis": "Severian — once a Luna Wolf, now one of the so-called Outcast Dead at large on Terra — still intends to slip the noose of the Imperial Palace by any means. The enigmatic Imperial hunter Yasu Nagasena dogs his trail through the ferrocrete underbelly of the homeworld, drawing him in widening circles back toward the place where it all began. As news of the massacre at Isstvan V continues to rip through every garrison and chapelry on Terra, both prey and hunter are forced into uncomfortable truths about loyalty, identity, and which side of the line they now stand on. A direct continuation of the events of The Outcast Dead.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "planetary", "requires_context", "novella", "mystery", "journey", "somber", "philosophical", "doubt", "loyalty", "betrayal", "cw_violence", "en"],
+        "factions": [
+          { "name": "Luna Wolves", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Severian", "role": "pov" },
+          { "name": "Yasu Nagasena", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.84, "count": 232, "evidenceUrl": "https://www.goodreads.com/book/show/17936880-wolf-hunt" }
+      }
+    },
+    {
+      "externalBookId": "HH-0255",
+      "slug": "censure",
+      "overrides": {
+        "synopsis": "Years into the Underworld War in Calth's arcology network, Sergeant Aeonid Thiel — already attached to Captain Vultius's Ultramarines company under censure for back on Macragge — disobeys orders to come up from the lightless tunnels. Daemonic incursions led by Dark Apostle Kurtha Sedd have overrun a XIII Legion stronghold on the irradiated surface, where solar flares now scour everything that lives. With only a single lowly Imperial Army trooper at his side, Thiel braves the burning plains to drive the Word Bearers out, knowing that his fate when he returns is just as likely to be a bolter to the back of the head as a commendation.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "planetary", "requires_context", "short", "war_story", "siege", "grimdark", "action_heavy", "loyalty", "brotherhood", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Imperial Army", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Calth", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Aeonid Thiel", "role": "pov" },
+          { "name": "Kurtha Sedd", "role": "antagonist" },
+          { "name": "Vultius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.76, "count": 289, "evidenceUrl": "https://www.goodreads.com/book/show/18304838-censure" }
+      }
+    },
+    {
+      "externalBookId": "HH-0256",
+      "slug": "thief-of-revelations",
+      "overrides": {
+        "synopsis": "On the Planet of Sorcerers in the wake of Prospero's burning, Ahzek Ahriman walks the Great Ocean of the warp beside his primarch Magnus the Red, hunting for any future in which the Thousand Sons survive. The flesh-change is again consuming his brothers, and Ahriman — chief Librarian, scholar, would-be saviour — is already turning the work over in his mind that will become the infamous Rubric. Captains Hathor Maat, Amon and Sobek attend, but the audio drama leans on quiet dialogue rather than spectacle: a study of a brilliant, doomed mind reaching for a cure that will cost more than the disease.",
+        "facetIds": ["audio_drama", "male", "space_marine", "chaos", "sector", "requires_context", "novella", "character_study", "philosophical", "somber", "cosmic_horror", "hubris", "doubt", "faith", "cw_violence", "en"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Planet of Sorcerers", "role": "primary" },
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ahzek Ahriman", "role": "pov" },
+          { "name": "Magnus the Red", "role": "supporting" },
+          { "name": "Hathor Maat", "role": "supporting" },
+          { "name": "Amon", "role": "supporting" },
+          { "name": "Sobek", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.57, "count": 254, "evidenceUrl": "https://www.goodreads.com/book/show/19040229-thief-of-revelations" }
+      }
+    },
+    {
+      "externalBookId": "HH-0257",
+      "slug": "kharn-the-eightfold-path",
+      "overrides": {
+        "synopsis": "In the fighting pits of the World Eaters flagship Conqueror, Khârn and his fellow legionaries compete in ever-bloodier matches against one another — gladiatorial spectacle masquerading as discipline. As the Butcher's Nails dig deeper into every brain, the XII Legion has forsaken its earlier Crimson Path and now walks what its chaplains call the Eightfold Path, openly courting the favour of the Blood God. Set immediately after the events of Betrayer, the short drama uses a single combat between Khârn and one of the elite Devourers as a window into how completely the implants are remaking him, and how little of his old self remains to push back.",
+        "facetIds": ["audio_drama", "male", "space_marine", "chaos", "squad", "requires_context", "novella", "character_study", "grimdark", "action_heavy", "philosophical", "betrayal", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Khârn", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.75, "count": 230, "evidenceUrl": "https://www.goodreads.com/book/show/19289919.Kharn_The_Eightfold_Path" }
+      }
+    },
+    {
+      "externalBookId": "HH-0258",
+      "slug": "lucius-the-eternal-blade",
+      "overrides": {
+        "synopsis": "After the III Legion is scattered in the warp following Fulgrim's apotheosis on Iydris, the swordsman Lucius is left to nurse a wounded ego — recently returned from death on a Raven Guard blade and uncertain whether the experiment is Fabius Bile's work or a gift of the Dark Gods. Hungry to prove his worth against the finest blades the galaxy has to offer, he chases the rumour of Sanakht, the legendary duellist of the Thousand Sons, into the Planet of Sorcerers within the Eye of Terror. There the two warriors meet, and the question the drama poses is which of them carries the greater favour with their new masters.",
+        "facetIds": ["audio_drama", "male", "space_marine", "chaos", "squad", "requires_context", "novella", "character_study", "grimdark", "action_heavy", "hubris", "doubt", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Thousand Sons", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Planet of Sorcerers", "role": "primary" },
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lucius", "role": "pov" },
+          { "name": "Sanakht", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.33, "count": 206, "evidenceUrl": "https://www.goodreads.com/book/show/19571610-lucius-the-eternal-blade" }
+      }
+    },
+    {
+      "externalBookId": "HH-0259",
+      "slug": "cypher-guardian-of-order",
+      "overrides": {
+        "synopsis": "Under orders from Luther himself, the young Librarian Zahariel accompanies the enigmatic Lord Cypher on one of his rare forays into the deep wilderness of Caliban. The pair return to the Northwilds in search of a defensible fortress and training ground for the Dark Angels Legion's swelling new recruits, but the old forest is not what it was: rumours of galactic civil war have crept back to their homeworld, and an ancient evil the Order thought long dead is stirring again under the trees. As Zahariel comes to understand who his strange guide really is, he begins to suspect the Legion's troubles are already older and deeper than the Heresy itself.",
+        "facetIds": ["audio_drama", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "mystery", "somber", "cosmic_horror", "faith", "doubt", "brotherhood", "cw_violence", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Caliban", "role": "primary" },
+          { "name": "Northwilds", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lord Cypher", "role": "pov" },
+          { "name": "Zahariel", "role": "supporting" },
+          { "name": "Luther", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.15, "count": 182, "evidenceUrl": "https://www.goodreads.com/book/show/20317737-cypher-guardian-of-order" }
+      }
+    },
+    {
+      "externalBookId": "HH-0260",
+      "slug": "hunters-moon",
+      "overrides": {
+        "synopsis": "On the oceanic world of Pelago — a backwater of fisherfolk who barely know there is an Imperium — old Tidon recounts to his young apprentice the strangest catch of his life. As a young man he sailed with his mentor Ven and his cousin Sareo when a stolen Alpha Legion stormbird came screaming out of the sky and crashed into the swell beside their boat. Boarding the half-sunken hulk, they found a single survivor still alive in the wreckage: a Space Wolf named Felbjorn, one of the Vlka Fenryka watchers Leman Russ had placed aboard his brother Alpharius's ships. What he had seen would not stay on his world.",
+        "facetIds": ["audio_drama", "male", "multi", "civilian", "imperium", "planetary", "standalone", "novella", "mystery", "journey", "somber", "cosmic_horror", "doubt", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Alpha Legion", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Pelago", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Tidon", "role": "pov" },
+          { "name": "Ven", "role": "supporting" },
+          { "name": "Sareo", "role": "supporting" },
+          { "name": "Felbjorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.62, "count": 209, "evidenceUrl": "https://www.goodreads.com/book/show/20661116-hunter_s_moon" }
+      }
+    }
+  ]
+}
