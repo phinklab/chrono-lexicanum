@@ -1,0 +1,224 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-022",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Ten Horus Heresy short stories from the 2016 and 2017 Advent windows, most later collected in Heralds of the Siege. The batch is dominated by character studies of single figures (Kurthuri, Skraivok, Typhon, Arvida, Hydragyrum, Corvo, Gallikus, Sigismund, Erebus) and one Titan-vs-Titan vignette, so faction/location coverage skews tight and intentional rather than broad.",
+  "books": [
+    {
+      "externalBookId": "HH-0211",
+      "slug": "the-grey-raven",
+      "overrides": {
+        "synopsis": "Balsar Kurthuri, Chief Librarian of the Raven Guard, has always answered the call of his primarch Corax. He returned to the line squads without complaint when the Edict of Nikaea silenced the Legion's psykers, and unsheathed those same powers again when Horus turned traitor. Summoned back to Terra to stand before the Sigillite Malcador for the apparent crime of unswerving loyalty, Kurthuri arrives in the company of Imperial Fists captain Noriz and the Custodian Arcatus Vindix Centurio. The reception is not what he expected: the moment he steps onto Terran soil, emergency protocols snap into place and the Custodes turn their blades on him. With nothing left but flight, the librarian must elude his pursuers across the cradle of humanity without striking back at warriors he still considers brothers in the Emperor's cause.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "requires_context", "novella", "character_study", "somber", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Adeptus Custodes", "role": "antagonist" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Balsar Kurthuri", "role": "pov" },
+          { "name": "Arcatus Vindix Centurio", "role": "antagonist" },
+          { "name": "Noriz", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.58, "count": 112, "evidenceUrl": "https://www.goodreads.com/book/show/33287171-the-grey-raven" }
+      }
+    },
+    {
+      "externalBookId": "HH-0212",
+      "slug": "the-painted-count",
+      "overrides": {
+        "synopsis": "Aboard the Night Lords flagship Nightfall, Gendor Skraivok — the painted count, marked by ancestry and warpaint — broods on the catastrophe at Sotha and the dimming of the Pharos' light. His allies distrust him, his rivals despise him, and Captain Shang has all but seized command of the Legion in his absence. Worse, the daemon-bound blade Skraivok dragged off Sotha will not be still: it whispers, weighs on his thoughts, and slowly tightens its grip. If he is to outmaneuver Shang and claw his way back to the Legion's helm, he will have to make terms with whatever rides inside that weapon. Every alliance now is a trade, and the only currency he has left to spend is the part of himself the blade has not yet taken.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "squad", "mid_series", "novella", "character_study", "grimdark", "betrayal", "hubris", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Sotha", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Gendor Skraivok", "role": "pov" },
+          { "name": "Captain Shang", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.73, "count": 160, "evidenceUrl": "https://www.goodreads.com/book/show/33378200-the-painted-count" }
+      }
+    },
+    {
+      "externalBookId": "HH-0213",
+      "slug": "exocytosis",
+      "overrides": {
+        "synopsis": "Hounded across the void by Lion El'Jonson's pursuing fleet, First Captain Calas Typhon has limped what remains of the Death Guard to sanctuary in the Segmentum Obscurus. On the forest world of Zaramund, Luther of Caliban and his Dark Angels grant the battered traitors safe harbour while their ships are repaired — a courtesy thin enough to feel like a leash. Typhon paces the encampment in restless thought, sleep denied to him by dreams he does not understand and by changes creeping through his flesh that no apothecary will name. Something has come with him out of the wider war: a slow rot, a patient blessing, a corruption that wears the shape of mercy. He waits, watches Luther's brothers across the firelight, and feels the thing inside him beginning to answer to a name.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "squad", "requires_context", "novella", "character_study", "cosmic_horror", "somber", "betrayal", "doubt", "cw_violence", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "Dark Angels", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Zaramund", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Calas Typhon", "role": "pov" },
+          { "name": "Luther", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.85, "count": 119, "evidenceUrl": "https://www.goodreads.com/book/show/33535849-exocytosis" }
+      }
+    },
+    {
+      "externalBookId": "HH-0214",
+      "slug": "the-last-son-of-prospero",
+      "overrides": {
+        "synopsis": "Revuel Arvida, last of the Thousand Sons to walk freely among the loyal Legions, is dying. The flesh-change that consumed his brothers on Prospero has caught up with him at last, and the psychic toll of shepherding his White Scars kinsmen through the ruinstorm has all but finished the work. Jaghatai Khan, who calls Arvida brother in everything but blood, refuses to let him go. But the Sigillite Malcador warns that survival will demand more than mortal medicine: only the Imperial Regent's craft can stitch what is left of Arvida's body back together, and only the Khan can hold what remains of his soul in place while it happens. What returns from that table will not quite be the man who lay down on it — and may yet be more useful, in the war to come, than the Thousand Son who died there.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "requires_context", "novella", "character_study", "somber", "philosophical", "sacrifice", "faith", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "White Scars", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Revuel Arvida", "role": "pov" },
+          { "name": "Jaghatai Khan", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.11, "count": 169, "evidenceUrl": "https://www.goodreads.com/en/book/show/33556504" }
+      }
+    },
+    {
+      "externalBookId": "HH-0215",
+      "slug": "ordo-sinister",
+      "overrides": {
+        "synopsis": "When Magnus the Red shattered the wards of the Imperial Webway, daemons poured through the breach toward the heart of Terra itself. While the Emperor stands at the breach holding the structure of the tunnels together by will alone, the killing in the deep ways is left to weapons most of the Imperium does not know exist. In the spiral chambers of the Lychway, the Psi-Titan Borealis Thoon of the Ordo Sinister walks alone. Powered by chained psykers and commanded by the pariah princeps Hydragyrum, the engine drives wave after wave of warp entities into a controlled killing ground, its null-laced weapons annihilating what no other weapon can touch. As Hydragyrum's bound psykers burn out one after another, the past that brought her to this command crowds in around her — and ahead, something far older than the daemons she has slain is beginning to take shape in the dark.",
+        "facetIds": ["book", "female", "multi", "imperium", "sector", "requires_context", "novella", "war_story", "action_heavy", "cosmic_horror", "sacrifice", "faith", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Ordo Sinister", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Imperial Webway", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Hydragyrum", "role": "pov" },
+          { "name": "Borealis Thoon", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.83, "count": 154, "evidenceUrl": "https://www.goodreads.com/book/show/34408337-ordo-sinister" }
+      }
+    },
+    {
+      "externalBookId": "HH-0216",
+      "slug": "the-ember-wolves",
+      "overrides": {
+        "synopsis": "On the hive world of Absalom, the engine war that decides which Legio answers to whom rages through the smoke. The Emperor-class god-engines of Legio Castigatra have arrived to anchor a loyalist line — but the Ember Wolves of Legio Audax have been waiting for them since long before the first horn sounded. Princeps Balthus Voltemand leads a six-strong pack of Warhound titans through the city's bones, hunting an engine-kill the way his namesakes once hunted prey on the plains of their lost homeworld. His chosen target is the Warmonger Tantorus Magnificat, a Titan twice the height of any of his own pack. The kill, when it comes at last, is everything he and his princeps brotherhood have trained their whole lives for. What rises afterward, from the wreckage of the thing they brought down, is not.",
+        "facetIds": ["book", "male", "multi", "chaos", "planetary", "mid_series", "novella", "war_story", "action_heavy", "grimdark", "brotherhood", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Legio Audax", "role": "primary" },
+          { "name": "Legio Castigatra", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Absalom", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Balthus Voltemand", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.55, "count": 103, "evidenceUrl": "https://www.goodreads.com/en/book/show/34564440" }
+      }
+    },
+    {
+      "externalBookId": "HH-0217",
+      "slug": "the-laurel-of-defiance",
+      "overrides": {
+        "synopsis": "The Shadow Crusade is over. The Word Bearers and their World Eater allies have been broken and turned out of Ultramar, and Roboute Guilliman, with his loyal brother primarchs at his side, has declared the founding of a new Imperium upon the bones of the old. Lucretius Corvo, Ultramarines captain and survivor of more battles than he cares to count, returns to Macragge not for war but for ceremony: the primarchs themselves mean to honour him with the Laurel of Defiance for what he led his men to do on Astagar. Among the great and the good of the new realm, uncomfortable in his finery and uncertain whether the secession he is being decorated for is wisdom or hubris, Corvo lets himself remember the world he holds the laurel for — and wonders whether the man who fought there would recognise the man being thanked for it now.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "mid_series", "novella", "character_study", "war_story", "somber", "philosophical", "doubt", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "World Eaters", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Macragge", "role": "primary" },
+          { "name": "Astagar", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lucretius Corvo", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.87, "count": 109, "evidenceUrl": "https://www.goodreads.com/book/show/36406001-the-laurel-of-defiance" }
+      }
+    },
+    {
+      "externalBookId": "HH-0218",
+      "slug": "immortal-duty",
+      "overrides": {
+        "synopsis": "Ahrem Gallikus is an Iron Hand in name and in oath, but he is also a Medusan Immortal — one of the Legion's disgraced, sworn to fight bare-handed and helmless until the next blow finds them. Now, at the end of the line, he kneels before his own brothers and waits for the executioner's bolt. Before the round is loaded, they let him speak. What he tells is the story of a single boarding action above Isstvan V, when the Iron Hands of the warship Retiarius tried to cut a path through Horus's blockade and rejoin what remained of Ferrus Manus's Legion. It is the story of how the Shattered Legions were born, of what loyalty looks like when there is no Primarch left to demand it, and of what a man condemned to die has left in him to give.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "requires_context", "novella", "war_story", "last_stand", "somber", "grimdark", "sacrifice", "brotherhood", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ahrem Gallikus", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.51, "count": 94, "evidenceUrl": "https://www.goodreads.com/book/show/36630916-immortal-duty" }
+      }
+    },
+    {
+      "externalBookId": "HH-0219",
+      "slug": "champion-of-oaths",
+      "overrides": {
+        "synopsis": "Two scenes from a single life. In the drift camps of Terra's Ionus Plateau, an orphan boy puts himself between a vicious teenage gang and the smaller children they have been preying on, refusing to step aside even when refusal will almost certainly kill him. In the Temple of Oaths, lifetimes later, a warrior in the colours of the Imperial Fists faces two hundred of his brother champions one after another, every duel pressing him a little closer to collapse, every victory a step toward the rank of First of Templars. Between the two stands Sigismund — not yet the killer of titans the rest of the galaxy will come to know, but the same iron will, the same refusal to let any line he draws be crossed, the same unhurried indifference to whether the cost will be paid by him or by the world that asks it of him.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "squad", "standalone", "novella", "character_study", "philosophical", "somber", "loyalty", "sacrifice", "faith", "cw_violence", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sigismund", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "releaseYear", "reason": "Roster lists 2017; Goodreads/Black Library record first publication in 2018 Events Anthology", "suggestion": "2018" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.97, "count": 29, "evidenceUrl": "https://www.goodreads.com/book/show/198207203-champion-of-oaths" }
+      }
+    },
+    {
+      "externalBookId": "HH-0220",
+      "slug": "child-of-chaos",
+      "overrides": {
+        "synopsis": "Erebus, First Chaplain of the Word Bearers, sits in the ruins of an ancient temple on Davin and tells his own story without flinching from any of it. He speaks of a Colchisian childhood in a dust-blown village, of the ambition that drove him out of it, of the path that led him to the Ruinous Powers, and of the part he played in turning Lorgar — and through Lorgar, half the Legions of the Emperor — toward Chaos. The voice is calm, unrepentant, almost conversational: the testimony of a man entirely at peace with what he has chosen. There is no plea here, no bid for sympathy, no buried suggestion that some kinder reading might still redeem him. Erebus closes that door himself, as carefully as he closes any other.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "squad", "standalone", "novella", "character_study", "philosophical", "grimdark", "hubris", "betrayal", "faith", "cw_violence", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Colchis", "role": "primary" },
+          { "name": "Davin", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Erebus", "role": "pov" },
+          { "name": "Lorgar", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "releaseYear", "reason": "Roster lists 2017; Goodreads/Black Library record first publication in 2018 Events Anthology (later as a 2020 eShort)", "suggestion": "2018" }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.17, "count": 143, "evidenceUrl": "https://www.goodreads.com/book/show/53507713-child-of-chaos" }
+      }
+    }
+  ]
+}

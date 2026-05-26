@@ -2257,3 +2257,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Terra Nullius (neutral system), Knights Errant, Ark of Testimony Chapter (Word Bearers sub-chapter), Templum Daemonarchia, Deathshroud, Blackshields, Kastelan robot, Legio Cybernetica, Shadow Crusade, Dropsite Massacre, Eisenstein.
 - **Verification:** lint/typecheck/brain:lint skipped per Brief-061-Konvention (pure data commit — new override JSON + Markdown-Append, no code change).
+
+## 2026-05-26 · ssot-hh-022 · HH-0211..HH-0220 · ✅
+
+- **Cumulative books in authority:** 785
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=775, batch=ssot-hh-022, slice=HH-0211..HH-0220
+- **WebSearch:** mean=1.0, max=1 (over 10 books) — all ten well-documented Advent shorts; one synopsis query each was sufficient.
+- **Per-book bullets:**
+  - HH-0211 The Grey Raven: standard Raven-Guard character beat that hooks into Weregeld; entry_point=requires_context.
+  - HH-0212 The Painted Count: action is shipboard on the Nightfall (no concrete world for the scene itself); used Sotha as supporting location for the daemon-blade backstory.
+  - HH-0213 Exocytosis: explicit sequel to Angels of Caliban, lone location is Zaramund; requires_context.
+  - HH-0214 The Last Son of Prospero: tight Arvida-saved-by-Malcador piece; Sigillite included as character, not as faction.
+  - HH-0215 Ordo Sinister: female pariah-princeps protagonist (Hydragyrum) → protagonist_gender=female, protagonist_class=multi (Titan crew). Primary location "Imperial Webway" — concrete-geographical enough (Eldar construct, not the warp), Terra as supporting since they defend it.
+  - HH-0216 The Ember Wolves: Titan-vs-Titan told from the traitor princeps' viewpoint → pov_side=chaos; Legio Audax + Legio Castigatra as the only factions (more specific than "Mechanicus").
+  - HH-0217 The Laurel of Defiance: ceremony-on-Macragge frame with Astagar battle in flashback; full Shadow-Crusade antagonist set kept (Word Bearers + World Eaters).
+  - HH-0218 Immortal Duty: Iron Hands Medusan Immortal at Isstvan V boarding; sole faction.
+  - HH-0219 Champion of Oaths: two-scene Sigismund vignette, both scenes on Terra; flagged data_conflict on releaseYear (roster 2017, Goodreads/BL first publication 2018 Events Anthology, Goodreads count is only 29 but is the canonical aggregation).
+  - HH-0220 Child of Chaos: Erebus monologue from Davin's ruined temple, framed by Colchisian flashback; same 2017→2018 releaseYear conflict flagged.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** Legio Audax, Legio Castigatra, Ordo Sinister, Medusan Immortal, Imperial Webway, Ionus Plateau, Temple of Oaths, Borealis Thoon, Hydragyrum, Tantorus Magnificat.
+- **Verification:** lint/typecheck/brain-lint skipped per Brief-061 convention (pure data commit — one new override JSON + this log append, no code touched).
