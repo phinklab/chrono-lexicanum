@@ -1,0 +1,229 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-017",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "Eleventh HH batch — ten short stories, mostly from the 'Age of Darkness' (2011) anthology with four 2012 quick-reads. Heavy emphasis on primarch-encounters, post-Isstvan grief and Sons-of-Horus interiority; length_tier omitted (short shorts sit below the novella bucket). Two standouts ratings-wise: 'The Iron Within' (4.26 / 330) for the Dantioch loyalist-Iron-Warrior debut and 'Savage Weapons' (4.09 / 393) for the Lion vs. Curze parlay. 'Army of One' is the Eversor-assassin one-shot — protagonist unnamed.",
+  "books": [
+    {
+      "externalBookId": "HH-0161",
+      "slug": "rebirth",
+      "overrides": {
+        "synopsis": "After the Burning of Prospero, Menes Kalliston of the Thousand Sons leads a small detail back to the cinders of Tizca on a quiet errand from his primarch, against the warnings of his second-in-command Revuel Arvida. They expect ruins. They find World Eaters waiting in them. Captured and interrogated by Khârn himself, Kalliston is shown the true purpose of his return — a relic from Horus's armour that Magnus once used to reach his fallen brother — and, near the end, he sees into Khârn's tortured mind clearly enough to offer the Eighth Captain a moment of relief from the Butcher's Nails. For an instant it nearly takes. Then the rage answers and Kalliston dies under Khârn's hands. Above the ruins, Arvida discovers his ship taken and uses his Corvidae sight to slip away with a single, bleak conviction: knowledge is power.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "squad", "planetary", "requires_context", "character_study", "war_story", "grimdark", "somber", "philosophical", "brotherhood", "redemption", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "World Eaters", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Prospero", "role": "primary" },
+          { "name": "Tizca", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Menes Kalliston", "role": "pov" },
+          { "name": "Revuel Arvida", "role": "pov" },
+          { "name": "Khârn", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.64, "count": 242, "evidenceUrl": "https://www.goodreads.com/book/show/22599263-rebirth" }
+      }
+    },
+    {
+      "externalBookId": "HH-0162",
+      "slug": "the-face-of-treachery",
+      "overrides": {
+        "synopsis": "In the bloody wake of the Dropsite Massacre, Commander Branne of the Raven Guard brings a fleet back to Isstvan V to pull his wounded primarch Corax out from beneath the encircling traitor host. The void-war above the killing-ground is unforgiving; the rebel cordon is tighter than any briefing predicted. As starships duel in the dark and Corax's life hangs by a thread, the rescue turns on the loyalty of a single warrior moving inside the enemy fleet — a Space Marine who is not at all who he appears to be. The story sits between 'Raven's Flight' and 'Deliverance Lost' and bridges the moment the XIX Legion's survival changes hands.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "company", "sector", "requires_context", "war_story", "political_thriller", "grimdark", "somber", "action_heavy", "loyalty", "sacrifice", "betrayal", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Alpha Legion", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Branne Nev", "role": "pov" },
+          { "name": "Corax", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.66, "count": 186, "evidenceUrl": "https://www.goodreads.com/book/show/22599271-the-face-of-treachery" }
+      }
+    },
+    {
+      "externalBookId": "HH-0163",
+      "slug": "little-horus",
+      "overrides": {
+        "synopsis": "Horus Aximand — Little Horus, fifth captain of the Sons of Horus and youngest of the Mournival — has been dreaming. A figure in his sleep walks beside him with a face he cannot quite see, and he wakes uneasy at every dawn of his Legion's new war. Tasked with subjugating Dwell, an Imperial world whose great mausoleum-engines preserve the memories of the honoured dead, Aximand plans the assault with Grael Noctua, then leads his men down into a battle that should be easy. It is not. The Iron Hands captain Shadrak Meduson has brought a Shattered-Legions kill-team to Dwell, including a White Scars hunter named Hibou Khan. By the time the mausoleum belongs to the Sons of Horus, Aximand has been bested in single combat, a brother has died saving him, and Khan's blade has taken away the face he was named for. The dream walks closer now, and the face within it is finally clear.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "chaos", "company", "planetary", "requires_context", "war_story", "character_study", "grimdark", "somber", "action_heavy", "brotherhood", "doubt", "hubris", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Iron Hands", "role": "antagonist" },
+          { "name": "White Scars", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Dwell", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Horus Aximand", "role": "pov" },
+          { "name": "Grael Noctua", "role": "supporting" },
+          { "name": "Shadrak Meduson", "role": "antagonist" },
+          { "name": "Hibou Khan", "role": "antagonist" },
+          { "name": "Henricos", "role": "antagonist" },
+          { "name": "Garviel Loken", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.80, "count": 306, "evidenceUrl": "https://www.goodreads.com/book/show/22599235-little-horus" }
+      }
+    },
+    {
+      "externalBookId": "HH-0164",
+      "slug": "the-iron-within",
+      "overrides": {
+        "synopsis": "Years before the Heresy, the Iron Warriors' Warsmith Barabas Dantioch lost a fortress to a Hrud migration that left him broken and prematurely aged. His Legion set him aside, posting him to garrison the Schadenhold — a fortress hewn from a single colossal stalactite hanging in a cavern of the lifeless world of Lesser Damantyne. Now another Warsmith, Idriss Krendl, arrives at the gate with a fleet and orders to muster every brother for Horus Lupercal's war. Dantioch already knows what has happened on Isstvan, and what answer he must give. Iron Warrior turns on Iron Warrior. In the long, ferocious siege that follows, a forgotten cripple does what his Legion's pride could not: he chooses the Emperor, and makes his enemies pay in cold metal and brotherly blood for the choosing.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "company", "planetary", "standalone", "siege", "last_stand", "war_story", "grimdark", "somber", "action_heavy", "loyalty", "betrayal", "sacrifice", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Lesser Damantyne", "role": "primary" },
+          { "name": "Schadenhold", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Barabas Dantioch", "role": "pov" },
+          { "name": "Idriss Krendl", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.26, "count": 330, "evidenceUrl": "https://www.goodreads.com/book/show/22599273-the-iron-within" }
+      }
+    },
+    {
+      "externalBookId": "HH-0165",
+      "slug": "savage-weapons",
+      "overrides": {
+        "synopsis": "Two years of grinding war across the Aegis sector have left the Dark Angels no closer to breaking the Night Lords than when they began. When the Night Haunter offers a parlay on a dead world named Tsagualsa, Lion El'Jonson accepts. Each primarch comes with only two warriors: Corswain and Alajos for the Lion, Sevatar and Sheng for Konrad Curze. The fleets watch from orbit while the brothers walk the bones of a half-built fortress and talk. The peace lasts exactly until Curze finds the insult Jonson cannot bear, and the Lion drives steel through him in answer. What follows is two primarchs at full fury and three duels at their backs — the first time these brothers cross blades, the first time the Night Lords' First Captain Jago Sevatarion shows the galaxy what he is, and not the last time the Lion will hunt the Night Haunter through the dark.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "squad", "sector", "requires_context", "war_story", "character_study", "grimdark", "action_heavy", "somber", "brotherhood", "betrayal", "hubris", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Night Lords", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Tsagualsa", "role": "primary" },
+          { "name": "Aegis sector", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lion El'Jonson", "role": "pov" },
+          { "name": "Konrad Curze", "role": "antagonist" },
+          { "name": "Corswain", "role": "pov" },
+          { "name": "Alajos", "role": "supporting" },
+          { "name": "Sevatar", "role": "antagonist" },
+          { "name": "Sheng", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.09, "count": 393, "evidenceUrl": "https://www.goodreads.com/book/show/22599241-savage-weapons" }
+      }
+    },
+    {
+      "externalBookId": "HH-0166",
+      "slug": "army-of-one",
+      "overrides": {
+        "synopsis": "The hive-world of Proxima Apocryphis has gone over to the Warmaster, and the Sigillite has no Legion to spare. What Malcador sends instead is a single weapon shaped from a man — an assassin of the Eversor Temple, drugged to incandescence and turned loose at the planetary governor's heart. The story rides the last shreds of human thought left in him: flashes of a life he can almost remember, a name he can no longer say, the small mercy that nothing he kills now has time to look back. Around him the governor's army discovers what one Eversor at full burn can do to a hive. A short, ferocious portrait of the Officio Assassinorum's most volatile work.",
+        "facetIds": ["book", "audiobook", "male", "civilian", "imperium", "planetary", "standalone", "war_story", "character_study", "grimdark", "action_heavy", "somber", "sacrifice", "war", "hubris", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "cw_mental_health", "en"],
+        "factions": [
+          { "name": "Officio Assassinorum", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Proxima Apocryphis", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "Eversor protagonist is unnamed in the source; only Malcador and the offstage governor are named in available coverage." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.30, "count": 223, "evidenceUrl": "https://www.goodreads.com/book/show/13570667-army-of-one" }
+      }
+    },
+    {
+      "externalBookId": "HH-0167",
+      "slug": "kryptos",
+      "overrides": {
+        "synopsis": "In the long shadow of Isstvan V, the survivors of the betrayed Legions hunt by other means. Aboard the wounded strike cruiser Sisypheum, a Raven Guard shadow-killer named Nykona Sharrowkyn and an Iron Hands techmarine named Sabik Wayland are sent to steal a device the traitor war machine cannot do without — the cryptographic engine the loyalists have only just realised is the spine of Horus's communications. The mission is short, surgical and very nearly fatal: a boarding action over hostile space, a frantic descent into the heart of an enemy ship, and a price that will be paid long after the device is brought home. 'Kryptos' is the first sketch of the Shattered Legions doctrine that will come to define the wider story of Shadrak Meduson's war.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "squad", "sector", "requires_context", "heist", "war_story", "grimdark", "somber", "action_heavy", "brotherhood", "sacrifice", "loyalty", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Raven Guard", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Nykona Sharrowkyn", "role": "pov" },
+          { "name": "Sabik Wayland", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.60, "count": 359, "evidenceUrl": "https://www.goodreads.com/book/show/15704226" }
+      }
+    },
+    {
+      "externalBookId": "HH-0168",
+      "slug": "distant-echoes-of-old-night",
+      "overrides": {
+        "synopsis": "A loyalist strike cruiser of the Imperial Fists has been brought down over a forested moon, and its survivors are running for their lives through trees that have already begun to die. The Death Guard chaplain Murnau hunts them. His brothers are slow but very thorough, and when the chase drags on beyond his patience he reaches for the weapon his Legion is learning not to be ashamed of: a squad of Destroyers, sealed into their armour with the chemical, biological and radiological tools no other Legion will use. By the time Murnau is done, there is no enemy left to find — and not much left of the moon either. A grim, character-tight first portrait of the XIV Legion's appetite for the things their gene-father once forbade.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "chaos", "company", "planetary", "requires_context", "war_story", "last_stand", "grimdark", "cosmic_horror", "somber", "action_heavy", "faith", "hubris", "betrayal", "war", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "Imperial Fists", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Murnau", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.49, "count": 197, "evidenceUrl": "https://www.goodreads.com/book/show/18242545-distant-echoes-of-old-night" }
+      }
+    },
+    {
+      "externalBookId": "HH-0169",
+      "slug": "lost-sons",
+      "overrides": {
+        "synopsis": "Five years ago, Sanguinius took the Blood Angels into the Signus Cluster and left a small honour-guard behind to keep watch over Baal. Warden Arkad has spent every one of those years pacing his primarch's empty halls, sharpening sword and tongue against the dust of duty. Then the news comes — Signus has gone, the IX Legion is broken on a world it should never have been sent to, and the primarch they have been waiting for is dead. An Errant Knight of Malcador's, the former Ultramarines codicier Tylos Rubio, arrives at Baal with orders to disband what remains. Arkad and his nineteen brothers will decide whether the Blood Angels die quietly with their Father's name, or hunt down the Warmaster who killed him. The story is the quiet hinge on which the surviving Legion turns its colours toward what will one day be the Death Company.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "squad", "planetary", "requires_context", "character_study", "war_story", "grimdark", "somber", "philosophical", "brotherhood", "loyalty", "sacrifice", "doubt", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Baal", "role": "primary" },
+          { "name": "Signus Cluster", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Arkad", "role": "pov" },
+          { "name": "Tylos Rubio", "role": "supporting" },
+          { "name": "Sanguinius", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.53, "count": 212, "evidenceUrl": "https://www.goodreads.com/book/show/18241377-lost-sons" }
+      }
+    },
+    {
+      "externalBookId": "HH-0170",
+      "slug": "death-of-a-silversmith",
+      "overrides": {
+        "synopsis": "A silversmith lies dying on the floor of his workshop aboard the Warmaster's flagship Vengeful Spirit, and in the long minutes it takes him to bleed out, he counts his commissions. The Iron Hands gauntlet-case that made his name. The four silver rings he was asked to craft for the Mournival, after Ullanor — moons in waxing and waning, ordered by Captain Hastur Sejanus, and never collected because the Crusade kept moving. And then, much later, a captain he had not seen before, asking for a crude mould of wolves' heads. The captain had inspected the work, pronounced it perfect, and closed his hand on the silversmith's throat. As the world narrows to a strip of light beneath a workbench, the silversmith hears familiar footsteps coming back through the door — a friend he had thought lost — and a boot crushes one of the moons into the floorboards.",
+        "facetIds": ["book", "audiobook", "male", "civilian", "chaos", "squad", "requires_context", "mystery", "character_study", "grimdark", "somber", "philosophical", "betrayal", "doubt", "hubris", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Sons of Horus", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Vengeful Spirit", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Hastur Sejanus", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "Silversmith POV and the Luna Wolf captain who kills him are unnamed in available coverage; only Sejanus is identified by name." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.79, "count": 410, "evidenceUrl": "https://www.goodreads.com/book/show/18221435-death-of-a-silversmith" }
+      }
+    }
+  ]
+}

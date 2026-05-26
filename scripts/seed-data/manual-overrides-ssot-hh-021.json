@@ -1,0 +1,480 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-021",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "This wave gathers ten Heresy quick-reads from 2015-2016: two Imperial Truth carry-overs (By the Lion's Command, All That Remains, The Phoenician, Artefacts), the Knights Errant pair Ghosts Speak Not & Patience, the opening Tallarn short Siren, the Word Bearers piece Inheritor that became a Dawn of War prequel, and three Mars-and-fringe stories (Blackshield, Myriad, Into Exile). Goodreads counts cluster tightly in the 115-165 band typical of single-author shorts, and Mars / Knights Errant programme threads dominate the back half of the batch.",
+  "books": [
+    {
+      "externalBookId": "HH-0201",
+      "slug": "by-the-lions-command",
+      "overrides": {
+        "synopsis": "After the Dark Angels fleet split in the wake of Perditus, Seneschal Corswain leads a pursuit squadron deep into contested space, hunting the Death Guard warships of the warlord Typhon. The trail brings him into orbit above Terra Nullius, a small system that has refused both the Warmaster and the Emperor and declared itself neutral while the galaxy burns. With Typhon's fleet shadowing the system's edge, Corswain has to decide how a son of the Lion answers a world that simply wishes to be left alone: persuasion, demonstration, or the example that other waverers will need to see before they make the same mistake. A tense single-encounter story about the price of neutrality during a civil war and the cold authority of an angel sent to collect it.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "war_story",
+          "political_thriller",
+          "character_study",
+          "grimdark",
+          "somber",
+          "loyalty",
+          "doubt",
+          "en",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra Nullius", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Corswain", "role": "pov" },
+          { "name": "Typhon", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.44,
+          "count": 140,
+          "evidenceUrl": "https://www.goodreads.com/book/show/25257285-by-the-lion-s-command"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0202",
+      "slug": "all-that-remains",
+      "overrides": {
+        "synopsis": "A hospital transport cast adrift in the warp carries the wounded of a hundred broken regiments — and a secret. As Horus's rebellion stretches the Imperium thin, the dead and dying are counted by the billion; greater still are those evacuated from the front to wait out the war in beds and stasis. On one such vessel a handful of half-conscious Imperial Army troopers piece together what has been happening to comrades who never returned, and discover that the missing have not simply died. A quiet, claustrophobic story about the human cost of the civil war, the men Malcador the Sigillite was already gathering in the dark, and the first foundations of a new kind of warrior the galaxy has not yet heard of.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "guardsman",
+          "imperium",
+          "squad",
+          "requires_context",
+          "mystery",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "cosmic_horror",
+          "somber",
+          "sacrifice",
+          "faith",
+          "doubt",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Imperial Army", "role": "primary" },
+          { "name": "Knights Errant", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "named viewpoint troopers are not surfaced in accessible summaries; only Malcador's framing role is verifiable." },
+          { "kind": "low_confidence", "field": "locations", "reason": "the derelict transport is not given a named registry or system in available sources; warp setting is plot-aspect, not a concrete location." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.62,
+          "count": 125,
+          "evidenceUrl": "https://www.goodreads.com/book/show/25262027-all-that-remains"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0203",
+      "slug": "the-phoenician",
+      "overrides": {
+        "synopsis": "On the black sands of Isstvan V, First Captain Gabriel Santar of the Iron Hands lies broken, struck down by Julius Kaesoron of the Emperor's Children as the Dropsite Massacre claws toward its end. From the ground he watches Fulgrim — the Phoenician, his father's oldest friend — close in on Ferrus Manus, and the unblinking eyes of the Gorgon's son see what no one else has yet truly seen: the thing that wears Fulgrim's face is not, any longer, only Fulgrim. A short, intimate counterpoint to the legendary duel between primarchs, told from the dust beside it, that turns the Heresy's most famous betrayal into a moment of recognition.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "character_study",
+          "war_story",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "betrayal",
+          "hubris",
+          "doubt",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Emperor's Children", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Gabriel Santar", "role": "pov" },
+          { "name": "Fulgrim", "role": "antagonist" },
+          { "name": "Ferrus Manus", "role": "supporting" },
+          { "name": "Julius Kaesoron", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.23,
+          "count": 155,
+          "evidenceUrl": "https://www.goodreads.com/book/show/25262035-the-phoenician"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0204",
+      "slug": "artefacts",
+      "overrides": {
+        "synopsis": "On the eve of the Dropsite Massacre, Vulkan stands among the great weapons of his own making and considers which of them to take with him to Isstvan V — and which to destroy before any could fall into the hands of those who once were brothers. Between Salamander primarch and Salamander son, the conversation reaches across Konrad Curze's descent into madness, the burning of Nostramo, and the warning signs in Horus that the Emperor's confidence missed. A quiet, forge-lit story about what a primarch leaves behind, the first stirring of the duty that the Eighteenth Legion will one day call the Forgefather, and the origin of relics still being hunted ten millennia after Vulkan himself is gone.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "character_study",
+          "somber",
+          "philosophical",
+          "grimdark",
+          "faith",
+          "brotherhood",
+          "hubris",
+          "sacrifice",
+          "doubt",
+          "en",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Vulkan", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "framing conversation is on the eve of Isstvan V; available summaries do not pin down whether the scene is set on Nocturne, in transit, or aboard Vulkan's flagship." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.54,
+          "count": 160,
+          "evidenceUrl": "https://www.goodreads.com/book/show/25815635-artefacts"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0205",
+      "slug": "ghosts-speak-not-patience",
+      "overrides": {
+        "synopsis": "Two paired stories of the Knights Errant programme. In Ghosts Speak Not, Nathaniel Garro stands in for a Sigillite who will not appear in person and carries a new task to Amendera Kendel, once a Sister of Silence and now one of Malcador's quiet hands. Patience turns to the seventy loyal sons of the Death Guard that Garro carried away from Isstvan aboard the Eisenstein — a brotherhood that has spent the war so far penned on Luna, distrusted by both sides, and that is about to be given a purpose again under Helig Gallor's command. Together the two pieces sketch the moment a half-secret order of agents starts gathering its long-overlooked survivors and pointing them at the war that still has need of them.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "character_study",
+          "mystery",
+          "somber",
+          "grimdark",
+          "loyalty",
+          "faith",
+          "doubt",
+          "redemption",
+          "brotherhood",
+          "en",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          { "name": "Knights Errant", "role": "primary" },
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "Sisters of Silence", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Luna", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Amendera Kendel", "role": "pov" },
+          { "name": "Helig Gallor", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.01,
+          "count": 141,
+          "evidenceUrl": "https://www.goodreads.com/book/show/28801563-ghosts-speak-not-patience"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0206",
+      "slug": "tallarn-siren",
+      "overrides": {
+        "synopsis": "In the irradiated tunnels under Tallarn, a handful of survivors huddle around the planet's last working astropath as the Iron Warriors comb the wreckage above for anything still drawing breath. Marshal Lycus of the Imperial Fists knows what the rest of the Imperium has not yet learned: that Perturabo's Legion has come here in strength, and that someone has to live long enough to say so. The Iron Warriors know it too, and they mean to make sure that whatever message this shelter is trying to send reaches no other ear. A short, suffocating piece set in the first hours of the Tallarn campaign about the price of a single warning getting out before everything underground is sealed forever.",
+        "facetIds": [
+          "book",
+          "mixed",
+          "multi",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "war_story",
+          "siege",
+          "last_stand",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "sacrifice",
+          "faith",
+          "doubt",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Tallarn", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Lycus", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "the astropath and the civilians at the centre of the shelter scenes are not named in accessible summaries; only Marshal Lycus surfaces by name." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.73,
+          "count": 149,
+          "evidenceUrl": "https://www.goodreads.com/book/show/29997024-tallarn"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0207",
+      "slug": "inheritor",
+      "overrides": {
+        "synopsis": "Deep within the great realm of Ultramar, the war world Kronus burns. Torquill Eliphas of the Word Bearers — captain of the Ark of Testimony Chapter, fighting through the Shadow Crusade beside the berserker warbands of the World Eaters — has spent months laying the foundations for something far older than this war. As Lorgar's invasion grinds across Ultramar, Eliphas means to plant on Kronus a Templum Daemonarchia, a structure intended to bind the warp into the stone of a captured planet. A short, lava-lit portrait of an ambitious Word Bearer captain at the moment his name is about to outlive the campaign, and of the dark thing being seeded into the soil of a world ten millennia before its next great war begins.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "planetary",
+          "requires_context",
+          "war_story",
+          "character_study",
+          "court_intrigue",
+          "grimdark",
+          "cosmic_horror",
+          "somber",
+          "hubris",
+          "faith",
+          "betrayal",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "World Eaters", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Kronus", "role": "primary" },
+          { "name": "Ultramar", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Torquill Eliphas", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.19,
+          "count": 129,
+          "evidenceUrl": "https://www.goodreads.com/book/show/28822101-inheritor"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0208",
+      "slug": "blackshield",
+      "overrides": {
+        "synopsis": "Sergeant Khorak of the Deathshroud should already be dead, but the breaking of his Legion at Isstvan has left him drifting at the edge of the Imperium with a handful of equally lost Death Guard, raiding what little falls within reach. The hunt finds him before the Imperium does: a band of warriors in crudely overpainted black armour, led by another disowned son of Mortarion — the Blackshield Crysos Morturg. What follows is less a war between two sides of the Heresy than a private reckoning between two answers to the same question: what does a Death Guard become when his Legion no longer wants him? A short, hard-edged introduction to one of the Heresy's most enigmatic renegade captains.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "dual",
+          "squad",
+          "requires_context",
+          "war_story",
+          "character_study",
+          "mystery",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "loyalty",
+          "doubt",
+          "betrayal",
+          "brotherhood",
+          "en",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "Blackshields", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Khorak", "role": "pov" },
+          { "name": "Crysos Morturg", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "the raid and confrontation are set on unnamed fringe worlds at the edge of the Imperium; no concrete planet or system is identified in accessible summaries." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.64,
+          "count": 123,
+          "evidenceUrl": "https://www.goodreads.com/book/show/31449766-blackshield"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0209",
+      "slug": "myriad",
+      "overrides": {
+        "synopsis": "On a Mars half-fallen to Kelbor-Hal, a stranded resistance of Titan crew, surviving enginseers and a handful of still-faithful tech-adepts keeps the loyalist guerrilla campaign alive one ambush at a time. Out in the rust deserts they find what every side in this war wishes it had: an intact Kastelan robot, and inside it, a discovery that could change the balance of the fight for the Red Planet — provided the loyalists are willing to wake up the kind of weapon that a generation of Mechanicum doctrine has called heresy to even repair. A direct follow-up to Cybernetica, this short returns to the question the novella left open: how much of the enemy can a war be fought with before the war itself is lost.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "tech_priest",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "war_story",
+          "mystery",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "faith",
+          "doubt",
+          "sacrifice",
+          "hubris",
+          "en",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          { "name": "Mechanicum", "role": "primary" },
+          { "name": "Dark Mechanicum", "role": "antagonist" },
+          { "name": "Legio Cybernetica", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Mars", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "no individual viewpoint adept or Titan crew member is named in accessible summaries; the resistance is presented as an ensemble carrying over from Cybernetica." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.62,
+          "count": 117,
+          "evidenceUrl": "https://www.goodreads.com/book/show/31546044-myriad"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0210",
+      "slug": "into-exhile",
+      "overrides": {
+        "synopsis": "When the traitorous allies of Horus and Kelbor-Hal seize Mars, they send elite hunters after a short list of irreplaceable names — and the technoarchaeologist Arkhan Land, discoverer of more lost Golden Age treasures than anyone now living, sits high on it. With the red planet burning around him and enemies keen to either capture or kill him, Land has to abandon his rooms full of relics and put his life in the hands of an Imperial Fists extraction team led by a legionary named Nicanor. Told largely from Nicanor's side of the story and structured in reverse from its grim final moment back to the night the run began, this short is a tight, smoke-filled prequel to The Master of Mankind about getting one stubborn man off a doomed world.",
+        "facetIds": [
+          "book",
+          "male",
+          "multi",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "heist",
+          "journey",
+          "war_story",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "sacrifice",
+          "doubt",
+          "loyalty",
+          "en",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Mechanicum", "role": "supporting" },
+          { "name": "Dark Mechanicum", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Mars", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nicanor", "role": "pov" },
+          { "name": "Arkhan Land", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "slug", "currentValue": "into-exhile", "suggestion": "into-exile", "reason": "roster slug 'into-exhile' is a typo of the canonical title 'Into Exile' (Black Library, Goodreads, Lexicanum all spell it 'Exile')." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.75,
+          "count": 165,
+          "evidenceUrl": "https://www.goodreads.com/book/show/33233215-into-exile"
+        }
+      }
+    }
+  ]
+}

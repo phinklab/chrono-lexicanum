@@ -1,0 +1,227 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-012",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7",
+  "rationale": "Tenth HH wave, all character/primarch spotlights: three full-length entries from the modern Horus Heresy: Characters subseries (Luther, Sigismund, Eidolon) plus the seven early Primarchs-era novellas (Promethean Sun, Aurelian, Brotherhood of the Storm, The Reflection Crack'd, Feat of Iron, The Lion, The Serpent Beneath). Slice skews heavily to Legion-internal psychology and primarch viewpoint, which kept faction lists tight and well-attested. No format conflicts; one location omitted where source coverage stayed vague (Promethean Sun's Exodite world unnamed in available sources, The Reflection Crack'd's shipboard setting not specifically named).",
+  "books": [
+    {
+      "externalBookId": "HH-0111",
+      "slug": "luther-first-of-the-fallen",
+      "overrides": {
+        "synopsis": "From his timeless prison deep within the Rock, Luther tells his own story. Once the noblest knight of Caliban, mentor and brother-in-arms to Lion El'Jonson, he became the First of the Fallen — the man whose betrayal would shape the Dark Angels for ten thousand years. In his own voice, Luther recounts the world that forged him, the hunts that united him with the Lion, the wounds of pride that drove them apart, and the slow seduction of forbidden knowledge that turned a hero into a heretic. Part biography, part confession, this is the testimony of a soul who insists he is the salvation as much as the curse of his Legion, and asks the reader to weigh which is the truer claim.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "chaos", "planetary", "requires_context", "standard", "character_study", "grimdark", "somber", "philosophical", "betrayal", "redemption", "doubt", "hubris", "faith", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "The Fallen", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Caliban", "role": "primary" },
+          { "name": "The Rock", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Luther", "role": "pov" },
+          { "name": "Lion El'Jonson", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.93, "count": 801, "evidenceUrl": "https://www.goodreads.com/book/show/55711322-luther" }
+      }
+    },
+    {
+      "externalBookId": "HH-0112",
+      "slug": "sigismund-the-eternal-crusader",
+      "overrides": {
+        "synopsis": "In the closing days of the Great Crusade, the remembrancer Solomon Voss is granted a rare audience with the most feared swordsman in the Imperial Fists — Sigismund, First Captain of Dorn's Legion, the warrior already named champion above all champions. Voss has come to understand one question: why does Sigismund insist that war will not end? The answer takes both men back through the formative battles of a Terran boy raised into Dorn's household, through duels of honour with World Eaters and rival Legions, through oaths sworn over corpses and grudges that no peace can settle. By the time Voss closes his notes, he has glimpsed the conviction that will outlive the Imperium itself and burn on as the Eternal Crusade.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "galactic", "requires_context", "standard", "character_study", "war_story", "somber", "action_heavy", "brotherhood", "faith", "loyalty", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "World Eaters", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sigismund", "role": "pov" },
+          { "name": "Solomon Voss", "role": "supporting" },
+          { "name": "Rogal Dorn", "role": "supporting" },
+          { "name": "Kharn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.22, "count": 708, "evidenceUrl": "https://www.goodreads.com/book/show/59893655-sigismund" }
+      }
+    },
+    {
+      "externalBookId": "HH-0113",
+      "slug": "eidolon-the-auric-hammer",
+      "overrides": {
+        "synopsis": "On the eve of the Siege of Terra, Lord Commander Primus Eidolon — the Auric Hammer, the Risen, the Soul-Severed — has fallen far from grace. Once Fulgrim's most decorated lieutenant in the Emperor's Children, he is now a creature compromised by the warp, his appetites and his pride spent. Marooned on the world of Tatricala, hunted by ghosts of past atrocities and seduced by a whispering thing that claims to know him better than he knows himself, Eidolon must choose what is still worth keeping of the warrior he once was. The price of his next breath is paid in soul, and the daemons he cannot banish have come to collect.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "chaos", "planetary", "requires_context", "standard", "character_study", "grimdark", "somber", "cosmic_horror", "hubris", "redemption", "doubt", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Tatricala", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Eidolon", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.58, "count": 355, "evidenceUrl": "https://www.goodreads.com/book/show/202190429-eidolon" }
+      }
+    },
+    {
+      "externalBookId": "HH-0114",
+      "slug": "promethean-sun",
+      "overrides": {
+        "synopsis": "At the height of the Great Crusade, the war fleets of three Legions strike at a verdant world held by the Exodite Eldar. While the Iron Hands of Ferrus Manus and Mortarion's Death Guard cut their way across open ground, it is the Salamanders who must brave the deepest, darkest jungles — and the monstrous reptilian beasts and witchery they conceal. As the campaign turns against the Imperium, the primarch Vulkan walks into the alien stronghold himself, intent on unmaking the sorcery at the heart of it. Only by his hand can the world be lit, the Eldar broken, and the promise of compliance kept.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "planetary", "standalone", "novella", "war_story", "action_heavy", "war", "brotherhood", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Iron Hands", "role": "supporting" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "Eldar", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Vulkan", "role": "pov" },
+          { "name": "Ferrus Manus", "role": "supporting" },
+          { "name": "Mortarion", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.54, "count": 725, "evidenceUrl": "https://www.goodreads.com/book/show/11797803-promethean-sun" }
+      }
+    },
+    {
+      "externalBookId": "HH-0115",
+      "slug": "aurelian",
+      "overrides": {
+        "synopsis": "Four days after the Drop Site Massacre on Isstvan V, Horus Lupercal gathers his traitor brothers in council for the first time. The mood is uneasy — and uneasier still when Lorgar, primarch of the Word Bearers, suddenly draws blade on Fulgrim and accuses the Phoenician of no longer being his brother at all. To understand this moment, the story winds back to a pilgrimage years in the making: Lorgar's voyage into the Eye of Terror in the company of the daemon Ingethel, who promised the Word Bearer truths the Emperor would never permit him to know. What Lorgar sees there — of mankind's destiny, of the throne on Terra, of the choice between gods and tyrants — sets the tone for everything that comes after.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "chaos", "galactic", "requires_context", "novella", "journey", "character_study", "grimdark", "cosmic_horror", "philosophical", "faith", "doubt", "hubris", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Sons of Horus", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Eye of Terror", "role": "primary" },
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lorgar Aurelian", "role": "pov" },
+          { "name": "Ingethel", "role": "antagonist" },
+          { "name": "Horus Lupercal", "role": "supporting" },
+          { "name": "Fulgrim", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.14, "count": 1334, "evidenceUrl": "https://www.goodreads.com/book/show/12998311-aurelian" }
+      }
+    },
+    {
+      "externalBookId": "HH-0116",
+      "slug": "brotherhood-of-the-storm",
+      "overrides": {
+        "synopsis": "While word of Horus's treachery races across the Imperium, half the Legions silent or already turned, one fleet remains stubbornly unreachable. On the ork-held world of Chondax the White Scars have been at war since Ullanor, and their Khans ride their hunts without orders or news from Terra. Through the eyes of Shiban Khan, his mentor Targutai Yesugei, and the Munitorum officer Ilya Ravallion newly assigned to keep their supplies straight, the V Legion's character takes shape — its honour, its restlessness, its bond to the Khagan Jaghatai. Then the heavens themselves bring word that nothing on Chogoris will be the same again.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "planetary", "requires_context", "novella", "war_story", "action_heavy", "brotherhood", "war", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Chondax", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Shiban Khan", "role": "pov" },
+          { "name": "Targutai Yesugei", "role": "pov" },
+          { "name": "Ilya Ravallion", "role": "pov" },
+          { "name": "Jaghatai Khan", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.95, "count": 598, "evidenceUrl": "https://www.goodreads.com/book/show/16125311-brotherhood-of-the-storm" }
+      }
+    },
+    {
+      "externalBookId": "HH-0117",
+      "slug": "the-reflection-crackd",
+      "overrides": {
+        "synopsis": "In the long shadow of the Drop Site Massacre, the Emperor's Children have stopped pretending to be the warriors they were. Their primarch Fulgrim has grown stranger by the hour, his moods unreadable, his appetites worse — and to those who knew him best, like the swordsman Lucius and the Lord Commander Eidolon, it is plain that something else is wearing the Phoenician's skin. As the Legion sinks deeper into excess and ruin, a circle of officers begins to plot the unthinkable: to cleanse their father of the daemonic thing inside him before he leads them all into oblivion. The cure they choose is worse than the disease.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "chaos", "company", "requires_context", "novella", "character_study", "court_intrigue", "grimdark", "cosmic_horror", "hubris", "betrayal", "loyalty", "cw_violence", "cw_death", "cw_disturbing", "cw_sex", "en"],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Lucius", "role": "pov" },
+          { "name": "Eidolon", "role": "supporting" },
+          { "name": "Fulgrim", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.65, "count": 415, "evidenceUrl": "https://www.goodreads.com/book/show/22439638-the-reflection-crack-d" }
+      }
+    },
+    {
+      "externalBookId": "HH-0118",
+      "slug": "feat-of-iron",
+      "overrides": {
+        "synopsis": "On the rugged world of One-Five-Four Four, Ferrus Manus drives his Iron Hands into another grinding compliance, fighting beside the Salamanders and the Death Guard. The terrain is hostile, the Eldar enemy uses ambushes and sorcerous weapons that turn his warriors' own bionics against them — and the primarch's temper is fraying. When a storm engulfs his command and an Eldar trap separates him from his sons, Ferrus is left alone in a cavern that is not entirely real, stalked by serpent-shadows and confronted with visions of his own death, his Legion's ruin, and the brother he most refuses to doubt. Whether he listens to the warning is another matter.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "planetary", "requires_context", "novella", "war_story", "character_study", "somber", "action_heavy", "hubris", "brotherhood", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Salamanders", "role": "supporting" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "One-Five-Four Four", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ferrus Manus", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.12, "count": 244, "evidenceUrl": "https://www.goodreads.com/book/show/22439649-feat-of-iron" }
+      }
+    },
+    {
+      "externalBookId": "HH-0119",
+      "slug": "the-lion",
+      "overrides": {
+        "synopsis": "Eighty days after his confrontation with Konrad Curze, Lion El'Jonson is taking his Dark Angels deeper into the war without trust in any of his brother primarchs. The fleet itself comes under attack — not by void ships but by daemons spilling out of the warp, and the artefact at the heart of the storm is a sorcerous warp-engine the Lion intends to claim for the First Legion. To survive what is coming he must do what the Council of Nikaea forbade: reinstate his Librarians and put psyker against daemon. Not every son of the Lion will accept the order, and what he is prepared to do to one who refuses will mark him as the divisive figure his Legion remembers him as.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "sector", "requires_context", "novella", "war_story", "character_study", "grimdark", "somber", "loyalty", "doubt", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Lion El'Jonson", "role": "pov" },
+          { "name": "Typhon", "role": "supporting" },
+          { "name": "Nemiel", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.65, "count": 284, "evidenceUrl": "https://www.goodreads.com/book/show/22439666-the-lion" }
+      }
+    },
+    {
+      "externalBookId": "HH-0120",
+      "slug": "the-serpent-beneath",
+      "overrides": {
+        "synopsis": "Deep in the void, the Alpha Legion maintains a covert installation called Tenebrae 9-50 — a pylon array capable of manipulating the warp itself, and the quiet reason the White Scars on Chondax remained cut off from word of the Heresy. When a security leak is reported, Omegon assembles a small, hand-picked strike team to infiltrate the station and plug the breach permanently. What unfolds is a tightly-wound infiltration where every door is locked the wrong way, every operative may be running a separate orders set, and the truth of who Omegon really serves — Alpharius, Horus, the Emperor, or no one — is a question the team's survivors will have to answer for themselves.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "chaos", "squad", "requires_context", "novella", "heist", "mystery", "action_heavy", "grimdark", "betrayal", "loyalty", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Alpha Legion", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Tenebrae 9-50", "role": "primary" },
+          { "name": "Chondax", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Omegon", "role": "pov" },
+          { "name": "Alpharius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.92, "count": 272, "evidenceUrl": "https://www.goodreads.com/book/show/22439674-the-serpent-beneath" }
+      }
+    }
+  ]
+}

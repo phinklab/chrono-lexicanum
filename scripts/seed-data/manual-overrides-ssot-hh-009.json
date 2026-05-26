@@ -1,0 +1,523 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-009",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7",
+  "rationale": "Spine of The Primarchs novella line: books one through nine plus the 2018 Sons of the Emperor anthology cap. Character-study format throughout, each title spotlighting one primarch during the Great Crusade (mostly compliance and pre-Imperium origin stories). Roster maps cleanly to public sources; one note: HH-0085 Lorgar is the only pre-discovery origin tale and carries no Astartes legion, only the Covenant of Colchis.",
+  "books": [
+    {
+      "externalBookId": "HH-0081",
+      "slug": "roboute-guilliman-lord-of-ultramar",
+      "overrides": {
+        "synopsis": "Late in the Great Crusade, Roboute Guilliman brings the XIII Legion to the dead world of Thoas to break the last remnants of an ork empire that has fouled the ruins of an ancient human civilisation. The campaign is straightforward; the trouble lies inside his own Legion. The Destroyers, an entire company built around the most apocalyptic weapons the Imperium will permit, are starting to think of themselves as a brotherhood apart, proud of the things their cousins cannot bring themselves to do. Guilliman places an outsider over them and lets the friction become the lesson. Between the chapters, his own treatises on war, morale, and the kind of Imperium that must outlast him offer the quiet counterpoint to the fighting on Thoas.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "space_marine",
+          "male",
+          "imperium",
+          "planetary",
+          "standalone",
+          "short",
+          "war_story",
+          "character_study",
+          "philosophical",
+          "somber",
+          "action_heavy",
+          "war",
+          "hubris",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Thoas", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.45,
+          "count": 1704,
+          "evidenceUrl": "https://www.goodreads.com/book/show/29430422-roboute-guilliman"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0082",
+      "slug": "leman-russ-the-great-wolf",
+      "overrides": {
+        "synopsis": "At the height of the Great Crusade, the Space Wolves and the Dark Angels combine to bring the rebel world of Dulan to compliance. The tyrant Durath has defied the Imperium openly, and Leman Russ has sworn to take his head. Lion El'Jonson counsels patience and method; Russ has neither to spare. As the joint campaign tightens around Dulan's fortresses, the rivalry between the two primarchs hardens into something the Legions around them cannot ignore. The story is framed by quieter scenes set long after the Heresy, when the Wolves are no longer a Legion and the old wound between Russ and the Lion is recounted by Jorin Bloodhowl, oldest of Russ's retainers, who saw it open in the first place.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "space_marine",
+          "male",
+          "imperium",
+          "planetary",
+          "standalone",
+          "short",
+          "war_story",
+          "character_study",
+          "siege",
+          "action_heavy",
+          "somber",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Dark Angels", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Dulan", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Leman Russ", "role": "pov" },
+          { "name": "Lion El'Jonson", "role": "supporting" },
+          { "name": "Jorin Bloodhowl", "role": "pov" },
+          { "name": "Durath", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.94,
+          "count": 1540,
+          "evidenceUrl": "https://www.goodreads.com/book/show/29430413-leman-russ"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0083",
+      "slug": "magnus-the-red-master-of-prospero",
+      "overrides": {
+        "synopsis": "The Imperial world of Morningstar is tearing itself apart, and Magnus the Red brings the Thousand Sons to lift as many of its people off the surface as he can before the planet kills them. The XV Legion is still under-strength after the flesh-change, so he calls on his brother Perturabo and the Iron Warriors to share the work. The mission stops being a simple evacuation almost as soon as it begins. There is something old buried on Morningstar that Magnus needs, knowledge from before the Long Night, and a cult of the Stormlord is determined that no one else should reach it. The book sits squarely on the line between Magnus the scholar who genuinely wants to save people and Magnus the prideful seeker who never quite walks away from a forbidden door.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "space_marine",
+          "male",
+          "imperium",
+          "planetary",
+          "standalone",
+          "short",
+          "war_story",
+          "mystery",
+          "character_study",
+          "cosmic_horror",
+          "somber",
+          "philosophical",
+          "hubris",
+          "doubt",
+          "faith",
+          "brotherhood",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "Iron Warriors", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Morningstar", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Magnus the Red", "role": "pov" },
+          { "name": "Perturabo", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.86,
+          "count": 1366,
+          "evidenceUrl": "https://www.goodreads.com/book/show/30753541-magnus-the-red"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0084",
+      "slug": "perturabo-the-hammer-of-olympia",
+      "overrides": {
+        "synopsis": "Perturabo's first novel-length portrait runs on two clocks. In the present, the Iron Warriors are grinding through a thankless campaign against the time-warping hrud when word reaches their primarch that his adopted homeworld of Olympia has risen in open rebellion against the Imperium. He abandons the alien war and brings the IV Legion home to crush the revolt by whatever means it asks of him. In the past, a child prodigy named Perturabo grows up inside the brutal court politics of Olympia, surrounded by people who fear his intellect more than they value it, with only his sister Calliphone to read him as anything close to human. The novel reaches the moment where the two timelines meet, and what the Hammer of Olympia does there shapes everything the Iron Warriors become.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "space_marine",
+          "male",
+          "imperium",
+          "planetary",
+          "standalone",
+          "short",
+          "war_story",
+          "character_study",
+          "siege",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "hubris",
+          "brotherhood",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Hrud", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Olympia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Perturabo", "role": "pov" },
+          { "name": "Dantioch", "role": "pov" },
+          { "name": "Calliphone", "role": "supporting" },
+          { "name": "Forrix", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.09,
+          "count": 1427,
+          "evidenceUrl": "https://www.goodreads.com/book/show/32860977-perturabo"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0085",
+      "slug": "lorgar-bearer-of-the-word",
+      "overrides": {
+        "synopsis": "Long before the Emperor finds him, Lorgar is a strange, golden-skinned child wandering the arid wastes of Colchis with a band of nomads. The disgraced priest Kor Phaeron takes him in for what he can extract from him, and raises him as the centrepiece of a new doctrine that will sweep aside Colchis's exhausted faiths. The Brotherhood of Lorgar grows from a heretical sect into a religious war that rewrites the planet. Through it all the young primarch is haunted by visions of a stranger from the stars who he knows, in his bones, is coming for him. The slave Nairo offers him the only voice that competes with Kor Phaeron's, and Lorgar must find his own footing between the man who made him and the future he can already see.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "civilian",
+          "male",
+          "neutral",
+          "planetary",
+          "standalone",
+          "short",
+          "character_study",
+          "war_story",
+          "court_intrigue",
+          "philosophical",
+          "somber",
+          "faith",
+          "doubt",
+          "hubris",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_socio_political",
+          "cw_abuse",
+          "en"
+        ],
+        "factions": [
+          { "name": "Covenant of Colchis", "role": "primary" },
+          { "name": "Brotherhood of Lorgar", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Colchis", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Lorgar", "role": "pov" },
+          { "name": "Kor Phaeron", "role": "pov" },
+          { "name": "Nairo", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.76,
+          "count": 1102,
+          "evidenceUrl": "https://www.goodreads.com/book/show/36330743-lorgar"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0086",
+      "slug": "fulgrim-the-palatine-phoenix",
+      "overrides": {
+        "synopsis": "Stung by the perception that his Legion is more parade-ground than warband, Fulgrim takes the Emperor's Children's first solo compliance with a deliberately small honour-guard of seven Astartes to the world of Byzas. Byzas is governed by a baroque aristocracy of feuding houses, and Fulgrim turns out to be perfectly at home there: he charms the planet's governor into compliance almost on arrival and then has to keep the result alive against the inevitable run of conspiracies and clumsy assassins that follow. The action is mostly drawing-room and corridor rather than open warfare, and Fulgrim spends as much time defending his ideal of perfection in argument as he does with a sword. The seeds of what the III Legion will become are visible already, but so is the genuine, almost likeable conviction that lets him plant them.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "space_marine",
+          "male",
+          "imperium",
+          "planetary",
+          "standalone",
+          "short",
+          "court_intrigue",
+          "political_thriller",
+          "character_study",
+          "philosophical",
+          "hubris",
+          "brotherhood",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Byzas", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Fulgrim", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.82,
+          "count": 1147,
+          "evidenceUrl": "https://www.goodreads.com/book/show/34466783-fulgrim"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0087",
+      "slug": "ferrus-manus-the-gorgon-of-medusa",
+      "overrides": {
+        "synopsis": "Mid-Crusade, the Iron Hands and the Emperor's Children are running joint exercises when news reaches them that the 413th Expedition Fleet is bogged down trying to bring the Gardinaal stellar empire to compliance. Ferrus Manus does not wait for reinforcements or for Fulgrim's caution; he takes the campaign himself, to prove a point to his brothers as much as to crack the Gardinaal. The fighting is told as much through the legionary Trurakk and the Palatine Blade Akurduana as through the primarch, with brief, unsparing flashbacks to Ferrus's making on Medusa stitched in between. The Gardinaal die hard, an assassination attempt nearly does what their fleet could not, and when Guilliman finally arrives to take stock he is grateful for the victory and furious about the price the Gorgon was willing to pay for it.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "space_marine",
+          "male",
+          "imperium",
+          "planetary",
+          "standalone",
+          "short",
+          "war_story",
+          "character_study",
+          "siege",
+          "action_heavy",
+          "grimdark",
+          "somber",
+          "hubris",
+          "brotherhood",
+          "war",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Emperor's Children", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Gardinaal", "role": "primary" },
+          { "name": "Medusa", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ferrus Manus", "role": "pov" },
+          { "name": "Moses Trurakk", "role": "pov" },
+          { "name": "Akurduana", "role": "pov" },
+          { "name": "Fulgrim", "role": "supporting" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.29,
+          "count": 746,
+          "evidenceUrl": "https://www.goodreads.com/book/show/35297657-ferrus-manus"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0088",
+      "slug": "jaghatai-khan-warhawk-of-chogoris",
+      "overrides": {
+        "synopsis": "Ever since Chogoris was brought back into the fold, the White Scars' culture of warrior-mysticism has fitted badly against the cold rationality of the Imperial Truth. Jaghatai Khan would rather his Legion be left alone to ride at the edge of the Crusade, but the question of psychic power in the Astartes will not let him. As the Librarius project takes shape, his brothers Sanguinius and Magnus press him to take a side, and his own Legion's senior captains begin to fracture along the same line. The book is told as a string of discrete episodes ranging from a vicious campaign against the xenos Nephilim to a return to Chogoris itself and on to the great triumph at Ullanor, with Targutai Yesugei and Hasik Khan carrying much of the weight when the primarch's gaze is elsewhere.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "space_marine",
+          "male",
+          "imperium",
+          "sector",
+          "standalone",
+          "short",
+          "war_story",
+          "character_study",
+          "journey",
+          "philosophical",
+          "action_heavy",
+          "somber",
+          "loyalty",
+          "doubt",
+          "brotherhood",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Nephilim", "role": "antagonist" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Chogoris", "role": "primary" },
+          { "name": "Ullanor", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Jaghatai Khan", "role": "pov" },
+          { "name": "Targutai Yesugei", "role": "pov" },
+          { "name": "Hasik Khan", "role": "supporting" },
+          { "name": "Sanguinius", "role": "supporting" },
+          { "name": "Magnus the Red", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.03,
+          "count": 1060,
+          "evidenceUrl": "https://www.goodreads.com/book/show/36373731-jaghatai-khan"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0089",
+      "slug": "vulkan-lord-of-drakes",
+      "overrides": {
+        "synopsis": "Early in the Great Crusade, the XVIII Legion is still a Terran formation in search of an identity, and out in the Taras Division it is about to be annihilated. Nineteen thousand Astartes hold the line against more than a million orks with no expectation of rescue. Their salvation lies on Nocturne, where their newly-found primarch Vulkan has been quietly raising a second Legion from the volcanic-bred warriors of his homeworld and waiting, against his own impatience, for the moment his Terran sons would be ready to call him father. When the Salamanders finally move, Vulkan splits his force: half he sends round the planet as a hammer to draw the greenskin tide, half he leads personally on a strike at the heart of the enemy. Two halves of one Legion are about to meet for the first time, and the survival of both depends on it.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "space_marine",
+          "male",
+          "imperium",
+          "planetary",
+          "standalone",
+          "short",
+          "war_story",
+          "last_stand",
+          "character_study",
+          "action_heavy",
+          "somber",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Taras Division", "role": "primary" },
+          { "name": "Nocturne", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Vulkan", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.56,
+          "count": 844,
+          "evidenceUrl": "https://www.goodreads.com/book/show/38747892-vulkan"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0090",
+      "slug": "sons-of-the-emperor",
+      "overrides": {
+        "synopsis": "An eight-story collection that fans out across the lives of the primarchs from the early Great Crusade to long after the Heresy is over. John French opens with Sanguinius's Blood Angels in The Passing of Angels, Aaron Dembski-Bowden brings the Night Lords to the table with The Abyssal Edge, and Nick Kyme's Mercy of the Dragon turns to Vulkan and a Salamander far from home. Gav Thorpe's Shadow of the Past, Guy Haley's The Emperor's Architect, L J Goulding's Prince of Blood, Graham McNeill's The Ancient Awaits and Dan Abnett's Misbegotten round the book out, between them touching on Angron, Horus, Magnus and others. The mode is character-piece rather than battle-piece throughout, and several of the stories sit decades or centuries apart from the rest of the collection.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "space_marine",
+          "male",
+          "ensemble",
+          "imperium",
+          "chaos",
+          "galactic",
+          "requires_context",
+          "short",
+          "war_story",
+          "character_study",
+          "court_intrigue",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "action_heavy",
+          "brotherhood",
+          "betrayal",
+          "loyalty",
+          "hubris",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Iron Warriors", "role": "supporting" },
+          { "name": "Sons of Horus", "role": "supporting" },
+          { "name": "Dark Angels", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Sanguinius", "role": "pov" },
+          { "name": "Konrad Curze", "role": "pov" },
+          { "name": "Vulkan", "role": "pov" },
+          { "name": "Magnus the Red", "role": "pov" },
+          { "name": "Angron", "role": "pov" },
+          { "name": "Horus", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.10,
+          "count": 599,
+          "evidenceUrl": "https://www.goodreads.com/book/show/38450891-sons-of-the-emperor"
+        }
+      }
+    }
+  ]
+}

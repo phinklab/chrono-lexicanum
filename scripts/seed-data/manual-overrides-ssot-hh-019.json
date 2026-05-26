@@ -1,0 +1,447 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-019",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "This wave clusters the 2014 Black Library Advent Calendar entries with the Death and Defiance anthology shorts: near-uniformly character studies rather than war stories, almost all returning to canonical legion POVs through a single intimate scene. Goodreads counts run in the 130-230 band typical of Heresy quick-reads, and several pieces (Sins of the Father, Virtues of the Sons) carry both ebook and audio-drama formats from their original release configuration.",
+  "books": [
+    {
+      "externalBookId": "HH-0181",
+      "slug": "child-of-night",
+      "overrides": {
+        "synopsis": "Chief Librarian Fel Zharost of the Night Lords abandoned his legion after the Edict of Nikaea and slipped back into the underhive of his birth on Terra. Years later, with the galaxy in flames he knows nothing of, hunters drag him from the dark and put him to question. A Terran prefect who pleads loyalty to the Emperor is cut apart by a single thread Zharost will not let go of: the gene-splicing crimes against a million souls that summoned the VIII Legion as punishers in the first place. Pulled into a captive legionary's memories, Zharost finally sees the Warmaster's heresy that has taken his estranged brothers, and the shape of the judgement he himself has fled from for so long.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "squad",
+          "requires_context",
+          "character_study",
+          "somber",
+          "grimdark",
+          "doubt",
+          "betrayal",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Fel Zharost", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.61,
+          "count": 214,
+          "evidenceUrl": "https://www.goodreads.com/book/show/23454731-child-of-night"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0182",
+      "slug": "the-devine-adoratrice",
+      "overrides": {
+        "synopsis": "On Molech, Raeven Devine prepares for the Becoming, the rite that will bond him to the Knight he will ride for the rest of his life. Entangled in a quiet affair with Lyx, his elder brother Abelard's wife, he glimpses on her skin the mark of the Serpent Cult and chooses not to ask. The ceremonial procession is ambushed by a Sacristan wielding an electromagnetic device; Abelard's power armour and the great carriage beasts fail at once, and Raeven seizes his brother's blade to be hailed as a hero. The plot succeeds in its real aim. Abelard bonds imperfectly to his Knight while Raeven bonds perfectly, and the path of succession in House Devine bends one step further toward the powers that put the Serpent's mark on Lyx.",
+        "facetIds": [
+          "book",
+          "male",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "court_intrigue",
+          "political_thriller",
+          "character_study",
+          "somber",
+          "betrayal",
+          "hubris",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_socio_political",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "House Devine", "role": "primary" },
+          { "name": "Serpent Cult", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Molech", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Raeven Devine", "role": "pov" },
+          { "name": "Abelard Devine", "role": "supporting" },
+          { "name": "Lyx", "role": "supporting" },
+          { "name": "Cyprian Devine", "role": "supporting" },
+          { "name": "Cebella", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.50,
+          "count": 168,
+          "evidenceUrl": "https://www.goodreads.com/book/show/22041107-the-devine-adoratrice"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0183",
+      "slug": "daemonology",
+      "overrides": {
+        "synopsis": "Beaten in single combat by the Khan on the ruined plains of Prospero, Mortarion turns his fury on the library-world of Terathalion in search of what no decree of his Father's ever allowed him to learn: how to wage war on daemons and on the psykers he loathes. The Death Guard burn the planet, and Mortarion captures the scholar Lermenta and presses her for the knowledge she has spent a life hiding. Memory and present interleave through long years on Terra and his clashes with Malcador the Sigillite, until Mortarion stands before the contradiction at the heart of his crusade. To defeat the warp's powers he must first bend, however briefly, to them.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "chaos",
+          "planetary",
+          "requires_context",
+          "character_study",
+          "somber",
+          "grimdark",
+          "philosophical",
+          "hubris",
+          "doubt",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Death Guard", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Terathalion", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Mortarion", "role": "pov" },
+          { "name": "Lermenta", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.71,
+          "count": 228,
+          "evidenceUrl": "https://www.goodreads.com/book/show/23494252"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0184",
+      "slug": "sins-of-the-father",
+      "overrides": {
+        "synopsis": "On the slow approach to Signus, Sanguinius weighs a darkness in himself and a darker future for his sons. Only Azkaellon of the Sanguinary Guard and Nassir Amit, the Flesh Tearer, hold even a thin promise. Summoned into the ritual Tempest of Angels, the two captains cross blades, and through the duel their primarch takes the measure of what his legion may yet become when the storm finally reaches them: the noble light he has tried to teach his sons, and the older red rage that runs through every son of Baal. The pairing closes on a quiet, terrible understanding of the cost the IX Legion will be asked to pay.",
+        "facetIds": [
+          "book",
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "character_study",
+          "somber",
+          "philosophical",
+          "brotherhood",
+          "doubt",
+          "sacrifice",
+          "en",
+          "cw_violence"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Sanguinius", "role": "pov" },
+          { "name": "Azkaellon", "role": "supporting" },
+          { "name": "Nassir Amit", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.57,
+          "count": 143,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24462944-sins-of-the-father"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0185",
+      "slug": "the-final-compliance-of-sixty-three-fourteen",
+      "overrides": {
+        "synopsis": "Worlds bound to Horus by oath during the Great Crusade are revisited by his emissaries, and asked to renew their fealty in the Warmaster's name. On the world once catalogued as Sixty-Three Fourteen and now called Goughen, Planetary Governor Mayder Oquin walks the gallery of artefacts he has gathered across a lifetime of compliances, each piece a relic of a culture he helped grind to dust. Above his head a Sons of Horus fleet waits in orbit and the envoys at his gate are tired of waiting too. The conquest of the galaxy reduces in his quiet, dim halls to the conscience of one old man, weighing the Emperor he serves against the son who has come for an answer.",
+        "facetIds": [
+          "book",
+          "male",
+          "civilian",
+          "imperium",
+          "planetary",
+          "standalone",
+          "character_study",
+          "political_thriller",
+          "somber",
+          "philosophical",
+          "doubt",
+          "loyalty",
+          "sacrifice",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_socio_political"
+        ],
+        "factions": [
+          { "name": "Sons of Horus", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Goughen", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Mayder Oquin", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.73,
+          "count": 191,
+          "evidenceUrl": "https://www.goodreads.com/book/show/23638885-the-final-compliance-of-sixty-three-fourteen"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0186",
+      "slug": "vorax",
+      "overrides": {
+        "synopsis": "On the Ring of Iron orbiting Mars, an adept of the Dark Mechanicum lays cunning traps for the Imperial Fists tightening their blockade around the red planet. He has counted his enemy and rehearsed his snares, and is sure he holds the geometry of the kill. The corridors of the great forge-ring tell him a darker truth. Loyalist Vorax battle-automata, silent and methodical, are moving through the dark behind him, turning every passage he prepared into a cage. Pride curdles into panic as the hunter understands he has become the hunted, and as the machines that should have been his weapons close on him in the labyrinth of his own engineering.",
+        "facetIds": [
+          "book",
+          "male",
+          "tech_priest",
+          "chaos",
+          "squad",
+          "requires_context",
+          "mystery",
+          "war_story",
+          "grimdark",
+          "cosmic_horror",
+          "action_heavy",
+          "hubris",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Dark Mechanicum", "role": "primary" },
+          { "name": "Mechanicum", "role": "antagonist" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Mars", "role": "primary" },
+          { "name": "Ring of Iron", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "the Dark Mechanicum adept is unnamed in the available source coverage" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.14,
+          "count": 163,
+          "evidenceUrl": "https://www.goodreads.com/book/show/23747824-vorax"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0187",
+      "slug": "the-value-of-fear",
+      "overrides": {
+        "synopsis": "Sergeant Ashel of the Raven Guard stalks a world in revolt, his orders to silence a rising stirred up by the Alpha Legion. His ally on the operation is unlikely: a Night Lord who has refused his own legion's treachery, and who still treats terror as the keenest weapon in his armoury. As the loyalist pair tighten the noose around their quarry, Ashel finds himself measuring his own methods against a brother whose lessons feel at once kin to the XIX Legion's shadow craft and abomination to it, and asks what the real difference is when both legions wage their wars in the language of fear.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "war_story",
+          "philosophical",
+          "grimdark",
+          "action_heavy",
+          "doubt",
+          "brotherhood",
+          "loyalty",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Night Lords", "role": "supporting" },
+          { "name": "Alpha Legion", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Ashel", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.60,
+          "count": 133,
+          "evidenceUrl": "https://www.goodreads.com/book/show/23768323-the-value-of-fear"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0188",
+      "slug": "brotherhood-of-the-moon",
+      "overrides": {
+        "synopsis": "In the aftermath of the rebellion within his own legion, Jaghatai Khan calls his wayward sons to account in trials that will determine whether they are kept or cut away. Torghun Khan, a Terran-born legionary who looked too long to the Luna Wolves and the warrior lodges they brought with them, stands before his accusers and tells his own story. He recounts the early campaigns when the V Legion fought for recognition, the bonds he formed with Horus's sons, and the long quiet path that almost led him into outright heresy at the side of the brothers he had loved before he ever met the Khan.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "character_study",
+          "court_intrigue",
+          "somber",
+          "philosophical",
+          "brotherhood",
+          "loyalty",
+          "betrayal",
+          "doubt",
+          "en",
+          "cw_violence"
+        ],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Luna Wolves", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Torghun Khan", "role": "pov" },
+          { "name": "Jaghatai Khan", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.45,
+          "count": 167,
+          "evidenceUrl": "https://www.goodreads.com/book/show/23768387-brotherhood-of-the-moon"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0189",
+      "slug": "virtues-of-the-sons",
+      "overrides": {
+        "synopsis": "Aboard the Blood Angels fleet, Sanguinius's most loyal sons step into the Tempest of Angels, the old duelling tradition carried from Baal Secundus. Nassir Amit, the Flesh Tearer, faces Khârn of the World Eaters and matches rage against rage on the blade. Azkaellon of the Sanguinary Guard crosses swords with Lucius of the Emperor's Children, finest of his legion's blademasters. Through the contests the IX Legion confronts its own twin nature, the cold nobility it carries before its brothers and the older, hungrier thing that waits inside every son of Baal. Sanguinius watches, and reads the colour of the storm coming for them all.",
+        "facetIds": [
+          "book",
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "character_study",
+          "action_heavy",
+          "philosophical",
+          "brotherhood",
+          "hubris",
+          "loyalty",
+          "en",
+          "cw_violence"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "World Eaters", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Nassir Amit", "role": "pov" },
+          { "name": "Azkaellon", "role": "pov" },
+          { "name": "Khârn", "role": "supporting" },
+          { "name": "Lucius", "role": "supporting" },
+          { "name": "Sanguinius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.77,
+          "count": 155,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24467151-virtues-of-the-sons"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0190",
+      "slug": "imperfect",
+      "overrides": {
+        "synopsis": "After his ascension to daemonhood, Fulgrim plays a quiet, monstrous game in the depths of an Emperor's Children flagship. A clone of Ferrus Manus, grown for him in Fabius's laboratory, sits across the regicide board and faces every argument and seduction the daemon-primarch can muster. When the clone refuses, as every clone before has refused, Fulgrim kills him and begins again. He hunts through a thousand variant Ferruses for the one whose loyalty might bend toward the Warmaster, and finds none. The cost of asking is something madder and emptier with every attempt, and the depths beneath the laboratory grow steadily, terribly fuller.",
+        "facetIds": [
+          "book",
+          "male",
+          "daemon",
+          "chaos",
+          "squad",
+          "requires_context",
+          "character_study",
+          "mystery",
+          "cosmic_horror",
+          "grimdark",
+          "philosophical",
+          "hubris",
+          "doubt",
+          "en",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health"
+        ],
+        "factions": [
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Iron Hands", "role": "supporting" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Fulgrim", "role": "pov" },
+          { "name": "Ferrus Manus", "role": "supporting" },
+          { "name": "Fabius Bile", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.77,
+          "count": 180,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24478292-imperfect"
+        }
+      }
+    }
+  ]
+}

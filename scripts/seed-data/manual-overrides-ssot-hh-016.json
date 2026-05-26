@@ -1,0 +1,219 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-016",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "Tenth HH batch — entirely short stories from the Tales of Heresy (2009) and Age of Darkness (2011) anthologies. Every entry stands as a self-contained sketch (Legion-portrait, primarch-moment, civilian-eye-view, or theological argument), so synopses lean on character/setup rather than arc, and length_tier is omitted because no facet bucket fits sub-novella shorts. Goodreads coverage was thin but uniformly available; 'The Last Church' is the standout (4.27 / 812).",
+  "books": [
+    {
+      "externalBookId": "HH-0151",
+      "slug": "wolf-at-the-door",
+      "overrides": {
+        "synopsis": "The Space Wolves' 13th Great Company, under Lord Bulveye, completes the conquest of Kernunnos and answers a muster call from the rest of the Legion. En route, Bulveye diverts to investigate a world hidden by warp storms, where the governor's son Andras has invited the Wolves without authority. When the Dark Eldar of the Kabal of the Shrieking Heart arrive for their regular tribute and destroy the Space Wolves' fleet, the company is stranded. Bulveye leads guerrilla raids from the wilderness, eventually storming a Dark Eldar tower and slaying their Archon. The relief fleet arrives to drive the raiders off, but compliance still demands a price: when Andras refuses to join the Imperium, Bulveye executes him and orders the world bombarded from orbit.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "company", "planetary", "standalone", "war_story", "last_stand", "grimdark", "action_heavy", "brotherhood", "loyalty", "war", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Dark Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Kernunnos", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Bulveye", "role": "pov" },
+          { "name": "Andras", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.97, "count": 214, "evidenceUrl": "https://www.goodreads.com/book/show/27419075-wolf-at-the-door" }
+      }
+    },
+    {
+      "externalBookId": "HH-0152",
+      "slug": "scions-of-the-storm",
+      "overrides": {
+        "synopsis": "After the humiliation at Monarchia, the Word Bearers have begun to prosecute the Great Crusade with renewed and unforgiving zealotry. Captain Sor Talgron of the 34th Company is dispatched to bring compliance to the world of Forty-Seven Sixteen, whose people pray to graven idols and beg to join the Imperium. Erebus declares the action a holy duty: the world's faith is heresy and must be answered with extermination. Yet as Talgron walks the smoking ruins he begins to see the truth that his Legion will not admit — the heathen idols are images of the Emperor himself, and the people slaughtered in His name had only ever wanted to worship Him. The story introduces Talgron as the introspective conscience of a Legion teetering on the edge of damnation.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "company", "planetary", "standalone", "war_story", "character_study", "grimdark", "somber", "philosophical", "faith", "doubt", "betrayal", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Forty-Seven Sixteen", "role": "primary" },
+          { "name": "Monarchia", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sor Talgron", "role": "pov" },
+          { "name": "Erebus", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.44, "count": 220, "evidenceUrl": "https://www.goodreads.com/book/show/27425984-scions-of-the-storm" }
+      }
+    },
+    {
+      "externalBookId": "HH-0153",
+      "slug": "the-voice",
+      "overrides": {
+        "synopsis": "The Black Ship Validus is found drifting unpowered in the warp, its hold full of captured psykers and its crew silent. The Sisters of Silence — pariahs whose untouchable presence can choke even the most virulent psychic power — are sent to board her and determine what happened. Veteran Amendera Kendel and the novice Leilani Mollitas press through corridors that should be empty, listening for something they should be incapable of hearing. What waits aboard the Validus is a voice that no Sister was ever meant to encounter: a presence that knows their names, knows their fears, and threatens to undo the vow that defines them.",
+        "facetIds": ["book", "audiobook", "female", "imperium", "squad", "standalone", "mystery", "last_stand", "cosmic_horror", "somber", "faith", "sacrifice", "cw_violence", "cw_disturbing", "cw_death", "en"],
+        "factions": [
+          { "name": "Sisters of Silence", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Amendera Kendel", "role": "pov" },
+          { "name": "Leilani Mollitas", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.69, "count": 190, "evidenceUrl": "https://www.goodreads.com/book/show/27463796.The_Voice" }
+      }
+    },
+    {
+      "externalBookId": "HH-0154",
+      "slug": "call-of-the-lion",
+      "overrides": {
+        "synopsis": "After five years of fruitless search through the stellar wilderness, the Dark Angels battle-barge Spear of Truth finds traces of human civilization in the DX-619 system. The world of Byzanthis lies open before two very different commanders. Chapter Master Merir Astelan, a Terran veteran, insists on offering the inhabitants the chance to join the Imperium on their own terms. Chapter Master Belath, a younger Calibanite recently raised to higher command, sees only a population to be conquered. Their argument over how compliance should be brought to Byzanthis becomes a mirror of the fracture line running through Lion El'Jonson's Legion itself — a Legion in which any two commanders rarely agree on a single course of action.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "company", "planetary", "standalone", "war_story", "court_intrigue", "character_study", "somber", "philosophical", "loyalty", "brotherhood", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Byzanthis", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Merir Astelan", "role": "pov" },
+          { "name": "Belath", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.14, "count": 213, "evidenceUrl": "https://www.goodreads.com/book/show/27504153-call-of-the-lion" }
+      }
+    },
+    {
+      "externalBookId": "HH-0155",
+      "slug": "the-last-church",
+      "overrides": {
+        "synopsis": "At the bitter end of the Unification Wars on Terra, every faith has been hunted into silence and the last priest of the Church of the Lightning Stone keeps vigil in a building marked for the torch. Uriah Olathaire has long known that the soldiers will come. Tonight, before they arrive, a stranger walks through his door. The visitor calls himself Revelation — quiet, scholarly, terribly familiar — and stays to argue with the old man over wine and candlelight while the horizon grows bright with engines. Their conversation circles faith, knowledge and what humanity will lose when religion is finally outlawed in the name of secular reason. By dawn the church will burn, the stranger will have shown his face, and Uriah will walk back into the flames with a warning that the Imperium's denial of belief will one day undo everything its architect builds.",
+        "facetIds": ["book", "audiobook", "mixed", "civilian", "neutral", "squad", "standalone", "character_study", "philosophical", "somber", "faith", "doubt", "sacrifice", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [],
+        "locations": [
+          { "name": "Terra", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Uriah Olathaire", "role": "pov" },
+          { "name": "The Emperor", "role": "primary" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.27, "count": 812, "evidenceUrl": "https://www.goodreads.com/book/show/27558354-the-last-church" }
+      }
+    },
+    {
+      "externalBookId": "HH-0156",
+      "slug": "after-deshea",
+      "overrides": {
+        "synopsis": "Just rescued from the killing-fields of his homeworld, Angron seethes in a darkened hold aboard the War Hounds' flagship — grieving the gladiator-brothers he was forced to abandon and raging against the Legion that has claimed him. Envoy after envoy has gone in to make obeisance; envoy after envoy has been killed with the primarch's bare hands. The Eighth Captain, Kharn, walks in next. He carries no weapon, and when Angron seizes him he refuses to raise a hand against his gene-father. From that refusal a strange, terrible conversation begins — about loss, about purpose, and about the unending war that might serve as a vessel for so much fury. Kharn and Angron emerge together on the bridge; the surviving captains kneel; and Captain Dreagher declares that the War Hounds will now make themselves eaters of worlds.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "squad", "standalone", "character_study", "grimdark", "somber", "action_heavy", "brotherhood", "hubris", "redemption", "war", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Desh'ea", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Angron", "role": "pov" },
+          { "name": "Kharn", "role": "pov" },
+          { "name": "Dreagher", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.00, "count": 282, "evidenceUrl": "https://www.goodreads.com/book/show/27662081-after-desh-ea" }
+      }
+    },
+    {
+      "externalBookId": "HH-0157",
+      "slug": "rules-of-engagement",
+      "overrides": {
+        "synopsis": "In the long shadow of the Calth atrocity, Roboute Guilliman has set the first stones of a vast work — a book of doctrine that will one day be called the Codex Astartes — and ordered his Ultramarines to test it. Captain Ventanus of the Troublesome Fourth Company is given a sequence of exercises against an enemy his primarch never expected to write rules for: other Space Marines. Each scenario is a small war fought, lost and refought; each refinement another sentence in a manual whose author refuses to believe a Legion brother can be planned against. Out of this brutal apprenticeship, Ventanus begins to see what the Codex will eventually become — and the price the Ultramarines have already paid for needing it at all.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "company", "planetary", "requires_context", "war_story", "character_study", "action_heavy", "philosophical", "loyalty", "brotherhood", "war", "hubris", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Calth", "role": "supporting" },
+          { "name": "Ultramar", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ventanus", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.49, "count": 210, "evidenceUrl": "https://www.goodreads.com/book/show/22599254-rules-of-engagement" }
+      }
+    },
+    {
+      "externalBookId": "HH-0158",
+      "slug": "liars-due",
+      "overrides": {
+        "synopsis": "The agri-world of Virger-Mos II is one of the quietest places in the Imperium — until the day the long-range vox carries the news that Terra has fallen, the Emperor is dead, and Horus Lupercal sits upon the throne. In Town Forty-Four, mechanic Silas Cincade volunteers to ride to the capital and learn the truth. His neighbour Leon Kyyter listens to the stranger from Terra, a remembrancer with an odd tattoo, and begins to doubt the story even as the townsfolk arm themselves and turn their suspicion on each other. By the time the lights in the sky appear and the first towns are reported burning, Leon understands what the stranger really is: an Alpha Legion operative named Mendacs, sent to break a world with rumour alone. Mendacs leaves for his next mission, and Leon watches in silence as his planet tears itself apart.",
+        "facetIds": ["book", "audiobook", "male", "civilian", "imperium", "planetary", "standalone", "political_thriller", "mystery", "grimdark", "somber", "betrayal", "doubt", "sacrifice", "war", "cw_violence", "cw_death", "cw_stigma", "en"],
+        "factions": [
+          { "name": "Alpha Legion", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Virger-Mos II", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Leon Kyyter", "role": "pov" },
+          { "name": "Mendacs", "role": "antagonist" },
+          { "name": "Silas Cincade", "role": "supporting" },
+          { "name": "Dallon Prael", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.66, "count": 206, "evidenceUrl": "https://www.goodreads.com/book/show/22599267-liar-s-due" }
+      }
+    },
+    {
+      "externalBookId": "HH-0159",
+      "slug": "forgotten-sons",
+      "overrides": {
+        "synopsis": "The world of Bastion has chosen neutrality in the civil war, and both sides have sent ambassadors to win it. The Imperium's are two loyalist Space Marines — Heka'tan of the Salamanders and Arcadese of the Ultramarines — accompanied by the remembrancer Persephia. When their landing ship is shot down they reach the capital on foot, surrender their weapons, and stand to argue their case against Horus's smooth-tongued envoy Vorkellen. Beneath the city an Iron Warrior is rigging the planet's foundations with atomics. Persephia stumbles upon the saboteur and is killed; a lacrymole shape-shifter is sent to assassinate Vorkellen in open court. As Bastion begins to come apart, Heka'tan and Arcadese must decide whose lives are worth saving — including that of the enemy whose mission would have destroyed their own.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "company", "planetary", "standalone", "political_thriller", "war_story", "grimdark", "somber", "action_heavy", "sacrifice", "loyalty", "brotherhood", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Bastion", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Heka'tan", "role": "pov" },
+          { "name": "Arcadese", "role": "pov" },
+          { "name": "Persephia", "role": "supporting" },
+          { "name": "Vorkellen", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.46, "count": 211, "evidenceUrl": "https://www.goodreads.com/book/show/22599275-forgotten-sons" }
+      }
+    },
+    {
+      "externalBookId": "HH-0160",
+      "slug": "the-last-remembrancer",
+      "overrides": {
+        "synopsis": "A lone traitor ship slips into the Sol system and is boarded by the Imperial Fists. Aboard, alive and unbound, is the most celebrated chronicler of the Great Crusade: Solomon Voss, the man whose books taught a generation of Imperial citizens to believe in the dream. Voss has spent the war at Horus Lupercal's side. He is brought to a fortress on Titan, where Rogal Dorn comes to question him, accompanied by the silent, watchful Knight-Errant Iacton Qruze. What follows is an argument as much as an interrogation — between a primarch who still wants to believe in enlightenment and a veteran who has decided that the Imperium will survive only by ruthlessness. Voss has been allowed home for one reason: to break Dorn. By the end, the matter will be settled with Qruze's sword.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "squad", "requires_context", "court_intrigue", "character_study", "somber", "philosophical", "grimdark", "doubt", "sacrifice", "betrayal", "faith", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Titan", "role": "primary" },
+          { "name": "Sol System", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Rogal Dorn", "role": "primary" },
+          { "name": "Iacton Qruze", "role": "supporting" },
+          { "name": "Solomon Voss", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.95, "count": 289, "evidenceUrl": "https://www.goodreads.com/book/show/22599247-the-last-remembrancer" }
+      }
+    }
+  ]
+}
