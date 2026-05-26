@@ -703,6 +703,50 @@ check("direct match - ninth wave Imperial Palace (Terra sub-location, Lord of th
   assert.equal(resolveLocation("Imperial Palace").id, "imperial_palace");
 });
 
+check("direct match - tenth wave Istvaan III (HH bootstrap Heresy virus-bombing world, two-t convention analog to istvaan_v, freq=2)", () => {
+  assert.equal(resolveLocation("Istvaan III").id, "istvaan_iii");
+});
+
+check("alias - tenth wave Isstvan III routes to istvaan_iii (doubled-s spelling variant analog to Isstvan V → istvaan_v)", () => {
+  assert.equal(resolveLocation("Isstvan III").id, "istvaan_iii");
+});
+
+check("direct match - tenth wave Istvaan System (Heresy system grain, parent of istvaan_iii + istvaan_v, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Istvaan System").id, "istvaan_system");
+});
+
+check("direct match - tenth wave Colchis (Word Bearers homeworld, The First Heretic, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Colchis").id, "colchis");
+});
+
+check("direct match - tenth wave Monarchia (Word Bearers Perfect City on Khur, The First Heretic burning pivot, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Monarchia").id, "monarchia");
+});
+
+check("direct match - tenth wave Khur (Word Bearers world hosting Monarchia, The First Heretic, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Khur").id, "khur");
+});
+
+check("direct match - tenth wave Nikaea (Council of Nikaea psyker-trial moment, A Thousand Sons, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Nikaea").id, "nikaea");
+});
+
+check("direct match - tenth wave Deliverance (Raven Guard homeworld moon, Deliverance Lost, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Deliverance").id, "deliverance");
+});
+
+check("direct match - tenth wave Aghoru (Thousand Sons tomb-world archaeological expedition, A Thousand Sons, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Aghoru").id, "aghoru");
+});
+
+check("direct match - tenth wave Laeran (Slaaneshi coral-world distinct from laer faction row, Fulgrim, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Laeran").id, "laeran");
+});
+
+check("direct match - tenth wave Diamat (Mechanicum / Iron Hands battle-world Heresy strategic anchor, Fallen Angels, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Diamat").id, "diamat");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {
