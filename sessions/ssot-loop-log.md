@@ -2403,3 +2403,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Knights-Errant" (hyphenated per Black Library titles), "Phalanx" (Imperial Fists starfort), "Yored Massak", "Tylos Rubio", "Numinus" (Calth capital), "Navar Hef" (Raven Guard Raptor sergeant), "Bion Henricos", "Hibou Khan", "Aeonid Thiel", "Tybalt Marr", "Shadrak Meduson", "Oberdeii"/"Tebecai" (Ultramarine Scouts of 199th Company, Sotha), "Mount Pharos", "Bulveye" (13th Great Company sergeant), "Kor Phaeron", "Larazzar" (Kairic Adept), "Sicarus" (daemon world in Eye of Terror), "Daemons of Tzeentch" (Kairic→Tzeentch derivation).
 - **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief 061 convention (pure data commit — single new override JSON + this log append, no code).
+
+## 2026-05-26 · ssot-hh-029 · HH-0281..HH-0290 · ✅
+
+- **Cumulative books in authority:** 855
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=845, batch=ssot-hh-029, slice=HH-0281..HH-0290
+- **WebSearch:** mean=1.1, max=2 (over 10 books) — extra targeted query needed only for HH-0287 (Goodreads URL for Red Fief not surfaced by the synopsis search)
+- **Per-book bullets:**
+  - HH-0281 Perpetual — late Oll Persson arc; Cabal/Alpha Legion impostor ambush in Andrioch. Surface forms: "Cabal", "John Grammaticus", "athame".
+  - HH-0282 The Soul, Severed — Eidolon vs Archorian schism, no concrete geographic setting in available sources → `low_confidence` flag on `locations`.
+  - HH-0283 Valerius — Therion Cohort suicide column at Beta-Garmon under Corax; clean granularity (Therion Cohort + Raven Guard, no "Imperium" raw_name).
+  - HH-0284 The Binary Succession — Mechanicum political drama on Terra; POV is Ambassador Vethorel (female, rare for HH protagonist_gender).
+  - HH-0285 Dark Compliance — framing story; POV is the Sons of Horus emissary Argonis recounting the Accazzar-Beta atrocity, not the defiant lord receiving it.
+  - HH-0286 Blackshields: The False War — kicks off the Endryd Haar/Blackshields sub-arc; pov_side=neutral (Blackshields swear no oath), Mechanicum tagged antagonist for the Xana-Tisiphone defection.
+  - HH-0287 Blackshields: The Red Fief — middle of the Haar sub-arc, Malcador courting Haar; Goodreads URL for this title was not in the synopsis search's link block, needed one extra targeted search (still well inside the 5-call soft cap).
+  - HH-0288 Hubris of Monarchia — pre-Calth muster piece; Word Bearers tagged antagonist for the latent betrayal that is the whole point of the story; Orks tagged antagonist for Alcaeus's actual on-screen hunt.
+  - HH-0289 Nightfane — post-Ultramar Aenoid Thiel "Red-Marked" mystery on the moon of Bael. Surface form worth tracking: "Red-Marked" (Ultramarines sub-formation under Thiel).
+  - HH-0290 Blackshields: The Broken Chain — shipboard setting (Sons of Horus warship), no geographic location in source coverage → `low_confidence` flag on `locations`.
+- **value_outside_vocabulary:** [] — all facet IDs used are present in `facet-catalog.json`.
+- **Notable surface-forms (within this batch):** "Blackshields" (cross-batch warband faction, Endryd Haar), "Cabal" (xenos secret society, Perpetual), "Red-Marked" (Ultramarines sub-formation, Nightfane), "Therion Cohort" (Imperial Army cohort, Valerius), "Kakophoni" (Emperor's Children sonic-warrior sub-group, The Soul Severed), "Cicatrix Tyrannis" (Blackshields warship, False War).
+- **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint` skipped per Brief-061 convention (pure data commit: one JSON file + Markdown append, no code/schema/config changes).
