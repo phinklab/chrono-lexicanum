@@ -2361,3 +2361,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Fire Masters" retained as the audio drama's term for the traitor Titan legion in Honour to the Dead (canonical Legio Infernus — surface kept for fidelity); "Officio Sigillite" as the primary faction for The Sigillite; "Planet of Sorcerers" recurs in both Thief of Revelations and Lucius: The Eternal Blade; "Khârn" with circumflex; "Vlka Fenryka" appears in Hunter's Moon source text but the legion is listed as "Space Wolves" to match prior batches.
 - **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief 061 convention (pure data commit — single new override JSON + this log append, no code).
+
+## 2026-05-26 · ssot-hh-027 · HH-0261..HH-0270 · ✅
+
+- **Cumulative books in authority:** 835
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=825, batch=ssot-hh-027, slice=HH-0261..HH-0270
+- **WebSearch:** mean=1, max=1 (over 10 books)
+- **Per-book bullets:**
+  - HH-0261 Wolf's Claw — Bjorn-claw-origin short, Space Wolves vs Alpha Legion at the Alaxxes Nebula; no issues.
+  - HH-0262 Templar — Sigismund / Word Bearers Sol-System ambush with Khan/Kharn flashbacks; no issues.
+  - HH-0263 Garro: Shield of Lies — Garro + Tallery investigating the Othrys conspiracy on Terra, Malcador reveal; no issues.
+  - HH-0264 Master of the First — Astelan / Luther political piece on Caliban; no issues.
+  - HH-0265 The Long Night — Sevatar in a Dark Angels gaol-ship; no concrete geographic anchor → locations left empty with a low_confidence flag on field=locations.
+  - HH-0266 Strategem — Roster spells the work "Strategem" (slug strategem) but Black Library / Lexicanum / Goodreads all use "Stratagem". Surface form preserved; data_conflict flag on field=title with suggestion "Stratagem".
+  - HH-0267 The Herald of Sanguinius — Imperium-Secundus / Sanguinary-Guard piece on Macragge; no issues.
+  - HH-0268 The Watcher — Knight-Errant Ison reading a dying Space Wolf's memories of the Night Lords; cosmic-horror leaning, no issues.
+  - HH-0269 The Eagle's Talon — Imperial-Fists boarding action over Tallarn told via seven vox transmissions; sources name squads (Gamus, Theophon, Arcad) but no individual POV → characters left empty with a low_confidence flag on field=characters.
+  - HH-0270 Iron Corpses — Warsmith Koparnos in the wreck-field of the Eagle's Talon on Tallarn, climbs into the Warlord titan Ostentio Contritio; no issues.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Sevatar" (also rendered "Jago Sevatarion" in some sources), "Knights Errant" (also hyphenated "Knights-Errant" in titles), "Lectitio Divinitatus" (mis-typoed "Lectito Devinatus" in one source), "Ostentio Contritio" (Warlord-class titan name), "Othrys" (codename for the Titan build-up).
+- **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief 061 convention (pure data commit — single new override JSON + this log append, no code).

@@ -1,0 +1,455 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-027",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "Even More Audio Dramas wave — 2014/2015 short-format Heresy pieces tying together late-war threads (Knights-Errant on Terra, Imperium Secundus on Macragge, Thramas Crusade aftermath on Caliban and in Curze's gaol, and the opening of the Battle of Tallarn). Goodreads coverage is full at ten of ten, with a narrow band (3.44 - 4.30) typical for 30 to 40 minute audio runs. One title surface-form discrepancy in the roster (Strategem vs Stratagem) flagged but preserved.",
+  "books": [
+    {
+      "externalBookId": "HH-0261",
+      "slug": "wolfs-claw",
+      "overrides": {
+        "synopsis": "Bjorn the One-Handed, a young pack leader of the Space Wolves, returns from the disastrous trap at the Alaxxes Nebula with his honour wounded as deeply as his maimed arm. The Iron Priests of the Legion have nobler work than fashioning bionics for proud warriors who let themselves be crippled by traitors. If Bjorn intends to fight again - and to bury the shame of the Alpha Legion's ambush - he must seek out the materials for new claws himself and christen them in renegade blood. A short, focused tale set during the Legion's retreat that explains how one of the Heresy's most famous loyalists earned the iconic prosthetic claws he would still wear ten thousand years later.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "war_story",
+          "character_study",
+          "action_heavy",
+          "grimdark",
+          "brotherhood",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Alpha Legion", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Alaxxes Nebula", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Bjorn the One-Handed", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.49,
+          "count": 180,
+          "evidenceUrl": "https://www.goodreads.com/book/show/21525790-wolf-s-claw"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0262",
+      "slug": "templar",
+      "overrides": {
+        "synopsis": "First Captain Sigismund of the Imperial Fists has been disgraced. His refusal to leave Terra with the Retribution Fleet enraged his primarch Rogal Dorn, who renounced him as a son even while letting him keep his rank. Now a desperate Word Bearers warband tries to slip back into the Sol System after Lorgar abandoned them, and only Sigismund's strike force stands between the renegades and the Throneworld. As his blade carves through the traitors aboard their ship, he relives duels and conversations with brothers from other Legions - Jubal Khan of the White Scars, Kharn of the World Eaters - and confronts what kind of warrior he has chosen to be at the dawn of the long war.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "company",
+          "requires_context",
+          "war_story",
+          "character_study",
+          "action_heavy",
+          "somber",
+          "loyalty",
+          "doubt",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "World Eaters", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Sol System", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sigismund", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "supporting" },
+          { "name": "Jubal Khan", "role": "supporting" },
+          { "name": "Kharn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.73,
+          "count": 316,
+          "evidenceUrl": "https://www.goodreads.com/book/show/21411990-templar"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0263",
+      "slug": "garro-shield-of-lies",
+      "overrides": {
+        "synopsis": "Across the galaxy a civil war rages, but on Terra it remains a thing of rumour and ration cuts. The Administratum adept Katanoh Tallery uncovers irregular cargo manifests above the Throneworld - ships and arms quietly siphoned to the moon of Titan under the codename Othrys - and is certain she has stumbled on a Horus-backed conspiracy at the heart of the Imperium. Hunted through the Riga Orbital Plate, she falls under the protection of Nathaniel Garro, the Knight-Errant who has been seeking the Lectitio Divinitatus saint Keeler. Together they cut through assassins and rumour to reach the truth - and find Malcador the Sigillite waiting at the top of the new fortress with answers that recast the war to come.",
+        "facetIds": [
+          "audio_drama",
+          "mixed",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "mystery",
+          "political_thriller",
+          "somber",
+          "action_heavy",
+          "loyalty",
+          "doubt",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Knights Errant", "role": "primary" },
+          { "name": "Administratum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Riga Orbital Plate", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Katanoh Tallery", "role": "pov" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.16,
+          "count": 193,
+          "evidenceUrl": "https://www.goodreads.com/book/show/22609191-garro"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0264",
+      "slug": "master-of-the-first",
+      "overrides": {
+        "synopsis": "The Thramas Crusade has ground the Dark Angels and Night Lords into a bloody stalemate; the Lion holds nominal victory, but the First Legion is scattered and bled white. On Caliban, Chapter Master Astelan and the brethren loyal to Terra grow restless under Luther's quiet consolidation of power. Captain Melian brings warning of a deeper conspiracy among the home-Legion officers, and Astelan must decide whether his oaths bind him to the Lion's distant war or to the increasingly strange order taking root on his homeworld. When the trap is finally sprung - Army forces under Tylaine moving in concert with a loyal company of Astartes - the conspirators are crushed, but the questions about Luther himself remain. A tense political piece about loyalty, ambition and the slow rot that will one day shatter Caliban.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "war_story",
+          "political_thriller",
+          "character_study",
+          "somber",
+          "action_heavy",
+          "loyalty",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Night Lords", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Caliban", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Astelan", "role": "pov" },
+          { "name": "Luther", "role": "supporting" },
+          { "name": "Captain Melian", "role": "supporting" },
+          { "name": "Tylaine", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.67,
+          "count": 183,
+          "evidenceUrl": "https://www.goodreads.com/book/show/23443389-master-of-the-first"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0265",
+      "slug": "the-long-night",
+      "overrides": {
+        "synopsis": "Captured after the running engagement between Lion El'Jonson and Konrad Curze, the Night Lords' First Captain Sevatar languishes in a Dark Angels gaol. The cell is small, the ship is silent, and the killer is going slowly mad - voices crowd his head, prophecies he never asked for, the laughter of dead men. His warder Altani draws him into a strange nightly dialogue, and through the dark hours Sevatar circles questions of damnation, fatherhood and what little compassion remains to a son of the Night Haunter. A claustrophobic character study of the Heresy's most articulate murderer, set in the long silence between the Thramas Crusade and the fleet's eventual breakout.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "chaos",
+          "squad",
+          "requires_context",
+          "character_study",
+          "somber",
+          "philosophical",
+          "grimdark",
+          "doubt",
+          "brotherhood",
+          "cw_violence",
+          "cw_mental_health",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Dark Angels", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Sevatar", "role": "pov" },
+          { "name": "Altani", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "story is set aboard an unnamed Dark Angels gaol-ship without a concrete geographic anchor" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.30,
+          "count": 383,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24257480-the-long-night"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0266",
+      "slug": "strategem",
+      "overrides": {
+        "synopsis": "Back from the slaughter of Calth and the choking dark of the Underworld War, Sergeant Aeonid Thiel is summoned to stand before his primarch. Imperium Secundus is fragile - traitor warbands left in the wake of the Shadow Crusade still roam the realm - and Roboute Guilliman knows that the old ways of waging war have been broken by the Heresy. He needs a heretic. He needs the Ultramarine who already breaks doctrine to think. Across a single long conversation about siege, manoeuvre and the discipline of his Legion, the seeds of what will one day be called the Codex Astartes are sown, and Thiel's fall and rehabilitation are weighed against the wars still to come.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "character_study",
+          "philosophical",
+          "somber",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Macragge", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Aeonid Thiel", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "title", "suggestion": "Stratagem", "reason": "roster slug and title spell the work 'Strategem' but Black Library, Lexicanum and the Goodreads entry all use 'Stratagem'" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.44,
+          "count": 150,
+          "evidenceUrl": "https://www.goodreads.com/book/show/23686078-stratagem"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0267",
+      "slug": "the-herald-of-sanguinius",
+      "overrides": {
+        "synopsis": "Crowned Emperor-Regent of Imperium Secundus by Roboute Guilliman in the wake of the Ruinstorm, the Angel Sanguinius now reigns over a brittle, frightened realm. Three weeks into his accession, the Legions camped on Macragge grow restless, petitioners crowd every gate, and Commander Azkaellon of the Sanguinary Guard trusts none of them. As whispers of betrayal harden into something he can almost touch, Azkaellon must take measures no honest officer would countenance to keep the Angel alive - and to keep the truth of the Blood Angels' nature buried. An intimate piece that hints at one of the oldest secrets of Sanguinius' Legion, even as the new Imperium begins to fracture from within.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "court_intrigue",
+          "political_thriller",
+          "character_study",
+          "somber",
+          "philosophical",
+          "loyalty",
+          "doubt",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Sanguinary Guard", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Macragge", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sanguinius", "role": "pov" },
+          { "name": "Azkaellon", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.49,
+          "count": 171,
+          "evidenceUrl": "https://www.goodreads.com/book/show/23768358-herald-of-sanguinius"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0268",
+      "slug": "the-watcher",
+      "overrides": {
+        "synopsis": "A shuttle limps back into the Sol System carrying a single occupant - a Space Wolf, half-flayed, ravings on his lips and his memory torn to ribbons. The Knight-Errant Ison, a former Librarian of his Legion, is set to walk inside the dying man's mind and bring out whatever the Sigillite ordered him to find. The mission had been simple: watch the Night Lords, do not engage. What Ison finds instead are the visions of a brother who saw too much, the cruelties Konrad Curze's sons inflict on their captives, and the certainty that there are things abroad in the Heresy which no Astartes was built to look upon. A short, cold piece of the Knights-Errant era that leans into the cosmic horror under the war.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "mystery",
+          "cosmic_horror",
+          "somber",
+          "grimdark",
+          "doubt",
+          "war",
+          "cw_violence",
+          "cw_mental_health",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Knights Errant", "role": "primary" },
+          { "name": "Space Wolves", "role": "supporting" },
+          { "name": "Night Lords", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sol System", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ison", "role": "pov" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.59,
+          "count": 146,
+          "evidenceUrl": "https://www.goodreads.com/book/show/23768406-the-watcher"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0269",
+      "slug": "the-eagles-talon",
+      "overrides": {
+        "synopsis": "Tallarn is dying in poisoned fire. The Iron Warriors have turned the world into one vast attrition slog, and the Imperial Fists know that if the macro-transporter Eagle's Talon makes its planned drop on the southern continent the southern front collapses. Three recon squads - Gamus, Theophon and Arcad - are slipped aboard the traitor vessel with orders to seize her and reverse the tide. Their story is told in fragments: seven vox transmissions recovered from the operation, replayed by a survivor who already knows how it ends. In desperation the strike teams reach for measures that should be unthinkable to any son of Dorn, and pay accordingly.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "company",
+          "requires_context",
+          "war_story",
+          "last_stand",
+          "action_heavy",
+          "grimdark",
+          "sacrifice",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Tallarn", "role": "primary" }
+        ],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "available source coverage names the Imperial Fists squads (Gamus, Theophon, Arcad) but not individual viewpoint characters with confidence" }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.59,
+          "count": 194,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24654992-the-eagle-s-talon"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0270",
+      "slug": "iron-corpses",
+      "overrides": {
+        "synopsis": "The macro-transporter Eagle's Talon is gone, ripped open above Tallarn by an Imperial Fists boarding action, and the wreck-fall has gutted both armies on the southern continent. Among the bodies and the slow-cooling dust the Iron Warriors Warsmith Koparnos drags himself out of his armour's life-support and back into the world. Alone in a corpse-strewn wasteland that was a battlefield only hours ago, he must scavenge, repair and read the wreckage - until he comes across a downed Warlord-class titan, Ostentio Contritio, with the faintest flicker still alive in its helm. The traitor mind that crawls towards her is patient and cold, and what he finds when he reaches her cockpit will reshape the war for both sides.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "chaos",
+          "planetary",
+          "requires_context",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "hubris",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Tallarn", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Koparnos", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.71,
+          "count": 206,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24947144-iron-corpses"
+        }
+      }
+    }
+  ]
+}
