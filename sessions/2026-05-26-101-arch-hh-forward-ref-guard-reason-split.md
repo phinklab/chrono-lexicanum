@@ -2,7 +2,7 @@
 session: 2026-05-26-101
 role: architect
 date: 2026-05-26
-status: open
+status: implemented
 slug: hh-forward-ref-guard-reason-split
 parent: null
 links:
