@@ -2340,3 +2340,24 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Knights-Errant" (Garro/Loken/Cruze/Rubio/Varren — recurring across HH-0244/0246/0247/0248), "Night Haunter" (epithet for Konrad Curze in HH-0241 and HH-0250), "Luna Wolves" (still used for Loken's prior identity in HH-0244 even though the legion has since been renamed Sons of Horus, which surfaces in HH-0249), "Phalanx" (Imperial Fists star-fortress as a sub-location), "Vengeful Spirit" (Horus's flagship — recorded only via context, not as a `locations[]` entry).
 - **Verifikation:** Reiner Daten-Commit (eine neue Override-JSON + ein Markdown-Append). `npm run lint` / `typecheck` / `brain:lint` übersprungen per Brief-061-Konvention (§10).
+
+## 2026-05-26 · ssot-hh-026 · HH-0251..HH-0260 · ✅
+
+- **Cumulative books in authority:** 825
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=815, batch=ssot-hh-026, slice=HH-0251..HH-0260
+- **WebSearch:** mean=1.4, max=2 (over 10 books) — short, well-documented Black Library Advent shorts; one extra disambiguation query each for Veritas Ferrum (captain name), Honour to the Dead (Titan legions/characters), Lucius (Goodreads URL), Hunter's Moon (Pelago characters)
+- **Per-book bullets:**
+  - HH-0251 Veritas Ferrum — 11-minute Advent short; one source suggested "Captain Atticus" but appears to conflate with another Black Library work, so characters left empty with low_confidence flag rather than guess the Iron Hands captain.
+  - HH-0252 The Sigillite — Two named operatives surface in summaries ("Khalid Hassan" debriefing, "Hasani Sabbyat" on the Gyptus mission); unclear whether the same person under two names, so listed only Khalid Hassan to stay safe. Used "Officio Sigillite" as primary faction (Malcador's operative network is closer to the audio's framing than "Imperial Army").
+  - HH-0253 Honour to the Dead — Three-strand POV (Praesagius princeps + Ultramarines squad + Ithracan civilian woman with infant) → protagonist_class=multi, gender=mixed; available summaries name no specific characters → low_confidence flag.
+  - HH-0254 Wolf Hunt — Direct sequel to The Outcast Dead → requires_context.
+  - HH-0255 Censure — Calth Underworld War tie-in to Mark of Calth → requires_context; length_tier=short since the audio runs ~75 minutes and stitches a substantial arc.
+  - HH-0256 Thief of Revelations — Post-Prospero on the Planet of Sorcerers; Magnus listed as supporting character (primarch), Thousand Sons as the sole faction.
+  - HH-0257 Khârn: The Eightfold Path — Set immediately after Betrayer → requires_context; locations left empty (the action takes place aboard the Conqueror; ships skipped per prior batches' convention).
+  - HH-0258 Lucius: The Eternal Blade — Post-Angel Exterminatus / Iydris → requires_context; Sanakht of the Thousand Sons listed as supporting (he is the duelist Lucius hunts, antagonist-coded but not violently so in this duel framing).
+  - HH-0259 Cypher: Guardian of Order — Caliban pre-Fallen; "Lord Cypher" is a title-holder (not yet the 41st-millennium Cypher); kept as surface form.
+  - HH-0260 Hunter's Moon — Named POV trio (Tidon/Ven/Sareo) plus the Space Wolf watcher Felbjorn from solid source coverage; civilian framing → protagonist_class=multi, pov_side=imperium.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Fire Masters" retained as the audio drama's term for the traitor Titan legion in Honour to the Dead (canonical Legio Infernus — surface kept for fidelity); "Officio Sigillite" as the primary faction for The Sigillite; "Planet of Sorcerers" recurs in both Thief of Revelations and Lucius: The Eternal Blade; "Khârn" with circumflex; "Vlka Fenryka" appears in Hunter's Moon source text but the legion is listed as "Space Wolves" to match prior batches.
+- **Verifikation:** `npm run lint` / `typecheck` / `brain:lint` skipped per Brief 061 convention (pure data commit — single new override JSON + this log append, no code).
