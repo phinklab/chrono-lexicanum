@@ -1129,6 +1129,34 @@ check("direct match - ninth wave Szarekh (Necron Silent King, Dawn of Fire final
   assert.equal(resolveCharacter("Szarekh").id, "szarekh");
 });
 
+check("alias - Resolver-Pass 10 Cross-Era: 'Lucius' (HH Emperor's Children swordsman) routes to lucius_the_eternal", () => {
+  assert.equal(resolveCharacter("Lucius").id, "lucius_the_eternal");
+});
+
+check("alias - Resolver-Pass 10 Cross-Era: 'Ezekyle Abaddon' (HH Sons of Horus First Captain) routes to abaddon_the_despoiler", () => {
+  assert.equal(resolveCharacter("Ezekyle Abaddon").id, "abaddon_the_despoiler");
+});
+
+check("alias - Resolver-Pass 10 cross-batch consolidation: 'Little Horus Aximand' routes to horus_aximand", () => {
+  assert.equal(resolveCharacter("Little Horus Aximand").id, "horus_aximand");
+});
+
+check("direct match - Resolver-Pass 10 (7b Heresy spine, freq 3): Horus (Warmaster)", () => {
+  assert.equal(resolveCharacter("Horus").id, "horus");
+});
+
+check("direct match - Resolver-Pass 10 (7b Heresy spine, freq 3): Garviel Loken (Sons of Horus Mournival)", () => {
+  assert.equal(resolveCharacter("Garviel Loken").id, "garviel_loken");
+});
+
+check("direct match - Resolver-Pass 10 (7b Heresy spine, highest-freq new HH character, freq 4): Erebus (Word Bearers First Chaplain)", () => {
+  assert.equal(resolveCharacter("Erebus").id, "erebus");
+});
+
+check("direct match - Resolver-Pass 10 (7b Primarch spine, apostrophe-stripped slug): Lion El'Jonson", () => {
+  assert.equal(resolveCharacter("Lion El'Jonson").id, "lion_el_jonson");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {

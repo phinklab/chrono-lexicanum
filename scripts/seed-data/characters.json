@@ -2406,5 +2406,425 @@
     "primaryFactionId": "imperial_knights",
     "lexicanumUrl": null,
     "notes": "Resolver-Pass 9 Phase 3 (7c lore-iconic freq=1): Imperial Knight Queen of House Kamidar; Nick Kyme's The Iron Kingdom (W40K-0532, Dawn of Fire #5). primaryFactionId imperial_knights (direct § 3)."
+  },
+  {
+    "id": "horus",
+    "name": "Horus",
+    "primaryFactionId": "sons_of_horus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b spine, freq 3): Warmaster Horus, Primarch of the Sons of Horus / Luna Wolves; central protagonist of the opening Heresy arc (Horus Rising HH-0001, False Gods HH-0002, Galaxy in Flames HH-0003). primaryFactionId sons_of_horus (anchor exists in baseline; Luna Wolves surface-form aliases onto it via faction-aliases per Phase 1 Case A)."
+  },
+  {
+    "id": "lion_el_jonson",
+    "name": "Lion El'Jonson",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b Primarch spine, freq 4): Primarch of the Dark Angels; surfaces across Descent of Angels (HH-0006), Fallen Angels (HH-0011), Age of Darkness (HH-0016). Apostrophe stripped in slug per convention (cf. shaso_oreskaan / aunrai)."
+  },
+  {
+    "id": "leman_russ",
+    "name": "Leman Russ",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b Primarch spine, freq 3): Primarch of the Space Wolves; surfaces in Tales of Heresy (HH-0010), A Thousand Sons (HH-0012), Prospero Burns (HH-0015 — POV of the Burning of Prospero)."
+  },
+  {
+    "id": "lorgar",
+    "name": "Lorgar",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b Primarch spine, freq 3): Primarch of the Word Bearers; first traitor Primarch. Surfaces in Tales of Heresy (HH-0010), The First Heretic (HH-0014, POV), Know No Fear (HH-0019, Calth)."
+  },
+  {
+    "id": "fulgrim",
+    "name": "Fulgrim",
+    "primaryFactionId": "emperors_children",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b Primarch spine, freq 3): Primarch of the Emperor's Children; fall-to-Slaanesh arc. Surfaces in Galaxy in Flames (HH-0003), Fulgrim (HH-0005, eponymous), The Primarchs (HH-0020)."
+  },
+  {
+    "id": "alpharius",
+    "name": "Alpharius",
+    "primaryFactionId": "alpha_legion",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b Primarch spine, freq 3): Primarch of the Alpha Legion (twin to Omegon — Cabal-arc twist); Legion (HH-0007), Deliverance Lost (HH-0018), The Primarchs (HH-0020). Two-Primarch Legion convention does not split the legion row."
+  },
+  {
+    "id": "omegon",
+    "name": "Omegon",
+    "primaryFactionId": "alpha_legion",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b Primarch spine, freq 3): Twin Primarch of the Alpha Legion (paired with Alpharius); Legion (HH-0007), Deliverance Lost (HH-0018), The Primarchs (HH-0020). Same primaryFactionId as alpharius — Legion-twin convention."
+  },
+  {
+    "id": "angron",
+    "name": "Angron",
+    "primaryFactionId": "world_eaters",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b Primarch spine, freq 2): Primarch of the World Eaters (Butcher's Nails); surfaces in Galaxy in Flames (HH-0003), Tales of Heresy (HH-0010)."
+  },
+  {
+    "id": "rogal_dorn",
+    "name": "Rogal Dorn",
+    "primaryFactionId": "imperial_fists",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b Primarch spine, curated freq=1 lore-iconic): Primarch of the Imperial Fists, Praetorian of Terra; The Flight of the Eisenstein (HH-0004). primaryFactionId imperial_fists (direct § 3 baseline)."
+  },
+  {
+    "id": "corax",
+    "name": "Corax",
+    "primaryFactionId": "raven_guard",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b Primarch spine, curated freq=1 lore-iconic): Primarch of the Raven Guard; Deliverance Lost (HH-0018). Post-Isstvan-V Drop Site Massacre survivor."
+  },
+  {
+    "id": "konrad_curze",
+    "name": "Konrad Curze",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b Primarch spine, curated freq=1 lore-iconic): Primarch of the Night Lords (Night Haunter); Age of Darkness (HH-0016)."
+  },
+  {
+    "id": "garviel_loken",
+    "name": "Garviel Loken",
+    "primaryFactionId": "sons_of_horus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b spine, freq 3): Sons of Horus / Luna Wolves Mournival captain; central POV of the opening trilogy (Horus Rising HH-0001, False Gods HH-0002, Galaxy in Flames HH-0003)."
+  },
+  {
+    "id": "tarik_torgaddon",
+    "name": "Tarik Torgaddon",
+    "primaryFactionId": "sons_of_horus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b spine, freq 3): Sons of Horus / Luna Wolves Mournival captain; opening trilogy (HH-0001..HH-0003)."
+  },
+  {
+    "id": "horus_aximand",
+    "name": "Horus Aximand",
+    "primaryFactionId": "sons_of_horus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b spine, freq 2 + freq 1 alias): Sons of Horus Mournival captain ('Little Horus' nickname); opening trilogy (HH-0001, HH-0002) + Age of Darkness (HH-0016 as 'Little Horus Aximand'). Surface form 'Little Horus Aximand' aliases here via character-aliases.json (7d cross-batch consolidation)."
+  },
+  {
+    "id": "erebus",
+    "name": "Erebus",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b spine, freq 4 — highest-freq new HH character): Word Bearers First Chaplain, Heresy puppet-master. Surfaces in False Gods (HH-0002), Galaxy in Flames (HH-0003), The First Heretic (HH-0014, prime mover)."
+  },
+  {
+    "id": "nathaniel_garro",
+    "name": "Nathaniel Garro",
+    "primaryFactionId": "death_guard",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b spine, freq 2): Death Guard battle-captain, loyalist who escapes the Eisenstein; Galaxy in Flames (HH-0003), The Flight of the Eisenstein (HH-0004, POV). Later founds the Knights-Errant frame. primaryFactionId death_guard (nominally Death Guard in this wave even though loyalist)."
+  },
+  {
+    "id": "malcador_the_sigillite",
+    "name": "Malcador the Sigillite",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b spine, freq 2): Imperial Regent and first Sigillite; Nemesis (HH-0013), Deliverance Lost (HH-0018). primaryFactionId imperium — no clean Legion affiliation; broad-grain Imperium row is the right anchor."
+  },
+  {
+    "id": "luther",
+    "name": "Luther",
+    "primaryFactionId": "order_of_caliban",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b spine, freq 2): Caliban-side Order knight, Lion El'Jonson's mentor; pivot character of the Fallen arc. Descent of Angels (HH-0006), Fallen Angels (HH-0011). primaryFactionId order_of_caliban (Phase 1 promoted; the Order eventually merges into the Dark Angels)."
+  },
+  {
+    "id": "nemiel",
+    "name": "Nemiel",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b spine, freq 2): Dark Angels chaplain; Descent of Angels (HH-0006), Fallen Angels (HH-0011)."
+  },
+  {
+    "id": "zahariel",
+    "name": "Zahariel",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b spine, freq 2): Dark Angels librarian; same arc as Nemiel — Descent of Angels (HH-0006), Fallen Angels (HH-0011)."
+  },
+  {
+    "id": "constantin_valdor",
+    "name": "Constantin Valdor",
+    "primaryFactionId": "custodes",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Captain-General of the Custodes during the Heresy; Tales of Heresy (HH-0010)."
+  },
+  {
+    "id": "saul_tarvitz",
+    "name": "Saul Tarvitz",
+    "primaryFactionId": "emperors_children",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Emperor's Children loyalist; lone-voice warning of Isstvan III virus-bombing. Galaxy in Flames (HH-0003)."
+  },
+  {
+    "id": "argel_tal",
+    "name": "Argel Tal",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Word Bearers / Gal Vorbak; central POV of The First Heretic (HH-0014)."
+  },
+  {
+    "id": "iacton_qruze",
+    "name": "Iacton Qruze",
+    "primaryFactionId": "sons_of_horus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Sons of Horus / Luna Wolves elder ('Half-heard'); later Knight-Errant. Age of Darkness (HH-0016)."
+  },
+  {
+    "id": "kasper_hawser",
+    "name": "Kasper Hawser",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Mortal scholar embedded with the Space Wolves; POV of Prospero Burns (HH-0015). primaryFactionId imperium (civilian, no clean Legion)."
+  },
+  {
+    "id": "mersadie_oliton",
+    "name": "Mersadie Oliton",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Remembrancer; Horus Rising (HH-0001, documentary POV). primaryFactionId imperium (civilian Remembrancer)."
+  },
+  {
+    "id": "kyril_sindermann",
+    "name": "Kyril Sindermann",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Iterator; Horus Rising (HH-0001) mortal supporting cast. primaryFactionId imperium (civilian Iterator)."
+  },
+  {
+    "id": "john_grammaticus",
+    "name": "John Grammaticus",
+    "primaryFactionId": "cabal",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Cabal agent; POV of Legion (HH-0007); recurring later HH. primaryFactionId cabal (Phase 1 promoted as new row)."
+  },
+  {
+    "id": "kelbor_hal",
+    "name": "Kelbor-Hal",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Fabricator-General of Mars; breaks for Horus and triggers the Schism of Mars. Mechanicum (HH-0009). primaryFactionId mechanicus (Mechanicum → mechanicus alias per Phase 1 Case B)."
+  },
+  {
+    "id": "eidolon",
+    "name": "Eidolon",
+    "primaryFactionId": "emperors_children",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Emperor's Children Lord Commander; Fulgrim (HH-0005)."
+  },
+  {
+    "id": "julius_kaesoron",
+    "name": "Julius Kaesoron",
+    "primaryFactionId": "emperors_children",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Emperor's Children captain; Fulgrim (HH-0005)."
+  },
+  {
+    "id": "branne_nev",
+    "name": "Branne Nev",
+    "primaryFactionId": "raven_guard",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Raven Guard captain; Deliverance Lost (HH-0018). Surface form in the override file is the short 'Branne' — alias 'Branne' → branne_nev catches it (slug-vs-surface convention per dossier 7d)."
+  },
+  {
+    "id": "solun_decius",
+    "name": "Solun Decius",
+    "primaryFactionId": "death_guard",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Death Guard sergeant; first plague-victim arc. The Flight of the Eisenstein (HH-0004)."
+  },
+  {
+    "id": "kaleb_arin",
+    "name": "Kaleb Arin",
+    "primaryFactionId": "death_guard",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Death Guard housecarl; The Flight of the Eisenstein (HH-0004)."
+  },
+  {
+    "id": "hurtado_bronzi",
+    "name": "Hurtado Bronzi",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Geno Five-Two Chiliad officer; loyalist POV of Legion (HH-0007). primaryFactionId astra_militarum (Imperial Army → astra_militarum alias per Phase 1 Case C)."
+  },
+  {
+    "id": "peto_soneka",
+    "name": "Peto Soneka",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Geno Five-Two Chiliad officer; Legion (HH-0007). primaryFactionId astra_militarum (via Imperial Army alias)."
+  },
+  {
+    "id": "sheed_ranko",
+    "name": "Sheed Ranko",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Geno Five-Two Chiliad officer; Legion (HH-0007). primaryFactionId astra_militarum (via Imperial Army alias)."
+  },
+  {
+    "id": "sar_daviel",
+    "name": "Sar Daviel",
+    "primaryFactionId": "order_of_caliban",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Caliban Order knight; Descent of Angels (HH-0006). primaryFactionId order_of_caliban (Phase 1 promoted)."
+  },
+  {
+    "id": "cestus",
+    "name": "Cestus",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Ultramarines captain; POV of Battle for the Abyss (HH-0008)."
+  },
+  {
+    "id": "brynngar",
+    "name": "Brynngar",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Space Wolves character; Battle for the Abyss (HH-0008)."
+  },
+  {
+    "id": "skraal",
+    "name": "Skraal",
+    "primaryFactionId": "world_eaters",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): World Eaters character; Battle for the Abyss (HH-0008)."
+  },
+  {
+    "id": "mhotep",
+    "name": "Mhotep",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Thousand Sons character; Battle for the Abyss (HH-0008)."
+  },
+  {
+    "id": "zadkiel",
+    "name": "Zadkiel",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Word Bearers captain (antagonist); Battle for the Abyss (HH-0008)."
+  },
+  {
+    "id": "aquillon",
+    "name": "Aquillon",
+    "primaryFactionId": "custodes",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Custodes envoy embedded with the Word Bearers; The First Heretic (HH-0014)."
+  },
+  {
+    "id": "lemuel_gaumon",
+    "name": "Lemuel Gaumon",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Remembrancer; A Thousand Sons (HH-0012). primaryFactionId imperium (civilian Remembrancer)."
+  },
+  {
+    "id": "kai_zulane",
+    "name": "Kai Zulane",
+    "primaryFactionId": "adeptus_astra_telepathica",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Astropath; POV of The Outcast Dead (HH-0017). primaryFactionId adeptus_astra_telepathica (direct § 3 baseline)."
+  },
+  {
+    "id": "severian",
+    "name": "Severian",
+    "primaryFactionId": "sons_of_horus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Apostate Luna Wolves marine, psyker prison-break fugitive; The Outcast Dead (HH-0017). primaryFactionId sons_of_horus (former Luna Wolves; Phase 3 judgment per dossier 7b)."
+  },
+  {
+    "id": "tagore",
+    "name": "Tagore",
+    "primaryFactionId": "world_eaters",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): World Eaters psyker prisoner; The Outcast Dead (HH-0017)."
+  },
+  {
+    "id": "atharva",
+    "name": "Atharva",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Thousand Sons psyker prisoner; The Outcast Dead (HH-0017)."
+  },
+  {
+    "id": "remus_ventanus",
+    "name": "Remus Ventanus",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Ultramarines captain; POV of Know No Fear (HH-0019, Calth)."
+  },
+  {
+    "id": "eristede_kell",
+    "name": "Eristede Kell",
+    "primaryFactionId": "officio_assassinorum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Vindicare assassin; Nemesis (HH-0013). primaryFactionId officio_assassinorum (direct § 3 baseline)."
+  },
+  {
+    "id": "spear",
+    "name": "Spear",
+    "primaryFactionId": "chaos",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Chaos-assassin antagonist; Nemesis (HH-0013). primaryFactionId chaos (no narrower Chaos-side grain; broad chaos row absorbs)."
+  },
+  {
+    "id": "yosef_sabrat",
+    "name": "Yosef Sabrat",
+    "primaryFactionId": "adeptus_arbites",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Mortal POV (Arbites investigator); Nemesis (HH-0013). primaryFactionId adeptus_arbites (direct § 3 baseline)."
+  },
+  {
+    "id": "caxton",
+    "name": "Caxton",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Mechanicum character; Mechanicum (HH-0009). primaryFactionId mechanicus (via Mechanicum alias)."
+  },
+  {
+    "id": "dalia_cythera",
+    "name": "Dalia Cythera",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Mechanicum POV; Mechanicum (HH-0009). primaryFactionId mechanicus (via Mechanicum alias)."
+  },
+  {
+    "id": "regulus",
+    "name": "Regulus",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Mechanicum Adept; Horus's Martian ally. Mechanicum (HH-0009). primaryFactionId mechanicus (via Mechanicum alias)."
+  },
+  {
+    "id": "koriel_zeth",
+    "name": "Koriel Zeth",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Mechanicum Magos of Magma City (Mars); Mechanicum (HH-0009). primaryFactionId mechanicus (via Mechanicum alias)."
+  },
+  {
+    "id": "amendera_kendel",
+    "name": "Amendera Kendel",
+    "primaryFactionId": "talons_of_the_emperor",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Sister of Silence Witchseeker; Tales of Heresy (HH-0010). primaryFactionId talons_of_the_emperor (consistent with existing 'Sisters of Silence' → talons_of_the_emperor alias)."
+  },
+  {
+    "id": "uriah_olathaire",
+    "name": "Uriah Olathaire",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic): Imperial cult priest mortal POV; Tales of Heresy (HH-0010). primaryFactionId imperium (civilian)."
+  },
+  {
+    "id": "the_emperor",
+    "name": "The Emperor",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 10 Phase 3 (7b curated freq=1 lore-iconic, judgment call per dossier 7d): The Emperor of Mankind; surfaces in Tales of Heresy (HH-0010). Slug 'the_emperor' chosen for direct surface-form match (alternative 'emperor_of_mankind' would need an alias). primaryFactionId imperium."
   }
 ]
