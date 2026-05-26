@@ -2319,3 +2319,24 @@
   - HH-0240 Morningstar — Tizca and Prospero named; Beta-Garmon used as a time-marker in the synopsis, not as a setting tag.
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** "Sons of Horus" and "Luna Wolves" both used (pre/post rename); "Crimson Fists" carried separately from "Imperial Fists"; "Adeptus Astra Telepathica" for Niasta's astropath corps; "Macragge's Honour" (ship), "Illyrium" (Macragge province — coincides with the book title), "Iydris" and "Eye of Terror" both kept (region + sub-region); "60-Sixty" (the Murder system from Horus Rising); "Piamen" (compliance world).
+
+## 2026-05-26 · ssot-hh-025 · HH-0241..HH-0250 · ✅
+
+- **Cumulative books in authority:** 815
+- **CC model:** claude-opus-4-7
+- **Pre-check:** cumulativeBefore=805, batch=ssot-hh-025, slice=HH-0241..HH-0250
+- **WebSearch:** mean=1.1, max=2 (over 10 books) — one extra search for HH-0250 to find its Goodreads ID
+- **Per-book bullets:**
+  - HH-0241 The Dark King: pre-Heresy Curze/Dorn philosophical clash on an unnamed compliant world — no concrete planet to record, locations left empty.
+  - HH-0242 The Lightning Tower: Dorn introspection on Terra; clean primary location set (Terra, Imperial Palace).
+  - HH-0243 Raven's Flight: Isstvan V survival; Iron Warriors and World Eaters as antagonists; both Isstvan V and Deliverance recorded.
+  - HH-0244 Garro: Legion of One: Knights-Errant recover Loken on Isstvan III — surface-form "Knights-Errant" as primary faction plus legions-of-origin (Death Guard / Ultramarines / Luna Wolves) for the three operatives.
+  - HH-0245 Butcher's Nails: Angron/Lorgar tension en route to Calth; no specific planet (in transit) so locations left empty; pov_side=chaos because both POV primarchs are mid-fall.
+  - HH-0246 Grey Angel: Loken on Caliban testing Dark Angels' loyalty; clean planet primary.
+  - HH-0247 Burden of Duty: Garro on the Phalanx attempting to recruit librarians; Phalanx as primary location (star-fortress / sub-location).
+  - HH-0248 Garro: Sword of Truth: investigation across Sol System; the longer runtime (~2h) still bucketed length_tier=novella because there is no audio_drama-specific tier and the work remains far below short-novel scale.
+  - HH-0249 Warmaster: 9-minute Horus monologue on the Vengeful Spirit; ship-only setting, no planet/sector, locations left empty per granularity rule.
+  - HH-0250 Strike and Fade: Salamanders ambush on Isstvan V; WebSearch returned no named POV/supporting characters, characters left empty with low_confidence flag.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Knights-Errant" (Garro/Loken/Cruze/Rubio/Varren — recurring across HH-0244/0246/0247/0248), "Night Haunter" (epithet for Konrad Curze in HH-0241 and HH-0250), "Luna Wolves" (still used for Loken's prior identity in HH-0244 even though the legion has since been renamed Sons of Horus, which surfaces in HH-0249), "Phalanx" (Imperial Fists star-fortress as a sub-location), "Vengeful Spirit" (Horus's flagship — recorded only via context, not as a `locations[]` entry).
+- **Verifikation:** Reiner Daten-Commit (eine neue Override-JSON + ein Markdown-Append). `npm run lint` / `typecheck` / `brain:lint` übersprungen per Brief-061-Konvention (§10).
