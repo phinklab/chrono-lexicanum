@@ -69,6 +69,20 @@ Jede Phase berührt **nur** Files in ihrem Scope (Driver-Halt-Check = Diff-Set-S
 - **Keine over-broad Aliases.** Ein `*-aliases.json`-Eintrag ist nur legitim, wenn (a) die Surface-Form in der Welle konkret auftaucht, (b) die Ziel-Canonical-ID lore-eindeutig ist, (c) keine Cross-Axis-Disambiguation-Falle besteht (Surface-Form auf zwei Achsen). Sonst unresolved lassen.
 - **Surface-Form-Treue.** Reference-Namen kanonisch, aber keine erfundenen Entitäten — jede Promotion braucht eine Dossier-/Source-Basis.
 
+### Cross-Era-Identitäten (HH ↔ W40K)
+
+**Eine kanonische Identität = eine Canonical-Row. Era-spezifische Bezeichnungen wandern in `*-aliases.json`.** Die Zeit-Achse (Pre-Heresy → Heresy → Post-Heresy) ist eine **Story-Property**, keine **Identitäts-Property**. `Luna Wolves` und `Sons of Horus` sind dieselbe organisatorische Einheit unter zwei Bezeichnungen; `Kharn` und `Kharn the Betrayer` sind dieselbe Person mit zwei Surface-Forms. Eine zweite Canonical-Row würde Junction-Counts künstlich teilen und das Audit-Cockpit zerlegt eine Identität in zwei Drift-Cluster.
+
+Konkrete Modellierungs-Regeln, die jeder HH-Resolver-Pass anwendet:
+
+- **Faction-Rename** (Luna Wolves → Sons of Horus o. ä. bei Heresy-Era-Übergängen): die heute existierende Post-Heresy-Canonical-Row (`sons_of_horus`) ist der Anker; HH-Surface-Forms (`Luna Wolves`) werden in `faction-aliases.json` auf diese Canonical-ID gemappt. **Keine** separate `luna_wolves`-Row.
+- **Character-Honor-Title-Split** (Kharn ↔ Kharn the Betrayer, Abaddon ↔ Abaddon the Despoiler, Magnus ↔ Magnus the Red, Lucius ↔ Lucius the Eternal): die existierende W40K-Canonical-Row (`kharn_the_betrayer` etc.) ist der Anker; HH-Surface-Form (`Kharn`) wird Alias zur W40K-Row. Pre-Heresy-Charaktere ohne W40K-Pendant (`Garviel Loken`, `Nathaniel Garro`, `Tarik Torgaddon` u. ä.) bekommen frische Canonical-Rows.
+- **Primarchen.** Bestehende Canonical-Rows mit Honor-Titles bleiben Anker (`magnus_the_red`, `ferrus_manus`, `mortarion`, `vulkan`, `roboute_guilliman`). HH-Surface-Forms ohne Title (`Magnus`, `Mortarion`) werden Aliases. Primarchen ohne heutige Row (`Horus`, `Sanguinius`, `Rogal Dorn`, `Lion El'Jonson`, `Leman Russ`, `Lorgar`, `Fulgrim`, `Perturabo`, `Corax`, `Alpharius`, `Konrad Curze` u. a.) werden frische Canonical-Rows.
+
+**Ausnahme — echte Identitäts-Disambig.** Stößt der Pass auf eine echte Gleichnamigkeit (gleicher Surface-Form, andere Identität — selten, aber denkbar bei generischen Namen wie „Marcus"), `## Needs decision`-Stop in der Phase-Statusdatei. Kein Raten.
+
+**Surface-Form-Treue bleibt unverändert.** HH-Override-Files tragen die Lore-korrekte Surface-Form („Luna Wolves" bleibt „Luna Wolves" in der Override-Datei) — das Resolving zur Canonical-ID via Alias passiert in Phase 4a (Apply-Layer), nicht in der Override-File.
+
 ## 5. Phase-übergreifende Reihenfolge & FK-Sicherheit
 
 Phase 1 (Factions) **strikt vor** Phase 3 (Characters). Phase 4a läuft nach 1–3 (setzt deren Commits auf dem Branch voraus); Phase 4b läuft **strikt nach 4a** und liest dessen 4a-Statusdatei + den committeten Apply-Digest. Phase 4b ist die letzte Phase. Der Driver erzwingt die Reihenfolge über die Config-`phases[]`-Reihenfolge; manuell der Maintainer über die `/clear`-Sequenz.
@@ -104,4 +118,4 @@ Code-berührende Phasen (1–3, 4a) halten die Resolver-Trias grün, bevor commi
 
 ## Anhang — Herkunft (überspringbar, nur Background)
 
-Die operative Spec hier konsolidiert die Rationale aus den Briefs 076 (Design des axis-sliced Resolver-Passes), 090 (lean-Umbau: Runbook statt Volltext-Brief, Aggregator-Digest, Phase-4-Apply-Digest), 091 (Phase-4-Split in 4a/4b + range-aware forward-ref Guard) und 094 (headless Resolver-Loop + brief-freier Runbook). Ein per-pass Architect-Brief existiert seit Brief 094 **nicht mehr**; das `brief`-Feld in der Config wurde entfernt. Wer das Runbook fährt — egal ob via `scripts/run-resolver-loop.sh` (Loop) oder `scripts/run-resolver-pass.sh` (Einzel-Welle) — liest **keinen** dieser Briefs.
+Die operative Spec hier konsolidiert die Rationale aus den Briefs 076 (Design des axis-sliced Resolver-Passes), 090 (lean-Umbau: Runbook statt Volltext-Brief, Aggregator-Digest, Phase-4-Apply-Digest), 091 (Phase-4-Split in 4a/4b + range-aware forward-ref Guard), 094 (headless Resolver-Loop + brief-freier Runbook) und 100 (Resolver-Loop zwei-domänen-fähig W40K + HH, Cross-Era-Identitäten, HH-Bootstrap-Wave-Sizing). Ein per-pass Architect-Brief existiert seit Brief 094 **nicht mehr**; das `brief`-Feld in der Config wurde entfernt. Wer das Runbook fährt — egal ob via `scripts/run-resolver-loop.sh` (Loop) oder `scripts/run-resolver-pass.sh` (Einzel-Welle) — liest **keinen** dieser Briefs.
