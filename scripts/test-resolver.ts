@@ -389,6 +389,46 @@ check("alias - ninth wave Chaos Cults routes to Chaos umbrella (generic Chaos su
   assert.equal(resolveFaction("Chaos Cults").id, "chaos");
 });
 
+check("alias - tenth wave Luna Wolves routes to Sons of Horus (HH bootstrap Cross-Era faction-rename, freq=2)", () => {
+  assert.equal(resolveFaction("Luna Wolves").id, "sons_of_horus");
+});
+
+check("alias - tenth wave Mechanicum routes to Adeptus Mechanicus (HH bootstrap Cross-Era pre-reformation name, freq=4)", () => {
+  assert.equal(resolveFaction("Mechanicum").id, "mechanicus");
+});
+
+check("alias - tenth wave Imperial Army routes to Astra Militarum (HH bootstrap Cross-Era pre-reformation name, freq=2)", () => {
+  assert.equal(resolveFaction("Imperial Army").id, "astra_militarum");
+});
+
+check("alias - tenth wave Custodes (short form) routes to custodes (alias-confirmation, freq=4)", () => {
+  assert.equal(resolveFaction("Custodes").id, "custodes");
+});
+
+check("direct match - tenth wave Cabal (xenos conspiracy from Legion, top-level xenos, freq=1 lore-iconic HH bootstrap)", () => {
+  assert.equal(resolveFaction("Cabal").id, "cabal");
+});
+
+check("direct match - tenth wave Interex (pre-Imperial human civilization from Horus Rising, historical_canon_layer, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Interex").id, "interex");
+});
+
+check("direct match - tenth wave Laer (Slaaneshi xenos race from Fulgrim, distinct from laeran location row, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Laer").id, "laer");
+});
+
+check("direct match - tenth wave Knights of Taranis (Mars Imperial Knight House from Mechanicum, parent=imperial_knights, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Knights of Taranis").id, "knights_of_taranis");
+});
+
+check("direct match - tenth wave Legio Mortis (traitor Titan Legion from Mechanicum, parent=adeptus_titanicus + alignment=chaos, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Legio Mortis").id, "legio_mortis");
+});
+
+check("direct match - tenth wave The Order of Caliban (pre-Imperial Caliban knightly order from Descent of Angels, parent=dark_angels, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("The Order of Caliban").id, "order_of_caliban");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {

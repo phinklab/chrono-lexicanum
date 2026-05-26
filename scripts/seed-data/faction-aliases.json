@@ -57,5 +57,9 @@
   "Enforcers": "adeptus_arbites",
   "Argent Shroud": "sisters_of_battle",
   "Chaos Cultists": "chaos",
-  "Chaos Cults": "chaos"
+  "Chaos Cults": "chaos",
+  "Luna Wolves": "sons_of_horus",
+  "Mechanicum": "mechanicus",
+  "Imperial Army": "astra_militarum",
+  "Custodes": "custodes"
 }
