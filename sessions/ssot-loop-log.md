@@ -2299,3 +2299,23 @@
 - **value_outside_vocabulary:** []
 - **Notable surface-forms (within this batch):** Apollonian / Dionysian (paired spears); the Lantern (Mortarion's pistol); Knights-Errant (with hyphen, per source); Sisters of Silence / Silent Sisterhood / Oblivion Knight; Dekk-Tra (Space Wolves great-company); House Taranis; the Lightning Hall; Albia (Terran region); Irkalla (Black Ship); the Exalted (Night Lords).
 - **Verification:** lint/typecheck/brain:lint skipped per Brief 061 runbook §10 (reine Daten-Commit: Override-JSON + Markdown-Append, kein Code).
+
+## 2026-05-26 · ssot-hh-024 · HH-0231..HH-0240 · ✅
+
+- **Cumulative books in authority:** 805
+- **CC model:** claude-opus-4-7[1m]
+- **Pre-check:** cumulativeBefore=795, batch=ssot-hh-024, slice=HH-0231..HH-0240
+- **WebSearch:** mean=1.2, max=2 (over 10 books) — 2 each on HH-0231 (contents + Goodreads link) and HH-0238 (contents + Goodreads link); 1 each on the rest. Goodreads page reads via WebFetch on every book.
+- **Per-book bullets:**
+  - HH-0231 Crusade's End — Standard HH Omnibus #1 (Horus Rising + False Gods + Galaxy in Flames + the three interleaved shorts The Wolf of Ash and Fire, Death of a Silversmith, Lord of the Red Sands). Short-story titles pulled from heresyomnibus.com.
+  - HH-0232 The Razing of Prospero — HH Omnibus #3 (A Thousand Sons + Prospero Burns + ~half a dozen shorts). Dual POV captured; Custodes and Sisters of Silence carried as supporting per Russ's hosts at Tizca.
+  - HH-0233 The Last Phoenix — HH Omnibus #2 (Fulgrim + Angel Exterminatus + the novellas The Crimson Fist and The Reflection Crack'd + five shorts). Mixed pov_side (chaos+imperium) because Phall is loyalist-side material.
+  - HH-0234 Perturabo Stone and Iron — Greenskin-world location not named in any review surface; low_confidence flag on locations.
+  - HH-0235 Malcador First Lord of the Imperium — Two-hander between Malcador and Sibel Niasta; mixed-gender protagonist tag chosen over male-only because Niasta carries half the script weight.
+  - HH-0236 Konrad Curze A Lesson in Darkness — Piamen named; iterator unnamed in available coverage, kept off the character list.
+  - HH-0237 The Lords of Terra — Format-Konflikt: roster says `audio_drama` but this release is structurally an anthology re-issuing HH-0234/HH-0235/HH-0236 (three separately released solo-author audio dramas). Flagged data_conflict, suggestion `anthology`. Tags aggregated across the three constituent works per Omnibus/Anthology rule.
+  - HH-0238 Illyrium — Macragge, the Illyrium province, and the flagship Macragge's Honour all named on-page; Tarasha Euten + Ammon co-POV.
+  - HH-0239 The Revelation of the Word — Specific Five Hundred Worlds planet not named; low_confidence flag on locations. Word Bearer chaplain and Lectitio worshipper unnamed in coverage.
+  - HH-0240 Morningstar — Tizca and Prospero named; Beta-Garmon used as a time-marker in the synopsis, not as a setting tag.
+- **value_outside_vocabulary:** []
+- **Notable surface-forms (within this batch):** "Sons of Horus" and "Luna Wolves" both used (pre/post rename); "Crimson Fists" carried separately from "Imperial Fists"; "Adeptus Astra Telepathica" for Niasta's astropath corps; "Macragge's Honour" (ship), "Illyrium" (Macragge province — coincides with the book title), "Iydris" and "Eye of Terror" both kept (region + sub-region); "60-Sixty" (the Murder system from Horus Rising); "Piamen" (compliance world).
