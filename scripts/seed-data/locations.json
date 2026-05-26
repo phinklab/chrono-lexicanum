@@ -1888,5 +1888,85 @@
     "gx": null,
     "gy": null,
     "tags": []
+  },
+  {
+    "id": "istvaan_iii",
+    "name": "Istvaan III",
+    "sector": "obscurus",
+    "gx": 540,
+    "gy": 212,
+    "tags": ["sons_of_horus", "world_eaters", "death_guard", "emperors_children"]
+  },
+  {
+    "id": "istvaan_system",
+    "name": "Istvaan System",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "colchis",
+    "name": "Colchis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["word_bearers"]
+  },
+  {
+    "id": "monarchia",
+    "name": "Monarchia",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["word_bearers"]
+  },
+  {
+    "id": "khur",
+    "name": "Khur",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["word_bearers"]
+  },
+  {
+    "id": "nikaea",
+    "name": "Nikaea",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "deliverance",
+    "name": "Deliverance",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["raven_guard"]
+  },
+  {
+    "id": "aghoru",
+    "name": "Aghoru",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "laeran",
+    "name": "Laeran",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["emperors_children"]
+  },
+  {
+    "id": "diamat",
+    "name": "Diamat",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["mechanicus"]
   }
 ]

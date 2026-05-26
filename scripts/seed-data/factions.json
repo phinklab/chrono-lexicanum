@@ -1199,5 +1199,44 @@
     "parent": "necrons",
     "alignment": "xenos",
     "tone": "alien"
+  },
+  {
+    "id": "cabal",
+    "name": "Cabal",
+    "parent": null,
+    "tone": "alien"
+  },
+  {
+    "id": "interex",
+    "name": "Interex",
+    "parent": null,
+    "tone": "historical_canon_layer"
+  },
+  {
+    "id": "laer",
+    "name": "Laer",
+    "parent": null,
+    "tone": "alien"
+  },
+  {
+    "id": "knights_of_taranis",
+    "name": "Knights of Taranis",
+    "parent": "imperial_knights",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "legio_mortis",
+    "name": "Legio Mortis",
+    "parent": "adeptus_titanicus",
+    "alignment": "chaos",
+    "tone": "engine"
+  },
+  {
+    "id": "order_of_caliban",
+    "name": "The Order of Caliban",
+    "parent": "dark_angels",
+    "alignment": "imperium",
+    "tone": "imperial"
   }
 ]

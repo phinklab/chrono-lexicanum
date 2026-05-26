@@ -389,6 +389,46 @@ check("alias - ninth wave Chaos Cults routes to Chaos umbrella (generic Chaos su
   assert.equal(resolveFaction("Chaos Cults").id, "chaos");
 });
 
+check("alias - tenth wave Luna Wolves routes to Sons of Horus (HH bootstrap Cross-Era faction-rename, freq=2)", () => {
+  assert.equal(resolveFaction("Luna Wolves").id, "sons_of_horus");
+});
+
+check("alias - tenth wave Mechanicum routes to Adeptus Mechanicus (HH bootstrap Cross-Era pre-reformation name, freq=4)", () => {
+  assert.equal(resolveFaction("Mechanicum").id, "mechanicus");
+});
+
+check("alias - tenth wave Imperial Army routes to Astra Militarum (HH bootstrap Cross-Era pre-reformation name, freq=2)", () => {
+  assert.equal(resolveFaction("Imperial Army").id, "astra_militarum");
+});
+
+check("alias - tenth wave Custodes (short form) routes to custodes (alias-confirmation, freq=4)", () => {
+  assert.equal(resolveFaction("Custodes").id, "custodes");
+});
+
+check("direct match - tenth wave Cabal (xenos conspiracy from Legion, top-level xenos, freq=1 lore-iconic HH bootstrap)", () => {
+  assert.equal(resolveFaction("Cabal").id, "cabal");
+});
+
+check("direct match - tenth wave Interex (pre-Imperial human civilization from Horus Rising, historical_canon_layer, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Interex").id, "interex");
+});
+
+check("direct match - tenth wave Laer (Slaaneshi xenos race from Fulgrim, distinct from laeran location row, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Laer").id, "laer");
+});
+
+check("direct match - tenth wave Knights of Taranis (Mars Imperial Knight House from Mechanicum, parent=imperial_knights, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Knights of Taranis").id, "knights_of_taranis");
+});
+
+check("direct match - tenth wave Legio Mortis (traitor Titan Legion from Mechanicum, parent=adeptus_titanicus + alignment=chaos, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Legio Mortis").id, "legio_mortis");
+});
+
+check("direct match - tenth wave The Order of Caliban (pre-Imperial Caliban knightly order from Descent of Angels, parent=dark_angels, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("The Order of Caliban").id, "order_of_caliban");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
@@ -661,6 +701,50 @@ check("direct match - ninth wave Hive Blackbracken (King of Pigs + Resting Place
 
 check("direct match - ninth wave Imperial Palace (Terra sub-location, Lord of the Fallen, freq=1 lore-iconic)", () => {
   assert.equal(resolveLocation("Imperial Palace").id, "imperial_palace");
+});
+
+check("direct match - tenth wave Istvaan III (HH bootstrap Heresy virus-bombing world, two-t convention analog to istvaan_v, freq=2)", () => {
+  assert.equal(resolveLocation("Istvaan III").id, "istvaan_iii");
+});
+
+check("alias - tenth wave Isstvan III routes to istvaan_iii (doubled-s spelling variant analog to Isstvan V → istvaan_v)", () => {
+  assert.equal(resolveLocation("Isstvan III").id, "istvaan_iii");
+});
+
+check("direct match - tenth wave Istvaan System (Heresy system grain, parent of istvaan_iii + istvaan_v, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Istvaan System").id, "istvaan_system");
+});
+
+check("direct match - tenth wave Colchis (Word Bearers homeworld, The First Heretic, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Colchis").id, "colchis");
+});
+
+check("direct match - tenth wave Monarchia (Word Bearers Perfect City on Khur, The First Heretic burning pivot, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Monarchia").id, "monarchia");
+});
+
+check("direct match - tenth wave Khur (Word Bearers world hosting Monarchia, The First Heretic, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Khur").id, "khur");
+});
+
+check("direct match - tenth wave Nikaea (Council of Nikaea psyker-trial moment, A Thousand Sons, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Nikaea").id, "nikaea");
+});
+
+check("direct match - tenth wave Deliverance (Raven Guard homeworld moon, Deliverance Lost, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Deliverance").id, "deliverance");
+});
+
+check("direct match - tenth wave Aghoru (Thousand Sons tomb-world archaeological expedition, A Thousand Sons, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Aghoru").id, "aghoru");
+});
+
+check("direct match - tenth wave Laeran (Slaaneshi coral-world distinct from laer faction row, Fulgrim, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Laeran").id, "laeran");
+});
+
+check("direct match - tenth wave Diamat (Mechanicum / Iron Hands battle-world Heresy strategic anchor, Fallen Angels, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Diamat").id, "diamat");
 });
 
 console.log("\nresolveCharacter");
@@ -1043,6 +1127,34 @@ check("direct match - ninth wave Trajann Valoris (Captain-General of the Adeptus
 
 check("direct match - ninth wave Szarekh (Necron Silent King, Dawn of Fire finale, freq=1 lore-iconic primarch-tier)", () => {
   assert.equal(resolveCharacter("Szarekh").id, "szarekh");
+});
+
+check("alias - Resolver-Pass 10 Cross-Era: 'Lucius' (HH Emperor's Children swordsman) routes to lucius_the_eternal", () => {
+  assert.equal(resolveCharacter("Lucius").id, "lucius_the_eternal");
+});
+
+check("alias - Resolver-Pass 10 Cross-Era: 'Ezekyle Abaddon' (HH Sons of Horus First Captain) routes to abaddon_the_despoiler", () => {
+  assert.equal(resolveCharacter("Ezekyle Abaddon").id, "abaddon_the_despoiler");
+});
+
+check("alias - Resolver-Pass 10 cross-batch consolidation: 'Little Horus Aximand' routes to horus_aximand", () => {
+  assert.equal(resolveCharacter("Little Horus Aximand").id, "horus_aximand");
+});
+
+check("direct match - Resolver-Pass 10 (7b Heresy spine, freq 3): Horus (Warmaster)", () => {
+  assert.equal(resolveCharacter("Horus").id, "horus");
+});
+
+check("direct match - Resolver-Pass 10 (7b Heresy spine, freq 3): Garviel Loken (Sons of Horus Mournival)", () => {
+  assert.equal(resolveCharacter("Garviel Loken").id, "garviel_loken");
+});
+
+check("direct match - Resolver-Pass 10 (7b Heresy spine, highest-freq new HH character, freq 4): Erebus (Word Bearers First Chaplain)", () => {
+  assert.equal(resolveCharacter("Erebus").id, "erebus");
+});
+
+check("direct match - Resolver-Pass 10 (7b Primarch spine, apostrophe-stripped slug): Lion El'Jonson", () => {
+  assert.equal(resolveCharacter("Lion El'Jonson").id, "lion_el_jonson");
 });
 
 console.log("\nnormalizeCharacterRole");
