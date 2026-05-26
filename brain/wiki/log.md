@@ -992,3 +992,25 @@ Cowork-Session mit Philipp. Auslöser: der jüngste Hygiene-Zyklus produzierte d
 **Out of scope:** Kein Code-Touch (auch nicht die `ci.yml`-Push-Trigger-Ergänzung — eigener Folge-PR), kein Schema/DB. Kein `brain:lint`-Run durch Cowork (Sandbox).
 
 **Branch.** Diese Änderung ist selbst doc-only — der erste Anwendungsfall der neuen Regel: kein Branch, kein PR, direkt auf `main`. Philipp committet + pusht Windows-nativ.
+
+---
+
+## 2026-05-26 · Ingest + Architektur · Post-Merge-Koordinations-Pass (#100) + Cross-Era-Identitäten-ADR
+
+Brief 100 (HH-Resolver-Domain-Öffnung) ist implementiert + gemergt — `origin/main` `b8aad31`. Der Headless-Resolver-Loop ist jetzt **zwei-domänen-fähig** (W40K + HH); Detektor liefert drei externe Terminal-Zustände (`open-wave | idle | all-complete`), der W40K→HH-Übergang ist interner Branch-Point innerhalb von `detectNextWave`. Live-Smoke gegen den realen Repo-Stand (W40K resolved durch Pass 9, 30/30 HH crystallized) liefert die erwartete Bootstrap-Welle `ssot-hh-001..002` (20 Bücher, Pass 10). EXPECTED_RANGES für HH-Headroom angehoben (`factions.max=2500`, `locations.max=1100`, `characters.max=2200`); Minima unverändert. `EXPECTED_RANGES.factions.max` damit über zwei Pässe von 2100 (Pass 9 Headroom-Sizing) auf 2500 gewachsen.
+
+**CC-Entscheidungen (alle akzeptiert).** Variant A (statische `{domain, n}`-Tupel) für die Verify-Trias; HH-Tupel **nicht** pre-added — der Phase-4a-Trigger jeder zukünftigen HH-Welle fordert das Append per Welle, materielle Verify-Abdeckung erst nach dem ersten HH-Pass. `as const satisfies ReadonlyArray<…>` für die Tupel-Schema-Validierung (TS 5.x). Domain-Reihenfolge `["w40k", "hh"]` hartcodiert (HH-Cross-Era-Aliases hängen vom stabilen W40K-Reference-Layer ab). `HH_BOOTSTRAP_WAVE_TARGET=20`/`HARD_CAP=25` — mit Batch-Größe 10 ist der Cap das bindende Limit. Brief in den Code-PR portiert (lag in Cowork-primary-Worktree als untracked, nie auf git committed); Status-Flip auf `implemented` derselbe PR.
+
+**W40K-Hardcode-Sweep negativ.** Über Brief 100 hinaus tragen `scripts/aggregate-surface-forms.ts`, `scripts/run-phase4-apply.sh`, `scripts/verify-pass.ts`, `scripts/run-resolver-pass.sh` keine W40K-Konstanten — Brief 100 OQ „weitere W40K-Hardcodes" ist damit negativ beantwortet, kein Folge-Cleanup nötig.
+
+**Cross-Era-Identitäten — ADR gezogen.** Brief 100 § Baustein 3 hat die Modellierungs-Disziplin festgenagelt („eine kanonische Identität = eine Canonical-Row, Era-Surface-Forms als Aliases"), das Runbook §4 trägt die operative Spec (Faction-Rename, Character-Honor-Title-Split, Primarchen-Pattern, Disambig-Ausnahme). Cowork hat in diesem Koordinations-Pass eine schlanke ADR `decisions/cross-era-identities.md` ergänzt — Context/Decision/Why/Revisit-Trigger. Macht die Decision lange-archivierbar und gibt Revisit-Trigger, die in Brief 100 selbst nicht stehen.
+
+**CLAUDE.md § Git — PowerShell-Konvention.** Auslöser: Cowork hatte Philipp wiederholt `git fetch && git pull`-Ketten gegeben, die in PowerShell 5.x mit `Das Token "&&" ist in dieser Version kein gültiges Anweisungstrennzeichen` brechen. Festgehalten als eigene Subsektion in `CLAUDE.md` § Git: git-Befehle für Philipp werden **immer zeilenweise** gegeben, niemals als `&&`-Kette; das alte Inline-`&&`-Beispiel im Übergabe-Hinweis entsprechend entschärft.
+
+**Was diesem Pass NICHT angehört.** Der Trial-Lauf (operativ, Philipp triggert `run-resolver-loop.sh`), die HH-Sessions-Archive-Sweep-Frage (Brief 098/099 bleiben one-day-old in `sessions/`-Root, archiviert wird beim nächsten Sweep), der HH-Konsolidierungs-Pass-Folge-Brief (eigener schlanker Brief nach HH-complete). Keine OQ-Schließung, keine neue numerierte OQ — Brief 100 ist Maschinerie-Öffnung, keine OQ-Bewegung.
+
+**Updated wiki:** `project-state.md` (Header + Phase + Branch + What's running + neue „Latest pipeline state (post-100)"-Sektion + Recently shipped + Next likely brief + § What's open), `pipeline-state.md` (Resolver-Layer-Subsektion zwei-domänen + EXPECTED_RANGES), `open-questions.md` (Header-Note 2026-05-26 post-100), `decisions/cross-era-identities.md` (neu), `index.md` (neue Decision-Zeile + bumped Updated-Dates), this `log.md`. **Outside wiki:** `CLAUDE.md` (PowerShell-Subsektion), `sessions/README.md` (Aktueller-Kopf + Brief-100-Zeile auf `complete — merged`).
+
+**Out of scope:** Kein Code-Touch (Brief 100 ist erledigt; der Trial ist operativ). Kein Archive-Move 098/099/100 — separater Sweep, wenn die Pile genug für sich steht. Kein `brain:lint`-Run durch Cowork (Sandbox).
+
+**Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.

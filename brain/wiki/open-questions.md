@@ -2,7 +2,8 @@
 title: Open questions (next-brief queue)
 type: overview
 created: 2026-05-09
-updated: 2026-05-25
+updated: 2026-05-26
+# 2026-05-26 (Post-Merge-Koordinations-Pass post-100): Brief 100 (HH-Resolver-Domain-Öffnung) ist gemergt — der Headless-Resolver-Loop ist jetzt zwei-domänen-fähig (W40K + HH), drei externe Terminal-Zustände `open-wave | idle | all-complete`, HH-Bootstrap-Welle `ssot-hh-001..002` (20 Bücher, Pass 10) verbindlich, EXPECTED_RANGES angehoben (2500/1100/2200), Cross-Era-Identitäten-Subsektion im Runbook §4 + neue ADR `decisions/cross-era-identities.md`. **Keine OQ-Schließung, keine neue numerierte OQ** — Brief 100 ist Maschinerie-Öffnung, keine OQ-Bewegung. Die in Brief 100 § Open questions genannte „weitere W40K-Hardcodes"-Frage ist durch CC's negativen Sweep über `aggregate-surface-forms.ts` / `run-phase4-apply.sh` / `verify-pass.ts` / `run-resolver-pass.sh` beantwortet — kein Folge-Cleanup nötig. Cross-Era-Identitäten-Disziplin ist als eigene ADR gezogen (Modellierungs-Regel: eine Canonical-Row pro Identität, Era-Surface-Forms als Aliases; Revisit-Trigger u. a. „Audit-Cockpit zeigt aggressives Falsch-Merging" und „Sisters of Silence promoting"). Offene Queue unverändert: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung. Nächste Schritte sind operativ: HH-Resolver-Trial-Lauf via `run-resolver-loop.sh` (Philipp triggert) und danach der HH-Konsolidierungs-Pass-Folge-Brief (schlank — Maschinerie aus Brief 098 existiert).
 # 2026-05-25 (Post-#099-Koordinations-Pass): Brief 099 (Sessions-Archiv-Sweep) ist gemergt — 53 geschlossene Session-Files (062–097) nach `sessions/archive/2026-05/`, 188 Referenzen in 12 `brain/wiki/**`-Files umgeschrieben, `brain:lint` grün. Reine Repo-Hygiene. **Keine OQ-Schließung, keine neue numerierte OQ.** Der 099-Impl-Report nennt zwei kleine Material-Punkte (eine `sources:`-Frontmatter-Pflege-Konvention — Archiv-Pfad schon beim Session-End schreiben — und eine `brain:lint`-Coverage-Erweiterung um `AGENTS.md` + die `sessions/`-Loop-Logs/Runbooks); beide nicht zeitkritisch, hier als Notiz vermerkt, keine numerierte OQ. Offene Queue unverändert: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung. Nächster Architekten-Brief: die HH-Domain-Resolver-Schiene.
 # 2026-05-25 (Post-Merge-Koordinations-Pass post-098): Brief 098 (W40K-Konsolidierungs-Pass) ist gemergt — W40K ist datenkomplett *und* konsolidiert. Der Konsolidierungs-Pass fand 15 Dubletten-Kandidaten, 2 echte Cross-Wave-Merges (`vigilus_s`→`vigilus`, `magister_sek`→`anakwanar_sek`), 13 no-merges, 0 geflaggt; Reference-Schicht jetzt `factions 173` / `locations 224` / `characters 344`, Junction-Counts unverändert. **Keine OQ-Schließung, keine neue numerierte OQ** — der Konsolidierungs-Pass adressiert keine Queue-Frage. Die in Brief 098 Teil 1 gefaltete `resolver-loop-log.md`-Marker-Drift ist **erledigt**: Teil 1 hat verifiziert, dass der Detektor sauber `w40k-complete` meldet — kein Drift, kein Commit nötig. **Brief 099 (Sessions-Archiv-Sweep)** ist geschrieben (`status: open`) — reine Repo-Hygiene (062–097 nach `archive/2026-05/` + Referenz-Rewrite), keine OQ. Zwei UI-Posten aus der Cowork-Session 2026-05-25 — Public-Page-Rating-Render und Cockpit-Drift-Tie-Group-Sub-Sortierung — sind an den Product-Strang / Brief 096 angedockt statt als eigener kollidierender Parallel-Brief; sie bleiben als Notiz in `project-state.md` § What's open, keine numerierte OQ. Offene Queue unverändert: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung.
 # 2026-05-25 (Post-Merge-Koordinations-Pass post-094/095/096): W40K ist datenkomplett — **565/565 W40K-Bücher in Postgres**. Seit dem post-095-Stand gemergt: SSOT-Loop-Lauf (PR #94, `ssot-w40k-046..057` kristallisiert), Resolver-Pass 8 + Brief 097 (PR #95, DB 450→510), Resolver-Pass 9 (PR #96, DB 510→565). **Keine OQ-Schließung, keine neue numerierte OQ** — die drei Daten-/Hotfix-Stränge adressieren keine Queue-Frage. **Brief 098 (W40K-Konsolidierungs-Pass)** ist geschrieben (`status: open`); er behandelt die offene Queue: OQ (3) Hand-Check-Workflow und OQ (13) Crawl-Simplification werden in Brief 098 § Notes **explizit deferred** (OQ 13 = eigener Dead-Code-Retirement-Brief wert; OQ 3 = post-CC-Direct-Curation auf Aktualität zu prüfen, womöglich superseded), beide bleiben in der Queue. Eine `resolver-loop-log.md`-Marker-Drift (Pass-8-/9-Blöcke fehlen auf `main`) ist als Brief 098 Teil 1 gefaltet — mechanische Hygiene, kein OQ-Eintrag. Offene Queue unverändert: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung.
@@ -79,6 +80,8 @@ sources:
   - ../../sessions/2026-05-25-098-arch-w40k-consolidation-pass.md
   - ../../sessions/2026-05-25-098-impl-w40k-consolidation-pass.md
   - ../../sessions/2026-05-25-099-arch-sessions-archive-sweep.md
+  - ../../sessions/2026-05-26-100-arch-resolver-hh.md
+  - ../../sessions/2026-05-26-100-impl-resolver-hh.md
   - ../../sessions/ssot-loop-log.md
   - ../../sessions/resolver-loop-log.md
 related:
@@ -90,6 +93,7 @@ related:
   - ./decisions/why-excel-ssot-not-crawl.md
   - ./decisions/faction-policy.md
   - ./decisions/hardcover-to-goodreads-pivot.md
+  - ./decisions/cross-era-identities.md
 confidence: high
 ---
 

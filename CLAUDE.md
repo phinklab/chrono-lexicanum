@@ -180,7 +180,17 @@ A pull request is a code-review + CI mechanism. A change that touches **only doc
 - **CI caveat.** `.github/workflows/ci.yml` runs `on: pull_request` only, so direct-to-`main` commits currently skip `brain:lint`. Until `ci.yml` also carries a `push: branches: [main]` trigger (itself a code change → its own PR), run `npm run brain:lint -- --no-write` locally green before pushing a doc-only commit.
 - **Branch-protection caveat.** This rule assumes `main` accepts direct pushes. If GitHub branch protection rejects them, relax it for this single-maintainer repo, or fall back to bundling the doc change into the next PR.
 
-Cowork never runs `git` (sandbox — see the KRITISCH banner above): it writes the files and hands Philipp the exact `git add … && git commit … && git push origin main` line.
+Cowork never runs `git` (sandbox — see the KRITISCH banner above): it writes the files and hands Philipp die exakten git-Kommandos zum Einfügen.
+
+> **⚠ Shell-Konvention für Übergabe an Philipp.** Philipps Default-Shell ist **Windows PowerShell 5.x** (`PS C:\Users\Phil>`-Prompt). PowerShell 5 versteht **kein `&&`** als Befehlstrennzeichen — eine Zeile wie `git add … && git commit … && git push …` bricht mit `Das Token "&&" ist in dieser Version kein gültiges Anweisungstrennzeichen.` Cowork gibt git-Befehle deshalb **immer zeilenweise**, niemals als `&&`-Kette:
+>
+> ```
+> git add <files>
+> git commit -m "<msg>"
+> git push origin main
+> ```
+>
+> Gilt für jede Mehrschritt-Sequenz, die in Philipps Terminal landen soll (`git fetch --prune origin` + `git pull --ff-only origin main`, `npm run brain:lint -- --no-write` vor dem Commit, etc.). Verkettung mit `;` ist syntaktisch erlaubt, führt den zweiten Befehl aber auch nach Fehler aus — separate Zeilen sind sicherer und für Philipp einfacher zu beobachten.
 
 ### Parallel worktrees
 

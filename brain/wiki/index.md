@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-05-25
+updated: 2026-05-26
 sources: []
 related:
   - ../CLAUDE.md
@@ -21,19 +21,20 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, next likely brief. Post-#099-Koordinations-Pass 2026-05-25: Brief 098 (Konsolidierung) + Brief 099 (Sessions-Archiv-Sweep) gemergt — **W40K datenkomplett *und* konsolidiert, `sessions/`-Root aufgeräumt**. Nächster Architekten-Brief: HH-Domain-Resolver. | 2026-05-25 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-#099-Koordinations-Pass 2026-05-25: Brief 098 + Brief 099 gemergt, keine OQ-Schließung / keine neue numerierte OQ. Offene Queue: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung. | 2026-05-25 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, next likely brief. Post-Merge-Koordinations-Pass post-100 (2026-05-26): Brief 100 (HH-Resolver-Domain-Öffnung) gemergt — **Resolver-Loop zwei-domänen-fähig, HH-Bootstrap-Welle ready, EXPECTED_RANGES angehoben**. HH-SSOT-Loop hat alle 294 HH-Bücher kristallisiert. Nächster Schritt: HH-Resolver-Trial (operativ). | 2026-05-26 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address. Post-Merge-Koordinations-Pass post-100 (2026-05-26): Brief 100 gemergt, keine OQ-Schließung / keine neue numerierte OQ; Brief-100-OQ „weitere W40K-Hardcodes" negativ beantwortet. Cross-Era-Identitäten-ADR gezogen. Offene Queue: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung. | 2026-05-26 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums, conventions inherited from top-level CLAUDE.md.      | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog. Post-086: Phase-3-Strategie-Absatz mit Supersede-Notiz (LLM-Stage / Discovery-Crawl / Hardcover→Goodreads), Refresh-Button im Ideas Backlog. | 2026-05-20 |
 | [onboarding.md](./onboarding.md)                 | First-time setup (local install + GitHub + Supabase + Vercel + optional Obsidian for Atlas).                                | 2026-05-09 |
-| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-099: neun Resolver-Pässe + erster Konsolidierungs-Pass — **W40K datenkomplett *und* konsolidiert**, 565 Bücher applied; nächster Strang HH (eigener Resolver-Brief). | 2026-05-25 |
+| [pipeline-state.md](./pipeline-state.md)         | Phase-3 pipeline detail: V1 legacy + V2 SSOT authority path + resolver layer. Post-100 (2026-05-26): Resolver-Loop zwei-domänen-fähig (W40K + HH); 565 W40K applied + 294 HH crystallized; HH-Bootstrap-Welle ready, HH-Trial operativ wartend. | 2026-05-26 |
 | [book-data-overview.md](./book-data-overview.md) | High-level book-data numbers (26 manuals heute, 859 SSOT-Roster ab 058, ~$0.114/book V1 / $0.0199/Buch V2 fresh-Smoke). NOT atlas — pointer to atlas for per-book detail. | 2026-05-09 |
 
 ## Decision pages (ADRs with revisit-triggers)
 
 | Page | Decision | Decided | Updated |
 |---|---|---|---|
+| [decisions/cross-era-identities.md](./decisions/cross-era-identities.md) | Cross-Era-Identitäten (Luna Wolves ↔ Sons of Horus, Kharn ↔ Kharn the Betrayer, Magnus ↔ Magnus the Red, …) werden als **eine Canonical-Row pro Identität** modelliert, Era-spezifische Bezeichnungen wandern in `*-aliases.json`. Faction-Rename + Character-Honor-Title-Split + Primarchen-Pattern; Ausnahme echte Identitäts-Disambig → `## Needs decision`-Stop. Operative Spec im `resolver-pass-runbook.md` §4. Brief 100 (HH-Resolver-Domain-Öffnung). | 2026-05-26 | 2026-05-26 |
 | [decisions/why-cc-direct-curation.md](./decisions/why-cc-direct-curation.md) | V2-LLM-Stage de-facto ausgemustert; `claude -p`-Subsession produziert die Override-Datei direkt. Maintainer-Kontrolle + Modell-Qualität + Latenz vs. Reproduzierbarkeit + Field-Provenance. Effektiv entschieden seit Brief 061 (2026-05-11), formal-ADR 2026-05-15. | 2026-05-11 | 2026-05-15 |
 | [decisions/faction-policy.md](./decisions/faction-policy.md) | Browse-Root vs. Tree-Root getrennt: Policy lebt in `scripts/seed-data/faction-policy.json` (19 Browse-Roots, `imperium` als Grand-Alignment-Exception), `factions.parent_id` weiter Single-Parent. `factions.json` audit-patched (Chaos-Rename + 14 Reparents), `brain:lint` neue Kategorie. **2026-05-16 (Brief 077, implemented):** Grand-Alignment-Junction-Skip — `imperium`/`chaos` werden in `work_factions` übersprungen, wenn alignment-gleiche Sub-Faction im selben Override-Block resolved ist; `redundantWhenSubPresent` in der Policy-JSON, Skip-Helper `scripts/apply-override-skip.ts` mit DI-Signatur, shared `src/lib/seed/alignment.ts`-Util, Audit-Bucket `factionsSkippedRedundant` in `book_details.notes`-`---surfaceForms---`-Block, Re-Apply 001..020 hat 165 redundante Junctions weggeputzt (`imperium 81 → 6`, `chaos 133 → 43`); Revisit-Trigger für Aeldari-Sub-Splits (Alignment-Equality → Parent-Chain) dokumentiert. | 2026-05-13 | 2026-05-16 |
 | [decisions/location-policy.md](./decisions/location-policy.md) | Locations-Policy + Umbrella-Surface-Form-Skip (Brief 084, implemented 2026-05-19): Sister-Pass zu `faction-policy.md` § Grand-Alignment-Junction-Skip auf der Locations-Achse. Allowlist-basierter Skip in `scripts/seed-data/location-policy.json` → `redundantSurfaceForms` (13 Umbrella-Strings: `Imperium`-Varianten, `Chaos`/`Realm of Chaos`, `the Warp`, `Xenos`/`Aliens`). Skip-Helper `scripts/apply-override-location-skip.ts` als pure DI-Funktion, surface-form-zentriert (nicht ID-zentriert, weil Umbrellas zu `null` resolven). Notes-Bucket-Umsortierungs-Pass: `Imperium`-Surface-Forms wandern von `locationsUnresolved` nach `locationsSkippedRedundant` (Audit-Bucket), `work_locations` bleibt invariant. Erhaltungs-Pfad (Buch trägt nur Umbrella, keine andere Location resolved). Revisit-Trigger: HH-Domain-Forward-Behavior, Audit-Bucket-False-Positives ≥ 5, UI-Map-Filter-Phase. | 2026-05-19 | 2026-05-19 |
@@ -66,8 +67,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Description | Updated |
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-25 |
-| (this file) | Master catalog | 2026-05-25 |
+| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-05-26 |
+| (this file) | Master catalog | 2026-05-26 |
 
 ## Concept pages
 
