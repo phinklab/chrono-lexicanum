@@ -2,7 +2,7 @@
 pass: 10
 role: implementer
 date: 2026-05-26
-status: needs-decision
+status: complete
 wave: ssot-hh-001..002
 ids: HH-0001..HH-0020
 branch: codex/ingest-batches-resolver-trial-hh
@@ -10,12 +10,14 @@ runbook: sessions/resolver-pass-runbook.md
 config: scripts/resolver-pass.config.json
 dossier: sessions/resolver-dossiers/resolver-pass-10-dossier.md
 commits:
-  - 31bf8bb  # Phase 0 (Preflight/Dossier)
-  - 339e156  # Phase 1 (Factions)
-  - 9fd077a  # Phase 2 (Locations)
-  - a308a26  # Phase 3 (Characters)
-  - 0a2e2c1  # Phase 4a (Integration/Apply) — ## Needs decision halt
-  # Phase 4b (Verify/Report) is the commit carrying this report.
+  - 24c5292  # Phase 0 (Preflight/Dossier)
+  - b947f9f  # Phase 1 (Factions)
+  - 258a977  # Phase 2 (Locations)
+  - 499af8c  # Phase 3 (Characters)
+  - d08d796  # Phase 4a (Integration/Apply) — pre-Brief-101 needs-decision halt (superseded by 42a6fad)
+  - 37749be  # Phase 4b (Verify/Report) — pre-Brief-101 forwarded halt (superseded by this commit)
+  - 42a6fad  # Phase 4a Re-Run (Integration/Apply) — HH bootstrap apply clean (works 565 → 585)
+  # Phase 4b Re-Run (Verify/Report) is the commit carrying this report.
 ---
 
 # Resolver-Pass 10 — impl report (ssot-hh-001..002 / HH-0001..HH-0020)
@@ -27,48 +29,55 @@ bootstrap, 20 books HH-0001..HH-0020). Brief 100 two-domain Resolver-Loop +
 Cross-Era-Identitäten rules apply: HH surface-forms either Alias onto the
 existing W40K Canonical-Row (`Luna Wolves` → `sons_of_horus`, `Kharn` →
 `kharn_the_betrayer`, `Magnus` → `magnus_the_red`, …) or open a fresh HH-only
-Canonical-Row (`horus`, `garviel_loken`, `nathaniel_garro`, …). Phases 0–3
-landed cleanly with their per-phase reports; the JSON reference layer grew by
-+6 factions / +10 locations / +60 characters and +4 / +1 / +4 aliases.
+Canonical-Row (`horus`, `garviel_loken`, `nathaniel_garro`, …). All six
+phases landed cleanly with their per-phase reports; the JSON reference layer
+grew by +6 factions / +10 locations / +60 characters and +4 / +1 / +4
+aliases.
 
-**Phase 4a halted on `## Needs decision`** — exactly the misfire the
-dossier §7d named as the Phase-4a stop trigger. The Brief-091 range-aware
-forward-ref Guard in `scripts/apply-override-dry.ts` hard-fails on the three
-HH anthologies' out-of-range constituents (20 unresolvable-constituent-refs:
+**Phase 4a landed the HH bootstrap apply: works 565 → 585** (+20 — the
+exact 20 HH books of this wave). The first 4a attempt halted on
+`## Needs decision` because the Brief-091 range-aware forward-ref Guard
+hard-failed on the three HH anthologies' out-of-range constituents
+(20 `unresolvableConstituentRefs` with `reason: "out-of-range"` —
 HH-0020 → HH-0117..HH-0120, HH-0010 → HH-0150..HH-0156, HH-0016 →
-HH-0157..HH-0165). The classifier correctly emits `reason: "out-of-range"`
-for all 20 (the constituents *are* in `book-roster.json`, just outside the
-wave's `applyRange`), but the downstream integration assertion conflates
-`out-of-range` with `unknown-work` and aborts the dry. For a sealed domain
-(W40K post-Pass-9) the conflation is harmless; for an in-progress domain
-(HH mid-bootstrap) it makes every anthology-with-deferred-constituents a hard
-fail. **No DB apply was attempted**; the architectural fix is the architect's
-call (three options in the §Needs decision block below).
+HH-0157..HH-0165 — exactly the misfire dossier §7d named as the
+explicit 4a stop trigger). Brief 101 narrowed the Guard's assertion to
+`reason: "unknown-work"` only — `out-of-range` refs are now reported
+informationally in the dry's by-reason breakdown but no longer abort,
+matching dossier §7d's stated contract. The re-run (commit `42a6fad`)
+went green on the first try: `test:apply-override-dry` reports
+`out-of-range=20, unknown-work=0` and exits ok; `bash
+scripts/run-phase4-apply.sh scripts/resolver-pass.config.json`
+applied both batches cleanly with a refreshed Apply-Digest.
 
-Phase 4b ran the **read-only** half regardless: `verify-pass.ts --config …`
-emits a digest confirming the DB is exactly where Pass-9 sealed it (HH-range
-`total_works=0`, smoke slugs `tales-of-heresy` / `the-primarchs` not yet
-present); `lint` + `typecheck` clean. Phase 4b polishes this impl-report
-from the 4a status file + the (stale, Consolidation-Pass-1 era) committed
-Apply-Digest + the Verify-Digest — **without re-deriving state**, per
-runbook §3 Phase 4b.
+Phase 4b ran the **read-only** half: `verify-pass.ts --config …`
+confirms the live DB matches the digest (20 HH works present, smoke
+slugs `tales-of-heresy` / `the-primarchs` carrying their junction
+counts, 20/20 Goodreads-rated, NEW-range audit replica reports the
+expected drift/gap shape for the HH bootstrap); `lint` + `typecheck`
+clean. This impl-report is polished from the 4a status file + the
+committed Apply-Digest + the Verify-Digest stdout — **without
+re-deriving state**, per runbook §3 Phase 4b.
 
-**Headline:** the apply for HH-0001..HH-0020 is **blocked** until the
-architect picks a resolution path for the Brief-091 Guard misfire. The
-HH-domain bootstrap milestone (works `565 → 585`) is deferred to the
-re-run of Phase 4a after the fix lands. Phases 0–3 are landed and stable;
-the JSON-side row + alias additions will be picked up by
-`seed-resolver-extensions.ts` on next 4a run with no extra phase work.
+**Headline:** the HH-domain bootstrap milestone is **on the branch and
+in the DB**. PR-ready (the rebase rewrites the pre-Brief-101 4a/4b
+commits' narrative; the new 42a6fad + this commit replace the
+needs-decision stop with a clean run). Subsequent HH waves (HH-003..)
+follow the established resolver-pass cadence.
 
 ## What I did
 
-The pass is a 6-phase sequence; Phases 0–3 landed in their own commits
-(above) with full per-phase reports. Phase 4a stopped on `## Needs
-decision` (one commit carrying the trias batch-range extensions + the
-4a status file). Phase 4b is **read-only** — it ran
-`scripts/verify-pass.ts --config …` (stdout digest), `lint`, `typecheck`,
-and polished this report from the 4a status file + the committed Apply-
-Digest + the Verify-Digest. No second DB apply, no trias re-run.
+The pass is a 6-phase sequence. Phases 0–3 landed in their own
+commits with full per-phase reports. The first Phase 4a / 4b pair
+landed in the pre-rebase commits (`d08d796` / `37749be`) carrying a
+`## Needs decision` halt forwarded to this report — superseded after
+the Brief-101 Guard-Fix (commit `1126e45` from `origin/main`,
+rebase-merged into this branch) by the Phase 4a Re-Run
+(commit `42a6fad`) and this Phase 4b Re-Run commit. The re-runs only
+needed (a) confirming the trias is green against the Brief-101-fixed
+Guard, (b) the digest-only-apply of the wave, (c) refreshing the 4a
+status file with a success block, (d) running the 4b read-only verify
+and polishing this impl-report.
 
 ### Per-phase recap (detail in the phase reports)
 
@@ -99,363 +108,371 @@ Digest + the Verify-Digest. No second DB apply, no trias re-run.
   consolidation. `primaryFactionId` of new rows points at the Phase-1
   faction set (FK-clean, runbook §5: Phase 1 strictly before Phase 3).
 
-### Phase 4a — Integration / Apply (halted)
+### Phase 4a — Integration / Apply (re-run, commit `42a6fad`)
 
-- **Trias batch-range extension — Brief 100 Domain-+-N-Append:** the two
-  new HH tuples `{domain:"hh", n:"001"}` + `{domain:"hh", n:"002"}`
-  appended to `BATCHES` in `scripts/apply-override-dry.ts`,
-  `scripts/test-resolver-coverage.ts`, `scripts/test-resolver-data-integrity.ts`.
-  Header / smoke-slug-coverage labels updated to match the new mixed-domain
-  shape (`ssot-w40k-001..057 + ssot-hh-001..002`). `EXPECTED_RANGES`
-  untouched (no run reached the post-apply assertion).
-- **Scripts intentionally not touched** (Pass-7/8/9 precedent):
-  `scripts/seed-resolver-extensions.ts` (fully generic JSON-loader since
-  Brief 077 — picks up the Phase 1/2/3 row additions automatically on
-  next 4a run); `scripts/apply-override-collections.ts` (pure helper,
-  no hardcoded range per Brief 091); `scripts/db-counts.ts`,
-  `scripts/seed-facets.ts`, `scripts/run-phase4-apply.sh` (stable
-  apply-side tooling). `ingest/.last-run/phase4-digest.md` not
-  regenerated — running an apply against a red dry would produce a
-  misleading half-success digest. `scripts/seed-data/collection-gaps.json`
-  not touched — the HH anthology forward-refs are an apply-side Guard
-  concern, not a roster maintenance concern (the constituents *are* in
-  the roster, just outside the wave's apply range; adding a
-  `needs_constituent_collection_edges` entry would not suppress the
-  assertion). `scripts/seed-data/persons.json` unchanged at 96 rows
-  (no apply ran, so no `ensurePersonsExist` side-output materialised).
-  The two `manual-overrides-ssot-hh-00{1,2}.json` files untouched (zero
-  unknown-facetIds verified: union of 46 distinct facetIds across both
-  override files against `facet-catalog.json` = 0 stripping needed).
-- **Apply-side trias state at the halt:**
-  - `test:resolver` 315/0 ✓ (no resolver-test churn from 4a — that's
-    Phases 1–3's scope; the Phase 1/2/3 new-block cases all green)
+- **Trias batch-range extensions — Brief 100 Domain-+-N-Append**
+  (already on the branch from the pre-rebase Phase-4a commit
+  `d08d796`): the two new HH tuples `{domain:"hh", n:"001"}` +
+  `{domain:"hh", n:"002"}` appended to `BATCHES` in
+  `scripts/apply-override-dry.ts`,
+  `scripts/test-resolver-coverage.ts`, and
+  `scripts/test-resolver-data-integrity.ts`. Header /
+  smoke-slug-coverage labels updated to match the mixed-domain shape
+  (`ssot-w40k-001..057 + ssot-hh-001..002`). The Brief-101 Guard-Fix
+  (commit `1126e45`) lands on the same `apply-override-dry.ts`
+  hunk — the rebase merged the two edits cleanly (the BATCHES array
+  add and the assertion narrowing are in different parts of the
+  file).
+- **Scripts intentionally not touched** (unchanged from prior 4a
+  attempt): `scripts/seed-resolver-extensions.ts` (fully generic
+  JSON-loader, Brief-077 form — picks up Phase 1/2/3 row additions
+  automatically); `scripts/apply-override-collections.ts` (pure
+  helper, no hardcoded range, Brief-091 contract);
+  `scripts/db-counts.ts`, `scripts/seed-facets.ts`,
+  `scripts/run-phase4-apply.sh` (stable apply-side tooling).
+  `scripts/seed-data/collection-gaps.json` not touched — the HH
+  anthology forward-refs are out-of-range deferred edges that will
+  materialize on later HH waves via the idempotent cumulative
+  re-apply, no roster maintenance entry needed.
+  `scripts/seed-data/persons.json` unchanged at 96 rows: the apply's
+  `ensurePersonsExist` reported `0 newly created in DB` for both
+  batches (5 distinct slugs in HH-001, 6 in HH-002; all 11 already
+  present from the W40K corpus). The two
+  `manual-overrides-ssot-hh-00{1,2}.json` files untouched (0 unknown
+  facetIds verified: union of 46 distinct facetIds across both
+  override files against `facet-catalog.json` = 0 strips needed).
+- **Apply-side trias green on the re-run:**
+  - `test:resolver` 315/0 ✓
   - `test:resolver-data` ✓ (10 integrity checks; smoke-slug label
-    updated to `w40k-001..057 + hh-001..002`)
+    `w40k-001..057 + hh-001..002`)
   - `test:resolver-coverage` ✓ (exit 0; totals factions=1981/2319,
     locations=776/1027, characters=1329/1736 against the wider
     cumulative range now contributing HH-001..002)
-  - `test:collection-refs` 7/0 ✓ (Brief-091 helper-unit suite — the
-    `analyzeCollections` classifier correctly emits both `reason:
-    "out-of-range"` and `reason: "unknown-work"`; only the integration
-    assertion in `apply-override-dry.ts` conflates them)
-  - **`test:apply-override-dry` FAILED** — assertion
-    `unresolvableConstituentRefs deepEqual []` reported 20 out-of-range
-    refs (HH-0020 → HH-0117..HH-0120, HH-0010 → HH-0150..HH-0156,
-    HH-0016 → HH-0157..HH-0165). All 20 constituents present in
-    `book-roster.json` (verified `present: 20/20`), so the classifier
-    correctly labels them `reason: "out-of-range"`.
-- **No DB apply** — `scripts/run-phase4-apply.sh` was not invoked
-  (running against a red dry would mask the architectural issue).
+  - `test:collection-refs` 10/0 ✓ (the Brief-101 reason-split helper
+    suite — 7 classifier cases + 3 dry-guard reason-split cases:
+    out-of-range > 0 does NOT abort; unknown-work > 0 aborts; both
+    > 0 aborts on the unknown-work subset only)
+  - **`test:apply-override-dry` ok** —
+    `forward collection refs: 15; unresolvable constituent refs: 20;
+    by reason: out-of-range=20, unknown-work=0`. The Brief-101
+    Guard treats the 20 HH anthology forward-refs as informational
+    deferred edges (dossier §7d's intended contract); only
+    `unknown-work` would abort, and there are none.
+- **Digest-only apply ran clean:** `bash
+  scripts/run-phase4-apply.sh scripts/resolver-pass.config.json`
+  refreshed `ingest/.last-run/phase4-digest.md`:
+  `seed-resolver-extensions: ok`, `seed-facets: 0 new`,
+  `applied ssot-hh-001: ok`, `applied ssot-hh-002: ok`,
+  `DONE`. Pre 565 → Per-batch (HH-001) 575 → Per-batch (HH-002) 585
+  → Post 585 works. Reference deltas (`factions/locations/characters
+  +6/+10/+60`) land on the HH-001 boundary because
+  `seed-resolver-extensions.ts` runs once before the first batch.
 
-### Phase 4b — Verify / Report (read-only)
+### Phase 4b — Verify / Report (read-only, this commit)
 
 - `scripts/verify-pass.ts --config scripts/resolver-pass.config.json`
-  ran read-only against the live Supabase; stdout (Verify-Digest) below
-  in §Verification.
-- `npm run lint` + `npm run typecheck` ran clean.
-- This impl-report assembled from the 4a status file + the committed
-  Apply-Digest + the Verify-Digest stdout — no state re-derivation.
+  ran read-only against the live Supabase; stdout (Verify-Digest)
+  below in §Verification.
+- `npm run lint` + `npm run typecheck` ran clean (0 errors; same
+  pre-existing `@next/next/no-page-custom-font` warning in
+  `src/app/layout.tsx:44` carried unchanged across Passes 5–10).
+- This impl-report assembled from the 4a status file + the
+  committed Apply-Digest + the Verify-Digest stdout — no state
+  re-derivation, no second DB apply, no trias re-run (runbook
+  §3 Phase 4b).
 
 ## Counts (Pflicht-Tabelle)
-
-The apply did not run, so this table has only a Pre-Apply row and an
-unchanged Post row. The DB is exactly where Pass-9 sealed it. No
-Per-Batch snapshots exist.
 
 | Stage | works | work_factions | work_locations | work_characters | work_collections | work_persons |
 | --- | --- | --- | --- | --- | --- | --- |
 | Pre-Apply (565) | 565 | 1903 | 733 | 1220 | 147 | 524 |
-| (Per-batch HH-001) | — | — | — | — | — | — |
-| (Per-batch HH-002) | — | — | — | — | — | — |
-| **Post-Apply (unchanged, 565)** | **565** | **1903** | **733** | **1220** | **147** | **524** |
-| Δ (wave 10, expected) | (+20) | (TBD) | (TBD) | (TBD) | (TBD) | (TBD) |
+| Per-batch HH-001 | 575 | 1940 | 745 | 1282 | 147 | 533 |
+| Per-batch HH-002 | 585 | 1981 | 776 | 1325 | 147 | 541 |
+| **Post-Apply (585)** | **585** | **1981** | **776** | **1325** | **147** | **541** |
+| Δ (wave 10) | **+20** | **+78** | **+43** | **+105** | **0** | **+17** |
 
-(`db-counts.ts` snapshot captured pre-4a; verify-pass.ts NEW-range audit
-replica below confirms `total_works=0` for HH-0001..HH-0020 — the apply
-truly did not happen.)
+(Source: `ingest/.last-run/phase4-digest.md` at `42a6fad`.
+`work_facets 11291 → 11672 (+381)` and `facet_values 86 → 86 (0 new)`
+included in the digest but elided here for table width.)
 
-**Reference rows (JSON-side, landed via Phases 1–3):**
+**Reading the deltas.**
+- `works +20`: HH-0001..HH-0020 — the wave's 20 new HH books, the
+  HH-domain bootstrap milestone.
+- `work_collections +0`: the three HH anthologies (`HH-0010 Tales of
+  Heresy`, `HH-0016 Age of Darkness`, `HH-0020 The Primarchs`) have
+  all their constituent edges **out-of-range** for this wave —
+  HH-0117..HH-0120 / HH-0150..HH-0156 / HH-0157..HH-0165 land on
+  later HH waves; the cumulative re-apply will materialize the
+  in_collection edges then (idempotent delete-then-insert, runbook
+  §7). The 15 *in-range* forward refs reported by the dry are all
+  W40K-internal cross-batch edges from the cumulative 001..057
+  history.
+- `facet_values +0`: 0 unknown facetIds across both override files —
+  zero strips needed; `facet-catalog.json` correctly stayed out of
+  scope.
+- Reference deltas (`factions/locations/characters +6/+10/+60`)
+  match Phase 1/2/3 row additions exactly —
+  `seed-resolver-extensions.ts` (fully generic since Brief 077)
+  picked up the JSON-side additions automatically.
 
-| file | rows pre Pass-10 | rows post Phase 1/2/3 (JSON) | delta | rows in DB | DB delta when 4a re-runs |
+**Reference rows (JSON-side, landed via Phases 1–3, in the DB after 4a):**
+
+| file | rows pre Pass-10 | rows post Phase 1/2/3 (JSON) | delta | rows in DB | DB delta after 4a |
 | --- | --- | --- | --- | --- | --- |
-| `factions.json` | 173 | 179 | +6 | 173 | +6 (auto via JSON loader) |
+| `factions.json` | 173 | 179 | +6 | 179 | +6 ✓ |
 | `faction-aliases.json` | 59 | 63 | +4 | (aliases not in DB) | — |
-| `faction-policy.json` (specialCases) | 21 | 27 | +6 | (policy not in DB) | — |
-| `locations.json` | 224 | 234 | +10 | 224 | +10 (auto via JSON loader) |
+| `faction-policy.json` (specialCases) | 23 | 29 | +6 | (policy not in DB) | — |
+| `locations.json` | 224 | 234 | +10 | 234 | +10 ✓ |
 | `location-aliases.json` | 16 | 17 | +1 | (aliases not in DB) | — |
-| `characters.json` | 344 | 404 | +60 | 344 | +60 (auto via JSON loader) |
+| `characters.json` | 344 | 404 | +60 | 404 | +60 ✓ |
 | `character-aliases.json` | 43 | 47 | +4 | (aliases not in DB) | — |
 | `sectors.json` | 8 | 8 | 0 | 8 | 0 |
+| `persons.json` | 96 | 96 | 0 | (autoCreated: 0 in DB) | 0 |
 
-`facet_values 86→86` — no facet add anticipated this wave (4a verified
-0 unknown-facetIds across both override files; `facet-catalog.json`
-deliberately out-of-scope per the runbook). `persons.json 96→96` —
-unchanged at the halt (no apply ran).
+`facet_values 86→86` — no facet add needed this wave.
+`persons.json 96→96` — all 11 distinct HH-bootstrap author/editor
+slugs were already in the DB from the W40K corpus
+(`ensurePersonsExist: 0 newly created` for both batches).
 
 ## Decisions I made
 
 Phase 4b is read-only — there were no decisions to make here beyond
-faithfully reflecting the halted state in this report. The decisions
-that landed in Phases 0–3 are documented in their per-phase reports;
-the architect decision pending at Phase 4a is forwarded in the
-`## Needs decision` block below.
+faithfully reflecting the clean 4a re-run state in this report. The
+decisions that landed in Phases 0–3 are documented in their per-phase
+reports; the Phase-4a Brief-091 Guard misfire that triggered the
+first attempt's `## Needs decision` halt was resolved by Brief 101
+(commit `1126e45`, reason-split assertion narrowed to
+`reason: "unknown-work"`) — that is the architect decision the prior
+impl-report was forwarding; this re-run impl-report records its
+resolution and the resulting clean apply.
 
-## ⚠ Needs decision (forwarded from Phase 4a)
+## Resolution of the prior `## Needs decision` (now closed)
 
-**Subject.** Brief-091 range-aware forward-ref Guard hard-fails on HH
-anthology→constituent edges in this wave; this is precisely the misfire
-the Pass-10 dossier §7d named as the Phase-4a stop trigger.
+**Subject (closed).** Brief-091 range-aware forward-ref Guard hard-
+failed on HH anthology→constituent edges in the first Phase-4a
+attempt, exactly the misfire dossier §7d named as the explicit 4a
+stop trigger.
 
-**Symptom.** With `BATCHES` extended to include `{domain:"hh", n:"001"}`
-and `{domain:"hh", n:"002"}` per the Domain-+-N-Append rule,
-`scripts/apply-override-dry.ts` runs `analyzeCollections` on the
-cumulative roster + applied-ids map and reports:
-
-```
-forward collection refs:       15
-unresolvable constituent refs: 20
-
-forward collection refs with an out-of-range / unknown constituent — typo or unregistered deferred gap
-+ actual - expected
-+ [
-+   'HH-0020->HH-0117 (out-of-range)',   // The Primarchs → constituent novella 1
-+   'HH-0020->HH-0118 (out-of-range)',   // The Primarchs → constituent novella 2
-+   'HH-0020->HH-0119 (out-of-range)',   // The Primarchs → constituent novella 3
-+   'HH-0020->HH-0120 (out-of-range)',   // The Primarchs → constituent novella 4
-+   'HH-0010->HH-0150 (out-of-range)',   // Tales of Heresy → constituent 1
-+   'HH-0010->HH-0151..HH-0156 (out-of-range)',  // 6 more Tales of Heresy
-+   'HH-0016->HH-0157 (out-of-range)',   // Age of Darkness → constituent 1
-+   'HH-0016->HH-0158..HH-0165 (out-of-range)',  // 8 more Age of Darkness
-+ ]
-- []
-```
-
-All 20 constituents are **present in `book-roster.json`** (verified:
-`present: 20 / 20`), so `analyzeCollections` correctly classifies them
-with `reason: "out-of-range"` (not `"unknown-work"`). Dossier §7d
-explicitly anticipates this exact case as the misfire trigger and the
-intended contract — `out-of-range` informational, `unknown-work`
-blocking.
-
-**Where the hard-fail lives.** `scripts/apply-override-dry.ts:980-988`:
+**Resolution.** Brief 101 ("HH-Bootstrap forward-ref Guard —
+Reason-Split", commit `1126e45` on `origin/main`, rebase-merged into
+this branch) narrowed the assertion in
+`scripts/apply-override-dry.ts:980-1002`:
 
 ```ts
-const unresolvable = collectionAnalysis.unresolvableConstituentRefs;
+// Brief 091 range-aware guard, Brief 101 reason-split: in-range forward
+// refs (above) stay accepted. The tripwire is the constituent side, and it
+// splits by reason. `out-of-range` is a consistent deferred state — the
+// constituent is in the roster, just not in the cumulative apply range
+// yet, and applyCollections re-evaluates the edge when the constituent's
+// wave lands (Pass 6's anthology forward refs proved this end-to-end).
+// `unknown-work` is the real error — constituent absent from the roster
+// entirely (typo or unregistered deferred gap) → never resolves. Out-of-
+// range refs are reported in the reason-breakdown above as informational
+// deferred edges; only unknown-work refs abort the dry, and only those
+// are listed in the failure message (the actionable set).
+const unknownWorkRefs = collectionAnalysis.unresolvableConstituentRefs.filter(
+  (u) => u.reason === "unknown-work",
+);
 assert.deepEqual(
-  unresolvable.map(
+  unknownWorkRefs.map(
     (u) =>
-      `${u.collection.collectionExternalId}->${u.collection.contentExternalId} (${u.reason})`,
+      `${u.collection.collectionExternalId}->${u.collection.contentExternalId}`,
   ),
   [],
-  "forward collection refs with an out-of-range / unknown constituent — typo or unregistered deferred gap",
+  "forward collection refs with an unknown constituent — typo or unregistered deferred gap",
 );
 ```
 
-The assertion conflates `reason: "out-of-range"` (legitimate deferred
-edge — will resolve when a later HH wave applies HH-0117..HH-0120 /
-HH-0150..HH-0156 / HH-0157..HH-0165) with `reason: "unknown-work"`
-(typo / unregistered deferred gap — will never resolve). For a sealed
-domain (W40K post-Pass-9) the conflation is harmless; for an in-progress
-domain (HH mid-bootstrap) it makes every anthology-with-deferred-
-constituents a hard fail.
+This is **Option 1** from the prior impl-report's resolution-paths
+list — the minimal change matching dossier §7d's stated contract.
+The companion `test:collection-refs` suite was extended in the same
+commit with three "dry-guard reason-split" cases (out-of-range > 0
+does NOT abort; unknown-work > 0 aborts; both > 0 aborts on the
+unknown-work subset only) to lock the contract into the test
+harness.
 
-**Resolution paths (architect decides — these are options, not a chosen path).**
-
-1. **Narrow the assertion to `reason: "unknown-work"`** (smallest change,
-   most aligned with dossier §7d's stated contract). In
-   `apply-override-dry.ts:980-988`, filter `unresolvable` to
-   `reason === "unknown-work"` before the `deepEqual []` check; print
-   `out-of-range` count in the report block above. The unit suite
-   `test:collection-refs` already proves the classifier emits both
-   reasons correctly; only the integration assertion changes.
-2. **Make the assertion domain-aware** (medium change). Out-of-range
-   fails only when the constituent's domain is **sealed** (W40K post-
-   Pass-9; HH in-progress until the loop reports HH-complete). Requires
-   a domain-seal state somewhere (loop-state.json or a hardcoded
-   `SEALED_DOMAINS = ["w40k"] as const` in `apply-override-dry.ts`).
-3. **Roster-driven allowlist** (largest change). Each anthology with
-   deferred constituents gets a `collection-gaps.json` entry with
-   `status: needs_constituent_collection_edges` + the constituent IDs;
-   the dry filters those exact refs out of the unresolvable list.
-   Couples the apply guard to the roster maintenance manifest — but
-   `collection-gaps.json` is currently documentation-only and not parsed.
-
-**Recommendation (advisory — architect decision).** Option 1 is the
-minimal change that matches dossier §7d's stated contract; the cost is
-that a typo of a W40K constituent (impossible now because W40K is
-sealed and the roster is frozen) would no longer be caught by this
-specific assertion — but `unknown-work` catches typos anyway, and a
-W40K-internal typo would have to bypass the (also-asserted)
-`assert.deepEqual(missingRoster, [], …)` check earlier. Option 2 is
-more conservative if future domain seals are expected; option 3 is
-overengineered for the present scope.
-
-**What's blocked until this decision lands.**
-
-- The DB apply for HH-0001..HH-0020 (the wave's 20 new HH works —
-  first HH apply ever, the HH-domain bootstrap milestone). Pre-apply
-  DB counts above stay frozen until 4a re-runs.
-- The Phase-4a Apply-Digest commit (`ingest/.last-run/phase4-digest.md`)
-  — currently still showing the Consolidation-Pass-1 era output
-  (`Config: scripts/consolidation-pass.config.json`,
-  `apply-range: ssot-w40k-001..057`, no `new wave`). A regeneration
-  with the wave-10 config + applyRange `ssot-hh-001..002` will land
-  once 4a re-runs.
-
-**What's not blocked.**
-
-- Phases 1–3 of this pass are landed and stable; the JSON-side row +
-  alias additions are present in the seed-data tree, will be picked
-  up by `seed-resolver-extensions.ts` on the next 4a run (no
-  additional Phase 1–3 work needed when 4a re-runs).
-- The two new HH batch tuples are already in all three trias batch-
-  lists; once the architect's decision lands and the assertion is
-  narrowed (or whichever path is chosen), `test:apply-override-dry`
-  goes green and 4a can proceed without re-touching `BATCHES`.
-- `seed-resolver-extensions.ts` is fully generic since Brief 077, so
-  the +6/+10/+60 reference rows will seed automatically on next run.
-- The +12 HH-bootstrap authors (Abnett, McNeill, Counter, French,
-  Wraight, Reynolds, Swallow, Annandale, Dembski-Bowden, Thorpe,
-  Kyme, Scanlon — verified union of `manual-overrides-ssot-hh-001/002`
-  authors against `persons.json`) will materialise on first 4a run
-  via the `ensurePersonsExist` apply side-output (96 → 108 expected).
+**Effect on this wave.** The 20 out-of-range HH anthology forward-
+refs (HH-0020 → HH-0117..HH-0120, HH-0010 → HH-0150..HH-0156,
+HH-0016 → HH-0157..HH-0165) now show in the dry's
+`by reason: out-of-range=20, unknown-work=0` informational
+breakdown but do not abort. The HH bootstrap apply ran clean:
+works 565 → 585 (+20), reference deltas +6/+10/+60. Subsequent HH
+waves will apply the constituent novels, and the cumulative idempotent
+re-apply will then materialize the 20 in_collection edges
+(`work_collections` is currently +0; will tick up in batches as
+later waves land).
 
 ## Verification
 
-- **Trias (post-Phase-4a halt state):** `test:resolver` 315/0,
-  `test:resolver-data` ok, `test:resolver-coverage` exit 0,
-  `test:collection-refs` 7/0. **`test:apply-override-dry` red** by
-  design — the architectural misfire above is the gating decision;
-  the Phase-4b read-only half does not re-run the trias.
-- **Lint (Phase 4b):** 0 errors, 1 pre-existing
-  `@next/next/no-page-custom-font` warning in
-  `src/app/layout.tsx:44` (unchanged across Passes 5/6/7/8/9, out
-  of scope).
-- **Typecheck (Phase 4b):** 0 errors.
-- **Apply digest** (`ingest/.last-run/phase4-digest.md`, committed but
-  **stale**): the file at HEAD still carries the Consolidation-Pass-1
-  era output (`Config: scripts/consolidation-pass.config.json`,
-  `apply-range: ssot-w40k-001..057`, no `new wave`, 57 batches all
-  `ok`, PRE = POST = 565 works / 1903·733·1220·147·524 junctions,
-  seed-resolver-extensions ok, seed-facets 0 new). It will be
-  refreshed once 4a re-runs with `scripts/resolver-pass.config.json`
-  and the architect's chosen Guard fix.
+- **Apply digest** (`ingest/.last-run/phase4-digest.md`, committed at
+  `42a6fad`):
+
+  ```
+  Config: scripts/resolver-pass.config.json · apply-range: ssot-hh-001 ssot-hh-002 · new wave: ssot-hh-001 ssot-hh-002
+  PRE-APPLY:  565 works / 1903·733·1220·147·524·11291 junctions / 173·224·344·86 refs+facets
+  seed-resolver-extensions: ok
+  seed-facets: catalog values 86; newly inserted 0
+  applied ssot-hh-001: ok → POST 575 works / 1940·745·1282·147·533·11488 / 179·234·404·86
+  applied ssot-hh-002: ok → POST 585 works / 1981·776·1325·147·541·11672 / 179·234·404·86
+  DONE
+  ```
+
 - **Verify digest** (`verify-pass.ts --config
-  scripts/resolver-pass.config.json`, stdout — confirms the DB is at
-  the Pass-9 W40K seal, no HH apply happened):
+  scripts/resolver-pass.config.json`, stdout — the live DB matches
+  the digest exactly):
 
   ```
   # verify-pass digest — Resolver-Pass 10 (ssot-hh-001..002)
 
   == smoke slugs (factions / locations / characters / in_collection) ==
-    (no rows)
+    {"external_book_id":"HH-0010","slug":"tales-of-heresy","f":7,"l":2,"c":9,"in_coll":0}
+    {"external_book_id":"HH-0020","slug":"the-primarchs","f":6,"l":1,"c":5,"in_coll":0}
 
   == rating coverage HH-0001..HH-0020 by source ==
-    (no rows)
+    {"rating_source":"goodreads","n":20}
 
   == rating coverage HH-0001..HH-0020 rated/null/total ==
-    {"rated":0,"null_rating":0,"total":0}
+    {"rated":20,"null_rating":0,"total":20}
 
   == audit replica OLD range HH-0001..HH-0000 ==
     {"total_works":0,"drift_works":0,"gap_works":0,"content_in_collection":0}
 
   == audit replica NEW range HH-0001..HH-0020 ==
-    {"total_works":0,"drift_works":0,"gap_works":0,"content_in_collection":0}
+    {"total_works":20,"drift_works":15,"gap_works":2,"content_in_collection":0}
   ```
 
-  Reading: smoke slugs `tales-of-heresy` / `the-primarchs` have not
-  yet entered the `works` table (no rows match → no smoke row
-  emitted). HH-0001..HH-0020 rating coverage and audit replica NEW
-  range both `total=0`, exactly consistent with "the apply did not
-  run" and "Pre-Apply counts above unchanged". OLD range
-  `HH-0001..HH-0000` is empty by construction (inverted boundary —
-  the verify config explicitly encodes "no prior HH baseline"). The
-  Verify-Digest is therefore informationally minimal but
-  *diagnostically correct* — it proves the halt did not silently
-  partial-apply.
+  **Reading the verify-digest.**
+  - **Smoke slugs both present** (`tales-of-heresy` HH-0010 with
+    7f/2l/9c, `the-primarchs` HH-0020 with 6f/1l/5c). `in_coll=0`
+    on both because the anthology→constituent edges are
+    out-of-range for this wave — exactly the expected shape (will
+    land on later HH waves' cumulative re-apply).
+  - **Rating coverage 20/20** for HH-0001..HH-0020 — the SSOT-loop
+    pre-applied Goodreads ratings during the resolve phase, all
+    20 books carry a `rating_source=goodreads` value.
+  - **OLD range HH-0001..HH-0000 all zero** — inverted boundary
+    by construction (the verify config explicitly encodes "no prior
+    HH baseline"); the empty result proves the comparison-baseline
+    is the empty set, not stale W40K data.
+  - **NEW range HH-0001..HH-0020 audit replica:**
+    - `total_works=20` — all 20 HH works materialized in `works`.
+    - `drift_works=15` — 15 works have at least one junction whose
+      `raw_name` ≠ canonical entity name (case-insensitive). For
+      the HH bootstrap this is **expected and good** — it's the
+      cross-era alias system working: `raw_name="Luna Wolves"`
+      resolves to canonical `Sons of Horus`, `raw_name="Kharn"`
+      to canonical `Kharn the Betrayer`, etc. (runbook §4
+      Cross-Era-Identitäten). 15/20 drift means the dramatis
+      personae across most HH books leans on the cross-era
+      anchoring.
+    - `gap_works=2` — 2 works have at least one of factions /
+      locations / characters with `count=0`. The audit-cockpit
+      drift/gap signals are data findings, not 4a failures; they
+      get triaged on the wider data-quality cycle, not in the
+      resolver-pass.
+    - `content_in_collection=0` — consistent with the
+      `work_collections +0` from the Apply-Digest: 0 distinct
+      HH works currently appear as content in any collection
+      edge. The 3 anthologies (HH-0010 / HH-0016 / HH-0020) are
+      collection *containers* themselves; their constituents
+      (HH-0117.. / HH-0150.. / HH-0157..) are out-of-range and
+      will populate `work_collections` on later HH waves.
+
+- **Trias (post-Phase-4a-Re-Run state):** `test:resolver` 315/0,
+  `test:resolver-data` ok, `test:resolver-coverage` exit 0,
+  `test:collection-refs` 10/0,
+  `test:apply-override-dry` ok (out-of-range=20, unknown-work=0).
+- **Lint:** 0 errors, 1 pre-existing
+  `@next/next/no-page-custom-font` warning in
+  `src/app/layout.tsx:44` (unchanged across Passes 5–10, out
+  of scope).
+- **Typecheck:** 0 errors.
 - **Phase-0 trias skip note (runbook §10):** the deterministic
   Aggregator + the markdown-only dossier Phase-0 produced are
   correctly outside the trias.
 
 ## Maintainer handoff
 
-- **HH bootstrap apply is blocked** until you pick one of the three
-  resolution paths in the `## Needs decision` block above (advisory
-  recommendation: Option 1, narrow the assertion to
-  `reason: "unknown-work"`). After the fix lands, re-run Phase 4a
-  (clean run, no extra phase work — Phases 1–3 are stable on the
-  branch).
-- **No DB mutation happened in Pass 10** — the live Supabase is at
-  the Pass-9 W40K seal (565 works / 1903·733·1220·147·524 junctions
-  / 173·225·345 reference / 86 facet_values), verified by
-  `verify-pass.ts`. PR-merging this branch as-is is **safe** (it
-  only adds JSON reference rows, alias entries, three trias batch-
-  tuple extensions, the per-phase reports, and this impl-report),
-  but the wave's DB milestone (works 565 → 585, first HH apply) is
-  deferred to the post-fix 4a re-run.
-- **Branch:** `codex/ingest-batches-resolver-trial-hh` carries the
-  5 phase commits + this Phase-4b commit (6 total), **not pushed**,
-  no PR. Say "fertig" / "PR erstellen" to push + open the PR; or
-  hold the branch until the architect fix lands and 4a re-runs (the
-  resulting PR then carries the full HH bootstrap apply, not a
-  half-state).
-- **Reference layer**: factions `173→179`, faction-aliases `59→63`,
-  faction-policy specialCases `21→27`, locations `224→234`,
-  location-aliases `16→17`, characters `344→404`, character-aliases
-  `43→47` — all JSON-side, all picked up automatically on the next
-  4a run.
+- **HH bootstrap apply landed in the DB:** works `565 → 585` (+20).
+  The live Supabase carries 585 works / 1981·776·1325·147·541·11672
+  junctions / 179·234·404·86 refs+facets, verified by
+  `verify-pass.ts`. PR-merging this branch is **safe and
+  complete** — it brings the JSON reference additions, the alias
+  entries, the three trias batch-tuple extensions, the per-phase
+  reports, the refreshed Apply-Digest, and this impl-report.
+- **Branch shape:** `codex/ingest-batches-resolver-trial-hh`
+  carries the 5 original phase commits (Phases 0–3 + the first
+  4a + the first 4b — pre-Brief-101, needs-decision halt) plus
+  the Brief-101 Guard-Fix commit `1126e45` rebase-merged from
+  `origin/main`, plus the Phase 4a Re-Run (`42a6fad`) and this
+  Phase 4b Re-Run commit on top. The pre-Brief-101 4a/4b commits
+  stay on the branch as historical record of the halt and its
+  forwarding; the post-Brief-101 re-runs supersede them
+  semantically.
+- **Push needs `--force-with-lease`** — the rebase rewrote the
+  branch's earlier history (the `behind 8` portion before the
+  rebase brought `1126e45` in). `git push --force-with-lease
+  origin codex/ingest-batches-resolver-trial-hh` is the safe
+  variant (rejects the push if the remote has moved
+  unexpectedly since the last fetch). PR #105 becomes
+  merge-ready after that push.
+- **Reference layer in the DB:** factions `173→179`,
+  locations `224→234`, characters `344→404`, sectors `8→8`,
+  facet_values `86→86`. JSON-side files mirror the DB exactly.
 
 ## Open issues / blockers
 
-- **Architect decision required** — the Brief-091 range-aware
-  forward-ref Guard misfire on HH anthology forward-refs (see the
-  `## Needs decision` block above). Recommendation: Option 1
-  (narrow assertion to `reason: "unknown-work"`); your call.
-- **Stale Apply-Digest at HEAD** — `ingest/.last-run/phase4-digest.md`
-  is from the Consolidation-Pass-1 era, not Pass 10. Will be refreshed
-  by the post-fix 4a re-run; Phase 4b deliberately did not regenerate
-  it (would be misleading without a successful apply).
+- **None.** The prior `## Needs decision` block (Brief-091 Guard
+  misfire) is resolved by Brief 101's reason-split; the HH
+  bootstrap apply is in the DB; the trias is green; lint and
+  typecheck clean; the Verify-Digest matches the Apply-Digest.
 
 ## For next session
 
-- **Architect:** decide between Options 1 / 2 / 3 in the `## Needs
-  decision` block, then hand back a brief or have CC make the targeted
-  edit to `apply-override-dry.ts:980-988`. After the assertion is
-  narrowed (or whichever path is chosen), re-run Phase 4a — Phases 1–3
-  are already on the branch and the trias batch-range extensions are
-  already in place, so the re-run is exactly the
-  `scripts/run-phase4-apply.sh scripts/resolver-pass.config.json`
-  digest-only path plus the 4a status file refresh.
-- **HH-domain bootstrap milestone** lands once 4a re-runs cleanly:
-  expected `works 565 → 585`, first HH apply ever, the SSOT-loop's
-  pivot point from "W40K bootstrap complete" to "HH bootstrap in
-  progress". Subsequent HH waves (HH-003..) follow the established
-  resolver-pass cadence.
-- **Cowork Wiki-Hygiene pass** (Rollup-Ownership in the coordination
-  worktree): defer until the apply lands and Pass 10 has a real DB
-  delta to record. Updating `project-state.md` counts to the planned
-  585 / HH-bootstrap-in-progress state before the apply happens
-  would put the wiki ahead of the DB, which is exactly the drift the
-  Rollup discipline avoids.
-- **Loop-log marker** for the halt: the SSOT-loop normally owns
-  `ssot-loop-log.md`; the resolver-pass doesn't usually write to it.
-  The architect may want to append a shell-appended marker (runbook
-  §8: `>>` only, never read+rewrite) noting the Brief-091 misfire so
-  the next loop-state inspection sees the wave is halted, not silently
-  partial.
+- **Cowork Wiki-Hygiene pass** (Rollup-Ownership in the
+  coordination worktree, post-merge): once PR #105 lands on
+  `main`, the coordination worktree backfills
+  `brain/wiki/project-state.md` (works 565 → 585, HH bootstrap
+  in progress), `brain/wiki/log.md` (Pass-10 wave entry), and
+  `sessions/README.md` (Pass-10 wave row). The strand worktree
+  does not touch `brain/**` per CLAUDE.md §"Parallel worktrees" →
+  "Rollup-Ownership".
+- **Next HH wave** (HH-003.. when the SSOT-loop produces it):
+  follows the established resolver-pass cadence. Subsequent waves
+  that apply the constituent novels (HH-0117.. anthology-of-The-
+  Primarchs constituents; HH-0150.. Tales-of-Heresy
+  constituents; HH-0157.. Age-of-Darkness constituents) will
+  materialize the 20 currently-out-of-range collection edges via
+  the cumulative idempotent re-apply (`work_collections` ticks up
+  by the constituent count when each anthology's content batch
+  lands).
+- **Audit-cockpit drift/gap follow-up** (data-quality cycle, not
+  resolver-pass): the 15 drift_works are expected (cross-era
+  alias resolution producing raw_name ≠ canonical.name); the
+  2 gap_works are data findings worth triaging in the next
+  audit-cockpit sweep — likely a couple of HH books with sparse
+  metadata where one junction axis is empty.
 
 ## References
 
 - Runbook: `sessions/resolver-pass-runbook.md` · Config:
   `scripts/resolver-pass.config.json`
 - Dossier: `sessions/resolver-dossiers/resolver-pass-10-dossier.md`
-  (§7d names the Brief-091 Guard misfire as the explicit 4a stop trigger)
+  (§7d named the Brief-091 Guard misfire as the explicit 4a stop
+  trigger and the intended contract — `out-of-range`
+  informational, `unknown-work` blocking — that Brief 101
+  delivered)
 - Phase reports: `…-phase-1-report.md` (factions) ·
-  `…-phase-2-report.md` (locations) · `…-phase-3-report.md` (characters)
-  · `…-phase-4a-report.md` (integration/apply — `## Needs decision` halt)
-- Apply digest at HEAD: `ingest/.last-run/phase4-digest.md` (stale,
-  Consolidation-Pass-1 era — regenerated on post-fix 4a re-run) ·
-  verbose log: `ingest/.last-run/phase4-apply-verbose.log` (gitignored)
-- Per-pass brief: none — Brief 094 removed the `brief` config field;
-  the rationale is consolidated into the runbook anhang (Briefs 076 /
-  090 / 091 / 094 / 100, not read to run a phase).
+  `…-phase-2-report.md` (locations) · `…-phase-3-report.md`
+  (characters) · `…-phase-4a-report.md` (integration/apply —
+  re-run success block at `42a6fad`)
+- Apply digest at HEAD: `ingest/.last-run/phase4-digest.md` ·
+  verbose log: `ingest/.last-run/phase4-apply-verbose.log`
+  (gitignored)
+- Brief 101 (Guard reason-split, the resolution of the prior
+  `## Needs decision`): `sessions/2026-05-26-101-arch-hh-forward-ref-guard-reason-split.md`
+  (+ impl report `sessions/2026-05-26-101-impl-hh-forward-ref-guard-reason-split.md`)
+- Per-pass brief: none — Brief 094 removed the `brief` config
+  field; the rationale is consolidated into the runbook anhang
+  (Briefs 076 / 090 / 091 / 094 / 100 / 101 — not read to run a
+  phase).
