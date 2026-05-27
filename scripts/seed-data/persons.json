@@ -525,5 +525,15 @@
     "id": "charles_wraight",
     "name": "Charles Wraight",
     "nameSort": "Wraight, Charles"
+  },
+  {
+    "id": "brandon_easton",
+    "name": "Brandon Easton",
+    "nameSort": "Easton, Brandon"
+  },
+  {
+    "id": "alan_merrett",
+    "name": "Alan Merrett",
+    "nameSort": "Merrett, Alan"
   }
 ]
