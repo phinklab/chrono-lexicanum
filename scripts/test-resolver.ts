@@ -537,6 +537,38 @@ check("alias - Resolver-Pass 13 confirmation Imperial Army still routes to astra
   assert.equal(resolveFaction("Imperial Army").id, "astra_militarum");
 });
 
+check("direct match - Resolver-Pass 14 Ordo Sinister (Mechanicum pariah-princeps psi-titan sub-org defending the Imperial Webway, Ordo Sinister HH-0215, freq=1 lore-iconic, parent=mechanicus)", () => {
+  assert.equal(resolveFaction("Ordo Sinister").id, "ordo_sinister");
+});
+
+check("direct match - Resolver-Pass 14 Legio Audax (the Ember Wolves traitor Titan Legion, The Ember Wolves HH-0216 POV-Legion, freq=1 lore-iconic, parent=adeptus_titanicus alignment=chaos parity with legio_mortis/legio_vulpa)", () => {
+  assert.equal(resolveFaction("Legio Audax").id, "legio_audax");
+});
+
+check("direct match - Resolver-Pass 14 Legio Castigatra (loyalist Titan Legion antagonist to Audax in the Ember Wolves duel, HH-0216, freq=1 lore-iconic paired Titan-vs-Titan promotion, parent=adeptus_titanicus alignment=imperium parity with legio_ignatum/legio_solaria)", () => {
+  assert.equal(resolveFaction("Legio Castigatra").id, "legio_castigatra");
+});
+
+check("direct match - Resolver-Pass 14 Legio Cybernetica (Mechanicum Kastelan-robot sub-org, Myriad HH-0209 Mars loyalist guerrilla cell direct sequel to the Cybernetica novel, freq=1 lore-iconic, parent=mechanicus)", () => {
+  assert.equal(resolveFaction("Legio Cybernetica").id, "legio_cybernetica");
+});
+
+check("direct match - Resolver-Pass 14 Blackshields (catch-all Heresy-era mixed-/renegade-Legion Astartes warband category, Blackshield HH-0208 Crysos Morturg POV, freq=1 lore-iconic + future-proof for the Endryd-Haar sub-arc surfacing 36 books later at HH-0286, parent=null no alignment)", () => {
+  assert.equal(resolveFaction("Blackshields").id, "blackshields");
+});
+
+check("alias-consolidation - Resolver-Pass 14 House Taranis routes to knights_of_taranis (HH-0227 The Lightning Hall — same Mars-based Imperial Knight House as the Pass-10 knights_of_taranis canonical row from HH-0009 Mechanicum, two surface-form variants per runbook §4 Surface-Form-Treue, identity-coherence overrides naïve row creation)", () => {
+  assert.equal(resolveFaction("House Taranis").id, "knights_of_taranis");
+});
+
+check("alias - Resolver-Pass 14 confirmation Knights-Errant hyphen variant still routes to knights_errant (Pass-11 alias chain holds — wave's highest-frequency faction alias with 6 hits across HH-0226/HH-0228/HH-0244/HH-0246/HH-0247/HH-0248, Garro/Eisenstein audio-drama bloc anchors it exhaustively)", () => {
+  assert.equal(resolveFaction("Knights-Errant").id, "knights_errant");
+});
+
+check("alias - Resolver-Pass 14 confirmation Mechanicum still routes to mechanicus (Pass-10 alias holds: HH-0209 Myriad + HH-0210 Into Exile re-surface the alias this wave)", () => {
+  assert.equal(resolveFaction("Mechanicum").id, "mechanicus");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {

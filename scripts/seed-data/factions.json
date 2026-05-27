@@ -1341,5 +1341,39 @@
     "parent": "chaos",
     "alignment": "chaos",
     "tone": "chaos"
+  },
+  {
+    "id": "ordo_sinister",
+    "name": "Ordo Sinister",
+    "parent": "mechanicus",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "legio_audax",
+    "name": "Legio Audax",
+    "parent": "adeptus_titanicus",
+    "alignment": "chaos",
+    "tone": "engine"
+  },
+  {
+    "id": "legio_castigatra",
+    "name": "Legio Castigatra",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "legio_cybernetica",
+    "name": "Legio Cybernetica",
+    "parent": "mechanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "blackshields",
+    "name": "Blackshields",
+    "parent": null,
+    "tone": "line"
   }
 ]
