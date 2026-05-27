@@ -1,15 +1,16 @@
 /**
  * consolidation-aggregate.ts — Dubletten-Kandidaten-Aggregator für den
- * W40K-Konsolidierungs-Pass (Brief 098, Teil 2 Schritt 1).
+ * Konsolidierungs-Pass (Brief 098, Teil 2 Schritt 1; Brief 102 § HH-aware
+ * Aggregator-Signale).
  *
  * Liest die Reference-JSONs (`factions.json` / `locations.json` /
  * `characters.json`) + die `*-aliases.json` und emittiert pro Achse eine
  * deterministische, **gefilterte** Liste von Kandidaten-Clustern — Gruppen
  * von Rows, die plausibel dieselbe Entität sein könnten. Der Aggregator
- * entscheidet NICHT — er filtert nur das ~743-Rows-Set auf die Handvoll
+ * entscheidet NICHT — er filtert nur das Reference-Set auf die Handvoll
  * Cluster herunter, die menschliche/LLM-Adjudikation brauchen.
  *
- * Heuristiken (CC's Call, Brief 098 § Teil 2 Schritt 1):
+ * Basis-Heuristiken (Pass 1, Brief 098):
  *  - Normalisierter Name-Match (lowercase + diacritics + honorific-Strip)
  *  - Token-Set-Jaccard ≥ 0.5
  *  - Substring-Relation auf normalisiertem Namen
@@ -17,15 +18,22 @@
  *  - Faction-Achs-Bonus: gleicher `parent`
  *  - Character-Achs-Bonus: gleiche `primaryFactionId`
  *
- * Keine Pairwise-Matrix im Output (760 × 760 wäre token-fatal); statt dessen
+ * Pass-2-Ergänzungen (Brief 102 § HH-aware Aggregator-Signale):
+ *  - (a) Slug-Edit-Distance ≤ 2 mit Ratio ≤ 0.25 auf Locations
+ *  - (b) Cross-Era-Anchor-Breach-Marker (Pin-Liste von Cross-Era-Aliase, die
+ *        Pass 2 als High-Priority-Suspect kennzeichnen soll wenn ein
+ *        Era-Surface-Form als separate Canonical-Row auftaucht)
+ *  - (c) Primarchen-Stamm-Edge für Pre-/Post-Heresy-Personae auf characters
+ *
+ * Keine Pairwise-Matrix im Output (980 × 980 wäre token-fatal); statt dessen
  * nur Cluster mit ≥ 2 Rows, die mindestens eine Heuristik erfüllen.
  *
  * KEIN DB-Zugriff. KEIN LLM. KEIN Netzwerk. Read-only.
  * Idempotent: byte-identisch re-runnable über dieselben Inputs.
  *
  * Usage:
- *   npx tsx scripts/consolidation-aggregate.ts
- *   (Output nach stdout — wird in das Dossier gefaltet.)
+ *   npx tsx scripts/consolidation-aggregate.ts [--pass N] > <output>
+ *   --pass N steuert nur den Titel im Output (Default: "" → kein Pass-Suffix).
  */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -133,6 +141,112 @@ const HONORIFIC_CHARACTER = new Set([
   "fabricator",
   "scribe",
 ]);
+
+// --- Pass-2 Pin-Listen (Brief 102 § HH-aware Aggregator-Signale) -----------
+//
+// (b) Cross-Era-Anchor-Surface-Forms: bekannte Era-Surface-Forms, die laut
+// Cross-Era-ADR (brain/wiki/decisions/cross-era-identities.md) Aliase auf eine
+// kanonische Identität sein sollen — NICHT separate Canonical-Rows. Wenn der
+// Aggregator eine alias-name-coincidence auf einer dieser Surface-Forms sieht
+// (Row-Name == Alias-Key auf eine andere Canonical-ID), markiert er die Edge
+// als `cross-era-anchor-breach(<surface>)` — Cluster mit dieser Reason werden
+// im Dossier als High-Priority-Suspect ausgewiesen ("Disziplin-Drift", Brief
+// 100 § Cross-Era-Identitäten). Eintrag ist die ROW-NAME-LOWERCASE-Form (also
+// genau die Form, die `aliasNameToTarget.get(r.name.toLowerCase())` matcht).
+const CROSS_ERA_ANCHOR_SURFACE_FORMS_LOWERCASE = new Set<string>([
+  // Factions (HH→W40K Renames)
+  "luna wolves",
+  "imperial army",
+  "mechanicum",
+  "adeptus mechanicum",
+  // Characters (Pre-Heresy / HH-Name → W40K-Honorific)
+  "ezekyle abaddon",
+  "abaddon",
+  "kharn",
+  "khârn",
+  "magister sek",
+  "lucius",
+  "ahriman",
+  "horus lupercal",
+  "calas typhon",
+  "typhon",
+  "corvus corax",
+  "lorgar aurelian",
+  "little horus aximand",
+  "nassir amit",
+  "alexis pollux",
+  "dantioch",
+  "maloghurst",
+  "arvida",
+  "aenoid thiel",
+]);
+
+// (c) Primarch-Stems: die endliche Liste der 18 Primarchen + ihre häufigsten
+// Lore-Stems. Eine Character-Row matcht einen Stem, wenn nach Honorific-Strip
+// alle Tokens des Stems in den Row-Tokens enthalten sind. Rows mit gleichem
+// Stem bekommen eine Edge mit reason `primarch-stem(<stem>)` — auch wenn
+// Jaccard/Substring sie bereits gefangen hätten. Der Marker steht im Dossier
+// als eigenes Evidence-Tier (Cross-Era-ADR ist die Modellierungs-Grundlage).
+const PRIMARCH_STEMS: string[] = [
+  "horus",
+  "sanguinius",
+  "rogal dorn",
+  "lion eljonson",
+  "leman russ",
+  "lorgar",
+  "fulgrim",
+  "perturabo",
+  "corax",
+  "alpharius",
+  "omegon",
+  "konrad curze",
+  "night haunter",
+  "magnus",
+  "ferrus manus",
+  "mortarion",
+  "vulkan",
+  "roboute guilliman",
+  "guilliman",
+  "angron",
+  "jaghatai khan",
+  "jaghatai",
+];
+
+// (a) Slug-Distance: Levenshtein auf normalisierten Locations-Slugs/Namen.
+// Threshold-Logik: distance ≤ 2 UND distance/maxLen ≤ 0.25 UND minLen ≥ 4.
+// Beispiele (Brief 102 § HH-aware Aggregator-Signale):
+//   - isstvan_v ↔ istvaan_v: dist 2 / max 9 = 0.222 → ACCEPT
+//   - prospero ↔ prosperan : dist 1 / max 9 = 0.111 → ACCEPT
+//   - calth    ↔ caltha    : dist 1 / max 6 = 0.167 → ACCEPT
+//   - vigilus  ↔ vigil     : dist 2 / max 7 = 0.286 → REJECT (Brief-Beispiel)
+const SLUG_DISTANCE_MAX = 2;
+const SLUG_DISTANCE_RATIO_MAX = 0.25;
+const SLUG_DISTANCE_MIN_LEN = 4;
+
+function levenshtein(a: string, b: string): number {
+  if (a === b) return 0;
+  const m = a.length;
+  const n = b.length;
+  if (m === 0) return n;
+  if (n === 0) return m;
+  // Single rolling row — Wagner-Fischer, O(min(m,n)) memory.
+  let prev = new Array<number>(n + 1);
+  let curr = new Array<number>(n + 1);
+  for (let j = 0; j <= n; j += 1) prev[j] = j;
+  for (let i = 1; i <= m; i += 1) {
+    curr[0] = i;
+    for (let j = 1; j <= n; j += 1) {
+      const cost = a.charCodeAt(i - 1) === b.charCodeAt(j - 1) ? 0 : 1;
+      curr[j] = Math.min(
+        curr[j - 1] + 1,
+        prev[j] + 1,
+        prev[j - 1] + cost,
+      );
+    }
+    [prev, curr] = [curr, prev];
+  }
+  return prev[n];
+}
 
 function stripDiacritics(s: string): string {
   return s.normalize("NFKD").replace(/[̀-ͯ]/g, "");
@@ -288,10 +402,75 @@ function collectEdges(
 
   // Alias coincidence: row A's surface name is a known alias key — that alias
   // resolves to some target ID; pair (A, target). Filter same-axis only.
+  // Brief 102 § HH-aware Aggregator-Signale (b): wenn die kollidierende Surface-
+  // Form in der Cross-Era-Anchor-Pin-Liste steht, ergänzen wir den Cross-Era-
+  // Anchor-Breach-Marker — das ist genau die Disziplin-Drift-Mode, gegen die
+  // Brief 100's `factionsSkippedRedundant`-Selbstreport gedacht ist; der
+  // Konsolidierungs-Aggregator ist die unabhängige Verifikation.
   for (const r of rowsNorm) {
-    const aliasTarget = aliasNameToTarget.get(r.name.toLowerCase());
+    const surfaceLc = r.name.toLowerCase();
+    const aliasTarget = aliasNameToTarget.get(surfaceLc);
     if (aliasTarget && aliasTarget !== r.id && byId.has(aliasTarget)) {
       addReason(r.id, aliasTarget, `alias-name-coincidence(${r.name})`);
+      if (CROSS_ERA_ANCHOR_SURFACE_FORMS_LOWERCASE.has(surfaceLc)) {
+        addReason(r.id, aliasTarget, `cross-era-anchor-breach(${r.name})`);
+      }
+    }
+  }
+
+  // Brief 102 § HH-aware Aggregator-Signale (a): Slug-Edit-Distance auf
+  // normalisierten Locations-Namen (joined-Form: NFKD + lower + punct-strip +
+  // honorific-strip). Threshold: distance ≤ SLUG_DISTANCE_MAX UND
+  // ratio ≤ SLUG_DISTANCE_RATIO_MAX UND minLen ≥ SLUG_DISTANCE_MIN_LEN —
+  // konservativ genug, dass `vigilus` ↔ `vigil` (Brief-Beispiel) explizit
+  // ausgeschlossen ist, weit genug für die HH-Lore-Schreibvarianten
+  // (isstvan/istvaan, calth/caltha, prospero/prosperan).
+  if (axisName === "location") {
+    for (let i = 0; i < rowsNorm.length; i += 1) {
+      const a = rowsNorm[i];
+      if (!a.joined) continue;
+      for (let j = i + 1; j < rowsNorm.length; j += 1) {
+        const b = rowsNorm[j];
+        if (!b.joined) continue;
+        if (a.joined === b.joined) continue;
+        const minLen = Math.min(a.joined.length, b.joined.length);
+        const maxLen = Math.max(a.joined.length, b.joined.length);
+        if (minLen < SLUG_DISTANCE_MIN_LEN) continue;
+        const lenDiff = maxLen - minLen;
+        if (lenDiff > SLUG_DISTANCE_MAX) continue;
+        const dist = levenshtein(a.joined, b.joined);
+        if (dist > SLUG_DISTANCE_MAX) continue;
+        if (maxLen === 0 || dist / maxLen > SLUG_DISTANCE_RATIO_MAX) continue;
+        addReason(a.id, b.id, `slug-edit-distance-${dist}`);
+      }
+    }
+  }
+
+  // Brief 102 § HH-aware Aggregator-Signale (c): Primarchen-Pre-/Post-Heresy
+  // Edge-Klasse. Eine Character-Row matcht einen Primarchen-Stem, wenn ALLE
+  // Stem-Tokens (nach Normalisierung) in den Row-Tokens enthalten sind.
+  // Rows mit demselben Stem bekommen eine Edge mit reason
+  // `primarch-stem(<stem>)` — auch wenn Jaccard/Substring sie schon gefangen
+  // hätte, der Marker steht im Dossier als eigenes Evidence-Tier
+  // (Cross-Era-Identity-ADR ist die Modellierungs-Grundlage).
+  if (axisName === "character") {
+    const stemMatches = new Map<string, string[]>();
+    for (const stem of PRIMARCH_STEMS) {
+      const stemTokens = stem.split(" ");
+      const matchedIds: string[] = [];
+      for (const r of rowsNorm) {
+        if (r.tokens.length === 0) continue;
+        const rowSet = new Set(r.tokens);
+        if (stemTokens.every((t) => rowSet.has(t))) matchedIds.push(r.id);
+      }
+      if (matchedIds.length >= 2) stemMatches.set(stem, matchedIds.sort());
+    }
+    for (const [stem, ids] of stemMatches) {
+      for (let i = 0; i < ids.length; i += 1) {
+        for (let j = i + 1; j < ids.length; j += 1) {
+          addReason(ids[i], ids[j], `primarch-stem(${stem})`);
+        }
+      }
     }
   }
 
@@ -396,7 +575,23 @@ function renderAxis(result: AxisResult): string {
   }
   for (let i = 0; i < clusters.length; i += 1) {
     const cluster = clusters[i];
-    lines.push(`#### ${axis} cluster ${i + 1} — ${cluster.length} rows`);
+    const inCluster = new Set(cluster);
+    const localEdges = edges.filter((e) => inCluster.has(e.a) && inCluster.has(e.b));
+    // Cluster-level marker if any intra-cluster edge carries a Pass-2 HH-aware
+    // signal — gives the maintainer a quick visual filter on the aggregator
+    // output before the dossier-level adjudication.
+    const markers: string[] = [];
+    if (localEdges.some((e) => e.reasons.some((r) => r.startsWith("cross-era-anchor-breach(")))) {
+      markers.push("⚠ cross-era-anchor-breach-suspect");
+    }
+    if (localEdges.some((e) => e.reasons.some((r) => r.startsWith("primarch-stem(")))) {
+      markers.push("primarch-stem");
+    }
+    if (localEdges.some((e) => e.reasons.some((r) => r.startsWith("slug-edit-distance-")))) {
+      markers.push("slug-edit-distance");
+    }
+    const markerSuffix = markers.length ? ` — ${markers.join(", ")}` : "";
+    lines.push(`#### ${axis} cluster ${i + 1} — ${cluster.length} rows${markerSuffix}`);
     lines.push("");
     lines.push("| id | name | group-key | aliases pointing here |");
     lines.push("| --- | --- | --- | --- |");
@@ -411,9 +606,6 @@ function renderAxis(result: AxisResult): string {
     }
     lines.push("");
     lines.push("Evidence edges:");
-    // Emit only intra-cluster edges to keep output compact.
-    const inCluster = new Set(cluster);
-    const localEdges = edges.filter((e) => inCluster.has(e.a) && inCluster.has(e.b));
     for (const e of localEdges) {
       lines.push(`- \`${e.a}\` ↔ \`${e.b}\` — ${e.reasons.join("; ")}`);
     }
@@ -448,15 +640,26 @@ const characterResult = buildAxis(
   (c) => c.primaryFactionId ?? null,
 );
 
+// CLI: --pass N steuert nur den Titel.
+function parsePassArg(argv: string[]): string | null {
+  for (let i = 2; i < argv.length; i += 1) {
+    if (argv[i] === "--pass" && i + 1 < argv.length) return argv[i + 1];
+    if (argv[i].startsWith("--pass=")) return argv[i].slice("--pass=".length);
+  }
+  return null;
+}
+const passArg = parsePassArg(process.argv);
+const titleSuffix = passArg ? ` ${passArg}` : "";
+
 const out: string[] = [];
-out.push("# Consolidation-Pass 1 — Candidate Aggregator output");
+out.push(`# Consolidation-Pass${titleSuffix} — Candidate Aggregator output`);
 out.push("");
 out.push(
   `Generated by \`scripts/consolidation-aggregate.ts\` from the current ` +
     `\`factions.json\` (${factions.length} rows, ${Object.keys(factionAliases).length} aliases), ` +
     `\`locations.json\` (${locations.length} rows, ${Object.keys(locationAliases).length} aliases), ` +
     `\`characters.json\` (${characters.length} rows, ${Object.keys(characterAliases).length} aliases). ` +
-    `Heuristics: exact-normalized-name + Jaccard ≥ 0.5 on honorific-stripped tokens + substring + alias-name-coincidence + same-group-key bonus.`,
+    `Heuristics: exact-normalized-name + Jaccard ≥ 0.5 on honorific-stripped tokens + substring + alias-name-coincidence + same-group-key bonus, plus HH-aware signals (slug-edit-distance ≤ 2 + ratio ≤ 0.25 for locations; cross-era-anchor-breach marker on alias-coincidence; primarch-stem edges on characters).`,
 );
 out.push("");
 out.push(

@@ -2,7 +2,7 @@
 session: 2026-05-27-102
 role: architect
 date: 2026-05-27
-status: open
+status: implemented
 slug: hh-consolidation-pass
 parent: 2026-05-25-098-arch-w40k-consolidation-pass
 links:
