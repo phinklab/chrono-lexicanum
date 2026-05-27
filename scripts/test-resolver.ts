@@ -509,6 +509,34 @@ check("alias - Resolver-Pass 12 confirmation Knights-Errant hyphen variant still
   assert.equal(resolveFaction("Knights-Errant").id, "knights_errant");
 });
 
+check("direct match - Resolver-Pass 13 Crusader Host (cross-Legion Imperial Terra-delegation organ, Luna Mendax HH-0176 + Riven HH-0177, freq=2 strict, parent=imperium)", () => {
+  assert.equal(resolveFaction("Crusader Host").id, "crusader_host");
+});
+
+check("direct match - Resolver-Pass 13 Serpent Cult (House Devine internal chaos cult on Molech, The Devine Adoratrice HH-0182 + Wolf Mother HH-0195, freq=2 strict, parent=house_devine sub-tier)", () => {
+  assert.equal(resolveFaction("Serpent Cult").id, "serpent_cult");
+});
+
+check("direct match - Resolver-Pass 13 Therion Cohort (Imperial Army elite regiment cross-arc with marcus_valerius spine, The Divine Word HH-0171, freq=1 lore-iconic, parent=astra_militarum named-regiment-Tier)", () => {
+  assert.equal(resolveFaction("Therion Cohort").id, "therion_cohort");
+});
+
+check("direct match - Resolver-Pass 13 Davinite Lodge (pre-Imperial Davin chaos cult Erebus uses for Horus corruption in False Gods HH-0002, surfaced in Twisted HH-0196, parent=chaos)", () => {
+  assert.equal(resolveFaction("Davinite Lodge").id, "davinite_lodge");
+});
+
+check("alias - Resolver-Pass 13 Davinite Serpent Lodge (Serpent HH-0175 Thoros-priest vignette) routes to davinite_lodge (7a Case A — single-row + alias per runbook §4 Surface-Form-Treue, same Davin cult two surface-form variants)", () => {
+  assert.equal(resolveFaction("Davinite Serpent Lodge").id, "davinite_lodge");
+});
+
+check("alias - Resolver-Pass 13 confirmation Luna Wolves still routes to sons_of_horus (Pass-10 cross-era rename anchor exhaustively re-surfaced in HH-0179 The Wolf of Ash and Fire + HH-0188 Brotherhood of the Moon, no row-split)", () => {
+  assert.equal(resolveFaction("Luna Wolves").id, "sons_of_horus");
+});
+
+check("alias - Resolver-Pass 13 confirmation Imperial Army still routes to astra_militarum (Pass-10 alias holds: HH-0149 Echoes of Revelation + HH-0198 Tallarn: Witness re-surface the alias this wave)", () => {
+  assert.equal(resolveFaction("Imperial Army").id, "astra_militarum");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {

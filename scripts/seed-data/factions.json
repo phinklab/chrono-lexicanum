@@ -1313,5 +1313,33 @@
     "name": "Hrud",
     "parent": null,
     "tone": "alien"
+  },
+  {
+    "id": "crusader_host",
+    "name": "Crusader Host",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "serpent_cult",
+    "name": "Serpent Cult",
+    "parent": "house_devine",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "therion_cohort",
+    "name": "Therion Cohort",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "davinite_lodge",
+    "name": "Davinite Lodge",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
   }
 ]
