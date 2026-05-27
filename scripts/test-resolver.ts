@@ -1755,6 +1755,42 @@ check("alias-consolidation - Resolver-Pass 14 confirmation 'The Emperor of Manki
   assert.equal(resolveCharacter("The Emperor of Mankind").id, "the_emperor");
 });
 
+check("direct match - Resolver-Pass 15 Endryd Haar (7b strict freq-3 within-batch spine — Pass-14-forecasted Blackshields-trilogy protagonist landing exactly at HH-0286 as predicted; Blackshields: The False War HH-0286 + Blackshields: The Red Fief HH-0287 + Blackshields: The Broken Chain HH-0290, primaryFactionId blackshields)", () => {
+  assert.equal(resolveCharacter("Endryd Haar").id, "endryd_haar");
+});
+
+check("direct match - Resolver-Pass 15 Khalid Hassan (7c strong freq=1 lore-iconic — Malcador's covert operative, deuteragonist of the Officio-Sigillite namesake audio drama, HH-0252 The Sigillite, primaryFactionId officio_sigillite Phase-1-row FK)", () => {
+  assert.equal(resolveCharacter("Khalid Hassan").id, "khalid_hassan");
+});
+
+check("direct match - Resolver-Pass 15 Argonis (7c strong freq=1 lore-iconic — Sons of Horus emissary, late-Heresy compliance-arc Horus envoy, HH-0285 Dark Compliance, primaryFactionId sons_of_horus)", () => {
+  assert.equal(resolveCharacter("Argonis").id, "argonis");
+});
+
+check("direct match - Resolver-Pass 15 Yasu Nagasena (7c strong freq=1 lore-iconic — Imperial talent-scout/agent, protagonist of Wolf Hunt HH-0254, primaryFactionId officio_sigillite parity with khalid_hassan)", () => {
+  assert.equal(resolveCharacter("Yasu Nagasena").id, "yasu_nagasena");
+});
+
+check("direct match - Resolver-Pass 15 Zagreus Kane (7c strong freq=1 lore-iconic — Mechanicum Fabricator-General successor candidate, eventual post-Heresy Fabricator-General, HH-0284 The Binary Succession, primaryFactionId mechanicus)", () => {
+  assert.equal(resolveCharacter("Zagreus Kane").id, "zagreus_kane");
+});
+
+check("alias-consolidation - Resolver-Pass 15 (7a Case A typo-variant — transposed vowels Ae↔Aeo): Aenoid Thiel routes to aeonid_thiel (HH-0289 Nightfane — same Ultramarines Codicier/Sergeant figure recurring across the Calth / Aeonid-Thiel audio-drama bloc; identity-equivalence floor-case alias add)", () => {
+  assert.equal(resolveCharacter("Aenoid Thiel").id, "aeonid_thiel");
+});
+
+check("alias-consolidation - Resolver-Pass 15 (7a Case B Cross-Era/Character-Honor-Title-Split — Heresy-era pre-Dreadnought honor-title variant per Pass-11 bjorn row note explicit anticipation, parity with Kharn ↔ Kharn the Betrayer): Bjorn the One-Handed routes to bjorn (HH-0261 Wolf's Claw — the same future Bjorn the Fell-Handed)", () => {
+  assert.equal(resolveCharacter("Bjorn the One-Handed").id, "bjorn");
+});
+
+check("alias-consolidation - Resolver-Pass 15 (7d Cross-Era same-identity disambig recommendation (a) — runbook §4 default for Heresy-era honor-title / Cross-Era surface forms): Lord Cypher routes to cypher (HH-0259 Cypher: Guardian of Order — Heresy-era Dark-Angels Order-of-Caliban title-holder is the same individual who becomes the post-Heresy Lord-of-the-Fallen Cypher)", () => {
+  assert.equal(resolveCharacter("Lord Cypher").id, "cypher");
+});
+
+check("alias-consolidation - Resolver-Pass 15 confirmation Horus Lupercal still routes to horus (Pass-11 alias holds — HH-0277 The Either + HH-0291 Collected Visions + HH-0294 Visions of Heresy 2018 ed.)", () => {
+  assert.equal(resolveCharacter("Horus Lupercal").id, "horus");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {

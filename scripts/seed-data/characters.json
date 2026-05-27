@@ -3365,5 +3365,75 @@
     "primaryFactionId": "word_bearers",
     "lexicanumUrl": null,
     "notes": "Resolver-Pass 14 Phase 3 (7c strong curated freq-1 lore-iconic — Word Bearers / Ark of Testimony Chapter constructor of the Templum Daemonarchia on Kronus, cross-arc with the Dawn of War game crossover and the Word-Bearers Shadow-Crusade arc): Inheritor (HH-0207, Gav Thorpe — Templum Daemonarchia on Kronus). primaryFactionId word_bearers."
+  },
+  {
+    "id": "endryd_haar",
+    "name": "Endryd Haar",
+    "primaryFactionId": "blackshields",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 15 Phase 3 (7b strict freq-3 within-batch spine — strongest single-row case of the wave, the Pass-14-forecasted Blackshields-trilogy protagonist landing exactly at HH-0286 as Pass-14 7d predicted): renegade ex-Iron-Hands captain turned Blackshield trilogy leader; Blackshields: The False War (HH-0286), Blackshields: The Red Fief (HH-0287), Blackshields: The Broken Chain (HH-0290) — all three Josh Reynolds. Cross-arc with Pass-14 crysos_morturg (namesake-short-story-Blackshield) — parallel trilogy-protagonist-vs-namesake-protagonist split. primaryFactionId blackshields (Pass-14 canonical anchor — clean FK)."
+  },
+  {
+    "id": "khalid_hassan",
+    "name": "Khalid Hassan",
+    "primaryFactionId": "officio_sigillite",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 15 Phase 3 (7c strong curated freq-1 lore-iconic — Malcador's covert operative, deuteragonist of the Officio-Sigillite namesake audio drama, cross-arc with the Knights-Errant / Sigillite-frame network): The Sigillite (HH-0252, Chris Wraight — Malcador + Khalid Hassan on Terra / Gyptus). primaryFactionId officio_sigillite (the new Phase-1 row — FK dependency on Phase 1)."
+  },
+  {
+    "id": "argonis",
+    "name": "Argonis",
+    "primaryFactionId": "sons_of_horus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 15 Phase 3 (7c strong curated freq-1 lore-iconic — Sons of Horus emissary, late-Heresy compliance-arc Horus envoy, cross-arc with the post-Heresy / Siege-of-Terra Horus retinue arc): Dark Compliance (HH-0285, John French — Argonis emissary on Accazzar-Beta). primaryFactionId sons_of_horus."
+  },
+  {
+    "id": "yasu_nagasena",
+    "name": "Yasu Nagasena",
+    "primaryFactionId": "officio_sigillite",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 15 Phase 3 (7c strong curated freq-1 lore-iconic — Imperial talent-scout / agent, protagonist of Wolf Hunt, cross-arc with The Sigillite + the Knights-Errant Imperial-agent network under Malcador): Wolf Hunt (HH-0254, Graham McNeill — Yasu Nagasena hunting Severian). primaryFactionId officio_sigillite (Phase-1-promoted, parity with khalid_hassan — both mortal Sigillite agents)."
+  },
+  {
+    "id": "sobek",
+    "name": "Sobek",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 15 Phase 3 (7c medium-strong curated freq-1 — Thousand Sons supporting cast, post-Prospero figure in the Eye of Terror, cross-arc with the Pass-? Thousand-Sons supporting-cast catalog Hathor Maat / Ahzek Ahriman / Sanakht): Thief of Revelations (HH-0256, Graham McNeill — Ahriman / Magnus / Sobek / Amon at Planet of Sorcerers / Eye of Terror). primaryFactionId thousand_sons."
+  },
+  {
+    "id": "amon",
+    "name": "Amon",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 15 Phase 3 (7c medium-strong curated freq-1 — Thousand Sons supporting cast, Magnus's equerry, cross-arc with the Thousand-Sons supporting-cast catalog): Thief of Revelations (HH-0256, Graham McNeill — Ahriman / Magnus / Sobek / Amon at Planet of Sorcerers / Eye of Terror). primaryFactionId thousand_sons."
+  },
+  {
+    "id": "zagreus_kane",
+    "name": "Zagreus Kane",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 15 Phase 3 (7c strong curated freq-1 lore-iconic — Mechanicum Fabricator-General successor candidate in the Heresy-era Mars-loyalist faction, eventual post-Heresy Fabricator-General, lore-iconic cross-arc figure): The Binary Succession (HH-0284, David Annandale — Kelbor-Hal / Zagreus Kane / Vethorel Mechanicum succession-crisis arc on Mars). primaryFactionId mechanicus."
+  },
+  {
+    "id": "vethorel",
+    "name": "Vethorel",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 15 Phase 3 (7c medium curated freq-1 — Mechanicum figure paired with Zagreus Kane in the succession-crisis arc, promoted alongside Zagreus Kane for Mechanicum-succession-arc completeness): The Binary Succession (HH-0284, David Annandale — Heresy-era Mars Mechanicum succession). primaryFactionId mechanicus."
+  },
+  {
+    "id": "bulveye",
+    "name": "Bulveye",
+    "primaryFactionId": "space_wolves",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 15 Phase 3 (7c medium curated freq-1 — Space Wolves Wolf Lord, one of the Original Six Wolf Lords, cross-arc with the Space-Wolves Heresy arc + post-Prospero Space-Wolves catalog): The Thirteenth Wolf (HH-0279, Gav Thorpe — post-Prospero-burning Space Wolves Bulveye namesake audio drama). primaryFactionId space_wolves."
+  },
+  {
+    "id": "erud_vahn",
+    "name": "Erud Vahn",
+    "primaryFactionId": "blackshields",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 15 Phase 3 (7c medium curated freq-1 — Blackshields-trilogy supporting cast paired with Endryd Haar in the trilogy finale, promoted alongside endryd_haar for trilogy-cast completeness): Blackshields: The Broken Chain (HH-0290, Josh Reynolds — Endryd Haar + Erud Vahn Blackshields-trilogy finale). primaryFactionId blackshields (Pass-14 canonical anchor)."
   }
 ]
