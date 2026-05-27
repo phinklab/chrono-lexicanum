@@ -807,6 +807,74 @@ check("direct match - tenth wave Diamat (Mechanicum / Iron Hands battle-world He
   assert.equal(resolveLocation("Diamat").id, "diamat");
 });
 
+check("direct match - Resolver-Pass 11 Sol System (system grain parent of Terra/Mars/Luna/Pluto, Siege-of-Terra arc, freq=4 strict)", () => {
+  assert.equal(resolveLocation("Sol System").id, "sol_system");
+});
+
+check("direct match - Resolver-Pass 11 Vengeful Spirit (Warmaster's flagship vessel, tags=['vessel'] gx/gy=null per runbook §3 Phase 2 vessel-convention, freq=4 strict)", () => {
+  assert.equal(resolveLocation("Vengeful Spirit").id, "vengeful_spirit");
+});
+
+check("direct match - Resolver-Pass 11 Lion's Gate Spaceport (Terra sub-locale, Siege-of-Terra battlefield Lost-and-Damned/First-Wall, freq=3 strict)", () => {
+  assert.equal(resolveLocation("Lion's Gate Spaceport").id, "lions_gate_spaceport");
+});
+
+check("direct match - Resolver-Pass 11 Chondax (White Scars war-world, Scars/Legacies-of-Betrayal, freq=2 strict)", () => {
+  assert.equal(resolveLocation("Chondax").id, "chondax");
+});
+
+check("direct match - Resolver-Pass 11 Molech (Imperial Knight world, Vengeful Spirit House-Devine pivot, freq=2 strict)", () => {
+  assert.equal(resolveLocation("Molech").id, "molech");
+});
+
+check("direct match - Resolver-Pass 11 Pluto (Sol-System outpost, Praetorian-of-Dorn / Solar-War, freq=2 strict)", () => {
+  assert.equal(resolveLocation("Pluto").id, "pluto");
+});
+
+check("direct match - Resolver-Pass 11 Tallarn (Iron Warriors siege-world per eponymous anthology HH-0045, freq=2 strict)", () => {
+  assert.equal(resolveLocation("Tallarn").id, "tallarn");
+});
+
+check("direct match - Resolver-Pass 11 Nuceria (Angron's homeworld + Daemonhood-pivot from Betrayer HH-0024, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Nuceria").id, "nuceria");
+});
+
+check("direct match - Resolver-Pass 11 Signus Prime (Blood Angels Signus Trial from Fear to Tread HH-0021, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Signus Prime").id, "signus_prime");
+});
+
+check("direct match - Resolver-Pass 11 Pythos (eponymous Damnation-of-Pythos HH-0030 Iron Hands remnants world, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Pythos").id, "pythos");
+});
+
+check("direct match - Resolver-Pass 11 Iydris (Eldar maiden-world climax of Angel Exterminatus HH-0023, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Iydris").id, "iydris");
+});
+
+check("direct match - Resolver-Pass 11 Nostramo (Night Lords homeworld, Curze-pre-Heresy destroyed parity with caliban, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Nostramo").id, "nostramo");
+});
+
+check("direct match - Resolver-Pass 11 Armatura (World Eaters training world from Betrayer HH-0024, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Armatura").id, "armatura");
+});
+
+check("direct match - Resolver-Pass 11 Beta-Garmon (Titandeath system from Titandeath HH-0053 largest-Titan-engagement-of-Heresy, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Beta-Garmon").id, "beta_garmon");
+});
+
+check("direct match - Resolver-Pass 11 Saturnine Gate (eponymous Saturnine HH-0059 Imperial Palace sub-location, freq=1 lore-iconic Siege-of-Terra sub-locale)", () => {
+  assert.equal(resolveLocation("Saturnine Gate").id, "saturnine_gate");
+});
+
+check("direct match - Resolver-Pass 11 Golden Throne (End-and-the-Death HH-0067 Imperial Palace inner-sanctum, freq=1 lore-iconic Siege-of-Terra sub-locale)", () => {
+  assert.equal(resolveLocation("Golden Throne").id, "golden_throne");
+});
+
+check("direct match - Resolver-Pass 11 Sanctum Imperialis (End-and-the-Death HH-0067 Imperial Palace inner-Throne-chamber, freq=1 lore-iconic Siege-of-Terra sub-locale)", () => {
+  assert.equal(resolveLocation("Sanctum Imperialis").id, "sanctum_imperialis");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {

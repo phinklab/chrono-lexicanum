@@ -1968,5 +1968,182 @@
     "gx": null,
     "gy": null,
     "tags": ["mechanicus"]
+  },
+  {
+    "id": "sol_system",
+    "name": "Sol System",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["region", "imperium"]
+  },
+  {
+    "id": "vengeful_spirit",
+    "name": "Vengeful Spirit",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "lions_gate_spaceport",
+    "name": "Lion's Gate Spaceport",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "chondax",
+    "name": "Chondax",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["white_scars"]
+  },
+  {
+    "id": "molech",
+    "name": "Molech",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["imperial_knights"]
+  },
+  {
+    "id": "pluto",
+    "name": "Pluto",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperial_navy"]
+  },
+  {
+    "id": "tallarn",
+    "name": "Tallarn",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["astra_militarum"]
+  },
+  {
+    "id": "nuceria",
+    "name": "Nuceria",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["world_eaters"]
+  },
+  {
+    "id": "signus_prime",
+    "name": "Signus Prime",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["blood_angels"]
+  },
+  {
+    "id": "pythos",
+    "name": "Pythos",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "iydris",
+    "name": "Iydris",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["eldar"]
+  },
+  {
+    "id": "nostramo",
+    "name": "Nostramo",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": ["night_lords"],
+    "destroyed": true
+  },
+  {
+    "id": "chogoris",
+    "name": "Chogoris",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["white_scars"]
+  },
+  {
+    "id": "armatura",
+    "name": "Armatura",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["world_eaters"]
+  },
+  {
+    "id": "beta_garmon",
+    "name": "Beta-Garmon",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["adeptus_titanicus"]
+  },
+  {
+    "id": "eternity_gate",
+    "name": "Eternity Gate",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "eternity_wall_spaceport",
+    "name": "Eternity Wall Spaceport",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "saturnine_gate",
+    "name": "Saturnine Gate",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "mercury_wall",
+    "name": "Mercury Wall",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "delphic_battlement",
+    "name": "Delphic Battlement",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "golden_throne",
+    "name": "Golden Throne",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "sanctum_imperialis",
+    "name": "Sanctum Imperialis",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
   }
 ]
