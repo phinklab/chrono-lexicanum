@@ -217,7 +217,9 @@
           { "name": "Tidon", "role": "pov" },
           { "name": "Ven", "role": "supporting" },
           { "name": "Sareo", "role": "supporting" },
-          { "name": "Felbjorn", "role": "supporting" }
+          { "name": "Felbjorn", "role": "supporting" },
+          { "name": "Leman Russ", "role": "mentioned" },
+          { "name": "Alpharius", "role": "mentioned" }
         ],
         "flags": [],
         "rating": { "status": "rated", "source": "goodreads", "value": 3.62, "count": 209, "evidenceUrl": "https://www.goodreads.com/book/show/20661116-hunter_s_moon" }

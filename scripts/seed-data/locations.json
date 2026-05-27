@@ -2401,5 +2401,13 @@
     "gx": null,
     "gy": null,
     "tags": ["ultramarines"]
+  },
+  {
+    "id": "pelago",
+    "name": "Pelago",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["space_wolves"]
   }
 ]
