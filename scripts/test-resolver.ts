@@ -1111,6 +1111,38 @@ check("alias - Resolver-Pass 14 Laer routes to laeran (7a-pattern alias-consolid
   assert.equal(resolveLocation("Laer").id, "laeran");
 });
 
+check("alias - Resolver-Pass 15 Solar System routes to sol_system (7a Case L1 — spacing-variant of the canonical 'Sol System' surface form, HH-0271 Garro: Ashes of Fealty, identity-equivalence floor-case alias add per runbook §4)", () => {
+  assert.equal(resolveLocation("Solar System").id, "sol_system");
+});
+
+check("alias - Resolver-Pass 15 Planet of Sorcerers routes to planet_of_the_sorcerers (identity-coherence override of dossier-7c branch-(a) Sortiarius-row-creation recommendation per runbook §4 'eine kanonische Identität = eine Canonical-Row' — the existing W40K canonical row planet_of_the_sorcerers already covers this Thousand-Sons daemon-world identity; HH-0256 Thief of Revelations + HH-0258 Lucius: The Eternal Blade strict freq-2 within-batch surfaces the descriptive-without-the variant, parallel to Pass-14 Laer → laeran pattern)", () => {
+  assert.equal(resolveLocation("Planet of Sorcerers").id, "planet_of_the_sorcerers");
+});
+
+check("direct match - Resolver-Pass 15 Pharos (curated freq=1 lore-iconic — the Heart of the Pharos HH-0278 Sotha-Pharos-beacon sub-locale, foundational Heresy-era Ultramarines-Sotha-defense arc, parent grain sotha)", () => {
+  assert.equal(resolveLocation("Pharos").id, "pharos");
+});
+
+check("alias - Resolver-Pass 15 Mount Pharos routes to pharos (companion alias to the new pharos row — bare 'Pharos' is the lore-canonical short form, 'Mount Pharos' is the in-this-wave surface variant from HH-0278, descriptive-variant alias closes the surface-form gap per runbook §4)", () => {
+  assert.equal(resolveLocation("Mount Pharos").id, "pharos");
+});
+
+check("direct match - Resolver-Pass 15 Sicarus (curated freq=1 lore-iconic — Word Bearers daemon-world in the Eye of Terror, namesake-driven HH-0280 Children of Sicarus, foundational Heresy-Word-Bearers post-Heresy throneworld, daemon-world grain parallel to planet_of_the_sorcerers)", () => {
+  assert.equal(resolveLocation("Sicarus").id, "sicarus");
+});
+
+check("direct match - Resolver-Pass 15 Ithraca (curated freq=1 lore-iconic — Calth civilian sub-locale, HH-0253 Honour to the Dead, cross-arc with Know-No-Fear / Mark-of-Calth Calth sub-locale set, sector ultima parity)", () => {
+  assert.equal(resolveLocation("Ithraca").id, "ithraca");
+});
+
+check("direct match - Resolver-Pass 15 Northwilds (curated freq=1 lore-iconic — Caliban sub-region, HH-0259 Cypher: Guardian of Order, Dark-Angels Heresy-era Order-of-Caliban locale, sector obscurus parity with caliban)", () => {
+  assert.equal(resolveLocation("Northwilds").id, "northwilds");
+});
+
+check("direct match - Resolver-Pass 15 Numinus (curated freq=1 lore-iconic — Calth-region locale, HH-0273 Garro: Oath of Moment, cross-arc with Calth-region sub-locale set, sector ultima parity with ithraca)", () => {
+  assert.equal(resolveLocation("Numinus").id, "numinus");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {

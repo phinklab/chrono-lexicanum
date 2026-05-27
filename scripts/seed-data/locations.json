@@ -2361,5 +2361,45 @@
     "gx": null,
     "gy": null,
     "tags": []
+  },
+  {
+    "id": "pharos",
+    "name": "Pharos",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["ultramarines"]
+  },
+  {
+    "id": "sicarus",
+    "name": "Sicarus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["chaos", "word_bearers"]
+  },
+  {
+    "id": "ithraca",
+    "name": "Ithraca",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": ["ultramarines", "word_bearers"]
+  },
+  {
+    "id": "northwilds",
+    "name": "Northwilds",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": ["dark_angels"]
+  },
+  {
+    "id": "numinus",
+    "name": "Numinus",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": ["ultramarines"]
   }
 ]
