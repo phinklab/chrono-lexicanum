@@ -3316,5 +3316,54 @@
     "primaryFactionId": "night_lords",
     "lexicanumUrl": null,
     "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Night-Lords Librarian cross-arc figure): Night Lord lapsed-Librarian character study; Child of Night (HH-0181, John French — Fel Zharost interior monologue). primaryFactionId night_lords."
+  },
+  {
+    "id": "macer_varren",
+    "name": "Macer Varren",
+    "primaryFactionId": "knights_errant",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 14 Phase 3 (7b strict freq-3 cross-batch spine — strongest spine case of the wave): Knights-Errant operative, ex-World-Eaters survivor of Isstvan III, paired with Garro across three independent batches — Eater of Dreams (HH-0228, Grey-Knights redemption arc with Fel Zharost on Albia), Garro: Legion of One (HH-0244, Isstvan III rescue), Garro: Sword of Truth (HH-0248, Sol System investigation). primaryFactionId knights_errant (Pass-11 canonical anchor — the cross-pass Knights-Errant network)."
+  },
+  {
+    "id": "helig_gallor",
+    "name": "Helig Gallor",
+    "primaryFactionId": "knights_errant",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 14 Phase 3 (7b strict freq-2 cross-batch spine): Knights-Errant agent paired with Nathaniel Garro in Ghosts Speak Not & Patience (HH-0205) and with Amendera Kendel vs Alpha Legion in Jovian shipyards in The Serpent's Dance (HH-0226). Strict freq-2 across two independent batches (ssot-hh-021 / ssot-hh-023). primaryFactionId knights_errant (Pass-11 canonical anchor — cross-arc with the Garro / Kendel network)."
+  },
+  {
+    "id": "hydragyrum",
+    "name": "Hydragyrum",
+    "primaryFactionId": "ordo_sinister",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 14 Phase 3 (7c strong curated freq-1 lore-iconic — Ordo Sinister namesake-audio-drama protagonist): female pariah-princeps protagonist defending the Imperial Webway in Ordo Sinister (HH-0215, John French — protagonist_gender=female, protagonist_class=multi Titan crew per loop-log). primaryFactionId ordo_sinister (the new Phase-1 row — FK dependency on Phase 1)."
+  },
+  {
+    "id": "sibel_niasta",
+    "name": "Sibel Niasta",
+    "primaryFactionId": "adeptus_astra_telepathica",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 14 Phase 3 (7c/7d strong curated freq-1 lore-iconic — anthology-cascade strict freq-2 but promoted on co-protagonist warrant): astropath co-protagonist of the Malcador two-hander audio drama Malcador: First Lord of the Imperium (HH-0235, L.J. Goulding); HH-0237 The Lords of Terra anthology aggregates HH-0235 surfaces (cascade, not strict independent). Lore-warrant per dossier 7d: co-protagonist carries half the script weight; the Malcador audio is among the most-anchored Malcador works. primaryFactionId adeptus_astra_telepathica (direct §3 — Niasta's astropath corps)."
+  },
+  {
+    "id": "crysos_morturg",
+    "name": "Crysos Morturg",
+    "primaryFactionId": "blackshields",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 14 Phase 3 (7c strong curated freq-1 lore-iconic — first-named Blackshield POV, future-proof for the Endryd-Haar Blackshields sub-arc at HH-0286+): Blackshield protagonist of the namesake short Blackshield (HH-0208, Chris Wraight) vs Khorak Death-Guard-renegade. primaryFactionId blackshields (the new Phase-1 row — FK dependency on Phase 1)."
+  },
+  {
+    "id": "yored_massak",
+    "name": "Yored Massak",
+    "primaryFactionId": "knights_errant",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 14 Phase 3 (7c strong curated freq-1 lore-iconic — Knights-Errant Imperial-Fists Librarian recruited by Garro on the Phalanx, cross-arc with the Garro / Knights-Errant network and future cross-pass confirmation HH-0272 Garro: Burden of Duty reissue): Burden of Duty (HH-0247, James Swallow — Garro on the Phalanx recruiting librarians). primaryFactionId knights_errant."
+  },
+  {
+    "id": "torquill_eliphas",
+    "name": "Torquill Eliphas",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 14 Phase 3 (7c strong curated freq-1 lore-iconic — Word Bearers / Ark of Testimony Chapter constructor of the Templum Daemonarchia on Kronus, cross-arc with the Dawn of War game crossover and the Word-Bearers Shadow-Crusade arc): Inheritor (HH-0207, Gav Thorpe — Templum Daemonarchia on Kronus). primaryFactionId word_bearers."
   }
 ]

@@ -1659,6 +1659,42 @@ check("direct match - Resolver-Pass 13 (7c medium freq=1 Phase-3-promote — Nig
   assert.equal(resolveCharacter("Fel Zharost").id, "fel_zharost");
 });
 
+check("direct match - Resolver-Pass 14 Macer Varren (7b strict freq-3 cross-batch spine — Knights-Errant ex-World-Eaters operative across HH-0228 Eater of Dreams / HH-0244 Garro: Legion of One / HH-0248 Garro: Sword of Truth, primaryFactionId knights_errant)", () => {
+  assert.equal(resolveCharacter("Macer Varren").id, "macer_varren");
+});
+
+check("direct match - Resolver-Pass 14 Helig Gallor (7b strict freq-2 cross-batch spine — Knights-Errant agent paired with Garro in HH-0205 and with Amendera Kendel in HH-0226, primaryFactionId knights_errant)", () => {
+  assert.equal(resolveCharacter("Helig Gallor").id, "helig_gallor");
+});
+
+check("direct match - Resolver-Pass 14 Hydragyrum (7c strong freq=1 lore-iconic — Ordo Sinister female pariah-princeps protagonist of HH-0215, primaryFactionId ordo_sinister Phase-1-row FK)", () => {
+  assert.equal(resolveCharacter("Hydragyrum").id, "hydragyrum");
+});
+
+check("direct match - Resolver-Pass 14 Sibel Niasta (7c/7d strong freq=1 lore-iconic co-protagonist of HH-0235 Malcador: First Lord of the Imperium, anthology-cascade strict freq-2 via HH-0237 promoted on co-protagonist warrant, primaryFactionId adeptus_astra_telepathica)", () => {
+  assert.equal(resolveCharacter("Sibel Niasta").id, "sibel_niasta");
+});
+
+check("direct match - Resolver-Pass 14 Crysos Morturg (7c strong freq=1 lore-iconic — first-named Blackshield POV in HH-0208 Blackshield, future-proof for the Endryd-Haar sub-arc at HH-0286+, primaryFactionId blackshields Phase-1-row FK)", () => {
+  assert.equal(resolveCharacter("Crysos Morturg").id, "crysos_morturg");
+});
+
+check("direct match - Resolver-Pass 14 Yored Massak (7c strong freq=1 lore-iconic — Knights-Errant Imperial-Fists Librarian recruited by Garro on the Phalanx, HH-0247 Burden of Duty, primaryFactionId knights_errant)", () => {
+  assert.equal(resolveCharacter("Yored Massak").id, "yored_massak");
+});
+
+check("direct match - Resolver-Pass 14 Torquill Eliphas (7c strong freq=1 lore-iconic — Word Bearers / Ark of Testimony Templum Daemonarchia constructor on Kronus in HH-0207 Inheritor, primaryFactionId word_bearers)", () => {
+  assert.equal(resolveCharacter("Torquill Eliphas").id, "torquill_eliphas");
+});
+
+check("alias-consolidation - Resolver-Pass 14 'the Emperor' lowercase-article variant routes to the_emperor (Case A new alias add — bare lowercase-article surface form HH-0222 Two Metaphysical Blades + HH-0225 Lantern's Light; resolver is case-sensitive per Brief 049/072 so the Pass-13 Case-E 'The Emperor of Mankind' capitalized variant does not cover this form; same canonical identity per runbook §4 — alias entry, not row creation)", () => {
+  assert.equal(resolveCharacter("the Emperor").id, "the_emperor");
+});
+
+check("alias-consolidation - Resolver-Pass 14 confirmation 'The Emperor of Mankind' capitalized variant still routes to the_emperor (Pass-13 Case-E alias holds; paired with the new Pass-14 'the Emperor' lowercase-article variant on the same canonical row)", () => {
+  assert.equal(resolveCharacter("The Emperor of Mankind").id, "the_emperor");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {
