@@ -1703,8 +1703,8 @@ check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic —
   assert.equal(resolveCharacter("Hastur Sejanus").id, "hastur_sejanus");
 });
 
-check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic Dark Angels First-of-the-Fallen, Call of the Lion HH-0154): Merir Astelan", () => {
-  assert.equal(resolveCharacter("Merir Astelan").id, "merir_astelan");
+check("alias-resolved (Consolidation-Pass 2 cross-era merge — HH 'Merir Astelan' resolves to W40K-canonical 'astelan' per ADR cross-era-identities): Merir Astelan", () => {
+  assert.equal(resolveCharacter("Merir Astelan").id, "astelan");
 });
 
 check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic Iron Hands captain under Crusader Host, Riven HH-0177): Crius", () => {

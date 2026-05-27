@@ -1,0 +1,161 @@
+{
+  "$schema": "consolidation-pass-db-snapshot-v1",
+  "pass": 2,
+  "scope": "Full-Corpus (W40K Pässe 1..9 + HH Pässe 10..15, batches ssot-w40k-001..057 + ssot-hh-001..030)",
+  "generatedAt": "2026-05-27T19:01:31.672Z",
+  "purpose": "Self-contained DB-side snapshot of every row touched by the merge plan, captured BEFORE the first Prod-DB mutation (Re-Apply). Pairs with the reference-premerge-snapshot (JSON side) for full JSON+DB rollback.",
+  "merges": [
+    {
+      "axis": "characters",
+      "mergee": "merir_astelan",
+      "keeper": "astelan",
+      "loreDepth": "lore-deep",
+      "evidence": "Cross-era identity: HH-era Dark Angels chapter-master Merir Astelan (Pass-13 Phase 3 freq=1, Call of the Lion HH-0154 Astelan vs Belath compliance debate) is the same individual as the W40K-era Fallen Angel Astelan (Lexicanum lemma 'Merir Astelan'; Fallen-Angel-interrogations lore-cluster). The merir_astelan row's own notes explicitly document the cross-era continuity ('Cross-arc with the Fallen / Cypher / Lion arcs; his post-Heresy First-of-the-Fallen status is downstream from his Pass-13 surface'); the Pass-13 implementer recognized the identity but lacked the ADR-policy (Brief 100) to consolidate. Per Cross-Era-Identities ADR (W40K-canonical short-form as keeper, HH-era full name as alias — analogous to horus / lorgar / typhus / corax), keeper = astelan.",
+      "fieldRetention": {
+        "policy": "keeper-wins-with-null-fill",
+        "fromMergee": [
+          {
+            "field": "notes",
+            "reason": "keeper.notes was null; mergee.notes carries Pass-13 HH-era context worth preserving + cross-era narrative",
+            "newValue": "Cross-era identity: HH-era Dark Angels chapter-master Merir Astelan (Resolver-Pass 13 Phase 3, freq=1) debating compliance around Byzanthis in Call of the Lion (HH-0154, Astelan vs Belath compliance debate); cross-arc with the Fallen / Cypher / Lion arcs. Post-Heresy: First-of-the-Fallen renegade. primaryFactionId fallen_angels reflects the W40K-era canonical state (keeper-wins per consolidation-pass-2 field-retention; HH-era dark_angels affiliation captured here via cross-era note per ADR cross-era-identities). Consolidation-Pass 2 merge of merir_astelan (HH-era surface form) into astelan (W40K-canonical row)."
+          }
+        ],
+        "primaryFactionIdKept": "fallen_angels",
+        "primaryFactionIdNote": "keeper-wins; mergee had dark_angels (HH-era pre-fall affiliation). W40K-canonical state preserved per ADR cross-era-identities."
+      },
+      "newAlias": {
+        "surface": "Merir Astelan",
+        "targetId": "astelan",
+        "addTo": "scripts/seed-data/character-aliases.json"
+      }
+    },
+    {
+      "axis": "characters",
+      "mergee": "sharrowkyn",
+      "keeper": "nykona_sharrowkyn",
+      "loreDepth": "mechanical",
+      "evidence": "Same-era cross-pass doublette: Resolver-Pass 11 created `sharrowkyn` (Phase 3 7c freq=1, Angel Exterminatus HH-0023 — Raven Guard sniper, Shattered Legions associate); Resolver-Pass 13 created `nykona_sharrowkyn` (Phase 3 7c freq=1 promote, Kryptos HH-0167 — Raven Guard Shadowmaster paired with Sabik Wayland + Sisypheum origin). Both novels are Graham McNeill, both rows have primaryFactionId='raven_guard', both reference the same Mor Deythan Raven-Guard sniper character in the Shattered-Legions/Sisypheum saga. Pass-11→Pass-13 cross-wave honorific/surname-prefix miss; mechanically eindeutige Doublette. Class-identical to Pass-1 magister_sek → anakwanar_sek (Pass-9-implementer missed Pass-1 anchor on honorific strip).",
+      "fieldRetention": {
+        "policy": "keeper-wins-with-mergee-notes-merged",
+        "fromMergee": [
+          {
+            "field": "notes",
+            "reason": "both rows have unique Pass-context notes worth preserving — keeper's Pass-13 Kryptos/Sisypheum notes enriched with mergee's Pass-11 Angel-Exterminatus anchor",
+            "newValue": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Raven Guard Shadowmaster debut, cross-arc with the Sisypheum arc + future Shattered-Legions novellas): Raven Guard Shadowmaster debut paired with Sabik Wayland; Kryptos (HH-0167, Graham McNeill — Sharrowkyn / Wayland + Sisypheum origin). Earlier Resolver-Pass 11 Phase 3 surface (7c curated freq=1 lore-iconic): Raven Guard sniper, Shattered Legions associate, Angel Exterminatus (HH-0023). primaryFactionId raven_guard. Consolidation-Pass 2 merge of sharrowkyn (surname-only short-form, Pass-11 surface) into nykona_sharrowkyn (full canonical name, Pass-13 surface)."
+          }
+        ],
+        "primaryFactionIdKept": "raven_guard",
+        "primaryFactionIdNote": "both rows had raven_guard — no conflict."
+      },
+      "newAlias": {
+        "surface": "Sharrowkyn",
+        "targetId": "nykona_sharrowkyn",
+        "addTo": "scripts/seed-data/character-aliases.json"
+      }
+    }
+  ],
+  "rows": {
+    "factions": [],
+    "locations": [],
+    "characters": [
+      {
+        "id": "astelan",
+        "name": "Astelan",
+        "primaryFactionId": "fallen_angels",
+        "lexicanumUrl": null,
+        "notes": null
+      },
+      {
+        "id": "sharrowkyn",
+        "name": "Sharrowkyn",
+        "primaryFactionId": "raven_guard",
+        "lexicanumUrl": null,
+        "notes": "Resolver-Pass 11 Phase 3 (7c curated freq=1 lore-iconic): Raven Guard sniper, Shattered Legions associate; Angel Exterminatus (HH-0023)."
+      },
+      {
+        "id": "merir_astelan",
+        "name": "Merir Astelan",
+        "primaryFactionId": "dark_angels",
+        "lexicanumUrl": null,
+        "notes": "Resolver-Pass 13 Phase 3 (7c curated freq=1 strong-lore-iconic Dark Angels cross-arc figure — First-of-the-Fallen post-Heresy renegade): Dark Angels chapter-master debating compliance around Byzanthis; Call of the Lion (HH-0154, Astelan vs Belath compliance debate). Cross-arc with the Fallen / Cypher / Lion arcs (his post-Heresy First-of-the-Fallen status is downstream from his Pass-13 surface). primaryFactionId dark_angels (Heresy-era)."
+      },
+      {
+        "id": "nykona_sharrowkyn",
+        "name": "Nykona Sharrowkyn",
+        "primaryFactionId": "raven_guard",
+        "lexicanumUrl": null,
+        "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Raven Guard Shadowmaster debut, cross-arc with the Sisypheum arc + future Shattered-Legions novellas): Raven Guard Shadowmaster debut paired with Sabik Wayland; Kryptos (HH-0167, Graham McNeill — Sharrowkyn / Wayland + Sisypheum origin). primaryFactionId raven_guard."
+      }
+    ]
+  },
+  "logicalFkTouches": {
+    "factionsParentIdPointingAtTouchedFactions": [],
+    "charactersPrimaryFactionIdPointingAtTouchedFactions": []
+  },
+  "junctionRefs": {
+    "workFactions": [],
+    "workLocations": [],
+    "workCharacters": [
+      {
+        "workId": "d372bb13-189b-4bb0-bfe4-61730deac080",
+        "characterId": "astelan",
+        "role": "appears",
+        "rawName": "Astelan"
+      },
+      {
+        "workId": "81a77a7b-4c8b-4ef7-ab36-ba5b049784c1",
+        "characterId": "sharrowkyn",
+        "role": "appears",
+        "rawName": "Sharrowkyn"
+      },
+      {
+        "workId": "05130ae5-c889-4f3a-9b3c-922817d8bcfd",
+        "characterId": "astelan",
+        "role": "pov",
+        "rawName": "Astelan"
+      },
+      {
+        "workId": "ccc28d0c-03b1-47eb-8c93-7bef4e4d35e6",
+        "characterId": "merir_astelan",
+        "role": "pov",
+        "rawName": "Merir Astelan"
+      },
+      {
+        "workId": "a9c91ba3-4e81-4cee-ac97-f4283da5ec8d",
+        "characterId": "nykona_sharrowkyn",
+        "role": "pov",
+        "rawName": "Nykona Sharrowkyn"
+      },
+      {
+        "workId": "a22f5331-fbe9-4a98-b4be-e2bb9bb75a83",
+        "characterId": "astelan",
+        "role": "pov",
+        "rawName": "Astelan"
+      },
+      {
+        "workId": "15faefb2-0501-4951-938c-10eb34633ab9",
+        "characterId": "astelan",
+        "role": "pov",
+        "rawName": "Astelan"
+      },
+      {
+        "workId": "b8661b6e-f09d-4d6e-b272-56a5cbb81825",
+        "characterId": "sharrowkyn",
+        "role": "pov",
+        "rawName": "Sharrowkyn"
+      },
+      {
+        "workId": "823f0edb-0986-4b3b-8c4b-8468b3464a9d",
+        "characterId": "astelan",
+        "role": "pov",
+        "rawName": "Astelan"
+      }
+    ]
+  },
+  "rollbackProcedure": [
+    "1. Use the rows.* arrays above to restore touched DB rows (re-insert deleted mergees with their captured values; revert field-retention column updates on keepers to the values captured here).",
+    "2. Use logicalFkTouches to re-assert factions.parent_id and characters.primary_faction_id values that were remapped by stage (ii) of the DB-sync transaction.",
+    "3. The junctionRefs arrays document the pre-Re-Apply junction state for touched IDs — they are informational; re-running scripts/run-phase4-apply.sh <config> reconciles junctions deterministically from the reference layer.",
+    "4. Pair with sessions/resolver-dossiers/consolidation-pass-1-reference-premerge-snapshot.json to also restore the JSON side."
+  ]
+}

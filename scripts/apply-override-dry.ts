@@ -209,11 +209,17 @@ const SMOKE_SLUGS = [
  * cap (work_locations dry post-apply 1145). New cap 1500 gives ~24%
  * headroom for the remaining ~1 HH batch (~10 books) + a margin into
  * the next consolidation pass.
+ *
+ * Consolidation-Pass 2 (Brief 102) Phase 4b bumps the characters maximum
+ * from 2200 to 2500: HH waves 10..15 plus the Pass-2 dedup leave
+ * work_characters at dry post-apply 1997 (was 2200-cap with only ~10%
+ * headroom — tightest cap of the three axes). New cap 2500 gives ~25%
+ * headroom for the next HH cycle / next consolidation pass.
  */
 const EXPECTED_RANGES = {
   factions: { min: 500, max: 3200 },
   locations: { min: 180, max: 1500 },
-  characters: { min: 430, max: 2200 },
+  characters: { min: 430, max: 2500 },
 } as const;
 
 interface OverrideEntity {
