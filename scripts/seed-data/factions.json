@@ -1301,5 +1301,17 @@
     "parent": "blood_angels",
     "alignment": "imperium",
     "tone": "imperial"
+  },
+  {
+    "id": "rangdan",
+    "name": "Rangdan",
+    "parent": null,
+    "tone": "alien"
+  },
+  {
+    "id": "hrud",
+    "name": "Hrud",
+    "parent": null,
+    "tone": "alien"
   }
 ]

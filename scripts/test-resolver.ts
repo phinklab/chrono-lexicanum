@@ -489,6 +489,26 @@ check("direct match - Resolver-Pass 11 Sanguinary Guard (Blood Angels honor-guar
   assert.equal(resolveFaction("Sanguinary Guard").id, "sanguinary_guard");
 });
 
+check("direct match - Resolver-Pass 12 Rangdan (xenos species, foundational antagonist der Rangdan Xenocides, Alpharius: Head of the Hydra HH-0096, freq=1 lore-iconic, parent=null top-level xenos parity mit cabal/interex/laer)", () => {
+  assert.equal(resolveFaction("Rangdan").id, "rangdan");
+});
+
+check("direct match - Resolver-Pass 12 Hrud (entropy-aura xenos species, cross-era recurring, Perturabo: The Hammer of Olympia HH-0084 Hrud-Migration-backdrop, freq=1 lore-iconic, parent=null top-level xenos)", () => {
+  assert.equal(resolveFaction("Hrud").id, "hrud");
+});
+
+check("alias - Resolver-Pass 12 Daemons of Nurgle routes to daemons umbrella (7a Case A — Grandfather's Gift HH-0101, parity mit Pass-11 Daemons of Khorne / Pass-11 Daemons of Chaos: sub-faction-grain flat-aliased to parent, nurgle_daemons-sub-row deferred)", () => {
+  assert.equal(resolveFaction("Daemons of Nurgle").id, "daemons");
+});
+
+check("alias - Resolver-Pass 12 confirmation Mechanicum still routes to mechanicus (Pass-10 alias chain holds: HH-0121 Corax: Soulforge + HH-0130 Cybernetica re-surface the alias this wave, no row-split)", () => {
+  assert.equal(resolveFaction("Mechanicum").id, "mechanicus");
+});
+
+check("alias - Resolver-Pass 12 confirmation Knights-Errant hyphen variant still routes to knights_errant (Pass-11 alias chain holds: HH-0130 Cybernetica + HH-0134 Garro: Vow of Faith re-surface the alias this wave)", () => {
+  assert.equal(resolveFaction("Knights-Errant").id, "knights_errant");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
