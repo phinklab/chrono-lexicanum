@@ -140,6 +140,11 @@ const BATCHES = [
   { domain: "hh", n: "018" },
   { domain: "hh", n: "019" },
   { domain: "hh", n: "020" },
+  { domain: "hh", n: "021" },
+  { domain: "hh", n: "022" },
+  { domain: "hh", n: "023" },
+  { domain: "hh", n: "024" },
+  { domain: "hh", n: "025" },
 ] as const satisfies ReadonlyArray<{ domain: "w40k" | "hh"; n: string }>;
 const SMOKE_SLUGS = [
   "the-anarch",
