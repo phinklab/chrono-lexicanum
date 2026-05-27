@@ -134,6 +134,12 @@ const BATCHES = [
   { domain: "hh", n: "012" },
   { domain: "hh", n: "013" },
   { domain: "hh", n: "014" },
+  { domain: "hh", n: "015" },
+  { domain: "hh", n: "016" },
+  { domain: "hh", n: "017" },
+  { domain: "hh", n: "018" },
+  { domain: "hh", n: "019" },
+  { domain: "hh", n: "020" },
 ] as const satisfies ReadonlyArray<{ domain: "w40k" | "hh"; n: string }>;
 const SMOKE_SLUGS = [
   "the-anarch",
@@ -181,10 +187,15 @@ const SMOKE_SLUGS = [
  * +60-120 locations, +500-800 characters over the 30 HH waves). Lower
  * bounds stay at the W40K-only floor — they keep guarding against an
  * accidental zero/near-zero apply. Future re-tuning happens at the next
- * Konsolidierungs-Pass with large merge movement, not per-wave.
+ * Konsolidierungs-Pass with large merge movement, not per-wave — but
+ * the Brief-100 faction estimate underran the observed HH curve (+131
+ * factions over the first 200 HH books vs. the +30-50 budgeted), so
+ * Resolver-Pass 13 Phase 4a bumps the faction maximum from 2500 to 3200
+ * (current dry post-apply 2512 + ~22% headroom for the remaining HH
+ * waves before the next consolidation pass).
  */
 const EXPECTED_RANGES = {
-  factions: { min: 500, max: 2500 },
+  factions: { min: 500, max: 3200 },
   locations: { min: 180, max: 1100 },
   characters: { min: 430, max: 2200 },
 } as const;
