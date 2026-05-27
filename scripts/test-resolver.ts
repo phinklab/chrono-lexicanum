@@ -1043,6 +1043,46 @@ check("alias - Resolver-Pass 13 Signus Cluster routes to signus_prime (7d region
   assert.equal(resolveLocation("Signus Cluster").id, "signus_prime");
 });
 
+check("direct match - Resolver-Pass 14 Chemos (Fulgrim's Primarch homeworld, The Last Phoenix HH-0233 omnibus surface, freq=1 lore-iconic Primarch-homeworld grain parity with barbarus/caliban/colchis/nuceria/prospero)", () => {
+  assert.equal(resolveLocation("Chemos").id, "chemos");
+});
+
+check("direct match - Resolver-Pass 14 Macragge's Honour (Ultramarines flagship vessel-grain, Illyrium HH-0238, freq=1 lore-iconic, parity with iron_blood/molechs_enlightenment vessel rows, tags=['vessel'] gx/gy=null)", () => {
+  assert.equal(resolveLocation("Macragge's Honour").id, "macragges_honour");
+});
+
+check("direct match - Resolver-Pass 14 Irkalla (Sisters of Silence Black Ship vessel-grain, Abyssal HH-0224 civilian-POV-inside-Black-Ship, freq=1 lore-iconic, tags=['vessel'] gx/gy=null)", () => {
+  assert.equal(resolveLocation("Irkalla").id, "irkalla");
+});
+
+check("direct match - Resolver-Pass 14 Imperial Webway (Emperor's hidden Webway project under Terra, Ordo Sinister HH-0215, freq=1 lore-iconic Heresy-era mega-engineering construct, parent=null region/construct grain — not planet, not vessel)", () => {
+  assert.equal(resolveLocation("Imperial Webway").id, "imperial_webway");
+});
+
+check("direct match - Resolver-Pass 14 Albia (Terran sub-region, Eater of Dreams HH-0228 Albian Land surface, freq=1 lore-iconic Terran region grain, sector=solar)", () => {
+  assert.equal(resolveLocation("Albia").id, "albia");
+});
+
+check("direct match - Resolver-Pass 14 Illyrium (Macragge province sub-locale, Illyrium HH-0238 namesake audio-drama, freq=1 lore-iconic Ultramar/Macragge sub-locale grain, sector=ultima)", () => {
+  assert.equal(resolveLocation("Illyrium").id, "illyrium");
+});
+
+check("direct match - Resolver-Pass 14 Jupiter (Sol-system planet, The Serpent's Dance HH-0226 Jovian shipyards surface, freq=1 lore-iconic Sol-system locale parity with Pass-? mars/luna/terra)", () => {
+  assert.equal(resolveLocation("Jupiter").id, "jupiter");
+});
+
+check("direct match - Resolver-Pass 14 Astagar (cumulative cross-pass freq-2 promotion — Pass-13 HH-0141 Sedition's Gate + Pass-14 HH-0217 The Laurel of Defiance, 7d cumulative-cross-pass case, parallel to Pass-13 cross-pass consolidation pattern)", () => {
+  assert.equal(resolveLocation("Astagar").id, "astagar");
+});
+
+check("alias - Resolver-Pass 14 Phalanx routes to phalanx (HH-0247 Burden of Duty bare-name surface form for the existing 'The Phalanx' canonical row — Imperial-Fists star-fortress / mobile fortress-monastery vessel-grain, tags=['vessel'] confirmed; parallel to existing 'the Phalanx' lowercase-article alias)", () => {
+  assert.equal(resolveLocation("Phalanx").id, "phalanx");
+});
+
+check("alias - Resolver-Pass 14 Laer routes to laeran (7a-pattern alias-consolidation — The Last Phoenix HH-0233 omnibus surfaces bare 'Laer' for the existing Laeran world canonical row, identity-coherence override of dossier-7c naïve row-creation recommendation per runbook §4 'eine kanonische Identität = eine Canonical-Row')", () => {
+  assert.equal(resolveLocation("Laer").id, "laeran");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {

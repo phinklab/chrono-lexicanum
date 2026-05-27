@@ -1311,7 +1311,7 @@
     "sector": null,
     "gx": null,
     "gy": null,
-    "tags": []
+    "tags": ["vessel"]
   },
   {
     "id": "selaaca",
@@ -2297,5 +2297,69 @@
     "gx": null,
     "gy": null,
     "tags": ["mechanicus"]
+  },
+  {
+    "id": "chemos",
+    "name": "Chemos",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["emperors_children"]
+  },
+  {
+    "id": "macragges_honour",
+    "name": "Macragge's Honour",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "irkalla",
+    "name": "Irkalla",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "imperial_webway",
+    "name": "Imperial Webway",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "albia",
+    "name": "Albia",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "illyrium",
+    "name": "Illyrium",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": ["ultramarines"]
+  },
+  {
+    "id": "jupiter",
+    "name": "Jupiter",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "astagar",
+    "name": "Astagar",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
   }
 ]
