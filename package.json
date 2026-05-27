@@ -34,6 +34,7 @@
     "test:resolver-loop-detect": "tsx scripts/test-resolver-loop-detect.ts",
     "db:seed-resolver-extensions": "tsx --env-file=.env.local scripts/seed-resolver-extensions.ts",
     "analyze:v2-surfaces": "tsx scripts/analyze-v2-surfaces.ts",
+    "audit:gap-candidates": "tsx --env-file=.env.local scripts/audit-gap-candidates.ts",
     "backfill:hardcover-rating": "tsx --env-file=.env.local scripts/backfill-hardcover-rating.ts",
     "backfill:goodreads-rating": "tsx --env-file=.env.local scripts/backfill-goodreads-rating.ts"
   },
