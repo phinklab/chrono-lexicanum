@@ -8,7 +8,7 @@ Ein Consolidation-Pass ist eine Sequenz von Phasen-Subsessions: **Phase 0 (Aggre
 
 Der Pass operiert nicht auf Büchern, sondern auf dem **Entitäten-Set** (die Reference-Rows in `factions.json` / `locations.json` / `characters.json`). Er ist wellengrößen-unabhängig, aber wegen des Token-Budgets per Default **axis-sliced**: jede Reference-Achse bekommt ihre eigene Sub-Session.
 
-Der erste Lauf (W40K-Konsolidierung) war brief-getrieben über Brief 098. Ab dem zweiten Lauf ist der Pass **brief-frei**: das Runbook, die Pass-Config und die per-Pass-Artefakte unter `sessions/resolver-dossiers/consolidation-pass-N-*` sind die vollständige Spec.
+Der erste Lauf (W40K-Konsolidierung) war brief-getrieben über Brief 098. Ab dem zweiten Lauf ist der Pass per Default **brief-frei**: das Runbook, die Pass-Config und die per-Pass-Artefakte unter `sessions/resolver-dossiers/consolidation-pass-N-*` sind die vollständige Spec. **Ausnahme:** wenn ein per-Pass-Brief existiert und Pass-spezifische Deltas trägt, die das generische Runbook nicht abdecken (neue Aggregator-Heuristiken, Verify-Erweiterungen, Cap-Re-Tunes, Schema-Erweiterungen der Pass-Config), lesen **Phase 0** (Aggregator-Implementierung) und **Phase 4** (Verify, Re-Tune, DB-Sync-Vorbereitung) diesen Brief zusätzlich. **Phasen 1–3** (Adjudikation pro Achse) lesen ihn nie — reine Adjudikation gegen das Aggregator-Output. Der per-Pass-Brief sagt selbst explizit, ob und für welche Phasen er gelesen wird.
 
 **Die Config (`scripts/consolidation-pass.config.json`) ist der Parameter-Träger.** Sie nennt: `pass` (z. B. `"consolidation-pass-1"`), `scope` (das Entitäten-Set), die Pfade zu Dossier / Merge-Map / Reference-Premerge-Snapshot / DB-Snapshot / Dry-Run-Plan, und `aggregator.applyRange` für den Re-Apply. Die Config ist **getrennt** von `scripts/resolver-pass.config.json` — letztere ist resolver-loop-generierter Per-Welle-Zustand und würde von der nächsten Resolver-Welle überschrieben.
 
@@ -21,7 +21,7 @@ Der erste Lauf (W40K-Konsolidierung) war brief-getrieben über Brief 098. Ab dem
 - ab Phase 1: das **Phase-0-Aggregator-Output** (die deterministische Kandidaten-Liste — die Quelle für die Adjudikation).
 
 **Lies NICHT** — eine Phase braucht nichts davon, und es ist budget-kritisch:
-- **Keinen Brief** — Brief 094 und Brief 098 sind Rationale. Die Herkunft steht im Anhang.
+- **Keinen Brief** — Brief 094 und Brief 098 sind Rationale. Die Herkunft steht im Anhang. (Ausnahme nach § 0 Bedienung: wenn ein per-Pass-Brief Pass-spezifische Deltas trägt, lesen Phase 0 + Phase 4 diesen einen Brief zusätzlich; Phasen 1–3 nicht. Der Brief sagt das selbst.)
 - die **`manual-overrides-ssot-*.json`-Files** (~310k Token für W40K) — script-only, **nie** in den LLM-Kontext.
 - **`scripts/seed-data/book-roster.json`** (~100k+ Token) — script-only, nie in den Kontext.
 - die anderen Achs-Pakete (Phase 2 liest nicht `characters.json`, usw.).
