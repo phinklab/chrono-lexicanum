@@ -1375,5 +1375,26 @@
     "name": "Blackshields",
     "parent": null,
     "tone": "line"
+  },
+  {
+    "id": "officio_sigillite",
+    "name": "Officio Sigillite",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "legio_praesagius",
+    "name": "Legio Praesagius",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "adeptus_administratum",
+    "name": "Adeptus Administratum",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "archive"
   }
 ]

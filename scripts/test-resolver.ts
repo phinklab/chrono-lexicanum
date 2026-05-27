@@ -569,6 +569,34 @@ check("alias - Resolver-Pass 14 confirmation Mechanicum still routes to mechanic
   assert.equal(resolveFaction("Mechanicum").id, "mechanicus");
 });
 
+check("direct match - Resolver-Pass 15 Officio Sigillite (Malcador's Imperial-civil/Intelligence apparatus, namesake audio drama The Sigillite HH-0252, freq=1 lore-iconic, parent=imperium parity with knights_errant — Malcador wave-top character surface freq=7 closes the org-tier lore loop)", () => {
+  assert.equal(resolveFaction("Officio Sigillite").id, "officio_sigillite");
+});
+
+check("direct match - Resolver-Pass 15 Legio Praesagius (loyalist Titan Legion the True Messengers, Honour to the Dead HH-0253 Calth/Ithraca, freq=1 lore-iconic, parent=adeptus_titanicus parity with legio_ignatum/legio_solaria/legio_castigatra/legio_cybernetica)", () => {
+  assert.equal(resolveFaction("Legio Praesagius").id, "legio_praesagius");
+});
+
+check("direct match - Resolver-Pass 15 Adeptus Administratum (Imperial-civilian bureaucracy, cumulative cross-pass freq-2 promotion Pass-14 HH-0224 Abyssal + Pass-15 HH-0263 Garro: Shield of Lies, parent=imperium parity with senatorum_imperialis)", () => {
+  assert.equal(resolveFaction("Adeptus Administratum").id, "adeptus_administratum");
+});
+
+check("alias - Resolver-Pass 15 Administratum (short form) routes to adeptus_administratum (Authority-Layer-Pragmatik: kurze und lange Form derselben Org, runbook §4 Surface-Form-Treue analog Mechanicum/Adeptus-Mechanicum-Pair)", () => {
+  assert.equal(resolveFaction("Administratum").id, "adeptus_administratum");
+});
+
+check("alias - Resolver-Pass 15 confirmation Luna Wolves still routes to sons_of_horus (Pass-10 cross-era rename anchor exhaustively re-surfaced in HH-0254 Wolf Hunt + HH-0291 Collected Visions artbook + HH-0294 Visions of Heresy 2018 ed., no row-split)", () => {
+  assert.equal(resolveFaction("Luna Wolves").id, "sons_of_horus");
+});
+
+check("alias - Resolver-Pass 15 confirmation Imperial Army still routes to astra_militarum (Pass-10 alias holds: HH-0252 The Sigillite + HH-0255 Censure re-surface the alias this wave)", () => {
+  assert.equal(resolveFaction("Imperial Army").id, "astra_militarum");
+});
+
+check("alias - Resolver-Pass 15 confirmation Knights-Errant (hyphen) still routes to knights_errant (Pass-11 alias holds — wave's 2017 Garro re-issue trio HH-0271/HH-0272/HH-0273 anchors it exhaustively, plus Knights Errant direct freq=2 HH-0263/HH-0268)", () => {
+  assert.equal(resolveFaction("Knights-Errant").id, "knights_errant");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
