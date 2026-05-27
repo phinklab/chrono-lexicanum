@@ -1,0 +1,22 @@
+{
+  "$schema": "consolidation-pass-merge-map-v1",
+  "pass": 2,
+  "scope": "Full-Corpus (W40K Pässe 1..9 + HH Pässe 10..15, batches ssot-w40k-001..057 + ssot-hh-001..030)",
+  "generatedAt": "2026-05-27",
+  "summary": {
+    "candidateClusters": 23,
+    "merges": 0,
+    "noMerges": 6,
+    "flagged": 0,
+    "$comment": "Stand Phase 1 (Factions only). Locations (Phase 2) + Characters (Phase 3) folgen — Counts werden bei jedem Phase-Commit aktualisiert."
+  },
+  "merges": [],
+  "noMerges": [
+    { "axis": "factions", "cluster": ["aeldari_corsairs", "eldar"], "reason": "sub-faction vs umbrella" },
+    { "axis": "factions", "cluster": ["chaos", "cult_of_chaos"], "reason": "synthetic umbrella vs distinct cult-tier" },
+    { "axis": "factions", "cluster": ["hive_fleet_kraken", "hive_fleet_leviathan"], "reason": "two distinct hive fleets (Kraken M41 vs Leviathan Indomitus)" },
+    { "axis": "factions", "cluster": ["necromunda", "necromunda_enforcers"], "reason": "planetary-cluster mid-knoten vs cult/guild-register entity" },
+    { "axis": "factions", "cluster": ["scythes_of_the_emperor", "talons_of_the_emperor"], "reason": "Astartes Chapter vs Custodes+Sisters-of-Silence umbrella (cross-branch)" },
+    { "axis": "factions", "cluster": ["sons_of_horus", "sons_of_sek"], "reason": "Heresy Traitor Legion (Astartes) vs Sabbat-Worlds renegate mortal force (positive cross-era validation: Luna-Wolves-Alias on sons_of_horus did NOT spawn a doublette across HH waves 10..15)" }
+  ]
+}

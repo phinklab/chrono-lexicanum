@@ -1,0 +1,34 @@
+{
+  "$schema": "consolidation-pass-reference-premerge-snapshot-v1",
+  "pass": 2,
+  "scope": "Full-Corpus (W40K Pässe 1..9 + HH Pässe 10..15, batches ssot-w40k-001..057 + ssot-hh-001..030)",
+  "generatedAt": "2026-05-27",
+  "purpose": "Self-contained pre-merge snapshot of all reference-JSON rows and alias entries the Pass-2 merge plan touches. Captured BEFORE the first JSON edit (Schritt 4) so a full rollback can reset the JSON side without git archaeology. Pairs with consolidation-pass-2-db-snapshot.json (captured before Re-Apply) to cover both JSON and DB rollback.",
+  "rollbackProcedure": [
+    "1. Reset the rows below into their respective scripts/seed-data/*.json files (re-insert the removed mergee rows verbatim; revert keeper-row field-retention edits to the pre-merge values shown here).",
+    "2. Remove the newly added alias entries listed in 'aliasesAdded' from scripts/seed-data/*-aliases.json.",
+    "3. Apply the db-snapshot rollback (separate artifact) to restore DB-side state.",
+    "4. Re-run scripts/run-phase4-apply.sh scripts/consolidation-pass-2.config.json to reconcile junction state."
+  ],
+  "touchedReferenceRows": {
+    "factions": [],
+    "locations": [],
+    "characters": []
+  },
+  "touchedAliasEntries": {
+    "factionAliases": [],
+    "locationAliases": [],
+    "characterAliases": []
+  },
+  "aliasesAdded": {
+    "factionAliases": [],
+    "locationAliases": [],
+    "characterAliases": []
+  },
+  "factionPolicyTouches": [],
+  "logicalFkTouches": {
+    "factionsParentIdRemap": [],
+    "charactersPrimaryFactionIdRemap": []
+  },
+  "$comment": "Stand Phase 1 (Factions only, 0 merges → keine Touched-Rows). Locations (Phase 2) + Characters (Phase 3) erweitern die Arrays."
+}
