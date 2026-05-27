@@ -1285,6 +1285,88 @@ check("direct match - Resolver-Pass 10 (7b Primarch spine, apostrophe-stripped s
   assert.equal(resolveCharacter("Lion El'Jonson").id, "lion_el_jonson");
 });
 
+check("direct match - Resolver-Pass 11 (7b Primarch spine, freq 10 — highest-freq unresolved in HH-003..008 wave): Sanguinius (Blood Angels Primarch, Fear to Tread → Echoes of Eternity)", () => {
+  assert.equal(resolveCharacter("Sanguinius").id, "sanguinius");
+});
+
+check("direct match - Resolver-Pass 11 (7b Primarch spine, freq 5): Jaghatai Khan (White Scars Primarch, Scars / Path of Heaven / Warhawk)", () => {
+  assert.equal(resolveCharacter("Jaghatai Khan").id, "jaghatai_khan");
+});
+
+check("direct match - Resolver-Pass 11 (7b Primarch spine, freq 5): Perturabo (Iron Warriors Primarch, Angel Exterminatus / Tallarn / First Wall)", () => {
+  assert.equal(resolveCharacter("Perturabo").id, "perturabo");
+});
+
+check("direct match - Resolver-Pass 11 (7b supporting cast, freq 4): Shiban Khan (White Scars POV, Wraight HH arc)", () => {
+  assert.equal(resolveCharacter("Shiban Khan").id, "shiban_khan");
+});
+
+check("direct match - Resolver-Pass 11 (7b supporting cast, freq 3): Sigismund (Imperial Fists First Captain → Black Templars)", () => {
+  assert.equal(resolveCharacter("Sigismund").id, "sigismund");
+});
+
+check("direct match - Resolver-Pass 11 (7b supporting cast, freq 3): Euphrati Keeler (Lectitio Divinitatus saint, primaryFactionId lectitio_divinitatus per Phase 1 Verweise)", () => {
+  assert.equal(resolveCharacter("Euphrati Keeler").id, "euphrati_keeler");
+});
+
+check("direct match - Resolver-Pass 11 (7b supporting cast, freq 2, apostrophe-stripped slug): Ka'Bandha (Bloodthirster of Khorne, primaryFactionId daemons)", () => {
+  assert.equal(resolveCharacter("Ka'Bandha").id, "ka_bandha");
+});
+
+check("direct match - Resolver-Pass 11 (7b supporting cast, freq 2): Tylos Rubio (former Thousand Sons → Knight-Errant, primaryFactionId knights_errant per Phase 1 Verweise)", () => {
+  assert.equal(resolveCharacter("Tylos Rubio").id, "tylos_rubio");
+});
+
+check("direct match - Resolver-Pass 11 (7a alias-consolidation new row, longer-form canonical): Targutai Yesugei (White Scars Stormseer, combined freq 2 with Yesugei alias)", () => {
+  assert.equal(resolveCharacter("Targutai Yesugei").id, "targutai_yesugei");
+});
+
+check("alias-consolidation - Resolver-Pass 11 (7a Case I): Yesugei (short-form) routes to targutai_yesugei (one row + alias per runbook §4 longer-form-canonical pattern, parity with branne_nev + Branne)", () => {
+  assert.equal(resolveCharacter("Yesugei").id, "targutai_yesugei");
+});
+
+check("alias-consolidation - Resolver-Pass 11 (7a Case D — single highest-impact alias of the wave): Horus Lupercal (Warmaster's full name, freq 9) routes to horus (combined effective freq 12 on existing Pass-10 anchor)", () => {
+  assert.equal(resolveCharacter("Horus Lupercal").id, "horus");
+  assert.equal(resolveCharacter("Horus").id, "horus");
+});
+
+check("alias - Resolver-Pass 11 (7a Case E Cross-Era honor-title-split parity with Kharn ↔ Kharn the Betrayer): Calas Typhon (Heresy-era name of Typhus the Traveller) routes to typhus", () => {
+  assert.equal(resolveCharacter("Calas Typhon").id, "typhus");
+});
+
+check("alias-consolidation - Resolver-Pass 11 (7a Case F Cross-Era full-name parity with Case D): Corvus Corax (Primarch full name) routes to corax", () => {
+  assert.equal(resolveCharacter("Corvus Corax").id, "corax");
+  assert.equal(resolveCharacter("Corax").id, "corax");
+});
+
+check("alias - Resolver-Pass 11 (7a Case G Cross-Era full-name parity): Lorgar Aurelian (Word Bearers Primarch full name) routes to lorgar", () => {
+  assert.equal(resolveCharacter("Lorgar Aurelian").id, "lorgar");
+});
+
+check("alias - Resolver-Pass 11 (7a Case H Cross-Era formal-title parity): Emperor of Mankind (formal title) routes to the_emperor", () => {
+  assert.equal(resolveCharacter("Emperor of Mankind").id, "the_emperor");
+});
+
+check("direct match - Resolver-Pass 11 (7c curated freq=1 lore-iconic): Maloghurst the Twisted (Sons of Horus equerry, Slaves to Darkness)", () => {
+  assert.equal(resolveCharacter("Maloghurst the Twisted").id, "maloghurst_the_twisted");
+});
+
+check("direct match - Resolver-Pass 11 (7c curated freq=1 lore-iconic): Rylanor (Emperor's Children Ancient, Angel Exterminatus Iydris trap-pivot)", () => {
+  assert.equal(resolveCharacter("Rylanor").id, "rylanor");
+});
+
+check("direct match - Resolver-Pass 11 (7c curated freq=1 lore-iconic, §7d axis-disambig — character not location): Madail (Daemonic Lord of Hosts, Fear to Tread)", () => {
+  assert.equal(resolveCharacter("Madail").id, "madail");
+});
+
+check("direct match - Resolver-Pass 11 (7c curated freq=1 lore-iconic; §7d two-distinct-rows confirmed): Mohana Mankata Vi (Sisters of Silence Knight-Centura, primaryFactionId talons_of_the_emperor)", () => {
+  assert.equal(resolveCharacter("Mohana Mankata Vi").id, "mohana_mankata_vi");
+});
+
+check("direct match - Resolver-Pass 11 (7c curated freq=1 lore-iconic; §7d two-distinct-rows confirmed): Esha Ani Mohana (Legio Solaria Princeps Senior, distinct identity from Mohana Mankata Vi)", () => {
+  assert.equal(resolveCharacter("Esha Ani Mohana").id, "esha_ani_mohana");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {
