@@ -895,6 +895,58 @@ check("direct match - Resolver-Pass 11 Sanctum Imperialis (End-and-the-Death HH-
   assert.equal(resolveLocation("Sanctum Imperialis").id, "sanctum_imperialis");
 });
 
+check("direct match - Resolver-Pass 12 Galaspar (Mortarion: The Pale King HH-0098 + Scions of the Emperor HH-0093 — The-Order-tyranny target world, freq=2 strict)", () => {
+  assert.equal(resolveLocation("Galaspar").id, "galaspar");
+});
+
+check("direct match - Resolver-Pass 12 Olympia (Perturabo's homeworld, Perturabo: The Hammer of Olympia HH-0084, freq=1 Primarch-birthworld lore-iconic)", () => {
+  assert.equal(resolveLocation("Olympia").id, "olympia");
+});
+
+check("direct match - Resolver-Pass 12 Barbarus (Mortarion's homeworld, Mortarion: The Pale King HH-0098, freq=1 Primarch-birthworld lore-iconic)", () => {
+  assert.equal(resolveLocation("Barbarus").id, "barbarus");
+});
+
+check("direct match - Resolver-Pass 12 Cthonia (Horus's homeworld, Blood of the Emperor HH-0097, freq=1 Primarch-birthworld lore-iconic)", () => {
+  assert.equal(resolveLocation("Cthonia").id, "cthonia");
+});
+
+check("direct match - Resolver-Pass 12 Kiavahr (Raven Guard parent-world of moon Deliverance, Corax: Lord of Shadows HH-0091, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Kiavahr").id, "kiavahr");
+});
+
+check("direct match - Resolver-Pass 12 Thramas Sector (Dark Angels vs Night Lords Thramas Crusade sector, Prince of Crows HH-0124, freq=1 lore-iconic sector-grain)", () => {
+  assert.equal(resolveLocation("Thramas Sector").id, "thramas_sector");
+});
+
+check("direct match - Resolver-Pass 12 Urgall Depression (Isstvan V Dropsite Massacre landing-zone sub-location, Scorched Earth HH-0122, freq=1 lore-iconic, parallel to Pass-11 Lion's Gate Spaceport sub-location grain)", () => {
+  assert.equal(resolveLocation("Urgall Depression").id, "urgall_depression");
+});
+
+check("direct match - Resolver-Pass 12 Occluda Noctis (Rogal Dorn pre-Heresy operational frontier beyond Northern Major Warp Storm, Rogal Dorn: The Emperor's Crusader HH-0099, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Occluda Noctis").id, "occluda_noctis");
+});
+
+check("direct match - Resolver-Pass 12 Desh'ea (Angron's first scene with World Eaters / Kharn, Angron HH-0138, freq=1 lore-iconic, apostrophe-stripped slug parity with Ka'Bandha → ka_bandha)", () => {
+  assert.equal(resolveLocation("Desh'ea").id, "deshea");
+});
+
+check("direct match - Resolver-Pass 12 Alaxxes Nebula (White Scars vs Alpha Legion ambush site, Wolf King HH-0131, cross-pass cumulative freq 2 with Pass-11 HH-0028 Scars — Pass-11-deferred, Pass-12-promotes)", () => {
+  assert.equal(resolveLocation("Alaxxes Nebula").id, "alaxxes_nebula");
+});
+
+check("direct match - Resolver-Pass 12 Constanix II (Mechanicum forge world, Corax: Soulforge HH-0121, freq=1 lore-iconic forge-world grain)", () => {
+  assert.equal(resolveLocation("Constanix II").id, "constanix_ii");
+});
+
+check("alias - Resolver-Pass 12 Lycaeus routes to deliverance (7a Case D — pre-Liberation Mechanicum-era name for the moon that becomes Deliverance after Corax's slave uprising, Ravenlord HH-0127, era-rename onto post-rename canonical row pattern-parallel to Luna-Wolves-→-Sons-of-Horus)", () => {
+  assert.equal(resolveLocation("Lycaeus").id, "deliverance");
+});
+
+check("alias - Resolver-Pass 12 Phall System routes to phall (7a Case E — system-grain surface for the warp-route collision site, The Crimson Fist HH-0125, flat alias to existing phall canonical row per runbook §4 budget-conservatism)", () => {
+  assert.equal(resolveLocation("Phall System").id, "phall");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {

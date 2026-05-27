@@ -2145,5 +2145,93 @@
     "gx": null,
     "gy": null,
     "tags": ["imperium"]
+  },
+  {
+    "id": "galaspar",
+    "name": "Galaspar",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "olympia",
+    "name": "Olympia",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["iron_warriors"]
+  },
+  {
+    "id": "barbarus",
+    "name": "Barbarus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["death_guard"]
+  },
+  {
+    "id": "cthonia",
+    "name": "Cthonia",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["sons_of_horus"]
+  },
+  {
+    "id": "kiavahr",
+    "name": "Kiavahr",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["raven_guard"]
+  },
+  {
+    "id": "thramas_sector",
+    "name": "Thramas Sector",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "urgall_depression",
+    "name": "Urgall Depression",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "occluda_noctis",
+    "name": "Occluda Noctis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "deshea",
+    "name": "Desh'ea",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["world_eaters"]
+  },
+  {
+    "id": "alaxxes_nebula",
+    "name": "Alaxxes Nebula",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "constanix_ii",
+    "name": "Constanix II",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["mechanicus"]
   }
 ]
