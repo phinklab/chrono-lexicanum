@@ -74,3 +74,12 @@ Resolver-Fortschritt bei Implementierungs-Zeitpunkt: 7 Pässe komplett, Batches 
 - [x] Phase 3 (Characters) — commit 61eeeb0
 - [x] Phase 4a (Apply) — commit 45d78d9
 - [x] Phase 4b (Verify) — commit 004aa17
+
+## 2026-05-27 · Resolver-Pass 15 (Welle ssot-hh-026..030, 44 Bücher)
+
+- [x] Phase 0 (Preflight) — commit 44d2834
+- [x] Phase 1 (Factions) — commit 0829b97
+- [x] Phase 2 (Locations) — commit f60c2ba
+- [x] Phase 3 (Characters) — commit 95e62c2
+- [x] Phase 4a (Apply) — commit 8e7f3cb
+- [x] Phase 4b (Verify) — commit 8eaa4d0
