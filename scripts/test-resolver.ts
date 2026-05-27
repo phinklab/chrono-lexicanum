@@ -975,6 +975,42 @@ check("alias - Resolver-Pass 12 Phall System routes to phall (7a Case E — syst
   assert.equal(resolveLocation("Phall System").id, "phall");
 });
 
+check("direct match - Resolver-Pass 13 Terathalion (strict freq-2 promotion across Blades of the Traitor HH-0144 and Daemonology HH-0183, Heresy-era Mortarion/Death-Guard compliance-warp-locale)", () => {
+  assert.equal(resolveLocation("Terathalion").id, "terathalion");
+});
+
+check("direct match - Resolver-Pass 13 Titan (curated freq-1 lore-iconic, Saturn moon Sol-System sub-locale staging Dorn/Qruze/Solomon-Voss execution argument in The Last Remembrancer HH-0160)", () => {
+  assert.equal(resolveLocation("Titan").id, "titan");
+});
+
+check("direct match - Resolver-Pass 13 Hy Brasil (curated freq-1 lore-iconic Terran hive site of Dan Abnett Custodes Heresy debut Blood Games HH-0150)", () => {
+  assert.equal(resolveLocation("Hy Brasil").id, "hy_brasil");
+});
+
+check("direct match - Resolver-Pass 13 Schadenhold (curated freq-1 lore-iconic Iron Warriors loyalist fortress on Lesser Damantyne where Barabas Dantioch stands in The Iron Within HH-0164)", () => {
+  assert.equal(resolveLocation("Schadenhold").id, "schadenhold");
+});
+
+check("direct match - Resolver-Pass 13 Lesser Damantyne (curated freq-1 lore-iconic Iron-Warriors-loyalist outpost world hosting Schadenhold in The Iron Within HH-0164)", () => {
+  assert.equal(resolveLocation("Lesser Damantyne").id, "lesser_damantyne");
+});
+
+check("direct match - Resolver-Pass 13 Iron Blood (curated freq-1 lore-iconic vessel-grain — Perturabo's Iron Warriors flagship after Eye-of-Terror passage in Black Oculus HH-0194)", () => {
+  assert.equal(resolveLocation("Iron Blood").id, "iron_blood");
+});
+
+check("direct match - Resolver-Pass 13 Molech's Enlightenment (curated freq-1 lore-iconic vessel-grain House Devine Knight-vessel staging Alivia Sureka + Severian counter-cult arc in Wolf Mother HH-0195)", () => {
+  assert.equal(resolveLocation("Molech's Enlightenment").id, "molechs_enlightenment");
+});
+
+check("direct match - Resolver-Pass 13 Ring of Iron (curated freq-1 lore-iconic Mars-orbit Dark Mechanicum installation in Vorax HH-0186)", () => {
+  assert.equal(resolveLocation("Ring of Iron").id, "ring_of_iron");
+});
+
+check("alias - Resolver-Pass 13 Signus Cluster routes to signus_prime (7d region-vs-world grain — flat alias-to-world per dossier-recommended budget conservatism, parallel to Pass-11/12 cluster/sector flat-grain handling, Lost Sons HH-0169)", () => {
+  assert.equal(resolveLocation("Signus Cluster").id, "signus_prime");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {

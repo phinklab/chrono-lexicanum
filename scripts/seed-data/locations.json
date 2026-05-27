@@ -2233,5 +2233,69 @@
     "gx": null,
     "gy": null,
     "tags": ["mechanicus"]
+  },
+  {
+    "id": "terathalion",
+    "name": "Terathalion",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "titan",
+    "name": "Titan",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "hy_brasil",
+    "name": "Hy Brasil",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "lesser_damantyne",
+    "name": "Lesser Damantyne",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["iron_warriors"]
+  },
+  {
+    "id": "schadenhold",
+    "name": "Schadenhold",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["iron_warriors"]
+  },
+  {
+    "id": "iron_blood",
+    "name": "Iron Blood",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "molechs_enlightenment",
+    "name": "Molech's Enlightenment",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "ring_of_iron",
+    "name": "Ring of Iron",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["mechanicus"]
   }
 ]
