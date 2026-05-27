@@ -3106,5 +3106,96 @@
     "primaryFactionId": "legio_solaria",
     "lexicanumUrl": null,
     "notes": "Resolver-Pass 11 Phase 3 (7c curated freq=1 lore-iconic; §7d disambig confirmed distinct from Mohana Mankata Vi): Princeps Senior of Legio Solaria; Titandeath (HH-0053). primaryFactionId legio_solaria (per Phase 1 new row)."
+  },
+  {
+    "id": "kurtha_sedd",
+    "name": "Kurtha Sedd",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7b freq-2 cross-batch spine): Word Bearers Dark Apostle leading the Calth Underworld War; The Honoured (HH-0132) + The Unburdened (HH-0133). primaryFactionId word_bearers (existing Legion row)."
+  },
+  {
+    "id": "steloc_aethon",
+    "name": "Steloc Aethon",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7b freq-2 cross-batch spine): Ultramarines Honoured commander, Calth Underworld loyalist POV (namesake of The Honoured); The Honoured (HH-0132) + The Unburdened (HH-0133). primaryFactionId ultramarines (existing Legion row)."
+  },
+  {
+    "id": "barabas_dantioch",
+    "name": "Barabas Dantioch",
+    "primaryFactionId": "iron_warriors",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic — lone-loyalist-Iron-Warrior archetype, cross-arc figure): Iron Warriors Warsmith reappearing across the Hydra-Cordatus arc + The Imperial Truth; Perturabo: The Hammer of Olympia (HH-0084) surfaces the short form Dantioch — longer-form canonical per runbook §4 (parity with branne_nev + Branne / targutai_yesugei + Yesugei)."
+  },
+  {
+    "id": "sor_talgron",
+    "name": "Sor Talgron",
+    "primaryFactionId": "word_bearers",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic — Burning of Monarchia / The Purge anchor): Word Bearers commander at Percepton Primus; The Purge (HH-0126). primaryFactionId word_bearers."
+  },
+  {
+    "id": "ingethel",
+    "name": "Ingethel",
+    "primaryFactionId": "daemons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic — foundational figure in the Word Bearers' fall-to-Chaos arc, cross-arc with The First Heretic): Daemonic guide of Lorgar in the Eye of Terror; Aurelian (HH-0115). primaryFactionId daemons (Daemon-grain parity with madail Pass-11 row)."
+  },
+  {
+    "id": "kandawire",
+    "name": "Kandawire",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic — central non-Valdor POV of the Imperial-founding court-intrigue trio): Unification-Wars-era figure in Valdor: Birth of the Imperium (HH-0110). primaryFactionId imperium (Unification-era, no Legion — parity with alivia_sureka Pass-11 civilian-perpetual choice)."
+  },
+  {
+    "id": "amar_astarte",
+    "name": "Amar Astarte",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic — central non-Valdor POV of the Imperial-founding court-intrigue trio): Unification-Wars-era figure in Valdor: Birth of the Imperium (HH-0110). primaryFactionId imperium (Unification-era, no Legion)."
+  },
+  {
+    "id": "ilya_ravallion",
+    "name": "Ilya Ravallion",
+    "primaryFactionId": "white_scars",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic, cross-pass cumulative freq 2): White Scars human-ally cross-arc figure (Departmento-Munitorum-attached liaison); Brotherhood of the Storm (HH-0116) + Pass-11 Path of Heaven (HH-0036). primaryFactionId white_scars."
+  },
+  {
+    "id": "hasik_khan",
+    "name": "Hasik Khan",
+    "primaryFactionId": "white_scars",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic): White Scars Khorchin Khan; Jaghatai Khan: Warhawk of Chogoris (HH-0088). primaryFactionId white_scars."
+  },
+  {
+    "id": "holguin",
+    "name": "Holguin",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic Dark Angels supporting cast — Dreadwing organization anchor): Dark Angels Voted Lieutenant; Dreadwing (HH-0136). primaryFactionId dark_angels."
+  },
+  {
+    "id": "redloss",
+    "name": "Redloss",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic Dark Angels supporting cast — Dreadwing organization anchor): Dark Angels Dreadwing Master; Dreadwing (HH-0136). primaryFactionId dark_angels."
+  },
+  {
+    "id": "hrend",
+    "name": "Hrend",
+    "primaryFactionId": "iron_warriors",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic, cross-pass cumulative freq 2 — Pass-11-deferred, Pass-12-promotes per cross-pass evidence parallel to alaxxes_nebula Phase-2 promotion logic): Iron Warriors antagonist in Tallarn arc; Tallarn: Ironclad (HH-0129) + Pass-11 Tallarn anthology (HH-0045). primaryFactionId iron_warriors."
+  },
+  {
+    "id": "nurgle",
+    "name": "Nurgle",
+    "primaryFactionId": "nurgle",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic — Chaos God as on-page actor; §7d axis-grain judgment: Phase-3 promotes character row per dossier recommendation, defensible four-Gods-cast grain when Khorne/Tzeentch/Slaanesh later surface on-page): Chaos God Grandfather Nurgle, Mortarion's audience in Nurgle's Garden; Grandfather's Gift (HH-0101). primaryFactionId nurgle (the god-pantheon faction row, more precise than the daemons umbrella)."
   }
 ]

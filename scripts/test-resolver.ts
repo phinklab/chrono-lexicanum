@@ -1439,6 +1439,34 @@ check("direct match - Resolver-Pass 11 (7c curated freq=1 lore-iconic; §7d two-
   assert.equal(resolveCharacter("Esha Ani Mohana").id, "esha_ani_mohana");
 });
 
+check("alias-consolidation - Resolver-Pass 12 (7a Case B Cross-Era short-form parity with Calas Typhon Pass-11): Typhon (bare-form of Death Guard First Captain who becomes Typhus the Traveller, The Lion HH-0119) routes to typhus", () => {
+  assert.equal(resolveCharacter("Typhon").id, "typhus");
+});
+
+check("alias-consolidation - Resolver-Pass 12 (7a Case C typo cross-batch consolidation — same Imperial Fists captain at Battle of Phall): Alexis Pollux (double-l misspelling, Ember of Extinction HH-0109) routes to alexis_polux (lore-canonical, The Crimson Fist HH-0125)", () => {
+  assert.equal(resolveCharacter("Alexis Pollux").id, "alexis_polux");
+});
+
+check("direct match - Resolver-Pass 12 (7b freq-2 cross-batch spine Calth Underworld War antagonist): Kurtha Sedd (Word Bearers Dark Apostle, The Honoured HH-0132 + The Unburdened HH-0133, primaryFactionId word_bearers)", () => {
+  assert.equal(resolveCharacter("Kurtha Sedd").id, "kurtha_sedd");
+});
+
+check("direct match - Resolver-Pass 12 (7b freq-2 cross-batch spine Calth Underworld War loyalist): Steloc Aethon (Ultramarines Honoured commander, namesake of The Honoured HH-0132 + The Unburdened HH-0133, primaryFactionId ultramarines)", () => {
+  assert.equal(resolveCharacter("Steloc Aethon").id, "steloc_aethon");
+});
+
+check("direct match - Resolver-Pass 12 (7c curated freq=1 lore-iconic — longer-form canonical per runbook §4): Barabas Dantioch (Iron Warriors Warsmith, lone-loyalist archetype, Perturabo: The Hammer of Olympia HH-0084)", () => {
+  assert.equal(resolveCharacter("Barabas Dantioch").id, "barabas_dantioch");
+});
+
+check("alias-consolidation - Resolver-Pass 12 (7c longer-form-canonical pattern parity with branne_nev + Branne / targutai_yesugei + Yesugei): Dantioch (short form) routes to barabas_dantioch", () => {
+  assert.equal(resolveCharacter("Dantioch").id, "barabas_dantioch");
+});
+
+check("direct match - Resolver-Pass 12 (7c curated freq=1 lore-iconic — Chaos God as on-page actor, §7d axis-grain judgment: character row): Nurgle (Grandfather Nurgle, Grandfather's Gift HH-0101, primaryFactionId nurgle god-pantheon row)", () => {
+  assert.equal(resolveCharacter("Nurgle").id, "nurgle");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {
