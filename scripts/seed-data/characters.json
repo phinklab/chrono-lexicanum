@@ -3197,5 +3197,124 @@
     "primaryFactionId": "nurgle",
     "lexicanumUrl": null,
     "notes": "Resolver-Pass 12 Phase 3 (7c curated freq=1 lore-iconic — Chaos God as on-page actor; §7d axis-grain judgment: Phase-3 promotes character row per dossier recommendation, defensible four-Gods-cast grain when Khorne/Tzeentch/Slaanesh later surface on-page): Chaos God Grandfather Nurgle, Mortarion's audience in Nurgle's Garden; Grandfather's Gift (HH-0101). primaryFactionId nurgle (the god-pantheon faction row, more precise than the daemons umbrella)."
+  },
+  {
+    "id": "revuel_arvida",
+    "name": "Revuel Arvida",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7a Case D longer-form-canonical + paired Arvida-short-form alias, parity with branne_nev/Branne, barabas_dantioch/Dantioch, targutai_yesugei/Yesugei): Thousand Sons psyker; Rebirth (HH-0161, the namesake debut with the 'knowledge is power' closing line on Tizca) + Sedition's Gate (HH-0141, same psyker as Shattered-Legions ally). Cross-batch freq=2-via-alias-consolidation. primaryFactionId thousand_sons."
+  },
+  {
+    "id": "marcus_valerius",
+    "name": "Marcus Valerius",
+    "primaryFactionId": "therion_cohort",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7b cross-batch spine freq=2): Therion Cohort officer embedded with Raven Guard; Echoes of Revelation (HH-0149, Valerius / Imperial Army / Beta-Garmon under Corax) + The Divine Word (HH-0171, Therion-Cohort-POV embedded with Raven Guard). primaryFactionId therion_cohort (regiment-grain sub-faction of astra_militarum, Phase-1-promoted with explicit spine-character-link rationale)."
+  },
+  {
+    "id": "arcadese",
+    "name": "Arcadese",
+    "primaryFactionId": "ultramarines",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7b cross-batch spine freq=2, identity check passed per strict reading): Ultramarine ambassador / supporting cross-arc figure; Forgotten Sons (HH-0159, Ultramarine ambassador piece on Bastion alongside Salamanders) + The Gates of Terra (HH-0173, Ultramarine POV under a Malcador frame, not an Imperial Fists story). Two HH authors / books / settings attest the same recurring Ultramarine-named figure per dossier §7b strict reading. primaryFactionId ultramarines."
+  },
+  {
+    "id": "solomon_voss",
+    "name": "Solomon Voss",
+    "primaryFactionId": "imperium",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c curated freq=1 strong-lore-iconic, Pass-12 dossier carry-over): Iterator / remembrancer at the center of the execution argument with Dorn and Iacton Qruze on Titan; The Last Remembrancer (HH-0160). Foundational Heresy-era civilian-remembrancer figure (Sons-of-Horus-era arc). primaryFactionId imperium (civilian remembrancer-grade — parity with alivia_sureka civilian-perpetual choice)."
+  },
+  {
+    "id": "corswain",
+    "name": "Corswain",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c curated freq=1 strong-lore-iconic Dark Angels supporting cross-arc): Dark Angels Voted Lieutenant; the Lion's right-hand at the Tsagualsa parlay against Konrad Curze. Savage Weapons (HH-0165, Sevatar/Corswain/Alajos debut alongside Lion El'Jonson). Major Dark-Angels cross-arc supporting cast (recurs in later Lion-arc novels). primaryFactionId dark_angels."
+  },
+  {
+    "id": "hastur_sejanus",
+    "name": "Hastur Sejanus",
+    "primaryFactionId": "sons_of_horus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c curated freq=1 strong-lore-iconic — false-Sejanus thread, foundational Heresy beat): dead Mournival captain whose impersonation by Erebus's cult is a Heresy-foundational beat; Death of a Silversmith (HH-0170, Vengeful-Spirit remembrancer killed by the false-Sejanus). Recurs in the cult mythology long after his death. primaryFactionId sons_of_horus (the Luna-Wolves-era surface form is canonical-aliased onto Sons of Horus per Pass-10/11/12 Cross-Era convention)."
+  },
+  {
+    "id": "merir_astelan",
+    "name": "Merir Astelan",
+    "primaryFactionId": "dark_angels",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c curated freq=1 strong-lore-iconic Dark Angels cross-arc figure — First-of-the-Fallen post-Heresy renegade): Dark Angels chapter-master debating compliance around Byzanthis; Call of the Lion (HH-0154, Astelan vs Belath compliance debate). Cross-arc with the Fallen / Cypher / Lion arcs (his post-Heresy First-of-the-Fallen status is downstream from his Pass-13 surface). primaryFactionId dark_angels (Heresy-era)."
+  },
+  {
+    "id": "crius",
+    "name": "Crius",
+    "primaryFactionId": "iron_hands",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c curated freq=1 strong-lore-iconic Iron Hands cross-arc supporting cast): Iron Hands captain on Terra serving under the Crusader Host; Riven (HH-0177, Crius arc — Iron Hands primary + Imperial Fists supporting), cross-arc with Luna Mendax (HH-0176, Loken arc). primaryFactionId iron_hands."
+  },
+  {
+    "id": "menes_kalliston",
+    "name": "Menes Kalliston",
+    "primaryFactionId": "thousand_sons",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Thousand Sons supporting cast cross-arc-relevant): Thousand Sons psyker who confronts Khârn on Tizca closing the Prospero arc-thread; Rebirth (HH-0161, paired with Revuel Arvida POV). primaryFactionId thousand_sons."
+  },
+  {
+    "id": "heka_tan",
+    "name": "Heka'tan",
+    "primaryFactionId": "salamanders",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Salamander supporting cast): Salamander ambassador on Bastion alongside the Ultramarine arcadese figure; Forgotten Sons (HH-0159, Nick Kyme ambassador-piece). primaryFactionId salamanders."
+  },
+  {
+    "id": "dreagher",
+    "name": "Dreagher",
+    "primaryFactionId": "world_eaters",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — War-Hounds-era founding supporting cast): World-Eaters captain at the Khârn-Angron encounter on Desh'ea (War-Hounds → World-Eaters transition); After Desh'ea (HH-0156, Matthew Farrer Khârn-Angron-origin novella). primaryFactionId world_eaters."
+  },
+  {
+    "id": "pallas_ravachol",
+    "name": "Pallas Ravachol",
+    "primaryFactionId": "mechanicus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Mechanicum cross-arc-relevant prequel-to-Mechanicum POV): Mechanicum adept POV in the prequel-to-Mechanicum novella; The Kaban Project (HH-0172, Graham McNeill — Sons of Horus supporting cast alongside Lukas Chrom). primaryFactionId mechanicus."
+  },
+  {
+    "id": "mendacs",
+    "name": "Mendacs",
+    "primaryFactionId": "alpha_legion",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Alpha Legion supporting cast; the Latin 'we lie' in-Legion code-name): Alpha Legion propagandist on Virger-Mos II; Liar's Due (HH-0158, James Swallow — propaganda novella with Dallon Prael/Silas Cincade civilian targets). primaryFactionId alpha_legion."
+  },
+  {
+    "id": "nykona_sharrowkyn",
+    "name": "Nykona Sharrowkyn",
+    "primaryFactionId": "raven_guard",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Raven Guard Shadowmaster debut, cross-arc with the Sisypheum arc + future Shattered-Legions novellas): Raven Guard Shadowmaster debut paired with Sabik Wayland; Kryptos (HH-0167, Graham McNeill — Sharrowkyn / Wayland + Sisypheum origin). primaryFactionId raven_guard."
+  },
+  {
+    "id": "sabik_wayland",
+    "name": "Sabik Wayland",
+    "primaryFactionId": "iron_hands",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Iron Hands Techmarine debut paired with Nykona Sharrowkyn, Sisypheum origin): Iron Hands Techmarine debut aboard the Sisypheum; Kryptos (HH-0167, Sisypheum-doctrine origin novella). primaryFactionId iron_hands."
+  },
+  {
+    "id": "susada_syn",
+    "name": "Susada Syn",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Tallarn cross-arc supporting cast): governor-militant on Tallarn surveying post-battle waste from a Titan; Tallarn: Witness (HH-0198, John French — Tallarn-arc novella). primaryFactionId astra_militarum (Tallarn-defender Imperial-Army-grade figure)."
+  },
+  {
+    "id": "fel_zharost",
+    "name": "Fel Zharost",
+    "primaryFactionId": "night_lords",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Night-Lords Librarian cross-arc figure): Night Lord lapsed-Librarian character study; Child of Night (HH-0181, John French — Fel Zharost interior monologue). primaryFactionId night_lords."
   }
 ]

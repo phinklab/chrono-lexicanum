@@ -1531,6 +1531,62 @@ check("direct match - Resolver-Pass 12 (7c curated freq=1 lore-iconic — Chaos 
   assert.equal(resolveCharacter("Nurgle").id, "nurgle");
 });
 
+check("alias-consolidation - Resolver-Pass 13 (7a Case B short-form pattern, parity with Little Horus Aximand → horus_aximand): Maloghurst routes to maloghurst_the_twisted", () => {
+  assert.equal(resolveCharacter("Maloghurst").id, "maloghurst_the_twisted");
+});
+
+check("alias-consolidation - Resolver-Pass 13 (7a Case C full-form-to-existing-short-canonical, deferred row-rename candidate): Nassir Amit routes to amit", () => {
+  assert.equal(resolveCharacter("Nassir Amit").id, "amit");
+});
+
+check("alias-consolidation - Resolver-Pass 13 (7a Case E longer-variant with leading 'The', parity with existing Emperor of Mankind alias): The Emperor of Mankind routes to the_emperor", () => {
+  assert.equal(resolveCharacter("The Emperor of Mankind").id, "the_emperor");
+});
+
+check("alias-consolidation - Resolver-Pass 13 (7a Case D paired short-form alias, parity with Branne → branne_nev / Dantioch → barabas_dantioch): Arvida routes to revuel_arvida", () => {
+  assert.equal(resolveCharacter("Arvida").id, "revuel_arvida");
+});
+
+check("direct match - Resolver-Pass 13 (7a Case D longer-form-canonical Thousand Sons psyker, Rebirth HH-0161 + Sedition's Gate HH-0141): Revuel Arvida", () => {
+  assert.equal(resolveCharacter("Revuel Arvida").id, "revuel_arvida");
+});
+
+check("direct match - Resolver-Pass 13 (7b cross-batch spine freq=2 Therion Cohort officer with Raven Guard, HH-0149 + HH-0171): Marcus Valerius", () => {
+  assert.equal(resolveCharacter("Marcus Valerius").id, "marcus_valerius");
+});
+
+check("direct match - Resolver-Pass 13 (7b cross-batch spine freq=2 Ultramarine ambassador, HH-0159 + HH-0173, identity check passed): Arcadese", () => {
+  assert.equal(resolveCharacter("Arcadese").id, "arcadese");
+});
+
+check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic Iterator/remembrancer, Last Remembrancer HH-0160 execution argument with Dorn/Qruze on Titan): Solomon Voss", () => {
+  assert.equal(resolveCharacter("Solomon Voss").id, "solomon_voss");
+});
+
+check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic Dark Angels Voted Lieutenant at the Tsagualsa parlay, Savage Weapons HH-0165): Corswain", () => {
+  assert.equal(resolveCharacter("Corswain").id, "corswain");
+});
+
+check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic — false-Sejanus thread foundational Heresy beat, Death of a Silversmith HH-0170): Hastur Sejanus", () => {
+  assert.equal(resolveCharacter("Hastur Sejanus").id, "hastur_sejanus");
+});
+
+check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic Dark Angels First-of-the-Fallen, Call of the Lion HH-0154): Merir Astelan", () => {
+  assert.equal(resolveCharacter("Merir Astelan").id, "merir_astelan");
+});
+
+check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic Iron Hands captain under Crusader Host, Riven HH-0177): Crius", () => {
+  assert.equal(resolveCharacter("Crius").id, "crius");
+});
+
+check("direct match - Resolver-Pass 13 (7c medium freq=1 Phase-3-promote — Raven Guard Shadowmaster Sisypheum-origin debut, Kryptos HH-0167): Nykona Sharrowkyn", () => {
+  assert.equal(resolveCharacter("Nykona Sharrowkyn").id, "nykona_sharrowkyn");
+});
+
+check("direct match - Resolver-Pass 13 (7c medium freq=1 Phase-3-promote — Night Lords lapsed-Librarian, Child of Night HH-0181): Fel Zharost", () => {
+  assert.equal(resolveCharacter("Fel Zharost").id, "fel_zharost");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {
