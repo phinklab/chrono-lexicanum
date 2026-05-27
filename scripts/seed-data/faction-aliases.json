@@ -61,5 +61,11 @@
   "Luna Wolves": "sons_of_horus",
   "Mechanicum": "mechanicus",
   "Imperial Army": "astra_militarum",
-  "Custodes": "custodes"
+  "Custodes": "custodes",
+  "Daemons of Chaos": "daemons",
+  "Daemons of Khorne": "daemons",
+  "Knights-Errant": "knights_errant",
+  "Adeptus Mechanicum": "mechanicus",
+  "Mechanicus": "mechanicus",
+  "Selenar": "selenar_gene_cult"
 }

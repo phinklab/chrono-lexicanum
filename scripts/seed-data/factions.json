@@ -1238,5 +1238,68 @@
     "parent": "dark_angels",
     "alignment": "imperium",
     "tone": "imperial"
+  },
+  {
+    "id": "knights_errant",
+    "name": "Knights Errant",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "lectitio_divinitatus",
+    "name": "Lectitio Divinitatus",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "legio_ignatum",
+    "name": "Legio Ignatum",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "legio_solaria",
+    "name": "Legio Solaria",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "legio_vulpa",
+    "name": "Legio Vulpa",
+    "parent": "adeptus_titanicus",
+    "alignment": "chaos",
+    "tone": "engine"
+  },
+  {
+    "id": "selenar_gene_cult",
+    "name": "Selenar Gene-Cult",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "thunder_warriors",
+    "name": "Thunder Warriors",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "historical_canon_layer"
+  },
+  {
+    "id": "house_devine",
+    "name": "House Devine",
+    "parent": "imperial_knights",
+    "alignment": "chaos",
+    "tone": "imperial"
+  },
+  {
+    "id": "sanguinary_guard",
+    "name": "Sanguinary Guard",
+    "parent": "blood_angels",
+    "alignment": "imperium",
+    "tone": "imperial"
   }
 ]

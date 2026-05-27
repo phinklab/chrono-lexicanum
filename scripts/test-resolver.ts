@@ -429,6 +429,66 @@ check("direct match - tenth wave The Order of Caliban (pre-Imperial Caliban knig
   assert.equal(resolveFaction("The Order of Caliban").id, "order_of_caliban");
 });
 
+check("direct match - Resolver-Pass 11 Knights Errant (Malcador's loyalist-Astartes cadre, combined freq=6 across `Knights Errant` + `Knights-Errant`, parent=imperium)", () => {
+  assert.equal(resolveFaction("Knights Errant").id, "knights_errant");
+});
+
+check("alias - Resolver-Pass 11 Knights-Errant (hyphen variant) routes to knights_errant (7a Case B alias-consolidation, author-style hyphenation)", () => {
+  assert.equal(resolveFaction("Knights-Errant").id, "knights_errant");
+});
+
+check("alias - Resolver-Pass 11 Daemons of Chaos routes to daemons umbrella (7a Case A — End-and-Death trilogy surface form, parity with Pass-6 Chaos Daemons alias)", () => {
+  assert.equal(resolveFaction("Daemons of Chaos").id, "daemons");
+});
+
+check("alias - Resolver-Pass 11 Adeptus Mechanicum routes to mechanicus (7a Case C — HH formal-name variant of Pass-10 Mechanicum alias)", () => {
+  assert.equal(resolveFaction("Adeptus Mechanicum").id, "mechanicus");
+});
+
+check("alias - Resolver-Pass 11 Mechanicus (bare canonical-name-without-Adeptus) routes to mechanicus (7a Case C — second variant)", () => {
+  assert.equal(resolveFaction("Mechanicus").id, "mechanicus");
+});
+
+check("alias - Resolver-Pass 11 Daemons of Khorne routes to daemons umbrella (sub-faction grain flat-aliased to parent; Phase-1-Decision keeps `khorne_daemons` deferred)", () => {
+  assert.equal(resolveFaction("Daemons of Khorne").id, "daemons");
+});
+
+check("direct match - Resolver-Pass 11 Lectitio Divinitatus (Emperor-as-god cult, Garro/Keeler-arc foundational, freq=1 lore-iconic, parent=imperium)", () => {
+  assert.equal(resolveFaction("Lectitio Divinitatus").id, "lectitio_divinitatus");
+});
+
+check("direct match - Resolver-Pass 11 Legio Ignatum (loyalist Titan Legion, Mortis HH-0061, freq=1 lore-iconic, parent=adeptus_titanicus parity)", () => {
+  assert.equal(resolveFaction("Legio Ignatum").id, "legio_ignatum");
+});
+
+check("direct match - Resolver-Pass 11 Legio Solaria (all-female Princeps Titan Legion, Titandeath HH-0053, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Legio Solaria").id, "legio_solaria");
+});
+
+check("direct match - Resolver-Pass 11 Legio Vulpa (traitor Titan Legion, Titandeath HH-0053, alignment=chaos parity with legio_mortis, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Legio Vulpa").id, "legio_vulpa");
+});
+
+check("direct match - Resolver-Pass 11 Selenar Gene-Cult (Lunar gene-engineering cult, Sons of Selenar HH-0058, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Selenar Gene-Cult").id, "selenar_gene_cult");
+});
+
+check("alias - Resolver-Pass 11 Selenar (short form variant) routes to selenar_gene_cult (7a alias-consolidation, single row + alias per runbook §4)", () => {
+  assert.equal(resolveFaction("Selenar").id, "selenar_gene_cult");
+});
+
+check("direct match - Resolver-Pass 11 Thunder Warriors (proto-Astartes of Unification Wars, Dreams of Unity HH-0074, freq=1 lore-iconic, tone=historical_canon_layer)", () => {
+  assert.equal(resolveFaction("Thunder Warriors").id, "thunder_warriors");
+});
+
+check("direct match - Resolver-Pass 11 House Devine (Molech Imperial Knight house, Vengeful Spirit HH-0029, freq=1 lore-iconic, parent=imperial_knights + alignment=chaos)", () => {
+  assert.equal(resolveFaction("House Devine").id, "house_devine");
+});
+
+check("direct match - Resolver-Pass 11 Sanguinary Guard (Blood Angels honor-guard formation, Echoes of Eternity HH-0063, freq=1 lore-iconic, parent=blood_angels sub-tier)", () => {
+  assert.equal(resolveFaction("Sanguinary Guard").id, "sanguinary_guard");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
