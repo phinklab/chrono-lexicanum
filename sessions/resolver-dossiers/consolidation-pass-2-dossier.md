@@ -14,7 +14,7 @@ Output sind **Kandidaten**, keine Decisions.
 
 Adjudication: jeder Cluster bekommt eine Decision `merge | no-merge | flagged`. `merge` braucht einen Keeper-Row und einen explizit benannten Field-Retention-Plan; `no-merge` braucht eine Lore-Begründung; `flagged` blockiert die Welle und wird an den Maintainer eskaliert.
 
-**Summary** (Stand Phase 2): 6 Faction + 7 Location = 13 Kandidaten-Cluster → **0 Merges**, **13 No-Merges**, **0 Flagged**. Characters folgen in Phase 3.
+**Summary** (Stand Phase 3): 6 Faction + 7 Location + 10 Character = 23 Kandidaten-Cluster → **2 Merges** (beide Characters), **21 No-Merges**, **0 Flagged**.
 
 ---
 
@@ -95,17 +95,130 @@ Pattern: Planet ↔ Ship-named-after-planet. Distinkter entity-Typ via `tags:ves
 
 ---
 
-## Characters — TBD (Phase 3)
+## Characters — 10 Cluster
 
-10 Kandidaten-Cluster aus dem Aggregator-Output. Adjudication folgt in Phase 3.
+### character cluster 1 — `amit` ↔ `harleen_amity` → **no-merge**
+
+`amit` (primaryFactionId=`flesh_tearers`, notes: cross-cluster ssot-w40k-030/032/033, freq=3) ist ein **Flesh-Tearer-Sergeant/Chaplain** (Pass-Original-Row mit existierendem Alias "Nassir Amit"). `harleen_amity` (primaryFactionId=`inquisition`, Pass-8-Phase-3-Row) ist eine **Inquisitorin** in Scott's Warped-Galaxies-Cluster W40K-0488/0489. Substring-Treffer auf `amit` ist Token-Artefakt — komplette Spezies + Faction + Quellen-Cluster-Differenz. Identische Pass-1-Entscheidung.
+
+### character cluster 2 — `astelan` ↔ `merir_astelan` → **merge** (cross-era identity)
+
+**MERGE-DECISION**. Beide Rows verweisen auf **denselben Dark-Angel/Fallen-Angel-Captain**:
+
+- `astelan` (W40K-canonical short-form, primaryFactionId=`fallen_angels`, notes=null) ist die **W40K-Era-Surface-Form** für den Fallen Angel Astelan (Lexicanum-Lemma "Merir Astelan"; Fallen-Angel-Interrogations-Lore-Cluster).
+- `merir_astelan` (HH-Era full-canonical-name, primaryFactionId=`dark_angels`, notes: Pass-13 Phase 3 7c curated freq=1, *Call of the Lion* HH-0154 Astelan vs Belath compliance-debate) ist die **HH-Era-Surface-Form** für den Dark-Angels-Chapter-Master Merir Astelan.
+
+Beweislage: Die `merir_astelan`-Notes selbst dokumentieren explizit die Cross-Era-Kontinuität — *"Cross-arc with the Fallen / Cypher / Lion arcs (his post-Heresy First-of-the-Fallen status is downstream from his Pass-13 surface). primaryFactionId dark_angels (Heresy-era)."* Der Pass-13-Implementierer war sich der Cross-Era-Identität bewusst, behielt aber zwei separate Rows. **Genau dieser Klassen-Failure-Mode** ist der Anlass für die Cross-Era-Identities-ADR (Brief 100) + diese retroaktive Konsolidierung.
+
+- **Keeper**: `astelan` (W40K-canonical short-form per ADR-Pattern Cross-Era-Identities — analog `horus` (HH "Horus Lupercal" alias), `lorgar` (HH "Lorgar Aurelian" alias), `typhus` (HH "Calas Typhon" alias)).
+- **Mergee**: `merir_astelan` (HH full canonical name wandert in Aliases).
+
+**Field-Retention-Plan**:
+- Keeper-Row `astelan` behält `primaryFactionId='fallen_angels'` (keeper-wins per Pass-1-Default; W40K-Canon-State entspricht der ADR-Präferenz für Cross-Era-Identitäten). Die HH-Pre-Fall-Dark-Angels-Era-Affiliation ist via Notes-Rewrite eingebettet.
+- **`notes` wird übernommen** (fill-keeper-null-from-mergee): `astelan.notes` ist null, `merir_astelan.notes` trägt den Pass-13-HH-Era-Kontext. Übernommener Inhalt (cross-era-coherent rewrite):
+  *"Cross-era identity: HH-era Dark Angels chapter-master Merir Astelan (Resolver-Pass 13 Phase 3, freq=1) debating compliance around Byzanthis in Call of the Lion (HH-0154, Astelan vs Belath compliance debate); cross-arc with the Fallen / Cypher / Lion arcs. Post-Heresy: First-of-the-Fallen renegade. primaryFactionId fallen_angels reflects the W40K-era canonical state (keeper-wins per consolidation-pass-2 field-retention; HH-era dark_angels affiliation captured here via cross-era note per ADR cross-era-identities). Consolidation-Pass 2 merge of merir_astelan (HH-era surface form) into astelan (W40K-canonical row)."*
+- "Merir Astelan" wird als neuer Alias-Eintrag in `scripts/seed-data/character-aliases.json` aufgenommen (HH-Era-Surface-Form zeigt auf `astelan`).
+
+**FK-Remap-Scope**: junction-Rows in `work_characters.character_id='merir_astelan'` müssen auf `astelan` zeigen. Anzahl wird im DB-Sync-Pre-Snapshot ermittelt. Keine logischen FK-Touches auf `characters.primary_faction_id` (faction-Refs sind character→faction, nicht character→character; und keine andere Row hat primary_faction_id='merir_astelan').
+
+### character cluster 3 — `astor_sabbathiel` ↔ `saint_sabbat` → **no-merge**
+
+`astor_sabbathiel` (primaryFactionId=`inquisition`, notes: Inquisitor POV; Pilgrims of Fire, Awakenings) ist ein **Inquisitor** (W40K-Era). `saint_sabbat` (primaryFactionId=`ecclesiarchy`, notes=null) ist die **Saint Sabbat selbst** (Sabbat-Worlds-Crusade-Namenspatronin). Substring-Treffer auf `sabbat` ist false-positive — der Inquisitor ist nach der Saint benannt aber NICHT die Saint. Identische Pass-1-Entscheidung.
+
+### character cluster 4 — `bjorn` ↔ `strybjorn_grimskull` → **no-merge**
+
+- `bjorn` (primaryFactionId=`space_wolves`, alias "Bjorn the One-Handed", notes: HH-Pass 11 Phase 3, freq 2, *War Without End* HH-0033 / *Wolfsbane* HH-0049) ist der **future-Bjorn-the-Fell-Handed** Space-Wolves-Anchor (Primarch-Companion-Dreadnought-Träger in W40K-Era, hier in HH-Era seine pre-Sarcophagus-Living-Astartes-Form).
+- `strybjorn_grimskull` (primaryFactionId=`space_wolves`, notes: Space-Wolves-saga POV; ex-Grimskull-tribe rival who becomes Ragnar's pack-brother) ist ein **distinkter Space-Wolves-Charakter** aus William King's Ragnar-saga (W40K-Era).
+
+Substring-Treffer auf `bjorn` (in `strybjorn` als Token-Suffix) + shared-primaryFactionId ist false-positive — komplett distinkte Personae, getrennte Lore-Bögen, getrennte Quellen-Cluster.
+
+### character cluster 5 — `brielle` ↔ `brielle_gerrit` → **no-merge**
+
+`brielle` (primaryFactionId=`house_escher`, notes: Escher Wild-Hydras gang POV in Hill's Terminal Overkill W40K-0173) ist die **Necromunda-Escher-Gang-POV**. `brielle_gerrit` (primaryFactionId=`rogue_traders`, notes: Rogue Trader Lucian's daughter, Hoare Rogue-Star trilogy W40K-0261..0263) ist eine **Rogue-Trader-Erbin**. Komplett distinkte Welten, Quellen-Cluster, Faktionen. Identische Pass-1-Entscheidung.
+
+### character cluster 6 — `gerontius_helmawr` ↔ `lord_helmawr` → **no-merge** (deliberate cross-imprint split)
+
+Beide Rows haben **explizite Notes**, die den Deliberate-Split dokumentieren:
+- `gerontius_helmawr.notes`: *"Classic-imprint Spire-Lord of Hive Primus; assassinated in Lasgun Wedding (W40K-0170). Distinct row from the modern-imprint lord_helmawr per the soft-reboot in-fiction-continuity break (Loop-Log: 'Lord Helmawr is alive again' in Soulless Fury)"*
+- `lord_helmawr.notes`: *"Modern-imprint Spire-Lord of Hive Primus in Soulless Fury (W40K-0177); soft-reboot revival of the throne after the classic Lord Gerontius Helmawr's assassination. Distinct row from gerontius_helmawr"*
+
+**Don't unify cross-imprint personae** ist Resolver-Convention-Pflicht. Identische Pass-1-Entscheidung.
+
+### character cluster 7 — `horus` ↔ `horus_aximand` → **no-merge** (primarch-stem signal — Primarch ↔ Captain-named-after-Primarch)
+
+**HH-aware signal**: erste primarch-stem-Edge in der Pass-2-Aggregator-Ausgabe (Stem `horus` als Token-Subset in beiden Rows). Lore-Distinktion ist trotzdem klar:
+
+- `horus` (primaryFactionId=`sons_of_horus`, alias "Horus Lupercal", notes: Pass-10 Phase 3 freq 3, Warmaster Horus, Primarch of Sons of Horus / Luna Wolves; opening Heresy arc HH-0001/0002/0003) ist **der Primarch selbst**.
+- `horus_aximand` (primaryFactionId=`sons_of_horus`, alias "Little Horus Aximand", notes: Pass-10 Phase 3 freq 2 + freq 1 alias, Sons of Horus Mournival captain 'Little Horus' nickname; opening trilogy HH-0001/0002 + Age of Darkness HH-0016) ist **Captain "Little Horus" Aximand** — Mournival-Captain der Sons of Horus, der **nach** dem Primarch benannt wurde (Mournival-Tradition der Echo-Names).
+
+Signal hat seine Funktion erfüllt (Primarch-Stem-Tripwire greift), Adjudication überschreibt korrekt zu no-merge auf Rang + Persona-Distinktheit. Pattern: Primarch ↔ Astartes-Captain-named-after-Primarch — analog zum Location-Pattern Planet ↔ Ship-named-after-Planet (cluster 5-7 Locations). **Positive Cross-Era-Validation**: HH-Wellen 10..15 haben Horus Lupercal und Little Horus Aximand korrekt als distinkte Rows behalten; Mournival-Tradition wird via Alias-Layer abgebildet, nicht durch Row-Duplikation.
+
+### character cluster 8 — `ivan` ↔ `ivan_sternberg` → **no-merge**
+
+`ivan` (primaryFactionId=`astra_militarum`, notes: Pass-7 Praetorian Guard ensemble member of King's Macharian Crusade W40K-0361..0364, freq 4) ist ein **Praetorian-Guard-Ensemble-Mitglied**. `ivan_sternberg` (primaryFactionId=`inquisition`, notes: Imperial Inquisitor quest-giver in Ragnar's Claw W40K-0153) ist ein **Imperial Inquisitor**. Komplett distinkte Personen mit nur einem Vornamen-Token-Treffer. Identische Pass-1-Entscheidung.
+
+### character cluster 9 — `lord_solar_macharius` ↔ `macha` → **no-merge**
+
+`lord_solar_macharius` (primaryFactionId=`astra_militarum`, notes: Pass-7 lore-iconic conqueror of the Macharian Crusade M41, William King's trilogy W40K-0361..0364, freq 4) ist der **Lord Solar Macharius**. `macha` (primaryFactionId=`eldar`, notes=null) ist die **Aeldari-Farseerin Macha** (*Dawn of War*-Lore). Substring-Treffer ist false-positive auf den ersten 4 Buchstaben — komplett distinkte Spezies, Faction, Geschlecht, Era. Identische Pass-1-Entscheidung.
+
+### character cluster 10 — `nykona_sharrowkyn` ↔ `sharrowkyn` → **merge** (same-era doublette)
+
+**MERGE-DECISION**. Beide Rows verweisen auf **denselben Raven-Guard-Mor-Deythan-Charakter** Nykona Sharrowkyn (Graham McNeill, Shattered-Legions/Sisypheum-Saga):
+
+- `sharrowkyn` (primaryFactionId=`raven_guard`, surname-only short-form, notes: Pass-11 Phase 3 7c curated freq=1 lore-iconic, Raven Guard sniper, Shattered Legions associate, *Angel Exterminatus* HH-0023).
+- `nykona_sharrowkyn` (primaryFactionId=`raven_guard`, full canonical name, notes: Pass-13 Phase 3 7c medium freq=1 Phase-3-promote, Raven Guard Shadowmaster debut paired with Sabik Wayland, *Kryptos* HH-0167 Graham McNeill, Sisypheum origin).
+
+Beweislage: Sowohl *Angel Exterminatus* (HH-0023, McNeill) als auch *Kryptos* (HH-0167, McNeill) sind Teile derselben Shattered-Legions/Sisypheum-Saga. Beide referenzieren denselben Raven-Guard-Mor-Deythan-Charakter — den Pass-11-Implementierer hat den Pass-Original-Row dann mit dem surname-only-Slug erstellt, der Pass-13-Implementierer hat zwei Wellen später den full-canonical-name-Row erstellt, ohne den existierenden Pass-11-Row zu erkennen. **Same-Era-Cross-Pass-Doublette** — derselbe Klassen-Failure-Mode wie Pass-1 `magister_sek → anakwanar_sek` (Pass-9-Implementierer erkannte Pass-1-Row nicht beim Honorific-Strip).
+
+- **Keeper**: `nykona_sharrowkyn` (full canonical name; Lexicanum-Lemma; Pass-13 ist die neuere Promotion mit Sisypheum-Origin-Kontext).
+- **Mergee**: `sharrowkyn` (surname-only short-form).
+
+**Field-Retention-Plan**:
+- Keeper-Row `nykona_sharrowkyn` behält `primaryFactionId='raven_guard'` (identisch, keine Konflikt-Entscheidung).
+- **`notes` wird angereichert** (keeper has content, mergee has unique cross-pass content): Keeper-notes werden um Pass-11-Anchor (*Angel Exterminatus*) ergänzt:
+  *"Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Raven Guard Shadowmaster debut, cross-arc with the Sisypheum arc + future Shattered-Legions novellas): Raven Guard Shadowmaster debut paired with Sabik Wayland; Kryptos (HH-0167, Graham McNeill — Sharrowkyn / Wayland + Sisypheum origin). Earlier Resolver-Pass 11 Phase 3 surface (7c curated freq=1 lore-iconic): Raven Guard sniper, Shattered Legions associate, Angel Exterminatus (HH-0023). primaryFactionId raven_guard. Consolidation-Pass 2 merge of sharrowkyn (surname-only short-form, Pass-11 surface) into nykona_sharrowkyn (full canonical name, Pass-13 surface)."*
+- "Sharrowkyn" wird als neuer Alias-Eintrag in `scripts/seed-data/character-aliases.json` aufgenommen (surname-only-Surface-Form zeigt auf `nykona_sharrowkyn`).
+
+**FK-Remap-Scope**: junction-Rows in `work_characters.character_id='sharrowkyn'` müssen auf `nykona_sharrowkyn` zeigen. Anzahl wird im DB-Sync-Pre-Snapshot ermittelt. Keine logischen FK-Touches.
 
 ---
 
-## Closing notes (interim — Phase 2)
+## Closing notes
 
-- **HH-aware Aggregator-Signal-Bilanz (Phase 1+2)**:
-  - **cross-era-anchor-breach**: 0 candidates auf Factions + Locations. Pinned cross-era surface forms (Luna Wolves, Imperial Army, Mechanicum, etc.) sind in den HH-Wellen 10..15 konsistent auf die canonical W40K-Faction-IDs aufgelöst worden — Brief 100 + ADR cross-era-identities haben gehalten. Falsch-Negativ-Befund (Signal sucht Trouble, findet keinen) ist hier das gewünschte Ergebnis. Auf der Location-Achse ist die Cross-Era-Anchor-Liste prinzipiell kleiner (Welten sind selten era-gespalten — `istvaan_v` / `istvaan_iii` ist ein Beispiel, wo die Aliases bereits korrekt sitzen).
-  - **slug-edit-distance**: 1 candidate (`barbarus ↔ tartarus`), mechanical false-positive — distinkte Welten, distinkte Tags, distinkte Lore. Signal-Justifikation: der gleiche Schwellenwert würde echte Transliterations-Doubletten wie `isstvan ↔ istvaan` (Levenshtein 1, distance-ratio 0.143) fangen, die Pass-1-Heuristik (jaccard-0, kein substring) übersieht. Trade-off ist akzeptabel — false-positives kosten eine Lore-Adjudication pro Pass, false-negatives kosten eine ganze Re-Apply-Welle.
-- **Planet ↔ Ship-named-after-Planet Pattern** (3 of 7 Location-Cluster): Ithraca ↔ Ithraca's Vengeance, Macragge ↔ Macragge's Honour, Molech ↔ Molech's Enlightenment. Alle drei sind via `tags:vessel` auf der Mergee-Seite mechanisch erkennbar. Future-pass könnte das als auto-no-merge-Regel im Aggregator implementieren (offene Frage für Impl-Report — siehe Brief 102 OQ-1 "HH-Heuristik-Klassen-Signal/Noise-Aufschlüsselung").
-- **Token-Budget Phase 1+2**: Aggregator + 13 Cluster-Adjudication zusammen unter 25k Tokens (deutlich unter 120k-Limit).
-- **Pass-1-Cross-Reference**: Location-Cluster 1 (`baal ↔ baal_secundus`) ist identisch zu Pass-1 (gleiche no-merge-Entscheidung). Location-Cluster 2-7 sind **neue** Kandidaten, die in Pass-1 nicht emittiert wurden — ein Mix aus (a) genuinely-new HH-Korpus-Inhalt (Beta-Garmon-Titan-Lore, Ithraca, Molech-Pivot — alles HH-Anchor-Welten, die in den HH-Pässen 10..15 dazukamen) und (b) Pass-1-Aggregator-Heuristik-Erweiterung (slug-edit-distance signal hat barbarus ↔ tartarus erst in Pass-2 sichtbar gemacht).
+### Lore-Tiefe-Klassifikation der zwei Pass-2-Merges
+
+- **`merir_astelan → astelan`** — **Lore-Deep-Tier** (cross-era identity, ADR-driven). Die Mergee-Notes selbst dokumentieren die Cross-Era-Kontinuität, die Pass-13 nicht konsolidierte — der Merge ist die retroaktive Anwendung der Cross-Era-Identities-ADR (Brief 100) auf einen Pass-13-Row, dessen Implementierer die Identität erkannte, aber die ADR-Policy noch nicht hatte. **Diese Merge-Klasse ist der primäre Lore-Beweis dafür, dass Pass 2 als HH-Konsolidierungs-Pass nötig war** — Pass-1-Konsolidierung hätte den Row mangels HH-Pässen nicht greifen können; ohne Pass-2 wäre der Doublette dauerhaft im Reference-Layer geblieben.
+- **`sharrowkyn → nykona_sharrowkyn`** — **Mechanical-Tier** (same-era cross-pass doublette). Klassen-identisch zu Pass-1 `magister_sek → anakwanar_sek` (Pass-9-Implementierer erkannte Pass-1-Row nicht beim Honorific-Strip). Pass-11 erstellte `sharrowkyn`, Pass-13 erstellte `nykona_sharrowkyn`, beide für denselben McNeill-Raven-Guard-Mor-Deythan-Charakter aus der Shattered-Legions-Saga. Mechanically eindeutig.
+
+### HH-aware Aggregator-Signal-Bilanz (Pass-2-Gesamt)
+
+| Signal-Klasse | Trigger-Count | True-Positive (Merge) | False-Positive (No-Merge) | Notes |
+|---|---|---|---|---|
+| **cross-era-anchor-breach** | 0 | 0 | 0 | Pinned cross-era surface forms (Luna Wolves, Imperial Army, Mechanicum, Ezekyle Abaddon, Kharn, Magnus, Lucius, Ahriman, Horus Lupercal, Calas Typhon, Corvus Corax, Lorgar Aurelian, Little Horus Aximand, Nassir Amit, Alexis Pollux, Dantioch, Maloghurst, Arvida, Aenoid Thiel) wurden in HH-Wellen 10..15 konsistent auf canonical W40K-IDs aufgelöst. **Positive Cross-Era-Validation** — ADR + Brief 100 haben gehalten. |
+| **slug-edit-distance** (locations) | 1 | 0 | 1 (`barbarus ↔ tartarus`) | False-positive, aber Signal-justifiziert: derselbe Schwellenwert würde `isstvan ↔ istvaan` (Levenshtein 1) fangen, die Pass-1-Heuristik übersieht. |
+| **primarch-stem** (characters) | 1 | 0 | 1 (`horus ↔ horus_aximand`) | False-positive (Primarch ↔ Captain-named-after-Primarch — analog Planet↔Ship). |
+| **Pass-1-base-Heuristiken** (jaccard / substring / alias-coincidence / group-key) | 21 | 2 (`astelan ↔ merir_astelan`, `sharrowkyn ↔ nykona_sharrowkyn`) | 19 | Base-Heuristik trägt **beide** Pass-2-Merges. HH-aware-Signale haben **keinen** Merge produziert. |
+
+**Beobachtung**: Beide Merges (Lore-Deep + Mechanical) wurden von Pass-1-Base-Heuristiken (jaccard ≥ 0.5 + substring + shared-primaryFactionId) gefunden. Die HH-aware Signale (cross-era-anchor-breach + slug-edit-distance + primarch-stem) emittierten 2 zusätzliche Kandidaten (1 location + 1 character), beide false-positives. **Signal-Wert der HH-aware Layer**: trotz 0 True-Positives in diesem Pass haben sie ihre Funktion erfüllt — sie sind Tripwires, die negative-validate hätten gegen-bewiesen, falls eine echte Cross-Era-Anchor-Verletzung oder Transliterations-Doublette unter dem Radar geblieben wäre. **False-negative auf Cross-Era-Anchor-Breach ist positiv**: Brief 100 + ADR-Hardening haben die HH-Pässe sauber durch.
+
+### Patterns für künftige Pass-3 (falls je nötig)
+
+- **Planet ↔ Ship-named-after-Planet** (3 of 7 Locations): `tags:vessel` auf der Mergee-Seite ist mechanisch erkennbar. Future-pass könnte das als auto-no-merge-Regel im Aggregator implementieren (würde Cluster 5, 6, 7 Locations aus dem Output filtern).
+- **Primarch ↔ Captain-named-after-Primarch**: analog mechanisch erkennbar via "captain"-Token im Mergee-Name (siehe Cluster 7 Characters, `horus_aximand`). Aktuelles `primarch-stem`-Signal triggert eine Edge, aber kein Filter — Pass-3-Verbesserung: edge-Reason "primarch-stem-named-after" als auto-no-merge-Marker.
+- **Same-Era Cross-Pass Doublette** (`sharrowkyn ↔ nykona_sharrowkyn`): Pass-1-Heuristik-Pattern (substring + jaccard + shared-faction) reichte aus. Keine HH-spezifische Verbesserung nötig.
+
+### Token-Budget
+
+- Phase 0 (Aggregator) — unter 5k Tokens.
+- Phase 1 (Factions, 6 Cluster) — unter 10k Tokens.
+- Phase 2 (Locations, 7 Cluster) — unter 10k Tokens.
+- Phase 3 (Characters, 10 Cluster, 2 Merges mit Field-Retention) — unter 15k Tokens.
+- **Total Pass-2 vor Maintainer-Gate** — unter 40k Tokens, deutlich unter 120k-Limit. Axis-sliced sequential execution mit per-Phase-Commits hält den per-Subsession-Token-Footprint stabil.
+
+### Pass-1-Cross-Reference
+
+- **Factions**: 6/6 identisch zu Pass-1 (keine neuen Doubletten durch HH-Wellen).
+- **Locations**: 1/7 Pass-1-Carryover (`baal ↔ baal_secundus`), 6/7 neu (HH-Anchor-Welten + slug-distance-Signal).
+- **Characters**: 6/10 Pass-1-Carryover (amit, astor_sabbathiel, brielle, gerontius_helmawr, ivan, lord_solar_macharius), 4/10 neu (astelan/merir_astelan cross-era, bjorn/strybjorn substring, horus/horus_aximand primarch-stem, nykona_sharrowkyn/sharrowkyn same-era doublette).
+
+Pass-1-Merge-Pattern (vigilus_s → vigilus + magister_sek → anakwanar_sek) hat in Pass-2 ein direktes Echo: **eine Same-Era-Cross-Pass-Doublette (mechanical) + eine Cross-Era-Identity (lore-deep)** — exakt analog zur Pass-1-Verteilung (eine Phantom-Row mechanical + eine Cross-Wave-Honorific-Miss mechanical). Pass-2 erweitert das Mechanical-Mix um ein Cross-Era-Identity-Beispiel, das die Pass-1-Heuristik nicht hatte erfassen müssen.

@@ -648,7 +648,7 @@
     "name": "Astelan",
     "primaryFactionId": "fallen_angels",
     "lexicanumUrl": null,
-    "notes": null
+    "notes": "Cross-era identity: HH-era Dark Angels chapter-master Merir Astelan (Resolver-Pass 13 Phase 3, freq=1) debating compliance around Byzanthis in Call of the Lion (HH-0154, Astelan vs Belath compliance debate); cross-arc with the Fallen / Cypher / Lion arcs. Post-Heresy: First-of-the-Fallen renegade. primaryFactionId fallen_angels reflects the W40K-era canonical state (keeper-wins per consolidation-pass-2 field-retention; HH-era dark_angels affiliation captured here via cross-era note per ADR cross-era-identities). Consolidation-Pass 2 merge of merir_astelan (HH-era surface form) into astelan (W40K-canonical row)."
   },
   {
     "id": "belial",
@@ -3038,13 +3038,6 @@
     "notes": "Resolver-Pass 11 Phase 3 (7c curated freq=1 lore-iconic): Emperor's Children Ancient (Dreadnought-honored); the Iydris trap-pivot of Angel Exterminatus (HH-0023)."
   },
   {
-    "id": "sharrowkyn",
-    "name": "Sharrowkyn",
-    "primaryFactionId": "raven_guard",
-    "lexicanumUrl": null,
-    "notes": "Resolver-Pass 11 Phase 3 (7c curated freq=1 lore-iconic): Raven Guard sniper, Shattered Legions associate; Angel Exterminatus (HH-0023)."
-  },
-  {
     "id": "maloghurst_the_twisted",
     "name": "Maloghurst the Twisted",
     "primaryFactionId": "sons_of_horus",
@@ -3241,13 +3234,6 @@
     "notes": "Resolver-Pass 13 Phase 3 (7c curated freq=1 strong-lore-iconic — false-Sejanus thread, foundational Heresy beat): dead Mournival captain whose impersonation by Erebus's cult is a Heresy-foundational beat; Death of a Silversmith (HH-0170, Vengeful-Spirit remembrancer killed by the false-Sejanus). Recurs in the cult mythology long after his death. primaryFactionId sons_of_horus (the Luna-Wolves-era surface form is canonical-aliased onto Sons of Horus per Pass-10/11/12 Cross-Era convention)."
   },
   {
-    "id": "merir_astelan",
-    "name": "Merir Astelan",
-    "primaryFactionId": "dark_angels",
-    "lexicanumUrl": null,
-    "notes": "Resolver-Pass 13 Phase 3 (7c curated freq=1 strong-lore-iconic Dark Angels cross-arc figure — First-of-the-Fallen post-Heresy renegade): Dark Angels chapter-master debating compliance around Byzanthis; Call of the Lion (HH-0154, Astelan vs Belath compliance debate). Cross-arc with the Fallen / Cypher / Lion arcs (his post-Heresy First-of-the-Fallen status is downstream from his Pass-13 surface). primaryFactionId dark_angels (Heresy-era)."
-  },
-  {
     "id": "crius",
     "name": "Crius",
     "primaryFactionId": "iron_hands",
@@ -3294,7 +3280,7 @@
     "name": "Nykona Sharrowkyn",
     "primaryFactionId": "raven_guard",
     "lexicanumUrl": null,
-    "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Raven Guard Shadowmaster debut, cross-arc with the Sisypheum arc + future Shattered-Legions novellas): Raven Guard Shadowmaster debut paired with Sabik Wayland; Kryptos (HH-0167, Graham McNeill — Sharrowkyn / Wayland + Sisypheum origin). primaryFactionId raven_guard."
+    "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Raven Guard Shadowmaster debut, cross-arc with the Sisypheum arc + future Shattered-Legions novellas): Raven Guard Shadowmaster debut paired with Sabik Wayland; Kryptos (HH-0167, Graham McNeill — Sharrowkyn / Wayland + Sisypheum origin). Earlier Resolver-Pass 11 Phase 3 surface (7c curated freq=1 lore-iconic): Raven Guard sniper, Shattered Legions associate, Angel Exterminatus (HH-0023). primaryFactionId raven_guard. Consolidation-Pass 2 merge of sharrowkyn (surname-only short-form, Pass-11 surface) into nykona_sharrowkyn (full canonical name, Pass-13 surface)."
   },
   {
     "id": "sabik_wayland",

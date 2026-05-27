@@ -13,22 +13,106 @@
   "touchedReferenceRows": {
     "factions": [],
     "locations": [],
-    "characters": []
+    "characters": [
+      {
+        "preMergeRow": {
+          "id": "astelan",
+          "name": "Astelan",
+          "primaryFactionId": "fallen_angels",
+          "lexicanumUrl": null,
+          "notes": null
+        },
+        "role": "keeper",
+        "fieldRetentionAppliedInThisMerge": [
+          {
+            "field": "notes",
+            "preMergeValue": null,
+            "postMergeValue": "Cross-era identity: HH-era Dark Angels chapter-master Merir Astelan (Resolver-Pass 13 Phase 3, freq=1) debating compliance around Byzanthis in Call of the Lion (HH-0154, Astelan vs Belath compliance debate); cross-arc with the Fallen / Cypher / Lion arcs. Post-Heresy: First-of-the-Fallen renegade. primaryFactionId fallen_angels reflects the W40K-era canonical state (keeper-wins per consolidation-pass-2 field-retention; HH-era dark_angels affiliation captured here via cross-era note per ADR cross-era-identities). Consolidation-Pass 2 merge of merir_astelan (HH-era surface form) into astelan (W40K-canonical row).",
+            "sourceMergee": "merir_astelan"
+          }
+        ]
+      },
+      {
+        "preMergeRow": {
+          "id": "merir_astelan",
+          "name": "Merir Astelan",
+          "primaryFactionId": "dark_angels",
+          "lexicanumUrl": null,
+          "notes": "Resolver-Pass 13 Phase 3 (7c curated freq=1 strong-lore-iconic Dark Angels cross-arc figure — First-of-the-Fallen post-Heresy renegade): Dark Angels chapter-master debating compliance around Byzanthis; Call of the Lion (HH-0154, Astelan vs Belath compliance debate). Cross-arc with the Fallen / Cypher / Lion arcs (his post-Heresy First-of-the-Fallen status is downstream from his Pass-13 surface). primaryFactionId dark_angels (Heresy-era)."
+        },
+        "role": "mergee",
+        "removedInMerge": "merir_astelan -> astelan"
+      },
+      {
+        "preMergeRow": {
+          "id": "nykona_sharrowkyn",
+          "name": "Nykona Sharrowkyn",
+          "primaryFactionId": "raven_guard",
+          "lexicanumUrl": null,
+          "notes": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Raven Guard Shadowmaster debut, cross-arc with the Sisypheum arc + future Shattered-Legions novellas): Raven Guard Shadowmaster debut paired with Sabik Wayland; Kryptos (HH-0167, Graham McNeill — Sharrowkyn / Wayland + Sisypheum origin). primaryFactionId raven_guard."
+        },
+        "role": "keeper",
+        "fieldRetentionAppliedInThisMerge": [
+          {
+            "field": "notes",
+            "preMergeValue": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Raven Guard Shadowmaster debut, cross-arc with the Sisypheum arc + future Shattered-Legions novellas): Raven Guard Shadowmaster debut paired with Sabik Wayland; Kryptos (HH-0167, Graham McNeill — Sharrowkyn / Wayland + Sisypheum origin). primaryFactionId raven_guard.",
+            "postMergeValue": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Raven Guard Shadowmaster debut, cross-arc with the Sisypheum arc + future Shattered-Legions novellas): Raven Guard Shadowmaster debut paired with Sabik Wayland; Kryptos (HH-0167, Graham McNeill — Sharrowkyn / Wayland + Sisypheum origin). Earlier Resolver-Pass 11 Phase 3 surface (7c curated freq=1 lore-iconic): Raven Guard sniper, Shattered Legions associate, Angel Exterminatus (HH-0023). primaryFactionId raven_guard. Consolidation-Pass 2 merge of sharrowkyn (surname-only short-form, Pass-11 surface) into nykona_sharrowkyn (full canonical name, Pass-13 surface).",
+            "sourceMergee": "sharrowkyn"
+          }
+        ]
+      },
+      {
+        "preMergeRow": {
+          "id": "sharrowkyn",
+          "name": "Sharrowkyn",
+          "primaryFactionId": "raven_guard",
+          "lexicanumUrl": null,
+          "notes": "Resolver-Pass 11 Phase 3 (7c curated freq=1 lore-iconic): Raven Guard sniper, Shattered Legions associate; Angel Exterminatus (HH-0023)."
+        },
+        "role": "mergee",
+        "removedInMerge": "sharrowkyn -> nykona_sharrowkyn"
+      }
+    ]
   },
   "touchedAliasEntries": {
     "factionAliases": [],
     "locationAliases": [],
-    "characterAliases": []
+    "characterAliases": [
+      {
+        "preMergeAliasesForKeeper": [],
+        "keeper": "astelan",
+        "note": "No pre-existing alias entries pointed at astelan before this merge."
+      },
+      {
+        "preMergeAliasesForMergee": [],
+        "mergee": "merir_astelan",
+        "note": "No pre-existing alias entries pointed at merir_astelan before this merge — no nested alias-folding required."
+      },
+      {
+        "preMergeAliasesForKeeper": [],
+        "keeper": "nykona_sharrowkyn",
+        "note": "No pre-existing alias entries pointed at nykona_sharrowkyn before this merge."
+      },
+      {
+        "preMergeAliasesForMergee": [],
+        "mergee": "sharrowkyn",
+        "note": "No pre-existing alias entries pointed at sharrowkyn before this merge — no nested alias-folding required."
+      }
+    ]
   },
   "aliasesAdded": {
     "factionAliases": [],
     "locationAliases": [],
-    "characterAliases": []
+    "characterAliases": [
+      { "surface": "Merir Astelan", "targetId": "astelan" },
+      { "surface": "Sharrowkyn", "targetId": "nykona_sharrowkyn" }
+    ]
   },
   "factionPolicyTouches": [],
   "logicalFkTouches": {
     "factionsParentIdRemap": [],
-    "charactersPrimaryFactionIdRemap": []
+    "charactersPrimaryFactionIdRemap": [],
+    "$comment": "Keine character→character oder character→faction logical-FK-touches: merir_astelan und sharrowkyn werden NICHT von anderen factions.parent_id oder characters.primary_faction_id Werten referenziert (logischer FK-Scope ist character→faction-Ziel, nicht character→character-Ziel)."
   },
-  "$comment": "Stand Phase 2 (Factions + Locations, 0 merges → keine Touched-Rows). Characters (Phase 3) erweitern die Arrays, falls dort Merges anfallen."
+  "$comment": "Stand Phase 3 (alle Achsen adjudiziert, 2 Character-Merges: 1 cross-era lore-deep astelan↔merir_astelan + 1 same-era mechanical nykona_sharrowkyn↔sharrowkyn). Snapshot ist BEFORE-Schritt-4 (vor JSON-Edits) — die preMergeRow-Werte sind die Datei-Inhalte zur Phase-3-Start-Zeit; die postMergeValue-Felder in fieldRetentionAppliedInThisMerge dokumentieren das Ziel-Field-Set nach JSON-Edit. Rollback siehe rollbackProcedure."
 }
