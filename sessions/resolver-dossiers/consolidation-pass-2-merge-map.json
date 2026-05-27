@@ -6,9 +6,9 @@
   "summary": {
     "candidateClusters": 23,
     "merges": 0,
-    "noMerges": 6,
+    "noMerges": 13,
     "flagged": 0,
-    "$comment": "Stand Phase 1 (Factions only). Locations (Phase 2) + Characters (Phase 3) folgen — Counts werden bei jedem Phase-Commit aktualisiert."
+    "$comment": "Stand Phase 2 (Factions + Locations). Characters (Phase 3) folgen — Counts werden bei jedem Phase-Commit aktualisiert."
   },
   "merges": [],
   "noMerges": [
@@ -17,6 +17,13 @@
     { "axis": "factions", "cluster": ["hive_fleet_kraken", "hive_fleet_leviathan"], "reason": "two distinct hive fleets (Kraken M41 vs Leviathan Indomitus)" },
     { "axis": "factions", "cluster": ["necromunda", "necromunda_enforcers"], "reason": "planetary-cluster mid-knoten vs cult/guild-register entity" },
     { "axis": "factions", "cluster": ["scythes_of_the_emperor", "talons_of_the_emperor"], "reason": "Astartes Chapter vs Custodes+Sisters-of-Silence umbrella (cross-branch)" },
-    { "axis": "factions", "cluster": ["sons_of_horus", "sons_of_sek"], "reason": "Heresy Traitor Legion (Astartes) vs Sabbat-Worlds renegate mortal force (positive cross-era validation: Luna-Wolves-Alias on sons_of_horus did NOT spawn a doublette across HH waves 10..15)" }
+    { "axis": "factions", "cluster": ["sons_of_horus", "sons_of_sek"], "reason": "Heresy Traitor Legion (Astartes) vs Sabbat-Worlds renegate mortal force (positive cross-era validation: Luna-Wolves-Alias on sons_of_horus did NOT spawn a doublette across HH waves 10..15)" },
+    { "axis": "locations", "cluster": ["baal", "baal_secundus"], "reason": "distinct astronomical bodies in same Baal system (Blood-Angels home throne-world vs recruiting moon)" },
+    { "axis": "locations", "cluster": ["barbarus", "tartarus"], "reason": "slug-edit-distance-2 false-positive — Death-Guard Mortarion-home-world vs distinct Heresy-Era cluster-world; disjoint tags (death_guard vs empty)" },
+    { "axis": "locations", "cluster": ["beta_garmon", "garm"], "reason": "Beta-Garmon Titan-War cluster (HH adeptus_titanicus anchor) vs separate untagged world; substring-only false-positive" },
+    { "axis": "locations", "cluster": ["imperial_webway", "webway"], "reason": "Imperial-Webway-Project (HH Magnus/Big-E engineered extension, failed) vs original Eldar Webway region — distinct named entities" },
+    { "axis": "locations", "cluster": ["ithraca", "ithracas_vengeance"], "reason": "planet vs ship-named-after-planet (tags:vessel on mergee side)" },
+    { "axis": "locations", "cluster": ["macragge", "macragges_honour"], "reason": "Ultramarines home-world vs Guilliman's flagship battle-barge (tags:vessel)" },
+    { "axis": "locations", "cluster": ["molech", "molechs_enlightenment"], "reason": "Imperial-Knights world (HH Vengeful-Spirit anchor) vs ship named after the Molech-event (tags:vessel)" }
   ]
 }

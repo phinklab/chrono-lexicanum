@@ -30,5 +30,5 @@
     "factionsParentIdRemap": [],
     "charactersPrimaryFactionIdRemap": []
   },
-  "$comment": "Stand Phase 1 (Factions only, 0 merges → keine Touched-Rows). Locations (Phase 2) + Characters (Phase 3) erweitern die Arrays."
+  "$comment": "Stand Phase 2 (Factions + Locations, 0 merges → keine Touched-Rows). Characters (Phase 3) erweitern die Arrays, falls dort Merges anfallen."
 }
