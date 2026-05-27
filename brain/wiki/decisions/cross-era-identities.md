@@ -2,11 +2,12 @@
 title: Cross-Era-Identitäten — eine Canonical-Row, Era-Surface-Forms als Aliases
 type: decision
 created: 2026-05-26
-updated: 2026-05-26
+updated: 2026-05-27
 sources:
   - ../../../sessions/2026-05-26-100-arch-resolver-hh.md
   - ../../../sessions/2026-05-26-100-impl-resolver-hh.md
   - ../../../sessions/resolver-dossiers/resolver-pass-10-impl-report.md
+  - ../../../sessions/resolver-dossiers/resolver-pass-15-impl-report.md
   - ../../../sessions/resolver-pass-runbook.md
   - ../../../scripts/seed-data/faction-aliases.json
   - ../../../scripts/seed-data/character-aliases.json
@@ -21,7 +22,7 @@ decision-date: 2026-05-26
 
 # Cross-Era-Identitäten — eine Canonical-Row, Era-Surface-Forms als Aliases
 
-**Status:** active · **Decided:** 2026-05-26 (Brief 100) · **First wave validated:** 2026-05-26 (Resolver-Pass 10, HH-Bootstrap `ssot-hh-001..002`, PR #105 — 15/20 `drift_works` = Surface-Forms resolven auf eine kanonische W40K-Row; `factionsSkippedRedundant` bleibt für Cross-Era-Hits leer; keine echte Identitäts-Disambig getriggert, kein `## Needs decision`-Stop) · **Sessions:** [100-arch](../../../sessions/2026-05-26-100-arch-resolver-hh.md) + [100-impl](../../../sessions/2026-05-26-100-impl-resolver-hh.md) + [resolver-pass-10-impl-report](../../../sessions/resolver-dossiers/resolver-pass-10-impl-report.md)
+**Status:** active · **Decided:** 2026-05-26 (Brief 100) · **First wave validated:** 2026-05-26 (Resolver-Pass 10, HH-Bootstrap `ssot-hh-001..002`, PR #105 — 15/20 `drift_works` = Surface-Forms resolven auf eine kanonische W40K-Row; `factionsSkippedRedundant` bleibt für Cross-Era-Hits leer; keine echte Identitäts-Disambig getriggert, kein `## Needs decision`-Stop) · **HH-domain hardened:** 2026-05-27 (Resolver-Pässe 11–15, PR #107 — fünf weitere clean Two-Domain-Pässe in Folge ohne `## Needs decision`-Stop und ohne `factionsSkippedRedundant`-Cross-Era-Hits; die Disziplin trägt über den vollen HH-Korpus, **HH-domain ist datenkomplett — 294/294 HH-Bücher in der DB**) · **Sessions:** [100-arch](../../../sessions/2026-05-26-100-arch-resolver-hh.md) + [100-impl](../../../sessions/2026-05-26-100-impl-resolver-hh.md) + [resolver-pass-10-impl-report](../../../sessions/resolver-dossiers/resolver-pass-10-impl-report.md) + [resolver-pass-15-impl-report](../../../sessions/resolver-dossiers/resolver-pass-15-impl-report.md)
 
 ## Context
 

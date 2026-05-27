@@ -1035,3 +1035,39 @@ Zwei zusammenhängende Code-PRs gemergt — und damit der **HH-Bootstrap in die 
 **Out of scope:** Kein Code-Touch (Brief 101 + Pass 10 sind erledigt; die HH-Restwellen sind operativ via `run-resolver-loop.sh`). Kein Archive-Move 098/099/100/101 — separater Sweep, wenn die Pile genug für sich steht. Kein `brain:lint`-Run durch Cowork (Sandbox).
 
 **Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.
+
+---
+
+## 2026-05-27 · Ingest · Post-Merge-Koordinations-Pass post-PR-107 (Resolver-Loop 5 Wellen — Korpus datenkomplett)
+
+PR #107 (Resolver-Loop: 5 wave(s) HH `ssot-hh-003..030`, Pässe 11–15 auf branch `codex/ingest-batches-resolver-loop-hh`) ist gemergt. Erster echter headless Mehr-Wellen-Lauf des `run-resolver-loop.sh`-Drivers — fünf clean Two-Domain-Pässe in Folge ohne `## Needs decision`-Stop und ohne facetId-Strips, exakt der Brief-100-Forecast 60/60/60/50/44 Bücher. **Damit ist der Korpus datenkomplett: 859/859 (565 W40K + 294 HH); der Resolver-Loop emittiert `all-complete`.**
+
+**Read (raw sources):**
+
+- `sessions/resolver-loop-log.md` — Pässe 11–15 Block-Anhänge mit allen 6 Phasen-SHAs je Welle (Phase 0 Preflight, Phase 1 Factions, Phase 2 Locations, Phase 3 Characters, Phase 4a Apply, Phase 4b Verify).
+- `sessions/resolver-dossiers/resolver-pass-15-impl-report.md` — die finale 4b-Sammelung mit Apply-Digest + Verify-Digest + Maintainer-Handoff + For-next-session (canonical Read; die fünf Phase-Reports werden hier roll-up gemacht).
+- `sessions/resolver-dossiers/resolver-pass-11-impl-report.md`, `-12-`, `-13-`, `-14-` — per-Pass-Impl-Reports (nicht im Detail re-derived; die Counts-Tabelle in Pass 15 zeigt die kumulative Bewegung).
+- `scripts/seed-data/book-roster.json` (HH-Max-ID HH-0294, 294/859 Bücher) + `scripts/seed-data/manual-overrides-ssot-hh-*.json` (30 Override-Files, ssot-hh-030 trägt HH-0291..HH-0294 = 4 Bücher artbook/scriptbook tail).
+- `scripts/resolver-loop-detect.ts` — verifiziert dass die Terminal-Bedingung `all-complete` greift bei `hhProgressBatch === 30` und `hhRosterCount === 294` (verified empirically via roster-count + override-file-count; die `~10 books remaining`-Aussage im Pass-15-impl-Report ist ein Forecast-Artefakt aus der Dossier-§1 / §7d, das vor dem letzten 4-Buch-Batch ssot-hh-030 generiert wurde — die Realität ist HH-domain-sealed bei HH-0294).
+
+**Counts post-Pass-15-Re-Apply `001..057 + hh-001..030` (859 works):**
+
+- works `565 → 859` (+294 = volle HH-Domäne), work_factions `1981 → 2752` (+771), work_locations `776 → 1144` (+368), work_characters `1325 → 1992` (+667), work_collections `147 → 196` (+49 — die deferred Anthology-Constituent-Edges aus Pass 10 sind durch die Folge-Wellen materialisiert), work_persons `541 → 785` (+244 HH-Author-Slugs via `ensurePersonsExist`; `persons.json` JSON-side unverändert 100), work_facets `11672 → 16845` (+5173).
+- Reference: factions `179 → 202` (+23), locations `234 → 288` (+54), characters `404 → 491` (+87); aliases faction `63 → 73` (+10 ca., zusammen über die fünf Pässe), location `17 → 25` (+8 ca.), character `47 → 64` (+17 ca.). `facet_values 86 → 86` — keine Facet-Promotion über die fünf Wellen.
+- EXPECTED_RANGES: nur **eine** quantitative Re-Tune über die fünf Pässe — `locations.max 1100 → 1500` in Pass 15 (Pass-14-forecasted Bump, ~24% post-bump headroom). factions cap `3200` (2754 ≈ 14% headroom) und characters cap `2200` (1992 ≈ 9% headroom — der tightest bound nach Pass 15) ohne Re-Tune.
+
+**Cross-Era-ADR über den vollen HH-Korpus gehärtet.** Über die fünf Wellen 11–15 trugen Cross-Era-Aliases robust — `factionsSkippedRedundant`-Bucket bleibt für Cross-Era-Hits leer (Aliases resolven auf eine Canonical-Row, kein Skip), keine echte Identitäts-Disambig getriggert (kein `## Needs decision`-Stop), Pass-12 hat Cross-Era-Honor-Title-Splits für `Bjorn` (Pre-Dreadnought-Honor-Title-Variante auf `bjorn` Alias-Mapping in Pass 11 anticipated, in Pass 15 Case B `Bjorn the One-Handed → bjorn` consolidated) und `Lord Cypher → cypher` (Cross-Era Heresy-era-Dark-Angels-title-character → post-Heresy `cypher` Fallen-Lord-of-the-Fallen alias) sauber gelandet. ADR `decisions/cross-era-identities.md` um „HH-domain hardened: 2026-05-27"-Halbsatz ergänzt.
+
+**Deferred-Edge-Pattern (Brief 100/101) trägt über den vollen Re-Apply.** Die 20 Pass-10-Anthology→Constituent-Edges aus den drei HH-Anthologien (HH-0020 → HH-0117..HH-0120, HH-0010 → HH-0150..HH-0156, HH-0016 → HH-0157..HH-0165) sind idempotent über die Folge-Wellen materialisiert — Pass 11/12/13 haben die HH-0117..HH-0120 / HH-0150..HH-0156 / HH-0157..HH-0165-Constituents in den kumulativen Re-Apply gebracht; `work_collections` ist von 147 (Pass 10) auf 196 (Pass 15) gewachsen, exakt das Brief-101-Erfolgs-Pattern (Sanctus Reach / Damocles / Shield of Baal analog für HH). OLD-Range HH-0001..HH-0250 cumulative `content_in_collection=49` per Verify-Digest Pass 15.
+
+**Wave-Größen exakt nach Brief-100-Forecast.** Pass 11 (60: ssot-hh-003..008, HH-0021..HH-0080), Pass 12 (60: ssot-hh-009..014, HH-0081..HH-0140), Pass 13 (60: ssot-hh-015..020, HH-0141..HH-0200), Pass 14 (50: ssot-hh-021..025, HH-0201..HH-0250), Pass 15 (44: ssot-hh-026..030, HH-0251..HH-0294). Pass 15 ist der HH-audio-drama + artbook/scriptbook-Tail (ssot-hh-026..029 first-cycle Heresy-audio-drama-Bloc, mid-Heresy Legion-Vignette + Pharos / Sicarus / Tallarn + Endryd-Haar Blackshields-trilogy; ssot-hh-030 4-Buch-Tail Collected Visions / Scripts Volume I+II / Visions of Heresy 2018 ed.). Der Loop-Helper-Detektor signalisiert jetzt `all-complete` — beide Domains sealed.
+
+**Was diesem Pass NICHT angehört.** Der HH-Konsolidierungs-Folge-Brief (wartet auf Cowork — Maschinerie aus Brief 098 existiert, der HH-Lauf braucht nur HH-spezifische Kandidaten-Heuristiken; potenzieller Bündel-Kandidat: Brief 101 § Open questions `verify-pass.ts`-Out-of-Range-Count). Pass-15-impl-For-next-session-Items als Watch-Items in `project-state.md` § What's open: Audit-Cockpit-Drift/Gap-Follow-up über die HH-Domäne (Data-Quality-Cycle, nicht Resolver-Pass); characters-cap Re-Tune `2200 → ?` post-Konsolidierung. Sessions-Archive-Sweep für 100/101 + die fünf neuen Pass-11..15-Dossiers — separater Sweep, wenn die Pile genug für sich steht.
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** Die fünf Pässe sind Daten-Wellen ohne Architektur-Call; der HH-Restwellen-Punkt (operativ, kein Brief — bis vor PR #107 in `project-state.md` § What's open Top-Tier) ist erledigt durch die Wellen selbst. Offene Queue unverändert: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung.
+
+**Updated wiki:** `project-state.md` (Header + Phase + Branch + What's running + neue „Latest pipeline state (post-PR-107)"-Sektion + Recently shipped + § What's open + Next likely brief), `pipeline-state.md` (Header-Title + Intro-Blockquote post-PR-107), `open-questions.md` (Header-Note 2026-05-27 post-PR-107), `decisions/cross-era-identities.md` (Status-Halbsatz „HH-domain hardened"), `index.md` (bumped Updated-Dates + Beschreibungen project-state/open-questions/pipeline-state/cross-era-ADR), this `log.md`. **Outside wiki:** `sessions/README.md` (Aktueller-Kopf + neue Resolver-Loop-Zeile auf `complete — merged`).
+
+**Out of scope:** Kein Code-Touch (PR #107 ist erledigt; die HH-Konsolidierung ist Cowork-side ein eigener Folge-Brief). Kein Archive-Move 100/101/Pass-11..15-Dossiers. Kein `brain:lint`-Run durch Cowork (Sandbox) — vor dem Doc-Commit lokal grün durch Philipp.
+
+**Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.
