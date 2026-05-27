@@ -1311,7 +1311,7 @@
     "sector": null,
     "gx": null,
     "gy": null,
-    "tags": []
+    "tags": ["vessel"]
   },
   {
     "id": "selaaca",
@@ -1968,5 +1968,438 @@
     "gx": null,
     "gy": null,
     "tags": ["mechanicus"]
+  },
+  {
+    "id": "sol_system",
+    "name": "Sol System",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["region", "imperium"]
+  },
+  {
+    "id": "vengeful_spirit",
+    "name": "Vengeful Spirit",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "lions_gate_spaceport",
+    "name": "Lion's Gate Spaceport",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "chondax",
+    "name": "Chondax",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["white_scars"]
+  },
+  {
+    "id": "molech",
+    "name": "Molech",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["imperial_knights"]
+  },
+  {
+    "id": "pluto",
+    "name": "Pluto",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperial_navy"]
+  },
+  {
+    "id": "tallarn",
+    "name": "Tallarn",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["astra_militarum"]
+  },
+  {
+    "id": "nuceria",
+    "name": "Nuceria",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["world_eaters"]
+  },
+  {
+    "id": "signus_prime",
+    "name": "Signus Prime",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["blood_angels"]
+  },
+  {
+    "id": "pythos",
+    "name": "Pythos",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "iydris",
+    "name": "Iydris",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["eldar"]
+  },
+  {
+    "id": "nostramo",
+    "name": "Nostramo",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": ["night_lords"],
+    "destroyed": true
+  },
+  {
+    "id": "chogoris",
+    "name": "Chogoris",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["white_scars"]
+  },
+  {
+    "id": "armatura",
+    "name": "Armatura",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["world_eaters"]
+  },
+  {
+    "id": "beta_garmon",
+    "name": "Beta-Garmon",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["adeptus_titanicus"]
+  },
+  {
+    "id": "eternity_gate",
+    "name": "Eternity Gate",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "eternity_wall_spaceport",
+    "name": "Eternity Wall Spaceport",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "saturnine_gate",
+    "name": "Saturnine Gate",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "mercury_wall",
+    "name": "Mercury Wall",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "delphic_battlement",
+    "name": "Delphic Battlement",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "golden_throne",
+    "name": "Golden Throne",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "sanctum_imperialis",
+    "name": "Sanctum Imperialis",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "galaspar",
+    "name": "Galaspar",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "olympia",
+    "name": "Olympia",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["iron_warriors"]
+  },
+  {
+    "id": "barbarus",
+    "name": "Barbarus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["death_guard"]
+  },
+  {
+    "id": "cthonia",
+    "name": "Cthonia",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["sons_of_horus"]
+  },
+  {
+    "id": "kiavahr",
+    "name": "Kiavahr",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["raven_guard"]
+  },
+  {
+    "id": "thramas_sector",
+    "name": "Thramas Sector",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "urgall_depression",
+    "name": "Urgall Depression",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "occluda_noctis",
+    "name": "Occluda Noctis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "deshea",
+    "name": "Desh'ea",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["world_eaters"]
+  },
+  {
+    "id": "alaxxes_nebula",
+    "name": "Alaxxes Nebula",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "constanix_ii",
+    "name": "Constanix II",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["mechanicus"]
+  },
+  {
+    "id": "terathalion",
+    "name": "Terathalion",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "titan",
+    "name": "Titan",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "hy_brasil",
+    "name": "Hy Brasil",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "lesser_damantyne",
+    "name": "Lesser Damantyne",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["iron_warriors"]
+  },
+  {
+    "id": "schadenhold",
+    "name": "Schadenhold",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["iron_warriors"]
+  },
+  {
+    "id": "iron_blood",
+    "name": "Iron Blood",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "molechs_enlightenment",
+    "name": "Molech's Enlightenment",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "ring_of_iron",
+    "name": "Ring of Iron",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["mechanicus"]
+  },
+  {
+    "id": "chemos",
+    "name": "Chemos",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["emperors_children"]
+  },
+  {
+    "id": "macragges_honour",
+    "name": "Macragge's Honour",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "irkalla",
+    "name": "Irkalla",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "imperial_webway",
+    "name": "Imperial Webway",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["imperium"]
+  },
+  {
+    "id": "albia",
+    "name": "Albia",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "illyrium",
+    "name": "Illyrium",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": ["ultramarines"]
+  },
+  {
+    "id": "jupiter",
+    "name": "Jupiter",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "astagar",
+    "name": "Astagar",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "pharos",
+    "name": "Pharos",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["ultramarines"]
+  },
+  {
+    "id": "sicarus",
+    "name": "Sicarus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["chaos", "word_bearers"]
+  },
+  {
+    "id": "ithraca",
+    "name": "Ithraca",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": ["ultramarines", "word_bearers"]
+  },
+  {
+    "id": "northwilds",
+    "name": "Northwilds",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": ["dark_angels"]
+  },
+  {
+    "id": "numinus",
+    "name": "Numinus",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": ["ultramarines"]
   }
 ]

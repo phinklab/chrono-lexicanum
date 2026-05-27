@@ -515,5 +515,30 @@
     "id": "justin_wooley",
     "name": "Justin Wooley",
     "nameSort": "Wooley, Justin"
+  },
+  {
+    "id": "l_j_goulding",
+    "name": "L.J. Goulding",
+    "nameSort": "Goulding, L.J."
+  },
+  {
+    "id": "charles_wraight",
+    "name": "Charles Wraight",
+    "nameSort": "Wraight, Charles"
+  },
+  {
+    "id": "brandon_easton",
+    "name": "Brandon Easton",
+    "nameSort": "Easton, Brandon"
+  },
+  {
+    "id": "alan_merrett",
+    "name": "Alan Merrett",
+    "nameSort": "Merrett, Alan"
+  },
+  {
+    "id": "michael_f_haspil",
+    "name": "Michael F. Haspil",
+    "nameSort": "Haspil, Michael F."
   }
 ]

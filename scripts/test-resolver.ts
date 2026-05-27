@@ -429,6 +429,174 @@ check("direct match - tenth wave The Order of Caliban (pre-Imperial Caliban knig
   assert.equal(resolveFaction("The Order of Caliban").id, "order_of_caliban");
 });
 
+check("direct match - Resolver-Pass 11 Knights Errant (Malcador's loyalist-Astartes cadre, combined freq=6 across `Knights Errant` + `Knights-Errant`, parent=imperium)", () => {
+  assert.equal(resolveFaction("Knights Errant").id, "knights_errant");
+});
+
+check("alias - Resolver-Pass 11 Knights-Errant (hyphen variant) routes to knights_errant (7a Case B alias-consolidation, author-style hyphenation)", () => {
+  assert.equal(resolveFaction("Knights-Errant").id, "knights_errant");
+});
+
+check("alias - Resolver-Pass 11 Daemons of Chaos routes to daemons umbrella (7a Case A — End-and-Death trilogy surface form, parity with Pass-6 Chaos Daemons alias)", () => {
+  assert.equal(resolveFaction("Daemons of Chaos").id, "daemons");
+});
+
+check("alias - Resolver-Pass 11 Adeptus Mechanicum routes to mechanicus (7a Case C — HH formal-name variant of Pass-10 Mechanicum alias)", () => {
+  assert.equal(resolveFaction("Adeptus Mechanicum").id, "mechanicus");
+});
+
+check("alias - Resolver-Pass 11 Mechanicus (bare canonical-name-without-Adeptus) routes to mechanicus (7a Case C — second variant)", () => {
+  assert.equal(resolveFaction("Mechanicus").id, "mechanicus");
+});
+
+check("alias - Resolver-Pass 11 Daemons of Khorne routes to daemons umbrella (sub-faction grain flat-aliased to parent; Phase-1-Decision keeps `khorne_daemons` deferred)", () => {
+  assert.equal(resolveFaction("Daemons of Khorne").id, "daemons");
+});
+
+check("direct match - Resolver-Pass 11 Lectitio Divinitatus (Emperor-as-god cult, Garro/Keeler-arc foundational, freq=1 lore-iconic, parent=imperium)", () => {
+  assert.equal(resolveFaction("Lectitio Divinitatus").id, "lectitio_divinitatus");
+});
+
+check("direct match - Resolver-Pass 11 Legio Ignatum (loyalist Titan Legion, Mortis HH-0061, freq=1 lore-iconic, parent=adeptus_titanicus parity)", () => {
+  assert.equal(resolveFaction("Legio Ignatum").id, "legio_ignatum");
+});
+
+check("direct match - Resolver-Pass 11 Legio Solaria (all-female Princeps Titan Legion, Titandeath HH-0053, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Legio Solaria").id, "legio_solaria");
+});
+
+check("direct match - Resolver-Pass 11 Legio Vulpa (traitor Titan Legion, Titandeath HH-0053, alignment=chaos parity with legio_mortis, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Legio Vulpa").id, "legio_vulpa");
+});
+
+check("direct match - Resolver-Pass 11 Selenar Gene-Cult (Lunar gene-engineering cult, Sons of Selenar HH-0058, freq=1 lore-iconic)", () => {
+  assert.equal(resolveFaction("Selenar Gene-Cult").id, "selenar_gene_cult");
+});
+
+check("alias - Resolver-Pass 11 Selenar (short form variant) routes to selenar_gene_cult (7a alias-consolidation, single row + alias per runbook §4)", () => {
+  assert.equal(resolveFaction("Selenar").id, "selenar_gene_cult");
+});
+
+check("direct match - Resolver-Pass 11 Thunder Warriors (proto-Astartes of Unification Wars, Dreams of Unity HH-0074, freq=1 lore-iconic, tone=historical_canon_layer)", () => {
+  assert.equal(resolveFaction("Thunder Warriors").id, "thunder_warriors");
+});
+
+check("direct match - Resolver-Pass 11 House Devine (Molech Imperial Knight house, Vengeful Spirit HH-0029, freq=1 lore-iconic, parent=imperial_knights + alignment=chaos)", () => {
+  assert.equal(resolveFaction("House Devine").id, "house_devine");
+});
+
+check("direct match - Resolver-Pass 11 Sanguinary Guard (Blood Angels honor-guard formation, Echoes of Eternity HH-0063, freq=1 lore-iconic, parent=blood_angels sub-tier)", () => {
+  assert.equal(resolveFaction("Sanguinary Guard").id, "sanguinary_guard");
+});
+
+check("direct match - Resolver-Pass 12 Rangdan (xenos species, foundational antagonist der Rangdan Xenocides, Alpharius: Head of the Hydra HH-0096, freq=1 lore-iconic, parent=null top-level xenos parity mit cabal/interex/laer)", () => {
+  assert.equal(resolveFaction("Rangdan").id, "rangdan");
+});
+
+check("direct match - Resolver-Pass 12 Hrud (entropy-aura xenos species, cross-era recurring, Perturabo: The Hammer of Olympia HH-0084 Hrud-Migration-backdrop, freq=1 lore-iconic, parent=null top-level xenos)", () => {
+  assert.equal(resolveFaction("Hrud").id, "hrud");
+});
+
+check("alias - Resolver-Pass 12 Daemons of Nurgle routes to daemons umbrella (7a Case A — Grandfather's Gift HH-0101, parity mit Pass-11 Daemons of Khorne / Pass-11 Daemons of Chaos: sub-faction-grain flat-aliased to parent, nurgle_daemons-sub-row deferred)", () => {
+  assert.equal(resolveFaction("Daemons of Nurgle").id, "daemons");
+});
+
+check("alias - Resolver-Pass 12 confirmation Mechanicum still routes to mechanicus (Pass-10 alias chain holds: HH-0121 Corax: Soulforge + HH-0130 Cybernetica re-surface the alias this wave, no row-split)", () => {
+  assert.equal(resolveFaction("Mechanicum").id, "mechanicus");
+});
+
+check("alias - Resolver-Pass 12 confirmation Knights-Errant hyphen variant still routes to knights_errant (Pass-11 alias chain holds: HH-0130 Cybernetica + HH-0134 Garro: Vow of Faith re-surface the alias this wave)", () => {
+  assert.equal(resolveFaction("Knights-Errant").id, "knights_errant");
+});
+
+check("direct match - Resolver-Pass 13 Crusader Host (cross-Legion Imperial Terra-delegation organ, Luna Mendax HH-0176 + Riven HH-0177, freq=2 strict, parent=imperium)", () => {
+  assert.equal(resolveFaction("Crusader Host").id, "crusader_host");
+});
+
+check("direct match - Resolver-Pass 13 Serpent Cult (House Devine internal chaos cult on Molech, The Devine Adoratrice HH-0182 + Wolf Mother HH-0195, freq=2 strict, parent=house_devine sub-tier)", () => {
+  assert.equal(resolveFaction("Serpent Cult").id, "serpent_cult");
+});
+
+check("direct match - Resolver-Pass 13 Therion Cohort (Imperial Army elite regiment cross-arc with marcus_valerius spine, The Divine Word HH-0171, freq=1 lore-iconic, parent=astra_militarum named-regiment-Tier)", () => {
+  assert.equal(resolveFaction("Therion Cohort").id, "therion_cohort");
+});
+
+check("direct match - Resolver-Pass 13 Davinite Lodge (pre-Imperial Davin chaos cult Erebus uses for Horus corruption in False Gods HH-0002, surfaced in Twisted HH-0196, parent=chaos)", () => {
+  assert.equal(resolveFaction("Davinite Lodge").id, "davinite_lodge");
+});
+
+check("alias - Resolver-Pass 13 Davinite Serpent Lodge (Serpent HH-0175 Thoros-priest vignette) routes to davinite_lodge (7a Case A — single-row + alias per runbook §4 Surface-Form-Treue, same Davin cult two surface-form variants)", () => {
+  assert.equal(resolveFaction("Davinite Serpent Lodge").id, "davinite_lodge");
+});
+
+check("alias - Resolver-Pass 13 confirmation Luna Wolves still routes to sons_of_horus (Pass-10 cross-era rename anchor exhaustively re-surfaced in HH-0179 The Wolf of Ash and Fire + HH-0188 Brotherhood of the Moon, no row-split)", () => {
+  assert.equal(resolveFaction("Luna Wolves").id, "sons_of_horus");
+});
+
+check("alias - Resolver-Pass 13 confirmation Imperial Army still routes to astra_militarum (Pass-10 alias holds: HH-0149 Echoes of Revelation + HH-0198 Tallarn: Witness re-surface the alias this wave)", () => {
+  assert.equal(resolveFaction("Imperial Army").id, "astra_militarum");
+});
+
+check("direct match - Resolver-Pass 14 Ordo Sinister (Mechanicum pariah-princeps psi-titan sub-org defending the Imperial Webway, Ordo Sinister HH-0215, freq=1 lore-iconic, parent=mechanicus)", () => {
+  assert.equal(resolveFaction("Ordo Sinister").id, "ordo_sinister");
+});
+
+check("direct match - Resolver-Pass 14 Legio Audax (the Ember Wolves traitor Titan Legion, The Ember Wolves HH-0216 POV-Legion, freq=1 lore-iconic, parent=adeptus_titanicus alignment=chaos parity with legio_mortis/legio_vulpa)", () => {
+  assert.equal(resolveFaction("Legio Audax").id, "legio_audax");
+});
+
+check("direct match - Resolver-Pass 14 Legio Castigatra (loyalist Titan Legion antagonist to Audax in the Ember Wolves duel, HH-0216, freq=1 lore-iconic paired Titan-vs-Titan promotion, parent=adeptus_titanicus alignment=imperium parity with legio_ignatum/legio_solaria)", () => {
+  assert.equal(resolveFaction("Legio Castigatra").id, "legio_castigatra");
+});
+
+check("direct match - Resolver-Pass 14 Legio Cybernetica (Mechanicum Kastelan-robot sub-org, Myriad HH-0209 Mars loyalist guerrilla cell direct sequel to the Cybernetica novel, freq=1 lore-iconic, parent=mechanicus)", () => {
+  assert.equal(resolveFaction("Legio Cybernetica").id, "legio_cybernetica");
+});
+
+check("direct match - Resolver-Pass 14 Blackshields (catch-all Heresy-era mixed-/renegade-Legion Astartes warband category, Blackshield HH-0208 Crysos Morturg POV, freq=1 lore-iconic + future-proof for the Endryd-Haar sub-arc surfacing 36 books later at HH-0286, parent=null no alignment)", () => {
+  assert.equal(resolveFaction("Blackshields").id, "blackshields");
+});
+
+check("alias-consolidation - Resolver-Pass 14 House Taranis routes to knights_of_taranis (HH-0227 The Lightning Hall — same Mars-based Imperial Knight House as the Pass-10 knights_of_taranis canonical row from HH-0009 Mechanicum, two surface-form variants per runbook §4 Surface-Form-Treue, identity-coherence overrides naïve row creation)", () => {
+  assert.equal(resolveFaction("House Taranis").id, "knights_of_taranis");
+});
+
+check("alias - Resolver-Pass 14 confirmation Knights-Errant hyphen variant still routes to knights_errant (Pass-11 alias chain holds — wave's highest-frequency faction alias with 6 hits across HH-0226/HH-0228/HH-0244/HH-0246/HH-0247/HH-0248, Garro/Eisenstein audio-drama bloc anchors it exhaustively)", () => {
+  assert.equal(resolveFaction("Knights-Errant").id, "knights_errant");
+});
+
+check("alias - Resolver-Pass 14 confirmation Mechanicum still routes to mechanicus (Pass-10 alias holds: HH-0209 Myriad + HH-0210 Into Exile re-surface the alias this wave)", () => {
+  assert.equal(resolveFaction("Mechanicum").id, "mechanicus");
+});
+
+check("direct match - Resolver-Pass 15 Officio Sigillite (Malcador's Imperial-civil/Intelligence apparatus, namesake audio drama The Sigillite HH-0252, freq=1 lore-iconic, parent=imperium parity with knights_errant — Malcador wave-top character surface freq=7 closes the org-tier lore loop)", () => {
+  assert.equal(resolveFaction("Officio Sigillite").id, "officio_sigillite");
+});
+
+check("direct match - Resolver-Pass 15 Legio Praesagius (loyalist Titan Legion the True Messengers, Honour to the Dead HH-0253 Calth/Ithraca, freq=1 lore-iconic, parent=adeptus_titanicus parity with legio_ignatum/legio_solaria/legio_castigatra/legio_cybernetica)", () => {
+  assert.equal(resolveFaction("Legio Praesagius").id, "legio_praesagius");
+});
+
+check("direct match - Resolver-Pass 15 Adeptus Administratum (Imperial-civilian bureaucracy, cumulative cross-pass freq-2 promotion Pass-14 HH-0224 Abyssal + Pass-15 HH-0263 Garro: Shield of Lies, parent=imperium parity with senatorum_imperialis)", () => {
+  assert.equal(resolveFaction("Adeptus Administratum").id, "adeptus_administratum");
+});
+
+check("alias - Resolver-Pass 15 Administratum (short form) routes to adeptus_administratum (Authority-Layer-Pragmatik: kurze und lange Form derselben Org, runbook §4 Surface-Form-Treue analog Mechanicum/Adeptus-Mechanicum-Pair)", () => {
+  assert.equal(resolveFaction("Administratum").id, "adeptus_administratum");
+});
+
+check("alias - Resolver-Pass 15 confirmation Luna Wolves still routes to sons_of_horus (Pass-10 cross-era rename anchor exhaustively re-surfaced in HH-0254 Wolf Hunt + HH-0291 Collected Visions artbook + HH-0294 Visions of Heresy 2018 ed., no row-split)", () => {
+  assert.equal(resolveFaction("Luna Wolves").id, "sons_of_horus");
+});
+
+check("alias - Resolver-Pass 15 confirmation Imperial Army still routes to astra_militarum (Pass-10 alias holds: HH-0252 The Sigillite + HH-0255 Censure re-surface the alias this wave)", () => {
+  assert.equal(resolveFaction("Imperial Army").id, "astra_militarum");
+});
+
+check("alias - Resolver-Pass 15 confirmation Knights-Errant (hyphen) still routes to knights_errant (Pass-11 alias holds — wave's 2017 Garro re-issue trio HH-0271/HH-0272/HH-0273 anchors it exhaustively, plus Knights Errant direct freq=2 HH-0263/HH-0268)", () => {
+  assert.equal(resolveFaction("Knights-Errant").id, "knights_errant");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
@@ -745,6 +913,234 @@ check("direct match - tenth wave Laeran (Slaaneshi coral-world distinct from lae
 
 check("direct match - tenth wave Diamat (Mechanicum / Iron Hands battle-world Heresy strategic anchor, Fallen Angels, freq=1 lore-iconic)", () => {
   assert.equal(resolveLocation("Diamat").id, "diamat");
+});
+
+check("direct match - Resolver-Pass 11 Sol System (system grain parent of Terra/Mars/Luna/Pluto, Siege-of-Terra arc, freq=4 strict)", () => {
+  assert.equal(resolveLocation("Sol System").id, "sol_system");
+});
+
+check("direct match - Resolver-Pass 11 Vengeful Spirit (Warmaster's flagship vessel, tags=['vessel'] gx/gy=null per runbook §3 Phase 2 vessel-convention, freq=4 strict)", () => {
+  assert.equal(resolveLocation("Vengeful Spirit").id, "vengeful_spirit");
+});
+
+check("direct match - Resolver-Pass 11 Lion's Gate Spaceport (Terra sub-locale, Siege-of-Terra battlefield Lost-and-Damned/First-Wall, freq=3 strict)", () => {
+  assert.equal(resolveLocation("Lion's Gate Spaceport").id, "lions_gate_spaceport");
+});
+
+check("direct match - Resolver-Pass 11 Chondax (White Scars war-world, Scars/Legacies-of-Betrayal, freq=2 strict)", () => {
+  assert.equal(resolveLocation("Chondax").id, "chondax");
+});
+
+check("direct match - Resolver-Pass 11 Molech (Imperial Knight world, Vengeful Spirit House-Devine pivot, freq=2 strict)", () => {
+  assert.equal(resolveLocation("Molech").id, "molech");
+});
+
+check("direct match - Resolver-Pass 11 Pluto (Sol-System outpost, Praetorian-of-Dorn / Solar-War, freq=2 strict)", () => {
+  assert.equal(resolveLocation("Pluto").id, "pluto");
+});
+
+check("direct match - Resolver-Pass 11 Tallarn (Iron Warriors siege-world per eponymous anthology HH-0045, freq=2 strict)", () => {
+  assert.equal(resolveLocation("Tallarn").id, "tallarn");
+});
+
+check("direct match - Resolver-Pass 11 Nuceria (Angron's homeworld + Daemonhood-pivot from Betrayer HH-0024, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Nuceria").id, "nuceria");
+});
+
+check("direct match - Resolver-Pass 11 Signus Prime (Blood Angels Signus Trial from Fear to Tread HH-0021, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Signus Prime").id, "signus_prime");
+});
+
+check("direct match - Resolver-Pass 11 Pythos (eponymous Damnation-of-Pythos HH-0030 Iron Hands remnants world, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Pythos").id, "pythos");
+});
+
+check("direct match - Resolver-Pass 11 Iydris (Eldar maiden-world climax of Angel Exterminatus HH-0023, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Iydris").id, "iydris");
+});
+
+check("direct match - Resolver-Pass 11 Nostramo (Night Lords homeworld, Curze-pre-Heresy destroyed parity with caliban, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Nostramo").id, "nostramo");
+});
+
+check("direct match - Resolver-Pass 11 Armatura (World Eaters training world from Betrayer HH-0024, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Armatura").id, "armatura");
+});
+
+check("direct match - Resolver-Pass 11 Beta-Garmon (Titandeath system from Titandeath HH-0053 largest-Titan-engagement-of-Heresy, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Beta-Garmon").id, "beta_garmon");
+});
+
+check("direct match - Resolver-Pass 11 Saturnine Gate (eponymous Saturnine HH-0059 Imperial Palace sub-location, freq=1 lore-iconic Siege-of-Terra sub-locale)", () => {
+  assert.equal(resolveLocation("Saturnine Gate").id, "saturnine_gate");
+});
+
+check("direct match - Resolver-Pass 11 Golden Throne (End-and-the-Death HH-0067 Imperial Palace inner-sanctum, freq=1 lore-iconic Siege-of-Terra sub-locale)", () => {
+  assert.equal(resolveLocation("Golden Throne").id, "golden_throne");
+});
+
+check("direct match - Resolver-Pass 11 Sanctum Imperialis (End-and-the-Death HH-0067 Imperial Palace inner-Throne-chamber, freq=1 lore-iconic Siege-of-Terra sub-locale)", () => {
+  assert.equal(resolveLocation("Sanctum Imperialis").id, "sanctum_imperialis");
+});
+
+check("direct match - Resolver-Pass 12 Galaspar (Mortarion: The Pale King HH-0098 + Scions of the Emperor HH-0093 — The-Order-tyranny target world, freq=2 strict)", () => {
+  assert.equal(resolveLocation("Galaspar").id, "galaspar");
+});
+
+check("direct match - Resolver-Pass 12 Olympia (Perturabo's homeworld, Perturabo: The Hammer of Olympia HH-0084, freq=1 Primarch-birthworld lore-iconic)", () => {
+  assert.equal(resolveLocation("Olympia").id, "olympia");
+});
+
+check("direct match - Resolver-Pass 12 Barbarus (Mortarion's homeworld, Mortarion: The Pale King HH-0098, freq=1 Primarch-birthworld lore-iconic)", () => {
+  assert.equal(resolveLocation("Barbarus").id, "barbarus");
+});
+
+check("direct match - Resolver-Pass 12 Cthonia (Horus's homeworld, Blood of the Emperor HH-0097, freq=1 Primarch-birthworld lore-iconic)", () => {
+  assert.equal(resolveLocation("Cthonia").id, "cthonia");
+});
+
+check("direct match - Resolver-Pass 12 Kiavahr (Raven Guard parent-world of moon Deliverance, Corax: Lord of Shadows HH-0091, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Kiavahr").id, "kiavahr");
+});
+
+check("direct match - Resolver-Pass 12 Thramas Sector (Dark Angels vs Night Lords Thramas Crusade sector, Prince of Crows HH-0124, freq=1 lore-iconic sector-grain)", () => {
+  assert.equal(resolveLocation("Thramas Sector").id, "thramas_sector");
+});
+
+check("direct match - Resolver-Pass 12 Urgall Depression (Isstvan V Dropsite Massacre landing-zone sub-location, Scorched Earth HH-0122, freq=1 lore-iconic, parallel to Pass-11 Lion's Gate Spaceport sub-location grain)", () => {
+  assert.equal(resolveLocation("Urgall Depression").id, "urgall_depression");
+});
+
+check("direct match - Resolver-Pass 12 Occluda Noctis (Rogal Dorn pre-Heresy operational frontier beyond Northern Major Warp Storm, Rogal Dorn: The Emperor's Crusader HH-0099, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Occluda Noctis").id, "occluda_noctis");
+});
+
+check("direct match - Resolver-Pass 12 Desh'ea (Angron's first scene with World Eaters / Kharn, Angron HH-0138, freq=1 lore-iconic, apostrophe-stripped slug parity with Ka'Bandha → ka_bandha)", () => {
+  assert.equal(resolveLocation("Desh'ea").id, "deshea");
+});
+
+check("direct match - Resolver-Pass 12 Alaxxes Nebula (White Scars vs Alpha Legion ambush site, Wolf King HH-0131, cross-pass cumulative freq 2 with Pass-11 HH-0028 Scars — Pass-11-deferred, Pass-12-promotes)", () => {
+  assert.equal(resolveLocation("Alaxxes Nebula").id, "alaxxes_nebula");
+});
+
+check("direct match - Resolver-Pass 12 Constanix II (Mechanicum forge world, Corax: Soulforge HH-0121, freq=1 lore-iconic forge-world grain)", () => {
+  assert.equal(resolveLocation("Constanix II").id, "constanix_ii");
+});
+
+check("alias - Resolver-Pass 12 Lycaeus routes to deliverance (7a Case D — pre-Liberation Mechanicum-era name for the moon that becomes Deliverance after Corax's slave uprising, Ravenlord HH-0127, era-rename onto post-rename canonical row pattern-parallel to Luna-Wolves-→-Sons-of-Horus)", () => {
+  assert.equal(resolveLocation("Lycaeus").id, "deliverance");
+});
+
+check("alias - Resolver-Pass 12 Phall System routes to phall (7a Case E — system-grain surface for the warp-route collision site, The Crimson Fist HH-0125, flat alias to existing phall canonical row per runbook §4 budget-conservatism)", () => {
+  assert.equal(resolveLocation("Phall System").id, "phall");
+});
+
+check("direct match - Resolver-Pass 13 Terathalion (strict freq-2 promotion across Blades of the Traitor HH-0144 and Daemonology HH-0183, Heresy-era Mortarion/Death-Guard compliance-warp-locale)", () => {
+  assert.equal(resolveLocation("Terathalion").id, "terathalion");
+});
+
+check("direct match - Resolver-Pass 13 Titan (curated freq-1 lore-iconic, Saturn moon Sol-System sub-locale staging Dorn/Qruze/Solomon-Voss execution argument in The Last Remembrancer HH-0160)", () => {
+  assert.equal(resolveLocation("Titan").id, "titan");
+});
+
+check("direct match - Resolver-Pass 13 Hy Brasil (curated freq-1 lore-iconic Terran hive site of Dan Abnett Custodes Heresy debut Blood Games HH-0150)", () => {
+  assert.equal(resolveLocation("Hy Brasil").id, "hy_brasil");
+});
+
+check("direct match - Resolver-Pass 13 Schadenhold (curated freq-1 lore-iconic Iron Warriors loyalist fortress on Lesser Damantyne where Barabas Dantioch stands in The Iron Within HH-0164)", () => {
+  assert.equal(resolveLocation("Schadenhold").id, "schadenhold");
+});
+
+check("direct match - Resolver-Pass 13 Lesser Damantyne (curated freq-1 lore-iconic Iron-Warriors-loyalist outpost world hosting Schadenhold in The Iron Within HH-0164)", () => {
+  assert.equal(resolveLocation("Lesser Damantyne").id, "lesser_damantyne");
+});
+
+check("direct match - Resolver-Pass 13 Iron Blood (curated freq-1 lore-iconic vessel-grain — Perturabo's Iron Warriors flagship after Eye-of-Terror passage in Black Oculus HH-0194)", () => {
+  assert.equal(resolveLocation("Iron Blood").id, "iron_blood");
+});
+
+check("direct match - Resolver-Pass 13 Molech's Enlightenment (curated freq-1 lore-iconic vessel-grain House Devine Knight-vessel staging Alivia Sureka + Severian counter-cult arc in Wolf Mother HH-0195)", () => {
+  assert.equal(resolveLocation("Molech's Enlightenment").id, "molechs_enlightenment");
+});
+
+check("direct match - Resolver-Pass 13 Ring of Iron (curated freq-1 lore-iconic Mars-orbit Dark Mechanicum installation in Vorax HH-0186)", () => {
+  assert.equal(resolveLocation("Ring of Iron").id, "ring_of_iron");
+});
+
+check("alias - Resolver-Pass 13 Signus Cluster routes to signus_prime (7d region-vs-world grain — flat alias-to-world per dossier-recommended budget conservatism, parallel to Pass-11/12 cluster/sector flat-grain handling, Lost Sons HH-0169)", () => {
+  assert.equal(resolveLocation("Signus Cluster").id, "signus_prime");
+});
+
+check("direct match - Resolver-Pass 14 Chemos (Fulgrim's Primarch homeworld, The Last Phoenix HH-0233 omnibus surface, freq=1 lore-iconic Primarch-homeworld grain parity with barbarus/caliban/colchis/nuceria/prospero)", () => {
+  assert.equal(resolveLocation("Chemos").id, "chemos");
+});
+
+check("direct match - Resolver-Pass 14 Macragge's Honour (Ultramarines flagship vessel-grain, Illyrium HH-0238, freq=1 lore-iconic, parity with iron_blood/molechs_enlightenment vessel rows, tags=['vessel'] gx/gy=null)", () => {
+  assert.equal(resolveLocation("Macragge's Honour").id, "macragges_honour");
+});
+
+check("direct match - Resolver-Pass 14 Irkalla (Sisters of Silence Black Ship vessel-grain, Abyssal HH-0224 civilian-POV-inside-Black-Ship, freq=1 lore-iconic, tags=['vessel'] gx/gy=null)", () => {
+  assert.equal(resolveLocation("Irkalla").id, "irkalla");
+});
+
+check("direct match - Resolver-Pass 14 Imperial Webway (Emperor's hidden Webway project under Terra, Ordo Sinister HH-0215, freq=1 lore-iconic Heresy-era mega-engineering construct, parent=null region/construct grain — not planet, not vessel)", () => {
+  assert.equal(resolveLocation("Imperial Webway").id, "imperial_webway");
+});
+
+check("direct match - Resolver-Pass 14 Albia (Terran sub-region, Eater of Dreams HH-0228 Albian Land surface, freq=1 lore-iconic Terran region grain, sector=solar)", () => {
+  assert.equal(resolveLocation("Albia").id, "albia");
+});
+
+check("direct match - Resolver-Pass 14 Illyrium (Macragge province sub-locale, Illyrium HH-0238 namesake audio-drama, freq=1 lore-iconic Ultramar/Macragge sub-locale grain, sector=ultima)", () => {
+  assert.equal(resolveLocation("Illyrium").id, "illyrium");
+});
+
+check("direct match - Resolver-Pass 14 Jupiter (Sol-system planet, The Serpent's Dance HH-0226 Jovian shipyards surface, freq=1 lore-iconic Sol-system locale parity with Pass-? mars/luna/terra)", () => {
+  assert.equal(resolveLocation("Jupiter").id, "jupiter");
+});
+
+check("direct match - Resolver-Pass 14 Astagar (cumulative cross-pass freq-2 promotion — Pass-13 HH-0141 Sedition's Gate + Pass-14 HH-0217 The Laurel of Defiance, 7d cumulative-cross-pass case, parallel to Pass-13 cross-pass consolidation pattern)", () => {
+  assert.equal(resolveLocation("Astagar").id, "astagar");
+});
+
+check("alias - Resolver-Pass 14 Phalanx routes to phalanx (HH-0247 Burden of Duty bare-name surface form for the existing 'The Phalanx' canonical row — Imperial-Fists star-fortress / mobile fortress-monastery vessel-grain, tags=['vessel'] confirmed; parallel to existing 'the Phalanx' lowercase-article alias)", () => {
+  assert.equal(resolveLocation("Phalanx").id, "phalanx");
+});
+
+check("alias - Resolver-Pass 14 Laer routes to laeran (7a-pattern alias-consolidation — The Last Phoenix HH-0233 omnibus surfaces bare 'Laer' for the existing Laeran world canonical row, identity-coherence override of dossier-7c naïve row-creation recommendation per runbook §4 'eine kanonische Identität = eine Canonical-Row')", () => {
+  assert.equal(resolveLocation("Laer").id, "laeran");
+});
+
+check("alias - Resolver-Pass 15 Solar System routes to sol_system (7a Case L1 — spacing-variant of the canonical 'Sol System' surface form, HH-0271 Garro: Ashes of Fealty, identity-equivalence floor-case alias add per runbook §4)", () => {
+  assert.equal(resolveLocation("Solar System").id, "sol_system");
+});
+
+check("alias - Resolver-Pass 15 Planet of Sorcerers routes to planet_of_the_sorcerers (identity-coherence override of dossier-7c branch-(a) Sortiarius-row-creation recommendation per runbook §4 'eine kanonische Identität = eine Canonical-Row' — the existing W40K canonical row planet_of_the_sorcerers already covers this Thousand-Sons daemon-world identity; HH-0256 Thief of Revelations + HH-0258 Lucius: The Eternal Blade strict freq-2 within-batch surfaces the descriptive-without-the variant, parallel to Pass-14 Laer → laeran pattern)", () => {
+  assert.equal(resolveLocation("Planet of Sorcerers").id, "planet_of_the_sorcerers");
+});
+
+check("direct match - Resolver-Pass 15 Pharos (curated freq=1 lore-iconic — the Heart of the Pharos HH-0278 Sotha-Pharos-beacon sub-locale, foundational Heresy-era Ultramarines-Sotha-defense arc, parent grain sotha)", () => {
+  assert.equal(resolveLocation("Pharos").id, "pharos");
+});
+
+check("alias - Resolver-Pass 15 Mount Pharos routes to pharos (companion alias to the new pharos row — bare 'Pharos' is the lore-canonical short form, 'Mount Pharos' is the in-this-wave surface variant from HH-0278, descriptive-variant alias closes the surface-form gap per runbook §4)", () => {
+  assert.equal(resolveLocation("Mount Pharos").id, "pharos");
+});
+
+check("direct match - Resolver-Pass 15 Sicarus (curated freq=1 lore-iconic — Word Bearers daemon-world in the Eye of Terror, namesake-driven HH-0280 Children of Sicarus, foundational Heresy-Word-Bearers post-Heresy throneworld, daemon-world grain parallel to planet_of_the_sorcerers)", () => {
+  assert.equal(resolveLocation("Sicarus").id, "sicarus");
+});
+
+check("direct match - Resolver-Pass 15 Ithraca (curated freq=1 lore-iconic — Calth civilian sub-locale, HH-0253 Honour to the Dead, cross-arc with Know-No-Fear / Mark-of-Calth Calth sub-locale set, sector ultima parity)", () => {
+  assert.equal(resolveLocation("Ithraca").id, "ithraca");
+});
+
+check("direct match - Resolver-Pass 15 Northwilds (curated freq=1 lore-iconic — Caliban sub-region, HH-0259 Cypher: Guardian of Order, Dark-Angels Heresy-era Order-of-Caliban locale, sector obscurus parity with caliban)", () => {
+  assert.equal(resolveLocation("Northwilds").id, "northwilds");
+});
+
+check("direct match - Resolver-Pass 15 Numinus (curated freq=1 lore-iconic — Calth-region locale, HH-0273 Garro: Oath of Moment, cross-arc with Calth-region sub-locale set, sector ultima parity with ithraca)", () => {
+  assert.equal(resolveLocation("Numinus").id, "numinus");
 });
 
 console.log("\nresolveCharacter");
@@ -1155,6 +1551,244 @@ check("direct match - Resolver-Pass 10 (7b Heresy spine, highest-freq new HH cha
 
 check("direct match - Resolver-Pass 10 (7b Primarch spine, apostrophe-stripped slug): Lion El'Jonson", () => {
   assert.equal(resolveCharacter("Lion El'Jonson").id, "lion_el_jonson");
+});
+
+check("direct match - Resolver-Pass 11 (7b Primarch spine, freq 10 — highest-freq unresolved in HH-003..008 wave): Sanguinius (Blood Angels Primarch, Fear to Tread → Echoes of Eternity)", () => {
+  assert.equal(resolveCharacter("Sanguinius").id, "sanguinius");
+});
+
+check("direct match - Resolver-Pass 11 (7b Primarch spine, freq 5): Jaghatai Khan (White Scars Primarch, Scars / Path of Heaven / Warhawk)", () => {
+  assert.equal(resolveCharacter("Jaghatai Khan").id, "jaghatai_khan");
+});
+
+check("direct match - Resolver-Pass 11 (7b Primarch spine, freq 5): Perturabo (Iron Warriors Primarch, Angel Exterminatus / Tallarn / First Wall)", () => {
+  assert.equal(resolveCharacter("Perturabo").id, "perturabo");
+});
+
+check("direct match - Resolver-Pass 11 (7b supporting cast, freq 4): Shiban Khan (White Scars POV, Wraight HH arc)", () => {
+  assert.equal(resolveCharacter("Shiban Khan").id, "shiban_khan");
+});
+
+check("direct match - Resolver-Pass 11 (7b supporting cast, freq 3): Sigismund (Imperial Fists First Captain → Black Templars)", () => {
+  assert.equal(resolveCharacter("Sigismund").id, "sigismund");
+});
+
+check("direct match - Resolver-Pass 11 (7b supporting cast, freq 3): Euphrati Keeler (Lectitio Divinitatus saint, primaryFactionId lectitio_divinitatus per Phase 1 Verweise)", () => {
+  assert.equal(resolveCharacter("Euphrati Keeler").id, "euphrati_keeler");
+});
+
+check("direct match - Resolver-Pass 11 (7b supporting cast, freq 2, apostrophe-stripped slug): Ka'Bandha (Bloodthirster of Khorne, primaryFactionId daemons)", () => {
+  assert.equal(resolveCharacter("Ka'Bandha").id, "ka_bandha");
+});
+
+check("direct match - Resolver-Pass 11 (7b supporting cast, freq 2): Tylos Rubio (former Thousand Sons → Knight-Errant, primaryFactionId knights_errant per Phase 1 Verweise)", () => {
+  assert.equal(resolveCharacter("Tylos Rubio").id, "tylos_rubio");
+});
+
+check("direct match - Resolver-Pass 11 (7a alias-consolidation new row, longer-form canonical): Targutai Yesugei (White Scars Stormseer, combined freq 2 with Yesugei alias)", () => {
+  assert.equal(resolveCharacter("Targutai Yesugei").id, "targutai_yesugei");
+});
+
+check("alias-consolidation - Resolver-Pass 11 (7a Case I): Yesugei (short-form) routes to targutai_yesugei (one row + alias per runbook §4 longer-form-canonical pattern, parity with branne_nev + Branne)", () => {
+  assert.equal(resolveCharacter("Yesugei").id, "targutai_yesugei");
+});
+
+check("alias-consolidation - Resolver-Pass 11 (7a Case D — single highest-impact alias of the wave): Horus Lupercal (Warmaster's full name, freq 9) routes to horus (combined effective freq 12 on existing Pass-10 anchor)", () => {
+  assert.equal(resolveCharacter("Horus Lupercal").id, "horus");
+  assert.equal(resolveCharacter("Horus").id, "horus");
+});
+
+check("alias - Resolver-Pass 11 (7a Case E Cross-Era honor-title-split parity with Kharn ↔ Kharn the Betrayer): Calas Typhon (Heresy-era name of Typhus the Traveller) routes to typhus", () => {
+  assert.equal(resolveCharacter("Calas Typhon").id, "typhus");
+});
+
+check("alias-consolidation - Resolver-Pass 11 (7a Case F Cross-Era full-name parity with Case D): Corvus Corax (Primarch full name) routes to corax", () => {
+  assert.equal(resolveCharacter("Corvus Corax").id, "corax");
+  assert.equal(resolveCharacter("Corax").id, "corax");
+});
+
+check("alias - Resolver-Pass 11 (7a Case G Cross-Era full-name parity): Lorgar Aurelian (Word Bearers Primarch full name) routes to lorgar", () => {
+  assert.equal(resolveCharacter("Lorgar Aurelian").id, "lorgar");
+});
+
+check("alias - Resolver-Pass 11 (7a Case H Cross-Era formal-title parity): Emperor of Mankind (formal title) routes to the_emperor", () => {
+  assert.equal(resolveCharacter("Emperor of Mankind").id, "the_emperor");
+});
+
+check("direct match - Resolver-Pass 11 (7c curated freq=1 lore-iconic): Maloghurst the Twisted (Sons of Horus equerry, Slaves to Darkness)", () => {
+  assert.equal(resolveCharacter("Maloghurst the Twisted").id, "maloghurst_the_twisted");
+});
+
+check("direct match - Resolver-Pass 11 (7c curated freq=1 lore-iconic): Rylanor (Emperor's Children Ancient, Angel Exterminatus Iydris trap-pivot)", () => {
+  assert.equal(resolveCharacter("Rylanor").id, "rylanor");
+});
+
+check("direct match - Resolver-Pass 11 (7c curated freq=1 lore-iconic, §7d axis-disambig — character not location): Madail (Daemonic Lord of Hosts, Fear to Tread)", () => {
+  assert.equal(resolveCharacter("Madail").id, "madail");
+});
+
+check("direct match - Resolver-Pass 11 (7c curated freq=1 lore-iconic; §7d two-distinct-rows confirmed): Mohana Mankata Vi (Sisters of Silence Knight-Centura, primaryFactionId talons_of_the_emperor)", () => {
+  assert.equal(resolveCharacter("Mohana Mankata Vi").id, "mohana_mankata_vi");
+});
+
+check("direct match - Resolver-Pass 11 (7c curated freq=1 lore-iconic; §7d two-distinct-rows confirmed): Esha Ani Mohana (Legio Solaria Princeps Senior, distinct identity from Mohana Mankata Vi)", () => {
+  assert.equal(resolveCharacter("Esha Ani Mohana").id, "esha_ani_mohana");
+});
+
+check("alias-consolidation - Resolver-Pass 12 (7a Case B Cross-Era short-form parity with Calas Typhon Pass-11): Typhon (bare-form of Death Guard First Captain who becomes Typhus the Traveller, The Lion HH-0119) routes to typhus", () => {
+  assert.equal(resolveCharacter("Typhon").id, "typhus");
+});
+
+check("alias-consolidation - Resolver-Pass 12 (7a Case C typo cross-batch consolidation — same Imperial Fists captain at Battle of Phall): Alexis Pollux (double-l misspelling, Ember of Extinction HH-0109) routes to alexis_polux (lore-canonical, The Crimson Fist HH-0125)", () => {
+  assert.equal(resolveCharacter("Alexis Pollux").id, "alexis_polux");
+});
+
+check("direct match - Resolver-Pass 12 (7b freq-2 cross-batch spine Calth Underworld War antagonist): Kurtha Sedd (Word Bearers Dark Apostle, The Honoured HH-0132 + The Unburdened HH-0133, primaryFactionId word_bearers)", () => {
+  assert.equal(resolveCharacter("Kurtha Sedd").id, "kurtha_sedd");
+});
+
+check("direct match - Resolver-Pass 12 (7b freq-2 cross-batch spine Calth Underworld War loyalist): Steloc Aethon (Ultramarines Honoured commander, namesake of The Honoured HH-0132 + The Unburdened HH-0133, primaryFactionId ultramarines)", () => {
+  assert.equal(resolveCharacter("Steloc Aethon").id, "steloc_aethon");
+});
+
+check("direct match - Resolver-Pass 12 (7c curated freq=1 lore-iconic — longer-form canonical per runbook §4): Barabas Dantioch (Iron Warriors Warsmith, lone-loyalist archetype, Perturabo: The Hammer of Olympia HH-0084)", () => {
+  assert.equal(resolveCharacter("Barabas Dantioch").id, "barabas_dantioch");
+});
+
+check("alias-consolidation - Resolver-Pass 12 (7c longer-form-canonical pattern parity with branne_nev + Branne / targutai_yesugei + Yesugei): Dantioch (short form) routes to barabas_dantioch", () => {
+  assert.equal(resolveCharacter("Dantioch").id, "barabas_dantioch");
+});
+
+check("direct match - Resolver-Pass 12 (7c curated freq=1 lore-iconic — Chaos God as on-page actor, §7d axis-grain judgment: character row): Nurgle (Grandfather Nurgle, Grandfather's Gift HH-0101, primaryFactionId nurgle god-pantheon row)", () => {
+  assert.equal(resolveCharacter("Nurgle").id, "nurgle");
+});
+
+check("alias-consolidation - Resolver-Pass 13 (7a Case B short-form pattern, parity with Little Horus Aximand → horus_aximand): Maloghurst routes to maloghurst_the_twisted", () => {
+  assert.equal(resolveCharacter("Maloghurst").id, "maloghurst_the_twisted");
+});
+
+check("alias-consolidation - Resolver-Pass 13 (7a Case C full-form-to-existing-short-canonical, deferred row-rename candidate): Nassir Amit routes to amit", () => {
+  assert.equal(resolveCharacter("Nassir Amit").id, "amit");
+});
+
+check("alias-consolidation - Resolver-Pass 13 (7a Case E longer-variant with leading 'The', parity with existing Emperor of Mankind alias): The Emperor of Mankind routes to the_emperor", () => {
+  assert.equal(resolveCharacter("The Emperor of Mankind").id, "the_emperor");
+});
+
+check("alias-consolidation - Resolver-Pass 13 (7a Case D paired short-form alias, parity with Branne → branne_nev / Dantioch → barabas_dantioch): Arvida routes to revuel_arvida", () => {
+  assert.equal(resolveCharacter("Arvida").id, "revuel_arvida");
+});
+
+check("direct match - Resolver-Pass 13 (7a Case D longer-form-canonical Thousand Sons psyker, Rebirth HH-0161 + Sedition's Gate HH-0141): Revuel Arvida", () => {
+  assert.equal(resolveCharacter("Revuel Arvida").id, "revuel_arvida");
+});
+
+check("direct match - Resolver-Pass 13 (7b cross-batch spine freq=2 Therion Cohort officer with Raven Guard, HH-0149 + HH-0171): Marcus Valerius", () => {
+  assert.equal(resolveCharacter("Marcus Valerius").id, "marcus_valerius");
+});
+
+check("direct match - Resolver-Pass 13 (7b cross-batch spine freq=2 Ultramarine ambassador, HH-0159 + HH-0173, identity check passed): Arcadese", () => {
+  assert.equal(resolveCharacter("Arcadese").id, "arcadese");
+});
+
+check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic Iterator/remembrancer, Last Remembrancer HH-0160 execution argument with Dorn/Qruze on Titan): Solomon Voss", () => {
+  assert.equal(resolveCharacter("Solomon Voss").id, "solomon_voss");
+});
+
+check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic Dark Angels Voted Lieutenant at the Tsagualsa parlay, Savage Weapons HH-0165): Corswain", () => {
+  assert.equal(resolveCharacter("Corswain").id, "corswain");
+});
+
+check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic — false-Sejanus thread foundational Heresy beat, Death of a Silversmith HH-0170): Hastur Sejanus", () => {
+  assert.equal(resolveCharacter("Hastur Sejanus").id, "hastur_sejanus");
+});
+
+check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic Dark Angels First-of-the-Fallen, Call of the Lion HH-0154): Merir Astelan", () => {
+  assert.equal(resolveCharacter("Merir Astelan").id, "merir_astelan");
+});
+
+check("direct match - Resolver-Pass 13 (7c curated freq=1 strong-lore-iconic Iron Hands captain under Crusader Host, Riven HH-0177): Crius", () => {
+  assert.equal(resolveCharacter("Crius").id, "crius");
+});
+
+check("direct match - Resolver-Pass 13 (7c medium freq=1 Phase-3-promote — Raven Guard Shadowmaster Sisypheum-origin debut, Kryptos HH-0167): Nykona Sharrowkyn", () => {
+  assert.equal(resolveCharacter("Nykona Sharrowkyn").id, "nykona_sharrowkyn");
+});
+
+check("direct match - Resolver-Pass 13 (7c medium freq=1 Phase-3-promote — Night Lords lapsed-Librarian, Child of Night HH-0181): Fel Zharost", () => {
+  assert.equal(resolveCharacter("Fel Zharost").id, "fel_zharost");
+});
+
+check("direct match - Resolver-Pass 14 Macer Varren (7b strict freq-3 cross-batch spine — Knights-Errant ex-World-Eaters operative across HH-0228 Eater of Dreams / HH-0244 Garro: Legion of One / HH-0248 Garro: Sword of Truth, primaryFactionId knights_errant)", () => {
+  assert.equal(resolveCharacter("Macer Varren").id, "macer_varren");
+});
+
+check("direct match - Resolver-Pass 14 Helig Gallor (7b strict freq-2 cross-batch spine — Knights-Errant agent paired with Garro in HH-0205 and with Amendera Kendel in HH-0226, primaryFactionId knights_errant)", () => {
+  assert.equal(resolveCharacter("Helig Gallor").id, "helig_gallor");
+});
+
+check("direct match - Resolver-Pass 14 Hydragyrum (7c strong freq=1 lore-iconic — Ordo Sinister female pariah-princeps protagonist of HH-0215, primaryFactionId ordo_sinister Phase-1-row FK)", () => {
+  assert.equal(resolveCharacter("Hydragyrum").id, "hydragyrum");
+});
+
+check("direct match - Resolver-Pass 14 Sibel Niasta (7c/7d strong freq=1 lore-iconic co-protagonist of HH-0235 Malcador: First Lord of the Imperium, anthology-cascade strict freq-2 via HH-0237 promoted on co-protagonist warrant, primaryFactionId adeptus_astra_telepathica)", () => {
+  assert.equal(resolveCharacter("Sibel Niasta").id, "sibel_niasta");
+});
+
+check("direct match - Resolver-Pass 14 Crysos Morturg (7c strong freq=1 lore-iconic — first-named Blackshield POV in HH-0208 Blackshield, future-proof for the Endryd-Haar sub-arc at HH-0286+, primaryFactionId blackshields Phase-1-row FK)", () => {
+  assert.equal(resolveCharacter("Crysos Morturg").id, "crysos_morturg");
+});
+
+check("direct match - Resolver-Pass 14 Yored Massak (7c strong freq=1 lore-iconic — Knights-Errant Imperial-Fists Librarian recruited by Garro on the Phalanx, HH-0247 Burden of Duty, primaryFactionId knights_errant)", () => {
+  assert.equal(resolveCharacter("Yored Massak").id, "yored_massak");
+});
+
+check("direct match - Resolver-Pass 14 Torquill Eliphas (7c strong freq=1 lore-iconic — Word Bearers / Ark of Testimony Templum Daemonarchia constructor on Kronus in HH-0207 Inheritor, primaryFactionId word_bearers)", () => {
+  assert.equal(resolveCharacter("Torquill Eliphas").id, "torquill_eliphas");
+});
+
+check("alias-consolidation - Resolver-Pass 14 'the Emperor' lowercase-article variant routes to the_emperor (Case A new alias add — bare lowercase-article surface form HH-0222 Two Metaphysical Blades + HH-0225 Lantern's Light; resolver is case-sensitive per Brief 049/072 so the Pass-13 Case-E 'The Emperor of Mankind' capitalized variant does not cover this form; same canonical identity per runbook §4 — alias entry, not row creation)", () => {
+  assert.equal(resolveCharacter("the Emperor").id, "the_emperor");
+});
+
+check("alias-consolidation - Resolver-Pass 14 confirmation 'The Emperor of Mankind' capitalized variant still routes to the_emperor (Pass-13 Case-E alias holds; paired with the new Pass-14 'the Emperor' lowercase-article variant on the same canonical row)", () => {
+  assert.equal(resolveCharacter("The Emperor of Mankind").id, "the_emperor");
+});
+
+check("direct match - Resolver-Pass 15 Endryd Haar (7b strict freq-3 within-batch spine — Pass-14-forecasted Blackshields-trilogy protagonist landing exactly at HH-0286 as predicted; Blackshields: The False War HH-0286 + Blackshields: The Red Fief HH-0287 + Blackshields: The Broken Chain HH-0290, primaryFactionId blackshields)", () => {
+  assert.equal(resolveCharacter("Endryd Haar").id, "endryd_haar");
+});
+
+check("direct match - Resolver-Pass 15 Khalid Hassan (7c strong freq=1 lore-iconic — Malcador's covert operative, deuteragonist of the Officio-Sigillite namesake audio drama, HH-0252 The Sigillite, primaryFactionId officio_sigillite Phase-1-row FK)", () => {
+  assert.equal(resolveCharacter("Khalid Hassan").id, "khalid_hassan");
+});
+
+check("direct match - Resolver-Pass 15 Argonis (7c strong freq=1 lore-iconic — Sons of Horus emissary, late-Heresy compliance-arc Horus envoy, HH-0285 Dark Compliance, primaryFactionId sons_of_horus)", () => {
+  assert.equal(resolveCharacter("Argonis").id, "argonis");
+});
+
+check("direct match - Resolver-Pass 15 Yasu Nagasena (7c strong freq=1 lore-iconic — Imperial talent-scout/agent, protagonist of Wolf Hunt HH-0254, primaryFactionId officio_sigillite parity with khalid_hassan)", () => {
+  assert.equal(resolveCharacter("Yasu Nagasena").id, "yasu_nagasena");
+});
+
+check("direct match - Resolver-Pass 15 Zagreus Kane (7c strong freq=1 lore-iconic — Mechanicum Fabricator-General successor candidate, eventual post-Heresy Fabricator-General, HH-0284 The Binary Succession, primaryFactionId mechanicus)", () => {
+  assert.equal(resolveCharacter("Zagreus Kane").id, "zagreus_kane");
+});
+
+check("alias-consolidation - Resolver-Pass 15 (7a Case A typo-variant — transposed vowels Ae↔Aeo): Aenoid Thiel routes to aeonid_thiel (HH-0289 Nightfane — same Ultramarines Codicier/Sergeant figure recurring across the Calth / Aeonid-Thiel audio-drama bloc; identity-equivalence floor-case alias add)", () => {
+  assert.equal(resolveCharacter("Aenoid Thiel").id, "aeonid_thiel");
+});
+
+check("alias-consolidation - Resolver-Pass 15 (7a Case B Cross-Era/Character-Honor-Title-Split — Heresy-era pre-Dreadnought honor-title variant per Pass-11 bjorn row note explicit anticipation, parity with Kharn ↔ Kharn the Betrayer): Bjorn the One-Handed routes to bjorn (HH-0261 Wolf's Claw — the same future Bjorn the Fell-Handed)", () => {
+  assert.equal(resolveCharacter("Bjorn the One-Handed").id, "bjorn");
+});
+
+check("alias-consolidation - Resolver-Pass 15 (7d Cross-Era same-identity disambig recommendation (a) — runbook §4 default for Heresy-era honor-title / Cross-Era surface forms): Lord Cypher routes to cypher (HH-0259 Cypher: Guardian of Order — Heresy-era Dark-Angels Order-of-Caliban title-holder is the same individual who becomes the post-Heresy Lord-of-the-Fallen Cypher)", () => {
+  assert.equal(resolveCharacter("Lord Cypher").id, "cypher");
+});
+
+check("alias-consolidation - Resolver-Pass 15 confirmation Horus Lupercal still routes to horus (Pass-11 alias holds — HH-0277 The Either + HH-0291 Collected Visions + HH-0294 Visions of Heresy 2018 ed.)", () => {
+  assert.equal(resolveCharacter("Horus Lupercal").id, "horus");
 });
 
 console.log("\nnormalizeCharacterRole");
