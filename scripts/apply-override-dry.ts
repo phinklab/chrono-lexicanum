@@ -145,6 +145,11 @@ const BATCHES = [
   { domain: "hh", n: "023" },
   { domain: "hh", n: "024" },
   { domain: "hh", n: "025" },
+  { domain: "hh", n: "026" },
+  { domain: "hh", n: "027" },
+  { domain: "hh", n: "028" },
+  { domain: "hh", n: "029" },
+  { domain: "hh", n: "030" },
 ] as const satisfies ReadonlyArray<{ domain: "w40k" | "hh"; n: string }>;
 const SMOKE_SLUGS = [
   "the-anarch",
@@ -197,11 +202,17 @@ const SMOKE_SLUGS = [
  * factions over the first 200 HH books vs. the +30-50 budgeted), so
  * Resolver-Pass 13 Phase 4a bumps the faction maximum from 2500 to 3200
  * (current dry post-apply 2512 + ~22% headroom for the remaining HH
- * waves before the next consolidation pass).
+ * waves before the next consolidation pass). Resolver-Pass 15 Phase 4a
+ * bumps the locations maximum from 1100 to 1500: the Pass-14 report
+ * called out "1088/1100 (~1% headroom — tightest cap)" and forecast a
+ * re-tune at the next HH wave; Pass-15 adds 44 books and crosses the
+ * cap (work_locations dry post-apply 1145). New cap 1500 gives ~24%
+ * headroom for the remaining ~1 HH batch (~10 books) + a margin into
+ * the next consolidation pass.
  */
 const EXPECTED_RANGES = {
   factions: { min: 500, max: 3200 },
-  locations: { min: 180, max: 1100 },
+  locations: { min: 180, max: 1500 },
   characters: { min: 430, max: 2200 },
 } as const;
 

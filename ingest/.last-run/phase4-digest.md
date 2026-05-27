@@ -1,22 +1,22 @@
 # Phase-4 apply digest
 
-Config: `scripts/resolver-pass.config.json` · apply-range: `ssot-hh-001 ssot-hh-002 ssot-hh-003 ssot-hh-004 ssot-hh-005 ssot-hh-006 ssot-hh-007 ssot-hh-008 ssot-hh-009 ssot-hh-010 ssot-hh-011 ssot-hh-012 ssot-hh-013 ssot-hh-014 ssot-hh-015 ssot-hh-016 ssot-hh-017 ssot-hh-018 ssot-hh-019 ssot-hh-020 ssot-hh-021 ssot-hh-022 ssot-hh-023 ssot-hh-024 ssot-hh-025` · new wave:` ssot-hh-021 ssot-hh-022 ssot-hh-023 ssot-hh-024 ssot-hh-025 `
+Config: `scripts/resolver-pass.config.json` · apply-range: `ssot-hh-001 ssot-hh-002 ssot-hh-003 ssot-hh-004 ssot-hh-005 ssot-hh-006 ssot-hh-007 ssot-hh-008 ssot-hh-009 ssot-hh-010 ssot-hh-011 ssot-hh-012 ssot-hh-013 ssot-hh-014 ssot-hh-015 ssot-hh-016 ssot-hh-017 ssot-hh-018 ssot-hh-019 ssot-hh-020 ssot-hh-021 ssot-hh-022 ssot-hh-023 ssot-hh-024 ssot-hh-025 ssot-hh-026 ssot-hh-027 ssot-hh-028 ssot-hh-029 ssot-hh-030` · new wave:` ssot-hh-026 ssot-hh-027 ssot-hh-028 ssot-hh-029 ssot-hh-030 `
 Raw per-batch output (unbounded, NOT read by the LLM): `ingest/.last-run/phase4-apply-verbose.log` (gitignored).
 
 ### PRE-APPLY counts
 
 ```
 [db-counts] start
-works                765
-work_factions        2511
-work_locations       1031
-work_characters      1811
-work_collections     184
-work_persons         699
-work_facets          15223
-factions             194
-locations            275
-characters           474
+works                815
+work_factions        2621
+work_locations       1087
+work_characters      1911
+work_collections     196
+work_persons         745
+work_facets          16084
+factions             199
+locations            283
+characters           481
 facet_values         86
 [db-counts] done
 ```
@@ -50,97 +50,102 @@ seed-resolver-extensions: ok
 - applied `ssot-hh-019`: ok
 - applied `ssot-hh-020`: ok
 - applied `ssot-hh-021`: ok
-
-### POST-BATCH counts — ssot-hh-021
-
-```
-[db-counts] start
-works                775
-work_factions        2533
-work_locations       1038
-work_characters      1826
-work_collections     184
-work_persons         709
-work_facets          15406
-factions             199
-locations            283
-characters           481
-facet_values         86
-[db-counts] done
-```
 - applied `ssot-hh-022`: ok
-
-### POST-BATCH counts — ssot-hh-022
-
-```
-[db-counts] start
-works                785
-work_factions        2550
-work_locations       1049
-work_characters      1837
-work_collections     184
-work_persons         719
-work_facets          15560
-factions             199
-locations            283
-characters           481
-facet_values         86
-[db-counts] done
-```
 - applied `ssot-hh-023`: ok
-
-### POST-BATCH counts — ssot-hh-023
-
-```
-[db-counts] start
-works                795
-work_factions        2570
-work_locations       1058
-work_characters      1858
-work_collections     184
-work_persons         729
-work_facets          15728
-factions             199
-locations            283
-characters           481
-facet_values         86
-[db-counts] done
-```
 - applied `ssot-hh-024`: ok
+- applied `ssot-hh-025`: ok
+- applied `ssot-hh-026`: ok
 
-### POST-BATCH counts — ssot-hh-024
+### POST-BATCH counts — ssot-hh-026
 
 ```
 [db-counts] start
-works                805
-work_factions        2598
-work_locations       1076
-work_characters      1890
-work_collections     193
-work_persons         735
-work_facets          15916
-factions             199
-locations            283
-characters           481
+works                825
+work_factions        2639
+work_locations       1102
+work_characters      1929
+work_collections     196
+work_persons         755
+work_facets          16248
+factions             202
+locations            288
+characters           491
 facet_values         86
 [db-counts] done
 ```
-- applied `ssot-hh-025`: ok
+- applied `ssot-hh-027`: ok
 
-### POST-BATCH counts — ssot-hh-025
+### POST-BATCH counts — ssot-hh-027
 
 ```
 [db-counts] start
-works                815
-work_factions        2621
-work_locations       1087
-work_characters      1911
+works                835
+work_factions        2660
+work_locations       1112
+work_characters      1944
 work_collections     196
-work_persons         745
-work_facets          16084
-factions             199
-locations            283
-characters           481
+work_persons         765
+work_facets          16405
+factions             202
+locations            288
+characters           491
+facet_values         86
+[db-counts] done
+```
+- applied `ssot-hh-028`: ok
+
+### POST-BATCH counts — ssot-hh-028
+
+```
+[db-counts] start
+works                845
+work_factions        2682
+work_locations       1126
+work_characters      1958
+work_collections     196
+work_persons         775
+work_facets          16592
+factions             202
+locations            288
+characters           491
+facet_values         86
+[db-counts] done
+```
+- applied `ssot-hh-029`: ok
+
+### POST-BATCH counts — ssot-hh-029
+
+```
+[db-counts] start
+works                855
+work_factions        2702
+work_locations       1131
+work_characters      1976
+work_collections     196
+work_persons         785
+work_facets          16758
+factions             202
+locations            288
+characters           491
+facet_values         86
+[db-counts] done
+```
+- applied `ssot-hh-030`: ok
+
+### POST-BATCH counts — ssot-hh-030
+
+```
+[db-counts] start
+works                859
+work_factions        2752
+work_locations       1144
+work_characters      1992
+work_collections     196
+work_persons         785
+work_facets          16845
+factions             202
+locations            288
+characters           491
 facet_values         86
 [db-counts] done
 ```
@@ -149,16 +154,16 @@ facet_values         86
 
 ```
 [db-counts] start
-works                815
-work_factions        2621
-work_locations       1087
-work_characters      1911
+works                859
+work_factions        2752
+work_locations       1144
+work_characters      1992
 work_collections     196
-work_persons         745
-work_facets          16084
-factions             199
-locations            283
-characters           481
+work_persons         785
+work_facets          16845
+factions             202
+locations            288
+characters           491
 facet_values         86
 [db-counts] done
 ```
