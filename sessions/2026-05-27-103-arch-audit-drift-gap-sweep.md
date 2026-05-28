@@ -2,7 +2,7 @@
 session: 2026-05-27-103
 role: architect
 date: 2026-05-27
-status: implemented
+status: open
 slug: audit-drift-gap-sweep
 parent: null
 links:
@@ -12,10 +12,22 @@ links:
   - 2026-05-15-075-impl-cockpit-drift-sort-and-rating
   - 2026-05-14-073-arch-maintainer-audit-cockpit
   - 2026-05-26-100-arch-resolver-hh
+  - 2026-05-28-103-impl-data-audit-drift-gap-sweep
 commits: []
 ---
 
 # Audit-Cockpit Drift/Gap-Sweep — Signal-zu-Noise post-HH
+
+## Implementation status (2026-05-28 Cowork-Update)
+
+Dieser Brief ist als **Strang-Split** angelegt — UI-Pass im Product-Worktree + Daten-Pass im Batches-Worktree, parallel und unabhängig.
+
+- **Daten-Pass — done & merged (PR #109, 2026-05-28).** `npm run audit:gap-candidates` als read-only Triage-Helper gelandet (325 Kandidaten Raw-Output, HH=73 W40K=252); zwei Pilot-Backfills HH-0260 *Hunter's Moon* + HH-0270 *Iron Corpses*; NEW-Range gap_works 18→16. Impl-Report: [`2026-05-28-103-impl-data-audit-drift-gap-sweep.md`](./2026-05-28-103-impl-data-audit-drift-gap-sweep.md).
+- **UI-Pass — open.** Audio-Drama-Dämpfung im Gap-Bucket + Drift-Tie-Group-Sub-Sortierung. Spec vollständig in diesem Brief (§ Constraints / UI + § Acceptance / UI + § Design freedom). Branch z.B. `codex/product-audit-drift-gap-sweep`, Worktree `chrono-lexicanum-product`.
+
+CC hatte den Brief-Status nach dem Daten-PR auf `implemented` geflippt (Brief-§-Notes idempotent-Konvention). Cowork hat ihn am 2026-05-28 nach Codex-Review **bewusst zurück auf `open` gesetzt**, damit der "höchster offener Brief"-Flow im UI-Pass sauber greift. Der UI-PR flippt den Status wieder auf `implemented`.
+
+Die Codex-Review-Punkte vom 2026-05-28 (Drift-Comparator-Schärfung, URL-Persistenz-Festlegung, AND-Semantik-Implementations-Regel, Browser-Smoke in Acceptance) sind in den entsprechenden Sektionen unten eingearbeitet — sie ändern Outcomes nicht, sondern reduzieren Implementations-Mehrdeutigkeit.
 
 ## Goal
 
@@ -35,15 +47,16 @@ Du hast den **frontend-design Skill** installiert und bist bei den ästhetischen
 - Wie genau ein "gedämpftes" Audio-Drama in der Gap-Liste aussieht — Opacity, Farbverschiebung, Schrifttyp-Tonalität, Größe des Markers. Ich sage nur, dass es noch lesbar bleibt, aber unmissverständlich als "erwartet sparse" liest. Nicht "wegradiert".
 - Der genaue Markersymbol für Audio-Drama (🎧, 📻, ein Glyph, ein Text-Tag, eine schmale farbige Borderlinie) und seine Position in der Row. Konsistent mit dem restlichen `/buecher`-Cockpit-Stil.
 - Die Form der Toggle-Pille ("Audio-Dramen ausblenden") — Sub-Pille rechts neben der Gap-Pille? Sekundäre Toolbar darunter? Inline-Switch? Egal — was zur bestehenden `AuditPills.tsx`-/`SortPills.tsx`-Sprache passt.
-- Die Default-Sichtbarkeit der Toggle-Pille: sichtbar nur wenn `?audit=gap` aktiv, oder immer? URL-Persistenz (eigener Search-Param?) oder Session-only (localStorage)? Beide Wege sind okay — wähle, was sich zum restlichen Filter-Verhalten konsistent anfühlt.
+- Die Default-Sichtbarkeit der Toggle-Pille (visuelle Sichtbarkeit, **nicht** Persistenz-Mechanismus): sichtbar nur wenn `?audit=gap` als alleiniger Filter aktiv ist, oder schon vorher dezent? — deine Wahl.
 - Das visuelle Anzeigen der Drift-Tie-Group-Sub-Sortierung: in der Row-Anzeige sichtbar (z.B. "drift via `Luna Wolves` × 12"), oder unsichtbar im Backend? Wenn sichtbar, in welchem Format. Wenn unsichtbar, ist das ebenfalls okay.
 - Pixel-Werte, oklch-Triplets, Stagger-/Animations-Timings, exakte Klassen-Shapes, Copy-Voice der neuen Pille — alles deins.
 
 Was ich vorgebe, sind **Outcomes und Datenquellen**, nicht Pixel:
 
 - Audio-Drama-Source-of-Truth: `bookDetails.format === 'audio_drama'`. Existiert bereits als Enum in `src/db/schema.ts` (Zeile 150–163, `bookFormat`), wird in `CatalogueBook.format` schon durchgereicht (`src/app/buecher/page.tsx` Zeile 283). Kein neues Feld, kein neues Facet, kein Schema-Touch.
-- Filterscope: **nur Gap-Bucket.** Drift ist format-unabhängig (Cross-Era-Aliases gelten für Novels genauso wie für Audio-Dramen), die Audio-Drama-Behandlung bleibt strikt auf `?audit=gap` beschränkt.
-- Drift-Sub-Sort-Achse: primär `raw_name`-Häufigkeit über den unresolved Surface-Forms, sekundär Axis-Triple `(faction-drift, location-drift, character-drift)`, tertiär `updatedAt DESC`. Begründung steht in § Context.
+- Filterscope: **nur Gap-Bucket, und zwar nur bei genau einem aktiven Filter.** Drift ist format-unabhängig (Cross-Era-Aliases gelten für Novels genauso wie für Audio-Dramen), die Audio-Drama-Behandlung bleibt strikt auf den Single-Filter-Modus `?audit=gap` beschränkt. Implementations-Regel: `auditFilters.length === 1 && auditFilters[0] === "gap"`. Bei jeder AND-Kombination (`?audit=drift,gap`, `?audit=gap,ssot`, …) bleiben Audio-Dramen unverändert sichtbar (Codex-Review-Punkt, 2026-05-28).
+- Drift-Sub-Sort-Quelle: die **resolved drift rawNames** aus den Audit-Rows in `src/app/buecher/page.tsx` (`factionAuditRows`, `locationAuditRows`, `characterAuditRows`). "Drift" heißt hier konkret: `rawName !== null && rawName !== "" && rawName !== name` (`countResolvedDrift`-Definition, Zeile 121–127). Diese rawNames sind canonical-resolved (z.B. `Luna Wolves` → `sons_of_horus`), tragen also Surface-Form-Information — das Wording "unresolved Surface-Forms" in der Brief-Erstfassung war ein Fehlgriff (Codex-Review-Punkt, 2026-05-28). Es geht um die Cross-Era-Alias-Häufigkeit, nicht um unauflösbare Strings.
+- Drift-Sub-Sort-Achse: primär **`sum(freq(rawName))` über alle drift-Junctions des Buchs** (= Summe der globalen Häufigkeit jeder im Buch vorkommenden drift-rawName-Surface-Form, DESC), sekundär **Axis-Triple lexicographic DESC auf `(factionDriftCount, locationDriftCount, characterDriftCount)`** (Buch mit mehr Faction-Drift zuerst — Cross-Era-Aliases sind die Top-Cluster-Kategorie aus dem 100er-ADR), tertiär **`updatedAt DESC`** (heutiger Default). Begründung: Bücher mit hohem Drift-Volume × Cluster-Häufigkeit zuerst — der Maintainer sieht zuerst die Bücher, deren Surface-Forms global am stärksten cluster-bestätigt sind, weil dort der Reference-Layer-Erweiterungs-Hebel am höchsten ist. Begründung des `sum`- statt `max`-Calls: simpel, deterministisch, korrelliert Drift-Häufigkeit zusätzlich mit Drift-Volume.
 
 Architektonisch fest (nicht-verhandelbar):
 
@@ -92,10 +105,22 @@ Die zwei Pässe sind **unabhängig** und können **parallel** laufen. Der UI-Pas
 
 ### UI-Pass (Product-Worktree)
 
-- **Audio-Drama-Filter wirkt nur auf `?audit=gap`.** Auf `?audit=drift`, `?audit=ssot`, `?audit=collections` bleiben Audio-Dramen unverändert sichtbar — der Filter ist eine Gap-Bucket-Eigenschaft, kein globaler Cockpit-Filter.
-- **Default-Verhalten von `?audit=gap`: dämpfen, nicht filtern.** Audio-Dramen bleiben in der Liste sichtbar, sind aber visuell als "erwartet sparse" gekennzeichnet (gedimmt + Marker — Form ist deine Wahl). Eine Toggle-Pille daneben versteckt sie hart, wenn der Maintainer klickt.
-- **Toggle-Pille-Persistenz**: URL-Search-Param oder localStorage — wähle, was zum restlichen Filter-Verhalten passt. Wenn URL-Param, ist ein neuer Key okay (z.B. `?audit=gap&hide-audio=1`), oder das Pillen-Set unter `?audit=` erweitert. Persistenz über Page-Reload muss funktionieren, Persistenz über Session-End ist Bonus.
-- **Drift-Tie-Group-Sub-Sortierung**: innerhalb der `drift_count=2 / confidence=1.00`-Tie-Group erst nach **raw_name-Häufigkeit über den unresolved Surface-Forms** sortieren (Bücher mit den global häufigsten unresolved Surface-Forms zuerst), dann nach **Axis-Triple** `(faction-drift, location-drift, character-drift)`, dann nach **updatedAt DESC** (heutiger Default). Die Sub-Sort wirkt nur wenn der Drift-Filter aktiv ist (`?audit=drift`).
+- **Audio-Drama-Behandlung wirkt ausschließlich bei exakt einem aktiven Filter = `gap`.** Implementations-Regel (verbindlich, Codex-Review-2026-05-28): `auditFilters.length === 1 && auditFilters[0] === "gap"`. Bei jeder anderen Filter-Kombination — `?audit=drift`, `?audit=ssot`, `?audit=collections`, AND-Kombis wie `?audit=drift,gap` oder `?audit=gap,ssot` — bleiben Audio-Dramen unverändert sichtbar. **Nicht** `auditFilters.includes("gap")` prüfen; das würde AND-Kombis falsch einschließen.
+- **Default-Verhalten im Single-Gap-Modus: dämpfen, nicht filtern.** Audio-Dramen bleiben in der Liste sichtbar, sind aber visuell als "erwartet sparse" gekennzeichnet (gedimmt + Marker — Form ist deine Wahl). Eine Toggle-Pille daneben versteckt sie hart, wenn der Maintainer klickt.
+- **Toggle-Persistenz: URL-Search-Param-only, kein localStorage** (Codex-Review-2026-05-28). Der gesamte `/buecher`-Filter-Flow ist heute URL-getrieben (`AuditPills.tsx` via `useSearchParams`+`router.replace`, `parseAudit(sp.audit)` server-side in `page.tsx`); localStorage würde unnötigen Client-State, Hydration-/Flash-Risiko und nicht-teilbare URLs einführen. **Konkreter Key**: ein zusätzlicher Search-Param neben `audit=` — Empfehlung `?audit=gap&hideAudio=1`, exakter Key/Wert ist deins (alternativ ein Wert-Erweiterungs-Pattern auf `audit=`, falls das im AuditPills-Stil organischer wirkt). Server-side parsen wie `parseAudit`, Toggle als kleines Client-Island analog `AuditPills.tsx`. Default ohne Param = dämpfen-aber-sichtbar.
+- **Drift-Tie-Group-Sub-Sortierung** (greift innerhalb der existierenden Drift-Sortier-Pipeline in `sortBooks()` für den Drift-Branch, nicht als separater Sort-Modus):
+  - **Datenquelle**: die `factionAuditRows` / `locationAuditRows` / `characterAuditRows` in `getBooks()` tragen pro Junction `rawName` und `name`. "Drift-rawName" = Row mit `rawName !== null && rawName !== "" && rawName !== name` (exakt die `countResolvedDrift`-Definition, Zeile 121–127). Diese sind **canonical-resolved** (z.B. `Luna Wolves` → `sons_of_horus`) — das Wording "unresolved Surface-Forms" in der Brief-Erstfassung war falsch.
+  - **Pre-pass (single sweep, vor `sortBooks()`)**: über das gesamte Catalog-Set genau eine Aggregation `globalDriftFreq: Map<rawName, count>` aufbauen — pro Vorkommen einer drift-Junction (jede der drei Audit-Row-Listen) den `rawName` zählen. Das ist die globale Häufigkeit jeder drift-Surface-Form über alle Bücher × alle drei Achsen.
+  - **Per-book Score**: `driftScore(book) = sum( globalDriftFreq.get(row.rawName) ?? 0 ) over all drift-rows in factionAuditRows ⊎ locationAuditRows ⊎ characterAuditRows of this book`. Architektonische Wahl `sum` statt `max`: simpel, deterministisch, korrelliert Cluster-Häufigkeit zusätzlich mit Drift-Volume — ein Buch mit drei drift-Junctions auf globalen Top-Cluster-Surface-Forms rangiert vor einem Buch mit einer Junction auf demselben Cluster. (Codex-Review-2026-05-28 hat zu Recht beanstandet, dass der Brief das nicht festgelegt hatte.)
+  - **Comparator-Reihenfolge im Drift-Branch von `sortBooks()`**:
+    1. `driftCount DESC` (bestehender Primär-Schlüssel, bleibt; tie-bricht zwischen 2 und 3, 3 und 4 …)
+    2. `confidence DESC` (bestehender Sekundär-Schlüssel, bleibt)
+    3. **NEU: `driftScore DESC`** (`sum(freq(rawName))` wie oben)
+    4. **NEU: Axis-Triple lexicographic DESC auf `(factionDriftCount, locationDriftCount, characterDriftCount)`** — Buch mit mehr Faction-Drift zuerst (Cross-Era-Aliases als Top-Kategorie aus dem 100er-ADR), dann Locations, dann Characters
+    5. `updatedAt DESC` (bestehender Tertiär-Schlüssel, bleibt — jetzt Quintär)
+    6. `externalBookId ASC` (bestehender Stabilisator, bleibt)
+  - Die Sub-Sort-Schritte 3+4 wirken **nur im Drift-Branch** (Comparator wird ohnehin nur dort betreten); der Default-Sort ohne Audit-Filter bleibt vollständig unverändert.
+  - Implementierung darf den Pre-pass in `getBooks()` ranspannen (Datenfluss zwischen Audit-Rows und Sort-Funktion ist heute über `CatalogueBook.audit` vermittelt — entweder `driftScore` + Axis-Triple in `CatalogueBook.audit` aufnehmen, oder die globale Frequenz-Map als Closure in den Sort-Aufruf reichen). Form-Detail-Wahl ist deins; Outcome: deterministischer Sort über die Tie-Group, kein DB-Touch.
 - **Cockpit-Refinements in `/buch/[slug]/audit`**: wenn die Sub-Sort-Sichtbarkeit auf der Detailseite Sinn ergibt (z.B. "dieses Buch hat drift via `Luna Wolves` × 12, gehört zur Top-Tie-Group"), gerne — aber out-of-scope-fail-safe wenn die Detailseite nichts anzeigen muss. Architektonisches Outcome: die Audit-Detailseite bleibt funktional unverändert; alle Drift/Gap-Refinements landen primär in der Listenansicht `/buecher`.
 - **No-regression auf die existierenden Filter.** `?audit=drift`, `?audit=ssot`, `?audit=collections`, kombinierte AND-Filter (`?audit=drift,gap`), Sort-Pillen — alles bleibt unverändert.
 
@@ -125,10 +150,12 @@ Der Brief ist done wenn — strang-getrennt prüfbar:
 
 ### UI-Pass
 
-- [ ] `/buecher?audit=gap` zeigt Audio-Drama-Bücher visuell gedämpft + mit einem klaren Marker (Form ist CC-Wahl); ein lesbarer Toggle-Mechanismus versteckt sie hart, wenn aktiviert.
-- [ ] Die Audio-Drama-Behandlung wirkt **nur** auf `?audit=gap`. `?audit=drift`, `?audit=ssot`, `?audit=collections`, AND-Kombinationen (`?audit=drift,gap`) sehen Audio-Dramen unverändert.
-- [ ] `/buecher?audit=drift` sortiert innerhalb der `drift_count=2 / confidence=1.00`-Tie-Group nach raw_name-Häufigkeit primär, Axis-Triple sekundär, updatedAt DESC tertiär. Bücher mit den global häufigsten unresolved Surface-Forms erscheinen zuerst.
-- [ ] Drift-Tie-Group-Sub-Sortierung wirkt nur wenn `?audit=drift` aktiv ist; Default-Sortierung der Liste ohne Audit-Filter bleibt unverändert.
+- [ ] `/buecher?audit=gap` (Single-Gap-Modus) zeigt Audio-Drama-Bücher visuell gedämpft + mit einem klaren Marker (Form ist CC-Wahl); ein lesbarer Toggle-Mechanismus (URL-Search-Param, kein localStorage) versteckt sie hart, wenn aktiviert.
+- [ ] Die Audio-Drama-Behandlung wirkt **ausschließlich bei `auditFilters.length === 1 && auditFilters[0] === "gap"`.** Belegt durch das Verhalten unter `?audit=drift`, `?audit=ssot`, `?audit=collections`, **und insbesondere unter AND-Kombinationen wie `?audit=drift,gap` und `?audit=gap,ssot`** — Audio-Dramen sind dort unverändert sichtbar (weder gedämpft noch über die Toggle-Pille versteckbar).
+- [ ] Toggle-Persistenz ist URL-Search-Param-basiert (z.B. `?audit=gap&hideAudio=1`, exakter Key/Wert ist CC-Wahl), server-side geparst, kein localStorage. Reload auf der gleichen URL behält den Zustand; der Link ist teilbar.
+- [ ] `/buecher?audit=drift` sortiert innerhalb der existierenden `driftCount` / `confidence`-Tie-Groups nach `driftScore DESC` (= sum globaler drift-rawName-Frequenz) primär, dann Axis-Triple lex-DESC `(factionDriftCount, locationDriftCount, characterDriftCount)` sekundär, dann `updatedAt DESC` tertiär. Bücher mit den global häufigsten resolved drift-rawNames erscheinen zuerst.
+- [ ] Drift-Tie-Group-Sub-Sortierung wirkt nur im Drift-Branch von `sortBooks()`; Default-Sortierung der Liste ohne Audit-Filter (und die Sortierungen unter `?audit=gap`/`ssot`/`collections`) bleibt unverändert.
+- [ ] **Browser-Smoke** (Codex-Review-2026-05-28, manuelle Sichtprüfung im Dev-Server reicht — kein automatisiertes E2E nötig): vier URL-Varianten auf Desktop **und** mobile Breite (≤ ~640px Viewport) inspizieren — `/buecher?audit=gap` (Default-Single-Gap: Audio-Dramen gedämpft sichtbar, Toggle-Pille sichtbar/erreichbar), `/buecher?audit=gap&hideAudio=1` (oder gewählter Toggle-Param: Audio-Dramen hart versteckt), `/buecher?audit=drift` (Tie-Group-Sub-Sort sichtbar an unterscheidbarer Reihenfolge bei zuvor flat-rangierten Treffern; Audio-Dramen unverändert sichtbar), `/buecher?audit=drift,gap` (AND-Kombi: Audio-Dramen unverändert sichtbar, keine Dämpfung, keine Toggle-Pille-Wirkung). Pro Variante kurz im Impl-Report festhalten: Pillen-/Row-Layout intakt (kein Overlap, keine umgebrochenen Pillen-Texte, lesbarer Marker).
 - [ ] `npm run lint` + `npm run typecheck` grün; `npm run brain:lint -- --no-write` grün (keine neuen blocking Warnings); kein Schema-/DB-Touch.
 
 ### Daten-Pass
@@ -151,8 +178,9 @@ Inputs, die ich für die nächste Architekten-Session schätzen würde — keine
 2. **Verteilung der unresolved Surface-Forms in der Drift-Tie-Group.** Was sind die Top-5 globalen unresolved Surface-Forms (raw_name-Häufigkeit über alle drift_works)? Das ist Material für die nächsten Cross-Era-Alias-Cluster bzw. potenzielle Reference-Layer-Erweiterungen.
 3. **Drift-Sub-Sort aus `*_audit`-Spalten direkt abfragbar?** Die `*_audit`-Spalten (factionAuditRows, locationAuditRows, characterAuditRows in `src/app/buecher/page.tsx`) tragen den `raw_name` pro Junction. Ist Aggregation client-side im Read-Path okay, oder rufst du nach einer DB-side-Aggregation (eine zusätzliche Drizzle-Query)?
 4. **Pilot-Backfill-Qualität.** Wie groß war die Override-Edit-Größe pro Pilot-Buch (ungefähre Zeilenzahl pro Override-JSON-Block)? War die Lore-Anker-Recherche pro Buch trivial oder hat sie spezifische Quellen gebraucht (Lexicanum-Seite, Black-Library-Listing)? Material für den späteren Maintainer-Excel-Sweep-Schätzung.
-5. **Toggle-Persistenz-Mechanismus**. Welche Form hast du gewählt — URL-Search-Param oder localStorage? Begründung.
+5. **Toggle-Param-Key**. Welche Form hast du gewählt — `?audit=gap&hideAudio=1`, oder eine Erweiterung des `audit=`-Pillen-Sets (z.B. `?audit=gap,noaudio`)? Begründung.
 6. **Brief 096 / Design-Direction-Kollision**. Hat das laufende lokal-iterative Brief-096-Redesign deine Filter-/Pillen-Sprache beeinflusst? Wenn ja, wie hast du das aufgelöst?
+7. **Drift-Score-Datenfluss**. Hast du den globalen `driftFreq`-Pre-pass via `CatalogueBook.audit`-Erweiterung gefahren oder via Closure-Parameter in den Sort-Aufruf? Performance-Implikationen?
 
 ## Notes
 
@@ -161,7 +189,7 @@ Inputs, die ich für die nächste Architekten-Session schätzen würde — keine
 - **Branch-Vorschläge** (CC kann andere wählen, Hauptsache sie machen die Strang-Zugehörigkeit lesbar):
   - UI-Pass: `codex/product-audit-drift-gap-sweep`
   - Daten-Pass: `codex/ingest-batches-audit-pilot`
-- **Brief-Status-Flip**: jeder Pass flippt den Brief-Status `status: open → implemented` in seinem PR mit (eine Zeile Edit in der Frontmatter dieser Datei). Wenn beide Pässe parallel laufen und der eine zuerst mergt, ist das okay — der zweite Pass kann den Brief-Status weiter auf `implemented` halten (idempotent), oder Cowork räumt den Status im Post-Merge-Pass auf. Keine harte Sequenz nötig.
+- **Brief-Status-Flip** (aktualisiert 2026-05-28 nach Codex-Review): der Daten-Pass hat den Status im PR #109-Commit auf `implemented` geflippt. Cowork hat ihn anschließend bewusst zurück auf `open` gesetzt (siehe § Implementation status oben), damit der "höchster offener Brief"-Flow für den UI-Pass sauber greift. **Der UI-Pass flippt den Status in seinem PR wieder auf `implemented`** — eine Zeile Edit in der Frontmatter dieser Datei. Nach UI-PR-Merge ist der Brief final `implemented` und bleibt es; Cowork räumt im Post-Merge-Pass keinen weiteren Status mehr auf.
 - **HH-0260 / HH-0270 Recherche-Quellen** (informativ, du darfst andere wählen):
   - HH-0260 *Hunter's Moon* — Space-Wolves-Audio mit Bjorn-Era-Setting (Sons-of-Russ-mode pre-Heresy). Pass-15-Dossier §6 hat es als `low_confidence:characters` geflaggt → Implementierer kannte Lore-Anker, hat sie nicht durchgeschrieben.
   - HH-0270 *Iron Corpses* — Iron-Warriors-at-Tallarn-Single-Arc (post-Phall, pre-Tallarn-Front). Characters-Achse leer (c=0) — Tallarn-Engagements haben fest definierte Captain-Casts, sollten resolvable sein.
