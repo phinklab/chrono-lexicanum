@@ -2822,12 +2822,21 @@ main.catalogue {
  * maintainer can still inspect it. The AUDIO tag lives in __main (not the
  * chips column) so it survives the <=720px column collapse. */
 .catalogue-row.is-audio-dim {
-  opacity: 0.5;
+  opacity: 0.4;
   transition: opacity 180ms;
 }
 .catalogue-row.is-audio-dim:hover,
 .catalogue-row.is-audio-dim[open] {
   opacity: 1;
+}
+/* The faction dot is the row's strongest accent. Shrink + desaturate it on
+ * audio rows so the demotion still reads where the gap sort clusters dimmed
+ * rows together — there opacity alone has no bright neighbour to contrast
+ * against, but a smaller, greyer dot is an absolute per-row cue. */
+.catalogue-row.is-audio-dim .catalogue-row__dot {
+  width: 5px;
+  height: 5px;
+  filter: saturate(0.45);
 }
 .catalogue-row__audio-tag {
   flex: none;
