@@ -18,13 +18,18 @@ import FloatingCoord from "@/components/chrono/FloatingCoord";
 import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import AuditPills, { type AuditFilter } from "./AuditPills";
 import SortPills from "./SortPills";
+import GapAudioToggle from "./GapAudioToggle";
 
 export const metadata: Metadata = { title: "Archive — Chrono Lexicanum" };
 
 type SortKey = "updated" | "title";
 
 interface CataloguePageProps {
-  searchParams: Promise<{ sort?: string; audit?: string | string[] }>;
+  searchParams: Promise<{
+    sort?: string;
+    audit?: string | string[];
+    hideAudio?: string | string[];
+  }>;
 }
 
 interface CataloguePerson {
@@ -56,6 +61,10 @@ interface CatalogueAudit {
   containsCount: number;
   hasDrift: boolean;
   driftCount: number;
+  factionDriftCount: number;
+  locationDriftCount: number;
+  characterDriftCount: number;
+  driftRawNames: string[];
   hasJunctionGap: boolean;
   isSsot: boolean;
   isInMultipleCollections: boolean;
@@ -111,6 +120,11 @@ function parseAudit(raw: string | string[] | undefined): AuditFilter[] {
   return [...seen];
 }
 
+function parseHideAudio(raw: string | string[] | undefined): boolean {
+  const value = Array.isArray(raw) ? raw[0] : raw;
+  return value === "1" || value === "true";
+}
+
 function formatMBand(startY: number | null, endY: number | null): string | null {
   if (startY == null && endY == null) return null;
   const fmt = (v: number) => `M${v.toFixed(3)}`;
@@ -129,6 +143,18 @@ function countResolvedDrift(
     if (row.rawName !== null && row.rawName !== "" && row.rawName !== row.name) n++;
   }
   return n;
+}
+
+function collectDriftRawNames(
+  rows: ReadonlyArray<{ rawName: string | null; name: string }>,
+  out: string[],
+): void {
+  for (const row of rows) {
+    const rawName = row.rawName;
+    if (rawName !== null && rawName !== "" && rawName !== row.name) {
+      out.push(rawName);
+    }
+  }
 }
 
 async function loadBooks(): Promise<CatalogueBook[]> {
@@ -268,10 +294,15 @@ async function loadBooks(): Promise<CatalogueBook[]> {
       const factionCount = w.factions.length;
       const locationCount = w.locations.length;
       const characterCount = w.characters.length;
+      const factionDriftCount = countResolvedDrift(factionAuditRows);
+      const locationDriftCount = countResolvedDrift(locationAuditRows);
+      const characterDriftCount = countResolvedDrift(characterAuditRows);
       const driftCount =
-        countResolvedDrift(factionAuditRows) +
-        countResolvedDrift(locationAuditRows) +
-        countResolvedDrift(characterAuditRows);
+        factionDriftCount + locationDriftCount + characterDriftCount;
+      const driftRawNames: string[] = [];
+      collectDriftRawNames(factionAuditRows, driftRawNames);
+      collectDriftRawNames(locationAuditRows, driftRawNames);
+      collectDriftRawNames(characterAuditRows, driftRawNames);
       const hasDrift = driftCount > 0;
       const hasJunctionGap = factionCount === 0 || locationCount === 0 || characterCount === 0;
 
@@ -312,6 +343,10 @@ async function loadBooks(): Promise<CatalogueBook[]> {
           containsCount,
           hasDrift,
           driftCount,
+          factionDriftCount,
+          locationDriftCount,
+          characterDriftCount,
+          driftRawNames,
           hasJunctionGap,
           isSsot: w.sourceKind === "ssot",
           isInMultipleCollections: containedIn.length >= 2,
@@ -325,10 +360,51 @@ async function loadBooks(): Promise<CatalogueBook[]> {
   }
 }
 
+function buildGlobalDriftFreq(
+  books: readonly CatalogueBook[],
+): Map<string, number> {
+  const freq = new Map<string, number>();
+  for (const book of books) {
+    for (const rawName of book.audit.driftRawNames) {
+      freq.set(rawName, (freq.get(rawName) ?? 0) + 1);
+    }
+  }
+  return freq;
+}
+
+function driftScore(
+  book: CatalogueBook,
+  freq: ReadonlyMap<string, number>,
+): number {
+  let score = 0;
+  for (const rawName of book.audit.driftRawNames) {
+    score += freq.get(rawName) ?? 0;
+  }
+  return score;
+}
+
+function topDriftSignal(
+  book: CatalogueBook,
+  freq: ReadonlyMap<string, number> | null,
+): { rawName: string; freq: number } | null {
+  if (freq === null) return null;
+  let best: string | null = null;
+  let bestFreq = -1;
+  for (const rawName of book.audit.driftRawNames) {
+    const f = freq.get(rawName) ?? 0;
+    if (f > bestFreq) {
+      bestFreq = f;
+      best = rawName;
+    }
+  }
+  return best === null ? null : { rawName: best, freq: bestFreq };
+}
+
 function sortBooks(
   books: CatalogueBook[],
   key: SortKey,
   auditFilters: readonly AuditFilter[],
+  driftScoreById: ReadonlyMap<string, number>,
 ): CatalogueBook[] {
   const copy = [...books];
   if (auditFilters.includes("drift")) {
@@ -338,6 +414,17 @@ function sortBooks(
       const dConf =
         Number(b.audit.confidence ?? "0") - Number(a.audit.confidence ?? "0");
       if (dConf !== 0) return dConf;
+      const dScore =
+        (driftScoreById.get(b.id) ?? 0) - (driftScoreById.get(a.id) ?? 0);
+      if (dScore !== 0) return dScore;
+      const dFaction = b.audit.factionDriftCount - a.audit.factionDriftCount;
+      if (dFaction !== 0) return dFaction;
+      const dLocation =
+        b.audit.locationDriftCount - a.audit.locationDriftCount;
+      if (dLocation !== 0) return dLocation;
+      const dCharacter =
+        b.audit.characterDriftCount - a.audit.characterDriftCount;
+      if (dCharacter !== 0) return dCharacter;
       const dUpdated = b.updatedAt.getTime() - a.updatedAt.getTime();
       if (dUpdated !== 0) return dUpdated;
       return (a.audit.externalBookId ?? "").localeCompare(
@@ -399,13 +486,28 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
   const sort = parseSort(sp.sort);
   const auditFilters = parseAudit(sp.audit);
   const isAuditMode = auditFilters.length > 0;
+  const singleGapMode =
+    auditFilters.length === 1 && auditFilters[0] === "gap";
+  const hideAudio = singleGapMode && parseHideAudio(sp.hideAudio);
 
   const books = await loadBooks();
-  const visibleBooks = isAuditMode
+  const auditedBooks = isAuditMode
     ? books.filter((book) => matchesAudit(book, auditFilters))
     : books;
-  const sorted = sortBooks(visibleBooks, sort, auditFilters);
+  const visibleBooks = hideAudio
+    ? auditedBooks.filter((book) => book.format !== "audio_drama")
+    : auditedBooks;
+
   const driftSortActive = auditFilters.includes("drift");
+  const driftFreq = driftSortActive ? buildGlobalDriftFreq(books) : null;
+  const driftScoreById: ReadonlyMap<string, number> = driftFreq
+    ? new Map(books.map((b) => [b.id, driftScore(b, driftFreq)] as const))
+    : new Map<string, number>();
+  const sorted = sortBooks(visibleBooks, sort, auditFilters, driftScoreById);
+
+  const audioDramaCount = singleGapMode
+    ? auditedBooks.filter((b) => b.format === "audio_drama").length
+    : 0;
   const enrichedCount = books.filter((b) => b.isEnriched).length;
   const now = new Date();
 
@@ -460,13 +562,16 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
             <div className="catalogue-toolbar__right">
               <SortPills active={sort} overriddenByDrift={driftSortActive} />
               <AuditPills active={auditFilters} />
+              {singleGapMode && (
+                <GapAudioToggle active={hideAudio} count={audioDramaCount} />
+              )}
             </div>
           )}
         </div>
 
         {driftSortActive && sorted.length > 0 && (
           <p className="catalogue-caption">
-            Sorted by drift frequency · confidence · last updated.
+            Sorted by drift count · confidence · surface-form cluster · last updated.
           </p>
         )}
 
@@ -482,7 +587,18 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
           <ol className="catalogue-list">
             {sorted.map((b, i) => (
               <li key={b.id}>
-                <BookRow book={b} index={i} now={now} auditMode={isAuditMode} />
+                <BookRow
+                  book={b}
+                  index={i}
+                  now={now}
+                  auditMode={isAuditMode}
+                  dimmed={
+                    singleGapMode && !hideAudio && b.format === "audio_drama"
+                  }
+                  driftSignal={
+                    driftSortActive ? topDriftSignal(b, driftFreq) : null
+                  }
+                />
               </li>
             ))}
           </ol>
@@ -503,11 +619,15 @@ function BookRow({
   index,
   now,
   auditMode,
+  dimmed,
+  driftSignal,
 }: {
   book: CatalogueBook;
   index: number;
   now: Date;
   auditMode: boolean;
+  dimmed: boolean;
+  driftSignal: { rawName: string; freq: number } | null;
 }) {
   const mBand = formatMBand(book.startY, book.endY);
   const formatLabel = book.format
@@ -535,7 +655,7 @@ function BookRow({
     <details
       className={`catalogue-row c-glass${book.isEnriched ? " is-enriched" : " is-stub"}${
         auditMode ? " is-audit" : ""
-      }`}
+      }${dimmed ? " is-audio-dim" : ""}`}
     >
       <summary className="catalogue-row__summary">
         <span className="catalogue-row__index">{String(index + 1).padStart(3, "0")}</span>
@@ -547,6 +667,14 @@ function BookRow({
         />
         <div className="catalogue-row__main">
           <span className="catalogue-row__title">{book.title}</span>
+          {dimmed && (
+            <span
+              className="catalogue-row__audio-tag"
+              title="Audio drama — structurally sparse, expected"
+            >
+              Audio
+            </span>
+          )}
           {book.authors.length > 0 && (
             <span className="catalogue-row__byline">
               by {book.authors.join(", ")}
@@ -557,6 +685,12 @@ function BookRow({
               {book.audit.externalBookId ?? "—"} · {book.audit.sourceKind} · conf{" "}
               {formatConfidence(book.audit.confidence)} · f:{book.audit.factionCount} l:
               {book.audit.locationCount} c:{book.audit.characterCount}
+              {driftSignal && (
+                <span className="catalogue-row__drift-signal">
+                  {" "}
+                  · drift «{driftSignal.rawName}» ×{driftSignal.freq}
+                </span>
+              )}
             </span>
           )}
         </div>
