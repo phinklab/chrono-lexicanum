@@ -68,6 +68,15 @@ yarn-error.log*
 /sessions/_drafts/
 /reviews/
 
+# --- sitewide MediaPlayer audio (large binaries, repo is public) -----------
+# MP3/WAV/OGG tracks under public/audio/ are NOT committed: ~25 MB of binaries
+# in a public repo's permanent history + unclear rights. The README.md (how to
+# add tracks) IS kept. Host the tracks externally or add them at deploy time.
+/public/audio/*.mp3
+/public/audio/*.wav
+/public/audio/*.ogg
+/public/audio/*.m4a
+
 # --- ingestion pipeline cache (regenerable, can be huge) -------------------
 /scripts/.cache/
 /ingest/.cache/

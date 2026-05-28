@@ -8,9 +8,9 @@ import {
 } from "@/lib/ingestion/diff-reader";
 
 export const metadata: Metadata = {
-  title: "Ingestion-Läufe — Chrono Lexicanum",
+  title: "Ingestion runs — Chrono Lexicanum",
   description:
-    "Read-only Inspektor für die committed Diff-Files der Bulk-Backfill-Pipeline.",
+    "Read-only inspector for the committed diff files of the bulk-backfill pipeline.",
 };
 
 /**
@@ -30,27 +30,27 @@ export default async function IngestPage() {
     <main className="ingest-shell">
       <header className="ingest-header">
         <p className="ingest-eyebrow">
-          <span aria-hidden>{"// Ingestion-Console"}</span>
+          <span aria-hidden>{"// Ingestion console"}</span>
           <span className="ingest-eyebrow-dot" aria-hidden />
           <span aria-hidden>
             {entries.length === 0
-              ? "Roster leer"
-              : `${entries.length} Läufe${errCount > 0 ? ` (${errCount} defekt)` : ""}`}
+              ? "Roster empty"
+              : `${entries.length} runs${errCount > 0 ? ` (${errCount} broken)` : ""}`}
           </span>
         </p>
-        <h1 className="ingest-title">Ingestion-Läufe</h1>
+        <h1 className="ingest-title">Ingestion runs</h1>
         <p className="ingest-sub">
-          Diff-Inspektor für die Bulk-Backfill-Pipeline. Jeder Lauf produziert ein
-          committed JSON unter <code>ingest/.last-run/</code>; diese Seite rendert
-          die zusammengefassten Counter pro Lauf, Drill-down zeigt jedes Buch mit
-          Source-Origins, LLM-Anreicherung und Plausibilitäts-Befunden.
+          Diff inspector for the bulk-backfill pipeline. Each run produces a
+          committed JSON under <code>ingest/.last-run/</code>; this page renders
+          the aggregated counters per run; drill-down shows each book with
+          source origins, LLM enrichment and plausibility findings.
         </p>
       </header>
 
       {entries.length === 0 ? (
         <EmptyState />
       ) : (
-        <ol className="ingest-runs" aria-label="Ingestion-Läufe, neuester zuerst">
+        <ol className="ingest-runs" aria-label="Ingestion runs, newest first">
           {entries.map((entry) => (
             <li key={entry.kind === "ok" ? entry.summary.runId : entry.error.runId}>
               {entry.kind === "ok" ? (
@@ -68,12 +68,12 @@ export default async function IngestPage() {
 
 function EmptyState() {
   return (
-    <section className="ingest-empty" aria-label="Keine Ingestion-Läufe vorhanden">
-      <p className="ingest-empty-headline">Noch keine Ingestion-Läufe.</p>
+    <section className="ingest-empty" aria-label="No ingestion runs yet">
+      <p className="ingest-empty-headline">No ingestion runs yet.</p>
       <p className="ingest-empty-body">
-        Lokal ausführen mit <code>npm run ingest:backfill -- --dry-run --limit N</code>;
-        der erste committed Diff in <code>ingest/.last-run/</code> erscheint nach
-        Push und Vercel-Re-Deploy hier.
+        Run locally with <code>npm run ingest:backfill -- --dry-run --limit N</code>;
+        the first committed diff in <code>ingest/.last-run/</code> appears here
+        after push and Vercel re-deploy.
       </p>
     </section>
   );
@@ -81,9 +81,9 @@ function EmptyState() {
 
 function ErrorCard({ entry }: { entry: Extract<DiffListEntry, { kind: "error" }> }) {
   return (
-    <article className="ingest-card ingest-card-error" aria-label={`Defekter Diff ${entry.error.filename}`}>
+    <article className="ingest-card ingest-card-error" aria-label={`Broken diff ${entry.error.filename}`}>
       <header className="ingest-card-head">
-        <span className="ingest-card-kicker ingest-card-kicker-error">Diff defekt</span>
+        <span className="ingest-card-kicker ingest-card-kicker-error">Diff broken</span>
         <code className="ingest-card-runid">{entry.error.runId}</code>
       </header>
       <p className="ingest-card-error-msg">
@@ -121,13 +121,13 @@ function RunCard({ summary }: { summary: DiffSummary }) {
               ) : null}
             </span>
           ) : (
-            <span className="ingest-card-no-llm">kein LLM-Step</span>
+            <span className="ingest-card-no-llm">no LLM step</span>
           )}
         </div>
       </header>
 
       <dl className="ingest-counts">
-        <Counter label="entdeckt" value={summary.discovered} muted />
+        <Counter label="discovered" value={summary.discovered} muted />
         <Counter label="added" value={c.added} accent="lum" />
         <Counter label="updated" value={c.updated} accent={c.updated > 0 ? "amber" : undefined} />
         <Counter label="skipped (manual)" value={c.skipped_manual} muted />
@@ -138,14 +138,14 @@ function RunCard({ summary }: { summary: DiffSummary }) {
       </dl>
 
       <footer className="ingest-card-foot">
-        <div className="ingest-card-sources" aria-label="Aktive Quellen">
+        <div className="ingest-card-sources" aria-label="Active sources">
           {summary.activeSources.map((s) => (
             <span key={s} className="ingest-source-pill">{s}</span>
           ))}
         </div>
         <span className="ingest-card-arrow" aria-hidden>→</span>
         <span className="ingest-card-cta" aria-hidden>
-          {total > 0 ? `${total} Einträge im Drill-down` : "leerer Lauf"}
+          {total > 0 ? `${total} entries in drill-down` : "empty run"}
         </span>
       </footer>
     </Link>

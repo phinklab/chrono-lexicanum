@@ -137,6 +137,20 @@
   from { transform: rotate(360deg); }
   to   { transform: rotate(0deg); }
 }
+@keyframes hubAuspexDriftA {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-44px, -22px); }
+}
+@keyframes hubAuspexDriftB {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(38px, -18px); }
+}
+@keyframes hubDescentChev {
+  0%   { opacity: 0; transform: translateY(-4px); }
+  35%  { opacity: 0.95; transform: translateY(0); }
+  65%  { opacity: 0.95; transform: translateY(2px); }
+  100% { opacity: 0; transform: translateY(6px); }
+}
 @keyframes chronoPulse {
   0%, 100% { opacity: 0.55; }
   50%      { opacity: 1; }
@@ -2563,20 +2577,53 @@ main.catalogue {
 
 .catalogue-hero {
   position: relative;
-  height: 520px;
-  overflow: hidden;
+  height: 60vh;
+  min-height: 520px;
+  background: transparent;
+}
+/* Photo + fade are viewport-fixed so the title image stays put as the user
+ * scrolls into the catalogue body; rows then slide over the image from below.
+ * Negative z-index keeps them behind every page-content stacking context but
+ * still above the body's solid void color. */
+.catalogue-hero__photo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-image: url("/img/books.webp");
+  background-size: cover;
+  background-position: 50% 32%;
+  background-repeat: no-repeat;
+  z-index: -2;
+  pointer-events: none;
 }
 .catalogue-hero__fade {
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
   pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(2, 3, 10, 0.30) 0%,
-    rgba(2, 3, 10, 0.50) 50%,
-    rgba(2, 3, 10, 1) 100%
-  );
-  z-index: 1;
+  z-index: -1;
+  /* Bottom-heavy ramp anchored to the viewport: photo is solid in the upper
+   * ~50%, transitions through 65–85%, and is full void by the bottom edge.
+   * Once the user scrolls in, the c-glass row band sits over the void portion
+   * and the lingering photo bleed through the gaps stays subtle. */
+  background:
+    radial-gradient(
+      ellipse at 50% 38%,
+      transparent 50%,
+      rgba(2, 3, 10, 0.20) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 3, 10, 0) 0%,
+      rgba(2, 3, 10, 0) 45%,
+      rgba(2, 3, 10, 0.35) 65%,
+      rgba(2, 3, 10, 0.85) 85%,
+      rgba(2, 3, 10, 1) 100%
+    );
 }
 .catalogue-hero__sweep {
   position: absolute;
@@ -2602,7 +2649,7 @@ main.catalogue {
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 .catalogue-hero__heading {
@@ -2613,7 +2660,7 @@ main.catalogue {
   letter-spacing: 0.08em;
   color: var(--cl-bone);
   text-shadow:
-    0 0 32px rgba(156, 230, 255, 0.20),
+    0 0 32px rgba(201, 166, 90, 0.22),
     0 4px 14px rgba(0, 0, 0, 0.95);
 }
 .catalogue-hero__sub {
@@ -2621,15 +2668,19 @@ main.catalogue {
   max-width: 640px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 18px;
   color: var(--cl-bone);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 
 .catalogue-body {
   position: relative;
+  z-index: 2;
   max-width: 1320px;
-  margin: 0 auto;
+  /* Pull the toolbar up so the first row overlaps the fading lower edge of
+   * the fixed hero photo (Brief: "die Bücherliste darf das Bild etwas
+   * überlappen"). */
+  margin: -80px auto 0;
   padding: 24px clamp(20px, 3vw, 48px) 80px;
 }
 
@@ -2652,7 +2703,7 @@ main.catalogue {
   gap: 14px;
 }
 .catalogue-toolbar__count {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .catalogue-toolbar__total {
   color: var(--cl-dim);
@@ -2676,7 +2727,7 @@ main.catalogue {
   align-items: center;
   gap: 6px;
   padding: 4px 8px;
-  border: 1px solid var(--cl-cyan-fnt);
+  border: 1px solid rgba(201, 166, 90, 0.22);
   background: rgba(8, 12, 20, 0.5);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
 }
@@ -2708,18 +2759,18 @@ main.catalogue {
 .sort-pill:hover,
 .audit-pill:hover {
   color: var(--cl-bone);
-  border-color: var(--cl-cyan-dim);
+  border-color: var(--cl-gold-dim);
 }
 .sort-pill:focus-visible,
 .audit-pill:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 2px;
 }
 .sort-pill.active,
 .audit-pill.active {
-  color: var(--cl-cyan);
-  border-color: var(--cl-cyan);
-  background: rgba(156, 230, 255, 0.10);
+  color: var(--cl-gold);
+  border-color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.10);
 }
 
 .catalogue-caption {
@@ -2757,13 +2808,13 @@ main.catalogue {
   transition: border-color 180ms;
 }
 .catalogue-row.is-enriched {
-  border-left-color: var(--cl-cyan-dim);
+  border-left-color: var(--cl-gold-dim);
 }
 .catalogue-row.is-stub {
   border-left-color: var(--cl-faint);
 }
 .catalogue-row[open] {
-  border-left-color: var(--cl-cyan);
+  border-left-color: var(--cl-gold);
 }
 
 .catalogue-row__summary {
@@ -2778,7 +2829,7 @@ main.catalogue {
 }
 .catalogue-row__summary::-webkit-details-marker { display: none; }
 .catalogue-row__summary:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: -2px;
 }
 
@@ -2842,7 +2893,7 @@ main.catalogue {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 11px;
   letter-spacing: 0.18em;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .catalogue-row__chips {
   display: flex;
@@ -2866,7 +2917,7 @@ main.catalogue {
 }
 .catalogue-row[open] .catalogue-row__chevron {
   transform: rotate(90deg);
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 
 .catalogue-chip {
@@ -2876,13 +2927,13 @@ main.catalogue {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   padding: 3px 7px;
-  border: 1px solid var(--cl-cyan-dim);
-  color: var(--cl-cyan);
+  border: 1px solid var(--cl-gold-dim);
+  color: var(--cl-gold);
   white-space: nowrap;
 }
 .catalogue-chip--enriched {
-  color: var(--cl-cyan);
-  border-color: var(--cl-cyan-dim);
+  color: var(--cl-gold);
+  border-color: var(--cl-gold-dim);
 }
 .catalogue-chip--stub {
   color: var(--cl-faint);
@@ -2998,8 +3049,8 @@ main.catalogue {
 .catalogue-tag {
   display: inline-block;
   padding: 3px 9px;
-  border: 1px solid var(--cl-cyan-dim);
-  color: var(--cl-cyan);
+  border: 1px solid var(--cl-gold-dim);
+  color: var(--cl-gold);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: 0.14em;
@@ -3010,7 +3061,7 @@ main.catalogue {
   color: var(--cl-bone);
   text-decoration: none;
 }
-.catalogue-tag--collection a:hover { color: var(--cl-cyan); }
+.catalogue-tag--collection a:hover { color: var(--cl-gold); }
 
 .catalogue-row__footer {
   display: flex;
@@ -3028,7 +3079,7 @@ main.catalogue {
 }
 .catalogue-row__series { color: var(--cl-bone); }
 .catalogue-row__link {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   text-decoration: none;
   transition: color 180ms;
 }
@@ -3064,6 +3115,7 @@ main.catalogue {
   .catalogue-hero__sweep { width: 260px; height: 260px; top: 48px; }
   .catalogue-hero__title { top: 240px; }
   .catalogue-hero__heading { font-size: clamp(40px, 8vw, 56px); }
+  .catalogue-body { margin-top: -48px; }
   .catalogue-toolbar { font-size: 10px; gap: 10px; }
   .catalogue-row__summary {
     grid-template-columns: 22px 12px minmax(0, 1fr) 70px 16px;
@@ -3358,7 +3410,7 @@ main.catalogue {
  * ============================================================================= */
 
 .c-glass {
-  background: linear-gradient(180deg, rgba(8, 12, 20, 0.72) 0%, rgba(4, 8, 14, 0.82) 100%);
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.80) 0%, rgba(4, 8, 14, 0.88) 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(156, 230, 255, 0.18);
@@ -3489,43 +3541,131 @@ main.catalogue {
   top: 0;
   left: 0;
   right: 0;
-  height: 48px;
-  display: flex;
+  height: var(--top-nav-h, 48px);
+  /* Drei-Spalten-Grid (1fr auto 1fr) erzwingt die Nav-Links auf die echte
+     Viewport-Mitte, unabhängig von der Breite der Wortmarke links. Der dritte
+     1fr bleibt leer und dient als Symmetrie-Anker — nichts darin rendern. */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 28px;
+  /* `--tn-pad` wird in der collapsed-Variante von der Mark-Transform-Berechnung
+     gelesen, damit das Logo exakt auf die Viewport-Mitte fährt. Mobile-MQ unten
+     überschreibt nur diese Variable, nicht die translateX-Regel selbst. */
+  --tn-pad: 28px;
+  padding: 0 var(--tn-pad);
   background: linear-gradient(180deg, rgba(2, 3, 10, 0.85) 0%, rgba(2, 3, 10, 0) 100%);
-  border-bottom: 1px solid var(--cl-ghost);
   z-index: 50;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
+  transition: background 280ms ease-out,
+              height 360ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .top-nav__mark {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 12px;
   text-decoration: none;
   color: var(--cl-bone);
+  transition: transform 420ms cubic-bezier(0.4, 0, 0.2, 1),
+              gap 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 .top-nav__logo {
   height: 30px;
   width: auto;
   display: block;
   filter: drop-shadow(0 0 6px rgba(232, 220, 192, 0.35));
+  transition: height 360ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .top-nav__name {
   font-family: var(--font-cinzel), serif;
-  font-size: 12px;
+  font-size: 13.5px;
   letter-spacing: 0.32em;
   color: var(--cl-bone);
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  white-space: nowrap;
 }
 .top-nav__links {
   display: flex;
   gap: 4px;
+  transition: opacity 240ms ease-out;
+}
+
+/* Collapsed state — gesetzt von TopNav.tsx auf scrollY > 24px. Im collapsed:
+   Nav-Höhe wächst auf 124px (so der content darunter genug Luft bekommt);
+   Nav-Links faden weg; Mark wird zu vertikaler Spalte aus großem Logo + kleinem
+   "MENU"-Pseudo-Element; Logo droppt von oben rein. Klick aufs Mark expandiert
+   die Nav (TopNav.tsx fängt das ab statt zu navigieren). */
+.top-nav--collapsed {
+  background: linear-gradient(180deg, rgba(2, 3, 10, 0.78) 0%, rgba(2, 3, 10, 0.32) 60%, rgba(2, 3, 10, 0) 100%);
+}
+.top-nav--collapsed .top-nav__mark {
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transform: translateX(calc(50vw - var(--tn-pad) - 50%));
+  animation: markDropIn 480ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.top-nav--collapsed .top-nav__logo {
+  height: 60px;
+}
+.top-nav--collapsed .top-nav__name {
+  display: none;
+}
+.top-nav--collapsed .top-nav__links {
+  opacity: 0;
+  pointer-events: none;
+}
+/* Lokaler dunkler Halo hinter dem zentrierten Mark. Extends 48px unter die
+   Mark hinaus (in den Content-Bereich darunter), 80px seitlich (sanftes
+   Auslaufen), z-index: -1 sodass Logo + MENU darüber bleiben. Gradient-Center
+   bei 36% von oben — sitzt damit hinterm Logo, wo die Lesbarkeit am
+   wichtigsten ist. Auf void-dunklen Surfaces unsichtbar (matches --cl-void),
+   auf Photo/Karten-Hintergrund schafft er den Kontrast. */
+.top-nav--collapsed .top-nav__mark::before {
+  content: "";
+  position: absolute;
+  inset: -16px -80px -48px -80px;
+  background: radial-gradient(
+    ellipse 50% 68% at center 36%,
+    rgba(2, 3, 10, 0.78) 0%,
+    rgba(2, 3, 10, 0.48) 35%,
+    rgba(2, 3, 10, 0.14) 70%,
+    transparent 100%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+.top-nav--collapsed .top-nav__mark::after {
+  content: "MENU";
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  white-space: nowrap;
+  text-shadow: 0 0 10px color-mix(in oklch, var(--cl-cyan) 22%, transparent),
+               0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes markDropIn {
+  0% {
+    transform: translateX(calc(50vw - var(--tn-pad) - 50%)) translateY(-150%);
+    opacity: 0;
+  }
+  45% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(50vw - var(--tn-pad) - 50%));
+    opacity: 1;
+  }
 }
 .top-nav__link {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   padding: 6px 12px;
@@ -3551,20 +3691,44 @@ main.catalogue {
   align-items: center;
   gap: 12px;
 }
-.top-nav__signal {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--cl-cyan);
-  box-shadow: 0 0 6px var(--cl-cyan);
+/* Map page: hide the brand mark visually but keep it occupying its grid
+   column so the nav links stay in viewport-centre (grid is `1fr auto 1fr`).
+   opacity:0 (not display:none) preserves the layout track. The nav-links
+   are also pinned to column 2 explicitly so nothing can shift them. */
+body:has(main.map-route) .top-nav__mark {
+  opacity: 0;
+  pointer-events: none;
+  will-change: auto !important;
 }
-.top-nav__status {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--cl-dim);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+body:has(main.map-route) .top-nav__links {
+  grid-column: 2;
+}
+
+/* Buecher page: warm/gold accents so the TopNav sits naturally on top of the
+   cathedral background. Cool-cyan accents read as clinical against the gold
+   light shaft. */
+body:has(main.catalogue) .top-nav__logo {
+  filter: drop-shadow(0 0 6px rgba(201, 166, 90, 0.45));
+}
+body:has(main.catalogue) .top-nav__link--active,
+body:has(main.catalogue) .top-nav__link[aria-current="page"] {
+  color: var(--cl-gold);
+  background: color-mix(in oklch, var(--cl-gold) 12%, transparent);
+  border-color: color-mix(in oklch, var(--cl-gold) 45%, transparent);
+}
+
+/* /buecher runs on the warm/gold palette — recolor c-glass borders + the
+ * cross-bracket corners + hover lift to gold so the cathedral theme stays
+ * coherent. Cyan accents would read as clinical against the gold light. */
+body:has(main.catalogue) .c-glass {
+  border-color: color-mix(in oklch, var(--cl-gold) 22%, transparent);
+}
+body:has(main.catalogue) .c-glass:hover {
+  border-color: color-mix(in oklch, var(--cl-gold) 55%, transparent);
+}
+body:has(main.catalogue) .c-corners::before,
+body:has(main.catalogue) .c-corners::after {
+  border-color: var(--cl-gold);
 }
 
 /* Restyled .era-toggle to match the Chrono direction. Behaviour is unchanged
@@ -3602,9 +3766,22 @@ main.catalogue {
   background: rgba(156, 230, 255, 0.15);
 }
 
+/* `--top-nav-h` wird vom collapsed-State (body:has(.top-nav--collapsed)) auf
+   124px hochgesetzt, damit die größere Nav den content darunter wegschiebt
+   statt ihn zu überlappen. Surfaces mit eigenem main-padding-Override (Hub,
+   catalogue, ask) ignorieren das — die scrollen aber sowieso nicht, da kommt
+   collapsed nie zum Tragen. */
+body {
+  --top-nav-h: 48px;
+}
+body:has(.top-nav--collapsed) {
+  --top-nav-h: 124px;
+}
+
 /* Push every route's <main> below the fixed TopNav. */
 main {
-  padding-top: 48px;
+  padding-top: var(--top-nav-h);
+  transition: padding-top 360ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* =============================================================================
@@ -3637,7 +3814,7 @@ main {
   flex-wrap: wrap;
   padding: 0 24px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
@@ -3692,7 +3869,7 @@ main {
 }
 .bottom-console__card-kicker {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -3700,14 +3877,14 @@ main {
 .bottom-console__card-rule { flex: 1; }
 .bottom-console__card-sect {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-faint);
 }
 .bottom-console__card-title {
   font-family: var(--font-cinzel), serif;
-  font-size: 22px;
+  font-size: 24px;
   letter-spacing: 0.14em;
   font-weight: 500;
   color: var(--cl-bone);
@@ -3717,9 +3894,9 @@ main {
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
   color: var(--cl-dim);
-  font-size: 13px;
+  font-size: 17px;
   margin-top: 6px;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 .bottom-console__card-foot {
   display: flex;
@@ -3729,7 +3906,7 @@ main {
   padding-top: 8px;
   border-top: 1px solid var(--cl-faint);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
@@ -3738,15 +3915,40 @@ main {
 }
 .bottom-console__card-kbd {
   color: var(--cl-dim);
-  font-size: 9px;
+  font-size: 10px;
 }
 
+/* Compact-Cards-Variante — wird auf dem Hub gesetzt, wenn der Hub-Statement
+   den narrativen Hauptanker übernimmt und die Cards zur sekundären
+   Doorway-Leiste demotiert werden. Kleinerer Card-Footprint, leiseres
+   Typo-Gewicht; Architecture identisch, nur Maße + Schriftgrößen angepasst. */
+.bottom-console--compact-cards .bottom-console__cards { gap: 16px; }
+.bottom-console--compact-cards .bottom-console__card {
+  width: clamp(190px, 19vw, 230px);
+  padding: 10px 14px;
+}
+.bottom-console--compact-cards .bottom-console__card-title {
+  font-size: 18.5px;
+  margin-top: 4px;
+}
+.bottom-console--compact-cards .bottom-console__card-desc {
+  font-size: 13.5px;
+  margin-top: 4px;
+  line-height: 1.45;
+}
+.bottom-console--compact-cards .bottom-console__card-foot {
+  margin-top: 8px;
+  padding-top: 6px;
+  font-size: 10.5px;
+}
+.bottom-console--compact-cards .bottom-console__card-kicker { font-size: 10px; }
+.bottom-console--compact-cards .bottom-console__card-sect { font-size: 9.5px; }
+
 @media (max-width: 900px) {
-  .top-nav { padding: 0 14px; }
+  .top-nav { --tn-pad: 14px; }
   .top-nav__links { gap: 2px; }
   .top-nav__link { padding: 6px 8px; font-size: 9px; }
   .top-nav__name { display: none; }
-  .top-nav__status { display: none; }
   .bottom-console__strip { gap: 14px; font-size: 9px; }
 }
 
@@ -3758,9 +3960,29 @@ main {
 
 main.hub {
   position: relative;
-  height: 100vh;
+  min-height: 200vh;
   padding-top: 0;
-  overflow: hidden;
+  overflow: visible;
+}
+.hub-fold {
+  position: relative;
+}
+.hub-fold--hero {
+  height: 100vh;
+}
+.hub-fold--tools {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(72px, 12vh, 128px) clamp(16px, 4vw, 48px) clamp(140px, 18vh, 200px);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 3, 10, 0) 0%,
+    rgba(2, 3, 10, 0.45) 22%,
+    rgba(2, 3, 10, 0.82) 60%,
+    rgba(2, 3, 10, 0.92) 100%
+  );
 }
 
 .hub-auspex {
@@ -3776,17 +3998,19 @@ main.hub {
   --auspex-size: min(78vh, 42vw, 620px);
   width: var(--auspex-size);
   height: var(--auspex-size);
-  left: calc(84vw - var(--auspex-size) / 2);
-  top: calc(78vh - var(--auspex-size) / 2);
+  left: calc(82vw - var(--auspex-size) / 2);
+  top: calc(76vh - var(--auspex-size) / 2);
   opacity: 0.30;
+  animation: hubAuspexDriftA 38s ease-in-out infinite alternate;
 }
 .hub-auspex--secondary {
   --auspex-size: min(43vh, 23vw, 341px);
   width: var(--auspex-size);
   height: var(--auspex-size);
-  left: calc(12vw - var(--auspex-size) / 2);
-  top: calc(82vh - var(--auspex-size) / 2);
+  left: calc(14vw - var(--auspex-size) / 2);
+  top: calc(80vh - var(--auspex-size) / 2);
   opacity: 0.12;
+  animation: hubAuspexDriftB 53s ease-in-out infinite alternate;
 }
 
 .hub-title-block {
@@ -3800,7 +4024,7 @@ main.hub {
 }
 .hub-title-eyebrow {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: 12.5px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -3825,11 +4049,12 @@ main.hub {
   vertical-align: middle;
 }
 .hub-title-sub {
-  margin: 14px auto 0;
-  max-width: 520px;
+  margin: 16px auto 0;
+  max-width: 600px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 17px;
+  font-size: 20px;
+  line-height: 1.45;
   color: var(--cl-bone);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
@@ -3845,20 +4070,317 @@ main.hub {
 .hub-ghost {
   position: absolute;
   right: 32px;
-  top: 70px;
+  top: 88px;
   width: 260px;
   pointer-events: none;
+}
+
+/* Hero-Descent — mittig-unten im Hero-Fold, animiertes Cyan-Triple-Chevron
+   + Cinzel-Label „What can I do here?". Click triggert smooth scroll auf den
+   Tools-Fold. Fadet via `--hub-scroll-dim` (HubScrollWatch) sanft aus,
+   sobald der User zu scrollen beginnt. */
+.hub-hero-descent {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(168px, 22vh, 220px);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 22px 6px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--cl-bone);
+  font: inherit;
+  z-index: 5;
+  opacity: calc(1 - var(--hub-scroll-dim, 0) * 2.4);
+  transition: opacity 220ms linear, transform 280ms ease;
+}
+.hub-hero-descent:hover {
+  transform: translateX(-50%) translateY(-2px);
+}
+.hub-hero-descent:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 6px;
+}
+.hub-hero-descent__label {
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-bone);
+  opacity: 0.92;
+  text-shadow:
+    0 0 18px color-mix(in oklch, var(--cl-cyan) 28%, transparent),
+    0 2px 8px rgba(0, 0, 0, 0.92);
+  transition: color 200ms ease;
+}
+.hub-hero-descent:hover .hub-hero-descent__label {
+  color: var(--cl-cyan);
+}
+.hub-hero-descent__chev {
+  display: block;
+  stroke: var(--cl-cyan);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  filter: drop-shadow(
+    0 0 6px color-mix(in oklch, var(--cl-cyan) 38%, transparent)
+  );
+}
+.hub-hero-descent__chev path {
+  opacity: 0;
+  animation: hubDescentChev 2.4s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+.hub-hero-descent__chev path:nth-child(2) { animation-delay: 0.5s; }
+.hub-hero-descent__chev path:nth-child(3) { animation-delay: 1.0s; }
+
+/* Hub-Intro + Tools-Akkordeon (Iteration 2) — leben jetzt im normal-flow
+   Stack innerhalb des scrollbaren `.hub-fold--tools`-Containers. Hero hat
+   100vh für sich, dann scrollt der User in den Tools-Fold rein; dessen
+   Background-Gradient + der scroll-getriebene `.site-bg::after` Scrim
+   dimmen den vista-Background, damit Akkordeon-Text klar lesbar bleibt. */
+.hub-intro__body {
+  margin: 0 auto;
+  max-width: 620px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.55;
+  text-align: center;
+  color: var(--cl-bone);
+  opacity: 0.9;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+}
+.hub-intro__heading {
+  margin: clamp(28px, 4vh, 44px) 0 18px;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(20px, 2.6vw, 24px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--cl-bone);
+  text-shadow: 0 0 20px color-mix(in oklch, var(--cl-cyan) 26%, transparent),
+               0 2px 10px rgba(0, 0, 0, 0.85);
+}
+.hub-intro__heading::before {
+  content: "// ";
+  color: var(--cl-cyan);
+  opacity: 0.7;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 0.7em;
+  letter-spacing: 0.18em;
+  vertical-align: 0.18em;
+}
+.hub-intro__about {
+  margin: 4px auto clamp(22px, 3.4vh, 32px);
+  max-width: 600px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--cl-bone);
+  opacity: 0.82;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.78);
+}
+
+/* Tools-Accordion — vier Disclosure-Rows, single-open. Glas-Surface +
+   Cyan-Corner-Brackets; jeder Body enthält nur einen kurzen Absatz +
+   CTA-Link. Stärkerer Dark-Gradient hier als beim Default-c-glass,
+   damit der Text auch über hellen Bg-Bereichen lesbar bleibt. */
+.tools-accordion {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tools-accordion__row {
+  position: relative;
+  text-align: left;
+  background: linear-gradient(180deg, rgba(2, 3, 10, 0.78) 0%, rgba(4, 8, 14, 0.88) 100%);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  transition: border-color 180ms ease;
+}
+.tools-accordion__row:hover {
+  border-color: color-mix(in oklch, var(--cl-cyan) 38%, transparent);
+}
+.tools-accordion__row[data-open="true"] {
+  border-color: color-mix(in oklch, var(--cl-cyan) 55%, transparent);
+}
+.tools-accordion__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 20px;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+.tools-accordion__head:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 3px;
+}
+.tools-accordion__kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  flex: 0 0 auto;
+  min-width: 108px;
+}
+.tools-accordion__title {
+  font-family: var(--font-cinzel), serif;
+  font-size: 16.5px;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+  color: var(--cl-bone);
+  flex: 0 0 auto;
+}
+.tools-accordion__tease {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--cl-dim);
+  flex: 1 1 auto;
+  text-align: left;
+  margin-left: 12px;
+  opacity: 0.85;
+}
+.tools-accordion__indicator {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  color: var(--cl-cyan);
+  font-size: 14px;
+  transition: transform 220ms ease, opacity 200ms ease;
+  opacity: 0.7;
+  flex: 0 0 auto;
+}
+.tools-accordion__row[data-open="true"] .tools-accordion__indicator {
+  transform: rotate(45deg);
+  opacity: 1;
+}
+.tools-accordion__body {
+  padding: 0 20px 16px;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 240ms ease;
+}
+.tools-accordion__row[data-open="true"] .tools-accordion__body {
+  grid-template-rows: 1fr;
+}
+.tools-accordion__body-inner {
+  overflow: hidden;
+}
+.tools-accordion__body-text {
+  margin: 12px 0 14px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--cl-bone);
+  opacity: 0.92;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.65);
+}
+.tools-accordion__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+  padding: 8px 14px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  border: 1px solid color-mix(in oklch, var(--cl-cyan) 45%, transparent);
+  text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+.tools-accordion__cta:hover {
+  background: color-mix(in oklch, var(--cl-cyan) 12%, transparent);
+  border-color: color-mix(in oklch, var(--cl-cyan) 70%, transparent);
+}
+
+/* Hub-Sound-Strip — schmale Zeile direkt über der BottomConsole-Telemetrie
+   am unteren Bildschirmrand. Reiner Atmosphären-Hinweis. */
+.hub-sound-strip {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 78px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  z-index: 31;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  opacity: 0.55;
+  text-shadow: 0 0 10px color-mix(in oklch, var(--cl-cyan) 24%, transparent),
+               0 2px 6px rgba(0, 0, 0, 0.92);
+  pointer-events: none;
+}
+.hub-sound-strip > span:first-child,
+.hub-sound-strip > span:last-child {
+  font-size: 11px;
+  letter-spacing: 0;
+  opacity: 0.65;
+}
+
+@media (max-width: 900px) {
+  .hub-intro__body { font-size: 17px; max-width: 100%; }
+  .hub-intro__heading { font-size: 19px; }
+  .hub-intro__about { font-size: 16px; max-width: 100%; }
+  .tools-accordion__kicker { min-width: 0; font-size: 10px; }
+  .tools-accordion__title { font-size: 15px; }
+  .tools-accordion__tease { display: none; }
+  .tools-accordion__head { padding: 12px 14px; gap: 10px; }
+  .tools-accordion__body { padding: 0 14px 14px; }
+  .hub-sound-strip { bottom: 64px; font-size: 9.5px; letter-spacing: 0.28em; }
+  .hub-fold--tools { padding: clamp(56px, 9vh, 96px) 14px clamp(120px, 16vh, 160px); }
+  .hub-hero-descent { bottom: clamp(150px, 24vh, 200px); padding: 6px 16px; gap: 8px; }
+  .hub-hero-descent__label { font-size: 11.5px; letter-spacing: 0.26em; }
+}
+
+/* Home-only: scroll-getriebener Dim-Scrim über dem Vista-Foto. Das
+   `--hub-scroll-dim` wird vom HubScrollWatch-Client-Component (0 → 1)
+   gesetzt — bei Scroll-Y 0 ist der Hero pristine; ab ~70vh Scroll ist
+   der Scrim voll ausgeprägt (gecappt bei 55% Schwarz, damit das Foto
+   noch erkennbar bleibt). */
+body:has(main.hub) .site-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(2, 3, 10, calc(var(--hub-scroll-dim, 0) * 0.55));
+  transition: background 90ms linear;
 }
 
 @media (max-width: 900px) {
   .hub-auspex--secondary { display: none; }
   .hub-auspex--main {
-    --auspex-size: min(64vh, 76vw, 480px);
-    left: calc(76vw - var(--auspex-size) / 2);
-    top: calc(82vh - var(--auspex-size) / 2);
+    --auspex-size: min(56vh, 70vw, 420px);
+    left: calc(72vw - var(--auspex-size) / 2);
+    top: calc(78vh - var(--auspex-size) / 2);
   }
   .hub-ghost { display: none; }
-  .hub-title-block { top: 30%; }
+  .hub-title-block { top: 28%; }
   .hub-title { font-size: clamp(34px, 8vw, 56px); }
 }
 
@@ -3972,9 +4494,9 @@ main.book-detail {
   max-width: 60ch;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 18px;
-  line-height: 1.6;
-  color: rgba(232, 220, 192, 0.86);
+  font-size: 20px;
+  line-height: 1.55;
+  color: rgba(232, 220, 192, 0.88);
 }
 
 .book-detail__section {
@@ -4111,9 +4633,9 @@ main.stub-shell {
   margin: 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 19px;
-  line-height: 1.6;
-  color: rgba(232, 220, 192, 0.82);
+  font-size: 20px;
+  line-height: 1.55;
+  color: rgba(232, 220, 192, 0.86);
   max-width: 56ch;
 }
 
@@ -4139,6 +4661,59 @@ main.ask {
   position: relative;
   height: calc(100vh - 48px);
   overflow: hidden;
+}
+
+/* Soft bottom dimming over the librarium photo — enough to keep BottomNav +
+ * ProgressDots readable, but no hard black bar that would cover them. */
+body:has(main.ask) .site-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 3, 10, 0) 0%,
+    rgba(2, 3, 10, 0) 62%,
+    rgba(2, 3, 10, 0.20) 82%,
+    rgba(2, 3, 10, 0.45) 100%
+  );
+}
+
+/* Chronicle-Hall photo behind /timeline. Slightly stronger floor-dimming than
+ * Hub/Ask: the era ribbon and DetailPanel sit far down, and the photo's lower
+ * third (candles, balustrade) would otherwise compete with the ribbon ticks. */
+body:has(main.timeline-shell) .site-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 3, 10, 0) 0%,
+    rgba(2, 3, 10, 0.18) 32%,
+    rgba(2, 3, 10, 0.42) 70%,
+    rgba(2, 3, 10, 0.62) 100%
+  );
+}
+
+/* Cartog-Holo photo behind /map. The hologram disc lives over the photo's
+ * central glow column, so the dimming has to spare the middle while pulling
+ * the floor + ceiling down enough that the Theme-vignette can still anchor
+ * the disc. Slightly cooler floor than the other variants to lean into the
+ * Mechanicus blue cast of the photo. */
+body:has(main.map-route) .site-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 12, 0.40) 0%,
+    rgba(2, 6, 12, 0.10) 26%,
+    rgba(2, 6, 12, 0.08) 60%,
+      rgba(2, 6, 12, 0.55) 100%
+  );
+  transition: opacity 180ms ease-out;
 }
 
 .ask-readout {
@@ -4209,7 +4784,8 @@ main.atlas {
   max-width: 56ch;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 1.5;
   color: var(--cl-bone);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
@@ -4710,6 +5286,256 @@ main.atlas {
   color: var(--cl-dim);
 }
 
+/* =============================================================================
+ * Admin Inventory Tables (Task 4A — AtlasInventoryTable<T>).
+ *
+ * Distinct from the werke list above: generic, flex-based layout so the
+ * ten Phase-1 admin decks can declare their own column shapes. Widths
+ * come from per-column className hooks (`atlas-inv__c--title`,
+ * `atlas-inv__c--num`, …) declared next to the layout primitives.
+ * ============================================================================= */
+
+.atlas-inv { margin-top: 14px; }
+.atlas-inv__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--cl-cyan-fnt);
+  border-bottom: 1px solid var(--cl-cyan-fnt);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.atlas-inv__list {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.atlas-inv__row { width: 100%; }
+.atlas-inv__rowlink,
+.atlas-inv__rowstatic {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: var(--cl-bone);
+}
+.atlas-inv__rowlink:hover { transform: none; }
+.atlas-inv__c {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.atlas-inv__c--head { color: var(--cl-faint); }
+.atlas-inv__c--start  { text-align: start; }
+.atlas-inv__c--center { text-align: center; }
+.atlas-inv__c--end    { text-align: end; }
+
+button.atlas-inv__c--head {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+button.atlas-inv__c--head:hover,
+button.atlas-inv__c--head:focus-visible {
+  color: var(--cl-cyan);
+  outline: none;
+}
+.atlas-inv__c--sorted { color: var(--cl-cyan); }
+.atlas-inv__head-arrow {
+  font-size: 9px;
+  opacity: 0.45;
+  transition: opacity 0.12s ease;
+}
+.atlas-inv__c--sorted .atlas-inv__head-arrow,
+button.atlas-inv__c--head:hover .atlas-inv__head-arrow {
+  opacity: 1;
+}
+
+.atlas-inv__c--idx {
+  flex: 0 0 36px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+}
+.atlas-inv__c--chev {
+  flex: 0 0 14px;
+  font-family: var(--font-cinzel), serif;
+  font-size: 18px;
+  color: var(--cl-cyan);
+  text-align: center;
+}
+.atlas-inv__c--title { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.atlas-inv__c--num {
+  flex: 0 0 70px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  color: var(--cl-bone);
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
+.atlas-inv__c--label {
+  flex: 0 0 130px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--cl-dim);
+}
+.atlas-inv__c--meta {
+  flex: 0 0 110px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  color: var(--cl-dim);
+}
+.atlas-inv__c--signal { flex: 0 0 120px; display: flex; justify-content: flex-end; }
+.atlas-inv__name {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--cl-bone);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.atlas-inv__hint {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  color: var(--cl-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.atlas-inv__empty {
+  margin-top: 16px;
+  padding: 28px 22px;
+  text-align: center;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--cl-dim);
+}
+
+/* Feature-Signal-Pill (admin-side feature hint per inventory row). */
+.atlas-signal {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-dim);
+  white-space: nowrap;
+}
+.atlas-signal--live {
+  color: var(--cl-cyan);
+  border-color: var(--cl-cyan-dim);
+  background: rgba(156, 230, 255, 0.07);
+}
+.atlas-signal--queue {
+  color: var(--cl-gold);
+  border-color: rgba(201, 166, 90, 0.42);
+  background: rgba(201, 166, 90, 0.08);
+}
+.atlas-signal--future {
+  color: var(--cl-bone);
+  border-color: rgba(232, 220, 192, 0.30);
+}
+.atlas-signal--muted {
+  color: var(--cl-faint);
+  border-color: transparent;
+}
+
+/* Submissions-Statusfilter (Task 4D operational inventory).
+ * Visual vocabulary shared with .sort-pills / .audit-pills (catalogue
+ * toolbar) so the admin surface reads as one family; we only redeclare
+ * because the submissions filter sits inside .atlas-entity__body (not
+ * the catalogue toolbar) and the wrapper gets its own margin. */
+.atlas-statuspills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 4px 8px;
+  border: 1px solid var(--cl-cyan-fnt);
+  background: rgba(8, 12, 20, 0.5);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+}
+.atlas-statuspills__label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  margin-right: 4px;
+}
+.atlas-statuspill {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-dim);
+  padding: 6px 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 180ms, border-color 180ms, background 180ms;
+}
+.atlas-statuspill:hover {
+  color: var(--cl-bone);
+  border-color: var(--cl-cyan-dim);
+}
+.atlas-statuspill:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+.atlas-statuspill.active {
+  color: var(--cl-cyan);
+  border-color: var(--cl-cyan);
+  background: rgba(156, 230, 255, 0.10);
+}
+.atlas-statuspill__count {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+  font-variant-numeric: tabular-nums;
+}
+.atlas-statuspill.active .atlas-statuspill__count { color: var(--cl-cyan-dim); }
+
+/* Mono-Variante des Inventar-Namens (Submissions-Payload-Preview). */
+.atlas-inv__name--mono {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--cl-bone);
+}
+
 /* Stub-Karte für nicht-werke Decks */
 .atlas-stub {
   margin-top: 24px;
@@ -4735,7 +5561,7 @@ main.atlas {
 .atlas-stub__body {
   margin: 0 0 14px;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.55;
   color: var(--cl-dim);
 }
@@ -4794,4 +5620,584 @@ main.atlas {
   .atlas-table__era,
   .atlas-table__chips { display: none; }
   .atlas-entity__toolbar { font-size: 10px; }
+}
+
+/* ── /map (Cartographer port) ─────────────────────────────────────
+   Animations + print rules for the SVG galaxy hologram. Names are
+   `map`-prefixed to avoid colliding with any other route's keyframes. */
+
+@keyframes mapTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.4); }
+}
+
+@keyframes mapMoteDrift {
+  0%   { transform: translateZ(-40px) translate(0, 0); }
+  100% { transform: translateZ(40px)  translate(8px, -6px); }
+}
+
+@keyframes mapPulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.7); }
+}
+
+@keyframes mapRadarSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes mapHoloFlicker {
+  0%, 100% { opacity: 0; }
+  48%      { opacity: 0; }
+  50%      { opacity: 0.05; }
+  52%      { opacity: 0; }
+  70%      { opacity: 0.03; }
+  72%      { opacity: 0; }
+}
+
+@keyframes mapFadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mapDiveAtmospherePulse {
+  0%   { opacity: 0; }
+  35%  { opacity: 0.55; }
+  65%  { opacity: 0.45; }
+  100% { opacity: 0; }
+}
+
+.map-route .map-holo-flicker {
+  animation: mapHoloFlicker 10s infinite;
+  /* Fade-in/out is driven by data-anims on the hologram root. ease-in keeps
+     the return-from-segmentum subtle. */
+  transition: opacity 1s ease-in;
+}
+
+/* Anims-Gate: while inside a segmentum (and during dive/surface transitions
+   + a 1s settle window after surfacing), the holo flicker is paused and
+   invisible. It uses mix-blend-mode: overlay on a full-bleed primary-colour
+   layer, which produced visible blinking on Back-to-Galactic. */
+.map-route__hologram[data-anims="off"] .map-holo-flicker {
+  animation-play-state: paused;
+  opacity: 0;
+}
+
+/* Lightweight atmospheric overlay for the dive transition. Pulses in/out over
+   the dive duration (700 ms), peaking between 35–65 % of the animation —
+   exactly the window where the CSS-transform tween is at its highest motion.
+   Outside that window the overlay is invisible, so the user sees the galactic
+   before-state and the landed segmentum after-state unobstructed. Pure radial
+   vignette tinted by theme.bg0; no text, no settle phase, no opaque centre. */
+.map-dive-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    transparent 0%,
+    transparent 38%,
+    color-mix(in srgb, var(--map-atmosphere-bg, #02030a) 70%, transparent) 78%,
+    color-mix(in srgb, var(--map-atmosphere-bg, #02030a) 92%, transparent) 100%
+  );
+  opacity: 0;
+  animation: mapDiveAtmospherePulse 700ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+/* Print stylesheet — verbatim port of the prototype's @media print block,
+   scoped to .map-route so it never bleeds into other pages. */
+@media print {
+  @page { size: A4 landscape; margin: 0; }
+  html, body { background: #000 !important; overflow: visible !important; }
+  .map-route [data-no-drag],
+  .map-route .twk-panel,
+  .map-route .twk-toggle,
+  .map-route .twk-gear,
+  .map-route button { display: none !important; }
+  .map-route .map-holo-flicker { display: none !important; }
+}
+
+/* Map transition windows (2026-05-28, Round 7 — label-shrink + bg-recovery fix):
+ * GalaxyHologram sets two coordinated <html> attributes for the duration of
+ * the transition (700 ms dive / 460 ms surface):
+ *   data-map-transitioning — currently only signals the dive/surface window
+ *     for the .map-dive-atmosphere overlay; photo and grain stay at their
+ *     natural opacities throughout, so nothing snaps at finish_transition.
+ *   data-map-quiet — performance rules: backdrop-filters drop, media-player
+ *     wave/bars hide.
+ * Round 6 dimmed photo+grain during the window to set atmosphere; that
+ * created a visible recovery-dip at t=460 ms (surface) when the override fell
+ * away and a 240 ms linear ramp ran on the photo/grain opacities. Round 7
+ * reverts to a constant background pedestal — the .map-dive-atmosphere
+ * vignette carries the dive feel locally over the disc and does not bleed
+ * into recovery. */
+/* Round 7 (2026-05-28): data-map-quiet ist im Markup noch gesetzt, aber die
+ * CSS-Rules sind hier abgeschaltet. Vorher: backdrop-filter wurde an Chrome-
+ * Elementen während der Map-Transition deaktiviert + media-player wave/bars
+ * auf opacity 0 — beides snapte instant an finish_transition zurück und
+ * trug zum „filters werden re-applied"-Cut bei. Modern Chromium komponiert
+ * backdrop-filter GPU-beschleunigt, der Perf-Gewinn lohnt den Snap nicht. */
+
+/* =============================================================================
+ * MediaPlayer — sitewide ambient audio glyph.
+ *
+ * Idle/Collapsed: 12 schmale vertikale Bars in cyan als statisches Visualizer-
+ * Glyph in einer kleinen c-glass-ish Box. Hover/Focus → Panel expandiert nach
+ * links mit Track-Titel + Prev/Pause/Next + Volume-Slider. Playing: Bars
+ * folgen FFT-Daten und pulsieren.
+ *
+ * Positionierung: fixed bottom-right. Default-Offset reicht für Routes mit
+ * Telemetry-Strip-Only-BottomConsole. Auf dem Hub mit den 3 Doorway-Cards
+ * wird der Player höher gesetzt, damit er nicht in die Cards-Zone hineinragt.
+ * Mobile MQ packt ihn enger an den Rand.
+ * ============================================================================= */
+
+/* MediaPlayer — sitewide ambient strip, anchored bottom-left, ohne Kasten.
+ *
+ * Aufbau (in DOM-Reihenfolge, von oben nach unten im fixierten Block):
+ *   1. .media-player__wave — IMMER sichtbar, 28px CSS-Höhe, hairline 1-px
+ *      Bar-Sinuswelle. Schwebt über dem Header. Idle-Breathing wenn
+ *      pausiert; FFT-Mid-Band-reaktiv beim Playback.
+ *   2. .media-player__header — Row 1 (Eyebrow ↔ PLAYLIST-Disclose) und
+ *      Row 2 (borderless Play-Glyph + VOL-Toggle + Cormorant-Titel).
+ *   3. .media-player__vol-popover — POSITION: ABSOLUTE über dem VOL-Toggle.
+ *      Schmaler Hairline-Slider; mutually exclusive zum Playlist-Panel.
+ *   4. .media-player__panel-wrap — POSITION: ABSOLUTE, bottom: 100% des
+ *      Players. Klappt mit Grid-Rows-Transition über der Wave nach oben
+ *      auf wenn `--open`. Wave + Header bleiben fix verankert — kein
+ *      Hochrücken beim Aufklappen. */
+.media-player {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 40;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  color: var(--cl-cyan);
+  pointer-events: none;
+}
+.media-player > * { pointer-events: auto; }
+
+/* ─── Header — always visible. Two rows, harmonisch ausbalanciert. ────── */
+.media-player__header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.media-player__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 14px;
+}
+
+.media-player__eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  opacity: 0.62;
+  line-height: 1;
+}
+
+.media-player__disclose {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  opacity: 0.6;
+  transition: opacity 220ms ease-out, color 220ms ease-out;
+  line-height: 1;
+}
+.media-player__disclose:hover,
+.media-player--open .media-player__disclose {
+  opacity: 1;
+  color: var(--cl-bone);
+}
+.media-player__disclose:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+.media-player__disclose-glyph {
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--cl-cyan);
+  line-height: 1;
+}
+.media-player__disclose-label {
+  line-height: 1;
+}
+
+.media-player__main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* Play-Glyph — borderless. Inline 16×16 SVG (triangle ▶ or two bars ❚❚),
+ * padded for hit-area. Negative left-margin keeps it visually flush with
+ * the row's left edge despite the padding. Matching SVG-Größe wie der
+ * VOL-Icon-Button — gleiche vertikale Center-Alignment. */
+.media-player__play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 24px;
+  padding: 4px 6px;
+  margin-left: -6px;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  color: var(--cl-cyan);
+  font: inherit;
+  line-height: 1;
+  border-radius: 2px;
+  transition: color 220ms ease-out, background 220ms ease-out;
+}
+.media-player__play:hover {
+  color: var(--cl-bone);
+  background: rgba(156, 230, 255, 0.05);
+}
+.media-player__play:disabled { opacity: 0.4; cursor: default; }
+.media-player__play:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 1px;
+}
+.media-player--playing .media-player__play {
+  color: var(--cl-bone);
+}
+.media-player__play-glyph {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+/* Vol-Toggle — same borderless glyph pattern as the play button. Speaker
+ * icon (filled cone + 2 hairline arcs whose visibility tracks volume
+ * level). Click opens a Hairline-Slider popover above. */
+.media-player__vol-wrap {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+}
+.media-player__vol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 24px;
+  padding: 4px 6px;
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  color: var(--cl-cyan);
+  font: inherit;
+  line-height: 1;
+  border-radius: 2px;
+  transition: color 220ms ease-out, background 220ms ease-out;
+}
+.media-player__vol:hover,
+.media-player__vol.is-open {
+  color: var(--cl-bone);
+  background: rgba(156, 230, 255, 0.05);
+}
+.media-player__vol:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 1px;
+}
+.media-player__vol-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.media-player__vol-icon path[opacity] {
+  transition: opacity 220ms ease-out;
+}
+
+.media-player__vol-popover {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: 160px;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.92) 0%, rgba(4, 8, 14, 0.96) 100%);
+  border: 1px solid rgba(156, 230, 255, 0.22);
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 220ms ease-out, transform 220ms ease-out;
+}
+.media-player__vol-popover.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.media-player__vol-popover::before,
+.media-player__vol-popover::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: rgba(156, 230, 255, 0.5);
+  border-style: solid;
+  pointer-events: none;
+}
+.media-player__vol-popover::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.media-player__vol-popover::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+.media-player__title {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--cl-bone);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 280ms ease-out;
+}
+.media-player--silent .media-player__title {
+  color: var(--cl-dim);
+}
+
+/* ─── Wave — IMMER sichtbar, 28px CSS-Höhe, hairline 1-px Bar-Sinuswelle.
+ * Sitzt durch DOM-Order als erstes Kind oben im Block, über dem Header. */
+.media-player__wave {
+  display: block;
+  width: 100%;
+  height: 28px;
+  color: var(--cl-cyan);
+  overflow: visible;
+  pointer-events: none;
+}
+.media-player__bars {
+  filter: drop-shadow(0 0 1px color-mix(in oklch, var(--cl-cyan) 26%, transparent));
+  opacity: 0.55;
+  transition: opacity 420ms ease-out, filter 420ms ease-out;
+}
+.media-player--silent .media-player__bars {
+  opacity: 0.32;
+}
+.media-player--playing .media-player__bars {
+  opacity: 1;
+  filter: drop-shadow(0 0 3px color-mix(in oklch, var(--cl-cyan) 65%, transparent));
+}
+
+/* ─── Panel-Wrap — absolute, floatet auf über die Wave wenn --open.
+ * Wave + Header bleiben dabei fix bei bottom: 24px verankert; nichts
+ * rutscht hoch. Grid-Rows 0fr → 1fr ermöglicht Height-Auto-Animation. */
+.media-player__panel-wrap {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  padding-bottom: 12px;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    grid-template-rows 360ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 240ms ease-out;
+}
+.media-player__panel-wrap-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+.media-player--open .media-player__panel-wrap {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ─── Playlist-Panel — innerhalb des Panel-Wraps. ─────────────────────── */
+.media-player__panel {
+  position: relative;
+  padding: 14px 16px 12px;
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.84) 0%, rgba(4, 8, 14, 0.94) 100%);
+  border: 1px solid rgba(156, 230, 255, 0.22);
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+}
+.media-player__panel::before,
+.media-player__panel::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: rgba(156, 230, 255, 0.5);
+  border-style: solid;
+  pointer-events: none;
+}
+.media-player__panel::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.media-player__panel::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+.media-player__panel-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.media-player__panel-kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+.media-player__panel-rule { flex: 1; }
+.media-player__panel-sect {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+
+.media-player__panel-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.media-player__panel-track {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 6px;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(156, 230, 255, 0.06);
+  cursor: pointer;
+  color: var(--cl-dim);
+  text-align: left;
+  font-family: inherit;
+  transition: color 200ms ease-out, background 200ms ease-out;
+}
+.media-player__panel-track:first-child { border-top: none; }
+.media-player__panel-track:hover {
+  color: var(--cl-bone);
+  background: rgba(156, 230, 255, 0.04);
+}
+.media-player__panel-track:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 0;
+}
+.media-player__panel-track.is-active {
+  color: var(--cl-bone);
+  background: rgba(156, 230, 255, 0.06);
+}
+.media-player__panel-track-mark {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--cl-faint);
+  text-align: center;
+}
+.media-player__panel-track.is-active .media-player__panel-track-mark {
+  color: var(--cl-cyan);
+}
+.media-player__panel-track-title {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: inherit;
+}
+.media-player__panel-track-tail {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(156, 230, 255, 0.18) 60%, transparent);
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+.media-player__panel-track:hover .media-player__panel-track-tail,
+.media-player__panel-track.is-active .media-player__panel-track-tail {
+  opacity: 1;
+}
+
+/* Volume-Slider — used inside .media-player__vol-popover. */
+.media-player__volume {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+  height: 14px;
+  background: transparent;
+  cursor: pointer;
+}
+.media-player__volume:focus-visible { outline: 1px solid var(--cl-cyan); outline-offset: 2px; }
+.media-player__volume::-webkit-slider-runnable-track {
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(156, 230, 255, 0.55) 0%,
+    rgba(156, 230, 255, 0.18) 100%);
+}
+.media-player__volume::-moz-range-track {
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(156, 230, 255, 0.55) 0%,
+    rgba(156, 230, 255, 0.18) 100%);
+}
+.media-player__volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cl-cyan);
+  box-shadow: 0 0 6px var(--cl-cyan);
+  margin-top: -4px;
+  border: none;
+}
+.media-player__volume::-moz-range-thumb {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--cl-cyan);
+  box-shadow: 0 0 6px var(--cl-cyan);
+}
+
+@media (max-width: 900px) {
+  .media-player { bottom: 24px; left: 14px; width: 300px; }
+  .media-player__title { font-size: 16.5px; }
+  .media-player__wave { height: 24px; }
+  .media-player__panel-track-title { font-size: 15.5px; }
 }

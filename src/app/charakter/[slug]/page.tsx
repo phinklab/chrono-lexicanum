@@ -13,12 +13,12 @@ export default async function CharacterPage({ params }: { params: Promise<Params
         <CornerAuspex size={140} label="PERSONA // 1011" />
       </div>
       <div className="stub-shell__inner">
-        <p className="stub-shell__eyebrow">{"// PHASE-3 · IN VORBEREITUNG"}</p>
+        <p className="stub-shell__eyebrow">{"// PHASE 3 · IN PREPARATION"}</p>
         <h1 className="stub-shell__title">{slug}</h1>
         <span className="c-hairline stub-shell__rule" aria-hidden />
         <p className="stub-shell__body">
-          Charakter-Eintrag — Zugehörigkeit, Schicksalslinie, Auftritte, Querverweise.
-          Erscheint, sobald die Charakter-Detailseite portiert ist.
+          Character entry — allegiance, fate line, appearances, cross-references.
+          Appears once the character detail page is ported.
         </p>
       </div>
     </main>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
 import TopNav from "@/components/chrome/TopNav";
+import MediaPlayer from "@/components/chrome/MediaPlayer";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning>
         <TopNav />
         {children}
+        <MediaPlayer />
       </body>
     </html>
   );

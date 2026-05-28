@@ -24,12 +24,12 @@ function formatRelative(date: Date, now: Date): string {
   const min = Math.round(sec / 60);
   const hr = Math.round(min / 60);
   const day = Math.round(hr / 24);
-  if (sec < 30) return "gerade eben";
-  if (min < 1) return `vor ${sec} s`;
-  if (hr < 1) return `vor ${min} Min.`;
-  if (day < 1) return `vor ${hr} Std.`;
-  if (day < 7) return `vor ${day} Tag${day === 1 ? "" : "en"}`;
-  return new Intl.DateTimeFormat("de-DE", {
+  if (sec < 30) return "just now";
+  if (min < 1) return `${sec}s ago`;
+  if (hr < 1) return `${min} min ago`;
+  if (day < 1) return `${hr} hr ago`;
+  if (day < 7) return `${day} day${day === 1 ? "" : "s"} ago`;
+  return new Intl.DateTimeFormat("en-US", {
     day: "2-digit",
     month: "2-digit",
     year: "2-digit",
@@ -38,7 +38,7 @@ function formatRelative(date: Date, now: Date): string {
 
 export default function EntityDeck({ deck, stats, now }: EntityDeckProps) {
   const isPhase2 = deck.phase === 2;
-  const rowDisplay = new Intl.NumberFormat("de-DE").format(stats.rowCount);
+  const rowDisplay = new Intl.NumberFormat("en-US").format(stats.rowCount);
 
   return (
     <Link
@@ -46,7 +46,7 @@ export default function EntityDeck({ deck, stats, now }: EntityDeckProps) {
       className={`atlas-deck c-glass c-corners atlas-deck--${deck.accent}${
         isPhase2 ? " atlas-deck--phase2" : ""
       }`}
-      aria-label={`${deck.label}: ${rowDisplay} Einträge, ${deck.blurb}`}
+      aria-label={`${deck.label}: ${rowDisplay} entries, ${deck.blurb}`}
     >
       <header className="atlas-deck__head">
         <span className="atlas-deck__label">{deck.label}</span>
@@ -59,7 +59,7 @@ export default function EntityDeck({ deck, stats, now }: EntityDeckProps) {
 
       <div className="atlas-deck__count">
         <span className="atlas-deck__count-num">{rowDisplay}</span>
-        <span className="atlas-deck__count-tag">EINTRÄGE</span>
+        <span className="atlas-deck__count-tag">ENTRIES</span>
       </div>
 
       <ProvenancePill
@@ -75,17 +75,17 @@ export default function EntityDeck({ deck, stats, now }: EntityDeckProps) {
           <time
             className="atlas-deck__time"
             dateTime={stats.lastUpdated.toISOString()}
-            title={stats.lastUpdated.toLocaleString("de-DE")}
+            title={stats.lastUpdated.toLocaleString("en-US")}
           >
-            zuletzt {formatRelative(stats.lastUpdated, now)}
+            last {formatRelative(stats.lastUpdated, now)}
           </time>
         ) : (
           <span className="atlas-deck__time atlas-deck__time--mute">
-            Ohne Zeitstempel
+            No timestamp
           </span>
         )}
         <span className="atlas-deck__cta" aria-hidden>
-          ÖFFNEN →
+          OPEN →
         </span>
       </footer>
     </Link>

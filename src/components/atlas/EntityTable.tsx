@@ -55,21 +55,21 @@ export default function EntityTable({ rows, totalRows, auditMode }: EntityTableP
 
   const resultLabel = q.trim().length === 0
     ? `${filtered.length} / ${totalRows}`
-    : `${filtered.length} Treffer · ${rows.length} sichtbar · ${totalRows} gesamt`;
+    : `${filtered.length} matches · ${rows.length} visible · ${totalRows} total`;
 
   return (
     <div className="atlas-table">
       <SearchBox
         value={q}
         onChange={setQ}
-        placeholder="Nach Titel, Autor, Slug, Fraktion, ÄRA, SSOT-ID…"
-        label="VOLLTEXT"
+        placeholder="By title, author, slug, faction, era, SSOT-ID…"
+        label="SEARCH"
         resultLabel={resultLabel}
       />
 
       {filtered.length === 0 ? (
         <div className="atlas-table__empty c-glass c-corners">
-          Keine Treffer in dieser Audit/Such-Kombination.
+          No matches in this audit/search combination.
         </div>
       ) : (
         <ol className="atlas-table__list">

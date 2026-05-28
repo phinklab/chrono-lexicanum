@@ -19,6 +19,12 @@ type BottomConsoleProps = {
   withCards?: boolean;
   doorways?: Doorway[];
   novelCountText?: string;
+  /**
+   * If true, renders the doorway cards in a smaller/denser variant — used
+   * on the Hub where a hero statement block above takes the visual weight
+   * and the cards demote to secondary footer-navigation.
+   */
+  compactCards?: boolean;
 };
 
 const DEFAULT_DOORWAYS: Doorway[] = [
@@ -30,7 +36,7 @@ const DEFAULT_DOORWAYS: Doorway[] = [
   },
   {
     l: "BIBLIOTHECA",
-    t: "Bücher",
+    t: "Books",
     d: "Browse the full novel catalogue, sorted, filtered, audited.",
     href: "/buecher",
   },
@@ -46,10 +52,12 @@ export default function BottomConsole({
   withCards = true,
   doorways = DEFAULT_DOORWAYS,
   novelCountText = "NOVELS · 7 ERAS · 5 SEGMENTA",
+  compactCards = false,
 }: BottomConsoleProps) {
   const sect = ["I", "II", "III"];
+  const rootCls = `bottom-console${compactCards ? " bottom-console--compact-cards" : ""}`;
   return (
-    <div className="bottom-console" aria-label="Archive console">
+    <div className={rootCls} aria-label="Archive console">
       <div className="bottom-console__strip">
         <span className="bottom-console__cog">
           <span className="c-pulse bottom-console__cog-dot" aria-hidden />

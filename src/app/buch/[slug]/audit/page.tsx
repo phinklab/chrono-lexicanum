@@ -32,7 +32,7 @@ type Params = { slug: string };
 type PrimitiveValue = string | number | Date | null | undefined;
 
 const FIELD_EMPTY = "—";
-const dateFormatter = new Intl.DateTimeFormat("de-DE", {
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
   dateStyle: "medium",
   timeStyle: "short",
 });
@@ -452,9 +452,9 @@ export default async function BookAuditPage({ params }: { params: Promise<Params
       <AuditSection title="Collections">
         <div className="audit-collection-grid">
           <div>
-            <h3>Enthalten in</h3>
+            <h3>Contained in</h3>
             {audit.containedIn.length === 0 ? (
-              <EmptyRow label="Enthalten in: keine" />
+              <EmptyRow label="Contained in: none" />
             ) : (
               <ul className="audit-linked-list">
                 {audit.containedIn.map((row) => (
@@ -469,9 +469,9 @@ export default async function BookAuditPage({ params }: { params: Promise<Params
             )}
           </div>
           <div>
-            <h3>Enthält</h3>
+            <h3>Contains</h3>
             {audit.contains.length === 0 ? (
-              <EmptyRow label="Enthält: keine" />
+              <EmptyRow label="Contains: none" />
             ) : (
               <ul className="audit-linked-list">
                 {audit.contains.map((row) => (

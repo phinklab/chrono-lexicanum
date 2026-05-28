@@ -12,7 +12,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import SiteBackground from "@/components/chrome/SiteBackground";
-import LiveTelemetry from "@/components/chrono/LiveTelemetry";
+import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import EntityDeck from "@/components/atlas/EntityDeck";
 import { DECKS } from "@/lib/atlas/decks";
 import { getIsAdmin } from "@/lib/atlas/auth";
@@ -20,7 +20,7 @@ import { getBridgeStats } from "@/lib/atlas/queries";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = { title: "Brücke" };
+export const metadata: Metadata = { title: "Bridge" };
 
 export default async function AtlasBridgePage() {
   if (!(await getIsAdmin())) notFound();
@@ -38,15 +38,15 @@ export default async function AtlasBridgePage() {
     <main className="atlas">
       <SiteBackground variant="vista" position="50% 22%" />
 
-      <header className="atlas-hero" aria-label="Atlas — Kommando-Brücke">
+      <header className="atlas-hero" aria-label="Atlas — Command Bridge">
         <div className="atlas-hero__line">
           <span className="atlas-hero__dot" aria-hidden />
-          <span>{"// ATLAS · KOMMANDO-BRÜCKE · LECTIO"}</span>
+          <span>{"// ATLAS · COMMAND BRIDGE · LECTIO"}</span>
           <span className="atlas-hero__dot" aria-hidden />
         </div>
-        <h1 className="atlas-hero__title">BRÜCKE</h1>
+        <h1 className="atlas-hero__title">BRIDGE</h1>
         <p className="atlas-hero__sub">
-          Zwölf Decks · jede Entität als Read-only-Strang über dem Live-Schema.
+          Twelve decks · every entity as a read-only strand over the live schema.
         </p>
         <div className="atlas-hero__telemetry">
           <span className="atlas-hero__readout">
@@ -58,32 +58,14 @@ export default async function AtlasBridgePage() {
           </span>
           <span className="atlas-hero__readout">
             <span className="atlas-hero__readout-num">
-              {new Intl.NumberFormat("de-DE").format(totalRows)}
+              {new Intl.NumberFormat("en-US").format(totalRows)}
             </span>
-            <span className="atlas-hero__readout-tag">EINTRÄGE</span>
+            <span className="atlas-hero__readout-tag">ENTRIES</span>
           </span>
           <span className="atlas-hero__sep" aria-hidden>
             ·
           </span>
-          <LiveTelemetry
-            label="LOAD"
-            initial={87.3}
-            min={84}
-            max={92}
-            unit="%"
-            interval={1600}
-            drift={0.04}
-          />
-          <LiveTelemetry
-            label="COGITATIO"
-            initial={1.024}
-            min={0.9}
-            max={1.2}
-            unit=""
-            interval={1900}
-            drift={0.08}
-            decimals={3}
-          />
+          <CatalogueTelemetry />
         </div>
       </header>
 
@@ -101,7 +83,7 @@ export default async function AtlasBridgePage() {
       <footer className="atlas-footer">
         <span>EX · COMPENDIVM · OMNIVM</span>
         <span className="atlas-footer__mid">
-          Σ JUNKTIONEN {new Intl.NumberFormat("de-DE").format(junctionTotal)} · DECKS {DECKS.length}
+          Σ JUNCTIONS {new Intl.NumberFormat("en-US").format(junctionTotal)} · DECKS {DECKS.length}
         </span>
         <span>STAMP M42.347</span>
       </footer>

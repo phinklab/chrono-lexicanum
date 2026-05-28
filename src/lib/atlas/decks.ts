@@ -1,7 +1,7 @@
 /**
  * Atlas deck registry (Task 2 — Atlas-Brücke).
  *
- * The 12 admin decks. Order = display order on the Brücke. The slug after
+ * The 12 admin decks. Order = display order on the Bridge. The slug after
  * `/atlas/` matches the `id`. `accent` colour-codes the deck on the card
  * (cyan = lore-canonical / catalogues; gold = editorial scaffolding; blood
  * = audit-only / phase 2). `phase` marks decks that are stubbed in Task 2
@@ -12,71 +12,71 @@ import type { DeckId, DeckMeta } from "./types";
 export const DECKS: ReadonlyArray<DeckMeta> = [
   {
     id: "werke",
-    label: "WERKE",
+    label: "WORKS",
     route: "/atlas/werke",
     accent: "cyan",
     phase: 1,
-    blurb: "Bücher, Filme, Channels — der zentrale Werk-Knoten.",
+    blurb: "Books, films, channels — the central work node.",
     publicDetailPattern: "/buch/[slug]",
   },
   {
     id: "fraktionen",
-    label: "FRAKTIONEN",
+    label: "FACTIONS",
     route: "/atlas/fraktionen",
     accent: "gold",
     phase: 1,
-    blurb: "Imperium · Chaos · Xenos · Neutral — kanonische Allegianzen.",
+    blurb: "Imperium · Chaos · Xenos · Neutral — canonical allegiances.",
     publicDetailPattern: "/fraktion/[id]",
   },
   {
     id: "charaktere",
-    label: "CHARAKTERE",
+    label: "CHARACTERS",
     route: "/atlas/charaktere",
     accent: "cyan",
     phase: 1,
-    blurb: "Personae quer durch das Werkkorpus.",
+    blurb: "Personae across the work corpus.",
     publicDetailPattern: "/charakter/[id]",
   },
   {
     id: "welten",
-    label: "WELTEN",
+    label: "WORLDS",
     route: "/atlas/welten",
     accent: "cyan",
     phase: 1,
-    blurb: "Schauplätze · Stationen · Welten der Galaxis.",
+    blurb: "Settings · stations · worlds of the galaxy.",
     publicDetailPattern: "/welt/[id]",
   },
   {
     id: "sektoren",
-    label: "SEKTOREN",
+    label: "SECTORS",
     route: "/atlas/sektoren",
     accent: "gold",
     phase: 1,
-    blurb: "Cartographer-Gerüst: Segmenta und Sektoren.",
+    blurb: "Cartographer scaffolding: segmenta and sectors.",
   },
   {
     id: "aeren",
-    label: "ÄREN",
+    label: "ERAS",
     route: "/atlas/aeren",
     accent: "gold",
     phase: 1,
-    blurb: "Editoriale Anker M30 – M42.",
+    blurb: "Editorial anchors M30 – M42.",
   },
   {
     id: "serien",
-    label: "SERIEN",
+    label: "SERIES",
     route: "/atlas/serien",
     accent: "cyan",
     phase: 1,
-    blurb: "Buchreihen · Heresy · Anthologien · Omnibus-Folgen.",
+    blurb: "Book series · Heresy · anthologies · omnibus runs.",
   },
   {
     id: "personen",
-    label: "PERSONEN",
+    label: "PEOPLE",
     route: "/atlas/personen",
     accent: "cyan",
     phase: 1,
-    blurb: "Autoren · Sprecher · Editoren · Künstler.",
+    blurb: "Authors · narrators · editors · artists.",
   },
   {
     id: "submissions",
@@ -84,15 +84,15 @@ export const DECKS: ReadonlyArray<DeckMeta> = [
     route: "/atlas/submissions",
     accent: "gold",
     phase: 1,
-    blurb: "Community-Einsendungen, Moderations-Queue.",
+    blurb: "Community submissions, moderation queue.",
   },
   {
     id: "facets",
-    label: "FACETTEN",
+    label: "FACETS",
     route: "/atlas/facets",
     accent: "cyan",
     phase: 1,
-    blurb: "12 Kategorien · NEON-14 + editorische Facetten.",
+    blurb: "12 categories · NEON-14 + editorial facets.",
   },
   {
     id: "services",
@@ -100,15 +100,15 @@ export const DECKS: ReadonlyArray<DeckMeta> = [
     route: "/atlas/services",
     accent: "cyan",
     phase: 1,
-    blurb: "Externe Storefronts und Verweis-Links.",
+    blurb: "External storefronts and reference links.",
   },
   {
     id: "junctions",
-    label: "JUNKTIONEN",
+    label: "JUNCTIONS",
     route: "/atlas/junctions",
     accent: "blood",
     phase: 2,
-    blurb: "Audit-Trail-Browser · Drift · Junction-Lücken.",
+    blurb: "Audit-trail browser · drift · junction gaps.",
   },
 ] as const;
 

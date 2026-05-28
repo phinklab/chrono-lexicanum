@@ -181,11 +181,11 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
         </aside>
 
         <article className="book-detail__title-block">
-          <div className="book-detail__eyebrow">{"// LECTIO PROFVNDA · BUCH"}</div>
+          <div className="book-detail__eyebrow">{"// LECTIO PROFVNDA · BOOK"}</div>
           <h1 className="book-detail__title">{book.title}</h1>
 
           {authors.length > 0 && (
-            <p className="book-detail__byline">von {authors.join(", ")}</p>
+            <p className="book-detail__byline">by {authors.join(", ")}</p>
           )}
 
           {metaParts.length > 0 && (
@@ -194,7 +194,7 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
 
           {book.containedIn.length > 0 && (
             <p className="book-detail__contained">
-              Auch enthalten in:{" "}
+              Also contained in:{" "}
               {book.containedIn.map((c, i) => (
                 <span key={c.collectionSlug}>
                   {i > 0 && ", "}
@@ -215,7 +215,7 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
 
           {book.factions.length > 0 && (
             <section className="book-detail__section">
-              <div className="book-detail__section-label">{"// FRAKTIONEN"}</div>
+              <div className="book-detail__section-label">{"// FACTIONS"}</div>
               <span className="c-hairline" aria-hidden />
               <ul className="book-detail__chip-row">
                 {book.factions.map((f) => (
@@ -230,7 +230,7 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
 
           {book.locations.length > 0 && (
             <section className="book-detail__section">
-              <div className="book-detail__section-label">{"// ORTE"}</div>
+              <div className="book-detail__section-label">{"// LOCATIONS"}</div>
               <span className="c-hairline" aria-hidden />
               <ul className="book-detail__chip-row">
                 {book.locations.map((l) => (
@@ -245,7 +245,7 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
 
           {book.characters.length > 0 && (
             <section className="book-detail__section">
-              <div className="book-detail__section-label">{"// CHARAKTERE"}</div>
+              <div className="book-detail__section-label">{"// CHARACTERS"}</div>
               <span className="c-hairline" aria-hidden />
               <ul className="book-detail__chip-row">
                 {book.characters.map((c) => (
@@ -260,7 +260,7 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
 
           {book.facets.length > 0 && (
             <section className="book-detail__section">
-              <div className="book-detail__section-label">{"// FACETTEN"}</div>
+              <div className="book-detail__section-label">{"// FACETS"}</div>
               <span className="c-hairline" aria-hidden />
               <ul className="book-detail__chip-row">
                 {book.facets.map((f) => (

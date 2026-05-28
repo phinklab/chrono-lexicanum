@@ -13,12 +13,12 @@ export default async function WorldPage({ params }: { params: Promise<Params> })
         <CornerAuspex size={140} label="MVNDVS // 1011" />
       </div>
       <div className="stub-shell__inner">
-        <p className="stub-shell__eyebrow">{"// PHASE-3 · IN VORBEREITUNG"}</p>
+        <p className="stub-shell__eyebrow">{"// PHASE 3 · IN PREPARATION"}</p>
         <h1 className="stub-shell__title">{slug}</h1>
         <span className="c-hairline stub-shell__rule" aria-hidden />
         <p className="stub-shell__body">
-          Welt-Eintrag — Sektor-Lage, klimatische Bedingungen, prägende Ereignisse,
-          Schauplatz-Bücher. Erscheint, sobald die Welt-Detailseite portiert ist.
+          World entry — sector location, climate, defining events,
+          setting books. Appears once the world detail page is ported.
         </p>
       </div>
     </main>

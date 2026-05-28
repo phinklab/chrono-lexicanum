@@ -30,15 +30,14 @@ const CANT_PHRASES = [
 
 type WordFieldProps = {
   count?: number;
-  area?: { w: number; h: number };
   seed?: number;
+  /** RGB triplet "r, g, b" for the phrase color (e.g. "201, 166, 90"). */
   color?: string;
   baseOpacity?: number;
 };
 
 export default function WordField({
   count = 22,
-  area = { w: 1440, h: 900 },
   seed = 11,
   color = "201,166,90",
   baseOpacity = 0.45,
@@ -51,8 +50,8 @@ export default function WordField({
 
   const motes = Array.from({ length: count }).map(() => ({
     phrase: CANT_PHRASES[Math.floor(rand() * CANT_PHRASES.length)],
-    x: rand() * area.w,
-    y: rand() * area.h,
+    xPct: 2 + rand() * 78,
+    yPct: 4 + rand() * 86,
     size: 14 + rand() * 22,
     baseDelay: rand() * 8,
     charStagger: 0.08 + rand() * 0.22,
@@ -63,7 +62,7 @@ export default function WordField({
 
   return (
     <div
-      style={{ position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden" }}
+      style={{ position: "fixed", inset: 0, pointerEvents: "none", overflow: "hidden", zIndex: 2 }}
       aria-hidden
     >
       {motes.map((m, i) => (
@@ -71,8 +70,8 @@ export default function WordField({
           key={i}
           style={{
             position: "absolute",
-            left: m.x,
-            top: m.y,
+            left: `${m.xPct}%`,
+            top: `${m.yPct}%`,
             fontFamily: m.mono ? "var(--font-plex-mono)" : "var(--font-cinzel)",
             fontSize: m.size,
             color: `rgba(${color}, ${m.op})`,

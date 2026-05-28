@@ -20,28 +20,11 @@
  * entity left → linked works right with rawName, confidence, both detail
  * links) drives the audit-trail / find-drift / find-gaps use cases.
  */
-import { and, countDistinct, eq, inArray, isNotNull, max, min, sql } from "drizzle-orm";
+import { eq, inArray, sql } from "drizzle-orm";
 import { db } from "@/db/client";
 import {
-  bookDetails,
-  characters,
   eras as erasTable,
-  externalLinks,
-  facetCategories,
-  facetValues,
-  factions,
-  locations,
-  persons,
-  sectors,
-  series,
-  services,
-  submissions,
-  workCharacters,
   workCollections as workCollectionsTable,
-  workFacets,
-  workFactions,
-  workLocations,
-  workPersons,
   works as worksTable,
 } from "@/db/schema";
 import type { BridgeStats } from "./types";
@@ -86,135 +69,82 @@ const toDate = (v: unknown): Date | null => {
   return null;
 };
 
-const n = (row: ReadonlyArray<{ n: number }>): number => Number(row[0]?.n ?? 0);
-
 export async function getBridgeStats(): Promise<BridgeStats> {
-  const t = await Promise.all([
-    // 0 — werke rowCount (works.kind=book)
-    db.select({ n: sql<number>`count(*)::int` }).from(worksTable).where(eq(worksTable.kind, "book")),
-    // 1 — werke ssot count
-    db.select({ n: sql<number>`count(*)::int` })
-      .from(worksTable)
-      .where(and(eq(worksTable.kind, "book"), eq(worksTable.sourceKind, "ssot"))),
-    // 2 — werke lastUpdated (MAX(updatedAt) WHERE kind=book)
-    db.select({ v: max(worksTable.updatedAt) }).from(worksTable).where(eq(worksTable.kind, "book")),
+  // Single round-trip — pgbouncer transaction-mode + postgres-js chokes
+  // hard on 30 parallel COUNTs from the same request (statement_timeout
+  // cancellations at high pool sizes, or seconds-long stalls at low ones).
+  // Collapsing every deck aggregate into one statement makes each query
+  // cost a single sequential scan on a tiny table and keeps the whole
+  // call comfortably under the 1.5 s cold-start budget.
+  const rows = (await db.execute(sql`
+    SELECT
+      (SELECT count(*)::int                  FROM works        WHERE kind = 'book')                          AS werke_count,
+      (SELECT count(*)::int                  FROM works        WHERE kind = 'book' AND source_kind = 'ssot') AS werke_ssot,
+      (SELECT max(updated_at)                FROM works        WHERE kind = 'book')                          AS werke_updated,
+      (SELECT count(*)::int                  FROM factions)                                                  AS fraktionen_count,
+      (SELECT count(*)::int                  FROM factions     WHERE alignment = 'imperium')                 AS imperium_count,
+      (SELECT count(*)::int                  FROM characters)                                                AS charaktere_count,
+      (SELECT count(*)::int                  FROM work_characters)                                           AS work_char_count,
+      (SELECT count(*)::int                  FROM locations)                                                 AS welten_count,
+      (SELECT count(*)::int                  FROM locations    WHERE gx IS NOT NULL)                         AS welten_mapped,
+      (SELECT count(*)::int                  FROM sectors)                                                   AS sektoren_count,
+      (SELECT count(*)::int                  FROM locations    WHERE sector_id IS NOT NULL)                  AS welten_in_sektoren,
+      (SELECT count(*)::int                  FROM eras)                                                      AS aeren_count,
+      (SELECT min(start_y)                   FROM eras)                                                      AS aeren_lo,
+      (SELECT max(end_y)                     FROM eras)                                                      AS aeren_hi,
+      (SELECT count(*)::int                  FROM series)                                                    AS serien_count,
+      (SELECT count(*)::int                  FROM book_details WHERE series_id IS NOT NULL)                  AS book_details_with_series,
+      (SELECT count(*)::int                  FROM persons)                                                   AS personen_count,
+      (SELECT count(DISTINCT person_id)::int FROM work_persons WHERE role = 'author')                        AS distinct_autoren,
+      (SELECT count(*)::int                  FROM submissions)                                               AS submissions_count,
+      (SELECT count(*)::int                  FROM submissions  WHERE status = 'pending')                     AS submissions_pending,
+      (SELECT max(created_at)                FROM submissions)                                               AS submissions_updated,
+      (SELECT count(*)::int                  FROM facet_categories)                                          AS facet_cats,
+      (SELECT count(*)::int                  FROM facet_values)                                              AS facet_values_count,
+      (SELECT count(*)::int                  FROM services)                                                  AS services_count,
+      (SELECT count(*)::int                  FROM external_links)                                            AS external_links_count,
+      (SELECT count(*)::int                  FROM work_factions)                                             AS j_wf,
+      (SELECT count(*)::int                  FROM work_characters)                                           AS j_wc,
+      (SELECT count(*)::int                  FROM work_locations)                                            AS j_wl,
+      (SELECT count(*)::int                  FROM work_persons)                                              AS j_wp,
+      (SELECT count(*)::int                  FROM work_facets)                                               AS j_wfac,
+      (SELECT count(*)::int                  FROM work_collections)                                          AS j_wcol
+  `)) as unknown as ReadonlyArray<Record<string, unknown>>;
 
-    // 3 — fraktionen rowCount
-    db.select({ n: sql<number>`count(*)::int` }).from(factions),
-    // 4 — fraktionen imperium count
-    db.select({ n: sql<number>`count(*)::int` }).from(factions).where(eq(factions.alignment, "imperium")),
+  const r = rows[0] ?? {};
+  const num = (k: string): number => toNumber(r[k]);
 
-    // 5 — charaktere rowCount
-    db.select({ n: sql<number>`count(*)::int` }).from(characters),
-    // 6 — workCharacters total (for Ø Appearances / Char)
-    db.select({ n: sql<number>`count(*)::int` }).from(workCharacters),
-
-    // 7 — welten rowCount
-    db.select({ n: sql<number>`count(*)::int` }).from(locations),
-    // 8 — welten mit Karten-Koordinaten (gx IS NOT NULL)
-    db.select({ n: sql<number>`count(*)::int` }).from(locations).where(isNotNull(locations.gx)),
-
-    // 9 — sektoren rowCount
-    db.select({ n: sql<number>`count(*)::int` }).from(sectors),
-    // 10 — locations mit Sektor-Zuordnung (für Ø Welten/Sektor)
-    db.select({ n: sql<number>`count(*)::int` }).from(locations).where(isNotNull(locations.sectorId)),
-
-    // 11 — aeren rowCount
-    db.select({ n: sql<number>`count(*)::int` }).from(erasTable),
-    // 12 — aeren M-range (min start, max end)
-    db.select({ lo: min(erasTable.startY), hi: max(erasTable.endY) }).from(erasTable),
-
-    // 13 — serien rowCount
-    db.select({ n: sql<number>`count(*)::int` }).from(series),
-    // 14 — bookDetails mit seriesId (für Ø Bände/Serie)
-    db.select({ n: sql<number>`count(*)::int` }).from(bookDetails).where(isNotNull(bookDetails.seriesId)),
-
-    // 15 — personen rowCount
-    db.select({ n: sql<number>`count(*)::int` }).from(persons),
-    // 16 — distincte Autoren (workPersons.role='author')
-    db.select({ n: countDistinct(workPersons.personId) })
-      .from(workPersons)
-      .where(eq(workPersons.role, "author")),
-
-    // 17 — submissions rowCount
-    db.select({ n: sql<number>`count(*)::int` }).from(submissions),
-    // 18 — submissions pending
-    db.select({ n: sql<number>`count(*)::int` })
-      .from(submissions)
-      .where(eq(submissions.status, "pending")),
-    // 19 — submissions lastUpdated (MAX createdAt)
-    db.select({ v: max(submissions.createdAt) }).from(submissions),
-
-    // 20 — facets rowCount = facet_categories
-    db.select({ n: sql<number>`count(*)::int` }).from(facetCategories),
-    // 21 — facet_values
-    db.select({ n: sql<number>`count(*)::int` }).from(facetValues),
-
-    // 22 — services rowCount
-    db.select({ n: sql<number>`count(*)::int` }).from(services),
-    // 23 — externalLinks count
-    db.select({ n: sql<number>`count(*)::int` }).from(externalLinks),
-
-    // 24-29 — junction-Tabellen, einzeln (Σ ergibt junctions-rowCount)
-    db.select({ n: sql<number>`count(*)::int` }).from(workFactions),
-    db.select({ n: sql<number>`count(*)::int` }).from(workCharacters),
-    db.select({ n: sql<number>`count(*)::int` }).from(workLocations),
-    db.select({ n: sql<number>`count(*)::int` }).from(workPersons),
-    db.select({ n: sql<number>`count(*)::int` }).from(workFacets),
-    db.select({ n: sql<number>`count(*)::int` }).from(workCollectionsTable),
-  ]);
-
-  const werkeCount = n(t[0]);
-  const werkeSsot = n(t[1]);
-  const werkeUpdated = toDate(t[2][0]?.v);
-
-  const fraktionenCount = n(t[3]);
-  const imperiumCount = n(t[4]);
-
-  const charaktereCount = n(t[5]);
-  const workCharCount = n(t[6]);
-
-  const weltenCount = n(t[7]);
-  const weltenMapped = n(t[8]);
-
-  const sektorenCount = n(t[9]);
-  const weltenInSektoren = n(t[10]);
-
-  const aerenCount = n(t[11]);
-  const aerenLo = toNumber(t[12][0]?.lo);
-  const aerenHi = toNumber(t[12][0]?.hi);
-  const aerenLoVal = t[12][0]?.lo == null ? null : aerenLo;
-  const aerenHiVal = t[12][0]?.hi == null ? null : aerenHi;
-
-  const serienCount = n(t[13]);
-  const bookDetailsWithSeries = n(t[14]);
-
-  const personenCount = n(t[15]);
-  const distinctAutoren = n(t[16]);
-
-  const submissionsCount = n(t[17]);
-  const submissionsPending = n(t[18]);
-  const submissionsUpdated = toDate(t[19][0]?.v);
-
-  const facetCatsCount = n(t[20]);
-  const facetValuesCount = n(t[21]);
-
-  const servicesCount = n(t[22]);
-  const externalLinksCount = n(t[23]);
-
-  const jWf = n(t[24]);
-  const jWc = n(t[25]);
-  const jWl = n(t[26]);
-  const jWp = n(t[27]);
-  const jWfac = n(t[28]);
-  const jWcol = n(t[29]);
-  const junctionTotal = jWf + jWc + jWl + jWp + jWfac + jWcol;
+  const werkeCount = num("werke_count");
+  const werkeSsot = num("werke_ssot");
+  const fraktionenCount = num("fraktionen_count");
+  const imperiumCount = num("imperium_count");
+  const charaktereCount = num("charaktere_count");
+  const workCharCount = num("work_char_count");
+  const weltenCount = num("welten_count");
+  const weltenMapped = num("welten_mapped");
+  const sektorenCount = num("sektoren_count");
+  const weltenInSektoren = num("welten_in_sektoren");
+  const aerenCount = num("aeren_count");
+  const aerenLoVal = r["aeren_lo"] == null ? null : toNumber(r["aeren_lo"]);
+  const aerenHiVal = r["aeren_hi"] == null ? null : toNumber(r["aeren_hi"]);
+  const serienCount = num("serien_count");
+  const bookDetailsWithSeries = num("book_details_with_series");
+  const personenCount = num("personen_count");
+  const distinctAutoren = num("distinct_autoren");
+  const submissionsCount = num("submissions_count");
+  const submissionsPending = num("submissions_pending");
+  const facetCatsCount = num("facet_cats");
+  const facetValuesCount = num("facet_values_count");
+  const servicesCount = num("services_count");
+  const externalLinksCount = num("external_links_count");
+  const junctionTotal =
+    num("j_wf") + num("j_wc") + num("j_wl") + num("j_wp") + num("j_wfac") + num("j_wcol");
 
   return {
     werke: {
       rowCount: werkeCount,
-      lastUpdated: werkeUpdated,
-      primaryStat: { label: "SSOT-ANTEIL", value: fmtPct(werkeSsot, werkeCount) },
+      lastUpdated: toDate(r["werke_updated"]),
+      primaryStat: { label: "SSOT SHARE", value: fmtPct(werkeSsot, werkeCount) },
     },
     fraktionen: {
       rowCount: fraktionenCount,
@@ -225,50 +155,50 @@ export async function getBridgeStats(): Promise<BridgeStats> {
       rowCount: charaktereCount,
       lastUpdated: null,
       primaryStat: {
-        label: "Ø WERK-AUFTRITTE",
+        label: "AVG APPEARANCES",
         value: fmtAvg(workCharCount, charaktereCount),
       },
     },
     welten: {
       rowCount: weltenCount,
       lastUpdated: null,
-      primaryStat: { label: "KARTIERT", value: fmtN(weltenMapped) },
+      primaryStat: { label: "MAPPED", value: fmtN(weltenMapped) },
     },
     sektoren: {
       rowCount: sektorenCount,
       lastUpdated: null,
       primaryStat: {
-        label: "Ø WELTEN/SEKTOR",
+        label: "AVG WORLDS/SECTOR",
         value: fmtAvg(weltenInSektoren, sektorenCount),
       },
     },
     aeren: {
       rowCount: aerenCount,
       lastUpdated: null,
-      primaryStat: { label: "ZEITSPANNE", value: fmtMRange(aerenLoVal, aerenHiVal) },
+      primaryStat: { label: "TIMESPAN", value: fmtMRange(aerenLoVal, aerenHiVal) },
     },
     serien: {
       rowCount: serienCount,
       lastUpdated: null,
       primaryStat: {
-        label: "Ø BÄNDE/SERIE",
+        label: "AVG VOL/SERIES",
         value: fmtAvg(bookDetailsWithSeries, serienCount),
       },
     },
     personen: {
       rowCount: personenCount,
       lastUpdated: null,
-      primaryStat: { label: "AUTOREN", value: fmtN(distinctAutoren) },
+      primaryStat: { label: "AUTHORS", value: fmtN(distinctAutoren) },
     },
     submissions: {
       rowCount: submissionsCount,
-      lastUpdated: submissionsUpdated,
+      lastUpdated: toDate(r["submissions_updated"]),
       primaryStat: { label: "PENDING", value: fmtN(submissionsPending) },
     },
     facets: {
       rowCount: facetCatsCount,
       lastUpdated: null,
-      primaryStat: { label: "WERTE", value: fmtN(facetValuesCount) },
+      primaryStat: { label: "VALUES", value: fmtN(facetValuesCount) },
     },
     services: {
       rowCount: servicesCount,
@@ -466,6 +396,575 @@ export async function getWerkeRows(): Promise<WerkeRow[]> {
   } catch (err) {
     const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
     console.error(`[/atlas/werke] DB fetch failed (${msg}); rendering empty.`);
+    return [];
+  }
+}
+
+// =============================================================================
+// Slice-3 admin inventory rows (Task 4B). One DB round-trip per query;
+// counts come from `LEFT JOIN (… GROUP BY …)` subqueries so we never fan
+// out per-row COUNTs. Pgbouncer / pool context from `getBridgeStats`
+// applies — no parallel aggregate storms across these three.
+// =============================================================================
+
+export interface FraktionRow {
+  id: string;
+  name: string;
+  alignment: string;
+  parentId: string | null;
+  workCount: number;
+  characterCount: number;
+}
+
+export async function getFraktionenRows(): Promise<FraktionRow[]> {
+  try {
+    const rows = (await db.execute(sql`
+      SELECT
+        f.id,
+        f.name,
+        f.alignment,
+        f.parent_id,
+        COALESCE(wf.cnt, 0)::int AS work_count,
+        COALESCE(c.cnt, 0)::int  AS character_count
+      FROM factions f
+      LEFT JOIN (
+        SELECT faction_id, count(*)::int AS cnt
+        FROM work_factions
+        GROUP BY faction_id
+      ) wf ON wf.faction_id = f.id
+      LEFT JOIN (
+        SELECT primary_faction_id, count(*)::int AS cnt
+        FROM characters
+        WHERE primary_faction_id IS NOT NULL
+        GROUP BY primary_faction_id
+      ) c ON c.primary_faction_id = f.id
+    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+
+    return rows
+      .map((r): FraktionRow => ({
+        id: String(r["id"]),
+        name: String(r["name"]),
+        alignment: String(r["alignment"]),
+        parentId: r["parent_id"] == null ? null : String(r["parent_id"]),
+        workCount: toNumber(r["work_count"]),
+        characterCount: toNumber(r["character_count"]),
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, "de"));
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(`[/atlas/fraktionen] DB fetch failed (${msg}); rendering empty.`);
+    return [];
+  }
+}
+
+export interface WeltenRow {
+  id: string;
+  name: string;
+  sectorId: string | null;
+  sectorName: string | null;
+  gx: number | null;
+  gy: number | null;
+  capital: boolean;
+  warp: boolean;
+  workCount: number;
+}
+
+export async function getWeltenRows(): Promise<WeltenRow[]> {
+  try {
+    const rows = (await db.execute(sql`
+      SELECT
+        l.id,
+        l.name,
+        l.sector_id,
+        s.name AS sector_name,
+        l.gx,
+        l.gy,
+        l.capital,
+        l.warp,
+        COALESCE(wl.cnt, 0)::int AS work_count
+      FROM locations l
+      LEFT JOIN sectors s ON s.id = l.sector_id
+      LEFT JOIN (
+        SELECT location_id, count(*)::int AS cnt
+        FROM work_locations
+        GROUP BY location_id
+      ) wl ON wl.location_id = l.id
+    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+
+    return rows
+      .map((r): WeltenRow => ({
+        id: String(r["id"]),
+        name: String(r["name"]),
+        sectorId: r["sector_id"] == null ? null : String(r["sector_id"]),
+        sectorName: r["sector_name"] == null ? null : String(r["sector_name"]),
+        gx: r["gx"] == null ? null : toNumber(r["gx"]),
+        gy: r["gy"] == null ? null : toNumber(r["gy"]),
+        capital: r["capital"] === true,
+        warp: r["warp"] === true,
+        workCount: toNumber(r["work_count"]),
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, "de"));
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(`[/atlas/welten] DB fetch failed (${msg}); rendering empty.`);
+    return [];
+  }
+}
+
+export interface CharaktereRow {
+  id: string;
+  name: string;
+  primaryFactionId: string | null;
+  primaryFactionName: string | null;
+  primaryFactionAlignment: string | null;
+  workCount: number;
+}
+
+export async function getCharaktereRows(): Promise<CharaktereRow[]> {
+  try {
+    const rows = (await db.execute(sql`
+      SELECT
+        c.id,
+        c.name,
+        c.primary_faction_id,
+        f.name      AS faction_name,
+        f.alignment AS faction_alignment,
+        COALESCE(wc.cnt, 0)::int AS work_count
+      FROM characters c
+      LEFT JOIN factions f ON f.id = c.primary_faction_id
+      LEFT JOIN (
+        SELECT character_id, count(*)::int AS cnt
+        FROM work_characters
+        GROUP BY character_id
+      ) wc ON wc.character_id = c.id
+    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+
+    return rows
+      .map((r): CharaktereRow => ({
+        id: String(r["id"]),
+        name: String(r["name"]),
+        primaryFactionId:
+          r["primary_faction_id"] == null ? null : String(r["primary_faction_id"]),
+        primaryFactionName:
+          r["faction_name"] == null ? null : String(r["faction_name"]),
+        primaryFactionAlignment:
+          r["faction_alignment"] == null ? null : String(r["faction_alignment"]),
+        workCount: toNumber(r["work_count"]),
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, "de"));
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(`[/atlas/charaktere] DB fetch failed (${msg}); rendering empty.`);
+    return [];
+  }
+}
+
+// =============================================================================
+// Slice-4 reference inventory rows (Task 4C). Pure catalogue decks — no
+// public detail surface yet, so the pages render them as non-clickable
+// admin inventory. Same single-roundtrip / LEFT JOIN ... GROUP BY shape
+// as 4B; counts come from book_details / work_persons sub-aggregates so
+// the queries stay flat.
+// =============================================================================
+
+export interface SektorenRow {
+  id: string;
+  name: string;
+  hasLabel: boolean;
+  locationCount: number;
+  mappedCount: number;
+  capitalCount: number;
+  warpCount: number;
+}
+
+export async function getSektorenRows(): Promise<SektorenRow[]> {
+  try {
+    const rows = (await db.execute(sql`
+      SELECT
+        s.id,
+        s.name,
+        s.label_x,
+        s.label_y,
+        COALESCE(l.cnt, 0)::int     AS location_count,
+        COALESCE(l.mapped, 0)::int  AS mapped_count,
+        COALESCE(l.capital, 0)::int AS capital_count,
+        COALESCE(l.warp, 0)::int    AS warp_count
+      FROM sectors s
+      LEFT JOIN (
+        SELECT
+          sector_id,
+          count(*)::int                                AS cnt,
+          count(*) FILTER (WHERE gx IS NOT NULL)::int  AS mapped,
+          count(*) FILTER (WHERE capital = true)::int  AS capital,
+          count(*) FILTER (WHERE warp = true)::int     AS warp
+        FROM locations
+        WHERE sector_id IS NOT NULL
+        GROUP BY sector_id
+      ) l ON l.sector_id = s.id
+    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+
+    return rows
+      .map((r): SektorenRow => ({
+        id: String(r["id"]),
+        name: String(r["name"]),
+        hasLabel: r["label_x"] != null && r["label_y"] != null,
+        locationCount: toNumber(r["location_count"]),
+        mappedCount: toNumber(r["mapped_count"]),
+        capitalCount: toNumber(r["capital_count"]),
+        warpCount: toNumber(r["warp_count"]),
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, "de"));
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(`[/atlas/sektoren] DB fetch failed (${msg}); rendering empty.`);
+    return [];
+  }
+}
+
+export interface AereRow {
+  id: string;
+  name: string;
+  startY: number | null;
+  endY: number | null;
+  sortOrder: number;
+  workCount: number;
+}
+
+export async function getAerenRows(): Promise<AereRow[]> {
+  try {
+    const rows = (await db.execute(sql`
+      SELECT
+        e.id,
+        e.name,
+        e.start_y,
+        e.end_y,
+        e.sort_order,
+        COALESCE(bd.cnt, 0)::int AS work_count
+      FROM eras e
+      LEFT JOIN (
+        SELECT primary_era_id, count(*)::int AS cnt
+        FROM book_details
+        WHERE primary_era_id IS NOT NULL
+        GROUP BY primary_era_id
+      ) bd ON bd.primary_era_id = e.id
+    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+
+    return rows
+      .map((r): AereRow => ({
+        id: String(r["id"]),
+        name: String(r["name"]),
+        startY: r["start_y"] == null ? null : toNumber(r["start_y"]),
+        endY: r["end_y"] == null ? null : toNumber(r["end_y"]),
+        sortOrder: toNumber(r["sort_order"]),
+        workCount: toNumber(r["work_count"]),
+      }))
+      .sort((a, b) => a.sortOrder - b.sortOrder);
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(`[/atlas/aeren] DB fetch failed (${msg}); rendering empty.`);
+    return [];
+  }
+}
+
+export interface SerieRow {
+  id: string;
+  name: string;
+  totalPlanned: number | null;
+  volumeCount: number;
+}
+
+export async function getSerienRows(): Promise<SerieRow[]> {
+  try {
+    const rows = (await db.execute(sql`
+      SELECT
+        s.id,
+        s.name,
+        s.total_planned,
+        COALESCE(bd.cnt, 0)::int AS volume_count
+      FROM series s
+      LEFT JOIN (
+        SELECT series_id, count(*)::int AS cnt
+        FROM book_details
+        WHERE series_id IS NOT NULL
+        GROUP BY series_id
+      ) bd ON bd.series_id = s.id
+    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+
+    return rows
+      .map((r): SerieRow => ({
+        id: String(r["id"]),
+        name: String(r["name"]),
+        totalPlanned: r["total_planned"] == null ? null : toNumber(r["total_planned"]),
+        volumeCount: toNumber(r["volume_count"]),
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, "de"));
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(`[/atlas/serien] DB fetch failed (${msg}); rendering empty.`);
+    return [];
+  }
+}
+
+export interface PersonenRow {
+  id: string;
+  name: string;
+  nameSort: string;
+  workCount: number;
+  isAuthor: boolean;
+  roles: string[];
+}
+
+export async function getPersonenRows(): Promise<PersonenRow[]> {
+  try {
+    const rows = (await db.execute(sql`
+      SELECT
+        p.id,
+        p.name,
+        p.name_sort,
+        COALESCE(wp.cnt, 0)::int       AS work_count,
+        COALESCE(wp.is_author, false)  AS is_author,
+        wp.roles                       AS roles
+      FROM persons p
+      LEFT JOIN (
+        SELECT
+          person_id,
+          count(DISTINCT work_id)::int                       AS cnt,
+          bool_or(role = 'author')                           AS is_author,
+          array_agg(DISTINCT role::text ORDER BY role::text) AS roles
+        FROM work_persons
+        GROUP BY person_id
+      ) wp ON wp.person_id = p.id
+    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+
+    return rows
+      .map((r): PersonenRow => {
+        const rawRoles = r["roles"];
+        const roles = Array.isArray(rawRoles)
+          ? rawRoles.map((x) => String(x))
+          : [];
+        return {
+          id: String(r["id"]),
+          name: String(r["name"]),
+          nameSort: String(r["name_sort"]),
+          workCount: toNumber(r["work_count"]),
+          isAuthor: r["is_author"] === true,
+          roles,
+        };
+      })
+      .sort((a, b) => a.nameSort.localeCompare(b.nameSort, "de"));
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(`[/atlas/personen] DB fetch failed (${msg}); rendering empty.`);
+    return [];
+  }
+}
+
+// =============================================================================
+// Slice-4 operational inventory rows (Task 4D). Submissions / facets /
+// services round out the Phase-1 admin Data-Atlas. Same single-roundtrip
+// shape as 4B/4C; payloads come back as already-truncated JSON previews so
+// the page never ships raw submission JSON to the client.
+// =============================================================================
+
+export type SubmissionStatusValue =
+  | "pending"
+  | "approved"
+  | "rejected"
+  | "merged";
+
+const SUBMISSION_STATUSES: ReadonlySet<SubmissionStatusValue> = new Set([
+  "pending",
+  "approved",
+  "rejected",
+  "merged",
+]);
+
+function coerceSubmissionStatus(v: unknown): SubmissionStatusValue {
+  if (typeof v === "string" && SUBMISSION_STATUSES.has(v as SubmissionStatusValue)) {
+    return v as SubmissionStatusValue;
+  }
+  return "pending";
+}
+
+export interface SubmissionRow {
+  id: string;
+  entityType: string;
+  status: SubmissionStatusValue;
+  payloadPreview: string;
+  targetEntityId: string | null;
+  submittedBy: string | null;
+  reviewedBy: string | null;
+  createdAt: Date;
+  reviewedAt: Date | null;
+}
+
+// Submissions carry a full `payload jsonb` (often multi-KB LLM enrichment
+// blobs). Selecting the column raw forces postgres-js to ship + parse the
+// whole jsonb per row, which on the pooler can stall the request long
+// enough that Next dev never returns a response. We do the truncation
+// server-side — `substring(payload::text, 1, 97)` keeps one char beyond
+// the 96-char display window, and `length(payload::text) > 96` tells JS
+// whether to append the ellipsis. The full payload never crosses the wire.
+const PAYLOAD_PREVIEW_LEN = 96;
+
+export async function getSubmissionsRows(): Promise<SubmissionRow[]> {
+  try {
+    const rows = (await db.execute(sql`
+      SELECT
+        id,
+        entity_type,
+        status::text                                                   AS status,
+        substring(payload::text, 1, ${PAYLOAD_PREVIEW_LEN + 1})        AS payload_head,
+        length(payload::text)                                          AS payload_len,
+        target_entity_id,
+        submitted_by,
+        reviewed_by,
+        created_at,
+        reviewed_at
+      FROM submissions
+      ORDER BY created_at DESC
+    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+
+    return rows.map((r): SubmissionRow => {
+      const head = r["payload_head"] == null ? "" : String(r["payload_head"]);
+      const fullLen = toNumber(r["payload_len"]);
+      let preview: string;
+      if (fullLen === 0) {
+        preview = "—";
+      } else if (fullLen > PAYLOAD_PREVIEW_LEN) {
+        preview = `${head.slice(0, PAYLOAD_PREVIEW_LEN - 1).trimEnd()}…`;
+      } else {
+        preview = head;
+      }
+      return {
+        id: String(r["id"]),
+        entityType: String(r["entity_type"]),
+        status: coerceSubmissionStatus(r["status"]),
+        payloadPreview: preview,
+        targetEntityId:
+          r["target_entity_id"] == null ? null : String(r["target_entity_id"]),
+        submittedBy: r["submitted_by"] == null ? null : String(r["submitted_by"]),
+        reviewedBy: r["reviewed_by"] == null ? null : String(r["reviewed_by"]),
+        createdAt: toDate(r["created_at"]) ?? new Date(0),
+        reviewedAt: toDate(r["reviewed_at"]),
+      };
+    });
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(`[/atlas/submissions] DB fetch failed (${msg}); rendering empty.`);
+    return [];
+  }
+}
+
+export interface FacetRow {
+  id: string;
+  name: string;
+  displayOrder: number;
+  multiValue: boolean;
+  visibleToUsers: boolean;
+  valuesCount: number;
+  worksCount: number;
+}
+
+export async function getFacetsRows(): Promise<FacetRow[]> {
+  try {
+    const rows = (await db.execute(sql`
+      SELECT
+        fc.id,
+        fc.name,
+        fc.display_order,
+        fc.multi_value,
+        fc.visible_to_users,
+        COALESCE(fv.cnt, 0)::int AS values_count,
+        COALESCE(wf.cnt, 0)::int AS works_count
+      FROM facet_categories fc
+      LEFT JOIN (
+        SELECT category_id, count(*)::int AS cnt
+        FROM facet_values
+        GROUP BY category_id
+      ) fv ON fv.category_id = fc.id
+      LEFT JOIN (
+        SELECT fv2.category_id, count(DISTINCT wf2.work_id)::int AS cnt
+        FROM work_facets wf2
+        JOIN facet_values fv2 ON fv2.id = wf2.facet_value_id
+        GROUP BY fv2.category_id
+      ) wf ON wf.category_id = fc.id
+    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+
+    return rows
+      .map((r): FacetRow => ({
+        id: String(r["id"]),
+        name: String(r["name"]),
+        displayOrder: toNumber(r["display_order"]),
+        multiValue: r["multi_value"] === true,
+        visibleToUsers: r["visible_to_users"] === true,
+        valuesCount: toNumber(r["values_count"]),
+        worksCount: toNumber(r["works_count"]),
+      }))
+      .sort((a, b) => {
+        if (a.displayOrder !== b.displayOrder) {
+          return a.displayOrder - b.displayOrder;
+        }
+        return a.name.localeCompare(b.name, "de");
+      });
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(`[/atlas/facets] DB fetch failed (${msg}); rendering empty.`);
+    return [];
+  }
+}
+
+export interface ServiceRow {
+  id: string;
+  name: string;
+  domain: string | null;
+  affiliateSupported: boolean;
+  displayOrder: number;
+  linkCount: number;
+  affiliateLinkCount: number;
+}
+
+export async function getServicesRows(): Promise<ServiceRow[]> {
+  try {
+    const rows = (await db.execute(sql`
+      SELECT
+        s.id,
+        s.name,
+        s.domain,
+        s.affiliate_supported,
+        s.display_order,
+        COALESCE(el.cnt, 0)::int           AS link_count,
+        COALESCE(el.affiliate_cnt, 0)::int AS affiliate_link_count
+      FROM services s
+      LEFT JOIN (
+        SELECT
+          service_id,
+          count(*)::int                                AS cnt,
+          count(*) FILTER (WHERE affiliate = true)::int AS affiliate_cnt
+        FROM external_links
+        GROUP BY service_id
+      ) el ON el.service_id = s.id
+    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+
+    return rows
+      .map((r): ServiceRow => ({
+        id: String(r["id"]),
+        name: String(r["name"]),
+        domain: r["domain"] == null ? null : String(r["domain"]),
+        affiliateSupported: r["affiliate_supported"] === true,
+        displayOrder: toNumber(r["display_order"]),
+        linkCount: toNumber(r["link_count"]),
+        affiliateLinkCount: toNumber(r["affiliate_link_count"]),
+      }))
+      .sort((a, b) => {
+        if (a.displayOrder !== b.displayOrder) {
+          return a.displayOrder - b.displayOrder;
+        }
+        return a.name.localeCompare(b.name, "de");
+      });
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(`[/atlas/services] DB fetch failed (${msg}); rendering empty.`);
     return [];
   }
 }

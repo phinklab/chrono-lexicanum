@@ -13,7 +13,6 @@ const CANT_GLYPHS = (
 
 type LetterFieldProps = {
   count?: number;
-  area?: { w: number; h: number };
   seed?: number;
   color?: string;
   baseOpacity?: number;
@@ -21,7 +20,6 @@ type LetterFieldProps = {
 
 export default function LetterField({
   count = 60,
-  area = { w: 1440, h: 900 },
   seed = 7,
   color = "var(--cl-gold)",
   baseOpacity = 0.3,
@@ -33,8 +31,8 @@ export default function LetterField({
   };
 
   const motes = Array.from({ length: count }).map(() => ({
-    x: rand() * area.w,
-    y: rand() * area.h,
+    xPct: 1 + rand() * 96,
+    yPct: 2 + rand() * 94,
     ch: CANT_GLYPHS[Math.floor(rand() * CANT_GLYPHS.length)],
     size: 10 + rand() * 22,
     delay: rand() * 8,
@@ -44,7 +42,7 @@ export default function LetterField({
 
   return (
     <div
-      style={{ position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden" }}
+      style={{ position: "fixed", inset: 0, pointerEvents: "none", overflow: "hidden", zIndex: 2 }}
       aria-hidden
     >
       {motes.map((m, i) => (
@@ -52,8 +50,8 @@ export default function LetterField({
           key={i}
           style={{
             position: "absolute",
-            left: m.x,
-            top: m.y,
+            left: `${m.xPct}%`,
+            top: `${m.yPct}%`,
             fontFamily:
               m.ch === "0" || m.ch === "1"
                 ? "var(--font-plex-mono)"

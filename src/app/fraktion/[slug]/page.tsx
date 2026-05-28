@@ -13,12 +13,12 @@ export default async function FactionPage({ params }: { params: Promise<Params> 
         <CornerAuspex size={140} label="FRACTIO // 1011" />
       </div>
       <div className="stub-shell__inner">
-        <p className="stub-shell__eyebrow">{"// PHASE-3 · IN VORBEREITUNG"}</p>
+        <p className="stub-shell__eyebrow">{"// PHASE 3 · IN PREPARATION"}</p>
         <h1 className="stub-shell__title">{slug}</h1>
         <span className="c-hairline stub-shell__rule" aria-hidden />
         <p className="stub-shell__body">
-          Fraktions-Profil — Codex, Verbündete, Schlüssel-Charaktere, zugehörige Bücher.
-          Verfügbar, sobald die Faction-Detailseite aus dem alten Prototyp portiert ist.
+          Faction profile — codex, allies, key characters, associated books.
+          Available once the faction detail page is ported from the old prototype.
         </p>
       </div>
     </main>

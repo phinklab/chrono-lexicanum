@@ -6,9 +6,9 @@ export type AuditFilter = "drift" | "gap" | "ssot" | "collections";
 
 const OPTIONS: ReadonlyArray<{ id: AuditFilter; label: string }> = [
   { id: "drift", label: "Drift" },
-  { id: "gap", label: "Junction-Lücke" },
+  { id: "gap", label: "Junction gap" },
   { id: "ssot", label: "SSOT" },
-  { id: "collections", label: "Mehrfach gesammelt" },
+  { id: "collections", label: "Multi-collected" },
 ];
 
 export default function AuditPills({ active }: { active: readonly AuditFilter[] }) {
@@ -29,7 +29,7 @@ export default function AuditPills({ active }: { active: readonly AuditFilter[] 
   }
 
   return (
-    <div className="audit-pills" role="group" aria-label="Audit-Filter">
+    <div className="audit-pills" role="group" aria-label="Audit filter">
       <span className="audit-pills-label" aria-hidden>
         Audit
       </span>

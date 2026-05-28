@@ -4,18 +4,31 @@
  * their <main>. Routes that don't render one get the plain void body bg.
  *
  * Variants:
- *   - "vista"     ← Hub, Books hero, book detail (cathedral light)
- *   - "librarium" ← Ask the Archive
- *   - "cartog"    ← future /map (handoff photo stored but not used yet)
- *   - "none"      ← just vignette + grain over the void
+ *   - "hub"        ← Hub (gothic cathedral-city, cosmic rings overhead)
+ *   - "vista"      ← Books hero, book detail, entity pages (cathedral light)
+ *   - "librarium"  ← Ask the Archive
+ *   - "chronicle"  ← Timeline / Chronicle (cathedral timeline diagram)
+ *   - "cartog"     ← cartog-hall (handoff photo, currently unused)
+ *   - "cartog-holo" ← /map (Mechanicus holo-table plot room)
+ *   - "none"       ← just vignette + grain over the void
  */
 
-export type SiteBgVariant = "vista" | "librarium" | "cartog" | "none";
+export type SiteBgVariant =
+  | "hub"
+  | "vista"
+  | "librarium"
+  | "chronicle"
+  | "cartog"
+  | "cartog-holo"
+  | "none";
 
 const PHOTOS: Record<SiteBgVariant, string | null> = {
+  hub: "/img/hub.webp",
   vista: "/img/vista.webp",
   librarium: "/img/librarium.webp",
+  chronicle: "/img/chronicle-hall.webp",
   cartog: "/img/cartog-hall.webp",
+  "cartog-holo": "/img/cartog-holo.webp",
   none: null,
 };
 

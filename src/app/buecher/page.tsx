@@ -15,12 +15,11 @@ import {
 import { factionDot } from "@/lib/faction-colors";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
-import LiveTelemetry from "@/components/chrono/LiveTelemetry";
-import SiteBackground from "@/components/chrome/SiteBackground";
+import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import AuditPills, { type AuditFilter } from "./AuditPills";
 import SortPills from "./SortPills";
 
-export const metadata: Metadata = { title: "Bücher — Chrono Lexicanum" };
+export const metadata: Metadata = { title: "Archive — Chrono Lexicanum" };
 
 type SortKey = "updated" | "title";
 
@@ -376,12 +375,12 @@ function formatRelative(date: Date, now: Date): string {
   const hr = Math.round(min / 60);
   const day = Math.round(hr / 24);
 
-  if (sec < 30) return "gerade eben";
-  if (min < 1) return `vor ${sec} Sek.`;
-  if (hr < 1) return `vor ${min} Min.`;
-  if (day < 1) return `vor ${hr} Std.`;
-  if (day < 7) return `vor ${day} Tag${day === 1 ? "" : "en"}`;
-  return new Intl.DateTimeFormat("de-DE", {
+  if (sec < 30) return "just now";
+  if (min < 1) return `${sec}s ago`;
+  if (hr < 1) return `${min} min ago`;
+  if (day < 1) return `${hr} hr ago`;
+  if (day < 7) return `${day} day${day === 1 ? "" : "s"} ago`;
+  return new Intl.DateTimeFormat("en-US", {
     day: "2-digit",
     month: "2-digit",
     year: "numeric",
@@ -390,9 +389,9 @@ function formatRelative(date: Date, now: Date): string {
 
 function auditEmptyCopy(filters: readonly AuditFilter[]): string {
   if (filters.length === 1 && filters[0] === "drift") {
-    return "Keine Drift-Treffer in diesem Filter.";
+    return "No drift hits in this filter.";
   }
-  return "Keine Bücher treffen diese Audit-Kombination.";
+  return "No books match this audit combination.";
 }
 
 export default async function CataloguePage({ searchParams }: CataloguePageProps) {
@@ -412,12 +411,11 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
 
   return (
     <main className="catalogue">
-      <SiteBackground variant="vista" position="50% 22%" />
-
-      <section className="catalogue-hero" aria-label="Bücher — Katalog">
+      <section className="catalogue-hero" aria-label="Books — Catalogue">
+        <div className="catalogue-hero__photo" aria-hidden />
         <div className="catalogue-hero__fade" aria-hidden />
         <div className="catalogue-hero__sweep" aria-hidden>
-          <AuspexSweep r={180} sweepDuration={18} />
+          <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-gold)" />
         </div>
         <FloatingCoord
           x="42%"
@@ -425,7 +423,7 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
           label="ROUTE · SEGMENTVM ULTIMA"
           delay={1.2}
           lifetime={5}
-          color="var(--cl-cyan)"
+          color="var(--cl-gold)"
           opacity={0.55}
         />
         <FloatingCoord
@@ -434,18 +432,18 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
           label="HIT · BAAL · M41"
           delay={3.0}
           lifetime={5}
-          color="var(--cl-cyan)"
+          color="var(--cl-gold)"
           opacity={0.55}
         />
         <div className="catalogue-hero__title">
           <div className="catalogue-hero__eyebrow">{"// CATALOGVS · LIBRORVM"}</div>
-          <h1 className="catalogue-hero__heading">BÜCHER</h1>
+          <h1 className="catalogue-hero__heading">ARCHIVE</h1>
           <p className="catalogue-hero__sub">
             {books.length === 0
-              ? "Noch keine Bücher in der Datenbank."
+              ? "No books in the database yet."
               : isAuditMode
-                ? `${sorted.length} Audit-Treffer von ${books.length} Büchern · Stempel M42.347`
-                : `${enrichedCount} von ${books.length} mit Detailinhalt · Stempel M42.347`}
+                ? `${sorted.length} audit hits of ${books.length} books · stamp M42.347`
+                : `${enrichedCount} of ${books.length} with detailed content · stamp M42.347`}
           </p>
         </div>
       </section>
@@ -454,27 +452,9 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
         <div className="catalogue-toolbar">
           <div className="catalogue-toolbar__left">
             <span className="catalogue-toolbar__count">{sorted.length} · INDEXED</span>
-            <span className="catalogue-toolbar__total">/ {books.length} verfügbar</span>
+            <span className="catalogue-toolbar__total">/ {books.length} available</span>
             <span className="catalogue-toolbar__dot" aria-hidden>·</span>
-            <LiveTelemetry
-              label="LOAD"
-              initial={87.3}
-              min={84}
-              max={92}
-              unit="%"
-              interval={1600}
-              drift={0.04}
-            />
-            <LiveTelemetry
-              label="COGITATIO"
-              initial={1.024}
-              min={0.9}
-              max={1.2}
-              unit=""
-              interval={1900}
-              drift={0.08}
-              decimals={3}
-            />
+            <CatalogueTelemetry accent="gold" />
           </div>
           {books.length > 0 && (
             <div className="catalogue-toolbar__right">
@@ -486,13 +466,13 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
 
         {driftSortActive && sorted.length > 0 && (
           <p className="catalogue-caption">
-            Sortiert nach Drift-Frequenz · Confidence · zuletzt aktualisiert.
+            Sorted by drift frequency · confidence · last updated.
           </p>
         )}
 
         {books.length === 0 ? (
           <div className="catalogue-empty c-glass c-corners">
-            Die Datenbank ist leer. Sobald Bücher aufgenommen sind, erscheinen sie hier.
+            The database is empty. Once books are ingested they will appear here.
           </div>
         ) : sorted.length === 0 ? (
           <div className="catalogue-empty c-glass c-corners">
@@ -538,7 +518,7 @@ function BookRow({
     : null;
   const metaParts = [
     formatLabel,
-    book.pageCount != null ? `${book.pageCount} S.` : null,
+    book.pageCount != null ? `${book.pageCount} pp.` : null,
     availabilityLabel,
     book.eraName,
     mBand,
@@ -546,7 +526,7 @@ function BookRow({
   ].filter((v): v is string => Boolean(v));
 
   const updatedRel = formatRelative(book.updatedAt, now);
-  const updatedAbs = book.updatedAt.toLocaleString("de-DE");
+  const updatedAbs = book.updatedAt.toLocaleString("en-US");
   const detailHref = auditMode ? `/buch/${book.slug}/audit` : `/buch/${book.slug}`;
   const primaryFaction = book.factions[0]?.name ?? null;
   const dotColor = factionDot(primaryFaction);
@@ -563,13 +543,13 @@ function BookRow({
           className="catalogue-row__dot"
           aria-hidden
           style={{ background: dotColor }}
-          title={primaryFaction ?? "Unklassifiziert"}
+          title={primaryFaction ?? "Unclassified"}
         />
         <div className="catalogue-row__main">
           <span className="catalogue-row__title">{book.title}</span>
           {book.authors.length > 0 && (
             <span className="catalogue-row__byline">
-              von {book.authors.join(", ")}
+              by {book.authors.join(", ")}
             </span>
           )}
           {auditMode && (
@@ -596,7 +576,7 @@ function BookRow({
                   : "catalogue-chip catalogue-chip--stub"
               }
             >
-              {book.isEnriched ? "DETAILREICH" : "STUB"}
+              {book.isEnriched ? "DETAILED" : "STUB"}
             </span>
           )}
         </div>
@@ -639,7 +619,7 @@ function BookRow({
                 {book.audit.characterCount}
               </span>
               <span>
-                enthalten in: {book.audit.containedInCount} · enthält:{" "}
+                contained in: {book.audit.containedInCount} · contains:{" "}
                 {book.audit.containsCount}
               </span>
             </div>
@@ -663,7 +643,7 @@ function BookRow({
 
           {book.factions.length > 0 && (
             <div className="catalogue-row__tagrow">
-              <span className="catalogue-row__tagrow-label">Fraktionen</span>
+              <span className="catalogue-row__tagrow-label">Factions</span>
               <ul className="catalogue-row__tags">
                 {book.factions.map((f) => (
                   <li key={f.id} className="catalogue-tag catalogue-tag--faction">
@@ -676,7 +656,7 @@ function BookRow({
 
           {book.facets.length > 0 && (
             <div className="catalogue-row__tagrow">
-              <span className="catalogue-row__tagrow-label">Facetten</span>
+              <span className="catalogue-row__tagrow-label">Facets</span>
               <ul className="catalogue-row__tags">
                 {book.facets.map((f) => (
                   <li
@@ -700,7 +680,7 @@ function BookRow({
 
           {book.containedIn.length > 0 && (
             <div className="catalogue-row__tagrow">
-              <span className="catalogue-row__tagrow-label">Enthalten in</span>
+              <span className="catalogue-row__tagrow-label">Contained in</span>
               <ul className="catalogue-row__tags">
                 {book.containedIn.map((c) => (
                   <li
@@ -722,7 +702,7 @@ function BookRow({
               </span>
             )}
             <Link href={detailHref} className="catalogue-row__link">
-              {auditMode ? "Audit öffnen →" : "Detailseite öffnen →"}
+              {auditMode ? "Open audit →" : "Open detail page →"}
             </Link>
           </footer>
         </div>

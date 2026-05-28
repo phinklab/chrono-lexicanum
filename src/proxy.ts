@@ -23,11 +23,19 @@ function parseBasic(authHeader: string | null): { user: string; pass: string } |
 }
 
 export function proxy(req: NextRequest): NextResponse {
-  // Vercel preview deployments sit behind Vercel's own SSO gate. A second
-  // Basic-Auth prompt on top of that is a double prompt with no extra safety,
-  // so we skip our check entirely on preview.
-  if (process.env.VERCEL_ENV === "preview") {
-    return NextResponse.next();
+  // Local dev and Vercel preview both bypass the Basic-Auth check:
+  //   - Preview deployments sit behind Vercel's own SSO gate; a second prompt
+  //     would be redundant.
+  //   - Local `next dev` should not prompt for credentials when iterating on
+  //     UI; the gate is purely a production safeguard.
+  // In both cases we still forward `x-atlas-admin: 1` so the Atlas pages and
+  // Map admin tools render in their authenticated shape.
+  const isProd = process.env.NODE_ENV === "production" && process.env.VERCEL_ENV !== "preview";
+
+  if (!isProd) {
+    const forwarded = new Headers(req.headers);
+    forwarded.set("x-atlas-admin", "1");
+    return NextResponse.next({ request: { headers: forwarded } });
   }
 
   const expectedUser = process.env.ATLAS_USER ?? "philipp";

@@ -35,7 +35,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { runId } = await params;
   return {
-    title: `Lauf ${runId} — Ingestion-Läufe — Chrono Lexicanum`,
+    title: `Run ${runId} — Ingestion runs — Chrono Lexicanum`,
   };
 }
 
@@ -59,24 +59,24 @@ export default async function IngestRunPage({ params }: DetailParams) {
     <main className="ingest-detail-shell">
       <Link href="/ingest" className="ingest-back-link">
         <span aria-hidden>←</span>
-        <span>Alle Läufe</span>
+        <span>All runs</span>
       </Link>
 
       <header className="ingest-detail-header">
-        <span className="ingest-card-kicker">Backfill-Lauf</span>
+        <span className="ingest-card-kicker">Backfill run</span>
         <h1 className="ingest-detail-title">{runId}</h1>
         <RunMeta diff={diff} />
         {!diff.llmModel ? (
           <p className="ingest-detail-no-llm">
-            Dieser Lauf wurde ohne LLM-Anreicherung gefahren — keine Synopse-Paraphrase, keine
-            Soft-Facets, keine Plausibility-Flags.
+            This run was executed without LLM enrichment — no synopsis paraphrase, no
+            soft facets, no plausibility flags.
           </p>
         ) : null}
       </header>
 
       <Section title="Added" count={diff.added.length}>
         {diff.added.length === 0 ? (
-          <p className="ingest-empty-section">Keine neuen Bücher in diesem Lauf.</p>
+          <p className="ingest-empty-section">No new books in this run.</p>
         ) : (
           diff.added.map((entry) => (
             <AddedEntryCard
@@ -118,7 +118,7 @@ export default async function IngestRunPage({ params }: DetailParams) {
           count={diff.skipped_unchanged.length}
         >
           <p className="ingest-empty-section">
-            Bücher, die in diesem Lauf bestätigt wurden ohne Änderungen:&nbsp;
+            Books confirmed in this run without changes:&nbsp;
             {diff.skipped_unchanged.map((e, i) => (
               <span key={e.slug} className="ingest-mono">
                 {e.slug}
@@ -132,7 +132,7 @@ export default async function IngestRunPage({ params }: DetailParams) {
 
       {conflictsBySlug.standalone.length > 0 ? (
         <Section
-          title="Field-Konflikte"
+          title="Field conflicts"
           count={conflictsBySlug.standalone.length}
         >
           <ul className="ingest-conflicts-list">
@@ -151,9 +151,9 @@ export default async function IngestRunPage({ params }: DetailParams) {
             ))}
           </ul>
           <p className="ingest-empty-section" style={{ marginTop: 6 }}>
-            Konflikte, die zu einem Buch im Diff gehören, sind im jeweiligen
-            Drill-down sichtbar; obige sind orphan-conflicts ohne added/updated/
-            skipped_manual-Eintrag.
+            Conflicts tied to a book in the diff are visible in that book&apos;s
+            drill-down; the above are orphan conflicts without an
+            added/updated/skipped_manual entry.
           </p>
         </Section>
       ) : null}
@@ -171,7 +171,7 @@ export default async function IngestRunPage({ params }: DetailParams) {
       ) : null}
 
       {orphanFlags.length > 0 ? (
-        <Section title="LLM-Flags ohne Buch-Eintrag" count={orphanFlags.length}>
+        <Section title="LLM flags without book entry" count={orphanFlags.length}>
           <ul className="ingest-flag-list">
             {orphanFlags.map((f, i) => (
               <li key={`${f.slug}-${f.kind}-${i}`}>
@@ -193,7 +193,7 @@ function RunMeta({ diff }: { diff: DiffFile }) {
   return (
     <dl className="ingest-detail-meta">
       <MetaBlock label="ranAt" value={formatTimestamp(diff.ranAt)} />
-      <MetaBlock label="discovery" value={`${diff.discoverySource} · ${diff.discovered} entdeckt`} />
+      <MetaBlock label="discovery" value={`${diff.discoverySource} · ${diff.discovered} discovered`} />
       <MetaBlock label="discoveryPages" value={diff.discoveryPages.join(", ") || "—"} />
       <MetaBlock label="activeSources" value={diff.activeSources.join(", ")} />
       {diff.llmModel ? (
@@ -335,7 +335,7 @@ function UpdatedEntryCard({
         </div>
         <div className="ingest-entry-summary-right">
           <span className="ingest-entry-badge">
-            {Object.keys(entry.diff).length} Felder geändert
+            {Object.keys(entry.diff).length} fields changed
           </span>
           {flags.length > 0 ? (
             <span className="ingest-entry-flag-pill">
@@ -372,10 +372,10 @@ function SkippedManualCard({
         <div className="ingest-entry-summary-right">
           {wouldChange > 0 ? (
             <span className="ingest-entry-badge">
-              {wouldChange} Felder hätten geändert
+              {wouldChange} fields would have changed
             </span>
           ) : (
-            <span className="ingest-entry-badge">manual identisch</span>
+            <span className="ingest-entry-badge">manual identical</span>
           )}
           {flags.length > 0 ? (
             <span className="ingest-entry-flag-pill">
@@ -409,12 +409,12 @@ function FieldOriginsTable({
     .sort((a, b) => fieldOrder(a) - fieldOrder(b));
   return (
     <div>
-      <h3 className="ingest-subsection-title">Felder + Origins</h3>
+      <h3 className="ingest-subsection-title">Fields + origins</h3>
       <table className="ingest-fields-table">
         <thead>
           <tr>
-            <th>Feld</th>
-            <th>Wert</th>
+            <th>Field</th>
+            <th>Value</th>
             <th>Source</th>
           </tr>
         </thead>
@@ -485,7 +485,7 @@ function HardcoverAuditSection({
   if (!raw || ((!raw.tags || raw.tags.length === 0) && raw.averageRating === undefined)) return null;
   return (
     <div>
-      <h3 className="ingest-subsection-title">Hardcover-Audit</h3>
+      <h3 className="ingest-subsection-title">Hardcover audit</h3>
       {raw.averageRating !== undefined ? (
         <ul className="ingest-pill-list" style={{ marginBottom: 8 }}>
           <li className="ingest-pill ingest-pill-rating">
@@ -509,12 +509,12 @@ function LlmPayloadSection({ raw }: { raw?: RawLlmPayload }) {
   return (
     <div>
       <h3 className="ingest-subsection-title">
-        LLM-Payload {raw.model ? <span className="ingest-mono" style={{ color: "var(--color-lum)", fontWeight: "normal", letterSpacing: "0.02em" }}>· {raw.model}</span> : null}
+        LLM payload {raw.model ? <span className="ingest-mono" style={{ color: "var(--color-lum)", fontWeight: "normal", letterSpacing: "0.02em" }}>· {raw.model}</span> : null}
       </h3>
       {raw.facetIds && raw.facetIds.length > 0 ? (
         <>
           <p className="ingest-mono" style={{ fontSize: 11, color: "var(--color-ink-2)", margin: "0 0 4px" }}>
-            facetIds (vor Vokab-Filter, inkl. invalid IDs)
+            facetIds (before vocab filter, incl. invalid IDs)
           </p>
           <ul className="ingest-pill-list" style={{ marginBottom: 10 }}>
             {raw.facetIds.map((id) => (
@@ -526,7 +526,7 @@ function LlmPayloadSection({ raw }: { raw?: RawLlmPayload }) {
       {raw.discoveredLinks && raw.discoveredLinks.length > 0 ? (
         <>
           <p className="ingest-mono" style={{ fontSize: 11, color: "var(--color-ink-2)", margin: "0 0 4px" }}>
-            discoveredLinks (Storefront- und Reference-URLs)
+            discoveredLinks (storefront and reference URLs)
           </p>
           <ul className="ingest-link-list">
             {raw.discoveredLinks.map((link, i) => (
@@ -546,7 +546,7 @@ function FlagsSection({ flags }: { flags: DiffLLMFlag[] }) {
   if (flags.length === 0) return null;
   return (
     <div>
-      <h3 className="ingest-subsection-title">Plausibility-Flags ({flags.length})</h3>
+      <h3 className="ingest-subsection-title">Plausibility flags ({flags.length})</h3>
       <ul className="ingest-flag-list">
         {flags.map((f, i) => (
           <li key={`${f.kind}-${f.field ?? "x"}-${i}`}>
@@ -582,13 +582,13 @@ function DiffTable({ diff }: { diff: Record<string, DiffFieldChange> }) {
   const fields = Object.keys(diff).sort();
   return (
     <div>
-      <h3 className="ingest-subsection-title">Diff (alt → neu)</h3>
+      <h3 className="ingest-subsection-title">Diff (old → new)</h3>
       <table className="ingest-diff-table">
         <thead>
           <tr>
-            <th>Feld</th>
-            <th>alt</th>
-            <th>neu</th>
+            <th>Field</th>
+            <th>old</th>
+            <th>new</th>
           </tr>
         </thead>
         <tbody>
