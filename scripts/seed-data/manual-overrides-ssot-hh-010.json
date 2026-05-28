@@ -1,0 +1,520 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-010",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7-1m",
+  "rationale": "Tenth HH wave — 8 single-primarch novellas plus 2 anthologies from the Primarchs imprint (Corax → Sanguinius, 2018–2022). All are character-study format with a primarch as the focal lens; large surface-form payload of named primarchs, named brother-cameos and xenos antagonists (Khrave, Rangdan, the Carinae Sodality, the Order of Galaspar). Two anthologies aggregate factions/locations/characters from their constituent stories per rulebook.",
+  "books": [
+    {
+      "externalBookId": "HH-0091",
+      "slug": "corax-lord-of-shadows",
+      "overrides": {
+        "synopsis": "Sent to break a compliance the Imperial Army cannot finish on its own, Corax leads the Raven Guard against the Carinae Sodality — a civilisation strung across a thousand artificial moons. When the void-city of Zenith unleashes an ancient bio-weapon, Imperial troops are turned against one another and the campaign collapses into massacre. Corax must decide whether to win this war as himself or finish it the way Konrad Curze would. The novel cuts between the Carinae compliance and unrest on Kiavahr, and lingers on the strain inside the Legion known as the Sable Brand — sons of the Raven who carry their primarch's wrath without his restraint.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "requires_context",
+          "short",
+          "character_study",
+          "war_story",
+          "somber",
+          "grimdark",
+          "action_heavy",
+          "hubris",
+          "brotherhood",
+          "war",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Imperial Army", "role": "supporting" },
+          { "name": "Carinae Sodality", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Carinae", "role": "primary" },
+          { "name": "Zenith", "role": "supporting" },
+          { "name": "Kiavahr", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Corvus Corax", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.70,
+          "count": 761,
+          "evidenceUrl": "https://www.goodreads.com/book/show/40539784-corax"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0092",
+      "slug": "angron-slave-of-nuceria",
+      "overrides": {
+        "synopsis": "Now bearing the name of their primarch, the World Eaters are still recognisably the War Hounds the Emperor first raised — until Angron demands they remake themselves in his image and bolt the Butcher's Nails into their own skulls. Across two timeframes, the novel traces how that order is reached. In the present, the Legion debates a change that will rewrite what they are. In the past, the young Angron is dragged from his mountains into Nuceria's arenas to fight and die for the entertainment of the High Riders, slowly bonding with the other slaves chained beside him. The book lays out, in microcosm, the tragedy that becomes the Heresy.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "short",
+          "character_study",
+          "war_story",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "brotherhood",
+          "betrayal",
+          "war",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_abuse",
+          "en"
+        ],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Nuceria", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Angron", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.22,
+          "count": 1050,
+          "evidenceUrl": "https://www.goodreads.com/book/show/40593235-angron"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0093",
+      "slug": "scions-of-the-emperor",
+      "overrides": {
+        "synopsis": "Eight short stories that move through the Great Crusade and the years that bend toward the Heresy, each one circling a different primarch. A young Ferrus Manus crash-lands in perpetual gloom; Mortarion tries to redeem the slaughter on Galaspar with a fresh compliance and finds treachery instead; Jaghatai Khan outmanoeuvres an Iron Warriors warsmith; a Blood Angel sets out to capture beauty in a galaxy at war; a remembrancer rides with Konrad Curze and learns what compliance under the Night Lords really costs; Roboute Guilliman returns to a restless Macragge; Rogal Dorn investigates strange deaths inside the Imperial Palace on the eve of the Siege; and Dark Angels make first contact with Alpharius during the Rangdan Xenocides.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "short",
+          "character_study",
+          "war_story",
+          "court_intrigue",
+          "mystery",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "philosophical",
+          "brotherhood",
+          "hubris",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Hands", "role": "supporting" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Blood Angels", "role": "supporting" },
+          { "name": "Night Lords", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Imperial Fists", "role": "supporting" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "Alpha Legion", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Macragge", "role": "supporting" },
+          { "name": "Galaspar", "role": "supporting" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ferrus Manus", "role": "supporting" },
+          { "name": "Mortarion", "role": "supporting" },
+          { "name": "Jaghatai Khan", "role": "supporting" },
+          { "name": "Sanguinius", "role": "supporting" },
+          { "name": "Konrad Curze", "role": "supporting" },
+          { "name": "Roboute Guilliman", "role": "supporting" },
+          { "name": "Rogal Dorn", "role": "supporting" },
+          { "name": "Lion El'Jonson", "role": "supporting" },
+          { "name": "Alpharius", "role": "supporting" },
+          { "name": "Xyrokles", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.93,
+          "count": 317,
+          "evidenceUrl": "https://www.goodreads.com/book/show/43886241-scions-of-the-emperor"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0094",
+      "slug": "konrad-curze-the-night-haunter",
+      "overrides": {
+        "synopsis": "Born into the freezing dark of Nostramo, raised by no one, Konrad Curze pulled a planet of murderers into something like order through fear — and never recovered from what it cost him. The novel braids three strands of his life: the boyhood on Nostramo, his recovery after weeks adrift in deep space, and the final hours before his foretold death. In each, Curze relives the choices that turned a primarch into the Night Haunter, arguing with the absent father who let him become this and justifying the horrors he committed in the Emperor's name and after it. A study of a brother who saw too clearly and chose the dark.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "short",
+          "character_study",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "philosophical",
+          "doubt",
+          "hubris",
+          "betrayal",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "cw_mental_health",
+          "cw_abuse",
+          "en"
+        ],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Nostramo", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Konrad Curze", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.23,
+          "count": 1515,
+          "evidenceUrl": "https://www.goodreads.com/book/show/42944439-konrad-curze"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0095",
+      "slug": "lion-eljonson-lord-of-the-first",
+      "overrides": {
+        "synopsis": "While the Emperor calls his primarchs together for the muster at Ullanor, the Lion turns his Legion the other way and drives the First into the Ghoul Stars to put down one defiant world. The Dark Angels expect a swift compliance and find themselves at war with the Khrave — mind-eating xenos who can wear the thoughts of weaker minds like clothing. Suddenly the mortals serving aboard the Lion's fleet cannot be trusted to hold the line beside their Astartes, and every plan must account for treachery from within. Pride or warning? Caprice or duty? The novel keeps the question open, and the Lord of the First in shadow.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "requires_context",
+          "short",
+          "character_study",
+          "war_story",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "hubris",
+          "loyalty",
+          "war",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Khrave", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ghoul Stars", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Lion El'Jonson", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.67,
+          "count": 843,
+          "evidenceUrl": "https://www.goodreads.com/book/show/62887011"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0096",
+      "slug": "alpharius-head-of-the-hydra",
+      "overrides": {
+        "synopsis": "Alpharius tells his own story, and the first thing he tells you is not to believe him. In a first-person confession that doubles back on itself, the lord of the Alpha Legion claims he was not the last primarch found by Horus but the first — discovered by the Emperor on Terra and hidden away as His private blade. Sensing from boyhood that he is somehow incomplete, Alpharius follows clues across the Great Crusade until they lead him to the Rangdan Xenocides and a meeting with Lion El'Jonson that will change the shape of his Legion forever. The truth about Omegon waits at the end. Whether any of it is true is another question.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "short",
+          "character_study",
+          "war_story",
+          "political_thriller",
+          "grimdark",
+          "philosophical",
+          "action_heavy",
+          "doubt",
+          "betrayal",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Alpha Legion", "role": "primary" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "Rangdan", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Alpharius", "role": "pov" },
+          { "name": "Omegon", "role": "supporting" },
+          { "name": "Lion El'Jonson", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.46,
+          "count": 1675,
+          "evidenceUrl": "https://www.goodreads.com/book/show/57741231-alpharius"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0097",
+      "slug": "blood-of-the-emperor",
+      "overrides": {
+        "synopsis": "Six short stories about the men the Emperor made to be His sons. A weak Cthonian boy carves a place for himself in the underhives of the gang world and steps onto the path that becomes Horus. Tribal hunters track a beast through Fenrisian snows under a yellow-eyed leader who is more than he seems. Prosperine sorcerers reach for a secret their lord has forbidden them. The Emperor's praetorian shows the side of Rogal Dorn most do not survive. Alpharius submits to questioning over a brutal compliance and gives nothing away. And after his fall, Mortarion comes home to Terra for the first time as a daemon prince.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "short",
+          "character_study",
+          "war_story",
+          "mystery",
+          "court_intrigue",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "cosmic_horror",
+          "hubris",
+          "brotherhood",
+          "doubt",
+          "betrayal",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Thousand Sons", "role": "supporting" },
+          { "name": "Imperial Fists", "role": "supporting" },
+          { "name": "Alpha Legion", "role": "supporting" },
+          { "name": "Death Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Cthonia", "role": "supporting" },
+          { "name": "Fenris", "role": "supporting" },
+          { "name": "Prospero", "role": "supporting" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Horus", "role": "supporting" },
+          { "name": "Leman Russ", "role": "supporting" },
+          { "name": "Magnus the Red", "role": "supporting" },
+          { "name": "Rogal Dorn", "role": "supporting" },
+          { "name": "Alpharius", "role": "supporting" },
+          { "name": "Mortarion", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.78,
+          "count": 336,
+          "evidenceUrl": "https://www.goodreads.com/book/show/57147055-blood-of-the-emperor"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0098",
+      "slug": "mortarion-the-pale-king",
+      "overrides": {
+        "synopsis": "The compliance of Galaspar was so thorough that the Imperium recoiled from its own victory. Mortarion, freshly placed at the head of the Death Guard, descended on a system whose ruling Order kept billions in slavery — and burned them out with a savagery that made his brothers question him. Now two of those brothers, Horus and Sanguinius, summon the Pale King back to the ruins he made and demand he account for what was done there. The novel cuts between the slaughter itself and the reckoning afterwards, watching a primarch who hates tyrants discover how easily he becomes one.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "requires_context",
+          "short",
+          "character_study",
+          "war_story",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "philosophical",
+          "hubris",
+          "brotherhood",
+          "doubt",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "The Order", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Galaspar", "role": "primary" },
+          { "name": "Barbarus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Mortarion", "role": "pov" },
+          { "name": "Horus", "role": "supporting" },
+          { "name": "Sanguinius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.94,
+          "count": 728,
+          "evidenceUrl": "https://www.goodreads.com/book/show/60483879-mortarion"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0099",
+      "slug": "rogal-dorn-the-emperors-crusader",
+      "overrides": {
+        "synopsis": "The Emperor sends four of his sons across the Occluda Noctis — hundreds of star systems on the far side of a great northern warp storm, beyond the reach of the Astronomican and the limit of His own psychic sight. Rogal Dorn drives the Imperial Fists straight into that blindness. The enemy waiting there moves between stars without warp travel, attacks without warning, and seems immune to every doctrine the Legion has trained on. Dorn answers the way he always does: discipline, planning, will. He yokes his Librarians to his Navigators, builds his lines in the dark, and refuses to lose a war his father cannot see.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "requires_context",
+          "short",
+          "character_study",
+          "war_story",
+          "journey",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "loyalty",
+          "war",
+          "brotherhood",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Occluda Noctis", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Rogal Dorn", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.72,
+          "count": 573,
+          "evidenceUrl": "https://www.goodreads.com/book/show/61354070-rogal-dorn"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0100",
+      "slug": "sanguinius-the-great-angel",
+      "overrides": {
+        "synopsis": "A remembrancer with a ruined reputation joins the Ninth Legion's expedition fleet and is told he may chronicle the Great Angel as he chooses, provided he understands that almost nothing about the Blood Angels is what it appears. The book retells events around the early days of the Heresy from a vantage close to Sanguinius himself — his unique form, his sealed homeworld, the legends his sons let stand because they are easier than the truth. The further the remembrancer goes, the more he learns that the question is not who Sanguinius is, but what kind of Imperium has been built around the answer.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "short",
+          "character_study",
+          "war_story",
+          "philosophical",
+          "somber",
+          "grimdark",
+          "action_heavy",
+          "loyalty",
+          "brotherhood",
+          "doubt",
+          "faith",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Sanguinius", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.03,
+          "count": 920,
+          "evidenceUrl": "https://www.goodreads.com/book/show/61317819-sanguinius"
+        }
+      }
+    }
+  ]
+}

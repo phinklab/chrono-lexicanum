@@ -2,11 +2,12 @@
 title: Cowork session workflow
 type: workflow
 created: 2026-05-09
-updated: 2026-05-23
+updated: 2026-05-25
 sources:
   - ../../../docs/agents/COWORK.md
   - ../../../docs/agents/SESSIONS.md
-  - ../../../sessions/2026-05-23-095-arch-rollup-ownership.md
+  - ../../../sessions/archive/2026-05/2026-05-23-095-arch-rollup-ownership.md
+  - ../../../CLAUDE.md
 related:
   - ./cc-session.md
   - ./sessions-format.md
@@ -58,7 +59,7 @@ Origin — the Hardcover-rating arc (briefs 075 / 085 / 086). Effort went into t
 4. Use `AskUserQuestion` for any decision Cowork can't make alone. Recommend an option but always offer alternatives.
 5. **Update wiki pages** if the planning changes the system (architecture, roadmap, pipeline-state). Pre-049: `ARCHITECTURE.md` / `ROADMAP.md` top-level. Post-049: `brain/wiki/architecture.md` / `brain/wiki/roadmap.md`.
 6. Write the brief into `sessions/YYYY-MM-DD-NNN-arch-{slug}.md` using the template. Fold any open-questions items in (and prune them from `open-questions.md`).
-7. Tell Philipp in chat: "When you're ready, open a terminal in the project folder and run `claude`. The brief is at `sessions/...md`. Claude Code will read it and pick up from there."
+7. Hand Philipp the doc-only commit line for the brief — it lands on `main` directly, no PR (see § "PR policy" below): `git add sessions/<file> && git commit -m "Brief NNN: <slug>" && git push origin main`, with `npm run brain:lint -- --no-write` green first. Then tell him: "open a terminal in the project folder and run `claude` / `codex` — the brief is on `main` at `sessions/...md`, and CC picks up from there."
 8. Mark tasks completed.
 
 If Philipp wants Cowork to push code or run builds: gently redirect. "That's a Claude Code job. I've written the brief — you can hand it to him now."
@@ -77,6 +78,19 @@ Per [`./session-end.md`](./session-end.md), the routine is:
 6. Handle external reviews if any (raw → `brain/raw/reviews/<date>-<source>.md` with banner; findings → open-questions).
 7. Update [`../index.md`](../index.md) and [`../log.md`](../log.md) (the catalog and the operation log).
 8. Update [`../../../sessions/README.md`](../../../sessions/README.md) — Active-threads + the session-table row for the merged PR. (Coordination worktree only — strand worktrees never touch this file.)
+
+This whole pass is doc-only — commit it straight to `main`, no PR (§ "PR policy" below).
+
+## PR policy — Cowork's output lands direct on `main`
+
+Decided 2026-05-25 with Philipp. A pull request is a code-review + CI mechanism, and Cowork's output — architect briefs, coordination passes, `brain/**` edits — is **doc-only**: there is nothing for a PR to catch. It commits **directly to `main`**, no branch, no PR. Authoritative rule + edge cases: [`/CLAUDE.md`](../../../CLAUDE.md) § Git → "PR policy".
+
+What this means for a Cowork session:
+
+- **The brief and the coordination pass go straight to `main`.** Cowork can't run `git` (sandbox). It writes the files and hands Philipp the exact line — `git add <files> && git commit -m "<msg>" && git push origin main`. The coordination worktree sits on `main` for exactly this; no `codex/session-*` branch for doc-only work.
+- **A coordination pass is never its own PR.** Folding a merged strand PR into `project-state.md` / `pipeline-state.md` / `open-questions.md` / `index.md` / `log.md` / `sessions/README.md` is doc-only — direct to `main`. The old three-PR hygiene cycle (coordination pass + next brief + coordination pass) collapses to direct commits.
+- **A code-handing brief still hands code to CC.** The brief *file* lands on `main` directly; the *implementation* is code → CC's task branch + PR, and CC flips the brief's `status: open → implemented` inside that PR. Cowork opens no PR for the brief.
+- **Run `brain:lint` first.** `ci.yml` gates `brain:lint` on PRs only; a direct-to-`main` doc commit skips CI. Hand Philipp `npm run brain:lint -- --no-write` to run green before the push — until `ci.yml` grows a `push: branches: [main]` trigger.
 
 ## Tools Cowork actually uses
 

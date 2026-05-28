@@ -1,0 +1,487 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-014",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "Wave 14 of the HH domain mixes seven Black Library novellas — including the Calth-Underworld pair The Honoured / The Unburdened, the two 2018 Novella-Collection-#1 entries Dreadwing and Spear of Ultramar, and Garro's first novella-length outing — with two early limited-edition short-story compilations (Angron, The Imperial Truth) and the Visions of Heresy art compendium. Both compilations are multi-author and so are flagged as anthology against the roster's collection label; Visions of Heresy is essentially an art/reference book rather than narrative fiction, so its entity tagging is deliberately sparse.",
+  "books": [
+    {
+      "externalBookId": "HH-0131",
+      "slug": "wolf-king",
+      "overrides": {
+        "synopsis": "Reeling from the burning of Prospero and the loss of much of their fleet, Leman Russ and his Space Wolves take shelter in the rust-red clouds of the Alaxxes nebula — only to find that the Alpha Legion has been hunting them since they arrived. Outmaneuvered at every turn and abandoned by the White Scars they once called allies, the Rout face annihilation among the dust-laden gas streams. Bjorn and his brothers hunger to bring the fight to their persecutors, but the Wolf King retreats into himself, brooding alone on a war his Legion was never meant to lose. When an unexpected guest steps into Russ's chamber, the Primarch is forced to a decision that will reshape what the Sons of Russ become — and bridges the gap between the earlier Scars and the wider road toward Vengeful Spirit.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "requires_context",
+          "novella",
+          "war_story",
+          "last_stand",
+          "character_study",
+          "grimdark",
+          "somber",
+          "brotherhood",
+          "loyalty",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Alpha Legion", "role": "antagonist" },
+          { "name": "White Scars", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Alaxxes Nebula", "role": "primary" },
+          { "name": "Prospero", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Leman Russ", "role": "pov" },
+          { "name": "Bjorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.95,
+          "count": 459,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/26803470-wolf-king"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0132",
+      "slug": "the-honoured",
+      "overrides": {
+        "synopsis": "In the immediate aftermath of the Word Bearers' treacherous assault on Calth, the planet's wounded star drives Ultramarine and traitor alike into the subterranean arcologies. Captain Steloc Aethon of the famed 19th Company — the Honoured — rallies what is left of his command and sets out to wage a new kind of war in the dark. The Word Bearer lines are scattered, their objectives shrouded; the underworld is a maze of dust, scarce air and stranger superstition. But Aethon knows that somewhere in those tunnels walks Kurtha Sedd, the Chaplain he once called friend, and bitter vengeance threatens to drown the discipline Roboute Guilliman taught him to keep. A subterranean companion piece to Annandale's The Unburdened, told from the loyalist side of the Calth Underworld War.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "war",
+          "loyalty",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Calth", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Steloc Aethon", "role": "pov" },
+          { "name": "Kurtha Sedd", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.32,
+          "count": 353,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/27559823"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0133",
+      "slug": "the-unburdened",
+      "overrides": {
+        "synopsis": "Long before the fires of Calth, Chaplain Kurtha Sedd walked beside the Emperor at Monarchia and shared a strange brotherhood with an Ultramarines captain named Steloc Aethon. Now Kurtha Sedd is a Chaplain of the Third Hand Chapter of the Word Bearers, and his Legion's long-prepared revenge against Guilliman's sons has only just begun. Driven beneath the surface of Calth as the wounded Veridian star unleashes its furies, Kurtha Sedd leads his most devout brethren deeper into the arcologies — and deeper into the unholy truths that bind them. There the Word Bearers must wage a darkening war against the Ultramarines, one in which old friendship cannot be allowed to soften the knife. A descent into Word Bearer faith and cosmic horror, paired with Sanders's The Honoured.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "chaos",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "cosmic_horror",
+          "faith",
+          "betrayal",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Ultramarines", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Calth", "role": "primary" },
+          { "name": "Monarchia", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Kurtha Sedd", "role": "pov" },
+          { "name": "Steloc Aethon", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.43,
+          "count": 369,
+          "evidenceUrl": "https://www.goodreads.com/book/show/26029275-the-unburdened"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0134",
+      "slug": "garro-vow-of-faith",
+      "overrides": {
+        "synopsis": "Nathaniel Garro, once Battle-Captain of the Death Guard's Seventh Great Company and now Agentia Primus to Malcador the Sigillite, has begun to chafe at the long shadow of his master's hidden errands. Quietly setting his usual orders aside, Garro turns to a private vow: to find Saint Euphrati Keeler, the living woman whose Lectitio Divinitatus is reshaping the spirit of besieged Terra. But the Warmaster's hunters have set out on the same trail. An assassin sent at Horus's command, guided by a silent Alpha Legion operative, is closing on the remote enclave of Salvaguardia where Keeler shelters her followers. Faith, doubt and oath are weighed against one another as Garro races to reach the Saint before the knife finds her throat, and the long-awaited first novella-length outing of the wanderer in grey crystallises around a single, dangerous question.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "mystery",
+          "character_study",
+          "somber",
+          "philosophical",
+          "faith",
+          "doubt",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "Alpha Legion", "role": "antagonist" },
+          { "name": "Officio Assassinorum", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Salvaguardia", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Euphrati Keeler", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" },
+          { "name": "Kell", "role": "antagonist" },
+          { "name": "Haln", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.07,
+          "count": 198,
+          "evidenceUrl": "https://www.goodreads.com/book/show/28404047-garro"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0135",
+      "slug": "sons-of-the-forge",
+      "overrides": {
+        "synopsis": "Word has reached Nocturne that Vulkan, Primarch of the Salamanders, has fallen on Isstvan V. Before he left for the dropsite, Vulkan entrusted his Forgefather, T'kell, with a final and grievous duty: select the seven greatest of his hand-wrought weapons and hide them away in the secret vault known as the Wrought — and destroy the rest, that the Eighteenth Legion's relics might never fall into traitor hands. T'kell gathers a chosen escort of Firedrakes and the brothers who stayed behind, and sets out on a journey that demands hard sacrifice with every step. But the road to the Wrought is not empty, and unexpected enemies wait among the ashes. A quiet, sombre tale that plants the seed for the Salamanders' ten-thousand-year search for their Primarch's lost artefacts.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "requires_context",
+          "novella",
+          "journey",
+          "last_stand",
+          "somber",
+          "action_heavy",
+          "loyalty",
+          "brotherhood",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Nocturne", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "T'kell", "role": "pov" },
+          { "name": "Vulkan", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Search coverage names 'unexpected foes barring their path' but does not specify the antagonist faction; left blank rather than guessed." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.49,
+          "count": 158,
+          "evidenceUrl": "https://www.goodreads.com/book/show/32470088-sons-of-the-forge"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0136",
+      "slug": "dreadwing",
+      "overrides": {
+        "synopsis": "With the Ruinstorm broken and Guilliman and Sanguinius racing for Terra, the Lion has turned his Dark Angels to a colder errand: the systematic burning of every traitor world he can reach. Among the ash-fields and dead orbital docks, his Wing lieutenants begin to wonder whether their Primarch still believes the throne can be saved at all — or whether he simply means to leave Horus an empire of cinders. Redloss of the Dreadwing wants to keep killing. Holguin of the Deathwing wants to turn for Terra. Between them, the silent Lion broods on what victory now means, while news from Caliban — and from the man called Luther — gnaws at the edge of every command. A grim study of a Legion losing faith in its own war, and the foreshock that will eventually crack the I Legion in two.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "novella",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "doubt",
+          "hubris",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Caliban", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lion El'Jonson", "role": "supporting" },
+          { "name": "Redloss", "role": "pov" },
+          { "name": "Holguin", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.50,
+          "count": 225,
+          "evidenceUrl": "https://www.goodreads.com/book/show/42658630-dreadwing"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0137",
+      "slug": "spear-of-ultramar",
+      "overrides": {
+        "synopsis": "The Ruinstorm has thinned and Roboute Guilliman is finally driving his vast Ultramarines fleet toward Terra, certain that every day he loses is a day Horus gains. In the Charchera System he finds a trap waiting for him. Warsmith Khrossus and a single, outnumbered company of Iron Warriors have been ordered to delay the Avenging Son at any cost — and they have built the kind of patient, brittle snare that Guilliman, of all primarchs, will recognise on sight and still have no choice but to spring. As the Ultramarines bleed for every parsec, the truth of why the Thirteenth Legion never reached the Siege of Terra is laid bare in a single brutal engagement, and weighed in the Primarch's own counsel. A focused character study of command under the cruelest kind of time pressure.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "requires_context",
+          "novella",
+          "war_story",
+          "last_stand",
+          "character_study",
+          "somber",
+          "action_heavy",
+          "sacrifice",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Charchera System", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "pov" },
+          { "name": "Khrossus", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.71,
+          "count": 191,
+          "evidenceUrl": "https://www.goodreads.com/book/show/42740947-spear-of-ultramar"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0138",
+      "slug": "angron",
+      "overrides": {
+        "synopsis": "Three stories of the Red Angel, gathered into a single volume. In After Desh'ea, the Emperor has just plucked Angron from the high places of Nuceria and dropped him among his new sons; the captain Kharn is the first World Eater asked to make a primarch out of a still-bleeding gladiator. In Butcher's Nails, Angron rides with Lorgar Aurelian on a punitive campaign and the Word Bearer learns, up close, the shape of the cortical implants that grind his brother's mind to slag. In Lord of the Red Sands, Angron returns to a world where he was once chained, and the World Eaters glimpse the warrior he might have been before the Nails were ever hammered home. Together the three tales trace, in steady and painful steps, the road that ends in the Heresy.",
+        "facetIds": [
+          "book",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "requires_context",
+          "novella",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "cosmic_horror",
+          "action_heavy",
+          "brotherhood",
+          "betrayal",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_abuse",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Word Bearers", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Nuceria", "role": "primary" },
+          { "name": "Desh'ea", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Angron", "role": "pov" },
+          { "name": "Kharn", "role": "pov" },
+          { "name": "Lorgar", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "anthology", "reason": "Roster lists 'collection' but the volume gathers stories from two different authors (Aaron Dembski-Bowden and Matthew Farrer); Heresy convention treats multi-author short-story compilations as anthologies." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.02,
+          "count": 291,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/17701206"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0139",
+      "slug": "the-imperial-truth",
+      "overrides": {
+        "synopsis": "Six short stories drawn from across the early decades of the Great Crusade and the first treacheries of the Heresy, gathered from a group of established Black Library voices and edited by Laurie Goulding. Rob Sanders opens with a Custodian errand carried out at the Emperor's own command. Gav Thorpe rides with the Dark Angels under their silent Primarch. Aaron Dembski-Bowden returns Angron to the red sands of Nuceria. James Swallow weighs what is left when a Legion is broken. Nick Kyme follows the Phoenician at the edge of his fall, and Graham McNeill closes with a hidden adoratrice from the early Imperial cult. A sampler that ranges across Legions and decades and never settles long in one set of colours. Originally a 2013 Horus Heresy Weekender exclusive of two thousand numbered hardbacks, later released digitally and folded into the War Without End anthology.",
+        "facetIds": [
+          "book",
+          "male",
+          "multi",
+          "imperium",
+          "chaos",
+          "galactic",
+          "requires_context",
+          "novella",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "loyalty",
+          "betrayal",
+          "faith",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Death Guard", "role": "primary" },
+          { "name": "Emperor's Children", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Nuceria", "role": "supporting" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Angron", "role": "pov" },
+          { "name": "Lion El'Jonson", "role": "supporting" },
+          { "name": "Fulgrim", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "anthology", "reason": "Roster lists 'collection' but the volume gathers stories from six different authors (Sanders, Thorpe, Dembski-Bowden, Swallow, Kyme, McNeill) under editor L.J. Goulding; multi-author short-story compilations are conventionally anthologies." },
+          { "kind": "low_confidence", "field": "characters", "reason": "Six independent stories with distinct casts; only the most prominent named POV/figures are tagged at the volume level." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.72,
+          "count": 185,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/17979771"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0140",
+      "slug": "visions-of-heresy",
+      "overrides": {
+        "synopsis": "An illustrated companion to the Horus Heresy, gathering iconic art of the eighteen Space Marine Legions and their Primarchs alongside historical notes by Alan Merrett. The volume re-presents the four earlier Visions books — Visions of War, of Darkness, of Treachery and of Death — and adds new paintings by Neil Roberts together with expanded background on the long road from the Great Crusade to the Siege of Terra. Reference and reverie rather than narrative: a viewer's archive of the era's tone, livery, weapons and great betrayals, laid out in the same horizontal format that the Forge World Black Books would later make their own. For readers who want to see, rather than read, the Heresy in a single sitting.",
+        "facetIds": [
+          "book",
+          "ensemble",
+          "multi",
+          "neutral",
+          "galactic",
+          "standalone",
+          "doorstopper",
+          "war_story",
+          "somber",
+          "war",
+          "betrayal",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [],
+        "locations": [],
+        "characters": [],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Art/reference volume rather than narrative fiction; covers all eighteen Legions and the wider Imperium at panoramic scope. Entity tagging deliberately left empty rather than aggregated to a meaningless 'all of them' list." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.36,
+          "count": 248,
+          "evidenceUrl": "https://www.goodreads.com/book/show/16130681-horus-heresy"
+        }
+      }
+    }
+  ]
+}

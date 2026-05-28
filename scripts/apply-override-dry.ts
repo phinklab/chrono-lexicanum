@@ -1,11 +1,15 @@
 /**
- * Dry simulation for the resolver apply sweep (ssot-w40k-001..051).
+ * Dry simulation for the resolver apply sweep (ssot-w40k-001..057 + ssot-hh-001..002).
  *
  * This intentionally does not import the DB client and performs no mutations.
  * It mirrors the resolver-facing parts of scripts/apply-override.ts:
  * surface-form resolution, per-work junction de-dupe, role normalization,
  * unresolved surface-form capture, and FK-target validation against the
  * checked-in seed JSONs.
+ *
+ * Brief 100: two-domain (W40K + HH). BATCHES carries `{ domain, n }`-tuples
+ * so the trias materially exercises HH overrides after each HH resolver pass
+ * instead of staying green by absence.
  */
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -53,59 +57,100 @@ import {
 } from "./apply-override-collections";
 
 const SEED_DIR = join(process.cwd(), "scripts", "seed-data");
+/**
+ * Domain-aware batch list (Brief 100). After each resolver pass, append
+ * `{ domain, n }`-tuples for the newly resolved batches — Domain-+-N-Append,
+ * not reines N-Append.
+ */
 const BATCHES = [
-  "001",
-  "002",
-  "003",
-  "004",
-  "005",
-  "006",
-  "007",
-  "008",
-  "009",
-  "010",
-  "011",
-  "012",
-  "013",
-  "014",
-  "015",
-  "016",
-  "017",
-  "018",
-  "019",
-  "020",
-  "021",
-  "022",
-  "023",
-  "024",
-  "025",
-  "026",
-  "027",
-  "028",
-  "029",
-  "030",
-  "031",
-  "032",
-  "033",
-  "034",
-  "035",
-  "036",
-  "037",
-  "038",
-  "039",
-  "040",
-  "041",
-  "042",
-  "043",
-  "044",
-  "045",
-  "046",
-  "047",
-  "048",
-  "049",
-  "050",
-  "051",
-] as const;
+  { domain: "w40k", n: "001" },
+  { domain: "w40k", n: "002" },
+  { domain: "w40k", n: "003" },
+  { domain: "w40k", n: "004" },
+  { domain: "w40k", n: "005" },
+  { domain: "w40k", n: "006" },
+  { domain: "w40k", n: "007" },
+  { domain: "w40k", n: "008" },
+  { domain: "w40k", n: "009" },
+  { domain: "w40k", n: "010" },
+  { domain: "w40k", n: "011" },
+  { domain: "w40k", n: "012" },
+  { domain: "w40k", n: "013" },
+  { domain: "w40k", n: "014" },
+  { domain: "w40k", n: "015" },
+  { domain: "w40k", n: "016" },
+  { domain: "w40k", n: "017" },
+  { domain: "w40k", n: "018" },
+  { domain: "w40k", n: "019" },
+  { domain: "w40k", n: "020" },
+  { domain: "w40k", n: "021" },
+  { domain: "w40k", n: "022" },
+  { domain: "w40k", n: "023" },
+  { domain: "w40k", n: "024" },
+  { domain: "w40k", n: "025" },
+  { domain: "w40k", n: "026" },
+  { domain: "w40k", n: "027" },
+  { domain: "w40k", n: "028" },
+  { domain: "w40k", n: "029" },
+  { domain: "w40k", n: "030" },
+  { domain: "w40k", n: "031" },
+  { domain: "w40k", n: "032" },
+  { domain: "w40k", n: "033" },
+  { domain: "w40k", n: "034" },
+  { domain: "w40k", n: "035" },
+  { domain: "w40k", n: "036" },
+  { domain: "w40k", n: "037" },
+  { domain: "w40k", n: "038" },
+  { domain: "w40k", n: "039" },
+  { domain: "w40k", n: "040" },
+  { domain: "w40k", n: "041" },
+  { domain: "w40k", n: "042" },
+  { domain: "w40k", n: "043" },
+  { domain: "w40k", n: "044" },
+  { domain: "w40k", n: "045" },
+  { domain: "w40k", n: "046" },
+  { domain: "w40k", n: "047" },
+  { domain: "w40k", n: "048" },
+  { domain: "w40k", n: "049" },
+  { domain: "w40k", n: "050" },
+  { domain: "w40k", n: "051" },
+  { domain: "w40k", n: "052" },
+  { domain: "w40k", n: "053" },
+  { domain: "w40k", n: "054" },
+  { domain: "w40k", n: "055" },
+  { domain: "w40k", n: "056" },
+  { domain: "w40k", n: "057" },
+  { domain: "hh", n: "001" },
+  { domain: "hh", n: "002" },
+  { domain: "hh", n: "003" },
+  { domain: "hh", n: "004" },
+  { domain: "hh", n: "005" },
+  { domain: "hh", n: "006" },
+  { domain: "hh", n: "007" },
+  { domain: "hh", n: "008" },
+  { domain: "hh", n: "009" },
+  { domain: "hh", n: "010" },
+  { domain: "hh", n: "011" },
+  { domain: "hh", n: "012" },
+  { domain: "hh", n: "013" },
+  { domain: "hh", n: "014" },
+  { domain: "hh", n: "015" },
+  { domain: "hh", n: "016" },
+  { domain: "hh", n: "017" },
+  { domain: "hh", n: "018" },
+  { domain: "hh", n: "019" },
+  { domain: "hh", n: "020" },
+  { domain: "hh", n: "021" },
+  { domain: "hh", n: "022" },
+  { domain: "hh", n: "023" },
+  { domain: "hh", n: "024" },
+  { domain: "hh", n: "025" },
+  { domain: "hh", n: "026" },
+  { domain: "hh", n: "027" },
+  { domain: "hh", n: "028" },
+  { domain: "hh", n: "029" },
+  { domain: "hh", n: "030" },
+] as const satisfies ReadonlyArray<{ domain: "w40k" | "hh"; n: string }>;
 const SMOKE_SLUGS = [
   "the-anarch",
   "calgars-fury",
@@ -145,10 +190,36 @@ const SMOKE_SLUGS = [
   "shield-of-baal-devourer",
 ] as const;
 
+/**
+ * Sanity caps on the resolved junction totals.
+ *
+ * Brief 100 raises the maxima to fit the HH bootstrap (+30-50 factions,
+ * +60-120 locations, +500-800 characters over the 30 HH waves). Lower
+ * bounds stay at the W40K-only floor — they keep guarding against an
+ * accidental zero/near-zero apply. Future re-tuning happens at the next
+ * Konsolidierungs-Pass with large merge movement, not per-wave — but
+ * the Brief-100 faction estimate underran the observed HH curve (+131
+ * factions over the first 200 HH books vs. the +30-50 budgeted), so
+ * Resolver-Pass 13 Phase 4a bumps the faction maximum from 2500 to 3200
+ * (current dry post-apply 2512 + ~22% headroom for the remaining HH
+ * waves before the next consolidation pass). Resolver-Pass 15 Phase 4a
+ * bumps the locations maximum from 1100 to 1500: the Pass-14 report
+ * called out "1088/1100 (~1% headroom — tightest cap)" and forecast a
+ * re-tune at the next HH wave; Pass-15 adds 44 books and crosses the
+ * cap (work_locations dry post-apply 1145). New cap 1500 gives ~24%
+ * headroom for the remaining ~1 HH batch (~10 books) + a margin into
+ * the next consolidation pass.
+ *
+ * Consolidation-Pass 2 (Brief 102) Phase 4b bumps the characters maximum
+ * from 2200 to 2500: HH waves 10..15 plus the Pass-2 dedup leave
+ * work_characters at dry post-apply 1997 (was 2200-cap with only ~10%
+ * headroom — tightest cap of the three axes). New cap 2500 gives ~25%
+ * headroom for the next HH cycle / next consolidation pass.
+ */
 const EXPECTED_RANGES = {
-  factions: { min: 500, max: 1900 },
-  locations: { min: 180, max: 800 },
-  characters: { min: 430, max: 1400 },
+  factions: { min: 500, max: 3200 },
+  locations: { min: 180, max: 1500 },
+  characters: { min: 430, max: 2500 },
 } as const;
 
 interface OverrideEntity {
@@ -341,15 +412,14 @@ function loadOverrideBatches(cli: CliArgs): LoadedOverrideBatch[] {
     return [{ batch: file.batch, books: file.books, sourcePath }];
   }
 
-  return BATCHES.map((batch) => {
-    const file = readJson<OverrideFile>(
-      `manual-overrides-ssot-w40k-${batch}.json`,
-    );
-    assert.equal(file.batch, `ssot-w40k-${batch}`);
+  return BATCHES.map((b) => {
+    const fileName = `manual-overrides-ssot-${b.domain}-${b.n}.json`;
+    const file = readJson<OverrideFile>(fileName);
+    assert.equal(file.batch, `ssot-${b.domain}-${b.n}`);
     return {
       batch: file.batch,
       books: file.books,
-      sourcePath: join(SEED_DIR, `manual-overrides-ssot-w40k-${batch}.json`),
+      sourcePath: join(SEED_DIR, fileName),
     };
   });
 }
@@ -500,12 +570,29 @@ function formatCounts(counts: Map<string, number>): string {
 }
 
 function batchLabel(batches: LoadedOverrideBatch[]): string {
+  const first = BATCHES[0];
+  const last = BATCHES[BATCHES.length - 1];
   if (
     batches.length === BATCHES.length &&
-    batches[0]?.batch === `ssot-w40k-${BATCHES[0]}` &&
-    batches[batches.length - 1]?.batch === `ssot-w40k-${BATCHES[BATCHES.length - 1]}`
+    batches[0]?.batch === `ssot-${first.domain}-${first.n}` &&
+    batches[batches.length - 1]?.batch === `ssot-${last.domain}-${last.n}`
   ) {
-    return `ssot-w40k-${BATCHES[0]}..${BATCHES[BATCHES.length - 1]}`;
+    // Group by domain for a readable consolidated label.
+    const groups = new Map<string, string[]>();
+    for (const b of BATCHES) {
+      const arr = groups.get(b.domain) ?? [];
+      arr.push(b.n);
+      groups.set(b.domain, arr);
+    }
+    const parts: string[] = [];
+    for (const [domain, ns] of groups) {
+      parts.push(
+        ns.length === 1
+          ? `ssot-${domain}-${ns[0]}`
+          : `ssot-${domain}-${ns[0]}..${ns[ns.length - 1]}`,
+      );
+    }
+    return parts.join(" + ");
   }
   return batches.map((batch) => batch.batch).join(", ");
 }
@@ -900,8 +987,16 @@ function main(): void {
   console.log(`  missing resolved FK targets:   ${missingTargets.length}`);
   console.log(`  dangling JSON FK/alias refs:   ${referenceFkFindings.length}`);
   console.log(`  forward collection refs:       ${collectionAnalysis.forwardRefs.length}`);
+  const unresolvableByReason = countBy(
+    collectionAnalysis.unresolvableConstituentRefs,
+    (u) => u.reason,
+  );
   console.log(
     `  unresolvable constituent refs: ${collectionAnalysis.unresolvableConstituentRefs.length}`,
+  );
+  console.log(
+    `  by reason: out-of-range=${unresolvableByReason.get("out-of-range") ?? 0}, ` +
+      `unknown-work=${unresolvableByReason.get("unknown-work") ?? 0}`,
   );
 
   assert.deepEqual(missingRoster, [], `missing roster ids: ${missingRoster.join(", ")}`);
@@ -928,21 +1023,27 @@ function main(): void {
       collectionAnalysis.crossBatchResolvable.length > 0,
       "expected at least one cross-batch collection example",
     );
-    // Brief 091 range-aware guard: the prior `forwardRefs === []` hard-assert was
-    // dropped to report-only in Pass 6 (over-strict — it tripped on the 10 legit
-    // refs above). Report-only caught nothing, though. Restore a real tripwire on
-    // the constituent side: a forward ref whose constituent is out-of-range (a
-    // known roster book the cumulative sweep never reaches) or unknown-work
-    // (absent from the roster — a typo or an unregistered deferred gap) never
-    // resolves and must fail. In-range forward refs stay accepted (printed above).
-    const unresolvable = collectionAnalysis.unresolvableConstituentRefs;
+    // Brief 091 range-aware guard, Brief 101 reason-split: in-range forward
+    // refs (above) stay accepted. The tripwire is the constituent side, and it
+    // splits by reason. `out-of-range` is a consistent deferred state — the
+    // constituent is in the roster, just not in the cumulative apply range
+    // yet, and applyCollections re-evaluates the edge when the constituent's
+    // wave lands (Pass 6's anthology forward refs proved this end-to-end).
+    // `unknown-work` is the real error — constituent absent from the roster
+    // entirely (typo or unregistered deferred gap) → never resolves. Out-of-
+    // range refs are reported in the reason-breakdown above as informational
+    // deferred edges; only unknown-work refs abort the dry, and only those
+    // are listed in the failure message (the actionable set).
+    const unknownWorkRefs = collectionAnalysis.unresolvableConstituentRefs.filter(
+      (u) => u.reason === "unknown-work",
+    );
     assert.deepEqual(
-      unresolvable.map(
+      unknownWorkRefs.map(
         (u) =>
-          `${u.collection.collectionExternalId}->${u.collection.contentExternalId} (${u.reason})`,
+          `${u.collection.collectionExternalId}->${u.collection.contentExternalId}`,
       ),
       [],
-      "forward collection refs with an out-of-range / unknown constituent — typo or unregistered deferred gap",
+      "forward collection refs with an unknown constituent — typo or unregistered deferred gap",
     );
     assertInRange(
       "work_factions",

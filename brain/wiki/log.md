@@ -343,7 +343,7 @@ Parallele Hygiene-Spur zur SSOT-Loop. Browse-Root-Konzept (UI-Filter-Ebene) saub
 
 **Brain-Lint** kriegt eine neue Kategorie „Faction policy" (11 Kategorien total): Regel 1 (warn) auf parent-null-Faction-Rows die weder in `browseRoots` noch in `knownTopLevelExceptions` der Policy-JSON stehen; Regel 2 (error) auf dangling `parent`-FKs. Post-Patch-Lauf: 0 Findings in der neuen Kategorie; 4 pre-existing Warnings unverändert.
 
-**Pages touched (wiki):** [`./decisions/faction-policy.md`](./decisions/faction-policy.md) (new, Type `decision`, Sections: Context · Drei Ebenen · Browse-Root-Whitelist · Sonderfälle · Was wir bewusst NICHT entscheiden · Revisit-Trigger · Aftermath), [`./project-state.md`](./project-state.md) (Recently-shipped neue Top-Zeile, „What's running" neuer Faction-Policy-Bullet + brain-lint auf 11 Kategorien gehoben, frontmatter `sources:` + `related:` erweitert), [`./index.md`](./index.md) (Decisions-Tabelle neue Zeile), [`./open-questions.md`](./open-questions.md) (Migration-History-Note + `sources:`/`related:`), this `log.md`. **Outside wiki:** [`scripts/seed-data/factions.json`](../../scripts/seed-data/factions.json), [`scripts/seed-data/faction-policy.json`](../../scripts/seed-data/faction-policy.json) (new), [`scripts/seed-resolver-extensions.ts`](../../scripts/seed-resolver-extensions.ts), [`scripts/brain-lint.ts`](../../scripts/brain-lint.ts), [`docs/resolver-apply-runbook.md`](../../docs/resolver-apply-runbook.md), [`sessions/README.md`](../../sessions/README.md), [`sessions/2026-05-13-070-arch-faction-policy-hygiene.md`](../../sessions/2026-05-13-070-arch-faction-policy-hygiene.md) (status flip), [`sessions/2026-05-13-070-impl-faction-policy-hygiene.md`](../../sessions/2026-05-13-070-impl-faction-policy-hygiene.md).
+**Pages touched (wiki):** [`./decisions/faction-policy.md`](./decisions/faction-policy.md) (new, Type `decision`, Sections: Context · Drei Ebenen · Browse-Root-Whitelist · Sonderfälle · Was wir bewusst NICHT entscheiden · Revisit-Trigger · Aftermath), [`./project-state.md`](./project-state.md) (Recently-shipped neue Top-Zeile, „What's running" neuer Faction-Policy-Bullet + brain-lint auf 11 Kategorien gehoben, frontmatter `sources:` + `related:` erweitert), [`./index.md`](./index.md) (Decisions-Tabelle neue Zeile), [`./open-questions.md`](./open-questions.md) (Migration-History-Note + `sources:`/`related:`), this `log.md`. **Outside wiki:** [`scripts/seed-data/factions.json`](../../scripts/seed-data/factions.json), [`scripts/seed-data/faction-policy.json`](../../scripts/seed-data/faction-policy.json) (new), [`scripts/seed-resolver-extensions.ts`](../../scripts/seed-resolver-extensions.ts), [`scripts/brain-lint.ts`](../../scripts/brain-lint.ts), [`docs/resolver-apply-runbook.md`](../../docs/resolver-apply-runbook.md), [`sessions/README.md`](../../sessions/README.md), [`sessions/archive/2026-05/2026-05-13-070-arch-faction-policy-hygiene.md`](../../sessions/archive/2026-05/2026-05-13-070-arch-faction-policy-hygiene.md) (status flip), [`sessions/archive/2026-05/2026-05-13-070-impl-faction-policy-hygiene.md`](../../sessions/archive/2026-05/2026-05-13-070-impl-faction-policy-hygiene.md).
 
 **Decisions reaffirmed durch CC:** (a) Update-Mechanik = Option A (Cowork-Empfehlung), (b) Grey Knights Parent = `adeptus_astartes` (Books klassifizieren GK als Marines, nicht als Inquisition-Apparat), (c) Alpha Legion Parent = `chaos` (post-Heresy-Default, Cabal-Twist ist HH-Domain-Sorge), (d) `imperium` als `knownTopLevelExceptions` (Grand-Alignment-Konzept, keine UI-Filter-Wahl — sonst dauerhafte Lint-Warning).
 
@@ -372,13 +372,13 @@ Zweite Resolver-Welle. CC hat in einem Branch (`session-072-resolver-batch-2` o.
 
 **Pages touched (wiki):** `project-state.md` (post-072 anchor, Branch-Note, Counts, Latest-pipeline-state-Block, What's-open, Recently-shipped, Next-likely-brief), `open-questions.md` (OQ2-(b) Status-Update, OQ9 scharfgeschaltet, Migration-History-Note erweitert, frontmatter), `index.md` (Datum-Bump auf 2026-05-14, post-072-Note), this `log.md`.
 
-**Outside wiki:** `scripts/seed-data/factions.json`, `scripts/seed-data/locations.json`, `scripts/seed-data/characters.json`, `scripts/seed-data/faction-aliases.json`, `scripts/seed-data/location-aliases.json`, `scripts/seed-data/character-aliases.json`, `scripts/seed-data/faction-policy.json`, `scripts/seed-resolver-extensions.ts`, `scripts/apply-override.ts`, `scripts/test-resolver.ts`, `scripts/apply-override-dry.ts`, `scripts/test-resolver-coverage.ts`, `scripts/test-resolver-data-integrity.ts`, `sessions/2026-05-14-072-arch-resolver-batch-2.md` (status flip), `sessions/2026-05-14-072-impl-resolver-batch-2.md`, `sessions/README.md`.
+**Outside wiki:** `scripts/seed-data/factions.json`, `scripts/seed-data/locations.json`, `scripts/seed-data/characters.json`, `scripts/seed-data/faction-aliases.json`, `scripts/seed-data/location-aliases.json`, `scripts/seed-data/character-aliases.json`, `scripts/seed-data/faction-policy.json`, `scripts/seed-resolver-extensions.ts`, `scripts/apply-override.ts`, `scripts/test-resolver.ts`, `scripts/apply-override-dry.ts`, `scripts/test-resolver-coverage.ts`, `scripts/test-resolver-data-integrity.ts`, `sessions/archive/2026-05/2026-05-14-072-arch-resolver-batch-2.md` (status flip), `sessions/archive/2026-05/2026-05-14-072-impl-resolver-batch-2.md`, `sessions/README.md`.
 
 **Out of scope (per Brief 072):** Schema-Migration, UI-Arbeit, neues Test-Framework, HH-Domain-Resolver, Cockpit-Audit-Route, Hardcover-Rating-Promotion, Anreicherungs-Brief für Reference-Rows, Logical-Work-ID / `superseded_by`, `canonicity`-Facet, `primaris`-/`firstborn`-Facet, Hierarchy-Rollup-Filter in der UI.
 
 ## 2026-05-14 · Architect · Brief 073 — Maintainer-Audit-Cockpit (OQ9)
 
-OQ9 in einen Brief gefaltet. Brief 073 (`sessions/2026-05-14-073-arch-maintainer-audit-cockpit.md`) trennt `/buch/[slug]` (public-lean) von neuer Sub-Route `/buch/[slug]/audit` (Read-only Server Component, alle DB-Felder inkl. `raw_name`, `work_collections.confidence`/`basis`, `external_links`, `notes`) und gibt `/buecher` einen Audit-Modus mit vier kombinierbaren Filter-Pillen: **Drift** (`raw_name ≠ canonical`), **Junction-Lücke** (0 Rows in einer der drei Junctions), **SSOT** (`source_kind=ssot`), **In mehreren Collections** (`content_work_id`-Count ≥ 2). AND-Logik bei Multi-Select. Default-Sort im Audit-Modus: `updatedAt desc`. Audit-Route trägt `noindex`. Keine Schema-Migration. `confidence < 0.7` bewusst nicht in die Pflicht-Filter — heute steht im SSOT-Layer fast alles auf 1.00, der Filter wird erst scharf, wenn der Sonnet-Pipeline-Lauf wieder läuft (post-OQ2-(c)).
+OQ9 in einen Brief gefaltet. Brief 073 (`sessions/archive/2026-05/2026-05-14-073-arch-maintainer-audit-cockpit.md`) trennt `/buch/[slug]` (public-lean) von neuer Sub-Route `/buch/[slug]/audit` (Read-only Server Component, alle DB-Felder inkl. `raw_name`, `work_collections.confidence`/`basis`, `external_links`, `notes`) und gibt `/buecher` einen Audit-Modus mit vier kombinierbaren Filter-Pillen: **Drift** (`raw_name ≠ canonical`), **Junction-Lücke** (0 Rows in einer der drei Junctions), **SSOT** (`source_kind=ssot`), **In mehreren Collections** (`content_work_id`-Count ≥ 2). AND-Logik bei Multi-Select. Default-Sort im Audit-Modus: `updatedAt desc`. Audit-Route trägt `noindex`. Keine Schema-Migration. `confidence < 0.7` bewusst nicht in die Pflicht-Filter — heute steht im SSOT-Layer fast alles auf 1.00, der Filter wird erst scharf, wenn der Sonnet-Pipeline-Lauf wieder läuft (post-OQ2-(c)).
 
 Triage-Material aus 072, das das Cockpit sichtbar machen muss: Character-Long-Tail (+112 für 50 Bücher vs. +363 für die ersten 50), Iyanden-Doppel-Pfad, Aeldari-/Drukhari-Alias-Drift, 35 Cross-Batch-Collections.
 
@@ -395,7 +395,7 @@ Triage-Material aus 072, das das Cockpit sichtbar machen muss: Character-Long-Ta
 
 **Pages touched (wiki):** `project-state.md` (Next-likely-brief auf 073-arch umgestellt, Source-Pfade), `open-questions.md` (OQ9 auf folded-into-073 reduziert, Source-Pfade, Frontmatter-Note), `pipeline-state.md` (Source-Pfade), `index.md` (project-state + open-questions Tabellen-Rows), this `log.md`.
 
-**Outside wiki:** `sessions/2026-05-14-073-arch-maintainer-audit-cockpit.md` (neu), `sessions/README.md` (073-Row, Maintainer-Bedienung-Satz), `sessions/archive/2026-05/2026-05-12-063-arch-resolver-50-books.md` + `063-impl` + `067-impl` + `069-impl` (verschoben).
+**Outside wiki:** `sessions/archive/2026-05/2026-05-14-073-arch-maintainer-audit-cockpit.md` (neu), `sessions/README.md` (073-Row, Maintainer-Bedienung-Satz), `sessions/archive/2026-05/2026-05-12-063-arch-resolver-50-books.md` + `063-impl` + `067-impl` + `069-impl` (verschoben).
 
 **Out of scope (per Brief 073):** Inline-Edit-Pfad in der UI, Auth/Login, `ssot-w40k-011`-Loop-Resume, Brief 071 (Loop-Driver), OQ2-(c) `chaos`-pov_side-Prompt-Härtung, Hardcover-Rating-Promotion (OQ6), Schema-Migration, Cartographer-/Timeline-Audit-Filter, Reference-Entity-Audit-Pages (`/fraktion/[slug]/audit` etc.), Site-weit-Robots-Policy.
 
@@ -417,7 +417,7 @@ Brief 074 verlangt deshalb neu ein maschinenlesbares Ledger `scripts/seed-data/c
 
 **Pages touched (wiki):** `project-state.md` (Green-Tide-Status auf Collection-Gap-Ledger statt Report-only-Handoff), `pipeline-state.md` (dauerhafte Collection-gap policy), `index.md` (Katalogzeilen), this `log.md`.
 
-**Outside wiki:** `sessions/2026-05-15-074-arch-resolver-batch-3.md` (Erratum/Goal/Context/Acceptance/Open-Questions geschärft), `scripts/seed-data/README.md` (Policy-Hinweis für `collection-gaps.json`).
+**Outside wiki:** `sessions/archive/2026-05/2026-05-15-074-arch-resolver-batch-3.md` (Erratum/Goal/Context/Acceptance/Open-Questions geschärft), `scripts/seed-data/README.md` (Policy-Hinweis für `collection-gaps.json`).
 
 ## 2026-05-15 · Implementer · Resolver-Pass 3 für `ssot-w40k-011..015` (Brief 074-impl, PR #57 `6ac4295`)
 
@@ -458,7 +458,7 @@ Coverage post-Apply: factions=912/1003 input = **90.9 %**, locations=287/342 = *
 
 **Pages touched (wiki):** keine direkt in 074-impl (Brief verbot Brain-Edits). Wiki-Hygiene-Pass 2026-05-15 (Folgeeintrag) hat das nachgezogen.
 
-**Outside wiki:** `scripts/seed-data/{factions,locations,characters,faction-aliases,location-aliases,character-aliases,collection-gaps,manual-overrides-ssot-w40k-015,persons}.json`; `scripts/{seed-resolver-extensions,apply-override-dry,test-resolver-coverage,test-resolver-data-integrity,test-resolver}.ts` plus 6 neue Helper-Scripts; `sessions/2026-05-15-074-arch-resolver-batch-3.md` (status flip), `sessions/2026-05-15-074-impl-resolver-batch-3.md` (neu).
+**Outside wiki:** `scripts/seed-data/{factions,locations,characters,faction-aliases,location-aliases,character-aliases,collection-gaps,manual-overrides-ssot-w40k-015,persons}.json`; `scripts/{seed-resolver-extensions,apply-override-dry,test-resolver-coverage,test-resolver-data-integrity,test-resolver}.ts` plus 6 neue Helper-Scripts; `sessions/archive/2026-05/2026-05-15-074-arch-resolver-batch-3.md` (status flip), `sessions/archive/2026-05/2026-05-15-074-impl-resolver-batch-3.md` (neu).
 
 ## 2026-05-15 · Cowork-Hygiene-Pass · Post-074-impl Wiki-Catch-up + CC-Direct-Curation-ADR
 
@@ -488,7 +488,7 @@ Cowork-only Brain-Update-Session, kein CC-Brief. Zwei Aufgaben gebündelt: (1) S
 
 Cowork-Brief mit Erratum-Block post-Codex-Review (vier Punkte vor dem regulären Body): `--env-file=.env.local`-Konvention für DB-Scripts, W40K-SSOT-eng Scope-Filter (`works.source_kind='ssot' AND works.external_book_id LIKE 'W40K-%' AND works.kind='book'`) — nicht „alle `bookDetails.rating IS NULL`", `no_author`-Miss-Bucket für Anthologien/Editor-only-Bücher (kein `discoverHardcoverClaimV2`-Call ohne Author-Hint, weil `hits[0]`-Fallback ungeguarded ist), DetailPanel-Surface auf `/buch/[slug]` Public-Page (nicht `/buecher`-Audit-Inline — dort rendert die Page bereits `containedIn` in Row-Details). Brief bewusst klein gehalten (zwei orthogonale Tracks, Sicherheitsventil für Track B explizit, beide Tracks landen in eigenen Commits). Design-freedom-Sektion delegiert visuelle Sprache, Animation, oklch-Tokens, Klassen-Shapes vollständig an CC.
 
-**Pages touched:** `sessions/2026-05-15-075-arch-cockpit-drift-sort-and-rating.md` (NEU), `sessions/README.md` (Active-Threads-Update mit Maintainer-Bedienung-Satz inkl. Codex-Review-Erratum-Hinweis).
+**Pages touched:** `sessions/archive/2026-05/2026-05-15-075-arch-cockpit-drift-sort-and-rating.md` (NEU), `sessions/README.md` (Active-Threads-Update mit Maintainer-Bedienung-Satz inkl. Codex-Review-Erratum-Hinweis).
 
 ---
 
@@ -502,7 +502,7 @@ Beide Tracks gelandet. **Track A — Cockpit:** `src/app/buecher/page.tsx` träg
 
 **For-next-session-Punkte:** (1) OQ-Promote-Trigger gefeuert (51.3 % < 70 %), aber 075-impl-Argumentation präferiert **Titel-Normalisierungs-Layer** über OL-Fallback (Miss-Profile sind Normalisierungs-Probleme, nicht Coverage-Lücken); (2) `no_author`-Audit der 14 Bücher (Maintainer-Excel-Workflow); (3) Drift-Sort-Sub-Sortierung innerhalb freq=2-Tie-Group (19/20 Top-Drift flat); (4) DetailPanel-Pattern-Erweiterung (Series-Info, Collection-Count); (5) `users_count` als deterministisch erreichbar geklärt — Architektur-Punkt für ggf. reaktivierte V2-LLM-Stage; (6) Brain-Hygiene-Post-Merge.
 
-**Pages touched (CC):** `src/app/buecher/page.tsx`, `src/app/buecher/SortPills.tsx`, `src/app/buch/[slug]/page.tsx`, `src/app/globals.css`, `scripts/smoke-drift-sort-075.ts` (NEU), `scripts/backfill-hardcover-rating.ts` (NEU), `src/lib/ingestion/v2/sources/hardcover.ts`, `package.json`, `sessions/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md` (NEU).
+**Pages touched (CC):** `src/app/buecher/page.tsx`, `src/app/buecher/SortPills.tsx`, `src/app/buch/[slug]/page.tsx`, `src/app/globals.css`, `scripts/smoke-drift-sort-075.ts` (NEU), `scripts/backfill-hardcover-rating.ts` (NEU), `src/lib/ingestion/v2/sources/hardcover.ts`, `package.json`, `sessions/archive/2026-05/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md` (NEU).
 
 ---
 
@@ -536,7 +536,7 @@ Codex-Review der Post-075-Hygiene hat einen Bedienungs-Widerspruch gefunden: `se
 
 ## 2026-05-17 · Review · 077-impl Grand-Alignment-Junction-Hygiene accepted
 
-Cowork-Review von [`sessions/2026-05-16-077-impl-grand-alignment-junction-hygiene.md`](../../sessions/2026-05-16-077-impl-grand-alignment-junction-hygiene.md). Verdict: **accept, ohne Rework-Anforderungen.** Implementation passt Acceptance-Bullet-für-Bullet zum Brief.
+Cowork-Review von [`sessions/archive/2026-05/2026-05-16-077-impl-grand-alignment-junction-hygiene.md`](../../sessions/archive/2026-05/2026-05-16-077-impl-grand-alignment-junction-hygiene.md). Verdict: **accept, ohne Rework-Anforderungen.** Implementation passt Acceptance-Bullet-für-Bullet zum Brief.
 
 **Spot-checks (read-only):**
 
@@ -595,10 +595,10 @@ Voller Wiki-Hygiene-Pass für die zwei zusammenhängenden Sessions 076 (axis-sli
 
 **Read:**
 
-- [`sessions/2026-05-16-076-arch-resolver-batch-4-axis-sliced.md`](../../sessions/2026-05-16-076-arch-resolver-batch-4-axis-sliced.md) (Brief; nur Anker-Lesung — Detail-Pflege der Acceptance-Bullets lebt im Impl-Report)
-- [`sessions/2026-05-16-076-impl-resolver-batch-4-axis-sliced.md`](../../sessions/2026-05-16-076-impl-resolver-batch-4-axis-sliced.md) (Impl-Report end-to-end inkl. zwei Review-Fix-Sektionen, Counts-Tabelle, Driver-Decisions, Mini-Phase 5)
-- [`sessions/2026-05-16-077-arch-grand-alignment-junction-hygiene.md`](../../sessions/2026-05-16-077-arch-grand-alignment-junction-hygiene.md) (Brief inkl. Codex-Erratum-Block, schon in der vorherigen Review-Session gelesen — hier nur als Quellen-Anker)
-- [`sessions/2026-05-16-077-impl-grand-alignment-junction-hygiene.md`](../../sessions/2026-05-16-077-impl-grand-alignment-junction-hygiene.md) (Impl-Report end-to-end inkl. Counts-Probe + Smoke + 5 For-next-session-Items, ebenfalls schon in der Review-Session gelesen)
+- [`sessions/archive/2026-05/2026-05-16-076-arch-resolver-batch-4-axis-sliced.md`](../../sessions/archive/2026-05/2026-05-16-076-arch-resolver-batch-4-axis-sliced.md) (Brief; nur Anker-Lesung — Detail-Pflege der Acceptance-Bullets lebt im Impl-Report)
+- [`sessions/archive/2026-05/2026-05-16-076-impl-resolver-batch-4-axis-sliced.md`](../../sessions/archive/2026-05/2026-05-16-076-impl-resolver-batch-4-axis-sliced.md) (Impl-Report end-to-end inkl. zwei Review-Fix-Sektionen, Counts-Tabelle, Driver-Decisions, Mini-Phase 5)
+- [`sessions/archive/2026-05/2026-05-16-077-arch-grand-alignment-junction-hygiene.md`](../../sessions/archive/2026-05/2026-05-16-077-arch-grand-alignment-junction-hygiene.md) (Brief inkl. Codex-Erratum-Block, schon in der vorherigen Review-Session gelesen — hier nur als Quellen-Anker)
+- [`sessions/archive/2026-05/2026-05-16-077-impl-grand-alignment-junction-hygiene.md`](../../sessions/archive/2026-05/2026-05-16-077-impl-grand-alignment-junction-hygiene.md) (Impl-Report end-to-end inkl. Counts-Probe + Smoke + 5 For-next-session-Items, ebenfalls schon in der Review-Session gelesen)
 
 **Updated wiki:**
 
@@ -632,10 +632,10 @@ Wiki-Hygiene-Pass für die vier zusammenhängenden Sessions seit dem post-076/07
 
 **Read:**
 
-- [`sessions/2026-05-17-079-impl-lab-cartographer-prototype.md`](../../sessions/2026-05-17-079-impl-lab-cartographer-prototype.md) — Direkt-Maintainer-Anweisung, kein paired Architect-Brief.
-- [`sessions/2026-05-17-080-arch-synopsis-guard-and-pilot.md`](../../sessions/2026-05-17-080-arch-synopsis-guard-and-pilot.md) + [`sessions/2026-05-17-080-impl-synopsis-guard-and-pilot.md`](../../sessions/2026-05-17-080-impl-synopsis-guard-and-pilot.md) — Apply-Layer-Forward-Guard (Track B) + Pilot-Rewrite Batch 020 (Track A).
-- `sessions/2026-05-17-081-arch-ssot-synopsis-backfill-005-019.md` und `sessions/2026-05-18-081-impl-ssot-synopsis-backfill-005-019.md` — auf dem codex-Branch (via `git show codex/ingest-batches-synopsis-005-019:…` gelesen).
-- [`sessions/2026-05-17-082-arch-parallel-worktrees.md`](../../sessions/2026-05-17-082-arch-parallel-worktrees.md) + [`sessions/2026-05-17-083-impl-parallel-worktrees.md`](../../sessions/2026-05-17-083-impl-parallel-worktrees.md) — drei produktive Worktrees + Disziplin in `CLAUDE.md` + `AGENTS.md`.
+- [`sessions/archive/2026-05/2026-05-17-079-impl-lab-cartographer-prototype.md`](../../sessions/archive/2026-05/2026-05-17-079-impl-lab-cartographer-prototype.md) — Direkt-Maintainer-Anweisung, kein paired Architect-Brief.
+- [`sessions/archive/2026-05/2026-05-17-080-arch-synopsis-guard-and-pilot.md`](../../sessions/archive/2026-05/2026-05-17-080-arch-synopsis-guard-and-pilot.md) + [`sessions/archive/2026-05/2026-05-17-080-impl-synopsis-guard-and-pilot.md`](../../sessions/archive/2026-05/2026-05-17-080-impl-synopsis-guard-and-pilot.md) — Apply-Layer-Forward-Guard (Track B) + Pilot-Rewrite Batch 020 (Track A).
+- `sessions/archive/2026-05/2026-05-17-081-arch-ssot-synopsis-backfill-005-019.md` und `sessions/archive/2026-05/2026-05-18-081-impl-ssot-synopsis-backfill-005-019.md` — auf dem codex-Branch (via `git show codex/ingest-batches-synopsis-005-019:…` gelesen).
+- [`sessions/archive/2026-05/2026-05-17-082-arch-parallel-worktrees.md`](../../sessions/archive/2026-05/2026-05-17-082-arch-parallel-worktrees.md) + [`sessions/archive/2026-05/2026-05-17-083-impl-parallel-worktrees.md`](../../sessions/archive/2026-05/2026-05-17-083-impl-parallel-worktrees.md) — drei produktive Worktrees + Disziplin in `CLAUDE.md` + `AGENTS.md`.
 
 **Updated wiki:**
 
@@ -669,8 +669,8 @@ Brain-Update nach dem Merge von Brief 086 (PR #73, `origin/main` `af7d90c`). Aus
 
 **Read:**
 
-- `sessions/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md` — Closing-Report end-to-end, alle vier Phasen inkl. Phase-4-Verdikt „Websuche nur Lokator, nicht Quelle" (Snippets ~4 % plausibel-falsch).
-- `sessions/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md` — Brief inkl. Phase-4-Nachtrag.
+- `sessions/archive/2026-05/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md` — Closing-Report end-to-end, alle vier Phasen inkl. Phase-4-Verdikt „Websuche nur Lokator, nicht Quelle" (Snippets ~4 % plausibel-falsch).
+- `sessions/archive/2026-05/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md` — Brief inkl. Phase-4-Nachtrag.
 - `sessions/2026-05-11-061-arch-ssot-loop.md` — Standing-Loop, gelesen für die Brief-087-Planung.
 
 **New decision:**
@@ -688,7 +688,7 @@ Brain-Update nach dem Merge von Brief 086 (PR #73, `origin/main` `af7d90c`). Aus
 
 **New brief:**
 
-- `sessions/2026-05-20-087-arch-goodreads-rating-pipeline.md` — Goodreads-Rating als vierte Loop-Disziplin in Brief 061: Override-Schema-Erweiterung (`overrides.rating`), Apply-Layer schreibt `book_details`, Discipline-Section + `run-ssot-loop.sh`-Heredoc, Page-Read-Pflicht, „geprüft, noch keine Wertung"-Marker, Single-Book-Smoke. status: open.
+- `sessions/archive/2026-05/2026-05-20-087-arch-goodreads-rating-pipeline.md` — Goodreads-Rating als vierte Loop-Disziplin in Brief 061: Override-Schema-Erweiterung (`overrides.rating`), Apply-Layer schreibt `book_details`, Discipline-Section + `run-ssot-loop.sh`-Heredoc, Page-Read-Pflicht, „geprüft, noch keine Wertung"-Marker, Single-Book-Smoke. status: open.
 
 **Updated wiki:**
 
@@ -711,10 +711,10 @@ Brain-Update nach dem Merge von Brief 087 (Goodreads-Rating-Pipeline, PR #74/#75
 
 **Read:**
 
-- `sessions/2026-05-20-087-impl-goodreads-rating-pipeline.md` — Goodreads-Rating als vierte forward-only Loop-Disziplin, `apply-override-rating.ts` Pure-Helper, `apply-override-dry.ts --file=`-Modus, `test:resolver` 154/0.
-- `sessions/2026-05-21-088-impl-ssot-loop-lean.md` — Loop-Iteration auf drei Dateien / ~6k Tokens, `loop-next-batch.ts`-Detection-Helper, `--skip-initial-resolver-pause` entfernt, selbst-erkennende Resolver-Pause.
+- `sessions/archive/2026-05/2026-05-20-087-impl-goodreads-rating-pipeline.md` — Goodreads-Rating als vierte forward-only Loop-Disziplin, `apply-override-rating.ts` Pure-Helper, `apply-override-dry.ts --file=`-Modus, `test:resolver` 154/0.
+- `sessions/archive/2026-05/2026-05-21-088-impl-ssot-loop-lean.md` — Loop-Iteration auf drei Dateien / ~6k Tokens, `loop-next-batch.ts`-Detection-Helper, `--skip-initial-resolver-pause` entfernt, selbst-erkennende Resolver-Pause.
 - `sessions/ssot-loop-log.md` Iterationen `021..025` — 50 Bücher W40K-0201..0250, vier Loop-Disziplinen, selbst-erkennender 250er-Pause-Block.
-- `sessions/2026-05-21-089-impl-resolver-pass-5.md` — axis-sliced Resolver-Pass 5, supervised/manuell gefahren, drei Wave-Calls, Counts post-Re-Apply `001..025`.
+- `sessions/archive/2026-05/2026-05-21-089-impl-resolver-pass-5.md` — axis-sliced Resolver-Pass 5, supervised/manuell gefahren, drei Wave-Calls, Counts post-Re-Apply `001..025`.
 
 **No new decision page.** Brief 089 hat `commissar` als ersten `protagonist_class`-Vokabular-Wert promoted — eine Vokabular-Erweiterung, kein ADR-Material (folgt dem etablierten Cockpit-Triage-Muster aus OQ2-(a)). Der `seed-facets-089.ts`-DB-Seed-Pfad ist als Pipeline-Konvention in `pipeline-state.md` § Pass-5-Konvention dokumentiert.
 
@@ -746,7 +746,7 @@ Brain-Update nach dem Merge von PR #85 (Roster-Excel-Hygiene-Sweep, Session 092)
 
 **Source ingested:**
 
-- `sessions/2026-05-22-092-impl-roster-hygiene.md` — OQ-(14)-Roster-Excel-Hygiene-Sweep, alle fünf Gruppen (a)–(e) über Excel-SSOT-Edits + Loader-Regen; `book-roster.json` 191 → 196 Collections, `books` unverändert 859, kein DB-Apply.
+- `sessions/archive/2026-05/2026-05-22-092-impl-roster-hygiene.md` — OQ-(14)-Roster-Excel-Hygiene-Sweep, alle fünf Gruppen (a)–(e) über Excel-SSOT-Edits + Loader-Regen; `book-roster.json` 191 → 196 Collections, `books` unverändert 859, kein DB-Apply.
 
 **Closed:** OQ (14) Roster-Excel-Hygiene-Sweep — (a) `seriesHint`-Mistag W40K-0244, (b) sechs fehlende Autoren-Felder, (c) zwei Format-`data_conflict` (W40K-0297/0334), (d) zwei Titel-Mistags (W40K-0259/0330), (e) fünf fehlende Collection-Kanten (W40K-0286/0307). Offene Queue danach: OQ (3) Hand-Check-Workflow + OQ (13) Crawl-Simplification-Sichtung.
 
@@ -781,7 +781,7 @@ Brain-Update nach dem Merge von Resolver-Pass 6 (`ssot-w40k-026..035`, PR #83 `7
 
 **New brief:**
 
-- `sessions/2026-05-22-091-arch-resolver-phase4-split.md` — Resolver-Pass-Phase-4-Split: Phase 4 → 4a (Integration/Apply) + 4b (Verify/Report), `/clear`-getrennt, Handoff über eine 4a-Statusdatei; forward-ref-Guard in `apply-override-dry.ts` von report-only auf range-aware gehärtet. Touch-Set: `resolver-pass-runbook.md` + `resolver-pass.config.json` + `apply-override-dry.ts` + Driver-Verifikation. `status: open`.
+- `sessions/archive/2026-05/2026-05-22-091-arch-resolver-phase4-split.md` — Resolver-Pass-Phase-4-Split: Phase 4 → 4a (Integration/Apply) + 4b (Verify/Report), `/clear`-getrennt, Handoff über eine 4a-Statusdatei; forward-ref-Guard in `apply-override-dry.ts` von report-only auf range-aware gehärtet. Touch-Set: `resolver-pass-runbook.md` + `resolver-pass.config.json` + `apply-override-dry.ts` + Driver-Verifikation. `status: open`.
 
 **No OQ closed, no new numbered OQ.** Der Pass-6-Architektur-Punkt (forward-ref-Guard) ist in Brief 091 gefaltet. OQ (14) um Sub-Punkt (e) erweitert: zwei deferred collection-gaps (Architect of Fate W40K-0286, War for Armageddon Omnibus W40K-0307 — Constituent-Works existieren, nur die Roster-Kanten fehlen).
 
@@ -805,7 +805,7 @@ Brief-freier Cowork-Task (vom Maintainer freigegeben, kein Architekten-Brief): `
 
 **Read:**
 
-- `sessions/2026-05-21-090-impl-resolver-pass-lean.md` — Brief 090 umgesetzt (Mess-Gate + Bausteine 2–5: schlankes Runbook, brief-freier Driver, Phase-4-Digest, stabile wave-parametrisierte Tools, Cadence 50→100).
+- `sessions/archive/2026-05/2026-05-21-090-impl-resolver-pass-lean.md` — Brief 090 umgesetzt (Mess-Gate + Bausteine 2–5: schlankes Runbook, brief-freier Driver, Phase-4-Digest, stabile wave-parametrisierte Tools, Cadence 50→100).
 - `sessions/resolver-pass-runbook.md` + `scripts/resolver-pass.config.json` (Pass-5-Instanz) — Resolver-Pass-Maschinerie.
 - `sessions/ssot-loop-log.md` Iterationen `026..035` (Tail-Read) — 100 Bücher W40K-0251..0350, vier Loop-Disziplinen, Content-Flags, selbst-erkennender 350er-Pause-Block.
 - `scripts/seed-data/book-roster.json` (Range W40K-0251..0350) — Slug-Auswahl für die Verify-`smokeSlugs`.
@@ -842,9 +842,9 @@ Brief-freier Cowork-Task: der überfällige Post-Merge-Koordinations-Pass für d
 **Read (raw sources):**
 
 - `sessions/resolver-dossiers/resolver-pass-7-impl-report.md` — Resolver-Pass 7 (`ssot-w40k-036..045`, PR #90): 450/450 W40K-Bücher applied, Counts, EXPECTED_RANGES-Bump, `collection-gaps.json` +1.
-- `sessions/2026-05-23-094-impl-resolver-loop.md` + `sessions/2026-05-23-094-arch-resolver-loop.md` — Resolver-Loop: SSOT-Loop ↔ Resolver entkoppelt, Wellen-Detektor `resolver-loop-detect.ts`, brief-freies Runbook, headless `run-resolver-loop.sh`.
-- `sessions/2026-05-23-095-impl-rollup-ownership.md` + `sessions/2026-05-23-095-arch-rollup-ownership.md` — Rollup-Ownership: `sessions/README.md` + `brain/**` coordination-worktree-only, Worktree-Selbstprüfung am Session-Start.
-- `sessions/2026-05-22-093-arch-resolver-pass-7.md` (`status: implemented`), `sessions/resolver-loop-log.md` (Bootstrap-Block), `scripts/resolver-pass.config.json` (auf Welle `046..051` auto-gekeyt), `sessions/README.md` Active-Threads.
+- `sessions/archive/2026-05/2026-05-23-094-impl-resolver-loop.md` + `sessions/archive/2026-05/2026-05-23-094-arch-resolver-loop.md` — Resolver-Loop: SSOT-Loop ↔ Resolver entkoppelt, Wellen-Detektor `resolver-loop-detect.ts`, brief-freies Runbook, headless `run-resolver-loop.sh`.
+- `sessions/archive/2026-05/2026-05-23-095-impl-rollup-ownership.md` + `sessions/archive/2026-05/2026-05-23-095-arch-rollup-ownership.md` — Rollup-Ownership: `sessions/README.md` + `brain/**` coordination-worktree-only, Worktree-Selbstprüfung am Session-Start.
+- `sessions/archive/2026-05/2026-05-22-093-arch-resolver-pass-7.md` (`status: implemented`), `sessions/resolver-loop-log.md` (Bootstrap-Block), `scripts/resolver-pass.config.json` (auf Welle `046..051` auto-gekeyt), `sessions/README.md` Active-Threads.
 
 **Updated wiki:**
 
@@ -865,3 +865,316 @@ Brief-freier Cowork-Task: der überfällige Post-Merge-Koordinations-Pass für d
 **Out of scope dieser Session:** Keine Code-Änderungen (alle drei Stränge sind implementiert + gemergt). Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — Maintainer/CI). Keine Session-Archivierung — der `sessions/`-root-Archivierungs-Rückstand (geschlossene Files 062–095) bleibt als eigene kleine CC-`git mv`-Aufgabe. Die mittlerweile zehn „Latest pipeline state"-Sektionen in `project-state.md` bleiben ein bekannter Bloat-Punkt (Collapse der ältesten in einen Pointer = künftige Slim-Pass-Iteration, hier bewusst nicht gemacht — Accuracy-Fokus, Präzedenz post-090-Eintrag).
 
 **Branch:** Edits liegen im Coordination-Worktree; Philipp committet + pusht Windows-nativ — die Cowork-Sandbox fasst `git` nicht an (siehe `CLAUDE.md` § Git).
+
+## 2026-05-25 · Ingest + Architektur · Post-Merge-Koordinations-Pass (#94/#95/#96) + Brief 098 (W40K-Konsolidierungs-Pass)
+
+Cowork-Session: Post-Merge-Koordinations-Pass für die drei seit post-095 gemergten Stränge (SSOT-Loop-Lauf PR #94, Resolver-Pass 8 + Brief 097 PR #95, Resolver-Pass 9 PR #96 — **W40K datenkomplett, 565/565 Bücher**) plus Architekten-Brief 098. Coordination-Worktree `C:\Users\Phil\chrono-lexicanum`, Branch `codex/session-098-w40k-consolidation`. Auslöser: Maintainer-Frage „wie geht es weiter" nach dem Resolver-Lauf.
+
+**Read (raw sources):**
+
+- `sessions/resolver-dossiers/resolver-pass-8-impl-report.md` + `resolver-pass-9-impl-report.md` — Pässe 8 + 9, W40K 450 → 510 → 565, Counts + EXPECTED_RANGES-Bump.
+- `sessions/archive/2026-05/2026-05-23-097-impl-resolver-loop-finalize-fix.md` — Brief-097-Hotfix (`readonly STATE_FILE`-Crash + Pass-8-Loop-Log-Backfill).
+- `sessions/archive/2026-05/2026-05-23-094-arch-resolver-loop.md` — Konsolidierungs-Pass-Eckpunkte (§ Notes) als Brief-098-Grundlage.
+- `sessions/resolver-pass-runbook.md`, `sessions/resolver-loop-log.md`, `scripts/resolver-pass.config.json` — Maschinerie-Stand.
+
+**Befund — `resolver-loop-log.md`-Marker-Drift:** die Datei auf `origin/main` trägt nur den Bootstrap-Block (Pässe 1–7); die Pass-8-/9-Blöcke fehlen. `resolver-loop-detect.ts` würde falsch rechnen. Als Brief 098 Teil 1 gefaltet.
+
+**Geschrieben:**
+
+- `sessions/2026-05-25-098-arch-w40k-consolidation-pass.md` — Brief 098: der W40K-Konsolidierungs-Pass (Cross-Wave-Canonical-Row-Dedup als eigener Pass-Typ + schlankes Geschwister-Runbook + Dubletten-Kandidaten-Aggregator, erstmals über das W40K-Entitäten-Set gefahren) + Teil 1 `resolver-loop-log`-Hygiene. `status: open`.
+
+**Updated wiki:**
+
+- `project-state.md` — `updated: 2026-05-25`, Header-Datum, Phase-Headline + Buch-Domain-Bild auf 565 W40K-Bücher / W40K datenkomplett / Post-Pass-9-Counts, Branch-Sektion auf post-094/095/096 (HEAD `b1c8b37`), What's-running (Excel-SSOT- + Resolver-Loop-Bullet), What's-open neu sortiert (Brief 098 oben, resolver-loop-log + HH-Schiene), Recently-shipped um vier Zeilen, Next-likely-brief auf Brief 098 → HH-Resolver → finaler Konsolidierungs-Pass.
+- `pipeline-state.md` — `updated: 2026-05-25`, Titel `post-098`, Intro-Blockquote auf Pässe 8/9 + 565 Bücher + Brief 098.
+- `open-questions.md` — `updated: 2026-05-25`, neuer Frontmatter-Header-Kommentar. Keine OQ-Schließung, keine neue numerierte OQ.
+- `index.md` — `updated: 2026-05-25`, Katalog-Zeilen project-state / open-questions / pipeline-state / log + Self-Row.
+- This `log.md` — Append-only-Eintrag.
+
+**No new decision page.** Pässe 8/9 sind reine Daten-Läufe; Brief 098 setzt die in Brief 094 § Notes bereits per AskUserQuestion entschiedenen Konsolidierungs-Pass-Eckpunkte um — kein neuer Architektur-Call mit Revisit-Trigger.
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** OQ (3) Hand-Check-Workflow + OQ (13) Crawl-Simplification bleiben offen; Brief 098 § Notes deferred beide explizit (OQ 13 = eigener Retirement-Brief wert; OQ 3 = auf Aktualität prüfen).
+
+**Git-Untangling (Session-Befund):** Der Coordination-Worktree stand auf dem Altbranch `codex/brain-coordination-post-095`; dessen Commit `03fe7c2` (Brain-Pass post-093/094/095) war bereits als PR #93 in `origin/main` (der Rebase erkannte ihn als „previously applied"). Brief 096 (Design-Direction) lag nur lokal auf diesem Altbranch und ist via `git checkout` ins Repo zurückgeholt worden. Frischer Session-Branch `codex/session-098-w40k-consolidation` aus `origin/main` (`b1c8b37`).
+
+**Outside the wiki:** `sessions/README.md` Active-Threads — Kopf + Tabelle auf post-098-Stand (W40K complete, Brief 098 open, Brief 096 in Arbeit, #94/#95/#96 merged).
+
+**roadmap.md not touched** — W40K-complete bewegt keine Phasen-Grenze (alles innerhalb Phase 3).
+
+**Out of scope:** Kein Code-/Schema-/DB-Touch. Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — CI/Maintainer). Keine Session-Archivierung (062–097-Rückstand bleibt eigene CC-Aufgabe). Fokussierter Pass — die zehn „Latest pipeline state"-Sektionen in `project-state.md` wurden bewusst nicht um eine elfte erweitert (das aktualisierte Buch-Domain-Bild trägt den post-098-Stand); der Bloat-Collapse bleibt Kandidat für eine Slim-Pass-Iteration.
+
+**Branch:** Edits im Coordination-Worktree auf `codex/session-098-w40k-consolidation`; Philipp committet + pusht + PR Windows-nativ.
+
+---
+
+## 2026-05-25 · Ingest + Architektur · Post-Merge-Koordinations-Pass (#98) + Brief 099 (Sessions-Archiv-Sweep)
+
+Cowork-Session: Post-Merge-Koordinations-Pass für den gemergten Brief 098 (W40K-Konsolidierungs-Pass) plus Architekten-Brief 099. Coordination-Worktree `C:\Users\Phil\chrono-lexicanum`. Auslöser: Maintainer-Frage „Brief 098 ist durch, wie gehts weiter?".
+
+**Read (raw sources):**
+
+- Der von Philipp übermittelte Brief-098-Impl-Report (PR-Beschreibung) — Konsolidierungs-Pass: 15 Dubletten-Kandidaten → 2 Merges (`vigilus_s`→`vigilus` Phantom-Row, `magister_sek`→`anakwanar_sek` von Pass 9 übersehene Pass-1-Row), 13 no-merges, 0 geflaggt; Reference-Deltas `locations 225→224`, `characters 345→344`, `factions` unverändert; alle Junction-Counts invariant; Maintainer-Review-Gate eingehalten. Teil 1 (`resolver-loop-log.md`-Verifikation): kein Drift.
+- `sessions/2026-05-25-098-arch-w40k-consolidation-pass.md` — Brief 098 als Spec-Referenz.
+
+**Befund — Working-Tree stale:** Der Coordination-Worktree lag bei der Session auf dem Vor-#98-Merge-Stand (098-Impl-Datei + `consolidation-*`-Artefakte fehlen lokal). `brain/**` + `sessions/README.md` sind davon nicht betroffen — Brief 098 war ein Batches-Strang-Task und hat sie per Constraint nicht angefasst —, der Koordinations-Pass ist also auf dem aktuellen Stand korrekt. Philipp zieht den Worktree per `git pull` nach, bevor er die Cowork-Änderungen committet und bevor CC Brief 099 implementiert.
+
+**Geschrieben:**
+
+- `sessions/2026-05-25-099-arch-sessions-archive-sweep.md` — Brief 099: Sessions-Archiv-Sweep (geschlossene Root-Session-Files 062–097 nach `sessions/archive/2026-05/` + Referenz-Rewrite über `brain/**` / Top-Level-Docs + `brain:lint` grün). Koordinations-Worktree, Meta/Session-Task, reine Repo-Hygiene. `status: open`.
+
+**Updated wiki:**
+
+- `project-state.md` — Phase-Headline + Buch-Domain-Bild auf W40K datenkomplett *und* konsolidiert (Reference `factions 173` / `locations 224` / `characters 344`); What's-running neuer Konsolidierungs-Pass-Bullet; What's-open (Brief 098 erledigt, Brief 099 oben, HH-Schiene, UI-Posten an Brief 096 angedockt); Recently-shipped um zwei Zeilen; Next-likely-brief auf Brief 099 → HH-Resolver → finaler Konsolidierungs-Pass. `sources:` um 098/099 erweitert.
+- `pipeline-state.md` — Intro-Blockquote: Brief 098 gemergt, Konsolidierungs-Pass-Maschinerie, nächster Schritt Brief 099.
+- `open-questions.md` — neuer Frontmatter-Header-Kommentar (post-098); `sources:` um 098/099 erweitert. Keine OQ-Schließung, keine neue numerierte OQ. Die in Brief 098 Teil 1 gefaltete `resolver-loop-log.md`-Marker-Drift ist verifiziert erledigt.
+- `index.md` — Katalog-Zeilen project-state / open-questions / pipeline-state auf post-098.
+- This `log.md` — Append-only-Eintrag.
+
+**Entscheidung — UI-Posten an Brief 096 angedockt.** Der vom Maintainer gewünschte „Hygiene-Doppelpack" zerfiel bei Prüfung in zwei Worktree-Stränge: Archiv-Cleanup ist Coordination-Strang (→ Brief 099), Public-Page-Rating-Render + Cockpit-Drift-Tie-Group-Sub-Sortierung sind Product/UI und fassen genau die Seiten an, die das in-flight Brief-096-Redesign umbaut. Ein paralleler Product-Brief würde im `chrono-lexicanum-product`-Worktree mit dem lokal-iterativen 096-Stand kollidieren. Per AskUserQuestion entschieden: die zwei UI-Posten docken an Brief 096 an statt eigener Brief; als Notiz in `project-state.md` § What's open + § Next likely brief, keine numerierte OQ.
+
+**No new decision page.** Brief 099 ist reine Repo-Hygiene; das UI-Routing ist eine Scope-/Timing-Entscheidung ohne Revisit-Trigger.
+
+**Out of scope:** Kein Code-/Schema-/DB-Touch. Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — CI/Maintainer). Die Session-Archivierung selbst ist Brief 099 (CC), nicht dieser Pass.
+
+**Branch:** Edits im Coordination-Worktree; Philipp `git pull` → committet + pusht Windows-nativ.
+
+---
+
+## 2026-05-25 · Ingest · Post-#099-Koordinations-Pass (Brief 099 gemergt)
+
+Cowork-Session: Post-Merge-Koordinations-Pass für den gemergten Brief 099 (Sessions-Archiv-Sweep). Coordination-Worktree `C:\Users\Phil\chrono-lexicanum`. Auslöser: Maintainer-Meldung „PR 99 ist gemerged".
+
+**Read (raw sources):**
+
+- `sessions/2026-05-25-099-impl-sessions-archive-sweep.md` — 099-Impl-Report: 53 geschlossene Session-Files (NNN 062–095 + 097) per `git mv` nach `sessions/archive/2026-05/`, 188 relative Pfad-Referenzen in 12 `brain/wiki/**`-Files umgeschrieben (Konzentration: project-state 51 / log 51 / open-questions 44 / pipeline-state 17 / Rest in Decision-/Workflow-Pages). `brain:lint --no-write` 0 blocking, `lint` 0 errors, `typecheck` clean. Keine Top-Level-Doc-/`docs/**`-/`scripts/**`-Treffer. Stop-before-push eingehalten.
+- `scripts/loop-next-batch.ts` + `scripts/resolver-loop-detect.ts` — gelesen für die HH-Ausblick-Frage des Maintainers (Befund unten).
+
+**Befund — SSOT-Loop vs. Resolver für HH.** Maintainer fragte, ob HH ohne Rewrite laufen kann. Am Code festgemacht: **SSOT-Loop ja** — `loop-next-batch.ts` ist zweidomänen-fähig (filtert `W40K-*` / `HH-*`, gibt nach dem letzten W40K-Batch automatisch `ssot-hh-001` aus, Override-File-Regex matcht `ssot-(w40k|hh)-*`). **Resolver nein** — `resolver-loop-detect.ts` ist hart W40K-only (Override-File-Regex nur `ssot-w40k-*`, ID-Präfixe + `ApplyRange.domain` fix, Terminal-Zustand `w40k-complete`); HH-Override-Files werden ignoriert. Der HH-Resolver-Brief braucht eine Domain-Generalisierung des Detektors. In `project-state.md` § Next likely brief eingearbeitet.
+
+**Updated wiki:**
+
+- `project-state.md` — Phase-Headline + Buch-Domain-Bild (Brief 099 gemergt, `sessions/`-Root aufgeräumt); What's-open (098+099-erledigt-Zeile, HH als nächster Schritt); Recently-shipped um zwei Zeilen (Brief 099 merged + dieser Pass); Next-likely-brief neu nummeriert (HH-Resolver = 1, finaler Konsolidierungs-Pass = 2) + SSOT-Loop-vs-Resolver-Befund.
+- `pipeline-state.md` — Intro-Blockquote: Brief 099 gemergt, nächster Strang HH.
+- `open-questions.md` — neuer Frontmatter-Header-Kommentar (Post-#099). Keine OQ-Schließung, keine neue numerierte OQ; die zwei 099-impl-Material-Punkte (`sources:`-Frontmatter-Konvention, `brain:lint`-Coverage-Erweiterung) als Notiz, nicht numeriert.
+- `index.md` — Katalog-Zeilen project-state / open-questions auf post-099.
+- `sessions/README.md` — Active-Threads-Kopf + Tabelle auf post-099 (Brief 099 merged, HH als nächster großer Schritt).
+- This `log.md` — Append-only-Eintrag.
+
+**No new decision page.** Brief 099 war reine Repo-Hygiene; kein Architektur-Call.
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** Offene Queue unverändert: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung.
+
+**Out of scope:** Kein Code-/Schema-/DB-Touch. Kein `brain:lint`-Run durch Cowork (Sandbox unzuverlässig — CI/Maintainer).
+
+**Branch:** Edits im Coordination-Worktree; Philipp committet + pusht + PR Windows-nativ.
+
+---
+
+## 2026-05-25 · Decision · PR-Policy — Doku committet direkt auf `main`
+
+Cowork-Session mit Philipp. Auslöser: der jüngste Hygiene-Zyklus produzierte drei PRs (coord-098, Brief 099, coord-099) für reine Markdown-Arbeit — Philipp empfand die PR-Last als zu hoch.
+
+**Entscheidung.** Drei Modelle wurden mit Trade-offs vorgelegt (1 = Doku direkt auf `main`; 2 = ein PR pro Cowork-Session; 3 = Koordinations-Pässe gebündelt); Philipp wählte **Modell 1**. Ein PR ist ein Code-Review-/CI-Mechanismus; eine reine Doku-Änderung trägt kein Build-Risiko. Regel: ein Diff, der **nur** Markdown/Docs berührt (`sessions/**`, `sessions/README.md`, `brain/**`, `docs/**`, Top-Level-`*.md`), committet **direkt auf `main`** — kein Branch, kein PR. Ein Diff, der Code/Daten/Config berührt (`src/`, `scripts/`, `src/db/`, `package.json`, `.github/**`, Root-`*.config.*`), läuft weiter über Branch + PR. Mixed → PR. Klassifikator = Dateimenge, nicht Worktree. Ein code-übergebender Brief ist doc-only (direkt auf `main`); CC branched von `main`, implementiert, flippt `status: open → implemented` im Code-PR.
+
+**Verankert in (diese vier Docs sind die Single Source — keine separate ADR-Page):**
+
+- `CLAUDE.md` § Git — neue Subsektion „PR policy — docs land direct on `main`, code gets a PR" (autoritative Form mit allen Edge-Cases); die „`main` is read-only"-Zeile in § „Parallel worktrees" auf „read-only für Code-Arbeit" amendiert; Item 3 der Session-Start-Sequenz + der `fertig`-Block um die Doc-only-Ausnahme ergänzt.
+- `AGENTS.md` § „Parallel worktree git protocol" — gespiegelter PR-Policy-Paragraph + dieselben Amendments (damit Codex die Regel sieht).
+- `brain/wiki/workflows/cowork-session.md` — neue Sektion „PR policy — Cowork's output lands direct on `main`"; Handoff-Schritt 7 auf die Direkt-Commit-Übergabe umgestellt; `updated: 2026-05-25` + `CLAUDE.md` als Source.
+- `brain/wiki/workflows/cc-session.md` — neue Sektion „PR policy — code gets a PR, docs don't"; `updated: 2026-05-25` + `CLAUDE.md` als Source.
+
+**Companion / offene Punkte.** (a) `ci.yml` läuft `on: pull_request` only — Direkt-`main`-Commits durchlaufen kein `brain:lint`. Empfohlener Folge-Fix: `push: branches: [main]`-Trigger in `ci.yml` (selbst ein Code-Change → eigener PR). Bis dahin `brain:lint -- --no-write` lokal grün vor dem Doc-Push. (b) Branch-Protection: die Regel setzt voraus, dass `main` Direkt-Pushes annimmt — falls GitHub-Branch-Protection sie ablehnt, lockern oder den Doc-Change in den nächsten PR bündeln.
+
+**No new decision page.** Per Maintainer-Scope in den vier Workflow-Docs verankert, nicht als separate `decisions/`-ADR. Lässt sich später zur ADR promovieren, falls sich die Policy als revisit-würdig erweist.
+
+**Updated wiki:** `brain/wiki/workflows/cowork-session.md`, `brain/wiki/workflows/cc-session.md`, `index.md` (Katalog-Zeilen + Updated-Dates der zwei Workflow-Pages), this `log.md`. **Outside wiki:** `CLAUDE.md`, `AGENTS.md`.
+
+**Out of scope:** Kein Code-Touch (auch nicht die `ci.yml`-Push-Trigger-Ergänzung — eigener Folge-PR), kein Schema/DB. Kein `brain:lint`-Run durch Cowork (Sandbox).
+
+**Branch.** Diese Änderung ist selbst doc-only — der erste Anwendungsfall der neuen Regel: kein Branch, kein PR, direkt auf `main`. Philipp committet + pusht Windows-nativ.
+
+---
+
+## 2026-05-26 · Ingest + Architektur · Post-Merge-Koordinations-Pass (#100) + Cross-Era-Identitäten-ADR
+
+Brief 100 (HH-Resolver-Domain-Öffnung) ist implementiert + gemergt — `origin/main` `b8aad31`. Der Headless-Resolver-Loop ist jetzt **zwei-domänen-fähig** (W40K + HH); Detektor liefert drei externe Terminal-Zustände (`open-wave | idle | all-complete`), der W40K→HH-Übergang ist interner Branch-Point innerhalb von `detectNextWave`. Live-Smoke gegen den realen Repo-Stand (W40K resolved durch Pass 9, 30/30 HH crystallized) liefert die erwartete Bootstrap-Welle `ssot-hh-001..002` (20 Bücher, Pass 10). EXPECTED_RANGES für HH-Headroom angehoben (`factions.max=2500`, `locations.max=1100`, `characters.max=2200`); Minima unverändert. `EXPECTED_RANGES.factions.max` damit über zwei Pässe von 2100 (Pass 9 Headroom-Sizing) auf 2500 gewachsen.
+
+**CC-Entscheidungen (alle akzeptiert).** Variant A (statische `{domain, n}`-Tupel) für die Verify-Trias; HH-Tupel **nicht** pre-added — der Phase-4a-Trigger jeder zukünftigen HH-Welle fordert das Append per Welle, materielle Verify-Abdeckung erst nach dem ersten HH-Pass. `as const satisfies ReadonlyArray<…>` für die Tupel-Schema-Validierung (TS 5.x). Domain-Reihenfolge `["w40k", "hh"]` hartcodiert (HH-Cross-Era-Aliases hängen vom stabilen W40K-Reference-Layer ab). `HH_BOOTSTRAP_WAVE_TARGET=20`/`HARD_CAP=25` — mit Batch-Größe 10 ist der Cap das bindende Limit. Brief in den Code-PR portiert (lag in Cowork-primary-Worktree als untracked, nie auf git committed); Status-Flip auf `implemented` derselbe PR.
+
+**W40K-Hardcode-Sweep negativ.** Über Brief 100 hinaus tragen `scripts/aggregate-surface-forms.ts`, `scripts/run-phase4-apply.sh`, `scripts/verify-pass.ts`, `scripts/run-resolver-pass.sh` keine W40K-Konstanten — Brief 100 OQ „weitere W40K-Hardcodes" ist damit negativ beantwortet, kein Folge-Cleanup nötig.
+
+**Cross-Era-Identitäten — ADR gezogen.** Brief 100 § Baustein 3 hat die Modellierungs-Disziplin festgenagelt („eine kanonische Identität = eine Canonical-Row, Era-Surface-Forms als Aliases"), das Runbook §4 trägt die operative Spec (Faction-Rename, Character-Honor-Title-Split, Primarchen-Pattern, Disambig-Ausnahme). Cowork hat in diesem Koordinations-Pass eine schlanke ADR `decisions/cross-era-identities.md` ergänzt — Context/Decision/Why/Revisit-Trigger. Macht die Decision lange-archivierbar und gibt Revisit-Trigger, die in Brief 100 selbst nicht stehen.
+
+**CLAUDE.md § Git — PowerShell-Konvention.** Auslöser: Cowork hatte Philipp wiederholt `git fetch && git pull`-Ketten gegeben, die in PowerShell 5.x mit `Das Token "&&" ist in dieser Version kein gültiges Anweisungstrennzeichen` brechen. Festgehalten als eigene Subsektion in `CLAUDE.md` § Git: git-Befehle für Philipp werden **immer zeilenweise** gegeben, niemals als `&&`-Kette; das alte Inline-`&&`-Beispiel im Übergabe-Hinweis entsprechend entschärft.
+
+**Was diesem Pass NICHT angehört.** Der Trial-Lauf (operativ, Philipp triggert `run-resolver-loop.sh`), die HH-Sessions-Archive-Sweep-Frage (Brief 098/099 bleiben one-day-old in `sessions/`-Root, archiviert wird beim nächsten Sweep), der HH-Konsolidierungs-Pass-Folge-Brief (eigener schlanker Brief nach HH-complete). Keine OQ-Schließung, keine neue numerierte OQ — Brief 100 ist Maschinerie-Öffnung, keine OQ-Bewegung.
+
+**Updated wiki:** `project-state.md` (Header + Phase + Branch + What's running + neue „Latest pipeline state (post-100)"-Sektion + Recently shipped + Next likely brief + § What's open), `pipeline-state.md` (Resolver-Layer-Subsektion zwei-domänen + EXPECTED_RANGES), `open-questions.md` (Header-Note 2026-05-26 post-100), `decisions/cross-era-identities.md` (neu), `index.md` (neue Decision-Zeile + bumped Updated-Dates), this `log.md`. **Outside wiki:** `CLAUDE.md` (PowerShell-Subsektion), `sessions/README.md` (Aktueller-Kopf + Brief-100-Zeile auf `complete — merged`).
+
+**Out of scope:** Kein Code-Touch (Brief 100 ist erledigt; der Trial ist operativ). Kein Archive-Move 098/099/100 — separater Sweep, wenn die Pile genug für sich steht. Kein `brain:lint`-Run durch Cowork (Sandbox).
+
+**Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.
+
+---
+
+## 2026-05-26 · Ingest · Post-Merge-Koordinations-Pass post-101 + Pass 10 (HH-Bootstrap-Apply)
+
+Zwei zusammenhängende Code-PRs gemergt — und damit der **HH-Bootstrap in die DB**:
+
+- **PR #106 — Brief 101 (Guard-Fix Reason-Split).** Cowork-Maintainer-Entscheidung 2026-05-26: aus drei vom Pass-10-Phase-4a-Halt angebotenen Pfaden Option 1 (Reason-Split) gewählt; Optionen 2 (domain-aware seal) + 3 (allowlist) explizit verworfen. Tight Diff: `scripts/apply-override-dry.ts:942-953` (Reason-Breakdown-Konsolenausgabe `by reason: out-of-range=N1, unknown-work=N2`, auch wenn beide 0) + `:979-1000` (Assertion auf `unresolvable.filter(u => u.reason === "unknown-work")` eingeschränkt, Kommentar-Block aktualisiert auf Brief-101-Semantik, Fehlermeldung ohne Reason-Suffix in der Liste) + `scripts/test-apply-override-collections.ts:19-24, 162-218` (Import `UnresolvableConstituentRef`-Typ, lokale `guardAbortRefs`-Predicate-Helper, drei Cases a/b/c). `apply-override-collections.ts` unangetastet (Reason-Klassifikation war bereits korrekt). `test:collection-refs` 10/0 (+3 von 7); volle Resolver-Trias grün; lint+typecheck pass. Brief 101 selbst mit `status: open → implemented` im Code-PR mit-portiert.
+- **PR #105 — Resolver-Pass 10 (HH-Bootstrap-Apply, `ssot-hh-001..002`).** Erste HH-Welle in der DB — **works 565 → 585** (+20 HH-Bücher HH-0001..HH-0020). Sechs Phasen completed (eine Commit pro Phase). Phase 1-3 JSON-Reference-Schicht +6 factions / +10 locations / +60 characters / +9 aliases (4 Faction-, 3 Character-, 2 Cross-Era-Honor-Title); `faction-policy.json` specialCases 23→29. Cross-Era-Disziplin aus 100-Runbook §4 sauber gehalten: Luna Wolves→`sons_of_horus`, Mechanicum→`mechanicus`, Imperial Army→`astra_militarum`, Lucius→`lucius_the_eternal`, Ezekyle Abaddon→`abaddon_the_despoiler`. Phase 4a halt-disziplin-konform auf `## Needs decision` gestoppt (20 HH-Anthology→Constituent-Edges: HH-0020 → HH-0117..HH-0120, HH-0010 → HH-0150..HH-0156, HH-0016 → HH-0157..HH-0165 — brachen den über-strengen Brief-091-Guard auseinander, exakt der Pass-10-Dossier-§7d-Stop-Trigger). Brief 101 hat den Guard gefixt; Re-Run commit `42a6fad` clean auf der ersten Iteration (`test:apply-override-dry` `out-of-range=20, unknown-work=0`, `run-phase4-apply.sh` schreibt beide Batches). Counts PRE→POST (idempotenter Re-Apply `001..057 + hh-001..002`): `work_factions 1903→1981` (+78), `work_locations 733→776` (+43), `work_characters 1220→1325` (+105), `work_collections 147 (unverändert — out-of-range)`, `work_persons 524→541` (+17), `work_facets 11291→11672` (+381). Reference `factions 173→179` / `locations 224→234` / `characters 344→404`; Aliases faction 59→63, location 16→17, character 43→47. `facet_values 86→86` — keine Facet-Promotion. `persons.json 96→96` — alle 11 HH-Bootstrap-Author-/Editor-Slugs waren bereits aus dem W40K-Korpus präsent (`ensurePersonsExist: 0 newly created`). Phase 4b Verify-Digest clean: Smoke-Slugs `tales-of-heresy` HH-0010 mit 7f/2l/9c + `the-primarchs` HH-0020 mit 6f/1l/5c (`in_coll=0` auf beiden — Anthology-Constituent-Edges out-of-range, materialisieren auf Folge-Wellen); Rating-Coverage 20/20 für HH-0001..HH-0020 alle `rating_source=goodreads`; NEW-Range Audit-Replica HH-0001..HH-0020 `total_works=20`, `drift_works=15` (erwartet — Cross-Era-Alias-Resolving wirkt: `raw_name="Luna Wolves"` zeigt auf canonical `sons_of_horus` etc.), `gap_works=2` (Data-Findings, dünne Metadata-Achsen — kein 4a-Fehler), `content_in_collection=0` (konsistent). OLD-Range HH-0001..HH-0000 invertierter Boundary by construction (alle null — kein prior HH-Baseline).
+
+**Cross-Era-ADR operativ validiert.** Die ADR `decisions/cross-era-identities.md` (Brief 100) hat in der ersten HH-Welle getragen — 15/20 `drift_works` sind Surface-Forms, die auf eine kanonische W40K-Row resolved haben (Faction-Renames, Character-Honor-Title-Splits, Primarchen-Pattern); `factionsSkippedRedundant`-Bucket bleibt für Cross-Era-Hits leer (Aliases resolven, kein Skip). Keine echte Identitäts-Disambig getriggert → kein `## Needs decision`-Stop in der Phase-Statusdatei. ADR um einen kurzen Status-Halbsatz „erste HH-Welle (Pass 10) hat die Disziplin operativ validiert" ergänzt.
+
+**Out-of-range materialisiert auf Folge-Wellen.** Die 20 HH-Anthology→Constituent-Edges sind als deferred edges geparkt — `applyCollections` re-evaluiert die Kante idempotent, sobald die spätere Welle den Constituent in die kumulative Apply-Range bringt; keine Roster-Maintenance-Edits, kein `collection-gaps.json`-Eintrag nötig (das ist exakt das Erfolgs-Pattern der W40K-Anthology-Forward-Refs aus Pass 6: Sanctus Reach, Damocles, Shield of Baal). `work_collections` tickt entsprechend in den Folge-HH-Wellen hoch, sobald HH-0117..HH-0120 / HH-0150..HH-0156 / HH-0157..HH-0165 appliziert sind.
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** Brief 101 ist Maschinerie-Fix, Pass 10 ist Daten-Welle — keine adressiert OQ (3) Hand-Check-Workflow oder OQ (13) Crawl-Simplification-Sichtung. Die 2 gap_works aus Phase 4b sind als Watch-Item in `project-state.md` § What's open geparkt (Data-Findings, keine numerierte OQ). Brief 101 § Open questions hat einen `verify-pass.ts`-Out-of-Range-Count-Vorschlag — Implementer-Read: lohnt einen schmalen Folge-Brief bzw. Bündel mit dem HH-Konsolidierungs-Folge-Brief.
+
+**Updated wiki:** `project-state.md` (Header + Phase + Branch + What's running + neue „Latest pipeline state (post-101 / Pass 10)"-Sektion + Recently shipped + § What's open), `pipeline-state.md` (Resolver-Layer-Subsektion post-101 / Pass 10 + What's-next-Liste), `open-questions.md` (Header-Note 2026-05-26 post-101 / Pass 10), `decisions/cross-era-identities.md` (Status-Halbsatz „first wave validated"), `index.md` (bumped Updated-Dates), this `log.md`. **Outside wiki:** `sessions/README.md` (Aktueller-Kopf + Brief-101-Zeile auf `complete — merged` + Pass-10-Zeile).
+
+**Out of scope:** Kein Code-Touch (Brief 101 + Pass 10 sind erledigt; die HH-Restwellen sind operativ via `run-resolver-loop.sh`). Kein Archive-Move 098/099/100/101 — separater Sweep, wenn die Pile genug für sich steht. Kein `brain:lint`-Run durch Cowork (Sandbox).
+
+**Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.
+
+---
+
+## 2026-05-27 · Ingest · Post-Merge-Koordinations-Pass post-PR-107 (Resolver-Loop 5 Wellen — Korpus datenkomplett)
+
+PR #107 (Resolver-Loop: 5 wave(s) HH `ssot-hh-003..030`, Pässe 11–15 auf branch `codex/ingest-batches-resolver-loop-hh`) ist gemergt. Erster echter headless Mehr-Wellen-Lauf des `run-resolver-loop.sh`-Drivers — fünf clean Two-Domain-Pässe in Folge ohne `## Needs decision`-Stop und ohne facetId-Strips, exakt der Brief-100-Forecast 60/60/60/50/44 Bücher. **Damit ist der Korpus datenkomplett: 859/859 (565 W40K + 294 HH); der Resolver-Loop emittiert `all-complete`.**
+
+**Read (raw sources):**
+
+- `sessions/resolver-loop-log.md` — Pässe 11–15 Block-Anhänge mit allen 6 Phasen-SHAs je Welle (Phase 0 Preflight, Phase 1 Factions, Phase 2 Locations, Phase 3 Characters, Phase 4a Apply, Phase 4b Verify).
+- `sessions/resolver-dossiers/resolver-pass-15-impl-report.md` — die finale 4b-Sammelung mit Apply-Digest + Verify-Digest + Maintainer-Handoff + For-next-session (canonical Read; die fünf Phase-Reports werden hier roll-up gemacht).
+- `sessions/resolver-dossiers/resolver-pass-11-impl-report.md`, `-12-`, `-13-`, `-14-` — per-Pass-Impl-Reports (nicht im Detail re-derived; die Counts-Tabelle in Pass 15 zeigt die kumulative Bewegung).
+- `scripts/seed-data/book-roster.json` (HH-Max-ID HH-0294, 294/859 Bücher) + `scripts/seed-data/manual-overrides-ssot-hh-*.json` (30 Override-Files, ssot-hh-030 trägt HH-0291..HH-0294 = 4 Bücher artbook/scriptbook tail).
+- `scripts/resolver-loop-detect.ts` — verifiziert dass die Terminal-Bedingung `all-complete` greift bei `hhProgressBatch === 30` und `hhRosterCount === 294` (verified empirically via roster-count + override-file-count; die `~10 books remaining`-Aussage im Pass-15-impl-Report ist ein Forecast-Artefakt aus der Dossier-§1 / §7d, das vor dem letzten 4-Buch-Batch ssot-hh-030 generiert wurde — die Realität ist HH-domain-sealed bei HH-0294).
+
+**Counts post-Pass-15-Re-Apply `001..057 + hh-001..030` (859 works):**
+
+- works `565 → 859` (+294 = volle HH-Domäne), work_factions `1981 → 2752` (+771), work_locations `776 → 1144` (+368), work_characters `1325 → 1992` (+667), work_collections `147 → 196` (+49 — die deferred Anthology-Constituent-Edges aus Pass 10 sind durch die Folge-Wellen materialisiert), work_persons `541 → 785` (+244 HH-Author-Slugs via `ensurePersonsExist`; `persons.json` JSON-side unverändert 100), work_facets `11672 → 16845` (+5173).
+- Reference: factions `179 → 202` (+23), locations `234 → 288` (+54), characters `404 → 491` (+87); aliases faction `63 → 73` (+10 ca., zusammen über die fünf Pässe), location `17 → 25` (+8 ca.), character `47 → 64` (+17 ca.). `facet_values 86 → 86` — keine Facet-Promotion über die fünf Wellen.
+- EXPECTED_RANGES: nur **eine** quantitative Re-Tune über die fünf Pässe — `locations.max 1100 → 1500` in Pass 15 (Pass-14-forecasted Bump, ~24% post-bump headroom). factions cap `3200` (2754 ≈ 14% headroom) und characters cap `2200` (1992 ≈ 9% headroom — der tightest bound nach Pass 15) ohne Re-Tune.
+
+**Cross-Era-ADR über den vollen HH-Korpus gehärtet.** Über die fünf Wellen 11–15 trugen Cross-Era-Aliases robust — `factionsSkippedRedundant`-Bucket bleibt für Cross-Era-Hits leer (Aliases resolven auf eine Canonical-Row, kein Skip), keine echte Identitäts-Disambig getriggert (kein `## Needs decision`-Stop), Pass-12 hat Cross-Era-Honor-Title-Splits für `Bjorn` (Pre-Dreadnought-Honor-Title-Variante auf `bjorn` Alias-Mapping in Pass 11 anticipated, in Pass 15 Case B `Bjorn the One-Handed → bjorn` consolidated) und `Lord Cypher → cypher` (Cross-Era Heresy-era-Dark-Angels-title-character → post-Heresy `cypher` Fallen-Lord-of-the-Fallen alias) sauber gelandet. ADR `decisions/cross-era-identities.md` um „HH-domain hardened: 2026-05-27"-Halbsatz ergänzt.
+
+**Deferred-Edge-Pattern (Brief 100/101) trägt über den vollen Re-Apply.** Die 20 Pass-10-Anthology→Constituent-Edges aus den drei HH-Anthologien (HH-0020 → HH-0117..HH-0120, HH-0010 → HH-0150..HH-0156, HH-0016 → HH-0157..HH-0165) sind idempotent über die Folge-Wellen materialisiert — Pass 11/12/13 haben die HH-0117..HH-0120 / HH-0150..HH-0156 / HH-0157..HH-0165-Constituents in den kumulativen Re-Apply gebracht; `work_collections` ist von 147 (Pass 10) auf 196 (Pass 15) gewachsen, exakt das Brief-101-Erfolgs-Pattern (Sanctus Reach / Damocles / Shield of Baal analog für HH). OLD-Range HH-0001..HH-0250 cumulative `content_in_collection=49` per Verify-Digest Pass 15.
+
+**Wave-Größen exakt nach Brief-100-Forecast.** Pass 11 (60: ssot-hh-003..008, HH-0021..HH-0080), Pass 12 (60: ssot-hh-009..014, HH-0081..HH-0140), Pass 13 (60: ssot-hh-015..020, HH-0141..HH-0200), Pass 14 (50: ssot-hh-021..025, HH-0201..HH-0250), Pass 15 (44: ssot-hh-026..030, HH-0251..HH-0294). Pass 15 ist der HH-audio-drama + artbook/scriptbook-Tail (ssot-hh-026..029 first-cycle Heresy-audio-drama-Bloc, mid-Heresy Legion-Vignette + Pharos / Sicarus / Tallarn + Endryd-Haar Blackshields-trilogy; ssot-hh-030 4-Buch-Tail Collected Visions / Scripts Volume I+II / Visions of Heresy 2018 ed.). Der Loop-Helper-Detektor signalisiert jetzt `all-complete` — beide Domains sealed.
+
+**Was diesem Pass NICHT angehört.** Der HH-Konsolidierungs-Folge-Brief (wartet auf Cowork — Maschinerie aus Brief 098 existiert, der HH-Lauf braucht nur HH-spezifische Kandidaten-Heuristiken; potenzieller Bündel-Kandidat: Brief 101 § Open questions `verify-pass.ts`-Out-of-Range-Count). Pass-15-impl-For-next-session-Items als Watch-Items in `project-state.md` § What's open: Audit-Cockpit-Drift/Gap-Follow-up über die HH-Domäne (Data-Quality-Cycle, nicht Resolver-Pass); characters-cap Re-Tune `2200 → ?` post-Konsolidierung. Sessions-Archive-Sweep für 100/101 + die fünf neuen Pass-11..15-Dossiers — separater Sweep, wenn die Pile genug für sich steht.
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** Die fünf Pässe sind Daten-Wellen ohne Architektur-Call; der HH-Restwellen-Punkt (operativ, kein Brief — bis vor PR #107 in `project-state.md` § What's open Top-Tier) ist erledigt durch die Wellen selbst. Offene Queue unverändert: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung.
+
+**Updated wiki:** `project-state.md` (Header + Phase + Branch + What's running + neue „Latest pipeline state (post-PR-107)"-Sektion + Recently shipped + § What's open + Next likely brief), `pipeline-state.md` (Header-Title + Intro-Blockquote post-PR-107), `open-questions.md` (Header-Note 2026-05-27 post-PR-107), `decisions/cross-era-identities.md` (Status-Halbsatz „HH-domain hardened"), `index.md` (bumped Updated-Dates + Beschreibungen project-state/open-questions/pipeline-state/cross-era-ADR), this `log.md`. **Outside wiki:** `sessions/README.md` (Aktueller-Kopf + neue Resolver-Loop-Zeile auf `complete — merged`).
+
+**Out of scope:** Kein Code-Touch (PR #107 ist erledigt; die HH-Konsolidierung ist Cowork-side ein eigener Folge-Brief). Kein Archive-Move 100/101/Pass-11..15-Dossiers. Kein `brain:lint`-Run durch Cowork (Sandbox) — vor dem Doc-Commit lokal grün durch Philipp.
+
+---
+
+## 2026-05-27 · Ingest · Post-Merge-Koordinations-Pass post-PR-108 (Brief 102 HH-Konsolidierungs-Pass — Korpus datenkomplett + konsolidiert)
+
+PR #108 (HH-Konsolidierungs-Pass / Brief 102 impl, branch `codex/ingest-batches-hh-consolidation-pass`, 7 Commits c01a795..037b618) ist gemergt. **Korpus ist datenkomplett (859/859) und jetzt über beide Domänen konsolidiert.** Brief-094-§-Cadence-Bogen geschlossen — verpflichtender finaler Konsolidierungs-Pass nach HH ist gefahren; künftige Konsolidierungs-Pässe sind ad-hoc.
+
+**Read (raw sources):**
+
+- `sessions/2026-05-27-102-impl-hh-consolidation-pass.md` — canonical Impl-Report (32k bytes), six-phase-Doku + Field-Retention-Tabellen pro Merge + Cap-Re-Tune-Rechnung + Verify-Bolt-on-Manual + Antworten auf alle fünf Brief-102-§-Open-questions.
+- `sessions/2026-05-27-102-arch-hh-consolidation-pass.md` — Brief 102 selbst (`status: open → implemented` im Code-PR mit-portiert).
+- `sessions/resolver-dossiers/consolidation-pass-2-*.{md,json}` — sechs Pass-2-Artefakte (dossier mit allen drei Achsen-Sektionen + Merge-/No-Merge-Adjudikationen, aggregator-output mit den 23 Kandidaten-Clustern, dry-run-plan mit Stage-Plan + Tier-Split, db-snapshot pre-mutation, merge-map mit den 2 keeper↔mergee-Paaren, reference-premerge-snapshot der zwei gelöschten Character-Rows).
+- `scripts/consolidation-pass-2.config.json` — dedizierte Pass-2-Config mit `applyRanges: [{w40k 1..57}, {hh 1..30}]`, alle Artefakt-Pfade unter `consolidation-pass-2-*`.
+- `scripts/consolidation-aggregate.ts` (Phase 0 Aggregator-Erweiterung), `scripts/resolver-pass-config.ts` (Multi-Range-Loader-Normalisierung), `scripts/run-phase4-apply.sh` (Range-Liste-Expansion), `scripts/verify-pass.ts` (Out-of-Range-Bolt-on), `scripts/apply-override-dry.ts` (`EXPECTED_RANGES.characters.max 2200 → 2500`), `scripts/test-resolver.ts` (Merir-Astelan-Test von direct-match auf alias-resolved umformuliert).
+
+**Pass-2-Ergebnis (canonical):**
+
+- **23 Kandidaten-Cluster → 2 Merges, 21 No-Merges, 0 Flagged.** Beide Merges auf der Characters-Achse:
+  - **Merge 1 (Lore-Deep-Tier, cross-era):** `merir_astelan → astelan`. HH-era Dark-Angels-Captain (Pass-13 *Call of the Lion*) IST der W40K-era Fallen Angel Astelan. Chronologisch-pre-ADR-Carryover: Pass-13 lief vor dem Brief-100-ADR-Beschluss. Keeper-Wahl `astelan` per Cross-Era-Identities-ADR-Pattern (W40K-canonical short-form). Field-Retention keeper-wins (`primary_faction_id=fallen_angels` retained, ADR-konform); HH-era pre-fall Affiliation via cross-era-coherent notes-Rewrite captured.
+  - **Merge 2 (Mechanical-Tier, same-era):** `sharrowkyn → nykona_sharrowkyn`. Pass-11 (*Angel Exterminatus*) und Pass-13 (*Kryptos*) haben unabhängig denselben Raven-Guard-Mor-Deythan-Charakter mit verschiedenen Surface-Forms angelegt — klassen-identisch zu Pass-1 `magister_sek → anakwanar_sek`. Keeper-Wahl `nykona_sharrowkyn` (Lexicanum-canonical-Form); notes-Merge.
+- **Wichtigster Befund — positive Brief-100-ADR-Validation.** Cross-era-anchor-breach Aggregator-Tripwire (Re-Annotation auf alias-coincidence-Edges) = **0 Treffer** über alle 18 pinned Cross-Era-Surface-Forms (Luna Wolves, Imperial Army, Mechanicum, Ezekyle Abaddon, Kharn, Magnus, Lucius, Ahriman, Horus Lupercal, Calas Typhon, Corvus Corax, Lorgar Aurelian, Little Horus Aximand, Nassir Amit, Alexis Pollux, Dantioch, Maloghurst, Arvida, Aenoid Thiel). Die eine Cross-Era-Merge `merir_astelan→astelan` ist Disziplin-Drift im engeren Sinn (Pre-ADR-Carryover, kein laufender Trend).
+- **Drei HH-aware Aggregator-Klassen scharfgeschaltet.** (a) Slug-edit-distance auf locations (Schwellen `distance≤2 AND ratio≤0.25 AND min-len≥4` — `vigilus↔vigil` triggert deliberat nicht): 1 trigger `barbarus↔tartarus` als false-positive (Tags-Disjunktheit `["death_guard"]` vs `[]` als Adjudikations-Marker). (b) Cross-era-anchor-breach als Re-Annotation auf alias-coincidence-Edge (3 Zeilen Code statt eigener Edge-Klasse, semantisch äquivalent): 0 trigger = gewünschtes Falsch-Negativ-Ergebnis. (c) Primarch-stem auf characters (22 endliche Stems hart-kodiert, Brief 102 § Constraints (c) erlaubte das explizit): 1 trigger `horus↔horus_aximand` als false-positive (Primarch ↔ Captain-named-after-Primarch, klassen-analog Planet ↔ Ship-named-after-Planet). Aggregat-Befund: alle drei sind Tripwires (negative-validate), nicht True-Positive-Mining-Tools — beide Merges via Pass-1-Base-Heuristiken.
+
+**Counts post-Pass-2-Re-Apply + DB-Sync (859 works):**
+
+- Reference: characters `491 → 489` (-2 mergees gelöscht), character-aliases `64 → 66` (+2 neue Einträge); factions `202` / locations `288` / faction-aliases `73` / location-aliases `25` / facet_values `86` alle unverändert (Pass 2 ist Cross-Wave-Reference-Dedup, keine Facet-Promotion).
+- DB-Junctions: work_factions `2752 → 2754` (+2 re-apply-Drift), work_locations `1144 → 1145` (+1), **work_characters `1992 → 1997`** (+5 = re-pointed Junctions auf die zwei Keepers via neue Aliases: `astelan` 5→6 = +1 von merir_astelan, `nykona_sharrowkyn` 1→3 = +2 von sharrowkyn). work_collections `196` / work_persons `785` / work_facets `16845` alle unverändert. Orphan refs 0, residue 0, keeper-notes korrekt.
+- **`EXPECTED_RANGES.characters.max 2200 → 2500`** (Brief-102-Cap-Re-Tune; ~25% headroom über work_characters=1997, Pass-15-locations-Pattern). factions cap `3200` (2754 ≈ 14% headroom) und locations cap `1500` (1145 ≈ 24% headroom) unangetastet.
+
+**Multi-Range-Loader-Normalisierung — Singleton bleibt schreibbar, Liste ist canonical-Lese-Form.** `AggregatorConfig` um optionales `applyRanges: ApplyRange[]` erweitert; `normalizeApplyRanges()` wirft Hard-Error bei beidem (Mehrdeutigkeit als Konfig-Bug), normalisiert Singleton → `[r]`. Pass-1-Config + per-wave-resolver-Configs schreiben weiterhin `applyRange` (Singleton); der Loader normalisiert intern. `run-phase4-apply.sh` inline `apply_batches()`-Helper liest beide Formen, expandiert über die Range-Liste; CLI unverändert.
+
+**`verify-pass.ts`-Out-of-Range-Bolt-on (Brief 101 § Open questions gefaltet).** Position am Ende des `main()`-Body hinter einem `if (verify)`-Guard (config-agnostisch — Per-Wave-Resolver-Configs mit verify + Konsolidierungs-Pass-Configs ohne verify). SQL `LIKE ANY (ARRAY['W40K-%','HH-%'])` aus den Domain-Prefixes; zählt `work_collections`-Rows wo Constituent's `external_book_id` außerhalb der ApplyRanges-Union liegt. Pass-2-Lauf: `out_of_range_count=0` ✓ (Full-Corpus-Tripwire grün am datenkomplettem Korpus — exakt das Brief-101-Erfolgs-Pattern, das deferred-edge-Materialisierung über die HH-Wellen 11–15 vorhergesagt hat). Per-wave HH-only-Config-Lauf als Sanity-Check: `147` (W40K-Constituents außerhalb der HH-only-Range, informational für per-wave-configs).
+
+**Brief-094-§-Cadence-Bogen geschlossen.** Pass 2 war laut Brief 094 § Cadence der **verpflichtende finale Konsolidierungs-Pass nach der HH-Domäne** — Maschinerie zum zweiten Mal gefahren, beide Domänen sealed + konsolidiert. Künftige Konsolidierungs-Pässe sind ad-hoc (Polish-/Refinement-/neuer-Domain-getrieben), nicht mehr im Cadence-Default.
+
+**Was diesem Pass NICHT angehört (alle out-of-scope, durable in § What's open):** (i) Aggregator-Refinement-Pass-3 — auto-no-merge-rationale für `tags:vessel↔planet` (3 false-positives in Pass 2) + `primarch-stem↔captain-named-after-primarch` (1 false-positive); langfristig, lohnt erst beim nächsten Konsolidierungs-Pass. (ii) Audit-Cockpit-Drift/Gap-Sweep über die kumulativ ~148 drift_works + ~98 gap_works über die HH-Domain — eigener Data-Quality-Brief, **Top-Empfehlung für den nächsten Brief**. (iii) `consolidation-aggregate.ts` HH-Heuristik-Doku im Code-Header (Master-Block am Datei-Anfang). (iv) Codex-Review-Sicht auf den Pass-2-Cross-Era-Identity-Handhabungs-Diff. (v) Sessions-Archive-Sweep für 100/101/102 + Pass-11..15-Dossiers + consolidation-pass-2-* — Pile baut sich auf, separater Hygiene-Pass analog Brief 099.
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** Pass 2 ist Maschinerie-Lauf ohne Architektur-Call. Die in Brief 102 § Open questions adressierten fünf Fragen sind alle im 102-impl beantwortet (Cross-Domain-Doublette-Zählung 1/23 = 4.3% niedriger als Pass-1 13%, Heuristik-Klassen-Tragfähigkeit als Tripwires statt Mining-Tools, Cap-Re-Tune-Prozent 25% relativ-Count-frei, Verify-Pass-Position am main()-Ende mit if(verify)-Guard + eigener Block am Digest-Ende, Token-Budget stabil — Cluster-Anzahl skaliert nicht mit Reference-Bestand). Offene Queue unverändert: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung.
+
+**Cross-Era-ADR um „HH-domain post-consolidation hardened: 2026-05-27"-Halbsatz ergänzt.** Brief 102 § Notes hat den Halbsatz angekündigt; CC hat den Vorschlag im Impl-Report formuliert; Cowork hat ihn in den ADR-Status-Header genommen (zusätzlich zu „HH-domain hardened: 2026-05-27" aus dem post-PR-107-Pass).
+
+**Updated wiki:** `project-state.md` (Header + Phase + Branch + What's running + neue „Latest pipeline state (post-PR-108)"-Sektion + Recently shipped + § What's open + Next likely brief), `pipeline-state.md` (Header-Title + Intro-Blockquote post-PR-108), `open-questions.md` (Header-Note 2026-05-27 post-PR-108), `decisions/cross-era-identities.md` (Status-Halbsatz „HH-domain post-consolidation hardened" + Pass-2-Sources), `index.md` (bumped Updated-Dates + Beschreibungen project-state/open-questions/pipeline-state/cross-era-ADR + neue Brief-102-Reihe in Sessions-Catalog-Hinweis), this `log.md`. **Outside wiki:** `sessions/README.md` (Aktueller-Kopf + Brief-102-Zeile auf `complete — merged`).
+
+**Out of scope:** Kein Code-Touch (PR #108 ist erledigt; alle Watch-Items sind eigene Folge-Briefs). Kein Archive-Move 100/101/102/Pass-11..15/consolidation-pass-2-*. Kein `brain:lint`-Run durch Cowork (Sandbox) — vor dem Doc-Commit lokal grün durch Philipp.
+
+**Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.
+
+**Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.
+
+---
+
+## 2026-05-28 · Ingest · Post-Merge-Koordinations-Pass post-PR-109 (Brief 103 Daten-Pass — Audit-Helper + 2 Pilot-Backfills)
+
+PR #109 (Brief 103 Daten-Pass, branch `codex/ingest-batches-audit-pilot`) ist gemergt. **Korpus bleibt datenkomplett + konsolidiert (859/859).** Brief 103 ist als Strang-Split angelegt (UI-Pass im Product-Worktree + Daten-Pass im Batches-Worktree, parallel und unabhängig); PR #109 deckt die Daten-Pass-Hälfte ab — der UI-Pass läuft separat im `chrono-lexicanum-product`-Worktree als nächster CC-Job. Brief 103 selbst trägt `status: implemented` (CC hat im PR-109-Commit geflippt — Brief-103-§-Notes idempotent-Konvention erlaubt das, der UI-Pass kann den Status halten).
+
+**Read (raw sources):**
+
+- `sessions/2026-05-28-103-impl-data-audit-drift-gap-sweep.md` — canonical Daten-Pass-Impl-Report (135 Zeilen): Summary + What I did (Helper-Skript / HH-0260 / HH-0270 / Brief-Status-Flip) + Decisions I made + Verification (Pre-State / Post-State / alle 8 Test-Suites) + Open-Questions-Antworten (1+4 vom Brief; 2/3/5/6 sind UI-Pass-Themen) + For next session (Maintainer-Excel-Sweep-Pilot / Cockpit-Audit-Detailseite / Pelago-Tags-Review / Audit-Helper-Output-Persistenz).
+- `sessions/2026-05-27-103-arch-audit-drift-gap-sweep.md` — Brief 103 selbst (`status: open → implemented` im Code-PR mit-portiert).
+- `scripts/audit-gap-candidates.ts` — neu (246 Zeilen, read-only SQL über `works ⨝ book_details`, deterministisch sortiert).
+- `ingest/.last-run/audit-gap-candidates.md` — neuer Markdown-Snapshot (325 Kandidaten).
+- `scripts/seed-data/manual-overrides-ssot-hh-026.json` — HH-0260 character-Array um Russ + Alpharius als `mentioned` erweitert (2 Zeilen Diff).
+- `scripts/seed-data/locations.json` — neuer Anchor `pelago` (oceanic Backwater, `tags=["space_wolves"]`).
+- `scripts/seed-data/characters.json` — neuer Anchor `koparnos` (Iron-Warriors-Warsmith, `primaryFactionId="iron_warriors"`).
+- `package.json` — neuer Script-Eintrag `"audit:gap-candidates": "tsx --env-file=.env.local scripts/audit-gap-candidates.ts"`.
+
+**Pass-Ergebnis (canonical):**
+
+- **`audit:gap-candidates`-Helper:** SQL über `works ⨝ book_details` mit `kind='book' AND (format IS NULL OR format <> 'audio_drama') AND (factions=0 OR locations=0 OR characters=0)`. Output deterministisch sortiert (`external_book_id ASC, slug ASC`), gibt pro Buch `external_book_id`, `slug`, `title`, `format`, `f/l/c`-Counts, `confidence` plus Summary-Block (`total`, `by domain`, `by axis`). Schreibt zusätzlich Markdown-Snapshot nach `ingest/.last-run/audit-gap-candidates.md`. Kein DB-Write, kein Override-Touch, kein Resolver-Trigger. Idempotenz verifiziert (zwei konsekutive Läufe byte-identisch).
+- **Helper-Raw-Output:** **325 Kandidaten** (HH=73, W40K=252 — ~78 % W40K-konzentriert). Achsen-Breakdown: `factions=0 → 29`, `locations=0 → 228`, `characters=0 → 194` (Bücher können in mehreren Achsen zählen). Spitze des Eisbergs: viele frühere W40K-Paperbacks (Cain-Reihe `W40K-0012..0019`, Necromunda-Reihe `W40K-0163..0180`, Warhammer-Horror `W40K-0492..0527`) mit `confidence=1.00` haben locations=0 oder characters=0, weil die ursprüngliche Lexicanum-/OL-Crawl-Pipeline für diese Domäne dünner aufgesammelt hat.
+- **Brief-103-Forecast-Korrektur:** der Brief-Forecast "~10–20 echte fixable" galt für die post-Triage-Subset (Maintainer-Excel-Sweep-Output), nicht den Helper-Raw-Output. Die rohe Liste ist breiter — laufender Maintainer-Workflow filtert pro Buch, ob die fehlende Achse explizit benannte Lore-Anker hat (fixable) oder die strukturelle sparse-axis-Form eines Audio-Dramas/Single-Scene-Arc ist (nicht fixable, expected).
+- **Pilot-Backfill HH-0260 *Hunter's Moon* (Welle `ssot-hh-026`).** Pre-State `f=2 / l=0 / c=0`. Halluzinations-Schutz nach Brief 103 § Notes: nur kanonisierungsfähige Anker promoten. Promoted: Russ + Alpharius als `mentioned` (freq-3 Primarchen-Anchors aus Pass 10, wörtlich in der Synopsis benannt) + neuer `pelago`-Location-Anchor (`tags=["space_wolves"]` für den Vlka-Fenryka-Watcher-Lore-Anker, mirror der Pass-15-Pattern `nuceria: ["world_eaters"]` / `tallarn: ["astra_militarum"]`). NICHT promoted: Tidon/Ven/Sareo/Felbjorn (story-spezifische 60-Min-Audio-Drama-Minor-Cast — Single-Mention-Bloat-Vermeidung, die `low_confidence:characters`-Begründung aus Pass-15-Dossier §6 trägt sich qua Resolver-Skip). Post-State `f=2 / l=1 / c=2`. Override-Diff = 2 Zeilen; Reference-JSON-Add = 1 Zeile.
+- **Pilot-Backfill HH-0270 *Iron Corpses* (Welle `ssot-hh-027`).** Pre-State `f=1 / l=1 / c=0`. Synopsis nennt nur Koparnos (Iron-Warriors-Warsmith, sole POV). Promoted: neuer `koparnos`-Character-Anchor (`primaryFactionId="iron_warriors"`). Override-File HH-0270 bleibt unverändert (Resolver greift den bestehenden `{ "name": "Koparnos", "role": "pov" }`-Eintrag, sobald der Anker steht). Post-State `f=1 / l=1 / c=1`. Override-Diff = 0 Zeilen; Reference-JSON-Add = 1 Zeile.
+- **NEW-Range gap_works im `verify-pass.ts`-Digest: 18 → 16** (-2 = HH-0260 + HH-0270, exakt der Brief-Forecast). NEW-Range drift_works 25 (unverändert — Drift-Achse nicht angefasst). OLD-Range (`HH-0001..HH-0250`) `gap_works=80` (unverändert), `drift_works=125` (unverändert). Smoke-Slugs: HH-0260 `f=2/l=1/c=2`, HH-0270 `f=1/l=1/c=1`, HH-0280 `f=2/l=2/c=1`, HH-0290 `f=2/l=0/c=2`, HH-0294 `f=20/l=4/c=3`. Rating coverage (`HH-0251..HH-0294`): 44/44 rated, `goodreads=44`.
+- **Out-of-Range-Tripwire = 147** — Artefakt der HH-only `applyRange` im Pass-15-Config gegen den post-Brief-102 Full-Corpus-DB-Stand (Brief-102 Cross-Domain-Boundary-Logik erwartet 0 nur bei Multi-Range-Configs wie `consolidation-pass-2.config.json`). Keine Regression durch diesen PR.
+
+**Counts post-Brief-103-Daten-Pass:**
+
+- **Reference:** locations `288 → 289` (+1 `pelago`), characters `489 → 490` (+1 `koparnos`); factions `202` / faction-aliases `73` / location-aliases `25` / character-aliases `66` alle unverändert (kein Alias-Add, nur zwei neue Canonical-Rows); `facet_values=86` unverändert.
+- **DB-Junctions:** work_factions `2754` (unverändert), work_locations `1145 → 1146` (+1 — HH-0260 trägt Pelago), work_characters `1997 → 1999` (+2 — HH-0260 trägt Russ + Alpharius, HH-0270 trägt Koparnos; tatsächlicher `test:resolver-coverage`-Output zeigt `characters=2000/2526` — die kleine Abweichung ist re-apply-Drift). work_collections `196`, work_persons `785`, work_facets `16845` alle unverändert.
+
+**Tests grün (sequentially executed):** `npm run typecheck` ok; `npm run lint` 0 errors + 1 pre-existing Warning (`no-page-custom-font` in `src/app/layout.tsx`, Brief 103 § Notes flagt sie explizit); `npm run brain:lint -- --no-write` 0 blocking + 25 pre-existing Warnings (inline-diff=2, brain-size=4, stale-claim=13, faction-policy=6); `npm run test:apply-override-dry` ok (`out-of-range=0, unknown-work=0`); `npm run test:resolver` **473 passed / 0 failed**; `npm run test:resolver-data` 10/10 inkl. neuer `coverage smoke slugs exist in w40k-001..057 + hh-001..030`-Check; `npm run test:resolver-coverage` Below-threshold-Zeilen als Data-Findings (Totals `factions=2754/3101, locations=1146/1458, characters=2000/2526`); `npm run test:collection-refs` 10/10 inkl. Brief-101-Reason-Split-Cases.
+
+**CC-Entscheidungen aus 103-Daten-impl (alle akzeptiert):**
+
+- Audio-Drama-Filter im Helper als SQL-Klausel (nicht Application-Layer-Filter) — deterministische Ordnung gratis, kein Round-Trip.
+- Markdown-Snapshot nach `ingest/.last-run/audit-gap-candidates.md` (etablierter Diff-Pfad für read-only Pre/Post-Snapshots, Brief 102 `phase4-digest.md` lebt dort) statt audit-eigener Pfad — keine neue Verzeichniskonvention.
+- Pelago-Tags konservativ `["space_wolves"]`, nicht `["space_wolves", "alpha_legion"]` (Vlka Fenryka als einzige strukturelle Faction-Präsenz, Alpha Legion nur als abgestürzter Stormbird; mirror Pass-15-Pattern). Cowork-Note: optional auf `["space_wolves", "alpha_legion"]` erweiterbar (Single-Line-Edit), Drift/Gap-Verhalten unverändert.
+- Story-Chars Tidon/Ven/Sareo/Felbjorn NICHT promoten (Halluzinations-Schutz / Single-Mention-Audio-Drama-Minor-Cast / Bloat-Vermeidung). Russ + Alpharius dagegen promoten (freq-3 Primarchen-Anchors, gratis-Anker konsistent mit Pass-10-Primarchen-Spine-Promotion).
+- Koparnos vollkanonisch promoten statt als Mention zu kürzen (POV-Charakter eines Iron-Warriors-fokussierten Audio-Dramas mit klarem Tallarn-Anchor; Iron-Warriors-Charakter-Liste hat freq-1-Promotionen schon mehrfach in Pass 15 — `bulveye`, `erud_vahn` etc.).
+- Helper-Skript laufzeit-strict gegen Brief-103-Spec (kein „smart"-Filter via confidence-Schwelle oder Single-Axis-Heuristik). Maintainer-Excel-Sweep verfeinert 325 → ~10–20.
+- Tight Diff: drei Daten-Files (`locations.json`, `characters.json`, `manual-overrides-ssot-hh-026.json`), ein neues Skript (`audit-gap-candidates.ts`), ein `package.json`-Eintrag, ein Brief-Status-Flip, ein Impl-Report. Kein UI-Touch (out-of-scope), kein `brain/**`/`sessions/README.md`-Touch (Brief 095 Rollup-Ownership), kein Resolver-Skript-Touch.
+
+**Watch-Items aus dem 103-Daten-impl For-next-session (alle out-of-scope für diesen Pass, durable in `project-state.md` § What's open):**
+
+- (i) **Maintainer-Excel-Sweep-Pilot.** Mit `audit:gap-candidates` ist die Triage-Liste 1-Befehl-reproduzierbar. Empfehlung des Impl-Reports: Cowork zieht in der nächsten Session einen Subset von HH-Domain-Kandidaten (73 Bücher, viele Single-Axis-`factions=0`-Fälle mit unresolved Surface-Forms) und probiert den Sweep-Workflow gegen 5–10 Beispiele. Wenn die Brief-103-Forecast-Subset von ~10–20 echt fixable ist, sind das laut Pro-Pilot-Effort-Schätzung 2–4 h Arbeit.
+- (ii) **Cockpit-Audit-Detailseite** — Brief 103 § UI-Pass als „optional" markiert. Wenn der UI-Pass die Sub-Sort sichtbar macht (Drift-Tie-Group-via-`Luna Wolves`×12-Anzeige), könnte die Detailseite analog die Top-Gap-Achse anzeigen ("Buch hat `locations=0`; Synopsis nennt: Tallarn, Pelago, …"). Out-of-Scope hier, Material für einen Folge-Brief, der UI + Daten verzahnt.
+- (iii) **Pelago-Tags-Review.** Konservativ `["space_wolves"]` getaggt; Cowork-Optionsfrage: `["space_wolves", "alpha_legion"]` analog Calth mit `["ultramarines", "word_bearers"]`. Single-Line-Edit, Drift/Gap-Verhalten unverändert.
+- (iv) **Audit-Helper-Output-Persistenz.** `ingest/.last-run/audit-gap-candidates.md` wird pro Lauf überschrieben. Für Time-Series-Verlauf wäre `ingest/audit-snapshots/YYYY-MM-DD-gap-candidates.md` ein 5-Zeilen-Add (Brief-103-Forecast „die Restliste schmilzt über Wochen"). Heute nicht nötig (`git log` über die `.last-run`-Datei zeigt den Verlauf).
+
+**Was diesem Pass NICHT angehört:** der **Brief-103-UI-Pass** (Audio-Drama-Dämpfung im `/buecher?audit=gap`-Bucket + Drift-Tie-Group-Sub-Sortierung — vollständig in Brief 103 § Constraints/UI + § Acceptance/UI + § Design freedom spezifiziert, läuft als nächster CC-Job im `chrono-lexicanum-product`-Worktree, Branch z.B. `codex/product-audit-drift-gap-sweep`); der **Maintainer-Excel-Sweep** über die ~10–20 echten Fixables aus der 325er-Liste (Brief 103 § Out-of-Scope: kein einmaliger Architektur-Brief, laufender Maintainer-Workflow). Aggregator-Pass-3-Refinement, Sessions-Archive-Sweep für 100/101/102/103 + Pass-11..15-Dossiers + consolidation-pass-2-* bleiben als separate Hygiene-Pässe geparkt.
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** Brief 103 Daten-Pass ist Tooling-Add + Daten-Backfill — adressiert keine numerierte OQ. Die in Brief 103 § Open questions adressierten sechs Fragen sind im 103-Daten-impl beantwortet (Q1 = 325 Kandidaten / HH=73 W40K=252, Q4 = Pilot-Backfill-Größe + Effort-Schätzung; Q2/Q3/Q5/Q6 sind UI-Pass-Themen, Antworten kommen im UI-impl-Report). Offene Queue unverändert: OQ (3) Hand-Check-Workflow, OQ (13) Crawl-Simplification-Sichtung.
+
+**Updated wiki:** `project-state.md` (Header + Frontmatter-Top-Eintrag + Phase-Headline + What's running counts + § What's open neu sortiert post-PR-109 + Recently shipped zwei neue Zeilen + Next likely brief auf UI-Pass+Phase-3-Seal+096), `pipeline-state.md` (Header-Title + Frontmatter + Intro-Blockquote post-PR-109), `open-questions.md` (Frontmatter-Header-Note 2026-05-28), `index.md` (bumped Updated-Dates), this `log.md`. **Outside wiki:** `sessions/README.md` (Aktueller-Kopf + neuer 103-impl-data-Eintrag + Brief 103 Active-Threads-Status auf „data-implemented, UI offen").
+
+**Out of scope:** Kein Code-Touch (PR #109 ist erledigt; UI-Pass und Maintainer-Sweep sind eigene Folge-Arbeit). Kein Archive-Move 100/101/102/103 + Pass-11..15-Dossiers + consolidation-pass-2-* — separater Hygiene-Sweep. Kein `brain:lint`-Run durch Cowork (Sandbox) — vor dem Doc-Commit lokal grün durch Philipp.
+
+**Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.

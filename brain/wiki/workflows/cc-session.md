@@ -2,11 +2,12 @@
 title: Claude Code session workflow
 type: workflow
 created: 2026-05-09
-updated: 2026-05-23
+updated: 2026-05-25
 sources:
   - ../../../docs/agents/CLAUDE_CODE.md
   - ../../../docs/agents/SESSIONS.md
-  - ../../../sessions/2026-05-23-095-arch-rollup-ownership.md
+  - ../../../sessions/archive/2026-05/2026-05-23-095-arch-rollup-ownership.md
+  - ../../../CLAUDE.md
 related:
   - ./cowork-session.md
   - ./sessions-format.md
@@ -67,6 +68,15 @@ When a brief touches installs/upgrades:
 - **Don't `git push --force` on `main`.** Use feature branches if you need to rewrite history.
 - **Don't merge community submissions or run destructive scripts against production.** Anything irreversible against `DATABASE_URL` (truncate, drop, schema reset) is dev-only unless the brief explicitly authorizes.
 - **Don't leave a session without writing a report.** Even a 5-line "implemented as briefed, all green, here's the commit hash" is a contract Cowork relies on.
+
+## PR policy — code gets a PR, docs don't
+
+Decided 2026-05-25 with Philipp. Authoritative rule + edge cases: [`/CLAUDE.md`](../../../CLAUDE.md) § Git → "PR policy".
+
+- **The architect brief reaches CC on `main`, not in a PR.** Briefs are doc-only and commit straight to `main`; `git pull` on session-start already has it. Branch your task branch from `main` as usual.
+- **CC's code work is a PR — always.** Any diff touching `src/`, `scripts/`, `src/db/`, `package.json`, `.github/**`, configs goes through a task branch + PR, exactly as before. Flip the brief's `status: open → implemented` and commit the impl report *inside that same PR* — a doc edit riding inside a code PR is fine.
+- **A doc-only session is the exception.** If CC's whole deliverable touches only Markdown / docs (a repo-hygiene sweep, a docs-only report), it commits directly to `main` — no branch, no PR. That happens only in the **coordination worktree** — strand worktrees never write `brain/**` (Rollup-Ownership). Run `npm run brain:lint -- --no-write` green first.
+- **Mixed change → PR.** Docs + code in one logical change → the whole thing through the PR.
 
 ## Tools CC has that Cowork doesn't
 

@@ -1,0 +1,86 @@
+{
+  "$schema": "consolidation-pass-merge-map-v1",
+  "pass": 2,
+  "scope": "Full-Corpus (W40K Pässe 1..9 + HH Pässe 10..15, batches ssot-w40k-001..057 + ssot-hh-001..030)",
+  "generatedAt": "2026-05-27",
+  "summary": {
+    "candidateClusters": 23,
+    "merges": 2,
+    "noMerges": 21,
+    "flagged": 0,
+    "$comment": "Stand Phase 3 (alle Achsen adjudiziert). 2 Character-Merges (1 cross-era lore-deep, 1 same-era mechanical), 0 Faction-Merges, 0 Location-Merges. Pass-2-Total identisch zu Pass-1 in Merge-Count (1 Lore-Deep + 1 Mechanical) — Pass-1 hatte 1 Location-Mechanical + 1 Character-Mechanical, Pass-2 hat 1 Character-Lore-Deep + 1 Character-Mechanical."
+  },
+  "merges": [
+    {
+      "axis": "characters",
+      "mergee": "merir_astelan",
+      "keeper": "astelan",
+      "loreDepth": "lore-deep",
+      "evidence": "Cross-era identity: HH-era Dark Angels chapter-master Merir Astelan (Pass-13 Phase 3 freq=1, Call of the Lion HH-0154 Astelan vs Belath compliance debate) is the same individual as the W40K-era Fallen Angel Astelan (Lexicanum lemma 'Merir Astelan'; Fallen-Angel-interrogations lore-cluster). The merir_astelan row's own notes explicitly document the cross-era continuity ('Cross-arc with the Fallen / Cypher / Lion arcs; his post-Heresy First-of-the-Fallen status is downstream from his Pass-13 surface'); the Pass-13 implementer recognized the identity but lacked the ADR-policy (Brief 100) to consolidate. Per Cross-Era-Identities ADR (W40K-canonical short-form as keeper, HH-era full name as alias — analogous to horus / lorgar / typhus / corax), keeper = astelan.",
+      "fieldRetention": {
+        "policy": "keeper-wins-with-null-fill",
+        "fromMergee": [
+          {
+            "field": "notes",
+            "reason": "keeper.notes was null; mergee.notes carries Pass-13 HH-era context worth preserving + cross-era narrative",
+            "newValue": "Cross-era identity: HH-era Dark Angels chapter-master Merir Astelan (Resolver-Pass 13 Phase 3, freq=1) debating compliance around Byzanthis in Call of the Lion (HH-0154, Astelan vs Belath compliance debate); cross-arc with the Fallen / Cypher / Lion arcs. Post-Heresy: First-of-the-Fallen renegade. primaryFactionId fallen_angels reflects the W40K-era canonical state (keeper-wins per consolidation-pass-2 field-retention; HH-era dark_angels affiliation captured here via cross-era note per ADR cross-era-identities). Consolidation-Pass 2 merge of merir_astelan (HH-era surface form) into astelan (W40K-canonical row)."
+          }
+        ],
+        "primaryFactionIdKept": "fallen_angels",
+        "primaryFactionIdNote": "keeper-wins; mergee had dark_angels (HH-era pre-fall affiliation). W40K-canonical state preserved per ADR cross-era-identities."
+      },
+      "newAlias": {
+        "surface": "Merir Astelan",
+        "targetId": "astelan",
+        "addTo": "scripts/seed-data/character-aliases.json"
+      }
+    },
+    {
+      "axis": "characters",
+      "mergee": "sharrowkyn",
+      "keeper": "nykona_sharrowkyn",
+      "loreDepth": "mechanical",
+      "evidence": "Same-era cross-pass doublette: Resolver-Pass 11 created `sharrowkyn` (Phase 3 7c freq=1, Angel Exterminatus HH-0023 — Raven Guard sniper, Shattered Legions associate); Resolver-Pass 13 created `nykona_sharrowkyn` (Phase 3 7c freq=1 promote, Kryptos HH-0167 — Raven Guard Shadowmaster paired with Sabik Wayland + Sisypheum origin). Both novels are Graham McNeill, both rows have primaryFactionId='raven_guard', both reference the same Mor Deythan Raven-Guard sniper character in the Shattered-Legions/Sisypheum saga. Pass-11→Pass-13 cross-wave honorific/surname-prefix miss; mechanically eindeutige Doublette. Class-identical to Pass-1 magister_sek → anakwanar_sek (Pass-9-implementer missed Pass-1 anchor on honorific strip).",
+      "fieldRetention": {
+        "policy": "keeper-wins-with-mergee-notes-merged",
+        "fromMergee": [
+          {
+            "field": "notes",
+            "reason": "both rows have unique Pass-context notes worth preserving — keeper's Pass-13 Kryptos/Sisypheum notes enriched with mergee's Pass-11 Angel-Exterminatus anchor",
+            "newValue": "Resolver-Pass 13 Phase 3 (7c medium freq=1 Phase-3-promote per dossier recommendation — Raven Guard Shadowmaster debut, cross-arc with the Sisypheum arc + future Shattered-Legions novellas): Raven Guard Shadowmaster debut paired with Sabik Wayland; Kryptos (HH-0167, Graham McNeill — Sharrowkyn / Wayland + Sisypheum origin). Earlier Resolver-Pass 11 Phase 3 surface (7c curated freq=1 lore-iconic): Raven Guard sniper, Shattered Legions associate, Angel Exterminatus (HH-0023). primaryFactionId raven_guard. Consolidation-Pass 2 merge of sharrowkyn (surname-only short-form, Pass-11 surface) into nykona_sharrowkyn (full canonical name, Pass-13 surface)."
+          }
+        ],
+        "primaryFactionIdKept": "raven_guard",
+        "primaryFactionIdNote": "both rows had raven_guard — no conflict."
+      },
+      "newAlias": {
+        "surface": "Sharrowkyn",
+        "targetId": "nykona_sharrowkyn",
+        "addTo": "scripts/seed-data/character-aliases.json"
+      }
+    }
+  ],
+  "noMerges": [
+    { "axis": "factions", "cluster": ["aeldari_corsairs", "eldar"], "reason": "sub-faction vs umbrella" },
+    { "axis": "factions", "cluster": ["chaos", "cult_of_chaos"], "reason": "synthetic umbrella vs distinct cult-tier" },
+    { "axis": "factions", "cluster": ["hive_fleet_kraken", "hive_fleet_leviathan"], "reason": "two distinct hive fleets (Kraken M41 vs Leviathan Indomitus)" },
+    { "axis": "factions", "cluster": ["necromunda", "necromunda_enforcers"], "reason": "planetary-cluster mid-knoten vs cult/guild-register entity" },
+    { "axis": "factions", "cluster": ["scythes_of_the_emperor", "talons_of_the_emperor"], "reason": "Astartes Chapter vs Custodes+Sisters-of-Silence umbrella (cross-branch)" },
+    { "axis": "factions", "cluster": ["sons_of_horus", "sons_of_sek"], "reason": "Heresy Traitor Legion (Astartes) vs Sabbat-Worlds renegate mortal force (positive cross-era validation: Luna-Wolves-Alias on sons_of_horus did NOT spawn a doublette across HH waves 10..15)" },
+    { "axis": "locations", "cluster": ["baal", "baal_secundus"], "reason": "distinct astronomical bodies in same Baal system (Blood-Angels home throne-world vs recruiting moon)" },
+    { "axis": "locations", "cluster": ["barbarus", "tartarus"], "reason": "slug-edit-distance-2 false-positive — Death-Guard Mortarion-home-world vs distinct Heresy-Era cluster-world; disjoint tags (death_guard vs empty)" },
+    { "axis": "locations", "cluster": ["beta_garmon", "garm"], "reason": "Beta-Garmon Titan-War cluster (HH adeptus_titanicus anchor) vs separate untagged world; substring-only false-positive" },
+    { "axis": "locations", "cluster": ["imperial_webway", "webway"], "reason": "Imperial-Webway-Project (HH Magnus/Big-E engineered extension, failed) vs original Eldar Webway region — distinct named entities" },
+    { "axis": "locations", "cluster": ["ithraca", "ithracas_vengeance"], "reason": "planet vs ship-named-after-planet (tags:vessel on mergee side)" },
+    { "axis": "locations", "cluster": ["macragge", "macragges_honour"], "reason": "Ultramarines home-world vs Guilliman's flagship battle-barge (tags:vessel)" },
+    { "axis": "locations", "cluster": ["molech", "molechs_enlightenment"], "reason": "Imperial-Knights world (HH Vengeful-Spirit anchor) vs ship named after the Molech-event (tags:vessel)" },
+    { "axis": "characters", "cluster": ["amit", "harleen_amity"], "reason": "Flesh-Tearer Sergeant/Chaplain (cross-cluster freq=3) vs Inquisitor (Cavan Scott's Warped Galaxies cluster) — token artifact on substring" },
+    { "axis": "characters", "cluster": ["astor_sabbathiel", "saint_sabbat"], "reason": "Inquisitor named after the Saint vs the Saint herself" },
+    { "axis": "characters", "cluster": ["bjorn", "strybjorn_grimskull"], "reason": "future Bjorn-the-Fell-Handed (HH-Pass-11 Space Wolves anchor) vs Strybjorn Grimskull (W40K King-Ragnar-saga Space Wolves character) — substring + shared-primaryFactionId false-positive" },
+    { "axis": "characters", "cluster": ["brielle", "brielle_gerrit"], "reason": "Necromunda Escher gang POV vs Rogue Trader heiress" },
+    { "axis": "characters", "cluster": ["gerontius_helmawr", "lord_helmawr"], "reason": "deliberate cross-imprint split (classic vs modern Necromunda imprint) — Resolver convention, both rows have explicit deliberate-split notes" },
+    { "axis": "characters", "cluster": ["horus", "horus_aximand"], "reason": "primarch-stem signal false-positive: Warmaster Horus (Primarch) vs Little Horus Aximand (Sons-of-Horus Mournival captain named AFTER the Primarch) — analogous to Planet/Ship-named-after-Planet pattern; both rows have explicit distinctive notes" },
+    { "axis": "characters", "cluster": ["ivan", "ivan_sternberg"], "reason": "Praetorian Guard ensemble member vs Imperial Inquisitor (first-name token coincidence)" },
+    { "axis": "characters", "cluster": ["lord_solar_macharius", "macha"], "reason": "Lord Solar (M41 human conqueror) vs Aeldari Farseer Macha (false-positive 4-letter prefix)" }
+  ]
+}

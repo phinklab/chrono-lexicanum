@@ -2,8 +2,11 @@
 # run-phase4-apply.sh — stable, config-driven Phase-4 re-apply for axis-sliced
 # Resolver-Passes (Brief 090; generalized from run-phase4-apply-NNN.sh).
 #
-# Reads the cumulative apply-range + the new-wave batch ids from the per-pass
-# config (scripts/resolver-pass.config.json: aggregator.applyRange / .batches),
+# Reads the cumulative apply-range(s) + the new-wave batch ids from the per-pass
+# config (scripts/resolver-pass.config.json: aggregator.applyRange | applyRanges
+# / .batches). Supports the singleton applyRange (per-wave + Pass-1 form) and
+# the multi-domain applyRanges list (Brief 102 Pass-2 form, Full-Corpus W40K+HH);
+# inline helpers normalize to a list-of-batches in both cases.
 # seeds the resolver-extension reference rows AND the facet_values catalog BEFORE
 # applying any batch (apply-override.ts:validateFacetIds checks the DB and hard-
 # throws on unknown facet ids; resolved junctions need their FK targets present),
@@ -41,9 +44,20 @@ apply_batches() {
   node --input-type=module -e "
     import fs from 'node:fs';
     const cfg = JSON.parse(fs.readFileSync(process.argv[1], 'utf8'));
-    const r = cfg.aggregator.applyRange;
+    const agg = cfg.aggregator || {};
+    const singleton = agg.applyRange;
+    const list = Array.isArray(agg.applyRanges) ? agg.applyRanges : null;
+    if (singleton && list && list.length > 0) {
+      console.error('[run-phase4-apply] config has BOTH applyRange and applyRanges — pick one');
+      process.exit(1);
+    }
+    const ranges = list && list.length > 0 ? list : (singleton ? [singleton] : []);
     const ids = [];
-    for (let n = r.from; n <= r.to; n += 1) ids.push('ssot-' + r.domain + '-' + String(n).padStart(3, '0'));
+    for (const r of ranges) {
+      for (let n = r.from; n <= r.to; n += 1) {
+        ids.push('ssot-' + r.domain + '-' + String(n).padStart(3, '0'));
+      }
+    }
     process.stdout.write(ids.join(' '));
   " "$CONFIG"
 }

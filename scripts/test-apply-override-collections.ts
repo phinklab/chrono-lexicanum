@@ -20,6 +20,7 @@ import {
   analyzeCollections,
   type RosterCollection,
   type RosterFile,
+  type UnresolvableConstituentRef,
 } from "./apply-override-collections";
 
 let pass = 0;
@@ -158,6 +159,64 @@ check("mixed: one legit forward ref + one out-of-range + one unknown", () => {
     .map((u) => `${u.collection.contentExternalId}:${u.reason}`)
     .sort();
   assert.deepEqual(findings, ["GHOST:unknown-work", "OOR-1:out-of-range"]);
+});
+
+console.log("");
+console.log("dry-guard reason-split (Brief 101) — only unknown-work aborts");
+
+/**
+ * Mirrors scripts/apply-override-dry.ts:990-1000 — the subset of the unresolvable
+ * refs that aborts the dry. Out-of-range refs are reported but informational;
+ * only unknown-work refs are in the abort message.
+ */
+function guardAbortRefs(
+  refs: UnresolvableConstituentRef[],
+): UnresolvableConstituentRef[] {
+  return refs.filter((u) => u.reason === "unknown-work");
+}
+
+check("(a) out-of-range > 0, unknown-work = 0 → guard does NOT abort", () => {
+  const r = roster(
+    ["ANTH-1", "OOR-1"],
+    [{ collectionExternalId: "ANTH-1", contentExternalId: "OOR-1" }],
+  );
+  const a = analyzeCollections(r, applied({ "ANTH-1": "ssot-w40k-001" }));
+  assert.equal(a.unresolvableConstituentRefs.length, 1);
+  assert.equal(a.unresolvableConstituentRefs[0]?.reason, "out-of-range");
+  assert.deepEqual(
+    guardAbortRefs(a.unresolvableConstituentRefs),
+    [],
+    "out-of-range alone is a deferred state — applyCollections re-evaluates when the wave lands",
+  );
+});
+
+check("(b) out-of-range = 0, unknown-work > 0 → guard aborts on that ref", () => {
+  const r = roster(
+    ["ANTH-1"],
+    [{ collectionExternalId: "ANTH-1", contentExternalId: "GHOST" }],
+  );
+  const a = analyzeCollections(r, applied({ "ANTH-1": "ssot-w40k-001" }));
+  assert.equal(a.unresolvableConstituentRefs.length, 1);
+  const abort = guardAbortRefs(a.unresolvableConstituentRefs);
+  assert.equal(abort.length, 1);
+  assert.equal(abort[0]?.reason, "unknown-work");
+  assert.equal(abort[0]?.collection.contentExternalId, "GHOST");
+});
+
+check("(c) both > 0 → guard aborts on unknown-work subset only", () => {
+  const r = roster(
+    ["ANTH-1", "OOR-1"],
+    [
+      { collectionExternalId: "ANTH-1", contentExternalId: "OOR-1" },  // out-of-range
+      { collectionExternalId: "ANTH-1", contentExternalId: "GHOST" },  // unknown-work
+    ],
+  );
+  const a = analyzeCollections(r, applied({ "ANTH-1": "ssot-w40k-001" }));
+  assert.equal(a.unresolvableConstituentRefs.length, 2);
+  const abort = guardAbortRefs(a.unresolvableConstituentRefs);
+  assert.equal(abort.length, 1, "abort message must list only unknown-work refs");
+  assert.equal(abort[0]?.reason, "unknown-work");
+  assert.equal(abort[0]?.collection.contentExternalId, "GHOST");
 });
 
 console.log("");

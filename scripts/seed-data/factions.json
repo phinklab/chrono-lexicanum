@@ -1185,5 +1185,216 @@
     "parent": "adeptus_astartes",
     "alignment": "imperium",
     "tone": "imperial"
+  },
+  {
+    "id": "ogryns",
+    "name": "Ogryns",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
+    "id": "sautekh_dynasty",
+    "name": "Sautekh Dynasty",
+    "parent": "necrons",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "cabal",
+    "name": "Cabal",
+    "parent": null,
+    "tone": "alien"
+  },
+  {
+    "id": "interex",
+    "name": "Interex",
+    "parent": null,
+    "tone": "historical_canon_layer"
+  },
+  {
+    "id": "laer",
+    "name": "Laer",
+    "parent": null,
+    "tone": "alien"
+  },
+  {
+    "id": "knights_of_taranis",
+    "name": "Knights of Taranis",
+    "parent": "imperial_knights",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "legio_mortis",
+    "name": "Legio Mortis",
+    "parent": "adeptus_titanicus",
+    "alignment": "chaos",
+    "tone": "engine"
+  },
+  {
+    "id": "order_of_caliban",
+    "name": "The Order of Caliban",
+    "parent": "dark_angels",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "knights_errant",
+    "name": "Knights Errant",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "lectitio_divinitatus",
+    "name": "Lectitio Divinitatus",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "legio_ignatum",
+    "name": "Legio Ignatum",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "legio_solaria",
+    "name": "Legio Solaria",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "legio_vulpa",
+    "name": "Legio Vulpa",
+    "parent": "adeptus_titanicus",
+    "alignment": "chaos",
+    "tone": "engine"
+  },
+  {
+    "id": "selenar_gene_cult",
+    "name": "Selenar Gene-Cult",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "thunder_warriors",
+    "name": "Thunder Warriors",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "historical_canon_layer"
+  },
+  {
+    "id": "house_devine",
+    "name": "House Devine",
+    "parent": "imperial_knights",
+    "alignment": "chaos",
+    "tone": "imperial"
+  },
+  {
+    "id": "sanguinary_guard",
+    "name": "Sanguinary Guard",
+    "parent": "blood_angels",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "rangdan",
+    "name": "Rangdan",
+    "parent": null,
+    "tone": "alien"
+  },
+  {
+    "id": "hrud",
+    "name": "Hrud",
+    "parent": null,
+    "tone": "alien"
+  },
+  {
+    "id": "crusader_host",
+    "name": "Crusader Host",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "serpent_cult",
+    "name": "Serpent Cult",
+    "parent": "house_devine",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "therion_cohort",
+    "name": "Therion Cohort",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "davinite_lodge",
+    "name": "Davinite Lodge",
+    "parent": "chaos",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "ordo_sinister",
+    "name": "Ordo Sinister",
+    "parent": "mechanicus",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "legio_audax",
+    "name": "Legio Audax",
+    "parent": "adeptus_titanicus",
+    "alignment": "chaos",
+    "tone": "engine"
+  },
+  {
+    "id": "legio_castigatra",
+    "name": "Legio Castigatra",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "legio_cybernetica",
+    "name": "Legio Cybernetica",
+    "parent": "mechanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "blackshields",
+    "name": "Blackshields",
+    "parent": null,
+    "tone": "line"
+  },
+  {
+    "id": "officio_sigillite",
+    "name": "Officio Sigillite",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "legio_praesagius",
+    "name": "Legio Praesagius",
+    "parent": "adeptus_titanicus",
+    "alignment": "imperium",
+    "tone": "engine"
+  },
+  {
+    "id": "adeptus_administratum",
+    "name": "Adeptus Administratum",
+    "parent": "imperium",
+    "alignment": "imperium",
+    "tone": "archive"
   }
 ]

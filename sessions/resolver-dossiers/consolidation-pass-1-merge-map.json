@@ -1,0 +1,67 @@
+{
+  "$schema": "consolidation-pass-merge-map-v1",
+  "pass": 1,
+  "scope": "W40K-Entity-Set (Pässe 1..9, batches ssot-w40k-001..057)",
+  "generatedAt": "2026-05-25",
+  "summary": {
+    "candidateClusters": 15,
+    "merges": 2,
+    "noMerges": 13,
+    "flagged": 0
+  },
+  "merges": [
+    {
+      "axis": "locations",
+      "mergee": "vigilus_s",
+      "keeper": "vigilus",
+      "loreDepth": "mechanical",
+      "evidence": "Phantom-Row mit name=\"Vigilus Core\" und falscher Metadata (sector=tempestus, gx=520, gy=520) statt korrekt (sector=ultima, gx=730, gy=355). Keine Override-Datei verweist auf die Surface-Form \"Vigilus Core\".",
+      "fieldRetention": {
+        "policy": "keeper-wins",
+        "fromMergee": []
+      },
+      "newAlias": {
+        "surface": "Vigilus Core",
+        "targetId": "vigilus",
+        "addTo": "scripts/seed-data/location-aliases.json"
+      }
+    },
+    {
+      "axis": "characters",
+      "mergee": "magister_sek",
+      "keeper": "anakwanar_sek",
+      "loreDepth": "mechanical",
+      "evidence": "Beide Rows verweisen auf den Anarch der Sons of Sek (Gaunt-Ghosts-Sabbat-Worlds-Lore). Pass-1-Row anakwanar_sek (referenziert in batches/ssot-w40k-004.json für Salvation's Reach + The Anarch) wurde von Pass-9-Phase-3 für die Urdesh-Duology W40K-0549/0550 nicht erkannt; Pass 9 erzeugte stattdessen magister_sek mit identischer primaryFactionId='sons_of_sek'.",
+      "fieldRetention": {
+        "policy": "fill-keeper-nulls-from-mergee",
+        "fromMergee": [
+          {
+            "field": "notes",
+            "reason": "keeper.notes was null; mergee.notes carries Urdesh-duology context worth preserving",
+            "newValue": "Anarch of the Sons of Sek, antagonist of Matthew Farrer's Urdesh duology (W40K-0549 The Serpent and the Saint, W40K-0550 The Magister and the Martyr); cross-cluster appearance in Sabbat-Worlds-Crusade-Saga (Salvation's Reach, The Anarch). Consolidation-Pass 1 merge of magister_sek into anakwanar_sek."
+          }
+        ]
+      },
+      "newAlias": {
+        "surface": "Magister Sek",
+        "targetId": "anakwanar_sek",
+        "addTo": "scripts/seed-data/character-aliases.json"
+      }
+    }
+  ],
+  "noMerges": [
+    { "axis": "factions", "cluster": ["aeldari_corsairs", "eldar"], "reason": "sub-faction vs umbrella" },
+    { "axis": "factions", "cluster": ["chaos", "cult_of_chaos"], "reason": "synthetic umbrella vs distinct cult-tier" },
+    { "axis": "factions", "cluster": ["hive_fleet_kraken", "hive_fleet_leviathan"], "reason": "two distinct hive fleets (Kraken M41 vs Leviathan Indomitus)" },
+    { "axis": "factions", "cluster": ["necromunda", "necromunda_enforcers"], "reason": "planetary-cluster mid-knoten vs cult/guild-register entity" },
+    { "axis": "factions", "cluster": ["scythes_of_the_emperor", "talons_of_the_emperor"], "reason": "Astartes Chapter vs Custodes+Sisters-of-Silence umbrella (cross-branch)" },
+    { "axis": "factions", "cluster": ["sons_of_horus", "sons_of_sek"], "reason": "Heresy Traitor Legion (Astartes) vs Sabbat-Worlds renegate mortal force" },
+    { "axis": "locations", "cluster": ["baal", "baal_secundus"], "reason": "distinct astronomical bodies in same system (Blood Angels home throne-world vs recruiting moon)" },
+    { "axis": "characters", "cluster": ["amit", "harleen_amity"], "reason": "Flesh-Tearer Sergeant/Chaplain vs Inquisitor (token artifact)" },
+    { "axis": "characters", "cluster": ["astor_sabbathiel", "saint_sabbat"], "reason": "Inquisitor named after the Saint vs the Saint herself" },
+    { "axis": "characters", "cluster": ["brielle", "brielle_gerrit"], "reason": "Necromunda Escher gang POV vs Rogue Trader heiress" },
+    { "axis": "characters", "cluster": ["gerontius_helmawr", "lord_helmawr"], "reason": "deliberate cross-imprint split (classic vs modern Necromunda imprint) — Resolver convention" },
+    { "axis": "characters", "cluster": ["ivan", "ivan_sternberg"], "reason": "Praetorian Guard ensemble member vs Imperial Inquisitor (first-name token coincidence)" },
+    { "axis": "characters", "cluster": ["lord_solar_macharius", "macha"], "reason": "Lord Solar (M41 human conqueror) vs Aeldari Farseer Macha (false-positive 4-letter prefix)" }
+  ]
+}

@@ -1,0 +1,591 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-004",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7",
+  "rationale": "Original Horus Heresy books 31–40 (2014–2017): five broad multi-author anthologies (Legacies of Betrayal, War Without End, Eye of Terra, The Silent War) interleaved with the single-author Raven Guard collection Corax and five primarch-/legion-focused novels (Deathfire, Pharos, Path of Heaven, Angels of Caliban, Praetorian of Dorn). Tag-depth on the anthologies aggregates the constituent stories per runbook §7; ratings all read from the Goodreads page (no snippet usage).",
+  "books": [
+    {
+      "externalBookId": "HH-0031",
+      "slug": "legacies-of-betrayal",
+      "overrides": {
+        "synopsis": "Eighteen tales gathered from across the warring legions of the Horus Heresy. Chris Wraight's novella Brotherhood of the Storm follows Jaghatai Khan's White Scars at Chondax, weighing duty to the Emperor against the Khan's own restless ideals. Aaron Dembski-Bowden's Butcher's Nails and Heart of the Conqueror cut into Angron and his World Eaters, while John French's Serpent, Riven and Warmaster turn to the inner circle of Horus's lieutenants. Graham McNeill returns to Ferrus Manus and Fulgrim in Kryptos, Thief of Revelations and Lucius, The Eternal Blade. Nick Kyme's Censure plants the loyalist Ultramarine Aeonid Thiel on Calth against the Word Bearers, while Guy Haley, Gav Thorpe, Anthony Reynolds and David Annandale add stories of Iron Hands, Salamanders, Dark Angels and Death Guard on fronts the main novels barely touch.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "multi",
+          "dual",
+          "galactic",
+          "requires_context",
+          "standard",
+          "war_story",
+          "grimdark",
+          "action_heavy",
+          "betrayal",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "World Eaters", "role": "supporting" },
+          { "name": "Sons of Horus", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Word Bearers", "role": "supporting" },
+          { "name": "Iron Hands", "role": "supporting" },
+          { "name": "Salamanders", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "supporting" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "Dark Angels", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Chondax", "role": "primary" },
+          { "name": "Calth", "role": "supporting" },
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Jaghatai Khan", "role": "pov" },
+          { "name": "Angron", "role": "pov" },
+          { "name": "Aeonid Thiel", "role": "pov" },
+          { "name": "Lucius", "role": "supporting" },
+          { "name": "Fulgrim", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.61,
+          "count": 1730,
+          "evidenceUrl": "https://www.goodreads.com/book/show/22609183-legacies-of-betrayal"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0032",
+      "slug": "deathfire",
+      "overrides": {
+        "synopsis": "Vulkan, primarch of the Salamanders, lies in a coma-like state aboard the fortress-world of Macragge after the Fulgurite Spear pierced his hearts. His Pyre Guard captain Artellus Numeon refuses to accept his lord's death: ancient ritual demands that a fallen primarch be returned to Mount Deathfire on Nocturne, where the volcanic flames will either burn the soul clean or wake it. Defying Roboute Guilliman's new Imperium Secundus, Numeon gathers the last Salamanders on Macragge and steals a ship into the Ruinstorm. The voyage home becomes a running fight against an unholy alliance of Word Bearers and Death Guard who want Vulkan's body for their own ends, while visions, daemonic encounters and the doubts of his own brothers test Numeon's faith that the perpetual primarch can return at all.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "requires_context",
+          "standard",
+          "journey",
+          "war_story",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "faith",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Ultramarines", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Macragge", "role": "supporting" },
+          { "name": "Nocturne", "role": "primary" },
+          { "name": "Mount Deathfire", "role": "primary" },
+          { "name": "Ruinstorm", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Artellus Numeon", "role": "pov" },
+          { "name": "Vulkan", "role": "supporting" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.60,
+          "count": 1990,
+          "evidenceUrl": "https://www.goodreads.com/book/show/25111238-deathfire"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0033",
+      "slug": "war-without-end",
+      "overrides": {
+        "synopsis": "Twenty-one short stories spanning the breadth of the Horus Heresy. Aaron Dembski-Bowden's Howl of the Hearthworld returns to Bjorn and the Space Wolves' Tra pack, while Lord of the Red Sands drops back into Angron's red-misted skull. Graham McNeill's Wolf Mother brings the Sisters of Silence into focus against psychic horror; James Swallow's All That Remains and Gunsight follow Nathaniel Garro on Knight-Errant missions for Malcador. Nick Kyme's The Phoenician and Chirurgeon turn to Fulgrim's transformation; Chris Wraight's Allegiance and Daemonology to White Scars caught between sides. Guy Haley, John French, David Annandale, Gav Thorpe and Rob Sanders fill out a mosaic that runs from Calth wreckage and Sigillite intrigue to traitor-legion oaths sworn in the dark.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "multi",
+          "dual",
+          "galactic",
+          "requires_context",
+          "standard",
+          "war_story",
+          "grimdark",
+          "action_heavy",
+          "betrayal",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "World Eaters", "role": "supporting" },
+          { "name": "Sisters of Silence", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "supporting" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Word Bearers", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Dark Angels", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Calth", "role": "supporting" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Bjorn", "role": "pov" },
+          { "name": "Angron", "role": "pov" },
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Fulgrim", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.64,
+          "count": 1568,
+          "evidenceUrl": "https://www.goodreads.com/book/show/28678934-war-without-end"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0034",
+      "slug": "pharos",
+      "overrides": {
+        "synopsis": "On the forest world of Sotha, hidden at the edge of Imperium Secundus, an ancient xenos-built beacon called the Pharos guides ships safely through Ruinstorm-choked space. Roboute Guilliman has staked the survival of his new Imperium on the device, and a small garrison of Ultramarines holds the mountain in which it sleeps. Beyond the warp-storms, Krukesh the Pale of the Night Lords has spent years assembling a fleet for one purpose: to take the Pharos for Konrad Curze. When the assault falls, the defenders are bled white system by system, town by town, until the fighting reaches the beacon-chamber itself. On Macragge, Sanguinius rules as king and Curze lurks in chains, and the two primarchs at last come face to face as their wars on Sotha collide.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "multi",
+          "dual",
+          "planetary",
+          "requires_context",
+          "standard",
+          "siege",
+          "last_stand",
+          "war_story",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "war",
+          "sacrifice",
+          "brotherhood",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Night Lords", "role": "antagonist" },
+          { "name": "Blood Angels", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Sotha", "role": "primary" },
+          { "name": "Mount Pharos", "role": "primary" },
+          { "name": "Macragge", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Krukesh the Pale", "role": "antagonist" },
+          { "name": "Konrad Curze", "role": "antagonist" },
+          { "name": "Sanguinius", "role": "supporting" },
+          { "name": "Roboute Guilliman", "role": "supporting" },
+          { "name": "Oberdeii", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.01,
+          "count": 2680,
+          "evidenceUrl": "https://www.goodreads.com/book/show/28336913-pharos"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0035",
+      "slug": "eye-of-terra",
+      "overrides": {
+        "synopsis": "Fifteen pieces gathered around the loyalist–traitor schism. Aaron Dembski-Bowden's novella Aurelian sends Lorgar into the immaterium to commune with the Primordial Annihilator; his Massacre and The Long Night turn the Isstvan V dropsite and Sevatar's imprisonment over to Night Lords eyes. Graham McNeill's The Wolf of Ash and Fire pairs Horus with the Emperor on a final hunt against an Ork empire. David Annandale's Iron Corpses sifts the radioactive wreck of Tallarn for survivors. Nick Kyme's Red-Marked and Stratagem follow the censured Ultramarine Aeonid Thiel as he meets Guilliman again after Calth. Gav Thorpe (Inheritor, Master of the First), Matthew Farrer (Vorax), Rob Sanders and Chris Wraight (Brotherhood of the Moon) round out a survey of legions and primarchs under strain.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "space_marine",
+          "multi",
+          "dual",
+          "galactic",
+          "requires_context",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "cosmic_horror",
+          "betrayal",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "hubris",
+          "faith",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Night Lords", "role": "supporting" },
+          { "name": "Sons of Horus", "role": "supporting" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Iron Warriors", "role": "supporting" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "White Scars", "role": "supporting" },
+          { "name": "Mechanicus", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "supporting" },
+          { "name": "Tallarn", "role": "supporting" },
+          { "name": "Calth", "role": "supporting" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lorgar", "role": "pov" },
+          { "name": "Horus", "role": "pov" },
+          { "name": "The Emperor", "role": "supporting" },
+          { "name": "Sevatar", "role": "pov" },
+          { "name": "Aeonid Thiel", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.70,
+          "count": 1545,
+          "evidenceUrl": "https://www.goodreads.com/book/show/28956068-eye-of-terra"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0036",
+      "slug": "the-path-of-heaven",
+      "overrides": {
+        "synopsis": "Four years into the war, the White Scars have paid for their loyalty to the Emperor in blood. Jaghatai Khan's V Legion has been worn down by running campaigns against Mortarion's Death Guard and Eidolon's surviving Emperor's Children, and the Khan's own restless heart has begun to fray. The Khagan turns at last toward Terra, but the Ruinstorm has closed the obvious roads. His logistician Ilya Ravallion believes a single Navigator family — the Niyad — may know the secret path, and Stormseer Yesugei is sent to reach them. While the Khan races for that opening, Mortarion and Eidolon close in for the kill, dragging the White Scars into a final, desperate engagement among the dying stars of the warp-cyclone known as the Kalium Gate.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "standard",
+          "war_story",
+          "journey",
+          "grimdark",
+          "action_heavy",
+          "philosophical",
+          "brotherhood",
+          "loyalty",
+          "doubt",
+          "war",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Emperor's Children", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Kalium Gate", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Jaghatai Khan", "role": "pov" },
+          { "name": "Ilya Ravallion", "role": "pov" },
+          { "name": "Yesugei", "role": "pov" },
+          { "name": "Shiban Khan", "role": "supporting" },
+          { "name": "Mortarion", "role": "antagonist" },
+          { "name": "Eidolon", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.11,
+          "count": 2502,
+          "evidenceUrl": "https://www.goodreads.com/book/show/28956049-the-path-of-heaven"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0037",
+      "slug": "the-silent-war",
+      "overrides": {
+        "synopsis": "Fourteen stories pulled from the shadows behind the Horus Heresy's main fronts. Malcador the Sigillite, the Emperor's regent on Terra, moves his Knights-Errant and Chosen against threats the legions cannot openly fight: Nathaniel Garro recruiting renegades for the Sigillite's own quiet army, agents of the Selenar gene-cults bargaining for the future of the Imperium, Sisters of Silence and rogue psykers manoeuvring on the edges of Terra itself. James Swallow, Chris Wraight, John French, Graham McNeill, Anthony Reynolds and Rob Sanders contribute tales of subterfuge, sabotage and quiet betrayal. The volume is the first to gather Malcador's secret war as a deliberate strand, expanding the back-channel of the Heresy that the front-line novels barely touch.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "ensemble",
+          "multi",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "standard",
+          "political_thriller",
+          "mystery",
+          "war_story",
+          "grimdark",
+          "philosophical",
+          "somber",
+          "faith",
+          "loyalty",
+          "doubt",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "Sisters of Silence", "role": "supporting" },
+          { "name": "Selenar", "role": "supporting" },
+          { "name": "Adeptus Custodes", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Luna", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Malcador the Sigillite", "role": "pov" },
+          { "name": "Nathaniel Garro", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "Public table of contents for The Silent War names few stories; character roster is intentionally short until per-story sourcing is available." }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.75,
+          "count": 1444,
+          "evidenceUrl": "https://www.goodreads.com/book/show/28956064-the-silent-war"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0038",
+      "slug": "angels-of-caliban",
+      "overrides": {
+        "synopsis": "The Dark Angels are a Legion split in half. On Macragge, Lion El'Jonson stands as Lord Protector of Imperium Secundus, hunting his shackled brother Konrad Curze through Roboute Guilliman's new realm; when the Night Lords strike Sotha, the Lion's response brings him to the brink of breaking with Guilliman and Sanguinius outright. On distant Caliban, the Legion garrison left under Luther has fractured into rival camps: Astelan plays the soldier-statesman, Zahariel digs into forbidden Calibanite mysteries, and Luther himself nurses the wound of his primarch's rejection. As the Lion's ruthlessness in Ultramar pulls one half of the Legion toward tyranny, the Calibanite faction edges toward open rebellion — and the Order's oldest secret, the figure of the Lord Cypher, is about to be reborn.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "requires_context",
+          "standard",
+          "court_intrigue",
+          "political_thriller",
+          "war_story",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "betrayal",
+          "brotherhood",
+          "loyalty",
+          "hubris",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Night Lords", "role": "antagonist" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Blood Angels", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Caliban", "role": "primary" },
+          { "name": "Macragge", "role": "supporting" },
+          { "name": "Sotha", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Lion El'Jonson", "role": "pov" },
+          { "name": "Luther", "role": "pov" },
+          { "name": "Astelan", "role": "pov" },
+          { "name": "Zahariel", "role": "pov" },
+          { "name": "Konrad Curze", "role": "antagonist" },
+          { "name": "Roboute Guilliman", "role": "supporting" },
+          { "name": "Sanguinius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.78,
+          "count": 2393,
+          "evidenceUrl": "https://www.goodreads.com/book/show/28956059-angels-of-caliban"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0039",
+      "slug": "praetorian-of-dorn",
+      "overrides": {
+        "synopsis": "For the first time since the war began, the Solar System itself is under attack. Rogal Dorn, recalled from the Great Crusade to fortify Terra, watches his outer defences begin to fall to assaults he does not recognise: ships destroyed before they fire, fortresses opened from within, agents who answer to no name. The enemy is the Alpha Legion, slipped past Sol's curtain long before Horus declared war, and their primarch Alpharius walks the same corridors as Dorn himself. Alongside the Praetorian's public war, his huscarl Archamus — once a Terran youth named Kestros, now master of Dorn's bodyguard — runs a hidden hunt for the cell directing the sabotage. Past and present interleave as Archamus's training under Sigismund and Dorn becomes the answer to who can be trusted when even Alpharius wears a brother's face.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "dual",
+          "sector",
+          "requires_context",
+          "standard",
+          "war_story",
+          "mystery",
+          "political_thriller",
+          "grimdark",
+          "action_heavy",
+          "philosophical",
+          "loyalty",
+          "brotherhood",
+          "betrayal",
+          "doubt",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Alpha Legion", "role": "antagonist" },
+          { "name": "Adeptus Custodes", "role": "supporting" },
+          { "name": "Sisters of Silence", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Pluto", "role": "supporting" },
+          { "name": "Sol System", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Rogal Dorn", "role": "pov" },
+          { "name": "Archamus", "role": "pov" },
+          { "name": "Alpharius", "role": "antagonist" },
+          { "name": "Sigismund", "role": "supporting" },
+          { "name": "Constantin Valdor", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.12,
+          "count": 2799,
+          "evidenceUrl": "https://www.goodreads.com/book/show/29430395-praetorian-of-dorn"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0040",
+      "slug": "corax",
+      "overrides": {
+        "synopsis": "Six works tracing Corvus Corax and his shattered Raven Guard through the years after the Dropsite Massacre. The novellas Soulforge, Ravenlord and the concluding Weregeld follow Corax's vengeance campaigns against Horus's allies — Lorgar's Word Bearers, Perturabo's Iron Warriors, Curze's Night Lords — and his desperate effort to rebuild a Legion bled white at Isstvan V using the Emperor's own forbidden gene-tech, the Raptors. The short stories The Shadowmasters, The Value of Fear and Raptor turn to individual Raven Guard operatives carrying out the Legion's lightning-strike doctrine in smaller wars on the edges. Together the volume completes Gav Thorpe's portrait of a primarch fighting an asymmetric, increasingly bitter war while watching the cost of his own choices warp his sons into something Corax himself begins to fear.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "male",
+          "space_marine",
+          "imperium",
+          "galactic",
+          "requires_context",
+          "standard",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "war",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "redemption",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Night Lords", "role": "antagonist" },
+          { "name": "Alpha Legion", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Deliverance", "role": "supporting" },
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Corvus Corax", "role": "pov" },
+          { "name": "Branne", "role": "supporting" },
+          { "name": "Agapito", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.79,
+          "count": 1585,
+          "evidenceUrl": "https://www.goodreads.com/book/show/30753533-corax"
+        }
+      }
+    }
+  ]
+}

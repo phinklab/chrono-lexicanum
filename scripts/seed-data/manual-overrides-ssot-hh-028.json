@@ -1,0 +1,426 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-028",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-26",
+  "model": "claude-opus-4-7",
+  "rationale": "Zehn 'Even More Audio Dramas' aus dem späten Horus-Heresy-Audio-Programm — uniform format=audio_drama. Drei aufeinanderfolgende Garro-Recruitment-Stories (Ashes of Fealty, Burden of Duty, Oath of Moment) plus sieben Ein-Off-Pieces über Loyalisten-Splitter (Raptor, Grey Talon, Red-Marked, Thirteenth Wolf), Traitor-POVs (The Either, Children of Sicarus) und einen Pharos-Prequel (Heart of the Pharos). Mehrere Garro-Audios sind 2010/2012 erstveröffentlicht und 2017 in der Anthology-Sammlung gebündelt — Release-Jahre im Roster spiegeln das Anthology-Reissue, kein Roster-Fix nötig.",
+  "books": [
+    {
+      "externalBookId": "HH-0271",
+      "slug": "garro-ashes-of-fealty",
+      "overrides": {
+        "synopsis": "Knight-Errant Nathaniel Garro is summoned to a quiet meeting with an old comrade — Meric Voyen, once an Apothecary of his former Death Guard legion. Voyen has carried a sealed casket deep into the Solar System, convinced that the rot of Nurgle's plague can be studied, catalogued and one day cured if only it is examined with patience and care. Garro, who has stood within the warp's reach and walked away marked by it, sees only ruin in his friend's mission. Two brothers who served together on the Eisenstein now face each other across a single piece of cargo — one pleading for the work of an Apothecary, the other knowing that some things must never be opened. A short, tight piece about loyalty, hubris and the price of curiosity in a Heresy that has only just begun to turn against its own.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "novella",
+          "character_study",
+          "somber",
+          "philosophical",
+          "loyalty",
+          "doubt",
+          "hubris",
+          "brotherhood",
+          "cw_violence",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "Death Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Solar System", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Meric Voyen", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.76, "count": 152, "evidenceUrl": "https://www.goodreads.com/book/show/24924096-garro" }
+      }
+    },
+    {
+      "externalBookId": "HH-0272",
+      "slug": "garro-burden-of-duty",
+      "overrides": {
+        "synopsis": "Garro, newly appointed Knight-Errant and answerable only to Malcador the Sigillite, slips aboard the Imperial Fists' mighty starfort Phalanx in search of a single warrior. Hidden behind locked doors are six former Librarians, exiled by the Council of Nikaea and cut off from the war beyond — and from the news that the Great Crusade has shattered into civil war. Garro must reach Yored Massak before Rogal Dorn himself catches up with him, persuade a man who has chosen silence to return to the killing floor, and convince a primarch with a famously short patience that this midnight intrusion is not treachery but the Emperor's will. A talky, close-quarters audio drama about oaths, divided loyalties and the slow gathering of the Knights-Errant.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "mid_series",
+          "novella",
+          "character_study",
+          "court_intrigue",
+          "somber",
+          "philosophical",
+          "loyalty",
+          "doubt",
+          "faith",
+          "brotherhood",
+          "cw_violence",
+          "en"
+        ],
+        "factions": [
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "Imperial Fists", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Phalanx", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Yored Massak", "role": "supporting" },
+          { "name": "Rogal Dorn", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.67, "count": 230, "evidenceUrl": "https://www.goodreads.com/book/show/17192485-garro" }
+      }
+    },
+    {
+      "externalBookId": "HH-0273",
+      "slug": "garro-oath-of-moment",
+      "overrides": {
+        "synopsis": "Fresh from his desperate escape aboard the Eisenstein, Nathaniel Garro is set to a new task by Malcador the Sigillite — to comb the loyalist legions for warriors fit to join a clandestine band of agents. His search takes him to Calth, where the Word Bearers have just turned on their Ultramarine brothers and unleashed a holocaust of fire and warp-craft on the planet. Pinned in a railway tunnel with the survivors of the 21st Company, Garro reveals that his real target is not their dying captain but Tylos Rubio, a former Codicier silenced by the Council of Nikaea. As Chaos Terminators close in and the Ultramarines around him are pushed past breaking, Rubio must choose between an oath he was forced to swear and the powers that might still save his brothers.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "mid_series",
+          "novella",
+          "war_story",
+          "character_study",
+          "somber",
+          "action_heavy",
+          "grimdark",
+          "loyalty",
+          "doubt",
+          "sacrifice",
+          "betrayal",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Knights-Errant", "role": "primary" },
+          { "name": "Ultramarines", "role": "supporting" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Calth", "role": "primary" },
+          { "name": "Numinus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Tylos Rubio", "role": "pov" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.91, "count": 689, "evidenceUrl": "https://www.goodreads.com/book/show/8697252-garro" }
+      }
+    },
+    {
+      "externalBookId": "HH-0274",
+      "slug": "raptor",
+      "overrides": {
+        "synopsis": "After Corax's legion was butchered on the killing fields of Isstvan V, the primarch rushed new initiates through an accelerated gene-seed process to refill his ravaged ranks — and unbeknown to him, the procedure was sabotaged in secret. The warriors who emerged were monstrous, marked by mutation, but no less loyal to their gene-father. Sergeant Navar Hef leads a squad of these so-called Raptors aboard a derelict Space Wolves vessel, where they find the twisted corpses of Wulfen and a trail that ends on a dead world. There, Hef learns that the Wulfen had been sent by Malcador himself to test Corax's loyalty — and that if their mission is ever completed, the Raven Guard will be damned for the abominations Corax was forced to make. The truth must die in the dark, even if it takes loyalist blood spilling loyalist blood to keep it buried.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "novella",
+          "war_story",
+          "mystery",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "loyalty",
+          "sacrifice",
+          "betrayal",
+          "hubris",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Space Wolves", "role": "supporting" },
+          { "name": "Sons of Horus", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Navar Hef", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.60, "count": 125, "evidenceUrl": "https://www.goodreads.com/book/show/23216009-raptor" }
+      }
+    },
+    {
+      "externalBookId": "HH-0275",
+      "slug": "grey-talon",
+      "overrides": {
+        "synopsis": "The destroyer Grey Talon was once a Sons of Horus ship, but loyalist hands now turn her guns against her former masters. Captain Bion Henricos of the Iron Hands keeps her cunning hidden under traitor colours, striking at isolated warbands and hunting the killers of his primarch. Beside him stands Hibou Khan, an exiled warrior of the White Scars who once rode with the Khan's keshig and now serves a death-oath in penance. As each ambush ratchets the crew further from the cold logic of strategy and deeper into private grief, the question grows louder — who exactly is the Grey Talon avenging, and what do men with nothing left to lose ever do once they finally run out of enemies? A follow-up to Scars, paired tightly with the Meduson story arc.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "novella",
+          "war_story",
+          "character_study",
+          "somber",
+          "action_heavy",
+          "grimdark",
+          "redemption",
+          "loyalty",
+          "doubt",
+          "brotherhood",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Sons of Horus", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Bion Henricos", "role": "pov" },
+          { "name": "Hibou Khan", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.87, "count": 128, "evidenceUrl": "https://www.goodreads.com/book/show/28635737-grey-talon" }
+      }
+    },
+    {
+      "externalBookId": "HH-0276",
+      "slug": "red-marked",
+      "overrides": {
+        "synopsis": "Sergeant Aeonid Thiel wears the red helm of censure with stubborn pride. Stranded on the garrison world of Oran on his way home to Macragge, he can see what his superiors will not — listening posts have fallen silent on the rim of Ultramar, traitor warbands are growing bolder by the week, and something the few survivors only call 'Nightfane' is moving in the dark between the stars. With a handful of fellow censured veterans, Thiel sets out to do what command will not authorise — hunt the threat down himself, before it has time to ripen into a second Calth. A blunt, brisk piece about the kind of soldier who is most dangerous to the enemy precisely because his own legion has already given up on him.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "novella",
+          "war_story",
+          "mystery",
+          "somber",
+          "action_heavy",
+          "grimdark",
+          "loyalty",
+          "doubt",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Heretic Astartes", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Oran", "role": "primary" },
+          { "name": "Macragge", "role": "supporting" },
+          { "name": "Ultramar", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Aeonid Thiel", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.45, "count": 146, "evidenceUrl": "https://www.goodreads.com/book/show/23492347" }
+      }
+    },
+    {
+      "externalBookId": "HH-0277",
+      "slug": "the-either",
+      "overrides": {
+        "synopsis": "Tybalt Marr, the Sons of Horus captain his more glory-hungry brothers have always overlooked, returns to the Warmaster with a trophy at last — the head, he claims, of Shadrak Meduson, the Iron Hands warlord who has bled the traitor advance for months. His boasts fall flat in a war room still reeling from a brazen assassination attempt on Horus himself, and Marr is left to claw back his standing by finishing what others started. Gathering his forces on the conquered world of Dwell, he turns to face the Shattered Legions one more time, certain that this single campaign will finally write his name beside those of his greater brothers. A close character piece about second-rate ambition in the shadow of a Warmaster who barely notices it.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "chaos",
+          "planetary",
+          "requires_context",
+          "novella",
+          "character_study",
+          "war_story",
+          "grimdark",
+          "somber",
+          "hubris",
+          "brotherhood",
+          "betrayal",
+          "doubt",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "Iron Hands", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Dwell", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Tybalt Marr", "role": "pov" },
+          { "name": "Shadrak Meduson", "role": "supporting" },
+          { "name": "Horus Lupercal", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.69, "count": 118, "evidenceUrl": "https://www.goodreads.com/book/show/28822335-the-either" }
+      }
+    },
+    {
+      "externalBookId": "HH-0278",
+      "slug": "the-heart-of-the-pharos",
+      "overrides": {
+        "synopsis": "Young Oberdeii and Tebecai, Scouts of the 199th Company on the quiet jungle world of Sotha, are ordered into the tunnels beneath Mount Pharos to find out exactly what the Imperium has built its new beacon on. The masters of Ultramar know the alien device can pierce the warp-storms wrapping their realm, but almost nothing else about it — where it came from, who made it, or what is sleeping in the rock beneath. With just each other for company and rumours for a map, the two Scouts climb deeper than any have dared, and find something in the dark that their commanders very badly want to know about. A short, claustrophobic prequel to the Pharos novel about the secrets a beacon casts behind it.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "novella",
+          "mystery",
+          "journey",
+          "somber",
+          "cosmic_horror",
+          "philosophical",
+          "doubt",
+          "brotherhood",
+          "loyalty",
+          "cw_violence",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Sotha", "role": "primary" },
+          { "name": "Mount Pharos", "role": "primary" },
+          { "name": "Ultramar", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Oberdeii", "role": "pov" },
+          { "name": "Tebecai", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.72, "count": 166, "evidenceUrl": "https://www.goodreads.com/book/show/29230658-the-heart-of-the-pharos" }
+      }
+    },
+    {
+      "externalBookId": "HH-0279",
+      "slug": "the-thirteenth-wolf",
+      "overrides": {
+        "synopsis": "On the burning city-spires of Prospero, the Space Wolves' Thirteenth Great Company hunts the last of the Thousand Sons through the rubble. When a fleeing sorcerer slips between teleportation-portals to escape their wrath, Sergeant Bulveye and his pack give chase, plunging into a magical maze that bends space and memory around them. Every doorway they break breaks the maze a little further, and every leap takes them somewhere stranger, until the warriors of the Rout can no longer be sure which Prospero they will step out into — or which century. A short, hard-edged piece that gives a first answer to a famous question — why the entire 13th Great Company vanished after the Burning of Prospero and was not seen again for ten thousand years.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "requires_context",
+          "novella",
+          "journey",
+          "war_story",
+          "grimdark",
+          "somber",
+          "cosmic_horror",
+          "hubris",
+          "brotherhood",
+          "sacrifice",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Thousand Sons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Prospero", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Bulveye", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.48, "count": 145, "evidenceUrl": "https://www.goodreads.com/book/show/32470138-the-thirteenth-wolf" }
+      }
+    },
+    {
+      "externalBookId": "HH-0280",
+      "slug": "children-of-sicarus",
+      "overrides": {
+        "synopsis": "After the wreck of the Infidus Imperator, Kor Phaeron drags the survivors of his Word Bearers into the Eye of Terror and claims the daemon world of Sicarus as their new refuge. The world has other ideas. The Kairic Adept Larazzar and his daemonic warband swarm Kor Phaeron's beachhead, intent on destroying these usurpers before they can put down roots. Bleeding and outnumbered, Kor Phaeron finds strange new allies among the warp's natives — a priest who refuses to stay dead, a prophecy that is uncomfortably accurate, and a tangible thread running all the way back to his distant primarch Lorgar. A short, mythic piece about a faithful demagogue learning the rules of the realm he and his master have invited their legion into.",
+        "facetIds": [
+          "audio_drama",
+          "male",
+          "space_marine",
+          "chaos",
+          "squad",
+          "requires_context",
+          "novella",
+          "war_story",
+          "last_stand",
+          "grimdark",
+          "cosmic_horror",
+          "somber",
+          "faith",
+          "hubris",
+          "betrayal",
+          "sacrifice",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Daemons of Tzeentch", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Sicarus", "role": "primary" },
+          { "name": "Eye of Terror", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Kor Phaeron", "role": "pov" },
+          { "name": "Larazzar", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.55, "count": 119, "evidenceUrl": "https://www.goodreads.com/book/show/32841583-children-of-sicarus" }
+      }
+    }
+  ]
+}

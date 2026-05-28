@@ -1,0 +1,297 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-003",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7",
+  "rationale": "Original Horus Heresy Bände 21–30 — die zentrale Mid-Heresy-Welle nach Isstvan und Calth: Sanguinius am Signus, die Anthologie Shadows of Treachery, Perturabo/Fulgrim auf Iydris, Angron/Lorgar im Shadow Crusade durch Ultramar, die Mark-of-Calth-Anthologie, Vulkans Gefangenschaft bei Curze, die Founding von Imperium Secundus auf Macragge, der Khan an Chondax/Alaxxes, Horus auf Molech und das Pythos-Desaster. Acht Romane plus zwei Anthologien — Aggregation für letztere über alle enthaltenen Einzelstories.",
+  "books": [
+    {
+      "externalBookId": "HH-0021",
+      "slug": "fear-to-tread",
+      "overrides": {
+        "synopsis": "Lured deep into the Signus Cluster by what looks like an Imperial system gone silent, Sanguinius brings the Blood Angels in expecting a routine Compliance and finds Horus's first deliberate move against his most trusted brother. The cluster has been remade as a warp anchor by Word Bearers ritualists; daemons of Khorne and Slaanesh boil out of the planets, and the Bloodthirster Ka'Bandha hunts the Ninth Legion for a personal reckoning with their primarch. First Captain Raldoron holds the line on the surface while Apothecary Meros wrestles with the Red Thirst stirring through his battle-brothers, and Sanguinius — knowing now that the Warmaster has bait-and-trapped him — turns Signus from grave into proof that the Blood Angels will not break.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "requires_context", "doorstopper", "war_story", "betrayal", "action_heavy", "grimdark", "somber", "sacrifice", "brotherhood", "loyalty", "cosmic_horror", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Signus Cluster", "role": "primary" },
+          { "name": "Signus Prime", "role": "primary" },
+          { "name": "Holst Aspyce", "role": "supporting" },
+          { "name": "Phorus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sanguinius", "role": "pov" },
+          { "name": "Raldoron", "role": "pov" },
+          { "name": "Meros", "role": "pov" },
+          { "name": "Kano", "role": "supporting" },
+          { "name": "Ka'Bandha", "role": "antagonist" },
+          { "name": "Madail", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.95, "count": 5011, "evidenceUrl": "https://www.goodreads.com/book/show/13259647-fear-to-tread" }
+      }
+    },
+    {
+      "externalBookId": "HH-0022",
+      "slug": "shadows-of-treachery",
+      "overrides": {
+        "synopsis": "Two novellas and five short stories filling in the months around Isstvan. John French's The Crimson Fist follows Captain Alexis Polux as the Iron Warriors snare the Imperial Fists' retribution fleet in a void ambush at Phall. Aaron Dembski-Bowden's Prince of Crows watches Night Lords first captain Sevatar police his own primarch's collapsing mind on the death world Tsagualsa. Dan Abnett's The Lightning Tower puts Rogal Dorn alone in his study as he readies Terra for siege; Graham McNeill's The Dark King and Death of a Silversmith trace Konrad Curze from the slums of Nostramo to the present; Gav Thorpe's Raven's Flight rides with Corax breaking out of the Isstvan V trap; and McNeill's The Kaban Project surfaces a forbidden Mechanicum AI inside the loyalist machine cult.",
+        "facetIds": ["book", "ensemble", "multi", "dual", "sector", "mid_series", "standard", "war_story", "character_study", "betrayal", "grimdark", "somber", "action_heavy", "loyalty", "brotherhood", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Mechanicum", "role": "supporting" },
+          { "name": "Sons of Horus", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Phall", "role": "primary" },
+          { "name": "Tsagualsa", "role": "primary" },
+          { "name": "Terra", "role": "supporting" },
+          { "name": "Nostramo", "role": "supporting" },
+          { "name": "Isstvan V", "role": "supporting" },
+          { "name": "Mars", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Alexis Polux", "role": "pov" },
+          { "name": "Sevatar", "role": "pov" },
+          { "name": "Konrad Curze", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "pov" },
+          { "name": "Corax", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.82, "count": 3161, "evidenceUrl": "https://www.goodreads.com/book/show/13547203-shadows-of-treachery" }
+      }
+    },
+    {
+      "externalBookId": "HH-0023",
+      "slug": "angel-exterminatus",
+      "overrides": {
+        "synopsis": "Fulgrim comes to Hydra Cordatus offering the Iron Warriors a way out of being Horus's siege engineers: a hidden eldar weapon in the Eye of Terror, the Angel Exterminatus, sealed away on the crystal world of Iydris. Perturabo takes the bait — partly out of curiosity, partly out of pride — and the Emperor's Children and Iron Warriors push together through the warp toward a tomb that was never meant to be reopened. Aboard ship, the Phoenician unravels by visible inches under the daemon now wearing his face, while the Iron Warrior triumvirate of Forrix, Berossus and Kroeger circle their primarch's mood. And from the wreckage of Isstvan V, the Raven Guard scout Sharrowkyn and the Iron Hand Ancient Rylanor are stowed away in the fleet with a quieter brief — kill Fulgrim before he reaches the prize.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "mid_series", "doorstopper", "journey", "war_story", "mystery", "character_study", "betrayal", "hubris", "grimdark", "somber", "brotherhood", "cosmic_horror", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Emperor's Children", "role": "primary" },
+          { "name": "Iron Hands", "role": "antagonist" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Eldar", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Iydris", "role": "primary" },
+          { "name": "Eye of Terror", "role": "primary" },
+          { "name": "Hydra Cordatus", "role": "supporting" },
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Perturabo", "role": "pov" },
+          { "name": "Fulgrim", "role": "pov" },
+          { "name": "Sharrowkyn", "role": "pov" },
+          { "name": "Rylanor", "role": "pov" },
+          { "name": "Forrix", "role": "supporting" },
+          { "name": "Lucius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.08, "count": 4510, "evidenceUrl": "https://www.goodreads.com/book/show/15803022-angel-exterminatus" }
+      }
+    },
+    {
+      "externalBookId": "HH-0024",
+      "slug": "betrayer",
+      "overrides": {
+        "synopsis": "Lorgar's Word Bearers and Angron's World Eaters carve a shadow crusade through Roboute Guilliman's Five Hundred Worlds in the wake of Calth, gutting one Ultramar planet after another while Guilliman scrambles to hold what remains of his realm. Through First Captain Khârn, fleetmaster Lotara Sarrin of the Conqueror, and the Word Bearer Argel Tal, the novel watches Lorgar try to save his brother — Angron is being killed by the Butcher's Nails buried in his skull — by raising him into a daemon prince on the slaver world that broke him, Nuceria. Khârn fights to keep his primarch human; Lorgar fights to keep him alive at any price; and the rest of Ultramar burns to give them the time to finish what they started.",
+        "facetIds": ["book", "male", "space_marine", "chaos", "sector", "requires_context", "standard", "war_story", "character_study", "action_heavy", "betrayal", "brotherhood", "sacrifice", "grimdark", "somber", "hubris", "loyalty", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "World Eaters", "role": "primary" },
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Ultramarines", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Armatura", "role": "primary" },
+          { "name": "Nuceria", "role": "primary" },
+          { "name": "Ultramar", "role": "supporting" },
+          { "name": "Calth", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Khârn", "role": "pov" },
+          { "name": "Lotara Sarrin", "role": "pov" },
+          { "name": "Argel Tal", "role": "pov" },
+          { "name": "Angron", "role": "supporting" },
+          { "name": "Lorgar", "role": "supporting" },
+          { "name": "Erebus", "role": "supporting" },
+          { "name": "Roboute Guilliman", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.40, "count": 6149, "evidenceUrl": "https://www.goodreads.com/book/show/13632835-betrayer" }
+      }
+    },
+    {
+      "externalBookId": "HH-0025",
+      "slug": "mark-of-calth",
+      "overrides": {
+        "synopsis": "Eight stories returning to Calth and Ultramar in the months and millennia after the Word Bearers' attack. Graham McNeill's novella Calth That Was rejoins Captain Remus Ventanus in the poisoned undercity caves where the Ultramarines wage an underground war against Kor Phaeron's stranded faithful. Aaron Dembski-Bowden, Anthony Reynolds and Rob Sanders track the same Word Bearer remnant from the other side of the line. Guy Haley's Shards of Erebus, John French's Athame and David Annandale's The Traveller follow the daemon-bound knife Erebus left on the field and the perpetual Oll Persson who picks it up and walks it across the war. Dan Abnett's closing Unmarked sends Oll into the warp with a small band that may or may not still be human.",
+        "facetIds": ["book", "ensemble", "space_marine", "dual", "planetary", "mid_series", "standard", "war_story", "journey", "mystery", "character_study", "last_stand", "grimdark", "somber", "cosmic_horror", "betrayal", "sacrifice", "brotherhood", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Calth", "role": "primary" },
+          { "name": "Ultramar", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Remus Ventanus", "role": "pov" },
+          { "name": "Oll Persson", "role": "pov" },
+          { "name": "Kor Phaeron", "role": "antagonist" },
+          { "name": "Erebus", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.68, "count": 2993, "evidenceUrl": "https://www.goodreads.com/book/show/16130716-mark-of-calth" }
+      }
+    },
+    {
+      "externalBookId": "HH-0026",
+      "slug": "vulkan-lives",
+      "overrides": {
+        "synopsis": "Believed dead at Isstvan V, Vulkan wakes in a hidden chamber as a prisoner of his brother Konrad Curze, and the Night Haunter sets out to test the Salamander primarch's reputed immortality by killing him in every way a Night Lord can devise. Across the war, Captain Artellus Numeon leads a remnant of Salamanders, Iron Hands and Raven Guard on a fading hunt for the primarch they refuse to bury, while the perpetual John Grammaticus is steered into the same path by his Cabal masters. The novel follows the long argument between Vulkan and Curze on what a primarch is for, and the slower argument among Numeon's survivors over whether faith in their gene-father is loyalty or self-deception.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "planetary", "requires_context", "standard", "character_study", "journey", "war_story", "grimdark", "somber", "philosophical", "brotherhood", "sacrifice", "faith", "doubt", "cw_violence", "cw_death", "cw_disturbing", "cw_abuse"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Night Lords", "role": "antagonist" },
+          { "name": "Iron Hands", "role": "supporting" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Cabal", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Traoris", "role": "primary" },
+          { "name": "Macragge", "role": "supporting" },
+          { "name": "Nocturne", "role": "supporting" },
+          { "name": "Isstvan V", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Vulkan", "role": "pov" },
+          { "name": "Konrad Curze", "role": "pov" },
+          { "name": "Artellus Numeon", "role": "pov" },
+          { "name": "John Grammaticus", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.59, "count": 3119, "evidenceUrl": "https://www.goodreads.com/book/show/17571882-vulkan-lives" }
+      }
+    },
+    {
+      "externalBookId": "HH-0027",
+      "slug": "the-unremembered-empire",
+      "overrides": {
+        "synopsis": "With Terra silent and the warp closing the galaxy in on itself, Roboute Guilliman gathers every loyalist primarch he can reach to Macragge and founds Imperium Secundus, naming Sanguinius regent. The Lion El'Jonson brings the surviving Dark Angels in from a void hunt; Vulkan walks out of the warp half-mad with what Curze did to him; the Blood Angels primarch consents to a throne he never wanted; and Konrad Curze, already on Macragge in the shadows, sets out to undo the new empire from inside before it can take root. Through Guilliman, his brothers, the perpetual John Grammaticus and the Sotha listening post that hears the first daemonic tide breaking on Ultramar, the novel charts a fragile half-imperium taking shape in the hours before its rightful primarch comes home.",
+        "facetIds": ["book", "ensemble", "space_marine", "imperium", "sector", "mid_series", "standard", "political_thriller", "character_study", "war_story", "court_intrigue", "grimdark", "somber", "loyalty", "brotherhood", "hubris", "doubt", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Dark Angels", "role": "supporting" },
+          { "name": "Blood Angels", "role": "supporting" },
+          { "name": "Salamanders", "role": "supporting" },
+          { "name": "Night Lords", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Macragge", "role": "primary" },
+          { "name": "Sotha", "role": "supporting" },
+          { "name": "Ultramar", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Roboute Guilliman", "role": "pov" },
+          { "name": "Sanguinius", "role": "supporting" },
+          { "name": "Lion El'Jonson", "role": "supporting" },
+          { "name": "Vulkan", "role": "supporting" },
+          { "name": "Konrad Curze", "role": "antagonist" },
+          { "name": "John Grammaticus", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.22, "count": 4493, "evidenceUrl": "https://www.goodreads.com/book/show/18143885-the-unremembered-empire" }
+      }
+    },
+    {
+      "externalBookId": "HH-0028",
+      "slug": "scars",
+      "overrides": {
+        "synopsis": "At the Khan's distant warzone on Chondax, the White Scars finish their ork hunt and find the galaxy gone insane behind their backs — and Alpha Legion ships rising in their wake. Jaghatai Khan refuses to declare for either side until he has read the field himself, and turns the Fifth Legion toward Prospero to question Magnus, then toward Terra by way of an ambushed Space Wolves fleet at the Alaxxes Nebula. Through the Khan, his keshig khan Shiban, the Stormseer Yesugei and the increasingly fractured legion-brother Torghun, the novel watches an open, easy culture try to make the closed decision the war is forcing on it. The serial that became this book still reads in twelve clean movements, each a stage in the Khan's slow turn from neutral observer to loyalist.",
+        "facetIds": ["book", "male", "space_marine", "imperium", "sector", "mid_series", "doorstopper", "war_story", "character_study", "political_thriller", "journey", "action_heavy", "betrayal", "loyalty", "brotherhood", "doubt", "grimdark", "somber", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "White Scars", "role": "primary" },
+          { "name": "Alpha Legion", "role": "antagonist" },
+          { "name": "Space Wolves", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Chondax", "role": "primary" },
+          { "name": "Alaxxes Nebula", "role": "primary" },
+          { "name": "Prospero", "role": "supporting" },
+          { "name": "Chogoris", "role": "supporting" },
+          { "name": "Ullanor", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Jaghatai Khan", "role": "pov" },
+          { "name": "Shiban Khan", "role": "pov" },
+          { "name": "Torghun Khan", "role": "pov" },
+          { "name": "Targutai Yesugei", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.15, "count": 4070, "evidenceUrl": "https://www.goodreads.com/book/show/18143803-scars" }
+      }
+    },
+    {
+      "externalBookId": "HH-0029",
+      "slug": "vengeful-spirit",
+      "overrides": {
+        "synopsis": "Horus brings the bulk of his traitor host down on Molech, an old Imperial Knight world hiding a doorway into the warp the Emperor once used and walked away from. Determined to take whatever power his father took, the Warmaster grinds the planetary defenders and House Devine apart in a sustained ground campaign while his sorcerers prepare the descent. In a parallel thread, Garviel Loken — recovered from his collapse and inducted into Malcador's Knights-Errant — boards the Vengeful Spirit itself with a small infiltration team, looking for Mournival brothers he can still talk to and for evidence the Emperor can act on. The novel runs Horus's apotheosis and Loken's clandestine return at each other across five hundred pages, and lets neither finish cleanly.",
+        "facetIds": ["book", "male", "space_marine", "dual", "planetary", "mid_series", "doorstopper", "war_story", "siege", "action_heavy", "betrayal", "hubris", "grimdark", "somber", "loyalty", "brotherhood", "cosmic_horror", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Sons of Horus", "role": "primary" },
+          { "name": "House Devine", "role": "antagonist" },
+          { "name": "Imperial Army", "role": "supporting" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "Emperor's Children", "role": "supporting" },
+          { "name": "World Eaters", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Molech", "role": "primary" },
+          { "name": "Vengeful Spirit", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Horus", "role": "pov" },
+          { "name": "Garviel Loken", "role": "pov" },
+          { "name": "Iacton Qruze", "role": "supporting" },
+          { "name": "Tylos Rubio", "role": "supporting" },
+          { "name": "Little Horus Aximand", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.91, "count": 3349, "evidenceUrl": "https://www.goodreads.com/book/show/18775295-vengeful-spirit" }
+      }
+    },
+    {
+      "externalBookId": "HH-0030",
+      "slug": "the-damnation-of-pythos",
+      "overrides": {
+        "synopsis": "A shattered force of Iron Hands under Captain Durun Atticus, with Salamander and Raven Guard survivors of Isstvan V grafted onto its command, makes planetfall on the death world Pythos and tries to turn it into a base from which to wage an independent war on Horus. The jungle answers with predators that should not exist; a stream of human refugees fleeing the war washes up on the same shore; and the astropath Rhydia Erephren slowly works out that Pythos is not just hostile — it is a wound, a warp-touched site Atticus's rage will not let him abandon. Through the Salamander Khi'dem, the Iron Hand Galba, Erephren and Atticus himself, the novel watches a small Imperial enclave argue itself into damnation while the planet feeds.",
+        "facetIds": ["book", "ensemble", "space_marine", "imperium", "planetary", "mid_series", "standard", "war_story", "character_study", "last_stand", "grimdark", "somber", "cosmic_horror", "hubris", "doubt", "sacrifice", "cw_violence", "cw_death", "cw_disturbing"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Salamanders", "role": "supporting" },
+          { "name": "Raven Guard", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Pythos", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Durun Atticus", "role": "pov" },
+          { "name": "Galba", "role": "pov" },
+          { "name": "Rhydia Erephren", "role": "pov" },
+          { "name": "Khi'dem", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.26, "count": 2206, "evidenceUrl": "https://www.goodreads.com/book/show/21412249-the-damnation-of-pythos" }
+      }
+    }
+  ]
+}

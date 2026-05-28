@@ -20,3 +20,66 @@ Resolver-Fortschritt bei Implementierungs-Zeitpunkt: 7 Pässe komplett, Batches 
 - [x] Phase 3 (Characters) — commit 2477966
 - [x] Phase 4a (Apply) — commit 4694202
 - [x] Phase 4b (Verify) — commit e9a07e6
+
+## 2026-05-24 · Resolver-Pass 9 (Welle ssot-w40k-052..057, 55 Bücher)
+
+- [x] Phase 0 (Preflight) — commit f2d9974
+- [x] Phase 1 (Factions) — commit 57f915e
+- [x] Phase 2 (Locations) — commit bc87089
+- [x] Phase 3 (Characters) — commit 8def700
+- [x] Phase 4a (Apply) — commit afe8a2b
+- [x] Phase 4b (Verify) — commit fe39ae9
+
+## 2026-05-26 · Resolver-Pass 10 (Welle ssot-hh-001..002, 20 Bücher)
+
+- [x] Phase 0 (Preflight) — commit 31bf8bb
+- [x] Phase 1 (Factions) — commit 339e156
+- [x] Phase 2 (Locations) — commit 9fd077a
+- [x] Phase 3 (Characters) — commit a308a26
+- [x] Phase 4a (Apply) — commit 0a2e2c1
+- [x] Phase 4b (Verify) — commit 0196902
+
+## 2026-05-27 · Resolver-Pass 11 (Welle ssot-hh-003..008, 60 Bücher)
+
+- [x] Phase 0 (Preflight) — commit 5ded2b4
+- [x] Phase 1 (Factions) — commit 5267b16
+- [x] Phase 2 (Locations) — commit f28b786
+- [x] Phase 3 (Characters) — commit 0bec56c
+- [x] Phase 4a (Apply) — commit 2874bfb
+- [x] Phase 4b (Verify) — commit 22e0553
+
+## 2026-05-27 · Resolver-Pass 12 (Welle ssot-hh-009..014, 60 Bücher)
+
+- [x] Phase 0 (Preflight) — commit 08406e1
+- [x] Phase 1 (Factions) — commit 8301bb9
+- [x] Phase 2 (Locations) — commit db9493f
+- [x] Phase 3 (Characters) — commit f618eff
+- [x] Phase 4a (Apply) — commit 4e4424b
+- [x] Phase 4b (Verify) — commit 247bf30
+
+## 2026-05-27 · Resolver-Pass 13 (Welle ssot-hh-015..020, 60 Bücher)
+
+- [x] Phase 0 (Preflight) — commit f503397
+- [x] Phase 1 (Factions) — commit 3b06cb1
+- [x] Phase 2 (Locations) — commit 28681de
+- [x] Phase 3 (Characters) — commit 6ffeab6
+- [x] Phase 4a (Apply) — commit 81a7297
+- [x] Phase 4b (Verify) — commit 3706b67
+
+## 2026-05-27 · Resolver-Pass 14 (Welle ssot-hh-021..025, 50 Bücher)
+
+- [x] Phase 0 (Preflight) — commit 5ccca54
+- [x] Phase 1 (Factions) — commit 560cfd3
+- [x] Phase 2 (Locations) — commit c9734aa
+- [x] Phase 3 (Characters) — commit 61eeeb0
+- [x] Phase 4a (Apply) — commit 45d78d9
+- [x] Phase 4b (Verify) — commit 004aa17
+
+## 2026-05-27 · Resolver-Pass 15 (Welle ssot-hh-026..030, 44 Bücher)
+
+- [x] Phase 0 (Preflight) — commit 44d2834
+- [x] Phase 1 (Factions) — commit 0829b97
+- [x] Phase 2 (Locations) — commit f60c2ba
+- [x] Phase 3 (Characters) — commit 95e62c2
+- [x] Phase 4a (Apply) — commit 8e7f3cb
+- [x] Phase 4b (Verify) — commit 8eaa4d0

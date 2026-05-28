@@ -1,0 +1,285 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-005",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7-1m",
+  "rationale": "HH 41-50 covers the late-Heresy core: webway war beneath the Imperial Palace, the loyal primarchs' separate runs at Terra, and the Salamanders/Iron Hands shadow war. Half the slice are author-collected anthologies (Garro, Shattered Legions, Tallarn, Burden of Loyalty, Born of Flame), so faction/location/character tags aggregate across constituent works. HH-0042 (Garro: Weapon of Fate) is catalogued as a single-author novelisation by Black Library despite the roster format=anthology — flagged as data_conflict.",
+  "books": [
+    {
+      "externalBookId": "HH-0041",
+      "slug": "the-master-of-mankind",
+      "overrides": {
+        "synopsis": "Five years after Magnus the Red's psychic breach opened the unfinished webway beneath the Imperial Palace, the deepest secret of the Heresy bleeds into open war. While Horus's rebellion burns across the galaxy, the Custodian Guard, the Sisters of Silence and the Mechanicum forces of Fabricator General Kane fight to hold the warp-poisoned tunnels and impossible cities at the threshold of Terra. Ra Endymion of the Ten Thousand walks beside his master and sees, in flashes of memory, what the Emperor truly is and what He once chose to be. Diocletian Coros returns from a long crusade in Mars's name to find the throneworld's defenders stretched thin against an unending tide of daemons and corrupted Titans. As the noose around Terra tightens, only the Emperor Himself can take the field — and the cost of doing so will shape every age to come.",
+        "facetIds": ["book", "audiobook", "male", "custodes", "multi", "imperium", "galactic", "mid_series", "standard", "war_story", "siege", "grimdark", "philosophical", "war", "sacrifice", "faith", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Adeptus Custodes", "role": "primary" },
+          { "name": "Sisters of Silence", "role": "primary" },
+          { "name": "Mechanicum", "role": "supporting" },
+          { "name": "Chaos Daemons", "role": "antagonist" },
+          { "name": "Thousand Sons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Imperial Palace", "role": "primary" },
+          { "name": "Webway", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "The Emperor", "role": "pov" },
+          { "name": "Ra Endymion", "role": "pov" },
+          { "name": "Diocletian Coros", "role": "pov" },
+          { "name": "Kane", "role": "supporting" },
+          { "name": "Arkhan Land", "role": "supporting" },
+          { "name": "Magnus the Red", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.22, "count": 4045, "evidenceUrl": "https://www.goodreads.com/book/show/33303512-the-master-of-mankind" }
+      }
+    },
+    {
+      "externalBookId": "HH-0042",
+      "slug": "garro-weapons-of-fate",
+      "overrides": {
+        "synopsis": "Once captain of the Death Guard's Seventh Great Company, Nathaniel Garro carried news of the betrayal at Isstvan back to Terra — and was remade as the first of Malcador the Sigillite's hidden agents, the Knights Errant. Pulled forward from the audio dramas Oath of Moment, Legion of One, Sword of Truth, Shield of Lies, Burden of Duty and Ashes of Fealty, this volume follows Garro across the broken paths of the Heresy: hunting Garviel Loken through the ruins of Isstvan III, gathering Tylos Rubio and other lost legionaries to the Sigillite's banner, and walking deeper into the forbidden faith of the Lectitio Divinitatus. The novella Vow of Faith closes the arc, bringing Garro face-to-face with the cost of believing in a god the Emperor has forbidden.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "sector", "mid_series", "doorstopper", "war_story", "character_study", "somber", "philosophical", "faith", "loyalty", "betrayal", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Knights Errant", "role": "primary" },
+          { "name": "Death Guard", "role": "supporting" },
+          { "name": "Lectitio Divinitatus", "role": "supporting" },
+          { "name": "Sisters of Silence", "role": "supporting" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "primary" },
+          { "name": "Isstvan III", "role": "supporting" },
+          { "name": "Luna", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Nathaniel Garro", "role": "pov" },
+          { "name": "Malcador the Sigillite", "role": "supporting" },
+          { "name": "Garviel Loken", "role": "supporting" },
+          { "name": "Tylos Rubio", "role": "supporting" },
+          { "name": "Macer Varren", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "data_conflict", "field": "format", "suggestion": "novel", "reason": "Black Library and trade reviews catalogue Garro: Weapon of Fate as a single-author novelisation that consolidates the prior Garro audio dramas plus the Vow of Faith novella; roster has format=anthology." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.02, "count": 1996, "evidenceUrl": "https://www.goodreads.com/book/show/32860806-garro" }
+      }
+    },
+    {
+      "externalBookId": "HH-0043",
+      "slug": "shattered-legions",
+      "overrides": {
+        "synopsis": "Their Primarch Ferrus Manus slain at the Dropsite Massacre, the survivors of the Iron Hands refuse to retreat into mourning. Joined by stranded warriors of the Salamanders and the Raven Guard, and bound to a campaign of annihilation by the warleader Shadrak Meduson, they take the war back to the traitor Legions one ambush at a time. The novella Meduson opens the campaign; The Noose, The Keys of Hel, Unforged, Unspoken, Immortal Duty, The Either, Deeds Endure, Grey Talon and The Hand Elect trace its costs across captured frigates, drifting hulks and burning worlds; The Seventh Serpent puts Meduson's grand stratagem on the line against the Sons of Horus. Together the collected tales chart a vengeful, fragmented war that the Imperium will never officially acknowledge.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "sector", "mid_series", "doorstopper", "war_story", "last_stand", "somber", "grimdark", "action_heavy", "war", "brotherhood", "sacrifice", "betrayal", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Salamanders", "role": "supporting" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "World Eaters", "role": "antagonist" },
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Alpha Legion", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Shadrak Meduson", "role": "pov" },
+          { "name": "Bion Henricos", "role": "pov" },
+          { "name": "Tybalt Marr", "role": "antagonist" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "locations", "reason": "stories range across many one-off ship and planet settings; no single location anchors the volume." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.70, "count": 1310, "evidenceUrl": "https://www.goodreads.com/book/show/33791624-shattered-legions" }
+      }
+    },
+    {
+      "externalBookId": "HH-0044",
+      "slug": "the-crimson-king",
+      "overrides": {
+        "synopsis": "Exiled to the Planet of the Sorcerers deep within the Eye of Terror, the Thousand Sons can no longer pretend their Primarch is whole. Magnus the Red is fragmenting: shards of his soul scattered across realities he cannot reach alone. Ahriman gathers a desperate retinue — Hathor Maat, Sobek, Menkaura, Sanakht, Tolbek, and Lucius of the Emperor's Children — and crosses into the warp aboard the Torquetum, a vessel of nested rings that walks between worlds. The hunt that follows takes them through fractured timelines, daemon courts and the buried wreckage of Prospero, while back on the Planet of the Sorcerers Magnus's surviving captains argue over what their father is becoming and what they must do to bring him back. The road to the Rubric of Ahriman begins here.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "chaos", "galactic", "mid_series", "standard", "journey", "character_study", "cosmic_horror", "philosophical", "grimdark", "doubt", "hubris", "faith", "betrayal", "cw_violence", "cw_death", "cw_disturbing", "en"],
+        "factions": [
+          { "name": "Thousand Sons", "role": "primary" },
+          { "name": "Emperor's Children", "role": "supporting" },
+          { "name": "Chaos Daemons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Planet of the Sorcerers", "role": "primary" },
+          { "name": "Eye of Terror", "role": "primary" },
+          { "name": "Prospero", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Magnus the Red", "role": "pov" },
+          { "name": "Ahriman", "role": "pov" },
+          { "name": "Hathor Maat", "role": "supporting" },
+          { "name": "Menkaura", "role": "supporting" },
+          { "name": "Sanakht", "role": "supporting" },
+          { "name": "Tolbek", "role": "supporting" },
+          { "name": "Lucius", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.70, "count": 1892, "evidenceUrl": "https://www.goodreads.com/book/show/34466791-the-crimson-king" }
+      }
+    },
+    {
+      "externalBookId": "HH-0045",
+      "slug": "tallarn",
+      "overrides": {
+        "synopsis": "Perturabo brings the Iron Warriors down on the agri-world of Tallarn and, in a single act of spite, poisons the surface so utterly that the survivors must fight from inside their tanks. What follows is the largest armoured engagement in the history of the Imperium: dreadnoughts, tank squadrons and Titans grinding across a dead landscape while embedded crews ration air and watch the dosimeter. Threaded through the carnage is the silent war of the Vanus operative Iaeo, who plays her own games against an Alpha Legion infiltration that has been seeded into the planet's soldiery long before the bombardment. Collecting the novellas and short fiction John French has built around the battle, the volume reveals that Perturabo did not come to Tallarn for vengeance alone — he came hunting something buried, and the Black Oculus knows his name.",
+        "facetIds": ["book", "audiobook", "mixed", "multi", "guardsman", "imperium", "planetary", "mid_series", "doorstopper", "war_story", "siege", "grimdark", "somber", "action_heavy", "war", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Alpha Legion", "role": "antagonist" },
+          { "name": "Imperial Army", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Tallarn", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Perturabo", "role": "antagonist" },
+          { "name": "Iaeo", "role": "pov" },
+          { "name": "Hrend", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.75, "count": 1370, "evidenceUrl": "https://www.goodreads.com/book/show/35150631-tallarn" }
+      }
+    },
+    {
+      "externalBookId": "HH-0046",
+      "slug": "ruinstorm",
+      "overrides": {
+        "synopsis": "Imperium Secundus, the rival realm raised in Ultramar while Terra fell silent, has been exposed as a heretical mistake. Sanguinius, Roboute Guilliman and Lion El'Jonson set their sights on the throneworld and try to break out of Macragge — but the galaxy between them and the Emperor is choked by a roiling warp anomaly, the Word Bearers' Ruinstorm. The three primarchs split their fleets, brave daemon-haunted reefs and dead worlds where Lorgar's priests have remade reality, and confront the prophecies each of them has been hiding. Sanguinius sees the wings of his own death, the Lion bargains with what should not exist, and Guilliman watches the dream of a Secundus he had almost let himself believe in crumble around him. The road to the Siege opens here.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "galactic", "mid_series", "standard", "journey", "war_story", "somber", "philosophical", "grimdark", "sacrifice", "brotherhood", "faith", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Blood Angels", "role": "primary" },
+          { "name": "Ultramarines", "role": "primary" },
+          { "name": "Dark Angels", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Night Lords", "role": "antagonist" },
+          { "name": "Chaos Daemons", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Macragge", "role": "primary" },
+          { "name": "Davin", "role": "supporting" },
+          { "name": "Ultramar", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sanguinius", "role": "pov" },
+          { "name": "Roboute Guilliman", "role": "pov" },
+          { "name": "Lion El'Jonson", "role": "pov" },
+          { "name": "Konrad Curze", "role": "antagonist" },
+          { "name": "Kor Phaeron", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.73, "count": 1919, "evidenceUrl": "https://www.goodreads.com/book/show/35297653-ruinstorm" }
+      }
+    },
+    {
+      "externalBookId": "HH-0047",
+      "slug": "old-earth",
+      "overrides": {
+        "synopsis": "Reborn after Numeon's sacrifice on Macragge, Vulkan turns his back on Imperium Secundus and sets a course for Terra with only three Salamanders at his side — a guard he calls his Draaksward. Their journey ranges across half-forgotten worlds, eldar machinations and the deepening shadow of the eldritch Cabal, with Eldrad Ulthran's hand never quite visible on the wheel. In parallel, Shadrak Meduson tries to hold the Shattered Legions together as Tybalt Marr's Sons of Horus close in: three escalating engagements decide whether the vengeful campaign for Ferrus Manus survives at all. Around the edges the perpetual Barthusa Narek and other long-buried threads pull tight. The volume closes Nick Kyme's Salamanders arc and points Vulkan, alone of his brothers, at a war he has only just begun to understand.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "galactic", "mid_series", "standard", "journey", "war_story", "somber", "philosophical", "grimdark", "sacrifice", "brotherhood", "war", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Iron Hands", "role": "supporting" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Eldar", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Nocturne", "role": "supporting" },
+          { "name": "Macragge", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Vulkan", "role": "pov" },
+          { "name": "Shadrak Meduson", "role": "pov" },
+          { "name": "Tybalt Marr", "role": "antagonist" },
+          { "name": "Eldrad Ulthran", "role": "supporting" },
+          { "name": "Barthusa Narek", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.72, "count": 1384, "evidenceUrl": "https://www.goodreads.com/book/show/36373742-old-earth" }
+      }
+    },
+    {
+      "externalBookId": "HH-0048",
+      "slug": "the-burden-of-loyalty",
+      "overrides": {
+        "synopsis": "Eight tales from the long fault-line of the Heresy. Chris Wraight's novella The Wolf King watches Leman Russ argue the price of obedience after the burning of Prospero. Rob Sanders's Cybernetica follows a Mechanicum thinking engine that learns the war is not the war it was built for. Around them, shorter stories pull at the edges of canon — Dan Abnett's Perpetual on a deathless agent of Malcador, David Annandale's The Binary Succession on the politics of a fracturing Mars, Aaron Dembski-Bowden's Into Exile on a Knight Errant cutting away from the rest of his order, John French's Ordo Sinister on a Titan crew already too far gone, L J Goulding's The Heart of the Pharos on what was buried beneath Sotha, and Gav Thorpe's The Thirteenth Wolf on a vendetta the Vlka Fenryka would rather forget. Loyalty here is never simple, and never cheap.",
+        "facetIds": ["book", "audiobook", "male", "multi", "imperium", "sector", "mid_series", "doorstopper", "war_story", "character_study", "somber", "grimdark", "war", "loyalty", "betrayal", "sacrifice", "doubt", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Mechanicum", "role": "primary" },
+          { "name": "Knights Errant", "role": "supporting" },
+          { "name": "Sons of Horus", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "supporting" },
+          { "name": "Mars", "role": "supporting" },
+          { "name": "Sotha", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Leman Russ", "role": "pov" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "characters", "reason": "anthology-wide cast is broad; only stories with clearly named lead POVs surfaced in available sources." }
+        ],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.71, "count": 1098, "evidenceUrl": "https://www.goodreads.com/book/show/36373724-the-burden-of-loyalty" }
+      }
+    },
+    {
+      "externalBookId": "HH-0049",
+      "slug": "wolfsbane",
+      "overrides": {
+        "synopsis": "Leman Russ has carried an old vow since the Council of Nikaea: if his brother Horus ever turned, Russ would be the executioner. Now, with the Warmaster's fleet bearing down on Terra, the Primarch of the Space Wolves defies three of his loyal brothers and pulls the Rout out of the Solar defence to keep that promise. Aboard the fleet he carries a spear taken from his own wall on Fenris — a relic that whispers, dreams at him, and waits. Malcador's agents bring back reports of what Horus has become: something no man, not even a primarch, can break alone. Along the way, in the bowels of a forge fleet, a Mechanicum genius named Belisarius Cawl quietly takes his first step into a story that will outlast every legion at the table.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "galactic", "mid_series", "standard", "war_story", "journey", "last_stand", "somber", "grimdark", "action_heavy", "brotherhood", "sacrifice", "loyalty", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Space Wolves", "role": "primary" },
+          { "name": "Sons of Horus", "role": "antagonist" },
+          { "name": "Mechanicum", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Terra", "role": "supporting" },
+          { "name": "Fenris", "role": "supporting" },
+          { "name": "Trisolian", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Leman Russ", "role": "pov" },
+          { "name": "Horus", "role": "antagonist" },
+          { "name": "Bjorn", "role": "supporting" },
+          { "name": "Belisarius Cawl", "role": "supporting" },
+          { "name": "Malcador the Sigillite", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.19, "count": 2065, "evidenceUrl": "https://www.goodreads.com/book/show/38747895-wolfsbane" }
+      }
+    },
+    {
+      "externalBookId": "HH-0050",
+      "slug": "born-of-flame",
+      "overrides": {
+        "synopsis": "A late-Heresy collection that maps Vulkan's sons across the full sweep of the Salamanders' war. The novellas Promethean Sun and Scorched Earth set bookends around the Legion's Great Crusade and the burning of Nocturne after Isstvan. The novel Sons of the Forge picks up Artellus Numeon's lonely pilgrimage to recover his lost Primarch, leading an unlikely band of survivors through traitor space toward the home world that may already be lost. Two further short stories tighten the seams between these arcs. Together they read as a single, smoke-darkened biography of a legion that refuses to break — even after Isstvan V, even after the burning of their own world, even after their Primarch has been declared dead more than once.",
+        "facetIds": ["book", "audiobook", "male", "space_marine", "imperium", "planetary", "mid_series", "doorstopper", "war_story", "character_study", "somber", "action_heavy", "brotherhood", "war", "loyalty", "sacrifice", "cw_violence", "cw_death", "en"],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Night Lords", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Nocturne", "role": "primary" },
+          { "name": "One Forty Twenty", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Vulkan", "role": "pov" },
+          { "name": "Artellus Numeon", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.42, "count": 928, "evidenceUrl": "https://www.goodreads.com/book/show/38747869-born-of-flame" }
+      }
+    }
+  ]
+}

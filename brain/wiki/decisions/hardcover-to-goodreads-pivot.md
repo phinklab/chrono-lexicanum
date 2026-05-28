@@ -4,9 +4,9 @@ type: decision
 created: 2026-05-20
 updated: 2026-05-20
 sources:
-  - ../../../sessions/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md
-  - ../../../sessions/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md
-  - ../../../sessions/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md
+  - ../../../sessions/archive/2026-05/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md
+  - ../../../sessions/archive/2026-05/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md
+  - ../../../sessions/archive/2026-05/2026-05-15-075-impl-cockpit-drift-sort-and-rating.md
 related:
   - ./no-goodreads.md
   - ./why-multi-source-merge.md
@@ -18,7 +18,7 @@ decision-date: 2026-05-20
 
 # Hardcover → Goodreads — the rating-source pivot
 
-**Status:** active · amends the rating half of [`./no-goodreads.md`](./no-goodreads.md) · **Decided:** 2026-05-20 · **Sessions:** [086-arch](../../../sessions/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md), [086-impl](../../../sessions/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md)
+**Status:** active · amends the rating half of [`./no-goodreads.md`](./no-goodreads.md) · **Decided:** 2026-05-20 · **Sessions:** [086-arch](../../../sessions/archive/2026-05/2026-05-20-086-arch-hardcover-hit-rate-pass-2.md), [086-impl](../../../sessions/archive/2026-05/2026-05-20-086-impl-hardcover-hit-rate-pass-2.md)
 
 ## Context
 

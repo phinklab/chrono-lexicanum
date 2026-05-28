@@ -8,7 +8,7 @@ sources:
   - ../../../sessions/_templates/architect-brief.md
   - ../../../sessions/_templates/implementer-report.md
   - ../../../sessions/archive/2026-05/2026-05-09-051-arch-brain-slim-pass.md
-  - ../../../sessions/2026-05-23-095-arch-rollup-ownership.md
+  - ../../../sessions/archive/2026-05/2026-05-23-095-arch-rollup-ownership.md
 related:
   - ./cowork-session.md
   - ./cc-session.md

@@ -1,0 +1,504 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-hh-013",
+  "createdBy": "claude-code",
+  "createdAt": "2026-05-25",
+  "model": "claude-opus-4-7[1m]",
+  "rationale": "Tenth wave of Horus Heresy novellas (2013-2015 limited-edition run): the Shattered Legions guerrilla arc (Soulforge, Scorched Earth, Ravenlord, Seventh Serpent), the Tallarn duology (Executioner, Ironclad), and standalone primarch-decision pieces (Prince of Crows, Crimson Fist, Purge, Cybernetica). Source coverage was strong across the batch with stable Goodreads work-aggregations and no format conflicts against the roster's novella tagging.",
+  "books": [
+    {
+      "externalBookId": "HH-0121",
+      "slug": "corax-soulforge",
+      "overrides": {
+        "synopsis": "After the Dropsite Massacre on Isstvan V, Corax leads the survivors of the Raven Guard in a relentless shadow war against the Warmaster's allies. When the Legion intercepts a stricken Word Bearers vessel far behind enemy lines, the prisoners' confessions point to a darker pact: the priesthood of the forge world Constanix II is forging a new generation of war machines for the traitor cause. Corax orders a strike. Slipping past Mechanicum patrols with Agapito and Branne, he descends into the cathedral-foundries of Constanix to break the alliance and steal what he can — and to confront the rumours about his own genesis that have haunted him since Deliverance. The mission becomes a brutal interrogation of vengeance, command, and the cost of staying the Emperor's son when the Emperor has fallen silent.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "novella",
+          "requires_context",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "doubt",
+          "loyalty",
+          "brotherhood",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Mechanicum", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Constanix II", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Corax", "role": "pov" },
+          { "name": "Agapito", "role": "supporting" },
+          { "name": "Branne", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.61,
+          "count": 388,
+          "evidenceUrl": "https://www.goodreads.com/book/show/17787837.Corax_Soulforge"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0122",
+      "slug": "scorched-earth",
+      "overrides": {
+        "synopsis": "In the ash-choked aftermath of the Dropsite Massacre, the killing fields of Isstvan V are silent except for the carrion-feeders and the traitor patrols hunting survivors. Ra'stan and Usabius of the Salamanders crawl from the rubble and refuse to flee with the other survivors. Their primarch Vulkan is missing, presumed dead, and they will not leave the planet without his body — or a sign of his fate. Across the Urgall Depression they stalk Word Bearers and Night Lords picket forces, ambushing the murderers of their brothers for every yard of ground. What they discover in the ruins is older and stranger than any of them imagined, and the phrase that will become a creed — Vulkan Lives — is first spoken here, between two soldiers who have lost everything but their oath.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "novella",
+          "requires_context",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "war_story",
+          "journey",
+          "grimdark",
+          "somber",
+          "brotherhood",
+          "loyalty",
+          "sacrifice",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Salamanders", "role": "primary" },
+          { "name": "Word Bearers", "role": "antagonist" },
+          { "name": "Night Lords", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Isstvan V", "role": "primary" },
+          { "name": "Urgall Depression", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Ra'stan", "role": "pov" },
+          { "name": "Usabius", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.69,
+          "count": 358,
+          "evidenceUrl": "https://www.goodreads.com/book/show/18485499-scorched-earth"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0123",
+      "slug": "tallarn-executioner",
+      "overrides": {
+        "synopsis": "Tallarn was a paradise world of orchards and white cities until the Iron Warriors arrived in orbit and bled it dry with virus-bombs. Now its surface is a poisoned crust of dust, ruin, and biological sludge, and the only sound is the grind of armour beneath the toxin clouds. Lieutenant Tahirah of the Jurnian 701st emerges from a deep shelter at the helm of an Executioner battle tank called Lantern, leading the remnants of her regiment in an attempt to harry the Iron Warriors columns rolling across the wasteland. Her crew expects to die. What none of them know is that the war their masters have come to wage on Tallarn has nothing to do with conquest, and that other powers — loyal and not — are quietly steering the slaughter towards an outcome only they understand.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "novella",
+          "requires_context",
+          "female",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "war_story",
+          "siege",
+          "last_stand",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "war",
+          "sacrifice",
+          "brotherhood",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Warriors", "role": "antagonist" },
+          { "name": "Imperial Army", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Tallarn", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Tahirah", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.78,
+          "count": 353,
+          "evidenceUrl": "https://www.goodreads.com/book/show/18803011-tallarn"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0124",
+      "slug": "prince-of-crows",
+      "overrides": {
+        "synopsis": "The Thramas Crusade has dragged on through a hundred void-engagements and the Night Lords are bleeding men they cannot replace. Their primarch Konrad Curze lies in a coma after the Lion mauled him in single combat, and the Legion's senior officers — the Kyroptera — gather aboard the Nightfall to settle what comes next. First Captain Sevatar, the self-styled Prince of Crows, has already made his decision: shatter the Legion into six independent companies, slip the Dark Angels' grasp, and run for Terra. As he argues his case, Curze's memories bleed into his head — the lifepod's crash on Nostramo, the murder of the city he ruled, the moment the Emperor lifted him out of the gutter. Sevatar must hold his brothers together long enough to outwit the Lion and reckon with the kind of monster his father chose him to be.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "novella",
+          "requires_context",
+          "male",
+          "space_marine",
+          "chaos",
+          "sector",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "betrayal",
+          "brotherhood",
+          "hubris",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Night Lords", "role": "primary" },
+          { "name": "Dark Angels", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Nostramo", "role": "supporting" },
+          { "name": "Thramas Sector", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Sevatar", "role": "pov" },
+          { "name": "Konrad Curze", "role": "supporting" },
+          { "name": "Lion El'Jonson", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.41,
+          "count": 743,
+          "evidenceUrl": "https://www.goodreads.com/book/show/18303309-prince-of-crows"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0125",
+      "slug": "the-crimson-fist",
+      "overrides": {
+        "synopsis": "Months ago the Imperial Fists relief fleet jumped the warp toward Isstvan III, intending to reinforce a campaign that no longer exists. They have not arrived. Stranded in the becalmed Phall system, Captain Alexis Polux holds the squadron together through warp-sickness and silence, waiting for Rogal Dorn's next order. When the Iron Warriors finally translate into Phall and answer an old grudge between primarchs with a fleet of their own, Polux is forced to fight the largest void battle of his life with ships designed for siege escort and a chain of command made of his own steadiness. The novella is at once a duel between the sons of Dorn and Perturabo and the forging of the captain who will lead the survivors of Rynn's World into history as the first Crimson Fist.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "novella",
+          "requires_context",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "war_story",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "brotherhood",
+          "loyalty",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Imperial Fists", "role": "primary" },
+          { "name": "Iron Warriors", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Phall System", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Alexis Polux", "role": "pov" },
+          { "name": "Rogal Dorn", "role": "supporting" },
+          { "name": "Perturabo", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.89,
+          "count": 503,
+          "evidenceUrl": "https://www.goodreads.com/book/show/15771341-the-crimson-fist"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0126",
+      "slug": "the-purge",
+      "overrides": {
+        "synopsis": "Sor Talgron commanded the 34th Chapter of the Word Bearers on Terra, garrisoning the Emperor's palace while his Legion plotted treason in the dark. Now Lorgar has finally recalled him, and the 34th sails for Ultramar with the Shadow Crusade — Talgron's first orders as an open traitor. With the Dark Apostle Jaruleth at his side he descends on Percepton Primus and burns the world to break the Ultramarines' 17th Chapter under Aecus Decimus. What begins as a campaign turns into something Talgron does not recognise: systematic extermination, theatre for the gods his brothers serve. A soldier who has always trusted bolter and brother above all faith, Talgron must decide whether the work of the Heresy is worth the man he is making of himself, or whether the doubt itself is the last loyal thing left in him.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "novella",
+          "requires_context",
+          "male",
+          "space_marine",
+          "chaos",
+          "planetary",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "doubt",
+          "betrayal",
+          "faith",
+          "loyalty",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Ultramarines", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Percepton Primus", "role": "primary" },
+          { "name": "Ultramar", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Sor Talgron", "role": "pov" },
+          { "name": "Jaruleth", "role": "supporting" },
+          { "name": "Aecus Decimus", "role": "antagonist" },
+          { "name": "Lorgar", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.86,
+          "count": 333,
+          "evidenceUrl": "https://www.goodreads.com/book/show/22816118-the-purge"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0127",
+      "slug": "ravenlord",
+      "overrides": {
+        "synopsis": "Corax and the surviving Raven Guard have given up on conventional war. Instead they range across the worlds the Warmaster has subjugated, sparking uprisings, gathering disaffected mortals into auxiliary armies, and bleeding the traitor garrisons one ambush at a time. When an old comrade thought lost at Isstvan walks back into their lines and tells of a prison-colony where loyalists are being broken in their thousands, Corax knows the offer is too generous to be honest. He plans the raid anyway. As the Legion drives toward Carandiru he is haunted by older ghosts — the chains he wore on Lycaeus, the failure of the Raptor gene-experiment, the cost his Legion has paid for being his sons. The novella is a study of a primarch who has begun to doubt, even as the war demands he keep choosing.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "novella",
+          "requires_context",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "doubt",
+          "sacrifice",
+          "brotherhood",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Raven Guard", "role": "primary" },
+          { "name": "Sons of Horus", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Carandiru", "role": "primary" },
+          { "name": "Deliverance", "role": "supporting" },
+          { "name": "Lycaeus", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Corax", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.65,
+          "count": 256,
+          "evidenceUrl": "https://www.goodreads.com/book/show/22011883-ravenlord"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0128",
+      "slug": "the-seventh-serpent",
+      "overrides": {
+        "synopsis": "The Iron Hands cruiser Sisypheum has become a vessel of shattered Legion warriors — Iron Hands, a Salamander, a Raven Guard — bound together by Captain Ulrach Branthan's stasis-locked body and a vendetta that has outlived every chain of command. When the warlord Shadrak Meduson summons them to strike at a hidden Alpha Legion outpost, the crew agrees almost without debate. They are tired of running. They want a victory. But the outpost is not a depot, the operation is not what Meduson described, and Alpharius's sons have built the entire engagement around an answer to a question the loyalists did not know they were asking. The story closes around the Sisypheum like a snare, and the architect waiting at the centre is unlike any opponent the shattered have faced.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "novella",
+          "requires_context",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "war_story",
+          "mystery",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "betrayal",
+          "brotherhood",
+          "war",
+          "cw_violence",
+          "cw_death",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Hands", "role": "primary" },
+          { "name": "Salamanders", "role": "supporting" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Alpha Legion", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Sharrowkyn", "role": "supporting" },
+          { "name": "Atesh Tarsa", "role": "supporting" },
+          { "name": "Ulrach Branthan", "role": "supporting" },
+          { "name": "Shadrak Meduson", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.11,
+          "count": 367,
+          "evidenceUrl": "https://www.goodreads.com/book/show/23515647-the-seventh-serpent"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0129",
+      "slug": "tallarn-ironclad",
+      "overrides": {
+        "synopsis": "The Iron Warriors have not lifted the siege of Tallarn. Beneath a permanent shroud of viral toxin, the largest tank battle in human history grinds on across what used to be cities and orchards, dreadnoughts dragging through poisoned slurry while Titans walk the horizon. Perturabo has spent more of his Legion here than any of his lieutenants can rationalise, and an envoy of Horus arrives to ask him why. Around the Lord of Iron's silence the campaign accelerates: the loyalist survivors regroup under makeshift command, the Iron Warrior Hrend pursues a private mission for daemonic power, and a relic called the Black Oculus draws every faction toward a single buried point. By the time Horus himself manifests on the battlefield to demand his son kneel, the war has stopped being about Tallarn at all.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "novella",
+          "requires_context",
+          "mixed",
+          "multi",
+          "dual",
+          "planetary",
+          "war_story",
+          "siege",
+          "grimdark",
+          "action_heavy",
+          "somber",
+          "war",
+          "hubris",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Iron Warriors", "role": "primary" },
+          { "name": "Imperial Army", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Tallarn", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Perturabo", "role": "antagonist" },
+          { "name": "Hrend", "role": "antagonist" },
+          { "name": "Horus", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.79,
+          "count": 266,
+          "evidenceUrl": "https://www.goodreads.com/book/show/24978519-tallarn"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0130",
+      "slug": "cybernetica",
+      "overrides": {
+        "synopsis": "Mars has been lost. The fall of the Forge World Principal came so fast and so cleanly that Rogal Dorn was forced to throw a blockade around the Red Planet rather than admit how deep the corruption ran. Now Malcador the Sigillite has decided that containment is not enough — Mars must be sterilised. Dravian Klayde, a Raven Guard techmarine elevated to Knight-Errant, infiltrates the planet as the Schism boils over and is left the lone survivor of a butchered loyalist enclave. With the Sigillite he conceives a final-solution weapon: free an imprisoned heretek and unleash his army of sentient cybernetica engines on every living thing on Mars. The novella turns on the rules a desperate Imperium will break to win, and on the cost of being the man Malcador chose to break them.",
+        "facetIds": [
+          "book",
+          "audiobook",
+          "novella",
+          "requires_context",
+          "male",
+          "space_marine",
+          "imperium",
+          "planetary",
+          "war_story",
+          "character_study",
+          "grimdark",
+          "somber",
+          "action_heavy",
+          "sacrifice",
+          "doubt",
+          "hubris",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing",
+          "en"
+        ],
+        "factions": [
+          { "name": "Mechanicum", "role": "antagonist" },
+          { "name": "Raven Guard", "role": "supporting" },
+          { "name": "Knights-Errant", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Mars", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Dravian Klayde", "role": "pov" },
+          { "name": "Malcador the Sigillite", "role": "supporting" },
+          { "name": "Rogal Dorn", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.49,
+          "count": 356,
+          "evidenceUrl": "https://www.goodreads.com/book/show/25916430-cybernetica"
+        }
+      }
+    }
+  ]
+}
