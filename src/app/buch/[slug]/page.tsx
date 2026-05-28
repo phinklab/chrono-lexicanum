@@ -3,6 +3,8 @@
  *
  * Brief 073 (2026-05-14): audit/provenance fields moved to
  * /buch/[slug]/audit so this route can stay reader-facing.
+ * Brief 096 (2026-05-23): rebuilt in the Warhammer-Optics direction —
+ * vista photo backdrop, c-glass cover panel, cyan-chip junctions.
  */
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -26,6 +28,7 @@ import {
   works as worksTable,
 } from "@/db/schema";
 import { FORMAT_LABELS } from "@/lib/book-labels";
+import SiteBackground from "@/components/chrome/SiteBackground";
 
 type Params = { slug: string };
 
@@ -156,9 +159,11 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
   ].filter((v): v is string => Boolean(v));
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-24">
-      <div className="grid gap-10 md:grid-cols-[220px_minmax(0,1fr)]">
-        <div className="md:pt-10">
+    <main className="book-detail">
+      <SiteBackground variant="vista" position="50% 22%" />
+
+      <div className="book-detail__layout">
+        <aside className="book-detail__cover-panel c-glass c-corners">
           {book.coverUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -166,45 +171,36 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
               alt=""
               width={220}
               height={330}
-              className="aspect-[2/3] w-full max-w-[220px] border border-frost-400/25 object-cover"
+              className="book-detail__cover-img"
             />
           ) : (
-            <div
-              className="grid aspect-[2/3] w-full max-w-[220px] place-items-center border border-dashed border-frost-400/25 font-cinzel text-5xl text-frost-500"
-              aria-hidden
-            >
+            <div className="book-detail__cover-missing" aria-hidden>
               ?
             </div>
           )}
-        </div>
+        </aside>
 
-        <article>
-          <p className="font-mono text-xs uppercase text-frost-400">Buch</p>
-          <h1 className="mt-3 font-cinzel text-4xl text-aquila md:text-5xl">
-            {book.title}
-          </h1>
+        <article className="book-detail__title-block">
+          <div className="book-detail__eyebrow">{"// LECTIO PROFVNDA · BOOK"}</div>
+          <h1 className="book-detail__title">{book.title}</h1>
 
           {authors.length > 0 && (
-            <p className="mt-3 font-cormorant text-xl italic text-frost-200">
-              von {authors.join(", ")}
-            </p>
+            <p className="book-detail__byline">by {authors.join(", ")}</p>
           )}
 
           {metaParts.length > 0 && (
-            <p className="mt-4 font-mono text-xs text-frost-400">
-              {metaParts.join(" · ")}
-            </p>
+            <p className="book-detail__meta">{metaParts.join(" · ")}</p>
           )}
 
           {book.containedIn.length > 0 && (
-            <p className="mt-1 font-mono text-xs text-frost-400">
-              Auch enthalten in:{" "}
+            <p className="book-detail__contained">
+              Also contained in:{" "}
               {book.containedIn.map((c, i) => (
                 <span key={c.collectionSlug}>
                   {i > 0 && ", "}
                   <Link
                     href={`/buch/${c.collectionSlug}`}
-                    className="underline decoration-frost-500/40 underline-offset-2 hover:text-frost-200"
+                    className="book-detail__contained-link"
                   >
                     {c.collectionTitle}
                   </Link>
@@ -214,20 +210,16 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
           )}
 
           {book.synopsis && (
-            <p className="mt-8 max-w-3xl font-reader text-lg leading-relaxed text-frost-50/85">
-              {book.synopsis}
-            </p>
+            <p className="book-detail__synopsis">{book.synopsis}</p>
           )}
 
           {book.factions.length > 0 && (
-            <section className="mt-10">
-              <h2 className="font-mono text-xs uppercase text-frost-400">Factions</h2>
-              <ul className="mt-3 flex flex-wrap gap-2">
+            <section className="book-detail__section">
+              <div className="book-detail__section-label">{"// FACTIONS"}</div>
+              <span className="c-hairline" aria-hidden />
+              <ul className="book-detail__chip-row">
                 {book.factions.map((f) => (
-                  <li
-                    key={f.id}
-                    className="border border-frost-400/40 px-2 py-1 font-mono text-xs text-frost-200"
-                  >
+                  <li key={f.id} className="book-detail__chip">
                     {f.name}
                     {roleSuffix(f.role, "supporting")}
                   </li>
@@ -237,14 +229,12 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
           )}
 
           {book.locations.length > 0 && (
-            <section className="mt-7">
-              <h2 className="font-mono text-xs uppercase text-frost-400">Locations</h2>
-              <ul className="mt-3 flex flex-wrap gap-2">
+            <section className="book-detail__section">
+              <div className="book-detail__section-label">{"// LOCATIONS"}</div>
+              <span className="c-hairline" aria-hidden />
+              <ul className="book-detail__chip-row">
                 {book.locations.map((l) => (
-                  <li
-                    key={l.id}
-                    className="border border-frost-400/40 px-2 py-1 font-mono text-xs text-frost-200"
-                  >
+                  <li key={l.id} className="book-detail__chip">
                     {l.name}
                     {roleSuffix(l.role, "secondary")}
                   </li>
@@ -254,14 +244,12 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
           )}
 
           {book.characters.length > 0 && (
-            <section className="mt-7">
-              <h2 className="font-mono text-xs uppercase text-frost-400">Characters</h2>
-              <ul className="mt-3 flex flex-wrap gap-2">
+            <section className="book-detail__section">
+              <div className="book-detail__section-label">{"// CHARACTERS"}</div>
+              <span className="c-hairline" aria-hidden />
+              <ul className="book-detail__chip-row">
                 {book.characters.map((c) => (
-                  <li
-                    key={c.id}
-                    className="border border-frost-400/40 px-2 py-1 font-mono text-xs text-frost-200"
-                  >
+                  <li key={c.id} className="book-detail__chip">
                     {c.name}
                     {roleSuffix(c.role, "appears")}
                   </li>
@@ -271,13 +259,14 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
           )}
 
           {book.facets.length > 0 && (
-            <section className="mt-7">
-              <h2 className="font-mono text-xs uppercase text-frost-400">Tags</h2>
-              <ul className="mt-3 flex flex-wrap gap-2">
+            <section className="book-detail__section">
+              <div className="book-detail__section-label">{"// FACETS"}</div>
+              <span className="c-hairline" aria-hidden />
+              <ul className="book-detail__chip-row">
                 {book.facets.map((f) => (
                   <li
                     key={`${f.category}-${f.name}`}
-                    className="bg-frost-900/40 px-2 py-1 font-mono text-xs text-frost-300"
+                    className="book-detail__chip book-detail__chip--mute"
                   >
                     {f.name}
                   </li>
@@ -286,10 +275,10 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
             </section>
           )}
 
-          <footer className="mt-12 border-t border-frost-400/15 pt-5">
+          <footer className="book-detail__footer">
             <Link
               href={`/buch/${book.slug}/audit`}
-              className="font-mono text-xs text-frost-500 underline decoration-frost-500/40 underline-offset-4 hover:text-frost-300"
+              className="book-detail__audit-link"
             >
               {"// audit"}
             </Link>

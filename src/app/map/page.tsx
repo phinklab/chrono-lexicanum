@@ -1,24 +1,23 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "Cartographer — Galaxy Map" };
+import { getIsAdmin } from "@/lib/atlas/auth";
+import MapRoot from "@/components/map/MapRoot";
+import SiteBackground from "@/components/chrome/SiteBackground";
 
-/**
- * Map route. Will host the ported GalaxyMode component (SVG segmentum map).
- *
- * Phase 2 work (see ROADMAP.md):
- *   - port GalaxyMode.jsx → src/components/map/Galaxy.tsx
- *   - swap window.LOCATIONS / window.SECTORS for DB-driven data
- *   - add a time-slider (filter visible books by in-universe year)
- */
-export default function MapPage() {
+export const metadata: Metadata = { title: "Cartographer — Chrono Lexicanum" };
+
+// Server component (~30 LOC). Reads the auth signal forwarded by proxy.ts and
+// mounts the client tree inside a `.map-route` wrapper so the print stylesheet
+// can be scoped without bleeding into other pages. The global TopNav (z-index
+// 50, declared in `app/layout.tsx`) sits above the full-bleed map.
+export default async function MapPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-24">
-      <p className="font-mono text-xs uppercase tracking-[0.3em] text-frost-400">Phase 2</p>
-      <h1 className="mt-3 font-cinzel text-4xl text-aquila">Cartographer</h1>
-      <p className="mt-6 font-cormorant text-xl italic text-frost-50/80">
-        The interactive galaxy map lives here. Sectors, worlds, and books-per-place — with a time
-        slider to watch the Imperium fracture.
-      </p>
+    <main
+      className="map-route"
+      style={{ position: "fixed", inset: 0, zIndex: 1, isolation: "isolate", contain: "paint" }}
+    >
+      <SiteBackground variant="cartog-holo" position="50% 38%" />
+      <MapRoot initialIsAdmin={await getIsAdmin()} />
     </main>
   );
 }

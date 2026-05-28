@@ -26,6 +26,7 @@ import { parseFilterParams } from "@/lib/timelineUrl";
 import Overview from "@/components/timeline/Overview";
 import EraDetail from "@/components/timeline/EraDetail";
 import { DetailPanel } from "@/components/timeline/DetailPanel";
+import SiteBackground from "@/components/chrome/SiteBackground";
 
 export const metadata: Metadata = { title: "Chronicle — Timeline" };
 
@@ -119,6 +120,8 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
 
   return (
     <main className="timeline-shell">
+      <SiteBackground variant="chronicle" position="50% 32%" />
+
       <p className="timeline-eyebrow">
         <span aria-hidden>{"// Chronicle-Console"}</span>
         <span className="timeline-eyebrow-dot" aria-hidden />

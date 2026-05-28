@@ -1,21 +1,31 @@
 import type { Metadata } from "next";
-import Starfield from "@/components/chrome/Starfield";
-import TopChrome from "@/components/chrome/TopChrome";
+import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
+import TopNav from "@/components/chrome/TopNav";
+import MediaPlayer from "@/components/chrome/MediaPlayer";
 import "./globals.css";
 
-/**
- * Root layout for every route.
- *
- * Fonts are loaded from Google Fonts via <link> in <head>. We could use
- * `next/font` for self-hosting, but with five font families (Cinzel, Cormorant,
- * Newsreader, Space Grotesk, JetBrains Mono) the self-host bundle gets large.
- * Switch when we settle on the final 2–3 weights per family.
- *
- * Stacking order:
- *   - Starfield  (z-index 0, fixed, pointer-events: none)
- *   - children   (z-index 1, the route's own <main>)
- *   - TopChrome  (z-index 20, fixed top)
- */
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-cinzel",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Chrono · Lexicanum — The 41st Millennium Novel Archive",
@@ -31,25 +41,21 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Chrono Lexicanum",
   },
-  // No indexing during early development. Remove these once we go public.
   robots: { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-palette="cold" data-theme="dark">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="en"
+      data-palette="cold"
+      data-theme="dark"
+      className={`${cinzel.variable} ${cormorant.variable} ${plexMono.variable}`}
+    >
       <body suppressHydrationWarning>
-        <Starfield />
-        <TopChrome />
+        <TopNav />
         {children}
+        <MediaPlayer />
       </body>
     </html>
   );

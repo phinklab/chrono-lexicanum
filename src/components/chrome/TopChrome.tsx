@@ -24,9 +24,9 @@ export default function TopChrome() {
         <span className="mark-name">Chrono · Lexicanum</span>
       </Link>
 
-      <nav className="top-nav" aria-label="Hauptnavigation">
+      <nav className="top-nav" aria-label="Primary navigation">
         <Link href="/buecher" className="top-nav-link">
-          Bücher
+          Archive
         </Link>
       </nav>
 

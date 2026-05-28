@@ -32,8 +32,13 @@ const client =
   postgres(connectionString, {
     // Supabase serves Postgres over TLS — never disable.
     ssl: "require",
-    // Keep idle connections short on serverless; Postgres-js default is fine.
-    max: 10,
+    // Pool size: 5 stays comfortably below pgbouncer's default_pool_size on
+    // the Supabase free-tier pooler (~15). Higher values oversubscribe the
+    // pooler when the Atlas bridge fans out ~30 aggregate COUNTs at once,
+    // which queues queries inside pgbouncer until they hit statement_timeout
+    // and the cancelled state poisons the next request. Serializing client-
+    // side is faster than racing into the pooler's queue.
+    max: 5,
     prepare: false, // pg-bouncer (Supabase pooler) does not support named prepared statements
   });
 

@@ -5,8 +5,8 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 type SortKey = "updated" | "title";
 
 const OPTIONS: ReadonlyArray<{ id: SortKey; label: string }> = [
-  { id: "updated", label: "Zuletzt aktualisiert" },
-  { id: "title", label: "Titel A–Z" },
+  { id: "updated", label: "Recently updated" },
+  { id: "title", label: "Title A–Z" },
 ];
 
 export default function SortPills({
@@ -29,9 +29,9 @@ export default function SortPills({
   }
 
   return (
-    <div className="sort-pills" role="group" aria-label="Sortierung">
+    <div className="sort-pills" role="group" aria-label="Sort">
       <span className="sort-pills-label" aria-hidden>
-        {overriddenByDrift ? "Sortieren (Audit überschreibt)" : "Sortieren"}
+        {overriddenByDrift ? "Sort (audit overrides)" : "Sort"}
       </span>
       {OPTIONS.map((o) => {
         const isActive = active === o.id;

@@ -1,19 +1,17 @@
-import Link from "next/link";
 import { count, eq } from "drizzle-orm";
-import { Aquila } from "@/components/Aquila";
 import { db } from "@/db/client";
 import { works } from "@/db/schema";
+import BottomConsole from "@/components/chrono/BottomConsole";
+import FloatingCoord from "@/components/chrono/FloatingCoord";
+import GhostReadout from "@/components/chrono/GhostReadout";
+import MainAuspex from "@/components/chrono/MainAuspex";
+import SiteBackground from "@/components/chrome/SiteBackground";
+import HeroDescent from "@/components/home/HeroDescent";
+import HubScrollWatch from "@/components/home/HubScrollWatch";
+import ToolsAccordion from "@/components/home/ToolsAccordion";
 
-// ISR: re-render at most hourly so the novel-count footer stays fresh without redeploy.
 export const revalidate = 3600;
 
-/**
- * Hub — the entry route.
- *
- * Server component. Fetches a live count of novels in the archive on render
- * and folds it into the footer. Gracefully degrades to 0 if the DB is
- * unreachable.
- */
 async function getBookCount(): Promise<number> {
   try {
     const [row] = await db
@@ -26,178 +24,93 @@ async function getBookCount(): Promise<number> {
   }
 }
 
-const DOORWAYS = [
-  {
-    href: "/ask",
-    kicker: "Oracle",
-    title: "Ask the Archive",
-    body: "Answer five questions. The cogitator returns novels tuned to your signal.",
-    icon: <AskIcon />,
-    delay: "160ms",
-  },
-  {
-    href: "/timeline",
-    kicker: "Chronology",
-    title: "Chronicle",
-    body: "Walk the Imperium's history from the Great Crusade to Indomitus.",
-    icon: <TimelineIcon />,
-    delay: "280ms",
-  },
-  {
-    href: "/map",
-    kicker: "Cartography",
-    title: "Cartographer",
-    body: "Every novel pinned to the world it haunts. Sweep across five Segmenta.",
-    icon: <GalaxyIcon />,
-    delay: "400ms",
-  },
-] as const;
+const READOUT_LINES = [
+  "· AUSPEX HANDSHAKE OK",
+  "· CHRONO-INDEX MOUNTED",
+  "· NOVELLAE LOADED",
+  "· SCAN · SEGMENTUM ULTIMA",
+  "· SCAN · SEGMENTUM OBSCURUS",
+  "· COGNITIO LINK STABLE",
+  "· STAMP M42.347 · SEALED",
+  "· WARP TIDES · CALM · SHIFT +0.04",
+  "· VOLT · 4.72 kV NOMINAL",
+  "· INDEX · 7 ERAS · 5 SEGMENTA",
+  "· OVERLAY · CICATRIX MALEDICTUM",
+  "· OVERLAY · HIVE FLEET LEVIATHAN",
+  "· COGITATOR-1011 · ONLINE",
+  "· LECTIO PROFVNDA · READY",
+];
 
 export default async function HubPage() {
   const novelCount = await getBookCount();
+  const stats = `${novelCount} NOVELS · 7 ERAS · 5 SEGMENTA`;
 
   return (
-    <main className="hub-main">
-      <header className="hub-header">
-        <p className="hub-eyebrow">
-          <span aria-hidden>{"// Archive-Console"}</span>
-          <span className="hub-eyebrow-dot" aria-hidden />
-          <span aria-hidden>Cogitator online</span>
-        </p>
+    <main className="hub">
+      <SiteBackground variant="hub" />
+      <HubScrollWatch />
 
-        <div className="hub-aquila-wrap">
-          <Aquila className="hub-aquila" size={140} />
+      <section className="hub-fold hub-fold--hero">
+        <div className="hub-auspex hub-auspex--main" aria-hidden>
+          <MainAuspex size={620} spinDur={240} spinRevDur={320} sweepDur={28} />
+        </div>
+        <div className="hub-auspex hub-auspex--secondary" aria-hidden>
+          <MainAuspex size={341} spinDur={360} spinRevDur={440} sweepDur={36} />
         </div>
 
-        <h1 className="hub-title">
-          <span>Chrono</span>
-          <span className="hub-title-sep" aria-hidden>◆</span>
-          <span>Lexicanum</span>
-        </h1>
+        <div className="hub-title-block">
+          <div className="hub-title-eyebrow">
+            {"// ARCHIVE-CONSOLE · COGITATOR ACTIVUS"}
+          </div>
+          <h1 className="hub-title">
+            CHRONO <span aria-hidden>◆</span> LEXICANUM
+          </h1>
+          <p className="hub-title-sub">
+            The 41st Millennium novel archive — by era, faction, world, and mood.
+          </p>
+        </div>
 
-        <p className="hub-sub">
-          The 41st Millennium novel archive — by era, faction, world, and mood.
-        </p>
-      </header>
+        <FloatingCoord x="62vw" y="44vh" label="R 1.075 · A −38.6°" delay={0.4} lifetime={5.2} color="var(--cl-cyan)" opacity={0.55} />
+        <FloatingCoord x="20vw" y="74vh" label="HIT · NOVA TERRA · M42.347" delay={2.6} lifetime={5.8} color="var(--cl-cyan)" opacity={0.35} />
+        <FloatingCoord x="56vw" y="62vh" label="SECTOR · MALEDICTUM" delay={4.2} lifetime={5.2} color="var(--cl-cyan)" opacity={0.20} />
 
-      <section className="hub-grid" aria-label="Archive tools">
-        {DOORWAYS.map((d) => (
-          <Link
-            key={d.href}
-            href={d.href}
-            className="mode-tile"
-            style={{ "--delay": d.delay } as React.CSSProperties}
-          >
-            <span className="mt-corner tl" aria-hidden />
-            <span className="mt-corner tr" aria-hidden />
-            <span className="mt-corner bl" aria-hidden />
-            <span className="mt-corner br" aria-hidden />
+        <div className="hub-ghost">
+          <GhostReadout
+            color="var(--cl-cyan)"
+            opacity={0.32}
+            lineMs={5200}
+            typeSpeed={85}
+            max={4}
+            lines={READOUT_LINES}
+          />
+        </div>
 
-            <div className="mt-icon" aria-hidden>{d.icon}</div>
-            <div className="mt-body">
-              <div className="mt-kicker">{d.kicker}</div>
-              <h2 className="mt-title">{d.title}</h2>
-              <p className="mt-desc">{d.body}</p>
-            </div>
-            <div className="mt-enter">
-              Enter <span className="mt-arrow" aria-hidden>→</span>
-            </div>
-          </Link>
-        ))}
+        <HeroDescent />
       </section>
 
-      <footer className="hub-footer">
-        <div className="hub-footer-line">
-          <span>Fan Archive</span>
-          <span className="hub-dot" aria-hidden />
-          <span>Non-Commercial</span>
-          <span className="hub-dot" aria-hidden />
-          <span>
-            <strong>{novelCount}</strong> {novelCount === 1 ? "Novel" : "Novels"} Indexed
-          </span>
-          <span className="hub-dot" aria-hidden />
-          <span>7 Eras</span>
-          <span className="hub-dot" aria-hidden />
-          <span>5 Segmenta</span>
-        </div>
-        <p className="hub-footer-fineprint">
-          Unofficial fan project. Warhammer 40,000 © Games Workshop. No affiliation.
+      <section className="hub-fold hub-fold--tools">
+        <p className="hub-intro__body">
+          A fan-built archive of every novel set in the dying light of the
+          41st millennium — by era, faction, world, and mood.
         </p>
-      </footer>
+        <h2 className="hub-intro__heading">What can I do here?</h2>
+        <p className="hub-intro__about">
+          A hobby — a fan-built archive of the 41st millennium, made with love
+          over many long evenings for the Black Library and the slow, dark
+          march of the grimdark. The hope is simple: that you find your way
+          in, and that the cogitator gives you exactly the book you didn&rsquo;t
+          know you wanted next.
+        </p>
+        <ToolsAccordion />
+      </section>
+
+      <div className="hub-sound-strip" aria-hidden>
+        <span>◇</span>
+        <span>best experienced with sound</span>
+        <span>◇</span>
+      </div>
+
+      <BottomConsole withCards={false} novelCountText={stats} />
     </main>
-  );
-}
-
-/* ─── Inline SVG icons, ported from prototype Hub.jsx ──────────────────── */
-
-function AskIcon() {
-  return (
-    <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="1.2">
-      <circle cx="40" cy="40" r="30" opacity="0.3" />
-      <circle cx="40" cy="40" r="22" />
-      <path d="M40 28 v12 M40 46 v2" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="28" cy="40" r="2" fill="currentColor" stroke="none" />
-      <circle cx="52" cy="40" r="2" fill="currentColor" stroke="none" />
-      <path
-        d="M14 40 l-8 -4 M66 40 l8 -4 M40 14 l4 -8 M40 66 l-4 8"
-        strokeWidth="1.2"
-        opacity="0.5"
-      />
-    </svg>
-  );
-}
-
-function TimelineIcon() {
-  return (
-    <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="1.2">
-      <line x1="8" y1="40" x2="72" y2="40" strokeWidth="1.5" />
-      <circle cx="18" cy="40" r="3" fill="currentColor" stroke="none" />
-      <circle cx="32" cy="40" r="5" fill="currentColor" opacity="0.4" stroke="none" />
-      <circle cx="32" cy="40" r="2.5" fill="currentColor" stroke="none" />
-      <circle cx="46" cy="40" r="3" fill="currentColor" stroke="none" />
-      <circle cx="60" cy="40" r="4" fill="currentColor" opacity="0.4" stroke="none" />
-      <circle cx="60" cy="40" r="2.5" fill="currentColor" stroke="none" />
-      <line x1="18" y1="32" x2="18" y2="26" opacity="0.5" />
-      <line x1="46" y1="48" x2="46" y2="54" opacity="0.5" />
-      <text
-        x="18"
-        y="22"
-        fontSize="6"
-        fill="currentColor"
-        opacity="0.6"
-        textAnchor="middle"
-        fontFamily="ui-monospace, monospace"
-      >
-        M31
-      </text>
-      <text
-        x="46"
-        y="62"
-        fontSize="6"
-        fill="currentColor"
-        opacity="0.6"
-        textAnchor="middle"
-        fontFamily="ui-monospace, monospace"
-      >
-        M42
-      </text>
-    </svg>
-  );
-}
-
-function GalaxyIcon() {
-  return (
-    <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="1.2">
-      <ellipse cx="40" cy="40" rx="34" ry="14" opacity="0.25" />
-      <ellipse cx="40" cy="40" rx="28" ry="12" opacity="0.3" transform="rotate(30 40 40)" />
-      <ellipse cx="40" cy="40" rx="28" ry="12" opacity="0.3" transform="rotate(-30 40 40)" />
-      <circle cx="40" cy="40" r="3" fill="currentColor" stroke="none" />
-      <circle cx="22" cy="38" r="1.5" fill="currentColor" stroke="none" opacity="0.7" />
-      <circle cx="58" cy="42" r="1.5" fill="currentColor" stroke="none" opacity="0.7" />
-      <circle cx="40" cy="26" r="1.5" fill="currentColor" stroke="none" opacity="0.7" />
-      <circle cx="40" cy="54" r="1.5" fill="currentColor" stroke="none" opacity="0.7" />
-      <circle cx="28" cy="50" r="1" fill="currentColor" stroke="none" opacity="0.5" />
-      <circle cx="52" cy="30" r="1" fill="currentColor" stroke="none" opacity="0.5" />
-    </svg>
   );
 }
