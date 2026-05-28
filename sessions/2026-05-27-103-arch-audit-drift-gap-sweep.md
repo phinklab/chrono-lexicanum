@@ -2,7 +2,7 @@
 session: 2026-05-27-103
 role: architect
 date: 2026-05-27
-status: open
+status: implemented
 slug: audit-drift-gap-sweep
 parent: null
 links:
@@ -13,6 +13,7 @@ links:
   - 2026-05-14-073-arch-maintainer-audit-cockpit
   - 2026-05-26-100-arch-resolver-hh
   - 2026-05-28-103-impl-data-audit-drift-gap-sweep
+  - 2026-05-28-103-impl-ui-audit-drift-gap-sweep
 commits: []
 ---
 

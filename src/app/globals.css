@@ -2817,6 +2817,33 @@ main.catalogue {
   border-left-color: var(--cl-gold);
 }
 
+/* Brief 103: audio-drama damping in the single-gap audit bucket. Dimmed at
+ * rest so it reads as "expected sparse", full opacity on hover/open so the
+ * maintainer can still inspect it. The AUDIO tag lives in __main (not the
+ * chips column) so it survives the <=720px column collapse. */
+.catalogue-row.is-audio-dim {
+  opacity: 0.5;
+  transition: opacity 180ms;
+}
+.catalogue-row.is-audio-dim:hover,
+.catalogue-row.is-audio-dim[open] {
+  opacity: 1;
+}
+.catalogue-row__audio-tag {
+  flex: none;
+  align-self: center;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  border: 1px solid var(--cl-faint);
+  padding: 1px 5px;
+}
+.catalogue-row__drift-signal {
+  color: var(--cl-bone);
+}
+
 .catalogue-row__summary {
   list-style: none;
   cursor: pointer;
