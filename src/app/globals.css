@@ -252,6 +252,10 @@
   --line-1: var(--color-line-1);
   --line-2: var(--color-line-2);
   --gold: var(--color-gold);
+
+  /* Site-wide custom scrollbar — neutral bone-grey, subtle (no glow). */
+  --scrollbar-thumb:       rgba(232, 228, 216, 0.18);
+  --scrollbar-thumb-hover: rgba(232, 228, 216, 0.34);
 }
 
 /* =============================================================================
@@ -264,6 +268,28 @@ body {
   color: var(--cl-bone);
   min-height: 100%;
 }
+
+/* Site-wide custom scrollbar. scrollbar-width/color are inherited, so declaring
+ * them on html cascades to every scroller (Firefox). The unscoped ::-webkit
+ * rules match every scrollbar, including the viewport's (Chromium/WebKit). */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-corner { background: transparent; }
 
 body {
   font-family: var(--font-cormorant), Georgia, serif;
@@ -2619,11 +2645,25 @@ main.catalogue {
     linear-gradient(
       180deg,
       rgba(2, 3, 10, 0) 0%,
-      rgba(2, 3, 10, 0) 45%,
-      rgba(2, 3, 10, 0.35) 65%,
-      rgba(2, 3, 10, 0.85) 85%,
-      rgba(2, 3, 10, 1) 100%
+      rgba(2, 3, 10, 0) 38%,
+      rgba(2, 3, 10, 0.45) 56%,
+      rgba(2, 3, 10, 0.88) 74%,
+      rgba(2, 3, 10, 1) 90%
     );
+}
+.catalogue-scrim {
+  position: fixed;
+  inset: 0;
+  /* Coplanar with .catalogue-hero__fade (z -1) but later in the DOM, so it
+   * paints over the fade. <ScrollScrim> raises --cat-scrim-opacity from 0
+   * toward ~0.7 as the reader scrolls into the list, fading the fixed cover
+   * photo to near-void so every row stays legible. SSR default 0 keeps the
+   * photo crisp on first paint. */
+  z-index: -1;
+  pointer-events: none;
+  background: var(--cl-void);
+  opacity: var(--cat-scrim-opacity, 0);
+  will-change: opacity;
 }
 .catalogue-hero__sweep {
   position: absolute;
@@ -2653,11 +2693,12 @@ main.catalogue {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 .catalogue-hero__heading {
+  /* /ask titlebar text discipline: lighter weight + wide tracking, in gold. */
   margin: 12px 0 0;
   font-family: var(--font-cinzel), serif;
-  font-weight: 500;
-  font-size: clamp(48px, 5vw, 72px);
-  letter-spacing: 0.08em;
+  font-weight: 400;
+  font-size: clamp(44px, 4.6vw, 64px);
+  letter-spacing: 0.22em;
   color: var(--cl-bone);
   text-shadow:
     0 0 32px rgba(201, 166, 90, 0.22),
@@ -2682,6 +2723,8 @@ main.catalogue {
    * überlappen"). */
   margin: -80px auto 0;
   padding: 24px clamp(20px, 3vw, 48px) 80px;
+  /* No boxed backing: the list reads against the full-viewport .catalogue-scrim
+   * (edge-to-edge), so there are no hard left/right gradient edges. */
 }
 
 .catalogue-toolbar {
@@ -2797,24 +2840,26 @@ main.catalogue {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0;
 }
 .catalogue-list > li {
   list-style: none;
 }
 
+/* Calm hairline-separated rows — the /ask "book-list" discipline ported to
+ * the catalogue in gold: no per-row glass card or accent border-left, just a
+ * gold-faint hairline dividing each row. The accent (gold) is reserved for
+ * live data (the year + the active status chip); structure stays neutral.
+ * Enriched/stub is signalled by the title colour (see below), not a border. */
 .catalogue-row {
-  border-left: 2px solid transparent;
-  transition: border-color 180ms;
+  border-top: 1px solid color-mix(in oklch, var(--cl-gold) 13%, transparent);
+  transition: background 180ms;
 }
-.catalogue-row.is-enriched {
-  border-left-color: var(--cl-gold-dim);
-}
-.catalogue-row.is-stub {
-  border-left-color: var(--cl-faint);
+.catalogue-list > li:first-child .catalogue-row {
+  border-top: none;
 }
 .catalogue-row[open] {
-  border-left-color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.045);
 }
 
 /* Brief 103: audio-drama damping in the single-gap audit bucket. Dimmed at
@@ -2868,6 +2913,14 @@ main.catalogue {
   outline: 1px solid var(--cl-gold);
   outline-offset: -2px;
 }
+/* Hover lift = a faint gold wash + a revealed chevron, mirroring the
+ * hover-revealed "Detail →" action on the /ask book rows. */
+.catalogue-row__summary:hover {
+  background: rgba(201, 166, 90, 0.05);
+}
+.catalogue-row__summary:hover .catalogue-row__chevron {
+  color: var(--cl-gold-dim);
+}
 
 .catalogue-row__index {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -2889,8 +2942,9 @@ main.catalogue {
 }
 .catalogue-row__title {
   font-family: var(--font-cinzel), serif;
-  font-size: 17px;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.05em;
   color: var(--cl-bone);
   white-space: nowrap;
   overflow: hidden;
@@ -2986,12 +3040,19 @@ main.catalogue {
 
 /* Expanded detail body for the <details> row. */
 
+/* Expanded detail reads as an inset ask-card: the same soft glass gradient as
+ * /ask's .ask-card, divided from the summary by a gold-faint hairline. */
 .catalogue-row__detail {
   display: grid;
   grid-template-columns: 160px 1fr;
   gap: 22px;
-  padding: 18px 18px 22px 60px;
-  border-top: 1px solid var(--cl-ghost);
+  padding: 22px 22px 26px 60px;
+  border-top: 1px solid color-mix(in oklch, var(--cl-gold) 16%, transparent);
+  background: linear-gradient(
+    180deg,
+    rgba(8, 12, 20, 0.55) 0%,
+    rgba(4, 8, 14, 0.72) 100%
+  );
 }
 .catalogue-row__cover {
   width: 140px;
@@ -3082,15 +3143,18 @@ main.catalogue {
   flex-wrap: wrap;
   gap: 6px;
 }
+/* Tags follow the same restraint: neutral hairline borders + bone text, not a
+ * wall of gold. Gold returns only on interaction (collection link hover). */
 .catalogue-tag {
   display: inline-block;
   padding: 3px 9px;
-  border: 1px solid var(--cl-gold-dim);
-  color: var(--cl-gold);
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-bone);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: 0.14em;
 }
+.catalogue-tag--faction { border-color: color-mix(in oklch, var(--cl-gold) 28%, transparent); }
 .catalogue-tag--facet { color: var(--cl-bone); border-color: var(--cl-faint); }
 .catalogue-tag__key { color: var(--cl-dim); }
 .catalogue-tag--collection a {
@@ -3805,8 +3869,9 @@ body:has(main.catalogue) .c-corners::after {
 /* `--top-nav-h` wird vom collapsed-State (body:has(.top-nav--collapsed)) auf
    124px hochgesetzt, damit die größere Nav den content darunter wegschiebt
    statt ihn zu überlappen. Surfaces mit eigenem main-padding-Override (Hub,
-   catalogue, ask) ignorieren das — die scrollen aber sowieso nicht, da kommt
-   collapsed nie zum Tragen. */
+   catalogue, ask, chronicle) scrollen zwar und kollabieren die Nav, sind aber
+   gegen den Collapse-Reflow immun: sie setzen main-padding auf 0, der 124px-Wert
+   greift dort also nicht. */
 body {
   --top-nav-h: 48px;
 }
@@ -4688,48 +4753,77 @@ main.stub-shell {
 }
 
 /* =============================================================================
- * /ask — viewport-locked Oraculum funnel (port of HANDOFF_ask_the_archive §4).
- * The AskClient renders its own 100vh container; main.ask only nails the
- * page to the viewport so absolute children (title strip, bottom nav) align.
+ * /ask — Oraculum funnel (port of HANDOFF_ask_the_archive §4).
+ * Phase-aware layout: the PATH step renders a hub-style scroll funnel (.ask-hero
+ * on the bright photo, then .ask-modules scrolling into the dark — see below).
+ * The QUESTION/RESULT steps render their own viewport-locked, absolutely-centred
+ * container inside AskClient. So main.ask no longer hard-locks the height; it
+ * just guarantees a full first screen and lets the path step grow + scroll.
  * ============================================================================= */
 
 main.ask {
   position: relative;
-  height: calc(100vh - 48px);
-  overflow: hidden;
+  min-height: calc(100vh - var(--top-nav-h, 48px));
 }
 
-/* Soft bottom dimming over the librarium photo — enough to keep BottomNav +
- * ProgressDots readable, but no hard black bar that would cover them. */
+/* Banner fade over the librarium photo — mirrors .catalogue-hero__fade: the
+ * photo is solid through the upper ~half (hero + title), then ramps to near-void
+ * by the foot, so the path modules (pulled up to overlap) sit on dark while
+ * their .ask-card glass keeps them readable over the lingering photo. */
 body:has(main.ask) .site-bg::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(2, 3, 10, 0) 0%,
-    rgba(2, 3, 10, 0) 62%,
-    rgba(2, 3, 10, 0.20) 82%,
-    rgba(2, 3, 10, 0.45) 100%
-  );
+  background:
+    radial-gradient(
+      ellipse at 50% 38%,
+      transparent 50%,
+      rgba(2, 3, 10, 0.20) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 3, 10, 0) 0%,
+      rgba(2, 3, 10, 0) 45%,
+      rgba(2, 3, 10, 0.35) 65%,
+      rgba(2, 3, 10, 0.85) 85%,
+      rgba(2, 3, 10, 0.98) 100%
+    );
 }
 
-/* Chronicle-Hall photo behind /timeline. Slightly stronger floor-dimming than
- * Hub/Ask: the era ribbon and DetailPanel sit far down, and the photo's lower
- * third (candles, balustrade) would otherwise compete with the ribbon ticks. */
+/* Chronicle-Hall photo behind /timeline. Mirrors .catalogue-hero__fade /
+ * main.ask: the photo is solid through the upper ~half (hero + title), then
+ * ramps to near-void by the foot so the timeline body (pulled up to overlap the
+ * hero) sits on dark. The scroll-driven .chronicle-scrim carries the void the
+ * rest of the way once the reader scrolls past the hero. */
 body:has(main.timeline-shell) .site-bg::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(2, 3, 10, 0) 0%,
-    rgba(2, 3, 10, 0.18) 32%,
-    rgba(2, 3, 10, 0.42) 70%,
-    rgba(2, 3, 10, 0.62) 100%
-  );
+  background:
+    radial-gradient(
+      ellipse at 50% 38%,
+      transparent 50%,
+      rgba(2, 3, 10, 0.20) 100%
+    ),
+    /* Foot-fade for the fixed chronicle-hall photo. Unlike /ask (where glass
+       path-cards sit ON the fade so a steep ramp reads as vignette), the
+       timeline is a full-bleed stage that overlaps this fade at scroll-top —
+       a steep ramp showed as a hard black band cutting across the ribbon.
+       This ramp is gentle on entry and only accelerates into deep void toward
+       the foot, so the photo dissolves seamlessly behind the timeline; the
+       scroll-driven .chronicle-scrim then carries the rest of the way to void. */
+    linear-gradient(
+      180deg,
+      rgba(2, 3, 10, 0) 0%,
+      rgba(2, 3, 10, 0) 46%,
+      rgba(2, 3, 10, 0.08) 58%,
+      rgba(2, 3, 10, 0.22) 68%,
+      rgba(2, 3, 10, 0.45) 78%,
+      rgba(2, 3, 10, 0.70) 88%,
+      rgba(2, 3, 10, 0.90) 100%
+    );
 }
 
 /* Cartog-Holo photo behind /map. The hologram disc lives over the photo's
@@ -4759,6 +4853,165 @@ body:has(main.map-route) .site-bg::after {
   width: 270px;
   z-index: 3;
   pointer-events: none;
+}
+
+/* ── path step: mirrors the /buecher (Archive) hero ──────────────────────
+ * A 60vh banner — the AuspexSweep HUD centred near the top, the title block
+ * over its lower half, then the path modules pulled up (-80px) to overlap the
+ * fading hero foot. The exact catalogue-hero → catalogue-body relationship,
+ * in cyan. Question/Result keep their own locked-centred container (AskClient). */
+.ask-funnel {
+  position: relative;
+  z-index: 3;
+  /* Mirror /buecher exactly: cancel the inherited `main { padding-top:
+   * var(--top-nav-h) }` for the landing phase, so the hero photo, the
+   * AuspexSweep HUD, the title block and the path modules line up
+   * pixel-for-pixel with the catalogue (which zeroes the padding via
+   * `main.catalogue { padding-top: 0 }`). The question/result phase is NOT
+   * inside .ask-funnel and keeps the padding — its viewport-locked container
+   * in AskClient depends on height: calc(100vh - var(--top-nav-h)). The
+   * matching transition keeps the offset in lockstep with main's padding-top
+   * animation when the nav height changes. */
+  margin-top: calc(-1 * var(--top-nav-h, 48px));
+  transition: margin-top 360ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Hero band — now just a spacer that reserves the banner height so the path
+ * modules sit at the /buecher-matching y. The title + sweep that used to live
+ * here are persistent overlays (.ask-titlebar / .ask-hud) so they can animate
+ * across phases. */
+.ask-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 520px;
+}
+
+/* Persistent HUD layer — auspex sweep + ambient floating coords. Full-bleed,
+ * pointer-transparent; opacity is the only thing that moves. Mounted in every
+ * phase so it can fade OUT when a path is chosen and fade back IN on the way
+ * home (data-landing toggles it). */
+.ask-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 520ms ease;
+}
+.ask-hud[data-landing="false"] {
+  opacity: 0;
+}
+.ask-hud__sweep {
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  width: 360px;
+  height: 360px;
+  transform: translateX(-50%);
+}
+
+/* Persistent title — one <h1> for the whole funnel. It RESTS at the compact
+ * header position (top: 184px, intentionally well below the old hard 70px) and
+ * is dropped down into the hero band in the landing phase via a transform, so
+ * choosing a path glides it up (≈320px → 184px) and "back" glides it down. A
+ * transform-only move stays on the GPU and never reflows the page. The landing
+ * resting y (184 + 136 = 320) matches .catalogue-hero__title for the /buecher
+ * overlay alignment. */
+.ask-titlebar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 184px;
+  z-index: 4;
+  text-align: center;
+  pointer-events: none;
+  transform: translateY(0);
+  transition: transform 620ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+.ask-titlebar[data-landing="true"] {
+  transform: translateY(136px);
+}
+.ask-titlebar__eyebrow {
+  opacity: 0.82;
+}
+.ask-titlebar__heading {
+  margin: 8px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 400;
+  font-size: clamp(38px, 4.4vw, 60px);
+  letter-spacing: 0.26em;
+  color: var(--cl-bone);
+  text-shadow:
+    0 0 32px rgba(156, 230, 255, 0.20),
+    0 4px 14px rgba(0, 0, 0, 0.95);
+}
+.ask-titlebar__diamond {
+  display: inline-block;
+  margin: 0 12px;
+  color: var(--cl-cyan);
+  font-size: 0.56em;
+  vertical-align: middle;
+}
+.ask-titlebar__line {
+  margin: 12px auto 0;
+  max-width: 640px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  color: var(--cl-bone);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+/* Question / result stage — viewport-locked, card centred in the space below
+ * the now-compact title. Replaces the former inline-styled container. */
+.ask-runtime {
+  position: relative;
+  height: calc(100vh - var(--top-nav-h, 48px));
+  overflow: hidden;
+}
+.ask-runtime__center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 270px 32px 80px;
+  z-index: 3;
+}
+
+.ask-modules {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: -80px auto 0;
+  padding: 24px clamp(20px, 3vw, 48px) 96px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Mobile hero geometry mirrors the catalogue's @media (max-width: 720px)
+ * block so the landing keeps lining up with /buecher at small widths: the
+ * sweep shrinks + rises, and the title's landing rest (88 + 152 = 240) matches
+ * .catalogue-hero__title. */
+@media (max-width: 720px) {
+  .ask-hero { height: 420px; }
+  .ask-hud__sweep { width: 260px; height: 260px; top: 48px; }
+  .ask-titlebar { top: 156px; }
+  .ask-titlebar[data-landing="true"] { transform: translateY(84px); }
+  .ask-modules { margin-top: -48px; }
+}
+
+/* Honour reduced-motion: keep the resting positions, drop the glide/fade. */
+@media (prefers-reduced-motion: reduce) {
+  .ask-titlebar,
+  .ask-hud,
+  .ask-funnel {
+    transition: none;
+  }
 }
 
 /* =============================================================================
@@ -6237,3 +6490,582 @@ button.atlas-inv__c--head:hover .atlas-inv__head-arrow {
   .media-player__wave { height: 24px; }
   .media-player__panel-track-title { font-size: 15.5px; }
 }
+
+/* =============================================================================
+ * Chronicle (Timeline Prototype port) — the full-bleed era ribbon + zoom shell.
+ * Ported from public/lab/timeline-prototype/tokens.js. The prototype's global
+ * reset, :root palette, and detail-drawer (.tlp-panel*) are deliberately NOT
+ * ported: the palette already lives in @theme, and book detail uses the
+ * existing <DetailPanel> (.dm-*). Scoped under .timeline-shell--chronicle so
+ * it can't bleed into other routes.
+ * ============================================================================= */
+
+/* Full-bleed shell: drop the centered max-width + tall top padding from the
+   base .timeline-shell and run the app edge-to-edge below TopNav. Scrollable
+   like /buecher + /ask — the hero photo sets the first screen, the timeline body
+   scrolls in below it. (Was a locked 100vh / overflow:hidden shell.) */
+.timeline-shell--chronicle {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  min-height: 100vh;
+}
+
+/* Bridge the three tokens the ported CSS expects but the live theme names
+   differently or doesn't load: --ease (prototype easing), --font-mono → the
+   loaded IBM Plex Mono, --font-grotesk → the loaded Space Grotesk. Scoped to
+   the shell so the rest of the site is untouched; inherits to the fixed
+   tooltip/popover (DOM descendants of the shell). */
+.timeline-shell--chronicle {
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-grotesk: var(--font-space-grotesk), 'Space Grotesk', system-ui, sans-serif;
+}
+
+/* Photo is bright at the top like /buecher + /ask (no hard dim); the site-bg
+   fade + the scroll-driven .chronicle-scrim carry it to void lower down. */
+
+/* Scroll-driven void scrim — fixed full-viewport layer whose opacity rises from
+   0 toward ~0.985 (near-full void) as the reader scrolls past the hero
+   (ChronicleClient writes --chronicle-scrim-opacity). Sits above the fixed
+   site-bg photo but below the
+   starfield (.tlp-bg is painted later at the same z-index) so the drifting stars
+   still read over the darkened floor. SSR default 0 keeps the photo crisp on
+   first paint, with no dark flash. */
+.timeline-shell--chronicle .chronicle-scrim {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: var(--cl-void);
+  opacity: var(--chronicle-scrim-opacity, 0);
+  will-change: opacity;
+}
+
+/* ── atmosphere (transparent base; just the drifting starfield over the void) ── */
+.timeline-shell--chronicle .tlp-bg {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  background: transparent;
+}
+.timeline-shell--chronicle .tlp-stars,
+.timeline-shell--chronicle .tlp-stars2 { position: absolute; inset: -50%; background-repeat: repeat; }
+.timeline-shell--chronicle .tlp-stars {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgba(232,220,192,0.55), transparent),
+    radial-gradient(1px 1px at 130px 90px, rgba(156,230,255,0.45), transparent),
+    radial-gradient(1px 1px at 80px 160px, rgba(232,220,192,0.35), transparent),
+    radial-gradient(1.4px 1.4px at 200px 50px, rgba(232,220,192,0.5), transparent);
+  background-size: 240px 240px;
+  animation: tlpDrift 220s linear infinite;
+}
+.timeline-shell--chronicle .tlp-stars2 {
+  background-image:
+    radial-gradient(1px 1px at 50px 120px, rgba(156,230,255,0.3), transparent),
+    radial-gradient(1px 1px at 170px 200px, rgba(232,220,192,0.25), transparent),
+    radial-gradient(1px 1px at 300px 80px, rgba(156,230,255,0.22), transparent);
+  background-size: 360px 360px;
+  opacity: 0.7;
+  animation: tlpDrift2 340s linear infinite;
+}
+.timeline-shell--chronicle .tlp-grain {
+  position: absolute; inset: 0; opacity: 0.05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+@keyframes tlpDrift { from { transform: translate(0,0); } to { transform: translate(-240px,-240px); } }
+@keyframes tlpDrift2 { from { transform: translate(0,0); } to { transform: translate(360px,-360px); } }
+
+/* ── app shell (normal flow; the page scrolls) ──────────────────────────────
+   No 100vh lock and no top padding: the hero starts at the top edge and the
+   fixed photo runs full-bleed behind the floating TopNav, exactly like /buecher
+   + /ask (which zero their main padding too). */
+.timeline-shell--chronicle .tlp-root {
+  position: relative; z-index: 1; width: 100%;
+}
+/* The stage needs an explicit height — every view inside it (overview ribbon,
+   segment view, accordion) is position:absolute; inset:0 and fills the stage,
+   so it can't derive height from content. (Was flex:1 inside the 100vh column.) */
+.timeline-shell--chronicle .tlp-stage {
+  position: relative; height: clamp(560px, 76vh, 960px); overflow: hidden;
+}
+
+/* ── hero (60vh photo banner; title at the /buecher + /ask y) ────────────────
+   The hero is a spacer that reserves the banner height while the fixed
+   chronicle-hall photo (site-bg) shows through it. The title block is absolutely
+   positioned at top:320px — pixel-matched to .catalogue-hero__title and the /ask
+   landing rest — so the headline lands where the other surfaces' headlines do.
+   Eyebrow + heading + italic sub mirror the catalogue hero, in the chronicle's
+   cyan accent. */
+.timeline-shell--chronicle .chronicle-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 520px;
+}
+.timeline-shell--chronicle .chronicle-hero__title {
+  position: absolute;
+  left: 0; right: 0; top: 320px;
+  text-align: center;
+  z-index: 3;
+  pointer-events: none;
+}
+.timeline-shell--chronicle .chronicle-hero__eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--cl-cyan); text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+.timeline-shell--chronicle .chronicle-hero__heading {
+  /* /buecher + /ask titlebar discipline: weight 400, wide tracking, in bone.
+     The cyan glow is kept to a faint legibility cast (Hub aesthetic: no halos). */
+  margin: 12px 0 0;
+  font-family: var(--font-cinzel), serif; font-weight: 400;
+  font-size: clamp(44px, 4.6vw, 64px); letter-spacing: 0.22em;
+  color: var(--cl-bone);
+  text-shadow:
+    0 0 32px rgba(156, 230, 255, 0.18),
+    0 4px 14px rgba(0, 0, 0, 0.95);
+}
+.timeline-shell--chronicle .chronicle-hero__sub {
+  margin: 14px auto 0; max-width: 640px;
+  font-family: var(--font-cormorant), Georgia, serif; font-style: italic;
+  font-size: 18px; color: var(--cl-bone);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+/* ── body (scrollable; overlaps the fading hero foot like .catalogue-body) ────
+   The timeline block begins where the other surfaces' content begins (pulled up
+   -80px so the stage overlaps the fading hero photo, then scrolls into the void),
+   but — unlike the boxed catalogue list — the interactive timeline runs FULL-BLEED
+   and wide as it did before the redesign. No horizontal padding here: each stage
+   view sets its own inset (overview padding:0 4vw, accordion padding:18px, …) so
+   the ribbon spans the viewport like it used to. */
+.timeline-shell--chronicle .chronicle-body {
+  position: relative;
+  z-index: 2;
+  max-width: none;
+  margin: -80px 0 0;
+  padding: 24px 0 80px;
+}
+
+/* ── view controls (below the stage) ────────────────────────────────────────
+   The View + Layout toggles cluster here, centered under the timeline. Each
+   group's label sits inline with its pill. */
+.timeline-shell--chronicle .chronicle-controls {
+  position: relative; z-index: 5;
+  display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap;
+  margin-top: 20px;
+  padding: clamp(14px, 2vh, 22px) clamp(18px, 4vw, 32px) clamp(4px, 1vh, 10px);
+  border-top: 1px solid var(--line-1);
+}
+.timeline-shell--chronicle .tlp-group { display: flex; flex-direction: row; align-items: center; gap: 10px; }
+.timeline-shell--chronicle .tlp-group-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--cl-faint); white-space: nowrap; }
+/* Segmented pill — matches the .era-toggle design direction: hairline cyan
+   frame, transparent track, soft-tint active state (no loud solid fill). */
+.timeline-shell--chronicle .tlp-seg { display: inline-flex; gap: 0; padding: 2px 3px;
+  border: 1px solid var(--cl-cyan-dim); border-radius: 14px; background: transparent;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+/* Pill metrics match the cold-palette .era-toggle button exactly (padding/size/
+   tracking), so the two segmented controls read as one family across the site. */
+.timeline-shell--chronicle .tlp-seg-btn { appearance: none; border: 0; background: transparent;
+  padding: 3px 9px; border-radius: 11px; font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--cl-dim); cursor: pointer;
+  transition: color .18s var(--ease), background .18s var(--ease); }
+.timeline-shell--chronicle .tlp-seg-btn:hover { color: var(--cl-bone); }
+.timeline-shell--chronicle .tlp-seg-btn.is-active { color: var(--cl-cyan); background: rgba(156,230,255,0.15); }
+
+/* Mobile hero geometry mirrors the catalogue's @media (max-width: 720px) block
+   so the landing keeps lining up with /buecher + /ask at small widths: the hero
+   shortens, the title rises, the body overlap tightens, and the stage shrinks. */
+@media (max-width: 720px) {
+  .timeline-shell--chronicle .chronicle-hero { height: 420px; min-height: 0; }
+  .timeline-shell--chronicle .chronicle-hero__title { top: 240px; }
+  .timeline-shell--chronicle .chronicle-hero__heading { font-size: clamp(40px, 8vw, 56px); }
+  .timeline-shell--chronicle .chronicle-body { margin-top: -48px; }
+  .timeline-shell--chronicle .tlp-stage { height: clamp(440px, 64vh, 620px); }
+}
+
+/* ── overview ribbon ────────────────────────────────────────────────────── */
+.timeline-shell--chronicle .tlp-overview { position: absolute; inset: 0; display: flex; flex-direction: column;
+  justify-content: center; padding: 0 4vw; }
+.timeline-shell--chronicle .tlp-ribbon { position: relative; display: flex; align-items: stretch; height: 38vh; min-height: 260px; gap: 0; }
+.timeline-shell--chronicle .tlp-ribbon-axis { position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-2) 8%, var(--line-2) 92%, transparent); }
+.timeline-shell--chronicle .tlp-era { position: relative; flex-grow: 0; flex-shrink: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; padding: 0 6px;
+  border-left: 1px solid var(--line-0); cursor: pointer;
+  transition: background .35s var(--ease); animation: tlpFadeSlide .7s var(--ease) backwards; }
+.timeline-shell--chronicle .tlp-era:first-child { border-left: none; }
+.timeline-shell--chronicle .tlp-era:hover { background: linear-gradient(180deg, rgba(156,230,255,0.05), transparent 70%); }
+.timeline-shell--chronicle .tlp-era.is-empty { cursor: default; opacity: 0.55; }
+.timeline-shell--chronicle .tlp-era-top { display: flex; flex-direction: column; align-items: center; gap: 4px;
+  margin-bottom: auto; padding-top: 8%; text-align: center; }
+.timeline-shell--chronicle .tlp-era-name { font-family: var(--font-cinzel); font-weight: 500; font-size: clamp(11px, 1.1vw, 16px);
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--cl-bone); transition: color .3s var(--ease); }
+.timeline-shell--chronicle .tlp-era:hover .tlp-era-name { color: var(--cl-cyan); }
+.timeline-shell--chronicle .tlp-era-range { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; color: var(--cl-faint); }
+.timeline-shell--chronicle .tlp-era-count { position: absolute; bottom: 8%; font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.12em; color: var(--cl-cyan-dim); }
+.timeline-shell--chronicle .tlp-era-count .n { color: var(--cl-bone); font-size: 14px; }
+.timeline-shell--chronicle .tlp-era-bracket { position: absolute; width: 12px; height: 12px; border: 1px solid var(--cl-cyan-dim);
+  opacity: 0; transition: opacity .3s var(--ease); }
+.timeline-shell--chronicle .tlp-era:hover .tlp-era-bracket { opacity: 0.9; }
+.timeline-shell--chronicle .tlp-era-bracket.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.timeline-shell--chronicle .tlp-era-bracket.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+.timeline-shell--chronicle .tlp-era-bracket.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+.timeline-shell--chronicle .tlp-era-bracket.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+.timeline-shell--chronicle .tlp-era-pins { position: absolute; left: 0; right: 0; top: 50%; height: 0; }
+.timeline-shell--chronicle .tlp-pin { position: absolute; top: 50%; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--cl-bone); transform: translate(-50%,-50%); opacity: 0.5;
+  transition: opacity .3s var(--ease), background .3s var(--ease); }
+.timeline-shell--chronicle .tlp-era:hover .tlp-pin { opacity: 0.85; background: var(--cl-cyan); }
+.timeline-shell--chronicle .tlp-overview-hint { text-align: center; margin-top: 3.5vh; font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cl-faint); }
+
+/* ── segment view (zoomed) ──────────────────────────────────────────────── */
+.timeline-shell--chronicle .tlp-segview { position: absolute; inset: 0; display: flex; flex-direction: column;
+  padding: 22px clamp(20px, 4vw, 64px) 28px; }
+.timeline-shell--chronicle .tlp-segview-head { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 8px; }
+.timeline-shell--chronicle .tlp-back { display: flex; align-items: center; gap: 8px; padding: 8px 14px; margin-top: 4px;
+  border: 1px solid var(--line-1); border-radius: 2px; font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cl-dim); transition: all .25s var(--ease); }
+.timeline-shell--chronicle .tlp-back:hover { color: var(--cl-cyan); border-color: var(--cl-cyan-dim); background: rgba(156,230,255,0.05); }
+.timeline-shell--chronicle .tlp-segview-titles { flex: 1; }
+.timeline-shell--chronicle .tlp-segview-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.30em;
+  text-transform: uppercase; color: var(--cl-cyan-dim); margin-bottom: 6px; }
+.timeline-shell--chronicle .tlp-segview-title { font-family: var(--font-cinzel); font-weight: 500; font-size: clamp(22px, 3vw, 38px);
+  letter-spacing: 0.10em; color: var(--cl-bone); margin: 0; }
+.timeline-shell--chronicle .tlp-segview-tone { font-family: var(--font-cormorant); font-style: italic; font-size: 16px;
+  color: var(--cl-dim); margin-top: 4px; }
+.timeline-shell--chronicle .tlp-segview-meta { text-align: right; font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.1em; color: var(--cl-faint); white-space: nowrap; }
+.timeline-shell--chronicle .tlp-segview-meta .n { display: block; font-size: 30px; color: var(--cl-bone); line-height: 1; }
+.timeline-shell--chronicle .tlp-layout-area { position: relative; flex: 1; min-height: 0; margin-top: 14px; }
+.timeline-shell--chronicle .tlp-empty-seg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-cormorant); font-style: italic; font-size: 18px; color: var(--cl-faint); }
+
+/* The FilterRail is reused inside the segment header; give it a little air. */
+.timeline-shell--chronicle .filter-rail { margin: 8px 0 0; }
+
+/* ── shared axis ticks ──────────────────────────────────────────────────── */
+.timeline-shell--chronicle .tlp-tick { position: absolute; transform: translateX(-50%); }
+.timeline-shell--chronicle .tlp-tick-mark { width: 1px; height: 7px; background: var(--line-2); margin: 0 auto; }
+.timeline-shell--chronicle .tlp-tick-label { margin-top: 7px; font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.06em; color: var(--cl-faint); text-align: center; white-space: nowrap; }
+
+/* ── layout: series lanes ───────────────────────────────────────────────── */
+.timeline-shell--chronicle .tlp-lanes { position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden; padding-right: 4px; }
+.timeline-shell--chronicle .tlp-lane { position: relative; display: flex; align-items: center; height: 46px;
+  border-bottom: 1px solid var(--line-0); }
+.timeline-shell--chronicle .tlp-lane:hover { background: rgba(156,230,255,0.03); }
+.timeline-shell--chronicle .tlp-lane.is-standalones { border-top: 1px solid var(--line-1); }
+.timeline-shell--chronicle .tlp-lane-label { flex: 0 0 178px; padding-right: 16px; display: flex; align-items: baseline;
+  justify-content: flex-end; gap: 9px; overflow: hidden; }
+.timeline-shell--chronicle .tlp-lane-name { font-family: var(--font-grotesk); font-size: 12px; letter-spacing: 0.03em;
+  color: var(--cl-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.timeline-shell--chronicle .tlp-lane.is-standalones .tlp-lane-name { font-style: italic; color: var(--cl-faint); }
+.timeline-shell--chronicle .tlp-lane-count { flex: 0 0 auto; font-family: var(--font-mono); font-size: 9.5px;
+  color: var(--cl-cyan-dim); letter-spacing: 0.04em; }
+.timeline-shell--chronicle .tlp-lane-track { position: relative; flex: 1; height: 100%; border-left: 1px solid var(--line-1); }
+.timeline-shell--chronicle .tlp-lane-node { position: absolute; top: 50%; transform: translate(-50%,-50%); }
+
+.timeline-shell--chronicle .tlp-cluster { position: relative; display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 8px 3px 6px; border: 1px solid var(--line-2); border-radius: 11px;
+  background: var(--cl-plate); transition: border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease); }
+.timeline-shell--chronicle .tlp-cluster:hover,
+.timeline-shell--chronicle .tlp-cluster.is-active { border-color: var(--cl-cyan-dim);
+  background: rgba(10,16,26,0.92); transform: scale(1.06); z-index: 30; }
+.timeline-shell--chronicle .tlp-cluster-dots { width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto;
+  background:
+    radial-gradient(circle at 2.5px 2.5px, var(--cl-bone) 1px, transparent 1.4px),
+    radial-gradient(circle at 6.5px 3px, var(--cl-bone) 1px, transparent 1.4px),
+    radial-gradient(circle at 4px 6.5px, var(--cl-bone) 1px, transparent 1.4px);
+  opacity: 0.8; }
+.timeline-shell--chronicle .tlp-cluster:hover .tlp-cluster-dots,
+.timeline-shell--chronicle .tlp-cluster.is-active .tlp-cluster-dots {
+  background:
+    radial-gradient(circle at 2.5px 2.5px, var(--cl-cyan) 1px, transparent 1.4px),
+    radial-gradient(circle at 6.5px 3px, var(--cl-cyan) 1px, transparent 1.4px),
+    radial-gradient(circle at 4px 6.5px, var(--cl-cyan) 1px, transparent 1.4px); }
+.timeline-shell--chronicle .tlp-cluster-n { font-family: var(--font-mono); font-size: 10.5px; line-height: 1; color: var(--cl-bone); }
+
+/* cluster popover (fixed — positioned via JS; not clipped by the shell) */
+.tlp-cluster-backdrop { position: fixed; inset: 0; z-index: 70; }
+.tlp-cluster-pop { position: fixed; z-index: 71; width: min(320px, 80vw); max-height: 46vh;
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--cl-plate-2); border: 1px solid var(--line-2); border-radius: 3px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.62); animation: tlpFadeSlide .16s var(--ease);
+  font-family: var(--font-cormorant); }
+.tlp-cluster-pop-head { flex: 0 0 auto; padding: 9px 13px; border-bottom: 1px solid var(--line-1);
+  font-family: var(--font-plex-mono), ui-monospace, monospace; font-size: 9.5px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--cl-cyan-dim); }
+.tlp-cluster-pop-list { overflow-y: auto; padding: 4px; }
+.tlp-cluster-pop-row { display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 9px;
+  border-radius: 2px; text-align: left; background: none; border: none; cursor: pointer;
+  transition: background .18s cubic-bezier(.2,.8,.2,1); }
+.tlp-cluster-pop-row:hover { background: rgba(156,230,255,0.06); }
+.tlp-cluster-pop-row .tlp-mark { flex: 0 0 auto; }
+.tlp-cluster-pop-title { flex: 1; font-family: var(--font-cinzel); font-size: 12.5px; letter-spacing: 0.02em;
+  color: var(--cl-bone); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tlp-cluster-pop-row:hover .tlp-cluster-pop-title { color: var(--cl-cyan); }
+.tlp-cluster-pop-yr { flex: 0 0 auto; font-family: var(--font-plex-mono), ui-monospace, monospace; font-size: 10px; color: var(--cl-cyan-dim); }
+
+.timeline-shell--chronicle .tlp-lanes-axis { position: sticky; top: 0; z-index: 2; display: flex; height: 26px;
+  /* Frosted, feathered glass instead of a hard dark slab. The old fill was a
+     crisp-edged dark rectangle (0.95 → 0.6) that cut across the bright hero when
+     the reader expands a segment and scrolls back up. Now it dissolves: a soft
+     tint fading to fully transparent at the foot (no boxed edge), with a backdrop
+     blur that both keeps the faint mono ticks legible over photo *or* void and
+     masks lane content scrolling under the sticky bar across its full height. */
+  background: linear-gradient(180deg, rgba(4, 7, 13, 0.58) 0%, rgba(4, 7, 13, 0.30) 55%, rgba(4, 7, 13, 0) 100%);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+/* Pad MUST equal .tlp-lane-label width (178px) so the axis-track left border and
+   each lane-track left border line up into one continuous vertical spine. Was
+   168px — a 10px jog where the axis met the lanes. */
+.timeline-shell--chronicle .tlp-lanes-axis-pad { flex: 0 0 178px; }
+.timeline-shell--chronicle .tlp-lanes-axis-track { position: relative; flex: 1; border-left: 1px solid var(--line-1); }
+.timeline-shell--chronicle .tlp-lanes-axis .tlp-tick { bottom: auto; top: 4px; }
+.timeline-shell--chronicle .tlp-lanes-axis .tlp-tick-mark { height: 5px; }
+.timeline-shell--chronicle .tlp-lanes-axis .tlp-tick-label { margin-top: 2px; font-size: 9px; }
+
+/* ── layout: reading-sequence path ──────────────────────────────────────── */
+.timeline-shell--chronicle .tlp-seq { position: absolute; inset: 0; overflow-y: auto; padding: 8px 0 20px; }
+.timeline-shell--chronicle .tlp-seq-grid { display: flex; flex-wrap: wrap; gap: 14px 16px; align-content: flex-start; }
+.timeline-shell--chronicle .tlp-seq-node { position: relative; display: flex; align-items: center; gap: 10px;
+  padding: 9px 14px 9px 10px; border: 1px solid var(--line-1); border-radius: 2px;
+  background: var(--cl-plate); min-width: 0; max-width: 270px;
+  transition: border-color .25s var(--ease), background .25s var(--ease);
+  animation: tlpTileRise .55s var(--ease) backwards; }
+.timeline-shell--chronicle .tlp-seq-node:hover { border-color: var(--cl-cyan-dim); background: rgba(10,16,26,0.9); }
+.timeline-shell--chronicle .tlp-seq-num { font-family: var(--font-mono); font-size: 11px; color: var(--cl-cyan-dim);
+  min-width: 26px; text-align: right; }
+.timeline-shell--chronicle .tlp-seq-body { min-width: 0; }
+.timeline-shell--chronicle .tlp-seq-title { font-family: var(--font-cinzel); font-size: 12.5px; letter-spacing: 0.04em;
+  color: var(--cl-bone); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.timeline-shell--chronicle .tlp-seq-meta { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.05em;
+  color: var(--cl-faint); margin-top: 2px; }
+
+/* ── book node (shared marker) ──────────────────────────────────────────── */
+.timeline-shell--chronicle .tlp-node { position: relative; display: inline-flex; align-items: center; justify-content: center;
+  padding: 0; line-height: 0; background: none; border: none; cursor: pointer; transition: transform .2s var(--ease); }
+.timeline-shell--chronicle .tlp-node:focus-visible { outline: none; }
+.timeline-shell--chronicle .tlp-node:focus-visible .tlp-mark { box-shadow: 0 0 0 2px var(--cl-cyan); }
+.timeline-shell--chronicle .tlp-node:hover { transform: scale(1.35); z-index: 30; }
+.timeline-shell--chronicle .tlp-mark { display: block; background: var(--cl-bone); transition: background .2s var(--ease); }
+.timeline-shell--chronicle .tlp-node:hover .tlp-mark { background: var(--cl-cyan); }
+.timeline-shell--chronicle .tlp-mark.fmt-novel       { width: 11px; height: 11px; border-radius: 50%; }
+.timeline-shell--chronicle .tlp-mark.fmt-novella     { width: 9px;  height: 9px;  border-radius: 50%; }
+.timeline-shell--chronicle .tlp-mark.fmt-short_story { width: 6px;  height: 6px;  border-radius: 50%; background: var(--cl-dim); }
+.timeline-shell--chronicle .tlp-mark.fmt-anthology   { width: 9px;  height: 9px;  border-radius: 1px; transform: rotate(45deg); }
+.timeline-shell--chronicle .tlp-mark.fmt-collection  { width: 9px;  height: 9px;  border-radius: 1px; transform: rotate(45deg); }
+.timeline-shell--chronicle .tlp-mark.fmt-omnibus     { width: 11px; height: 11px; border-radius: 1px; transform: rotate(45deg); }
+.timeline-shell--chronicle .tlp-mark.fmt-audio_drama { width: 10px; height: 10px; border-radius: 50%; background: transparent;
+  border: 1.5px solid var(--cl-cyan); }
+.timeline-shell--chronicle .tlp-mark.fmt-artbook     { width: 10px; height: 10px; border-radius: 1px; transform: rotate(45deg); }
+.timeline-shell--chronicle .tlp-mark.fmt-scriptbook  { width: 10px; height: 10px; border-radius: 1px; transform: rotate(45deg); }
+
+/* tooltip (fixed — DOM descendant of the shell, inherits the bridge tokens) */
+.tlp-tooltip { position: fixed; z-index: 80; pointer-events: none; transform: translate(-50%, -100%);
+  margin-top: -12px; padding: 9px 13px; min-width: 150px; max-width: 280px;
+  background: var(--cl-plate-2); border: 1px solid var(--line-2); border-radius: 2px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6); animation: tlpFadeSlide .18s cubic-bezier(.2,.8,.2,1); }
+.tlp-tooltip::after { content: ""; position: absolute; left: 50%; bottom: -5px; width: 8px; height: 8px;
+  transform: translateX(-50%) rotate(45deg); background: var(--cl-plate-2);
+  border-right: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); }
+.tlp-tt-title { font-family: var(--font-cinzel); font-size: 13px; letter-spacing: 0.03em; color: var(--cl-bone); line-height: 1.25; }
+.tlp-tt-row { font-family: var(--font-plex-mono), ui-monospace, monospace; font-size: 10px; letter-spacing: 0.05em;
+  color: var(--cl-dim); margin-top: 5px; display: flex; gap: 8px; flex-wrap: wrap; }
+.tlp-tt-row .yr { color: var(--cl-cyan); }
+
+/* ── accordion shell ────────────────────────────────────────────────────── */
+.timeline-shell--chronicle .tlp-accordion { position: absolute; inset: 0; display: flex; padding: 18px; gap: 8px; }
+.timeline-shell--chronicle .tlp-acc-band { position: relative; flex: 1 1 0; min-width: 56px; display: flex; flex-direction: column;
+  border: 1px solid var(--line-1); border-radius: 3px; overflow: hidden; cursor: pointer;
+  background: linear-gradient(180deg, rgba(8,12,20,0.6), rgba(2,4,10,0.85));
+  transition: flex-grow .55s var(--ease), border-color .35s var(--ease); }
+.timeline-shell--chronicle .tlp-acc-band:hover { border-color: var(--cl-cyan-fnt); }
+.timeline-shell--chronicle .tlp-acc-band.is-open { flex: 1000 1 0; cursor: default; border-color: var(--cl-cyan-dim); }
+.timeline-shell--chronicle .tlp-acc-band.is-empty { opacity: 0.5; cursor: default; }
+.timeline-shell--chronicle .tlp-acc-spine { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px;
+  border-bottom: 1px solid var(--line-0); }
+.timeline-shell--chronicle .tlp-acc-name { font-family: var(--font-cinzel); font-size: 14px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--cl-bone); white-space: nowrap; }
+.timeline-shell--chronicle .tlp-acc-band:not(.is-open) .tlp-acc-name { writing-mode: vertical-rl; transform: rotate(180deg);
+  margin: 14px auto; letter-spacing: 0.2em; }
+.timeline-shell--chronicle .tlp-acc-band:not(.is-open) .tlp-acc-spine { flex-direction: column; height: 100%; border: none; }
+.timeline-shell--chronicle .tlp-acc-count { font-family: var(--font-mono); font-size: 11px; color: var(--cl-cyan-dim); }
+.timeline-shell--chronicle .tlp-acc-inner { position: relative; flex: 1; min-height: 0; opacity: 0; pointer-events: none;
+  transition: opacity .4s var(--ease) .15s; }
+.timeline-shell--chronicle .tlp-acc-band.is-open .tlp-acc-inner { opacity: 1; pointer-events: auto; }
+
+/* ── keyframes ──────────────────────────────────────────────────────────── */
+@keyframes tlpFadeSlide { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes tlpTileRise { from { opacity: 0; transform: translateY(20px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes tlpDive { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: scale(1); } }
+.timeline-shell--chronicle .tlp-dive-in { animation: tlpDive .55s var(--ease) both; }
+
+/* ── reduced motion: halt the perpetual star drift ──────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .timeline-shell--chronicle .tlp-stars,
+  .timeline-shell--chronicle .tlp-stars2 { animation: none !important; }
+}
+
+/* =============================================================================
+ * Ask / shared list primitives (Phase 2 — Ask the Archive redesign).
+ *
+ * The Chronicle ribbon earns its calm by reserving the cyan accent for live
+ * data (years, counts) and using neutral white hairlines (--line-0/1/2) for
+ * structure. These primitives carry that same discipline into the Ask result:
+ * a softer card shell, hairline-separated two-line book rows (no per-row
+ * border/bg), and a mono eyebrow. Per-path accent threads through via
+ * --row-accent, set inline on .ask-card (cyan / gold / blood); everything
+ * reads var(--row-accent) and falls back to cyan.
+ *
+ * NB: --ease is scoped to .timeline-shell--chronicle and is undefined here, so
+ * transitions use the literal cubic-bezier the prototype settled on.
+ *
+ * Phase 3 reuses these on /buch and /buecher.
+ * ============================================================================= */
+
+.ask-card {
+  --row-accent: var(--cl-cyan);              /* overridden inline per path */
+  position: relative;
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.80) 0%, rgba(4, 8, 14, 0.90) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line-1);           /* neutral hairline, not cyan */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.card-eyebrow {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: var(--row-accent, var(--cl-cyan));
+}
+.card-eyebrow .tail { color: var(--cl-faint); }   /* the "· 5 NOVELLAE" count */
+
+/* ── hairline-separated book list ───────────────────────────────────────── */
+.book-list { list-style: none; margin: 0; padding: 0; }
+
+.book-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.4ch 1fr auto;
+  grid-template-areas:
+    "idx title  year"
+    "idx author action";
+  align-items: baseline;
+  column-gap: 14px;
+  row-gap: 3px;
+  padding: 13px 10px;
+  border-top: 1px solid var(--line-0);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.book-list > li:first-child .book-row { border-top: none; }
+.book-row:hover { background: rgba(156, 230, 255, 0.04); }   /* same lift as .tlp-lane:hover */
+
+.book-row__index {
+  grid-area: idx;
+  align-self: start;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+}
+.book-row__title {
+  grid-area: title;
+  min-width: 0;
+  font-family: var(--font-cinzel);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  color: var(--cl-bone);
+}
+.book-row__year {
+  grid-area: year;
+  justify-self: end;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--row-accent, var(--cl-cyan));
+}
+.book-row__author {
+  grid-area: author;
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--cl-dim);
+}
+.book-row__action {
+  grid-area: action;
+  justify-self: end;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--row-accent, var(--cl-cyan));
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.book-row:hover .book-row__action,
+.book-row:focus-within .book-row__action { opacity: 1; }   /* reveal on hover AND keyboard focus */
+@media (hover: none) { .book-row__action { opacity: 0.7; } }  /* always visible on touch */
+
+/* ── answer footnote (replaces the chip strip); latin key + value ───────── */
+.ask-responsa {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  line-height: 1.7;
+}
+.ask-responsa .k { color: var(--row-accent, var(--cl-cyan)); }   /* latin key (PARTES, MOMENTVM, …) */
+.ask-responsa .v { color: var(--cl-dim); }        /* chosen answer label */
+.ask-responsa .sep { opacity: 0.55; margin: 0 8px; }
+
+/* ── footer: quiet text links + one softened-glow cyan CTA ──────────────── */
+.ask-footer {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.ask-footer .ask-footer__spacer { flex: 1; }
+
+.ask-footlink {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  text-decoration: none;
+  padding: 4px 2px;
+  transition: color 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.ask-footlink:hover {
+  color: var(--cl-bone);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ask-cta {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-void);
+  background: var(--cl-cyan);
+  padding: 10px 16px;
+  text-decoration: none;
+  border: 1px solid var(--cl-cyan);
+  box-shadow: 0 0 12px rgba(156, 230, 255, 0.22);   /* softened from 0.35 */
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.ask-cta:hover { box-shadow: 0 0 18px rgba(156, 230, 255, 0.34); }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
+import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import TopNav from "@/components/chrome/TopNav";
 import MediaPlayer from "@/components/chrome/MediaPlayer";
 import "./globals.css";
@@ -23,6 +23,17 @@ const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
   variable: "--font-plex-mono",
+  display: "swap",
+});
+
+// Space Grotesk powers the Chronicle control-bar toggles + series-lane labels
+// (the prototype's `--font-grotesk`). Bound to the existing token name so the
+// ported `tlp-*` rules and the @theme `--font-grotesk` declaration resolve to
+// a real loaded face instead of falling back to system-ui.
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
@@ -50,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       data-palette="cold"
       data-theme="dark"
-      className={`${cinzel.variable} ${cormorant.variable} ${plexMono.variable}`}
+      className={`${cinzel.variable} ${cormorant.variable} ${plexMono.variable} ${spaceGrotesk.variable}`}
     >
       <body suppressHydrationWarning>
         <TopNav />

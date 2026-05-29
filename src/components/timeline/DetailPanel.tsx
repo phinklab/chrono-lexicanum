@@ -33,7 +33,7 @@
 
 import { useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { formatRange, type BookDetail, type ExternalLinkKind } from "@/lib/timeline";
+import { formatScaleRange, type BookDetail, type ExternalLinkKind } from "@/lib/timeline";
 import { buildBookUrl, buildCloseUrl } from "@/lib/timelineUrl";
 
 interface Props {
@@ -131,6 +131,22 @@ export function DetailPanel({ selectedBook, eraId }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedBook]);
 
+  // Lock page scroll while a book is open so the timeline doesn't drift behind
+  // the fixed modal. The redesigned /timeline scrolls (the old locked-100vh shell
+  // froze the page for free); this restores that "frozen behind the modal" feel.
+  // Mirrors the ScrollGuard pattern in src/components/map/MapRoot.tsx.
+  useEffect(() => {
+    if (!selectedBook) return;
+    const prevHtml = document.documentElement.style.overflow;
+    const prevBody = document.body.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.documentElement.style.overflow = prevHtml;
+      document.body.style.overflow = prevBody;
+    };
+  }, [selectedBook]);
+
   // Focus-return when the panel unmounts (cleanup runs on every render where
   // selectedBook flips to null, plus the final unmount).
   useEffect(() => {
@@ -146,7 +162,10 @@ export function DetailPanel({ selectedBook, eraId }: Props) {
     // Preserve FilterRail state on close (brief 029 constraint 10 — modal
     // and filter URL state are orthogonal; closing must not strip filters
     // and re-render the unfiltered track behind the user's back).
-    router.push(buildCloseUrl(eraId, new URLSearchParams(sp.toString())));
+    // scroll:false — the timeline under the modal was scroll-locked at the
+    // reader's position; the default scroll-to-top would drop them at the hero
+    // on close instead of back at the marker they opened.
+    router.push(buildCloseUrl(eraId, new URLSearchParams(sp.toString())), { scroll: false });
   }
 
   if (!selectedBook) return null;
@@ -227,6 +246,7 @@ export function DetailPanel({ selectedBook, eraId }: Props) {
                         series.prev.slug,
                         new URLSearchParams(sp.toString()),
                       ),
+                      { scroll: false },
                     );
                   }}
                 >
@@ -249,6 +269,7 @@ export function DetailPanel({ selectedBook, eraId }: Props) {
                         series.next.slug,
                         new URLSearchParams(sp.toString()),
                       ),
+                      { scroll: false },
                     );
                   }}
                 >
@@ -279,7 +300,7 @@ export function DetailPanel({ selectedBook, eraId }: Props) {
             <div className="dm-meta">
               <div className="dm-meta-lbl">In-universe</div>
               <div className="dm-meta-val lum">
-                {formatRange(selectedBook.startY, selectedBook.endY)}
+                {formatScaleRange(selectedBook.startY, selectedBook.endY)}
               </div>
             </div>
             {selectedBook.releaseYear && (

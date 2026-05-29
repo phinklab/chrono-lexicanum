@@ -6,6 +6,8 @@ import QuestionCard from "./QuestionCard";
 import ProcessingPanel from "./ProcessingPanel";
 import ResultCard from "./ResultCard";
 import ProgressDots from "./ProgressDots";
+import AuspexSweep from "@/components/chrono/AuspexSweep";
+import FloatingCoord from "@/components/chrono/FloatingCoord";
 import { PATHS, type PathDef } from "@/lib/askPaths";
 
 type Phase = "path" | "question" | "result";
@@ -87,127 +89,120 @@ export default function AskClient() {
   };
 
   const accent = path?.accent ?? "var(--cl-cyan)";
+  const landing = phase === "path";
 
+  // HUD + title are persistent across every phase: only their transform /
+  // opacity change, so the title glides up (and the auspex HUD fades out) when
+  // a path is chosen, and both ease back in on the way home. The phase-specific
+  // body (path modules vs. question/result stage) is the only thing that swaps.
   return (
-    <div
-      style={{
-        position: "relative",
-        height: "calc(100vh - 48px)",
-        overflow: "hidden",
-      }}
-    >
-      <TitleStrip path={path} phase={phase} />
+    <>
+      <AskHud landing={landing} />
+      <AskTitlebar landing={landing} path={path} phase={phase} />
 
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 22,
-          padding: "180px 32px 80px",
-          zIndex: 3,
-        }}
-      >
-        {phase === "path" && <PathSelect onChoose={choosePath} />}
+      {landing ? (
+        <div className="ask-funnel">
+          <div className="ask-hero" aria-hidden />
+          <section className="ask-modules">
+            <PathSelect onChoose={choosePath} />
+          </section>
+        </div>
+      ) : (
+        <div className="ask-runtime">
+          <div className="ask-runtime__center">
+            {phase === "question" && path && currentQ && !processing && (
+              <QuestionCard
+                q={currentQ}
+                step={step}
+                value={answers[currentQ.id]}
+                onPick={pick}
+                pathAccent={path.accent}
+              />
+            )}
 
-        {phase === "question" && path && currentQ && !processing && (
-          <QuestionCard
-            q={currentQ}
-            step={step}
-            value={answers[currentQ.id]}
-            onPick={pick}
-            pathAccent={path.accent}
-          />
-        )}
+            {phase === "question" && path && processing && (
+              <ProcessingPanel accent={path.accent} />
+            )}
 
-        {phase === "question" && path && processing && <ProcessingPanel accent={path.accent} />}
+            {phase === "result" && path && (
+              <ResultCard
+                path={path}
+                answers={answers}
+                onReset={resetSamePath}
+                onChangePath={changePath}
+              />
+            )}
 
-        {phase === "result" && path && (
-          <ResultCard
-            path={path}
-            answers={answers}
-            onReset={resetSamePath}
-            onChangePath={changePath}
-          />
-        )}
+            {phase === "question" && path && (
+              <BottomNav
+                step={step}
+                total={totalQuestions}
+                canAdvance={
+                  Boolean(currentQ && answers[currentQ.id]) && !processing
+                }
+                onBack={back}
+                onForward={forward}
+                accent={accent}
+              />
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
 
-        {phase === "question" && path && (
-          <BottomNav
-            step={step}
-            total={totalQuestions}
-            canAdvance={Boolean(currentQ && answers[currentQ.id]) && !processing}
-            onBack={back}
-            onForward={forward}
-            accent={accent}
-          />
-        )}
+/* ── persistent HUD layer ──────────────────────────────────────────────────
+ * The auspex sweep + ambient floating coordinates. Full-bleed, pointer-none.
+ * opacity is driven entirely by `data-landing` (CSS), so it cross-fades when
+ * leaving / re-entering the path overview. Kept mounted in every phase so the
+ * fade has something to animate in both directions. */
+function AskHud({ landing }: { landing: boolean }) {
+  return (
+    <div className="ask-hud" data-landing={landing} aria-hidden>
+      <div className="ask-hud__sweep">
+        <AuspexSweep r={180} sweepDuration={16} accent="var(--cl-cyan)" />
       </div>
+      <FloatingCoord x="40%" y="118px" label="QVERENT · UNREAD" delay={1.2} lifetime={5} color="var(--cl-cyan)" opacity={0.5} />
+      <FloatingCoord x="60%" y="208px" label="ORACVLVM · LISTENING" delay={3.0} lifetime={5} color="var(--cl-cyan)" opacity={0.45} />
+      <FloatingCoord x="29%" y="276px" label="VECTOR · UNSET · M42" delay={4.4} lifetime={5} color="var(--cl-cyan)" opacity={0.3} />
     </div>
   );
 }
 
-type TitleStripProps = {
+/* ── persistent title ──────────────────────────────────────────────────────
+ * One <h1> for the whole funnel. It rests at the compact header position and is
+ * pushed down into the hero band (`data-landing`) via a transform, so choosing
+ * a path glides it up and "back" glides it down. The third line cross-fades
+ * between the overview tagline and the chosen path's name. */
+type AskTitlebarProps = {
+  landing: boolean;
   path: PathDef | null;
   phase: Phase;
 };
 
-function TitleStrip({ path, phase }: TitleStripProps) {
+function AskTitlebar({ landing, path, phase }: AskTitlebarProps) {
   const showPath = path && (phase === "question" || phase === "result");
   return (
-    <header
-      aria-hidden={false}
-      style={{
-        position: "absolute",
-        top: 70,
-        left: 0,
-        right: 0,
-        zIndex: 4,
-        textAlign: "center",
-        pointerEvents: "none",
-      }}
-    >
-      <div
-        style={{
-          fontFamily: "var(--font-plex-mono)",
-          fontSize: 11,
-          letterSpacing: "0.32em",
-          textTransform: "uppercase",
-          color: "var(--cl-cyan)",
-          opacity: 0.78,
-        }}
-      >
+    <header className="ask-titlebar" data-landing={landing}>
+      <div className="card-eyebrow ask-titlebar__eyebrow">
         {"// ORACVLVM · COGITATOR-1011"}
       </div>
-      <h1
-        style={{
-          margin: "6px 0 0",
-          fontFamily: "var(--font-cinzel)",
-          fontWeight: 400,
-          fontSize: "clamp(36px, 4.4vw, 56px)",
-          letterSpacing: "0.32em",
-          color: "var(--cl-bone)",
-          textShadow: "0 2px 14px rgba(0,0,0,0.9)",
-        }}
-      >
-        ASK <span aria-hidden>◆</span> THE ARCHIVE
+      <h1 className="ask-titlebar__heading">
+        ASK{" "}
+        <span className="ask-titlebar__diamond" aria-hidden>
+          ◆
+        </span>{" "}
+        THE ARCHIVE
       </h1>
-      {showPath && (
-        <div
-          style={{
-            marginTop: 8,
-            fontFamily: "var(--font-cormorant)",
-            fontStyle: "italic",
-            fontSize: 16,
-            color: "var(--cl-dim)",
-            letterSpacing: "0.08em",
-          }}
-        >
-          ‹ {path!.latin} · {path!.label} ›
-        </div>
-      )}
+      <div
+        key={showPath ? path!.id : "overview"}
+        className="ask-titlebar__line c-fade-in"
+      >
+        {showPath
+          ? `‹ ${path!.latin} · ${path!.label} ›`
+          : "There are many ways into the galaxy."}
+      </div>
     </header>
   );
 }
@@ -269,32 +264,32 @@ function NavButton({
   emphasized?: boolean;
   accent?: string;
 }) {
+  const [hover, setHover] = useState(false);
+  const color = disabled
+    ? "var(--cl-faint)"
+    : emphasized
+      ? (accent ?? "var(--cl-cyan)")
+      : "var(--cl-dim)";
   return (
     <button
       type="button"
       onClick={onClick}
       disabled={disabled}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       style={{
         fontFamily: "var(--font-plex-mono)",
         fontSize: 11,
         letterSpacing: "0.28em",
         textTransform: "uppercase",
-        padding: "10px 18px",
-        background: emphasized ? "rgba(156,230,255,0.10)" : "transparent",
-        color: disabled
-          ? "var(--cl-faint)"
-          : emphasized
-            ? (accent ?? "var(--cl-cyan)")
-            : "var(--cl-dim)",
-        border: `1px solid ${
-          disabled
-            ? "rgba(232,220,192,0.18)"
-            : emphasized
-              ? (accent ?? "var(--cl-cyan)")
-              : "rgba(232,220,192,0.32)"
-        }`,
+        padding: "10px 6px",
+        background: "transparent",
+        color,
+        border: "none",
+        textDecoration: !disabled && hover ? "underline" : "none",
+        textUnderlineOffset: 4,
         cursor: disabled ? "not-allowed" : "pointer",
-        transition: "color 0.2s, border-color 0.2s, background 0.2s",
+        transition: "color 0.2s",
       }}
     >
       {children}

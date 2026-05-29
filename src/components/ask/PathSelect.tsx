@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, type CSSProperties } from "react";
-import Typewriter from "@/components/chrono/Typewriter";
 import { PATHS, type PathDef } from "@/lib/askPaths";
 
 type PathSelectProps = {
@@ -9,91 +8,26 @@ type PathSelectProps = {
 };
 
 export default function PathSelect({ onChoose }: PathSelectProps) {
-  const [headDone, setHeadDone] = useState(false);
-  const [subDone, setSubDone] = useState(false);
-
   return (
-    <div
+    <ol
+      aria-label="Paths"
       className="c-fade-in"
       style={{
-        width: "min(1000px, 96vw)",
-        margin: "0 auto",
+        listStyle: "none",
+        margin: 0,
+        padding: 0,
+        width: "min(840px, 94vw)",
+        display: "grid",
+        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+        gap: 20,
       }}
     >
-      <header style={{ textAlign: "center", marginBottom: 28 }}>
-        <div
-          style={{
-            fontFamily: "var(--font-plex-mono)",
-            fontSize: 11,
-            letterSpacing: "0.32em",
-            textTransform: "uppercase",
-            color: "var(--cl-cyan)",
-            marginBottom: 18,
-          }}
-        >
-          {"// ORACVLVM · DELIBERATIO · INITIVM"}
-        </div>
-        <h2
-          style={{
-            margin: 0,
-            fontFamily: "var(--font-cinzel)",
-            fontWeight: 400,
-            fontSize: 30,
-            letterSpacing: "0.14em",
-            color: "var(--cl-bone)",
-            textShadow: "0 2px 8px rgba(0,0,0,0.85)",
-          }}
-        >
-          <Typewriter
-            text="There are many ways into the galaxy."
-            speed={32}
-            startDelay={150}
-            onDone={() => setHeadDone(true)}
-          />
-        </h2>
-        <p
-          style={{
-            margin: "14px 0 0",
-            fontFamily: "var(--font-cormorant)",
-            fontStyle: "italic",
-            fontSize: 19,
-            color: "var(--cl-dim)",
-            minHeight: "1.4em",
-          }}
-        >
-          {headDone && (
-            <Typewriter
-              text="Choose your path. The cogitator will guide you from there."
-              speed={18}
-              startDelay={100}
-              cursor
-              onDone={() => setSubDone(true)}
-            />
-          )}
-        </p>
-        <span className="c-hairline" style={{ display: "block", margin: "20px auto 0", maxWidth: 320 }} aria-hidden />
-      </header>
-
-      <ol
-        aria-label="Paths"
-        style={{
-          listStyle: "none",
-          margin: 0,
-          padding: 0,
-          display: "grid",
-          gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-          gap: 14,
-          opacity: subDone ? 1 : 0,
-          transition: "opacity 0.5s ease",
-        }}
-      >
-        {PATHS.map((p, i) => (
-          <li key={p.id}>
-            <PathCard path={p} index={i} onChoose={onChoose} active={subDone} />
-          </li>
-        ))}
-      </ol>
-    </div>
+      {PATHS.map((p, i) => (
+        <li key={p.id}>
+          <PathCard path={p} index={i} onChoose={onChoose} active />
+        </li>
+      ))}
+    </ol>
   );
 }
 
@@ -107,25 +41,31 @@ type PathCardProps = {
 function PathCard({ path, index, active, onChoose }: PathCardProps) {
   const [hover, setHover] = useState(false);
 
-  const accentBorder = hover ? path.accent : "rgba(156, 230, 255, 0.18)";
-  const styleCard: CSSProperties = {
+  const accentBorder = hover
+    ? `color-mix(in oklch, ${path.accent} 55%, transparent)`
+    : "var(--line-1)";
+  const styleCard = {
+    "--row-accent": path.accent,
     position: "relative",
-    padding: "18px 18px 16px",
+    padding: "20px 20px 18px",
     display: "flex",
     flexDirection: "column",
     gap: 8,
-    minHeight: 220,
+    minHeight: 150,
     cursor: active ? "pointer" : "default",
     pointerEvents: active ? "auto" : "none",
     animation: active ? `chronoFade 0.5s ${index * 90}ms both` : undefined,
     borderColor: accentBorder,
+    boxShadow: hover
+      ? `0 14px 44px rgba(0,0,0,0.6), 0 0 20px -6px color-mix(in oklch, ${path.accent} 34%, transparent), inset 0 1px 0 rgba(255,255,255,0.05)`
+      : undefined,
     transform: hover ? "translateY(-2px)" : "translateY(0)",
-    transition: "border-color 0.3s, transform 0.3s",
-  };
+    transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s",
+  } as CSSProperties;
 
   return (
     <div
-      className="c-glass c-corners"
+      className="ask-card"
       role="button"
       tabIndex={active ? 0 : -1}
       aria-label={`${path.label} — choose`}
@@ -148,26 +88,16 @@ function PathCard({ path, index, active, onChoose }: PathCardProps) {
           top: 14,
           right: 18,
           fontFamily: "var(--font-cinzel)",
-          fontSize: 28,
+          fontSize: 24,
           letterSpacing: "0.16em",
           color: path.accent,
-          opacity: 0.55,
+          opacity: 0.42,
         }}
       >
         {path.sigil}
       </span>
 
-      <span
-        style={{
-          fontFamily: "var(--font-plex-mono)",
-          fontSize: 10.5,
-          letterSpacing: "0.24em",
-          textTransform: "uppercase",
-          color: path.accent,
-        }}
-      >
-        {path.latin}
-      </span>
+      <span className="card-eyebrow">{path.latin}</span>
       <span
         style={{
           fontFamily: "var(--font-cinzel)",
@@ -200,7 +130,6 @@ function PathCard({ path, index, active, onChoose }: PathCardProps) {
           fontSize: 17,
           lineHeight: 1.5,
           color: "rgba(232, 220, 192, 0.84)",
-          minHeight: 68,
         }}
       >
         {path.desc}
@@ -211,7 +140,7 @@ function PathCard({ path, index, active, onChoose }: PathCardProps) {
           marginTop: "auto",
           paddingTop: 10,
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "flex-end",
           alignItems: "baseline",
           fontFamily: "var(--font-plex-mono)",
           fontSize: 9.5,
@@ -219,7 +148,6 @@ function PathCard({ path, index, active, onChoose }: PathCardProps) {
           textTransform: "uppercase",
         }}
       >
-        <span style={{ color: "var(--cl-faint)" }}>3 questions · 12+ options</span>
         <span style={{ color: path.accent }}>Enter →</span>
       </div>
     </div>
