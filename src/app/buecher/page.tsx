@@ -19,6 +19,7 @@ import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import AuditPills, { type AuditFilter } from "./AuditPills";
 import SortPills from "./SortPills";
 import GapAudioToggle from "./GapAudioToggle";
+import ScrollScrim from "./ScrollScrim";
 
 export const metadata: Metadata = { title: "Archive — Chrono Lexicanum" };
 
@@ -516,6 +517,7 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
       <section className="catalogue-hero" aria-label="Books — Catalogue">
         <div className="catalogue-hero__photo" aria-hidden />
         <div className="catalogue-hero__fade" aria-hidden />
+        <ScrollScrim />
         <div className="catalogue-hero__sweep" aria-hidden>
           <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-gold)" />
         </div>
@@ -653,7 +655,7 @@ function BookRow({
 
   return (
     <details
-      className={`catalogue-row c-glass${book.isEnriched ? " is-enriched" : " is-stub"}${
+      className={`catalogue-row${book.isEnriched ? " is-enriched" : " is-stub"}${
         auditMode ? " is-audit" : ""
       }${dimmed ? " is-audio-dim" : ""}`}
     >

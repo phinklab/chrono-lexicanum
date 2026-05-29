@@ -41,13 +41,13 @@ export default function AskPage() {
     <main className="ask">
       <SiteBackground variant="librarium" position="50% 30%" />
 
-      <WordField count={6} seed={11} color="201,166,90" baseOpacity={0.14} />
-      <LetterField count={18} seed={37} color="var(--cl-gold)" baseOpacity={0.10} />
+      <WordField count={6} seed={11} color="156,230,255" baseOpacity={0.10} />
+      <LetterField count={18} seed={37} color="var(--cl-cyan)" baseOpacity={0.08} />
 
       <div className="ask-readout" aria-hidden>
         <GhostReadout
-          color="var(--cl-gold)"
-          opacity={0.32}
+          color="var(--cl-cyan)"
+          opacity={0.26}
           lineMs={5200}
           typeSpeed={85}
           max={4}

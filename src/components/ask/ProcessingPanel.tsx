@@ -1,5 +1,6 @@
 "use client";
 
+import { type CSSProperties } from "react";
 import ProcessingDots from "@/components/chrono/ProcessingDots";
 import type { AccentToken } from "@/lib/askPaths";
 
@@ -12,23 +13,15 @@ export default function ProcessingPanel({ accent }: ProcessingPanelProps) {
     <div
       className="c-glass c-corners c-fade-in"
       style={{
+        "--row-accent": accent,
         width: "min(540px, 92vw)",
         padding: "40px 44px",
         textAlign: "center",
         position: "relative",
         margin: "0 auto",
-      }}
+      } as CSSProperties}
     >
-      <div
-        style={{
-          fontFamily: "var(--font-plex-mono)",
-          fontSize: 11,
-          letterSpacing: "0.32em",
-          textTransform: "uppercase",
-          color: accent,
-          marginBottom: 14,
-        }}
-      >
+      <div className="card-eyebrow" style={{ marginBottom: 14 }}>
         {"// COGITATOR · CALCULATING"}
       </div>
       <div

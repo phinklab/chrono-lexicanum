@@ -65,15 +65,6 @@ export const TWEAKS_PANEL_CSS = `
   .twk-body{
     padding:10px 14px 14px;display:flex;flex-direction:column;gap:8px;
     overflow-y:auto;overflow-x:hidden;min-height:0;
-    scrollbar-width:thin;scrollbar-color:rgba(240,178,72,.28) transparent;
-  }
-  .twk-body::-webkit-scrollbar{width:8px}
-  .twk-body::-webkit-scrollbar-track{background:transparent;margin:2px}
-  .twk-body::-webkit-scrollbar-thumb{
-    background:rgba(240,178,72,.22);border:2px solid transparent;background-clip:content-box;
-  }
-  .twk-body::-webkit-scrollbar-thumb:hover{
-    background:rgba(240,178,72,.42);border:2px solid transparent;background-clip:content-box;
   }
 
   /* ─── Rows + labels ─────────────────────────────────────────────────── */

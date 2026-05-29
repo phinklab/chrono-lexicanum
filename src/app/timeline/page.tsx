@@ -1,30 +1,24 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { and, asc, count, eq, exists, inArray, sql } from "drizzle-orm";
+import { asc } from "drizzle-orm";
 import { db } from "@/db/client";
-import {
-  bookDetails as bookDetailsTable,
-  eras as erasTable,
-  facetValues as facetValuesTable,
-  factions as factionsTable,
-  series as seriesTable,
-  workFacets as workFacetsTable,
-  workFactions as workFactionsTable,
-  works as worksTable,
-} from "@/db/schema";
+import { eras as erasTable } from "@/db/schema";
 import {
   type BookDetail,
   type Era,
-  type EraBooksData,
   type ExternalLinkKind,
   type FactionAlignment,
-  type FilterOption,
   type SeriesRef,
   type TimelineBook,
+  eraIdForYear,
 } from "@/lib/timeline";
-import { parseFilterParams } from "@/lib/timelineUrl";
-import Overview from "@/components/timeline/Overview";
-import EraDetail from "@/components/timeline/EraDetail";
+import {
+  CHRONICLE_ERAS,
+  ROSTER_BY_SLUG,
+  buildChronicleBooks,
+  rosterToBookDetail,
+} from "@/lib/chronicle/roster";
+import ChronicleClient from "@/components/timeline/chronicle/ChronicleClient";
 import { DetailPanel } from "@/components/timeline/DetailPanel";
 import SiteBackground from "@/components/chrome/SiteBackground";
 
@@ -33,18 +27,21 @@ export const metadata: Metadata = { title: "Chronicle — Timeline" };
 /**
  * Timeline route.
  *
- * URL contract (set by brief 2026-04-29-008): the canonical `?era=` value is
- * a prototype era id (`great_crusade`, `horus_heresy`, `indomitus`, plus the
- * four non-canonical eras reachable via the Overview ribbon). Legacy
- * `?era=M30 | M31 | M42` from the session-007 toggle is server-redirected
- * to its mapped era id so old shared URLs keep working. Unknown values are
- * treated as "no era set" (renders Overview), not 404 — premature.
+ * DATA SOURCE (Product/UI strand, 2026-05-29). The Chronicle's book set + their
+ * in-universe dates come from the curated overlay in `@/lib/chronicle/roster`,
+ * NOT from the `works` table: the SSOT pipeline has ~859 dateless books in
+ * Postgres (`start_y IS NULL`), so a DB-driven ribbon clumped every book into
+ * the first era. The roster carries exactly the Lexicanum-dated set (87 titles)
+ * with real setting dates. Postgres stays the source of truth for everything
+ * else — the DetailPanel joins by slug for the titles already ingested, and
+ * falls back to a roster-built sparse detail for the rest. The per-book DB
+ * backfill is a Batches-strand follow-up; the FilterRail (faction/length,
+ * era-range filtered on `start_y`) is disabled until then.
  *
- * Server fetch happens on every request (no caching this brief). Books +
- * factions + series are reshaped into the `TimelineBook` shape the client
- * components consume. The page passes plain JSON-serialisable data to
- * Overview / EraDetail; both rebuild `projectY` themselves via `useMemo`
- * because the projector is a function and can't cross the RSC boundary.
+ * URL contract (set by brief 2026-04-29-008): the canonical `?era=` value is a
+ * prototype era id (`great_crusade`, `horus_heresy`, `indomitus`, …). Legacy
+ * `?era=M30 | M31 | M42` is server-redirected to its mapped era id so old
+ * shared URLs keep working. Unknown values render the Overview (not 404).
  */
 
 const LEGACY_TO_ERA = {
@@ -57,8 +54,6 @@ interface TimelinePageProps {
   searchParams: Promise<{
     era?: string;
     book?: string;
-    faction?: string;
-    length?: string;
   }>;
 }
 
@@ -66,16 +61,6 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
   const sp = await searchParams;
   const eraRaw = sp.era;
   const bookRaw = sp.book;
-  // Filter axes (Stufe 2a.2 / brief 029): comma-separated faction ids and
-  // length-tier facet value ids. Parsed via the URL helper that powers
-  // FilterRail too — single source of truth for the URL contract.
-  const filterParams = parseFilterParams(
-    new URLSearchParams(
-      Object.entries({ faction: sp.faction, length: sp.length }).flatMap(
-        ([k, v]) => (v ? [[k, v] as [string, string]] : []),
-      ),
-    ),
-  );
 
   // 1. Legacy redirect: pre-008 toggle wrote ?era=M30|M31|M42. Propagate ?book=
   //    through unchanged — slug validation happens on the next render.
@@ -86,65 +71,47 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
     redirect(target);
   }
 
-  // 2. Direct ?book=<slug> without ?era= — resolve via book_details.primaryEraId
-  //    server-side to the canonical shareable URL.
+  // loadTimeline runs first so the book-resolve redirects below can derive the
+  // era from the book's setting date (startY) via `data.eras` — the same
+  // startY-based grouping the ribbon uses.
+  const data = await loadTimeline();
+
+  // 2. Direct ?book=<slug> without ?era= — resolve the canonical shareable URL.
   if (bookRaw && !eraRaw) {
-    const eraId = await resolveBookEra(bookRaw);
+    const eraId = await resolveBookEra(bookRaw, data.eras);
     if (eraId) redirect(`/timeline?era=${eraId}&book=${encodeURIComponent(bookRaw)}`);
     redirect("/timeline");
   }
 
-  const data = await loadTimeline();
   const era = eraRaw ? data.eras.find((e) => e.id === eraRaw) ?? null : null;
 
-  // 3. ?era=<unknown>&book=<valid> — orphaned panel would have no BookDot to
-  //    focus on close (Overview has no pins since 013). Resolve to canonical.
+  // 3. ?era=<unknown>&book=<valid> — orphaned panel would have no marker to
+  //    focus on close. Resolve to canonical.
   if (bookRaw && eraRaw && !era) {
-    const eraId = await resolveBookEra(bookRaw);
+    const eraId = await resolveBookEra(bookRaw, data.eras);
     if (eraId) redirect(`/timeline?era=${eraId}&book=${encodeURIComponent(bookRaw)}`);
     redirect("/timeline");
   }
 
-  // 4. Era-scoped fan-out: server-filtered books for EraDetail (Stufe 2a.2)
-  //    + heavy detail load for the modal, both in parallel. Era-mismatch on
-  //    ?book= is intentionally NOT auto-corrected — brief 025 constraint 11
-  //    forbids EraDetail remount mid-flow, and stale shared links should still
-  //    render the panel above the user's chosen era.
-  const [eraBooksData, selectedBook] = await Promise.all([
-    era
-      ? loadEraBooks(era.id, filterParams)
-      : Promise.resolve(null),
-    bookRaw && era ? loadBookDetail(bookRaw) : Promise.resolve(null),
-  ]);
+  // 4. Heavy detail load for the modal (joined to the DB by slug, with curated
+  //    date overlay / roster fallback). Era-mismatch on ?book= is intentionally
+  //    NOT auto-corrected — stale shared links should still render the panel.
+  const selectedBook =
+    bookRaw && era ? await loadBookDetail(bookRaw, data.eras) : null;
   if (bookRaw && era && !selectedBook) redirect(`/timeline?era=${era.id}`);
 
   return (
-    <main className="timeline-shell">
+    <main className="timeline-shell timeline-shell--chronicle">
       <SiteBackground variant="chronicle" position="50% 32%" />
 
-      <p className="timeline-eyebrow">
-        <span aria-hidden>{"// Chronicle-Console"}</span>
-        <span className="timeline-eyebrow-dot" aria-hidden />
-        <span aria-hidden>{era ? era.name : "Survey-mode"}</span>
-      </p>
-
-      {era && eraBooksData ? (
-        <EraDetail
-          // Remount on era change so EraDetail's pan/drag state resets
-          // naturally — cheaper than a setState-in-effect inside the child.
-          key={era.id}
-          era={era}
-          eras={data.eras}
-          books={eraBooksData.books}
-          seriesById={data.seriesById}
-          availableFactions={eraBooksData.availableFactions}
-          availableLengthTiers={eraBooksData.availableLengthTiers}
-          totalInEra={eraBooksData.totalInEra}
-          matchedCount={eraBooksData.matchedCount}
-        />
-      ) : (
-        <Overview eras={data.eras} books={data.books} />
-      )}
+      <ChronicleClient
+        eras={data.eras}
+        books={data.books}
+        seriesById={data.seriesById}
+        activeEraId={era?.id ?? null}
+        segBooks={null}
+        filter={null}
+      />
 
       <DetailPanel selectedBook={selectedBook} eraId={era?.id ?? null} />
     </main>
@@ -152,298 +119,57 @@ export default async function TimelinePage({ searchParams }: TimelinePageProps) 
 }
 
 /**
- * Server-side fetch + adapt. Returns plain JSON-serialisable shapes only.
- * Wrapped in try/catch with empty fallbacks so the page renders even if the
- * pooler is briefly unreachable at build / request time.
+ * Build the Chronicle's book set from the curated roster overlay. Eras still
+ * come from the `eras` table (for canonical tone/name in the segment headers),
+ * but fall back to the bundled `CHRONICLE_ERAS` constant if that tiny query
+ * fails — so the Chronicle renders even when the pooler is briefly unreachable,
+ * since its book data no longer depends on the DB at all.
  */
 async function loadTimeline(): Promise<{
   eras: Era[];
   books: TimelineBook[];
   seriesById: Record<string, SeriesRef>;
 }> {
+  let eras: Era[] = CHRONICLE_ERAS;
   try {
-    const [erasRows, seriesRows, workRows] = await Promise.all([
-      db.select().from(erasTable).orderBy(asc(erasTable.sortOrder)),
-      db.select().from(seriesTable),
-      db.query.works.findMany({
-        where: (w, { eq: eqOp }) => eqOp(w.kind, "book"),
-        orderBy: (w, { asc: a }) => [a(w.startY)],
-        with: {
-          bookDetails: {
-            with: { series: { columns: { id: true, name: true } } },
-          },
-          factions: { columns: { factionId: true } },
-          persons: {
-            where: (wp, { eq: eqOp }) => eqOp(wp.role, "author"),
-            with: { person: { columns: { name: true } } },
-          },
-        },
-      }),
-    ]);
-
-    const eras: Era[] = erasRows.map((e) => ({
-      id: e.id,
-      name: e.name,
-      start: Number(e.startY),
-      end: Number(e.endY),
-      tone: e.tone,
-      sortOrder: e.sortOrder,
-    }));
-
-    const seriesById: Record<string, SeriesRef> = {};
-    for (const s of seriesRows) seriesById[s.id] = { id: s.id, name: s.name };
-
-    const books: TimelineBook[] = workRows.map((w) => {
-      const seriesId = w.bookDetails?.seriesId ?? null;
-      return {
-        id: w.id,
-        slug: w.slug,
-        title: w.title,
-        authors: w.persons.map((wp) => wp.person.name),
-        startY: Number(w.startY ?? 0),
-        endY: Number(w.endY ?? 0),
-        primaryEraId: w.bookDetails?.primaryEraId ?? "",
-        factions: w.factions.map((f) => f.factionId),
-        series: seriesId
-          ? { id: seriesId, order: w.bookDetails?.seriesIndex ?? null }
-          : null,
-      };
-    });
-
-    // Log on every request — visible in `next dev` terminal locally and in
-    // Vercel function logs on prod. Useful when the empty-state Overview
-    // appears: zero eras here means "DB returned nothing"; an absent log
-    // line means the request didn't reach this code path.
-    console.log(
-      `[/timeline] loaded ${eras.length} eras, ${books.length} books, ${Object.keys(seriesById).length} series.`,
-    );
-    return { eras, books, seriesById };
+    const erasRows = await db.select().from(erasTable).orderBy(asc(erasTable.sortOrder));
+    if (erasRows.length > 0) {
+      eras = erasRows.map((e) => ({
+        id: e.id,
+        name: e.name,
+        start: Number(e.startY),
+        end: Number(e.endY),
+        tone: e.tone,
+        sortOrder: e.sortOrder,
+      }));
+    }
   } catch (err) {
     const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-    console.error(`[/timeline] DB fetch failed (${msg}); rendering empty timeline.`);
-    return { eras: [], books: [], seriesById: {} };
+    console.error(`[/timeline] eras fetch failed (${msg}); using fallback CHRONICLE_ERAS.`);
   }
+
+  const { books, seriesById } = buildChronicleBooks(eras);
+  console.log(
+    `[/timeline] curated chronicle: ${eras.length} eras, ${books.length} dated books, ${Object.keys(seriesById).length} series.`,
+  );
+  return { eras, books, seriesById };
 }
 
 /**
- * Era-scoped book loader for the FilterRail-driven EraDetail (Stufe 2a.2 /
- * brief 029). Returns the books to render in this era under the active
- * filter, plus the available filter options for the era (computed unconditional
- * on current selection so the option list stays stable as the user filters).
- *
- * Query plan — server-side SQL filtering throughout (constraint 8):
- *
- *   1. matched-IDs query — narrows to (era ∧ optional faction-EXISTS ∧
- *      optional length-EXISTS). Returns `{ id }[]`. No relations loaded.
- *   2. availableFactions  — selectDistinct over factions ↔ work_factions
- *      scoped to this era's books. Order by faction name.
- *   3. availableLengthTiers — selectDistinct over facet_values ↔ work_facets
- *      scoped to this era's books AND `category_id = 'length_tier'`.
- *      Order by displayOrder so 'Novella → Short → Standard → Doorstopper'.
- *   4. (only when filters active) era-count query for `totalInEra` — when no
- *      filters active, totalInEra === matchedIds.length, query skipped.
- *   5. hydrate via existing relational pattern (`db.query.works.findMany`)
- *      using `inArray(works.id, matchedIds)`. Skipped on empty matchedIds —
- *      Drizzle's `inArray([])` historically generated `IN ()` syntax error.
- *
- * EXISTS subqueries (steps 1's faction/length predicates) avoid the fan-out
- * + GROUP BY HAVING dance you'd need with INNER JOINs against the multi-value
- * junctions. They short-circuit on first match per work.
- *
- * No new index this brief — flagged in the report for Phase-3 ingestion when
- * the catalog inflates past the threshold where `book_details.primary_era_id`
- * benefits from indexing.
+ * Lightweight slug → era-id resolver for the `?book=`-only / `?era=<unknown>`
+ * redirect branches. Prefers the curated roster (every Chronicle book is in
+ * it); falls back to the DB startY for off-roster shared links.
  */
-async function loadEraBooks(
-  eraId: string,
-  filters: { factionIds: string[]; lengthIds: string[] },
-): Promise<EraBooksData> {
-  const empty: EraBooksData = {
-    books: [],
-    availableFactions: [],
-    availableLengthTiers: [],
-    totalInEra: 0,
-    matchedCount: 0,
-  };
-  try {
-    const factionsActive = filters.factionIds.length > 0;
-    const lengthActive = filters.lengthIds.length > 0;
-    const filtersActive = factionsActive || lengthActive;
-
-    const [matchedRows, availableFactions, availableLengthTiers] = await Promise.all([
-      db
-        .select({ id: worksTable.id })
-        .from(worksTable)
-        .innerJoin(bookDetailsTable, eq(bookDetailsTable.workId, worksTable.id))
-        .where(
-          and(
-            eq(worksTable.kind, "book"),
-            eq(bookDetailsTable.primaryEraId, eraId),
-            factionsActive
-              ? exists(
-                  db
-                    .select({ x: sql`1` })
-                    .from(workFactionsTable)
-                    .where(
-                      and(
-                        eq(workFactionsTable.workId, worksTable.id),
-                        inArray(workFactionsTable.factionId, filters.factionIds),
-                      ),
-                    ),
-                )
-              : undefined,
-            lengthActive
-              ? exists(
-                  db
-                    .select({ x: sql`1` })
-                    .from(workFacetsTable)
-                    .innerJoin(
-                      facetValuesTable,
-                      eq(workFacetsTable.facetValueId, facetValuesTable.id),
-                    )
-                    .where(
-                      and(
-                        eq(workFacetsTable.workId, worksTable.id),
-                        eq(facetValuesTable.categoryId, "length_tier"),
-                        inArray(facetValuesTable.id, filters.lengthIds),
-                      ),
-                    ),
-                )
-              : undefined,
-          ),
-        ),
-      db
-        .selectDistinct({ id: factionsTable.id, name: factionsTable.name })
-        .from(factionsTable)
-        .innerJoin(workFactionsTable, eq(workFactionsTable.factionId, factionsTable.id))
-        .innerJoin(worksTable, eq(worksTable.id, workFactionsTable.workId))
-        .innerJoin(bookDetailsTable, eq(bookDetailsTable.workId, worksTable.id))
-        .where(
-          and(eq(worksTable.kind, "book"), eq(bookDetailsTable.primaryEraId, eraId)),
-        )
-        .orderBy(asc(factionsTable.name)),
-      db
-        .selectDistinct({
-          id: facetValuesTable.id,
-          name: facetValuesTable.name,
-          displayOrder: facetValuesTable.displayOrder,
-        })
-        .from(facetValuesTable)
-        .innerJoin(workFacetsTable, eq(workFacetsTable.facetValueId, facetValuesTable.id))
-        .innerJoin(worksTable, eq(worksTable.id, workFacetsTable.workId))
-        .innerJoin(bookDetailsTable, eq(bookDetailsTable.workId, worksTable.id))
-        .where(
-          and(
-            eq(facetValuesTable.categoryId, "length_tier"),
-            eq(worksTable.kind, "book"),
-            eq(bookDetailsTable.primaryEraId, eraId),
-          ),
-        )
-        .orderBy(asc(facetValuesTable.displayOrder)),
-    ]);
-
-    const matchedIds = matchedRows.map((r) => r.id);
-    const matchedCount = matchedIds.length;
-
-    let totalInEra = matchedCount;
-    if (filtersActive) {
-      const [eraCountRow] = await db
-        .select({ value: count() })
-        .from(worksTable)
-        .innerJoin(bookDetailsTable, eq(bookDetailsTable.workId, worksTable.id))
-        .where(
-          and(eq(worksTable.kind, "book"), eq(bookDetailsTable.primaryEraId, eraId)),
-        );
-      totalInEra = Number(eraCountRow?.value ?? 0);
-    }
-
-    const optionFactions: FilterOption[] = availableFactions.map((f) => ({
-      id: f.id,
-      name: f.name,
-    }));
-    const optionLengthTiers: FilterOption[] = availableLengthTiers.map((v) => ({
-      id: v.id,
-      name: v.name,
-    }));
-
-    if (matchedCount === 0) {
-      console.log(
-        `[/timeline] loadEraBooks(${eraId}, faction=[${filters.factionIds.join(",")}], length=[${filters.lengthIds.join(",")}]) → 0 / ${totalInEra} books.`,
-      );
-      return {
-        books: [],
-        availableFactions: optionFactions,
-        availableLengthTiers: optionLengthTiers,
-        totalInEra,
-        matchedCount: 0,
-      };
-    }
-
-    const workRows = await db.query.works.findMany({
-      where: (w, { inArray: ia }) => ia(w.id, matchedIds),
-      orderBy: (w, { asc: a }) => [a(w.startY)],
-      with: {
-        bookDetails: {
-          with: { series: { columns: { id: true, name: true } } },
-        },
-        factions: { columns: { factionId: true } },
-        persons: {
-          where: (wp, { eq: e }) => e(wp.role, "author"),
-          with: { person: { columns: { name: true } } },
-        },
-      },
-    });
-
-    const books: TimelineBook[] = workRows.map((w) => {
-      const seriesId = w.bookDetails?.seriesId ?? null;
-      return {
-        id: w.id,
-        slug: w.slug,
-        title: w.title,
-        authors: w.persons.map((wp) => wp.person.name),
-        startY: Number(w.startY ?? 0),
-        endY: Number(w.endY ?? 0),
-        primaryEraId: w.bookDetails?.primaryEraId ?? "",
-        factions: w.factions.map((f) => f.factionId),
-        series: seriesId
-          ? { id: seriesId, order: w.bookDetails?.seriesIndex ?? null }
-          : null,
-      };
-    });
-
-    console.log(
-      `[/timeline] loadEraBooks(${eraId}, faction=[${filters.factionIds.join(",")}], length=[${filters.lengthIds.join(",")}]) → ${matchedCount} / ${totalInEra} books.`,
-    );
-    return {
-      books,
-      availableFactions: optionFactions,
-      availableLengthTiers: optionLengthTiers,
-      totalInEra,
-      matchedCount,
-    };
-  } catch (err) {
-    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-    console.error(
-      `[/timeline] loadEraBooks(${eraId}) failed (${msg}); rendering empty era.`,
-    );
-    return empty;
-  }
-}
-
-/**
- * Lightweight slug → primaryEraId resolver. Used by the `?book=`-only and
- * `?era=<unknown>&book=` redirect branches so we land on the canonical URL
- * before rendering. Returns null when slug is unknown OR the work has no
- * primaryEraId set (the latter shouldn't happen post-2c.0 but defending).
- */
-async function resolveBookEra(slug: string): Promise<string | null> {
+async function resolveBookEra(slug: string, eras: readonly Era[]): Promise<string | null> {
+  const r = ROSTER_BY_SLUG.get(slug);
+  if (r) return eraIdForYear(r.startY, eras);
   try {
     const row = await db.query.works.findFirst({
       where: (w, { eq }) => eq(w.slug, slug),
-      columns: { id: true },
-      with: { bookDetails: { columns: { primaryEraId: true } } },
+      columns: { startY: true },
     });
-    return row?.bookDetails?.primaryEraId ?? null;
+    if (!row) return null;
+    return eraIdForYear(Number(row.startY ?? 0), eras);
   } catch (err) {
     const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
     console.error(`[/timeline] resolveBookEra(${slug}) failed (${msg}); treating as unknown.`);
@@ -452,15 +178,20 @@ async function resolveBookEra(slug: string): Promise<string | null> {
 }
 
 /**
- * Heavy fetch for the DetailPanel: one relational query + up to two targeted
- * sibling queries when the book is in a series. N+1 is acceptable at the
- * current catalog size (~26 books, single-digit links per work) — no
- * optimisation requested by brief 025.
+ * Heavy fetch for the DetailPanel. Loads the rich book record from Postgres by
+ * slug, then overlays the curated setting date (DB `start_y` is null for the
+ * whole catalogue today, so without this the panel eyebrow + close-URL would
+ * resolve to the wrong era). Titles not yet in the DB — 21 of the 87 — get a
+ * sparse detail built straight from the roster, so every Chronicle book opens a
+ * panel instead of bouncing back to the era view.
  *
- * Returns null when slug is unknown OR the book has no primaryEraId (the
- * caller redirects to drop `?book=` in either case).
+ * Returns null only when the slug is in neither the DB nor the roster (a
+ * hand-crafted bad link) — the caller drops `?book=` in that case.
  */
-async function loadBookDetail(slug: string): Promise<BookDetail | null> {
+async function loadBookDetail(slug: string, eras: readonly Era[]): Promise<BookDetail | null> {
+  const roster = ROSTER_BY_SLUG.get(slug);
+
+  let detail: BookDetail | null = null;
   try {
     const row = await db.query.works.findFirst({
       where: (w, { eq }) => eq(w.slug, slug),
@@ -500,117 +231,137 @@ async function loadBookDetail(slug: string): Promise<BookDetail | null> {
       },
     });
 
-    if (!row || !row.bookDetails || !row.bookDetails.primaryEraId) return null;
+    if (row && row.bookDetails) {
+      // Era is startY-derived (consistent with the ribbon grouping) rather than
+      // the un-curated `primary_era_id` anchor. The roster overlay below
+      // replaces startY entirely; this is the DB-only baseline.
+      const ownEraId = eraIdForYear(Number(row.startY ?? 0), eras);
 
-    // Sibling lookup: only when book is in a series. Filter both seriesIndex AND
-    // primaryEraId NON-NULL so the returned types are honestly non-nullable and
-    // we never push a broken ?era=&book= URL on prev/next click.
-    type SeriesSibling = NonNullable<NonNullable<BookDetail["series"]>["prev"]>;
-    let prev: SeriesSibling | null = null;
-    let next: SeriesSibling | null = null;
-    const seriesId = row.bookDetails.seriesId;
-    const seriesIndex = row.bookDetails.seriesIndex;
-    if (seriesId && seriesIndex !== null) {
-      const [pRow, nRow] = await Promise.all([
-        db.query.bookDetails.findFirst({
-          where: (bd, { and, eq, lt, isNotNull }) =>
-            and(
-              eq(bd.seriesId, seriesId),
-              lt(bd.seriesIndex, seriesIndex),
-              isNotNull(bd.seriesIndex),
-              isNotNull(bd.primaryEraId),
-            ),
-          orderBy: (bd, { desc }) => [desc(bd.seriesIndex)],
-          with: { work: { columns: { slug: true, title: true } } },
-          columns: { seriesIndex: true, primaryEraId: true },
-        }),
-        db.query.bookDetails.findFirst({
-          where: (bd, { and, eq, gt, isNotNull }) =>
-            and(
-              eq(bd.seriesId, seriesId),
-              gt(bd.seriesIndex, seriesIndex),
-              isNotNull(bd.seriesIndex),
-              isNotNull(bd.primaryEraId),
-            ),
-          orderBy: (bd, { asc: a }) => [a(bd.seriesIndex)],
-          with: { work: { columns: { slug: true, title: true } } },
-          columns: { seriesIndex: true, primaryEraId: true },
-        }),
-      ]);
-      if (pRow?.work && pRow.primaryEraId) {
-        prev = {
-          slug: pRow.work.slug,
-          title: pRow.work.title,
-          order: pRow.seriesIndex,
-          primaryEraId: pRow.primaryEraId,
-        };
+      type SeriesSibling = NonNullable<NonNullable<BookDetail["series"]>["prev"]>;
+      let prev: SeriesSibling | null = null;
+      let next: SeriesSibling | null = null;
+      const seriesId = row.bookDetails.seriesId;
+      const seriesIndex = row.bookDetails.seriesIndex;
+      if (seriesId && seriesIndex !== null) {
+        const [pRow, nRow] = await Promise.all([
+          db.query.bookDetails.findFirst({
+            where: (bd, { and, eq, lt, isNotNull }) =>
+              and(
+                eq(bd.seriesId, seriesId),
+                lt(bd.seriesIndex, seriesIndex),
+                isNotNull(bd.seriesIndex),
+              ),
+            orderBy: (bd, { desc }) => [desc(bd.seriesIndex)],
+            with: { work: { columns: { slug: true, title: true, startY: true } } },
+            columns: { seriesIndex: true },
+          }),
+          db.query.bookDetails.findFirst({
+            where: (bd, { and, eq, gt, isNotNull }) =>
+              and(
+                eq(bd.seriesId, seriesId),
+                gt(bd.seriesIndex, seriesIndex),
+                isNotNull(bd.seriesIndex),
+              ),
+            orderBy: (bd, { asc: a }) => [a(bd.seriesIndex)],
+            with: { work: { columns: { slug: true, title: true, startY: true } } },
+            columns: { seriesIndex: true },
+          }),
+        ]);
+        if (pRow?.work) {
+          prev = {
+            slug: pRow.work.slug,
+            title: pRow.work.title,
+            order: pRow.seriesIndex,
+            primaryEraId: eraIdForYear(Number(pRow.work.startY ?? 0), eras),
+          };
+        }
+        if (nRow?.work) {
+          next = {
+            slug: nRow.work.slug,
+            title: nRow.work.title,
+            order: nRow.seriesIndex,
+            primaryEraId: eraIdForYear(Number(nRow.work.startY ?? 0), eras),
+          };
+        }
       }
-      if (nRow?.work && nRow.primaryEraId) {
-        next = {
-          slug: nRow.work.slug,
-          title: nRow.work.title,
-          order: nRow.seriesIndex,
-          primaryEraId: nRow.primaryEraId,
-        };
+
+      const facets: BookDetail["facets"] = {};
+      for (const f of row.facets) {
+        const cat = f.facetValue.category;
+        if (!facets[cat.id]) {
+          facets[cat.id] = { categoryId: cat.id, categoryName: cat.name, values: [] };
+        }
+        facets[cat.id].values.push({ id: f.facetValue.id, name: f.facetValue.name });
       }
+
+      detail = {
+        id: row.id,
+        slug: row.slug,
+        title: row.title,
+        authors: row.persons.map((wp) => wp.person.name),
+        releaseYear: row.releaseYear ?? null,
+        startY: Number(row.startY ?? 0),
+        endY: Number(row.endY ?? 0),
+        primaryEraId: ownEraId,
+        synopsis: row.synopsis ?? null,
+        coverUrl: row.coverUrl ?? null,
+        factions: row.factions.map((wf) => ({
+          id: wf.faction.id,
+          name: wf.faction.name,
+          alignment: wf.faction.alignment as FactionAlignment,
+          tone: wf.faction.tone,
+          glyph: wf.faction.glyph,
+          role: wf.role ?? "supporting",
+        })),
+        facets,
+        series: row.bookDetails.series
+          ? {
+              id: row.bookDetails.series.id,
+              name: row.bookDetails.series.name,
+              totalPlanned: row.bookDetails.series.totalPlanned,
+              order: row.bookDetails.seriesIndex,
+              prev,
+              next,
+            }
+          : null,
+        externalLinks: row.externalLinks.map((el) => ({
+          kind: el.kind as ExternalLinkKind,
+          serviceId: el.serviceId,
+          serviceName: el.service.name,
+          url: el.url,
+          label: el.label ?? null,
+        })),
+        characters: row.characters.map((wc) => ({
+          id: wc.character.id,
+          name: wc.character.name,
+          role: wc.role ?? "supporting",
+        })),
+      };
     }
-
-    // Reshape facets: keyed by category id (stable; fragile if keyed by name).
-    const facets: BookDetail["facets"] = {};
-    for (const f of row.facets) {
-      const cat = f.facetValue.category;
-      if (!facets[cat.id]) {
-        facets[cat.id] = { categoryId: cat.id, categoryName: cat.name, values: [] };
-      }
-      facets[cat.id].values.push({ id: f.facetValue.id, name: f.facetValue.name });
-    }
-
-    return {
-      id: row.id,
-      slug: row.slug,
-      title: row.title,
-      authors: row.persons.map((wp) => wp.person.name),
-      releaseYear: row.releaseYear ?? null,
-      startY: Number(row.startY ?? 0),
-      endY: Number(row.endY ?? 0),
-      primaryEraId: row.bookDetails.primaryEraId,
-      synopsis: row.synopsis ?? null,
-      coverUrl: row.coverUrl ?? null,
-      factions: row.factions.map((wf) => ({
-        id: wf.faction.id,
-        name: wf.faction.name,
-        alignment: wf.faction.alignment as FactionAlignment,
-        tone: wf.faction.tone,
-        glyph: wf.faction.glyph,
-        role: wf.role ?? "supporting",
-      })),
-      facets,
-      series: row.bookDetails.series
-        ? {
-            id: row.bookDetails.series.id,
-            name: row.bookDetails.series.name,
-            totalPlanned: row.bookDetails.series.totalPlanned,
-            order: row.bookDetails.seriesIndex,
-            prev,
-            next,
-          }
-        : null,
-      externalLinks: row.externalLinks.map((el) => ({
-        kind: el.kind as ExternalLinkKind,
-        serviceId: el.serviceId,
-        serviceName: el.service.name,
-        url: el.url,
-        label: el.label ?? null,
-      })),
-      characters: row.characters.map((wc) => ({
-        id: wc.character.id,
-        name: wc.character.name,
-        role: wc.role ?? "supporting",
-      })),
-    };
   } catch (err) {
     const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-    console.error(`[/timeline] loadBookDetail(${slug}) failed (${msg}); dropping ?book=.`);
-    return null;
+    console.error(`[/timeline] loadBookDetail(${slug}) DB fetch failed (${msg}); trying roster.`);
   }
+
+  // Overlay the curated date onto the DB-backed detail so the panel agrees with
+  // the timeline (DB start_y is null today). Sibling eras get the same overlay.
+  if (detail) {
+    if (roster) {
+      detail.startY = roster.startY;
+      detail.endY = roster.endY;
+      detail.primaryEraId = eraIdForYear(roster.startY, eras);
+      const prevRoster = detail.series?.prev && ROSTER_BY_SLUG.get(detail.series.prev.slug);
+      if (detail.series?.prev && prevRoster) {
+        detail.series.prev.primaryEraId = eraIdForYear(prevRoster.startY, eras);
+      }
+      const nextRoster = detail.series?.next && ROSTER_BY_SLUG.get(detail.series.next.slug);
+      if (detail.series?.next && nextRoster) {
+        detail.series.next.primaryEraId = eraIdForYear(nextRoster.startY, eras);
+      }
+    }
+    return detail;
+  }
+
+  // Not in the DB (or the DB was unreachable) — sparse detail from the roster.
+  return rosterToBookDetail(slug, eras);
 }

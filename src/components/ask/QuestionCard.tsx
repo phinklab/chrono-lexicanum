@@ -50,17 +50,6 @@ export default function QuestionCard({ q, step, value, onPick, pathAccent }: Que
           <Typewriter text={q.latin} speed={70} cursor={false} />
         </span>
         <span className="c-hairline" style={{ flex: 1 }} aria-hidden />
-        <span
-          style={{
-            fontFamily: "var(--font-plex-mono)",
-            fontSize: 9.5,
-            letterSpacing: "0.24em",
-            textTransform: "uppercase",
-            color: "var(--cl-faint)",
-          }}
-        >
-          Q · {q.id.toUpperCase()}
-        </span>
       </header>
 
       <h2
@@ -148,20 +137,21 @@ function OptionTile({ label, desc, selected, accent, delayMs, animate, onClick }
   const border = selected
     ? accent
     : hover
-      ? "rgba(156, 230, 255, 0.45)"
-      : "rgba(156, 230, 255, 0.18)";
+      ? `color-mix(in oklch, ${accent} 50%, transparent)`
+      : "var(--color-line-1)";
 
   const tileStyle: CSSProperties = {
     position: "relative",
     padding: "14px 16px",
     background: selected
-      ? "rgba(156, 230, 255, 0.10)"
+      ? `color-mix(in oklch, ${accent} 12%, transparent)`
       : hover
         ? "rgba(8, 12, 20, 0.62)"
         : "rgba(8, 12, 20, 0.42)",
     border: `1px solid ${border}`,
+    boxShadow: selected ? `0 0 16px -2px color-mix(in oklch, ${accent} 30%, transparent)` : undefined,
     cursor: "pointer",
-    transition: "background 0.25s, border-color 0.25s, transform 0.25s",
+    transition: "background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s",
     transform: hover ? "translateY(-1px)" : "translateY(0)",
     animation: animate ? `chronoFade 0.45s ${delayMs}ms both` : undefined,
     textAlign: "left",
