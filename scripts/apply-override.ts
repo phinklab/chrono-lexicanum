@@ -55,7 +55,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { parseArgs } from "node:util";
 import { resolve } from "node:path";
 
-import { count, eq, inArray, or } from "drizzle-orm";
+import { and, count, eq, inArray, or } from "drizzle-orm";
 
 import { db } from "@/db/client";
 import {
@@ -75,6 +75,7 @@ import {
   resolveFaction,
   resolveLocation,
 } from "@/lib/resolver";
+import { deriveNameSort, slugifyPerson } from "@/lib/seed/persons";
 import {
   CHARACTER_ROLE_PRIORITY,
   FACTION_ROLE_PRIORITY,
@@ -308,51 +309,9 @@ Behaviour:
 // Helpers
 // =============================================================================
 
-/**
- * Slugify an author/editor display name into a snake_case persons.id.
- *
- * Rules (in order):
- *  1. NFKD normalize and strip combining diacritics (e.g. "Müller" → "Muller").
- *  2. Lower-case.
- *  3. Replace every non-[a-z0-9] run with a single underscore.
- *  4. Trim leading/trailing underscores.
- *
- * Deterministic + idempotent. Verified to reproduce all 12 existing
- * persons.json IDs from their `name` fields ("Dan Abnett" → "dan_abnett",
- * "Aaron Dembski-Bowden" → "aaron_dembski_bowden", "Graham McNeill" →
- * "graham_mcneill", etc.). Edge cases: "C.S. Goto" → "c_s_goto",
- * "O'Brien" → "o_brien".
- */
-function slugifyPerson(displayName: string): string {
-  // \p{Mn} = Unicode Nonspacing Mark — the combining diacritics produced by
-  // NFKD decomposition ("ü" → "u" + U+0308). Stripping them yields ASCII.
-  return displayName
-    .normalize("NFKD")
-    .replace(/\p{Mn}/gu, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "_")
-    .replace(/^_+|_+$/g, "");
-}
-
-/**
- * Derive a Library-of-Congress style nameSort ("Lastname, Firstname rest").
- *   "Dan Abnett"           → "Abnett, Dan"
- *   "Aaron Dembski-Bowden" → "Dembski-Bowden, Aaron"
- *   "C.S. Goto"            → "Goto, C.S."
- *   "Anonymous"            → "Anonymous"   (single-token fallback)
- *
- * Single-token fallback returns the original string because the DB column
- * `persons.name_sort` is NOT NULL (src/db/schema.ts); brief 062 originally
- * suggested NULL, but the schema disallows it, so we keep the token verbatim.
- */
-function deriveNameSort(displayName: string): string {
-  const trimmed = displayName.trim();
-  const parts = trimmed.split(/\s+/);
-  if (parts.length < 2) return trimmed;
-  const last = parts[parts.length - 1];
-  const rest = parts.slice(0, -1).join(" ");
-  return `${last}, ${rest}`;
-}
+// `slugifyPerson` + `deriveNameSort` moved to `@/lib/seed/persons` (Brief 105)
+// so the audiobook-credit apply path can slugify narrator names identically.
+// Imported at the top of this file; bodies are unchanged.
 
 function buildAuthorshipBlock(marker: AuthorshipMarker): string {
   return `---authorship---\n${JSON.stringify(marker, null, 2)}\n---/authorship---`;
@@ -1021,7 +980,20 @@ async function applyBook(
         displayOrder: i,
       });
     }
-    await tx.delete(workPersons).where(eq(workPersons.workId, workId));
+    // Brief 105: scope the delete to author/editor — the roles this apply path
+    // OWNS. Audio credits (narrator/co_narrator/full_cast) are written from a
+    // committed sidecar by scripts/apply-audiobook-narrators.ts and must
+    // survive every SSOT/resolver re-apply, so they are intentionally left
+    // untouched here. (Before this scope, a re-apply wiped all work_persons and
+    // re-inserted only author/editor, silently clobbering narrator credits.)
+    await tx
+      .delete(workPersons)
+      .where(
+        and(
+          eq(workPersons.workId, workId),
+          inArray(workPersons.role, ["author", "editor"]),
+        ),
+      );
     if (personRows.length > 0) {
       await tx.insert(workPersons).values(personRows);
     }

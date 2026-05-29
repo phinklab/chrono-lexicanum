@@ -1,0 +1,497 @@
+{
+  "$schemaNote": "Brief 105 Data pass — audiobook credits keyed by externalBookId. Applied to persons + work_persons (roles narrator|co_narrator|full_cast) by scripts/apply-audiobook-narrators.ts. This sidecar is the source of truth; DB rows are derived. Provenance (sourceUrl/checkedAt/confidence) lives here, not in work_persons. books[] = audiobook with named credit(s); audit[] = checked-but-not-applied (no audiobook, or audiobook with no findable named credits). Credit array order == work_persons.display_order. Source method: per-book web search → Amazon/Audible product-page byline (author, then narrator(s)/cast, then publisher); audio-drama casts cross-checked on Lexicanum/Fandom.",
+  "brief": "105",
+  "pass": "data",
+  "books": [
+    {
+      "externalBookId": "HH-0001",
+      "title": "Horus Rising",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Horus-Rising-Dan-Abnett-audiobook/dp/B0764LFG4Q", "checkedAt": "2026-05-29", "confidence": 0.9, "note": "Original Black Library unabridged narrator; a later remaster is narrated by Jonathan Keeble. Longworth recorded as the canonical/primary narrator." }
+      ]
+    },
+    {
+      "externalBookId": "HH-0002",
+      "title": "False Gods",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/False-Gods-Graham-McNeill-audiobook/dp/B0764KSNZ9", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0003",
+      "title": "Galaxy in Flames",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Galaxy-in-Flames-Ben-Counter-audiobook/dp/B076B4GWJ7", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0004",
+      "title": "The Flight of the Eisenstein",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/Flight-of-Eisenstein-audiobook/dp/B076DMFTXZ", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0005",
+      "title": "Fulgrim",
+      "credits": [
+        { "name": "David Timson", "role": "narrator", "sourceUrl": "https://www.amazon.com/Fulgrim-Graham-McNeill-audiobook/dp/B0765C7WYT", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0006",
+      "title": "Descent of Angels",
+      "credits": [
+        { "name": "Gareth Armstrong", "role": "narrator", "sourceUrl": "https://www.amazon.com/Descent-of-Angels-Mitchel-Scanlon-audiobook/dp/B0765CQ1YS", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0007",
+      "title": "Legion",
+      "credits": [
+        { "name": "David Timson", "role": "narrator", "sourceUrl": "https://www.amazon.com/Legion-Dan-Abnett-audiobook/dp/B0764B4CCS", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0008",
+      "title": "Battle for the Abyss",
+      "credits": [
+        { "name": "Gareth Armstrong", "role": "narrator", "sourceUrl": "https://www.amazon.com/Battle-for-Abyss-Ben-Counter-audiobook/dp/B0765C27ZP", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0009",
+      "title": "Mechanicum",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Mechanicum-Graham-McNeill-audiobook/dp/B076B3VXZX", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0010",
+      "title": "Tales of Heresy",
+      "credits": [
+        { "name": "Gareth Armstrong", "role": "narrator", "sourceUrl": "https://www.amazon.com/Tales-of-Heresy-audiobook/dp/B07RBWR3QM", "checkedAt": "2026-05-29", "confidence": 0.9, "note": "Multi-narrator anthology; first-listed reader recorded as narrator, the rest as co_narrator." },
+        { "name": "Emma Gregory", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Tales-of-Heresy-audiobook/dp/B07RBWR3QM", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "Jonathan Keeble", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Tales-of-Heresy-audiobook/dp/B07RBWR3QM", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "Toby Longworth", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Tales-of-Heresy-audiobook/dp/B07RBWR3QM", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "Peter Whickam", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Tales-of-Heresy-audiobook/dp/B07RBWR3QM", "checkedAt": "2026-05-29", "confidence": 0.85 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0012",
+      "title": "A Thousand Sons",
+      "credits": [
+        { "name": "Gareth Armstrong", "role": "narrator", "sourceUrl": "https://www.amazon.com/A-Thousand-Sons-Graham-McNeill-audiobook/dp/B076KNZYBS", "checkedAt": "2026-05-29", "confidence": 0.9, "note": "Audible edition narrator; an older CD edition credits Martyn Ellis." }
+      ]
+    },
+    {
+      "externalBookId": "HH-0013",
+      "title": "Nemesis",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/Nemesis-James-Swallow-audiobook/dp/B076B4892L", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0014",
+      "title": "The First Heretic",
+      "credits": [
+        { "name": "Gareth Armstrong", "role": "narrator", "sourceUrl": "https://www.amazon.com/The-First-Heretic-audiobook/dp/B076473Z82", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0015",
+      "title": "Prospero Burns",
+      "credits": [
+        { "name": "Gareth Armstrong", "role": "narrator", "sourceUrl": "https://www.amazon.com/Prospero-Burns-Dan-Abnett-audiobook/dp/B0765CHMXN", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0017",
+      "title": "The Outcast Dead",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/The-Outcast-Dead-Graham-McNeill-audiobook/dp/B0765CXL7C", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0019",
+      "title": "Know No Fear",
+      "credits": [
+        { "name": "Gareth Armstrong", "role": "narrator", "sourceUrl": "https://www.amazon.com/Know-No-Fear-Dan-Abnett-audiobook/dp/B076B9961K", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0021",
+      "title": "Fear to Tread",
+      "credits": [
+        { "name": "Gareth Armstrong", "role": "narrator", "sourceUrl": "https://www.amazon.com/Fear-to-Tread-James-Swallow-audiobook/dp/B076CTXCFR", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0024",
+      "title": "Betrayer",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/Betrayer-Aaron-Dembski-Bowden-audiobook/dp/B0765C8GRV", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0029",
+      "title": "Vengeful Spirit",
+      "credits": [
+        { "name": "Gareth Armstrong", "role": "narrator", "sourceUrl": "https://www.amazon.com/Vengeful-Spirit-Graham-McNeill-audiobook/dp/B07642GXQB", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0041",
+      "title": "The Master of Mankind",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/The-Master-of-Mankind-audiobook/dp/B0764L7VL1", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0055",
+      "title": "The Solar War",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/The-Solar-War-John-French-audiobook/dp/B07RRDYP9L", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0059",
+      "title": "Saturnine",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/Saturnine-Siege-Terra-Horus-Heresy/dp/B08BX26GK7", "checkedAt": "2026-05-29", "confidence": 0.95 },
+        { "name": "Emma Gregory", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Saturnine-Siege-Terra-Horus-Heresy/dp/B08BX26GK7", "checkedAt": "2026-05-29", "confidence": 0.9 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0061",
+      "title": "Mortis",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/Mortis-Horus-Heresy-Siege-Terra/dp/B095XCRTGS", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0062",
+      "title": "Warhawk",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/Warhawk-Horus-Heresy-Siege-Terra/dp/B09GPVN8HG", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0063",
+      "title": "Echoes of Eternity",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/Echoes-Eternity-Horus-Heresy-Siege/dp/B0B9YVQHK8", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0065",
+      "title": "The End and the Death: Volume 1",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/End-Death-Horus-Heresy-Seige/dp/B0BVBYSG2N", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0066",
+      "title": "The End and the Death: Volume 2",
+      "credits": [
+        { "name": "Jonathan Keeble", "role": "narrator", "sourceUrl": "https://www.amazon.com/End-Death-Horus-Heresy-Siege/dp/B0CKTN8VJD", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0241",
+      "title": "The Dark King",
+      "credits": [
+        { "name": "Danny Webb", "role": "narrator", "sourceUrl": "https://www.amazon.com/Dark-King-Lightning-Tower-Heresy/dp/B077SVMMRL", "checkedAt": "2026-05-29", "confidence": 0.8, "note": "Single performer on the bundled 'The Dark King | The Lightning Tower' audio edition." }
+      ]
+    },
+    {
+      "externalBookId": "HH-0242",
+      "title": "The Lightning Tower",
+      "credits": [
+        { "name": "Danny Webb", "role": "narrator", "sourceUrl": "https://www.amazon.com/Dark-King-Lightning-Tower-Heresy/dp/B077SVMMRL", "checkedAt": "2026-05-29", "confidence": 0.85, "note": "Single performer on the bundled 'The Dark King | The Lightning Tower' audio edition." }
+      ]
+    },
+    {
+      "externalBookId": "HH-0244",
+      "title": "Garro: Legion of One",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://wh40k.lexicanum.com/wiki/Garro:_Legion_of_One_(Audio_Book)", "checkedAt": "2026-05-29", "confidence": 0.9, "note": "Early Garro audio drama performed solo by Toby Longworth (single performer, hence narrator not full_cast)." }
+      ]
+    },
+    {
+      "externalBookId": "HH-0245",
+      "title": "Butcher's Nails",
+      "credits": [
+        { "name": "Seán Barrett", "role": "full_cast", "sourceUrl": "https://www.amazon.com/Butchers-Nails-audiobook/dp/B0784Q8TCX", "checkedAt": "2026-05-29", "confidence": 0.9, "note": "Full-cast Black Library audio drama." },
+        { "name": "Rupert Degas", "role": "full_cast", "sourceUrl": "https://www.amazon.com/Butchers-Nails-audiobook/dp/B0784Q8TCX", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "Charlotte Page", "role": "full_cast", "sourceUrl": "https://www.amazon.com/Butchers-Nails-audiobook/dp/B0784Q8TCX", "checkedAt": "2026-05-29", "confidence": 0.85 },
+        { "name": "Chris Fairbank", "role": "full_cast", "sourceUrl": "https://www.amazon.com/Butchers-Nails-audiobook/dp/B0784Q8TCX", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "David Timson", "role": "full_cast", "sourceUrl": "https://www.amazon.com/Butchers-Nails-audiobook/dp/B0784Q8TCX", "checkedAt": "2026-05-29", "confidence": 0.85 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0255",
+      "title": "Censure",
+      "credits": [
+        { "name": "Gareth Armstrong", "role": "full_cast", "sourceUrl": "https://www.amazon.com/Censure-Nick-Kyme-audiobook/dp/B0784QD8ZB", "checkedAt": "2026-05-29", "confidence": 0.9, "note": "Full-cast Black Library audio drama." },
+        { "name": "Seán Barrett", "role": "full_cast", "sourceUrl": "https://www.amazon.com/Censure-Nick-Kyme-audiobook/dp/B0784QD8ZB", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "Martyn Ellis", "role": "full_cast", "sourceUrl": "https://www.amazon.com/Censure-Nick-Kyme-audiobook/dp/B0784QD8ZB", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "Chris Fairbank", "role": "full_cast", "sourceUrl": "https://www.amazon.com/Censure-Nick-Kyme-audiobook/dp/B0784QD8ZB", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "David Timson", "role": "full_cast", "sourceUrl": "https://www.amazon.com/Censure-Nick-Kyme-audiobook/dp/B0784QD8ZB", "checkedAt": "2026-05-29", "confidence": 0.9 }
+      ]
+    },
+    {
+      "externalBookId": "HH-0257",
+      "title": "Khârn: The Eightfold Path",
+      "credits": [
+        { "name": "Chris Fairbank", "role": "full_cast", "sourceUrl": "https://www.amazon.com/The-Eightfold-Path-audiobook/dp/B077NQ7W28", "checkedAt": "2026-05-29", "confidence": 0.85, "note": "Full-cast Black Library audio drama." },
+        { "name": "Jamie Parker", "role": "full_cast", "sourceUrl": "https://www.amazon.com/The-Eightfold-Path-audiobook/dp/B077NQ7W28", "checkedAt": "2026-05-29", "confidence": 0.85 },
+        { "name": "David Timson", "role": "full_cast", "sourceUrl": "https://www.amazon.com/The-Eightfold-Path-audiobook/dp/B077NQ7W28", "checkedAt": "2026-05-29", "confidence": 0.85 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0001",
+      "title": "Xenos",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Xenos-Dan-Abnett-audiobook/dp/B075QLB6GL", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0002",
+      "title": "Malleus",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Malleus-Dan-Abnett-audiobook/dp/B075QMYRDZ", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0003",
+      "title": "Hereticus",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Hereticus-Dan-Abnett-audiobook/dp/B075QJDNW5", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0005",
+      "title": "Ravenor",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Ravenor-Dan-Abnett-audiobook/dp/B07BR3LMY6", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0006",
+      "title": "Ravenor Returned",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Ravenor-Returned-Dan-Abnett-audiobook/dp/B07BR1PRHX", "checkedAt": "2026-05-29", "confidence": 0.9 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0007",
+      "title": "Ravenor Rogue",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Ravenor-Rogue-Dan-Abnett-audiobook/dp/B079H5NCTS", "checkedAt": "2026-05-29", "confidence": 0.9 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0012",
+      "title": "For the Emperor",
+      "credits": [
+        { "name": "Stephen Perring", "role": "narrator", "sourceUrl": "https://www.amazon.com/Ciaphas-Cain-For-Emperor-audiobook/dp/B07H518XPJ", "checkedAt": "2026-05-29", "confidence": 0.9, "note": "Ciaphas Cain multi-narrator: Perring reads Cain's memoir, Rawlins the Amberley Vail footnotes, Gregory the in-universe extracts." },
+        { "name": "Penelope Rawlins", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Ciaphas-Cain-For-Emperor-audiobook/dp/B07H518XPJ", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "Emma Gregory", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Ciaphas-Cain-For-Emperor-audiobook/dp/B07H518XPJ", "checkedAt": "2026-05-29", "confidence": 0.9 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0013",
+      "title": "Caves of Ice",
+      "credits": [
+        { "name": "Stephen Perring", "role": "narrator", "sourceUrl": "https://www.amazon.com/Caves-of-Ice-Sandy-Mitchell-audiobook/dp/B07YSXGMLK", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "Penelope Rawlins", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Caves-of-Ice-Sandy-Mitchell-audiobook/dp/B07YSXGMLK", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "Emma Gregory", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Caves-of-Ice-Sandy-Mitchell-audiobook/dp/B07YSXGMLK", "checkedAt": "2026-05-29", "confidence": 0.9 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0014",
+      "title": "The Traitor's Hand",
+      "credits": [
+        { "name": "Stephen Perring", "role": "narrator", "sourceUrl": "https://www.amazon.com/Traitors-Hand-Ciaphas-Cain-Warhammer/dp/B089T5VY5Z", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "Penelope Rawlins", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Traitors-Hand-Ciaphas-Cain-Warhammer/dp/B089T5VY5Z", "checkedAt": "2026-05-29", "confidence": 0.9 },
+        { "name": "Andrew James Spooner", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Traitors-Hand-Ciaphas-Cain-Warhammer/dp/B089T5VY5Z", "checkedAt": "2026-05-29", "confidence": 0.85 },
+        { "name": "Emma Gregory", "role": "co_narrator", "sourceUrl": "https://www.amazon.com/Traitors-Hand-Ciaphas-Cain-Warhammer/dp/B089T5VY5Z", "checkedAt": "2026-05-29", "confidence": 0.9 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0024",
+      "title": "First and Only",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/First-and-Only-Dan-Abnett-audiobook/dp/B07ZL54RBG", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0025",
+      "title": "Ghostmaker",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Ghostmaker-Dan-Abnett-audiobook/dp/B081VQSNCF", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0026",
+      "title": "Necropolis",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Necropolis-Gaunts-Ghosts-Book-3/dp/B08996BJGN", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0034",
+      "title": "Only in Death",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Only-Death-Gaunts-Ghosts-Warhammer/dp/B0CJ396YV4", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0037",
+      "title": "The Warmaster",
+      "credits": [
+        { "name": "James Cameron Stewart", "role": "narrator", "sourceUrl": "https://www.amazon.com/The-Warmaster-Dan-Abnett-audiobook/dp/B077VSN8D3", "checkedAt": "2026-05-29", "confidence": 0.95, "note": "Later Gaunt's Ghosts entry; narrator differs from Toby Longworth on the earlier books." }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0047",
+      "title": "Nightbringer",
+      "credits": [
+        { "name": "Bruce Mackinnon", "role": "narrator", "sourceUrl": "https://amazon.com/Nightbringer-Warhammer-40-000/dp/B08M6FYSZC", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0048",
+      "title": "Warriors of Ultramar",
+      "credits": [
+        { "name": "Bruce Mackinnon", "role": "narrator", "sourceUrl": "https://www.amazon.com/Warriors-Ultramar-Chronicles-Ventris-Warhammer/dp/B095X9CH5Q", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0074",
+      "title": "Brothers of the Snake",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Brothers-of-Snake-Dan-Abnett-audiobook/dp/B07W6XLYYL", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0077",
+      "title": "Titanicus",
+      "credits": [
+        { "name": "Toby Longworth", "role": "narrator", "sourceUrl": "https://www.amazon.com/Audible-Titanicus-Warhammer-40-000/dp/B09WZ5Q3YJ", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0080",
+      "title": "The Emperor's Gift",
+      "credits": [
+        { "name": "Christopher Kent", "role": "narrator", "sourceUrl": "https://www.amazon.com/Emperors-Gift-Warhammer-40-000/dp/B0CCW3SNZ7", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0098",
+      "title": "The Lords of Silence",
+      "credits": [
+        { "name": "John Banks", "role": "narrator", "sourceUrl": "https://us.amazon.com/The-Lords-Of-Silence-audiobook/dp/B07GBC85QF", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0099",
+      "title": "Spear of the Emperor",
+      "credits": [
+        { "name": "Kelly Hotten", "role": "narrator", "sourceUrl": "https://www.audible.com/pd/Spear-of-the-Emperor-Audiobook/1789994225", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0101",
+      "title": "Honourbound",
+      "credits": [
+        { "name": "Nicolette Chin", "role": "narrator", "sourceUrl": "https://www.amazon.com/Honourbound-Severina-Raine/dp/B086VBPB66", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0103",
+      "title": "Belisarius Cawl: The Great Work",
+      "credits": [
+        { "name": "John Banks", "role": "narrator", "sourceUrl": "https://www.amazon.com/Belisarius-Cawl-Great-Work-audiobook/dp/B07XZNSRQY", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0107",
+      "title": "Brutal Kunnin",
+      "credits": [
+        { "name": "Tom Allenby", "role": "narrator", "sourceUrl": "https://www.amazon.com/Brutal-Kunnin-Warhammer-40-000/dp/B08HVQ5QYH", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0108",
+      "title": "The Infinite and the Divine",
+      "credits": [
+        { "name": "Richard Reed", "role": "narrator", "sourceUrl": "https://www.amazon.com/Infinite-Divine-Warhammer-40-000/dp/B08KJK3C8D", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0117",
+      "title": "Krieg",
+      "credits": [
+        { "name": "Timothy Watson", "role": "narrator", "sourceUrl": "https://www.amazon.com/Audible-Krieg-Warhammer-40-000/dp/B09QXPQBH4", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0127",
+      "title": "Angron: The Red Angel",
+      "credits": [
+        { "name": "Andrew Wincott", "role": "narrator", "sourceUrl": "https://www.amazon.com/Angron-Red-Angel-Warhammer-000/dp/B0BSLPM8FY", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0131",
+      "title": "Leviathan",
+      "credits": [
+        { "name": "Theo Solomon", "role": "narrator", "sourceUrl": "https://www.amazon.com/Audible-Leviathan-Warhammer-40-000/dp/B0C6BJ2VCH", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0135",
+      "title": "Fall of Cadia",
+      "credits": [
+        { "name": "David Seddon", "role": "narrator", "sourceUrl": "https://www.amazon.com/Fall-Cadia-Warhammer-40-000/dp/B0D2LMHMFN", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0346",
+      "title": "Soul Hunter",
+      "credits": [
+        { "name": "Andrew Wincott", "role": "narrator", "sourceUrl": "https://www.amazon.com/Soul-Hunter-Aaron-Dembski-Bowden-audiobook/dp/B07WH48LK1", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0369",
+      "title": "Ahriman: Exile",
+      "credits": [
+        { "name": "Mark Elstob", "role": "narrator", "sourceUrl": "https://www.amazon.com/Ahriham-Exile-Ahriman-Warhammer-Book/dp/B08DYF6F7Q", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0414",
+      "title": "I Am Slaughter",
+      "credits": [
+        { "name": "Gareth Armstrong", "role": "narrator", "sourceUrl": "https://www.amazon.com/I-Am-Slaughter-Warhammer-40000-audiobook/dp/B075NR7F87", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    },
+    {
+      "externalBookId": "W40K-0528",
+      "title": "Avenging Son",
+      "credits": [
+        { "name": "John Banks", "role": "narrator", "sourceUrl": "https://www.amazon.com/Avenging-Son-Dawn-Fire-Warhammer/dp/B08QW3X27R", "checkedAt": "2026-05-29", "confidence": 0.95 }
+      ]
+    }
+  ],
+  "audit": [
+    { "externalBookId": "W40K-0064", "title": "Space Marine", "status": "no_audiobook", "checkedAt": "2026-05-29", "sourceUrl": "https://www.blacklibrary.com/authors/ian-watson/space-marine-ebook.html", "note": "1993 classic by Ian Watson. Only eBook + print editions located; no official Audible/Black Library audio edition." },
+    { "externalBookId": "W40K-0065", "title": "Eye of Terror", "status": "no_audiobook", "checkedAt": "2026-05-29", "sourceUrl": "https://www.goodreads.com/book/show/459606.Eye_of_Terror", "note": "1999 novel by Barrington J. Bayley. Only fan-made YouTube/Bitchute readings found; no official audio edition." },
+    { "externalBookId": "W40K-0217", "title": "Deus Encarmine", "status": "no_audiobook", "checkedAt": "2026-05-29", "sourceUrl": "https://www.blacklibrary.com/all-products/deus-encarmine-ebook.html", "note": "2004 Blood Angels novel by James Swallow. No standalone audiobook located (the 'Angels of Darkness and Blood' audio-drama collection is a separate product); appears unrecorded as of checkedAt." },
+    { "externalBookId": "W40K-0264", "title": "Dark Apostle", "status": "no_audiobook", "checkedAt": "2026-05-29", "sourceUrl": "https://www.blacklibrary.com/all-products/dark-apostle-ebook.html", "note": "2007 Word Bearers novel by Anthony Reynolds. No official audiobook edition located; the Word Bearers trilogy (2007-2010) appears unrecorded as of checkedAt." }
+  ]
+}
