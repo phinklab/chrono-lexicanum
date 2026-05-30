@@ -2,7 +2,7 @@
 session: 2026-05-30-107
 role: architect
 date: 2026-05-30
-status: open
+status: implemented
 slug: full-rebuild-restore-wiring
 parent: 2026-05-29-105-arch-buy-listen-links
 links:

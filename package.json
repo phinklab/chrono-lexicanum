@@ -15,6 +15,7 @@
     "db:studio": "drizzle-kit studio",
     "db:seed": "tsx --env-file=.env.local scripts/seed.ts",
     "db:reset-for-ssot": "tsx --env-file=.env.local scripts/db-reset-for-ssot.ts",
+    "db:rebuild": "bash scripts/db-rebuild.sh",
     "db:apply-override": "tsx --env-file=.env.local scripts/apply-override.ts",
     "check:eras": "tsx scripts/check-eras.ts",
     "ingest:backfill": "tsx --env-file=.env.local scripts/ingest-backfill.ts",

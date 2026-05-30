@@ -28,6 +28,20 @@
  *   npm run apply:audiobook-narrators -- --dry-run     # validate + report, no writes
  *   npm run apply:audiobook-narrators                  # apply
  *   npm run apply:audiobook-narrators -- --file=<path> # alternate sidecar
+ *   npm run apply:audiobook-narrators -- --verify      # read-only post-condition check
+ *
+ * --verify (Brief 107): read-only completeness check, no writes. Verifies the
+ * DB holds EXACTLY the sidecar-derived set of audio-role `work_persons` rows:
+ * every sidecar book resolves to a works.id, every credit is present as its
+ * (workId, personId, role) row (that triple is work_persons' PK), and there are
+ * no stray audio rows. A bare total-count check would false-positive (a surplus
+ * in one role masking a deficit in another), so it is set equality, not a count.
+ * Exits nonzero on any missing / stray / unresolved row, or a zero expectation.
+ * This is the final step of the `db:rebuild` orchestrator (scripts/db-rebuild.sh)
+ * — it confirms a full rebuild restored every audiobook credit. It does NOT touch
+ * the apply path: the apply still skips unknown externalBookIds gracefully (the
+ * rebuild-completeness check lives in --verify, the worker stays friendly for
+ * incremental use / the later sweep).
  */
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -137,17 +151,165 @@ function loadAndValidate(path: string): Sidecar {
   return raw;
 }
 
+/**
+ * Read-only completeness check (Brief 107). Verifies the DB holds EXACTLY the
+ * sidecar-derived set of audio-role `work_persons` rows — not merely the right
+ * total count (a total alone false-positives: a surplus in one role can mask a
+ * deficit in another). Identity is the (workId, personId, role) triple, which is
+ * work_persons' primary key. Passes iff:
+ *   - every sidecar book resolves to a works.id (a full rebuild restores them all),
+ *   - every sidecar credit is present as its exact (workId, personId, role) row,
+ *   - there are no stray audio rows the sidecar doesn't account for, and
+ *   - the expectation is nonzero.
+ * Numbers are sidecar-derived (NOT a hardcoded literal), so the later 859-book
+ * full sweep growing the sidecar needs no edit here.
+ */
+async function verifyAudioCredits(
+  sidecar: Sidecar,
+  sidecarPath: string,
+): Promise<boolean> {
+  const fmtByRole = (by: Record<string, number>): string =>
+    AUDIO_ROLES.map((r) => `${r} ${by[r] ?? 0}`).join(" / ");
+  const tupleKey = (workId: string, personId: string, role: string): string =>
+    `${workId}::${personId}::${role}`;
+
+  // 1. Resolve externalBookId -> works.id (same UNIQUE lookup the apply uses).
+  const externalIds = sidecar.books.map((b) => b.externalBookId);
+  const workRows = await db
+    .select({ externalBookId: works.externalBookId, workId: works.id })
+    .from(works)
+    .where(inArray(works.externalBookId, externalIds));
+  const workIdByExternal = new Map<string, string>();
+  const externalByWorkId = new Map<string, string>();
+  for (const r of workRows) {
+    if (r.externalBookId !== null) {
+      workIdByExternal.set(r.externalBookId, r.workId);
+      externalByWorkId.set(r.workId, r.externalBookId);
+    }
+  }
+
+  // 2. Sidecar-derived expectation: the exact set of (workId, personId, role)
+  //    triples. A book that doesn't resolve to a works.id is a completeness
+  //    failure — its credits cannot be present at all.
+  const expected = new Map<
+    string,
+    { externalBookId: string; personId: string; role: AudioRole }
+  >();
+  const expectedByRole: Record<AudioRole, number> = {
+    narrator: 0,
+    co_narrator: 0,
+    full_cast: 0,
+  };
+  const unresolvedBooks: string[] = [];
+  const sidecarTotal = sidecar.books.reduce((n, b) => n + b.credits.length, 0);
+  for (const b of sidecar.books) {
+    const workId = workIdByExternal.get(b.externalBookId);
+    if (workId === undefined) {
+      unresolvedBooks.push(b.externalBookId);
+      continue;
+    }
+    for (const c of b.credits) {
+      const personId = slugifyPerson(c.name);
+      expected.set(tupleKey(workId, personId, c.role), {
+        externalBookId: b.externalBookId,
+        personId,
+        role: c.role,
+      });
+      expectedByRole[c.role] += 1;
+    }
+  }
+
+  // 3. Actual audio-role rows in the DB (PK = workId+personId+role).
+  const actualRows = await db
+    .select({
+      workId: workPersons.workId,
+      personId: workPersons.personId,
+      role: workPersons.role,
+    })
+    .from(workPersons)
+    .where(inArray(workPersons.role, [...AUDIO_ROLES]));
+  const actualKeys = new Set<string>();
+  const actualByRole: Record<string, number> = {};
+  for (const r of actualRows) {
+    actualKeys.add(tupleKey(r.workId, r.personId, r.role));
+    actualByRole[r.role] = (actualByRole[r.role] ?? 0) + 1;
+  }
+
+  // 4. Set comparison: every sidecar credit present, and no stray audio rows.
+  const missing = [...expected.entries()]
+    .filter(([k]) => !actualKeys.has(k))
+    .map(([, v]) => v);
+  const extra = actualRows.filter(
+    (r) => !expected.has(tupleKey(r.workId, r.personId, r.role)),
+  );
+
+  console.log("\n=== audiobook-narrators verify [READ ONLY] ===");
+  console.log(`Sidecar:  ${sidecarPath}`);
+  console.log(`Expected (sidecar-derived): ${sidecarTotal}  (${fmtByRole(expectedByRole)})`);
+  console.log(`Actual   (DB work_persons): ${actualKeys.size}  (${fmtByRole(actualByRole)})`);
+  console.log(`Books resolved: ${sidecar.books.length - unresolvedBooks.length}/${sidecar.books.length}`);
+
+  const ok =
+    sidecarTotal > 0 &&
+    unresolvedBooks.length === 0 &&
+    missing.length === 0 &&
+    extra.length === 0;
+
+  if (ok) {
+    console.log(
+      `VERIFY OK — all ${sidecarTotal} sidecar audio credits present as exact (work, person, role) rows; no stray rows.`,
+    );
+    return true;
+  }
+
+  if (sidecarTotal === 0) {
+    console.error(
+      "VERIFY FAILED — sidecar yields 0 expected credits; a rebuild must restore a nonzero count.",
+    );
+  }
+  if (unresolvedBooks.length > 0) {
+    console.error(
+      `VERIFY FAILED — ${unresolvedBooks.length} sidecar book(s) did not resolve to a works.id: ${unresolvedBooks.join(", ")}`,
+    );
+  }
+  if (missing.length > 0) {
+    console.error(`VERIFY FAILED — ${missing.length} sidecar credit(s) missing from work_persons:`);
+    for (const m of missing.slice(0, 20)) {
+      console.error(`    ${m.externalBookId}  ${m.personId}  ${m.role}`);
+    }
+    if (missing.length > 20) console.error(`    … and ${missing.length - 20} more`);
+  }
+  if (extra.length > 0) {
+    console.error(`VERIFY FAILED — ${extra.length} stray audio work_persons row(s) not derived from the sidecar:`);
+    for (const r of extra.slice(0, 20)) {
+      console.error(`    ${externalByWorkId.get(r.workId) ?? r.workId}  ${r.personId}  ${r.role}`);
+    }
+    if (extra.length > 20) console.error(`    … and ${extra.length - 20} more`);
+  }
+  return false;
+}
+
 async function main(): Promise<void> {
   const { values } = parseArgs({
     options: {
       "dry-run": { type: "boolean", default: false },
+      verify: { type: "boolean", default: false },
       file: { type: "string" },
     },
   });
   const dryRun = values["dry-run"] === true;
+  const verify = values.verify === true;
   const sidecarPath = resolve(values.file ?? DEFAULT_SIDECAR);
 
   const sidecar = loadAndValidate(sidecarPath);
+
+  // --verify: read-only post-condition check, no writes. Used as the final step
+  // of the db:rebuild orchestrator to confirm every audiobook credit was restored.
+  if (verify) {
+    const ok = await verifyAudioCredits(sidecar, sidecarPath);
+    process.exit(ok ? 0 : 1);
+  }
+
   const { books } = sidecar;
   const totalCredits = books.reduce((n, b) => n + b.credits.length, 0);
   console.log(
