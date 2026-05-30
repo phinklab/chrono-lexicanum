@@ -29,6 +29,10 @@ import {
 } from "@/db/schema";
 import { FORMAT_LABELS } from "@/lib/book-labels";
 import SiteBackground from "@/components/chrome/SiteBackground";
+import { resolveRegion } from "@/lib/store-region";
+import BuyListenActions from "@/components/book/BuyListenActions";
+import RegionSwitcher from "@/components/book/RegionSwitcher";
+import { type AudioCreditData } from "@/components/book/AudioCredit";
 
 type Params = { slug: string };
 
@@ -59,6 +63,8 @@ async function loadBookBySlug(slug: string) {
       db
         .select({
           format: bookDetailsTable.format,
+          isbn13: bookDetailsTable.isbn13,
+          isbn10: bookDetailsTable.isbn10,
           seriesId: bookDetailsTable.seriesId,
           seriesName: seriesTable.name,
           seriesIndex: bookDetailsTable.seriesIndex,
@@ -71,10 +77,15 @@ async function loadBookBySlug(slug: string) {
         .where(eq(bookDetailsTable.workId, work.id))
         .limit(1),
       db
-        .select({ name: personsTable.name, role: workPersonsTable.role })
+        .select({
+          name: personsTable.name,
+          role: workPersonsTable.role,
+          displayOrder: workPersonsTable.displayOrder,
+        })
         .from(workPersonsTable)
         .innerJoin(personsTable, eq(personsTable.id, workPersonsTable.personId))
-        .where(eq(workPersonsTable.workId, work.id)),
+        .where(eq(workPersonsTable.workId, work.id))
+        .orderBy(asc(workPersonsTable.role), asc(workPersonsTable.displayOrder)),
       db
         .select({
           id: factionsTable.id,
@@ -124,6 +135,8 @@ async function loadBookBySlug(slug: string) {
   return {
     ...work,
     format: details[0]?.format ?? null,
+    isbn13: details[0]?.isbn13 ?? null,
+    isbn10: details[0]?.isbn10 ?? null,
     seriesId: details[0]?.seriesId ?? null,
     seriesName: details[0]?.seriesName ?? null,
     seriesIndex: details[0]?.seriesIndex ?? null,
@@ -142,11 +155,50 @@ function roleSuffix(role: string | null, defaultRole: string): string {
   return role && role !== defaultRole ? ` · ${role}` : "";
 }
 
-export default async function BookPage({ params }: { params: Promise<Params> }) {
+const AUDIO_ROLES = new Set(["narrator", "co_narrator", "full_cast"]);
+const AUDIO_ROLE_ORDER: Record<string, number> = {
+  narrator: 0,
+  co_narrator: 1,
+  full_cast: 2,
+};
+
+/**
+ * Brief 105 — collapse the audio-credit rows into a render shape. Cast dramas
+ * (any `full_cast` role) render as an ensemble, never as a lone narrator.
+ */
+function buildAudioCredit(
+  persons: { name: string; role: string; displayOrder: number }[],
+): AudioCreditData | null {
+  const audio = persons
+    .filter((p) => AUDIO_ROLES.has(p.role))
+    .sort(
+      (a, b) =>
+        (AUDIO_ROLE_ORDER[a.role] ?? 9) - (AUDIO_ROLE_ORDER[b.role] ?? 9) ||
+        a.displayOrder - b.displayOrder,
+    );
+  if (audio.length === 0) return null;
+  const names = audio.map((p) => p.name);
+  if (audio.some((p) => p.role === "full_cast")) return { kind: "cast", names };
+  if (names.length === 1) return { kind: "single", names };
+  if (names.length === 2) return { kind: "duet", names };
+  return { kind: "ensemble", names };
+}
+
+export default async function BookPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<Params>;
+  searchParams: Promise<{ store?: string }>;
+}) {
   const { slug } = await params;
+  const sp = await searchParams;
   const book = await loadBookBySlug(slug);
   if (!book) notFound();
 
+  const region = await resolveRegion(sp.store);
+  const audioCredit = buildAudioCredit(book.persons);
+  const isbn = book.isbn13 ?? book.isbn10 ?? null;
   const authors = book.persons.filter((p) => p.role === "author").map((p) => p.name);
   const formatLabel = book.format ? FORMAT_LABELS[book.format] ?? book.format : null;
   const metaParts = [
@@ -163,22 +215,34 @@ export default async function BookPage({ params }: { params: Promise<Params> }) 
       <SiteBackground variant="vista" position="50% 22%" />
 
       <div className="book-detail__layout">
-        <aside className="book-detail__cover-panel c-glass c-corners">
-          {book.coverUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={book.coverUrl}
-              alt=""
-              width={220}
-              height={330}
-              className="book-detail__cover-img"
-            />
-          ) : (
-            <div className="book-detail__cover-missing" aria-hidden>
-              ?
-            </div>
-          )}
-        </aside>
+        <div className="book-detail__rail">
+          <aside className="book-detail__cover-panel c-glass c-corners">
+            {book.coverUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={book.coverUrl}
+                alt=""
+                width={220}
+                height={330}
+                className="book-detail__cover-img"
+              />
+            ) : (
+              <div className="book-detail__cover-missing" aria-hidden>
+                ?
+              </div>
+            )}
+          </aside>
+
+          <BuyListenActions
+            title={book.title}
+            author={authors[0] ?? null}
+            isbn={isbn}
+            region={region}
+            audio={audioCredit}
+          />
+
+          <RegionSwitcher active={region} />
+        </div>
 
         <article className="book-detail__title-block">
           <div className="book-detail__eyebrow">{"// LECTIO PROFVNDA · BOOK"}</div>
