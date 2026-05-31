@@ -1,0 +1,170 @@
+/* 45-bottom-console.css
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* =============================================================================
+ * BottomConsole — fixed bottom telemetry strip + optional 3 doorway cards.
+ * ============================================================================= */
+
+.bottom-console {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(2, 3, 10, 0.92) 0%,
+    rgba(2, 3, 10, 0.5) 70%,
+    rgba(2, 3, 10, 0) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding-top: 28px;
+  padding-bottom: 14px;
+  z-index: 30;
+}
+.bottom-console__strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  padding: 0 24px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.bottom-console__cog {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cl-cyan);
+}
+.bottom-console__cog-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cl-cyan);
+  box-shadow: 0 0 6px var(--cl-cyan);
+}
+.bottom-console__cog-label {
+  color: var(--cl-cyan);
+}
+.bottom-console__dot {
+  color: var(--cl-dim);
+}
+.bottom-console__index {
+  color: var(--cl-dim);
+}
+.bottom-console__stamp {
+  color: var(--cl-gold);
+}
+.bottom-console__cards {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  padding: 0 24px;
+  flex-wrap: wrap;
+}
+.bottom-console__card {
+  width: clamp(260px, 26vw, 320px);
+  padding: 14px 18px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.bottom-console__card:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 4px;
+}
+.bottom-console__card-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.bottom-console__card-kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+.bottom-console__card-rule { flex: 1; }
+.bottom-console__card-sect {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.bottom-console__card-title {
+  font-family: var(--font-cinzel), serif;
+  font-size: 24px;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+  color: var(--cl-bone);
+  margin-top: 8px;
+}
+.bottom-console__card-desc {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  color: var(--cl-dim);
+  font-size: 17px;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.bottom-console__card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--cl-faint);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.bottom-console__card-enter {
+  color: var(--cl-cyan);
+}
+.bottom-console__card-kbd {
+  color: var(--cl-dim);
+  font-size: 10px;
+}
+
+/* Compact-Cards-Variante — wird auf dem Hub gesetzt, wenn der Hub-Statement
+   den narrativen Hauptanker übernimmt und die Cards zur sekundären
+   Doorway-Leiste demotiert werden. Kleinerer Card-Footprint, leiseres
+   Typo-Gewicht; Architecture identisch, nur Maße + Schriftgrößen angepasst. */
+.bottom-console--compact-cards .bottom-console__cards { gap: 16px; }
+.bottom-console--compact-cards .bottom-console__card {
+  width: clamp(190px, 19vw, 230px);
+  padding: 10px 14px;
+}
+.bottom-console--compact-cards .bottom-console__card-title {
+  font-size: 18.5px;
+  margin-top: 4px;
+}
+.bottom-console--compact-cards .bottom-console__card-desc {
+  font-size: 13.5px;
+  margin-top: 4px;
+  line-height: 1.45;
+}
+.bottom-console--compact-cards .bottom-console__card-foot {
+  margin-top: 8px;
+  padding-top: 6px;
+  font-size: 10.5px;
+}
+.bottom-console--compact-cards .bottom-console__card-kicker { font-size: 10px; }
+.bottom-console--compact-cards .bottom-console__card-sect { font-size: 9.5px; }
+
+@media (max-width: 900px) {
+  .top-nav { --tn-pad: 14px; }
+  .top-nav__links { gap: 2px; }
+  .top-nav__link { padding: 6px 8px; font-size: 9px; }
+  .top-nav__name { display: none; }
+  .bottom-console__strip { gap: 14px; font-size: 9px; }
+}

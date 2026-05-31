@@ -1,0 +1,37 @@
+/* 43-eratoggle-legacy.css  — LEGACY / DEAD (removed in step B)
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* Restyled .era-toggle to match the Chrono direction. Behaviour is unchanged
+   — this only re-skins the existing client island in TopChrome/TopNav. */
+.era-toggle {
+  display: inline-flex;
+  gap: 0;
+  padding: 2px 3px;
+  border: 1px solid var(--cl-cyan-dim);
+  border-radius: 14px;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.era-toggle button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--cl-dim);
+  padding: 3px 9px;
+  border-radius: 11px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.18s, background 0.18s;
+}
+.era-toggle button:hover {
+  color: var(--cl-bone);
+}
+.era-toggle button.active,
+.era-toggle button[aria-pressed="true"] {
+  color: var(--cl-cyan);
+  background: rgba(156, 230, 255, 0.15);
+}

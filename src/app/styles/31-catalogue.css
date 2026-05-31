@@ -1,0 +1,663 @@
+/* 31-catalogue.css
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* =============================================================================
+ * Catalogue (/buecher) — Chrono-Optics re-skin.
+ * Vista hero + auspex sweep + cyan-glass row grid with faction dots, era
+ * badges, and audit chips. The audit + sort URL contract is unchanged; only
+ * the markup and styling are new. <details>/<summary> still drives expand.
+ * ============================================================================= */
+
+.catalogue {
+  position: relative;
+  padding-top: 0;
+}
+
+/* The hero header sits below the fixed TopNav (48px); the global rule
+ * `main { padding-top: 48px }` would push it down further, so we cancel it
+ * here and rely on the hero's own 520px height + photo to set the rhythm. */
+main.catalogue {
+  padding-top: 0;
+}
+
+.catalogue-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 520px;
+  background: transparent;
+}
+/* Photo + fade are viewport-fixed so the title image stays put as the user
+ * scrolls into the catalogue body; rows then slide over the image from below.
+ * Negative z-index keeps them behind every page-content stacking context but
+ * still above the body's solid void color. */
+.catalogue-hero__photo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-image: url("/img/books.webp");
+  background-size: cover;
+  background-position: 50% 32%;
+  background-repeat: no-repeat;
+  z-index: -2;
+  pointer-events: none;
+}
+.catalogue-hero__fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  /* Bottom-heavy ramp anchored to the viewport: photo is solid in the upper
+   * ~50%, transitions through 65–85%, and is full void by the bottom edge.
+   * Once the user scrolls in, the c-glass row band sits over the void portion
+   * and the lingering photo bleed through the gaps stays subtle. */
+  background:
+    radial-gradient(
+      ellipse at 50% 38%,
+      transparent 50%,
+      rgba(2, 3, 10, 0.20) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 3, 10, 0) 0%,
+      rgba(2, 3, 10, 0) 38%,
+      rgba(2, 3, 10, 0.45) 56%,
+      rgba(2, 3, 10, 0.88) 74%,
+      rgba(2, 3, 10, 1) 90%
+    );
+}
+.catalogue-scrim {
+  position: fixed;
+  inset: 0;
+  /* Coplanar with .catalogue-hero__fade (z -1) but later in the DOM, so it
+   * paints over the fade. <ScrollScrim> raises --cat-scrim-opacity from 0
+   * toward ~0.7 as the reader scrolls into the list, fading the fixed cover
+   * photo to near-void so every row stays legible. SSR default 0 keeps the
+   * photo crisp on first paint. */
+  z-index: -1;
+  pointer-events: none;
+  background: var(--cl-void);
+  opacity: var(--cat-scrim-opacity, 0);
+  will-change: opacity;
+}
+.catalogue-hero__sweep {
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  width: 360px;
+  height: 360px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 2;
+}
+.catalogue-hero__title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 320px;
+  text-align: center;
+  z-index: 3;
+  pointer-events: none;
+}
+.catalogue-hero__eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+.catalogue-hero__heading {
+  /* /ask titlebar text discipline: lighter weight + wide tracking, in gold. */
+  margin: 12px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 400;
+  font-size: clamp(44px, 4.6vw, 64px);
+  letter-spacing: 0.22em;
+  color: var(--cl-bone);
+  text-shadow:
+    0 0 32px rgba(201, 166, 90, 0.22),
+    0 4px 14px rgba(0, 0, 0, 0.95);
+}
+.catalogue-hero__sub {
+  margin: 14px auto 0;
+  max-width: 640px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--cl-bone);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+.catalogue-body {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+  /* Pull the toolbar up so the first row overlaps the fading lower edge of
+   * the fixed hero photo (Brief: "die Bücherliste darf das Bild etwas
+   * überlappen"). */
+  margin: -80px auto 0;
+  padding: 24px clamp(20px, 3vw, 48px) 80px;
+  /* No boxed backing: the list reads against the full-viewport .catalogue-scrim
+   * (edge-to-edge), so there are no hard left/right gradient edges. */
+}
+
+.catalogue-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.catalogue-toolbar__left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.catalogue-toolbar__count {
+  color: var(--cl-gold);
+}
+.catalogue-toolbar__total {
+  color: var(--cl-dim);
+}
+.catalogue-toolbar__dot {
+  color: var(--cl-dim);
+}
+.catalogue-toolbar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Re-skinned SortPills and AuditPills client islands. The classnames are
+ * exactly what the components emit; we just override the visual vocabulary. */
+.sort-pills,
+.audit-pills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: 1px solid rgba(201, 166, 90, 0.22);
+  background: rgba(8, 12, 20, 0.5);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+}
+.sort-pills-label,
+.audit-pills-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  margin-right: 4px;
+}
+.audit-pills-label {
+  color: var(--cl-gold);
+}
+.sort-pill,
+.audit-pill {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-dim);
+  padding: 6px 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 180ms, border-color 180ms, background 180ms;
+}
+.sort-pill:hover,
+.audit-pill:hover {
+  color: var(--cl-bone);
+  border-color: var(--cl-gold-dim);
+}
+.sort-pill:focus-visible,
+.audit-pill:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: 2px;
+}
+.sort-pill.active,
+.audit-pill.active {
+  color: var(--cl-gold);
+  border-color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.10);
+}
+
+.catalogue-caption {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  margin: -8px 0 14px;
+}
+
+.catalogue-empty {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--cl-dim);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+}
+
+.catalogue-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.catalogue-list > li {
+  list-style: none;
+}
+
+/* Calm hairline-separated rows — the /ask "book-list" discipline ported to
+ * the catalogue in gold: no per-row glass card or accent border-left, just a
+ * gold-faint hairline dividing each row. The accent (gold) is reserved for
+ * live data (the year + the active status chip); structure stays neutral.
+ * Enriched/stub is signalled by the title colour (see below), not a border. */
+.catalogue-row {
+  border-top: 1px solid color-mix(in oklch, var(--cl-gold) 13%, transparent);
+  transition: background 180ms;
+}
+.catalogue-list > li:first-child .catalogue-row {
+  border-top: none;
+}
+.catalogue-row[open] {
+  background: rgba(201, 166, 90, 0.045);
+}
+
+/* Brief 103: audio-drama damping in the single-gap audit bucket. Dimmed at
+ * rest so it reads as "expected sparse", full opacity on hover/open so the
+ * maintainer can still inspect it. The AUDIO tag lives in __main (not the
+ * chips column) so it survives the <=720px column collapse. */
+.catalogue-row.is-audio-dim {
+  opacity: 0.4;
+  transition: opacity 180ms;
+}
+.catalogue-row.is-audio-dim:hover,
+.catalogue-row.is-audio-dim[open] {
+  opacity: 1;
+}
+/* The faction dot is the row's strongest accent. Shrink + desaturate it on
+ * audio rows so the demotion still reads where the gap sort clusters dimmed
+ * rows together — there opacity alone has no bright neighbour to contrast
+ * against, but a smaller, greyer dot is an absolute per-row cue. */
+.catalogue-row.is-audio-dim .catalogue-row__dot {
+  width: 5px;
+  height: 5px;
+  filter: saturate(0.45);
+}
+.catalogue-row__audio-tag {
+  flex: none;
+  align-self: center;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  border: 1px solid var(--cl-faint);
+  padding: 1px 5px;
+}
+.catalogue-row__drift-signal {
+  color: var(--cl-bone);
+}
+
+.catalogue-row__summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns:
+    32px 16px minmax(0, 1fr) 140px 80px 70px 130px 110px 18px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+}
+.catalogue-row__summary::-webkit-details-marker { display: none; }
+.catalogue-row__summary:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: -2px;
+}
+/* Hover lift = a faint gold wash + a revealed chevron, mirroring the
+ * hover-revealed "Detail →" action on the /ask book rows. */
+.catalogue-row__summary:hover {
+  background: rgba(201, 166, 90, 0.05);
+}
+.catalogue-row__summary:hover .catalogue-row__chevron {
+  color: var(--cl-gold-dim);
+}
+
+.catalogue-row__index {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+}
+.catalogue-row__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.catalogue-row__main {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+.catalogue-row__title {
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  color: var(--cl-bone);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.catalogue-row.is-stub .catalogue-row__title {
+  color: var(--cl-dim);
+}
+.catalogue-row__byline {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--cl-dim);
+  white-space: nowrap;
+}
+.catalogue-row__audit-summary {
+  grid-column: 3 / span 6;
+  margin-top: 4px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--cl-gold);
+}
+.catalogue-row__faction,
+.catalogue-row__era {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.catalogue-row__year {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--cl-gold);
+}
+.catalogue-row__chips {
+  display: flex;
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+.catalogue-row__updated {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  white-space: nowrap;
+}
+.catalogue-row__chevron {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  color: var(--cl-faint);
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 200ms, color 200ms;
+}
+.catalogue-row[open] .catalogue-row__chevron {
+  transform: rotate(90deg);
+  color: var(--cl-gold);
+}
+
+.catalogue-chip {
+  display: inline-block;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border: 1px solid var(--cl-gold-dim);
+  color: var(--cl-gold);
+  white-space: nowrap;
+}
+.catalogue-chip--enriched {
+  color: var(--cl-gold);
+  border-color: var(--cl-gold-dim);
+}
+.catalogue-chip--stub {
+  color: var(--cl-faint);
+  border-color: var(--cl-faint);
+}
+.catalogue-chip--audit {
+  color: var(--cl-gold);
+  border-color: color-mix(in oklch, var(--cl-gold) 50%, transparent);
+}
+.catalogue-chip--mute {
+  color: var(--cl-faint);
+  border-color: var(--cl-faint);
+}
+
+/* Expanded detail body for the <details> row. */
+
+/* Expanded detail reads as an inset ask-card: the same soft glass gradient as
+ * /ask's .ask-card, divided from the summary by a gold-faint hairline. */
+.catalogue-row__detail {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 22px;
+  padding: 22px 22px 26px 60px;
+  border-top: 1px solid color-mix(in oklch, var(--cl-gold) 16%, transparent);
+  background: linear-gradient(
+    180deg,
+    rgba(8, 12, 20, 0.55) 0%,
+    rgba(4, 8, 14, 0.72) 100%
+  );
+}
+.catalogue-row__cover {
+  width: 140px;
+}
+.catalogue-row__cover img {
+  display: block;
+  width: 140px;
+  height: 210px;
+  object-fit: cover;
+  border: 1px solid var(--cl-ghost);
+  background: var(--cl-plate);
+}
+.catalogue-row__cover-placeholder {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 210px;
+  border: 1px dashed var(--cl-faint);
+  background: rgba(8, 12, 20, 0.4);
+  color: var(--cl-faint);
+  font-family: var(--font-cinzel), serif;
+  font-size: 36px;
+}
+.catalogue-row__body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+.catalogue-row__audit-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px solid color-mix(in oklch, var(--cl-gold) 36%, transparent);
+  background: rgba(201, 166, 90, 0.06);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--cl-gold);
+}
+.catalogue-row__audit-strip span {
+  border-right: 1px solid var(--cl-ghost);
+  padding-right: 8px;
+}
+.catalogue-row__audit-strip span:last-child {
+  border-right: 0;
+}
+.catalogue-row__roles {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--cl-dim);
+}
+.catalogue-row__meta {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--cl-bone);
+}
+.catalogue-row__synopsis {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--cl-bone);
+}
+.catalogue-row__tagrow {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  align-items: baseline;
+}
+.catalogue-row__tagrow-label {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.catalogue-row__tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+/* Tags follow the same restraint: neutral hairline borders + bone text, not a
+ * wall of gold. Gold returns only on interaction (collection link hover). */
+.catalogue-tag {
+  display: inline-block;
+  padding: 3px 9px;
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-bone);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+.catalogue-tag--faction { border-color: color-mix(in oklch, var(--cl-gold) 28%, transparent); }
+.catalogue-tag--facet { color: var(--cl-bone); border-color: var(--cl-faint); }
+.catalogue-tag__key { color: var(--cl-dim); }
+.catalogue-tag--collection a {
+  color: var(--cl-bone);
+  text-decoration: none;
+}
+.catalogue-tag--collection a:hover { color: var(--cl-gold); }
+
+.catalogue-row__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-top: 10px;
+  margin-top: 4px;
+  border-top: 1px solid var(--cl-ghost);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.catalogue-row__series { color: var(--cl-bone); }
+.catalogue-row__link {
+  color: var(--cl-gold);
+  text-decoration: none;
+  transition: color 180ms;
+}
+.catalogue-row__link:hover { color: var(--cl-bone); }
+
+.catalogue-footer {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid var(--cl-ghost);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.catalogue-footer__mid { color: var(--cl-gold); }
+
+@media (max-width: 1100px) {
+  .catalogue-row__summary {
+    grid-template-columns: 28px 14px minmax(0, 1fr) 100px 60px 100px 18px;
+  }
+  .catalogue-row__updated { display: none; }
+  .catalogue-row__faction { display: none; }
+}
+
+@media (max-width: 720px) {
+  .catalogue-hero { height: 420px; }
+  .catalogue-hero__sweep { width: 260px; height: 260px; top: 48px; }
+  .catalogue-hero__title { top: 240px; }
+  .catalogue-hero__heading { font-size: clamp(40px, 8vw, 56px); }
+  .catalogue-body { margin-top: -48px; }
+  .catalogue-toolbar { font-size: 10px; gap: 10px; }
+  .catalogue-row__summary {
+    grid-template-columns: 22px 12px minmax(0, 1fr) 70px 16px;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  .catalogue-row__byline,
+  .catalogue-row__era,
+  .catalogue-row__faction,
+  .catalogue-row__chips,
+  .catalogue-row__updated { display: none; }
+  .catalogue-row__detail {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 16px;
+  }
+  .catalogue-row__cover,
+  .catalogue-row__cover img,
+  .catalogue-row__cover-placeholder {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+  }
+  .catalogue-row__tagrow { grid-template-columns: 1fr; gap: 4px; }
+}

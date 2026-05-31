@@ -1,0 +1,21 @@
+/* 44-nav-frame.css
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* `--top-nav-h` wird vom collapsed-State (body:has(.top-nav--collapsed)) auf
+   124px hochgesetzt, damit die größere Nav den content darunter wegschiebt
+   statt ihn zu überlappen. Surfaces mit eigenem main-padding-Override (Hub,
+   catalogue, ask, chronicle) scrollen zwar und kollabieren die Nav, sind aber
+   gegen den Collapse-Reflow immun: sie setzen main-padding auf 0, der 124px-Wert
+   greift dort also nicht. */
+body {
+  --top-nav-h: 48px;
+}
+body:has(.top-nav--collapsed) {
+  --top-nav-h: 124px;
+}
+
+/* Push every route's <main> below the fixed TopNav. */
+main {
+  padding-top: var(--top-nav-h);
+  transition: padding-top 360ms cubic-bezier(0.4, 0, 0.2, 1);
+}

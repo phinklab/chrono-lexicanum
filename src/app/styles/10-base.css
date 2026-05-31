@@ -1,0 +1,69 @@
+/* 10-base.css
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* =============================================================================
+ * Base.
+ * ============================================================================= */
+
+html,
+body {
+  background: var(--cl-void);
+  color: var(--cl-bone);
+  min-height: 100%;
+}
+
+/* Site-wide custom scrollbar. scrollbar-width/color are inherited, so declaring
+ * them on html cascades to every scroller (Firefox). The unscoped ::-webkit
+ * rules match every scrollbar, including the viewport's (Chromium/WebKit). */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-corner { background: transparent; }
+
+body {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-feature-settings: 'ss01';
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-cinzel), serif;
+  letter-spacing: 0.02em;
+}
+
+:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(156, 230, 255, 0.18);
+}
+
+/* Every route's <main> sits above the fixed Starfield (z-index 0) and below
+   TopChrome (z-index 20). Without this, static stub routes paint *under* the
+   starfield's tinted gradient backdrop. */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

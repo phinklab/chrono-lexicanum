@@ -1,0 +1,899 @@
+/* 54-atlas.css
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* =============================================================================
+ * /atlas — Admin-Brücke (Task 2 — Atlas).
+ *
+ * Eine read-only Kommando-Surface über jede DB-Entität. Same Brief-096
+ * Vokabular wie /buecher (c-glass, c-corners, cyan/gold/bone), aber
+ * dichter, weniger Vista-Kathedral: ein tightes Grid aus 12 Decks plus
+ * eine Per-Entity-Liste, kein Hero-Auspex.
+ * ============================================================================= */
+
+main.atlas {
+  padding-top: 48px;
+  padding-bottom: 72px;
+  position: relative;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-left: clamp(20px, 3vw, 48px);
+  padding-right: clamp(20px, 3vw, 48px);
+}
+
+.atlas-hero {
+  padding: clamp(48px, 7vh, 88px) 0 clamp(36px, 5vh, 56px);
+  text-align: center;
+  position: relative;
+}
+.atlas-hero__line {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+.atlas-hero__dot {
+  width: 4px;
+  height: 4px;
+  background: var(--cl-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--cl-cyan);
+  display: inline-block;
+}
+.atlas-hero__title {
+  margin: 18px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(48px, 6vw, 84px);
+  letter-spacing: 0.16em;
+  color: var(--cl-bone);
+  text-shadow:
+    0 0 36px rgba(156, 230, 255, 0.22),
+    0 4px 14px rgba(0, 0, 0, 0.95);
+}
+.atlas-hero__sub {
+  margin: 16px auto 0;
+  max-width: 56ch;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--cl-bone);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+.atlas-hero__telemetry {
+  margin-top: 26px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 22px;
+  border: 1px solid var(--cl-cyan-fnt);
+  border-radius: 999px;
+  background: rgba(2, 3, 10, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+.atlas-hero__readout {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.atlas-hero__readout-num {
+  font-size: 18px;
+  color: var(--cl-cyan);
+  text-shadow: 0 0 10px rgba(156, 230, 255, 0.4);
+}
+.atlas-hero__readout-tag {
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.atlas-hero__sep {
+  color: var(--cl-faint);
+}
+
+.atlas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 8px auto 0;
+}
+@media (max-width: 1024px) {
+  .atlas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .atlas-grid { grid-template-columns: 1fr; }
+}
+
+.atlas-deck {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 22px 18px;
+  text-decoration: none;
+  color: var(--cl-bone);
+  min-height: 220px;
+}
+.atlas-deck::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 60%, rgba(156, 230, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.atlas-deck:hover::after { opacity: 1; }
+.atlas-deck--gold { border-color: rgba(201, 166, 90, 0.32); }
+.atlas-deck--gold:hover { border-color: rgba(201, 166, 90, 0.7); }
+.atlas-deck--blood { border-color: rgba(165, 28, 28, 0.34); }
+.atlas-deck--blood:hover { border-color: rgba(165, 28, 28, 0.7); }
+.atlas-deck--gold.c-corners::before,
+.atlas-deck--gold.c-corners::after { border-color: var(--cl-gold); }
+.atlas-deck--blood.c-corners::before,
+.atlas-deck--blood.c-corners::after { border-color: var(--cl-blood); }
+
+.atlas-deck__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.atlas-deck__label {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-bone);
+}
+.atlas-deck--gold .atlas-deck__label { color: var(--cl-gold); }
+.atlas-deck--blood .atlas-deck__label { color: var(--cl-blood); }
+.atlas-deck__phase {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cl-blood);
+  padding: 2px 8px;
+  border: 1px solid rgba(165, 28, 28, 0.5);
+  border-radius: 2px;
+}
+
+.atlas-deck__count {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 2px;
+}
+.atlas-deck__count-num {
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: 48px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--cl-bone);
+  text-shadow: 0 0 28px rgba(156, 230, 255, 0.18);
+}
+.atlas-deck--gold .atlas-deck__count-num {
+  text-shadow: 0 0 28px rgba(201, 166, 90, 0.22);
+}
+.atlas-deck--blood .atlas-deck__count-num {
+  color: var(--cl-blood);
+  text-shadow: 0 0 22px rgba(165, 28, 28, 0.32);
+}
+.atlas-deck__count-tag {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+
+.atlas-deck__blurb {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--cl-dim);
+}
+
+.atlas-deck__foot {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--cl-cyan-fnt);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.atlas-deck--gold .atlas-deck__foot { border-top-color: rgba(201, 166, 90, 0.22); }
+.atlas-deck--blood .atlas-deck__foot { border-top-color: rgba(165, 28, 28, 0.26); }
+.atlas-deck__time { color: var(--cl-dim); }
+.atlas-deck__time--mute { color: var(--cl-faint); font-style: italic; text-transform: none; letter-spacing: 0.14em; }
+.atlas-deck__cta { color: var(--cl-cyan); }
+.atlas-deck--gold .atlas-deck__cta { color: var(--cl-gold); }
+.atlas-deck--blood .atlas-deck__cta { color: var(--cl-blood); }
+
+/* Provenance pill */
+.atlas-pill {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 10px;
+  border: 1px solid rgba(201, 166, 90, 0.45);
+  background: rgba(201, 166, 90, 0.08);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+}
+.atlas-pill__label {
+  color: var(--cl-gold-dim);
+  font-size: 9px;
+  letter-spacing: 0.28em;
+}
+.atlas-pill__value {
+  color: var(--cl-gold);
+  font-size: 11px;
+}
+.atlas-pill--cyan {
+  border-color: var(--cl-cyan-dim);
+  background: rgba(156, 230, 255, 0.07);
+  color: var(--cl-cyan);
+}
+.atlas-pill--cyan .atlas-pill__label { color: rgba(156, 230, 255, 0.7); }
+.atlas-pill--cyan .atlas-pill__value { color: var(--cl-cyan); }
+.atlas-pill--blood {
+  border-color: rgba(165, 28, 28, 0.45);
+  background: rgba(165, 28, 28, 0.1);
+  color: var(--cl-blood);
+}
+.atlas-pill--blood .atlas-pill__label { color: rgba(165, 28, 28, 0.75); }
+.atlas-pill--blood .atlas-pill__value { color: var(--cl-blood); }
+
+/* Brücke footer */
+.atlas-footer {
+  margin-top: 36px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  border-top: 1px solid var(--cl-cyan-fnt);
+  border-bottom: 1px solid var(--cl-cyan-fnt);
+}
+.atlas-footer__mid {
+  color: var(--cl-bone);
+}
+.atlas-footer--entity {
+  margin-top: 28px;
+}
+
+/* =============================================================================
+ * /atlas/[entity] — Per-Entity-Listen + Stubs.
+ * ============================================================================= */
+
+.atlas-entity__hero {
+  padding: 32px 0 18px;
+}
+.atlas-entity__eyebrow {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+.atlas-entity__back {
+  color: var(--cl-cyan);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.atlas-entity__back:hover { opacity: 0.7; }
+.atlas-entity__divider { color: var(--cl-faint); }
+.atlas-entity__title {
+  margin: 14px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4vw, 56px);
+  letter-spacing: 0.10em;
+  color: var(--cl-bone);
+}
+.atlas-entity__sub {
+  margin: 12px 0 0;
+  max-width: 72ch;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--cl-dim);
+}
+.atlas-entity__stat-row {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.atlas-entity__audit-mark {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+}
+
+.atlas-entity__body {
+  position: relative;
+  padding: 18px 0 0;
+}
+.atlas-entity__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+  border-top: 1px solid var(--cl-cyan-fnt);
+  border-bottom: 1px solid var(--cl-cyan-fnt);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.atlas-entity__toolbar-left {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  color: var(--cl-bone);
+}
+.atlas-entity__count { color: var(--cl-cyan); }
+.atlas-entity__total { color: var(--cl-dim); }
+.atlas-entity__dot { color: var(--cl-faint); }
+.atlas-entity__toolbar-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.atlas-entity__caption {
+  margin: 12px 0 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--cl-gold);
+}
+
+/* Search input */
+.atlas-search {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--cl-cyan-fnt);
+  background: rgba(2, 3, 10, 0.45);
+}
+.atlas-search__label {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+.atlas-search__input {
+  flex: 1;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--cl-bone);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 16px;
+  outline: none;
+}
+.atlas-search__input::placeholder { color: var(--cl-faint); }
+.atlas-search__count {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+
+/* Werke-Liste — Tabelle */
+.atlas-table { margin-top: 14px; }
+.atlas-table__list {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.atlas-table__row { width: 100%; }
+.atlas-table__row-link {
+  display: grid;
+  grid-template-columns: 36px 12px minmax(220px, 1fr) 130px 110px 64px 110px 130px 110px 100px 14px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: var(--cl-bone);
+  border-radius: 0;
+}
+.atlas-table__row-link:hover { transform: none; }
+.atlas-table__idx {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+}
+.atlas-table__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 220, 192, 0.18);
+}
+.atlas-table__title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.atlas-table__name {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 17px;
+  line-height: 1.2;
+  color: var(--cl-bone);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.atlas-table__meta {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  color: var(--cl-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.atlas-table__sep { margin: 0 6px; color: var(--cl-faint); }
+.atlas-table__id { color: var(--cl-gold); }
+.atlas-table__faction,
+.atlas-table__era,
+.atlas-table__year {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--cl-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.atlas-table__year { color: var(--cl-bone); }
+.atlas-table__junc {
+  display: inline-flex;
+  gap: 8px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--cl-dim);
+}
+.atlas-table__chips {
+  display: inline-flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.atlas-table__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-dim);
+}
+.atlas-table__chip--audit {
+  color: var(--cl-gold);
+  border-color: rgba(201, 166, 90, 0.42);
+  background: rgba(201, 166, 90, 0.08);
+}
+.atlas-table__chip--ssot {
+  color: var(--cl-cyan);
+  border-color: var(--cl-cyan-dim);
+  background: rgba(156, 230, 255, 0.08);
+}
+.atlas-table__chip--mute { color: var(--cl-faint); border-color: transparent; }
+.atlas-table__prov {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  color: var(--cl-dim);
+  text-transform: lowercase;
+}
+.atlas-table__time {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--cl-faint);
+  text-align: right;
+}
+.atlas-table__chevron {
+  font-family: var(--font-cinzel), serif;
+  font-size: 18px;
+  color: var(--cl-cyan);
+  text-align: center;
+}
+.atlas-table__empty {
+  margin-top: 16px;
+  padding: 28px 22px;
+  text-align: center;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--cl-dim);
+}
+
+/* =============================================================================
+ * Admin Inventory Tables (Task 4A — AtlasInventoryTable<T>).
+ *
+ * Distinct from the werke list above: generic, flex-based layout so the
+ * ten Phase-1 admin decks can declare their own column shapes. Widths
+ * come from per-column className hooks (`atlas-inv__c--title`,
+ * `atlas-inv__c--num`, …) declared next to the layout primitives.
+ * ============================================================================= */
+
+.atlas-inv { margin-top: 14px; }
+.atlas-inv__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--cl-cyan-fnt);
+  border-bottom: 1px solid var(--cl-cyan-fnt);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.atlas-inv__list {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.atlas-inv__row { width: 100%; }
+.atlas-inv__rowlink,
+.atlas-inv__rowstatic {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: var(--cl-bone);
+}
+.atlas-inv__rowlink:hover { transform: none; }
+.atlas-inv__c {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.atlas-inv__c--head { color: var(--cl-faint); }
+.atlas-inv__c--start  { text-align: start; }
+.atlas-inv__c--center { text-align: center; }
+.atlas-inv__c--end    { text-align: end; }
+
+button.atlas-inv__c--head {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+button.atlas-inv__c--head:hover,
+button.atlas-inv__c--head:focus-visible {
+  color: var(--cl-cyan);
+  outline: none;
+}
+.atlas-inv__c--sorted { color: var(--cl-cyan); }
+.atlas-inv__head-arrow {
+  font-size: 9px;
+  opacity: 0.45;
+  transition: opacity 0.12s ease;
+}
+.atlas-inv__c--sorted .atlas-inv__head-arrow,
+button.atlas-inv__c--head:hover .atlas-inv__head-arrow {
+  opacity: 1;
+}
+
+.atlas-inv__c--idx {
+  flex: 0 0 36px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+}
+.atlas-inv__c--chev {
+  flex: 0 0 14px;
+  font-family: var(--font-cinzel), serif;
+  font-size: 18px;
+  color: var(--cl-cyan);
+  text-align: center;
+}
+.atlas-inv__c--title { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.atlas-inv__c--num {
+  flex: 0 0 70px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  color: var(--cl-bone);
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
+.atlas-inv__c--label {
+  flex: 0 0 130px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--cl-dim);
+}
+.atlas-inv__c--meta {
+  flex: 0 0 110px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  color: var(--cl-dim);
+}
+.atlas-inv__c--signal { flex: 0 0 120px; display: flex; justify-content: flex-end; }
+.atlas-inv__name {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--cl-bone);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.atlas-inv__hint {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  color: var(--cl-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.atlas-inv__empty {
+  margin-top: 16px;
+  padding: 28px 22px;
+  text-align: center;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--cl-dim);
+}
+
+/* Feature-Signal-Pill (admin-side feature hint per inventory row). */
+.atlas-signal {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-dim);
+  white-space: nowrap;
+}
+.atlas-signal--live {
+  color: var(--cl-cyan);
+  border-color: var(--cl-cyan-dim);
+  background: rgba(156, 230, 255, 0.07);
+}
+.atlas-signal--queue {
+  color: var(--cl-gold);
+  border-color: rgba(201, 166, 90, 0.42);
+  background: rgba(201, 166, 90, 0.08);
+}
+.atlas-signal--future {
+  color: var(--cl-bone);
+  border-color: rgba(232, 220, 192, 0.30);
+}
+.atlas-signal--muted {
+  color: var(--cl-faint);
+  border-color: transparent;
+}
+
+/* Submissions-Statusfilter (Task 4D operational inventory).
+ * Visual vocabulary shared with .sort-pills / .audit-pills (catalogue
+ * toolbar) so the admin surface reads as one family; we only redeclare
+ * because the submissions filter sits inside .atlas-entity__body (not
+ * the catalogue toolbar) and the wrapper gets its own margin. */
+.atlas-statuspills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 4px 8px;
+  border: 1px solid var(--cl-cyan-fnt);
+  background: rgba(8, 12, 20, 0.5);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+}
+.atlas-statuspills__label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  margin-right: 4px;
+}
+.atlas-statuspill {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-dim);
+  padding: 6px 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 180ms, border-color 180ms, background 180ms;
+}
+.atlas-statuspill:hover {
+  color: var(--cl-bone);
+  border-color: var(--cl-cyan-dim);
+}
+.atlas-statuspill:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+.atlas-statuspill.active {
+  color: var(--cl-cyan);
+  border-color: var(--cl-cyan);
+  background: rgba(156, 230, 255, 0.10);
+}
+.atlas-statuspill__count {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+  font-variant-numeric: tabular-nums;
+}
+.atlas-statuspill.active .atlas-statuspill__count { color: var(--cl-cyan-dim); }
+
+/* Mono-Variante des Inventar-Namens (Submissions-Payload-Preview). */
+.atlas-inv__name--mono {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--cl-bone);
+}
+
+/* Stub-Karte für nicht-werke Decks */
+.atlas-stub {
+  margin-top: 24px;
+  padding: 36px 32px;
+  max-width: 72ch;
+}
+.atlas-stub__eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+.atlas--stub .atlas-stub__eyebrow { color: var(--cl-gold); }
+.atlas-stub__title {
+  margin: 14px 0 16px;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  color: var(--cl-bone);
+}
+.atlas-stub__body {
+  margin: 0 0 14px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--cl-dim);
+}
+.atlas-stub__body strong { color: var(--cl-bone); font-weight: 500; }
+.atlas-stub__cta {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--cl-cyan-fnt);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.atlas-stub__back {
+  color: var(--cl-cyan);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.atlas-stub__back:hover { opacity: 0.7; }
+.atlas-stub__detail { color: var(--cl-dim); text-transform: none; letter-spacing: 0.10em; }
+.atlas-stub__detail code {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.08);
+  padding: 1px 6px;
+  border: 1px solid rgba(201, 166, 90, 0.32);
+  margin-left: 6px;
+}
+
+@media (max-width: 1280px) {
+  .atlas-table__row-link {
+    grid-template-columns: 32px 12px minmax(180px, 1fr) 110px 90px 56px 100px 120px 14px;
+  }
+  .atlas-table__prov,
+  .atlas-table__time { display: none; }
+}
+@media (max-width: 900px) {
+  .atlas-table__row-link {
+    grid-template-columns: 30px 12px minmax(160px, 1fr) 90px 90px 120px 14px;
+    gap: 10px;
+    padding: 10px 12px;
+  }
+  .atlas-table__faction,
+  .atlas-table__junc { display: none; }
+}
+@media (max-width: 640px) {
+  .atlas-table__row-link {
+    grid-template-columns: 24px 10px 1fr 80px 14px;
+    gap: 8px;
+  }
+  .atlas-table__era,
+  .atlas-table__chips { display: none; }
+  .atlas-entity__toolbar { font-size: 10px; }
+}

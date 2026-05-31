@@ -1,0 +1,391 @@
+/* 21-timeline-overview-legacy.css  — LEGACY / DEAD (removed in step B)
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* ─── Overview ribbon ─── */
+
+.timeline-overview {
+  position: relative;
+  width: 100%;
+  height: clamp(360px, 52vh, 520px);
+  /* Faint cyan lift through the centreline so the era bands have something
+     to glow against — without it, the very dark --bg-0 collapses any band
+     opacity below ~0.4 to invisibility. Same vocabulary as the Hub's
+     `.hub-main` radial-gradient lift around the eyebrow. */
+  background:
+    radial-gradient(ellipse 70% 35% at 50% 50%, var(--hl-faint) 0%, transparent 75%);
+}
+
+.timeline-overview-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.era-empty-hint {
+  margin: 0;
+  max-width: 64ch;
+  font-family: var(--font-reader);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.era-empty-hint code {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--hl);
+  padding: 1px 6px;
+  border: 1px solid var(--line-1);
+  background: color-mix(in oklch, var(--bg-1) 70%, transparent);
+}
+
+.timeline-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: ribbonBreathe 8s ease-in-out infinite;
+}
+@keyframes ribbonBreathe {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.08); }
+}
+
+/* Era band hit-targets */
+.era-seg {
+  cursor: pointer;
+  outline: none; /* kills the browser's white rectangle on click + focus;
+                   themed indicator lives in `.era-seg-brackets` below */
+  transition: filter .15s;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.era-seg:hover .era-seg-bar-fill {
+  filter: drop-shadow(0 0 6px color-mix(in oklch, var(--hl) 60%, transparent));
+}
+.era-seg:active { transform: scaleY(0.96); transition: transform .08s; }
+
+/* Glitch hover. State + class are set from Overview.tsx; the keyframe runs
+   a brief 420ms buzz that toggles the `eraGlitch` SVG filter on for ~3
+   beats inside a series of small translates. Calibrated milder than the
+   prototype's recipe — see Overview.tsx's filter defs. Settles to a
+   neutral steady-state so the persistent `:hover` rules above carry the
+   "I'm hovered" signal once the glitch is done.
+   Reduced motion: the global `* { animation-duration: 0.001ms }` rule
+   collapses this to its 100% neutral frame, so `:hover` colour + glow
+   apply but no displacement / RGB / jitter is ever rendered. */
+.era-seg.glitching {
+  animation: eraGlitch 0.42s steps(1) forwards;
+}
+@keyframes eraGlitch {
+  0%   { filter: none; transform: none; }
+  10%  { filter: url(#eraGlitch); transform: translate(-1.5px, 0); }
+  20%  { filter: none; transform: translate(2px, 0); }
+  35%  { filter: url(#eraGlitch); transform: translate(0, 0.5px); }
+  50%  { filter: none; transform: none; }
+  65%  { filter: url(#eraGlitch); transform: translate(-1px, 0); }
+  80%  { filter: none; transform: none; }
+  100% { filter: none; transform: none; }
+}
+
+/* Themed focus indicator — four L-shaped corner brackets, hidden idle and
+   on plain :focus, painted only on :focus-visible (so mouse clicks don't
+   leave a glow trail). Same painterly vocabulary as the Hub tile's
+   `.mt-corner` cross-bracket. */
+.era-seg-brackets polyline {
+  fill: none;
+  stroke: var(--hl);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px color-mix(in oklch, var(--hl) 60%, transparent));
+  transition: opacity .2s;
+}
+.era-seg:focus-visible .era-seg-brackets polyline { opacity: 1; }
+
+/* Era labels and year ticks. Brighter than the prototype's --ink-2 default
+   because that read as muted brown-grey on our very dark --bg-0; on the
+   Hub-aesthetic palette we need at least --ink-1 for the labels to feel
+   present against the starfield. */
+.era-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  fill: var(--ink-1);
+  transition: fill .3s, font-size .3s, letter-spacing .3s;
+}
+.era-label.primary {
+  fill: var(--ink-0);
+  letter-spacing: 0.26em;
+  font-size: 12px;
+}
+.era-years {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  fill: var(--ink-2);
+  letter-spacing: 0.1em;
+}
+
+/* Per-era count badge. Replaces individual book-pins on the Overview at
+   scale: a 3-digit zero-padded count reads as cleanly with 3 books as
+   with 500. The bg rect uses the panel-vocabulary fill so the badge
+   detaches softly from the band beneath; the `num` text is in --hl so
+   the cyan reads as the live datum. */
+.era-count {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.era-count .bg {
+  fill: color-mix(in oklch, var(--bg-1) 80%, transparent);
+  stroke: var(--line-1);
+  stroke-width: 0.5;
+}
+.era-count .num {
+  fill: var(--hl);
+  font-weight: 500;
+  text-shadow: 0 0 8px color-mix(in oklch, var(--hl) 35%, transparent);
+}
+
+/* ─── Era detail (zoomed-in) ─── */
+
+.era-detail {
+  position: relative;
+  width: 100%;
+  /* Lower bound: tracks now start at top:290 (clears the grown header),
+     plus padding-bottom:64 + bottom:56 + TRACK_TOP:110 + 1 track:110 +
+     spine slack:28 ≈ 658px floor. Round to 640 — slightly under floor
+     so 1-track eras don't waste space, but enough to seat the standalone
+     spine within view on small viewports. */
+  min-height: clamp(640px, 65vh, 720px);
+  padding-top: 96px;
+  padding-bottom: 64px;
+}
+
+.era-detail-nav-prev,
+.era-detail-nav-next {
+  position: absolute;
+  top: 96px;
+  z-index: 6;
+  background: color-mix(in oklch, var(--bg-0) 75%, transparent);
+  border: 1px solid var(--line-1);
+  color: var(--ink-2);
+  padding: 12px 10px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: border-color .25s, color .25s, background .25s, transform .3s cubic-bezier(.2,.8,.2,1);
+  width: 44px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-decoration: none;
+}
+.era-detail-nav-prev { left: -52px; }
+.era-detail-nav-next { right: -52px; }
+.era-detail-nav-prev .en-arrow,
+.era-detail-nav-next .en-arrow {
+  font-size: 14px;
+  color: var(--hl);
+  transition: transform .25s;
+  writing-mode: initial;
+}
+.era-detail-nav-prev .en-label,
+.era-detail-nav-next .en-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 120px;
+  white-space: nowrap;
+}
+.era-detail-nav-prev:hover,
+.era-detail-nav-next:hover {
+  border-color: var(--hl);
+  color: var(--hl);
+  background: color-mix(in oklch, var(--hl) 8%, transparent);
+}
+.era-detail-nav-prev:hover .en-arrow { transform: translateX(-3px); }
+.era-detail-nav-next:hover .en-arrow { transform: translateX(3px); }
+
+@media (max-width: 1100px) {
+  .era-detail-nav-prev { left: 0; }
+  .era-detail-nav-next { right: 0; }
+}
+
+.era-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding: 0 8px;
+  margin-bottom: 36px;
+}
+.era-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 6px 10px 6px 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  text-decoration: none;
+  border: 1px solid var(--line-1);
+  background: color-mix(in oklch, var(--bg-1) 70%, transparent);
+  transition: color .25s, border-color .25s, transform .25s cubic-bezier(.2,.8,.2,1);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  animation: fadeSlide .5s .05s backwards;
+}
+.era-back span {
+  color: var(--hl);
+  font-size: 12px;
+  transition: transform .25s cubic-bezier(.2,.8,.2,1);
+}
+.era-back:hover {
+  color: var(--ink-0);
+  border-color: var(--hl);
+  transform: translateX(-2px);
+}
+.era-back:hover span { transform: translateX(-3px); }
+.era-kicker {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--hl);
+  margin: 0 0 6px;
+  opacity: 0.85;
+  animation: fadeSlide .5s .15s backwards;
+}
+.era-name {
+  font-family: var(--font-cinzel);
+  font-weight: 500;
+  font-size: clamp(26px, 3vw, 34px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-0);
+  line-height: 1;
+  margin: 0;
+  animation: fadeSlide .6s .25s backwards;
+}
+.era-name em {
+  color: var(--hl);
+  font-style: normal;
+  text-shadow: 0 0 14px color-mix(in oklch, var(--hl) 40%, transparent);
+}
+.era-tone {
+  font-family: var(--font-reader);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-2);
+  margin: 8px 0 0;
+  max-width: 56ch;
+  animation: fadeSlide .6s .38s backwards;
+}
+.era-meta {
+  display: flex;
+  gap: 22px;
+  font-family: var(--font-mono);
+  text-align: right;
+}
+.em-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  animation: fadeSlide .55s backwards;
+}
+.em-stat:nth-child(1) { animation-delay: .32s; }
+.em-stat:nth-child(2) { animation-delay: .42s; }
+.em-stat .n {
+  font-family: var(--font-cinzel);
+  font-weight: 500;
+  font-size: 26px;
+  color: var(--hl);
+  line-height: 1;
+  text-shadow: 0 0 12px color-mix(in oklch, var(--hl) 35%, transparent);
+}
+.em-stat .l {
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* Empty state — when an era has 0 books in the fixture */
+.era-empty {
+  position: relative;
+  margin-top: 64px;
+  padding: 32px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.era-empty::before,
+.era-empty::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-2), transparent);
+  transform: translateX(-50%);
+}
+.era-empty::before { top: 0; }
+.era-empty::after  { bottom: 0; }
+
+/* Filter-empty state — adds a reset link below the constrained-state copy.
+   Wraps `.era-empty` in a column so the link sits centred under the brackets. */
+.era-empty-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.era-empty-block .era-empty {
+  margin-top: 64px;
+}
+.era-empty-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--line-1);
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 200ms, border-color 200ms, background 200ms;
+}
+.era-empty-reset:hover {
+  color: var(--hl);
+  border-color: var(--hl);
+  background: color-mix(in oklch, var(--hl) 8%, transparent);
+}
+.era-empty-reset:focus-visible {
+  outline: 1px solid var(--hl);
+  outline-offset: 2px;
+}

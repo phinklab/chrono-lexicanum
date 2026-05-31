@@ -1,0 +1,166 @@
+/* 58-ask-booklist.css
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* =============================================================================
+ * Ask / shared list primitives (Phase 2 — Ask the Archive redesign).
+ *
+ * The Chronicle ribbon earns its calm by reserving the cyan accent for live
+ * data (years, counts) and using neutral white hairlines (--line-0/1/2) for
+ * structure. These primitives carry that same discipline into the Ask result:
+ * a softer card shell, hairline-separated two-line book rows (no per-row
+ * border/bg), and a mono eyebrow. Per-path accent threads through via
+ * --row-accent, set inline on .ask-card (cyan / gold / blood); everything
+ * reads var(--row-accent) and falls back to cyan.
+ *
+ * NB: --ease is scoped to .timeline-shell--chronicle and is undefined here, so
+ * transitions use the literal cubic-bezier the prototype settled on.
+ *
+ * Phase 3 reuses these on /buch and /buecher.
+ * ============================================================================= */
+
+.ask-card {
+  --row-accent: var(--cl-cyan);              /* overridden inline per path */
+  position: relative;
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.80) 0%, rgba(4, 8, 14, 0.90) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line-1);           /* neutral hairline, not cyan */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.card-eyebrow {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: var(--row-accent, var(--cl-cyan));
+}
+.card-eyebrow .tail { color: var(--cl-faint); }   /* the "· 5 NOVELLAE" count */
+
+/* ── hairline-separated book list ───────────────────────────────────────── */
+.book-list { list-style: none; margin: 0; padding: 0; }
+
+.book-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.4ch 1fr auto;
+  grid-template-areas:
+    "idx title  year"
+    "idx author action";
+  align-items: baseline;
+  column-gap: 14px;
+  row-gap: 3px;
+  padding: 13px 10px;
+  border-top: 1px solid var(--line-0);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.book-list > li:first-child .book-row { border-top: none; }
+.book-row:hover { background: rgba(156, 230, 255, 0.04); }   /* same lift as .tlp-lane:hover */
+
+.book-row__index {
+  grid-area: idx;
+  align-self: start;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+}
+.book-row__title {
+  grid-area: title;
+  min-width: 0;
+  font-family: var(--font-cinzel);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  color: var(--cl-bone);
+}
+.book-row__year {
+  grid-area: year;
+  justify-self: end;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--row-accent, var(--cl-cyan));
+}
+.book-row__author {
+  grid-area: author;
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--cl-dim);
+}
+.book-row__action {
+  grid-area: action;
+  justify-self: end;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--row-accent, var(--cl-cyan));
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.book-row:hover .book-row__action,
+.book-row:focus-within .book-row__action { opacity: 1; }   /* reveal on hover AND keyboard focus */
+@media (hover: none) { .book-row__action { opacity: 0.7; } }  /* always visible on touch */
+
+/* ── answer footnote (replaces the chip strip); latin key + value ───────── */
+.ask-responsa {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  line-height: 1.7;
+}
+.ask-responsa .k { color: var(--row-accent, var(--cl-cyan)); }   /* latin key (PARTES, MOMENTVM, …) */
+.ask-responsa .v { color: var(--cl-dim); }        /* chosen answer label */
+.ask-responsa .sep { opacity: 0.55; margin: 0 8px; }
+
+/* ── footer: quiet text links + one softened-glow cyan CTA ──────────────── */
+.ask-footer {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.ask-footer .ask-footer__spacer { flex: 1; }
+
+.ask-footlink {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  text-decoration: none;
+  padding: 4px 2px;
+  transition: color 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.ask-footlink:hover {
+  color: var(--cl-bone);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ask-cta {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-void);
+  background: var(--cl-cyan);
+  padding: 10px 16px;
+  text-decoration: none;
+  border: 1px solid var(--cl-cyan);
+  box-shadow: 0 0 12px rgba(156, 230, 255, 0.22);   /* softened from 0.35 */
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.ask-cta:hover { box-shadow: 0 0 18px rgba(156, 230, 255, 0.34); }
