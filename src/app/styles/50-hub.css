@@ -1,0 +1,434 @@
+/* 50-hub.css
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* =============================================================================
+ * Hub (/) — full-bleed cathedral vista with offset dual auspex, centred
+ * title, ambient cyan ghost readout, BottomConsole doorways. Overrides the
+ * global `main { padding-top: 48px }` so the photo extends behind the TopNav.
+ * ============================================================================= */
+
+main.hub {
+  position: relative;
+  min-height: 200vh;
+  padding-top: 0;
+  overflow: visible;
+}
+.hub-fold {
+  position: relative;
+}
+.hub-fold--hero {
+  height: 100vh;
+}
+.hub-fold--tools {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(72px, 12vh, 128px) clamp(16px, 4vw, 48px) clamp(140px, 18vh, 200px);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 3, 10, 0) 0%,
+    rgba(2, 3, 10, 0.45) 22%,
+    rgba(2, 3, 10, 0.82) 60%,
+    rgba(2, 3, 10, 0.92) 100%
+  );
+}
+
+.hub-auspex {
+  position: absolute;
+  pointer-events: none;
+}
+.hub-auspex svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hub-auspex--main {
+  --auspex-size: min(78vh, 42vw, 620px);
+  width: var(--auspex-size);
+  height: var(--auspex-size);
+  left: calc(82vw - var(--auspex-size) / 2);
+  top: calc(76vh - var(--auspex-size) / 2);
+  opacity: 0.30;
+  animation: hubAuspexDriftA 38s ease-in-out infinite alternate;
+}
+.hub-auspex--secondary {
+  --auspex-size: min(43vh, 23vw, 341px);
+  width: var(--auspex-size);
+  height: var(--auspex-size);
+  left: calc(14vw - var(--auspex-size) / 2);
+  top: calc(80vh - var(--auspex-size) / 2);
+  opacity: 0.12;
+  animation: hubAuspexDriftB 53s ease-in-out infinite alternate;
+}
+
+.hub-title-block {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 34%;
+  transform: translateY(-50%);
+  text-align: center;
+  pointer-events: none;
+}
+.hub-title-eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+.hub-title {
+  margin: 18px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 400;
+  font-size: clamp(40px, 4.6vw, 68px);
+  letter-spacing: 0.14em;
+  color: var(--cl-bone);
+  text-shadow:
+    0 0 36px rgba(156, 230, 255, 0.22),
+    0 4px 14px rgba(0, 0, 0, 0.95);
+}
+.hub-title span {
+  display: inline-block;
+  margin: 0 18px;
+  color: var(--cl-cyan);
+  font-size: 0.62em;
+  vertical-align: middle;
+}
+.hub-title-sub {
+  margin: 16px auto 0;
+  max-width: 600px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.45;
+  color: var(--cl-bone);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+.hub-title-stats {
+  margin: 14px 0 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+}
+
+.hub-ghost {
+  position: absolute;
+  right: 32px;
+  top: 88px;
+  width: 260px;
+  pointer-events: none;
+}
+
+/* Hero-Descent — mittig-unten im Hero-Fold, animiertes Cyan-Triple-Chevron
+   + Cinzel-Label „What can I do here?". Click triggert smooth scroll auf den
+   Tools-Fold. Fadet via `--hub-scroll-dim` (HubScrollWatch) sanft aus,
+   sobald der User zu scrollen beginnt. */
+.hub-hero-descent {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(168px, 22vh, 220px);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 22px 6px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--cl-bone);
+  font: inherit;
+  z-index: 5;
+  opacity: calc(1 - var(--hub-scroll-dim, 0) * 2.4);
+  transition: opacity 220ms linear, transform 280ms ease;
+}
+.hub-hero-descent:hover {
+  transform: translateX(-50%) translateY(-2px);
+}
+.hub-hero-descent:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 6px;
+}
+.hub-hero-descent__label {
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-bone);
+  opacity: 0.92;
+  text-shadow:
+    0 0 18px color-mix(in oklch, var(--cl-cyan) 28%, transparent),
+    0 2px 8px rgba(0, 0, 0, 0.92);
+  transition: color 200ms ease;
+}
+.hub-hero-descent:hover .hub-hero-descent__label {
+  color: var(--cl-cyan);
+}
+.hub-hero-descent__chev {
+  display: block;
+  stroke: var(--cl-cyan);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  filter: drop-shadow(
+    0 0 6px color-mix(in oklch, var(--cl-cyan) 38%, transparent)
+  );
+}
+.hub-hero-descent__chev path {
+  opacity: 0;
+  animation: hubDescentChev 2.4s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+.hub-hero-descent__chev path:nth-child(2) { animation-delay: 0.5s; }
+.hub-hero-descent__chev path:nth-child(3) { animation-delay: 1.0s; }
+
+/* Hub-Intro + Tools-Akkordeon (Iteration 2) — leben jetzt im normal-flow
+   Stack innerhalb des scrollbaren `.hub-fold--tools`-Containers. Hero hat
+   100vh für sich, dann scrollt der User in den Tools-Fold rein; dessen
+   Background-Gradient + der scroll-getriebene `.site-bg::after` Scrim
+   dimmen den vista-Background, damit Akkordeon-Text klar lesbar bleibt. */
+.hub-intro__body {
+  margin: 0 auto;
+  max-width: 620px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.55;
+  text-align: center;
+  color: var(--cl-bone);
+  opacity: 0.9;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+}
+.hub-intro__heading {
+  margin: clamp(28px, 4vh, 44px) 0 18px;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(20px, 2.6vw, 24px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--cl-bone);
+  text-shadow: 0 0 20px color-mix(in oklch, var(--cl-cyan) 26%, transparent),
+               0 2px 10px rgba(0, 0, 0, 0.85);
+}
+.hub-intro__heading::before {
+  content: "// ";
+  color: var(--cl-cyan);
+  opacity: 0.7;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 0.7em;
+  letter-spacing: 0.18em;
+  vertical-align: 0.18em;
+}
+.hub-intro__about {
+  margin: 4px auto clamp(22px, 3.4vh, 32px);
+  max-width: 600px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--cl-bone);
+  opacity: 0.82;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.78);
+}
+
+/* Tools-Accordion — vier Disclosure-Rows, single-open. Glas-Surface +
+   Cyan-Corner-Brackets; jeder Body enthält nur einen kurzen Absatz +
+   CTA-Link. Stärkerer Dark-Gradient hier als beim Default-c-glass,
+   damit der Text auch über hellen Bg-Bereichen lesbar bleibt. */
+.tools-accordion {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tools-accordion__row {
+  position: relative;
+  text-align: left;
+  background: linear-gradient(180deg, rgba(2, 3, 10, 0.78) 0%, rgba(4, 8, 14, 0.88) 100%);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  transition: border-color 180ms ease;
+}
+.tools-accordion__row:hover {
+  border-color: color-mix(in oklch, var(--cl-cyan) 38%, transparent);
+}
+.tools-accordion__row[data-open="true"] {
+  border-color: color-mix(in oklch, var(--cl-cyan) 55%, transparent);
+}
+.tools-accordion__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 20px;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+.tools-accordion__head:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 3px;
+}
+.tools-accordion__kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  flex: 0 0 auto;
+  min-width: 108px;
+}
+.tools-accordion__title {
+  font-family: var(--font-cinzel), serif;
+  font-size: 16.5px;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+  color: var(--cl-bone);
+  flex: 0 0 auto;
+}
+.tools-accordion__tease {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--cl-dim);
+  flex: 1 1 auto;
+  text-align: left;
+  margin-left: 12px;
+  opacity: 0.85;
+}
+.tools-accordion__indicator {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  color: var(--cl-cyan);
+  font-size: 14px;
+  transition: transform 220ms ease, opacity 200ms ease;
+  opacity: 0.7;
+  flex: 0 0 auto;
+}
+.tools-accordion__row[data-open="true"] .tools-accordion__indicator {
+  transform: rotate(45deg);
+  opacity: 1;
+}
+.tools-accordion__body {
+  padding: 0 20px 16px;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 240ms ease;
+}
+.tools-accordion__row[data-open="true"] .tools-accordion__body {
+  grid-template-rows: 1fr;
+}
+.tools-accordion__body-inner {
+  overflow: hidden;
+}
+.tools-accordion__body-text {
+  margin: 12px 0 14px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--cl-bone);
+  opacity: 0.92;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.65);
+}
+.tools-accordion__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+  padding: 8px 14px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  border: 1px solid color-mix(in oklch, var(--cl-cyan) 45%, transparent);
+  text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+.tools-accordion__cta:hover {
+  background: color-mix(in oklch, var(--cl-cyan) 12%, transparent);
+  border-color: color-mix(in oklch, var(--cl-cyan) 70%, transparent);
+}
+
+/* Hub-Sound-Strip — schmale Zeile direkt über der BottomConsole-Telemetrie
+   am unteren Bildschirmrand. Reiner Atmosphären-Hinweis. */
+.hub-sound-strip {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 78px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  z-index: 31;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  opacity: 0.55;
+  text-shadow: 0 0 10px color-mix(in oklch, var(--cl-cyan) 24%, transparent),
+               0 2px 6px rgba(0, 0, 0, 0.92);
+  pointer-events: none;
+}
+.hub-sound-strip > span:first-child,
+.hub-sound-strip > span:last-child {
+  font-size: 11px;
+  letter-spacing: 0;
+  opacity: 0.65;
+}
+
+@media (max-width: 900px) {
+  .hub-intro__body { font-size: 17px; max-width: 100%; }
+  .hub-intro__heading { font-size: 19px; }
+  .hub-intro__about { font-size: 16px; max-width: 100%; }
+  .tools-accordion__kicker { min-width: 0; font-size: 10px; }
+  .tools-accordion__title { font-size: 15px; }
+  .tools-accordion__tease { display: none; }
+  .tools-accordion__head { padding: 12px 14px; gap: 10px; }
+  .tools-accordion__body { padding: 0 14px 14px; }
+  .hub-sound-strip { bottom: 64px; font-size: 9.5px; letter-spacing: 0.28em; }
+  .hub-fold--tools { padding: clamp(56px, 9vh, 96px) 14px clamp(120px, 16vh, 160px); }
+  .hub-hero-descent { bottom: clamp(150px, 24vh, 200px); padding: 6px 16px; gap: 8px; }
+  .hub-hero-descent__label { font-size: 11.5px; letter-spacing: 0.26em; }
+}
+
+/* Home-only: scroll-getriebener Dim-Scrim über dem Vista-Foto. Das
+   `--hub-scroll-dim` wird vom HubScrollWatch-Client-Component (0 → 1)
+   gesetzt — bei Scroll-Y 0 ist der Hero pristine; ab ~70vh Scroll ist
+   der Scrim voll ausgeprägt (gecappt bei 55% Schwarz, damit das Foto
+   noch erkennbar bleibt). */
+body:has(main.hub) .site-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(2, 3, 10, calc(var(--hub-scroll-dim, 0) * 0.55));
+  transition: background 90ms linear;
+}
+
+@media (max-width: 900px) {
+  .hub-auspex--secondary { display: none; }
+  .hub-auspex--main {
+    --auspex-size: min(56vh, 70vw, 420px);
+    left: calc(72vw - var(--auspex-size) / 2);
+    top: calc(78vh - var(--auspex-size) / 2);
+  }
+  .hub-ghost { display: none; }
+  .hub-title-block { top: 28%; }
+  .hub-title { font-size: clamp(34px, 8vw, 56px); }
+}

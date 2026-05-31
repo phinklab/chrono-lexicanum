@@ -1,0 +1,75 @@
+/* 52-stub-shell.css
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* =============================================================================
+ * Stub-route shell — shared layout for /fraktion, /welt, /charakter, /map
+ * Eyebrow + Cinzel title + Cormorant body + decorative CornerAuspex.
+ * ============================================================================= */
+
+main.stub-shell {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 120px 32px 120px;
+  min-height: calc(100vh - 48px);
+}
+
+.stub-shell__decor {
+  position: absolute;
+  top: 80px;
+  right: 32px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.stub-shell__inner {
+  position: relative;
+  max-width: 620px;
+}
+
+.stub-shell__eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  margin: 0;
+}
+
+.stub-shell__title {
+  margin: 14px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4vw, 56px);
+  letter-spacing: 0.05em;
+  color: var(--cl-bone);
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+.stub-shell__rule {
+  margin: 24px 0 28px;
+  max-width: 280px;
+}
+
+.stub-shell__body {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.55;
+  color: rgba(232, 220, 192, 0.86);
+  max-width: 56ch;
+}
+
+@media (max-width: 720px) {
+  main.stub-shell {
+    padding: 96px 20px 96px;
+  }
+  .stub-shell__decor {
+    top: 64px;
+    right: 16px;
+    transform: scale(0.78);
+    transform-origin: top right;
+  }
+}

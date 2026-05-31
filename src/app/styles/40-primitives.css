@@ -1,0 +1,96 @@
+/* 40-primitives.css
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* =============================================================================
+ * Chrono primitives — utility classes ported from the design handoff
+ * (chrono.jsx). New routes consume these directly; legacy per-component CSS
+ * sticks around until each route is re-skinned.
+ * ============================================================================= */
+
+.c-glass {
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.80) 0%, rgba(4, 8, 14, 0.88) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(156, 230, 255, 0.18);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.c-glass:hover {
+  border-color: rgba(156, 230, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.c-corners { position: relative; }
+.c-corners::before,
+.c-corners::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--cl-cyan);
+  border-style: solid;
+  pointer-events: none;
+}
+.c-corners::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.c-corners::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+.c-hairline {
+  display: block;
+  background: linear-gradient(90deg, transparent, rgba(156, 230, 255, 0.53), transparent);
+  height: 1px;
+}
+.c-vhair {
+  display: block;
+  background: linear-gradient(180deg, transparent, rgba(156, 230, 255, 0.4), transparent);
+  width: 1px;
+}
+
+.c-shadow-text {
+  text-shadow: 0 0 32px rgba(156, 230, 255, 0.18), 0 4px 14px rgba(0, 0, 0, 0.95);
+}
+.c-shadow-text-sm {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+.c-link-cyan {
+  color: var(--cl-cyan);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.c-link-cyan:hover {
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-pulse   { animation: chronoPulse 3s ease-in-out infinite; }
+  .c-blink   { animation: chronoBlink 2.4s ease-in-out infinite; }
+  .c-twinkle { animation: chronoTwinkle 3s ease-in-out infinite; }
+  .c-fade-in { animation: chronoFade 0.5s ease-out both; }
+  .c-cursor  { animation: chronoCursor 1s steps(1) infinite; }
+}
+
+.font-display {
+  font-family: var(--font-cinzel), serif;
+  letter-spacing: 0.32em;
+  font-weight: 400;
+}
+.font-display2 {
+  font-family: var(--font-cinzel), serif;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+}
+.font-serif {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+.font-mono {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.font-mono-sm {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 10px;
+}

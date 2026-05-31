@@ -1,0 +1,119 @@
+/* 55-map.css
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* ── /map (Cartographer port) ─────────────────────────────────────
+   Animations + print rules for the SVG galaxy hologram. Names are
+   `map`-prefixed to avoid colliding with any other route's keyframes. */
+
+@keyframes mapTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.4); }
+}
+
+@keyframes mapMoteDrift {
+  0%   { transform: translateZ(-40px) translate(0, 0); }
+  100% { transform: translateZ(40px)  translate(8px, -6px); }
+}
+
+@keyframes mapPulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.7); }
+}
+
+@keyframes mapRadarSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes mapHoloFlicker {
+  0%, 100% { opacity: 0; }
+  48%      { opacity: 0; }
+  50%      { opacity: 0.05; }
+  52%      { opacity: 0; }
+  70%      { opacity: 0.03; }
+  72%      { opacity: 0; }
+}
+
+@keyframes mapFadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mapDiveAtmospherePulse {
+  0%   { opacity: 0; }
+  35%  { opacity: 0.55; }
+  65%  { opacity: 0.45; }
+  100% { opacity: 0; }
+}
+
+.map-route .map-holo-flicker {
+  animation: mapHoloFlicker 10s infinite;
+  /* Fade-in/out is driven by data-anims on the hologram root. ease-in keeps
+     the return-from-segmentum subtle. */
+  transition: opacity 1s ease-in;
+}
+
+/* Anims-Gate: while inside a segmentum (and during dive/surface transitions
+   + a 1s settle window after surfacing), the holo flicker is paused and
+   invisible. It uses mix-blend-mode: overlay on a full-bleed primary-colour
+   layer, which produced visible blinking on Back-to-Galactic. */
+.map-route__hologram[data-anims="off"] .map-holo-flicker {
+  animation-play-state: paused;
+  opacity: 0;
+}
+
+/* Lightweight atmospheric overlay for the dive transition. Pulses in/out over
+   the dive duration (700 ms), peaking between 35–65 % of the animation —
+   exactly the window where the CSS-transform tween is at its highest motion.
+   Outside that window the overlay is invisible, so the user sees the galactic
+   before-state and the landed segmentum after-state unobstructed. Pure radial
+   vignette tinted by theme.bg0; no text, no settle phase, no opaque centre. */
+.map-dive-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    transparent 0%,
+    transparent 38%,
+    color-mix(in srgb, var(--map-atmosphere-bg, #02030a) 70%, transparent) 78%,
+    color-mix(in srgb, var(--map-atmosphere-bg, #02030a) 92%, transparent) 100%
+  );
+  opacity: 0;
+  animation: mapDiveAtmospherePulse 700ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+/* Print stylesheet — verbatim port of the prototype's @media print block,
+   scoped to .map-route so it never bleeds into other pages. */
+@media print {
+  @page { size: A4 landscape; margin: 0; }
+  html, body { background: #000 !important; overflow: visible !important; }
+  .map-route [data-no-drag],
+  .map-route .twk-panel,
+  .map-route .twk-toggle,
+  .map-route .twk-gear,
+  .map-route button { display: none !important; }
+  .map-route .map-holo-flicker { display: none !important; }
+}
+
+/* Map transition windows (2026-05-28, Round 7 — label-shrink + bg-recovery fix):
+ * GalaxyHologram sets two coordinated <html> attributes for the duration of
+ * the transition (700 ms dive / 460 ms surface):
+ *   data-map-transitioning — currently only signals the dive/surface window
+ *     for the .map-dive-atmosphere overlay; photo and grain stay at their
+ *     natural opacities throughout, so nothing snaps at finish_transition.
+ *   data-map-quiet — performance rules: backdrop-filters drop, media-player
+ *     wave/bars hide.
+ * Round 6 dimmed photo+grain during the window to set atmosphere; that
+ * created a visible recovery-dip at t=460 ms (surface) when the override fell
+ * away and a 240 ms linear ramp ran on the photo/grain opacities. Round 7
+ * reverts to a constant background pedestal — the .map-dive-atmosphere
+ * vignette carries the dive feel locally over the disc and does not bleed
+ * into recovery. */
+/* Round 7 (2026-05-28): data-map-quiet ist im Markup noch gesetzt, aber die
+ * CSS-Rules sind hier abgeschaltet. Vorher: backdrop-filter wurde an Chrome-
+ * Elementen während der Map-Transition deaktiviert + media-player wave/bars
+ * auf opacity 0 — beides snapte instant an finish_transition zurück und
+ * trug zum „filters werden re-applied"-Cut bei. Modern Chromium komponiert
+ * backdrop-filter GPU-beschleunigt, der Perf-Gewinn lohnt den Snap nicht. */

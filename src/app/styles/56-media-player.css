@@ -1,0 +1,465 @@
+/* 56-media-player.css
+   Extracted verbatim from globals.css (CSS-consolidation pass 1). */
+
+/* =============================================================================
+ * MediaPlayer — sitewide ambient audio glyph.
+ *
+ * Idle/Collapsed: 12 schmale vertikale Bars in cyan als statisches Visualizer-
+ * Glyph in einer kleinen c-glass-ish Box. Hover/Focus → Panel expandiert nach
+ * links mit Track-Titel + Prev/Pause/Next + Volume-Slider. Playing: Bars
+ * folgen FFT-Daten und pulsieren.
+ *
+ * Positionierung: fixed bottom-right. Default-Offset reicht für Routes mit
+ * Telemetry-Strip-Only-BottomConsole. Auf dem Hub mit den 3 Doorway-Cards
+ * wird der Player höher gesetzt, damit er nicht in die Cards-Zone hineinragt.
+ * Mobile MQ packt ihn enger an den Rand.
+ * ============================================================================= */
+
+/* MediaPlayer — sitewide ambient strip, anchored bottom-left, ohne Kasten.
+ *
+ * Aufbau (in DOM-Reihenfolge, von oben nach unten im fixierten Block):
+ *   1. .media-player__wave — IMMER sichtbar, 28px CSS-Höhe, hairline 1-px
+ *      Bar-Sinuswelle. Schwebt über dem Header. Idle-Breathing wenn
+ *      pausiert; FFT-Mid-Band-reaktiv beim Playback.
+ *   2. .media-player__header — Row 1 (Eyebrow ↔ PLAYLIST-Disclose) und
+ *      Row 2 (borderless Play-Glyph + VOL-Toggle + Cormorant-Titel).
+ *   3. .media-player__vol-popover — POSITION: ABSOLUTE über dem VOL-Toggle.
+ *      Schmaler Hairline-Slider; mutually exclusive zum Playlist-Panel.
+ *   4. .media-player__panel-wrap — POSITION: ABSOLUTE, bottom: 100% des
+ *      Players. Klappt mit Grid-Rows-Transition über der Wave nach oben
+ *      auf wenn `--open`. Wave + Header bleiben fix verankert — kein
+ *      Hochrücken beim Aufklappen. */
+.media-player {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 40;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  color: var(--cl-cyan);
+  pointer-events: none;
+}
+.media-player > * { pointer-events: auto; }
+
+/* ─── Header — always visible. Two rows, harmonisch ausbalanciert. ────── */
+.media-player__header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.media-player__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 14px;
+}
+
+.media-player__eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  opacity: 0.62;
+  line-height: 1;
+}
+
+.media-player__disclose {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  opacity: 0.6;
+  transition: opacity 220ms ease-out, color 220ms ease-out;
+  line-height: 1;
+}
+.media-player__disclose:hover,
+.media-player--open .media-player__disclose {
+  opacity: 1;
+  color: var(--cl-bone);
+}
+.media-player__disclose:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+.media-player__disclose-glyph {
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--cl-cyan);
+  line-height: 1;
+}
+.media-player__disclose-label {
+  line-height: 1;
+}
+
+.media-player__main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* Play-Glyph — borderless. Inline 16×16 SVG (triangle ▶ or two bars ❚❚),
+ * padded for hit-area. Negative left-margin keeps it visually flush with
+ * the row's left edge despite the padding. Matching SVG-Größe wie der
+ * VOL-Icon-Button — gleiche vertikale Center-Alignment. */
+.media-player__play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 24px;
+  padding: 4px 6px;
+  margin-left: -6px;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  color: var(--cl-cyan);
+  font: inherit;
+  line-height: 1;
+  border-radius: 2px;
+  transition: color 220ms ease-out, background 220ms ease-out;
+}
+.media-player__play:hover {
+  color: var(--cl-bone);
+  background: rgba(156, 230, 255, 0.05);
+}
+.media-player__play:disabled { opacity: 0.4; cursor: default; }
+.media-player__play:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 1px;
+}
+.media-player--playing .media-player__play {
+  color: var(--cl-bone);
+}
+.media-player__play-glyph {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+/* Vol-Toggle — same borderless glyph pattern as the play button. Speaker
+ * icon (filled cone + 2 hairline arcs whose visibility tracks volume
+ * level). Click opens a Hairline-Slider popover above. */
+.media-player__vol-wrap {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+}
+.media-player__vol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 24px;
+  padding: 4px 6px;
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  color: var(--cl-cyan);
+  font: inherit;
+  line-height: 1;
+  border-radius: 2px;
+  transition: color 220ms ease-out, background 220ms ease-out;
+}
+.media-player__vol:hover,
+.media-player__vol.is-open {
+  color: var(--cl-bone);
+  background: rgba(156, 230, 255, 0.05);
+}
+.media-player__vol:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 1px;
+}
+.media-player__vol-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.media-player__vol-icon path[opacity] {
+  transition: opacity 220ms ease-out;
+}
+
+.media-player__vol-popover {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: 160px;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.92) 0%, rgba(4, 8, 14, 0.96) 100%);
+  border: 1px solid rgba(156, 230, 255, 0.22);
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 220ms ease-out, transform 220ms ease-out;
+}
+.media-player__vol-popover.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.media-player__vol-popover::before,
+.media-player__vol-popover::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: rgba(156, 230, 255, 0.5);
+  border-style: solid;
+  pointer-events: none;
+}
+.media-player__vol-popover::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.media-player__vol-popover::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+.media-player__title {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--cl-bone);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 280ms ease-out;
+}
+.media-player--silent .media-player__title {
+  color: var(--cl-dim);
+}
+
+/* ─── Wave — IMMER sichtbar, 28px CSS-Höhe, hairline 1-px Bar-Sinuswelle.
+ * Sitzt durch DOM-Order als erstes Kind oben im Block, über dem Header. */
+.media-player__wave {
+  display: block;
+  width: 100%;
+  height: 28px;
+  color: var(--cl-cyan);
+  overflow: visible;
+  pointer-events: none;
+}
+.media-player__bars {
+  filter: drop-shadow(0 0 1px color-mix(in oklch, var(--cl-cyan) 26%, transparent));
+  opacity: 0.55;
+  transition: opacity 420ms ease-out, filter 420ms ease-out;
+}
+.media-player--silent .media-player__bars {
+  opacity: 0.32;
+}
+.media-player--playing .media-player__bars {
+  opacity: 1;
+  filter: drop-shadow(0 0 3px color-mix(in oklch, var(--cl-cyan) 65%, transparent));
+}
+
+/* ─── Panel-Wrap — absolute, floatet auf über die Wave wenn --open.
+ * Wave + Header bleiben dabei fix bei bottom: 24px verankert; nichts
+ * rutscht hoch. Grid-Rows 0fr → 1fr ermöglicht Height-Auto-Animation. */
+.media-player__panel-wrap {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  padding-bottom: 12px;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    grid-template-rows 360ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 240ms ease-out;
+}
+.media-player__panel-wrap-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+.media-player--open .media-player__panel-wrap {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ─── Playlist-Panel — innerhalb des Panel-Wraps. ─────────────────────── */
+.media-player__panel {
+  position: relative;
+  padding: 14px 16px 12px;
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.84) 0%, rgba(4, 8, 14, 0.94) 100%);
+  border: 1px solid rgba(156, 230, 255, 0.22);
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+}
+.media-player__panel::before,
+.media-player__panel::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: rgba(156, 230, 255, 0.5);
+  border-style: solid;
+  pointer-events: none;
+}
+.media-player__panel::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.media-player__panel::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+.media-player__panel-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.media-player__panel-kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+.media-player__panel-rule { flex: 1; }
+.media-player__panel-sect {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+
+.media-player__panel-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.media-player__panel-track {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 6px;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(156, 230, 255, 0.06);
+  cursor: pointer;
+  color: var(--cl-dim);
+  text-align: left;
+  font-family: inherit;
+  transition: color 200ms ease-out, background 200ms ease-out;
+}
+.media-player__panel-track:first-child { border-top: none; }
+.media-player__panel-track:hover {
+  color: var(--cl-bone);
+  background: rgba(156, 230, 255, 0.04);
+}
+.media-player__panel-track:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 0;
+}
+.media-player__panel-track.is-active {
+  color: var(--cl-bone);
+  background: rgba(156, 230, 255, 0.06);
+}
+.media-player__panel-track-mark {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--cl-faint);
+  text-align: center;
+}
+.media-player__panel-track.is-active .media-player__panel-track-mark {
+  color: var(--cl-cyan);
+}
+.media-player__panel-track-title {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: inherit;
+}
+.media-player__panel-track-tail {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(156, 230, 255, 0.18) 60%, transparent);
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+.media-player__panel-track:hover .media-player__panel-track-tail,
+.media-player__panel-track.is-active .media-player__panel-track-tail {
+  opacity: 1;
+}
+
+/* Volume-Slider — used inside .media-player__vol-popover. */
+.media-player__volume {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+  height: 14px;
+  background: transparent;
+  cursor: pointer;
+}
+.media-player__volume:focus-visible { outline: 1px solid var(--cl-cyan); outline-offset: 2px; }
+.media-player__volume::-webkit-slider-runnable-track {
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(156, 230, 255, 0.55) 0%,
+    rgba(156, 230, 255, 0.18) 100%);
+}
+.media-player__volume::-moz-range-track {
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(156, 230, 255, 0.55) 0%,
+    rgba(156, 230, 255, 0.18) 100%);
+}
+.media-player__volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cl-cyan);
+  box-shadow: 0 0 6px var(--cl-cyan);
+  margin-top: -4px;
+  border: none;
+}
+.media-player__volume::-moz-range-thumb {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--cl-cyan);
+  box-shadow: 0 0 6px var(--cl-cyan);
+}
+
+@media (max-width: 900px) {
+  .media-player { bottom: 24px; left: 14px; width: 300px; }
+  .media-player__title { font-size: 16.5px; }
+  .media-player__wave { height: 24px; }
+  .media-player__panel-track-title { font-size: 15.5px; }
+}
