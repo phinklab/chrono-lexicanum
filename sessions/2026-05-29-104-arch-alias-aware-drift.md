@@ -14,6 +14,12 @@ commits: []
 
 # Alias-aware Drift — bekannte Edition-Renames im Cockpit ruhigstellen + gemeinsames Alias-Modul für die Suche
 
+> **▶ Stand 2026-06-01 (Cowork-Pre-Flight vor dem Lauf — Prämissen bestätigt, ready):**
+>
+> - **Alias-SSOT existiert wie beschrieben:** `scripts/seed-data/faction-aliases.json` (~73 Einträge), `character-aliases.json` (~66), `location-aliases.json` (~25) liegen auf `main`. `src/lib/aliases/` existiert noch **nicht** (= dein Deliverable).
+> - **Die drei Klassifikations-Call-Sites existieren weiter** (`src/lib/atlas/queries.ts`, `src/app/buecher/page.tsx`, `src/app/buch/[slug]/audit/page.tsx`). **Aber die unten zitierten Zeilennummern sind seit PR #110/#113 verschoben** — greppe `countResolvedDrift` / `isDrift` / `globalDriftFreq`, verlass dich nicht auf die Zeilen-Refs.
+> - **Neuer Drift-Konsument seit dem Brief:** das `/atlas`-Surface (`src/components/atlas/pages/WerkePage.tsx`, `src/components/atlas/EntityTable.tsx`) **rendert** `row.hasDrift` / `row.driftCount`, **klassifiziert aber nicht** selbst — es liest die in `queries.ts` (`WerkeRow`) berechneten Felder. Heißt: stellst du die Klassifikation an der Quelle (`queries.ts`) auf „nur verdächtiger Drift" um, propagiert das automatisch nach `/atlas`. Kurz verifizieren, dass diese beiden nur **lesen** (kein vierter Klassifikator) — es kommt **kein** neuer Call-Site dazu, die drei oben bleiben die Wahrheit.
+
 ## Goal
 
 Das Audit-Cockpit hört auf, bekannte Edition-Renames als verdächtigen Drift zu flaggen, und legt dabei das gemeinsame Alias-Auflösungs-Modul an, das später auch die Suche bedient.
