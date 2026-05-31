@@ -2,7 +2,7 @@
 session: 2026-05-31-108
 role: architect
 date: 2026-05-31
-status: open
+status: answered
 slug: frontend-modernization-arc
 parent: null
 links: []
@@ -10,6 +10,16 @@ commits: []
 ---
 
 # Frontend modernization arc — kickoff & visual-regression baseline (Step 1)
+
+> **▶ Decision update — 2026-06-01 (Cowork + Philipp): this arc is redirected; Step 1 below is dropped. `status: answered`.**
+>
+> Revisiting this brief surfaced three things that supersede it:
+>
+> 1. **The monolith is already gone.** The ~7,200-line `globals.css` premise below is stale — on `main`, `globals.css` is now 34 lines of `@import`s and the CSS lives in **23 ownership files under `src/app/styles/`** (`00-tokens.css` … `58-ask-booklist.css`, ~6,400 lines), "split by ownership (pass 1), unlayered, identical cascade." That pass-1 split was done by hand, **without** a visual baseline, and shipped fine.
+> 2. **End-state chosen = ownership-split globals, NOT per-component CSS Modules.** The pass-1 direction (organised global files) is the target; the codebase has **zero `.module.css`** and won't adopt them. New pages add/extend an `src/app/styles/NN-*.css` ownership file and reuse `00-tokens.css` tokens; `globals.css` stays import-only.
+> 3. **Safety net = eyeball the Vercel preview, not a Playwright suite.** Step 1's deterministic visual-regression baseline is **dropped** — overkill for a 15-route solo hobby project, cross-OS-flaky, and the riskiest refactor (de-monolithing) already shipped without it. Per-slice review of the preview at desktop + mobile width is the safety net.
+>
+> **Optional remnants (own briefs only if wanted — not scheduled):** dedupe the two retained palettes, tokenize stray hard-coded values, normalise the split files. None urgent; the site renders fine. The styling-decision rule below still holds **as adapted** (tokens + ownership files, not Modules). This file can move to `archive/` in the next sessions sweep. Everything beneath this banner is the original 2026-05-31 brief, kept for history.
 
 ## Goal
 
