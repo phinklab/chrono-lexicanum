@@ -492,39 +492,3 @@
   .dm-right { padding: 24px 20px 20px; }
   .dm-cover { width: 180px; height: 260px; }
 }
-
-/* ─── Timeline route loading skeleton (Next App-Router loading.tsx).
-       Renders inside the same .timeline-shell so navigation from /
-       paints the chrome instantly while loadTimeline() is in flight.
-       Both the skeleton and the resolved content fade in via
-       `timelineContentIn` — softens the otherwise-jarring snap when
-       Suspense swaps the fallback for the page. ─── */
-.timeline-skeleton {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  animation: timelineContentIn 220ms ease-out both;
-}
-.timeline-skel-bar {
-  height: 14px;
-  background: color-mix(in oklch, var(--line-1) 60%, transparent);
-  animation: skeletonPulse 1.4s ease-in-out infinite;
-}
-.timeline-skel-bar.tall { height: clamp(360px, 52vh, 520px); }
-.timeline-skel-bar.short { width: 40%; }
-.timeline-skel-bar.medium { width: 70%; }
-@keyframes skeletonPulse {
-  0%, 100% { opacity: 0.55; }
-  50%      { opacity: 0.85; }
-}
-/* Same fade applied to the resolved content roots so the skeleton →
-   content swap reads as a soft cross-fade instead of a hard snap.
-   Reduced-motion: the global cascade collapses to instant. */
-.timeline-overview,
-.era-detail {
-  animation: timelineContentIn 220ms ease-out both;
-}
-@keyframes timelineContentIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
