@@ -9,7 +9,8 @@ links:
   - 2026-05-30-107-arch-full-rebuild-restore-wiring
   - 2026-05-29-105-arch-buy-listen-links
   - 2026-05-29-105-impl-data-buy-listen-links
-commits: []
+commits:
+  - 21072ab
 ---
 
 # Full-Rebuild-Restore-Wiring — `apply:audiobook-narrators` als deterministischer Tail der SSOT-Reset-Sequenz
