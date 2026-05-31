@@ -1248,6 +1248,14 @@ PR #114 `c4d019c` („Brief 105 UI-Pass: Buy/Listen-Links + Hörbuch-Credits-Ren
 
 ---
 
+## 2026-06-01 · Ingest · Brief 106 (Hero-Upscale/Ambient) von Philipp zurückgezogen
+
+Philipp hat Brief 106 (`2026-05-29-106-arch-hero-upscale-ambient.md`, Hero-Upscaling + Ambient-Motion-Varianten-Lab, Product-Strang) als **vorschnell erstellt und nicht ausreichend durchdacht zurückgezogen** — er will die Hero-/Ambient-/Upscaling-Richtung zuerst selbst neu überlegen. `status: open → archived`, **nie implementiert** (kein Code, kein PR, keine Assets). Der Brief-Body bleibt als Ausgangsmaterial erhalten; wird die Linie wieder aufgegriffen, entsteht ein frischer Brief mit neuer NNN.
+
+**Updated wiki:** `project-state.md` (Frontmatter-Changelog-Eintrag), `open-questions.md` (Frontmatter-Changelog-Eintrag), this `log.md`. **Outside wiki:** `sessions/2026-05-29-106-arch-hero-upscale-ambient.md` (Frontmatter `status: archived` + Zurückgezogen-Banner), `sessions/README.md` (Hero-Polish-Narrativ-Block + Active-Threads-Zeile auf zurückgezogen). **Archive-Move:** der physische Move (→ `sessions/archive/2026-05/`) reitet auf dem ausstehenden Sessions-Archive-Sweep, dessen Scope 106 jetzt mit einschließt. **Keine OQ-Bewegung** — OQ (3) + (13) bleiben offen. **Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.
+
+---
+
 ## 2026-05-30 · Ingest · Post-Merge-Koordinations-Pass post-Brief-107 (Full-Rebuild-Restore-Wiring)
 
 Brief 107 (`full-rebuild-restore-wiring`, Batches-Strang) ist gemergt — der **Cowork-Review-Watch-Item aus dem Brief-105-Review ist geschlossen, Cluster A damit vollständig abgeschlossen**. Ein voller SSOT-Rebuild stellt die 88 Audio-`work_persons`-Rows jetzt deterministisch wieder her; vorher löschte `db:reset-for-ssot` (TRUNCATE works CASCADE) sie still, weil keine Orchestrierung `apply:audiobook-narrators` nachzog (`run-phase4-apply.sh` ruft nur `db:apply-override` = nur author/editor). Reiner Orchestrierungs-/Runbook-Diff; `apply-override.ts` gar nicht angefasst.

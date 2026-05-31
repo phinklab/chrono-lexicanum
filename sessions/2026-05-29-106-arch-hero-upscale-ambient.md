@@ -2,7 +2,7 @@
 session: 2026-05-29-106
 role: architect
 date: 2026-05-29
-status: open
+status: archived
 slug: hero-upscale-ambient
 parent: null
 links:
@@ -12,6 +12,8 @@ commits: []
 ---
 
 # Hero image upscaling + ambient-motion variant lab
+
+> **▶ Zurückgezogen 2026-06-01 (Philipp).** Vorschnell erstellt und nicht ausreichend durchdacht — die Hero-/Ambient-/Upscaling-Richtung überlegt sich Philipp zuerst selbst neu. `status: open → archived`, **nicht implementiert**, kein Code gelaufen, kein PR. Der physische Archive-Move (→ `sessions/archive/2026-05/`) reitet auf dem ausstehenden Sessions-Archive-Sweep. Wird die Hero-Polish-Linie später wieder aufgegriffen, entsteht ein frischer Brief mit neuer NNN — der Inhalt unten bleibt als Ausgangsmaterial erhalten.
 
 ## Goal
 
