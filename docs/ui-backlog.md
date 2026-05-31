@@ -17,26 +17,13 @@ Differences from neighbouring docs:
 
 ## Open
 
-### Series-label crowding in EraDetail when books cluster at the same time
+_None currently open._
 
-- **Spotted:** 2026-05-02, after Stufe 2b shipped 26 books
-  (`sessions/archive/2026-05/2026-05-02-022-impl-rich-seed-2b.md`).
-- **Where:** `/timeline?era=time_ending`, right side of the surface around
-  M41.799–M41.999. The era covers M41.997–M42.999 but the live data only has
-  one book past M42, so 13 of 14 books anchor in a narrow ~200-year window.
-- **Symptom:** track-packing places the series correctly on separate vertical
-  tracks (no dot overlap), but the series labels — `GAUNT'S GHOSTS`,
-  `FARSIGHT`, `NIGHT LORDS`, `CIAPHAS CAIN`, `VAULTS OF TERRA`,
-  `PATH OF THE ELDAR`, `GREY KNIGHTS`, `PRIESTS OF MARS` — start at almost
-  the same X coordinate and run into each other horizontally.
-- **Files involved:** `src/components/timeline/EraDetail.tsx` (track-packing
-  logic, `series-label` placement), `src/app/globals.css`
-  (`.series-label` rule).
-- **Possible directions** (pick when the cleanup session opens):
-  - Stagger label X by track index so adjacent labels offset.
-  - Truncate or hide labels when the next-track label sits within N px.
-  - Move labels above the track-line instead of inline with the spine.
-  - Side-legend: list series names in a margin column, drop inline labels
-    entirely.
-- **Severity:** cosmetic — dots and tooltips work; the labels are just
-  visually noisy at this density.
+> **Obsoleted 2026-05-31 — "Series-label crowding in EraDetail" (spotted 2026-05-02).**
+> The item described the old `EraDetail` track-packing surface and its
+> `.series-label` placement. Both are gone: the dormant `EraDetail`/`Overview`
+> timeline components were retired in the component-retirement pass (their CSS had
+> already been removed in CSS-Konsolidierung Pass 1, PR #116). The live `/timeline`
+> renders the Chronicle suite (`src/components/timeline/chronicle/*`), whose lane
+> layout supersedes the old track packing — any label-crowding polish for the
+> Chronicle would be filed fresh against those components.
