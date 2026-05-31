@@ -26,3 +26,9 @@
 @import './styles/56-media-player.css';
 @import './styles/57-chronicle.css';
 @import './styles/58-ask-booklist.css';
+
+/* Tailwind v4 auto-source-detection scans every non-ignored project file as
+ * plain text for class tokens. The standalone HTML/CSS/JS design prototypes
+ * under public/lab/ are reference artifacts, not part of the shipped app --
+ * exclude them so their classes don't bloat the generated utility layer. */
+@source not '../../public/lab';
