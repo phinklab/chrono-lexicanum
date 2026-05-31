@@ -20,6 +20,7 @@ import AuditPills, { type AuditFilter } from "./AuditPills";
 import SortPills from "./SortPills";
 import GapAudioToggle from "./GapAudioToggle";
 import ScrollScrim from "./ScrollScrim";
+import { tallyAxisDrift, type KnownAliasHit } from "@/lib/aliases";
 
 export const metadata: Metadata = { title: "Archive — Chrono Lexicanum" };
 
@@ -66,6 +67,8 @@ interface CatalogueAudit {
   locationDriftCount: number;
   characterDriftCount: number;
   driftRawNames: string[];
+  knownAliasCount: number;
+  knownAliases: KnownAliasHit[];
   hasJunctionGap: boolean;
   isSsot: boolean;
   isInMultipleCollections: boolean;
@@ -98,6 +101,7 @@ interface CatalogueBook {
 
 const AUDIT_FILTERS: ReadonlySet<AuditFilter> = new Set([
   "drift",
+  "alias",
   "gap",
   "ssot",
   "collections",
@@ -134,28 +138,6 @@ function formatMBand(startY: number | null, endY: number | null): string | null 
   }
   if (startY != null && endY != null) return `${fmt(startY)} – ${fmt(endY)}`;
   return fmt((startY ?? endY) as number);
-}
-
-function countResolvedDrift(
-  rows: ReadonlyArray<{ rawName: string | null; name: string }>,
-): number {
-  let n = 0;
-  for (const row of rows) {
-    if (row.rawName !== null && row.rawName !== "" && row.rawName !== row.name) n++;
-  }
-  return n;
-}
-
-function collectDriftRawNames(
-  rows: ReadonlyArray<{ rawName: string | null; name: string }>,
-  out: string[],
-): void {
-  for (const row of rows) {
-    const rawName = row.rawName;
-    if (rawName !== null && rawName !== "" && rawName !== row.name) {
-      out.push(rawName);
-    }
-  }
 }
 
 async function loadBooks(): Promise<CatalogueBook[]> {
@@ -257,18 +239,30 @@ async function loadBooks(): Promise<CatalogueBook[]> {
       }
       otherPersons.sort((a, b) => a.displayOrder - b.displayOrder);
 
-      const factionAuditRows = w.factions.map((wf) => ({
-        name: wf.faction.name,
-        rawName: wf.rawName,
-      }));
-      const locationAuditRows = w.locations.map((wl) => ({
-        name: wl.location.name,
-        rawName: wl.rawName,
-      }));
-      const characterAuditRows = w.characters.map((wc) => ({
-        name: wc.character.name,
-        rawName: wc.rawName,
-      }));
+      const factionDrift = tallyAxisDrift(
+        "faction",
+        w.factions.map((wf) => ({
+          rawName: wf.rawName,
+          canonicalId: wf.faction.id,
+          canonicalName: wf.faction.name,
+        })),
+      );
+      const locationDrift = tallyAxisDrift(
+        "location",
+        w.locations.map((wl) => ({
+          rawName: wl.rawName,
+          canonicalId: wl.location.id,
+          canonicalName: wl.location.name,
+        })),
+      );
+      const characterDrift = tallyAxisDrift(
+        "character",
+        w.characters.map((wc) => ({
+          rawName: wc.rawName,
+          canonicalId: wc.character.id,
+          canonicalName: wc.character.name,
+        })),
+      );
 
       const factions = w.factions
         .map((wf) => ({ id: wf.faction.id, name: wf.faction.name }))
@@ -295,15 +289,24 @@ async function loadBooks(): Promise<CatalogueBook[]> {
       const factionCount = w.factions.length;
       const locationCount = w.locations.length;
       const characterCount = w.characters.length;
-      const factionDriftCount = countResolvedDrift(factionAuditRows);
-      const locationDriftCount = countResolvedDrift(locationAuditRows);
-      const characterDriftCount = countResolvedDrift(characterAuditRows);
+      // Suspicious drift (state 3) only — known edition renames (state 2) are
+      // tallied separately and excluded from the count / frequency / sort.
+      const factionDriftCount = factionDrift.suspectCount;
+      const locationDriftCount = locationDrift.suspectCount;
+      const characterDriftCount = characterDrift.suspectCount;
       const driftCount =
         factionDriftCount + locationDriftCount + characterDriftCount;
-      const driftRawNames: string[] = [];
-      collectDriftRawNames(factionAuditRows, driftRawNames);
-      collectDriftRawNames(locationAuditRows, driftRawNames);
-      collectDriftRawNames(characterAuditRows, driftRawNames);
+      const driftRawNames: string[] = [
+        ...factionDrift.suspectRawNames,
+        ...locationDrift.suspectRawNames,
+        ...characterDrift.suspectRawNames,
+      ];
+      const knownAliases: KnownAliasHit[] = [
+        ...factionDrift.knownAliases,
+        ...locationDrift.knownAliases,
+        ...characterDrift.knownAliases,
+      ];
+      const knownAliasCount = knownAliases.length;
       const hasDrift = driftCount > 0;
       const hasJunctionGap = factionCount === 0 || locationCount === 0 || characterCount === 0;
 
@@ -348,6 +351,8 @@ async function loadBooks(): Promise<CatalogueBook[]> {
           locationDriftCount,
           characterDriftCount,
           driftRawNames,
+          knownAliasCount,
+          knownAliases,
           hasJunctionGap,
           isSsot: w.sourceKind === "ssot",
           isInMultipleCollections: containedIn.length >= 2,
@@ -445,6 +450,7 @@ function sortBooks(
 function matchesAudit(book: CatalogueBook, filters: readonly AuditFilter[]): boolean {
   return filters.every((filter) => {
     if (filter === "drift") return book.audit.hasDrift;
+    if (filter === "alias") return book.audit.knownAliasCount > 0;
     if (filter === "gap") return book.audit.hasJunctionGap;
     if (filter === "ssot") return book.audit.isSsot;
     return book.audit.isInMultipleCollections;
@@ -693,6 +699,18 @@ function BookRow({
                   · drift «{driftSignal.rawName}» ×{driftSignal.freq}
                 </span>
               )}
+              {book.audit.knownAliasCount > 0 && (
+                <span
+                  className="catalogue-row__alias-signal"
+                  title="Known edition rename — expected, not drift"
+                >
+                  {" "}
+                  · alias «{book.audit.knownAliases[0].rawName} → {book.audit.knownAliases[0].canonicalName}»
+                  {book.audit.knownAliasCount > 1
+                    ? ` +${book.audit.knownAliasCount - 1}`
+                    : ""}
+                </span>
+              )}
             </span>
           )}
         </div>
@@ -853,7 +871,8 @@ function AuditChips({ audit }: { audit: CatalogueAudit }) {
   if (audit.hasJunctionGap) chips.push("GAP");
   if (audit.isSsot) chips.push("SSOT");
   if (audit.isInMultipleCollections) chips.push(`×${audit.containedInCount}`);
-  if (chips.length === 0) {
+  const hasAlias = audit.knownAliasCount > 0;
+  if (chips.length === 0 && !hasAlias) {
     return <span className="catalogue-chip catalogue-chip--mute">—</span>;
   }
   return (
@@ -863,6 +882,14 @@ function AuditChips({ audit }: { audit: CatalogueAudit }) {
           {c}
         </span>
       ))}
+      {hasAlias && (
+        <span
+          className="catalogue-chip catalogue-chip--alias"
+          title="Known edition-rename aliases — expected, not drift"
+        >
+          ALIAS {audit.knownAliasCount}
+        </span>
+      )}
     </>
   );
 }

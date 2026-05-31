@@ -192,6 +192,25 @@
   background: var(--warm);
   padding: 3px 8px;
 }
+/* Known edition-rename alias (Brief 104): cool + outlined, deliberately
+ * calmer than the filled-amber `.entity-drift` warning — it reads as
+ * "expected, not a bug". */
+.entity-alias {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--hl);
+  border: 1px solid color-mix(in oklch, var(--hl) 45%, transparent);
+  padding: 3px 8px;
+}
+.audit-entity-list li.has-alias {
+  border-left-color: var(--hl);
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in oklch, var(--hl) 10%, transparent),
+      color-mix(in oklch, var(--bg-1) 70%, transparent)
+    );
+}
 
 .audit-facet-list {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

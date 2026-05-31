@@ -26,6 +26,7 @@
     "brain:lint": "tsx scripts/brain-lint.ts",
     "test:discovery-merge": "tsx scripts/test-discovery-merge.ts",
     "test:resolver": "tsx scripts/test-resolver.ts",
+    "test:aliases": "tsx scripts/test-aliases.ts",
     "test:resolver-data": "tsx scripts/test-resolver-data-integrity.ts",
     "test:resolver-coverage": "tsx scripts/test-resolver-coverage.ts",
     "test:apply-override-dry": "tsx scripts/apply-override-dry.ts",

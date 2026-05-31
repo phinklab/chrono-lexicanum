@@ -2,10 +2,11 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export type AuditFilter = "drift" | "gap" | "ssot" | "collections";
+export type AuditFilter = "drift" | "alias" | "gap" | "ssot" | "collections";
 
 const OPTIONS: ReadonlyArray<{ id: AuditFilter; label: string }> = [
   { id: "drift", label: "Drift" },
+  { id: "alias", label: "Known alias" },
   { id: "gap", label: "Junction gap" },
   { id: "ssot", label: "SSOT" },
   { id: "collections", label: "Multi-collected" },

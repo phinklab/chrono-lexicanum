@@ -28,6 +28,7 @@ import {
   works as worksTable,
 } from "@/db/schema";
 import type { BridgeStats } from "./types";
+import { tallyAxisDrift } from "@/lib/aliases";
 
 // =============================================================================
 // Bridge — 12 decks, strictly parallel.
@@ -240,21 +241,12 @@ export interface WerkeRow {
   containsCount: number;
   driftCount: number;
   hasDrift: boolean;
+  knownAliasCount: number;
   hasJunctionGap: boolean;
   isSsot: boolean;
   isInMultipleCollections: boolean;
   isEnriched: boolean;
   updatedAt: Date;
-}
-
-function countResolvedDrift(
-  rows: ReadonlyArray<{ rawName: string | null; name: string }>,
-): number {
-  let n = 0;
-  for (const row of rows) {
-    if (row.rawName !== null && row.rawName !== "" && row.rawName !== row.name) n++;
-  }
-  return n;
 }
 
 export async function getWerkeRows(): Promise<WerkeRow[]> {
@@ -332,26 +324,44 @@ export async function getWerkeRows(): Promise<WerkeRow[]> {
           .map((wf) => ({ id: wf.faction.id, name: wf.faction.name }))
           .sort((a, b) => a.name.localeCompare(b.name, "de"));
 
-        const factionAuditRows = w.factions.map((wf) => ({
-          name: wf.faction.name,
-          rawName: wf.rawName,
-        }));
-        const locationAuditRows = w.locations.map((wl) => ({
-          name: wl.location.name,
-          rawName: wl.rawName,
-        }));
-        const characterAuditRows = w.characters.map((wc) => ({
-          name: wc.character.name,
-          rawName: wc.rawName,
-        }));
+        const factionDrift = tallyAxisDrift(
+          "faction",
+          w.factions.map((wf) => ({
+            rawName: wf.rawName,
+            canonicalId: wf.faction.id,
+            canonicalName: wf.faction.name,
+          })),
+        );
+        const locationDrift = tallyAxisDrift(
+          "location",
+          w.locations.map((wl) => ({
+            rawName: wl.rawName,
+            canonicalId: wl.location.id,
+            canonicalName: wl.location.name,
+          })),
+        );
+        const characterDrift = tallyAxisDrift(
+          "character",
+          w.characters.map((wc) => ({
+            rawName: wc.rawName,
+            canonicalId: wc.character.id,
+            canonicalName: wc.character.name,
+          })),
+        );
 
         const factionCount = w.factions.length;
         const characterCount = w.characters.length;
         const locationCount = w.locations.length;
+        // driftCount counts only *suspicious* drift (state 3); known edition
+        // renames (state 2) are tallied separately so they leave the bucket.
         const driftCount =
-          countResolvedDrift(factionAuditRows) +
-          countResolvedDrift(locationAuditRows) +
-          countResolvedDrift(characterAuditRows);
+          factionDrift.suspectCount +
+          locationDrift.suspectCount +
+          characterDrift.suspectCount;
+        const knownAliasCount =
+          factionDrift.knownAliasCount +
+          locationDrift.knownAliasCount +
+          characterDrift.knownAliasCount;
         const hasJunctionGap =
           factionCount === 0 || locationCount === 0 || characterCount === 0;
 
@@ -382,6 +392,7 @@ export async function getWerkeRows(): Promise<WerkeRow[]> {
           containsCount,
           driftCount,
           hasDrift: driftCount > 0,
+          knownAliasCount,
           hasJunctionGap,
           isSsot: w.sourceKind === "ssot",
           isInMultipleCollections: containedIn.length >= 2,

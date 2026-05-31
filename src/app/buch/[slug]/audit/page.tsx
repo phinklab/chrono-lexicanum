@@ -22,6 +22,7 @@ import {
   workPersons as workPersonsTable,
   works as worksTable,
 } from "@/db/schema";
+import { classifyDrift, type DriftClass } from "@/lib/aliases";
 
 export const metadata: Metadata = {
   title: "Buch-Audit — Chrono Lexicanum",
@@ -225,8 +226,22 @@ function formatTimestamp(value: Date | string): string {
   return dateFormatter.format(asDate(value));
 }
 
-function isDrift(rawName: string | null, canonicalName: string): boolean {
-  return rawName !== null && rawName !== "" && rawName !== canonicalName;
+function DriftMarker({ cls }: { cls: DriftClass }) {
+  if (cls === "drift") return <span className="entity-drift">drift</span>;
+  if (cls === "known-alias") {
+    return (
+      <span className="entity-alias" title="Registered edition-rename alias — expected, not drift">
+        known alias
+      </span>
+    );
+  }
+  return null;
+}
+
+function driftRowClass(cls: DriftClass): string {
+  if (cls === "drift") return "has-drift";
+  if (cls === "known-alias") return "has-alias";
+  return "";
 }
 
 function FieldGrid({
@@ -370,16 +385,16 @@ export default async function BookAuditPage({ params }: { params: Promise<Params
         ) : (
           <ul className="audit-entity-list">
             {audit.factions.map((faction) => {
-              const drift = isDrift(faction.rawName, faction.name);
+              const cls = classifyDrift("faction", faction.rawName, faction.id, faction.name);
               return (
-                <li key={faction.id} className={drift ? "has-drift" : ""}>
+                <li key={faction.id} className={driftRowClass(cls)}>
                   <span className="entity-name">{faction.name}</span>
                   <span className="entity-id">{faction.id}</span>
                   <span className="entity-role">{faction.role ?? FIELD_EMPTY}</span>
                   <span className={faction.rawName ? "entity-raw" : "entity-raw is-empty"}>
                     raw: {formatValue(faction.rawName)}
                   </span>
-                  {drift && <span className="entity-drift">drift</span>}
+                  <DriftMarker cls={cls} />
                 </li>
               );
             })}
@@ -393,9 +408,9 @@ export default async function BookAuditPage({ params }: { params: Promise<Params
         ) : (
           <ul className="audit-entity-list">
             {audit.locations.map((location) => {
-              const drift = isDrift(location.rawName, location.name);
+              const cls = classifyDrift("location", location.rawName, location.id, location.name);
               return (
-                <li key={location.id} className={drift ? "has-drift" : ""}>
+                <li key={location.id} className={driftRowClass(cls)}>
                   <span className="entity-name">{location.name}</span>
                   <span className="entity-id">{location.id}</span>
                   <span className="entity-role">{location.role ?? FIELD_EMPTY}</span>
@@ -403,7 +418,7 @@ export default async function BookAuditPage({ params }: { params: Promise<Params
                   <span className={location.rawName ? "entity-raw" : "entity-raw is-empty"}>
                     raw: {formatValue(location.rawName)}
                   </span>
-                  {drift && <span className="entity-drift">drift</span>}
+                  <DriftMarker cls={cls} />
                 </li>
               );
             })}
@@ -417,16 +432,16 @@ export default async function BookAuditPage({ params }: { params: Promise<Params
         ) : (
           <ul className="audit-entity-list">
             {audit.characters.map((character) => {
-              const drift = isDrift(character.rawName, character.name);
+              const cls = classifyDrift("character", character.rawName, character.id, character.name);
               return (
-                <li key={character.id} className={drift ? "has-drift" : ""}>
+                <li key={character.id} className={driftRowClass(cls)}>
                   <span className="entity-name">{character.name}</span>
                   <span className="entity-id">{character.id}</span>
                   <span className="entity-role">{character.role ?? FIELD_EMPTY}</span>
                   <span className={character.rawName ? "entity-raw" : "entity-raw is-empty"}>
                     raw: {formatValue(character.rawName)}
                   </span>
-                  {drift && <span className="entity-drift">drift</span>}
+                  <DriftMarker cls={cls} />
                 </li>
               );
             })}
