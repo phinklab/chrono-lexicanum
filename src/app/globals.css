@@ -5,12 +5,9 @@
  * monolithic globals.css. */
 @import './styles/00-tokens.css';
 @import './styles/10-base.css';
-@import './styles/15-chrome-legacy.css';
 @import './styles/16-shared.css';
 @import './styles/20-timeline-shell.css';
-@import './styles/21-timeline-overview-legacy.css';
 @import './styles/22-filter-rail.css';
-@import './styles/23-eradetail-tracks-legacy.css';
 @import './styles/24-detail-modal.css';
 @import './styles/30-ingest.css';
 @import './styles/31-catalogue.css';
@@ -18,7 +15,6 @@
 @import './styles/40-primitives.css';
 @import './styles/41-site-bg.css';
 @import './styles/42-top-nav.css';
-@import './styles/43-eratoggle-legacy.css';
 @import './styles/44-nav-frame.css';
 @import './styles/45-bottom-console.css';
 @import './styles/50-hub.css';
