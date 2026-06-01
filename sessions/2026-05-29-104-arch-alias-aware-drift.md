@@ -2,7 +2,7 @@
 session: 2026-05-29-104
 role: architect
 date: 2026-05-29
-status: open
+status: implemented
 slug: alias-aware-drift
 parent: 2026-05-27-103-arch-audit-drift-gap-sweep
 links:

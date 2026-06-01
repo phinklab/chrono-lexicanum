@@ -316,6 +316,11 @@ main.catalogue {
 .catalogue-row__drift-signal {
   color: var(--cl-bone);
 }
+/* Known edition-rename alias signal — calm, cool, set apart from the
+ * bone-white drift signal. Reads as "expected, not a bug" (Brief 104). */
+.catalogue-row__alias-signal {
+  color: var(--cl-cyan-dim);
+}
 
 .catalogue-row__summary {
   list-style: none;
@@ -455,6 +460,12 @@ main.catalogue {
 .catalogue-chip--mute {
   color: var(--cl-faint);
   border-color: var(--cl-faint);
+}
+/* Known edition-rename alias chip — a cool cue, distinct from the gold
+ * `--audit` drift chip so it never reads as a problem (Brief 104). */
+.catalogue-chip--alias {
+  color: var(--cl-cyan);
+  border-color: var(--cl-cyan-dim);
 }
 
 /* Expanded detail body for the <details> row. */

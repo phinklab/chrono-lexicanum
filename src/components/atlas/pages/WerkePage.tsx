@@ -22,6 +22,7 @@ type SortKey = "updated" | "title";
 
 const AUDIT_FILTERS: ReadonlySet<AuditFilter> = new Set([
   "drift",
+  "alias",
   "gap",
   "ssot",
   "collections",
@@ -50,6 +51,7 @@ function parseAudit(raw: string | string[] | undefined): AuditFilter[] {
 function matchesAudit(row: WerkeRow, filters: readonly AuditFilter[]): boolean {
   return filters.every((filter) => {
     if (filter === "drift") return row.hasDrift;
+    if (filter === "alias") return row.knownAliasCount > 0;
     if (filter === "gap") return row.hasJunctionGap;
     if (filter === "ssot") return row.isSsot;
     return row.isInMultipleCollections;
