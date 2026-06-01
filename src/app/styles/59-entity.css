@@ -1,0 +1,245 @@
+/* 59-entity.css
+   Entity-hub surface shared by /charakter, /fraktion, /welt — Brief 109,
+   Step 1 of the entity-graph arc. Replaces 52-stub-shell.css for these routes.
+
+   The page owns the frame (main.entity + SiteBackground + .entity__decor);
+   the db-free <EntityView> (src/components/entity/) renders .entity-view. The
+   typographic grammar mirrors 51-book-detail.css verbatim (mono `//` eyebrow,
+   Cinzel title, Cormorant one-line, cyan section labels, cyan chip rows) so the
+   reference pages read as one family with /buch/[slug]. */
+
+/* =============================================================================
+ * Frame — centered, photo-backed, with a decorative CornerAuspex top-right.
+ * ============================================================================= */
+
+main.entity {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 120px 32px 120px;
+  min-height: calc(100vh - 48px);
+}
+
+.entity__decor {
+  position: absolute;
+  top: 80px;
+  right: 32px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* =============================================================================
+ * Body — single column. Kept clear of the right-gutter decor on desktop by the
+ * column max-width; on mobile the head reserves right padding instead.
+ * ============================================================================= */
+
+.entity-view {
+  position: relative;
+  max-width: 660px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+
+.entity-view__eyebrow {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+
+.entity-view__title {
+  margin: 14px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4vw, 56px);
+  letter-spacing: 0.04em;
+  color: var(--cl-bone);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+  line-height: 1.1;
+}
+
+.entity-view__oneline {
+  margin: 16px 0 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--cl-bone);
+}
+
+/* ── Sections ───────────────────────────────────────────────────────────── */
+
+.entity-view__section {
+  margin-top: 36px;
+}
+
+.entity-view__section-label {
+  margin: 0 0 8px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+
+.entity-view__section .c-hairline {
+  margin-bottom: 14px;
+}
+
+.entity-view__subsection {
+  margin-top: 20px;
+}
+
+.entity-view__subsection:first-of-type {
+  margin-top: 0;
+}
+
+.entity-view__subsection-label {
+  margin: 0 0 8px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+
+/* ── Facts (dossier) ────────────────────────────────────────────────────── */
+
+.entity-view__facts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+}
+
+.entity-view__fact {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+}
+
+.entity-view__fact-term {
+  flex: 0 0 150px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+
+.entity-view__fact-val {
+  margin: 0;
+  min-width: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--cl-bone);
+}
+
+.entity-view__link {
+  color: var(--cl-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cl-cyan-dim);
+}
+
+.entity-view__link:hover {
+  color: var(--cl-bone);
+  border-bottom-color: var(--cl-bone);
+}
+
+/* ── Chip rows (works, cross-links, tags) ───────────────────────────────── */
+
+.entity-view__chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.entity-view__tags {
+  margin-top: 14px;
+}
+
+.entity-view__chip-li {
+  display: flex;
+}
+
+.entity-view__chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid var(--cl-cyan-dim);
+  color: var(--cl-cyan);
+  background: rgba(156, 230, 255, 0.04);
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.entity-view__chip--link {
+  transition: color 0.18s, background 0.18s, border-color 0.18s;
+}
+
+.entity-view__chip--link:hover {
+  color: var(--cl-bone);
+  background: rgba(156, 230, 255, 0.08);
+  border-color: var(--cl-cyan);
+}
+
+.entity-view__chip--mute {
+  color: var(--cl-dim);
+  border-color: var(--cl-ghost);
+  background: transparent;
+}
+
+.entity-view__chip-role {
+  color: var(--cl-faint);
+}
+
+/* ── Empty state ────────────────────────────────────────────────────────── */
+
+.entity-view__empty {
+  margin: 32px 0 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--cl-faint);
+}
+
+/* =============================================================================
+ * Mobile (house breakpoint 720px). Stack fact rows; reserve head right-padding
+ * so a long title wraps before the scaled-down decor disc.
+ * ============================================================================= */
+
+@media (max-width: 720px) {
+  main.entity {
+    padding: 96px 20px 96px;
+  }
+  .entity__decor {
+    top: 64px;
+    right: 16px;
+    transform: scale(0.78);
+    transform-origin: top right;
+  }
+  .entity-view {
+    max-width: none;
+  }
+  .entity-view__head {
+    padding-right: 96px;
+  }
+  .entity-view__fact {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .entity-view__fact-term {
+    flex: none;
+  }
+}

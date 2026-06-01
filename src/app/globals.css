@@ -19,13 +19,13 @@
 @import './styles/45-bottom-console.css';
 @import './styles/50-hub.css';
 @import './styles/51-book-detail.css';
-@import './styles/52-stub-shell.css';
 @import './styles/53-ask.css';
 @import './styles/54-atlas.css';
 @import './styles/55-map.css';
 @import './styles/56-media-player.css';
 @import './styles/57-chronicle.css';
 @import './styles/58-ask-booklist.css';
+@import './styles/59-entity.css';
 
 /* Tailwind v4 auto-source-detection scans every non-ignored project file as
  * plain text for class tokens. The standalone HTML/CSS/JS design prototypes

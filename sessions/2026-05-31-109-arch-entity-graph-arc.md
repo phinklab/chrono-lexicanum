@@ -2,7 +2,7 @@
 session: 2026-05-31-109
 role: architect
 date: 2026-05-31
-status: open
+status: implemented
 slug: entity-graph-arc
 parent: null
 links: ["2026-05-31-108", "2026-05-29-105", "2026-05-29-104"]
