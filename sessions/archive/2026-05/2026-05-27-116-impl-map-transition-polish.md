@@ -1,12 +1,12 @@
 ---
-session: 2026-05-27-099
+session: 2026-05-27-116
 role: implementer
 date: 2026-05-27
 status: complete
 slug: map-transition-polish
-parent: 2026-05-27-098-impl-map-dive-flicker-followup
+parent: 2026-05-27-115-impl-map-dive-flicker-followup
 links:
-  - sessions/2026-05-27-098-impl-map-dive-flicker-followup.md
+  - sessions/archive/2026-05/2026-05-27-115-impl-map-dive-flicker-followup.md
   - sessions/handoff-map-flicker-followup-2026-05-27.md
 commits: []
 ---

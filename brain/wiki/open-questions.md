@@ -3,7 +3,11 @@ title: Open questions (next-brief queue)
 type: overview
 created: 2026-05-09
 updated: 2026-06-01
-links:
+sources:
+  - ../../sessions/README.md
+  - ../../sessions/archive/2026-05/2026-05-04-040-arch-phase3c-haiku-switch.md
+  - ../../sessions/archive/2026-05/2026-05-09-054-impl-pipeline-v2-pilot.md
+related:
   - ./project-state.md
   - ./deferred-questions.md
   - ./pipeline-state.md

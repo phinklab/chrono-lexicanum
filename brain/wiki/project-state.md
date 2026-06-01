@@ -3,7 +3,12 @@ title: Project state
 type: overview
 created: 2026-05-09
 updated: 2026-06-01
-links:
+sources:
+  - ../../sessions/README.md
+  - ../../sessions/2026-06-01-104-impl-alias-aware-drift.md
+  - ../../sessions/2026-06-01-109-impl-entity-graph-arc.md
+  - ../../sessions/2026-06-01-110-impl-podcast-ingest-pilot.md
+related:
   - ./open-questions.md
   - ./roadmap.md
   - ./architecture.md
