@@ -39,7 +39,7 @@ Im **Koordinations-Worktree** (doc-only → direkt auf `main`, kein PR; Meta-Bri
 - **Nach `archive/2026-05/`**: die geschlossenen Brief+Impl-Paare **098, 099, 100, 101, 102, 103** (arch + impl-data + impl-ui), **105** (arch + impl-data + impl-product), **107** (arch+impl) + die `resolver-dossiers/` Pass-11..15-Reports + `consolidation-pass-2-*`-Artefakte.
 - **Große Append-Logs raus aus dem Brief-Namespace** → neues `sessions/logs/`: `ssot-loop-log.md` (~161k Token!), `resolver-loop-log.md`.
 - **Runbooks → neues `sessions/runbooks/`**: `ssot-loop-runbook.md`, `resolver-pass-runbook.md`, `consolidation-pass-runbook.md`, `db-rebuild-runbook.md`. **`CLAUDE.md`-Mechanical-Task-Callouts auf die neuen Pfade umschreiben** (drei `>`-Blockquotes + ggf. Index/Pipeline-State-Verweise).
-- **NNN-098/099-Kollision fixen**: `2026-05-27-098-impl-map-dive-flicker-followup.md` + `2026-05-27-099-impl-map-transition-polish.md` (Product-Followups aus PR #110, reusen bereits vergebene NNN) → nächste freie NNN (Vorschlag **113 + 114** — 112 ist der Budget-Guardrail-Brief), inkl. `parent`-Frontmatter-Anpassung + Pfad-Rewrites in `links:`/`sources:`.
+- **NNN-098/099-Kollision fixen**: `2026-05-27-098-impl-map-dive-flicker-followup.md` + `2026-05-27-099-impl-map-transition-polish.md` (Product-Followups aus PR #110, reusen bereits vergebene NNN) → nächste freie NNN (Vorschlag **115 + 116** — 112–114 sind vergeben: Lint-Guardrail + Entity-/Podcast-Step-2), inkl. `parent`-Frontmatter-Anpassung + Pfad-Rewrites in `links:`/`sources:`.
 - **Ref-Rewrites**: ~44 Verweise auf die verschobenen Files in `brain/wiki/**` auf die neuen Pfade umschreiben — Verteilung (Stand 2026-06-01): `log.md` ~25, `pipeline-state.md` ~6, `decisions/cross-era-identities.md` ~5, plus Einzelne in `architecture.md` / `decisions/location-policy.md` / `decisions/why-cc-direct-curation.md` / `decisions/why-sonnet-not-haiku.md` / `workflows/ingest.md` / `workflows/sessions-format.md`.
 
 ## Out of scope
@@ -59,7 +59,7 @@ Die Session ist fertig, wenn:
 
 ## Open questions
 
-- Nächste freie NNN für die zwei Collision-Renames bestätigen (Vorschlag 113 / 114 — 112 ist vergeben).
+- Nächste freie NNN für die zwei Collision-Renames bestätigen (Vorschlag 115 / 116 — 112–114 sind vergeben).
 - `resolver-dossiers/` komplett nach `archive/` oder als lebender Ordner behalten?
 
 ## Notes
