@@ -1298,6 +1298,31 @@ Brief 107 (`full-rebuild-restore-wiring`, Batches-Strang) ist gemergt — der **
 
 **Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.
 
+## 2026-06-02 · Move · Sessions-Archive-Sweep (Brief 111 doc-only-Teilmenge) + 098/099-Rename → 115/116
+
+Brief 111 (`session-start-token-diet`) wurde 2026-06-02 auf seine **doc-only-Teilmenge eingedampft**, nachdem CC beim Implementieren entdeckte, dass die Logs + Runbooks last-tragende `scripts/`-Pfade sind (harter `-f`-Die in `run-resolver-pass.sh:236`, `LOG_PATH`-Write-Targets der Loops, `resolver-loop-log-update.ts:245`). Ihre Relocation ist **kein** doc-only-Move, sondern ein Code-PR → ausgelagert nach **Brief 117**. Die hier ausgeführte Teilmenge ist reine Repo-Hygiene (Brief-099-Muster, 2. Ausführung), kein Verhaltens-Change. Commit `2c9af45` (doc-only → `main`).
+
+**Read (raw sources):**
+
+- `sessions/2026-06-01-111-arch-session-start-token-diet.md` (eingedampfte Fassung) — Scope, Safety-Gate, Acceptance.
+- CC-needs-decision-Report (2026-06-02) — die verifizierte Script-Kopplungs-Tabelle, die die Relocation aus dem doc-only-Scope hob.
+- `sessions/2026-06-02-117-arch-tooling-files-relocation.md` — der Folge-Code-PR-Brief für die 6 Tooling-Files + 102/107 + die ~10 Script-Pfade.
+
+**Pass-Ergebnis (canonical):**
+
+- **7 geschlossene, ungekoppelte Paare archiviert** → `sessions/archive/2026-05/`: 098, 099, 100, 101, 103, 105, 106. `098-arch` stale `status: open → implemented` geflippt. Safety-Gate: pro Datei `scripts/`-grep vor dem Move — nur 102/107 trafen → bewusst zurückgehalten (Config-`.brief`-gekoppelt, gehören in Brief 117).
+- **NNN-098/099-Kollision aufgelöst:** die zwei `2026-05-27`-Map-Followups (reusten vergebene NNN aus PR #110) → **115 / 116** umbenannt (`session:`/`parent:`/`links:` angepasst), dann ebenfalls archiviert.
+- **Moved-file-Refs nachgezogen** in `pipeline-state.md` + `decisions/cross-era-identities.md` (→ neue `archive/`-Pfade). **Log-/Runbook-/102-Refs bewusst unberührt** (bewegen sich erst in Brief 117).
+- **Frontmatter-Schema-Regression gefixt** (pre-existing, sweep-unabhängig): `open-questions.md` + `project-state.md` trugen legacy `links:` statt des required `sources:` + `related:` → `links:` zu `related:` umbenannt, honest `sources:` ergänzt. Das räumte die 4 blockierenden `brain:lint`-Errors weg → Lint grün (0 blocking, 14 pre-existing warnings). Die Brief-111-Fence (»diese Files nicht weiter umschreiben«) wurde für genau diese schmale Schema-Compliance gelockert — Slim-Inhalt unangetastet.
+
+**Bewusst NICHT angefasst (Folge-Arbeit → Brief 117):** Logs (`ssot-loop-log.md`, `resolver-loop-log.md`), 4 Runbooks, Briefs 102/107 — alle script-gekoppelt, atomar als Code-PR aus dem Koordinations-Worktree (quer über `scripts/` + `brain/`). `resolver-dossiers/` bleibt lebender Ordner (aktive Wellen-Dossier ist live aus `resolver-pass.config.json` referenziert). **`log.md`-Historie** (dieser Eintrag ausgenommen) bleibt stehen — die alten `…098…`/`…099…`-Map-Followup-Erwähnungen + die Collision-Notiz sind Historie; der Rename ist hier ein **Append**, kein Rewrite (Linter exemptet `log.md` von Path-Claims, `scripts/brain-lint.ts:1071`).
+
+**Keine OQ-Schließung, keine neue numerierte OQ.** Offene Queue unverändert: OQ (3), OQ (13).
+
+**Updated wiki:** `project-state.md` (§ What's open: Brief-111-Zeile + Sweep-Zeile → shipped/→117; § Next likely brief #3 → Brief 117; Frontmatter-`updated`), `index.md` (Datums-Bumps project-state/log/self), this `log.md`. **Outside wiki:** `sessions/README.md` (111-Active-Threads-Zeile → implemented), `sessions/2026-06-01-111-…md` (`status: open → implemented` + commit).
+
+**Branch.** Coordination-Pass, doc-only → `main` per PR-Policy 2026-05-25.
+
 ## 2026-06-01 · Update · Token-Diet + Leanness-Routine + 109/110-Koordination
 
 **Token-Diet (Cowork-direct, doc-only).** Der Session-Start-Read-Order-Floor war auf ~91k Token gewachsen (`project-state.md` ~58k = 1 aktueller + 12 veraltete „Latest pipeline state"-Snapshots + 59.6k-Zeichen-„Recently shipped" + ~130-Zeilen-Frontmatter-Changelog; `open-questions.md` ~19k = ~14/16 closed/`-historic`). Beide Files auf „current-state-only" neu geschrieben (project-state 575→~95 Zeilen, open-questions 257→~45), `sessions/README.md`-Active-threads entschlackt. **Floor ~91k → ~18k Token (~70k/Session gespart).** Historie → `log.md` + git.

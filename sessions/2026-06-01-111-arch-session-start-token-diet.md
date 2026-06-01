@@ -2,11 +2,11 @@
 session: 2026-06-01-111
 role: architect
 date: 2026-06-01
-status: open
+status: implemented
 slug: session-start-token-diet
 parent: null
-links: []
-commits: []
+links: [2026-06-02-117]
+commits: [2c9af45]
 ---
 
 # Session-start token diet + sessions-archive-sweep

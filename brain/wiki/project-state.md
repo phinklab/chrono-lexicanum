@@ -2,7 +2,7 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-06-01
+updated: 2026-06-02
 sources:
   - ../../sessions/README.md
   - ../../sessions/2026-06-01-104-impl-alias-aware-drift.md
@@ -68,11 +68,11 @@ Top-Items aus [`open-questions.md`](./open-questions.md), sortiert post-Brief-10
 
 - **Entity-Graph-Arc — Steps 2–5 offen (Product).** Step 1 (Brief 109) gemergt: echte `/charakter` `/fraktion` `/welt`-Hubs auf der geteilten `EntityView` + `loadEntity`-Loader. Nächste: **Step 2** In-Context-Panel (intercepting route, reused `loadEntity`+`EntityView`, zero fork), Step 3 Suche (verdrahtet `resolveSurfaceForm`), Step 4 `/werke`-Browse, Step 5 Startseite. Near-free Follow-up: `/aera` + `/serie`-Hubs (ASCII-Routen; book-only related bis andere Medien Era/Serie-Anker tragen). Konvergenz: geteilte Chip/Section-Label/Hairline-Grammatik in ein Primitive heben, das `/buch` + Hubs teilen. **Maintainer-Visual-Pass** der Hubs (Desktop + ≤720px) offen (CC nur curl). `CROSSLINK_CAP=40` ist ein stiller Cap (nicht blockierend).
 - **Podcast-Track — Step 2+ offen (Batches).** Step 1 (Brief 110) gemergt: Pilot-Artefakt + Report, kein DB. Nächste: **Step 2** Schema (`podcast` + `podcast_episode` work-kinds nach dem channel/video-CTI-Muster, `episodeGuid`-keyed idempotenter Apply) + Tags → `work_*`-Junctions (`role=subject|mentioned`); **Quick alias wins** (`Guilliman`/`Vect`/`Magnus`/`Titus`/webway-immaterium → `*-aliases.json`, hebt Coverage billig); Extraction-Prompt gegen Common-Noun-Over-Extraction; Step 3 = kuratierte Shows (Lorehammer, Adeptus Ridiculous, Laying Down The Lore, ~$1.3/Show Sonnet). Die 126 unresolved Surface-Forms sind eine Worklist (echte fehlende Entities: Leagues of Votann, Be'lakor, Eldrad, Skarbrand, Imotekh, …).
-- **Token-Diet-Folge — Brief 111 (Sessions-Archiv-Sweep, doc-only → `main`) + Brief 112 (brain:lint-Budget-Guardrail, Code → PR)** sind geschrieben + offen (2026-06-01-Token-Diet-Session).
+- **Token-Diet-Folge — Brief 111 (doc-only-Teilmenge) gemergt (`2c9af45`, 2026-06-02):** 7 geschlossene Paare → `archive/2026-05/`, 098/099-Kollision → 115/116, Frontmatter-Schema-Regression der always-read-Files (legacy `links:` → `sources:`+`related:`) mit-gefixt. Die Logs/Runbooks-Relocation war script-gekoppelt → **Brief 117** (Code-PR, offen). **Brief 112** (brain:lint-Budget-Guardrail, Code → PR) weiter offen.
 - **PR #113 (Chronicle/Ask-Redesign) — Cowork-Sichtung + Brief-096-Status-Flip offen.** `b60b0fb` hat Brief-096 Phasen G (Chronicle/Timeline bespoke) + H (Ask-Funnel) lokal-iterativ gemergt (kein Impl-Report). Sichtung + Entscheidung, ob 096 `open → implemented` flippt, stehen aus.
 - **Brief-104-Folgen** (kein Blocker): `?audit=drift` ist auf dem aktuellen Korpus dauerhaft leer (drift_works=0) → Drift-Pille/Brief-103-Sub-Sort behalten/umlabeln/zurückbauen entscheiden; die ruhige Alias-Klasse liegt always-on auf ~44% der Bücher → ggf. detail-only/hinter `?audit=alias`; `resolveSurfaceForm` wird von **Brief 109 Step 3** verdrahtet; der **Maintainer-Visual-Pass** der Alias-UI (Desktop + ≤640px) steht aus (CC fuhr nur curl-Smoke).
 - **Audiobook-Full-Sweep 859** — Brief 105 creditete 66 Bücher (Major-Reihen + meistgelesene); die ~790 Rest-Bücher sind ein Folge-Sweep (gleiche One-Search-pro-Buch-Methode) + Cast-Tiefe + Spelling-Watch. Die 4 `no_audiobook`-Rows sind reale Gaps. Short-Title-Store-Link-Kollisionen (*Legion*/*Nemesis*/…) sind ein UI-Daten-Befund.
-- **Sessions-Archive-Sweep + NNN-Collision-Fix** — *(in Arbeit, Token-Diet-Session 2026-06-01)*: closed Briefs 098–107 + Pass-11..15-Dossiers + consolidation-pass-2-* → `archive/2026-05/`; die großen Append-Logs + Runbooks aus `sessions/`-Root verlagern; zwei Collision-Files `2026-05-27-098/099-impl-map-*` (reuse vergebener NNN) umnennen.
+- **Tooling-Files-Relocation (Brief 117, offen)** — die doc-only-Teilmenge des Archive-Sweeps ist gemergt (`2c9af45`); offen bleibt der script-gekoppelte Rest: die 6 lebenden Tooling-Files (2 Loop-Logs + 4 Runbooks) raus aus `sessions/` → `scripts/runbooks/` + `scripts/logs/`, Pfad pro Runner zentralisiert, 102/107 mit-archiviert, ~10 `scripts/`-Pfade nachgezogen; atomar als Code-PR aus dem Koordinations-Worktree. `resolver-dossiers/` bleibt lebender Ordner.
 - **Phase-3-Seal-Brief** — `ROADMAP.md` Phase 3 → shipped, Phase 4/5 öffnen, Phase-3-Tail explizit als Backlog mappen. Doc-only, klein.
 - **`/buch/[slug]/audit`-Detail-Refinement** — Detailseite könnte analog zur Liste die volle Drift-Achse + die fehlende Gap-Achse zeigen (UI + Daten verzahnen).
 - **Audio-Drama-Dämpfung site-weit** — heute nur im Single-Gap-Cockpit; `book.format==='audio_drama'` + `.catalogue-row__audio-tag` sind für die public `/buecher`-Liste wiederverwendbar.
@@ -89,7 +89,7 @@ Stand 2026-06-01. **Step 1 beider Arcs ist gemergt** (Brief 109 Entity-Hubs + Br
 
 1. **Entity-Graph Step 2 (Brief 113, Product) + Podcast Step 2 (Brief 114, Batches) parallel anwerfen** — beide geschrieben + offen. Entity Step 2 = In-Context-Panel (intercepting route, reused `loadEntity` + `EntityView`, zero fork — das 109-impl beschreibt die Naht). Podcast Step 2 = Schema (`podcast`/`podcast_episode` work-kinds nach dem channel/video-CTI-Muster, `episodeGuid`-keyed idempotenter Apply) + Tags → `work_*`-Junctions; dazu die billigen Quick-alias-wins als Coverage-Lift. Optional near-free dazu: `/aera` + `/serie`-Entity-Hubs (das Step-1-System trägt sie fast gratis).
 2. **Phase-3-Seal-Brief** — formaler Phasen-Abschluss (doc-only, klein, parallel-fähig).
-3. **Sessions-Archive-Sweep + NNN-Collision-Fix** — teilweise in der 2026-06-01-Token-Diet-Session adressiert; Rest = physischer Archive-Move + Ref-Rewrites.
+3. **Tooling-Files-Relocation (Brief 117)** — die doc-only-Teilmenge des Archive-Sweeps ist gemergt (`2c9af45`); Rest = die 6 script-gekoppelten Tooling-Files + 102/107 raus aus `sessions/`, als Code-PR (geschrieben, offen).
 4. **Brief-096 G + H** bleiben lokal-iterativ im Product-Worktree; der nächste Product-PR kommt auf ausdrückliches `fertig`.
 
 Sekundär (Maintainer-Wahl, weniger zeitkritisch): Crawl-Simplification/Dead-Code-Retirement (OQ 13), Aggregator-Pass-3-Refinement, Hand-Check-Workflow (OQ 3), Refresh-Button (per-Buch on-demand Goodreads-Refresh).
