@@ -33,34 +33,38 @@ Entscheidungen mit Philipp (2026-06-01): radikal auf „aktueller Stand" kürzen
 
 ## For the implementer — sessions-archive-sweep (Brief-099-Muster, 2. Ausführung)
 
-Im **Koordinations-Worktree** (doc-only → direkt auf `main`, kein PR; Meta-Brief → `brain/**` hier schreibbar). Ziel: `sessions/`-Root auf die Archiv-Regel bringen.
+> **Scope eingedampft 2026-06-02 (Cowork, nach CC-needs-decision).** CC hat beim Implementieren entdeckt: die Logs + Runbooks sind **keine** reinen Docs, sondern last-tragende Pfade im mechanischen Tooling — `run-resolver-pass.sh:236` stirbt hart an fehlender Runbook (`if [[ ! -f "$RUNBOOK_PATH" ]]; then die`), `run-ssot-loop.sh:52` + `run-resolver-loop.sh:66` nutzen die Logs als `LOG_PATH`-Write-Target (mit striktem Diff-Shape-Check), `resolver-loop-log-update.ts:245` hardcodet den Log-Pfad; dazu `.runbook`/`.brief`-Felder in `scripts/*.config.json` (referenzieren u.a. 102, 107). Sie zu verschieben braucht `scripts/`-Edits → Code-PR, **nicht** doc-only. Der sandboxed Vor-Architekt konnte `scripts/` nicht greppen. **Konsequenz:** die Relocation (Logs, Runbooks, 102/107, `CLAUDE.md`-Callouts) ist aus diesem Brief **raus → Brief 117** (Code-PR). Hier bleibt nur die echt-doc-only-Teilmenge.
 
-- **Bleiben im Root** (offen/standing/jüngst): 061 (standing), 096 (open), 108 (answered), 109 (open), 110 (open), 104 (last-closed), dieser Brief 111, plus `_templates/` + `_drafts/`.
-- **Nach `archive/2026-05/`**: die geschlossenen Brief+Impl-Paare **098, 099, 100, 101, 102, 103** (arch + impl-data + impl-ui), **105** (arch + impl-data + impl-product), **107** (arch+impl) + die `resolver-dossiers/` Pass-11..15-Reports + `consolidation-pass-2-*`-Artefakte.
-- **Große Append-Logs raus aus dem Brief-Namespace** → neues `sessions/logs/`: `ssot-loop-log.md` (~161k Token!), `resolver-loop-log.md`.
-- **Runbooks → neues `sessions/runbooks/`**: `ssot-loop-runbook.md`, `resolver-pass-runbook.md`, `consolidation-pass-runbook.md`, `db-rebuild-runbook.md`. **`CLAUDE.md`-Mechanical-Task-Callouts auf die neuen Pfade umschreiben** (drei `>`-Blockquotes + ggf. Index/Pipeline-State-Verweise).
-- **NNN-098/099-Kollision fixen**: `2026-05-27-098-impl-map-dive-flicker-followup.md` + `2026-05-27-099-impl-map-transition-polish.md` (Product-Followups aus PR #110, reusen bereits vergebene NNN) → nächste freie NNN (Vorschlag **115 + 116** — 112–114 sind vergeben: Lint-Guardrail + Entity-/Podcast-Step-2), inkl. `parent`-Frontmatter-Anpassung + Pfad-Rewrites in `links:`/`sources:`.
-- **Ref-Rewrites**: ~44 Verweise auf die verschobenen Files in `brain/wiki/**` auf die neuen Pfade umschreiben — Verteilung (Stand 2026-06-01): `log.md` ~25, `pipeline-state.md` ~6, `decisions/cross-era-identities.md` ~5, plus Einzelne in `architecture.md` / `decisions/location-policy.md` / `decisions/why-cc-direct-curation.md` / `decisions/why-sonnet-not-haiku.md` / `workflows/ingest.md` / `workflows/sessions-format.md`.
+Im **Koordinations-Worktree** (doc-only → direkt auf `main`, kein PR; Meta-Brief → `brain/**` hier schreibbar). Ziel: `sessions/`-Root auf die Archiv-Regel bringen — **soweit ohne Script-Anfassen möglich**.
+
+- **Bleiben im Root** (offen/standing/jüngst): 061 (standing), 096 (open), 108 (answered), 109 (open), 110 (open), 104 (last-closed), 112/113/114 (open), dieser Brief 111 — **plus die 6 Tooling-Files (Logs + Runbooks) und 102/107 unverändert**, die zieht erst Brief 117 um. Plus `_templates/`, `_drafts/`, `archive/`, `resolver-dossiers/`.
+- **Nach `archive/2026-05/`** — nur geschlossene Paare **ohne** Script-Ref: **098** (arch+impl), **099** (arch+impl), **100** (arch+impl), **101** (arch+impl), **103** (arch + impl-data + impl-ui), **105** (arch + impl-data + impl-product), **106** (arch-only, `status: archived`). **Nicht** 102/107 (Config-`.brief`-gekoppelt → Brief 117). Beim Archivieren das stale `status: open` auf 098-arch (+ ggf. 099-arch) auf `implemented`/`archived` flippen.
+- **Safety-Gate (pro Datei):** vor jedem `git mv` den Dateinamen/NNN in `scripts/` greppen (z.B. `grep -rn "2026-05-25-098" scripts/`). Trifft etwas → **nicht bewegen**, gehört in Brief 117.
+- **NNN-098/099-Kollision fixen**: `2026-05-27-098-impl-map-dive-flicker-followup.md` + `2026-05-27-099-impl-map-transition-polish.md` (Product-Followups aus PR #110, reusen bereits vergebene NNN) → **115 + 116** (112–114 vergeben: Lint-Guardrail + Entity-/Podcast-Step-2), inkl. `parent`-Frontmatter-Anpassung + Pfad-Rewrites in `links:`/`sources:`. Beide sind `status: complete` → nach dem Rename ebenfalls nach `archive/2026-05/`.
+- **Ref-Rewrites** — **nur für die in diesem Brief tatsächlich bewegten Files** (die 7 archivierten Paare + die 2 Renames): die Verweise darauf in `brain/wiki/**` auf die neuen `archive/`-Pfade umschreiben. **Refs auf Logs/Runbooks NICHT anfassen** — die bewegen sich erst in Brief 117, sonst zeigen die Rewrites ins Leere.
 
 ## Out of scope
 
-- Kein Code / Daten / Config; kein Schema; keine `src/`- oder `scripts/`-Änderung.
+- Kein Code / Daten / Config; kein Schema; **keine `src/`- oder `scripts/`-Änderung** (genau deshalb ist die Relocation raus).
+- **Logs, Runbooks, 102, 107 NICHT bewegen** — das ist Brief 117 (Code-PR). Auch die `CLAUDE.md`-Mechanical-Task-Callouts hier **nicht** umschreiben; die zeigen weiter auf die alten `sessions/…`-Pfade, bis 117 sie mitzieht.
+- `resolver-dossiers/` bleibt unangetastet (lebender Ordner — s. Open questions).
 - Die in dieser Session bereits geslimmten Files (`project-state.md` / `open-questions.md` / `README.md` / `cowork-session.md` / `CLAUDE.md` Read-order) **nicht** weiter umschreiben — nur ref-fixen, falls ein verschobener Link darin auftaucht.
 
 ## Acceptance
 
 Die Session ist fertig, wenn:
 
-- [ ] `sessions/`-Root nur noch offene/needs-decision/standing Briefs + die letzten 1–2 geschlossenen + Brief 111 enthält (plus `_templates/`/`_drafts/`/`archive/` + neue `logs/`/`runbooks/`).
-- [ ] `ssot-loop-log.md` + `resolver-loop-log.md` liegen in `sessions/logs/`; die vier Runbooks in `sessions/runbooks/`; die `CLAUDE.md`-Callouts zeigen auf die neuen Runbook-Pfade.
-- [ ] Die NNN-098/099-Kollision ist aufgelöst (zwei Files umbenannt, `parent` + alle Refs angepasst).
-- [ ] Alle Refs auf verschobene Files in `brain/**` sind umgeschrieben; `npm run brain:lint -- --no-write` läuft grün.
+- [ ] Die 7 geschlossenen, ungekoppelten Paare (098, 099, 100, 101, 103, 105, 106) liegen in `archive/2026-05/`; ihr `status` ist closed (kein stale `open` mehr).
+- [ ] `sessions/`-Root enthält nur noch offene/needs-decision/standing Briefs + die letzten 1–2 geschlossenen + Brief 111 — **plus** die noch nicht umgezogenen Tooling-Files (Logs/Runbooks) und 102/107; deren Relocation macht Brief 117 (hier bewusst noch nicht „rein").
+- [ ] Die NNN-098/099-Kollision ist aufgelöst: die zwei `2026-05-27`-Map-Followups sind auf 115/116 umbenannt (`parent` + alle Refs angepasst) und nach `archive/2026-05/` verschoben.
+- [ ] Alle Refs auf die in diesem Brief bewegten Files (7 Paare + 2 Renames) in `brain/**` sind umgeschrieben; Log-/Runbook-Refs sind **unberührt**; `npm run brain:lint -- --no-write` läuft grün.
 - [ ] Ein einziger Doc-only-Commit direkt auf `main`, kein PR.
 
 ## Open questions
 
-- Nächste freie NNN für die zwei Collision-Renames bestätigen (Vorschlag 115 / 116 — 112–114 sind vergeben).
-- `resolver-dossiers/` komplett nach `archive/` oder als lebender Ordner behalten?
+- ~~Nächste freie NNN für die zwei Collision-Renames~~ → **115 / 116 bestätigt** (112–114 vergeben: Lint-Guardrail + Entity-/Podcast-Step-2).
+- ~~`resolver-dossiers/` nach `archive/` oder lebend behalten?~~ → **lebender Ordner, bleibt** (die aktive Wellen-Dossier-Datei ist live aus `scripts/resolver-pass.config.json` referenziert — nicht anfassen).
+- Neu für Brief 117: Ziel-Layout der 6 Tooling-Files (Vorschlag `scripts/runbooks/` + `scripts/logs/`) + ob `db-rebuild`/`consolidation` als „mechanische Tasks" denselben Move kriegen.
 
 ## Notes
 
