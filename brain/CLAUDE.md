@@ -98,6 +98,21 @@ Each takes specific inputs and produces specific outputs. Following them rigorou
 - Lint never edits the wiki. It reports. Fixes happen via Ingest.
 - Run with `npm run brain:lint` (writes a report under `outputs/lint/<today>.md`) or `npm run brain:lint -- --no-write` (CI mode, summary + exit code only). CI calls the no-write form on every PR. See [`wiki/workflows/lint.md`](./wiki/workflows/lint.md) for the full check list, severity policy, and what's deliberately out of scope.
 
+## Always-read budgets — keep the synthesis lean
+
+The files read on **every** session-start are a token tax paid before any work happens: this file, `wiki/index.md`, `wiki/project-state.md`, `wiki/open-questions.md` (plus `/CLAUDE.md` and, for Cowork, `sessions/README.md`). They are **current-state only — never append-logs.** History goes to `wiki/log.md` + git + `sessions/archive/`. Bloat is measured in **characters/tokens, not lines** (the 2026-06-01 diet found 233k chars hiding in ~575 lines of 1400-char prose).
+
+`brain:lint` enforces a soft (warn) + hard (error) budget per always-read file:
+
+| File | Soft / warn | Hard / error |
+|---|---|---|
+| `wiki/project-state.md` | ~25k chars (≈6k tok) | ~45k chars |
+| `wiki/open-questions.md` | ~16k chars · or >5 open items | ~28k chars |
+| `sessions/README.md` | ~14k chars | ~24k chars |
+| `wiki/index.md` | ~24k chars | ~36k chars |
+
+Approaching soft → **prune now** (standing Step 2/3 of [`wiki/workflows/session-end.md`](./wiki/workflows/session-end.md)). The 2026-06-01 token-diet (Brief 111) reset a ~91k-token read-order floor to ~18k; these budgets exist so it cannot silently regrow.
+
 ## ADR shape (decisions/)
 
 A `decisions/<slug>.md` page answers four things, tightly:

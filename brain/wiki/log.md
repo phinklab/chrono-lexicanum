@@ -1297,3 +1297,17 @@ Brief 107 (`full-rebuild-restore-wiring`, Batches-Strang) ist gemergt — der **
 **Out of scope:** Kein Code-Touch (Brief 107 ist gemergt). 859er-Audiobook-Full-Sweep (Verify wächst Sidecar-abgeleitet automatisch mit), finaler destruktiver E2E-Lauf (maintainer-owned), Sessions-Archive-Sweep (104/105-NNN-Collision + 100..107-Pile) bleiben Folge-Arbeit. Kein `brain:lint`-Run durch Cowork (Sandbox) — vor dem Doc-Commit lokal grün durch Philipp.
 
 **Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.
+
+## 2026-06-01 · Update · Token-Diet + Leanness-Routine + 109/110-Koordination
+
+**Token-Diet (Cowork-direct, doc-only).** Der Session-Start-Read-Order-Floor war auf ~91k Token gewachsen (`project-state.md` ~58k = 1 aktueller + 12 veraltete „Latest pipeline state"-Snapshots + 59.6k-Zeichen-„Recently shipped" + ~130-Zeilen-Frontmatter-Changelog; `open-questions.md` ~19k = ~14/16 closed/`-historic`). Beide Files auf „current-state-only" neu geschrieben (project-state 575→~95 Zeilen, open-questions 257→~45), `sessions/README.md`-Active-threads entschlackt. **Floor ~91k → ~18k Token (~70k/Session gespart).** Historie → `log.md` + git.
+
+**Leanness-Routine (Guardrail gegen Re-Bloat).** Drei Ebenen: (1) Prinzip in `brain/CLAUDE.md` § „Always-read budgets" (current-state-only, char/token-gemessen, Budget-Tabelle); (2) Gewohnheit in `session-end.md` § „The leanness contract" + Step 2/3 (jeden Pass prunen, overwrite statt append, closed OQs löschen statt durchstreichen, Queue ≤5); (3) Automatik = Brief 112 (brain:lint char/token-Budget-Guardrail, warn+error). Brief-Disziplin („scope+writing so kurz wie möglich, so ausführlich wie nötig" + verpflichtender Scope-Recap-Step) in `cowork-session.md`; `&&`-Bug in dessen Commit-Zeile auf zeilenweise gefixt. Read-Order-Regel „lies nur was die Aufgabe braucht" in `CLAUDE.md`.
+
+**109/110-Koordinations-Pass.** Read: `2026-06-01-109-impl-entity-graph-arc.md` + `2026-06-01-110-impl-podcast-ingest-pilot.md`. Brief **109** (Entity-Graph Step 1, Product) gemergt — echte `/charakter` `/fraktion` `/welt`-Hubs auf geteilter `EntityView` + server-only `src/lib/entity/`-Loader, voll SSG (1004 Seiten/3.6s), `52-stub-shell.css`→`59-entity.css`. Brief **110** (Podcast-Pilot, Batches) gemergt — *The 40k Lorecast* dry-run: 148 Folgen, 136 = 91.9% getaggt, 510 Tags via `resolveSurfaceForm`, committed `ingest/podcasts/the-40k-lorecast.{json,report.md}`, **kein** Schema/DB; +`fast-xml-parser`, `PODCAST_LLM_MODEL`-env. Beide Briefs `status: implemented` (CC in den PRs geflippt).
+
+**Updated wiki:** `project-state.md` (Latest pipeline state +109/110, What's running entity-hubs-real, What's open +3 Arc-Bullets, Next-likely-brief → Step 2 beider Arcs), `open-questions.md` (geslimmt), `cowork-session.md` + `session-end.md` + `brain/CLAUDE.md` (Disziplin/Routine/Budget), this `log.md`. **Outside wiki:** `CLAUDE.md` (Read-Order-Regel), `sessions/README.md` (geslimmt + 109/110→merged), neue Briefs 111 + 112.
+
+**Folge-Arbeit:** Entity-Graph Step 2 (Panel) + Podcast Step 2 (Schema) = nächste aktive Linie; Brief 111 (Sweep, doc-only) + Brief 112 (Lint-Guardrail, Code→PR) offen; Maintainer-Visual-Pass der Entity-Hubs (≤720px) owed; Quick-alias-wins (`Guilliman`/`Vect`/`Magnus`/…). **Keine OQ-Schließung, keine neue numerierte OQ** (OQ 3 + 13 bleiben offen).
+
+**Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.

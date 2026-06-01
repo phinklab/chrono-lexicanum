@@ -51,6 +51,15 @@ Before a brief commits to a data source or a multi-stage pipeline, spot-check th
 
 Origin — the Hardcover-rating arc (briefs 075 / 085 / 086). Effort went into title-normalization and override-matching machinery; the real blocker was source coverage. Hardcover has no rating for a large share of W40K novels, and no matching layer conjures data that isn't there. A short spot-check of ~20 random titles against the API would have surfaced that before a day of briefing. The cheap fix that actually worked: a per-book web search for the Goodreads rating — 96 % coverage where the matching machinery stalled at 58 %. (The follow-on refinement — that the rating must be read from the Goodreads page, not the search snippet — is in [`../decisions/hardcover-to-goodreads-pivot.md`](../decisions/hardcover-to-goodreads-pivot.md).)
 
+## Brief scope & length discipline
+
+A brief is the most expensive thing Cowork writes: **every token in it is a token Claude Code spends at session start, before doing any work.** A plan-mode that ran long has burned 100k+ tokens on context alone. So briefs are written *as short in scope and prose as possible, as detailed as necessary* — the test (Philipp's own): can you remove words and still get the point across? If yes, remove them.
+
+- **One brief = one session = one PR ≈ one CC context-window of work.** This is the Brief-108/109 "ein Step → ein Brief → ein PR" discipline, made general. A brief that needs two PRs, touches both strands, or describes a multi-week arc is really an *arc* — write a short kickoff that records the decisions, then **one brief per step**.
+- **Specify outcomes, not prose.** Acceptance bullets describe what renders / what the test asserts. Don't re-explain context CC can read in the linked files — link instead of restate.
+- **Mandatory recap before handoff.** After drafting, re-read the brief once and ask: **(a) scope** — does this fit one session / one PR? If not, split it. **(b) length** — is any paragraph longer than the spec needs? Cut it. A brief that fails (a) gets split; one that fails (b) gets trimmed. This is step 7 of the session flow below — **never skip it.**
+- **Design freedom stays compact too.** The `## Design freedom` hand-off (UI briefs) is a short pointer to aesthetic ownership, not a style essay.
+
 ## How a Cowork session usually goes
 
 1. Greet Philipp; read his message; glance at the most recent session files in `sessions/` and the new wiki anchors (`brain/wiki/project-state.md`, `brain/wiki/open-questions.md`) to ground.
@@ -59,8 +68,18 @@ Origin — the Hardcover-rating arc (briefs 075 / 085 / 086). Effort went into t
 4. Use `AskUserQuestion` for any decision Cowork can't make alone. Recommend an option but always offer alternatives.
 5. **Update wiki pages** if the planning changes the system (architecture, roadmap, pipeline-state). Pre-049: `ARCHITECTURE.md` / `ROADMAP.md` top-level. Post-049: `brain/wiki/architecture.md` / `brain/wiki/roadmap.md`.
 6. Write the brief into `sessions/YYYY-MM-DD-NNN-arch-{slug}.md` using the template. Fold any open-questions items in (and prune them from `open-questions.md`).
-7. Hand Philipp the doc-only commit line for the brief — it lands on `main` directly, no PR (see § "PR policy" below): `git add sessions/<file> && git commit -m "Brief NNN: <slug>" && git push origin main`, with `npm run brain:lint -- --no-write` green first. Then tell him: "open a terminal in the project folder and run `claude` / `codex` — the brief is on `main` at `sessions/...md`, and CC picks up from there."
-8. Mark tasks completed.
+7. **Scope-recap before handoff** (§ "Brief scope & length discipline"): re-read the brief once — does it fit one session / one PR / ≈ one CC context-window? Is the prose as short as it can be without losing the spec? If the scope is too big, **split** into sequential briefs (Step N → Brief → PR) rather than ship one fat brief. Never skip this step.
+8. Hand Philipp the doc-only commit lines for the brief — it lands on `main` directly, no PR (§ "PR policy"). PowerShell-safe, **one line each** (PowerShell 5 has no `&&` — see [`/CLAUDE.md`](../../../CLAUDE.md) § Git):
+
+   ```
+   npm run brain:lint -- --no-write
+   git add sessions/<file>
+   git commit -m "Brief NNN: <slug>"
+   git push origin main
+   ```
+
+   Then tell him: "open a terminal in the project folder and run `claude` / `codex` — the brief is on `main` at `sessions/...md`, and CC picks up from there."
+9. Mark tasks completed.
 
 If Philipp wants Cowork to push code or run builds: gently redirect. "That's a Claude Code job. I've written the brief — you can hand it to him now."
 

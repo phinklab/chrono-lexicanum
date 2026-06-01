@@ -2,7 +2,7 @@
 title: Session-end workflow
 type: workflow
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-06-01
 sources:
   - ../../../sessions/archive/2026-05/2026-05-08-049-arch-karpathy-brain-atlas-reset.md
   - ../../../docs/agents/COWORK.md
@@ -27,6 +27,10 @@ Pre-049, "what changed since last session" lived in `sessions/README.md`'s Infra
 
 The session-end routine ensures every CC-report leaves the wiki in a **truthful, current, auditable** state before the next architect brief opens.
 
+## The leanness contract
+
+The wiki's always-read files — `project-state.md`, `open-questions.md`, `index.md`, and `sessions/README.md` — are a **token tax paid on every single session**, before any work happens. They are *current-state only*, never append-logs. **Every session-end pass prunes history out of them** into [`log.md`](../log.md) + git + `sessions/archive/`, so they never regrow into the ~91k-token read-order floor the 2026-06-01 token-diet (Brief 111) had to reset. Hard budgets live in [`brain/CLAUDE.md`](../../CLAUDE.md) § "Always-read budgets" and `brain:lint` enforces them (warn at soft, error at hard). Pruning is **Step 2 + Step 3 below, every pass** — not a periodic special event.
+
 ## Trigger
 
 A CC-implementer report has landed in `sessions/YYYY-MM-DD-NNN-impl-<slug>.md` and is committed/pushed. Cowork has read it.
@@ -50,13 +54,12 @@ Specifically watch for:
 
 If the implementation moved the project's state forward (a phase advanced, a feature shipped, a sub-stage completed), update [`project-state.md`](../project-state.md):
 
-- Update the "Phase" / "Status snapshot" section.
-- Update "What's running" if a new module/route landed.
-- Update "Latest pipeline state" or equivalent if the pipeline change shipped.
-- Update "Recently shipped" table with the new session row.
-- Update "Next likely brief" if the implementation closed/opened decision points.
+- Update **Phase** if a phase/sub-stage advanced.
+- Update **Latest pipeline state** — overwrite the single snapshot with current numbers, do **not** stack a new "post-PR-N" section on top of the old ones (that habit grew this file to 12 stale snapshots before the Brief-111 diet).
+- Update **What's running** if a new module/route landed.
+- Update **What's open** / **Next likely brief** if the implementation closed or opened decision points.
 
-This page is the session-start anchor for Cowork/CC. Drift here is the most expensive drift.
+**Prune as you go.** This file is *current-state only* — overwrite the old state, don't append. A shipped item that is no longer among the latest 1–2, a superseded snapshot, the old "how we got here" prose → one line in [`log.md`](../log.md), and it lives on in git. Keep the file under its budget (§ "The leanness contract"). This page is the session-start anchor for Cowork/CC — drift *and* bloat here are the most expensive.
 
 ## Step 3 — Prune `open-questions.md`
 
@@ -66,7 +69,7 @@ For each item in [`open-questions.md`](../open-questions.md):
 - **Implementation surfaced new info** → update the item's body with the new finding (cite the report).
 - **Implementation introduced new open items** → add as new numbered items at the bottom (with Owner / Sessions / Follow-up brief lines).
 
-Don't let `open-questions.md` grow unboundedly. If an item has sat for 3+ sessions without movement, ask: is this still real, or has the project moved past it? Stale items dilute Cowork's queue-clarity.
+Don't let `open-questions.md` grow unboundedly. **The queue is ≤5 open items.** A resolved item is **deleted, not struck through** — its closure lives in git + [`log.md`](../log.md), not as `~~strikethrough~~` clutter in an always-read file (that habit left ~14 closed-of-16 entries before the Brief-111 diet). If an item has sat for 3+ sessions without movement, ask: is this still real, or has the project moved past it? Keep the file under its budget (§ "The leanness contract").
 
 ## Step 4 — Write or update decisions (if needed)
 
