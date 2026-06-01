@@ -1,26 +1,54 @@
-/** Per-world detail. /welt/cadia */
+/**
+ * Per-world detail. /welt/prospero
+ *
+ * Thin frame over the shared entity-view (Brief 109, Step 1). The `[slug]`
+ * segment IS the location id. The page owns the frame (main + photo backdrop +
+ * decor); the db-free <EntityView> renders the body from `loadEntity`.
+ */
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import CornerAuspex from "@/components/chrono/CornerAuspex";
+import EntityView from "@/components/entity/EntityView";
+import { listEntityIds, loadEntity } from "@/lib/entity/loader";
 
 type Params = { slug: string };
 
-export default async function WorldPage({ params }: { params: Promise<Params> }) {
+// Pre-render every known id at build time; the long tail (and ids added after
+// a build) renders on demand. Never pair with `force-dynamic` — that defeats SSG.
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const ids = await listEntityIds("location");
+  return ids.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
   const { slug } = await params;
+  const view = await loadEntity("location", slug);
+  return { title: view ? view.name : "Unknown world" };
+}
+
+export default async function WorldPage({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
+  const { slug } = await params;
+  const view = await loadEntity("location", slug);
+  if (!view) notFound();
+
   return (
-    <main className="stub-shell">
+    <main className="entity">
       <SiteBackground variant="vista" position="50% 32%" />
-      <div className="stub-shell__decor" aria-hidden>
+      <div className="entity__decor" aria-hidden>
         <CornerAuspex size={140} label="MVNDVS // 1011" />
       </div>
-      <div className="stub-shell__inner">
-        <p className="stub-shell__eyebrow">{"// PHASE 3 · IN PREPARATION"}</p>
-        <h1 className="stub-shell__title">{slug}</h1>
-        <span className="c-hairline stub-shell__rule" aria-hidden />
-        <p className="stub-shell__body">
-          World entry — sector location, climate, defining events,
-          setting books. Appears once the world detail page is ported.
-        </p>
-      </div>
+      <EntityView data={view} />
     </main>
   );
 }
