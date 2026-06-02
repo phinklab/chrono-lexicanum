@@ -2,7 +2,7 @@
 session: 2026-06-01-113
 role: architect
 date: 2026-06-01
-status: open
+status: implemented
 slug: entity-graph-panel
 parent: 2026-05-31-109
 links:
