@@ -21,7 +21,7 @@ Zwei Outcomes, phasiert:
 - **Phase A — EntityView-Redesign (geteilter Body + Vollseite).** Das schon-live geteilte `EntityView` (Vollseiten `/charakter|fraktion|welt/[slug]` aus Brief 109) bekommt das in der Design-Session vereinbarte Layout (§ Mockup): Entity-Name als `<h1>` + eine kompakte Meta-Zeile mit **1–3 bereits vorhandenen** Fakten darunter, Werke als Karten je Kind-Gruppe, eine rechte **„VERKNÜPFT"**-Cross-Link-Rail, die in schmal / im späteren Panel **unter die Hauptspalte umbricht**, und ein **Gradient-to-dark**, der den Hub über dem unruhigen `SiteBackground` lesbar macht. **Kein Bild, keine neuen Daten, kein Schema.**
 - **Phase B — In-Context-Panel (Mechanik).** Ein Klick auf eine Entity-Referenz *in der App* öffnet den (jetzt redesignten) Hub als **Overlay-Panel** über dem aktuellen Kontext — **dieselbe URL** via intercepting routes, Wiederverwendung von `loadEntity` + `EntityView` **ohne Fork**. Hard-Nav / Refresh / geteilter Link rendert weiterhin die volle SSG-Seite. Plus der **Gradient-to-dark-Scrim** hinter dem Panel.
 
-Phase B baut auf dem redesignten `EntityView` aus Phase A auf → **Phase A merged zuerst, dann `/clear`, dann Phase B.**
+Phase B baut auf dem redesignten `EntityView` aus Phase A auf → **gleiche Branch, `/clear` zwischen den Phasen** (hält das Token-Fenster klein, ganz **ohne** Zwischen-Merge — B braucht A nur im Working-Tree, nicht auf `main`); **ein PR mit A+B am Ende.**
 
 ## Design freedom — read before everything else
 
@@ -65,7 +65,7 @@ Die Panel-Naht für Phase B ist im 109-impl § „For next session" Punkt 2 exak
 - [ ] Der Hub ist über dem `SiteBackground` klar lesbar (Gradient-to-dark); `prefers-reduced-motion` respektiert.
 - [ ] `EntityView` weiterhin db-frei + besitzt das einzige `<h1>`; `git grep` belegt keine server-only-Imports in der View.
 - [ ] `npm run typecheck` + `lint` + `build` grün; die drei Routen weiterhin ● (SSG).
-- [ ] Eigener Branch + PR. Danach `/clear`.
+- [ ] Auf der gemeinsamen Branch committet; danach `/clear` — **kein Zwischen-Merge** (Phase B baut auf diesem Working-Tree-Stand auf).
 
 ## Phase B — In-Context-Panel
 
@@ -92,7 +92,7 @@ Die Panel-Naht für Phase B ist im 109-impl § „For next session" Punkt 2 exak
 - [ ] Panel hebt sich klar über dem `SiteBackground` ab (Scrim); `prefers-reduced-motion` respektiert.
 - [ ] `git grep` belegt: `loadEntity` aus dem Intercept-Segment aufgerufen, `EntityView` unverändert importiert — **kein** zweiter Datenpfad, **kein** View-Fork.
 - [ ] `npm run typecheck` + `lint` + `build` grün; die drei Entity-Routen weiterhin ● (SSG).
-- [ ] Eigener Branch + PR.
+- [ ] Auf derselben Branch wie Phase A; wenn A **und** B fertig → **ein PR** (beide Phasen zusammen).
 
 > **Notfalls dritte Phase:** Wird Phase A zu groß für eine Low-Token-Session, ist die saubere Naht zum Splitten die **rechte Rail + Reflow** (→ Phase A2); Header-Meta + Karten + Gradient-to-dark zuerst (Phase A1).
 
@@ -112,4 +112,4 @@ Die Panel-Naht für Phase B ist im 109-impl § „For next session" Punkt 2 exak
 
 ## Notes
 
-Worktree **`chrono-lexicanum-product`**. **Zwei PRs, sequenziell:** Phase A (z.B. `codex/product-entity-view-redesign`) zuerst → merge → `/clear` → Phase B (z.B. `codex/product-entity-panel`). Branch-Namen finalisierst du selbst (CC-Konvention `codex/product-<slug>`). Der Brief bleibt `open`, bis Phase B gemergt ist; flippt erst dann auf `implemented`. Die Panel-Naht ist im 109-impl § „For next session" Punkt 2 beschrieben — für Phase B zuerst lesen. CC fuhr in Step 1 nur curl-Smoke; der **Maintainer-Visual-Pass** (Desktop + ≤720px) steht für die Hubs *und* das neue Panel aus. Versionen (falls eine neue Dep nötig ist) recherchiert + pinnt CC, kein Pin im Brief.
+Worktree **`chrono-lexicanum-product`**. **Eine Branch für beide Phasen** (z.B. `codex/product-entity-redesign-panel`): Phase A committen → `/clear` → Phase B auf **derselben** Branch → **ein PR mit A+B**, erst wenn beide fertig sind. **Kein Zwischen-Merge.** Branch-Name finalisierst du selbst (CC-Konvention `codex/product-<slug>`). (Phase A ist zwar eigenständig auslieferbar — willst du den Redesign doch früher live, könnte A allein mergen; Default ist aber: zusammen.) Der Brief bleibt `open`, bis der PR gemergt ist; flippt dann auf `implemented`. Die Panel-Naht ist im 109-impl § „For next session" Punkt 2 beschrieben — für Phase B zuerst lesen. CC fuhr in Step 1 nur curl-Smoke; der **Maintainer-Visual-Pass** (Desktop + ≤720px) steht für die Hubs *und* das neue Panel aus. Versionen (falls eine neue Dep nötig ist) recherchiert + pinnt CC, kein Pin im Brief.
