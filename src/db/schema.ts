@@ -54,6 +54,7 @@ import {
   date,
   uuid,
   primaryKey,
+  unique,
   index,
   jsonb,
 } from "drizzle-orm/pg-core";
@@ -101,6 +102,9 @@ export const sourceKind = pgEnum("source_kind", [
   // produziert `book-roster.json`, Pipeline 058+ liest daraus statt aus
   // Wikipedia/TLBranson-Discovery.
   "ssot",
+  // Brief 114 (2026-06-02): Podcast Step 2. Shows + Episoden stammen aus einem
+  // RSS-Feed (`src/lib/ingestion/podcast`), persistiert via `scripts/apply-podcast.ts`.
+  "podcast_rss",
 ]);
 
 export const workKind = pgEnum("work_kind", [
@@ -109,6 +113,12 @@ export const workKind = pgEnum("work_kind", [
   "tv_series", // renamed from `series` to avoid colliding with the series table
   "channel",
   "video",
+  // Brief 114 (2026-06-02): Podcast Step 2. A `podcast` is the show container
+  // (≈ `channel`); a `podcast_episode` is one feed item (≈ `video`, but audio).
+  // Deliberately NOT overloading `video`: an episode has an enclosure-MP3 +
+  // durationSec, no video URL — overloading would poison every "all videos" query.
+  "podcast",
+  "podcast_episode",
 ]);
 
 export const canonicity = pgEnum("canonicity", [
@@ -325,6 +335,60 @@ export const videoDetails = pgTable("video_details", {
   }),
   uploadedAt: timestamp("uploaded_at", { withTimezone: true }),
 });
+
+// Brief 114 (2026-06-02): Podcast Step 2 — show container (≈ channel_details).
+// One row per `podcast`-kind work. Identity lives in the feed: `podcastGuid`
+// (RSS namespace `<podcast:guid>`, the stable cross-host show id), with
+// `feedUrl` / works.slug as upsert fallbacks. `appleId` is varchar (numeric
+// store id) so a new directory id is a row-edit, not a migration.
+export const podcastDetails = pgTable("podcast_details", {
+  workId: uuid("work_id")
+    .primaryKey()
+    .references(() => works.id, { onDelete: "cascade" }),
+  feedUrl: text("feed_url"),
+  podcastGuid: text("podcast_guid"),
+  appleId: varchar("apple_id", { length: 32 }),
+  imageUrl: text("image_url"),
+});
+
+// Brief 114 (2026-06-02): Podcast Step 2 — one feed item (≈ video_details).
+// Self-link `podcastWorkId` → the show work, analog to video_details.channelWorkId
+// but NOT NULL: an episode always belongs to a show (the apply always sets it),
+// which also keeps the UNIQUE(podcastWorkId, episodeGuid) key null-free. No
+// onDelete=cascade — a deleted show should surface as an FK error, not silently
+// orphan/erase its episodes (cleanup is the apply's job, not a cascade's).
+// `episodeGuid` is the feed `<guid>` verbatim (arbitrary length per RSS spec →
+// `text`, not works.externalBookId's varchar(16)); it is feed-local, so the
+// uniqueness scope is per-show, not global — Step 3 (multiple feeds) could
+// otherwise collide on a shared guid.
+export const podcastEpisodeDetails = pgTable(
+  "podcast_episode_details",
+  {
+    workId: uuid("work_id")
+      .primaryKey()
+      .references(() => works.id, { onDelete: "cascade" }),
+    podcastWorkId: uuid("podcast_work_id")
+      .notNull()
+      .references(() => works.id),
+    episodeGuid: text("episode_guid").notNull(),
+    audioUrl: text("audio_url"),
+    durationSec: integer("duration_sec"),
+    pubDate: timestamp("pub_date", { withTimezone: true }),
+    season: integer("season"),
+    episode: integer("episode"),
+    // 'lore' | 'news_recap' | 'interview' | 'other' (EpisodeKind). varchar (not
+    // enum) so the editorial vocabulary can grow without a migration.
+    episodeKind: varchar("episode_kind", { length: 16 }),
+  },
+  (t) => ({
+    showIdx: index("podcast_episode_details_podcast_idx").on(t.podcastWorkId),
+    // Per-show episode identity — the idempotent apply keys on (show, guid).
+    episodeGuidUnique: unique("podcast_episode_details_show_guid_unique").on(
+      t.podcastWorkId,
+      t.episodeGuid,
+    ),
+  }),
+);
 
 // =============================================================================
 // JUNCTIONS: works ↔ factions / characters / locations / persons
@@ -666,6 +730,14 @@ export const worksRelations = relations(works, ({ one, many }) => ({
     fields: [works.id],
     references: [videoDetails.workId],
   }),
+  podcastDetails: one(podcastDetails, {
+    fields: [works.id],
+    references: [podcastDetails.workId],
+  }),
+  podcastEpisodeDetails: one(podcastEpisodeDetails, {
+    fields: [works.id],
+    references: [podcastEpisodeDetails.workId],
+  }),
   factions: many(workFactions),
   characters: many(workCharacters),
   locations: many(workLocations),
@@ -717,6 +789,27 @@ export const videoDetailsRelations = relations(videoDetails, ({ one }) => ({
   // path and adding both directions now would force a `relationName` on the
   // works→videoDetails one() above for no current use.
 }));
+
+export const podcastDetailsRelations = relations(podcastDetails, ({ one }) => ({
+  work: one(works, {
+    fields: [podcastDetails.workId],
+    references: [works.id],
+  }),
+}));
+
+export const podcastEpisodeDetailsRelations = relations(
+  podcastEpisodeDetails,
+  ({ one }) => ({
+    work: one(works, {
+      fields: [podcastEpisodeDetails.workId],
+      references: [works.id],
+    }),
+    // No `show` relation here on the podcastWorkId self-link — same rationale as
+    // video_details.channelWorkId: querying show→episodes is a Product-track
+    // path, and adding it now would force a `relationName` on the
+    // works→podcastEpisodeDetails one() above for no current use.
+  }),
+);
 
 export const workFactionsRelations = relations(workFactions, ({ one }) => ({
   work: one(works, { fields: [workFactions.workId], references: [works.id] }),

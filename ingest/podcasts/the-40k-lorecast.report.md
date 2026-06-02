@@ -7,13 +7,13 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast` (
 - **Show:** The 40k Lorecast (slug `the-40k-lorecast`)
 - **Feed:** https://feeds.redcircle.com/cc233adb-de43-49be-bb76-9720292ddc98
 - **Apple id:** 1709093251
-- **Episodes:** 148
+- **Episodes:** 149
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 136/148 episodes (91.9%) carry ≥1 resolved tag
-- **Resolved tags:** 510 total — 365 subject, 145 mentioned
-  - by type: 151 character, 265 faction, 94 location
-- **Episode kinds:** 139 lore, 0 news_recap, 0 interview, 9 other
-- **Distinct unresolved surface-forms:** 126
+- **Resolved coverage:** 137/149 episodes (91.9%) carry ≥1 resolved tag
+- **Resolved tags:** 519 total — 369 subject, 150 mentioned
+  - by type: 155 character, 267 faction, 97 location
+- **Episode kinds:** 140 lore, 0 news_recap, 0 interview, 9 other
+- **Distinct unresolved surface-forms:** 124
 
 ## Method (resolution reuse)
 
@@ -61,7 +61,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Eldrad | 1 |
 | character | Exarch | 1 |
 | character | Garo | 1 |
-| character | Guilliman | 1 |
 | character | Harl Greyweaver | 1 |
 | character | Ianus | 1 |
 | character | Imotekh the Stormlord | 1 |
@@ -70,11 +69,12 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Inquisitor Thrax | 1 |
 | character | Jurten | 1 |
 | character | Kaldor Draigo | 1 |
-| character | Magnus | 1 |
 | character | Navigators | 1 |
 | character | Ortan Cassius | 1 |
 | character | Perigno | 1 |
 | character | Phoenix Lords | 1 |
+| character | Shaan | 1 |
+| character | Shrike | 1 |
 | character | Skarbrand | 1 |
 | character | Soulsmelter | 1 |
 | character | Szarek the Silent King | 1 |
@@ -84,7 +84,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Ursulia | 1 |
 | character | Valdor | 1 |
 | character | Vangorich | 1 |
-| character | Vect | 1 |
 | character | Vulkan He'Stan | 1 |
 | character | Zagstruk | 1 |
 | character | Zhufor | 1 |
@@ -151,7 +150,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | location | Osiris sector | 1 |
 | location | San Leor | 1 |
 | location | the immaterium | 1 |
-| location | The Webway | 1 |
 | location | Tyran | 1 |
 | location | Valhalla | 1 |
 | location | Ymgarl | 1 |
@@ -182,8 +180,7 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 ### Episode 60 - Drukhari pt 1 - The survival of the Dark City & rise of Vect
 
 - **Date / kind:** 2024-11-12 · lore
-- **Tags:** `character:asdrubael_vect` (subject, name, “Asdrubael Vect”); `faction:eldar` (subject, alias, “Drukhari”); `location:commorragh` (subject, name)
-- **Unresolved:** “The Webway” (location)
+- **Tags:** `character:asdrubael_vect` (subject, name, “Asdrubael Vect”); `faction:eldar` (subject, alias, “Drukhari”); `location:commorragh` (subject, name); `location:webway` (mentioned, alias, “The Webway”)
 
 ### Episode 75 - Blood Angels pt2 - After the Death of Sanguinius
 
@@ -191,23 +188,24 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 - **Tags:** `character:roboute_guilliman` (subject, name, “Roboute Guilliman”); `character:sanguinius` (subject, name); `faction:blood_angels` (subject, name, “Blood Angels”); `location:baal` (subject, name)
 - **Unresolved:** “Primaris Marines” (faction)
 
-### Episode 88 - Imperial Fists pt 2 - post Heresy Fists, Crimson fists, and Sigismund
+### Episode 89 - The Black Templar
 
-- **Date / kind:** 2025-05-26 · lore
-- **Tags:** `character:rogal_dorn` (subject, name, “Rogal Dorn”); `character:sigismund` (subject, name); `faction:black_templars` (subject, name, “Black Templars”); `faction:crimson_fists` (subject, name, “Crimson Fists”); `faction:imperial_fists` (subject, name, “Imperial Fists”); `faction:inquisition` (mentioned, name); `location:terra` (subject, name)
+- **Date / kind:** 2025-06-02 · lore
+- **Tags:** `character:helbrecht` (subject, name); `faction:black_templars` (subject, name, “Black Templars”)
 
-### Episode 100 - Cypher
+### Episode 101 - The Silent King Returns
 
-- **Date / kind:** 2025-08-18 · lore
-- **Tags:** `character:cypher` (subject, name); `character:luther` (mentioned, name); `faction:dark_angels` (subject, name, “Dark Angels”); `faction:fallen_angels` (subject, alias, “The Fallen”)
+- **Date / kind:** 2025-08-25 · lore
+- **Tags:** `character:trazyn_the_infinite` (mentioned, name, “Trazyn the Infinite”); `faction:necrons` (subject, name)
+- **Unresolved:** “Szarek the Silent King” (character)
 
-### Bonus Episode - Retro Recall with John and Tom
+### Episode 114 - Drukhari Kabals and real space raids
 
-- **Date / kind:** 2025-11-22 · other
+- **Date / kind:** 2025-11-25 · lore
+- **Tags:** `faction:eldar` (subject, alias, “Drukhari”); `location:commorragh` (subject, name)
+- **Unresolved:** “Drukhari Kabals” (faction)
+
+### 40K Lorecast Live Q&A Spring of 2026
+
+- **Date / kind:** 2026-03-06 · other
 - **Tags:** _none resolved_
-
-### Episode 128 - The 500 worlds pt 2 - Titus comes face to face with the destroyer curse.
-
-- **Date / kind:** 2026-03-03 · lore
-- **Tags:** `faction:necrons` (subject, name); `faction:mechanicus` (mentioned, name, “Adeptus Mechanicus”); `faction:tyranids` (mentioned, name)
-- **Unresolved:** “Ammentar” (character); “Titus” (character); “The Nightbringer” (character); “Heliodras system” (location); “Idarus” (location); “Novamagnor” (location)
