@@ -23,7 +23,9 @@ type NavItem = { id: string; label: string; href: string; match: (path: string) 
 
 const ITEMS: NavItem[] = [
   { id: "home", label: "Home", href: "/", match: (p) => p === "/" },
-  { id: "books", label: "Archive", href: "/buecher", match: (p) => p.startsWith("/buecher") || p.startsWith("/buch") },
+  { id: "works", label: "Archive", href: "/werke", match: (p) => p.startsWith("/werke") || p.startsWith("/buch") },
+  { id: "podcasts", label: "Podcasts", href: "/podcasts", match: (p) => p.startsWith("/podcasts") },
+  { id: "factions", label: "Factions", href: "/fraktionen", match: (p) => p.startsWith("/fraktion") },
   { id: "ask", label: "Ask", href: "/ask", match: (p) => p.startsWith("/ask") },
   { id: "chronicle", label: "Chronicle", href: "/timeline", match: (p) => p.startsWith("/timeline") },
   { id: "cartog", label: "Cartographer", href: "/map", match: (p) => p.startsWith("/map") },

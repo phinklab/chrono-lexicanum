@@ -73,7 +73,7 @@ main.hub {
 }
 .hub-title-eyebrow {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 12.5px;
+  font-size: var(--fs-label-lg);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -102,7 +102,8 @@ main.hub {
   max-width: 600px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 20px;
+  font-size: var(--fs-read-lg);
+  font-weight: var(--fw-read);
   line-height: 1.45;
   color: var(--cl-bone);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
@@ -110,7 +111,7 @@ main.hub {
 .hub-title-stats {
   margin: 14px 0 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-gold);
@@ -194,12 +195,76 @@ main.hub {
    100vh für sich, dann scrollt der User in den Tools-Fold rein; dessen
    Background-Gradient + der scroll-getriebene `.site-bg::after` Scrim
    dimmen den vista-Background, damit Akkordeon-Text klar lesbar bleibt. */
+/* Honest Home search (Brief 120) — leads the tools fold and routes straight to
+   the real /werke browse. Cyan house default, glass bar matching the doorway
+   cards above it. */
+.hub-search {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto clamp(28px, 4vh, 44px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.hub-search__kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cl-cyan-dim);
+}
+.hub-search__bar {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  background: rgba(2, 3, 10, 0.6);
+  backdrop-filter: blur(8px) saturate(120%);
+}
+.hub-search__input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  color: var(--cl-bone);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.08em;
+  padding: 12px 14px;
+}
+.hub-search__input::placeholder {
+  color: var(--cl-faint);
+}
+.hub-search__input:focus-visible {
+  outline: none;
+}
+.hub-search__go {
+  flex: 0 0 auto;
+  background: var(--cl-cyan-fnt);
+  border: 0;
+  border-left: 1px solid var(--cl-cyan-dim);
+  color: var(--cl-cyan);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 180ms, color 180ms;
+}
+.hub-search__go:hover {
+  background: color-mix(in oklch, var(--cl-cyan) 18%, transparent);
+  color: var(--cl-bone);
+}
+
 .hub-intro__body {
   margin: 0 auto;
   max-width: 620px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 20px;
+  font-size: var(--fs-read-lg);
+  font-weight: var(--fw-read);
   line-height: 1.55;
   text-align: center;
   color: var(--cl-bone);
@@ -232,7 +297,8 @@ main.hub {
   max-width: 600px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 18px;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
   line-height: 1.6;
   text-align: center;
   color: var(--cl-bone);
@@ -285,7 +351,7 @@ main.hub {
 }
 .tools-accordion__kicker {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -303,7 +369,8 @@ main.hub {
 .tools-accordion__tease {
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 15px;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
   color: var(--cl-dim);
   flex: 1 1 auto;
   text-align: left;
@@ -337,7 +404,8 @@ main.hub {
 .tools-accordion__body-text {
   margin: 12px 0 14px;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 17px;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
   line-height: 1.55;
   color: var(--cl-bone);
   opacity: 0.92;
@@ -350,7 +418,7 @@ main.hub {
   margin-top: 0;
   padding: 8px 14px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -376,7 +444,7 @@ main.hub {
   gap: 14px;
   z-index: 31;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -387,21 +455,21 @@ main.hub {
 }
 .hub-sound-strip > span:first-child,
 .hub-sound-strip > span:last-child {
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0;
   opacity: 0.65;
 }
 
 @media (max-width: 900px) {
-  .hub-intro__body { font-size: 17px; max-width: 100%; }
+  .hub-intro__body { font-size: var(--fs-read); max-width: 100%; }
   .hub-intro__heading { font-size: 19px; }
-  .hub-intro__about { font-size: 16px; max-width: 100%; }
-  .tools-accordion__kicker { min-width: 0; font-size: 10px; }
+  .hub-intro__about { font-size: var(--fs-read-sm); max-width: 100%; }
+  .tools-accordion__kicker { min-width: 0; font-size: var(--fs-label); }
   .tools-accordion__title { font-size: 15px; }
   .tools-accordion__tease { display: none; }
   .tools-accordion__head { padding: 12px 14px; gap: 10px; }
   .tools-accordion__body { padding: 0 14px 14px; }
-  .hub-sound-strip { bottom: 64px; font-size: 9.5px; letter-spacing: 0.28em; }
+  .hub-sound-strip { bottom: 64px; font-size: var(--fs-label); letter-spacing: 0.28em; }
   .hub-fold--tools { padding: clamp(56px, 9vh, 96px) 14px clamp(120px, 16vh, 160px); }
   .hub-hero-descent { bottom: clamp(150px, 24vh, 200px); padding: 6px 16px; gap: 8px; }
   .hub-hero-descent__label { font-size: 11.5px; letter-spacing: 0.26em; }

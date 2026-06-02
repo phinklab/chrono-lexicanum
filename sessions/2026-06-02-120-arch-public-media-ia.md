@@ -2,7 +2,7 @@
 session: 2026-06-02-120
 role: architect
 date: 2026-06-02
-status: open
+status: implemented
 slug: public-media-ia
 parent: 2026-06-02-119
 links:

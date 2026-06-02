@@ -110,7 +110,7 @@
 .top-nav--collapsed .top-nav__mark::after {
   content: "MENU";
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -134,7 +134,7 @@
 }
 .top-nav__link {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11.5px;
+  font-size: var(--fs-label-lg);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   padding: 6px 12px;
@@ -198,4 +198,45 @@ body:has(main.catalogue) .c-glass:hover {
 body:has(main.catalogue) .c-corners::before,
 body:has(main.catalogue) .c-corners::after {
   border-color: var(--cl-gold);
+}
+
+/* Narrow widths (Brief 120): the public nav grew from 5 to 7 items, so the
+ * centred 3-column grid can no longer fit them. Below 1000px, fall back to a
+ * flex row — mark left, links right — and let the link row scroll horizontally
+ * instead of overflowing the viewport (min-width:0 lets the flex child shrink
+ * below its content so the internal scroll engages). The collapsed-state
+ * translateX centring still resolves against `--tn-pad`, so the scroll-collapse
+ * MENU behaviour is unchanged. */
+@media (max-width: 1000px) {
+  .top-nav {
+    --tn-pad: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .top-nav__links {
+    min-width: 0;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .top-nav__links::-webkit-scrollbar {
+    display: none;
+  }
+  .top-nav__link {
+    padding: 6px 9px;
+    font-size: var(--fs-label);
+    letter-spacing: 0.16em;
+    white-space: nowrap;
+  }
+}
+
+/* Phone widths: drop the wordmark so the logo alone holds the left, freeing the
+ * full row for the scrollable links. */
+@media (max-width: 640px) {
+  .top-nav__name {
+    display: none;
+  }
 }

@@ -1,0 +1,577 @@
+/* 61-browse.css
+   Public media-IA browse vocabulary (Brief 120). Shared by /werke (gold, via
+   the .catalogue scope) and /fraktionen (cyan alignment pills). Built from the
+   same tokens + pill discipline as the /buecher SortPills/AuditPills so the new
+   IA reads as one design language, not a bolt-on. Cyan is the house default;
+   the gold overrides at the tail re-skin the controls on the .catalogue surface. */
+
+/* ── Filter bar ─────────────────────────────────────────────────────────── */
+.browse-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  border: 1px solid var(--cl-faint);
+  background: rgba(8, 12, 20, 0.5);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+.browse-search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--cl-faint);
+  background: rgba(2, 3, 10, 0.4);
+}
+.browse-search__input {
+  background: transparent;
+  border: 0;
+  color: var(--cl-bone);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  padding: 7px 10px;
+  min-width: 210px;
+}
+.browse-search__input::placeholder {
+  color: var(--cl-faint);
+  letter-spacing: 0.08em;
+}
+.browse-search__input:focus-visible {
+  outline: none;
+}
+/* type=search renders a UA "cancel" glyph (the second, blue-tinted ×) on top of
+   our own .browse-search__clear button — suppress it so there's one clear.
+   Scoped to /werke: only it adds a custom clear button; /fraktionen has no
+   replacement, so it keeps the native glyph. */
+.catalogue--werke .browse-search__input::-webkit-search-cancel-button,
+.catalogue--werke .browse-search__input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+/* Visually-hidden live region announcing suggestion-count changes to AT. */
+.browse-search__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.browse-search__go {
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--cl-faint);
+  color: var(--cl-cyan);
+  font-size: 13px;
+  line-height: 1;
+  padding: 7px 12px;
+  cursor: pointer;
+  transition: color 180ms, background 180ms;
+}
+.browse-search__go:hover {
+  background: var(--cl-cyan-fnt);
+}
+
+/* Auspex reticle inside the search field (rendered only on /werke's console —
+   harmless absence elsewhere). Marks the input as a deliberate "query" affordance. */
+.browse-search__sigil {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  color: var(--cl-gold-dim);
+}
+.browse-search__clear {
+  flex: none;
+  background: transparent;
+  border: 0;
+  color: var(--cl-dim);
+  font-size: 14px;
+  line-height: 1;
+  padding: 4px 6px;
+  cursor: pointer;
+  transition: color 180ms;
+}
+.browse-search__clear:hover {
+  color: var(--cl-bone);
+}
+
+/* ── Search suggestions (universal typeahead popover) ─────────────────────── */
+.browse-suggest {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: -1px;
+  right: -1px;
+  z-index: 40;
+  max-height: min(58vh, 420px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 4px;
+  background: var(--cl-void-2);
+  border: 1px solid var(--cl-cyan-dim);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.6);
+}
+/* The listbox itself holds only options + (presentational) group headers; the
+   footer hint + empty-state live OUTSIDE it as <p> siblings, so role=listbox
+   never owns stray non-option text. */
+.browse-suggest__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.browse-suggest__group {
+  padding: 8px 9px 4px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.browse-suggest__opt {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 10px;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+}
+.browse-suggest__opt.is-active {
+  background: var(--cl-cyan-fnt);
+  border-left-color: var(--cl-cyan);
+}
+.browse-suggest__label {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
+  color: var(--cl-bone);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Non-book picks read as labels, not prose → mono, tracked, like the chips. */
+.browse-suggest__opt--faction .browse-suggest__label,
+.browse-suggest__opt--facet .browse-suggest__label,
+.browse-suggest__opt--format .browse-suggest__label,
+.browse-suggest__opt--author .browse-suggest__label {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+.browse-suggest__hit {
+  background: transparent;
+  color: var(--cl-cyan);
+  font-weight: 600;
+}
+.browse-suggest__hint {
+  flex: none;
+  max-width: 42%;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.browse-suggest__foot,
+.browse-suggest__empty {
+  padding: 9px 10px;
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.08em;
+  color: var(--cl-dim);
+}
+.browse-suggest__foot {
+  margin-top: 4px;
+  border-top: 1px solid var(--cl-faint);
+}
+.browse-suggest kbd {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  color: var(--cl-bone);
+  border: 1px solid var(--cl-faint);
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+
+/* ── FilterSelect (custom ARIA listbox; replaces native <select>) ─────────── */
+.filter-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.filter-select__label {
+  font-size: var(--fs-label);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.filter-select__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  appearance: none;
+  background: rgba(2, 3, 10, 0.4);
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-bone);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  min-width: 132px;
+  cursor: pointer;
+  transition: border-color 180ms, color 180ms, background 180ms;
+}
+.filter-select__btn:hover {
+  border-color: var(--cl-cyan-dim);
+}
+.filter-select__btn:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 1px;
+}
+.filter-select__btn.is-set {
+  border-color: var(--cl-cyan-dim);
+  color: var(--cl-cyan);
+}
+.filter-select__value {
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.filter-select__caret {
+  font-size: var(--fs-label);
+  line-height: 1;
+  color: var(--cl-dim);
+  transition: transform 180ms;
+}
+.filter-select__btn[aria-expanded="true"] .filter-select__caret {
+  transform: rotate(180deg);
+}
+
+/* The popover menu — the readability fix. The native <select> popup rendered
+   in the OS theme ("silver"); this is an opaque dark plate with bone text and
+   gold/cyan selection states, fully inside the design language. */
+.filter-select__list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 30;
+  min-width: max(100%, 168px);
+  max-height: 264px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--cl-void-2);
+  border: 1px solid var(--cl-cyan-dim);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
+}
+.filter-select__list:focus-visible {
+  outline: none;
+}
+.filter-select__opt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 9px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  cursor: pointer;
+}
+.filter-select__opt.is-active {
+  color: var(--cl-bone);
+  background: var(--cl-cyan-fnt);
+}
+.filter-select__opt.is-selected {
+  color: var(--cl-cyan);
+}
+.filter-select__tick {
+  font-size: var(--fs-label);
+  line-height: 1;
+}
+
+.browse-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.browse-sort__label {
+  font-size: var(--fs-label);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+
+.browse-pill {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-dim);
+  padding: 6px 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 180ms, border-color 180ms, background 180ms;
+}
+.browse-pill:hover {
+  color: var(--cl-bone);
+  border-color: var(--cl-cyan-dim);
+}
+.browse-pill:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+.browse-pill.active {
+  color: var(--cl-cyan);
+  border-color: var(--cl-cyan);
+  background: var(--cl-cyan-fnt);
+}
+
+.browse-facet-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--cl-cyan);
+  color: var(--cl-cyan);
+  background: var(--cl-cyan-fnt);
+  padding: 6px 10px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  transition: background 180ms;
+}
+.browse-facet-chip:hover {
+  background: color-mix(in oklch, var(--cl-cyan) 16%, transparent);
+}
+.browse-facet-chip__key {
+  color: var(--cl-dim);
+  text-transform: uppercase;
+}
+.browse-facet-chip__x {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.browse-clear {
+  background: transparent;
+  border: 0;
+  color: var(--cl-dim);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 180ms;
+}
+.browse-clear:hover {
+  color: var(--cl-bone);
+}
+
+/* ── /werke "query console" layout ────────────────────────────────────────
+ * Only /werke (the gold .catalogue surface) stacks into two rows: a prominent
+ * search console over a quieter facet-control row. /fraktionen keeps the shared
+ * single wrapping row (it renders no .browse-controls), so this is scoped. */
+/* Dissolve the boxed panel: the filter zone reads as part of the lean table,
+   separated by a single gold hairline rather than a heavy bordered plate. */
+.catalogue--werke .browse-filters {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  margin: 0 0 22px;
+  padding: 0 0 18px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 16%, transparent);
+}
+/* Search is one elegant catalogue line — a serif query under a gold hairline,
+   echoing the table's title font — not a heavy boxed control. Width-capped so
+   it no longer spans the full table. */
+.catalogue--werke .browse-search {
+  width: 100%;
+  max-width: 540px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 32%, transparent);
+  transition: border-color 200ms;
+}
+.catalogue--werke .browse-search:focus-within {
+  border-bottom-color: var(--cl-gold-dim);
+}
+.catalogue--werke .browse-search__sigil {
+  width: 15px;
+  height: 15px;
+  margin-left: 1px;
+  margin-right: 4px;
+}
+.catalogue--werke .browse-search__input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  letter-spacing: 0.01em;
+  padding: 8px 4px;
+}
+.catalogue--werke .browse-search__input::placeholder {
+  font-style: italic;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--cl-dim);
+}
+.browse-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 720px) {
+  .browse-filters {
+    gap: 8px;
+    padding: 10px;
+  }
+  .browse-search {
+    flex: 1 1 100%;
+  }
+  .browse-search__input {
+    min-width: 0;
+    flex: 1;
+  }
+  .filter-select {
+    flex: 1 1 auto;
+  }
+  .filter-select__btn {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* ── /werke row tweaks (reuses .catalogue-row, minus the maintainer "updated"
+ *    column; facet + faction tags are browse-filter links) ───────────────── */
+@media (min-width: 1101px) {
+  .catalogue--werke .catalogue-row__summary {
+    grid-template-columns: 32px 16px minmax(0, 1fr) 176px 70px 130px 18px;
+  }
+}
+/* 721–1100px: the base @media(max-width:1100px) grid keeps a 7th (era) track
+ * and hides .catalogue-row__faction; /werke no longer renders era, so re-spec
+ * to the 6 cells it actually shows (index, dot, title, year, chips, chevron) —
+ * without this the chevron drifts a column left with a stray empty trailing
+ * track. The next base breakpoint down is max-width:720px (a 5-track mobile
+ * grid that also hides chips), so this override is lower-bounded at 721px to
+ * yield to it cleanly. */
+@media (min-width: 721px) and (max-width: 1100px) {
+  .catalogue--werke .catalogue-row__summary {
+    grid-template-columns: 28px 14px minmax(0, 1fr) 60px 100px 18px;
+  }
+}
+.catalogue--werke .catalogue-row__faction {
+  /* Long faction names (e.g. ADEPTUS MECHANICUS) need the width back that
+     0.18em tracking ate; tighten here so the 176px column fits ~21 chars. */
+  letter-spacing: 0.08em;
+}
+.catalogue--werke .catalogue-tag a {
+  color: inherit;
+  text-decoration: none;
+}
+.catalogue--werke .catalogue-tag--faction a:hover,
+.catalogue--werke .catalogue-tag--facet a:hover {
+  color: var(--cl-gold);
+}
+
+.werke-hero__readout {
+  position: absolute;
+  right: clamp(16px, 4vw, 48px);
+  top: 96px;
+  width: 260px;
+  z-index: 3;
+  pointer-events: none;
+}
+@media (max-width: 900px) {
+  .werke-hero__readout {
+    display: none;
+  }
+}
+
+/* ── Gold re-skin on the .catalogue surface ──────────────────────────────── */
+body:has(main.catalogue) .filter-select__btn {
+  border-color: color-mix(in oklch, var(--cl-gold) 22%, transparent);
+}
+body:has(main.catalogue) .filter-select__btn:hover,
+body:has(main.catalogue) .browse-pill:hover {
+  border-color: var(--cl-gold-dim);
+}
+body:has(main.catalogue) .filter-select__btn:focus-visible {
+  outline-color: var(--cl-gold);
+}
+body:has(main.catalogue) .filter-select__btn.is-set {
+  border-color: var(--cl-gold-dim);
+  color: var(--cl-gold);
+}
+/* The popover re-skinned gold on the catalogue surface (matches the bar). */
+body:has(main.catalogue) .filter-select__list {
+  border-color: color-mix(in oklch, var(--cl-gold) 30%, transparent);
+}
+body:has(main.catalogue) .browse-suggest {
+  border-color: color-mix(in oklch, var(--cl-gold) 30%, transparent);
+}
+body:has(main.catalogue) .browse-suggest__opt.is-active {
+  background: rgba(201, 166, 90, 0.12);
+  border-left-color: var(--cl-gold);
+}
+body:has(main.catalogue) .browse-suggest__hit {
+  color: var(--cl-gold);
+}
+body:has(main.catalogue) .filter-select__opt.is-active {
+  color: var(--cl-bone);
+  background: rgba(201, 166, 90, 0.12);
+}
+body:has(main.catalogue) .filter-select__opt.is-selected {
+  color: var(--cl-gold);
+}
+/* Sort pills: a soft gold hairline at rest, so the active state adds a fill +
+   gold text without the border jumping from near-invisible to bright (which
+   read as the border "thickening"). Same 1px width throughout. */
+body:has(main.catalogue) .browse-pill {
+  border-color: color-mix(in oklch, var(--cl-gold) 18%, transparent);
+}
+body:has(main.catalogue) .browse-pill.active {
+  color: var(--cl-gold);
+  border-color: color-mix(in oklch, var(--cl-gold) 34%, transparent);
+  background: rgba(201, 166, 90, 0.1);
+}
+body:has(main.catalogue) .browse-facet-chip {
+  color: var(--cl-gold);
+  border-color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.1);
+}
+body:has(main.catalogue) .browse-facet-chip:hover {
+  background: rgba(201, 166, 90, 0.18);
+}

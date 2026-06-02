@@ -108,7 +108,7 @@ export default function ResultCard({ path, answers, onReset, onChangePath }: Res
           Start over
         </button>
         <span className="ask-footer__spacer" aria-hidden />
-        <Link href="/buecher" className="ask-cta">
+        <Link href="/werke" className="ask-cta">
           All books →
         </Link>
       </div>

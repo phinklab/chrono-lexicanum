@@ -206,7 +206,8 @@ body:has(main.map-route) .site-bg::after {
   max-width: 640px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 17px;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
   line-height: 1.45;
   letter-spacing: 0.04em;
   color: var(--cl-bone);

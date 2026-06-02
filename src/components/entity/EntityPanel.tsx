@@ -19,8 +19,10 @@
  *   • Flat model: a click on an entity link INSIDE the panel is rewritten to
  *     `router.replace` (capture-phase delegation below), so in-panel hops never
  *     stack history. One back() still closes to the origin. Non-entity links
- *     (a `/buch/[slug]` book card, external links) pass through untouched — the
- *     resulting soft-nav hits the catch-all slot and clears the panel.
+ *     pass through untouched: a `/buch/[slug]` book card now soft-navs into the
+ *     `(.)buch` intercept (Brief 120), which swaps this entity panel for the
+ *     book overlay in the same `@modal` slot; external/other links hit the
+ *     catch-all slot, which clears the panel.
  *   • A11y to the WAI-ARIA APG "Dialog (Modal)" bar, reusing the house pattern
  *     from `DetailPanel`: focus moves into the panel on open, Tab/Shift-Tab are
  *     trapped, Escape closes, focus returns to the trigger on close, the
