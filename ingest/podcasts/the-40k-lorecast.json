@@ -7,7 +7,7 @@
     "appleId": "1709093251",
     "podcastGuid": "cc233adb-de43-49be-bb76-9720292ddc98",
     "imageUrl": "https://media.redcircle.com/images/2025/5/13/20/27c7ddbc-c7eb-4d15-b305-ce9e8834f144_-535dda26d00f_da4230511c4076e9ed53cb4872e8cabe.jpg",
-    "episodeCount": 148
+    "episodeCount": 149
   },
   "extraction": {
     "model": "claude-sonnet-4-6",
@@ -1304,6 +1304,14 @@
           "matchedVia": "alias"
         },
         {
+          "type": "character",
+          "canonicalId": "magnus_the_red",
+          "rawName": "Magnus",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "faction",
           "canonicalId": "thousand_sons",
           "rawName": "Thousand Sons",
@@ -1329,11 +1337,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Magnus",
-          "axisGuess": "character",
-          "role": "mentioned"
-        },
         {
           "rawName": "Malcador",
           "axisGuess": "character",
@@ -2168,6 +2171,14 @@
       "episodeKind": "lore",
       "tags": [
         {
+          "type": "character",
+          "canonicalId": "roboute_guilliman",
+          "rawName": "Guilliman",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "faction",
           "canonicalId": "talons_of_the_emperor",
           "rawName": "Sisters of Silence",
@@ -2176,13 +2187,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Guilliman",
-          "axisGuess": "character",
-          "role": "mentioned"
-        }
-      ]
+      "unresolved": []
     },
     {
       "guid": "Buzzsprout-15653660",
@@ -2675,15 +2680,17 @@
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "webway",
+          "rawName": "The Webway",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "The Webway",
-          "axisGuess": "location",
-          "role": "mentioned"
-        }
-      ]
+      "unresolved": []
     },
     {
       "guid": "Buzzsprout-16097937",
@@ -3516,6 +3523,14 @@
       "tags": [
         {
           "type": "character",
+          "canonicalId": "asdrubael_vect",
+          "rawName": "Vect",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "character",
           "canonicalId": "eldrad_ulthran",
           "rawName": "Eldrad Ulthran",
           "role": "subject",
@@ -3563,13 +3578,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Vect",
-          "axisGuess": "character",
-          "role": "subject"
-        }
-      ]
+      "unresolved": []
     },
     {
       "guid": "251a13b0-00ba-11f0-8180-2f321c2c5dd8",
@@ -6846,6 +6855,70 @@
         }
       ],
       "unresolved": []
+    },
+    {
+      "guid": "3ab8fe25-4938-4ad1-964a-fa669f96903b",
+      "title": "Episode 141 - Raven Guard pt 3 - Isstvan 5 and the legions rebirth.",
+      "pubDate": "2026-06-01T23:00:48.000Z",
+      "durationSec": 3831,
+      "audioUrl": "https://audio4.redcircle.com/episodes/ff2cfc5c-2ab7-4cc2-883b-cb6576f25494/stream.mp3",
+      "link": "https://the40klorecast.com/",
+      "episode": 141,
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "corax",
+          "rawName": "Corax",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "raven_guard",
+          "rawName": "Raven Guard",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "alpha_legion",
+          "rawName": "Alpha Legion",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "istvaan_v",
+          "rawName": "Isstvan V",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "location",
+          "canonicalId": "terra",
+          "rawName": "Terra",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Shaan",
+          "axisGuess": "character",
+          "role": "subject"
+        },
+        {
+          "rawName": "Shrike",
+          "axisGuess": "character",
+          "role": "subject"
+        }
+      ]
     }
   ]
 }

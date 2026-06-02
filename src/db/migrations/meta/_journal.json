@@ -71,6 +71,13 @@
       "when": 1778619403974,
       "tag": "0009_lucky_pete_wisdom",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1780408408648,
+      "tag": "0010_concerned_black_queen",
+      "breakpoints": true
     }
   ]
 }

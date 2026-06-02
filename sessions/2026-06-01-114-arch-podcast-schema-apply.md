@@ -2,7 +2,7 @@
 session: 2026-06-01-114
 role: architect
 date: 2026-06-01
-status: open
+status: implemented
 slug: podcast-schema-apply
 parent: 2026-05-31-110
 links:
