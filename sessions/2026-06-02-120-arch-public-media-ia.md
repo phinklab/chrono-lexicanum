@@ -47,6 +47,16 @@ Chrono-Aesthetik, aber mache die erste Ansicht funktional klarer: Besucher
 sollen sofort sehen, dass sie Buecher, Podcasts, Fraktionen und Tools betreten
 koennen. Keine neue Landingpage-Prosa-Wand, keine Bilderpflicht.
 
+**Visuelle Leitplanke (wichtig):** Die neue IA soll nicht wie ein Fremdsystem
+aussehen. Fuer **Ansichten und Bedienelemente** (Buchlisten, Filter, Navi,
+Sortierung, Medienkarten, Fraktions-Index) sind die aktuelle Archive-/`/buecher`
+-Seite und Chronicle die Referenz: dichte, scanbare Listen, klare HUD-Labels,
+praezise Kanten, ruhige Kontrollflaechen, guter Rhythmus. Fuer **Hintergrund,
+Atmosphaere und Bewegung** ist die aktuelle Home die Referenz: bewegte
+HUD-Elemente, Auspex-/Readout-Gefuehl, kurze Texte als Stimmungstraeger,
+Tiefe im Hintergrund. Heisst: die neuen Seiten sollen die Nutzbarkeit von
+Archive/Chronicle mit der lebendigen Hintergrundsprache der Home verbinden.
+
 ## Constraints
 
 - **Medienarchiv zuerst.** Home- und Nav-Struktur muessen Buecher/Werke,
@@ -104,6 +114,9 @@ Die Session ist fertig, wenn:
       (mindestens die Show + Episodenuebersicht fuer den 40k Lorecast).
 - [ ] `/fraktionen` rendert einen Guide-Index aus vorhandenen DB-Daten:
       Fraktionsname, Medien-Counts, Link zu `/fraktion/[id]`.
+- [ ] Die visuelle Umsetzung orientiert sich sichtbar an Archive/Chronicle fuer
+      UI-Elemente und Views sowie an Home fuer Hintergrund, HUD-Bewegung und
+      atmosphaerische Texte; sie wirkt nicht wie eine neue, abgetrennte Designsprache.
 - [ ] Keine neuen Entity-Bilder, keine langen Lore-Artikel, keine Schema- oder
       DB-Aenderungen.
 - [ ] Desktop und schmale Breite sind visuell geprueft; Text ueberlappt nicht.
@@ -129,4 +142,3 @@ Naechster Brief nach diesem Schritt: **Media-aware context surfaces**. Der soll
 Podcastgruppen linken, kleine datengetriebene Banner ("12 books / 5 podcast
 episodes / linked to Prospero"), Buch-Entity-Chips als Links, Facets zu
 `/werke?facet=...`. Dieser Schritt hier baut erst die oeffentliche Richtung.
-
