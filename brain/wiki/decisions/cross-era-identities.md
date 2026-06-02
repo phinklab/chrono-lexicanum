@@ -8,9 +8,9 @@ sources:
   - ../../../sessions/archive/2026-05/2026-05-26-100-impl-resolver-hh.md
   - ../../../sessions/resolver-dossiers/resolver-pass-10-impl-report.md
   - ../../../sessions/resolver-dossiers/resolver-pass-15-impl-report.md
-  - ../../../sessions/2026-05-27-102-arch-hh-consolidation-pass.md
-  - ../../../sessions/2026-05-27-102-impl-hh-consolidation-pass.md
-  - ../../../sessions/resolver-pass-runbook.md
+  - ../../../sessions/archive/2026-05/2026-05-27-102-arch-hh-consolidation-pass.md
+  - ../../../sessions/archive/2026-05/2026-05-27-102-impl-hh-consolidation-pass.md
+  - ../../../scripts/runbooks/resolver-pass-runbook.md
   - ../../../scripts/seed-data/faction-aliases.json
   - ../../../scripts/seed-data/character-aliases.json
 related:
@@ -24,7 +24,7 @@ decision-date: 2026-05-26
 
 # Cross-Era-Identitäten — eine Canonical-Row, Era-Surface-Forms als Aliases
 
-**Status:** active · **Decided:** 2026-05-26 (Brief 100) · **First wave validated:** 2026-05-26 (Resolver-Pass 10, HH-Bootstrap `ssot-hh-001..002`, PR #105 — 15/20 `drift_works` = Surface-Forms resolven auf eine kanonische W40K-Row; `factionsSkippedRedundant` bleibt für Cross-Era-Hits leer; keine echte Identitäts-Disambig getriggert, kein `## Needs decision`-Stop) · **HH-domain hardened:** 2026-05-27 (Resolver-Pässe 11–15, PR #107 — fünf weitere clean Two-Domain-Pässe in Folge ohne `## Needs decision`-Stop und ohne `factionsSkippedRedundant`-Cross-Era-Hits; die Disziplin trägt über den vollen HH-Korpus, **HH-domain ist datenkomplett — 294/294 HH-Bücher in der DB**) · **HH-domain post-consolidation hardened:** 2026-05-27 (Konsolidierungs-Pass 2 / Brief 102, PR #108 — 1 Cross-Era-Doublette consolidated `merir_astelan → astelan` als chronologisch-pre-ADR-Carryover aus Pass 13; **cross-era-anchor-breach Aggregator-Tripwire = 0 Treffer über alle 18 pinned Surface-Forms** — positive ADR-Validation über sechs HH-Wellen; das eine Cross-Domain-Echo ist Disziplin-Drift im engeren Sinn, kein laufender Drift-Trend) · **Sessions:** [100-arch](../../../sessions/archive/2026-05/2026-05-26-100-arch-resolver-hh.md) + [100-impl](../../../sessions/archive/2026-05/2026-05-26-100-impl-resolver-hh.md) + [resolver-pass-10-impl-report](../../../sessions/resolver-dossiers/resolver-pass-10-impl-report.md) + [resolver-pass-15-impl-report](../../../sessions/resolver-dossiers/resolver-pass-15-impl-report.md) + [102-arch](../../../sessions/2026-05-27-102-arch-hh-consolidation-pass.md) + [102-impl](../../../sessions/2026-05-27-102-impl-hh-consolidation-pass.md)
+**Status:** active · **Decided:** 2026-05-26 (Brief 100) · **First wave validated:** 2026-05-26 (Resolver-Pass 10, HH-Bootstrap `ssot-hh-001..002`, PR #105 — 15/20 `drift_works` = Surface-Forms resolven auf eine kanonische W40K-Row; `factionsSkippedRedundant` bleibt für Cross-Era-Hits leer; keine echte Identitäts-Disambig getriggert, kein `## Needs decision`-Stop) · **HH-domain hardened:** 2026-05-27 (Resolver-Pässe 11–15, PR #107 — fünf weitere clean Two-Domain-Pässe in Folge ohne `## Needs decision`-Stop und ohne `factionsSkippedRedundant`-Cross-Era-Hits; die Disziplin trägt über den vollen HH-Korpus, **HH-domain ist datenkomplett — 294/294 HH-Bücher in der DB**) · **HH-domain post-consolidation hardened:** 2026-05-27 (Konsolidierungs-Pass 2 / Brief 102, PR #108 — 1 Cross-Era-Doublette consolidated `merir_astelan → astelan` als chronologisch-pre-ADR-Carryover aus Pass 13; **cross-era-anchor-breach Aggregator-Tripwire = 0 Treffer über alle 18 pinned Surface-Forms** — positive ADR-Validation über sechs HH-Wellen; das eine Cross-Domain-Echo ist Disziplin-Drift im engeren Sinn, kein laufender Drift-Trend) · **Sessions:** [100-arch](../../../sessions/archive/2026-05/2026-05-26-100-arch-resolver-hh.md) + [100-impl](../../../sessions/archive/2026-05/2026-05-26-100-impl-resolver-hh.md) + [resolver-pass-10-impl-report](../../../sessions/resolver-dossiers/resolver-pass-10-impl-report.md) + [resolver-pass-15-impl-report](../../../sessions/resolver-dossiers/resolver-pass-15-impl-report.md) + [102-arch](../../../sessions/archive/2026-05/2026-05-27-102-arch-hh-consolidation-pass.md) + [102-impl](../../../sessions/archive/2026-05/2026-05-27-102-impl-hh-consolidation-pass.md)
 
 ## Context
 
@@ -46,7 +46,7 @@ Drei Regeln, die der Resolver-Pass anwendet:
 
 **Surface-Form-Treue bleibt unverändert.** HH-Override-Files tragen die Lore-korrekte Surface-Form („Luna Wolves" bleibt „Luna Wolves" in der Override-Datei) — das Resolving zur Canonical-ID via Alias passiert in Phase 4a (Apply-Layer), nicht in der Override-File.
 
-Operative Spec im Runbook: [`sessions/resolver-pass-runbook.md`](../../../sessions/resolver-pass-runbook.md) §4 (Subsektion „Cross-Era-Identitäten") — selbst-enthalten, ohne Brief-Verweis im operativen Body.
+Operative Spec im Runbook: [`scripts/runbooks/resolver-pass-runbook.md`](../../../scripts/runbooks/resolver-pass-runbook.md) §4 (Subsektion „Cross-Era-Identitäten") — selbst-enthalten, ohne Brief-Verweis im operativen Body.
 
 ## Why
 

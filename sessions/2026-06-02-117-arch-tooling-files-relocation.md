@@ -2,7 +2,7 @@
 session: 2026-06-02-117
 role: architect
 date: 2026-06-02
-status: open
+status: implemented
 slug: tooling-files-relocation
 parent: 2026-06-01-111
 links: [2026-06-01-111]

@@ -3,9 +3,9 @@
 #
 # Runs N successive `claude -p` subsessions, each with a fresh context, then
 # pushes the branch and opens a PR. Each subsession executes one iteration per
-# sessions/ssot-loop-runbook.md (the single operative spec): produce ONE
+# scripts/runbooks/ssot-loop-runbook.md (the single operative spec): produce ONE
 # `manual-overrides-ssot-{w40k|hh}-NNN.json` plus a status-block in
-# `sessions/ssot-loop-log.md`, both in a single commit.
+# `scripts/logs/ssot-loop-log.md`, both in a single commit.
 #
 # USAGE
 #   ./scripts/run-ssot-loop.sh [N]
@@ -49,7 +49,8 @@ set -euo pipefail
 # ---------------------------------------------------------------------------
 
 readonly BRIEF_PATH="sessions/2026-05-11-061-arch-ssot-loop.md"
-readonly LOG_PATH="sessions/ssot-loop-log.md"
+readonly LOG_PATH="scripts/logs/ssot-loop-log.md"
+readonly RUNBOOK_PATH="scripts/runbooks/ssot-loop-runbook.md"
 readonly OVERRIDE_DIR="scripts/seed-data"
 readonly OVERRIDE_PREFIX="manual-overrides-ssot-"
 readonly ALLOWED_TOOLS="Read Write Edit Bash Glob Grep WebSearch WebFetch"
@@ -147,10 +148,10 @@ fi
 # ---------------------------------------------------------------------------
 
 base_trigger() {
-  cat <<'EOF'
+  cat <<EOF
 Führe genau eine SSOT-Loop-Iteration aus.
 
-Lies sessions/ssot-loop-runbook.md und folge ihm exakt. Lies nichts, was das
+Lies ${RUNBOOK_PATH} und folge ihm exakt. Lies nichts, was das
 Runbook nicht ausdrücklich nennt.
 
 Das ist eine mechanische Loop-Iteration, keine normale Session: überspringe die
@@ -382,7 +383,7 @@ pr_body() {
   if (( LOOP_COMPLETE_HIT == 1 )); then
     printf 'Loop complete: alle Roster-Bücher sind in der Authority-Schicht abgedeckt.\n\n'
   fi
-  printf 'Per-Buch-Notes: sessions/ssot-loop-log.md.\n'
+  printf 'Per-Buch-Notes: scripts/logs/ssot-loop-log.md.\n'
 }
 
 pr_title() {

@@ -1,6 +1,6 @@
 /**
  * resolver-loop-log-update.ts — render + upsert wave blocks in
- * sessions/resolver-loop-log.md (Brief 094).
+ * scripts/logs/resolver-loop-log.md (Brief 094; relocated Brief 117).
  *
  * Companion to scripts/resolver-loop-detect.ts:
  *   - the detector READS the log to compute progress + next-pass;
@@ -14,7 +14,7 @@
  *      replaces (in place) if already there.
  *   - `main()` does the file I/O + thin CLI.
  *
- * Block shape (mirror of the bootstrap block in sessions/resolver-loop-log.md):
+ * Block shape (mirror of the bootstrap block in scripts/logs/resolver-loop-log.md):
  *
  *   ## YYYY-MM-DD · Resolver-Pass N (Welle ssot-w40k-AAA..BBB, M Bücher)
  *
@@ -30,6 +30,7 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
+import { RESOLVER_LOOP_LOG_PATH } from "./lib/tooling-paths";
 
 // ---------------------------------------------------------------------------
 // Phase metadata
@@ -242,7 +243,7 @@ interface CliArgs {
 function parseArgs(argv: string[]): CliArgs {
   const repo = process.cwd();
   const args: CliArgs = {
-    logPath: path.join(repo, "sessions", "resolver-loop-log.md"),
+    logPath: path.join(repo, RESOLVER_LOOP_LOG_PATH),
     date: new Date().toISOString().slice(0, 10),
     pass: 0,
     wave: "",

@@ -45,6 +45,7 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
+import { RESOLVER_LOOP_LOG_PATH, RESOLVER_PASS_RUNBOOK_PATH } from "./lib/tooling-paths";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -422,11 +423,11 @@ export function buildWaveConfig(wave: WaveDescriptor): ResolverPassConfig {
       `Welle ${label} (${totalBooks} Bücher). ` +
       `Wave-specific narration (omnibi, cluster framings, format conflicts) lives in the dossier ${dossier} — ` +
       `the trigger templates here stay generic. ` +
-      `Operative spec: sessions/resolver-pass-runbook.md (field \`runbook\`, REQUIRED). ` +
+      `Operative spec: ${RESOLVER_PASS_RUNBOOK_PATH} (field \`runbook\`, REQUIRED). ` +
       `Per-pass briefs no longer exist; the \`brief\` field was removed with Brief 094.`,
     pass: String(pass),
     wave: label,
-    runbook: "sessions/resolver-pass-runbook.md",
+    runbook: RESOLVER_PASS_RUNBOOK_PATH,
     dossier,
     aggregator: {
       $comment:
@@ -648,7 +649,7 @@ function parseArgs(argv: string[]): LoadPaths {
   const paths: LoadPaths = {
     rosterPath: path.join(repo, "scripts", "seed-data", "book-roster.json"),
     seedDir: path.join(repo, "scripts", "seed-data"),
-    logPath: path.join(repo, "sessions", "resolver-loop-log.md"),
+    logPath: path.join(repo, RESOLVER_LOOP_LOG_PATH),
     writeConfig: null,
   };
   for (let i = 2; i < argv.length; i += 1) {
