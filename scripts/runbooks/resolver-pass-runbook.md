@@ -19,7 +19,7 @@ Ein Resolver-Pass ist eine Sequenz von 6 Phasen-Subsessions (Phase 0 → 1 → 2
 **Lies NICHT** — eine Phase braucht nichts davon, und es ist budget-kritisch:
 - **Keinen Brief** — weder Brief 076 noch einen per-pass Architect-Brief (existiert seit Brief 094 nicht mehr). Beides Rationale, ~20k+ Token, die jede Phase sechsmal frisch laden würde. Die Herkunft steht im Anhang.
 - die **`manual-overrides-ssot-*.json`-Files** — der Aggregator (Phase 0) hat sie verarbeitet; ab Phase 1 steht alles im Dossier. (Phase 4a wendet sie über Scripts an, **liest** sie aber nicht in den Kontext.)
-- das **volle `sessions/ssot-loop-log.md`** (≫100k Token) — nur Tail-Read der relevanten Wellen-Blöcke (§8), nie Volltext.
+- das **volle `scripts/logs/ssot-loop-log.md`** (≫100k Token) — nur Tail-Read der relevanten Wellen-Blöcke (§8), nie Volltext.
 - die anderen Achs-Pakete (Phase 2 liest nicht `characters.json`, usw.).
 
 **Fahre NICHT die Session-Start-Leseroutine** aus `CLAUDE.md` / `AGENTS.md` (`brain/CLAUDE.md`, `wiki/index.md`, `project-state.md`, `open-questions.md`, `cc-session.md`). Das ist eine mechanische Resolver-Phase, keine normale Session. **Kein Co-Author-Trailer** im Commit.
@@ -104,7 +104,7 @@ Jeder Phase-4a-Schritt, dessen Kosten mit der Gesamt-Buchzahl wächst — das Re
 
 ## 8. Loop-Log Tail-Read & Append ohne Voll-Last
 
-`sessions/ssot-loop-log.md` ist ≫100k Token — **nie** im Volltext lesen. Phase 0 braucht nur die Blöcke der eigenen Welle: Tail-Read (`tail`/Offset) oder gezielte Grep-Suche nach den Wellen-Batch-IDs. Resolver-Pässe **schreiben** normalerweise nicht ins Loop-Log (das tut der SSOT-Loop); falls ein Pass einen Marker anhängt, dann per Shell-Append (`>>`), nicht via Voll-Read+Rewrite.
+`scripts/logs/ssot-loop-log.md` ist ≫100k Token — **nie** im Volltext lesen. Phase 0 braucht nur die Blöcke der eigenen Welle: Tail-Read (`tail`/Offset) oder gezielte Grep-Suche nach den Wellen-Batch-IDs. Resolver-Pässe **schreiben** normalerweise nicht ins Loop-Log (das tut der SSOT-Loop); falls ein Pass einen Marker anhängt, dann per Shell-Append (`>>`), nicht via Voll-Read+Rewrite.
 
 ## 9. Commit-Regel
 

@@ -1336,3 +1336,19 @@ Brief 111 (`session-start-token-diet`) wurde 2026-06-02 auf seine **doc-only-Tei
 **Folge-Arbeit:** Entity-Graph Step 2 (Panel) + Podcast Step 2 (Schema) = nächste aktive Linie; Brief 111 (Sweep, doc-only) + Brief 112 (Lint-Guardrail, Code→PR) offen; Maintainer-Visual-Pass der Entity-Hubs (≤720px) owed; Quick-alias-wins (`Guilliman`/`Vect`/`Magnus`/…). **Keine OQ-Schließung, keine neue numerierte OQ** (OQ 3 + 13 bleiben offen).
 
 **Branch.** Doc-only, direkt auf `main` per PR-Policy 2026-05-25.
+
+## 2026-06-02 · Move · Tooling-Files-Relocation (Brief 117) — 6 Files raus aus `sessions/`, Pfade zentralisiert
+
+Brief 117 (Code-PR) hat die **6 lebenden Tooling-Files** aus dem `sessions/`-Brief-Namespace in die Tooling-Domäne verschoben — die script-gekoppelte Folge-Arbeit, die Brief 111 beim Eindampfen ausgelagert hatte. Reine Relocation + Re-Pointing + Pfad-Zentralisierung; **keine** Loop-Logik, **kein** Runbook-Inhalt geändert.
+
+**Moves (git mv, History erhalten):** 4 Runbooks → `scripts/runbooks/` (`ssot-loop-`, `resolver-pass-`, `consolidation-pass-`, `db-rebuild-runbook.md`); 2 Loop-Logs → `scripts/logs/` (`ssot-loop-log.md`, `resolver-loop-log.md`, append-only Inhalt unangetastet); Briefs **102 + 107** mit-archiviert → `sessions/archive/2026-05/` (waren als einzige config-`.brief`-gekoppelt → in Brief 111 zurückgehalten).
+
+**Pfad-Zentralisierung (eine Stelle pro Runner-Familie statt ~10 Literale):** neu `scripts/lib/tooling-paths.ts` (geteilte TS-Konstanten `RESOLVER_LOOP_LOG_PATH` + `RESOLVER_PASS_RUNBOOK_PATH`, extensionslos importiert von `resolver-loop-detect.ts` + `resolver-loop-log-update.ts`); Shell-Driver tragen je eine `readonly`-Konstante (`run-ssot-loop.sh`: `LOG_PATH` + neu `RUNBOOK_PATH`; `run-resolver-loop.sh`: `LOG_PATH`, reicht `--log-path $LOG_PATH` an den Detektor durch — Shell ist im Loop die Autorität); Configs tragen `runbook` (`run-resolver-pass.sh` liest `.runbook`, harter `-f`-Die unverändert).
+
+**Re-Pointing (Refs, nicht Logik):** Narration/Header der 6 Shell-/TS-Files; 4 Config-JSONs (`.runbook` → `scripts/runbooks/…`; `consolidation-pass-2`/`db-rebuild`-`.brief` → neue `archive/`-Pfade); `CLAUDE.md` + `AGENTS.md` (je 3 Runbook-Callouts + Batches-Write-Path-Zeile); `brain/wiki/pipeline-state.md` (Frontmatter-`sources:` + Body-Path-Claims) + `decisions/cross-era-identities.md` (`sources:` + Body-Links: 102→`archive/`, Runbook→`scripts/runbooks/`).
+
+**Gate (verifiziert OHNE echten Wave-Lauf):** `git grep` über `scripts/` + `brain/` + `CLAUDE.md` + `AGENTS.md` + `docs/` findet **keinen** `sessions/…-runbook`- oder `…-loop-log`-Ref mehr (Exit 1); `tsc --noEmit` grün; `brain:lint --no-write` 0 blocking / 14 pre-existing warnings; statische `-f`-Probe: alle 4 Config-`.runbook` + 2 `.brief` + die Shell-Konstanten resolven auf existierende Files. Append-only-History (`brain/wiki/log.md` + die 2 Loop-Logs) behält alte `sessions/…`-Erwähnungen bewusst (Linter exemptet `log.md`, `scripts/brain-lint.ts:1071`).
+
+**Keine OQ-Schließung, keine neue numerierte OQ.**
+
+**Branch.** Code-PR `codex/session-117-tooling-relocation` (touches `scripts/` → Branch + PR); Brief-117-Status `open → implemented` reitet im PR mit.

@@ -43,7 +43,7 @@
 #   bash scripts/db-rebuild.sh --confirm        # direct (if the npm shell can't resolve bash)
 #   npm run db:rebuild -- --help
 #
-# Preconditions + full runbook: sessions/db-rebuild-runbook.md
+# Preconditions + full runbook: scripts/runbooks/db-rebuild-runbook.md
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -70,7 +70,7 @@ Usage:
   bash scripts/db-rebuild.sh --confirm        # direct (if the npm shell can't resolve bash)
   npm run db:rebuild -- --help
 
-Preconditions + full runbook: sessions/db-rebuild-runbook.md
+Preconditions + full runbook: scripts/runbooks/db-rebuild-runbook.md
 EOF
 }
 

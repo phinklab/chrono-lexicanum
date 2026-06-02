@@ -12,20 +12,20 @@
 #      `scripts/resolver-pass.config.json` (overwriting the previous one).
 #   3. The config change is committed (clean worktree is a precondition for
 #      the pass driver).
-#   4. Resume-check: `sessions/resolver-loop-log.md` is scanned for an
+#   4. Resume-check: `scripts/logs/resolver-loop-log.md` is scanned for an
 #      existing partial block; the first unchecked phase becomes `--start-phase`.
 #   5. `scripts/run-resolver-pass.sh <config> --no-finalize --start-phase <p>
 #      --phase-timeout 1800` runs the six per-phase `claude -p` subsessions.
 #   6. The pass driver's state file (`scripts/.last-resolver-pass-state.json`)
 #      is forwarded to `scripts/resolver-loop-log-update.ts`, which renders
-#      the wave block (full or partial) in `sessions/resolver-loop-log.md`.
+#      the wave block (full or partial) in `scripts/logs/resolver-loop-log.md`.
 #   7. That update is committed.
 #   8. Loop continues until idle / all-complete / needs-decision / halt /
 #      timeout, then pushes the branch and opens (or updates) the PR once.
 #
 # A wave is the unit of supervision; phases inside a wave are mechanical.
 # Per-pass architect briefs no longer exist (Brief 094) — operative spec is
-# `sessions/resolver-pass-runbook.md` only.
+# `scripts/runbooks/resolver-pass-runbook.md` only.
 #
 # USAGE
 #   ./scripts/run-resolver-loop.sh [--dry-run] [--max-waves N]
@@ -63,7 +63,7 @@ set -euo pipefail
 # ---------------------------------------------------------------------------
 
 readonly CONFIG_PATH="scripts/resolver-pass.config.json"
-readonly LOG_PATH="sessions/resolver-loop-log.md"
+readonly LOG_PATH="scripts/logs/resolver-loop-log.md"
 readonly STATE_FILE="scripts/.last-resolver-pass-state.json"
 readonly STEP_LOG="scripts/.last-resolver-loop.log"
 readonly PASS_DRIVER="scripts/run-resolver-pass.sh"
@@ -178,9 +178,11 @@ fi
 # detect_next_wave: invoke the detector and echo its JSON.
 # In non-dry-run mode, also writes the auto-config to $CONFIG_PATH if status === "open-wave".
 detect_next_wave() {
-  local extra_args=""
+  # The shell LOG_PATH is the single authority for the loop-log location
+  # (Brief 117); forward it so the detector never re-derives the path itself.
+  local extra_args="--log-path $LOG_PATH"
   if (( DRY_RUN == 0 )); then
-    extra_args="--write-config $CONFIG_PATH"
+    extra_args="$extra_args --write-config $CONFIG_PATH"
   fi
   # shellcheck disable=SC2086
   npx tsx "$DETECTOR" $extra_args
@@ -503,7 +505,7 @@ pr_body() {
     printf '%s\n\n' "$TERMINAL_REASON"
   fi
   printf 'Per-wave block in `%s`.\n' "$LOG_PATH"
-  printf 'Runbook: `sessions/resolver-pass-runbook.md`.\n'
+  printf 'Runbook: `scripts/runbooks/resolver-pass-runbook.md`.\n'
 }
 
 if (( GH_READY == 1 )); then

@@ -13,7 +13,7 @@
 # Since Brief 094 the headless loop wrapper `scripts/run-resolver-loop.sh` is the
 # scharfe path — it auto-generates the config per wave and chains successive waves;
 # this driver runs a single wave standalone (re-runs, diagnostics, manual ops).
-# The operative spec is the lean runbook `sessions/resolver-pass-runbook.md` —
+# The operative spec is the lean runbook `scripts/runbooks/resolver-pass-runbook.md` —
 # each phase reads runbook + config + its axis-package only. Per-pass architect
 # briefs no longer exist (Brief 094 removed the `brief` field from the config).
 # The driver injects the runbook pointer into every phase trigger.
@@ -27,7 +27,7 @@
 #     {
 #       "pass":     "8",
 #       "wave":     "ssot-w40k-046..051",
-#       "runbook":  "sessions/resolver-pass-runbook.md",   // REQUIRED (operative spec)
+#       "runbook":  "scripts/runbooks/resolver-pass-runbook.md",   // REQUIRED (operative spec)
 #       "dossier":  "sessions/resolver-dossiers/resolver-pass-N-dossier.md",
 #       "phases": [
 #         {
@@ -61,7 +61,7 @@
 # STATE FILE
 #   scripts/.last-resolver-pass-state.json — gitignored sentinel written on exit
 #   (success, needs-decision, halt, timeout, claude-fail). The loop wrapper reads
-#   this to know what to record in sessions/resolver-loop-log.md.
+#   this to know what to record in scripts/logs/resolver-loop-log.md.
 #
 # WINDOWS
 #   PowerShell:  & "C:\Program Files\Git\bin\bash.exe" scripts/run-resolver-pass.sh cfg.json
@@ -228,7 +228,7 @@ parse_config_string() {
 
 PASS_LABEL=$(parse_config_string ".pass" || die 1 "config missing .pass")
 WAVE_LABEL=$(parse_config_string ".wave" || die 1 "config missing .wave")
-# The runbook (sessions/resolver-pass-runbook.md) is the required operative
+# The runbook (scripts/runbooks/resolver-pass-runbook.md) is the required operative
 # spec. Per-pass briefs no longer exist (Brief 094 removed `brief`).
 RUNBOOK_PATH=$(parse_config_string ".runbook" || die 1 "config missing .runbook (operative spec)")
 DOSSIER_PATH=$(parse_config_string ".dossier" || die 1 "config missing .dossier")
@@ -465,7 +465,7 @@ log "${C_BOLD}Driver start${C_RESET} — pass=$PASS_LABEL wave=$WAVE_LABEL branc
 
 # Resolve --start-phase to an index. Earlier phases are assumed already
 # committed on HEAD by a prior run (the loop wrapper computes this from
-# sessions/resolver-loop-log.md).
+# scripts/logs/resolver-loop-log.md).
 INDEX=0
 if [[ -n "$START_PHASE" ]]; then
   while (( INDEX < PHASE_COUNT )); do

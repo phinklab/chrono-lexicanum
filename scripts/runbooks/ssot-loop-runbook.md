@@ -4,7 +4,7 @@
 
 ## 1. Was das ist
 
-Eine Iteration baut den Authority-Layer um genau einen 10er-Batch (am Domain-Ende 5er/4er) weiter: nächsten Batch erkennen → 10 Bücher recherchieren → eine `manual-overrides-ssot-{domain}-{NNN}.json` schreiben → einen Status-Block an `sessions/ssot-loop-log.md` anhängen → **ein** Commit. Diff-only: kein DB-Apply, kein Frontend-Smoke, keine Code-Änderung. Der Apply läuft separat (`npm run db:apply-override -- --batch=<id>`).
+Eine Iteration baut den Authority-Layer um genau einen 10er-Batch (am Domain-Ende 5er/4er) weiter: nächsten Batch erkennen → 10 Bücher recherchieren → eine `manual-overrides-ssot-{domain}-{NNN}.json` schreiben → einen Status-Block an `scripts/logs/ssot-loop-log.md` anhängen → **ein** Commit. Diff-only: kein DB-Apply, kein Frontend-Smoke, keine Code-Änderung. Der Apply läuft separat (`npm run db:apply-override -- --batch=<id>`).
 
 ## 2. Lese-Scope (die Anti-Bloat-Regel)
 
@@ -17,7 +17,7 @@ Eine Iteration baut den Authority-Layer um genau einen 10er-Batch (am Domain-End
 - Brief 061 oder irgendeinen anderen Brief,
 - `scripts/seed-data/book-roster.json` (der Helper liefert den Slice),
 - die `manual-overrides-ssot-*.json`-Files (der Helper zählt sie),
-- das volle `sessions/ssot-loop-log.md` (nur anhängen — siehe §8).
+- das volle `scripts/logs/ssot-loop-log.md` (nur anhängen — siehe §8).
 
 **Fahre NICHT die Session-Start-Leseroutine** aus `CLAUDE.md` / `AGENTS.md` (`brain/CLAUDE.md`, `wiki/index.md`, `project-state.md`, `open-questions.md`, `cc-session.md`). Das ist eine Loop-Iteration, keine normale Session. **Kein Co-Author-Trailer** im Commit.
 
@@ -93,7 +93,7 @@ Pro Buch:
 
 ## 8. Status-Log-Block + Anhängen ohne Voll-Last
 
-Hänge den Block an `sessions/ssot-loop-log.md` an, **ohne die Datei komplett zu lesen** (1000+ Zeilen). Shell-Append (`>>`) oder, falls Kontext nötig, nur ein Tail-Read. Status-Marker: `✅` committed | `🏁` loop-complete.
+Hänge den Block an `scripts/logs/ssot-loop-log.md` an, **ohne die Datei komplett zu lesen** (1000+ Zeilen). Shell-Append (`>>`) oder, falls Kontext nötig, nur ein Tail-Read. Status-Marker: `✅` committed | `🏁` loop-complete.
 
 Erfolg:
 ```markdown

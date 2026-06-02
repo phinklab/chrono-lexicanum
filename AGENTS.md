@@ -19,13 +19,13 @@ explicitly about a Claude/Anthropic model or a historical project decision.
 
 **SSOT-Loop iterations are the exception.** A loop iteration
 (`scripts/run-ssot-loop.sh`) is a mechanical task, not a normal session: follow
-`sessions/ssot-loop-runbook.md` and skip the session-start reading routine above
+`scripts/runbooks/ssot-loop-runbook.md` and skip the session-start reading routine above
 (Brief 061 itself is not read).
 
 **Resolver waves are likewise the exception.** A wave — driven headless via
 `scripts/run-resolver-loop.sh` or standalone via `scripts/run-resolver-pass.sh
 <config>` — is a mechanical task, not a normal session: follow
-`sessions/resolver-pass-runbook.md` plus the per-wave config and skip step 6
+`scripts/runbooks/resolver-pass-runbook.md` plus the per-wave config and skip step 6
 of the session-start reading routine (do **not** read the highest open
 Architect-Brief). **No brief is read** to run a wave or a phase, headless or
 standalone — per-pass architect briefs no longer exist (Brief 094 removed
@@ -37,7 +37,7 @@ driven phase-wise through `scripts/consolidation-aggregate.ts`,
 `scripts/consolidation-db-snapshot.ts`, `scripts/consolidation-db-sync.ts`
 and the shared `scripts/run-phase4-apply.sh
 scripts/consolidation-pass.config.json` — is a mechanical task, not a normal
-session: follow `sessions/consolidation-pass-runbook.md` plus the dedicated
+session: follow `scripts/runbooks/consolidation-pass-runbook.md` plus the dedicated
 `scripts/consolidation-pass.config.json` and skip the session-start reading
 routine. **No brief is read** — neither Brief 094 nor Brief 098. The runbook
 is the operative spec; the runbook appendix lists the provenance.
@@ -61,7 +61,7 @@ Durable local worktrees:
 
 The rule holds in normal sessions, in mechanical runbooks, and as a "short wiki note on the side" — there is no exception. A strand that would previously have updated `project-state.md` / `log.md` / `index.md` / `README.md` records the same facts in its **impl report** (a fresh per-session file, single-writer, conflict-free). Cowork backfills the coordination-only set in a post-merge pass from the coordination worktree; that is the **only** path through which these files change.
 
-What strands **do** keep writing (unchanged): their own code/data paths (Product: `src/app/**`, `src/components/**`, `public/lab/**`, `docs/ui-backlog.md`; Batches: `scripts/**`, `src/lib/{seed,resolver,ingestion}/**`, override JSONs under `scripts/seed-data/`, `sessions/ssot-loop-log.md`, `sessions/resolver-dossiers/`), plus their own new per-session impl report. All per-session files are single-writer and never collide.
+What strands **do** keep writing (unchanged): their own code/data paths (Product: `src/app/**`, `src/components/**`, `public/lab/**`, `docs/ui-backlog.md`; Batches: `scripts/**`, `src/lib/{seed,resolver,ingestion}/**`, override JSONs under `scripts/seed-data/`, `scripts/logs/ssot-loop-log.md`, `sessions/resolver-dossiers/`), plus their own new per-session impl report. All per-session files are single-writer and never collide.
 
 The rule is bound to the **worktree path**, not to the agent — the path is pinned at session-start (below). The question "may I write `brain/`?" reduces to "am I in the coordination worktree?". An agent implementing a meta/session brief in the coordination worktree edits `brain/` freely; an agent in a strand worktree never does.
 
