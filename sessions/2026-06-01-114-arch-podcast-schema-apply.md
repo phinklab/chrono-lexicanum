@@ -61,8 +61,8 @@ Die Session ist fertig, wenn:
 
 ## Open questions
 
-- `podcast_episode` als eigener work-kind vs. ein generischeres `episode` (falls später YouTube-Serien/Video-Episoden dazukommen)? Empfehlung: dedizierter `podcast_episode` jetzt (ehrlichste Form), Generalisierung erst bei echtem zweitem Medium.
-- Sollen Show-Level-Metadaten (Cover, Beschreibung) jetzt schon in `podcast_details`, oder erst wenn das Rendering sie braucht?
+- **Entschieden (2026-06-02 mit Philipp): dedizierter `podcast_episode`-work-kind** (nicht generisches `episode`) — ehrlichste Form jetzt, konsistent mit der bewussten Nicht-Überladung von `video`; Generalisierung erst bei echtem zweitem Medium. In Context + Constraints bereits so spezifiziert.
+- Offen (CC's Wahl, klein): Show-Level-Metadaten (Cover/Beschreibung) jetzt schon in `podcast_details` befüllen oder erst, wenn das Rendering sie braucht? `imageUrl` ist im Schema vorgesehen.
 
 ## Notes
 
