@@ -55,7 +55,18 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+  modal,
+}: {
+  children: React.ReactNode;
+  // The `@modal` parallel slot (Brief 113, Phase B). Renders the in-context
+  // entity panel when an in-app soft-nav hits a `(.)charakter|fraktion|welt`
+  // intercept; otherwise `null` (slot default / catch-all). Sitting in the root
+  // layout is what lets every in-app entity `<Link>` open the panel without any
+  // per-link wiring.
+  modal: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
@@ -66,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning>
         <TopNav />
         {children}
+        {modal}
         <MediaPlayer />
       </body>
     </html>
