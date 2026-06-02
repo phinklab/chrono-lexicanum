@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import CornerAuspex from "@/components/chrono/CornerAuspex";
+import EntityBackLink from "@/components/entity/EntityBackLink";
 import EntityView from "@/components/entity/EntityView";
 import { listEntityIds, loadEntity } from "@/lib/entity/loader";
 
@@ -48,7 +49,10 @@ export default async function FactionPage({
       <div className="entity__decor" aria-hidden>
         <CornerAuspex size={140} label="FRACTIO // 1011" />
       </div>
-      <EntityView data={view} />
+      <div className="entity__inner">
+        <EntityBackLink type="faction" />
+        <EntityView data={view} />
+      </div>
     </main>
   );
 }
