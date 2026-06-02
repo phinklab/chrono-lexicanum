@@ -1,4 +1,9 @@
-/** Cross-links — labelled sets of edges to other routable entities. */
+/**
+ * Cross-links — the right-hand "CONNECTIONS" rail (Brief 113, Phase A): labelled
+ * sets of edges to other routable entities, rendered as chips. EntityView places
+ * this as the second body column; it reflows under the main column in a narrow
+ * container (small viewport / Step-2 panel). Empty → renders nothing.
+ */
 import Link from "next/link";
 import { entityHref, type CrossLinkGroup } from "@/lib/entity/types";
 
@@ -6,7 +11,7 @@ export default function CrossLinkRail({ groups }: { groups: CrossLinkGroup[] }) 
   if (groups.length === 0) return null;
 
   return (
-    <section className="entity-view__section">
+    <aside className="entity-view__rail" aria-label="Connections">
       <h2 className="entity-view__section-label">{"// CONNECTIONS"}</h2>
       <span className="c-hairline" aria-hidden />
 
@@ -27,6 +32,10 @@ export default function CrossLinkRail({ groups }: { groups: CrossLinkGroup[] }) 
           </ul>
         </div>
       ))}
-    </section>
+
+      <p className="entity-view__rail-note" aria-hidden>
+        → linked
+      </p>
+    </aside>
   );
 }
