@@ -61,7 +61,7 @@
 
 .media-player__eyebrow {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -78,7 +78,7 @@
   border: none;
   cursor: pointer;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 9.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -96,7 +96,7 @@
   outline-offset: 2px;
 }
 .media-player__disclose-glyph {
-  font-size: 12px;
+  font-size: var(--fs-label-lg);
   letter-spacing: 0;
   color: var(--cl-cyan);
   line-height: 1;
@@ -240,7 +240,8 @@
   min-width: 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 18px;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
   line-height: 1;
   letter-spacing: 0.02em;
   color: var(--cl-bone);
@@ -333,7 +334,7 @@
 }
 .media-player__panel-kicker {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -341,7 +342,7 @@
 .media-player__panel-rule { flex: 1; }
 .media-player__panel-sect {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 9.5px;
+  font-size: var(--fs-label-xs);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-faint);
@@ -386,7 +387,7 @@
 }
 .media-player__panel-track-mark {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.16em;
   color: var(--cl-faint);
   text-align: center;
@@ -397,7 +398,8 @@
 .media-player__panel-track-title {
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 17px;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
   line-height: 1.1;
   letter-spacing: 0.02em;
   color: inherit;
@@ -459,7 +461,7 @@
 
 @media (max-width: 900px) {
   .media-player { bottom: 24px; left: 14px; width: 300px; }
-  .media-player__title { font-size: 16.5px; }
+  .media-player__title { font-size: var(--fs-read-sm); }
   .media-player__wave { height: 24px; }
-  .media-player__panel-track-title { font-size: 15.5px; }
+  .media-player__panel-track-title { font-size: var(--fs-read-sm); }
 }

@@ -257,4 +257,26 @@
   /* Site-wide custom scrollbar — neutral bone-grey, subtle (no glow). */
   --scrollbar-thumb:       rgba(232, 228, 216, 0.18);
   --scrollbar-thumb-hover: rgba(232, 228, 216, 0.34);
+
+  /* ── Type scale ────────────────────────────────────────────────────────────
+   * Global typographic system (Brief 120 polish). Tuned for the two text faces
+   * the site actually reads in: Cormorant Garamond (body / reading — a SMALL
+   * x-height serif that renders ~2px "small" at any given px, so it never
+   * compensated and bottomed out at 13–20px) and IBM Plex Mono (uppercase,
+   * tracked labels, whose floor had drifted down to 9–10px). Two role ladders;
+   * re-tune a whole role site-wide by editing one value here.
+   *
+   *   --fs-read-*   → Cormorant reading text
+   *   --fs-label-*  → mono labels / tags / chips / eyebrows
+   */
+  --fs-read-xs:  15px;  /* dense / secondary prose (captions, table cells)   */
+  --fs-read-sm:  17px;  /* compact body                                      */
+  --fs-read:     19px;  /* standard body, synopses, hero subs                */
+  --fs-read-lg:  22px;  /* lead body — book description, hub intro           */
+  --fw-read:     500;   /* reading weight (400 reads thin on the void)       */
+  --lh-read:     1.6;   /* reading line-height                               */
+
+  --fs-label-xs: 11px;  /* eyebrows & micro-captions   (was 8.5–10px)        */
+  --fs-label:    12px;  /* standard label / tag / chip (was 10–11px)         */
+  --fs-label-lg: 13px;  /* prominent label / button    (was 12–12.5px)       */
 }

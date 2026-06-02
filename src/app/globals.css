@@ -27,6 +27,11 @@
 @import './styles/58-ask-booklist.css';
 @import './styles/59-entity.css';
 @import './styles/60-entity-panel.css';
+@import './styles/61-browse.css';
+@import './styles/62-podcasts.css';
+@import './styles/63-fraktionen.css';
+@import './styles/64-book-modal.css';
+@import './styles/65-loading.css';
 
 /* Tailwind v4 auto-source-detection scans every non-ignored project file as
  * plain text for class tokens. The standalone HTML/CSS/JS design prototypes

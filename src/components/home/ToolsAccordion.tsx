@@ -14,6 +14,33 @@ type Row = {
 
 const ROWS: Row[] = [
   {
+    kicker: "LIBRORVM",
+    title: "Works",
+    tease: "every novel — search, filter, sort",
+    href: "/werke",
+    cta: "Browse works",
+    body:
+      "The heart of the archive: every Warhammer 40,000 novel, novella and audio drama — searchable and filterable by era, faction, format and mood.",
+  },
+  {
+    kicker: "VOX",
+    title: "Podcasts",
+    tease: "the lore-cast pillar",
+    href: "/podcasts",
+    cta: "Open podcasts",
+    body:
+      "The second media pillar beside the books: lore podcasts and every episode, newest first, with a direct line to listen.",
+  },
+  {
+    kicker: "ORDO",
+    title: "Factions",
+    tease: "a guide to who's who",
+    href: "/fraktionen",
+    cta: "Open guide",
+    body:
+      "Each faction is a doorway — pick an allegiance and see the books, podcasts and key characters of the archive that sit behind it.",
+  },
+  {
     kicker: "ORACVLVM",
     title: "Ask the Archive",
     tease: "five questions, one entry book",
@@ -23,13 +50,13 @@ const ROWS: Row[] = [
       "Five questions about mood, faction and reading appetite — the cogitator narrows the catalogue to exactly one entry book.",
   },
   {
-    kicker: "BIBLIOTHECA",
-    title: "Atlas",
-    tease: "every faction · world · character",
-    href: "/atlas",
-    cta: "Open Atlas",
+    kicker: "CHRONOS",
+    title: "Chronicle",
+    tease: "the timeline of the 41st millennium",
+    href: "/timeline",
+    cta: "Open Timeline",
     body:
-      "The full inventory behind the archive: twelve decks from Works down to Junctions, each with drift marks and audit trails.",
+      "An interactive in-universe timeline from M30 to M42 — every novel carries its date, every era its own anchor.",
   },
   {
     kicker: "CARTOGRAPHIA",
@@ -39,15 +66,6 @@ const ROWS: Row[] = [
     cta: "Open Map",
     body:
       "A galactic chart of sectors, worlds and book-pins — filterable by era, faction and segmentum.",
-  },
-  {
-    kicker: "CHRONOS",
-    title: "Chronicle",
-    tease: "the timeline of the 41st millennium",
-    href: "/timeline",
-    cta: "Open Timeline",
-    body:
-      "An interactive in-universe timeline from M30 to M42 — every novel carries its date, every era its own anchor.",
   },
 ];
 

@@ -7,6 +7,7 @@ import GhostReadout from "@/components/chrono/GhostReadout";
 import MainAuspex from "@/components/chrono/MainAuspex";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import HeroDescent from "@/components/home/HeroDescent";
+import HomeSearch from "@/components/home/HomeSearch";
 import HubScrollWatch from "@/components/home/HubScrollWatch";
 import ToolsAccordion from "@/components/home/ToolsAccordion";
 
@@ -66,7 +67,8 @@ export default async function HubPage() {
             CHRONO <span aria-hidden>◆</span> LEXICANUM
           </h1>
           <p className="hub-title-sub">
-            The 41st Millennium novel archive — by era, faction, world, and mood.
+            A fan-made archive of Warhammer 40,000 novels — and the lore
+            podcasts beside them — charted by era, faction and world.
           </p>
         </div>
 
@@ -89,9 +91,11 @@ export default async function HubPage() {
       </section>
 
       <section className="hub-fold hub-fold--tools">
+        <HomeSearch />
         <p className="hub-intro__body">
-          A fan-built archive of every novel set in the dying light of the
-          41st millennium — by era, faction, world, and mood.
+          Every Warhammer 40,000 novel, charted by era, faction and world —
+          with a second pillar of lore podcasts, and a faction guide to find
+          your way in.
         </p>
         <h2 className="hub-intro__heading">What can I do here?</h2>
         <p className="hub-intro__about">

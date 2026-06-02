@@ -1,0 +1,197 @@
+/* 64-book-modal.css
+   In-context book-detail overlay — Brief 120 polish.
+
+   Owns the overlay CHROME only (backdrop scrim, centered card, top bar, the
+   prominent Back action, "open full page" + close affordances). The card body
+   is the same db-free <BookDetailView> the canonical /buch/[slug] page renders —
+   its `.book-detail__*` styles live in 51-book-detail.css and are reused
+   verbatim. Modelled on the entity panel (60-entity-panel.css) but a LARGE
+   CENTERED card, not a side drawer; fresh `.book-modal*` names so the legacy
+   audit `.dm-*` classes (24-detail-modal.css) stay untouched.
+
+   z-index 70 sits above the app chrome (TopNav 50, MediaPlayer 40). The card is
+   near-opaque dark because no full-page scrim is present here — it supplies the
+   dark ground the cyan book body reads on.
+
+   Reduced motion: the global cascade in 10-base.css collapses every transition
+   + animation to instant under `prefers-reduced-motion: reduce`, so the
+   fade/rise below need no local @media block. */
+
+.book-modal-root {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+/* ── Backdrop: dark scrim + blur over the origin context ──────────────────── */
+.book-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 3, 10, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: bookModalFade 0.2s ease-out both;
+}
+
+/* ── Centered card ────────────────────────────────────────────────────────── */
+.book-modal {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(1080px, 94vw);
+  max-height: 92vh;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 9, 16, 0.98) 0%,
+    rgba(2, 4, 10, 0.99) 100%
+  );
+  border: 1px solid var(--cl-cyan-dim);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8);
+  animation: bookModalRise 0.26s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* ── Top bar (fixed; content scrolls beneath) ─────────────────────────────── */
+.book-modal__bar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--cl-ghost);
+  background: rgba(4, 8, 14, 0.6);
+}
+
+/* The prominent primary close affordance. */
+.book-modal__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-bone);
+  background: rgba(156, 230, 255, 0.06);
+  border: 1px solid var(--cl-cyan-dim);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+.book-modal__back:hover {
+  color: var(--cl-void);
+  background: var(--cl-cyan);
+  border-color: var(--cl-cyan);
+}
+.book-modal__back:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+.book-modal__back-arrow {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.book-modal__bar-end {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.book-modal__expand {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+.book-modal__expand:hover {
+  color: var(--cl-cyan);
+}
+
+.book-modal__close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--cl-dim);
+  background: transparent;
+  border: 1px solid var(--cl-ghost);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+.book-modal__close:hover {
+  color: var(--cl-bone);
+  border-color: var(--cl-cyan-dim);
+  background: rgba(156, 230, 255, 0.06);
+}
+
+/* ── Scroll body — hosts <BookDetailView> ─────────────────────────────────── */
+.book-modal__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 40px 44px 56px;
+}
+
+/* Visually-hidden dialog label (the visible <h1> lives inside BookDetailView). */
+.book-modal__a11y-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes bookModalFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes bookModalRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Mobile: full-bleed sheet ─────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .book-modal-root {
+    padding: 0;
+  }
+  .book-modal {
+    width: 100vw;
+    height: 100%;
+    max-height: 100vh;
+    border: none;
+  }
+  .book-modal__scroll {
+    padding: 26px 18px 44px;
+  }
+}

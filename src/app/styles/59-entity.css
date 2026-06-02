@@ -79,7 +79,7 @@ main.entity::before {
   align-items: center;
   gap: 9px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-dim);
@@ -118,7 +118,7 @@ main.entity::before {
 .entity-view__eyebrow {
   margin: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -139,7 +139,8 @@ main.entity::before {
   margin: 16px 0 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 20px;
+  font-size: var(--fs-read-lg);
+  font-weight: var(--fw-read);
   color: var(--cl-bone);
 }
 
@@ -147,7 +148,7 @@ main.entity::before {
 .entity-view__meta {
   margin: 18px 0 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11.5px;
+  font-size: var(--fs-label-lg);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--cl-dim);
@@ -218,7 +219,7 @@ main.entity::before {
 .entity-view__section-label {
   margin: 0 0 8px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   font-weight: 400;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -241,7 +242,7 @@ main.entity::before {
 .entity-view__subsection-label {
   margin: 0 0 8px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -266,7 +267,7 @@ main.entity::before {
 .entity-view__fact-term {
   flex: 0 0 150px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -276,7 +277,7 @@ main.entity::before {
   margin: 0;
   min-width: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 12.5px;
+  font-size: var(--fs-label-lg);
   letter-spacing: 0.04em;
   color: var(--cl-bone);
 }
@@ -349,7 +350,8 @@ main.entity::before {
 
 .entity-view__card-title {
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 18px;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
   line-height: 1.22;
   color: var(--cl-bone);
 }
@@ -360,7 +362,7 @@ main.entity::before {
 
 .entity-view__card-meta {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 9.5px;
+  font-size: var(--fs-label-xs);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--cl-faint);
@@ -389,7 +391,7 @@ main.entity::before {
   display: inline-flex;
   align-items: center;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: 5px 10px;
@@ -425,7 +427,7 @@ main.entity::before {
 .entity-view__rail-note {
   margin: 18px 0 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 9.5px;
+  font-size: var(--fs-label-xs);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--cl-faint);
@@ -437,7 +439,8 @@ main.entity::before {
   margin: 32px 0 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 18px;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
   color: var(--cl-faint);
 }
 

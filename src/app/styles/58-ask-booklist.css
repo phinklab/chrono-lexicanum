@@ -31,7 +31,7 @@
 .card-eyebrow {
   margin: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.30em;
   text-transform: uppercase;
   color: var(--row-accent, var(--cl-cyan));
@@ -64,7 +64,7 @@
   grid-area: idx;
   align-self: start;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
   color: var(--cl-faint);
 }
@@ -81,7 +81,7 @@
   grid-area: year;
   justify-self: end;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.14em;
   color: var(--row-accent, var(--cl-cyan));
 }
@@ -89,14 +89,15 @@
   grid-area: author;
   font-family: var(--font-cormorant);
   font-style: italic;
-  font-size: 14px;
+  font-size: var(--fs-read-xs);
+  font-weight: var(--fw-read);
   color: var(--cl-dim);
 }
 .book-row__action {
   grid-area: action;
   justify-self: end;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--row-accent, var(--cl-cyan));
@@ -111,7 +112,7 @@
 .ask-responsa {
   margin: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.20em;
   text-transform: uppercase;
   color: var(--cl-faint);
@@ -136,7 +137,7 @@
   border: none;
   cursor: pointer;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-dim);
@@ -152,7 +153,7 @@
 
 .ask-cta {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-void);

@@ -52,7 +52,7 @@ main.book-detail {
 
 .book-detail__eyebrow {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -73,14 +73,15 @@ main.book-detail {
   margin: 16px 0 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 20px;
+  font-size: var(--fs-read-lg);
+  font-weight: var(--fw-read);
   color: var(--cl-bone);
 }
 
 .book-detail__meta {
   margin: 18px 0 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-dim);
@@ -89,7 +90,7 @@ main.book-detail {
 .book-detail__contained {
   margin: 6px 0 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--cl-faint);
@@ -111,7 +112,8 @@ main.book-detail {
   max-width: 60ch;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 20px;
+  font-size: var(--fs-read-lg);
+  font-weight: var(--fw-read);
   line-height: 1.55;
   color: rgba(232, 220, 192, 0.88);
 }
@@ -122,7 +124,7 @@ main.book-detail {
 
 .book-detail__section-label {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -144,7 +146,7 @@ main.book-detail {
 
 .book-detail__chip {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: 5px 10px;
@@ -168,7 +170,7 @@ main.book-detail {
 
 .book-detail__audit-link {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-faint);
@@ -212,7 +214,7 @@ main.book-detail {
   gap: 12px;
   padding: 10px 12px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -249,7 +251,7 @@ main.book-detail {
 
 .book-detail__audio-credit-label {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-cyan);
@@ -258,7 +260,8 @@ main.book-detail {
 .book-detail__audio-credit-name {
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 17px;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
   line-height: 1.4;
   color: rgba(232, 220, 192, 0.88);
 }
@@ -271,7 +274,7 @@ main.book-detail {
 
 .book-detail__region-label {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 9.5px;
+  font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-faint);
@@ -287,7 +290,7 @@ main.book-detail {
   cursor: pointer;
   padding: 4px 10px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--cl-dim);

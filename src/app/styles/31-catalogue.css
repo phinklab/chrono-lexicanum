@@ -105,7 +105,7 @@ main.catalogue {
 }
 .catalogue-hero__eyebrow {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-gold);
@@ -128,7 +128,8 @@ main.catalogue {
   max-width: 640px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 18px;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
   color: var(--cl-bone);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
@@ -154,7 +155,7 @@ main.catalogue {
   gap: 14px;
   margin-bottom: 20px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
@@ -169,6 +170,13 @@ main.catalogue {
 }
 .catalogue-toolbar__total {
   color: var(--cl-dim);
+}
+.catalogue-toolbar__query {
+  color: var(--cl-dim);
+  letter-spacing: 0.06em;
+}
+.catalogue-toolbar__query-term {
+  color: var(--cl-gold);
 }
 .catalogue-toolbar__dot {
   color: var(--cl-dim);
@@ -195,7 +203,7 @@ main.catalogue {
 }
 .sort-pills-label,
 .audit-pills-label {
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-dim);
@@ -212,7 +220,7 @@ main.catalogue {
   color: var(--cl-dim);
   padding: 6px 12px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   cursor: pointer;
@@ -237,7 +245,7 @@ main.catalogue {
 
 .catalogue-caption {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label-xs);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--cl-gold);
@@ -250,7 +258,8 @@ main.catalogue {
   color: var(--cl-dim);
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 17px;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
 }
 
 .catalogue-list {
@@ -306,7 +315,7 @@ main.catalogue {
   flex: none;
   align-self: center;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 9px;
+  font-size: var(--fs-label);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--cl-faint);
@@ -348,7 +357,7 @@ main.catalogue {
 
 .catalogue-row__index {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 9px;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
   color: var(--cl-faint);
 }
@@ -380,7 +389,8 @@ main.catalogue {
 .catalogue-row__byline {
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: 13px;
+  font-size: var(--fs-read-xs);
+  font-weight: var(--fw-read);
   color: var(--cl-dim);
   white-space: nowrap;
 }
@@ -388,14 +398,14 @@ main.catalogue {
   grid-column: 3 / span 6;
   margin-top: 4px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.15em;
   color: var(--cl-gold);
 }
 .catalogue-row__faction,
 .catalogue-row__era {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--cl-dim);
@@ -405,7 +415,7 @@ main.catalogue {
 }
 .catalogue-row__year {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
   color: var(--cl-gold);
 }
@@ -416,7 +426,7 @@ main.catalogue {
 }
 .catalogue-row__updated {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 9px;
+  font-size: var(--fs-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--cl-faint);
@@ -437,7 +447,7 @@ main.catalogue {
 .catalogue-chip {
   display: inline-block;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 9px;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   padding: 3px 7px;
@@ -520,7 +530,7 @@ main.catalogue {
   border: 1px solid color-mix(in oklch, var(--cl-gold) 36%, transparent);
   background: rgba(201, 166, 90, 0.06);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.12em;
   color: var(--cl-gold);
 }
@@ -534,21 +544,22 @@ main.catalogue {
 .catalogue-row__roles {
   margin: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
   color: var(--cl-dim);
 }
 .catalogue-row__meta {
   margin: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
   color: var(--cl-bone);
 }
 .catalogue-row__synopsis {
   margin: 0;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 17px;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
   line-height: 1.55;
   color: var(--cl-bone);
 }
@@ -560,7 +571,7 @@ main.catalogue {
 }
 .catalogue-row__tagrow-label {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-dim);
@@ -581,7 +592,7 @@ main.catalogue {
   border: 1px solid var(--cl-faint);
   color: var(--cl-bone);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.14em;
 }
 .catalogue-tag--faction { border-color: color-mix(in oklch, var(--cl-gold) 28%, transparent); }
@@ -602,7 +613,7 @@ main.catalogue {
   margin-top: 4px;
   border-top: 1px solid var(--cl-ghost);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--cl-dim);
@@ -625,7 +636,7 @@ main.catalogue {
   flex-wrap: wrap;
   gap: 12px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-dim);
@@ -646,9 +657,9 @@ main.catalogue {
   .catalogue-hero__title { top: 240px; }
   .catalogue-hero__heading { font-size: clamp(40px, 8vw, 56px); }
   .catalogue-body { margin-top: -48px; }
-  .catalogue-toolbar { font-size: 10px; gap: 10px; }
+  .catalogue-toolbar { font-size: var(--fs-label); gap: 10px; }
   .catalogue-row__summary {
-    grid-template-columns: 22px 12px minmax(0, 1fr) 70px 16px;
+    grid-template-columns: 28px 12px minmax(0, 1fr) 70px 16px;
     padding: 10px 12px;
     gap: 8px;
   }
