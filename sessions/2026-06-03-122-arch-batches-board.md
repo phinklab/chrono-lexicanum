@@ -28,7 +28,7 @@ Stehendes Strang-Board. Daten + Logik, kein UI (das ist 121). Status-Spalte = Wa
 
 | # | Task | Status |
 |---|---|---|
-| B4 | Ask-Modell + Logik: `ask-questions` + `recommend(antworten) → Ranking` über Buch-DB, gegen Typen-Contract (kommt per Chat). **Zuerst — blockt 121-P3** | ☐ |
+| B4 | Ask-Modell + Logik: `ask-questions` + `recommend(antworten) → Ranking` über Buch-DB, gegen Typen-Contract (kommt per Chat). **Zuerst — blockt 121-P3** | ☑ erledigt (B4.1–B4.5; siehe 125) |
 | B1 | Podcast Step 3: weitere Shows; pro Show website/youtube/spotify-Link wo vorhanden; Schema ggf. um Show-Links | ☐ |
 | B2 | Buch-Kuratierung: Faction add/remove + Hand-Fixes via Override; Content-Warnings aus Daten/Schema; Override-Format definieren (was auto-rollt / Augen braucht) | ☐ |
 | B3 | Entity-Blurbs: F/C/W je 1–2 Satz per Websuche als Seed/Override-Daten. Kurz, faktisch, kein Lore-Essay | ☐ |

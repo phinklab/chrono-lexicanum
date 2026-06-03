@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "new-inquisition-political-ban-the-stacks",
+      "when": {
+        "experience": "new",
+        "faction_love": "inquisition",
+        "tone": "political"
+      },
+      "action": "ban",
+      "book": "the-stacks",
+      "note": "B4.3 audit puts this non-guide anchor at #1 for the newcomer Inquisition/political slice; suppress until manually reviewed."
+    },
+    {
+      "id": "new-inquisition-political-pin-xenos",
+      "when": {
+        "experience": "new",
+        "faction_love": "inquisition",
+        "tone": "political"
+      },
+      "action": "pin",
+      "book": "xenos",
+      "points": 80,
+      "note": "Audit expected Eisenhorn-family visibility; both starter guides use Eisenhorn as a core Inquisition entry point."
+    },
+    {
+      "id": "inquisition-trilogy-boost-eisenhorn-omnibus",
+      "when": {
+        "faction_love": "inquisition",
+        "length": "trilogy"
+      },
+      "action": "boost",
+      "book": "eisenhorn-omnibus",
+      "points": 35,
+      "note": "Small book-specific boost for the trilogy/arc version of the same Inquisition starter family."
+    },
+    {
+      "id": "xenos-standalone-pin-infinite-and-divine",
+      "when": {
+        "faction_love": "xenos",
+        "length": "standalone"
+      },
+      "action": "pin",
+      "book": "the-infinite-and-the-divine",
+      "points": 75,
+      "note": "B4.3 audit expected this xenos anchor; FanFiAddict calls it out as the obvious undead-robot pick."
+    },
+    {
+      "id": "guard-military-boost-guard-axis",
+      "when": {
+        "faction_love": "guard",
+        "tone": "military"
+      },
+      "action": "boost",
+      "tag": "faction_guard",
+      "points": 20,
+      "note": "Axis-level boost for the Guard/military slice where the audit expected Gaunt/Cain/Cadia-style visibility."
+    }
+  ]
+}
