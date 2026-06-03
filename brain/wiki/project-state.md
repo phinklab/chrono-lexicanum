@@ -2,13 +2,13 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-06-02
+updated: 2026-06-03
 sources:
   - ../../sessions/README.md
   - ../../sessions/2026-06-01-104-impl-alias-aware-drift.md
   - ../../sessions/2026-06-01-109-impl-entity-graph-arc.md
   - ../../sessions/2026-06-01-110-impl-podcast-ingest-pilot.md
-  - ../../sessions/2026-06-02-117-impl-tooling-files-relocation.md
+  - ../../sessions/archive/2026-06/2026-06-02-117-impl-tooling-files-relocation.md
 related:
   - ./open-questions.md
   - ./roadmap.md
@@ -67,10 +67,12 @@ DB-Stand (post-PR-109/Brief-105):
 
 Top-Items aus [`open-questions.md`](./open-questions.md), sortiert post-Brief-109/110:
 
+> **Strang-Task-Tracker neu (2026-06-03): Boards [121](../../sessions/2026-06-03-121-arch-product-board.md) (Product) + [122](../../sessions/2026-06-03-122-arch-batches-board.md) (Batches).** Sie sind ab jetzt die laufende Checkliste für Redesign-Sweep + Daten/Logik-Arbeit; Briefing pro Task über Chat (Cowork → Philipp → CC), CC-Handoff-Docs klein, Cowork reviewt/archiviert. Offene Alt-Briefs/OQs sind abgeräumt: 096/118/119 geschlossen, 061 → Runbook-Tool, 112 → 122-B7, OQ 3/13 → 122-B2/B6. Viele der Punkte unten werden nach und nach in die Boards eingezogen.
+
 - **Entity-Graph-Arc — Steps 2–5 offen (Product).** Step 1 (Brief 109) gemergt: echte `/charakter` `/fraktion` `/welt`-Hubs auf der geteilten `EntityView` + `loadEntity`-Loader. Nächste: **Step 2** In-Context-Panel (intercepting route, reused `loadEntity`+`EntityView`, zero fork), Step 3 Suche (verdrahtet `resolveSurfaceForm`), Step 4 `/werke`-Browse, Step 5 Startseite. Near-free Follow-up: `/aera` + `/serie`-Hubs (ASCII-Routen; book-only related bis andere Medien Era/Serie-Anker tragen). Konvergenz: geteilte Chip/Section-Label/Hairline-Grammatik in ein Primitive heben, das `/buch` + Hubs teilen. **Maintainer-Visual-Pass** der Hubs (Desktop + ≤720px) offen (CC nur curl). `CROSSLINK_CAP=40` ist ein stiller Cap (nicht blockierend).
 - **Podcast-Track — Step 2+ offen (Batches).** Step 1 (Brief 110) gemergt: Pilot-Artefakt + Report, kein DB. Nächste: **Step 2** Schema (`podcast` + `podcast_episode` work-kinds nach dem channel/video-CTI-Muster, `episodeGuid`-keyed idempotenter Apply) + Tags → `work_*`-Junctions (`role=subject|mentioned`); **Quick alias wins** (`Guilliman`/`Vect`/`Magnus`/`Titus`/webway-immaterium → `*-aliases.json`, hebt Coverage billig); Extraction-Prompt gegen Common-Noun-Over-Extraction; Step 3 = kuratierte Shows (Lorehammer, Adeptus Ridiculous, Laying Down The Lore, ~$1.3/Show Sonnet). Die 126 unresolved Surface-Forms sind eine Worklist (echte fehlende Entities: Leagues of Votann, Be'lakor, Eldrad, Skarbrand, Imotekh, …).
-- **Token-Diet-Folge — Brief 111 + Brief 117 gemergt:** 111 (doc-only, `2c9af45`, 2026-06-02) archivierte 7 geschlossene Paare → `archive/2026-05/`, löste die 098/099-Kollision → 115/116 und fixte die Frontmatter-Schema-Regression der always-read-Files. **Brief 117** (Code-PR, 2026-06-02) zog die 6 script-gekoppelten Tooling-Files raus aus `sessions/` (2 Loop-Logs → `scripts/logs/`, 4 Runbooks → `scripts/runbooks/`), zentralisierte den Pfad pro Runner-Familie (`scripts/lib/tooling-paths.ts` + je eine Shell-Konstante) und mit-archivierte 102/107. **Brief 112** (brain:lint-Budget-Guardrail, Code → PR) weiter offen.
-- **PR #113 (Chronicle/Ask-Redesign) — Cowork-Sichtung + Brief-096-Status-Flip offen.** `b60b0fb` hat Brief-096 Phasen G (Chronicle/Timeline bespoke) + H (Ask-Funnel) lokal-iterativ gemergt (kein Impl-Report). Sichtung + Entscheidung, ob 096 `open → implemented` flippt, stehen aus.
+- **Token-Diet-Folge — Brief 111 + Brief 117 gemergt:** 111 (doc-only, `2c9af45`, 2026-06-02) archivierte 7 geschlossene Paare → `archive/2026-05/`, löste die 098/099-Kollision → 115/116 und fixte die Frontmatter-Schema-Regression der always-read-Files. **Brief 117** (Code-PR, 2026-06-02) zog die 6 script-gekoppelten Tooling-Files raus aus `sessions/` (2 Loop-Logs → `scripts/logs/`, 4 Runbooks → `scripts/runbooks/`), zentralisierte den Pfad pro Runner-Familie (`scripts/lib/tooling-paths.ts` + je eine Shell-Konstante) und mit-archivierte 102/107. **Brief 112** (brain:lint-Budget-Guardrail) ist in Board [122-B7](../../sessions/2026-06-03-122-arch-batches-board.md) gefaltet.
+- **Brief 096 geschlossen (2026-06-03 → Board 121).** `b60b0fb` mergte G (Chronicle/Timeline) + H (Ask-Funnel) lokal-iterativ via PR #113; 096 ist jetzt `implemented`. Der G+H-Look wird im Product-Board [121](../../sessions/2026-06-03-121-arch-product-board.md) auf die `/werke`-Blaupause gezogen.
 - **Brief-104-Folgen** (kein Blocker): `?audit=drift` ist auf dem aktuellen Korpus dauerhaft leer (drift_works=0) → Drift-Pille/Brief-103-Sub-Sort behalten/umlabeln/zurückbauen entscheiden; die ruhige Alias-Klasse liegt always-on auf ~44% der Bücher → ggf. detail-only/hinter `?audit=alias`; `resolveSurfaceForm` wird von **Brief 109 Step 3** verdrahtet; der **Maintainer-Visual-Pass** der Alias-UI (Desktop + ≤640px) steht aus (CC fuhr nur curl-Smoke).
 - **Audiobook-Full-Sweep 859** — Brief 105 creditete 66 Bücher (Major-Reihen + meistgelesene); die ~790 Rest-Bücher sind ein Folge-Sweep (gleiche One-Search-pro-Buch-Methode) + Cast-Tiefe + Spelling-Watch. Die 4 `no_audiobook`-Rows sind reale Gaps. Short-Title-Store-Link-Kollisionen (*Legion*/*Nemesis*/…) sind ein UI-Daten-Befund.
 - **Phase-3-Seal-Brief** — `ROADMAP.md` Phase 3 → shipped, Phase 4/5 öffnen, Phase-3-Tail explizit als Backlog mappen. Doc-only, klein.
@@ -78,14 +80,14 @@ Top-Items aus [`open-questions.md`](./open-questions.md), sortiert post-Brief-10
 - **Audio-Drama-Dämpfung site-weit** — heute nur im Single-Gap-Cockpit; `book.format==='audio_drama'` + `.catalogue-row__audio-tag` sind für die public `/buecher`-Liste wiederverwendbar.
 - **Legacy-Token-Cleanup** — `--color-void / --color-aquila / --color-frost-*` sind post-096 möglicherweise unused; Code-Review-Sweep, dann `@theme {}`-Aliases droppen.
 - **Public-Page-Rating-Render** — `bookDetails.rating` (~820/859) wird auf `/buch/[slug]` nicht gerendert; **angedockt an Brief 096**, kein eigener Brief.
-- **Hand-Check-Workflow + Override-Schema** (OQ 3) — Cockpit seit Brief 073 da; Override-Field-Schema + Triage-Disziplin stehen aus, ggf. superseded durch den `claude -p`-Direct-Curation-Loop.
-- **Crawl-Simplification / Dead-Code-Retirement** (OQ 13) — bypassed-aber-nicht-retired Ingestion-Pfade (V1-Pipeline, V2-LLM-Stage, V2-Rest) sichten; im selben Zug die stale `CLAUDE.md`-Stack-Tabelle korrigieren.
+- **Hand-Check-Workflow + Override-Schema** (OQ 3) → in Board **122-B2** (Buch-Kuratierung) gefaltet.
+- **Crawl-Simplification / Dead-Code-Retirement** (OQ 13) → in Board **122-B6** gefaltet (Carve-out Excel-SSOT-Loader bleibt; im selben Zug die stale `CLAUDE.md`-Stack-Tabelle korrigieren).
 - **Maintainer-Excel-Sweep** über die `audit:gap-candidates`-Restliste (325 → ~10–20 echte fixable Backfills) — laufende Maintainer-Arbeit, kein Brief.
 - **Längerfristig / bei Bedarf:** Aggregator-Pass-3-Refinement (auto-no-merge `tags:vessel↔planet` + `primarch-stem↔captain`), Codex-Review-Sicht auf Konsolidierungs-Pass 2, Collection-Gap-Ledger-Pflege, Slug-Delta W40K-0259/0330 (geparkt — `apply-override` friert `slug`/`title` on update ein), Vokabular-Hygiene-Stack, `run-ssot-loop.sh`-Refinements, Cockpit-Refinements (smoke-slugs-Regression-Probe, coverage two-line output).
 
 ## Next likely brief
 
-Stand 2026-06-02. **Step 1 beider Arcs ist gemergt** (Brief 109 Entity-Hubs + Brief 110 Podcast-Pilot). Aktive Linie jetzt: **Step 2 beider Arcs**, wieder verschiedene Worktrees → kollisionsfrei parallel.
+Stand 2026-06-03. **Aktive Arbeit läuft über die stehenden Strang-Boards [121](../../sessions/2026-06-03-121-arch-product-board.md) (Product) + [122](../../sessions/2026-06-03-122-arch-batches-board.md) (Batches)**, nicht mehr über Einzel-Briefs; Briefing pro Task über Chat, CC-Handoff-Docs klein. Ask strang-übergreifend: 122-B4 zuerst, dann 121-P3. Entity-Graph Step 2 (113) + Podcast Step 2 (114) sind gemergt. Die nummerierten Punkte unten sind historischer Kontext (teils erledigt) und werden in die Boards überführt.
 
 1. **Entity-Graph Step 2 (Brief 113, Product) + Podcast Step 2 (Brief 114, Batches) parallel anwerfen** — beide geschrieben + offen. Entity Step 2 (Brief 113) ist jetzt **phasiert** (Maintainer-Wunsch, Token-Fenster klein halten, `/clear` zwischen den Phasen): Phase A = EntityView-Redesign aufs Design-Mockup (Header-Meta aus vorhandenen Fakten, Werk-Karten je Kind, rechte VERKNÜPFT-Rail mit Reflow, Gradient-to-dark; kein Bild, keine neuen Daten), Phase B = In-Context-Panel (intercepting routes, reused `loadEntity` + `EntityView`, zero fork — das 109-impl beschreibt die Naht). Ein PR mit A+B am Ende, `/clear` zwischen den Phasen (kein Zwischen-Merge). Podcast Step 2 = Schema (`podcast`/`podcast_episode` work-kinds nach dem channel/video-CTI-Muster, `episodeGuid`-keyed idempotenter Apply) + Tags → `work_*`-Junctions; dazu die billigen Quick-alias-wins als Coverage-Lift. Optional near-free dazu: `/aera` + `/serie`-Entity-Hubs (das Step-1-System trägt sie fast gratis).
 2. **Phase-3-Seal-Brief** — formaler Phasen-Abschluss (doc-only, klein, parallel-fähig).

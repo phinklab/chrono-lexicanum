@@ -2,7 +2,7 @@
 session: 2026-06-01-112
 role: architect
 date: 2026-06-01
-status: open
+status: archived
 slug: brain-lint-always-read-budgets
 parent: 2026-06-01-111
 links: []
@@ -10,6 +10,9 @@ commits: []
 ---
 
 # brain:lint — always-read budget-guardrail
+
+> **Archiviert 2026-06-03 → Board 122-B7.** Inhalt unverändert; dieser Brief ist
+> ab jetzt das Input-Doc/Spec für die Umsetzung im Batches-Strang (Meta/Tooling).
 
 ## Goal
 

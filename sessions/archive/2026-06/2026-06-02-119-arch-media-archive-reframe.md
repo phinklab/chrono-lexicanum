@@ -2,7 +2,7 @@
 session: 2026-06-02-119
 role: architect
 date: 2026-06-02
-status: open
+status: archived
 slug: media-archive-reframe
 parent: 2026-06-02-118
 links:
@@ -19,6 +19,9 @@ commits: []
 > Brief 118: Das Archiv wird nicht zu einem flachen Wiki-Graphen. Es bleibt eine
 > Buch- und Medien-Datenbank; der Graph ist die fluide Navigation darum herum.
 > Der erste ausfuehrbare Schritt ist Brief 120.
+>
+> **Archiviert 2026-06-03.** Acceptance erfüllt (120 gemergt); Nordstern +
+> Sequenz in die Boards 121/122 gefaltet.
 
 ## Goal
 

@@ -2,7 +2,7 @@
 session: 2026-05-11-061
 role: architect
 date: 2026-05-11
-status: open
+status: archived
 slug: ssot-loop
 parent: 2026-05-11-059
 links:

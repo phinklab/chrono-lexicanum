@@ -2,7 +2,7 @@
 session: 2026-06-02-118
 role: architect
 date: 2026-06-02
-status: open
+status: archived
 slug: archive-graph-kickoff
 parent: 2026-06-01-113
 links:
@@ -18,6 +18,8 @@ commits: []
 > die erste "Archiv als Graph"-Fassung fest. Die Produktgewichtung wurde danach
 > in Brief 119 korrigiert: **Medienarchiv zuerst, Kontextgraph als Navigation**.
 > Der erste ausfuehrbare Product-Brief ist Brief 120.
+>
+> **Archiviert 2026-06-03.** Nordstern in Board 121 (Product) gefaltet.
 
 ## Goal
 

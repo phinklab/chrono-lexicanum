@@ -2,14 +2,20 @@
 session: 2026-05-23-096
 role: architect
 date: 2026-05-23
-status: open
+status: implemented
 slug: design-direction
 parent: null
-links: []
+links:
+  - 2026-06-03-121
 commits: []
 ---
 
 # Design direction — roll a new visual direction across the whole site, Cartographer preserved
+
+> **Geschlossen 2026-06-03 (→ 121).** A–F gemergt (PR #110); G+H (Chronicle/Ask)
+> via PR #113. Die laufende visuelle Weiterarbeit ist ins stehende Product-Board
+> **121** übergegangen, das Chronicle/Ask/alle Routen auf die `/werke`-Blaupause
+> zieht. Scope dieses Briefs ist damit erfüllt bzw. in 121 weitergeführt.
 
 ## Goal
 

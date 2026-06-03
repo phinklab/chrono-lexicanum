@@ -1352,3 +1352,17 @@ Brief 117 (Code-PR) hat die **6 lebenden Tooling-Files** aus dem `sessions/`-Bri
 **Keine OQ-Schließung, keine neue numerierte OQ.**
 
 **Branch.** Code-PR `codex/session-117-tooling-relocation` (touches `scripts/` → Branch + PR); Brief-117-Status `open → implemented` reitet im PR mit.
+
+---
+
+## 2026-06-03 · Prozess-Reset: Strang-Boards 121/122 + Altlasten-Abräumung (Cowork)
+
+Wechsel von Einzel-Briefs zu zwei **stehenden Strang-Boards**. Briefing pro Task über Chat (Cowork → Philipp → CC), kein Input-Doc im Repo; CC baut bei Abschluss ein sehr kleines Handoff-Doc, Cowork reviewt/archiviert. Architekt gibt keine Code-Umsetzung vor; max. Design-Freiheit an CC, `/werke` = optische Blaupause.
+
+**Angelegt:** `sessions/2026-06-03-121-arch-product-board.md` (Product: Redesign-Sweep + Frontend-Lockdown), `sessions/2026-06-03-122-arch-batches-board.md` (Batches: Podcast-Daten, Buch-Kuratierung, Entity-Blurbs, Ask-Modell/-Logik, Chronicle-Daten, Dead-Code, brain:lint-Guardrail).
+
+**Geschlossen/gefaltet:** 096 → `implemented` (G+H-Look → 121); 118 + 119 → `archived` (Nordstern + Sequenz → 121/122); 061 → `archived`, SSOT-Loop als Standing-Tool (Runbook) in 122; 112 → `archived`, gefaltet in 122-B7; OQ 3 → 122-B2, OQ 13 → 122-B6 (open-questions-Queue jetzt leer). README Active-Threads + project-state „What's open"/„Next likely brief" nachgezogen.
+
+**Ask-Naht:** 122-B4 (`recommend()`-Logik + Fragen-/Pfad-Modell, DB) zuerst; 121-P3 (Funnel-UI) gegen den Typen-Contract danach — Cowork liefert den Contract über Chat.
+
+**Offen (Hygiene, kein Blocker):** implementierte Paare 104/108/109/110/113/114 noch im Root → späterer Archiv-Sweep.
