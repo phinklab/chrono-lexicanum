@@ -1,117 +1,152 @@
 "use client";
 
 import Link from "next/link";
-import { type CSSProperties, Fragment } from "react";
-import { CHRONO_SAMPLE_BOOKS, type PathDef } from "@/lib/askPaths";
+import { FORMAT_LABELS } from "@/lib/book-labels";
+import type {
+  AskAnswers,
+  AskQuestion,
+  AskRecommendation,
+  AskRecommendationReason,
+  AskRecommendationResult,
+} from "@/lib/ask/types";
 
 type ResultCardProps = {
-  path: PathDef;
-  answers: Record<string, string>;
+  result: AskRecommendationResult;
+  questions: readonly AskQuestion[];
+  answers: AskAnswers;
+  onBack: () => void;
   onReset: () => void;
-  onChangePath: () => void;
 };
 
-export default function ResultCard({ path, answers, onReset, onChangePath }: ResultCardProps) {
-  // Chosen answers, in question order: latin key + the picked option's label.
-  const responsa = path.questions.map((q) => {
-    const v = answers[q.id];
-    const opt = q.options.find((o) => o.v === v);
-    return { id: q.id, latin: q.latin, label: opt?.label ?? "—" };
-  });
+function answerLabel(question: AskQuestion, answers: AskAnswers): string {
+  const value = answers[question.id];
+  return question.options.find((option) => option.id === value)?.label ?? "Unset";
+}
+
+function formatMeta(recommendation: AskRecommendation): string {
+  const parts = [
+    recommendation.authors.length > 0 ? recommendation.authors.join(", ") : null,
+    recommendation.releaseYear != null ? String(recommendation.releaseYear) : null,
+    recommendation.format ? FORMAT_LABELS[recommendation.format] ?? recommendation.format : null,
+    recommendation.primaryEraId?.replaceAll("_", " ") ?? null,
+  ].filter((part): part is string => Boolean(part));
+
+  return parts.join(" / ");
+}
+
+function excerpt(text: string | null | undefined): string | null {
+  if (!text) return null;
+  const compact = text.replace(/\s+/g, " ").trim();
+  if (compact.length <= 220) return compact;
+  return `${compact.slice(0, 217).trim()}...`;
+}
+
+function bestReasons(recommendation: AskRecommendation): AskRecommendationReason[] {
+  return recommendation.reasons
+    .filter((reason) => reason.matched)
+    .sort((a, b) => b.points - a.points)
+    .slice(0, 3);
+}
+
+function reasonText(reason: AskRecommendationReason): string {
+  if (!reason.detail) return reason.label;
+  return `${reason.label}: ${reason.detail}`;
+}
+
+function RecommendationRow({
+  recommendation,
+  index,
+}: {
+  recommendation: AskRecommendation;
+  index: number;
+}) {
+  const meta = formatMeta(recommendation);
+  const copy = excerpt(recommendation.synopsis);
+  const reasons = bestReasons(recommendation);
 
   return (
-    <div
-      className="ask-card c-fade-in"
-      style={
-        {
-          // Per-path accent threads through eyebrow / years / action / footnote.
-          "--row-accent": path.accent,
-          width: "min(760px, 94vw)",
-          padding: "26px 30px 24px",
-          margin: "0 auto",
-        } as CSSProperties
-      }
-    >
-      <p className="card-eyebrow">
-        {`// COGITATOR · RESPONSVM · ${path.latin}`}
-        <span className="tail">{` · ${CHRONO_SAMPLE_BOOKS.length} Novellae`}</span>
-      </p>
+    <article className="ask-result">
+      <Link href={`/buch/${recommendation.slug}`} className="ask-result__main">
+        <span className="ask-result__rank" aria-hidden>
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="ask-result__content">
+          <span className="ask-result__title">{recommendation.title}</span>
+          {meta && <span className="ask-result__meta">{meta}</span>}
+        </span>
+        <span className="ask-result__action" aria-hidden>
+          Detail
+        </span>
+      </Link>
+      {copy && <p className="ask-result__synopsis">{copy}</p>}
+      {reasons.length > 0 && (
+        <ul className="ask-reasons" aria-label={`Why ${recommendation.title} matched`}>
+          {reasons.map((reason) => (
+            <li key={reason.tag}>{reasonText(reason)}</li>
+          ))}
+        </ul>
+      )}
+    </article>
+  );
+}
 
-      <h2
-        style={{
-          margin: "14px 0 6px",
-          fontFamily: "var(--font-cinzel)",
-          fontWeight: 400,
-          fontSize: 26,
-          letterSpacing: "0.10em",
-          color: "var(--cl-bone)",
-        }}
-      >
-        The Cogitator has tuned your signal.
-      </h2>
-      <p
-        style={{
-          margin: 0,
-          fontFamily: "var(--font-cormorant)",
-          fontStyle: "italic",
-          fontSize: 18,
-          lineHeight: 1.45,
-          color: "var(--cl-dim)",
-        }}
-      >
-        {path.label} — five books, chosen from your answers.
-      </p>
+export default function ResultCard({
+  result,
+  questions,
+  answers,
+  onBack,
+  onReset,
+}: ResultCardProps) {
+  const recommendations = result.recommendations;
 
-      <span className="c-hairline" aria-hidden style={{ margin: "18px 0 4px" }} />
+  return (
+    <section className="ask-results ask-card c-corners c-fade-in" aria-labelledby="ask-results-title">
+      <div className="ask-results__head">
+        <div>
+          <p className="card-eyebrow">{"// RESPONSVM / TOP FIVE"}</p>
+          <h2 id="ask-results-title">The archive recommends</h2>
+        </div>
+        <span className="ask-results__count">
+          {String(recommendations.length).padStart(2, "0")} hits
+        </span>
+      </div>
 
-      <ol className="book-list">
-        {CHRONO_SAMPLE_BOOKS.map((b, i) => (
-          <li key={b.slug}>
-            <Link
-              href={`/buch/${b.slug}`}
-              className="book-row"
-              aria-label={`${b.title} by ${b.author}, ${b.year}`}
-            >
-              <span className="book-row__index" aria-hidden>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="book-row__title">{b.title}</span>
-              <span className="book-row__year">{b.year}</span>
-              <span className="book-row__author">{b.author}</span>
-              <span className="book-row__action" aria-hidden>
-                Detail →
-              </span>
-            </Link>
-          </li>
+      {recommendations.length === 0 ? (
+        <div className="ask-results__empty">
+          <h3>No books matched strongly enough.</h3>
+          <p>Try stepping back and choosing a broader faction, era, or commitment level.</p>
+        </div>
+      ) : (
+        <ol className="ask-results__list">
+          {recommendations.map((recommendation, index) => (
+            <li key={recommendation.id}>
+              <RecommendationRow recommendation={recommendation} index={index} />
+            </li>
+          ))}
+        </ol>
+      )}
+
+      <div className="ask-responsa" aria-label="Selected answers">
+        {questions.map((question) => (
+          <span key={question.id}>
+            <span className="k">{question.id}</span>{" "}
+            <span className="v">{answerLabel(question, answers)}</span>
+          </span>
         ))}
-      </ol>
-
-      <p className="ask-responsa" style={{ margin: "18px 0 0" }}>
-        {"// RESPONSA "}
-        {responsa.map((r, i) => (
-          <Fragment key={r.id}>
-            <span className="sep" aria-hidden>
-              ·
-            </span>
-            <span className="k">{r.latin}</span> <span className="v">{r.label}</span>
-          </Fragment>
-        ))}
-      </p>
-
-      <span className="c-hairline" aria-hidden style={{ margin: "16px 0 14px" }} />
+      </div>
 
       <div className="ask-footer">
-        <button type="button" className="ask-footlink" onClick={onChangePath}>
-          ← Choose another path
+        <button type="button" className="ask-footlink" onClick={onBack}>
+          Back to answers
         </button>
         <button type="button" className="ask-footlink" onClick={onReset}>
-          Start over
+          Reset
         </button>
         <span className="ask-footer__spacer" aria-hidden />
         <Link href="/werke" className="ask-cta">
-          All books →
+          Browse all works
         </Link>
       </div>
-    </div>
+    </section>
   );
 }

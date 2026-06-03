@@ -7,6 +7,10 @@
 import assert from "node:assert/strict";
 import process from "node:process";
 
+import {
+  passesHardAskBoundaries,
+  type AskBoundaryCandidate,
+} from "@/lib/ask/boundaries";
 import { ASK_QUESTIONS } from "@/lib/ask/questions";
 import {
   ASK_OPTION_IDS_BY_QUESTION,
@@ -35,6 +39,32 @@ function check(name: string, fn: () => void): void {
 
 function assertNonEmptyString(value: string, label: string): void {
   assert.ok(value.trim() !== "", `${label} must not be empty`);
+}
+
+function facetMap(values: Record<string, string>): ReadonlyMap<string, ReadonlySet<string>> {
+  return new Map(
+    Object.entries(values).map(([category, id]) => [category, new Set([id])]),
+  );
+}
+
+function boundaryCandidate(
+  overrides: Partial<AskBoundaryCandidate> = {},
+): AskBoundaryCandidate {
+  return {
+    format: "novel",
+    seriesId: null,
+    seriesIndex: null,
+    seriesTotalPlanned: null,
+    factions: [
+      {
+        role: "primary",
+        alignment: "imperium",
+        ancestry: ["inquisition", "imperium"],
+      },
+    ],
+    facetsByCategory: facetMap({ entry_point: "standalone" }),
+    ...overrides,
+  };
 }
 
 function validateQuestions(questions: readonly AskQuestion[]): void {
@@ -131,6 +161,128 @@ check("all weights are known positive numbers", () => {
       }
     }
   }
+});
+
+check("hard boundaries keep selected faction non-negotiable", () => {
+  const ultramarines = boundaryCandidate({
+    factions: [
+      {
+        role: "primary",
+        alignment: "imperium",
+        ancestry: ["ultramarines", "adeptus_astartes", "imperium"],
+      },
+    ],
+  });
+  const ultramarinesWithSupportingInquisition = boundaryCandidate({
+    factions: [
+      {
+        role: "primary",
+        alignment: "imperium",
+        ancestry: ["ultramarines", "adeptus_astartes", "imperium"],
+      },
+      {
+        role: "supporting",
+        alignment: "imperium",
+        ancestry: ["inquisition", "imperium"],
+      },
+    ],
+  });
+  const unrankedUltramarinesWithInquisition = boundaryCandidate({
+    factions: [
+      {
+        role: null,
+        alignment: "imperium",
+        ancestry: ["ultramarines", "adeptus_astartes", "imperium"],
+      },
+      {
+        role: null,
+        alignment: "imperium",
+        ancestry: ["inquisition", "imperium"],
+      },
+    ],
+  });
+  const unrankedInquisitionLead = boundaryCandidate({
+    factions: [
+      {
+        role: null,
+        alignment: "imperium",
+        ancestry: ["inquisition", "imperium"],
+      },
+      {
+        role: null,
+        alignment: "imperium",
+        ancestry: ["ultramarines", "adeptus_astartes", "imperium"],
+      },
+    ],
+  });
+  const inquisition = boundaryCandidate();
+
+  assert.equal(
+    passesHardAskBoundaries(ultramarines, { faction_love: "inquisition" }),
+    false,
+  );
+  assert.equal(
+    passesHardAskBoundaries(ultramarinesWithSupportingInquisition, {
+      faction_love: "inquisition",
+    }),
+    false,
+  );
+  assert.equal(
+    passesHardAskBoundaries(unrankedUltramarinesWithInquisition, {
+      faction_love: "inquisition",
+    }),
+    false,
+  );
+  assert.equal(
+    passesHardAskBoundaries(unrankedInquisitionLead, {
+      faction_love: "inquisition",
+    }),
+    true,
+  );
+  assert.equal(
+    passesHardAskBoundaries(inquisition, { faction_love: "inquisition" }),
+    true,
+  );
+  assert.equal(
+    passesHardAskBoundaries(ultramarines, { faction_love: "imperium" }),
+    true,
+  );
+});
+
+check("hard boundaries keep selected length non-negotiable", () => {
+  const firstNovel = boundaryCandidate({
+    seriesId: "eisenhorn",
+    seriesIndex: 1,
+    seriesTotalPlanned: 3,
+    facetsByCategory: facetMap({ entry_point: "series_start" }),
+  });
+  const midSeriesNovel = boundaryCandidate({
+    seriesId: "eisenhorn",
+    seriesIndex: 2,
+    seriesTotalPlanned: 3,
+    facetsByCategory: facetMap({ entry_point: "mid_series" }),
+  });
+  const omnibus = boundaryCandidate({
+    format: "omnibus",
+    seriesId: "eisenhorn",
+    seriesIndex: null,
+    seriesTotalPlanned: 3,
+  });
+  const anthology = boundaryCandidate({ format: "anthology" });
+  const unknownLengthSeries = boundaryCandidate({
+    seriesId: "horus_heresy",
+    seriesIndex: 1,
+    seriesTotalPlanned: null,
+    facetsByCategory: facetMap({ entry_point: "series_start" }),
+  });
+
+  assert.equal(passesHardAskBoundaries(firstNovel, { length: "standalone" }), true);
+  assert.equal(passesHardAskBoundaries(midSeriesNovel, { length: "standalone" }), true);
+  assert.equal(passesHardAskBoundaries(omnibus, { length: "standalone" }), false);
+  assert.equal(passesHardAskBoundaries(anthology, { length: "standalone" }), false);
+  assert.equal(passesHardAskBoundaries(omnibus, { length: "trilogy" }), true);
+  assert.equal(passesHardAskBoundaries(firstNovel, { length: "epic" }), true);
+  assert.equal(passesHardAskBoundaries(unknownLengthSeries, { length: "epic" }), true);
 });
 
 console.log("");

@@ -1,215 +1,69 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
-import Typewriter from "@/components/chrono/Typewriter";
-import type { AccentToken, Question } from "@/lib/askPaths";
+import type {
+  AskOption,
+  AskOptionId,
+  AskQuestion,
+  AskQuestionId,
+} from "@/lib/ask/types";
 
 type QuestionCardProps = {
-  q: Question;
-  step: number;
+  question: AskQuestion;
+  index: number;
+  total: number;
   value: string | undefined;
-  onPick: (v: string) => void;
-  pathAccent: AccentToken;
+  disabled?: boolean;
+  onPick: (questionId: AskQuestionId, optionId: AskOptionId) => void;
 };
 
-export default function QuestionCard({ q, step, value, onPick, pathAccent }: QuestionCardProps) {
-  const [headDone, setHeadDone] = useState(false);
-  const [subDone, setSubDone] = useState(false);
-
-  // Each new question is keyed by q.id from the parent → component re-mounts
-  // → useState resets to false → typewriters re-trigger in sequence.
-
-  return (
-    <div
-      key={q.id}
-      className="c-glass c-corners c-fade-in"
-      style={{
-        width: "min(720px, 96vw)",
-        padding: "28px 32px 30px",
-        margin: "0 auto",
-      }}
-    >
-      <header
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 14,
-          marginBottom: 18,
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "var(--font-plex-mono)",
-            fontSize: 11,
-            letterSpacing: "0.32em",
-            textTransform: "uppercase",
-            color: pathAccent,
-          }}
-        >
-          {String(step + 1).padStart(2, "0")} ·{" "}
-          <Typewriter text={q.latin} speed={70} cursor={false} />
-        </span>
-        <span className="c-hairline" style={{ flex: 1 }} aria-hidden />
-      </header>
-
-      <h2
-        style={{
-          margin: 0,
-          fontFamily: "var(--font-cinzel)",
-          fontWeight: 400,
-          fontSize: 34,
-          letterSpacing: "0.06em",
-          color: "var(--cl-bone)",
-          minHeight: "1.4em",
-        }}
-      >
-        <Typewriter
-          text={q.label}
-          speed={32}
-          startDelay={250}
-          onDone={() => setHeadDone(true)}
-        />
-      </h2>
-
-      <p
-        style={{
-          margin: "10px 0 22px",
-          fontFamily: "var(--font-cormorant)",
-          fontStyle: "italic",
-          fontSize: 19,
-          lineHeight: 1.45,
-          color: "var(--cl-dim)",
-          minHeight: "1.5em",
-        }}
-      >
-        {headDone && (
-          <Typewriter
-            text={q.sub}
-            speed={18}
-            startDelay={120}
-            onDone={() => setSubDone(true)}
-          />
-        )}
-      </p>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-          gap: 10,
-          opacity: subDone ? 1 : 0,
-          transition: "opacity 0.4s ease",
-        }}
-      >
-        {q.options.map((opt, i) => {
-          const selected = value === opt.v;
-          return (
-            <OptionTile
-              key={opt.v}
-              label={opt.label}
-              desc={opt.desc}
-              selected={selected}
-              accent={pathAccent}
-              delayMs={subDone ? i * 70 : 0}
-              animate={subDone}
-              onClick={() => onPick(opt.v)}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
+function optionCode(option: AskOption, index: number): string {
+  if (option.icon) return option.icon.toUpperCase();
+  return String(index + 1).padStart(2, "0");
 }
 
-type OptionTileProps = {
-  label: string;
-  desc: string;
-  selected: boolean;
-  accent: AccentToken;
-  delayMs: number;
-  animate: boolean;
-  onClick: () => void;
-};
-
-function OptionTile({ label, desc, selected, accent, delayMs, animate, onClick }: OptionTileProps) {
-  const [hover, setHover] = useState(false);
-
-  const border = selected
-    ? accent
-    : hover
-      ? `color-mix(in oklch, ${accent} 50%, transparent)`
-      : "var(--color-line-1)";
-
-  const tileStyle: CSSProperties = {
-    position: "relative",
-    padding: "14px 16px",
-    background: selected
-      ? `color-mix(in oklch, ${accent} 12%, transparent)`
-      : hover
-        ? "rgba(8, 12, 20, 0.62)"
-        : "rgba(8, 12, 20, 0.42)",
-    border: `1px solid ${border}`,
-    boxShadow: selected ? `0 0 16px -2px color-mix(in oklch, ${accent} 30%, transparent)` : undefined,
-    cursor: "pointer",
-    transition: "background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s",
-    transform: hover ? "translateY(-1px)" : "translateY(0)",
-    animation: animate ? `chronoFade 0.45s ${delayMs}ms both` : undefined,
-    textAlign: "left",
-    color: "inherit",
-    width: "100%",
-  };
+export default function QuestionCard({
+  question,
+  index,
+  total,
+  value,
+  disabled = false,
+  onPick,
+}: QuestionCardProps) {
+  const titleId = `ask-question-${question.id}`;
 
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={tileStyle}
-      aria-pressed={selected}
-    >
-      {selected && (
-        <span
-          aria-hidden
-          style={{
-            position: "absolute",
-            top: 10,
-            right: 12,
-            fontFamily: "var(--font-plex-mono)",
-            fontSize: 9.5,
-            letterSpacing: "0.24em",
-            textTransform: "uppercase",
-            color: accent,
-          }}
-        >
-          ● ELECTVS
-        </span>
-      )}
-      <span
-        style={{
-          display: "block",
-          fontFamily: "var(--font-cinzel)",
-          fontWeight: 500,
-          fontSize: 16,
-          letterSpacing: "0.10em",
-          color: "var(--cl-bone)",
-          marginBottom: 4,
-        }}
-      >
-        {label}
-      </span>
-      <span
-        style={{
-          display: "block",
-          fontFamily: "var(--font-cormorant)",
-          fontStyle: "italic",
-          fontSize: 15,
-          lineHeight: 1.4,
-          color: "var(--cl-dim)",
-        }}
-      >
-        {desc}
-      </span>
-    </button>
+    <section className="ask-question ask-card c-corners c-fade-in" aria-labelledby={titleId}>
+      <div className="ask-question__kicker">
+        <span>Question {String(index + 1).padStart(2, "0")}</span>
+        <span aria-hidden>/ {String(total).padStart(2, "0")}</span>
+      </div>
+      <h2 id={titleId}>{question.prompt}</h2>
+      {question.hint && <p className="ask-question__hint">{question.hint}</p>}
+
+      <fieldset className="ask-options" disabled={disabled}>
+        <legend className="ask-sr-only">{question.prompt}</legend>
+        {question.options.map((option, optionIndex) => {
+          const selected = value === option.id;
+          return (
+            <button
+              key={option.id}
+              type="button"
+              className="ask-option"
+              data-selected={selected}
+              aria-pressed={selected}
+              onClick={() => onPick(question.id, option.id)}
+            >
+              <span className="ask-option__code" aria-hidden>
+                {optionCode(option, optionIndex)}
+              </span>
+              <span className="ask-option__body">
+                <span className="ask-option__label">{option.label}</span>
+                <span className="ask-option__sub">{option.sub}</span>
+              </span>
+            </button>
+          );
+        })}
+      </fieldset>
+    </section>
   );
 }

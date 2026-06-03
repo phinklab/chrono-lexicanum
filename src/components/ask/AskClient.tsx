@@ -1,298 +1,266 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import PathSelect from "./PathSelect";
-import QuestionCard from "./QuestionCard";
-import ProcessingPanel from "./ProcessingPanel";
-import ResultCard from "./ResultCard";
-import ProgressDots from "./ProgressDots";
+import { useMemo, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
-import FloatingCoord from "@/components/chrono/FloatingCoord";
-import { PATHS, type PathDef } from "@/lib/askPaths";
+import ProcessingPanel from "./ProcessingPanel";
+import ProgressDots from "./ProgressDots";
+import QuestionCard from "./QuestionCard";
+import ResultCard from "./ResultCard";
+import {
+  buildAskHref,
+  countAskAnswers,
+  firstUnansweredAskIndex,
+  isAskAnswersComplete,
+  withAskAnswer,
+} from "@/lib/ask/params";
+import type {
+  AskAnswers,
+  AskOptionId,
+  AskQuestion,
+  AskQuestionId,
+  AskRecommendationResult,
+} from "@/lib/ask/types";
 
-type Phase = "path" | "question" | "result";
+type AskClientProps = {
+  questions: readonly AskQuestion[];
+  initialAnswers: AskAnswers;
+  initialIsComplete: boolean;
+  result: AskRecommendationResult | null;
+  recommendationError: string | null;
+};
 
-const PROCESSING_MS = 700;
+function findOptionLabel(question: AskQuestion, answers: AskAnswers): string | null {
+  const value = answers[question.id];
+  return question.options.find((option) => option.id === value)?.label ?? null;
+}
 
-export default function AskClient() {
-  const [phase, setPhase] = useState<Phase>("path");
-  const [pathId, setPathId] = useState<string | null>(null);
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [processing, setProcessing] = useState(false);
+function initialQuestionIndex(answers: AskAnswers): number {
+  return firstUnansweredAskIndex(answers);
+}
 
-  const path = useMemo<PathDef | null>(
-    () => (pathId ? (PATHS.find((p) => p.id === pathId) ?? null) : null),
-    [pathId],
+export default function AskClient({
+  questions,
+  initialAnswers,
+  initialIsComplete,
+  result,
+  recommendationError,
+}: AskClientProps) {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const [optimisticAnswers, setOptimisticAnswers] = useState<AskAnswers | null>(null);
+  const [activeIndex, setActiveIndex] = useState(() => initialQuestionIndex(initialAnswers));
+  const [editingCompleteProfile, setEditingCompleteProfile] = useState(false);
+
+  const answers = isPending && optimisticAnswers ? optimisticAnswers : initialAnswers;
+  const answeredCount = countAskAnswers(answers);
+  const draftComplete = isAskAnswersComplete(answers);
+  const currentQuestion = questions[activeIndex] ?? questions[0];
+  const selectedValue = currentQuestion ? answers[currentQuestion.id] : undefined;
+  const showResult = draftComplete && initialIsComplete && !isPending && !editingCompleteProfile;
+  const showProcessing = draftComplete && isPending;
+  const statusLabel = showResult
+    ? "Recommendations tuned"
+    : showProcessing
+      ? "Loading recommendations"
+      : `${answeredCount} of ${questions.length} answers recorded`;
+
+  const selectedSummary = useMemo(
+    () =>
+      questions.map((question, index) => ({
+        id: question.id,
+        label: question.prompt,
+        value: findOptionLabel(question, answers),
+        isCurrent: index === activeIndex && !showResult,
+      })),
+    [activeIndex, answers, questions, showResult],
   );
-  const totalQuestions = path?.questions.length ?? 0;
-  const currentQ = path && phase === "question" ? path.questions[step] : null;
 
-  useEffect(() => {
-    if (!processing || !path) return;
-    const t = setTimeout(() => {
-      if (step + 1 >= totalQuestions) {
-        setPhase("result");
-      } else {
-        setStep((s) => s + 1);
-      }
-      setProcessing(false);
-    }, PROCESSING_MS);
-    return () => clearTimeout(t);
-  }, [processing, path, step, totalQuestions]);
-
-  const choosePath = (p: PathDef) => {
-    setPathId(p.id);
-    setStep(0);
-    setAnswers({});
-    setProcessing(false);
-    setPhase("question");
+  const navigateWithAnswers = (nextAnswers: AskAnswers) => {
+    setOptimisticAnswers(nextAnswers);
+    startTransition(() => {
+      router.push(buildAskHref(nextAnswers), { scroll: false });
+    });
   };
 
-  const pick = (v: string) => {
-    if (!currentQ || processing) return;
-    setAnswers((prev) => ({ ...prev, [currentQ.id]: v }));
-    setProcessing(true);
+  const chooseOption = (questionId: AskQuestionId, optionId: AskOptionId) => {
+    const nextAnswers = withAskAnswer(answers, questionId, optionId);
+    const nextComplete = isAskAnswersComplete(nextAnswers);
+    const nextIndex = Math.min(activeIndex + 1, questions.length - 1);
+
+    setEditingCompleteProfile(false);
+    if (!nextComplete) {
+      setActiveIndex(nextIndex);
+    }
+    navigateWithAnswers(nextAnswers);
   };
 
-  const back = () => {
-    if (phase !== "question") return;
-    if (step === 0) {
-      setPhase("path");
-      setProcessing(false);
+  const goBack = () => {
+    if (showResult) {
+      setActiveIndex(questions.length - 1);
+      setEditingCompleteProfile(true);
       return;
     }
-    setStep((s) => s - 1);
-    setProcessing(false);
+    setActiveIndex((index) => Math.max(0, index - 1));
   };
 
-  const forward = () => {
-    if (!currentQ || !path) return;
-    if (!answers[currentQ.id]) return;
-    if (processing) return;
-    setProcessing(true);
+  const reset = () => {
+    setActiveIndex(0);
+    setEditingCompleteProfile(false);
+    navigateWithAnswers({});
   };
 
-  const resetSamePath = () => {
-    setStep(0);
-    setAnswers({});
-    setProcessing(false);
-    setPhase("question");
+  const revisitQuestion = (index: number) => {
+    setActiveIndex(index);
+    if (draftComplete) {
+      setEditingCompleteProfile(true);
+    }
   };
 
-  const changePath = () => {
-    setPathId(null);
-    setStep(0);
-    setAnswers({});
-    setProcessing(false);
-    setPhase("path");
-  };
-
-  const accent = path?.accent ?? "var(--cl-cyan)";
-  const landing = phase === "path";
-
-  // HUD + title are persistent across every phase: only their transform /
-  // opacity change, so the title glides up (and the auspex HUD fades out) when
-  // a path is chosen, and both ease back in on the way home. The phase-specific
-  // body (path modules vs. question/result stage) is the only thing that swaps.
   return (
     <>
-      <AskHud landing={landing} />
-      <AskTitlebar landing={landing} path={path} phase={phase} />
-
-      {landing ? (
-        <div className="ask-funnel">
-          <div className="ask-hero" aria-hidden />
-          <section className="ask-modules">
-            <PathSelect onChoose={choosePath} />
-          </section>
+      <div className="ask-hud" aria-hidden>
+        <div className="ask-hud__sweep">
+          <AuspexSweep r={150} sweepDuration={18} accent="var(--cl-cyan)" />
         </div>
-      ) : (
-        <div className="ask-runtime">
-          <div className="ask-runtime__center">
-            {phase === "question" && path && currentQ && !processing && (
-              <QuestionCard
-                q={currentQ}
-                step={step}
-                value={answers[currentQ.id]}
-                onPick={pick}
-                pathAccent={path.accent}
+      </div>
+
+      <section className="ask-console" aria-labelledby="ask-title">
+        <header className="ask-console__mast">
+          <p className="card-eyebrow">{"// ORACVLVM / ASK THE ARCHIVE"}</p>
+          <h1 id="ask-title" className="ask-console__title">
+            Five answers. Real books.
+          </h1>
+          <p className="ask-console__sub">
+            Tune the signal; the archive ranks entry points from the live book
+            catalogue.
+          </p>
+        </header>
+
+        <div className="ask-console__grid">
+          <aside className="ask-status ask-card" aria-label="Ask progress">
+            <div className="ask-status__head">
+              <span>{statusLabel}</span>
+              <span aria-hidden>{String(answeredCount).padStart(2, "0")}</span>
+            </div>
+            <ProgressDots
+              current={showResult ? questions.length : activeIndex + 1}
+              total={questions.length}
+              answered={answeredCount}
+              pending={isPending}
+            />
+            <ol className="ask-answer-list">
+              {selectedSummary.map((item, index) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    className="ask-answer-step"
+                    data-current={item.isCurrent}
+                    data-complete={Boolean(item.value)}
+                    onClick={() => revisitQuestion(index)}
+                    aria-current={item.isCurrent ? "step" : undefined}
+                  >
+                    <span className="ask-answer-step__index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="ask-answer-step__text">
+                      <span>{item.label}</span>
+                      <span>{item.value ?? "Awaiting answer"}</span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ol>
+            <div className="ask-status__actions">
+              <button type="button" className="ask-footlink" onClick={reset}>
+                Reset
+              </button>
+              <Link href="/werke" className="ask-footlink">
+                Browse works
+              </Link>
+            </div>
+          </aside>
+
+          <div className="ask-stage" aria-live="polite">
+            {showProcessing && (
+              <ProcessingPanel
+                title="Consulting the archive"
+                detail="The answers are sealed in the URL; the ranking runs server-side."
               />
             )}
 
-            {phase === "question" && path && processing && (
-              <ProcessingPanel accent={path.accent} />
+            {showResult && recommendationError && (
+              <div className="ask-empty ask-card" role="alert">
+                <p className="card-eyebrow">{"// RECOMMENDATION ERROR"}</p>
+                <h2>The cogitator lost its link.</h2>
+                <p>{recommendationError} Your answers are still preserved in the URL.</p>
+                <div className="ask-empty__actions">
+                  <button type="button" className="ask-cta" onClick={() => navigateWithAnswers(answers)}>
+                    Try again
+                  </button>
+                  <button type="button" className="ask-footlink" onClick={reset}>
+                    Reset
+                  </button>
+                </div>
+              </div>
             )}
 
-            {phase === "result" && path && (
+            {showResult && !recommendationError && result && (
               <ResultCard
-                path={path}
+                result={result}
+                questions={questions}
                 answers={answers}
-                onReset={resetSamePath}
-                onChangePath={changePath}
+                onBack={goBack}
+                onReset={reset}
               />
             )}
 
-            {phase === "question" && path && (
-              <BottomNav
-                step={step}
-                total={totalQuestions}
-                canAdvance={
-                  Boolean(currentQ && answers[currentQ.id]) && !processing
-                }
-                onBack={back}
-                onForward={forward}
-                accent={accent}
+            {showResult && !recommendationError && !result && (
+              <div className="ask-empty ask-card">
+                <p className="card-eyebrow">{"// NO RESULT PAYLOAD"}</p>
+                <h2>No recommendation payload arrived.</h2>
+                <p>Try resetting the funnel or widening your answers.</p>
+                <div className="ask-empty__actions">
+                  <button type="button" className="ask-footlink" onClick={goBack}>
+                    Back
+                  </button>
+                  <button type="button" className="ask-footlink" onClick={reset}>
+                    Reset
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {!showResult && !showProcessing && currentQuestion && (
+              <QuestionCard
+                key={currentQuestion.id}
+                question={currentQuestion}
+                index={activeIndex}
+                total={questions.length}
+                value={selectedValue}
+                disabled={isPending}
+                onPick={chooseOption}
               />
             )}
+
+            <div className="ask-stage__nav">
+              <button
+                type="button"
+                className="ask-footlink"
+                onClick={goBack}
+                disabled={!showResult && activeIndex === 0}
+              >
+                Back
+              </button>
+              <span className="ask-stage__nav-status">{statusLabel}</span>
+              <button type="button" className="ask-footlink" onClick={reset}>
+                Reset
+              </button>
+            </div>
           </div>
         </div>
-      )}
+      </section>
     </>
-  );
-}
-
-/* ── persistent HUD layer ──────────────────────────────────────────────────
- * The auspex sweep + ambient floating coordinates. Full-bleed, pointer-none.
- * opacity is driven entirely by `data-landing` (CSS), so it cross-fades when
- * leaving / re-entering the path overview. Kept mounted in every phase so the
- * fade has something to animate in both directions. */
-function AskHud({ landing }: { landing: boolean }) {
-  return (
-    <div className="ask-hud" data-landing={landing} aria-hidden>
-      <div className="ask-hud__sweep">
-        <AuspexSweep r={180} sweepDuration={16} accent="var(--cl-cyan)" />
-      </div>
-      <FloatingCoord x="40%" y="118px" label="QVERENT · UNREAD" delay={1.2} lifetime={5} color="var(--cl-cyan)" opacity={0.5} />
-      <FloatingCoord x="60%" y="208px" label="ORACVLVM · LISTENING" delay={3.0} lifetime={5} color="var(--cl-cyan)" opacity={0.45} />
-      <FloatingCoord x="29%" y="276px" label="VECTOR · UNSET · M42" delay={4.4} lifetime={5} color="var(--cl-cyan)" opacity={0.3} />
-    </div>
-  );
-}
-
-/* ── persistent title ──────────────────────────────────────────────────────
- * One <h1> for the whole funnel. It rests at the compact header position and is
- * pushed down into the hero band (`data-landing`) via a transform, so choosing
- * a path glides it up and "back" glides it down. The third line cross-fades
- * between the overview tagline and the chosen path's name. */
-type AskTitlebarProps = {
-  landing: boolean;
-  path: PathDef | null;
-  phase: Phase;
-};
-
-function AskTitlebar({ landing, path, phase }: AskTitlebarProps) {
-  const showPath = path && (phase === "question" || phase === "result");
-  return (
-    <header className="ask-titlebar" data-landing={landing}>
-      <div className="card-eyebrow ask-titlebar__eyebrow">
-        {"// ORACVLVM · COGITATOR-1011"}
-      </div>
-      <h1 className="ask-titlebar__heading">
-        ASK{" "}
-        <span className="ask-titlebar__diamond" aria-hidden>
-          ◆
-        </span>{" "}
-        THE ARCHIVE
-      </h1>
-      <div
-        key={showPath ? path!.id : "overview"}
-        className="ask-titlebar__line c-fade-in"
-      >
-        {showPath
-          ? `‹ ${path!.latin} · ${path!.label} ›`
-          : "There are many ways into the galaxy."}
-      </div>
-    </header>
-  );
-}
-
-type BottomNavProps = {
-  step: number;
-  total: number;
-  canAdvance: boolean;
-  onBack: () => void;
-  onForward: () => void;
-  accent: string;
-};
-
-function BottomNav({ step, total, canAdvance, onBack, onForward, accent }: BottomNavProps) {
-  return (
-    <div
-      style={{
-        width: "min(720px, 96vw)",
-        display: "grid",
-        gridTemplateColumns: "1fr auto 1fr",
-        alignItems: "center",
-        pointerEvents: "none",
-      }}
-    >
-      <div style={{ justifySelf: "start", pointerEvents: "auto" }}>
-        <NavButton onClick={onBack} disabled={false}>
-          ← Back
-        </NavButton>
-      </div>
-
-      <div style={{ pointerEvents: "auto" }}>
-        <ProgressDots step={step} total={total} />
-      </div>
-
-      <div style={{ justifySelf: "end", pointerEvents: "auto" }}>
-        <NavButton
-          onClick={onForward}
-          disabled={!canAdvance}
-          accent={accent}
-          emphasized={canAdvance}
-        >
-          Next →
-        </NavButton>
-      </div>
-    </div>
-  );
-}
-
-function NavButton({
-  children,
-  onClick,
-  disabled,
-  emphasized,
-  accent,
-}: {
-  children: React.ReactNode;
-  onClick: () => void;
-  disabled: boolean;
-  emphasized?: boolean;
-  accent?: string;
-}) {
-  const [hover, setHover] = useState(false);
-  const color = disabled
-    ? "var(--cl-faint)"
-    : emphasized
-      ? (accent ?? "var(--cl-cyan)")
-      : "var(--cl-dim)";
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{
-        fontFamily: "var(--font-plex-mono)",
-        fontSize: 11,
-        letterSpacing: "0.28em",
-        textTransform: "uppercase",
-        padding: "10px 6px",
-        background: "transparent",
-        color,
-        border: "none",
-        textDecoration: !disabled && hover ? "underline" : "none",
-        textUnderlineOffset: 4,
-        cursor: disabled ? "not-allowed" : "pointer",
-        transition: "color 0.2s",
-      }}
-    >
-      {children}
-    </button>
   );
 }
