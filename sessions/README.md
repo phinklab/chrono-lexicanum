@@ -20,7 +20,7 @@ For format, naming, status lifecycle, and archive rule, see [`brain/wiki/workflo
 
 ## Active threads
 
-> **Kopf (2026-06-02).** Korpus datenkomplett (859/859) und Podcast-Step-2 gemergt: Brief 113 liefert EntityView-Redesign + `@modal`-Panel; Brief 114 persistiert den 40k Lorecast als `podcast`/`podcast_episode` Works mit 149 Episoden und 519 Tags. Der neue Product-Nordstern steht in Brief 119: Medienarchiv zuerst, Kontextgraph als Navigation. Naechster ausfuehrbarer Product-Brief ist 120 (`/`, `/werke`, `/podcasts`, `/fraktionen`).
+> **Kopf (2026-06-03).** Korpus datenkomplett (859/859), Podcast-Step-2 und Public-Media-IA gemergt. Brief 120 liefert Home-Reframe, `/werke`, `/podcasts`, `/fraktionen` und den oeffentlichen Weg weg von `/atlas`; der anschliessende Product-Feinschliff hat die Archive-/Werke-Seite visuell weiter an Archive/Chronicle + Home-HUD angelehnt. Naechste Product-Linie: **Media-aware context surfaces** (EntityView/Panel + `/fraktion/[id]` als Reading/Listening Guides, Podcastgruppen, datengetriebene Banner, Buch-Chips/Facets als Links). Parallel moeglich: Podcast Step 3 (weitere Shows ingestieren).
 
 > **Offen aus den letzten Merges (kein Blocker):** Maintainer-Visual-Pass fuer Entity-Hubs/Panel; PR-#113-Sichtung (Chronicle/Ask-Redesign, Brief-096 G+H) + 096-Status-Flip; `?audit=drift` jetzt dauerhaft leer -> UI-Entscheidung. OQ (3) + (13) bleiben offen. Watch-Items: `project-state.md` What's open.
 
@@ -28,7 +28,7 @@ Nur offene / standing / jüngst geschlossene Sessions stehen in der Tabelle; all
 
 | Session | Role | Status | Topic |
 |---|---|---|---|
-| [120-arch-public-media-ia](./2026-06-02-120-arch-public-media-ia.md) | architect | open | **Public Media IA (Product).** Home, `/werke`, `/podcasts`, `/fraktionen`; Buecher zuerst, Podcasts als zweite Medien-Saeule, Fraktionen als Guide-Index; `/atlas` aus der public Home-/Tool-Navigation raus; Facets als `/werke`-Filter. |
+| [120-arch-public-media-ia](./2026-06-02-120-arch-public-media-ia.md) | architect | implemented | **Public Media IA (Product), gemergt 2026-06-03.** Home, `/werke`, `/podcasts`, `/fraktionen`; Buecher zuerst, Podcasts als zweite Medien-Saeule, Fraktionen als Guide-Index; `/atlas` aus der public Home-/Tool-Navigation raus; Facets als `/werke`-Filter; Report: [120-impl](./2026-06-02-120-impl-public-media-ia.md). |
 | [119-arch-media-archive-reframe](./2026-06-02-119-arch-media-archive-reframe.md) | architect | open | **Nordstern-Reframe zu 118.** Kein flacher Wiki-Graph: Medienarchiv zuerst, Kontextgraph als Navigation; unified detail view bedeutet nicht gleiche Produktprioritaet. |
 | [117-arch-tooling-files-relocation](./2026-06-02-117-arch-tooling-files-relocation.md) | architect | implemented | **Tooling-Files raus aus dem Brief-Namespace (Code-PR) — gemergt 2026-06-02.** 6 lebende Tooling-Files (2 Loop-Logs → `scripts/logs/`, 4 Runbooks → `scripts/runbooks/`) aus `sessions/`; Pfad pro Runner zentralisiert (`scripts/lib/tooling-paths.ts` + Shell-Konstanten); 102/107 mit-archiviert; alle `scripts/`+`brain/`+`CLAUDE.md`+`AGENTS.md`-Refs nachgezogen. Folge zu 111. |
 | [113-arch-entity-graph-panel](./2026-06-01-113-arch-entity-graph-panel.md) | architect | implemented | **Entity-Graph Step 2 — EntityView-Redesign + In-Context-Panel (Product), gemergt 2026-06-02.** Shared `EntityView` redesign + root `@modal` intercepts; Report: [113-impl](./2026-06-01-113-impl-entity-graph-panel.md). |
