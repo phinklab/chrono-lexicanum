@@ -92,8 +92,11 @@ body:has(main.ask) .site-bg::after {
 
 .ask-console__mast {
   position: relative;
-  height: 60vh;
-  min-height: 520px;
+  /* Cap the masthead height so the funnel grid (margin-top:-80px below) doesn't
+   * get pushed far down on tall viewports — the title stays fixed at 320px, the
+   * console pulls up to a steady gap on every screen >~1167px tall. /werke's
+   * .catalogue-hero carries the identical clamp so both pages stay aligned. */
+  height: clamp(520px, 60vh, 700px);
   max-width: none;
   margin: 0;
   padding: 320px clamp(18px, 4vw, 48px) 0;
@@ -129,7 +132,10 @@ body:has(main.ask) .site-bg::after {
 
 .ask-console__grid {
   display: grid;
-  grid-template-columns: minmax(248px, 318px) minmax(0, 1fr);
+  /* Content (.ask-stage) left in the wide column, status rail (.ask-status)
+     right in the narrow one. DOM order matches (stage first) so reading/tab
+     order tracks the visual L→R. */
+  grid-template-columns: minmax(0, 1fr) minmax(248px, 318px);
   gap: clamp(18px, 3vw, 34px);
   align-items: start;
   max-width: 1180px;
@@ -180,6 +186,12 @@ body:has(main.ask) .site-bg::after {
 
   .ask-console__grid {
     grid-template-columns: 1fr;
+  }
+
+  /* When the grid stacks, keep the stepper above the question (unchanged from
+     before the desktop column swap — the swap only reorders columns). */
+  .ask-status {
+    order: -1;
   }
 }
 

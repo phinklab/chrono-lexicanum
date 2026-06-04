@@ -148,49 +148,6 @@ export default function AskClient({
         </header>
 
         <div className="ask-console__grid" ref={gridRef}>
-          <aside className="ask-status ask-card" aria-label="Ask progress">
-            <div className="ask-status__head">
-              <span>{statusLabel}</span>
-              <span aria-hidden>{String(answeredCount).padStart(2, "0")}</span>
-            </div>
-            <ProgressDots
-              current={showResult ? questions.length : activeIndex + 1}
-              total={questions.length}
-              answered={answeredCount}
-              pending={isPending}
-            />
-            <ol className="ask-answer-list">
-              {selectedSummary.map((item, index) => (
-                <li key={item.id}>
-                  <button
-                    type="button"
-                    className="ask-answer-step"
-                    data-current={item.isCurrent}
-                    data-complete={Boolean(item.value)}
-                    onClick={() => revisitQuestion(index)}
-                    aria-current={item.isCurrent ? "step" : undefined}
-                  >
-                    <span className="ask-answer-step__index">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="ask-answer-step__text">
-                      <span>{item.label}</span>
-                      <span>{item.value ?? "Awaiting answer"}</span>
-                    </span>
-                  </button>
-                </li>
-              ))}
-            </ol>
-            <div className="ask-status__actions">
-              <button type="button" className="ask-pill" onClick={reset}>
-                Reset
-              </button>
-              <Link href="/werke" className="ask-pill">
-                Complete archive
-              </Link>
-            </div>
-          </aside>
-
           <div className="ask-stage" aria-live="polite">
             {showProcessing && (
               <ProcessingPanel
@@ -268,6 +225,49 @@ export default function AskClient({
               </button>
             </div>
           </div>
+
+          <aside className="ask-status ask-card" aria-label="Ask progress">
+            <div className="ask-status__head">
+              <span>{statusLabel}</span>
+              <span aria-hidden>{String(answeredCount).padStart(2, "0")}</span>
+            </div>
+            <ProgressDots
+              current={showResult ? questions.length : activeIndex + 1}
+              total={questions.length}
+              answered={answeredCount}
+              pending={isPending}
+            />
+            <ol className="ask-answer-list">
+              {selectedSummary.map((item, index) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    className="ask-answer-step"
+                    data-current={item.isCurrent}
+                    data-complete={Boolean(item.value)}
+                    onClick={() => revisitQuestion(index)}
+                    aria-current={item.isCurrent ? "step" : undefined}
+                  >
+                    <span className="ask-answer-step__index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="ask-answer-step__text">
+                      <span>{item.label}</span>
+                      <span>{item.value ?? "Awaiting answer"}</span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ol>
+            <div className="ask-status__actions">
+              <button type="button" className="ask-pill" onClick={reset}>
+                Reset
+              </button>
+              <Link href="/werke" className="ask-pill">
+                Complete archive
+              </Link>
+            </div>
+          </aside>
         </div>
       </section>
     </>
