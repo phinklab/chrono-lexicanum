@@ -5,6 +5,7 @@
  */
 import { db } from "@/db/client";
 import { factions as factionsTable } from "@/db/schema";
+import { passesHardAskBoundaries } from "./boundaries";
 import { applyAskCuration, EMPTY_ASK_CURATION, type AskCurationOverlay } from "./curation";
 import { ASK_QUESTIONS } from "./questions";
 import {
@@ -723,7 +724,9 @@ export async function recommend(
 
   try {
     const books = await loadAskBooksForRecommend(options.cacheBooks);
-    const baseRecommendations = books.map((book) => scoreBook(book, profile));
+    const baseRecommendations = books
+      .filter((book) => passesHardAskBoundaries(book, profile.answers))
+      .map((book) => scoreBook(book, profile));
     const curation = options.curation === null ? EMPTY_ASK_CURATION : options.curation;
     const recommendations = applyAskCuration(
       baseRecommendations.sort(compareRecommendations),

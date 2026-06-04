@@ -1,56 +1,21 @@
 "use client";
 
-import { type CSSProperties } from "react";
 import ProcessingDots from "@/components/chrono/ProcessingDots";
-import type { AccentToken } from "@/lib/askPaths";
 
 type ProcessingPanelProps = {
-  accent: AccentToken;
+  title: string;
+  detail: string;
 };
 
-export default function ProcessingPanel({ accent }: ProcessingPanelProps) {
+export default function ProcessingPanel({ title, detail }: ProcessingPanelProps) {
   return (
-    <div
-      className="c-glass c-corners c-fade-in"
-      style={{
-        "--row-accent": accent,
-        width: "min(540px, 92vw)",
-        padding: "40px 44px",
-        textAlign: "center",
-        position: "relative",
-        margin: "0 auto",
-      } as CSSProperties}
-    >
-      <div className="card-eyebrow" style={{ marginBottom: 14 }}>
-        {"// COGITATOR · CALCULATING"}
+    <section className="ask-processing ask-card c-corners c-fade-in" role="status">
+      <p className="card-eyebrow">{"// COGITATOR / RANKING"}</p>
+      <h2>{title}</h2>
+      <p>{detail}</p>
+      <div className="ask-processing__dots">
+        <ProcessingDots label="Loading recommendations" color="var(--cl-cyan)" />
       </div>
-      <div
-        style={{
-          fontFamily: "var(--font-cinzel)",
-          fontWeight: 500,
-          fontSize: 22,
-          letterSpacing: "0.10em",
-          color: "var(--cl-bone)",
-          marginBottom: 18,
-        }}
-      >
-        <ProcessingDots label="Processing answer" color={accent} />
-      </div>
-      <div style={{ display: "flex", justifyContent: "center", gap: 6 }}>
-        {Array.from({ length: 5 }).map((_, i) => (
-          <span
-            key={i}
-            className="c-blink"
-            style={{
-              width: 6,
-              height: 6,
-              borderRadius: "50%",
-              background: accent,
-              animationDelay: `${i * 0.15}s`,
-            }}
-          />
-        ))}
-      </div>
-    </div>
+    </section>
   );
 }
