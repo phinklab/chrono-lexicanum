@@ -22,8 +22,10 @@ main.catalogue {
 
 .catalogue-hero {
   position: relative;
-  height: 60vh;
-  min-height: 520px;
+  /* Cap the hero height so the catalogue body (margin-top:-80px) doesn't drop
+   * far below the fixed title on tall viewports. Identical clamp to /ask's
+   * .ask-console__mast so the two pages' content bands stay aligned. */
+  height: clamp(520px, 60vh, 700px);
   background: transparent;
 }
 /* Photo + fade are viewport-fixed so the title image stays put as the user
