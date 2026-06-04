@@ -26,7 +26,7 @@ export default function QuestionCard({
   const titleId = `ask-question-${question.id}`;
 
   return (
-    <section className="ask-question ask-card c-corners c-fade-in" aria-labelledby={titleId}>
+    <section className="ask-question ask-card c-fade-in" aria-labelledby={titleId}>
       <div className="ask-question__kicker">
         <span>Question {String(index + 1).padStart(2, "0")}</span>
         <span aria-hidden>/ {String(total).padStart(2, "0")}</span>
@@ -53,6 +53,9 @@ export default function QuestionCard({
               <span className="ask-option__body">
                 <span className="ask-option__label">{option.label}</span>
                 <span className="ask-option__sub">{option.sub}</span>
+              </span>
+              <span className="ask-option__mark" aria-hidden>
+                {selected ? "▸" : "›"}
               </span>
             </button>
           );

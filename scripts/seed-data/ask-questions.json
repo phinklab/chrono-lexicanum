@@ -170,6 +170,12 @@
           "series": 3,
           "deep_cut": 1
         }
+      },
+      {
+        "id": "any_length",
+        "label": "No preference",
+        "sub": "Short or epic — surprise me.",
+        "weight": {}
       }
     ]
   },

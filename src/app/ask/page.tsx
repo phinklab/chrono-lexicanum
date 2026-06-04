@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SiteBackground from "@/components/chrome/SiteBackground";
+import ScrollScrim from "@/app/buecher/ScrollScrim";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import AskClient from "@/components/ask/AskClient";
@@ -60,6 +61,11 @@ export default async function AskPage({ searchParams }: AskPageProps) {
   return (
     <main className="ask">
       <SiteBackground variant="oracle" position="50% 30%" />
+      <ScrollScrim
+        className="ask-scrim"
+        varName="--ask-scrim-opacity"
+        heroSelector=".ask-console__mast"
+      />
 
       <div className="ask-readout" aria-hidden>
         <GhostReadout

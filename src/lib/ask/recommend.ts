@@ -367,13 +367,20 @@ function factionInTree(faction: FactionRef, roots: readonly string[]): boolean {
   return roots.some((root) => faction.ancestry.includes(root));
 }
 
-function pageDetail(book: AskBookWork): string {
-  return book.pageCount == null ? "page count unknown" : `${book.pageCount} pages`;
+function pageDetail(book: AskBookWork): string | null {
+  return book.pageCount == null ? null : `${book.pageCount} pages`;
 }
 
+// Build the reason caption from only the facts we actually hold — never
+// surface "page count unknown" or "unknown entry point" filler. If both are
+// missing the caption is empty and the row shows just the reason label.
 function entryDetail(book: AskBookWork): string {
-  const entry = firstCategoryFacet(book, "entry_point") ?? "unknown entry point";
-  return `${entry.replaceAll("_", " ")}; ${pageDetail(book)}`;
+  const entry = firstCategoryFacet(book, "entry_point");
+  const parts = [
+    entry ? entry.replaceAll("_", " ") : null,
+    pageDetail(book),
+  ].filter((part): part is string => part != null);
+  return parts.join("; ");
 }
 
 function evaluateNewcomer(book: AskBookWork): TagEvaluation {
