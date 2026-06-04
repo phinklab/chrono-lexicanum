@@ -34,7 +34,7 @@ Optik = deine (frontend-design Skill): Farben, Spacing, Typo, Motion, Copy, Klas
 
 | # | Task | Status |
 |---|---|---|
-| P1 | Home `/` Redesign | ☐ |
+| P1 | Home `/` Redesign | ☑ erledigt (129) |
 | P2 | Chronicle `/timeline` Redesign (Contract bleibt) | ☐ |
 | P3 | Ask `/ask` Funnel-Redesign, wired gegen 122-B4 | ☑ erledigt (126) |
 | P4 | Podcast `/podcasts` Redesign + Link-zur-Show & Download-Option (Daten 122-B1) | ☐ |
