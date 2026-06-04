@@ -1,11 +1,11 @@
 "use client";
 
 import type {
-  AskOption,
   AskOptionId,
   AskQuestion,
   AskQuestionId,
 } from "@/lib/ask/types";
+import OptionGlyph from "./OptionGlyph";
 
 type QuestionCardProps = {
   question: AskQuestion;
@@ -15,11 +15,6 @@ type QuestionCardProps = {
   disabled?: boolean;
   onPick: (questionId: AskQuestionId, optionId: AskOptionId) => void;
 };
-
-function optionCode(option: AskOption, index: number): string {
-  if (option.icon) return option.icon.toUpperCase();
-  return String(index + 1).padStart(2, "0");
-}
 
 export default function QuestionCard({
   question,
@@ -54,7 +49,11 @@ export default function QuestionCard({
               onClick={() => onPick(question.id, option.id)}
             >
               <span className="ask-option__code" aria-hidden>
-                {optionCode(option, optionIndex)}
+                {option.icon ? (
+                  <OptionGlyph name={option.icon} />
+                ) : (
+                  String(optionIndex + 1).padStart(2, "0")
+                )}
               </span>
               <span className="ask-option__body">
                 <span className="ask-option__label">{option.label}</span>

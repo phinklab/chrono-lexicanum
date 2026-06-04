@@ -122,19 +122,19 @@ export default function AskClient({
     <>
       <div className="ask-hud" aria-hidden>
         <div className="ask-hud__sweep">
-          <AuspexSweep r={150} sweepDuration={18} accent="var(--cl-cyan)" />
+          <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-cyan)" />
         </div>
       </div>
 
       <section className="ask-console" aria-labelledby="ask-title">
         <header className="ask-console__mast">
-          <p className="card-eyebrow">{"// ORACVLVM / ASK THE ARCHIVE"}</p>
+          <p className="card-eyebrow">{"// ORACVLVM · ASK THE ARCHIVE"}</p>
           <h1 id="ask-title" className="ask-console__title">
-            Five answers. Real books.
+            Oracle
           </h1>
           <p className="ask-console__sub">
-            Tune the signal; the archive ranks entry points from the live book
-            catalogue.
+            Five questions, then ranked entry points drawn from the living
+            archive.
           </p>
         </header>
 

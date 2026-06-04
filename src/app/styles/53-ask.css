@@ -9,6 +9,9 @@ main.ask {
   overflow-x: hidden;
 }
 
+/* Crisp-top, void-bottom fade — the /werke hero treatment: the oracle photo
+ * stays sharp through the upper band (windows, planet, title), then ramps to
+ * near-void where the funnel console sits. Neutral void, no cyan halo. */
 body:has(main.ask) .site-bg::after {
   content: "";
   position: absolute;
@@ -16,16 +19,17 @@ body:has(main.ask) .site-bg::after {
   pointer-events: none;
   background:
     radial-gradient(
-      ellipse at 50% 20%,
-      rgba(156, 230, 255, 0.10) 0%,
-      rgba(2, 3, 10, 0.18) 42%,
-      rgba(2, 3, 10, 0.84) 100%
+      ellipse at 50% 34%,
+      transparent 48%,
+      rgba(2, 3, 10, 0.22) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(2, 3, 10, 0.42) 0%,
-      rgba(2, 3, 10, 0.76) 42%,
-      rgba(2, 3, 10, 0.96) 100%
+      rgba(2, 3, 10, 0) 0%,
+      rgba(2, 3, 10, 0) 36%,
+      rgba(2, 3, 10, 0.46) 56%,
+      rgba(2, 3, 10, 0.88) 76%,
+      rgba(2, 3, 10, 0.99) 92%
     );
 }
 
@@ -33,14 +37,17 @@ body:has(main.ask) .site-bg::after {
   position: fixed;
   top: 96px;
   right: clamp(16px, 4vw, 48px);
-  width: 270px;
+  width: 260px;
   z-index: 3;
   pointer-events: none;
 }
 
+/* Pinned to the viewport top (inset 0), so the auspex sweep sits at the same
+ * fixed height as /werke's hero sweep — nav-independent, not pushed down by
+ * --top-nav-h the way the old offset did. */
 .ask-hud {
   position: fixed;
-  inset: var(--top-nav-h, 48px) 0 0;
+  inset: 0;
   z-index: 1;
   pointer-events: none;
   opacity: 0.62;

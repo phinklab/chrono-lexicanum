@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
-import LetterField from "@/components/chrono/LetterField";
-import WordField from "@/components/chrono/WordField";
 import AskClient from "@/components/ask/AskClient";
 import { ASK_QUESTIONS } from "@/lib/ask/questions";
 import {
@@ -61,10 +59,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
 
   return (
     <main className="ask">
-      <SiteBackground variant="librarium" position="50% 30%" />
-
-      <WordField count={5} seed={11} color="156,230,255" baseOpacity={0.08} />
-      <LetterField count={16} seed={37} color="var(--cl-cyan)" baseOpacity={0.07} />
+      <SiteBackground variant="oracle" position="50% 30%" />
 
       <div className="ask-readout" aria-hidden>
         <GhostReadout
@@ -79,21 +74,21 @@ export default async function AskPage({ searchParams }: AskPageProps) {
 
       <FloatingCoord
         x="42%"
-        y="112px"
+        y="120px"
         label="QUERY / PUBLIC"
         delay={1.2}
         lifetime={5}
         color="var(--cl-cyan)"
-        opacity={0.45}
+        opacity={0.5}
       />
       <FloatingCoord
-        x="62%"
+        x="58%"
         y="220px"
         label={`PROFILE / ${answeredCount} OF ${ASK_QUESTIONS.length}`}
         delay={3}
         lifetime={5}
         color="var(--cl-cyan)"
-        opacity={0.32}
+        opacity={0.5}
       />
 
       <AskClient

@@ -1,19 +1,21 @@
 /* 58-ask-booklist.css
    Ask funnel components: progress rail, option buttons, recommendation rows. */
 
+/* Sharp-cornered glass — the house `.c-glass` discipline (no border-radius),
+ * matched so the funnel panels read as the same angular, gothic surface as
+ * /werke rather than soft rounded cards. */
 .ask-card {
   --row-accent: var(--cl-cyan);
   position: relative;
   border: 1px solid color-mix(in oklch, var(--cl-cyan) 18%, transparent);
-  border-radius: 6px;
   background:
     linear-gradient(180deg, rgba(8, 12, 20, 0.86) 0%, rgba(4, 8, 14, 0.94) 100%),
     linear-gradient(90deg, rgba(156, 230, 255, 0.08), transparent 42%);
-  backdrop-filter: blur(11px);
-  -webkit-backdrop-filter: blur(11px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow:
-    0 18px 48px rgba(0, 0, 0, 0.58),
-    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+    0 12px 40px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .card-eyebrow {
@@ -64,7 +66,6 @@
 .ask-progress__bar {
   display: block;
   height: 5px;
-  border-radius: 999px;
   background: var(--line-1);
   transition: background 180ms, box-shadow 180ms;
 }
@@ -225,7 +226,6 @@
   align-items: start;
   padding: 14px;
   border: 1px solid var(--line-1);
-  border-radius: 4px;
   background: rgba(2, 3, 10, 0.42);
   color: inherit;
   text-align: left;
@@ -257,11 +257,17 @@
   width: 42px;
   height: 42px;
   border: 1px solid color-mix(in oklch, var(--cl-cyan) 26%, transparent);
-  border-radius: 4px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   letter-spacing: 0.08em;
   color: var(--cl-cyan);
+}
+
+/* Faction options carry a line-art glyph instead of a number; the slot frames
+ * it like a rune in a HUD bezel. */
+.ask-option__glyph {
+  width: 24px;
+  height: 24px;
 }
 
 .ask-option__body {
@@ -420,7 +426,6 @@
 
 .ask-reasons li {
   border: 1px solid color-mix(in oklch, var(--cl-cyan) 24%, transparent);
-  border-radius: 999px;
   padding: 5px 9px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-xs);
@@ -513,7 +518,6 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--cl-cyan);
-  border-radius: 4px;
   background: var(--cl-cyan);
   color: var(--cl-void);
   cursor: pointer;
@@ -529,7 +533,6 @@
 .ask-cta:hover,
 .ask-cta:focus-visible {
   background: color-mix(in oklch, var(--cl-cyan) 88%, white);
-  box-shadow: 0 0 18px rgba(156, 230, 255, 0.28);
 }
 
 .ask-sr-only {

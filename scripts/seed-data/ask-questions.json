@@ -1,7 +1,7 @@
 [
   {
     "id": "experience",
-    "prompt": "Where do you stand with the Archive?",
+    "prompt": "How well do you know the grim darkness?",
     "hint": "First question — sets the foundation.",
     "options": [
       {
@@ -36,8 +36,8 @@
   },
   {
     "id": "faction_love",
-    "prompt": "Which power stirs you most?",
-    "hint": "Pick the side you want to follow.",
+    "prompt": "Where do your loyalties lie?",
+    "hint": "Pick the banner you would follow.",
     "options": [
       {
         "id": "imperium",
@@ -100,7 +100,7 @@
   },
   {
     "id": "tone",
-    "prompt": "What tone suits your mood?",
+    "prompt": "What tone do you seek?",
     "options": [
       {
         "id": "grimdark",
@@ -148,7 +148,7 @@
   },
   {
     "id": "length",
-    "prompt": "How deep do you want to commit?",
+    "prompt": "How long a crusade can you commit to?",
     "options": [
       {
         "id": "standalone",
@@ -181,7 +181,7 @@
   },
   {
     "id": "era_pref",
-    "prompt": "Which age calls you?",
+    "prompt": "Which age calls to you?",
     "options": [
       {
         "id": "heresy",
