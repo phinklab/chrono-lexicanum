@@ -256,18 +256,17 @@
   justify-content: center;
   width: 42px;
   height: 42px;
-  border: 1px solid color-mix(in oklch, var(--cl-cyan) 26%, transparent);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   letter-spacing: 0.08em;
   color: var(--cl-cyan);
 }
 
-/* Faction options carry a line-art glyph instead of a number; the slot frames
- * it like a rune in a HUD bezel. */
+/* Faction options carry a Game Icons glyph instead of a number — no bezel, the
+ * silhouette stands on its own. The 42px slot stays as an alignment spacer. */
 .ask-option__glyph {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 }
 
 .ask-option__body {
