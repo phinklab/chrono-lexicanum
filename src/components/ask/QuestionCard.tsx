@@ -5,7 +5,6 @@ import type {
   AskQuestion,
   AskQuestionId,
 } from "@/lib/ask/types";
-import OptionGlyph from "./OptionGlyph";
 
 type QuestionCardProps = {
   question: AskQuestion;
@@ -49,11 +48,7 @@ export default function QuestionCard({
               onClick={() => onPick(question.id, option.id)}
             >
               <span className="ask-option__code" aria-hidden>
-                {option.icon ? (
-                  <OptionGlyph name={option.icon} />
-                ) : (
-                  String(optionIndex + 1).padStart(2, "0")
-                )}
+                {String(optionIndex + 1).padStart(2, "0")}
               </span>
               <span className="ask-option__body">
                 <span className="ask-option__label">{option.label}</span>

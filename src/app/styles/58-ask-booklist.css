@@ -262,13 +262,6 @@
   color: var(--cl-cyan);
 }
 
-/* Faction options carry a Game Icons glyph instead of a number — no bezel, the
- * silhouette stands on its own. The 42px slot stays as an alignment spacer. */
-.ask-option__glyph {
-  width: 28px;
-  height: 28px;
-}
-
 .ask-option__body {
   min-width: 0;
   display: grid;

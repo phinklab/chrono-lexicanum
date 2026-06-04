@@ -45,8 +45,7 @@
         "sub": "Duty, faith, grim heroism.",
         "weight": {
           "faction_imperium": 3
-        },
-        "icon": "aquila"
+        }
       },
       {
         "id": "heretic",
@@ -55,8 +54,7 @@
         "weight": {
           "faction_chaos": 3,
           "villain_pov": 2
-        },
-        "icon": "chaos"
+        }
       },
       {
         "id": "loyalist_sm",
@@ -64,8 +62,7 @@
         "sub": "The Emperor's finest, loyal to the Throne.",
         "weight": {
           "faction_space_marines": 3
-        },
-        "icon": "skull"
+        }
       },
       {
         "id": "inquisition",
@@ -74,8 +71,7 @@
         "weight": {
           "faction_inquisition": 3,
           "accessible": 1
-        },
-        "icon": "eye"
+        }
       },
       {
         "id": "guard",
@@ -84,8 +80,7 @@
         "weight": {
           "faction_guard": 3,
           "accessible": 1
-        },
-        "icon": "rifle"
+        }
       },
       {
         "id": "xenos",
@@ -93,8 +88,7 @@
         "sub": "Aeldari, Necrons, T'au — beyond human.",
         "weight": {
           "faction_xenos": 3
-        },
-        "icon": "xenos"
+        }
       }
     ]
   },

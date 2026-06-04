@@ -54,7 +54,6 @@ export interface AskOption {
   label: string;
   sub: string;
   weight: AskWeightVector;
-  icon?: string;
 }
 
 export interface AskQuestion {
