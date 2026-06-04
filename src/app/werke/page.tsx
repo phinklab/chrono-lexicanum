@@ -11,10 +11,10 @@ import WerkeFilters from "./WerkeFilters";
 import { loadBrowseBooks, type BrowseBook } from "./loader";
 import {
   applyWorksFilters,
+  buildSearchIndex,
   FORMAT_ORDER,
   isFiltered,
   parseWorksParams,
-  type Suggestion,
   type WorksParams,
 } from "./filters";
 
@@ -85,43 +85,11 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
     (f) => ({ value: f, label: FORMAT_LABELS[f] ?? f }),
   );
 
-  // Build the typeahead index once, server-side, from the same data the list
-  // renders (books + authors + factions + facets + formats). The client island
-  // ranks it per keystroke; see `rankSuggestions`.
-  const searchIndex: Suggestion[] = [];
-  const authorSeen = new Map<string, string>();
-  const facetSeen = new Set<string>();
-  for (const b of books) {
-    searchIndex.push({
-      kind: "book",
-      label: b.title,
-      value: b.slug,
-      hint: b.authors[0] ?? b.seriesName ?? null,
-    });
-    for (const a of b.authors) {
-      const key = a.toLowerCase();
-      if (!authorSeen.has(key)) authorSeen.set(key, a);
-    }
-    for (const f of b.facets) {
-      if (facetSeen.has(f.id)) continue;
-      facetSeen.add(f.id);
-      searchIndex.push({
-        kind: "facet",
-        label: f.name,
-        value: f.id,
-        hint: f.categoryName,
-      });
-    }
-  }
-  for (const [value, label] of factionMap) {
-    searchIndex.push({ kind: "faction", label, value });
-  }
-  for (const f of formatOptions) {
-    searchIndex.push({ kind: "format", label: f.label, value: f.value });
-  }
-  for (const name of authorSeen.values()) {
-    searchIndex.push({ kind: "author", label: name, value: name });
-  }
+  // The typeahead index (books + authors + factions + facets + formats), built
+  // server-side from the same data the list renders so it never goes stale.
+  // Shared with Home via buildSearchIndex; the client console ranks it per
+  // keystroke (rankSuggestions).
+  const searchIndex = buildSearchIndex(books);
 
   // Resolve the active facet (if any) to a display chip.
   let activeFacet: { id: string; name: string; category: string | null } | null =

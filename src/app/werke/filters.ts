@@ -222,3 +222,55 @@ export const SUGGEST_GROUP_LABEL: Record<SuggestKind, string> = {
   format: "Formats",
   author: "Authors",
 };
+
+/**
+ * Build the typeahead index from the loaded browse books — one book entry each,
+ * plus the distinct factions, facets, formats (present-only, in canon order) and
+ * authors. Shared so `/werke` (filter-in-place) and Home (navigate-into-archive)
+ * feed their consoles from the *same* index rather than two drifting copies.
+ * `rankSuggestions` re-groups by kind, so insertion order here is immaterial.
+ */
+export function buildSearchIndex(books: readonly BrowseBook[]): Suggestion[] {
+  const index: Suggestion[] = [];
+  const factionMap = new Map<string, string>();
+  const authorSeen = new Map<string, string>();
+  const facetSeen = new Set<string>();
+
+  for (const b of books) {
+    index.push({
+      kind: "book",
+      label: b.title,
+      value: b.slug,
+      hint: b.authors[0] ?? b.seriesName ?? null,
+    });
+    for (const f of b.factions) factionMap.set(f.id, f.name);
+    for (const a of b.authors) {
+      const key = a.toLowerCase();
+      if (!authorSeen.has(key)) authorSeen.set(key, a);
+    }
+    for (const f of b.facets) {
+      if (facetSeen.has(f.id)) continue;
+      facetSeen.add(f.id);
+      index.push({
+        kind: "facet",
+        label: f.name,
+        value: f.id,
+        hint: f.categoryName,
+      });
+    }
+  }
+
+  const presentFormats = new Set(books.map((b) => b.format).filter(Boolean));
+  for (const f of FORMAT_ORDER) {
+    if (!presentFormats.has(f)) continue;
+    index.push({ kind: "format", label: FORMAT_LABELS[f] ?? f, value: f });
+  }
+  for (const [value, label] of factionMap) {
+    index.push({ kind: "faction", label, value });
+  }
+  for (const name of authorSeen.values()) {
+    index.push({ kind: "author", label: name, value: name });
+  }
+
+  return index;
+}
