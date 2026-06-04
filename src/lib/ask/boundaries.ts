@@ -94,6 +94,7 @@ function passesLengthBoundary(
       return isSingleVolume(candidate);
     case "trilogy":
     case "epic":
+    case "any_length":
       return true;
   }
 }

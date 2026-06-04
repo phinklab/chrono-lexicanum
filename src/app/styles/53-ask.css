@@ -9,6 +9,12 @@ main.ask {
   overflow-x: hidden;
 }
 
+/* Crisp-top, fade-to-void — /werke's hero treatment, matched in strength: the
+ * oracle photo is sharp through the upper band (windows, planet, title), then
+ * ramps to full void exactly where the funnel sits, the way /werke's photo
+ * collapses to black under its book rows. The funnel panels are de-boxed (see
+ * .ask-card — no glass fill), so this fade is what gives their content its dark,
+ * legible backdrop. Neutral void only — no cyan halo, no warm gradient, no bloom. */
 body:has(main.ask) .site-bg::after {
   content: "";
   position: absolute;
@@ -16,31 +22,52 @@ body:has(main.ask) .site-bg::after {
   pointer-events: none;
   background:
     radial-gradient(
-      ellipse at 50% 20%,
-      rgba(156, 230, 255, 0.10) 0%,
-      rgba(2, 3, 10, 0.18) 42%,
-      rgba(2, 3, 10, 0.84) 100%
+      ellipse at 50% 34%,
+      transparent 50%,
+      rgba(2, 3, 10, 0.20) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(2, 3, 10, 0.42) 0%,
-      rgba(2, 3, 10, 0.76) 42%,
-      rgba(2, 3, 10, 0.96) 100%
+      rgba(2, 3, 10, 0) 0%,
+      rgba(2, 3, 10, 0) 38%,
+      rgba(2, 3, 10, 0.52) 56%,
+      rgba(2, 3, 10, 0.90) 74%,
+      rgba(2, 3, 10, 1) 90%
     );
+}
+
+/* Scroll-darkening scrim — the same device as /werke's .catalogue-scrim. The
+ * oracle photo + fade are viewport-fixed, so without this a long results list
+ * would scroll up over the crisp top of the photo and lose legibility.
+ * <ScrollScrim> raises --ask-scrim-opacity from 0 toward its peak as the reader
+ * scrolls, fading the fixed photo to near-void. SSR default 0 keeps the photo
+ * crisp on first paint. Coplanar with .site-bg (z -1) but later in the DOM, so
+ * it paints over the photo while staying below all funnel content. */
+.ask-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--cl-void);
+  opacity: var(--ask-scrim-opacity, 0);
+  will-change: opacity;
 }
 
 .ask-readout {
   position: fixed;
   top: 96px;
   right: clamp(16px, 4vw, 48px);
-  width: 270px;
+  width: 260px;
   z-index: 3;
   pointer-events: none;
 }
 
+/* Pinned to the viewport top (inset 0), so the auspex sweep sits at the same
+ * fixed height as /werke's hero sweep — nav-independent, not pushed down by
+ * --top-nav-h the way the old offset did. */
 .ask-hud {
   position: fixed;
-  inset: var(--top-nav-h, 48px) 0 0;
+  inset: 0;
   z-index: 1;
   pointer-events: none;
   opacity: 0.62;
@@ -108,6 +135,9 @@ body:has(main.ask) .site-bg::after {
   max-width: 1180px;
   margin: -80px auto 0;
   padding: 24px clamp(20px, 3vw, 48px) 0;
+  /* So a reset re-anchored here (AskClient.reset) clears the fixed TopNav
+     instead of tucking the funnel under it. */
+  scroll-margin-top: 72px;
 }
 
 .ask-stage {

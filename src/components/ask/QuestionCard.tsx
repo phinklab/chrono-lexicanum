@@ -1,7 +1,6 @@
 "use client";
 
 import type {
-  AskOption,
   AskOptionId,
   AskQuestion,
   AskQuestionId,
@@ -16,11 +15,6 @@ type QuestionCardProps = {
   onPick: (questionId: AskQuestionId, optionId: AskOptionId) => void;
 };
 
-function optionCode(option: AskOption, index: number): string {
-  if (option.icon) return option.icon.toUpperCase();
-  return String(index + 1).padStart(2, "0");
-}
-
 export default function QuestionCard({
   question,
   index,
@@ -32,7 +26,7 @@ export default function QuestionCard({
   const titleId = `ask-question-${question.id}`;
 
   return (
-    <section className="ask-question ask-card c-corners c-fade-in" aria-labelledby={titleId}>
+    <section className="ask-question ask-card c-fade-in" aria-labelledby={titleId}>
       <div className="ask-question__kicker">
         <span>Question {String(index + 1).padStart(2, "0")}</span>
         <span aria-hidden>/ {String(total).padStart(2, "0")}</span>
@@ -54,11 +48,14 @@ export default function QuestionCard({
               onClick={() => onPick(question.id, option.id)}
             >
               <span className="ask-option__code" aria-hidden>
-                {optionCode(option, optionIndex)}
+                {String(optionIndex + 1).padStart(2, "0")}
               </span>
               <span className="ask-option__body">
                 <span className="ask-option__label">{option.label}</span>
                 <span className="ask-option__sub">{option.sub}</span>
+              </span>
+              <span className="ask-option__mark" aria-hidden>
+                {selected ? "▸" : "›"}
               </span>
             </button>
           );

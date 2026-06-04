@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useMemo, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
@@ -52,6 +52,7 @@ export default function AskClient({
   const [optimisticAnswers, setOptimisticAnswers] = useState<AskAnswers | null>(null);
   const [activeIndex, setActiveIndex] = useState(() => initialQuestionIndex(initialAnswers));
   const [editingCompleteProfile, setEditingCompleteProfile] = useState(false);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   const answers = isPending && optimisticAnswers ? optimisticAnswers : initialAnswers;
   const answeredCount = countAskAnswers(answers);
@@ -106,9 +107,17 @@ export default function AskClient({
   };
 
   const reset = () => {
+    // Resetting from the (tall) results view used to let the browser clamp the
+    // scroll up into the masthead — jarring. Only when results were showing do
+    // we re-anchor to the funnel grid so question 01 lands in view; mid-funnel
+    // resets keep their place (the navigation already preserves scroll).
+    const wasShowingResult = showResult;
     setActiveIndex(0);
     setEditingCompleteProfile(false);
     navigateWithAnswers({});
+    if (wasShowingResult) {
+      gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   const revisitQuestion = (index: number) => {
@@ -122,23 +131,23 @@ export default function AskClient({
     <>
       <div className="ask-hud" aria-hidden>
         <div className="ask-hud__sweep">
-          <AuspexSweep r={150} sweepDuration={18} accent="var(--cl-cyan)" />
+          <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-cyan)" />
         </div>
       </div>
 
       <section className="ask-console" aria-labelledby="ask-title">
         <header className="ask-console__mast">
-          <p className="card-eyebrow">{"// ORACVLVM / ASK THE ARCHIVE"}</p>
+          <p className="card-eyebrow">{"// ORACVLVM · ASK THE ARCHIVE"}</p>
           <h1 id="ask-title" className="ask-console__title">
-            Five answers. Real books.
+            Oracle
           </h1>
           <p className="ask-console__sub">
-            Tune the signal; the archive ranks entry points from the live book
-            catalogue.
+            Five questions, then ranked entry points drawn from the living
+            archive.
           </p>
         </header>
 
-        <div className="ask-console__grid">
+        <div className="ask-console__grid" ref={gridRef}>
           <aside className="ask-status ask-card" aria-label="Ask progress">
             <div className="ask-status__head">
               <span>{statusLabel}</span>
@@ -173,11 +182,11 @@ export default function AskClient({
               ))}
             </ol>
             <div className="ask-status__actions">
-              <button type="button" className="ask-footlink" onClick={reset}>
+              <button type="button" className="ask-pill" onClick={reset}>
                 Reset
               </button>
-              <Link href="/werke" className="ask-footlink">
-                Browse works
+              <Link href="/werke" className="ask-pill">
+                Complete archive
               </Link>
             </div>
           </aside>

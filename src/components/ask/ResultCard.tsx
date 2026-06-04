@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { FORMAT_LABELS } from "@/lib/book-labels";
+import { partitionByLengthIntent } from "@/lib/ask/length-match";
 import type {
   AskAnswers,
   AskQuestion,
@@ -90,6 +91,26 @@ function RecommendationRow({
   );
 }
 
+function ResultList({
+  items,
+  offset = 0,
+  label,
+}: {
+  items: readonly AskRecommendation[];
+  offset?: number;
+  label?: string;
+}) {
+  return (
+    <ol className="ask-results__list" aria-label={label}>
+      {items.map((recommendation, index) => (
+        <li key={recommendation.id}>
+          <RecommendationRow recommendation={recommendation} index={offset + index} />
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 export default function ResultCard({
   result,
   questions,
@@ -98,9 +119,14 @@ export default function ResultCard({
   onReset,
 }: ResultCardProps) {
   const recommendations = result.recommendations;
+  const { graded, exact, further } = partitionByLengthIntent(recommendations, answers);
+  const noExactLength = graded && exact.length === 0;
+  const splitLength = graded && exact.length > 0 && further.length > 0;
+  const lengthQuestion = questions.find((question) => question.id === "length");
+  const lengthLabel = lengthQuestion ? answerLabel(lengthQuestion, answers) : null;
 
   return (
-    <section className="ask-results ask-card c-corners c-fade-in" aria-labelledby="ask-results-title">
+    <section className="ask-results ask-card c-fade-in" aria-labelledby="ask-results-title">
       <div className="ask-results__head">
         <div>
           <p className="card-eyebrow">{"// RESPONSVM / TOP FIVE"}</p>
@@ -116,14 +142,34 @@ export default function ResultCard({
           <h3>No books matched strongly enough.</h3>
           <p>Try stepping back and choosing a broader faction, era, or commitment level.</p>
         </div>
+      ) : noExactLength ? (
+        <>
+          <p className="ask-results__note" role="note">
+            <span className="ask-results__note-key" aria-hidden>
+              {"// NO EXACT MATCH"}
+            </span>
+            <span>
+              None of your top picks are{" "}
+              {lengthLabel ? <em>{lengthLabel.toLowerCase()}</em> : "that commitment"}. These are
+              the closest, ranked on the rest of your answers.
+            </span>
+          </p>
+          <ResultList items={further} />
+        </>
+      ) : splitLength ? (
+        <>
+          <ResultList items={exact} />
+          <p className="ask-results__divider">
+            <span className="ask-results__divider-label">Further recommendations</span>
+            <span className="ask-results__divider-note">
+              Strong picks that aren&rsquo;t{" "}
+              {lengthLabel ? <em>{lengthLabel.toLowerCase()}</em> : "that length"}.
+            </span>
+          </p>
+          <ResultList items={further} offset={exact.length} label="Further recommendations" />
+        </>
       ) : (
-        <ol className="ask-results__list">
-          {recommendations.map((recommendation, index) => (
-            <li key={recommendation.id}>
-              <RecommendationRow recommendation={recommendation} index={index} />
-            </li>
-          ))}
-        </ol>
+        <ResultList items={exact} />
       )}
 
       <div className="ask-responsa" aria-label="Selected answers">
@@ -143,8 +189,8 @@ export default function ResultCard({
           Reset
         </button>
         <span className="ask-footer__spacer" aria-hidden />
-        <Link href="/werke" className="ask-cta">
-          Browse all works
+        <Link href="/werke" className="ask-pill">
+          Complete archive
         </Link>
       </div>
     </section>

@@ -1,19 +1,20 @@
 /* 58-ask-booklist.css
    Ask funnel components: progress rail, option buttons, recommendation rows. */
 
+/* Sharp-cornered glass — the house `.c-glass` discipline (no border-radius),
+ * matched so the funnel panels read as the same angular, gothic surface as
+ * /werke rather than soft rounded cards. */
+/* Frameless, to match /werke: no glass fill, no blur, no drop-shadow, no border
+ * line and no corner ticks (the `c-corners` class is dropped from the markup).
+ * Just a *whisper* of a transparent void wash — enough that you can make out the
+ * two panels as separate surfaces (and read text where the photo is still faintly
+ * visible up top), but far too slight to read as a solid box. The page's strong
+ * void fade does most of the legibility work; this only nudges it. */
 .ask-card {
   --row-accent: var(--cl-cyan);
   position: relative;
-  border: 1px solid color-mix(in oklch, var(--cl-cyan) 18%, transparent);
-  border-radius: 6px;
-  background:
-    linear-gradient(180deg, rgba(8, 12, 20, 0.86) 0%, rgba(4, 8, 14, 0.94) 100%),
-    linear-gradient(90deg, rgba(156, 230, 255, 0.08), transparent 42%);
-  backdrop-filter: blur(11px);
-  -webkit-backdrop-filter: blur(11px);
-  box-shadow:
-    0 18px 48px rgba(0, 0, 0, 0.58),
-    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  border: 0;
+  background: rgba(2, 3, 10, 0.25);
 }
 
 .card-eyebrow {
@@ -63,20 +64,17 @@
 
 .ask-progress__bar {
   display: block;
-  height: 5px;
-  border-radius: 999px;
+  height: 1px;
   background: var(--line-1);
-  transition: background 180ms, box-shadow 180ms;
+  transition: background 180ms;
 }
 
 .ask-progress__bar[data-filled="true"] {
   background: var(--cl-cyan-dim);
-  box-shadow: 0 0 10px rgba(156, 230, 255, 0.20);
 }
 
 .ask-progress__bar[data-current="true"] {
   background: var(--cl-cyan);
-  box-shadow: 0 0 12px rgba(156, 230, 255, 0.34);
 }
 
 .ask-progress__bar[data-pending="true"] {
@@ -159,11 +157,52 @@
 
 .ask-status__actions {
   display: flex;
+  /* Compact, auto-width pills on a wrapping row — /werke's .browse-controls
+     layout — not big full-width blocks. Each hugs its own label; the long
+     "COMPLETE ARCHIVE" just wraps to its own line in a narrow sidebar. */
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
   margin-top: 18px;
   padding-top: 14px;
   border-top: 1px solid var(--line-0);
+}
+
+/* Subtle exit button — /werke's .filter-select__btn vocabulary: a quiet dark
+   fill, a faint hairline border and a light label at rest; only the border
+   reacts on hover (no fill flood, no text-colour flip), with a cyan focus
+   outline for a11y. Shared by the sidebar action pair AND the results-footer
+   "Complete archive" so every way out of the funnel reads identically. */
+.ask-pill {
+  flex: 0 0 auto;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 11px;
+  border: 1px solid var(--cl-faint);
+  background: rgba(2, 3, 10, 0.4);
+  color: var(--cl-bone);
+  cursor: pointer;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 180ms;
+}
+.ask-pill:hover:not(:disabled) {
+  border-color: var(--cl-cyan-dim);
+  text-decoration: none;
+}
+.ask-pill:focus-visible {
+  border-color: var(--cl-cyan-dim);
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 1px;
+  text-decoration: none;
+}
+.ask-pill:disabled {
+  color: var(--cl-ghost);
+  cursor: not-allowed;
 }
 
 .ask-question {
@@ -208,66 +247,89 @@
   color: var(--cl-dim);
 }
 
+/* ---- Ask option list — /werke catalogue-row discipline, in cyan ----
+   Slim hairline-divided rows, single column. No per-row box, no fill at
+   rest, no drop-shadow, no translateY lift, no boxed number badge. The
+   accent (cyan) is reserved for live state (hover chevron + selected row);
+   the divider is the page's own neutral hairline so the structure stays
+   colour-free, exactly like the sibling .ask-answer-step / .ask-result rows. */
 .ask-options {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin: 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 22px 0 0;
   padding: 0;
   border: 0;
+  min-inline-size: 0; /* fieldset default min-width fix */
 }
 
 .ask-option {
-  min-height: 104px;
   display: grid;
-  grid-template-columns: 54px minmax(0, 1fr);
+  grid-template-columns: 32px minmax(0, 1fr) 16px;
+  align-items: baseline;
   gap: 12px;
-  align-items: start;
-  padding: 14px;
-  border: 1px solid var(--line-1);
-  border-radius: 4px;
-  background: rgba(2, 3, 10, 0.42);
+  width: 100%;
+  padding: 13px 4px;
+  border: 0;
+  border-top: 1px solid var(--line-0);
+  background: transparent;
   color: inherit;
   text-align: left;
   cursor: pointer;
-  transition: border-color 180ms, background 180ms, transform 180ms, box-shadow 180ms;
+  transition: background 180ms;
 }
 
+.ask-options > .ask-option:first-of-type {
+  border-top: 0;
+}
+
+/* Hover — quiet flat wash; index lifts, label warms, chevron colours up.
+   No lift, no shadow, no glow. */
 .ask-option:hover {
-  border-color: var(--cl-cyan-dim);
-  background: rgba(8, 12, 20, 0.74);
-  transform: translateY(-1px);
+  background: rgba(156, 230, 255, 0.05);
+}
+.ask-option:hover .ask-option__code,
+.ask-option:focus-visible .ask-option__code {
+  color: var(--cl-dim);
+}
+.ask-option:hover .ask-option__label {
+  color: var(--cl-bone);
+}
+.ask-option:hover .ask-option__mark {
+  color: var(--cl-cyan-dim);
 }
 
 .ask-option:focus-visible {
   outline: 1px solid var(--cl-cyan);
-  outline-offset: 2px;
+  outline-offset: -2px;
 }
 
+/* Selected — non-hue cues without a left rule: a flat wash, cyan index + cyan
+   label, and the filled solid-cyan trailing glyph (›→▸ is a shape change, not
+   just colour). The old inset bar read as a disconnected floating line when a
+   completed answer was revisited from the results view, so it is gone. */
 .ask-option[data-selected="true"] {
-  border-color: var(--cl-cyan);
-  background: rgba(156, 230, 255, 0.10);
-  box-shadow: inset 0 0 0 1px rgba(156, 230, 255, 0.18);
+  background: rgba(156, 230, 255, 0.07);
+}
+.ask-option[data-selected="true"] .ask-option__code,
+.ask-option[data-selected="true"] .ask-option__label,
+.ask-option[data-selected="true"] .ask-option__mark {
+  color: var(--cl-cyan);
 }
 
+/* Bare left-aligned mono index — like .catalogue-row__index. */
 .ask-option__code {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border: 1px solid color-mix(in oklch, var(--cl-cyan) 26%, transparent);
-  border-radius: 4px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
-  letter-spacing: 0.08em;
-  color: var(--cl-cyan);
+  letter-spacing: 0.18em;
+  color: var(--cl-faint);
+  transition: color 180ms;
 }
 
 .ask-option__body {
   min-width: 0;
   display: grid;
-  gap: 5px;
+  gap: 3px;
 }
 
 .ask-option__label {
@@ -276,6 +338,7 @@
   font-weight: 500;
   letter-spacing: 0.05em;
   color: var(--cl-bone);
+  transition: color 180ms;
 }
 
 .ask-option__sub {
@@ -285,6 +348,17 @@
   font-weight: var(--fw-read);
   line-height: 1.45;
   color: var(--cl-dim);
+}
+
+/* Trailing chevron — quiet at rest, colours up on hover, fills (›→▸) and
+   goes solid cyan when selected. Sharp glyph, no box. */
+.ask-option__mark {
+  justify-self: end;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--cl-faint);
+  transition: color 200ms;
 }
 
 .ask-processing,
@@ -420,7 +494,6 @@
 
 .ask-reasons li {
   border: 1px solid color-mix(in oklch, var(--cl-cyan) 24%, transparent);
-  border-radius: 999px;
   padding: 5px 9px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-xs);
@@ -441,6 +514,72 @@
 
 .ask-results__empty p {
   margin: 8px 0 0;
+  color: var(--cl-dim);
+}
+
+/* Honest no-exact-match banner: when nothing satisfies the chosen commitment,
+   we say so above the closest picks rather than passing them off as matches. */
+.ask-results__note {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 4px;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in oklch, var(--cl-cyan) 22%, transparent);
+  border-left-width: 3px;
+  background: rgba(156, 230, 255, 0.05);
+}
+
+.ask-results__note-key {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+
+.ask-results__note > span:last-child {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read);
+  font-style: italic;
+  font-weight: var(--fw-read);
+  line-height: var(--lh-read);
+  color: var(--cl-dim);
+}
+
+.ask-results__note em {
+  font-style: normal;
+  color: var(--cl-bone);
+}
+
+/* Divider between length-matching picks and the strong-but-different rest. */
+.ask-results__divider {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  margin: 22px 0 4px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-0);
+}
+
+.ask-results__divider-label {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+
+.ask-results__divider-note {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-sm);
+  font-style: italic;
+  font-weight: var(--fw-read);
+  color: var(--cl-faint);
+}
+
+.ask-results__divider em {
+  font-style: normal;
   color: var(--cl-dim);
 }
 
@@ -513,7 +652,6 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--cl-cyan);
-  border-radius: 4px;
   background: var(--cl-cyan);
   color: var(--cl-void);
   cursor: pointer;
@@ -529,7 +667,6 @@
 .ask-cta:hover,
 .ask-cta:focus-visible {
   background: color-mix(in oklch, var(--cl-cyan) 88%, white);
-  box-shadow: 0 0 18px rgba(156, 230, 255, 0.28);
 }
 
 .ask-sr-only {
@@ -553,18 +690,10 @@
     padding: 16px;
   }
 
-  .ask-options {
-    grid-template-columns: 1fr;
-  }
-
   .ask-option {
-    min-height: 0;
-    grid-template-columns: 44px minmax(0, 1fr);
-  }
-
-  .ask-option__code {
-    width: 36px;
-    height: 36px;
+    grid-template-columns: 28px minmax(0, 1fr) 16px;
+    gap: 10px;
+    padding: 13px 2px;
   }
 
   .ask-results__head {

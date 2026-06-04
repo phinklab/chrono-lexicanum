@@ -5,9 +5,13 @@
  * with the WARHAMMER_OPTICS env var.
  *
  * Targets (each ≤ ~350 KB):
- *   - public/img/vista.webp         (Hub + Books hero)
- *   - public/img/librarium.webp     (Ask)
+ *   - public/img/vista.webp         (Books hero + entity pages)
+ *   - public/img/librarium.webp     (Podcasts)
  *   - public/img/cartog-hall.webp   (future /map)
+ *
+ * Background images sourced outside this optics handoff — hub.webp,
+ * chronicle-hall.webp, cartog-holo.webp, and oracle.webp (Ask the Archive) —
+ * are generated separately and committed directly; they are not processed here.
  *
  * The accompanying `logo_cl_v2.svg` is copied verbatim alongside.
  */

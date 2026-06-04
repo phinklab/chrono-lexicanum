@@ -1,7 +1,7 @@
 [
   {
     "id": "experience",
-    "prompt": "Where do you stand with the Archive?",
+    "prompt": "How well do you know the grim darkness?",
     "hint": "First question — sets the foundation.",
     "options": [
       {
@@ -36,8 +36,8 @@
   },
   {
     "id": "faction_love",
-    "prompt": "Which power stirs you most?",
-    "hint": "Pick the side you want to follow.",
+    "prompt": "Where do your loyalties lie?",
+    "hint": "Pick the banner you would follow.",
     "options": [
       {
         "id": "imperium",
@@ -45,8 +45,7 @@
         "sub": "Duty, faith, grim heroism.",
         "weight": {
           "faction_imperium": 3
-        },
-        "icon": "aquila"
+        }
       },
       {
         "id": "heretic",
@@ -55,8 +54,7 @@
         "weight": {
           "faction_chaos": 3,
           "villain_pov": 2
-        },
-        "icon": "chaos"
+        }
       },
       {
         "id": "loyalist_sm",
@@ -64,8 +62,7 @@
         "sub": "The Emperor's finest, loyal to the Throne.",
         "weight": {
           "faction_space_marines": 3
-        },
-        "icon": "skull"
+        }
       },
       {
         "id": "inquisition",
@@ -74,8 +71,7 @@
         "weight": {
           "faction_inquisition": 3,
           "accessible": 1
-        },
-        "icon": "eye"
+        }
       },
       {
         "id": "guard",
@@ -84,8 +80,7 @@
         "weight": {
           "faction_guard": 3,
           "accessible": 1
-        },
-        "icon": "rifle"
+        }
       },
       {
         "id": "xenos",
@@ -93,14 +88,13 @@
         "sub": "Aeldari, Necrons, T'au — beyond human.",
         "weight": {
           "faction_xenos": 3
-        },
-        "icon": "xenos"
+        }
       }
     ]
   },
   {
     "id": "tone",
-    "prompt": "What tone suits your mood?",
+    "prompt": "What tone do you seek?",
     "options": [
       {
         "id": "grimdark",
@@ -148,7 +142,7 @@
   },
   {
     "id": "length",
-    "prompt": "How deep do you want to commit?",
+    "prompt": "How long a crusade can you commit to?",
     "options": [
       {
         "id": "standalone",
@@ -176,12 +170,18 @@
           "series": 3,
           "deep_cut": 1
         }
+      },
+      {
+        "id": "any_length",
+        "label": "No preference",
+        "sub": "Short or epic — surprise me.",
+        "weight": {}
       }
     ]
   },
   {
     "id": "era_pref",
-    "prompt": "Which age calls you?",
+    "prompt": "Which age calls to you?",
     "options": [
       {
         "id": "heresy",

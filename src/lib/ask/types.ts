@@ -12,7 +12,7 @@ export const ASK_OPTION_IDS_BY_QUESTION = {
   experience: ["new", "some", "deep"],
   faction_love: ["imperium", "heretic", "loyalist_sm", "inquisition", "guard", "xenos"],
   tone: ["grimdark", "heroic", "political", "military", "mythic"],
-  length: ["standalone", "trilogy", "epic"],
+  length: ["standalone", "trilogy", "epic", "any_length"],
   era_pref: ["heresy", "long_war", "indomitus", "any_era"],
 } as const satisfies Record<AskQuestionId, readonly string[]>;
 
@@ -54,7 +54,6 @@ export interface AskOption {
   label: string;
   sub: string;
   weight: AskWeightVector;
-  icon?: string;
 }
 
 export interface AskQuestion {

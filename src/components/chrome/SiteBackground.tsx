@@ -6,7 +6,8 @@
  * Variants:
  *   - "hub"        ← Hub (gothic cathedral-city, cosmic rings overhead)
  *   - "vista"      ← Books hero, book detail, entity pages (cathedral light)
- *   - "librarium"  ← Ask the Archive
+ *   - "librarium"  ← Podcasts
+ *   - "oracle"     ← Ask the Archive (gothic scriptorium, void window)
  *   - "chronicle"  ← Timeline / Chronicle (cathedral timeline diagram)
  *   - "cartog"     ← cartog-hall (handoff photo, currently unused)
  *   - "cartog-holo" ← /map (Mechanicus holo-table plot room)
@@ -17,6 +18,7 @@ export type SiteBgVariant =
   | "hub"
   | "vista"
   | "librarium"
+  | "oracle"
   | "chronicle"
   | "cartog"
   | "cartog-holo"
@@ -26,6 +28,7 @@ const PHOTOS: Record<SiteBgVariant, string | null> = {
   hub: "/img/hub.webp",
   vista: "/img/vista.webp",
   librarium: "/img/librarium.webp",
+  oracle: "/img/oracle.webp",
   chronicle: "/img/chronicle-hall.webp",
   cartog: "/img/cartog-hall.webp",
   "cartog-holo": "/img/cartog-holo.webp",
