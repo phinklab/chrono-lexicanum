@@ -44,10 +44,11 @@
 }
 /* type=search renders a UA "cancel" glyph (the second, blue-tinted ×) on top of
    our own .browse-search__clear button — suppress it so there's one clear.
-   Scoped to /werke: only it adds a custom clear button; /fraktionen has no
+   Scoped to the shared live console (`<BrowseSearch>`, used by /werke + Home),
+   which always renders the custom × ; /fraktionen's plain search has no
    replacement, so it keeps the native glyph. */
-.catalogue--werke .browse-search__input::-webkit-search-cancel-button,
-.catalogue--werke .browse-search__input::-webkit-search-decoration {
+.browse-search--live .browse-search__input::-webkit-search-cancel-button,
+.browse-search--live .browse-search__input::-webkit-search-decoration {
   -webkit-appearance: none;
   appearance: none;
 }
