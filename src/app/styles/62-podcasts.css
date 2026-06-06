@@ -1,23 +1,35 @@
 /* 62-podcasts.css
    Public podcast pillar — index (/podcasts) + per-show detail (/podcasts/[slug]).
    121-P4 redesign (2026-06-06): brought onto the media-page skeleton already
-   proven on /ask + /werke — fixed librarium photo, scroll-scrim fade, HUD
+   proven on /ask + /werke — fixed cathedral-vox photo, scroll-scrim fade, HUD
    atmosphere, masthead at clamp(520px,60vh,700px), content band pulled up -80px.
-   House cyan accent (podcasts are not the gold .catalogue domain). Restraint
-   laws: no border-radius, glow ≤18% alpha, L-brackets (.c-corners) only on
-   doorway/plate cards, accent reserved for hover/focus/active/live values. */
+
+   Gold redesign (2026-06-06, "rogue" session): podcasts join the archive-gold
+   .catalogue domain. The dark-blue glass cards with cyan borders + L-brackets
+   are retired in favour of the /buecher language — frameless, hairline-divided
+   blocks, gold reserved for interaction/live values, structure neutral. The
+   show index is a single column of open show blocks; the per-show archive lists
+   episodes as /buecher-style hairline rows under collapsed-by-default year
+   headings. Restraint laws: no border-radius, glow ≤22% alpha, accent reserved
+   for hover/focus/active/live values (never a resting wall of gold). */
 
 main.podcasts {
   position: relative;
   min-height: calc(100vh - var(--top-nav-h, 48px));
   padding: 0 0 56px;
   overflow-x: hidden;
+
+  /* Shared gold hairline + hover/active washes, mirroring 31-catalogue.css
+   * (.catalogue-row 13% hairline, 0.05 hover). One edit re-tunes the page. */
+  --pod-hair: color-mix(in oklch, var(--cl-gold) 13%, transparent);
+  --pod-wash: rgba(201, 166, 90, 0.05);
+  --pod-wash-on: rgba(201, 166, 90, 0.07);
 }
 
 /* ── Fixed backdrop fade + scroll scrim (the /ask treatment) ──────────────── */
-/* Crisp-top, fade-to-void: the librarium photo is sharp through the upper band
- * (title), then ramps to full void where the content band sits. Neutral void
- * only — no cyan halo, no warm gradient, no bloom. */
+/* Crisp-top, fade-to-void: the cathedral-vox photo is sharp through the upper
+ * band (title), then ramps to full void where the content band sits. Neutral
+ * void only — no cyan halo, no warm gradient, no bloom. */
 body:has(main.podcasts) .site-bg::after {
   content: "";
   position: absolute;
@@ -102,10 +114,11 @@ body:has(main.podcasts) .site-bg::after {
 .pod-mast__eyebrow {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
-  /* 0.22em matches .catalogue-hero__eyebrow — the one sibling this clones. */
+  /* 0.22em + full gold matches .catalogue-hero__eyebrow — the sibling we clone. */
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--cl-cyan-dim);
+  color: var(--cl-gold);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 .pod-mast__heading {
   margin: 12px auto 0;
@@ -116,8 +129,9 @@ body:has(main.podcasts) .site-bg::after {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-bone);
+  /* Gold halo, no cyan — identical to .catalogue-hero__heading. */
   text-shadow:
-    0 0 32px rgba(156, 230, 255, 0.18),
+    0 0 32px rgba(201, 166, 90, 0.22),
     0 4px 14px rgba(0, 0, 0, 0.95);
 }
 /* Show titles can be multi-word — smaller, wrap-friendly, still centred. */
@@ -160,7 +174,7 @@ body:has(main.podcasts) .site-bg::after {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-lg);
   letter-spacing: 0.14em;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .pod-toolbar__total {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -172,8 +186,11 @@ body:has(main.podcasts) .site-bg::after {
   color: var(--cl-faint);
 }
 
+/* Frameless empty state — centred italic, mirroring .catalogue-empty (no box,
+ * no border; the cathedral/void shows through). */
 .pod-empty {
-  padding: 28px 24px;
+  padding: 56px 20px;
+  text-align: center;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
   font-size: var(--fs-read);
@@ -181,26 +198,34 @@ body:has(main.podcasts) .site-bg::after {
   color: var(--cl-dim);
 }
 
-/* ── Index: show doorway cards ────────────────────────────────────────────── */
+/* ── Index: show blocks (frameless, hairline-divided) ─────────────────────── */
+/* The old boxed doorway card (.c-glass .c-corners) is gone. Shows are now open
+ * blocks stacked in one column, separated by a gold hairline and lifted by a
+ * gold wash on hover — the /buecher row discipline at show scale. The cathedral
+ * photo / void shows straight through. */
 .pod-hall {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: clamp(16px, 2.4vw, 28px);
+  display: flex;
+  flex-direction: column;
 }
 .pod-card {
   position: relative;
   display: flex;
-  gap: 18px;
+  gap: 22px;
   align-items: flex-start;
-  padding: 18px;
-  transition: background 180ms, border-color 180ms;
+  padding: 24px 12px;
+  border-top: 1px solid var(--pod-hair);
+  transition: background 180ms;
+}
+.pod-hall > .pod-card:first-child {
+  border-top: none;
 }
 .pod-card:hover {
-  background: var(--cl-cyan-fnt);
+  background: var(--pod-wash);
 }
+/* Frameless → inset outline so focus doesn't bleed onto the neighbour block. */
 .pod-card:focus-within {
-  outline: 1px solid var(--cl-cyan);
-  outline-offset: 2px;
+  outline: 1px solid var(--cl-gold);
+  outline-offset: -2px;
 }
 .pod-card__art {
   flex: 0 0 auto;
@@ -230,12 +255,14 @@ body:has(main.podcasts) .site-bg::after {
   min-width: 0;
   flex: 1 1 auto;
 }
+/* Neutral, not gold: this label repeats once per show block, and resting gold
+ * is reserved for the single hero eyebrow + live values (house restraint law). */
 .pod-card__kicker {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--cl-cyan-dim);
+  color: var(--cl-dim);
 }
 .pod-card__title {
   margin: 6px 0 0;
@@ -249,8 +276,8 @@ body:has(main.podcasts) .site-bg::after {
   color: inherit;
   text-decoration: none;
 }
-/* Stretched link — makes the whole card navigate to the show while the platform
- * links above stay independently clickable (no nested <a>). */
+/* Stretched link — makes the whole block navigate to the show while the
+ * platform links above stay independently clickable (no nested <a>). */
 .pod-card__title-link::after {
   content: "";
   position: absolute;
@@ -258,7 +285,7 @@ body:has(main.podcasts) .site-bg::after {
   z-index: 1;
 }
 .pod-card:hover .pod-card__title-link {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .pod-card__stats {
   margin: 6px 0 0;
@@ -279,7 +306,7 @@ body:has(main.podcasts) .site-bg::after {
   list-style: none;
   margin: 14px 0 0;
   padding: 12px 0 0;
-  border-top: 1px solid color-mix(in oklch, var(--cl-cyan) 10%, transparent);
+  border-top: 1px solid var(--pod-hair);
 }
 .pod-card__latest-row {
   display: flex;
@@ -306,6 +333,9 @@ body:has(main.podcasts) .site-bg::after {
   font-weight: var(--fw-read);
   color: var(--cl-dim);
 }
+/* "Open show →" — neutral at rest, revealed in gold on block hover, mirroring
+ * the hover-revealed "Detail →"/chevron on the /buecher rows (accent for
+ * interaction, not a resting accent). */
 .pod-card__open {
   margin-top: auto;
   padding-top: 14px;
@@ -313,17 +343,17 @@ body:has(main.podcasts) .site-bg::after {
   font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--cl-cyan-dim);
+  color: var(--cl-dim);
   transition: color 160ms;
 }
 .pod-card:hover .pod-card__open {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 
-/* ── Platform link chip (shared: index card + detail plate) ───────────────── */
+/* ── Platform link chip (shared: index block + detail plate) ──────────────── */
 /* Rest in the neutral link register (bone + hairline) — a show carries up to
  * five of these, and the house law (31-catalogue.css .catalogue-tag) keeps the
- * accent for interaction, not a resting wall of cyan. */
+ * accent for interaction, not a resting wall of gold. */
 .pod-platform {
   display: inline-flex;
   align-items: center;
@@ -339,22 +369,23 @@ body:has(main.podcasts) .site-bg::after {
   transition: color 180ms, background 180ms, border-color 180ms;
 }
 .pod-platform:hover {
-  color: var(--cl-cyan);
-  background: color-mix(in oklch, var(--cl-cyan) 16%, transparent);
-  border-color: var(--cl-cyan);
+  color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.1);
+  border-color: var(--cl-gold-dim);
 }
 .pod-platform:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 2px;
 }
 
-/* ── Detail: show plate ───────────────────────────────────────────────────── */
+/* ── Detail: show plate (frameless, hairline-footed) ──────────────────────── */
 .pod-plate {
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  padding: 18px;
-  margin-bottom: 26px;
+  padding: 0 4px 22px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--pod-hair);
 }
 .pod-plate__art {
   flex: 0 0 auto;
@@ -386,7 +417,7 @@ body:has(main.podcasts) .site-bg::after {
   font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--cl-cyan-dim);
+  color: var(--cl-dim);
 }
 .pod-plate__name {
   margin: 6px 0 0;
@@ -416,7 +447,7 @@ body:has(main.podcasts) .site-bg::after {
   font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   text-decoration: none;
   transition: color 160ms;
 }
@@ -424,7 +455,7 @@ body:has(main.podcasts) .site-bg::after {
   color: var(--cl-bone);
 }
 .pod-plate__back:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 2px;
 }
 
@@ -432,30 +463,41 @@ body:has(main.podcasts) .site-bg::after {
 .pod-archive {
   margin-top: 4px;
 }
+/* Two rows by design, mirroring /werke's query console (61-browse.css
+   .catalogue--werke .browse-filters): a prominent serif search line on top, a
+   quieter controls row (kind pills + status) below. */
 .pod-filter {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  margin-bottom: 18px;
 }
+/* The search is one elegant catalogue line — a serif query under a gold hairline
+   (no boxed control), identical to /werke's .browse-search on the gold surface.
+   Width-capped so it doesn't span the whole list. */
 .pod-filter__search {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex: 1 1 280px;
-  min-width: 220px;
-  padding: 8px 12px;
-  border: 1px solid var(--cl-faint);
-  background: rgba(2, 3, 10, 0.4);
-  transition: border-color 160ms;
+  width: 100%;
+  max-width: 540px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 32%, transparent);
+  background: transparent;
+  transition: border-color 200ms;
 }
 .pod-filter__search:focus-within {
-  border-color: var(--cl-cyan-dim);
+  border-bottom-color: var(--cl-gold-dim);
 }
+/* Auspex reticle (SVG) — the same "deliberate query" sigil /werke marks its
+   console with, in gold-dim. */
 .pod-filter__sigil {
-  color: var(--cl-dim);
-  font-size: 14px;
+  flex: none;
+  width: 15px;
+  height: 15px;
+  color: var(--cl-gold-dim);
 }
 .pod-filter__input {
   flex: 1 1 auto;
@@ -465,11 +507,32 @@ body:has(main.podcasts) .site-bg::after {
   outline: none;
   color: var(--cl-bone);
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-sm);
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  letter-spacing: 0.01em;
+  padding: 8px 4px;
 }
 .pod-filter__input::placeholder {
-  color: var(--cl-faint);
+  color: var(--cl-dim);
   font-style: italic;
+  letter-spacing: 0.01em;
+}
+/* The global :focus-visible (10-base.css) paints a cyan outline + blue glow on
+   any focused control; here the focus cue is the gold underline (the wrapper's
+   :focus-within), so suppress both the outline and the box-shadow on the input.
+   Higher specificity than the bare :focus-visible so it wins regardless of
+   load order (mirrors /werke's .browse-search__input:focus-visible). */
+.pod-filter__input:focus,
+.pod-filter__input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+/* type=search renders a UA cancel glyph on top of our custom × — suppress it so
+   there is exactly one clear control (mirrors .browse-search--live). */
+.pod-filter__input::-webkit-search-cancel-button,
+.pod-filter__input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
 }
 .pod-filter__clear {
   flex: 0 0 auto;
@@ -485,6 +548,13 @@ body:has(main.podcasts) .site-bg::after {
 .pod-filter__clear:hover {
   color: var(--cl-bone);
 }
+/* The quieter second row: kind toggles (left) + status (pushed right). */
+.pod-filter__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
 .pod-filter__kinds {
   display: flex;
   flex-wrap: wrap;
@@ -499,7 +569,7 @@ body:has(main.podcasts) .site-bg::after {
   white-space: nowrap;
 }
 
-/* Pill toggle (kinds + reset) */
+/* Pill toggle (kinds + reset) — catalogue sort/audit-pill vocabulary in gold. */
 .pod-pill {
   border: 1px solid var(--cl-faint);
   background: transparent;
@@ -513,16 +583,16 @@ body:has(main.podcasts) .site-bg::after {
   transition: color 160ms, border-color 160ms, background 160ms;
 }
 .pod-pill:hover {
-  border-color: var(--cl-cyan-dim);
+  border-color: var(--cl-gold-dim);
   color: var(--cl-bone);
 }
 .pod-pill.is-active {
-  border-color: var(--cl-cyan);
-  background: var(--cl-cyan-fnt);
-  color: var(--cl-cyan);
+  border-color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.1);
+  color: var(--cl-gold);
 }
 .pod-pill:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 2px;
 }
 
@@ -547,50 +617,93 @@ body:has(main.podcasts) .site-bg::after {
   transition: color 160ms, border-color 160ms;
 }
 .pod-jump__pill:hover {
-  color: var(--cl-cyan);
-  border-color: var(--cl-cyan-dim);
+  color: var(--cl-gold);
+  border-color: var(--cl-gold-dim);
 }
 .pod-jump__pill:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 2px;
 }
 
+/* Frameless "no matches" state — centred italic + a reset pill below. */
 .pod-archive__empty {
-  padding: 24px;
+  padding: 48px 20px;
+  text-align: center;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
   font-size: var(--fs-read);
   color: var(--cl-dim);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 14px;
 }
 
-/* ── Year-grouped episode list ────────────────────────────────────────────── */
+/* ── Year-grouped episode list (collapsed by default) ─────────────────────── */
 .pod-archive__list {
   margin-top: 4px;
 }
 .pod-year {
-  margin: 0 0 6px;
-  scroll-margin-top: calc(var(--top-nav-h, 48px) + 12px);
+  margin: 0;
+  /* Match the sticky head's parked offset (below) so a year-jump seats the head
+   * exactly where it will stick — no sliver of the previous section above it. */
+  scroll-margin-top: calc(var(--top-nav-h, 48px) + 2px);
 }
-.pod-year__label {
+/* The year heading is a full-width disclosure button. Collapsed, the years
+ * stack as a gold-hairline table of contents; the open one's head stays sticky
+ * while its rows scroll beneath it. The sticky `top` tracks --top-nav-h, which
+ * the TopNav animates 48px↔124px over 360ms — transition `top` with the same
+ * curve so the pinned head glides with the nav instead of snapping. */
+.pod-year__head {
   position: sticky;
   top: calc(var(--top-nav-h, 48px) + 2px);
   z-index: 3;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
   margin: 0;
-  padding: 8px 4px 6px;
-  background: linear-gradient(to bottom, var(--cl-void) 70%, rgba(3, 5, 12, 0));
+  background: linear-gradient(to bottom, var(--cl-void) 72%, rgba(3, 5, 12, 0));
+  transition: top 360ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.pod-year__toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 4px 9px;
+  border: 0;
+  border-top: 1px solid var(--pod-hair);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background 160ms;
+}
+.pod-year:first-child .pod-year__toggle {
+  border-top: none;
+}
+.pod-year__toggle:hover {
+  background: var(--pod-wash);
+}
+.pod-year__toggle:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: -2px;
+}
+.pod-year__chevron {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--cl-gold-dim);
+  transition: transform 200ms, color 200ms;
+}
+.pod-year__toggle[aria-expanded="true"] .pod-year__chevron {
+  transform: rotate(90deg);
+  color: var(--cl-gold);
+}
+.pod-year__year {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-lg);
   letter-spacing: 0.22em;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .pod-year__count {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-xs);
   letter-spacing: 0.16em;
   color: var(--cl-dim);
@@ -599,64 +712,71 @@ body:has(main.podcasts) .site-bg::after {
 .pod-episodes {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 16px;
 }
 .pod-ep-item {
   list-style: none;
 }
 
+/* Episode row = the /buecher catalogue row recipe: a gold hairline divides each
+ * row, gold wash on hover, accent reserved for live/interactive bits. Leading
+ * date plays the role the catalogue gives its index column; the title is set in
+ * Cinzel — the same inscriptional-caps face the catalogue rows use. */
 .pod-ep {
   display: grid;
-  /* play · date · title · meta. The optional kind/dur/download live in one
-   * right-aligned meta cell so Download column-aligns across rows whether or not
-   * a kind chip is present (lore rows omit it). */
-  grid-template-columns: 28px 54px minmax(0, 1fr) auto;
+  /* play · date · title+tags · meta. The optional kind/dur/listen share one
+   * right-aligned meta cell so Listen column-aligns whether or not a kind chip
+   * is present (lore rows omit it). */
+  grid-template-columns: 32px 56px minmax(0, 1fr) auto;
   align-items: center;
   gap: 14px;
-  padding: 9px 4px;
-  border-top: 1px solid color-mix(in oklch, var(--cl-cyan) 12%, transparent);
+  padding: 10px 6px;
+  border-top: 1px solid var(--pod-hair);
   transition: background 160ms;
 }
+/* First row sits flush under its year head — no double hairline. */
 .pod-ep-item:first-child .pod-ep {
   border-top: none;
 }
 .pod-ep:hover {
-  background: var(--cl-cyan-fnt);
+  background: var(--pod-wash);
 }
 .pod-ep.is-playing {
-  background: var(--cl-cyan-fnt);
+  background: var(--pod-wash-on);
 }
 
+/* Borderless, slightly larger transport glyph (no boxed frame): the gold ▸ is
+   the affordance, the row's hover/is-playing wash carries the state. */
 .pod-ep__play {
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
-  border: 1px solid var(--cl-cyan-dim);
+  width: 32px;
+  height: 32px;
+  border: 0;
   background: transparent;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   cursor: pointer;
-  font-size: 12px;
+  font-size: 17px;
   line-height: 1;
   padding: 0;
-  transition: background 160ms, border-color 160ms, color 160ms;
+  transition: color 160ms, transform 120ms;
 }
 .pod-ep__play:hover {
-  background: color-mix(in oklch, var(--cl-cyan) 16%, transparent);
-  border-color: var(--cl-cyan);
+  color: var(--cl-bone);
+  transform: scale(1.12);
 }
 .pod-ep__play:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 2px;
 }
+/* Playing: the glyph is the pause bars in full gold; no filled square (the row
+   carries the is-playing wash). */
 .pod-ep.is-playing .pod-ep__play {
-  background: var(--cl-cyan);
-  color: var(--cl-void);
-  border-color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .pod-ep__play--off {
   color: var(--cl-faint);
-  border-color: transparent;
+  cursor: default;
 }
 
 .pod-ep__date {
@@ -672,12 +792,16 @@ body:has(main.podcasts) .site-bg::after {
   gap: 4px;
   min-width: 0;
 }
+/* Cinzel — the /werke row title face. Wraps (not truncated) because the episode
+   title is the row's primary content and there's no detail expansion to recover
+   a clipped one. Same 16px / 0.05em / weight-500 spec as .catalogue-row__title. */
 .pod-ep__title {
   min-width: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  line-height: 1.35;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
   color: var(--cl-bone);
 }
 .pod-ep__tags {
@@ -685,11 +809,13 @@ body:has(main.podcasts) .site-bg::after {
   flex-wrap: wrap;
   gap: 6px;
 }
+/* Faction chip = .catalogue-tag--faction: gold-tinted hairline, bone text,
+ * gold on hover. */
 .pod-tag {
   display: inline-flex;
   align-items: center;
-  border: 1px solid var(--cl-faint);
-  color: var(--cl-dim);
+  border: 1px solid color-mix(in oklch, var(--cl-gold) 28%, transparent);
+  color: var(--cl-bone);
   padding: 1px 8px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-xs);
@@ -699,11 +825,11 @@ body:has(main.podcasts) .site-bg::after {
   transition: color 160ms, border-color 160ms;
 }
 .pod-tag:hover {
-  color: var(--cl-cyan);
-  border-color: var(--cl-cyan-dim);
+  color: var(--cl-gold);
+  border-color: var(--cl-gold-dim);
 }
 .pod-tag:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 2px;
 }
 .pod-ep__kind {
@@ -711,8 +837,8 @@ body:has(main.podcasts) .site-bg::after {
   font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--cl-cyan-dim);
-  border: 1px solid color-mix(in oklch, var(--cl-cyan) 30%, transparent);
+  color: var(--cl-gold);
+  border: 1px solid color-mix(in oklch, var(--cl-gold) 30%, transparent);
   padding: 2px 6px;
   white-space: nowrap;
 }
@@ -723,21 +849,26 @@ body:has(main.podcasts) .site-bg::after {
   color: var(--cl-faint);
   white-space: nowrap;
 }
+/* Neutral at rest; gold is revealed on row/link hover + focus, mirroring the
+ * catalogue's hover-revealed "Open book →" — so an expanded year never paints a
+ * resting column of gold "Listen" links (house restraint law). */
 .pod-ep__dl {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: var(--cl-dim);
   text-decoration: none;
   white-space: nowrap;
   transition: color 160ms;
 }
-.pod-ep__dl:hover {
-  color: var(--cl-bone);
+.pod-ep:hover .pod-ep__dl,
+.pod-ep__dl:hover,
+.pod-ep__dl:focus-visible {
+  color: var(--cl-gold);
 }
 .pod-ep__dl:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 2px;
 }
 .pod-ep__meta {
@@ -770,7 +901,7 @@ body:has(main.podcasts) .site-bg::after {
   color: var(--cl-dim);
 }
 .pod-footer__mid {
-  color: var(--cl-faint);
+  color: var(--cl-gold);
 }
 
 /* ── Narrow ───────────────────────────────────────────────────────────────── */
@@ -797,7 +928,7 @@ body:has(main.podcasts) .site-bg::after {
 
   .pod-card {
     gap: 14px;
-    padding: 14px;
+    padding: 18px 8px;
   }
   .pod-card__art img,
   .pod-card__art-ph {
@@ -807,7 +938,7 @@ body:has(main.podcasts) .site-bg::after {
 
   .pod-plate {
     gap: 14px;
-    padding: 14px;
+    padding: 0 4px 18px;
   }
   .pod-plate__art img,
   .pod-plate__art-ph {
@@ -838,8 +969,8 @@ body:has(main.podcasts) .site-bg::after {
   }
   .pod-ep__main {
     order: 2;
-    /* Fill the rest of line 1 (28px play + 10px gap) so the meta items wrap. */
-    flex: 1 1 calc(100% - 40px);
+    /* Fill the rest of line 1 (32px play + 10px gap) so the meta items wrap. */
+    flex: 1 1 calc(100% - 44px);
     min-width: 0;
   }
   .pod-ep__date {
