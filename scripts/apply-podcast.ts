@@ -27,10 +27,19 @@
  * (characters/factions/locations) are written. Unresolved forms are never
  * written and never auto-create reference rows (project invariant).
  *
+ * External links (Brief 122 B1-S3): each podcast work's `external_links` are
+ * replaced authoritatively from the artifact's `show.links[]` / `episodes[].links[]`
+ * (per-work delete-then-insert, scoped by `work_id` so no book link is touched).
+ * Provenance (`source_kind` + `confidence`) is projected verbatim from the
+ * `PodcastLink` — never re-derived. The feed-intrinsic `podcast_episode_details.audioUrl`
+ * scalar stays and is co-written from the same artifact (one source, two projections).
+ *
  * CLI:
- *   npm run apply:podcast -- --dry-run            # build + print the plan, no writes
- *   npm run apply:podcast                          # apply
- *   npm run apply:podcast -- --file=<path>         # alternate artifact
+ *   npm run apply:podcast -- --dry-run             # build + print the plan(s), no writes
+ *   npm run apply:podcast                           # apply the pilot (default show)
+ *   npm run apply:podcast -- --show <slug>          # apply one registered show
+ *   npm run apply:podcast -- --all                  # apply every registered show
+ *   npm run apply:podcast -- --file=<path>          # apply an explicit artifact file (bypasses the registry)
  */
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -41,6 +50,7 @@ import { and, count, eq, inArray } from "drizzle-orm";
 import { db } from "@/db/client";
 import {
   characters,
+  externalLinks,
   factions,
   locations,
   podcastDetails,
@@ -57,9 +67,45 @@ import {
   type EpisodePlan,
   type ReferenceSets,
 } from "@/lib/ingestion/podcast/apply-plan";
-import type { ShowArtifact } from "@/lib/ingestion/podcast/types";
+import { loadRegistry, selectShows } from "@/lib/ingestion/podcast/registry";
+import type { PodcastLink, ShowArtifact } from "@/lib/ingestion/podcast/types";
 
-const DEFAULT_ARTIFACT = "ingest/podcasts/the-40k-lorecast.json";
+/** The committed per-show artifacts live at `ingest/podcasts/<slug>.json`. */
+function artifactPathForSlug(slug: string): string {
+  return resolve(process.cwd(), "ingest", "podcasts", `${slug}.json`);
+}
+
+/** One show the run targets: a committed artifact path (+ its registry slug, or
+ *  null for an explicit `--file`). */
+interface ApplyTarget {
+  slug: string | null;
+  path: string;
+}
+
+/**
+ * Resolve which artifact(s) a run applies — the registry is the SSOT, mirroring
+ * `ingest-podcast.ts`:
+ *   • `--file <path>` → that single artifact, registry bypassed (escape hatch);
+ *   • `--all`         → every registered show, in registry order;
+ *   • `--show <slug>` → just that show (throws on an unknown slug);
+ *   • neither         → the default (pilot) show.
+ * `--file` is mutually exclusive with `--show` / `--all`.
+ */
+function resolveTargets(opts: { file?: string; show?: string; all: boolean }): ApplyTarget[] {
+  if (opts.file !== undefined) {
+    if (opts.all || opts.show !== undefined) {
+      throw new Error(
+        "--file names a single artifact directly and cannot be combined with --show/--all",
+      );
+    }
+    return [{ slug: null, path: resolve(opts.file) }];
+  }
+  const registry = loadRegistry();
+  return selectShows(registry, { all: opts.all, show: opts.show }).map((s) => ({
+    slug: s.slug,
+    path: artifactPathForSlug(s.slug),
+  }));
+}
 
 /** Real-world year from an ISO pubDate, for the universal `works.release_year` sort axis. */
 function yearOf(pubDate: string | null): number | null {
@@ -89,6 +135,25 @@ async function loadReferenceSets(): Promise<ReferenceSets> {
   };
 }
 
+/**
+ * `external_links` insert rows for one podcast work — a 1:1 projection of the
+ * plan's `PodcastLink`s. `confidence` is rendered to the `numeric(3,2)` string
+ * form Postgres expects (mirrors `apply-override.ts`); `displayOrder` follows the
+ * plan's deterministic (serviceId, kind, url) order. `label`/`region`/`affiliate`
+ * fall to their column defaults (NULL/NULL/false).
+ */
+function linkRows(workId: string, links: PodcastLink[]) {
+  return links.map((l, i) => ({
+    workId,
+    kind: l.kind,
+    serviceId: l.serviceId,
+    url: l.url,
+    sourceKind: l.sourceKind,
+    confidence: l.confidence.toFixed(2),
+    displayOrder: i,
+  }));
+}
+
 function printPlan(plan: ApplyPlan, dryRun: boolean): void {
   const tag = dryRun ? " [DRY RUN — no writes]" : "";
   console.log(`\n=== podcast apply plan${tag} ===`);
@@ -100,6 +165,12 @@ function printPlan(plan: ApplyPlan, dryRun: boolean): void {
   console.log(
     `Resolved tags → junctions: ${plan.report.resolvedTagCount}` +
       `  (unresolved in artifact, not written: ${plan.report.unresolvedFormCount})`,
+  );
+  const showServices = plan.show.links.map((l) => l.serviceId).join(", ");
+  console.log(
+    `Links → external_links: show ${plan.report.showLinkCount}` +
+      (showServices ? ` (${showServices})` : "") +
+      `, episodes ${plan.report.episodeLinkCount} across ${plan.report.episodeCount} episodes`,
   );
   if (plan.report.droppedMissingRefCount > 0) {
     console.log(
@@ -202,6 +273,13 @@ async function upsertShow(plan: ApplyPlan): Promise<{ id: string; created: boole
         },
       });
 
+    // Authoritative replace of the show work's cross-media links. Scoped by
+    // work_id, so only THIS podcast show's links are touched (never a book's).
+    await tx.delete(externalLinks).where(eq(externalLinks.workId, showId));
+    if (plan.show.links.length > 0) {
+      await tx.insert(externalLinks).values(linkRows(showId, plan.show.links));
+    }
+
     return { id: showId, created };
   });
 }
@@ -303,37 +381,20 @@ async function applyEpisode(showId: string, ep: EpisodePlan): Promise<EpisodeApp
       );
     }
 
+    // Authoritative replace of this episode work's cross-media links (the RSS
+    // audio enclosure, and later a YouTube match — S4). Same delete-then-insert
+    // shape as the junctions; scoped by work_id, so no other work is affected.
+    await tx.delete(externalLinks).where(eq(externalLinks.workId, workId));
+    if (ep.links.length > 0) {
+      await tx.insert(externalLinks).values(linkRows(workId, ep.links));
+    }
+
     return { workId, created };
   });
 }
 
-async function main(): Promise<void> {
-  const { values } = parseArgs({
-    options: {
-      "dry-run": { type: "boolean", default: false },
-      file: { type: "string" },
-    },
-  });
-  const dryRun = values["dry-run"] === true;
-  const artifactPath = resolve(values.file ?? DEFAULT_ARTIFACT);
-
-  const artifact = loadArtifact(artifactPath);
-  console.log(`[apply-podcast] artifact: ${artifactPath}`);
-
-  const refs = await loadReferenceSets();
-  console.log(
-    `[apply-podcast] DB reference set: ${refs.character.size} characters, ` +
-      `${refs.faction.size} factions, ${refs.location.size} locations`,
-  );
-
-  const plan = buildApplyPlan(artifact, refs);
-  printPlan(plan, dryRun);
-
-  if (dryRun) {
-    console.log("\n[apply-podcast] dry run — no rows written.");
-    return;
-  }
-
+/** Apply one show's plan to Postgres and print a DB-side summary. */
+async function applyShow(plan: ApplyPlan): Promise<void> {
   const show = await upsertShow(plan);
   console.log(
     `\n[apply-podcast] show work ${show.created ? "inserted" : "updated"}: ${show.id}`,
@@ -354,8 +415,9 @@ async function main(): Promise<void> {
     .select({ n: count() })
     .from(podcastEpisodeDetails)
     .where(eq(podcastEpisodeDetails.podcastWorkId, show.id));
-  const junctionCount = async (
-    table: typeof workCharacters | typeof workFactions | typeof workLocations,
+  // Generic chunked count of any work-scaled table over the episode work ids.
+  const countOverEpisodes = async (
+    table: typeof workCharacters | typeof workFactions | typeof workLocations | typeof externalLinks,
   ): Promise<number> => {
     let total = 0;
     // Chunk to keep the IN-list bounded if a feed ever grows very large.
@@ -370,15 +432,61 @@ async function main(): Promise<void> {
     }
     return total;
   };
+  const showLinkCount = await db
+    .select({ n: count() })
+    .from(externalLinks)
+    .where(eq(externalLinks.workId, show.id));
 
-  console.log(`\n=== podcast apply summary ===`);
+  console.log(`\n=== podcast apply summary — ${plan.show.slug} ===`);
   console.log(`Show:               ${show.created ? "inserted" : "updated"} (${show.id})`);
   console.log(`Episodes inserted:  ${inserted}`);
   console.log(`Episodes updated:   ${updated}`);
   console.log(`Episodes in DB for show: ${showEpisodeCount[0]?.n ?? 0}`);
-  console.log(`Junction rows — characters: ${await junctionCount(workCharacters)}`);
-  console.log(`Junction rows — factions:   ${await junctionCount(workFactions)}`);
-  console.log(`Junction rows — locations:  ${await junctionCount(workLocations)}`);
+  console.log(`Junction rows — characters: ${await countOverEpisodes(workCharacters)}`);
+  console.log(`Junction rows — factions:   ${await countOverEpisodes(workFactions)}`);
+  console.log(`Junction rows — locations:  ${await countOverEpisodes(workLocations)}`);
+  console.log(`External links — show:      ${showLinkCount[0]?.n ?? 0}`);
+  console.log(`External links — episodes:  ${await countOverEpisodes(externalLinks)}`);
+}
+
+async function main(): Promise<void> {
+  const { values } = parseArgs({
+    options: {
+      "dry-run": { type: "boolean", default: false },
+      file: { type: "string" },
+      show: { type: "string" },
+      all: { type: "boolean", default: false },
+    },
+  });
+  const dryRun = values["dry-run"] === true;
+
+  const targets = resolveTargets({
+    file: values.file,
+    show: values.show,
+    all: values.all === true,
+  });
+  console.log(
+    `[apply-podcast] ${dryRun ? "dry run — " : ""}${targets.length} show(s): ` +
+      targets.map((t) => t.slug ?? t.path).join(", "),
+  );
+
+  const refs = await loadReferenceSets();
+  console.log(
+    `[apply-podcast] DB reference set: ${refs.character.size} characters, ` +
+      `${refs.faction.size} factions, ${refs.location.size} locations`,
+  );
+
+  for (const target of targets) {
+    const artifact = loadArtifact(target.path);
+    console.log(`\n[apply-podcast] artifact: ${target.path}`);
+    const plan = buildApplyPlan(artifact, refs);
+    printPlan(plan, dryRun);
+    if (!dryRun) await applyShow(plan);
+  }
+
+  if (dryRun) {
+    console.log("\n[apply-podcast] dry run — no rows written.");
+  }
 }
 
 main()

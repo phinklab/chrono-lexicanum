@@ -12,10 +12,15 @@
  *   • FK-safety — only tags whose canonicalId is in the reference set become
  *     junction rows; the rest are dropped + reported;
  *   • invariant — unresolved forms never become junctions;
+ *   • links (Brief 122 B1-S3) — the artifact's show + episode `links[]` are
+ *     projected into the plan (deduped + sorted, legacy/missing provenance
+ *     defaulted to manual/1.00), and the in-memory applier replaces each work's
+ *     external_links authoritatively, so a double-apply yields NO link duplicates;
  *   • idempotency — applying a plan to an in-memory store that MIRRORS
  *     apply-podcast.ts's semantics (match show by guid→feed→slug, match episode
- *     by (show,guid), freeze the works row, delete-then-insert junctions) TWICE
- *     yields a byte-identical store: no duplicate works, no junction drift.
+ *     by (show,guid), freeze the works row, delete-then-insert junctions AND
+ *     external_links) TWICE yields a byte-identical store: no duplicate works,
+ *     no junction drift, no link drift.
  *
  * The in-memory applier deliberately re-implements the script's write shape (the
  * script uses Drizzle/SQL) — the SHARED, authoritative piece is the plan from
@@ -32,6 +37,8 @@ import {
   assertShowArtifact,
   buildApplyPlan,
   deriveEpisodeSlug,
+  DEFAULT_LINK_CONFIDENCE,
+  DEFAULT_LINK_SOURCE_KIND,
   MAX_SLUG_LENGTH,
   type ApplyPlan,
   type EpisodePlan,
@@ -39,7 +46,7 @@ import {
   type ReferenceSets,
 } from "../src/lib/ingestion/podcast/apply-plan";
 import type { AliasAxis } from "../src/lib/aliases";
-import type { ShowArtifact } from "../src/lib/ingestion/podcast/types";
+import type { PodcastLink, ShowArtifact } from "../src/lib/ingestion/podcast/types";
 
 let passed = 0;
 let failed = 0;
@@ -70,7 +77,11 @@ function validArtifact(): ShowArtifact {
       podcastGuid: "guid-show-1",
       imageUrl: "https://example.com/cover.jpg",
       episodeCount: 2,
-      links: [],
+      links: [
+        { serviceId: "rss", kind: "listen", url: "https://example.com/feed.xml", sourceKind: "podcast_rss", confidence: 1 },
+        { serviceId: "apple_podcasts", kind: "listen", url: "https://podcasts.apple.com/podcast/id123", sourceKind: "manual", confidence: 1 },
+        { serviceId: "official_website", kind: "official_page", url: "https://example.com/", sourceKind: "manual", confidence: 1 },
+      ],
     },
     extraction: { model: "m", promptVersion: "v" },
     episodes: [
@@ -88,7 +99,9 @@ function validArtifact(): ShowArtifact {
           { type: "location", canonicalId: "nostramo", rawName: "Nostramo", role: "subject", confidence: 1, matchedVia: "canonical-name" },
         ],
         unresolved: [{ rawName: "Some Common Noun", axisGuess: "character", role: "mentioned" }],
-        links: [],
+        links: [
+          { serviceId: "rss", kind: "listen", url: "https://example.com/1.mp3", sourceKind: "podcast_rss", confidence: 1 },
+        ],
       },
       {
         guid: "ep-2",
@@ -100,7 +113,9 @@ function validArtifact(): ShowArtifact {
         episodeKind: "news_recap",
         tags: [],
         unresolved: [],
-        links: [],
+        links: [
+          { serviceId: "rss", kind: "listen", url: "https://example.com/2.mp3", sourceKind: "podcast_rss", confidence: 1 },
+        ],
       },
     ],
   };
@@ -296,6 +311,93 @@ test("plan: same entity twice on one episode dedups to one row, subject wins", (
   assert.equal(plan.episodes[0].junctions.character[0].role, "subject");
 });
 
+// --- 5b. links: projection + validation (Brief 122 B1-S3) --------------------
+
+test("plan: show + episode links are projected into the plan + report", () => {
+  const plan = buildApplyPlan(validArtifact(), refsForValid());
+  assert.equal(plan.show.links.length, 3);
+  assert.equal(plan.report.showLinkCount, 3);
+  assert.equal(plan.episodes[0].links.length, 1);
+  assert.equal(plan.episodes[1].links.length, 1);
+  assert.equal(plan.report.episodeLinkCount, 2);
+  // Provenance carried verbatim from the artifact — never re-derived.
+  const rss = plan.show.links.find((l) => l.serviceId === "rss");
+  assert.ok(rss, "rss show link present");
+  assert.equal(rss.sourceKind, "podcast_rss");
+  assert.equal(rss.confidence, 1);
+});
+
+test("plan: links are sorted by (serviceId, kind, url) regardless of input order", () => {
+  const a = validArtifact();
+  a.show.links = [...a.show.links].reverse(); // feed them out of order
+  const plan = buildApplyPlan(a, refsForValid());
+  const services = plan.show.links.map((l) => l.serviceId);
+  assert.deepEqual(services, [...services].sort(), "deterministic link order");
+});
+
+test("plan: duplicate links on one scope dedup to a single row (first wins)", () => {
+  const a = validArtifact();
+  a.show.links = [
+    { serviceId: "rss", kind: "listen", url: "https://x/feed.xml", sourceKind: "podcast_rss", confidence: 1 },
+    { serviceId: "rss", kind: "listen", url: "https://x/feed.xml", sourceKind: "podcast_rss", confidence: 1 },
+  ];
+  const plan = buildApplyPlan(a, refsForValid());
+  assert.equal(plan.show.links.length, 1);
+  assert.equal(plan.report.showLinkCount, 1);
+});
+
+test("plan: a link missing sourceKind/confidence defaults to manual/1.00 (legacy entry)", () => {
+  const a = validArtifact() as unknown as { show: { links: Array<Record<string, unknown>> } };
+  a.show.links = [{ serviceId: "spotify", kind: "listen", url: "https://open.spotify.com/show/x" }];
+  const plan = buildApplyPlan(a as unknown as ShowArtifact, refsForValid());
+  assert.equal(plan.show.links.length, 1);
+  assert.equal(plan.show.links[0].sourceKind, DEFAULT_LINK_SOURCE_KIND);
+  assert.equal(plan.show.links[0].confidence, DEFAULT_LINK_CONFIDENCE);
+});
+
+test("plan: an artifact with NO links arrays is tolerated (pre-S2 legacy artifact)", () => {
+  const a = validArtifact() as unknown as {
+    show: Record<string, unknown>;
+    episodes: Array<Record<string, unknown>>;
+  };
+  delete a.show.links;
+  for (const ep of a.episodes) delete ep.links;
+  const plan = buildApplyPlan(a as unknown as ShowArtifact, refsForValid());
+  assert.equal(plan.show.links.length, 0);
+  assert.equal(plan.report.showLinkCount, 0);
+  assert.equal(plan.report.episodeLinkCount, 0);
+});
+
+test("validate: link with unknown kind throws (external_link_kind guard)", () => {
+  const a = clone(validArtifact());
+  (a.show.links[0] as { kind: string }).kind = "subscribe";
+  assert.throws(() => assertShowArtifact(a), /external_link_kind/);
+});
+
+test("validate: link with empty serviceId throws (services FK)", () => {
+  const a = clone(validArtifact());
+  a.show.links[0].serviceId = "";
+  assert.throws(() => assertShowArtifact(a), /serviceId/);
+});
+
+test("validate: link with bad sourceKind throws (must be podcast_rss|manual)", () => {
+  const a = clone(validArtifact());
+  (a.show.links[0] as { sourceKind: string }).sourceKind = "lexicanum";
+  assert.throws(() => assertShowArtifact(a), /podcast_rss\|manual/);
+});
+
+test("validate: link confidence out of [0,1] throws (numeric(3,2) guard)", () => {
+  const a = clone(validArtifact());
+  a.show.links[0].confidence = 1.5;
+  assert.throws(() => assertShowArtifact(a), /\[0, 1\]/);
+});
+
+test("validate: an episode link is validated too (not only show links)", () => {
+  const a = clone(validArtifact());
+  (a.episodes[0].links[0] as { kind: string }).kind = "nonsense";
+  assert.throws(() => assertShowArtifact(a), /external_link_kind/);
+});
+
 // --- 6. idempotency: an in-memory store mirroring apply-podcast.ts -----------
 
 interface WorkRow {
@@ -324,6 +426,9 @@ interface FakeStore {
   episodeByShowGuid: Map<string, string>;
   episodeDetails: Map<string, EpisodeDetailRow>;
   junctions: { character: Map<string, JunctionRow[]>; faction: Map<string, JunctionRow[]>; location: Map<string, JunctionRow[]> };
+  /** external_links keyed by work id (show id or episode id) — the work-scoped
+   *  delete-then-insert store apply-podcast.ts maintains per podcast work. */
+  externalLinks: Map<string, PodcastLink[]>;
 }
 
 function emptyStore(): FakeStore {
@@ -336,10 +441,18 @@ function emptyStore(): FakeStore {
     episodeByShowGuid: new Map(),
     episodeDetails: new Map(),
     junctions: { character: new Map(), faction: new Map(), location: new Map() },
+    externalLinks: new Map(),
   };
 }
 
 const cloneRow = (r: JunctionRow): JunctionRow => ({ entityId: r.entityId, role: r.role, rawName: r.rawName });
+const cloneLink = (l: PodcastLink): PodcastLink => ({
+  serviceId: l.serviceId,
+  kind: l.kind,
+  url: l.url,
+  sourceKind: l.sourceKind,
+  confidence: l.confidence,
+});
 
 /**
  * Mirrors apply-podcast.ts: show matched by podcastGuid → feedUrl → slug
@@ -367,6 +480,8 @@ function simulateApply(plan: ApplyPlan, store: FakeStore): void {
   });
   if (plan.show.podcastGuid !== null) store.showByGuid.set(plan.show.podcastGuid, showId);
   store.showByFeed.set(plan.show.feedUrl, showId);
+  // Authoritative replace of the show work's external_links.
+  store.externalLinks.set(showId, plan.show.links.map(cloneLink));
 
   for (const ep of plan.episodes) {
     const key = `${showId}::${ep.episodeGuid}`;
@@ -392,6 +507,7 @@ function simulateApply(plan: ApplyPlan, store: FakeStore): void {
     store.junctions.character.set(epId, ep.junctions.character.map(cloneRow));
     store.junctions.faction.set(epId, ep.junctions.faction.map(cloneRow));
     store.junctions.location.set(epId, ep.junctions.location.map(cloneRow));
+    store.externalLinks.set(epId, ep.links.map(cloneLink));
   }
 }
 
@@ -410,6 +526,7 @@ function snapshot(store: FakeStore): unknown {
       faction: sortEntries(store.junctions.faction),
       location: sortEntries(store.junctions.location),
     },
+    externalLinks: sortEntries(store.externalLinks),
   };
 }
 
@@ -418,6 +535,12 @@ function totalJunctions(store: FakeStore): number {
   for (const axis of ["character", "faction", "location"] as const) {
     for (const rows of store.junctions[axis].values()) n += rows.length;
   }
+  return n;
+}
+
+function totalLinks(store: FakeStore): number {
+  let n = 0;
+  for (const rows of store.externalLinks.values()) n += rows.length;
   return n;
 }
 
@@ -438,6 +561,47 @@ test("apply: applying a plan twice is idempotent (no dup works, no junction drif
   assert.equal(store.works.size, 1 + plan.episodes.length, "exactly 1 show + N episodes");
   assert.equal(totalJunctions(store), junctions1, "junction count unchanged");
   assert.equal(totalJunctions(store), plan.report.resolvedTagCount, "junctions == resolved tags");
+});
+
+test("apply: applying a plan twice produces no external_links duplicates (links stable)", () => {
+  const plan = buildApplyPlan(validArtifact(), refsForValid());
+  const store = emptyStore();
+
+  simulateApply(plan, store);
+  const links1 = totalLinks(store);
+
+  simulateApply(plan, store);
+
+  assert.equal(totalLinks(store), links1, "link count unchanged on re-apply (no duplicates)");
+  // Every link row == the plan's projected show + episode links, no drift.
+  assert.equal(
+    totalLinks(store),
+    plan.report.showLinkCount + plan.report.episodeLinkCount,
+    "link rows == plan link counts",
+  );
+  // The show work + each episode work hold exactly their plan's link set.
+  assert.equal((store.externalLinks.get(plan.show.slug) ?? []).length, plan.show.links.length);
+  for (const ep of plan.episodes) {
+    assert.equal((store.externalLinks.get(ep.slug) ?? []).length, ep.links.length);
+  }
+});
+
+test("apply: re-applying an IMPROVED artifact replaces a stale link set (no leftovers)", () => {
+  const store = emptyStore();
+
+  // First apply: show has 3 links.
+  simulateApply(buildApplyPlan(validArtifact(), refsForValid()), store);
+  assert.equal((store.externalLinks.get("test-show") ?? []).length, 3);
+
+  // Improved apply: the show's links shrank to a single one.
+  const v2 = validArtifact();
+  v2.show.links = [
+    { serviceId: "rss", kind: "listen", url: "https://example.com/feed.xml", sourceKind: "podcast_rss", confidence: 1 },
+  ];
+  simulateApply(buildApplyPlan(v2, refsForValid()), store);
+
+  // The two stale show links are gone — authoritative replace, not append.
+  assert.equal((store.externalLinks.get("test-show") ?? []).length, 1, "stale show links removed");
 });
 
 test("apply: re-applying an IMPROVED artifact replaces a stale tag set (no leftovers)", () => {
@@ -515,15 +679,23 @@ test("real artifact: plan is deterministic and double-apply is idempotent", () =
   assert.deepEqual(p1, p2, "deterministic on real data");
   assert.equal(p1.report.droppedMissingRefCount, 0, "covering refs → nothing dropped");
 
+  // The real artifact carries the S2 link-shape: a multi-service show link set
+  // and an RSS audio enclosure per episode.
+  assert.ok(p1.report.showLinkCount > 0, "real show carries links");
+  assert.ok(p1.report.episodeLinkCount > 0, "real episodes carry links");
+
   const store = emptyStore();
   simulateApply(p1, store);
   const after1 = snapshot(store);
   const works1 = store.works.size;
+  const links1 = totalLinks(store);
   simulateApply(p1, store);
-  assert.deepEqual(snapshot(store), after1, "idempotent on real data");
+  assert.deepEqual(snapshot(store), after1, "idempotent on real data (incl. external_links)");
   assert.equal(store.works.size, works1, "no new works on re-apply");
   assert.equal(store.works.size, 1 + p1.episodes.length);
   assert.equal(totalJunctions(store), p1.report.resolvedTagCount);
+  assert.equal(totalLinks(store), links1, "no link drift on re-apply");
+  assert.equal(totalLinks(store), p1.report.showLinkCount + p1.report.episodeLinkCount);
 
   // Every junction entityId is in the reference set (FK-safe) and the per-episode
   // entity set is unique per axis (PK-safe).

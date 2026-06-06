@@ -27,14 +27,40 @@
  *     (Brief 109 §7). `rawName` is the audit column; `confidence` stays in the
  *     artifact and never lands on the junction (the shared junctions have no
  *     such column — out of scope).
+ *
+ * Cross-media links (Brief 122 B1-S3): the artifact's `show.links[]` and each
+ * `episodes[].links[]` are projected 1:1 into the plan (deduped + sorted), so the
+ * apply replaces a podcast work's `external_links` authoritatively from the
+ * artifact. Provenance (`sourceKind` + `confidence`) rides along verbatim from the
+ * `PodcastLink` (the Brief 128 link matrix, already resolved by S2's link-shape);
+ * a legacy/hand-edited entry missing those fields defaults to `manual` / `1.00`.
  */
 import { slugify } from "@/lib/slug";
 import { ALIAS_AXES, type AliasAxis } from "@/lib/aliases";
 
-import { EPISODE_KINDS, type EpisodeKind, type EpisodeRole, type ShowArtifact } from "./types";
+import {
+  EPISODE_KINDS,
+  EXTERNAL_LINK_KINDS,
+  PODCAST_LINK_SOURCE_KINDS,
+  type EpisodeKind,
+  type EpisodeRole,
+  type ExternalLinkKind,
+  type PodcastLink,
+  type PodcastLinkSourceKind,
+  type ShowArtifact,
+} from "./types";
 
 /** `works.slug` is `varchar(200)`; a derived episode slug must fit. */
 export const MAX_SLUG_LENGTH = 200;
+
+/**
+ * Provenance defaults for a link the artifact left unspecified — a legacy
+ * artifact predating the B1-S2 link-shape, or a hand-edited entry. The Brief 128
+ * matrix is the source of truth; this is the floor (`manual` / `1.00`), only ever
+ * reached when the artifact itself carries no `sourceKind` / `confidence`.
+ */
+export const DEFAULT_LINK_SOURCE_KIND: PodcastLinkSourceKind = "manual";
+export const DEFAULT_LINK_CONFIDENCE = 1;
 
 const EPISODE_ROLES: readonly EpisodeRole[] = ["subject", "mentioned"];
 
@@ -75,6 +101,9 @@ export interface EpisodePlan {
   episode: number | null;
   episodeKind: EpisodeKind;
   junctions: EpisodeJunctions;
+  /** Cross-media links for this episode (RSS audio enclosure, …), deduped +
+   *  sorted. The apply replaces this episode work's `external_links` with these. */
+  links: PodcastLink[];
 }
 
 /** Desired end-state for the `podcast` container work + its detail row. */
@@ -86,6 +115,10 @@ export interface ShowPlan {
   appleId: string | null;
   imageUrl: string | null;
   episodeCount: number;
+  /** Show-level cross-media links (RSS feed, Apple, official site, Spotify,
+   *  YouTube), deduped + sorted. The apply replaces the show work's
+   *  `external_links` with these. */
+  links: PodcastLink[];
 }
 
 /** A tag the artifact resolved but whose `canonicalId` is absent from the DB. */
@@ -104,6 +137,10 @@ export interface ApplyPlanReport {
   droppedMissingRefCount: number;
   /** Unresolved forms across all episodes — never written. */
   unresolvedFormCount: number;
+  /** Show-level `external_links` rows the plan will write. */
+  showLinkCount: number;
+  /** Episode-level `external_links` rows the plan will write, across all episodes. */
+  episodeLinkCount: number;
 }
 
 export interface ApplyPlan {
@@ -128,6 +165,76 @@ function fail(msg: string): never {
 
 function isObject(v: unknown): v is Record<string, unknown> {
   return typeof v === "object" && v !== null && !Array.isArray(v);
+}
+
+function cmpStr(a: string, b: string): number {
+  return a < b ? -1 : a > b ? 1 : 0;
+}
+
+/**
+ * Validate one link list (show- or episode-scoped). Lenient on provenance: a
+ * legacy artifact may omit the whole array, and a hand-edited entry may omit
+ * `sourceKind` / `confidence` (the plan fills the Brief 128 defaults). The
+ * structural fields the DB hard-requires — `serviceId` (the `services` FK),
+ * `url`, and a valid `external_link_kind` — are enforced here so a malformed link
+ * fails before the apply mutates anything.
+ */
+function assertLinks(value: unknown, where: string): void {
+  if (value === undefined) return; // pre-S2 artifact without a link-shape — tolerated
+  if (!Array.isArray(value)) fail(`${where} must be an array`);
+  value.forEach((l, i) => {
+    const at = `${where}[${i}]`;
+    if (!isObject(l)) fail(`${at} must be an object`);
+    requireString(l.serviceId, `${at}.serviceId`);
+    requireString(l.url, `${at}.url`);
+    if (!EXTERNAL_LINK_KINDS.includes(l.kind as ExternalLinkKind)) {
+      fail(`${at}.kind "${String(l.kind)}" is not a known external_link_kind`);
+    }
+    if (
+      l.sourceKind !== undefined &&
+      !PODCAST_LINK_SOURCE_KINDS.includes(l.sourceKind as PodcastLinkSourceKind)
+    ) {
+      fail(`${at}.sourceKind "${String(l.sourceKind)}" must be podcast_rss|manual`);
+    }
+    if (l.confidence !== undefined) {
+      if (
+        typeof l.confidence !== "number" ||
+        !Number.isFinite(l.confidence) ||
+        l.confidence < 0 ||
+        l.confidence > 1
+      ) {
+        fail(`${at}.confidence must be a number in [0, 1]`);
+      }
+    }
+  });
+}
+
+/**
+ * Project an artifact link list into the plan: fill the Brief 128 provenance
+ * defaults for any legacy/missing `sourceKind` / `confidence`, dedup by
+ * `(serviceId, kind, url)` — first occurrence wins — and sort by the same key.
+ * The result is byte-deterministic, so the plan is stable and a re-applied
+ * artifact yields an identical `external_links` set (the idempotency the apply
+ * relies on). The dedup key is a JSON-encoded tuple, so no field separator can
+ * forge a collision (mirrors `links.ts`).
+ */
+function projectLinks(rawLinks: readonly PodcastLink[] | undefined): PodcastLink[] {
+  if (rawLinks === undefined) return [];
+  const seen = new Map<string, PodcastLink>();
+  for (const l of rawLinks) {
+    const link: PodcastLink = {
+      serviceId: l.serviceId,
+      kind: l.kind,
+      url: l.url,
+      sourceKind: l.sourceKind ?? DEFAULT_LINK_SOURCE_KIND,
+      confidence: l.confidence ?? DEFAULT_LINK_CONFIDENCE,
+    };
+    const key = JSON.stringify([link.serviceId, link.kind, link.url]);
+    if (!seen.has(key)) seen.set(key, link);
+  }
+  return [...seen.values()].sort(
+    (a, b) => cmpStr(a.serviceId, b.serviceId) || cmpStr(a.kind, b.kind) || cmpStr(a.url, b.url),
+  );
 }
 
 function requireString(v: unknown, where: string): string {
@@ -159,6 +266,7 @@ export function assertShowArtifact(value: unknown): asserts value is ShowArtifac
   optStringOrNull(show.podcastGuid, "show.podcastGuid");
   optStringOrNull(show.appleId, "show.appleId");
   optStringOrNull(show.imageUrl, "show.imageUrl");
+  assertLinks(show.links, "show.links");
 
   const episodes = value.episodes;
   if (!Array.isArray(episodes)) fail("`episodes` must be an array");
@@ -207,6 +315,8 @@ export function assertShowArtifact(value: unknown): asserts value is ShowArtifac
     });
 
     if (!Array.isArray(ep.unresolved)) fail(`${at}.unresolved must be an array`);
+
+    assertLinks(ep.links, `${at}.links`);
   });
 }
 
@@ -226,11 +336,13 @@ export function buildApplyPlan(artifact: ShowArtifact, refs: ReferenceSets): App
     appleId: artifact.show.appleId,
     imageUrl: artifact.show.imageUrl,
     episodeCount: artifact.episodes.length,
+    links: projectLinks(artifact.show.links),
   };
 
   const droppedMissingRef: DroppedTag[] = [];
   let resolvedTagCount = 0;
   let unresolvedFormCount = 0;
+  let episodeLinkCount = 0;
 
   const episodes: EpisodePlan[] = artifact.episodes.map((e) => {
     unresolvedFormCount += e.unresolved.length;
@@ -274,6 +386,9 @@ export function buildApplyPlan(artifact: ShowArtifact, refs: ReferenceSets): App
       junctions[axis].sort((a, b) => (a.entityId < b.entityId ? -1 : a.entityId > b.entityId ? 1 : 0));
     }
 
+    const links = projectLinks(e.links);
+    episodeLinkCount += links.length;
+
     return {
       episodeGuid: e.guid,
       slug: deriveEpisodeSlug(show.slug, e.guid),
@@ -285,6 +400,7 @@ export function buildApplyPlan(artifact: ShowArtifact, refs: ReferenceSets): App
       episode: e.episode ?? null,
       episodeKind: e.episodeKind,
       junctions,
+      links,
     };
   });
 
@@ -297,6 +413,8 @@ export function buildApplyPlan(artifact: ShowArtifact, refs: ReferenceSets): App
       resolvedTagCount,
       droppedMissingRefCount: droppedMissingRef.length,
       unresolvedFormCount,
+      showLinkCount: show.links.length,
+      episodeLinkCount,
     },
   };
 }
