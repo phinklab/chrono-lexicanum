@@ -1,83 +1,175 @@
 /* 62-podcasts.css
-   Public podcast pillar (Brief 120). Atmosphere (sweep, readout, floating
-   coord, librarium backdrop) follows the Home/HUD language; the show card and
-   the year-grouped episode list follow the Archive/Chronicle list discipline —
-   hairline-separated rows, calm hover, cyan accent (the house default; this is
-   not the gold .catalogue surface). */
+   Public podcast pillar — index (/podcasts) + per-show detail (/podcasts/[slug]).
+   121-P4 redesign (2026-06-06): brought onto the media-page skeleton already
+   proven on /ask + /werke — fixed librarium photo, scroll-scrim fade, HUD
+   atmosphere, masthead at clamp(520px,60vh,700px), content band pulled up -80px.
+   House cyan accent (podcasts are not the gold .catalogue domain). Restraint
+   laws: no border-radius, glow ≤18% alpha, L-brackets (.c-corners) only on
+   doorway/plate cards, accent reserved for hover/focus/active/live values. */
 
-.podcasts {
+main.podcasts {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--top-nav-h, 48px));
+  padding: 0 0 56px;
+  overflow-x: hidden;
 }
 
-/* ── Hero ───────────────────────────────────────────────────────────────── */
-.pod-hero {
-  position: relative;
-  overflow: hidden;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 64px clamp(20px, 3vw, 48px) 28px;
-}
-.pod-hero__inner {
-  position: relative;
-  z-index: 2;
-}
-.pod-hero__eyebrow {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--cl-cyan-dim);
-}
-.pod-hero__heading {
-  margin: 10px 0 0;
-  font-family: var(--font-cinzel), serif;
-  font-weight: 600;
-  font-size: clamp(34px, 6vw, 54px);
-  letter-spacing: 0.14em;
-  color: var(--cl-bone);
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
-}
-.pod-hero__sub {
-  margin: 12px 0 0;
-  max-width: 600px;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-style: italic;
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  color: var(--cl-bone);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
-}
-.pod-hero__sweep {
+/* ── Fixed backdrop fade + scroll scrim (the /ask treatment) ──────────────── */
+/* Crisp-top, fade-to-void: the librarium photo is sharp through the upper band
+ * (title), then ramps to full void where the content band sits. Neutral void
+ * only — no cyan halo, no warm gradient, no bloom. */
+body:has(main.podcasts) .site-bg::after {
+  content: "";
   position: absolute;
-  top: 8px;
-  right: clamp(8px, 3vw, 40px);
-  opacity: 0.5;
-  z-index: 1;
+  inset: 0;
   pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 34%,
+      transparent 50%,
+      rgba(2, 3, 10, 0.2) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 3, 10, 0) 0%,
+      rgba(2, 3, 10, 0) 38%,
+      rgba(2, 3, 10, 0.52) 56%,
+      rgba(2, 3, 10, 0.9) 74%,
+      rgba(2, 3, 10, 1) 90%
+    );
 }
-.pod-hero__readout {
-  position: absolute;
-  right: clamp(16px, 4vw, 56px);
-  bottom: 18px;
+
+/* Scroll-darkening scrim — coplanar with .site-bg (z -1), later in the DOM so it
+ * paints over the fixed photo while staying below all content. <ScrollScrim>
+ * raises --pod-scrim-opacity from 0 as the reader scrolls past the masthead. */
+.pod-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--cl-void);
+  opacity: var(--pod-scrim-opacity, 0);
+  will-change: opacity;
+}
+
+/* ── Fixed HUD atmosphere ─────────────────────────────────────────────────── */
+.pod-readout {
+  position: fixed;
+  top: 96px;
+  right: clamp(16px, 4vw, 48px);
   width: 240px;
+  z-index: 3;
+  pointer-events: none;
+}
+.pod-hud {
+  position: fixed;
+  inset: 0;
   z-index: 1;
   pointer-events: none;
+  opacity: 0.6;
+}
+.pod-hud__sweep {
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  width: 360px;
+  height: 360px;
+  transform: translateX(-50%);
+  aspect-ratio: 1;
 }
 @media (max-width: 900px) {
-  .pod-hero__readout,
-  .pod-hero__sweep {
+  .pod-readout,
+  .pod-hud {
     display: none;
   }
 }
 
-/* ── Body ───────────────────────────────────────────────────────────────── */
+/* ── Masthead ─────────────────────────────────────────────────────────────── */
+.pod-mast {
+  position: relative;
+  z-index: 4;
+  /* Same clamp as /ask + /werke so the pages stay aligned. */
+  height: clamp(520px, 60vh, 700px);
+  max-width: none;
+  margin: 0;
+  padding: 320px clamp(18px, 4vw, 48px) 0;
+  text-align: center;
+  pointer-events: none;
+}
+.pod-mast__inner {
+  position: relative;
+}
+.pod-mast__eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  /* 0.22em matches .catalogue-hero__eyebrow — the one sibling this clones. */
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-cyan-dim);
+}
+.pod-mast__heading {
+  margin: 12px auto 0;
+  max-width: 920px;
+  font-family: var(--font-cinzel), serif;
+  font-size: clamp(44px, 4.6vw, 64px);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-bone);
+  text-shadow:
+    0 0 32px rgba(156, 230, 255, 0.18),
+    0 4px 14px rgba(0, 0, 0, 0.95);
+}
+/* Show titles can be multi-word — smaller, wrap-friendly, still centred. */
+.pod-mast__heading--show {
+  font-size: clamp(30px, 4vw, 50px);
+  letter-spacing: 0.14em;
+  max-width: 20ch;
+}
+.pod-mast__sub {
+  max-width: 640px;
+  margin: 14px auto 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  line-height: var(--lh-read);
+  color: var(--cl-bone);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+/* ── Content band (pulled up under the masthead) ──────────────────────────── */
 .pod-body {
   position: relative;
-  z-index: 2;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 4px clamp(20px, 3vw, 48px) 80px;
+  z-index: 4;
+  max-width: 1180px;
+  margin: -80px auto 0;
+  padding: 24px clamp(20px, 3vw, 48px) 80px;
+}
+
+.pod-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  padding: 0 2px 14px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--cl-faint);
+}
+.pod-toolbar__count {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.14em;
+  color: var(--cl-cyan);
+}
+.pod-toolbar__total {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.08em;
+  color: var(--cl-dim);
+}
+.pod-toolbar__dot {
+  color: var(--cl-faint);
 }
 
 .pod-empty {
@@ -89,27 +181,192 @@
   color: var(--cl-dim);
 }
 
-/* ── Show header card ───────────────────────────────────────────────────── */
-.pod-show {
-  margin: 0 0 44px;
+/* ── Index: show doorway cards ────────────────────────────────────────────── */
+.pod-hall {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: clamp(16px, 2.4vw, 28px);
 }
-.pod-show__head {
+.pod-card {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 18px;
+  transition: background 180ms, border-color 180ms;
+}
+.pod-card:hover {
+  background: var(--cl-cyan-fnt);
+}
+.pod-card:focus-within {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+.pod-card__art {
+  flex: 0 0 auto;
+}
+.pod-card__art img {
+  display: block;
+  width: 132px;
+  height: 132px;
+  object-fit: cover;
+  border: 1px solid var(--cl-faint);
+}
+.pod-card__art-ph {
+  width: 132px;
+  height: 132px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--cl-faint);
+  background: rgba(2, 3, 10, 0.5);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--cl-dim);
+}
+.pod-card__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.pod-card__kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan-dim);
+}
+.pod-card__title {
+  margin: 6px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 600;
+  font-size: clamp(20px, 2.6vw, 26px);
+  letter-spacing: 0.04em;
+  color: var(--cl-bone);
+}
+.pod-card__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+/* Stretched link — makes the whole card navigate to the show while the platform
+ * links above stay independently clickable (no nested <a>). */
+.pod-card__title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.pod-card:hover .pod-card__title-link {
+  color: var(--cl-cyan);
+}
+.pod-card__stats {
+  margin: 6px 0 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  color: var(--cl-dim);
+}
+.pod-card__platforms {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+}
+.pod-card__latest {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid color-mix(in oklch, var(--cl-cyan) 10%, transparent);
+}
+.pod-card__latest-row {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 3px 0;
+  min-width: 0;
+}
+.pod-card__latest-date {
+  flex: 0 0 auto;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.06em;
+  color: var(--cl-faint);
+  white-space: nowrap;
+}
+.pod-card__latest-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
+  color: var(--cl-dim);
+}
+.pod-card__open {
+  margin-top: auto;
+  padding-top: 14px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cl-cyan-dim);
+  transition: color 160ms;
+}
+.pod-card:hover .pod-card__open {
+  color: var(--cl-cyan);
+}
+
+/* ── Platform link chip (shared: index card + detail plate) ───────────────── */
+/* Rest in the neutral link register (bone + hairline) — a show carries up to
+ * five of these, and the house law (31-catalogue.css .catalogue-tag) keeps the
+ * accent for interaction, not a resting wall of cyan. */
+.pod-platform {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-bone);
+  background: transparent;
+  padding: 6px 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 180ms, background 180ms, border-color 180ms;
+}
+.pod-platform:hover {
+  color: var(--cl-cyan);
+  background: color-mix(in oklch, var(--cl-cyan) 16%, transparent);
+  border-color: var(--cl-cyan);
+}
+.pod-platform:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+
+/* ── Detail: show plate ───────────────────────────────────────────────────── */
+.pod-plate {
   display: flex;
   gap: 20px;
   align-items: flex-start;
   padding: 18px;
+  margin-bottom: 26px;
 }
-.pod-show__art {
+.pod-plate__art {
   flex: 0 0 auto;
 }
-.pod-show__art img {
+.pod-plate__art img {
   display: block;
   width: 116px;
   height: 116px;
   object-fit: cover;
   border: 1px solid var(--cl-faint);
 }
-.pod-show__art-placeholder {
+.pod-plate__art-ph {
   width: 116px;
   height: 116px;
   display: grid;
@@ -121,17 +378,17 @@
   letter-spacing: 0.2em;
   color: var(--cl-dim);
 }
-.pod-show__meta {
+.pod-plate__meta {
   min-width: 0;
 }
-.pod-show__kicker {
+.pod-plate__kicker {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cl-cyan-dim);
 }
-.pod-show__title {
+.pod-plate__name {
   margin: 6px 0 0;
   font-family: var(--font-cinzel), serif;
   font-weight: 600;
@@ -139,74 +396,195 @@
   letter-spacing: 0.04em;
   color: var(--cl-bone);
 }
-.pod-show__stats {
+.pod-plate__stats {
   margin: 6px 0 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: var(--cl-dim);
 }
-.pod-show__synopsis {
-  margin: 10px 0 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-sm);
-  font-weight: var(--fw-read);
-  line-height: 1.5;
-  color: var(--cl-bone);
-}
-.pod-show__links {
+.pod-plate__platforms {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 14px 0 0;
 }
-.pod-link {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--cl-cyan-dim);
-  color: var(--cl-cyan);
-  background: var(--cl-cyan-fnt);
-  padding: 6px 12px;
+.pod-plate__back {
+  display: inline-block;
+  margin: 16px 0 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: var(--cl-cyan);
   text-decoration: none;
-  transition: background 180ms, border-color 180ms;
+  transition: color 160ms;
 }
-.pod-link:hover {
-  background: color-mix(in oklch, var(--cl-cyan) 16%, transparent);
-  border-color: var(--cl-cyan);
+.pod-plate__back:hover {
+  color: var(--cl-bone);
+}
+.pod-plate__back:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
 }
 
-.pod-show__empty {
-  margin: 16px 2px 0;
+/* ── Archive: filter bar ──────────────────────────────────────────────────── */
+.pod-archive {
+  margin-top: 4px;
+}
+.pod-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.pod-filter__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 280px;
+  min-width: 220px;
+  padding: 8px 12px;
+  border: 1px solid var(--cl-faint);
+  background: rgba(2, 3, 10, 0.4);
+  transition: border-color 160ms;
+}
+.pod-filter__search:focus-within {
+  border-color: var(--cl-cyan-dim);
+}
+.pod-filter__sigil {
+  color: var(--cl-dim);
+  font-size: 14px;
+}
+.pod-filter__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  outline: none;
+  color: var(--cl-bone);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-sm);
+}
+.pod-filter__input::placeholder {
+  color: var(--cl-faint);
+  font-style: italic;
+}
+.pod-filter__clear {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: var(--cl-dim);
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  padding: 2px 4px;
+  transition: color 160ms;
+}
+.pod-filter__clear:hover {
+  color: var(--cl-bone);
+}
+.pod-filter__kinds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pod-filter__status {
+  margin-left: auto;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  color: var(--cl-dim);
+  white-space: nowrap;
+}
+
+/* Pill toggle (kinds + reset) */
+.pod-pill {
+  border: 1px solid var(--cl-faint);
+  background: transparent;
+  color: var(--cl-dim);
+  padding: 5px 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 160ms, border-color 160ms, background 160ms;
+}
+.pod-pill:hover {
+  border-color: var(--cl-cyan-dim);
+  color: var(--cl-bone);
+}
+.pod-pill.is-active {
+  border-color: var(--cl-cyan);
+  background: var(--cl-cyan-fnt);
+  color: var(--cl-cyan);
+}
+.pod-pill:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+
+/* Year quick-jump */
+.pod-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.pod-jump__pill {
+  /* Resting state must clear WCAG AA as an interactive control: --cl-dim text
+   * (~6:1) + a neutral bone border (~3:1). Accent stays on hover/focus. */
+  border: 1px solid color-mix(in oklch, var(--cl-bone) 40%, transparent);
+  background: transparent;
+  color: var(--cl-dim);
+  padding: 3px 9px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color 160ms, border-color 160ms;
+}
+.pod-jump__pill:hover {
+  color: var(--cl-cyan);
+  border-color: var(--cl-cyan-dim);
+}
+.pod-jump__pill:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+
+.pod-archive__empty {
+  padding: 24px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
+  font-size: var(--fs-read);
   color: var(--cl-dim);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
 }
 
-/* ── Year-grouped episode list (Chronicle-style era buckets) ─────────────── */
-.pod-show__episodes {
-  margin: 18px 0 0;
+/* ── Year-grouped episode list ────────────────────────────────────────────── */
+.pod-archive__list {
+  margin-top: 4px;
 }
 .pod-year {
   margin: 0 0 6px;
+  scroll-margin-top: calc(var(--top-nav-h, 48px) + 12px);
 }
 .pod-year__label {
   position: sticky;
-  top: calc(var(--top-nav-h) + 2px);
+  top: calc(var(--top-nav-h, 48px) + 2px);
   z-index: 3;
   display: flex;
   align-items: baseline;
   gap: 10px;
   margin: 0;
   padding: 8px 4px 6px;
-  background: linear-gradient(
-    to bottom,
-    var(--cl-void) 70%,
-    rgba(3, 5, 12, 0)
-  );
+  background: linear-gradient(to bottom, var(--cl-void) 70%, rgba(3, 5, 12, 0));
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-lg);
   letter-spacing: 0.22em;
@@ -223,31 +601,76 @@
   margin: 0;
   padding: 0;
 }
-.pod-episodes > li {
+.pod-ep-item {
   list-style: none;
 }
 
 .pod-ep {
   display: grid;
-  grid-template-columns: 58px minmax(0, 1fr) auto auto auto;
+  /* play · date · title · meta. The optional kind/dur/download live in one
+   * right-aligned meta cell so Download column-aligns across rows whether or not
+   * a kind chip is present (lore rows omit it). */
+  grid-template-columns: 28px 54px minmax(0, 1fr) auto;
   align-items: center;
   gap: 14px;
   padding: 9px 4px;
   border-top: 1px solid color-mix(in oklch, var(--cl-cyan) 12%, transparent);
   transition: background 160ms;
 }
-.pod-episodes > li:first-child .pod-ep {
+.pod-ep-item:first-child .pod-ep {
   border-top: none;
 }
 .pod-ep:hover {
   background: var(--cl-cyan-fnt);
 }
+.pod-ep.is-playing {
+  background: var(--cl-cyan-fnt);
+}
+
+.pod-ep__play {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--cl-cyan-dim);
+  background: transparent;
+  color: var(--cl-cyan);
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  padding: 0;
+  transition: background 160ms, border-color 160ms, color 160ms;
+}
+.pod-ep__play:hover {
+  background: color-mix(in oklch, var(--cl-cyan) 16%, transparent);
+  border-color: var(--cl-cyan);
+}
+.pod-ep__play:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+.pod-ep.is-playing .pod-ep__play {
+  background: var(--cl-cyan);
+  color: var(--cl-void);
+  border-color: var(--cl-cyan);
+}
+.pod-ep__play--off {
+  color: var(--cl-faint);
+  border-color: transparent;
+}
+
 .pod-ep__date {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   letter-spacing: 0.06em;
   color: var(--cl-dim);
   white-space: nowrap;
+}
+.pod-ep__main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
 }
 .pod-ep__title {
   min-width: 0;
@@ -256,6 +679,32 @@
   font-weight: var(--fw-read);
   line-height: 1.35;
   color: var(--cl-bone);
+}
+.pod-ep__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pod-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-dim);
+  padding: 1px 8px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 160ms, border-color 160ms;
+}
+.pod-tag:hover {
+  color: var(--cl-cyan);
+  border-color: var(--cl-cyan-dim);
+}
+.pod-tag:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
 }
 .pod-ep__kind {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -274,7 +723,7 @@
   color: var(--cl-faint);
   white-space: nowrap;
 }
-.pod-ep__listen {
+.pod-ep__dl {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   letter-spacing: 0.14em;
@@ -284,19 +733,34 @@
   white-space: nowrap;
   transition: color 160ms;
 }
-.pod-ep__listen:hover {
+.pod-ep__dl:hover {
   color: var(--cl-bone);
 }
-.pod-ep__listen--off {
-  color: var(--cl-faint);
+.pod-ep__dl:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+.pod-ep__meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: end;
 }
 
-/* ── Footer ─────────────────────────────────────────────────────────────── */
+.pod-ep__player {
+  padding: 6px 4px 14px;
+}
+.pod-ep__player audio {
+  display: block;
+  width: 100%;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
 .pod-footer {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  margin: 36px 0 0;
+  margin: 40px 0 0;
   padding-top: 16px;
   border-top: 1px solid var(--cl-faint);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -309,39 +773,86 @@
   color: var(--cl-faint);
 }
 
-/* ── Narrow ─────────────────────────────────────────────────────────────── */
+/* ── Narrow ───────────────────────────────────────────────────────────────── */
 @media (max-width: 720px) {
-  .pod-show__head {
+  .pod-mast {
+    /* Match /ask + /werke mobile mastheads (420px / title-top 240px). */
+    height: 420px;
+    padding: 240px 14px 0;
+  }
+  .pod-mast__heading {
+    font-size: clamp(40px, 8vw, 56px);
+    letter-spacing: 0.14em;
+  }
+  .pod-mast__heading--show {
+    font-size: clamp(28px, 8vw, 42px);
+  }
+  .pod-mast__sub {
+    font-size: var(--fs-read-sm);
+  }
+  .pod-body {
+    margin-top: -56px;
+    padding: 18px 14px 0;
+  }
+
+  .pod-card {
     gap: 14px;
     padding: 14px;
   }
-  .pod-show__art img,
-  .pod-show__art-placeholder {
+  .pod-card__art img,
+  .pod-card__art-ph {
+    width: 92px;
+    height: 92px;
+  }
+
+  .pod-plate {
+    gap: 14px;
+    padding: 14px;
+  }
+  .pod-plate__art img,
+  .pod-plate__art-ph {
     width: 84px;
     height: 84px;
   }
-  /* Title on its own line, then a meta strip (date · kind · dur · listen). */
+
+  .pod-filter__status {
+    margin-left: 0;
+  }
+
+  /* Episode row: play + title (with tags) on line 1; a meta strip
+     (date · kind · dur … download) wraps onto line 2. */
   .pod-ep {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
-    gap: 4px 10px;
+    align-items: flex-start;
+    gap: 6px 10px;
   }
-  .pod-ep__title {
+  /* Flatten the meta cell so date/kind/dur/download rejoin the row's flex flow
+     and the order rules below place them on line 2. */
+  .pod-ep__meta {
+    display: contents;
+  }
+  .pod-ep__play {
     order: 1;
-    flex: 1 1 100%;
+    flex: 0 0 auto;
+  }
+  .pod-ep__main {
+    order: 2;
+    /* Fill the rest of line 1 (28px play + 10px gap) so the meta items wrap. */
+    flex: 1 1 calc(100% - 40px);
+    min-width: 0;
   }
   .pod-ep__date {
-    order: 2;
-  }
-  .pod-ep__kind {
     order: 3;
   }
-  .pod-ep__dur {
+  .pod-ep__kind {
     order: 4;
   }
-  .pod-ep__listen {
+  .pod-ep__dur {
     order: 5;
+  }
+  .pod-ep__dl {
+    order: 6;
     margin-left: auto;
   }
   .pod-footer {
