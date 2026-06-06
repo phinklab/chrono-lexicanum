@@ -5,7 +5,7 @@ Canonical reference data used by `scripts/seed.ts` to initialize a fresh databas
 ## What's in the catalog (post Stufe 2b — sessions/2026-05-01-021)
 
 **Reference structure** (canon, hand-curated, source of truth for v1):
-29 factions, 7 eras, 5 sectors, 28 locations, 21 series, 18 services,
+29 factions, 7 eras, 5 sectors, 28 locations, 21 series, 21 services,
 12 persons, 12 facet categories with 85 facet values, plus the 5-question
 Ask-the-Archive questionnaire.
 
@@ -40,7 +40,7 @@ lives in your local archive only.
 | `series.json` | Book series (Horus Heresy, Eisenhorn, …) | `series` |
 | `sectors.json` | Galactic segmentums | `sectors` |
 | `locations.json` | Named worlds and warp anomalies | `locations` |
-| `services.json` | 18 storefronts / catalogs / wikis (FK target for `external_links`) | `services` |
+| `services.json` | 21 storefronts / catalogs / wikis / podcast endpoints (FK target for `external_links`) | `services` |
 | `persons.json` | Authors / translators / narrators / directors / cover artists | `persons` |
 | `facet-catalog.json` | 12 facet categories + ~85 facet values (NEON-14 trigger warnings + 11 editorial categories) | `facet_categories`, `facet_values` |
 | `books.json` | 26 books with inline annotations (factions, persons, facets, external_links) | `works` (kind=book), `book_details`, `work_factions`, `work_persons`, `work_facets`, `external_links` |

@@ -600,6 +600,16 @@ export const externalLinks = pgTable(
     region: varchar("region", { length: 8 }),
     affiliate: boolean("affiliate").notNull().default(false),
     displayOrder: integer("display_order").notNull().default(0),
+    // Brief 128 / B1-S1 (2026-06-06): provenance per link, analog to
+    // works.source_kind + works.confidence. Episodes are `works`, so their
+    // watch/listen links land here (not just in podcast_episode_details); the
+    // generic cross-media link store therefore needs the same audit columns as
+    // the works it hangs off. Additive + defaulted, so the existing
+    // book/film/seed `external_links` inserts (which omit them) keep working and
+    // backfill as `manual` / `1.00`. Reader projections stay unaffected because
+    // every current consumer selects explicit columns.
+    sourceKind: sourceKind("source_kind").notNull().default("manual"),
+    confidence: numeric("confidence", { precision: 3, scale: 2 }).default("1.00"),
   },
   (t) => ({
     workIdx: index("external_links_work_idx").on(t.workId),
