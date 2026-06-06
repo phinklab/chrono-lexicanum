@@ -1,10 +1,13 @@
 [
+  { "id": "official_website", "name": "Official Website", "displayOrder": 5 },
   { "id": "black_library", "name": "Black Library", "domain": "blacklibrary.com", "displayOrder": 10 },
   { "id": "amazon", "name": "Amazon", "domain": "amazon.com", "displayOrder": 20 },
   { "id": "audible", "name": "Audible", "domain": "audible.com", "affiliateSupported": true, "displayOrder": 30 },
   { "id": "kindle", "name": "Kindle", "domain": "amazon.com", "displayOrder": 40 },
   { "id": "apple_books", "name": "Apple Books", "domain": "books.apple.com", "displayOrder": 50 },
+  { "id": "apple_podcasts", "name": "Apple Podcasts", "domain": "podcasts.apple.com", "displayOrder": 55 },
   { "id": "spotify", "name": "Spotify", "domain": "spotify.com", "displayOrder": 60 },
+  { "id": "rss", "name": "RSS Feed", "displayOrder": 65 },
   { "id": "warhammer_plus", "name": "Warhammer+", "domain": "warhammer-plus.com", "displayOrder": 70 },
   { "id": "amazon_video", "name": "Prime Video", "domain": "amazon.com", "displayOrder": 80 },
   { "id": "youtube", "name": "YouTube", "domain": "youtube.com", "displayOrder": 90 },
