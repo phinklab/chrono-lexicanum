@@ -8,10 +8,12 @@
  * the client bundle stays pure). Owns three things the static page can't:
  *   1. a bespoke filter bar (title search + kind toggle + year quick-jump),
  *   2. one-at-a-time inline playback (native <audio>, dark controls),
- *   3. download links + faction chips that route into /werke.
+ *   3. listen links (open the enclosure) + faction chips that route into /werke,
+ *   4. collapsed-by-default year headings — disclosure buttons the reader
+ *      expands one at a time; an active filter auto-expands matching years.
  *
- * The visual vocabulary is borrowed from /werke + /ask (hairline rows, cyan
- * pills); the filter *logic* is its own — no portage of the works filters.
+ * The visual vocabulary is borrowed from /buecher (archive-gold hairline rows,
+ * gold pills); the filter *logic* is its own — no portage of the works filters.
  */
 import { useMemo, useState } from "react";
 import Link from "next/link";
@@ -84,10 +86,16 @@ function epMatches(ep: PodcastEpisode, q: string, kind: string): boolean {
   return true;
 }
 
+// A year bucket's key (number, or null for undated) used in the open-set.
+type YearKey = number | null;
+
 export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
   const [query, setQuery] = useState("");
   const [kind, setKind] = useState<string>("all");
   const [playingId, setPlayingId] = useState<string | null>(null);
+  // Manual disclosure state for the year headings — empty = all collapsed (the
+  // requested first state). A year is in the set iff the reader expanded it.
+  const [openYears, setOpenYears] = useState<Set<YearKey>>(new Set());
 
   // Kind toggles reflect only the kinds this show actually carries; a show that
   // is pure 'lore' gets no kind row at all.
@@ -109,6 +117,18 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
 
   const filtering = query.trim().length > 0 || kind !== "all";
 
+  // The years that hold at least one episode passing (q, k). Drives the
+  // disclosure when a filter turns on — matches are never hidden behind a
+  // collapsed heading — without making the toggle lie: openYears stays the one
+  // source of truth for "is this year open".
+  function matchingYears(q: string, k: string): Set<YearKey> {
+    const set = new Set<YearKey>();
+    for (const ep of episodes) {
+      if (epMatches(ep, q, k)) set.add(yearOf(ep.pubDateMs));
+    }
+    return set;
+  }
+
   // When a filter change would hide the playing episode, stop it here in the
   // handler (not an effect) — otherwise clearing the filter later would remount
   // its row and autoPlay would restart it from 0.
@@ -120,36 +140,90 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
     }
   }
 
+  // A filter change rewrites the open-set: active → expand exactly the matching
+  // years; cleared → return to the all-collapsed baseline. Because openYears
+  // remains the single source of truth (rather than OR-ing `filtering` into
+  // `open`), the year toggle always reflects reality and can genuinely collapse
+  // a year even while a filter is active.
+  function applyFilter(nextQuery: string, nextKind: string) {
+    const active = nextQuery.trim().length > 0 || nextKind !== "all";
+    setOpenYears(
+      active ? matchingYears(nextQuery.trim().toLowerCase(), nextKind) : new Set(),
+    );
+    reconcilePlaying(nextQuery, nextKind);
+  }
+
   function changeQuery(next: string) {
     setQuery(next);
-    reconcilePlaying(next, kind);
+    applyFilter(next, kind);
   }
   function changeKind(next: string) {
     setKind(next);
-    reconcilePlaying(query, next);
+    applyFilter(query, next);
+  }
+
+  function toggleYear(year: YearKey) {
+    const wasOpen = openYears.has(year);
+    setOpenYears((cur) => {
+      const next = new Set(cur);
+      if (next.has(year)) next.delete(year);
+      else next.add(year);
+      return next;
+    });
+    // Collapsing the year that holds the playing episode unmounts its <audio>;
+    // clear playingId too so a later re-expand doesn't autoPlay a "still
+    // playing" ghost from 0 (mirrors reconcilePlaying on the filter path).
+    if (wasOpen && playingId) {
+      const ep = episodes.find((e) => e.id === playingId);
+      if (ep && yearOf(ep.pubDateMs) === year) setPlayingId(null);
+    }
   }
 
   function jumpTo(year: number) {
+    // Expand the target year, scroll its head into view, then move focus to the
+    // now-expanded heading so keyboard/SR users land on it (and hear its
+    // expanded state) rather than being stranded on the jump pill. The section
+    // anchor exists regardless of open state, and expanding a year never moves
+    // the years above it, so the head's scroll position is stable.
+    setOpenYears((cur) => (cur.has(year) ? cur : new Set(cur).add(year)));
     const el = document.getElementById(yearAnchor(year));
     if (!el) return;
     const reduce =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    el.querySelector<HTMLButtonElement>(".pod-year__toggle")?.focus({
+      preventScroll: true,
+    });
   }
 
   function resetFilters() {
     setQuery("");
     setKind("all");
+    setOpenYears(new Set());
+    reconcilePlaying("", "all");
   }
 
   return (
     <section className="pod-archive" aria-label={`${showTitle} — episodes`}>
       <div className="pod-filter" role="search">
         <div className="pod-filter__search">
-          <span className="pod-filter__sigil" aria-hidden>
-            ⌕
-          </span>
+          {/* Auspex reticle — the same query sigil /werke's BrowseSearch uses. */}
+          <svg className="pod-filter__sigil" viewBox="0 0 16 16" aria-hidden>
+            <circle
+              cx="8"
+              cy="8"
+              r="5.4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1"
+            />
+            <path
+              d="M8 0.5v3M8 12.5v3M0.5 8h3M12.5 8h3"
+              stroke="currentColor"
+              strokeWidth="1"
+            />
+          </svg>
           <input
             type="search"
             className="pod-filter__input"
@@ -170,34 +244,45 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
           )}
         </div>
 
-        {presentKinds.length > 1 && (
-          <div className="pod-filter__kinds" role="group" aria-label="Filter by kind">
-            <button
-              type="button"
-              className={`pod-pill${kind === "all" ? " is-active" : ""}`}
-              aria-pressed={kind === "all"}
-              onClick={() => changeKind("all")}
+        <div className="pod-filter__controls">
+          {presentKinds.length > 1 && (
+            <div
+              className="pod-filter__kinds"
+              role="group"
+              aria-label="Filter by kind"
             >
-              All
-            </button>
-            {presentKinds.map((k) => (
               <button
-                key={k}
                 type="button"
-                className={`pod-pill${kind === k ? " is-active" : ""}`}
-                aria-pressed={kind === k}
-                onClick={() => changeKind(k)}
+                className={`pod-pill${kind === "all" ? " is-active" : ""}`}
+                aria-pressed={kind === "all"}
+                onClick={() => changeKind("all")}
               >
-                {KIND_LABELS[k] ?? k}
+                All
               </button>
-            ))}
-          </div>
-        )}
+              {presentKinds.map((k) => (
+                <button
+                  key={k}
+                  type="button"
+                  className={`pod-pill${kind === k ? " is-active" : ""}`}
+                  aria-pressed={kind === k}
+                  onClick={() => changeKind(k)}
+                >
+                  {KIND_LABELS[k] ?? k}
+                </button>
+              ))}
+            </div>
+          )}
 
-        <span className="pod-filter__status" role="status" aria-live="polite">
-          {filtered.length} of {episodes.length} shown
-          {filtered.length === 0 ? " — no matches" : ""}
-        </span>
+          <span className="pod-filter__status" role="status" aria-live="polite">
+            {filtered.length} of {episodes.length} shown
+            {filtered.length === 0 ? " — no matches" : ""}
+            {/* Carry the active terms so two filters that coincidentally yield the
+                same count produce distinct text — otherwise an aria-live region
+                with unchanged text is not re-announced. */}
+            {query.trim() ? ` · “${query.trim()}”` : ""}
+            {kind !== "all" ? ` · ${KIND_LABELS[kind] ?? kind}` : ""}
+          </span>
+        </div>
       </div>
 
       {jumpYears.length > 1 && (
@@ -216,7 +301,7 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
       )}
 
       {filtered.length === 0 ? (
-        <div className="pod-archive__empty c-glass c-corners">
+        <div className="pod-archive__empty">
           <p>No episodes match {filtering ? "these filters" : "this view"}.</p>
           {filtering && (
             <button type="button" className="pod-pill" onClick={resetFilters}>
@@ -226,31 +311,54 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
         </div>
       ) : (
         <div className="pod-archive__list">
-          {groups.map((g) => (
-            <section
-              className="pod-year"
-              id={yearAnchor(g.year)}
-              key={g.year ?? "undated"}
-            >
-              <h3 className="pod-year__label">
-                <span>{g.year ?? "Undated"}</span>
-                <span className="pod-year__count">{g.episodes.length}</span>
-              </h3>
-              <ol className="pod-episodes">
-                {g.episodes.map((ep) => (
-                  <li className="pod-ep-item" key={ep.id}>
-                    <EpisodeRow
-                      ep={ep}
-                      playing={playingId === ep.id}
-                      onToggle={() =>
-                        setPlayingId((cur) => (cur === ep.id ? null : ep.id))
-                      }
-                    />
-                  </li>
-                ))}
-              </ol>
-            </section>
-          ))}
+          {groups.map((g) => {
+            // openYears is the single source of truth (collapsed by default).
+            // applyFilter() seeds it with the matching years when a filter is
+            // active, so matches surface without the toggle ever lying.
+            const open = openYears.has(g.year);
+            const count = g.episodes.length;
+            const panelId = `${yearAnchor(g.year)}-panel`;
+            return (
+              <section
+                className="pod-year"
+                id={yearAnchor(g.year)}
+                key={g.year ?? "undated"}
+              >
+                <h3 className="pod-year__head">
+                  <button
+                    type="button"
+                    className="pod-year__toggle"
+                    aria-expanded={open}
+                    aria-controls={open ? panelId : undefined}
+                    onClick={() => toggleYear(g.year)}
+                  >
+                    <span className="pod-year__chevron" aria-hidden>
+                      ›
+                    </span>
+                    <span className="pod-year__year">{g.year ?? "Undated"}</span>
+                    <span className="pod-year__count">
+                      {count} {count === 1 ? "episode" : "episodes"}
+                    </span>
+                  </button>
+                </h3>
+                {open && (
+                  <ol className="pod-episodes" id={panelId}>
+                    {g.episodes.map((ep) => (
+                      <li className="pod-ep-item" key={ep.id}>
+                        <EpisodeRow
+                          ep={ep}
+                          playing={playingId === ep.id}
+                          onToggle={() =>
+                            setPlayingId((cur) => (cur === ep.id ? null : ep.id))
+                          }
+                        />
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </section>
+            );
+          })}
         </div>
       )}
     </section>
@@ -319,12 +427,11 @@ function EpisodeRow({
             <a
               className="pod-ep__dl"
               href={ep.audioUrl}
-              download
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Download ${ep.title}`}
+              aria-label={`Listen to ${ep.title} in a new tab`}
             >
-              Download ↓
+              Listen ↗
             </a>
           )}
         </span>

@@ -46,7 +46,7 @@ export default async function PodcastsPage() {
 
   return (
     <main className="podcasts">
-      <SiteBackground variant="librarium" position="50% 38%" />
+      <SiteBackground variant="vox" position="50% 38%" />
       <ScrollScrim
         className="pod-scrim"
         varName="--pod-scrim-opacity"
@@ -55,10 +55,10 @@ export default async function PodcastsPage() {
       />
 
       {/* Fixed HUD atmosphere — sweep + readout, pinned to the viewport so they
-          sit over the crisp top of the librarium photo (the /ask treatment). */}
+          sit over the crisp top of the cathedral-vox photo (the /ask treatment). */}
       <div className="pod-readout" aria-hidden>
         <GhostReadout
-          color="var(--cl-cyan)"
+          color="var(--cl-gold)"
           opacity={0.32}
           lineMs={5000}
           typeSpeed={80}
@@ -68,7 +68,7 @@ export default async function PodcastsPage() {
       </div>
       <div className="pod-hud" aria-hidden>
         <div className="pod-hud__sweep">
-          <AuspexSweep r={170} sweepDuration={16} accent="var(--cl-cyan)" />
+          <AuspexSweep r={170} sweepDuration={16} accent="var(--cl-gold)" />
         </div>
       </div>
 
@@ -79,7 +79,7 @@ export default async function PodcastsPage() {
           label="VOX · SEGMENTVM SOLAR"
           delay={1.4}
           lifetime={5}
-          color="var(--cl-cyan)"
+          color="var(--cl-gold)"
           opacity={0.5}
         />
         <div className="pod-mast__inner">
@@ -103,12 +103,12 @@ export default async function PodcastsPage() {
             <span className="pod-toolbar__dot" aria-hidden>
               ·
             </span>
-            <CatalogueTelemetry accent="cyan" />
+            <CatalogueTelemetry accent="gold" />
           </div>
         )}
 
         {shows.length === 0 ? (
-          <div className="pod-empty c-glass c-corners">
+          <div className="pod-empty">
             The database has no podcast feeds yet. Once a feed is ingested its
             shows and episodes will appear here.
           </div>
@@ -133,8 +133,8 @@ export default async function PodcastsPage() {
 }
 
 /**
- * A show "doorway" card. The whole surface navigates to the detail route via a
- * stretched title-link (`.pod-card__title-link::after` covers the card); the
+ * A frameless show block. The whole surface navigates to the detail route via a
+ * stretched title-link (`.pod-card__title-link::after` covers the block); the
  * platform links sit on a higher stacking layer so they stay independently
  * clickable without nesting an <a> inside an <a>.
  */
@@ -142,7 +142,7 @@ function ShowCard({ show }: { show: PodcastIndexShow }) {
   const span = yearSpan(show.firstPubYear, show.lastPubYear);
 
   return (
-    <article className="pod-card c-glass c-corners">
+    <article className="pod-card">
       <div className="pod-card__art" aria-hidden>
         {show.artUrl ? (
           // eslint-disable-next-line @next/next/no-img-element

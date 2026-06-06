@@ -79,7 +79,7 @@ export default async function PodcastShowPage({
 
   return (
     <main className="podcasts podcasts--show">
-      <SiteBackground variant="librarium" position="50% 38%" />
+      <SiteBackground variant="vox" position="50% 38%" />
       <ScrollScrim
         className="pod-scrim"
         varName="--pod-scrim-opacity"
@@ -89,7 +89,7 @@ export default async function PodcastShowPage({
 
       <div className="pod-readout" aria-hidden>
         <GhostReadout
-          color="var(--cl-cyan)"
+          color="var(--cl-gold)"
           opacity={0.32}
           lineMs={5000}
           typeSpeed={80}
@@ -99,7 +99,7 @@ export default async function PodcastShowPage({
       </div>
       <div className="pod-hud" aria-hidden>
         <div className="pod-hud__sweep">
-          <AuspexSweep r={170} sweepDuration={16} accent="var(--cl-cyan)" />
+          <AuspexSweep r={170} sweepDuration={16} accent="var(--cl-gold)" />
         </div>
       </div>
 
@@ -110,7 +110,7 @@ export default async function PodcastShowPage({
           label="VOX · DECODE LOCK"
           delay={1.4}
           lifetime={5}
-          color="var(--cl-cyan)"
+          color="var(--cl-gold)"
           opacity={0.5}
         />
         <div className="pod-mast__inner">
@@ -123,7 +123,7 @@ export default async function PodcastShowPage({
       </section>
 
       <div className="pod-body">
-        <div className="pod-plate c-glass c-corners">
+        <div className="pod-plate">
           <div className="pod-plate__art" aria-hidden>
             {show.artUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
