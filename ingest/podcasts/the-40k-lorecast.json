@@ -1,5 +1,5 @@
 {
-  "$generatedBy": "scripts/ingest-podcast.ts — Brief 110 Step 1 (podcast pilot ingest, no DB)",
+  "$generatedBy": "scripts/ingest-podcast.ts — Brief 122 B1-S2 (registry-driven podcast ingest + link-shape, no DB)",
   "show": {
     "slug": "the-40k-lorecast",
     "title": "The 40k Lorecast",
@@ -7,7 +7,44 @@
     "appleId": "1709093251",
     "podcastGuid": "cc233adb-de43-49be-bb76-9720292ddc98",
     "imageUrl": "https://media.redcircle.com/images/2025/5/13/20/27c7ddbc-c7eb-4d15-b305-ce9e8834f144_-535dda26d00f_da4230511c4076e9ed53cb4872e8cabe.jpg",
-    "episodeCount": 149
+    "episodeCount": 149,
+    "links": [
+      {
+        "serviceId": "apple_podcasts",
+        "kind": "listen",
+        "url": "https://podcasts.apple.com/podcast/id1709093251",
+        "sourceKind": "manual",
+        "confidence": 1
+      },
+      {
+        "serviceId": "official_website",
+        "kind": "official_page",
+        "url": "https://the40klorecast.com/",
+        "sourceKind": "manual",
+        "confidence": 1
+      },
+      {
+        "serviceId": "rss",
+        "kind": "listen",
+        "url": "https://feeds.redcircle.com/cc233adb-de43-49be-bb76-9720292ddc98",
+        "sourceKind": "podcast_rss",
+        "confidence": 1
+      },
+      {
+        "serviceId": "spotify",
+        "kind": "listen",
+        "url": "https://open.spotify.com/show/2Z8HKiDH3nlvFzO2H18GHI",
+        "sourceKind": "manual",
+        "confidence": 1
+      },
+      {
+        "serviceId": "youtube",
+        "kind": "watch",
+        "url": "https://www.youtube.com/@40KLorecast",
+        "sourceKind": "manual",
+        "confidence": 1
+      }
+    ]
   },
   "extraction": {
     "model": "claude-sonnet-4-6",
@@ -41,7 +78,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/c63b334e-479a-4a21-ba0a-dd1075552d3a/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-13743097",
@@ -83,6 +129,15 @@
           "rawName": "Sol",
           "axisGuess": "location",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/319fd21f-2bd8-474c-ba06-8591877b5b10/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -129,7 +184,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/b9e551dc-543d-48bc-b8e0-ed053ae7d3b4/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-13773587",
@@ -182,7 +246,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/b2db4258-39f5-4c57-85c1-4321f9526cf8/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-13830301",
@@ -259,7 +332,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/2e84dfd3-4c3f-4900-9d9f-10a46ff0ca15/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-13874466",
@@ -336,7 +418,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/3939a76f-e94d-4c93-819a-fd71482f8a25/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-13917624",
@@ -410,6 +501,15 @@
           "rawName": "Sol",
           "axisGuess": "location",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/30aba951-f16d-4c76-93a7-f995e13edfdd/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -486,6 +586,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/6b0bd295-bee5-455d-93d7-d1d82b2b6422/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -541,6 +650,15 @@
           "rawName": "Traitor Legions",
           "axisGuess": "faction",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/08fafb4d-ad0f-489f-8dfe-9b0fdf08ff15/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -598,6 +716,15 @@
           "axisGuess": "location",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/70672072-dfcf-48f8-8fb8-17b41929e814/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -619,7 +746,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/021c0549-9cb2-485e-a64b-278437c836c0/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14106145",
@@ -662,6 +798,15 @@
           "axisGuess": "character",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/8a275a14-7ac7-4877-9567-946457bec029/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -683,7 +828,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/acaa6d80-5c36-402c-baed-c17d2f8fbe23/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14197112",
@@ -720,7 +874,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/db0e3111-3955-46b6-9ede-b0e063bad6d1/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14212200",
@@ -781,7 +944,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/cef0dfb4-a9ca-48a2-b3f9-758672f7b187/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14236322",
@@ -826,7 +998,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/035deb5b-51ba-494e-9fb2-9aa24fbe799d/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14311492",
@@ -855,7 +1036,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/b578335f-f11d-4b35-950d-cf7e4f92fb17/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14349224",
@@ -876,7 +1066,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/7cefa512-ebd7-4fdd-9aea-1896583f9f69/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14394868",
@@ -929,7 +1128,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/387a88ef-b741-4ecc-a368-1fd7ded3db63/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14433119",
@@ -963,6 +1171,15 @@
           "rawName": "the Warp",
           "axisGuess": "location",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/a0c80111-9099-4ec3-a529-893ee1bede99/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -1017,7 +1234,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/462037a3-807d-442a-9a30-7659c5f19534/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14521943",
@@ -1046,7 +1272,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/e277a0f7-0760-4bfa-b9c0-32bd67663884/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14578204",
@@ -1091,7 +1326,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/6f734628-90b5-41d9-8276-db965a6c2231/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14601400",
@@ -1144,7 +1388,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/76978385-34b2-4a05-8f02-c5a8816ec933/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14646122",
@@ -1165,7 +1418,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/4199e78f-b623-47ed-92d6-96f2c48015de/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14701799",
@@ -1213,6 +1475,15 @@
           "axisGuess": "location",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/4a10dc45-6b37-4999-9f7d-04efab7346aa/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -1239,6 +1510,15 @@
           "rawName": "Hive Cities",
           "axisGuess": "location",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/b417b0f8-3004-42d9-9af2-52b95dba7677/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -1282,6 +1562,15 @@
           "rawName": "the immaterium",
           "axisGuess": "location",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/fb3004ab-09fb-464f-970f-5735cd8a8712/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -1342,6 +1631,15 @@
           "axisGuess": "character",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/7dddbd7a-f887-479b-9edf-9b292141d6a6/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -1374,6 +1672,15 @@
           "axisGuess": "faction",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/6dce9445-2104-4a9c-bbe6-2d6013ac981a/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -1395,7 +1702,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/44c77131-5a6c-4a07-b5f2-ebc8339b1371/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-14969570",
@@ -1416,7 +1732,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/b384224e-8084-4e6a-829c-2e5ebbeea369/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15006887",
@@ -1447,6 +1772,15 @@
           "rawName": "The Warp",
           "axisGuess": "location",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/26eedf45-9931-41be-8ada-08713ae0d91b/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -1509,7 +1843,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/4d85e8b1-072f-40e3-b31e-22c9c1929088/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15033964",
@@ -1592,6 +1935,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/3011b39b-783f-4bc1-85b2-3cad4d27d901/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -1624,6 +1976,15 @@
           "axisGuess": "faction",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/b62084b6-c12e-43b0-90bb-59676e6993a5/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -1645,7 +2006,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/0df041b6-3ea7-4ba3-a6d8-bc0138cf500d/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15217396",
@@ -1679,6 +2049,15 @@
           "rawName": "Zoats",
           "axisGuess": "faction",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/b8e94889-8afb-4f07-9801-79ac3b3ec8ae/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -1773,6 +2152,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/7aaad757-a082-4319-81ab-02e0e45e7c7c/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -1800,6 +2188,15 @@
           "axisGuess": "character",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/04f35cdf-65cb-4b90-bfcb-e2852b696b22/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -1821,7 +2218,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/d8ace6b7-3608-4b32-b59b-df4f0cc1c888/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15372048",
@@ -1972,6 +2378,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/9a232ff7-ce56-4022-bca2-a35b51a41751/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -1993,7 +2408,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/0f23f08f-a396-4694-b413-1d5a015235ca/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15442331",
@@ -2028,6 +2452,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/66a31ecc-4cab-4802-821f-ae7d46581925/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -2049,7 +2482,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/c64f810a-b05f-43d6-a017-94931bbd9637/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15507450",
@@ -2086,6 +2528,15 @@
           "axisGuess": "faction",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/cc1dfe4c-cadf-4f7b-8739-f08e21034700/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -2115,7 +2566,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/8836de65-c296-46cb-b507-a82f56880c5a/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15581407",
@@ -2158,6 +2618,15 @@
           "axisGuess": "character",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/7b342df3-fe50-400b-92da-29f23bac9375/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -2187,7 +2656,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/46bc3be3-9b6f-4c2e-be26-98d964aa47e5/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15653660",
@@ -2222,6 +2700,15 @@
           "axisGuess": "faction",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/76439c73-b9ca-4e46-90f8-850addeca6d8/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -2243,7 +2730,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/742eccc2-8811-4aec-a234-81910b1df8db/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15731396",
@@ -2296,7 +2792,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/8b3c926c-62dc-4a8a-9653-89c5c4696725/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15731416",
@@ -2357,7 +2862,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/a603fcf2-068e-4f6a-9dc4-79e8b70bf18c/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15812635",
@@ -2424,6 +2938,15 @@
           "axisGuess": "character",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/cfb4d693-3312-477b-a0bf-dad082108acc/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -2476,6 +2999,15 @@
           "rawName": "Garo",
           "axisGuess": "character",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/b616397e-024a-4c3b-b4c2-425a8ed011ea/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -2530,7 +3062,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/c03b5a8a-134f-476f-9282-fb650a5b1d54/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-15929195",
@@ -2572,6 +3113,15 @@
           "rawName": "Kataphrons",
           "axisGuess": "faction",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/ecdb64bd-d4cc-44eb-99e7-052061d50a17/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -2618,6 +3168,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/336163ab-68c6-4c0f-bc25-304830d22d57/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -2644,6 +3203,15 @@
           "rawName": "Goge Vandire",
           "axisGuess": "character",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/54777b55-96c0-4b92-afb3-c0842c0634e0/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -2690,7 +3258,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/4f5c6ae6-87a7-4faa-87d5-42958fd1544d/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "Buzzsprout-16097937",
@@ -2724,6 +3301,15 @@
           "rawName": "Kabals",
           "axisGuess": "faction",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/220a63a3-e225-4da8-8e38-9e2ab4cb863c/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -2774,6 +3360,15 @@
           "rawName": "Wych Cults",
           "axisGuess": "faction",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/f5650a95-2b8d-4dbd-8ce1-d8f91385ab3a/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -2868,7 +3463,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/9ed807d2-45cb-4430-b76c-3871d9fd888f/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "1d991538-b3ca-11ef-9e65-93440c7d0434",
@@ -2945,7 +3549,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/caac27df-eb34-4d24-89d1-7571fbdbe6e0/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "aee7bb1a-b75e-11ef-9dc0-e7b444284c85",
@@ -2992,6 +3605,15 @@
           "rawName": "Vespid",
           "axisGuess": "faction",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/9dffb68b-e06b-4f85-8ce8-b09576355259/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -3044,6 +3666,15 @@
           "axisGuess": "character",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/d4d5ea8a-746c-470c-a759-e0c567e076de/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -3081,7 +3712,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/483e72ab-f5b2-425a-9323-f2a6b9cf0e2a/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "b3e113b0-c0a4-11ef-aec1-5fa50454b8dc",
@@ -3158,6 +3798,15 @@
           "axisGuess": "faction",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/86b47303-7674-4d2e-b32c-272a2c8ca1d5/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -3187,7 +3836,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/87c36ee2-f27d-4b09-a7d9-eefdcddf50c6/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "15c01fe4-d28f-11ef-ab83-eb0e902560d5",
@@ -3216,7 +3874,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/9faa84e2-d9f8-4043-aed6-7453b5fb879f/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "69f174fc-d71a-11ef-b810-339e9b856ba0",
@@ -3253,7 +3920,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/4a13b00f-02e6-497a-8f98-0c0769130797/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "e8c8a788-d7e6-11ef-a702-df55954c9532",
@@ -3290,6 +3966,15 @@
           "rawName": "Tepresi",
           "axisGuess": "faction",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/d782277c-fa1e-46be-b286-11d2146cbd25/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -3352,6 +4037,15 @@
           "axisGuess": "faction",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/dd07e685-f82e-4938-88c1-b10ac8eda231/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -3413,7 +4107,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/6dd36aa8-9ddb-4bd1-9fd2-62fa7131f909/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "92821c50-e728-11ef-8213-af33b664c72d",
@@ -3464,6 +4167,15 @@
           "axisGuess": "faction",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/9aa6cc97-dddd-4ee3-a89d-6c20c638d0df/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -3508,6 +4220,15 @@
           "rawName": "Exodites",
           "axisGuess": "faction",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/7722b8ab-242d-457b-9db0-8ca812a41794/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -3578,7 +4299,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/49cc60a6-f239-482a-8834-2170df38c38d/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "251a13b0-00ba-11f0-8180-2f321c2c5dd8",
@@ -3641,6 +4371,15 @@
           "rawName": "Ursulia",
           "axisGuess": "character",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/5011ba21-8d33-43f1-80c6-c1ea474e0c08/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -3714,6 +4453,15 @@
           "axisGuess": "location",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/5b4e68ec-02d0-4c52-90df-72df400f4cba/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -3775,7 +4523,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/9d37d37f-5289-4719-97a7-fc341e3d0cbf/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "a334a0b8-0f55-11f0-9439-cb0524f7433a",
@@ -3796,7 +4553,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/d49db468-8587-4142-bf02-21c5fb12a95a/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "daec0230-0f55-11f0-806f-f3e439ee0f59",
@@ -3846,6 +4612,15 @@
           "rawName": "Freeblades",
           "axisGuess": "faction",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/3378a629-5c5f-4ac5-92b4-a8ea2a052d2e/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -3907,6 +4682,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/5201519e-ccfa-47f8-acc5-13aaf3114b5a/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -3939,6 +4723,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/0e3b5700-32ff-4388-ae6c-25840491d152/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -3950,7 +4743,16 @@
       "link": "https://the40klorecast.com/",
       "episodeKind": "other",
       "tags": [],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/0e4a0097-8983-4055-8c29-cee288401dc8/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "9dce241e-a112-409a-bf5a-a8d320769aee",
@@ -4043,7 +4845,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/92aac893-b0c6-41dc-8939-4931160639ba/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "035bafc7-afb1-4064-9212-7a423f20095b",
@@ -4096,7 +4907,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/26ed943a-b1df-4001-ac69-c1390dec64c3/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "e11ce123-7b7f-407c-ba44-461dbce028e5",
@@ -4133,7 +4953,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/9eb00f30-1ac1-4224-a2a6-f75e2a4cdabd/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "a8a58992-e548-471d-9759-2e3263e69efb",
@@ -4202,7 +5031,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/70dbc720-9a5b-4028-93d2-82fb9c0cefd1/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "272f90bf-f667-40aa-a086-5057ad6ca982",
@@ -4231,7 +5069,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/bd114bcd-225a-4ede-9778-34cfb30bc023/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "aa421c72-db28-440f-a1aa-ce9dd6f13d8c",
@@ -4267,6 +5114,15 @@
           "rawName": "The Warp",
           "axisGuess": "location",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/259fcc17-43c7-41b6-a1ca-cd490f841ff7/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -4305,7 +5161,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/981ee174-dbf4-4351-b561-b1e8dd5924b5/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "b9c8e641-a3c1-47ed-ac78-45a216039dbd",
@@ -4372,6 +5237,15 @@
           "axisGuess": "faction",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/6810eaae-e0a3-4dcd-87b4-6596f8f7a2f9/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -4383,7 +5257,16 @@
       "link": "https://the40klorecast.com/",
       "episodeKind": "other",
       "tags": [],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/db2866d6-6669-43d3-957c-9499389b9a5e/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "dadd757e-ab77-4fcb-8a37-6a47ab48eeba",
@@ -4444,7 +5327,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/65d07efe-b80b-4068-94a3-4e7d331925e5/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "3b384cbd-b7f4-4653-a62f-ebfbc74a3181",
@@ -4455,7 +5347,16 @@
       "link": "https://the40klorecast.com/",
       "episodeKind": "other",
       "tags": [],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/60960953-7fbc-4172-bb3b-1ec0b137bbe2/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "1087921d-2a28-42d2-a2e5-c5a43ce6cd0c",
@@ -4516,7 +5417,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/ace1d58d-70bb-4acc-9c2a-162ddfb6e607/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "b087eba5-2b5e-462e-942d-0a719e271527",
@@ -4591,6 +5501,15 @@
           "axisGuess": "character",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/33021bb0-6180-4f56-8b0a-3df81378d5a1/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -4603,7 +5522,16 @@
       "episode": 2,
       "episodeKind": "other",
       "tags": [],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/96508688-d500-405b-985c-f0aa7fc08a99/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "bfeca66f-dac6-41d6-b749-59f41e7f7154",
@@ -4632,7 +5560,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/d2db7d88-64f0-423a-ac75-25d93d14c4c5/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "e54a0429-e984-45f9-9ff5-2a384c59f297",
@@ -4693,7 +5630,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/e9bfd201-2c87-4c51-8691-a5112775b392/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "03d41228-68f5-43c3-b393-915c0bc5539a",
@@ -4760,6 +5706,15 @@
           "axisGuess": "location",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/9942ca6d-513a-40b9-83e3-ed6726868e1c/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -4819,6 +5774,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/643dfc78-3843-4f86-b17e-ce8cce9b3a48/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -4864,7 +5828,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/c7075931-4166-4cb0-989b-cc28c5414bfa/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "4881a424-d448-4a46-afef-54e2a08ccff0",
@@ -4898,6 +5871,15 @@
           "rawName": "Szarek the Silent King",
           "axisGuess": "character",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/059be0ea-4412-466e-a16e-0d2909f9de4c/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -4957,6 +5939,15 @@
           "rawName": "Nephilim Sector",
           "axisGuess": "location",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/e89bdc2f-0d2b-4dad-8d41-ca834a59357e/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -5027,6 +6018,15 @@
           "axisGuess": "character",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/4690de08-86a9-412f-92a4-66b4a935a7dc/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -5061,6 +6061,15 @@
           "rawName": "Osirian Psibrids",
           "axisGuess": "faction",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/7c3be3d0-4ff9-4176-9e31-f72866ff520b/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -5147,7 +6156,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/0567a0e0-c5d3-4dae-8b96-0b7a8b947c9a/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "dc65a3a2-8cdb-43aa-9beb-440d4e903dc5",
@@ -5208,6 +6226,15 @@
           "axisGuess": "character",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/597a44fc-a3e3-4faf-90f3-5d20ec7a75c7/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -5251,6 +6278,15 @@
           "axisGuess": "faction",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/8fb0f1ca-0b22-43a9-a199-3eb31db2a771/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -5269,6 +6305,15 @@
           "axisGuess": "faction",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/70273542-9c03-4a12-8ad9-cbd8584c5a28/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -5280,7 +6325,16 @@
       "link": "https://the40klorecast.com/",
       "episodeKind": "other",
       "tags": [],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/d601a549-fc5f-42b5-96a0-b90d5ba0e183/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "bfce8a3e-debe-4ec6-afd8-e19c1ccdde7f",
@@ -5297,6 +6351,15 @@
           "rawName": "Leagues of Votann",
           "axisGuess": "faction",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/259deb72-9fa7-4a79-9fb2-8f62c9d106bc/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -5315,6 +6378,15 @@
           "rawName": "Leagues of Votann",
           "axisGuess": "faction",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/4723bc83-8609-492c-9853-c34b8dba7940/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -5337,7 +6409,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/44acfb15-79bc-44e1-a601-12af68a65834/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "36dfea8c-bf81-4519-8a1e-6d577aa15d07",
@@ -5389,6 +6470,15 @@
           "rawName": "Badab",
           "axisGuess": "location",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/4ff4d546-ed20-4f84-888f-ca20f5ff6f3c/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -5443,6 +6533,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/c2d57789-9be2-491a-a303-2a891f4d2a7e/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -5454,7 +6553,16 @@
       "link": "https://the40klorecast.com/",
       "episodeKind": "other",
       "tags": [],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/c96840c1-1abe-4e10-8696-1dcb13fbc733/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "8d2e9fd0-dd63-4ac0-b3c2-add046a5c52e",
@@ -5488,6 +6596,15 @@
           "rawName": "Drukhari Kabals",
           "axisGuess": "faction",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/f3566751-2fa1-474c-926b-a01d851c48d6/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -5526,7 +6643,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/e0896a21-6b3e-444d-ac02-9e0152ded5c7/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "d38acdd7-8571-4f9f-8480-3e6de6e9ab51",
@@ -5603,7 +6729,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/959aa290-5302-4de8-9bfe-5c2de17262ac/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "03a85d69-776a-4c13-a707-d2c82e941fbb",
@@ -5697,6 +6832,15 @@
           "axisGuess": "location",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/2c08405c-0c78-4802-9d17-6c1522c1c058/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -5741,6 +6885,15 @@
           "rawName": "Graia",
           "axisGuess": "location",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/d24f642b-b5a2-4670-a059-92296daf2491/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -5794,6 +6947,15 @@
           "rawName": "Kaduku",
           "axisGuess": "location",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/2a51a8c5-8a2c-4b3f-b3b1-299a249115db/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -5856,7 +7018,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/e6ccbfda-c96a-43f6-916a-873d083108aa/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "4154cebf-dfd8-4de7-a890-205b169ffb67",
@@ -5909,7 +7080,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/0494f17d-72e1-4ede-a9f6-da1decd1bd1d/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "cec2a2e0-2c5a-4abc-9311-86b760583644",
@@ -5951,6 +7131,15 @@
           "rawName": "The Cabal",
           "axisGuess": "faction",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/037b66b6-ab54-424b-8062-2434e8376cf5/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -6027,6 +7216,15 @@
           "axisGuess": "location",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/1aceaa57-0f9e-400e-b326-90af3b9cca4e/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -6078,6 +7276,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/4bd031c4-42f1-4b25-8c70-55b0f150ee71/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -6107,7 +7314,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/a263cdcf-e97a-4cd5-891f-b4506fad1425/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "4e63bd23-2fbf-4d41-8e57-9d0ed6f4249c",
@@ -6168,7 +7384,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/ef6495b8-3d8f-46ec-97e1-8f9e1295caf4/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "3979ef9c-1f9b-4c52-acc8-8665df34b960",
@@ -6218,6 +7443,15 @@
           "rawName": "Titus",
           "axisGuess": "character",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/84af5879-4785-4c23-a4cd-eeb162390531/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -6287,6 +7521,15 @@
           "axisGuess": "location",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/ec605722-d969-4c8e-83b8-f44d68e989ed/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -6298,7 +7541,16 @@
       "link": "https://the40klorecast.com/",
       "episodeKind": "other",
       "tags": [],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/63acb9de-4297-44b8-9c5d-01bb47df10f9/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "0884cb37-b56c-4440-86f8-679892c27842",
@@ -6359,6 +7611,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/48bce0fb-9ddf-4da9-8b5d-01498af534fe/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -6395,6 +7656,15 @@
           "rawName": "Imperial Senate",
           "axisGuess": "faction",
           "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/18e3275d-dd89-46f3-bf52-0974e26d4d5e/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -6433,6 +7703,15 @@
           "axisGuess": "location",
           "role": "mentioned"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/323b09fc-67bf-468f-93a6-ba567b928e2c/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -6460,6 +7739,15 @@
           "axisGuess": "character",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/8a916a9f-a2d2-464c-9746-10105aac0d07/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -6471,7 +7759,16 @@
       "link": "https://the40klorecast.com/",
       "episodeKind": "other",
       "tags": [],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/6f956620-c5e6-4639-b4e2-35486d44eaf2/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "ab48e76e-90f8-4dee-bcb7-6a2ad7474e74",
@@ -6527,6 +7824,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/b72bc35a-2689-4034-a539-9d9b66c66220/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -6569,6 +7875,15 @@
           "rawName": "Vraks",
           "axisGuess": "location",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/eaf845f7-f97e-4777-838c-c35c8357b423/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     },
@@ -6623,6 +7938,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/c071d923-5a42-4b45-8435-5d349674367e/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -6668,7 +7992,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/5f819cdf-2ecc-4f1c-8f04-dbb0a6746860/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "931e2790-9750-45f9-9eec-bf2a9d65e537",
@@ -6713,7 +8046,16 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/42f37039-9d7f-4143-a3b7-5a2e612554be/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "e07c9bb6-1c13-419c-b803-c6d38f6dfa03",
@@ -6766,7 +8108,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/3e7a84d2-aea8-49b7-b963-2df8ccf079f8/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "8636d857-eee5-4ac8-b97f-a0bd7c239b4f",
@@ -6817,6 +8168,15 @@
           "axisGuess": "location",
           "role": "subject"
         }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/8106ebf8-d0e9-4378-91b3-5511dc22af41/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
       ]
     },
     {
@@ -6854,7 +8214,16 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": []
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/5d9b9fb3-0aa0-4589-bd62-551596d25f67/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
+        }
+      ]
     },
     {
       "guid": "3ab8fe25-4938-4ad1-964a-fa669f96903b",
@@ -6917,6 +8286,15 @@
           "rawName": "Shrike",
           "axisGuess": "character",
           "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "rss",
+          "kind": "listen",
+          "url": "https://audio4.redcircle.com/episodes/ff2cfc5c-2ab7-4cc2-883b-cb6576f25494/stream.mp3",
+          "sourceKind": "podcast_rss",
+          "confidence": 1
         }
       ]
     }

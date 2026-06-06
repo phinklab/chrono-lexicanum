@@ -25,6 +25,57 @@ export const EPISODE_KINDS: readonly EpisodeKind[] = [
   "other",
 ];
 
+/**
+ * Mirrors the DB `external_link_kind` enum (`src/db/schema.ts`). Kept as a local
+ * string-union (like `EpisodeKind`) so this lib stays free of a Drizzle import.
+ */
+export type ExternalLinkKind =
+  | "read"
+  | "listen"
+  | "watch"
+  | "buy_print"
+  | "reference"
+  | "trailer"
+  | "official_page";
+
+export const EXTERNAL_LINK_KINDS: readonly ExternalLinkKind[] = [
+  "read",
+  "listen",
+  "watch",
+  "buy_print",
+  "reference",
+  "trailer",
+  "official_page",
+];
+
+/**
+ * The `source_kind` provenance values B1 emits for podcast links — a subset of
+ * the DB `source_kind` enum: `podcast_rss` for feed-intrinsic links (the RSS
+ * feed, the episode audio enclosure), `manual` for registry-curated links
+ * (official site, Apple, Spotify, YouTube). Brief 128 link matrix.
+ */
+export type PodcastLinkSourceKind = "podcast_rss" | "manual";
+
+export const PODCAST_LINK_SOURCE_KINDS: readonly PodcastLinkSourceKind[] = [
+  "podcast_rss",
+  "manual",
+];
+
+/**
+ * One cross-media link on a show or episode. This is the AUTHORITATIVE input
+ * S3's apply projects 1:1 into `external_links` (Brief 128 link matrix): it
+ * carries full provenance (`sourceKind` + `confidence`) so the apply is a pure
+ * projection, never a matrix re-derivation. `serviceId` is an FK into
+ * `services`; `kind` is the `external_link_kind`.
+ */
+export interface PodcastLink {
+  serviceId: string;
+  kind: ExternalLinkKind;
+  url: string;
+  sourceKind: PodcastLinkSourceKind;
+  confidence: number;
+}
+
 /** Show-level metadata sourced from the feed channel (slug/feedUrl/appleId come
  *  from the run config, not the feed). */
 export interface ParsedShowMeta {
@@ -97,6 +148,9 @@ export interface EpisodeArtifact {
   episodeKind: EpisodeKind;
   tags: EpisodeTag[];
   unresolved: UnresolvedForm[];
+  /** Cross-media links for this episode — at minimum the RSS audio enclosure
+   *  (`listen`/`rss`/`podcast_rss`). The authoritative input for S3's apply. */
+  links: PodcastLink[];
 }
 
 /** The committed artifact (one file per show). */
@@ -110,6 +164,9 @@ export interface ShowArtifact {
     podcastGuid: string | null;
     imageUrl: string | null;
     episodeCount: number;
+    /** Show-level cross-media links (RSS feed, Apple, official site, Spotify,
+     *  YouTube channel, …). Derived (RSS/Apple) + registry-curated. */
+    links: PodcastLink[];
   };
   extraction: {
     model: string;
