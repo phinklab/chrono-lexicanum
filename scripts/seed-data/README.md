@@ -46,6 +46,7 @@ lives in your local archive only.
 | `books.json` | 26 books with inline annotations (factions, persons, facets, external_links) | `works` (kind=book), `book_details`, `work_factions`, `work_persons`, `work_facets`, `external_links` |
 | `ask-questions.json` | Recommendation questionnaire | consumed by `src/lib/recommend/` (future) |
 | `collection-gaps.json` | Known incomplete collection/omnibus membership where the collection remains a normal book but constituent links are not complete yet | future roster maintenance / `work_collections` completion |
+| `podcast-shows.json` | Podcast show registry (`slug`, `feedUrl`, `appleId`, `podcastGuid`, curated show-level `links[]`) for the multi-show ingest | consumed by `scripts/ingest-podcast.ts` (`--show`/`--all`); **not** loaded by `scripts/seed.ts` |
 
 ## Notes on `books.json` shape
 

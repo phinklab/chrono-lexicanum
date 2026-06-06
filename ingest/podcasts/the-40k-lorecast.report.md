@@ -1,6 +1,6 @@
 # Podcast ingest quality report — The 40k Lorecast
 
-Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast` (Brief 110 Step 1 — pilot ingest + episode tagging; no schema, no DB).
+Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast -- --show the-40k-lorecast` (Brief 122 B1-S2 — registry-driven ingest + episode tagging + link-shape; no schema, no DB).
 
 ## Summary
 
@@ -13,6 +13,8 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast` (
 - **Resolved tags:** 519 total — 369 subject, 150 mentioned
   - by type: 155 character, 267 faction, 97 location
 - **Episode kinds:** 140 lore, 0 news_recap, 0 interview, 9 other
+- **Show links:** 5 (apple_podcasts, official_website, rss, spotify, youtube)
+- **Episode links:** 149/149 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
 - **Distinct unresolved surface-forms:** 124
 
 ## Method (resolution reuse)

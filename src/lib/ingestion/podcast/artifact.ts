@@ -11,18 +11,20 @@
  * spot-check) — token counts / USD cost are NON-deterministic (cache-hit
  * dependent) and are printed to stdout by the script instead, never committed.
  */
+import { buildEpisodeLinks } from "./links";
 import type {
   EpisodeArtifact,
   EpisodeExtraction,
   EpisodeTag,
   PodcastEpisode,
+  PodcastLink,
   ShowArtifact,
   UnresolvedForm,
 } from "./types";
 import { EPISODE_KINDS } from "./types";
 
 const GENERATED_BY =
-  "scripts/ingest-podcast.ts — Brief 110 Step 1 (podcast pilot ingest, no DB)";
+  "scripts/ingest-podcast.ts — Brief 122 B1-S2 (registry-driven podcast ingest + link-shape, no DB)";
 
 const ROLE_ORDER: Record<string, number> = { subject: 0, mentioned: 1 };
 
@@ -71,6 +73,8 @@ export interface BuildArtifactInput {
     appleId: string | null;
     podcastGuid: string | null;
     imageUrl: string | null;
+    /** Pre-built, deterministic show-level links (see `buildShowLinks`). */
+    links: PodcastLink[];
   };
   model: string;
   promptVersion: string;
@@ -92,6 +96,7 @@ export function buildShowArtifact(input: BuildArtifactInput): ShowArtifact {
       episodeKind: r.extraction.episodeKind,
       tags: [...r.tags].sort(compareTags),
       unresolved: [...r.unresolved].sort(compareUnresolved),
+      links: buildEpisodeLinks(e),
     };
     return ea;
   });
@@ -107,6 +112,7 @@ export function buildShowArtifact(input: BuildArtifactInput): ShowArtifact {
       podcastGuid: input.show.podcastGuid,
       imageUrl: input.show.imageUrl,
       episodeCount: episodes.length,
+      links: input.show.links,
     },
     extraction: { model: input.model, promptVersion: input.promptVersion },
     episodes,
@@ -154,6 +160,9 @@ export function buildReport(artifact: ShowArtifact): string {
   for (const k of EPISODE_KINDS) kindCounts[k] = 0;
   for (const e of eps) kindCounts[e.episodeKind] = (kindCounts[e.episodeKind] ?? 0) + 1;
 
+  const showLinkServices = artifact.show.links.map((l) => l.serviceId);
+  const epsWithLink = eps.filter((e) => e.links.length > 0).length;
+
   // Distinct unresolved forms, with how many episodes raised each.
   const uMap = new Map<string, UnresolvedAgg>();
   for (const e of eps) {
@@ -193,8 +202,9 @@ export function buildReport(artifact: ShowArtifact): string {
   L.push(`# Podcast ingest quality report — ${artifact.show.title}`);
   L.push("");
   L.push(
-    "Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast` " +
-      "(Brief 110 Step 1 — pilot ingest + episode tagging; no schema, no DB).",
+    "Reproducible via: " +
+      `\`PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast -- --show ${artifact.show.slug}\` ` +
+      "(Brief 122 B1-S2 — registry-driven ingest + episode tagging + link-shape; no schema, no DB).",
   );
   L.push("");
 
@@ -209,6 +219,14 @@ export function buildReport(artifact: ShowArtifact): string {
   L.push(`- **Resolved tags:** ${tagTotal} total — ${byRole.subject ?? 0} subject, ${byRole.mentioned ?? 0} mentioned`);
   L.push(`  - by type: ${byType.character ?? 0} character, ${byType.faction ?? 0} faction, ${byType.location ?? 0} location`);
   L.push(`- **Episode kinds:** ${EPISODE_KINDS.map((k) => `${kindCounts[k] ?? 0} ${k}`).join(", ")}`);
+  L.push(
+    `- **Show links:** ${artifact.show.links.length}` +
+      (showLinkServices.length > 0 ? ` (${showLinkServices.join(", ")})` : ""),
+  );
+  L.push(
+    `- **Episode links:** ${epsWithLink}/${total} episodes carry an RSS audio link ` +
+      "(`listen`/`rss`/`podcast_rss`)",
+  );
   L.push(`- **Distinct unresolved surface-forms:** ${unresolvedList.length}`);
   L.push("");
 

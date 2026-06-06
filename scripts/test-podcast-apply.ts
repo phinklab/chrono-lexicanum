@@ -70,6 +70,7 @@ function validArtifact(): ShowArtifact {
       podcastGuid: "guid-show-1",
       imageUrl: "https://example.com/cover.jpg",
       episodeCount: 2,
+      links: [],
     },
     extraction: { model: "m", promptVersion: "v" },
     episodes: [
@@ -87,6 +88,7 @@ function validArtifact(): ShowArtifact {
           { type: "location", canonicalId: "nostramo", rawName: "Nostramo", role: "subject", confidence: 1, matchedVia: "canonical-name" },
         ],
         unresolved: [{ rawName: "Some Common Noun", axisGuess: "character", role: "mentioned" }],
+        links: [],
       },
       {
         guid: "ep-2",
@@ -98,6 +100,7 @@ function validArtifact(): ShowArtifact {
         episodeKind: "news_recap",
         tags: [],
         unresolved: [],
+        links: [],
       },
     ],
   };

@@ -21,11 +21,27 @@ import {
   parseDurationToSeconds,
   parseFeed,
 } from "../src/lib/ingestion/podcast/feed";
+import {
+  appleUrlFromId,
+  buildEpisodeLinks,
+  buildShowLinks,
+  enrichLink,
+  sortLinks,
+} from "../src/lib/ingestion/podcast/links";
+import {
+  DEFAULT_SHOW_SLUG,
+  getShow,
+  loadRegistry,
+  parseRegistry,
+  selectShows,
+  type PodcastShowConfig,
+} from "../src/lib/ingestion/podcast/registry";
 import { resolveEpisodeTags } from "../src/lib/ingestion/podcast/resolve";
 import type {
   EpisodeExtraction,
   EpisodeTag,
   PodcastEpisode,
+  PodcastLink,
 } from "../src/lib/ingestion/podcast/types";
 
 let passed = 0;
@@ -234,7 +250,7 @@ function buildSampleArtifact() {
     },
   ];
   return buildShowArtifact({
-    show: { slug: "x", title: "X", feedUrl: "https://f", appleId: null, podcastGuid: null, imageUrl: null },
+    show: { slug: "x", title: "X", feedUrl: "https://f", appleId: null, podcastGuid: null, imageUrl: null, links: [] },
     model: "claude-sonnet-4-6",
     promptVersion: "deadbeef0000",
     results,
@@ -255,6 +271,305 @@ test("buildShowArtifact: episodes sorted by (pubDate, guid)", () => {
   assert.equal(a.episodes[1].pubDate, "2025-05-27T10:00:00.000Z");
   assert.equal(a.episodes[0].episodeKind, "lore");
   assert.equal(a.episodes[0].tags.length, 1);
+});
+
+// --- registry: parse + validation (Brief 122 B1-S2) --------------------------
+
+function cfg(partial: Partial<PodcastShowConfig> & { slug: string }): PodcastShowConfig {
+  return {
+    slug: partial.slug,
+    title: partial.title ?? partial.slug,
+    feedUrl: partial.feedUrl ?? "https://example.com/feed.xml",
+    appleId: partial.appleId ?? null,
+    podcastGuid: partial.podcastGuid ?? null,
+    links: partial.links ?? [],
+    youtubeChannelUrl: partial.youtubeChannelUrl ?? null,
+    youtubeChannelId: partial.youtubeChannelId ?? null,
+  };
+}
+
+test("parseRegistry: valid entries → configs with defaults", () => {
+  const shows = parseRegistry([
+    { slug: "a", title: "A", feedUrl: "https://a/feed" },
+    {
+      slug: "b",
+      title: "B",
+      feedUrl: "https://b/feed",
+      appleId: "123",
+      podcastGuid: "g",
+      links: [{ serviceId: "official_website", url: "https://b.com" }],
+    },
+  ]);
+  assert.equal(shows.length, 2);
+  assert.equal(shows[0].slug, "a");
+  assert.equal(shows[0].appleId, null);
+  assert.equal(shows[0].podcastGuid, null);
+  assert.deepEqual(shows[0].links, []);
+  assert.equal(shows[1].appleId, "123");
+  assert.equal(shows[1].links[0].serviceId, "official_website");
+});
+
+test("parseRegistry: top-level must be an array", () => {
+  assert.throws(() => parseRegistry({}), /must be an array/);
+});
+
+test("parseRegistry: missing required field throws", () => {
+  assert.throws(() => parseRegistry([{ slug: "a", title: "A" }]), /feedUrl/);
+});
+
+test("parseRegistry: duplicate slug throws", () => {
+  assert.throws(
+    () =>
+      parseRegistry([
+        { slug: "dup", title: "A", feedUrl: "https://a" },
+        { slug: "dup", title: "B", feedUrl: "https://b" },
+      ]),
+    /duplicate slug/,
+  );
+});
+
+test("parseRegistry: link with unknown serviceId and no kind throws", () => {
+  assert.throws(
+    () =>
+      parseRegistry([
+        { slug: "a", title: "A", feedUrl: "https://a", links: [{ serviceId: "mystery", url: "https://x" }] },
+      ]),
+    /SERVICE_LINK_SPEC default/,
+  );
+});
+
+test("parseRegistry: unknown serviceId with explicit kind/sourceKind/confidence passes", () => {
+  const shows = parseRegistry([
+    {
+      slug: "a",
+      title: "A",
+      feedUrl: "https://a",
+      links: [{ serviceId: "patreon", url: "https://p", kind: "reference", sourceKind: "manual", confidence: 1 }],
+    },
+  ]);
+  assert.equal(shows[0].links[0].serviceId, "patreon");
+  assert.equal(shows[0].links[0].kind, "reference");
+});
+
+test("parseRegistry: bad link kind throws", () => {
+  assert.throws(
+    () =>
+      parseRegistry([
+        { slug: "a", title: "A", feedUrl: "https://a", links: [{ serviceId: "youtube", url: "https://x", kind: "stream" }] },
+      ]),
+    /external_link_kind/,
+  );
+});
+
+// --- registry: show selection (the pure core of the ingest CLI) --------------
+
+test("getShow: found / unknown throws", () => {
+  const reg = [cfg({ slug: "a" }), cfg({ slug: "b" })];
+  assert.equal(getShow(reg, "b").slug, "b");
+  assert.throws(() => getShow(reg, "zzz"), /no show with slug/);
+});
+
+test("selectShows: default → pilot, --show, --all, unknown throws", () => {
+  const reg = [cfg({ slug: DEFAULT_SHOW_SLUG }), cfg({ slug: "other" })];
+  assert.deepEqual(
+    selectShows(reg, {}).map((s) => s.slug),
+    [DEFAULT_SHOW_SLUG],
+    "no flag → default (pilot)",
+  );
+  assert.deepEqual(selectShows(reg, { show: "other" }).map((s) => s.slug), ["other"]);
+  assert.deepEqual(
+    selectShows(reg, { all: true }).map((s) => s.slug),
+    [DEFAULT_SHOW_SLUG, "other"],
+    "--all → every show in registry order",
+  );
+  assert.throws(() => selectShows(reg, { show: "ghost" }), /no show with slug/);
+});
+
+// --- links: derivation, enrichment, dedup + determinism ----------------------
+
+test("appleUrlFromId: region-neutral id form", () => {
+  assert.equal(appleUrlFromId("123"), "https://podcasts.apple.com/podcast/id123");
+});
+
+test("enrichLink: fills kind/sourceKind/confidence from SERVICE_LINK_SPEC", () => {
+  const rss = enrichLink({ serviceId: "rss", url: "https://f" });
+  assert.equal(rss.kind, "listen");
+  assert.equal(rss.sourceKind, "podcast_rss");
+  assert.equal(rss.confidence, 1);
+
+  const site = enrichLink({ serviceId: "official_website", url: "https://s" });
+  assert.equal(site.kind, "official_page");
+  assert.equal(site.sourceKind, "manual");
+});
+
+test("buildShowLinks: derives RSS + Apple, appends registry links, sorted + deduped", () => {
+  const links = buildShowLinks(
+    cfg({
+      slug: "s",
+      feedUrl: "https://feed/x",
+      appleId: "999",
+      links: [
+        { serviceId: "official_website", url: "https://site" },
+        { serviceId: "spotify", url: "https://open.spotify.com/show/abc" },
+        // exact duplicate of the derived RSS feed link → must dedup away
+        { serviceId: "rss", url: "https://feed/x" },
+      ],
+    }),
+  );
+  // sorted by (serviceId, kind, url)
+  assert.deepEqual(
+    links.map((l) => `${l.serviceId}:${l.kind}`),
+    ["apple_podcasts:listen", "official_website:official_page", "rss:listen", "spotify:listen"],
+  );
+  const rss = links.find((l) => l.serviceId === "rss");
+  assert.ok(rss);
+  assert.equal(rss.url, "https://feed/x");
+  assert.equal(rss.sourceKind, "podcast_rss");
+  const apple = links.find((l) => l.serviceId === "apple_podcasts");
+  assert.ok(apple);
+  assert.equal(apple.url, "https://podcasts.apple.com/podcast/id999");
+  assert.equal(apple.sourceKind, "manual");
+});
+
+test("buildShowLinks: no appleId → no apple link; deterministic", () => {
+  const c = cfg({ slug: "s", feedUrl: "https://feed", appleId: null });
+  const a = buildShowLinks(c);
+  const b = buildShowLinks(c);
+  assert.deepEqual(a, b);
+  assert.ok(!a.some((l) => l.serviceId === "apple_podcasts"));
+  assert.equal(a.length, 1); // just the derived RSS feed
+  assert.equal(a[0].serviceId, "rss");
+});
+
+test("buildEpisodeLinks: audio enclosure → one rss/listen/podcast_rss link; absent → none", () => {
+  const withAudio = buildEpisodeLinks(ep({ guid: "g", audioUrl: "https://a.mp3" }));
+  assert.equal(withAudio.length, 1);
+  assert.equal(withAudio[0].serviceId, "rss");
+  assert.equal(withAudio[0].kind, "listen");
+  assert.equal(withAudio[0].sourceKind, "podcast_rss");
+  assert.equal(withAudio[0].url, "https://a.mp3");
+  assert.deepEqual(buildEpisodeLinks(ep({ guid: "g", audioUrl: null })), []);
+});
+
+// --- artifact carries the new link-shape (deterministically) -----------------
+
+test("artifact: show + episode links present and byte-stable", () => {
+  const showLinks = buildShowLinks(cfg({ slug: "x", feedUrl: "https://f", appleId: "1" }));
+  const build = () =>
+    buildShowArtifact({
+      show: {
+        slug: "x",
+        title: "X",
+        feedUrl: "https://f",
+        appleId: "1",
+        podcastGuid: null,
+        imageUrl: null,
+        links: showLinks,
+      },
+      model: "claude-sonnet-4-6",
+      promptVersion: "deadbeef0000",
+      results: [
+        {
+          episode: ep({ guid: "a", pubDate: "2025-05-20T10:00:00.000Z", audioUrl: "https://a.mp3" }),
+          extraction: { episodeKind: "lore", characters: emptyAxis(), factions: emptyAxis(), locations: emptyAxis() },
+          tags: [],
+          unresolved: [],
+        },
+      ],
+    });
+  const art = build();
+  assert.ok(art.show.links.length >= 2, "show carries derived rss + apple links");
+  assert.equal(art.episodes[0].links.length, 1);
+  assert.equal(art.episodes[0].links[0].serviceId, "rss");
+  assert.equal(art.episodes[0].links[0].url, "https://a.mp3");
+  assert.equal(serializeArtifact(art), serializeArtifact(build()), "byte-stable with links");
+});
+
+// --- the committed registry parses and exposes both shows --------------------
+
+test("loadRegistry: committed registry parses; pilot + adeptus present with full link set", () => {
+  const reg = loadRegistry();
+  const slugs = reg.map((s) => s.slug);
+  assert.ok(slugs.includes("the-40k-lorecast"), "pilot present");
+  assert.ok(slugs.includes("adeptus-ridiculous"), "adeptus present");
+
+  const pilotLinks = new Set(buildShowLinks(getShow(reg, "the-40k-lorecast")).map((l) => l.serviceId));
+  for (const svc of ["rss", "apple_podcasts", "official_website", "spotify", "youtube"]) {
+    assert.ok(pilotLinks.has(svc), `pilot show links include ${svc}`);
+  }
+});
+
+// --- review hardening (B1-S2 adversarial review) -----------------------------
+
+test("parseRegistry: confidence outside [0, 1] throws", () => {
+  for (const c of [1.5, -0.1]) {
+    assert.throws(
+      () =>
+        parseRegistry([
+          {
+            slug: "a",
+            title: "A",
+            feedUrl: "https://a",
+            links: [{ serviceId: "spotify", url: "https://x", confidence: c }],
+          },
+        ]),
+      /\[0, 1\]/,
+      `confidence ${c} must be rejected`,
+    );
+  }
+  // boundary values are allowed
+  assert.doesNotThrow(() =>
+    parseRegistry([
+      { slug: "a", title: "A", feedUrl: "https://a", links: [{ serviceId: "spotify", url: "https://x", confidence: 0 }] },
+    ]),
+  );
+});
+
+test("enrichLink: under-specified unknown service throws", () => {
+  assert.throws(() => enrichLink({ serviceId: "mystery", url: "https://x" }), /under-specified/);
+  // …but an unknown service WITH explicit fields enriches fine
+  const ok = enrichLink({ serviceId: "patreon", url: "https://p", kind: "reference", sourceKind: "manual", confidence: 0.8 });
+  assert.equal(ok.kind, "reference");
+  assert.equal(ok.confidence, 0.8);
+});
+
+test("sortLinks: (serviceId, kind, url) order, independent of input permutation", () => {
+  const mk = (serviceId: string, kind: PodcastLink["kind"], url: string): PodcastLink => ({
+    serviceId,
+    kind,
+    url,
+    sourceKind: "manual",
+    confidence: 1,
+  });
+  const a = mk("youtube", "watch", "u");
+  const b = mk("apple_podcasts", "listen", "a");
+  const c = mk("rss", "listen", "r2");
+  const d = mk("rss", "listen", "r1");
+  assert.deepEqual(
+    sortLinks([a, b, c, d]).map((l) => `${l.serviceId}/${l.url}`),
+    ["apple_podcasts/a", "rss/r1", "rss/r2", "youtube/u"],
+  );
+  // two different input orders → identical sorted output (comparator is total)
+  assert.deepEqual(sortLinks([a, b, c, d]), sortLinks([d, c, b, a]));
+  assert.deepEqual(sortLinks([c, a, d, b]), sortLinks([b, d, a, c]));
+});
+
+test("buildShowLinks: duplicate (serviceId, kind, url) dedups to the first occurrence", () => {
+  // Same spotify URL twice, second with a lower confidence override → first wins.
+  const links = buildShowLinks(
+    cfg({
+      slug: "s",
+      feedUrl: "https://feed",
+      appleId: null,
+      links: [
+        { serviceId: "spotify", url: "https://open.spotify.com/show/x" }, // confidence 1 (spec)
+        { serviceId: "spotify", url: "https://open.spotify.com/show/x", confidence: 0.5 },
+      ],
+    }),
+  );
+  const spotify = links.filter((l) => l.serviceId === "spotify");
+  assert.equal(spotify.length, 1, "deduped to a single spotify link");
+  assert.equal(spotify[0].confidence, 1, "first occurrence's metadata wins");
 });
 
 console.log(`\npodcast-ingest: ${passed} passed, ${failed} failed`);

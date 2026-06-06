@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "the-40k-lorecast",
+    "title": "The 40k Lorecast",
+    "feedUrl": "https://feeds.redcircle.com/cc233adb-de43-49be-bb76-9720292ddc98",
+    "appleId": "1709093251",
+    "podcastGuid": "cc233adb-de43-49be-bb76-9720292ddc98",
+    "links": [
+      { "serviceId": "official_website", "url": "https://the40klorecast.com/" },
+      { "serviceId": "spotify", "url": "https://open.spotify.com/show/2Z8HKiDH3nlvFzO2H18GHI" },
+      { "serviceId": "youtube", "url": "https://www.youtube.com/@40KLorecast" }
+    ],
+    "youtubeChannelUrl": "https://www.youtube.com/@40KLorecast",
+    "youtubeChannelId": null
+  },
+  {
+    "slug": "adeptus-ridiculous",
+    "title": "Adeptus Ridiculous",
+    "feedUrl": "https://rss.buzzsprout.com/1497970.rss",
+    "appleId": "1679817767",
+    "podcastGuid": "7402e137-e25b-5a58-8cc6-252e308fd905",
+    "links": [
+      { "serviceId": "official_website", "url": "https://www.adeptusridiculous.com/" },
+      { "serviceId": "spotify", "url": "https://open.spotify.com/show/6KnaAHvqf0pgTs3Kw3qQTR" },
+      { "serviceId": "youtube", "url": "https://www.youtube.com/channel/UCPfZBLCYNEonc-Cyk1QUHPA" }
+    ],
+    "youtubeChannelUrl": "https://www.youtube.com/channel/UCPfZBLCYNEonc-Cyk1QUHPA",
+    "youtubeChannelId": "UCPfZBLCYNEonc-Cyk1QUHPA"
+  }
+]
