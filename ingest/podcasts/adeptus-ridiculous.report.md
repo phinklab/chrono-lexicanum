@@ -9,13 +9,13 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Apple id:** 1679817767
 - **Episodes:** 363
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 280/363 episodes (77.1%) carry ≥1 resolved tag
-- **Resolved tags:** 778 total — 528 subject, 250 mentioned
-  - by type: 191 character, 468 faction, 119 location
+- **Resolved coverage:** 281/363 episodes (77.4%) carry ≥1 resolved tag
+- **Resolved tags:** 790 total — 535 subject, 255 mentioned
+  - by type: 191 character, 480 faction, 119 location
 - **Episode kinds:** 304 lore, 2 news_recap, 6 interview, 51 other
 - **Show links:** 5 (apple_podcasts, official_website, rss, spotify, youtube)
 - **Episode links:** 363/363 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
-- **Distinct unresolved surface-forms:** 191
+- **Distinct unresolved surface-forms:** 181
 
 ## Method (resolution reuse)
 
@@ -33,7 +33,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 |---|---|---|
 | location | the Warp | 6 |
 | faction | Adeptus Terra | 4 |
-| faction | Forces of Chaos | 4 |
 | faction | Leagues of Votann | 4 |
 | location | Vraks | 4 |
 | character | Cardinal Xaphan | 3 |
@@ -53,17 +52,13 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Vashtorr the Arkifane | 2 |
 | faction | Abhumans | 2 |
 | faction | Armageddon Steel Legion | 2 |
-| faction | Chaos Knights | 2 |
 | faction | Cult Mechanicus | 2 |
-| faction | Lost and the Damned | 2 |
 | faction | Men of Iron | 2 |
 | faction | Necrontyr | 2 |
 | faction | Priesthood of Terra | 2 |
-| faction | Ruinous Powers | 2 |
 | faction | Skaven | 2 |
 | faction | Space Marine Legions | 2 |
 | faction | Titan Legions | 2 |
-| faction | Traitor Legions | 2 |
 | location | Indiga | 2 |
 | location | Maelstrom Zone | 2 |
 | location | Sangua Terra | 2 |
@@ -76,7 +71,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Commander Puretide | 1 |
 | character | Corvin Severax | 1 |
 | character | Da Red Gobbo | 1 |
-| character | Daemon Princes | 1 |
 | character | Daemonculaba | 1 |
 | character | Demetrian Titus | 1 |
 | character | Drach'nyen | 1 |
@@ -133,8 +127,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Blood Axes | 1 |
 | faction | Cadian 8th | 1 |
 | faction | Castellans of the Rift | 1 |
-| faction | Chaos Gods | 1 |
-| faction | Chaos Lords | 1 |
 | faction | Chartist Captains | 1 |
 | faction | Children of Thorns | 1 |
 | faction | Collegiate Extremis | 1 |
@@ -176,8 +168,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Steel Confessors | 1 |
 | faction | Tanith First and Only | 1 |
 | faction | Techmarines | 1 |
-| faction | Traitor Fleets | 1 |
-| faction | Traitoris Militarum | 1 |
 | faction | Vior'la Sept | 1 |
 | faction | Xenos | 1 |
 | faction | XI Legion | 1 |

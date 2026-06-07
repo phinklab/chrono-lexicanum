@@ -9,13 +9,13 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Apple id:** 1266540593
 - **Episodes:** 391
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 282/391 episodes (72.1%) carry ≥1 resolved tag
-- **Resolved tags:** 653 total — 460 subject, 193 mentioned
-  - by type: 128 character, 436 faction, 89 location
+- **Resolved coverage:** 286/391 episodes (73.1%) carry ≥1 resolved tag
+- **Resolved tags:** 663 total — 468 subject, 195 mentioned
+  - by type: 128 character, 446 faction, 89 location
 - **Episode kinds:** 305 lore, 0 news_recap, 12 interview, 74 other
 - **Show links:** 3 (apple_podcasts, official_website, rss)
 - **Episode links:** 391/391 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
-- **Distinct unresolved surface-forms:** 203
+- **Distinct unresolved surface-forms:** 189
 
 ## Method (resolution reuse)
 
@@ -35,14 +35,12 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Duke Severus XIII | 5 |
 | faction | Knights of Slaughter | 5 |
 | faction | Severan Dominate | 5 |
-| faction | Chaos Gods | 4 |
 | faction | Crimson Armada | 4 |
 | faction | League of Votann | 4 |
 | faction | Bad Moons | 3 |
 | faction | Farsight Enclaves | 3 |
 | faction | Leagues of Votann | 3 |
 | faction | Ork Freebooterz | 3 |
-| faction | Traitor Legions | 3 |
 | location | Spinward Front | 3 |
 | character | Gork | 2 |
 | character | Malice | 2 |
@@ -51,7 +49,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Void Dragon | 2 |
 | faction | Aspect Warriors | 2 |
 | faction | Beast Snagga Boyz | 2 |
-| faction | Chaos Unbound | 2 |
 | faction | Evil Sunz | 2 |
 | faction | Freebooterz | 2 |
 | faction | Iron Skulls | 2 |
@@ -64,7 +61,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Primarchs | 2 |
 | faction | Primaris Space Marines | 2 |
 | faction | Ravenwing | 2 |
-| faction | Ruinous Powers | 2 |
 | faction | Space Marine Legions | 2 |
 | faction | War Hounds | 2 |
 | location | Garden of Nurgle | 2 |
@@ -83,7 +79,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | character | Emperor | 1 |
 | character | God Emperor | 1 |
 | character | God-Emperor | 1 |
-| character | Great Unclean Ones | 1 |
 | character | Grukk the Face-Eater | 1 |
 | character | Imotekh the Stormlord | 1 |
 | character | Inquisitor Kryptman | 1 |
@@ -116,7 +111,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Asuryani | 1 |
 | faction | Bleachskullz | 1 |
 | faction | Blood Legions | 1 |
-| faction | Bloodletters | 1 |
 | faction | Bloodthirsters | 1 |
 | faction | Brass Legion | 1 |
 | faction | Carcharodons Astra | 1 |
@@ -127,7 +121,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Cult of Decay | 1 |
 | faction | Cult of Excess | 1 |
 | faction | Cult of the Doomed Ones | 1 |
-| faction | Daemonettes | 1 |
 | faction | Dark Gods | 1 |
 | faction | Death Songs Chapter | 1 |
 | faction | Deathwing | 1 |
@@ -139,7 +132,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Eldar Rangers | 1 |
 | faction | Elysian Drop Troops | 1 |
 | faction | Enoulians | 1 |
-| faction | Fecundus Legions | 1 |
 | faction | Fenrisian Einherjar | 1 |
 | faction | Flash Gitz | 1 |
 | faction | Fra'al | 1 |
@@ -148,7 +140,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Haemonculi Covens | 1 |
 | faction | Heretics | 1 |
 | faction | Hive Fleet Grendyllus | 1 |
-| faction | Horrors of Tzeentch | 1 |
 | faction | House Arokis | 1 |
 | faction | House Belli Obligatus | 1 |
 | faction | House Koldere | 1 |
@@ -175,17 +166,14 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Nicassar | 1 |
 | faction | Nihivokh Dynasty | 1 |
 | faction | Noise Marines | 1 |
-| faction | Nurglings | 1 |
 | faction | Nyuserra Dynasty | 1 |
 | faction | Order of the Crimson Lily | 1 |
 | faction | Ordos Majoris | 1 |
 | faction | Oretti | 1 |
 | faction | Palatine Blades | 1 |
 | faction | Phoenix Guard | 1 |
-| faction | Plague Legions of Nurgle | 1 |
 | faction | Q'orl | 1 |
 | faction | Rak'Gol | 1 |
-| faction | Rot Legions | 1 |
 | faction | Scintillating Legions | 1 |
 | faction | Slanni | 1 |
 | faction | Slaugth | 1 |
@@ -200,8 +188,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | The Reforge | 1 |
 | faction | The Unbound | 1 |
 | faction | Thyrrus | 1 |
-| faction | Traitor Titan Legions | 1 |
-| faction | Tzeentch's Scintillating Legions | 1 |
 | faction | Umbra | 1 |
 | faction | Vespid | 1 |
 | faction | Viskeon | 1 |

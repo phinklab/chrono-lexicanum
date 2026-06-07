@@ -632,6 +632,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "faction",
+          "canonicalId": "heretic_astartes",
+          "rawName": "Traitor Legions",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "location",
           "canonicalId": "terra",
           "rawName": "Terra",
@@ -643,11 +651,6 @@
       "unresolved": [
         {
           "rawName": "Loyalist Legions",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Traitor Legions",
           "axisGuess": "faction",
           "role": "subject"
         }

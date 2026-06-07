@@ -1174,13 +1174,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Ruinous Powers",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -1994,6 +1988,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Traitor Titan Legions",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "heretic_astartes",
           "rawName": "Chaos Space Marines",
           "role": "mentioned",
@@ -2001,13 +2003,7 @@
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Traitor Titan Legions",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -6396,17 +6392,21 @@
       "audioUrl": "https://traffic.megaphone.fm/APO6091521883.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/111---Vashtorr-the-Arkifane--Lord-of-the-Forge-of-Souls-e358teq",
       "episodeKind": "lore",
-      "tags": [],
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Ruinous Powers",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
       "unresolved": [
         {
           "rawName": "Vashtorr the Arkifane",
           "axisGuess": "character",
           "role": "subject"
-        },
-        {
-          "rawName": "Ruinous Powers",
-          "axisGuess": "faction",
-          "role": "mentioned"
         },
         {
           "rawName": "Forge of Souls",
@@ -7319,11 +7319,6 @@
           "rawName": "Be'lakor",
           "axisGuess": "character",
           "role": "subject"
-        },
-        {
-          "rawName": "Chaos Gods",
-          "axisGuess": "faction",
-          "role": "mentioned"
         }
       ],
       "links": [
@@ -8083,13 +8078,17 @@
       "audioUrl": "https://traffic.megaphone.fm/APO1804386321.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Bonus-34---GrimLoreHammer--The-Warp-Crossover-e358te8",
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "chaos",
           "rawName": "Chaos Gods",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [
         {
           "rawName": "The Warp",
           "axisGuess": "location",
@@ -8290,6 +8289,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Chaos Gods",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "daemons",
           "rawName": "Daemons",
           "role": "subject",
@@ -8298,11 +8305,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Chaos Gods",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
         {
           "rawName": "Daemon Worlds",
           "axisGuess": "location",
@@ -9315,6 +9317,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Chaos Gods",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "khorne",
           "rawName": "Khorne",
           "role": "subject",
@@ -9347,11 +9357,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Chaos Gods",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
         {
           "rawName": "the Warp",
           "axisGuess": "location",
@@ -9463,13 +9468,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Nurglings",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -9982,20 +9981,19 @@
       "audioUrl": "https://traffic.megaphone.fm/APO2718012767.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Video-165---Tzeentchs-Scintillating-Legions-e372ipe",
       "episodeKind": "lore",
-      "tags": [],
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "tzeentch",
+          "rawName": "Horrors of Tzeentch",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
       "unresolved": [
         {
-          "rawName": "Horrors of Tzeentch",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
           "rawName": "Lords of Change",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Tzeentch's Scintillating Legions",
           "axisGuess": "faction",
           "role": "subject"
         }
@@ -10018,28 +10016,17 @@
       "audioUrl": "https://traffic.megaphone.fm/APO5848163785.mp3",
       "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/166---Plague-Legions-of-Nurgle-e358tdr",
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "nurgle",
           "rawName": "Great Unclean Ones",
-          "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Plague Legions of Nurgle",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Fecundus Legions",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        },
-        {
-          "rawName": "Rot Legions",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        },
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [
         {
           "rawName": "Garden of Nurgle",
           "axisGuess": "location",
@@ -10551,13 +10538,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Bloodletters",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -10599,11 +10580,6 @@
           "rawName": "Cult of Excess",
           "axisGuess": "faction",
           "role": "subject"
-        },
-        {
-          "rawName": "Daemonettes",
-          "axisGuess": "faction",
-          "role": "mentioned"
         }
       ],
       "links": [
@@ -10931,6 +10907,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "faction",
+          "canonicalId": "heretic_astartes",
+          "rawName": "Traitor Legions",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "location",
           "canonicalId": "terra",
           "rawName": "Terra",
@@ -10939,13 +10923,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Traitor Legions",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -11987,18 +11965,13 @@
         {
           "type": "faction",
           "canonicalId": "chaos",
-          "rawName": "Chaos Undivided",
-          "role": "mentioned",
+          "rawName": "Chaos Unbound",
+          "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Chaos Unbound",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
         {
           "rawName": "Malice",
           "axisGuess": "faction",
@@ -12032,18 +12005,13 @@
         {
           "type": "faction",
           "canonicalId": "chaos",
-          "rawName": "Chaos Undivided",
-          "role": "mentioned",
+          "rawName": "Chaos Unbound",
+          "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Chaos Unbound",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
         {
           "rawName": "Malice",
           "axisGuess": "faction",
@@ -14041,6 +14009,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "heretic_astartes",
+          "rawName": "Traitor Legions",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "khorne",
           "rawName": "Khorne",
           "role": "mentioned",
@@ -14056,13 +14032,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Traitor Legions",
-          "axisGuess": "faction",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -14336,6 +14306,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "faction",
+          "canonicalId": "heretic_astartes",
+          "rawName": "Traitor Legions",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "location",
           "canonicalId": "terra",
           "rawName": "Terra",
@@ -14352,13 +14330,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Traitor Legions",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",

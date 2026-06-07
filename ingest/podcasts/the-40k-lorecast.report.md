@@ -10,12 +10,12 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 - **Episodes:** 149
 - **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
 - **Resolved coverage:** 137/149 episodes (91.9%) carry ≥1 resolved tag
-- **Resolved tags:** 519 total — 369 subject, 150 mentioned
-  - by type: 155 character, 267 faction, 97 location
+- **Resolved tags:** 520 total — 370 subject, 150 mentioned
+  - by type: 155 character, 268 faction, 97 location
 - **Episode kinds:** 140 lore, 0 news_recap, 0 interview, 9 other
 - **Show links:** 5 (apple_podcasts, official_website, rss, spotify, youtube)
 - **Episode links:** 149/149 episodes carry an RSS audio link (`listen`/`rss`/`podcast_rss`)
-- **Distinct unresolved surface-forms:** 124
+- **Distinct unresolved surface-forms:** 123
 
 ## Method (resolution reuse)
 
@@ -127,7 +127,6 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 | faction | Tepresi | 1 |
 | faction | The Cabal | 1 |
 | faction | Tiger Claws | 1 |
-| faction | Traitor Legions | 1 |
 | faction | Valhallan Ice Warriors | 1 |
 | faction | Vespid | 1 |
 | faction | Wych Cults | 1 |

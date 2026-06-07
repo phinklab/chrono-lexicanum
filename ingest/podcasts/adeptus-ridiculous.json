@@ -3642,14 +3642,17 @@
       "audioUrl": "https://www.buzzsprout.com/1497970/episodes/10914028-chaos-knights-chivalry-is-dead-warhammer-40k-lore.mp3",
       "link": null,
       "episodeKind": "lore",
-      "tags": [],
-      "unresolved": [
+      "tags": [
         {
+          "type": "faction",
+          "canonicalId": "chaos",
           "rawName": "Chaos Knights",
-          "axisGuess": "faction",
-          "role": "subject"
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
         }
       ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -5813,6 +5816,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Ruinous Powers",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "daemons",
           "rawName": "Chaos Daemons",
           "role": "subject",
@@ -5824,11 +5835,6 @@
         {
           "rawName": "Be'lakor",
           "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Ruinous Powers",
-          "axisGuess": "faction",
           "role": "subject"
         }
       ],
@@ -6311,6 +6317,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Chaos Gods",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "inquisition",
           "rawName": "Inquisition",
           "role": "mentioned",
@@ -6319,11 +6333,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Chaos Gods",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        },
         {
           "rawName": "the Warp",
           "axisGuess": "location",
@@ -7870,6 +7879,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Forces of Chaos",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "location",
           "canonicalId": "cadia",
           "rawName": "Cadia",
@@ -7887,11 +7904,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Forces of Chaos",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
         {
           "rawName": "Cadian Gate",
           "axisGuess": "location",
@@ -8344,10 +8356,10 @@
         {
           "type": "faction",
           "canonicalId": "daemons",
-          "rawName": "Daemons",
+          "rawName": "Daemon Princes",
           "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
+          "confidence": 0.9,
+          "matchedVia": "alias"
         },
         {
           "type": "location",
@@ -8358,13 +8370,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Daemon Princes",
-          "axisGuess": "character",
-          "role": "subject"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -8615,6 +8621,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "faction",
+          "canonicalId": "heretic_astartes",
+          "rawName": "Traitor Legions",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "location",
           "canonicalId": "eye_of_terror",
           "rawName": "Eye of Terror",
@@ -8624,11 +8638,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Traitor Legions",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        },
         {
           "rawName": "Sortiarius",
           "axisGuess": "location",
@@ -8856,6 +8865,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "faction",
+          "canonicalId": "heretic_astartes",
+          "rawName": "Chaos Lords",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "location",
           "canonicalId": "barbarus",
           "rawName": "Barbarus",
@@ -8865,11 +8882,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Chaos Lords",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        },
         {
           "rawName": "the Warp",
           "axisGuess": "location",
@@ -9698,6 +9710,14 @@
       "tags": [
         {
           "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Forces of Chaos",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "imperium",
           "rawName": "Imperium",
           "role": "subject",
@@ -9722,11 +9742,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Forces of Chaos",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
         {
           "rawName": "Nachmund Gauntlet",
           "axisGuess": "location",
@@ -9791,6 +9806,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Forces of Chaos",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "daemons",
           "rawName": "Daemons",
           "role": "mentioned",
@@ -9824,11 +9847,6 @@
           "rawName": "Prisca",
           "axisGuess": "character",
           "role": "subject"
-        },
-        {
-          "rawName": "Forces of Chaos",
-          "axisGuess": "faction",
-          "role": "mentioned"
         },
         {
           "rawName": "Nachmund Gauntlet",
@@ -10561,6 +10579,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Chaos Knights",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "mechanicus",
           "rawName": "Adeptus Mechanicus",
           "role": "mentioned",
@@ -10584,13 +10610,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Chaos Knights",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -10828,11 +10848,6 @@
         }
       ],
       "unresolved": [
-        {
-          "rawName": "Ruinous Powers",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        },
         {
           "rawName": "the warp",
           "axisGuess": "location",
@@ -11435,6 +11450,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Forces of Chaos",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "imperium",
           "rawName": "Imperium",
           "role": "subject",
@@ -11470,11 +11493,6 @@
         {
           "rawName": "Junith Eruita",
           "axisGuess": "character",
-          "role": "subject"
-        },
-        {
-          "rawName": "Forces of Chaos",
-          "axisGuess": "faction",
           "role": "subject"
         },
         {
@@ -11797,33 +11815,22 @@
         },
         {
           "type": "faction",
-          "canonicalId": "astra_militarum",
-          "rawName": "Astra Militarum",
-          "role": "mentioned",
+          "canonicalId": "chaos",
+          "rawName": "Traitoris Militarum",
+          "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
         },
         {
           "type": "faction",
-          "canonicalId": "chaos",
-          "rawName": "Chaos Cultists",
+          "canonicalId": "astra_militarum",
+          "rawName": "Astra Militarum",
           "role": "mentioned",
           "confidence": 0.9,
           "matchedVia": "alias"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Traitoris Militarum",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Lost and the Damned",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -13010,6 +13017,14 @@
         },
         {
           "type": "faction",
+          "canonicalId": "heretic_astartes",
+          "rawName": "Traitor Legions",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
           "canonicalId": "imperium",
           "rawName": "Imperium",
           "role": "mentioned",
@@ -13033,13 +13048,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Traitor Legions",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
@@ -13900,6 +13909,14 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Lost and the Damned",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
           "type": "location",
           "canonicalId": "sol_system",
           "rawName": "Sol System",
@@ -13924,18 +13941,7 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [
-        {
-          "rawName": "Lost and the Damned",
-          "axisGuess": "faction",
-          "role": "subject"
-        },
-        {
-          "rawName": "Traitor Fleets",
-          "axisGuess": "faction",
-          "role": "mentioned"
-        }
-      ],
+      "unresolved": [],
       "links": [
         {
           "serviceId": "rss",
