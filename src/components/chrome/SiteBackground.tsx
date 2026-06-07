@@ -6,6 +6,7 @@
  * Variants:
  *   - "hub"        ← Hub (gothic cathedral-city, cosmic rings overhead)
  *   - "vista"      ← Books hero, book detail, entity pages (cathedral light)
+ *   - "scriptorium" ← Compendium (grand cathedral-library, scribe at a lectern)
  *   - "librarium"  ← (legacy) library/scriptorium interior
  *   - "vox"        ← Podcasts (cathedral nave, two scribes at vox-podiums)
  *   - "oracle"     ← Ask the Archive (gothic scriptorium, void window)
@@ -18,6 +19,7 @@
 export type SiteBgVariant =
   | "hub"
   | "vista"
+  | "scriptorium"
   | "librarium"
   | "vox"
   | "oracle"
@@ -29,6 +31,7 @@ export type SiteBgVariant =
 const PHOTOS: Record<SiteBgVariant, string | null> = {
   hub: "/img/hub.webp",
   vista: "/img/vista.webp",
+  scriptorium: "/img/scriptorium.webp",
   librarium: "/img/librarium.webp",
   vox: "/img/vox.webp",
   oracle: "/img/oracle.webp",

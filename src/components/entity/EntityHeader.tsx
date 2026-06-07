@@ -12,6 +12,7 @@ const EYEBROW: Record<EntityType, string> = {
   character: "// PERSONA · CHARACTER",
   faction: "// FRACTIO · FACTION",
   location: "// MVNDVS · WORLD",
+  person: "// AVCTOR · AUTHOR",
 };
 
 export default function EntityHeader({

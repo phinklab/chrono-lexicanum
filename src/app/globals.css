@@ -32,6 +32,7 @@
 @import './styles/63-fraktionen.css';
 @import './styles/64-book-modal.css';
 @import './styles/65-loading.css';
+@import './styles/66-compendium.css';
 
 /* Tailwind v4 auto-source-detection scans every non-ignored project file as
  * plain text for class tokens. The standalone HTML/CSS/JS design prototypes
