@@ -42,6 +42,8 @@ import { fetchFeed, parseFeed } from "@/lib/ingestion/podcast/feed";
 import { buildShowLinks } from "@/lib/ingestion/podcast/links";
 import { loadRegistry, selectShows, type PodcastShowConfig } from "@/lib/ingestion/podcast/registry";
 import { resolveEpisodeTags } from "@/lib/ingestion/podcast/resolve";
+import type { ParsedShowMeta, PodcastEpisode } from "@/lib/ingestion/podcast/types";
+import { fetchYoutubeFeed } from "@/lib/ingestion/podcast/youtube";
 
 const OUT_DIR = join(process.cwd(), "ingest", "podcasts");
 
@@ -88,6 +90,71 @@ interface ShowStats {
   jsonPath: string;
 }
 
+/**
+ * Result of source-acquisition: the episodes to PROCESS (already capped to
+ * `--limit`), the show metadata, the effective `feedUrl` to record on the
+ * artifact (canonical uploads-feed URL for YouTube), and `totalAvailable` — how
+ * many episodes the source held before the cap, for an honest log line.
+ * `--limit` is applied HERE for both sources (the single limiting point), so the
+ * downstream loop sees the same `episodes`-is-the-work-set contract regardless
+ * of source.
+ */
+interface AcquiredFeed {
+  show: ParsedShowMeta;
+  episodes: PodcastEpisode[];
+  feedUrl: string;
+  totalAvailable: number;
+}
+
+/**
+ * Source-dispatch (Brief 130): pick the acquisition path from `cfg.source`. RSS
+ * is the default and unchanged (`fetchFeed` + `parseFeed`, then cap); YouTube
+ * uses the Data API v3 adapter (which acquires the newest non-excluded uploads
+ * up to `--limit` directly, so it hydrates only what it returns) and reports the
+ * canonical channel-id-bound feed URL as the artifact's `feedUrl` identity.
+ * Everything after this — extract, resolve, artifact assembly — is
+ * source-agnostic.
+ */
+async function acquireFeed(
+  cfg: PodcastShowConfig,
+  opts: { limit?: number; youtubeApiKey?: string },
+): Promise<AcquiredFeed> {
+  if (cfg.source === "youtube") {
+    if (!opts.youtubeApiKey) {
+      throw new Error(
+        `show "${cfg.slug}" is source:"youtube" but YOUTUBE_API_KEY is missing — ` +
+          "set it in .env.local (see .env.example)",
+      );
+    }
+    console.log(
+      `acquiring YouTube uploads: ${cfg.youtubeChannelUrl ?? cfg.youtubeChannelId ?? "(channel)"}`,
+    );
+    const yt = await fetchYoutubeFeed(cfg, { apiKey: opts.youtubeApiKey, limit: opts.limit });
+    console.log(
+      `resolved channel ${yt.channelId} — ${yt.totalUploads} uploads total` +
+        (cfg.excludePlaylists.length > 0
+          ? `, ${yt.excludedVideoCount} video(s) on the exclude-denylist`
+          : "") +
+        (yt.reincludedVideoCount > 0
+          ? `, ${yt.reincludedVideoCount} curated lore video(s) force-included`
+          : "") +
+        (yt.skippedUnavailable > 0 ? `, ${yt.skippedUnavailable} unavailable skipped` : ""),
+    );
+    // The adapter already applied `--limit` (newest non-excluded first); the
+    // returned episodes ARE the work-set.
+    return {
+      show: yt.show,
+      episodes: yt.episodes,
+      feedUrl: yt.canonicalFeedUrl,
+      totalAvailable: yt.totalUploads,
+    };
+  }
+  console.log(`fetching feed: ${cfg.feedUrl}`);
+  const { show, episodes } = parseFeed(await fetchFeed(cfg.feedUrl));
+  const work = opts.limit !== undefined ? episodes.slice(0, opts.limit) : episodes;
+  return { show, episodes: work, feedUrl: cfg.feedUrl, totalAvailable: episodes.length };
+}
+
 interface ShowOutcome {
   slug: string;
   status: "ok" | "failed";
@@ -103,18 +170,19 @@ interface ShowOutcome {
  */
 async function ingestOneShow(
   cfg: PodcastShowConfig,
-  ctx: { client: Anthropic; model: string; limit?: number },
+  ctx: { client: Anthropic; model: string; limit?: number; youtubeApiKey?: string },
 ): Promise<ShowStats> {
-  const { client, model, limit } = ctx;
+  const { client, model, limit, youtubeApiKey } = ctx;
 
-  console.log(`\n=== ${cfg.slug} ===\nfetching feed: ${cfg.feedUrl}`);
-  const xml = await fetchFeed(cfg.feedUrl);
-  const { show, episodes: allEpisodes } = parseFeed(xml);
-  const episodes = limit !== undefined ? allEpisodes.slice(0, limit) : allEpisodes;
+  console.log(`\n=== ${cfg.slug} (${cfg.source}) ===`);
+  const { show, episodes, feedUrl, totalAvailable } = await acquireFeed(cfg, {
+    limit,
+    youtubeApiKey,
+  });
 
   console.log(
-    `parsed "${show.title}" — ${allEpisodes.length} episodes` +
-      (limit !== undefined ? ` (processing first ${episodes.length})` : "") +
+    `"${show.title}" — ${totalAvailable} available, processing ${episodes.length}` +
+      (limit !== undefined ? ` (--limit=${limit})` : "") +
       `\nmodel: ${model} · prompt ${EPISODE_PROMPT_VERSION_HASH}`,
   );
 
@@ -148,13 +216,16 @@ async function ingestOneShow(
     show: {
       slug: cfg.slug,
       title: show.title || cfg.title,
-      feedUrl: cfg.feedUrl,
+      // Canonical channel-id-bound feed URL for YouTube (resolved live), the
+      // registry feed URL for RSS.
+      feedUrl,
       appleId: cfg.appleId,
       // Feed-declared guid is authoritative; fall back to the registry's.
       podcastGuid: show.podcastGuid ?? cfg.podcastGuid,
       imageUrl: show.imageUrl,
       links: buildShowLinks(cfg),
     },
+    source: cfg.source,
     model,
     promptVersion: EPISODE_PROMPT_VERSION_HASH,
     results,
@@ -164,7 +235,7 @@ async function ingestOneShow(
   const jsonPath = join(OUT_DIR, `${cfg.slug}.json`);
   const reportPath = join(OUT_DIR, `${cfg.slug}.report.md`);
   await writeFile(jsonPath, serializeArtifact(artifact), "utf8");
-  await writeFile(reportPath, buildReport(artifact), "utf8");
+  await writeFile(reportPath, buildReport(artifact, cfg.source), "utf8");
 
   const withTag = artifact.episodes.filter((e) => e.tags.length > 0).length;
   const estCost = estimateUsdCost(
@@ -227,6 +298,16 @@ async function main(): Promise<void> {
   const shows = selectShows(registry, { all: cli.all, show: cli.show });
   const model = getPodcastLlmModel();
   const client = new Anthropic();
+  // YouTube-source shows (Brief 130) need a Data API v3 key; RSS shows ignore it.
+  // Read once here so the lib stays env-free; acquireFeed errors clearly if a
+  // YouTube show is targeted without it.
+  const youtubeApiKey = process.env.YOUTUBE_API_KEY?.trim() || undefined;
+  if (shows.some((s) => s.source === "youtube") && !youtubeApiKey) {
+    console.warn(
+      "warning: a targeted show is source:\"youtube\" but YOUTUBE_API_KEY is unset — " +
+        "that show will fail. Set it in .env.local (see .env.example).",
+    );
+  }
 
   console.log(
     `ingest target: ${cli.all ? `--all (${shows.length} shows)` : shows[0].slug}\n` +
@@ -236,7 +317,7 @@ async function main(): Promise<void> {
   const outcomes: ShowOutcome[] = [];
   for (const cfg of shows) {
     try {
-      const stats = await ingestOneShow(cfg, { client, model, limit: cli.limit });
+      const stats = await ingestOneShow(cfg, { client, model, limit: cli.limit, youtubeApiKey });
       outcomes.push({ slug: cfg.slug, status: "ok", stats });
     } catch (err) {
       // Soft-fail per feed: a dead/zicky feed must not abort the whole run.

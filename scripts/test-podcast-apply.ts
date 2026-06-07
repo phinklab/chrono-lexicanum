@@ -380,10 +380,14 @@ test("validate: link with empty serviceId throws (services FK)", () => {
   assert.throws(() => assertShowArtifact(a), /serviceId/);
 });
 
-test("validate: link with bad sourceKind throws (must be podcast_rss|manual)", () => {
-  const a = clone(validArtifact());
-  (a.show.links[0] as { sourceKind: string }).sourceKind = "lexicanum";
-  assert.throws(() => assertShowArtifact(a), /podcast_rss\|manual/);
+test("validate: bad sourceKind throws; youtube (Brief 130) is now accepted", () => {
+  const bad = clone(validArtifact());
+  (bad.show.links[0] as { sourceKind: string }).sourceKind = "lexicanum";
+  assert.throws(() => assertShowArtifact(bad), /must be one of/);
+  // youtube is a valid provenance now (PODCAST_LINK_SOURCE_KINDS gained it)
+  const ok = clone(validArtifact());
+  (ok.show.links[0] as { sourceKind: string }).sourceKind = "youtube";
+  assert.doesNotThrow(() => assertShowArtifact(ok));
 });
 
 test("validate: link confidence out of [0,1] throws (numeric(3,2) guard)", () => {

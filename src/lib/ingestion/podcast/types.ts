@@ -50,15 +50,20 @@ export const EXTERNAL_LINK_KINDS: readonly ExternalLinkKind[] = [
 
 /**
  * The `source_kind` provenance values B1 emits for podcast links — a subset of
- * the DB `source_kind` enum: `podcast_rss` for feed-intrinsic links (the RSS
+ * the DB `source_kind` enum: `podcast_rss` for RSS-feed-intrinsic links (the RSS
  * feed, the episode audio enclosure), `manual` for registry-curated links
- * (official site, Apple, Spotify, YouTube). Brief 128 link matrix.
+ * (official site, Apple, Spotify, YouTube channel), and `youtube` for a
+ * YouTube-source episode's `watch` link (the per-episode analogue of the RSS
+ * audio enclosure, Brief 130). Brief 128 link matrix, extended by Brief 130.
+ * All three are members of the DB `source_kind` pgEnum (`youtube` was
+ * pre-provisioned in schema stage 2a), so no migration is needed to write them.
  */
-export type PodcastLinkSourceKind = "podcast_rss" | "manual";
+export type PodcastLinkSourceKind = "podcast_rss" | "manual" | "youtube";
 
 export const PODCAST_LINK_SOURCE_KINDS: readonly PodcastLinkSourceKind[] = [
   "podcast_rss",
   "manual",
+  "youtube",
 ];
 
 /**
@@ -148,8 +153,10 @@ export interface EpisodeArtifact {
   episodeKind: EpisodeKind;
   tags: EpisodeTag[];
   unresolved: UnresolvedForm[];
-  /** Cross-media links for this episode — at minimum the RSS audio enclosure
-   *  (`listen`/`rss`/`podcast_rss`). The authoritative input for S3's apply. */
+  /** Cross-media links for this episode — the RSS audio enclosure
+   *  (`listen`/`rss`/`podcast_rss`) for an RSS show, or the YouTube `watch` link
+   *  (`watch`/`youtube`/`youtube`) for a YouTube-source show (Brief 130). The
+   *  authoritative input for S3's apply. */
   links: PodcastLink[];
 }
 

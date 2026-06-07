@@ -278,6 +278,7 @@ test("buildShowArtifact: episodes sorted by (pubDate, guid)", () => {
 function cfg(partial: Partial<PodcastShowConfig> & { slug: string }): PodcastShowConfig {
   return {
     slug: partial.slug,
+    source: partial.source ?? "rss",
     title: partial.title ?? partial.slug,
     feedUrl: partial.feedUrl ?? "https://example.com/feed.xml",
     appleId: partial.appleId ?? null,
@@ -285,6 +286,8 @@ function cfg(partial: Partial<PodcastShowConfig> & { slug: string }): PodcastSho
     links: partial.links ?? [],
     youtubeChannelUrl: partial.youtubeChannelUrl ?? null,
     youtubeChannelId: partial.youtubeChannelId ?? null,
+    excludePlaylists: partial.excludePlaylists ?? [],
+    includeVideoIds: partial.includeVideoIds ?? [],
   };
 }
 
