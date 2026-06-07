@@ -35,6 +35,8 @@ Stehendes Strang-Board. Daten + Logik, kein UI (das ist 121). Status-Spalte = Wa
 | B5 | Chronicle-Daten: mehr Bücher mit Timeline-Position (`atY`/Ära) | ☐ |
 | B6 | Dead-Code-Retirement: V1-Ingestion + V2-LLM + V2-Rest ausmustern (Carve-out: Excel-SSOT-Loader bleibt); stale `CLAUDE.md`-Stack-Tabelle fixen | ☐ |
 | B7 | brain:lint always-read Budget-Guardrail (Spec: archivierter Brief 112) | ☐ |
+| B8 | Kuratierte Themen-Straenge: seed-data-JSON (Titel/Blurb + Refs auf vorhandene work-/entity-IDs), kein Schema; dangling ID faellt laut. Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☐ |
+| B9 | Kuratierte Charakter-Auswahl: seed-data-JSON ueber `characters` (Spotlight-Flag + `is_primarch`-Flag), kein Schema; Blurbs reiten auf B3. Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☐ |
 
 ## Standing tool
 
