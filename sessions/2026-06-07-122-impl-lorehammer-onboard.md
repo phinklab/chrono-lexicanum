@@ -25,6 +25,27 @@ applied idempotently to the Dev DB (apply #2: `inserted: 0`), with **0 duplicate
 `podcast_episode` WorkGroup). Poorhammer and any further show are out of scope and
 untouched.
 
+## Follow-up — dropped in-feed (Video) duplicates (same session)
+
+The Lorehammer feed double-lists most episodes: once normally and once with a
+leading `(Video)` marker on an otherwise-identical title (the audio rip of a video
+upload), each with its own GUID — so both survived GUID-dedup and landed as
+duplicate episode works. Per the maintainer's call, the `(Video)` episodes that
+have an audio twin were **deleted** from both the committed artifact and the Dev
+DB; the **12 video-only** `(Video)` episodes (no audio counterpart) were **kept**,
+with the `(Video)` prefix stripped so they read cleanly.
+
+- **Episodes: 603 → 391** (dropped 212 audio-twin duplicates; relabeled 12 video-only).
+- DB after cleanup: **391 episodes, 0 `(Video)` titles**; the FK cascade removed the
+  212 dropped episodes' detail / junction / external-link rows.
+- Regenerated artifact + report: coverage 282/391 (72.1%); 653 resolved tags
+  (128 character / 436 faction / 89 location); episode kinds 305 lore · 12 interview
+  · 74 other; show links 3; episode links 391/391; 203 unresolved forms.
+- Done as a **one-time data cleanup** (throwaway script, deleted) — *not* a pipeline
+  change. The quirk is Lorehammer-specific (the other two shows have 0 `(Video)`
+  titles). Caveat: a *cold* re-ingest of Lorehammer would regenerate the full 603;
+  if re-ingesting becomes routine, add a feed-level twin-filter at that point.
+
 ## What I did
 
 - `scripts/seed-data/podcast-shows.json` — **the only source edit.** Appended the
