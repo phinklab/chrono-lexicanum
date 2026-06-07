@@ -72,6 +72,7 @@ async function loadBookBySlug(slug: string) {
       .limit(1),
     db
       .select({
+        id: personsTable.id,
         name: personsTable.name,
         role: workPersonsTable.role,
         displayOrder: workPersonsTable.displayOrder,

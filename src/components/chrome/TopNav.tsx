@@ -25,7 +25,7 @@ const ITEMS: NavItem[] = [
   { id: "home", label: "Home", href: "/", match: (p) => p === "/" },
   { id: "works", label: "Archive", href: "/werke", match: (p) => p.startsWith("/werke") || p.startsWith("/buch") },
   { id: "podcasts", label: "Podcasts", href: "/podcasts", match: (p) => p.startsWith("/podcasts") },
-  { id: "factions", label: "Factions", href: "/fraktionen", match: (p) => p.startsWith("/fraktion") },
+  { id: "compendium", label: "Compendium", href: "/compendium", match: (p) => p.startsWith("/compendium") || p.startsWith("/fraktion") || p.startsWith("/charakter") || p.startsWith("/welt") || p.startsWith("/person") },
   { id: "ask", label: "Ask", href: "/ask", match: (p) => p.startsWith("/ask") },
   { id: "chronicle", label: "Chronicle", href: "/timeline", match: (p) => p.startsWith("/timeline") },
   { id: "cartog", label: "Cartographer", href: "/map", match: (p) => p.startsWith("/map") },

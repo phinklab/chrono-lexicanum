@@ -8,7 +8,8 @@
  * the client bundle stays pure). Owns three things the static page can't:
  *   1. a bespoke filter bar (title search + kind toggle + year quick-jump),
  *   2. one-at-a-time inline playback (native <audio>, dark controls),
- *   3. listen links (open the enclosure) + faction chips that route into /werke,
+ *   3. listen links (open the enclosure) + faction chips that route into the
+ *      Compendium (`/fraktion/[id]`, opening the entity overlay),
  *   4. collapsed-by-default year headings — disclosure buttons the reader
  *      expands one at a time; an active filter auto-expands matching years.
  *
@@ -408,7 +409,7 @@ function EpisodeRow({
               {ep.factions.map((f) => (
                 <Link
                   key={f.id}
-                  href={`/werke?faction=${f.id}`}
+                  href={`/fraktion/${f.id}`}
                   className="pod-tag"
                 >
                   {f.name}

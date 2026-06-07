@@ -34,12 +34,29 @@ const client =
     ssl: "require",
     // Pool size: 5 stays comfortably below pgbouncer's default_pool_size on
     // the Supabase free-tier pooler (~15). Higher values oversubscribe the
-    // pooler when the Atlas bridge fans out ~30 aggregate COUNTs at once,
-    // which queues queries inside pgbouncer until they hit statement_timeout
-    // and the cancelled state poisons the next request. Serializing client-
-    // side is faster than racing into the pooler's queue.
+    // pooler when a page fans out many aggregates at once, which queues
+    // queries inside pgbouncer until they hit statement_timeout and the
+    // cancelled state poisons the next request. Do NOT raise this to "fix"
+    // contention — that only moves the queue into the shared backend pool and
+    // enlarges the blast radius. The real fix is caching reads so the DB is
+    // barely touched (see `src/lib/db-cache.ts`); this stays at 5 as the floor.
     max: 5,
+    // Recycle idle / half-broken sockets instead of handing a poisoned one to
+    // the next request — the connection-level half of the poison-cascade fix.
+    // Short idle suits serverless: warm reuse during a burst, clean teardown
+    // when quiet.
+    idle_timeout: 20,
+    // Fail fast if the pooler is wedged rather than hanging the caller for the
+    // 30s default — a stuck connect was part of how one slow request stalled
+    // the whole surface.
+    connect_timeout: 10,
     prepare: false, // pg-bouncer (Supabase pooler) does not support named prepared statements
+    // Skip the hidden pg_catalog type-introspection round-trip on first use;
+    // it can misbehave behind the transaction pooler and is unnecessary with
+    // prepare:false. (We do not pass `statement_timeout` here — the 6543
+    // transaction pooler rejects it as an unsupported startup parameter; a real
+    // per-query timeout would need `SET LOCAL` inside a txn, a future change.)
+    fetch_types: false,
   });
 
 if (process.env.NODE_ENV !== "production") globalThis.__chronoPg = client;

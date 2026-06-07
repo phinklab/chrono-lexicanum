@@ -11,6 +11,7 @@
  * this identically in both contexts.
  */
 import Link from "next/link";
+import { entityHref } from "@/lib/entity/types";
 import { FORMAT_LABELS } from "@/lib/book-labels";
 import BuyListenActions from "@/components/book/BuyListenActions";
 import RegionSwitcher from "@/components/book/RegionSwitcher";
@@ -60,7 +61,8 @@ export default function BookDetailView({
 }) {
   const audioCredit = buildAudioCredit(book.persons);
   const isbn = book.isbn13 ?? book.isbn10 ?? null;
-  const authors = book.persons.filter((p) => p.role === "author").map((p) => p.name);
+  const authorRows = book.persons.filter((p) => p.role === "author");
+  const authors = authorRows.map((p) => p.name);
   const formatLabel = book.format ? FORMAT_LABELS[book.format] ?? book.format : null;
   const metaParts = [
     book.releaseYear != null ? String(book.releaseYear) : null,
@@ -106,8 +108,21 @@ export default function BookDetailView({
         <div className="book-detail__eyebrow">{"// LECTIO PROFVNDA · BOOK"}</div>
         <h1 className="book-detail__title">{book.title}</h1>
 
-        {authors.length > 0 && (
-          <p className="book-detail__byline">by {authors.join(", ")}</p>
+        {authorRows.length > 0 && (
+          <p className="book-detail__byline">
+            by{" "}
+            {authorRows.map((a, i) => (
+              <span key={a.id}>
+                {i > 0 && ", "}
+                <Link
+                  href={entityHref({ type: "person", id: a.id, name: a.name })}
+                  className="book-detail__byline-link"
+                >
+                  {a.name}
+                </Link>
+              </span>
+            ))}
+          </p>
         )}
 
         {metaParts.length > 0 && (
@@ -141,9 +156,14 @@ export default function BookDetailView({
             <span className="c-hairline" aria-hidden />
             <ul className="book-detail__chip-row">
               {book.factions.map((f) => (
-                <li key={f.id} className="book-detail__chip">
-                  {f.name}
-                  {roleSuffix(f.role, "supporting")}
+                <li key={f.id}>
+                  <Link
+                    href={entityHref({ type: "faction", id: f.id, name: f.name })}
+                    className="book-detail__chip book-detail__chip--link"
+                  >
+                    {f.name}
+                    {roleSuffix(f.role, "supporting")}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -156,9 +176,14 @@ export default function BookDetailView({
             <span className="c-hairline" aria-hidden />
             <ul className="book-detail__chip-row">
               {book.locations.map((l) => (
-                <li key={l.id} className="book-detail__chip">
-                  {l.name}
-                  {roleSuffix(l.role, "secondary")}
+                <li key={l.id}>
+                  <Link
+                    href={entityHref({ type: "location", id: l.id, name: l.name })}
+                    className="book-detail__chip book-detail__chip--link"
+                  >
+                    {l.name}
+                    {roleSuffix(l.role, "secondary")}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -171,9 +196,14 @@ export default function BookDetailView({
             <span className="c-hairline" aria-hidden />
             <ul className="book-detail__chip-row">
               {book.characters.map((c) => (
-                <li key={c.id} className="book-detail__chip">
-                  {c.name}
-                  {roleSuffix(c.role, "appears")}
+                <li key={c.id}>
+                  <Link
+                    href={entityHref({ type: "character", id: c.id, name: c.name })}
+                    className="book-detail__chip book-detail__chip--link"
+                  >
+                    {c.name}
+                    {roleSuffix(c.role, "appears")}
+                  </Link>
                 </li>
               ))}
             </ul>

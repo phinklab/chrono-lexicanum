@@ -13,8 +13,8 @@
  * `@/components/entity/`.
  */
 
-/** The three reference entities that own a public detail route. */
-export type EntityType = "character" | "faction" | "location";
+/** The reference entities that own a public detail route. */
+export type EntityType = "character" | "faction" | "location" | "person";
 
 /**
  * The shareable URL contract: entity type → route prefix. The `[slug]` segment
@@ -26,6 +26,7 @@ export const TYPE_TO_ROUTE: Record<EntityType, string> = {
   character: "/charakter",
   faction: "/fraktion",
   location: "/welt",
+  person: "/person",
 };
 
 /**
@@ -40,6 +41,7 @@ export const TYPE_TO_ATLAS: Record<EntityType, { href: string; label: string }> 
     character: { href: "/atlas/charaktere", label: "Characters" },
     faction: { href: "/atlas/fraktionen", label: "Factions" },
     location: { href: "/atlas/welten", label: "Worlds" },
+    person: { href: "/atlas/personen", label: "Authors" },
   };
 
 /**
@@ -50,6 +52,8 @@ export const TYPE_TO_ATLAS: Record<EntityType, { href: string; label: string }> 
  */
 export const KIND_LABELS: Record<string, string> = {
   book: "Books",
+  podcast_episode: "Podcast episodes",
+  podcast: "Podcasts",
   film: "Films",
   tv_series: "Series",
   channel: "Channels",
@@ -72,7 +76,12 @@ export function entityHref(ref: EntityRef): string {
   return `${TYPE_TO_ROUTE[ref.type]}/${encodeURIComponent(ref.id)}`;
 }
 
-/** One related work. `kind === "book"` links to /buch/[slug]; others are inert. */
+/**
+ * One related work. The loader resolves `href` per kind so the view stays dumb:
+ * a book links to /buch/[slug], a podcast show to /podcasts/[slug], a podcast
+ * episode to its parent show (with `showTitle` for context); a kind with no
+ * public surface arrives with `href === null` and renders inert.
+ */
 export type WorkRef = {
   slug: string;
   title: string;
@@ -82,6 +91,10 @@ export type WorkRef = {
   /** Annotation suffix (e.g. "pov", "antagonist"); null when it is the
    *  type's default role — the loader nulls defaults so the view stays dumb. */
   role: string | null;
+  /** Target route, or null when the kind has no public surface (inert card). */
+  href?: string | null;
+  /** Parent show title for a podcast episode — shown as context in the card. */
+  showTitle?: string | null;
 };
 
 /**

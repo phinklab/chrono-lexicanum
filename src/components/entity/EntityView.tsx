@@ -38,6 +38,9 @@ const META_FACT_LABELS: Record<EntityType, string[]> = {
   character: ["Allegiance"],
   faction: ["Alignment", "Parent faction"],
   location: ["Sector", "Designation"],
+  // Persons lead with their bio tagline (oneLine); facts (e.g. "Born") read
+  // clearer with their label, so none are hoisted into the label-less meta line.
+  person: [],
 };
 
 export default function EntityView({ data }: { data: EntityViewData }) {

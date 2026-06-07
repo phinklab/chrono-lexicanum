@@ -1,0 +1,723 @@
+/* 66-compendium.css
+   The Compendium — entity directory (Brief 129 — Doorways), teal re-skin.
+
+   The surface is plain `<main className="compendium">` (NO `catalogue` class),
+   so the TopNav, the `.c-glass` / `.c-corners` primitives and the shared
+   `.browse-*` controls all stay in their cyan house default — the Compendium is
+   the archive's *index in teal*, distinct from the gold reading-rooms (/werke,
+   /buecher, /podcasts). It borrows their layout discipline — a vista backdrop
+   that fades to void for readability (the /ask + /podcasts treatment), a lean
+   hero, a persistent category nav, and dense hairline-separated rows — but the
+   accent is cyan throughout.
+
+   Restraint laws (shared with the gold surfaces): no border-radius; glow ≤ 22%
+   alpha; cyan is reserved for the single hero eyebrow, hovers, focus, active
+   states and live values — never a resting wall of teal. Structure is carried by
+   bone/dim text and cyan-tinted hairlines, not by colour. Atmosphere comes from
+   the backdrop fade, not from halos or warm gradients. */
+
+/* ── Surface + readability backdrop ───────────────────────────────────────── */
+main.compendium {
+  position: relative;
+  min-height: calc(100vh - var(--top-nav-h, 48px));
+  /* Cancel the global `main { padding-top: var(--top-nav-h) }` (44-nav-frame.css)
+     — the masthead clears the fixed TopNav itself, like /ask + /podcasts. */
+  padding: 0 0 56px;
+  overflow-x: hidden;
+}
+
+/* Crisp-top, fade-to-void — the SAME gradient /ask + /podcasts use, because the
+   Compendium now shares their masthead skeleton (title parked at 320px, content
+   pulled up -80px). Neutral void only — no cyan halo, no warm gradient. */
+body:has(main.compendium) .site-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 34%,
+      transparent 50%,
+      rgba(2, 3, 10, 0.2) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 3, 10, 0) 0%,
+      rgba(2, 3, 10, 0) 38%,
+      rgba(2, 3, 10, 0.52) 56%,
+      rgba(2, 3, 10, 0.9) 74%,
+      rgba(2, 3, 10, 1) 90%
+    );
+}
+
+/* Scroll-darkening scrim — coplanar with .site-bg (z -1), later in the DOM so it
+   paints over the fixed photo while staying below all content. <ScrollScrim>
+   raises --cmp-scrim-opacity from 0 as the reader scrolls past the masthead, so
+   a long directory scrolling over the fixed photo's crisp top stays legible. */
+.cmp-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--cl-void);
+  opacity: var(--cmp-scrim-opacity, 0);
+  will-change: opacity;
+}
+
+/* ── Fixed HUD atmosphere (sweep + readout) — the /ask + /podcasts treatment ── */
+.cmp-readout {
+  position: fixed;
+  top: 96px;
+  right: clamp(16px, 4vw, 48px);
+  width: 240px;
+  z-index: 3;
+  pointer-events: none;
+}
+.cmp-hud {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.cmp-hud__sweep {
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  width: 360px;
+  height: 360px;
+  transform: translateX(-50%);
+  aspect-ratio: 1;
+}
+@media (max-width: 900px) {
+  .cmp-readout,
+  .cmp-hud {
+    display: none;
+  }
+}
+
+/* ── Masthead ─────────────────────────────────────────────────────────────── */
+/* The SAME skeleton as /ask (.ask-console__mast) + /podcasts (.pod-mast): a
+   clamp(520px,60vh,700px) band with the title parked at 320px, so the title,
+   the HUD above it and the content start all sit at the same heights as the
+   sibling pages. The HUD lives outside (fixed); the masthead carries only the
+   title block and is pointer-transparent. */
+.cmp-hero {
+  position: relative;
+  z-index: 4;
+  height: clamp(520px, 60vh, 700px);
+  max-width: none;
+  margin: 0;
+  padding: 320px clamp(18px, 4vw, 48px) 0;
+  text-align: center;
+  pointer-events: none;
+}
+.cmp-hero__inner {
+  position: relative;
+}
+.cmp-hero__eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+.cmp-hero__heading {
+  margin: 12px auto 0;
+  max-width: 920px;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 400;
+  font-size: clamp(44px, 4.6vw, 64px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-bone);
+  /* Cyan halo <= 22% alpha (restraint law) + a hard black drop for legibility. */
+  text-shadow:
+    0 0 32px rgba(156, 230, 255, 0.18),
+    0 4px 14px rgba(0, 0, 0, 0.95);
+}
+.cmp-hero__sub {
+  max-width: 640px;
+  margin: 14px auto 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  line-height: var(--lh-read);
+  color: var(--cl-bone);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+/* ── Body shell (pulled up under the masthead, like .pod-body / .ask grid) ─── */
+.cmp-body {
+  position: relative;
+  z-index: 4;
+  max-width: 1180px;
+  margin: -80px auto 0;
+  padding: 24px clamp(20px, 3vw, 48px) 80px;
+}
+
+/* ── Category nav ─────────────────────────────────────────────────────────── */
+/* A persistent row of doorway tabs: the Index plus the five categories, each
+   with a live count. A cyan underline marks the active tab; the rest are dim
+   until hovered. Wraps below the wrap point so the full set stays reachable. */
+.cmp-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 2px;
+  margin: 0 0 26px;
+  padding: 0 0 2px;
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-cyan) 16%, transparent);
+}
+.cmp-nav__tab {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 9px 14px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -3px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 180ms, border-color 180ms;
+}
+.cmp-nav__tab:hover {
+  color: var(--cl-bone);
+}
+.cmp-nav__tab:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+.cmp-nav__tab.is-active {
+  color: var(--cl-cyan);
+  border-bottom-color: var(--cl-cyan);
+}
+.cmp-nav__count {
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.1em;
+  color: var(--cl-faint);
+}
+.cmp-nav__tab.is-active .cmp-nav__count {
+  color: var(--cl-cyan-dim);
+}
+
+/* ── Overview: the hall of doorways ───────────────────────────────────────── */
+/* Frameless threshold blocks — no glass fill, no border, no L-bracket corners,
+   no icons (the /ask + /podcasts language). Each door is a block stacked in one
+   column, divided by a single cyan hairline and lifted by a cyan wash on hover;
+   the scriptorium photo / void shows straight through. */
+.cmp-overview {
+  margin: 0;
+}
+.cmp-doors {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.cmp-doors__cell {
+  list-style: none;
+  display: block;
+}
+.cmp-door {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 22px 8px;
+  border-top: 1px solid color-mix(in oklch, var(--cl-cyan) 12%, transparent);
+  transition: background 180ms;
+}
+.cmp-doors__cell:first-child .cmp-door {
+  border-top: none;
+}
+.cmp-door:hover {
+  background: rgba(156, 230, 255, 0.05);
+}
+.cmp-door:focus-within {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: -2px;
+}
+.cmp-door__head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "eyebrow eyebrow"
+    "label   count";
+  align-items: baseline;
+  column-gap: 12px;
+  row-gap: 3px;
+  text-decoration: none;
+}
+.cmp-door__eyebrow {
+  grid-area: eyebrow;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.cmp-door__label {
+  grid-area: label;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(21px, 2.4vw, 25px);
+  letter-spacing: 0.06em;
+  color: var(--cl-bone);
+  transition: color 180ms;
+}
+.cmp-door:hover .cmp-door__label {
+  color: var(--cl-cyan);
+}
+.cmp-door__count {
+  grid-area: count;
+  justify-self: end;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  white-space: nowrap;
+}
+.cmp-door__blurb {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
+  line-height: 1.42;
+  color: var(--cl-dim);
+}
+.cmp-door__peek {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.cmp-door__peek > li {
+  list-style: none;
+  border-top: 1px solid color-mix(in oklch, var(--cl-cyan) 10%, transparent);
+}
+.cmp-door__peek > li:first-child {
+  border-top: none;
+}
+.cmp-door__peek-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 2px;
+  text-decoration: none;
+  transition: background 160ms;
+}
+.cmp-door__peek-item:hover {
+  background: rgba(156, 230, 255, 0.06);
+}
+.cmp-door__peek-name {
+  min-width: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
+  color: var(--cl-bone);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 160ms;
+}
+.cmp-door__peek-item:hover .cmp-door__peek-name {
+  color: var(--cl-cyan);
+}
+.cmp-door__peek-meta {
+  flex: none;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.cmp-door__pending {
+  margin: 2px 0 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
+  color: var(--cl-dim);
+}
+/* "View all X →" — neutral at rest, revealed in cyan on hover, mirroring the
+   gold surfaces' hover-revealed CTAs (accent for interaction, not at rest). */
+.cmp-door__all {
+  margin-top: auto;
+  padding-top: 4px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  text-decoration: none;
+  transition: color 180ms;
+}
+.cmp-door:hover .cmp-door__all,
+.cmp-door__all:hover,
+.cmp-door__all:focus-visible {
+  color: var(--cl-cyan);
+}
+
+/* ── Directory: one category, dense rows ──────────────────────────────────── */
+.cmp-directory {
+  margin: 0;
+}
+.cmp-cat-intro {
+  margin: 0 0 18px;
+}
+/* The category intro is frameless and sits in the gradient's upper-mid band,
+   which is still semi-bright on tall viewports before the scroll-scrim engages —
+   so each line carries a black drop (like the hero) to stay legible on the photo. */
+.cmp-cat-intro__eyebrow {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+.cmp-cat-intro__heading {
+  margin: 8px 0 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(26px, 3.4vw, 36px);
+  letter-spacing: 0.1em;
+  color: var(--cl-bone);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+}
+.cmp-cat-intro__blurb {
+  margin: 8px 0 0;
+  max-width: 64ch;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  line-height: 1.45;
+  color: var(--cl-dim);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+/* Frameless empty / pending state — centred italic on the void (mirrors
+   .pod-empty); no boxed card, the backdrop shows through. */
+.cmp-empty {
+  padding: 48px 20px;
+  text-align: center;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  line-height: 1.5;
+  color: var(--cl-dim);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+.cmp-empty__lead {
+  margin: 0 0 8px;
+  font-style: normal;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+.cmp-empty p {
+  margin: 0;
+}
+
+/* ── Table header: status line + dissolved search console ─────────────────── */
+/* The directory's "header" is one console band: a live count line, the serif
+   search line, and the facet/sort pills — capped from the rows by a cyan
+   hairline. The count is the single live cyan value; everything else rests in
+   bone/dim and lights cyan only on interaction. */
+.cmp-toolbar {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 14px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  /* Frameless, in the semi-bright band on tall viewports — anchor on the photo. */
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+}
+.cmp-toolbar__count {
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.18em;
+  color: var(--cl-cyan);
+}
+.cmp-toolbar__total {
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  color: var(--cl-dim);
+}
+.cmp-toolbar__query {
+  font-size: var(--fs-label);
+  letter-spacing: 0.06em;
+  color: var(--cl-dim);
+}
+.cmp-toolbar__query-term {
+  color: var(--cl-cyan);
+}
+
+/* The shared `.browse-*` controls (cyan defaults from 61-browse.css) are
+   dissolved here into /werke's two-row query console — but teal. Row 1 is one
+   elegant serif search line under a cyan hairline (no boxed control); row 2 is
+   the quieter facet + sort pills. A cyan hairline at the foot separates the
+   whole header band from the rows below. */
+.compendium .browse-filters {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  margin: 0 0 22px;
+  padding: 0 0 18px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-cyan) 16%, transparent);
+}
+.compendium .browse-search {
+  width: 100%;
+  max-width: 540px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-cyan) 32%, transparent);
+  transition: border-color 200ms;
+}
+.compendium .browse-search:focus-within {
+  border-bottom-color: var(--cl-cyan-dim);
+}
+.compendium .browse-search__sigil {
+  width: 15px;
+  height: 15px;
+  margin-left: 1px;
+  margin-right: 4px;
+  color: var(--cl-cyan-dim);
+}
+.compendium .browse-search__input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  letter-spacing: 0.01em;
+  padding: 8px 4px;
+}
+.compendium .browse-search__input::placeholder {
+  font-style: italic;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--cl-dim);
+}
+/* Dissolve the boxed → submit: borderless, cyan-dim, lights cyan on hover. */
+.compendium .browse-search__go {
+  border: 0;
+  color: var(--cl-cyan-dim);
+  padding: 7px 6px;
+}
+.compendium .browse-search__go:hover {
+  background: transparent;
+  color: var(--cl-cyan);
+}
+
+/* ── Directory: dense rows ────────────────────────────────────────────────── */
+.cmp-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.cmp-group {
+  margin: 0;
+}
+/* A teal section legend: the alignment name in cyan mono on the left, a count on
+   the right, joined by a fading cyan rule. Reads as a manifest divider, not a
+   floating `//` comment — the fix for the old weak group header. */
+.cmp-group__label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 8px;
+  padding: 0;
+}
+.cmp-group__name {
+  flex: none;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-cyan);
+}
+.cmp-group__rule {
+  flex: 1 1 auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--cl-cyan) 30%, transparent),
+    transparent
+  );
+}
+.cmp-group__count {
+  flex: none;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.16em;
+  color: var(--cl-dim);
+}
+.cmp-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cmp-rows > li {
+  list-style: none;
+}
+
+/* The row: a hairline-divided directory line — index, faction dot or category
+   glyph, the entity name in reading serif, a dim kicker (role / allegiance),
+   coverage meta, and a hover-revealed chevron. The whole row is the Link. */
+.cmp-row {
+  display: grid;
+  grid-template-columns: 44px 18px minmax(0, 1fr) auto auto 16px;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-top: 1px solid color-mix(in oklch, var(--cl-cyan) 12%, transparent);
+  text-decoration: none;
+  transition: background 180ms;
+}
+.cmp-rows > li:first-child .cmp-row {
+  border-top: none;
+}
+.cmp-row:hover {
+  background: rgba(156, 230, 255, 0.05);
+}
+.cmp-row:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: -2px;
+}
+.cmp-row__index {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.16em;
+  color: var(--cl-faint);
+}
+.cmp-row__glyph {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1;
+  text-align: center;
+  color: var(--cl-cyan-dim);
+}
+.cmp-row__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  justify-self: center;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.cmp-row__name {
+  min-width: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  letter-spacing: 0.01em;
+  color: var(--cl-bone);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 180ms;
+}
+.cmp-row:hover .cmp-row__name {
+  color: var(--cl-cyan);
+}
+.cmp-row__kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  white-space: nowrap;
+}
+.cmp-row__kicker--empty {
+  color: var(--cl-faint);
+}
+.cmp-row__meta {
+  min-width: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: right;
+  color: var(--cl-dim);
+  white-space: nowrap;
+}
+.cmp-row__chevron {
+  justify-self: end;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--cl-faint);
+  transition: color 200ms, transform 200ms;
+}
+.cmp-row:hover .cmp-row__chevron {
+  color: var(--cl-cyan);
+  transform: translateX(2px);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+/* Mobile masthead — matches /ask + /podcasts (420px band, title parked at 240px,
+   content pulled up -56px) so the four pages stay aligned on narrow screens too. */
+@media (max-width: 720px) {
+  .cmp-hero {
+    height: 420px;
+    padding: 240px 14px 0;
+  }
+  .cmp-hero__heading {
+    font-size: clamp(40px, 8vw, 56px);
+    letter-spacing: 0.14em;
+  }
+  .cmp-hero__sub {
+    font-size: var(--fs-read-sm);
+  }
+  .cmp-body {
+    margin-top: -56px;
+    padding: 18px 14px 0;
+  }
+  .cmp-door {
+    padding: 18px 4px;
+  }
+  .cmp-row {
+    grid-template-columns: 32px 14px minmax(0, 1fr) auto 14px;
+    gap: 10px;
+    padding: 11px 10px;
+  }
+  /* Drop the kicker on narrow screens; name + coverage meta carry the row. */
+  .cmp-row__kicker {
+    display: none;
+  }
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cmp-row,
+  .cmp-row__chevron,
+  .cmp-door,
+  .cmp-door__label,
+  .cmp-door__peek-item,
+  .cmp-door__all {
+    transition: none;
+  }
+  .cmp-row:hover .cmp-row__chevron {
+    transform: none;
+  }
+}
