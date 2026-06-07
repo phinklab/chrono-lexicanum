@@ -26,5 +26,17 @@
     ],
     "youtubeChannelUrl": "https://www.youtube.com/channel/UCPfZBLCYNEonc-Cyk1QUHPA",
     "youtubeChannelId": "UCPfZBLCYNEonc-Cyk1QUHPA"
+  },
+  {
+    "slug": "lorehammer",
+    "title": "Lorehammer - A Warhammer 40k Podcast",
+    "feedUrl": "https://anchor.fm/s/1070b29c8/podcast/rss",
+    "appleId": "1266540593",
+    "podcastGuid": null,
+    "links": [
+      { "serviceId": "official_website", "url": "https://linktr.ee/Lorehammer40k" }
+    ],
+    "youtubeChannelUrl": null,
+    "youtubeChannelId": null
   }
 ]
