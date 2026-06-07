@@ -7,7 +7,7 @@
     "appleId": null,
     "podcastGuid": null,
     "imageUrl": "https://yt3.ggpht.com/ytc/AIdro_kzjOl8pH7aEyLzSobTMfxihB2qLU6IeNdGU8zOWnRUAg4=s800-c-k-c0x00ffffff-no-rj",
-    "episodeCount": 10,
+    "episodeCount": 20,
     "links": [
       {
         "serviceId": "youtube",
@@ -19,10 +19,395 @@
     ]
   },
   "extraction": {
-    "model": "claude-haiku-4-5",
+    "model": "claude-sonnet-4-6",
     "promptVersion": "3f6a5ff87efa"
   },
   "episodes": [
+    {
+      "guid": "eoV0XJg3x18",
+      "title": "YOU'LL NEVER SEE THEM AGAIN? - Imperial Guard Regiments | WARHAMMER 40,000 LORE/DISCUSSION",
+      "pubDate": "2025-03-13T17:45:54.000Z",
+      "durationSec": 2426,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=eoV0XJg3x18",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "astra_militarum",
+          "rawName": "Astra Militarum",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=eoV0XJg3x18",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "ZSw4Je_QbYc",
+      "title": "40K - THE SIEGE OF VRAKS [2] DEATH KORPS BREAKTHROUGH | Warhammer 40,000 Lore / History",
+      "pubDate": "2025-04-07T21:24:42.000Z",
+      "durationSec": 3182,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=ZSw4Je_QbYc",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "death_korps_of_krieg",
+          "rawName": "Death Korps of Krieg",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Vraks",
+          "axisGuess": "location",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=ZSw4Je_QbYc",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "PAGqDoFV9lo",
+      "title": "WHAT IF - ASTARTES NEVER EXISTED? | WARHAMMER 40000 LORE/SPECULATION - 40K",
+      "pubDate": "2025-04-23T18:00:39.000Z",
+      "durationSec": 5889,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=PAGqDoFV9lo",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "adeptus_astartes",
+          "rawName": "Adeptus Astartes",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "thunder_warriors",
+          "rawName": "Thunder Warriors",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "imperium",
+          "rawName": "Imperium of Man",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=PAGqDoFV9lo",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "maj9xHyyKXI",
+      "title": "ROGAL DORN - DEAD OR ALIVE? - Returning Primarchs | Warhammer 40,000 Lore/Speculation",
+      "pubDate": "2025-05-01T22:01:38.000Z",
+      "durationSec": 2742,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=maj9xHyyKXI",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "rogal_dorn",
+          "rawName": "Rogal Dorn",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "imperial_fists",
+          "rawName": "Imperial Fists",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "chaos",
+          "rawName": "Chaos",
+          "role": "mentioned",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=maj9xHyyKXI",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "TyG9jUqicFo",
+      "title": "40K BEGINNERS - TRAITOR ASTARTES [Part 3] | Warhammer 40,000 Lore/History",
+      "pubDate": "2025-05-16T18:52:45.000Z",
+      "durationSec": 7638,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=TyG9jUqicFo",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "black_legion",
+          "rawName": "Black Legion",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "death_guard",
+          "rawName": "Death Guard",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "emperors_children",
+          "rawName": "Emperor's Children",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "heretic_astartes",
+          "rawName": "Chaos Space Marines",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "sons_of_horus",
+          "rawName": "Sons of Horus",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "thousand_sons",
+          "rawName": "Thousand Sons",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "world_eaters",
+          "rawName": "World Eaters",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=TyG9jUqicFo",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "wjU7QJE3it0",
+      "title": "THIS DISGRACE - MUST END!! - 40K Legends - YARRICK | Warhammer 40,000 Lore/Discussion",
+      "pubDate": "2025-06-08T22:01:11.000Z",
+      "durationSec": 4018,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=wjU7QJE3it0",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "location",
+          "canonicalId": "armageddon",
+          "rawName": "Armageddon",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Yarrick",
+          "axisGuess": "character",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=wjU7QJE3it0",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "WQ_OoUMySI0",
+      "title": "40K ARBITES LORE - DARKTIDE DEEP DIVE | Warhammer 40,000 Lore/History",
+      "pubDate": "2025-06-21T20:27:42.000Z",
+      "durationSec": 4670,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=WQ_OoUMySI0",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "adeptus_arbites",
+          "rawName": "Adeptus Arbites",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Atoma Prime",
+          "axisGuess": "location",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=WQ_OoUMySI0",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "8Zndv3WBLwg",
+      "title": "AFTERMATH OF THE HERESY - The Era of Ruin & Scouring Begins | Warhammer 40,000 Lore/Discussion",
+      "pubDate": "2025-07-22T19:56:14.000Z",
+      "durationSec": 4679,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=8Zndv3WBLwg",
+      "episodeKind": "lore",
+      "tags": [],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=8Zndv3WBLwg",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "sPILexT0zcU",
+      "title": "THE COST OF COURAGE IN M41 - The Tragedy of Lyubov | Warhammer 40,000 Lore/History",
+      "pubDate": "2025-08-13T21:29:54.000Z",
+      "durationSec": 4441,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=sPILexT0zcU",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "blood_pact",
+          "rawName": "Blood Pact",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Lyubov",
+          "axisGuess": "character",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=sPILexT0zcU",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "XNr6JLhKDdo",
+      "title": "WHY DID THIS HAPPEN? - THE TERMINUS DECREE REVEALED | Warhammer 40,000 Lore/Discussion",
+      "pubDate": "2025-08-24T21:08:06.000Z",
+      "durationSec": 4361,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=XNr6JLhKDdo",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "the_emperor",
+          "rawName": "The Emperor",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=XNr6JLhKDdo",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
     {
       "guid": "d18RfIPARNE",
       "title": "40K PRIMARCHS - SANGUINIUS - THE RISE AND FALL OF AN ANGEL | Warhammer 40,000 Lore/History",
@@ -34,9 +419,17 @@
       "tags": [
         {
           "type": "character",
+          "canonicalId": "sanguinius",
+          "rawName": "Sanguinius",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
           "canonicalId": "angron",
           "rawName": "Angron",
-          "role": "subject",
+          "role": "mentioned",
           "confidence": 1,
           "matchedVia": "canonical-name"
         },
@@ -44,15 +437,7 @@
           "type": "character",
           "canonicalId": "ka_bandha",
           "rawName": "Ka'Bandha",
-          "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        },
-        {
-          "type": "character",
-          "canonicalId": "sanguinius",
-          "rawName": "Sanguinius",
-          "role": "subject",
+          "role": "mentioned",
           "confidence": 1,
           "matchedVia": "canonical-name"
         },
@@ -79,21 +464,13 @@
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
-        },
-        {
-          "type": "location",
-          "canonicalId": "eye_of_terror",
-          "rawName": "Eye of Terror",
-          "role": "mentioned",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
         }
       ],
       "unresolved": [
         {
           "rawName": "Beta Garmon",
           "axisGuess": "location",
-          "role": "subject"
+          "role": "mentioned"
         }
       ],
       "links": [
@@ -147,8 +524,8 @@
         {
           "type": "character",
           "canonicalId": "the_emperor",
-          "rawName": "The Emperor of Mankind",
-          "role": "subject",
+          "rawName": "Emperor of Mankind",
+          "role": "mentioned",
           "confidence": 0.9,
           "matchedVia": "alias"
         },
@@ -161,7 +538,13 @@
           "matchedVia": "canonical-name"
         }
       ],
-      "unresolved": [],
+      "unresolved": [
+        {
+          "rawName": "Men of Iron",
+          "axisGuess": "character",
+          "role": "subject"
+        }
+      ],
       "links": [
         {
           "serviceId": "youtube",
@@ -262,29 +645,35 @@
           "matchedVia": "canonical-name"
         },
         {
+          "type": "character",
+          "canonicalId": "szarekh",
+          "rawName": "Szarekh",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
           "type": "faction",
           "canonicalId": "mechanicus",
           "rawName": "Adeptus Mechanicus",
           "role": "subject",
           "confidence": 1,
           "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "necrons",
+          "rawName": "Necrons",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
       "unresolved": [
         {
-          "rawName": "Vynn Conglahr",
-          "axisGuess": "character",
-          "role": "mentioned"
-        },
-        {
           "rawName": "Leagues of Votann",
           "axisGuess": "faction",
           "role": "mentioned"
-        },
-        {
-          "rawName": "Indomitus Sprawl",
-          "axisGuess": "location",
-          "role": "subject"
         }
       ],
       "links": [
@@ -304,7 +693,7 @@
       "durationSec": 7355,
       "audioUrl": null,
       "link": "https://www.youtube.com/watch?v=WqRuXAiM_qI",
-      "episodeKind": "lore",
+      "episodeKind": "other",
       "tags": [],
       "unresolved": [],
       "links": [
@@ -327,22 +716,6 @@
       "episodeKind": "lore",
       "tags": [
         {
-          "type": "faction",
-          "canonicalId": "astra_militarum",
-          "rawName": "Astra Militarum",
-          "role": "subject",
-          "confidence": 0.9,
-          "matchedVia": "alias"
-        },
-        {
-          "type": "faction",
-          "canonicalId": "orks",
-          "rawName": "Orks",
-          "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        },
-        {
           "type": "location",
           "canonicalId": "armageddon",
           "rawName": "Armageddon",
@@ -355,6 +728,11 @@
         {
           "rawName": "Yarrick",
           "axisGuess": "character",
+          "role": "subject"
+        },
+        {
+          "rawName": "Steel Legion",
+          "axisGuess": "faction",
           "role": "subject"
         }
       ],
@@ -379,11 +757,11 @@
       "tags": [
         {
           "type": "faction",
-          "canonicalId": "imperium",
-          "rawName": "Imperium of Man",
-          "role": "subject",
-          "confidence": 0.9,
-          "matchedVia": "alias"
+          "canonicalId": "mechanicus",
+          "rawName": "Adeptus Mechanicus",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         }
       ],
       "unresolved": [],
@@ -408,27 +786,19 @@
       "tags": [
         {
           "type": "character",
-          "canonicalId": "konrad_curze",
-          "rawName": "Konrad Curze",
-          "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        },
-        {
-          "type": "character",
-          "canonicalId": "lion_el_jonson",
-          "rawName": "Lion El'Jonson",
-          "role": "subject",
-          "confidence": 1,
-          "matchedVia": "canonical-name"
-        },
-        {
-          "type": "character",
           "canonicalId": "the_emperor",
           "rawName": "The Emperor of Mankind",
           "role": "subject",
           "confidence": 0.9,
           "matchedVia": "alias"
+        },
+        {
+          "type": "character",
+          "canonicalId": "lion_el_jonson",
+          "rawName": "Lion El'Jonson",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
         },
         {
           "type": "location",
@@ -442,7 +812,7 @@
           "type": "location",
           "canonicalId": "webway",
           "rawName": "Webway",
-          "role": "subject",
+          "role": "mentioned",
           "confidence": 1,
           "matchedVia": "canonical-name"
         }

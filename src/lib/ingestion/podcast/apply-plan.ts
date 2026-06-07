@@ -38,6 +38,7 @@
 import { slugify } from "@/lib/slug";
 import { ALIAS_AXES, type AliasAxis } from "@/lib/aliases";
 
+import { DEFAULT_PODCAST_SOURCE, type PodcastSource } from "./registry";
 import {
   EPISODE_KINDS,
   EXTERNAL_LINK_KINDS,
@@ -63,6 +64,27 @@ export const DEFAULT_LINK_SOURCE_KIND: PodcastLinkSourceKind = "manual";
 export const DEFAULT_LINK_CONFIDENCE = 1;
 
 const EPISODE_ROLES: readonly EpisodeRole[] = ["subject", "mentioned"];
+
+/**
+ * The `works.source_kind` a podcast container/episode work carries (Brief 130).
+ * An RSS show's works are `podcast_rss`; a `source:"youtube"` show's works are
+ * `youtube`. Both are members of the DB `source_kind` pgEnum (`youtube` was
+ * pre-provisioned in schema stage 2a), so writing either needs no migration.
+ * This is a deliberately narrow subset — a podcast work is never anything else.
+ */
+export type WorkSourceKind = "podcast_rss" | "youtube";
+
+/**
+ * The one mapping from a registry acquisition `source` to the work-level
+ * `source_kind` provenance — the write-shape decision, so it lives here in the
+ * plan SSOT (not split across the apply script + its test). RSS (and the
+ * back-compatible default for a registry-less `--file` apply) → `podcast_rss`;
+ * YouTube → `youtube`. There is no URL heuristic: the discriminator is the
+ * registry's explicit `source`, threaded in by the caller.
+ */
+export function workSourceKindForSource(source: PodcastSource): WorkSourceKind {
+  return source === "youtube" ? "youtube" : "podcast_rss";
+}
 
 /** DB reference ids per axis — the existence gate for FK-safety. */
 export interface ReferenceSets {
@@ -148,6 +170,12 @@ export interface ApplyPlan {
   episodes: EpisodePlan[];
   droppedMissingRef: DroppedTag[];
   report: ApplyPlanReport;
+  /**
+   * The `works.source_kind` every work in this plan (the show container + all
+   * episodes) is written with — derived from the registry `source` (Brief 130).
+   * `podcast_rss` for an RSS show (and the default), `youtube` for a YouTube show.
+   */
+  workSourceKind: WorkSourceKind;
 }
 
 /**
@@ -324,10 +352,19 @@ export function assertShowArtifact(value: unknown): asserts value is ShowArtifac
 
 /**
  * Build the declarative apply plan. Pure — mutates nothing, deterministic
- * (same artifact + same reference sets → deep-equal plan). Calling it validates
- * the artifact first (throws on malformed input).
+ * (same artifact + same reference sets + same source → deep-equal plan). Calling
+ * it validates the artifact first (throws on malformed input).
+ *
+ * `source` (Brief 130) is the registry acquisition discriminator; it sets the
+ * plan's `workSourceKind` (the `works.source_kind` for the show + every episode).
+ * It defaults to `rss` → `podcast_rss`, so a registry-less `--file` apply and
+ * every pre-130 call site stay byte-identical.
  */
-export function buildApplyPlan(artifact: ShowArtifact, refs: ReferenceSets): ApplyPlan {
+export function buildApplyPlan(
+  artifact: ShowArtifact,
+  refs: ReferenceSets,
+  source: PodcastSource = DEFAULT_PODCAST_SOURCE,
+): ApplyPlan {
   assertShowArtifact(artifact);
 
   const show: ShowPlan = {
@@ -418,5 +455,6 @@ export function buildApplyPlan(artifact: ShowArtifact, refs: ReferenceSets): App
       showLinkCount: show.links.length,
       episodeLinkCount,
     },
+    workSourceKind: workSourceKindForSource(source),
   };
 }

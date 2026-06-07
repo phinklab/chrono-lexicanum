@@ -6,15 +6,15 @@ Reproducible via: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast --
 
 - **Show:** Luetin09 (slug `luetin09`)
 - **Feed:** https://www.youtube.com/feeds/videos.xml?channel_id=UC8RfCCzWsMgNspTI-GTFenQ
-- **Episodes:** 10
-- **Extraction model:** `claude-haiku-4-5` (prompt version `3f6a5ff87efa`)
-- **Resolved coverage:** 9/10 episodes (90.0%) carry ≥1 resolved tag
-- **Resolved tags:** 24 total — 23 subject, 1 mentioned
-  - by type: 9 character, 8 faction, 7 location
-- **Episode kinds:** 10 lore, 0 news_recap, 0 interview, 0 other
+- **Episodes:** 20
+- **Extraction model:** `claude-sonnet-4-6` (prompt version `3f6a5ff87efa`)
+- **Resolved coverage:** 18/20 episodes (90.0%) carry ≥1 resolved tag
+- **Resolved tags:** 41 total — 31 subject, 10 mentioned
+  - by type: 11 character, 23 faction, 7 location
+- **Episode kinds:** 19 lore, 0 news_recap, 0 interview, 1 other
 - **Show links:** 1 (youtube)
-- **Episode links:** 10/10 episodes carry a YouTube watch link (`watch`/`youtube`/`youtube`)
-- **Distinct unresolved surface-forms:** 8
+- **Episode links:** 20/20 episodes carry a YouTube watch link (`watch`/`youtube`/`youtube`)
+- **Distinct unresolved surface-forms:** 11
 
 ## Method (resolution reuse)
 
@@ -30,37 +30,58 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 
 | axis (LLM guess) | surface-form | # episodes |
 |---|---|---|
+| character | Yarrick | 2 |
 | character | Cyrus | 1 |
+| character | Lyubov | 1 |
+| character | Men of Iron | 1 |
 | character | Thothmek | 1 |
-| character | Vynn Conglahr | 1 |
-| character | Yarrick | 1 |
 | faction | Leagues of Votann | 1 |
+| faction | Steel Legion | 1 |
+| location | Atoma Prime | 1 |
 | location | Beta Garmon | 1 |
-| location | Indomitus Sprawl | 1 |
 | location | Nachmund | 1 |
+| location | Vraks | 1 |
 
 ## Spot-check (10 episodes, evenly spaced)
+
+### YOU'LL NEVER SEE THEM AGAIN? - Imperial Guard Regiments | WARHAMMER 40,000 LORE/DISCUSSION
+
+- **Date / kind:** 2025-03-13 · lore
+- **Tags:** `faction:astra_militarum` (subject, alias, “Astra Militarum”)
+
+### WHAT IF - ASTARTES NEVER EXISTED? | WARHAMMER 40000 LORE/SPECULATION - 40K
+
+- **Date / kind:** 2025-04-23 · lore
+- **Tags:** `faction:adeptus_astartes` (subject, name, “Adeptus Astartes”); `faction:thunder_warriors` (subject, name, “Thunder Warriors”); `faction:imperium` (mentioned, alias, “Imperium of Man”)
+
+### 40K BEGINNERS - TRAITOR ASTARTES [Part 3] | Warhammer 40,000 Lore/History
+
+- **Date / kind:** 2025-05-16 · lore
+- **Tags:** `faction:black_legion` (subject, name, “Black Legion”); `faction:death_guard` (subject, name, “Death Guard”); `faction:emperors_children` (subject, name, “Emperor's Children”); `faction:heretic_astartes` (subject, alias, “Chaos Space Marines”); `faction:sons_of_horus` (subject, name, “Sons of Horus”); `faction:thousand_sons` (subject, name, “Thousand Sons”); `faction:world_eaters` (subject, name, “World Eaters”)
+
+### 40K ARBITES LORE - DARKTIDE DEEP DIVE | Warhammer 40,000 Lore/History
+
+- **Date / kind:** 2025-06-21 · lore
+- **Tags:** `faction:adeptus_arbites` (subject, name, “Adeptus Arbites”)
+- **Unresolved:** “Atoma Prime” (location)
+
+### THE COST OF COURAGE IN M41 - The Tragedy of Lyubov | Warhammer 40,000 Lore/History
+
+- **Date / kind:** 2025-08-13 · lore
+- **Tags:** `faction:blood_pact` (subject, name, “Blood Pact”)
+- **Unresolved:** “Lyubov” (character)
 
 ### 40K PRIMARCHS - SANGUINIUS - THE RISE AND FALL OF AN ANGEL | Warhammer 40,000 Lore/History
 
 - **Date / kind:** 2025-09-28 · lore
-- **Tags:** `character:angron` (subject, name); `character:ka_bandha` (subject, name, “Ka'Bandha”); `character:sanguinius` (subject, name); `faction:blood_angels` (subject, name, “Blood Angels”); `location:baal` (subject, name); `location:signus_prime` (subject, name, “Signus Prime”); `location:eye_of_terror` (mentioned, name, “Eye of Terror”)
+- **Tags:** `character:sanguinius` (subject, name); `character:angron` (mentioned, name); `character:ka_bandha` (mentioned, name, “Ka'Bandha”); `faction:blood_angels` (subject, name, “Blood Angels”); `location:baal` (subject, name); `location:signus_prime` (subject, name, “Signus Prime”)
 - **Unresolved:** “Beta Garmon” (location)
-
-### THE SLEEPER LEGION - WHO WON THE HERESY | Warhammer 40,000 Lore/History
-
-- **Date / kind:** 2025-10-23 · lore
-- **Tags:** `faction:word_bearers` (subject, name, “Word Bearers”)
 
 ### 40K - THE DARK AGE OF AI and THE STC LIE | Warhammer 40,000 Lore/Speculation
 
 - **Date / kind:** 2025-11-26 · lore
-- **Tags:** `character:the_emperor` (subject, alias, “The Emperor of Mankind”); `faction:mechanicus` (subject, name, “Adeptus Mechanicus”)
-
-### 40K - THE DARK ANGELS - and return of THE LION | Warhammer 40,000 Lore/History
-
-- **Date / kind:** 2025-12-15 · lore
-- **Tags:** `character:lion_el_jonson` (subject, name, “Lion El'Jonson”); `faction:dark_angels` (subject, name, “Dark Angels”)
+- **Tags:** `character:the_emperor` (mentioned, alias, “Emperor of Mankind”); `faction:mechanicus` (subject, name, “Adeptus Mechanicus”)
+- **Unresolved:** “Men of Iron” (character)
 
 ### 40K - THE GREAT NACHMUND WAR [4]: PURIFICATION | Warhammer 40,000 Lore/History
 
@@ -68,30 +89,12 @@ Sorted by episode-frequency. These are candidates for the curation pass (real mi
 - **Tags:** `location:vigilus` (subject, name)
 - **Unresolved:** “Nachmund” (location)
 
-### BELISARIUS CAWL - THE TRUE OMNISSIAH? | Warhammer 40,000 Lore/History
-
-- **Date / kind:** 2026-02-06 · lore
-- **Tags:** `character:belisarius_cawl` (subject, name, “Belisarius Cawl”); `faction:mechanicus` (subject, name, “Adeptus Mechanicus”)
-- **Unresolved:** “Vynn Conglahr” (character); “Leagues of Votann” (faction); “Indomitus Sprawl” (location)
-
 ### THE RISE & FALL OF HUMAN CIVILIZATIONS [2] - SURVIVORS OF THE APOCALYPSE
 
-- **Date / kind:** 2026-03-22 · lore
+- **Date / kind:** 2026-03-22 · other
 - **Tags:** _none resolved_
-
-### 40K 11ED - VINDICATION FOR YARRICK - AMID LORE ARMAGEDDON | Warhammer 40,000 History/Rant/Lore
-
-- **Date / kind:** 2026-04-10 · lore
-- **Tags:** `faction:astra_militarum` (subject, alias, “Astra Militarum”); `faction:orks` (subject, name); `location:armageddon` (subject, name)
-- **Unresolved:** “Yarrick” (character)
 
 ### 40K - THE SILENT DEATH OF STC - Anything goes now? | Warhammer 40,000 Lore/Discussion
 
 - **Date / kind:** 2026-05-10 · lore
-- **Tags:** `faction:imperium` (subject, alias, “Imperium of Man”)
-
-### THE EMPEROR WAS DEFEATED - BEFORE - THE SIEGE OF TERRA | Warhammer 40,000 Lore/History
-
-- **Date / kind:** 2026-05-22 · lore
-- **Tags:** `character:konrad_curze` (subject, name, “Konrad Curze”); `character:lion_el_jonson` (subject, name, “Lion El'Jonson”); `character:the_emperor` (subject, alias, “The Emperor of Mankind”); `location:terra` (subject, name); `location:webway` (subject, name)
-- **Unresolved:** “Cyrus” (character); “Thothmek” (character)
+- **Tags:** `faction:mechanicus` (mentioned, name, “Adeptus Mechanicus”)
