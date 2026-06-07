@@ -66,8 +66,14 @@ import {
   type ApplyPlan,
   type EpisodePlan,
   type ReferenceSets,
+  type WorkSourceKind,
 } from "@/lib/ingestion/podcast/apply-plan";
-import { loadRegistry, selectShows } from "@/lib/ingestion/podcast/registry";
+import {
+  DEFAULT_PODCAST_SOURCE,
+  loadRegistry,
+  selectShows,
+  type PodcastSource,
+} from "@/lib/ingestion/podcast/registry";
 import type { PodcastLink, ShowArtifact } from "@/lib/ingestion/podcast/types";
 
 /** The committed per-show artifacts live at `ingest/podcasts/<slug>.json`. */
@@ -76,10 +82,13 @@ function artifactPathForSlug(slug: string): string {
 }
 
 /** One show the run targets: a committed artifact path (+ its registry slug, or
- *  null for an explicit `--file`). */
+ *  null for an explicit `--file`) and the acquisition `source` (Brief 130) that
+ *  decides the work `source_kind`. A `--file` apply has no registry entry, so it
+ *  falls back to the default (`rss` → `podcast_rss`) — never a URL heuristic. */
 interface ApplyTarget {
   slug: string | null;
   path: string;
+  source: PodcastSource;
 }
 
 /**
@@ -98,12 +107,14 @@ function resolveTargets(opts: { file?: string; show?: string; all: boolean }): A
         "--file names a single artifact directly and cannot be combined with --show/--all",
       );
     }
-    return [{ slug: null, path: resolve(opts.file) }];
+    // No registry entry for an explicit file → the back-compatible RSS default.
+    return [{ slug: null, path: resolve(opts.file), source: DEFAULT_PODCAST_SOURCE }];
   }
   const registry = loadRegistry();
   return selectShows(registry, { all: opts.all, show: opts.show }).map((s) => ({
     slug: s.slug,
     path: artifactPathForSlug(s.slug),
+    source: s.source,
   }));
 }
 
@@ -161,6 +172,7 @@ function printPlan(plan: ApplyPlan, dryRun: boolean): void {
   console.log(
     `Identity: podcastGuid=${plan.show.podcastGuid ?? "—"}  feedUrl=${plan.show.feedUrl}`,
   );
+  console.log(`Work source_kind: ${plan.workSourceKind}  (show + every episode work)`);
   console.log(`Episodes: ${plan.report.episodeCount}`);
   console.log(
     `Resolved tags → junctions: ${plan.report.resolvedTagCount}` +
@@ -246,7 +258,7 @@ async function upsertShow(plan: ApplyPlan): Promise<{ id: string; created: boole
           slug: plan.show.slug,
           title: plan.show.title,
           coverUrl: plan.show.imageUrl,
-          sourceKind: "podcast_rss",
+          sourceKind: plan.workSourceKind,
         })
         .returning({ id: works.id });
       showId = inserted[0].id;
@@ -295,7 +307,11 @@ interface EpisodeApplyResult {
  * (showId, episodeGuid). The `works` row is frozen after insert (slug + title +
  * releaseYear); the detail row and junctions are refreshed every apply.
  */
-async function applyEpisode(showId: string, ep: EpisodePlan): Promise<EpisodeApplyResult> {
+async function applyEpisode(
+  showId: string,
+  ep: EpisodePlan,
+  workSourceKind: WorkSourceKind,
+): Promise<EpisodeApplyResult> {
   return db.transaction(async (tx) => {
     const existing = await tx
       .select({ id: works.id })
@@ -323,7 +339,7 @@ async function applyEpisode(showId: string, ep: EpisodePlan): Promise<EpisodeApp
           slug: ep.slug,
           title: ep.title,
           releaseYear: yearOf(ep.pubDate),
-          sourceKind: "podcast_rss",
+          sourceKind: workSourceKind,
         })
         .returning({ id: works.id });
       workId = inserted[0].id;
@@ -404,7 +420,7 @@ async function applyShow(plan: ApplyPlan): Promise<void> {
   let updated = 0;
   const episodeWorkIds: string[] = [];
   for (const ep of plan.episodes) {
-    const r = await applyEpisode(show.id, ep);
+    const r = await applyEpisode(show.id, ep, plan.workSourceKind);
     episodeWorkIds.push(r.workId);
     if (r.created) inserted += 1;
     else updated += 1;
@@ -478,8 +494,8 @@ async function main(): Promise<void> {
 
   for (const target of targets) {
     const artifact = loadArtifact(target.path);
-    console.log(`\n[apply-podcast] artifact: ${target.path}`);
-    const plan = buildApplyPlan(artifact, refs);
+    console.log(`\n[apply-podcast] artifact: ${target.path}  (source ${target.source})`);
+    const plan = buildApplyPlan(artifact, refs, target.source);
     printPlan(plan, dryRun);
     if (!dryRun) await applyShow(plan);
   }

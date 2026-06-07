@@ -409,6 +409,9 @@ interface WorkRow {
   kind: string;
   slug: string;
   title: string;
+  /** `works.source_kind` — `podcast_rss` for an RSS show, `youtube` for a
+   *  YouTube show (Brief 130). Frozen on insert like the rest of the works row. */
+  sourceKind: string;
 }
 interface EpisodeDetailRow {
   workId: string;
@@ -472,7 +475,13 @@ function simulateApply(plan: ApplyPlan, store: FakeStore): void {
     store.showBySlug.get(plan.show.slug);
   if (showId === undefined) {
     showId = plan.show.slug;
-    store.works.set(showId, { id: showId, kind: "podcast", slug: plan.show.slug, title: plan.show.title });
+    store.works.set(showId, {
+      id: showId,
+      kind: "podcast",
+      slug: plan.show.slug,
+      title: plan.show.title,
+      sourceKind: plan.workSourceKind,
+    });
     store.showBySlug.set(plan.show.slug, showId);
   }
   store.podcastDetails.set(showId, {
@@ -493,8 +502,14 @@ function simulateApply(plan: ApplyPlan, store: FakeStore): void {
     if (epId === undefined) {
       epId = ep.slug;
       store.episodeByShowGuid.set(key, epId);
-      // works row created once; slug + title frozen thereafter.
-      store.works.set(epId, { id: epId, kind: "podcast_episode", slug: ep.slug, title: ep.title });
+      // works row created once; slug + title + sourceKind frozen thereafter.
+      store.works.set(epId, {
+        id: epId,
+        kind: "podcast_episode",
+        slug: ep.slug,
+        title: ep.title,
+        sourceKind: plan.workSourceKind,
+      });
     }
     store.episodeDetails.set(epId, {
       workId: epId,
@@ -649,6 +664,91 @@ test("apply: show matched by podcastGuid even if the slug changes (no duplicate 
   simulateApply(buildApplyPlan(v2, refsForValid()), store);
   const showCount2 = [...store.works.values()].filter((w) => w.kind === "podcast").length;
   assert.equal(showCount2, 1, "matched on podcastGuid — no duplicate show work");
+});
+
+// --- 6b. work source_kind: rss default vs youtube (Brief 130) ----------------
+
+/**
+ * A YouTube-source artifact: structurally identical to the RSS fixture, but with
+ * audio-less episodes carrying YouTube `watch` links (`watch`/`youtube`/`youtube`)
+ * and a YouTube channel show link — the value-level shape the ingest emits for a
+ * `source:"youtube"` show. The work `source_kind` does NOT come from the artifact;
+ * it is the `source` argument threaded into `buildApplyPlan`.
+ */
+function youtubeArtifact(): ShowArtifact {
+  const a = validArtifact();
+  a.show.slug = "yt-show";
+  a.show.feedUrl = "https://www.youtube.com/feeds/videos.xml?channel_id=UCabc";
+  a.show.podcastGuid = null; // YouTube has no podcast:guid
+  a.show.appleId = null;
+  a.show.links = [
+    {
+      serviceId: "youtube",
+      kind: "watch",
+      url: "https://www.youtube.com/@yt",
+      sourceKind: "manual",
+      confidence: 1,
+    },
+  ];
+  for (const e of a.episodes) {
+    e.audioUrl = null;
+    e.links = [
+      {
+        serviceId: "youtube",
+        kind: "watch",
+        url: `https://www.youtube.com/watch?v=${e.guid}`,
+        sourceKind: "youtube",
+        confidence: 1,
+      },
+    ];
+  }
+  return a;
+}
+
+test("plan: default source → workSourceKind podcast_rss (back-compatible)", () => {
+  assert.equal(buildApplyPlan(validArtifact(), refsForValid()).workSourceKind, "podcast_rss");
+  // explicit "rss" is identical to the default
+  assert.equal(
+    buildApplyPlan(validArtifact(), refsForValid(), "rss").workSourceKind,
+    "podcast_rss",
+  );
+});
+
+test("plan: youtube source → workSourceKind youtube (Brief 130)", () => {
+  const plan = buildApplyPlan(youtubeArtifact(), refsForValid(), "youtube");
+  assert.equal(plan.workSourceKind, "youtube");
+  // and the episode link provenance is the audio-less youtube watch link
+  assert.equal(plan.episodes[0].audioUrl, null);
+  assert.equal(plan.episodes[0].links[0].serviceId, "youtube");
+  assert.equal(plan.episodes[0].links[0].sourceKind, "youtube");
+});
+
+test("apply: a youtube plan writes show + every episode work with sourceKind youtube", () => {
+  const plan = buildApplyPlan(youtubeArtifact(), refsForValid(), "youtube");
+  const store = emptyStore();
+  simulateApply(plan, store);
+
+  const showRow = store.works.get(plan.show.slug);
+  assert.ok(showRow, "show work present");
+  assert.equal(showRow.kind, "podcast");
+  assert.equal(showRow.sourceKind, "youtube", "show work is sourceKind youtube");
+
+  for (const ep of plan.episodes) {
+    const epRow = store.works.get(ep.slug);
+    assert.ok(epRow, `episode work ${ep.slug} present`);
+    assert.equal(epRow.kind, "podcast_episode");
+    assert.equal(epRow.sourceKind, "youtube", "episode work is sourceKind youtube");
+  }
+  // No work escapes the youtube source kind.
+  for (const w of store.works.values()) assert.equal(w.sourceKind, "youtube");
+});
+
+test("apply: an rss plan writes every work with sourceKind podcast_rss (RSS unchanged)", () => {
+  const plan = buildApplyPlan(validArtifact(), refsForValid());
+  const store = emptyStore();
+  simulateApply(plan, store);
+  for (const w of store.works.values()) assert.equal(w.sourceKind, "podcast_rss");
+  assert.equal(store.works.size, 1 + plan.episodes.length);
 });
 
 // --- 7. real committed artifact: end-to-end determinism + idempotency --------
