@@ -12,6 +12,7 @@
  * dependent) and are printed to stdout by the script instead, never committed.
  */
 import { buildEpisodeLinks } from "./links";
+import { DEFAULT_PODCAST_SOURCE, type PodcastSource } from "./registry";
 import type {
   EpisodeArtifact,
   EpisodeExtraction,
@@ -76,12 +77,17 @@ export interface BuildArtifactInput {
     /** Pre-built, deterministic show-level links (see `buildShowLinks`). */
     links: PodcastLink[];
   };
+  /** Acquisition source — selects the per-episode link shape (Brief 130). The
+   *  one place the otherwise source-agnostic assembly needs the source; defaults
+   *  to `rss` so pre-130 callers are unchanged. */
+  source?: PodcastSource;
   model: string;
   promptVersion: string;
   results: EpisodeResult[];
 }
 
 export function buildShowArtifact(input: BuildArtifactInput): ShowArtifact {
+  const source = input.source ?? DEFAULT_PODCAST_SOURCE;
   const episodes: EpisodeArtifact[] = input.results.map((r) => {
     const e = r.episode;
     const ea: EpisodeArtifact = {
@@ -96,7 +102,7 @@ export function buildShowArtifact(input: BuildArtifactInput): ShowArtifact {
       episodeKind: r.extraction.episodeKind,
       tags: [...r.tags].sort(compareTags),
       unresolved: [...r.unresolved].sort(compareUnresolved),
-      links: buildEpisodeLinks(e),
+      links: buildEpisodeLinks(e, source),
     };
     return ea;
   });
@@ -139,7 +145,10 @@ interface UnresolvedAgg {
   episodes: number;
 }
 
-export function buildReport(artifact: ShowArtifact): string {
+export function buildReport(
+  artifact: ShowArtifact,
+  source: PodcastSource = DEFAULT_PODCAST_SOURCE,
+): string {
   const eps = artifact.episodes;
   const total = eps.length;
   const withTag = eps.filter((e) => e.tags.length > 0).length;
@@ -223,10 +232,11 @@ export function buildReport(artifact: ShowArtifact): string {
     `- **Show links:** ${artifact.show.links.length}` +
       (showLinkServices.length > 0 ? ` (${showLinkServices.join(", ")})` : ""),
   );
-  L.push(
-    `- **Episode links:** ${epsWithLink}/${total} episodes carry an RSS audio link ` +
-      "(`listen`/`rss`/`podcast_rss`)",
-  );
+  const epLinkDesc =
+    source === "youtube"
+      ? "a YouTube watch link (`watch`/`youtube`/`youtube`)"
+      : "an RSS audio link (`listen`/`rss`/`podcast_rss`)";
+  L.push(`- **Episode links:** ${epsWithLink}/${total} episodes carry ${epLinkDesc}`);
   L.push(`- **Distinct unresolved surface-forms:** ${unresolvedList.length}`);
   L.push("");
 

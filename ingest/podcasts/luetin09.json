@@ -1,0 +1,473 @@
+{
+  "$generatedBy": "scripts/ingest-podcast.ts — Brief 122 B1-S2 (registry-driven podcast ingest + link-shape, no DB)",
+  "show": {
+    "slug": "luetin09",
+    "title": "Luetin09",
+    "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC8RfCCzWsMgNspTI-GTFenQ",
+    "appleId": null,
+    "podcastGuid": null,
+    "imageUrl": "https://yt3.ggpht.com/ytc/AIdro_kzjOl8pH7aEyLzSobTMfxihB2qLU6IeNdGU8zOWnRUAg4=s800-c-k-c0x00ffffff-no-rj",
+    "episodeCount": 10,
+    "links": [
+      {
+        "serviceId": "youtube",
+        "kind": "watch",
+        "url": "https://www.youtube.com/@luetin09",
+        "sourceKind": "manual",
+        "confidence": 1
+      }
+    ]
+  },
+  "extraction": {
+    "model": "claude-haiku-4-5",
+    "promptVersion": "3f6a5ff87efa"
+  },
+  "episodes": [
+    {
+      "guid": "d18RfIPARNE",
+      "title": "40K PRIMARCHS - SANGUINIUS - THE RISE AND FALL OF AN ANGEL | Warhammer 40,000 Lore/History",
+      "pubDate": "2025-09-28T20:32:48.000Z",
+      "durationSec": 8692,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=d18RfIPARNE",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "angron",
+          "rawName": "Angron",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "ka_bandha",
+          "rawName": "Ka'Bandha",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "sanguinius",
+          "rawName": "Sanguinius",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "blood_angels",
+          "rawName": "Blood Angels",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "baal",
+          "rawName": "Baal",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "signus_prime",
+          "rawName": "Signus Prime",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "eye_of_terror",
+          "rawName": "Eye of Terror",
+          "role": "mentioned",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Beta Garmon",
+          "axisGuess": "location",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=d18RfIPARNE",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "tl8Izv0MKPQ",
+      "title": "THE SLEEPER LEGION - WHO WON THE HERESY | Warhammer 40,000 Lore/History",
+      "pubDate": "2025-10-23T20:33:04.000Z",
+      "durationSec": 4311,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=tl8Izv0MKPQ",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "word_bearers",
+          "rawName": "Word Bearers",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=tl8Izv0MKPQ",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "wJo6HBaWklc",
+      "title": "40K - THE DARK AGE OF AI and THE STC LIE | Warhammer 40,000 Lore/Speculation",
+      "pubDate": "2025-11-26T00:22:50.000Z",
+      "durationSec": 4903,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=wJo6HBaWklc",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "the_emperor",
+          "rawName": "The Emperor of Mankind",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "mechanicus",
+          "rawName": "Adeptus Mechanicus",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=wJo6HBaWklc",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "SyxozCJS0F0",
+      "title": "40K - THE DARK ANGELS - and return of THE LION | Warhammer 40,000 Lore/History",
+      "pubDate": "2025-12-15T20:04:43.000Z",
+      "durationSec": 4061,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=SyxozCJS0F0",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "lion_el_jonson",
+          "rawName": "Lion El'Jonson",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "dark_angels",
+          "rawName": "Dark Angels",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=SyxozCJS0F0",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "8f7pjETviLA",
+      "title": "40K - THE GREAT NACHMUND WAR [4]: PURIFICATION | Warhammer 40,000 Lore/History",
+      "pubDate": "2025-12-25T00:49:03.000Z",
+      "durationSec": 4731,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=8f7pjETviLA",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "location",
+          "canonicalId": "vigilus",
+          "rawName": "Vigilus",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Nachmund",
+          "axisGuess": "location",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=8f7pjETviLA",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "WkWh3q3Cry0",
+      "title": "BELISARIUS CAWL - THE TRUE OMNISSIAH? | Warhammer 40,000 Lore/History",
+      "pubDate": "2026-02-06T20:18:09.000Z",
+      "durationSec": 6163,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=WkWh3q3Cry0",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "belisarius_cawl",
+          "rawName": "Belisarius Cawl",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "mechanicus",
+          "rawName": "Adeptus Mechanicus",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Vynn Conglahr",
+          "axisGuess": "character",
+          "role": "mentioned"
+        },
+        {
+          "rawName": "Leagues of Votann",
+          "axisGuess": "faction",
+          "role": "mentioned"
+        },
+        {
+          "rawName": "Indomitus Sprawl",
+          "axisGuess": "location",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=WkWh3q3Cry0",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "WqRuXAiM_qI",
+      "title": "THE RISE & FALL OF HUMAN CIVILIZATIONS [2] - SURVIVORS OF THE APOCALYPSE",
+      "pubDate": "2026-03-22T19:59:09.000Z",
+      "durationSec": 7355,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=WqRuXAiM_qI",
+      "episodeKind": "lore",
+      "tags": [],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=WqRuXAiM_qI",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "TUMVRrTPGPs",
+      "title": "40K 11ED - VINDICATION FOR YARRICK - AMID LORE ARMAGEDDON | Warhammer 40,000 History/Rant/Lore",
+      "pubDate": "2026-04-10T21:39:27.000Z",
+      "durationSec": 4931,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=TUMVRrTPGPs",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "astra_militarum",
+          "rawName": "Astra Militarum",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "faction",
+          "canonicalId": "orks",
+          "rawName": "Orks",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "armageddon",
+          "rawName": "Armageddon",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Yarrick",
+          "axisGuess": "character",
+          "role": "subject"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=TUMVRrTPGPs",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "LW6q9AexPlw",
+      "title": "40K - THE SILENT DEATH OF STC - Anything goes now? | Warhammer 40,000 Lore/Discussion",
+      "pubDate": "2026-05-10T19:39:57.000Z",
+      "durationSec": 3388,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=LW6q9AexPlw",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "faction",
+          "canonicalId": "imperium",
+          "rawName": "Imperium of Man",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        }
+      ],
+      "unresolved": [],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=LW6q9AexPlw",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "guid": "HUdsrOD3iBs",
+      "title": "THE EMPEROR WAS DEFEATED - BEFORE - THE SIEGE OF TERRA | Warhammer 40,000 Lore/History",
+      "pubDate": "2026-05-22T22:06:34.000Z",
+      "durationSec": 3958,
+      "audioUrl": null,
+      "link": "https://www.youtube.com/watch?v=HUdsrOD3iBs",
+      "episodeKind": "lore",
+      "tags": [
+        {
+          "type": "character",
+          "canonicalId": "konrad_curze",
+          "rawName": "Konrad Curze",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "lion_el_jonson",
+          "rawName": "Lion El'Jonson",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "character",
+          "canonicalId": "the_emperor",
+          "rawName": "The Emperor of Mankind",
+          "role": "subject",
+          "confidence": 0.9,
+          "matchedVia": "alias"
+        },
+        {
+          "type": "location",
+          "canonicalId": "terra",
+          "rawName": "Terra",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        },
+        {
+          "type": "location",
+          "canonicalId": "webway",
+          "rawName": "Webway",
+          "role": "subject",
+          "confidence": 1,
+          "matchedVia": "canonical-name"
+        }
+      ],
+      "unresolved": [
+        {
+          "rawName": "Cyrus",
+          "axisGuess": "character",
+          "role": "mentioned"
+        },
+        {
+          "rawName": "Thothmek",
+          "axisGuess": "character",
+          "role": "mentioned"
+        }
+      ],
+      "links": [
+        {
+          "serviceId": "youtube",
+          "kind": "watch",
+          "url": "https://www.youtube.com/watch?v=HUdsrOD3iBs",
+          "sourceKind": "youtube",
+          "confidence": 1
+        }
+      ]
+    }
+  ]
+}

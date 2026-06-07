@@ -34,6 +34,19 @@ export const REGISTRY_PATH = join(
 export const DEFAULT_SHOW_SLUG = "the-40k-lorecast";
 
 /**
+ * Where a show's episodes are acquired from (Brief 130). `rss` is the original
+ * path (`feed.ts`): `feedUrl` is parsed as an RSS 2.0 feed. `youtube` is the
+ * YouTube-source adapter (`youtube.ts`): the channel's uploads are fetched via
+ * the YouTube Data API v3 and mapped into the same `ParsedFeed` contract. The
+ * discriminator defaults to `rss`, so every pre-130 entry stays valid verbatim.
+ */
+export type PodcastSource = "rss" | "youtube";
+
+export const PODCAST_SOURCES: readonly PodcastSource[] = ["rss", "youtube"];
+
+export const DEFAULT_PODCAST_SOURCE: PodcastSource = "rss";
+
+/**
  * A human-authored show-level link in the registry. `serviceId` + `url` are
  * required; `kind`/`sourceKind`/`confidence` default from `SERVICE_LINK_SPEC`
  * (overridable per-entry for a service not in the spec).
@@ -49,14 +62,44 @@ export interface RegistryLinkInput {
 /** One registry entry — a podcast show the ingest can resolve by slug. */
 export interface PodcastShowConfig {
   slug: string;
+  /** Acquisition path. Absent in the JSON → `rss` (back-compatible default). */
+  source: PodcastSource;
   title: string;
+  /**
+   * For `source: "rss"` — the RSS 2.0 feed URL (fetched + parsed). For
+   * `source: "youtube"` — a stable identity/provenance string only (the
+   * channel-id-bound uploads-feed URL or the channel handle URL); it is NOT
+   * fetched and NOT turned into an `rss` show link. The YouTube adapter resolves
+   * the canonical uploads-feed URL from the live channel id at run time.
+   */
   feedUrl: string;
   appleId: string | null;
   podcastGuid: string | null;
   links: RegistryLinkInput[];
-  /** Optional — S4 (YouTube episode matching) reads these; B1 only carries them. */
+  /** Optional — S4 (YouTube episode matching) reads these; B1 only carries them.
+   *  For `source: "youtube"` the adapter uses `youtubeChannelId` when present,
+   *  else resolves the channel from the `@handle` in `youtubeChannelUrl`. */
   youtubeChannelUrl: string | null;
   youtubeChannelId: string | null;
+  /**
+   * YouTube-source only (Brief 130 + Philipp 2026-06-07): titles of the
+   * channel's own playlists whose member videos must be EXCLUDED from ingest
+   * (off-topic content — e.g. hobby/painting tutorials, news/speculation, a
+   * game playthrough). The adapter resolves each title to its playlist id at
+   * run time and drops any upload that is a member. Empty for RSS shows.
+   */
+  excludePlaylists: string[];
+  /**
+   * YouTube-source only (Brief 130 curation, Philipp 2026-06-07): video ids to
+   * FORCE-INCLUDE even though a denylisted playlist would otherwise exclude them
+   * — the per-video allowlist that overrides `excludePlaylists`. The
+   * "Discussion / News / Speculation" playlist mixes off-topic news/game/hobby
+   * videos with genuine in-universe lore deep-dives (e.g. "Belisarius Cawl",
+   * "The Silent Death of the STC"); those lore videos are curated back in here
+   * by id. An id that is not actually on the denylist is a harmless no-op. Empty
+   * for RSS shows. Video ids are permanent, so the list never goes stale.
+   */
+  includeVideoIds: string[];
 }
 
 /**
@@ -97,6 +140,63 @@ function optString(o: Record<string, unknown>, key: string, where: string): stri
   return v;
 }
 
+/** `source` discriminator — absent → the default (`rss`); else must be a known source. */
+function parseSource(o: Record<string, unknown>, where: string): PodcastSource {
+  const v = o.source;
+  if (v === undefined || v === null) return DEFAULT_PODCAST_SOURCE;
+  if (typeof v !== "string" || !PODCAST_SOURCES.includes(v as PodcastSource)) {
+    throw new Error(
+      `${where}.source "${String(v)}" must be one of ${PODCAST_SOURCES.map((s) => `"${s}"`).join(" | ")}`,
+    );
+  }
+  return v as PodcastSource;
+}
+
+/** Optional `string[]` of playlist titles to exclude — absent → `[]`. */
+function parseExcludePlaylists(
+  o: Record<string, unknown>,
+  source: PodcastSource,
+  where: string,
+): string[] {
+  const v = o.excludePlaylists;
+  if (v === undefined || v === null) return [];
+  if (!Array.isArray(v)) throw new Error(`${where}.excludePlaylists: must be an array of strings`);
+  const titles = v.map((t, i) => {
+    if (typeof t !== "string" || t.trim() === "") {
+      throw new Error(`${where}.excludePlaylists[${i}]: must be a non-empty string`);
+    }
+    return t;
+  });
+  // A denylist is only meaningful for a YouTube source (RSS has no playlists);
+  // a non-empty list on an RSS entry is a config mistake, surfaced loudly.
+  if (titles.length > 0 && source !== "youtube") {
+    throw new Error(`${where}.excludePlaylists: only valid for source "youtube" (got "${source}")`);
+  }
+  return titles;
+}
+
+/** Optional `string[]` of video ids to force-include past the denylist — absent → `[]`. */
+function parseIncludeVideoIds(
+  o: Record<string, unknown>,
+  source: PodcastSource,
+  where: string,
+): string[] {
+  const v = o.includeVideoIds;
+  if (v === undefined || v === null) return [];
+  if (!Array.isArray(v)) throw new Error(`${where}.includeVideoIds: must be an array of strings`);
+  const ids = v.map((t, i) => {
+    if (typeof t !== "string" || t.trim() === "") {
+      throw new Error(`${where}.includeVideoIds[${i}]: must be a non-empty string`);
+    }
+    return t;
+  });
+  // Like the denylist, a per-video include override only makes sense for YouTube.
+  if (ids.length > 0 && source !== "youtube") {
+    throw new Error(`${where}.includeVideoIds: only valid for source "youtube" (got "${source}")`);
+  }
+  return ids;
+}
+
 function parseLink(raw: unknown, where: string): RegistryLinkInput {
   if (!isObject(raw)) throw new Error(`${where}: must be an object`);
   const serviceId = reqString(raw, "serviceId", where);
@@ -113,7 +213,9 @@ function parseLink(raw: unknown, where: string): RegistryLinkInput {
   }
   if (raw.sourceKind !== undefined) {
     if (!PODCAST_LINK_SOURCE_KINDS.includes(raw.sourceKind as PodcastLinkSourceKind)) {
-      throw new Error(`${where}.sourceKind "${String(raw.sourceKind)}" must be podcast_rss|manual`);
+      throw new Error(
+        `${where}.sourceKind "${String(raw.sourceKind)}" must be one of ${PODCAST_LINK_SOURCE_KINDS.join("|")}`,
+      );
     }
     out.sourceKind = raw.sourceKind as PodcastLinkSourceKind;
   }
@@ -160,6 +262,8 @@ export function parseRegistry(raw: unknown): PodcastShowConfig[] {
     if (slugs.has(slug)) throw new Error(`${where}.slug: duplicate slug "${slug}"`);
     slugs.add(slug);
 
+    const source = parseSource(entry, where);
+
     const links =
       entry.links === undefined || entry.links === null
         ? []
@@ -171,6 +275,7 @@ export function parseRegistry(raw: unknown): PodcastShowConfig[] {
 
     return {
       slug,
+      source,
       title: reqString(entry, "title", where),
       feedUrl: reqString(entry, "feedUrl", where),
       appleId: optString(entry, "appleId", where),
@@ -178,6 +283,8 @@ export function parseRegistry(raw: unknown): PodcastShowConfig[] {
       links,
       youtubeChannelUrl: optString(entry, "youtubeChannelUrl", where),
       youtubeChannelId: optString(entry, "youtubeChannelId", where),
+      excludePlaylists: parseExcludePlaylists(entry, source, where),
+      includeVideoIds: parseIncludeVideoIds(entry, source, where),
     };
   });
 }

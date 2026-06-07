@@ -194,7 +194,9 @@ function assertLinks(value: unknown, where: string): void {
       l.sourceKind !== undefined &&
       !PODCAST_LINK_SOURCE_KINDS.includes(l.sourceKind as PodcastLinkSourceKind)
     ) {
-      fail(`${at}.sourceKind "${String(l.sourceKind)}" must be podcast_rss|manual`);
+      fail(
+        `${at}.sourceKind "${String(l.sourceKind)}" must be one of ${PODCAST_LINK_SOURCE_KINDS.join("|")}`,
+      );
     }
     if (l.confidence !== undefined) {
       if (
