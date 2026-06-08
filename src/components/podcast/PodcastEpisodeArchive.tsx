@@ -468,7 +468,18 @@ function EpisodeRow({
             <span className="pod-ep__kind">{kindLabel}</span>
           )}
           {dur && <span className="pod-ep__dur">{dur}</span>}
-          {ep.audioUrl && (
+          {ep.watchUrl ? (
+            // YouTube shows (no MP3): out-link to the video instead of inline play.
+            <a
+              className="pod-ep__dl"
+              href={ep.watchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Watch ${ep.title} on YouTube in a new tab`}
+            >
+              View ↗
+            </a>
+          ) : ep.audioUrl ? (
             <a
               className="pod-ep__dl"
               href={ep.audioUrl}
@@ -478,7 +489,7 @@ function EpisodeRow({
             >
               Listen ↗
             </a>
-          )}
+          ) : null}
         </span>
       </div>
 

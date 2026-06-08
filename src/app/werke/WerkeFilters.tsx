@@ -15,11 +15,12 @@ type Option = { value: string; label: string };
  * params — the server owns the actual filtering (`applyWorksFilters`).
  *
  * The search itself is the shared `<BrowseSearch>` console (design-language
- * §5.2): a grouped typeahead over the server-built `index` of books, factions,
- * facets, formats and authors. Here it filters IN PLACE — picking a faction/
- * facet/format applies that filter, an author or raw Enter sets `q`, a book
- * opens it. (Home renders the same console in navigate-mode.) The console owns
- * the combobox mechanics; this island owns the routing semantics.
+ * §5.2): a grouped typeahead over the server-built `index` of books, podcasts,
+ * factions, facets, formats and authors. Here it filters IN PLACE — picking a
+ * faction/facet/format applies that filter, an author or raw Enter sets `q`, a
+ * book opens it; a podcast is the one pick that leaves the archive (→ /podcasts).
+ * (Home renders the same console in navigate-mode.) The console owns the
+ * combobox mechanics; this island owns the routing semantics.
  *
  * Two rows by design: the prominent query console over a quieter row of facet
  * controls (Faction / Format / Sort). The dropdowns are the on-brand
@@ -83,6 +84,14 @@ export default function WerkeFilters({
         // the just-dismissed book).
         setQ("");
         router.push(`/buch/${s.value}`);
+        break;
+      case "podcast":
+        // A podcast pick leaves the archive for /podcasts (show page or episode
+        // deep link) — not a filter-in-place, so just navigate to `href`.
+        if (s.href) {
+          setQ("");
+          router.push(s.href);
+        }
         break;
       case "faction":
         setQ("");

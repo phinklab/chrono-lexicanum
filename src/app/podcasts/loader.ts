@@ -18,16 +18,21 @@
  * an empty hall instead of failing `next build`. Episode `pubDate` crosses into
  * a client component, so it is exposed as epoch-ms (`pubDateMs`), never a `Date`.
  *
- * Note on the episode URL: the ingest stores exactly one per-episode link —
- * `external_links(listen)` — and its url is the same MP3 enclosure as
- * `podcast_episode_details.audio_url` (verified 1:1 across all 512 rows). There
- * is no separate episode web page, so the reader exposes a single `audioUrl`
- * that drives both inline play and download; "listen in your app" is served by
- * the show-level `platformLinks` (Apple / Spotify / YouTube / Website / RSS).
+ * Note on the episode URL — two shapes:
+ *   - RSS shows: one per-episode `external_links(listen)`, its url the same MP3
+ *     enclosure as `podcast_episode_details.audio_url` (1:1). The reader exposes
+ *     `audioUrl`, which drives both inline play and download.
+ *   - YouTube shows (e.g. luetin09): `audio_url` is NULL — there is no MP3 — and
+ *     the episode carries `external_links(kind='watch', serviceId='youtube')`
+ *     pointing at the video. The reader exposes that as `watchUrl`; the archive
+ *     row renders a "View ↗" out-link instead of "Listen ↗" + inline player.
+ * "Listen in your app" stays served by the show-level `platformLinks`.
  */
+import { cache } from "react";
 import { db } from "@/db/client";
 import { eq, inArray } from "drizzle-orm";
 import { podcastEpisodeDetails } from "@/db/schema";
+import type { Suggestion } from "@/app/werke/filters";
 
 // ── Shared shapes ───────────────────────────────────────────────────────────
 
@@ -72,6 +77,8 @@ export interface PodcastEpisode {
   episodeKind: string | null;
   /** The MP3 enclosure — drives both inline play and download (see file note). */
   audioUrl: string | null;
+  /** A YouTube (or other `watch`) video URL for shows with no MP3 (see file note). */
+  watchUrl: string | null;
   factions: FactionTag[];
 }
 
@@ -277,6 +284,9 @@ export async function loadPodcastShow(
                 episodeKind: true,
               },
             },
+            externalLinks: {
+              columns: { kind: true, serviceId: true, url: true },
+            },
             factions: {
               columns: { role: true },
               with: { faction: { columns: { id: true, name: true } } },
@@ -288,6 +298,12 @@ export async function loadPodcastShow(
     const episodes: PodcastEpisode[] = epRows
       .map((w) => {
         const d = w.podcastEpisodeDetails;
+        // YouTube shows have no MP3 (audioUrl NULL) but carry a `watch` link to
+        // the video; surface it so the row can offer "View ↗".
+        const watchUrl =
+          w.externalLinks.find(
+            (l) => l.kind === "watch" || l.serviceId === "youtube",
+          )?.url ?? null;
         return {
           id: w.id,
           title: w.title,
@@ -295,6 +311,7 @@ export async function loadPodcastShow(
           durationSec: d?.durationSec ?? null,
           episodeKind: d?.episodeKind ?? null,
           audioUrl: d?.audioUrl ?? null,
+          watchUrl,
           factions: topFactions(w.factions),
         };
       })
@@ -322,6 +339,107 @@ export async function loadPodcastShow(
     );
     return null;
   }
+}
+
+// ── Unified search index (books + podcasts share one typeahead) ─────────────
+// The browse search (`werke/filters.ts`) is the archive-wide entry point; the
+// host pages (Home, /werke, /podcasts) merge `buildPodcastSuggestions(...)`
+// into `buildSearchIndex(books)` so podcasts surface in the SAME dropdown,
+// right after books. This is a lighter sibling of `loadPodcastIndex` — it keeps
+// EVERY episode (not the 3-ep teaser) but only the fields the typeahead needs.
+
+/** All shows + all episodes, flattened to the minimum the typeahead ranks on. */
+export interface PodcastSearchData {
+  shows: Array<{ slug: string; title: string; episodeCount: number }>;
+  episodes: Array<{
+    id: string;
+    title: string;
+    showSlug: string;
+    showTitle: string;
+  }>;
+}
+
+/** `cache()`-wrapped so a page that also calls it elsewhere in one render
+ *  dedupes the DB round-trip. Degrades to empty on an unreachable DB. */
+export const loadPodcastSearchIndex = cache(
+  async (): Promise<PodcastSearchData> => {
+    try {
+      const [showRows, episodeRows] = await Promise.all([
+        db.query.works.findMany({
+          where: (w, { eq }) => eq(w.kind, "podcast"),
+          columns: { id: true, slug: true, title: true },
+        }),
+        db.query.works.findMany({
+          where: (w, { eq }) => eq(w.kind, "podcast_episode"),
+          columns: { id: true, title: true },
+          with: {
+            podcastEpisodeDetails: { columns: { podcastWorkId: true } },
+          },
+        }),
+      ]);
+
+      const showById = new Map(
+        showRows.map((s) => [s.id, { slug: s.slug, title: s.title }]),
+      );
+      const countBySlug = new Map<string, number>();
+      const episodes: PodcastSearchData["episodes"] = [];
+      for (const w of episodeRows) {
+        const showId = w.podcastEpisodeDetails?.podcastWorkId;
+        const show = showId ? showById.get(showId) : undefined;
+        if (!show) continue;
+        episodes.push({
+          id: w.id,
+          title: w.title,
+          showSlug: show.slug,
+          showTitle: show.title,
+        });
+        countBySlug.set(show.slug, (countBySlug.get(show.slug) ?? 0) + 1);
+      }
+
+      const shows = showRows.map((s) => ({
+        slug: s.slug,
+        title: s.title,
+        episodeCount: countBySlug.get(s.slug) ?? 0,
+      }));
+
+      return { shows, episodes };
+    } catch (err) {
+      const msg =
+        err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+      console.error(
+        `[/podcasts] search index fetch failed (${msg}); search omits podcasts.`,
+      );
+      return { shows: [], episodes: [] };
+    }
+  },
+);
+
+/** Flatten the podcast search data into `Suggestion`s for the shared typeahead.
+ *  Each episode deep-links to `#ep-<id>` on its show (the archive scrolls to and
+ *  highlights it); each show links to its page. `value` stays unique per row. */
+export function buildPodcastSuggestions(data: PodcastSearchData): Suggestion[] {
+  const out: Suggestion[] = [];
+  for (const ep of data.episodes) {
+    out.push({
+      kind: "podcast",
+      label: ep.title,
+      value: ep.id,
+      hint: ep.showTitle,
+      href: `/podcasts/${ep.showSlug}#ep-${ep.id}`,
+    });
+  }
+  for (const s of data.shows) {
+    out.push({
+      kind: "podcast",
+      label: s.title,
+      value: `show:${s.slug}`,
+      hint: `Show · ${s.episodeCount} ${
+        s.episodeCount === 1 ? "episode" : "episodes"
+      }`,
+      href: `/podcasts/${s.slug}`,
+    });
+  }
+  return out;
 }
 
 // ── podcastShowSlugs (generateStaticParams) ─────────────────────────────────

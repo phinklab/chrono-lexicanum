@@ -23,11 +23,12 @@
  *     inside a book, a character inside a world, …) is rewritten to
  *     `router.replace`, so the body swaps IN THE SAME SHELL without stacking
  *     history — one Back still closes to the origin.
- *   • Books pop OUT: a `/buch/<slug>` link clicked from inside the popup opens
- *     the full book page in a NEW TAB instead of swapping in-shell, so the reader
- *     keeps their place in the current (usually entity) popup. (Opening a book
- *     from /werke or the quiz still opens this popup — the new-tab rule applies
- *     only to a book clicked while already inside a popup.)
+ *   • Books swap IN-SHELL: a `/buch/<slug>` link clicked from inside the popup
+ *     `router.push`-es (one new history entry) so the book body mounts in THIS
+ *     SAME shell and "← Back" returns to the origin (usually entity) popup.
+ *     Unlike the entity-to-entity replace above, the book hop DOES stack one
+ *     history step — that single Back is what walks the reader back to where
+ *     they came from.
  *   • Two-segment links (`/buch/[slug]/audit`), the "Open full page" affordance
  *     (`data-detail-hardnav`), external/new-tab and non-detail links (e.g. a
  *     `/podcasts/…#ep-…` related-work) pass through and navigate away, clearing
@@ -157,10 +158,11 @@ export default function DetailModal({
     const href = anchor.getAttribute("href");
     if (!href || !DETAIL_HREF.test(href)) return;
     e.preventDefault();
-    // A book opened from inside the popup pops out to its full page in a new tab
-    // (the reader keeps their place here); entity links swap the body in-shell.
+    // A book opened from inside the popup pushes one history entry so the book
+    // modal mounts in this same shell and Back returns here; entity-to-entity
+    // links replace (flat) so one Back still closes straight to the origin.
     if (href.startsWith("/buch/")) {
-      window.open(href, "_blank", "noopener");
+      router.push(href);
       return;
     }
     router.replace(href);

@@ -54,7 +54,7 @@ body:has(main.ask) .site-bg::after {
 }
 
 .ask-readout {
-  position: fixed;
+  position: absolute;
   top: 96px;
   right: clamp(16px, 4vw, 48px);
   width: 260px;
@@ -62,11 +62,11 @@ body:has(main.ask) .site-bg::after {
   pointer-events: none;
 }
 
-/* Pinned to the viewport top (inset 0), so the auspex sweep sits at the same
- * fixed height as /werke's hero sweep — nav-independent, not pushed down by
- * --top-nav-h the way the old offset did. */
+/* Anchored to the top of the relative <main> (inset 0 within it), so the auspex
+ * sweep sits at /werke's hero-sweep height and scrolls away with the masthead
+ * instead of hovering over the funnel — matching .catalogue-hero__sweep. */
 .ask-hud {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;

@@ -123,40 +123,55 @@ export function applyWorksFilters(
 }
 
 /* ── Universal search suggestions (typeahead) ───────────────────────────────
- * The search box is a single entry point to everything the page can filter
- * by. As the visitor types, `rankSuggestions` ranks a pre-built index of
- * books, authors, factions, facets and formats so picking "White Scars" from
- * the dropdown applies the faction filter, while picking a book opens it. The
- * index is built server-side (page.tsx) from the same data the list renders,
- * so it never goes stale; ranking is pure + client-cheap (a few thousand
- * short strings, re-run per keystroke). */
+ * The search box is a single entry point to everything the archive holds. As
+ * the visitor types, `rankSuggestions` ranks a pre-built index of books,
+ * authors, factions, facets and formats — plus podcasts (episodes + shows),
+ * merged in by the host page from `buildPodcastSuggestions` — so picking
+ * "White Scars" applies the faction filter, picking a book opens it, and
+ * picking a podcast routes to its show. The index is built server-side
+ * (page.tsx) from the same data the lists render, so it never goes stale;
+ * ranking is pure + client-cheap (a few thousand short strings, re-run per
+ * keystroke). Book-only callers pass just `buildSearchIndex(books)`. */
 
-export type SuggestKind = "book" | "author" | "faction" | "facet" | "format";
+export type SuggestKind =
+  | "book"
+  | "podcast"
+  | "author"
+  | "faction"
+  | "facet"
+  | "format";
 
 export interface Suggestion {
   kind: SuggestKind;
   /** Visible primary text (book title, faction name, …). */
   label: string;
-  /** What the pick commits: book→slug, author→name, faction/facet→id, format→key. */
+  /** What the pick commits: book→slug, author→name, faction/facet→id, format→key,
+   *  podcast→a unique id (`episodeId` or `show:<slug>`; the nav target is `href`). */
   value: string;
-  /** Secondary line: book→author/series, facet→category. */
+  /** Secondary line: book→author/series, facet→category, podcast→show title. */
   hint?: string | null;
+  /** Navigation target for kinds that route directly (podcast → show page /
+   *  `#ep-<id>` deep link). Books/factions/… derive their target from `value`. */
+  href?: string | null;
 }
 
 export interface RankedSuggestion extends Suggestion {
   score: number;
 }
 
-/** Group display order + per-group result caps for the dropdown. */
+/** Group display order + per-group result caps for the dropdown. Podcasts sit
+ *  right after books — the second media pillar — ahead of the book-facet groups. */
 const GROUP_ORDER: Record<SuggestKind, number> = {
   book: 0,
-  faction: 1,
-  facet: 2,
-  format: 3,
-  author: 4,
+  podcast: 1,
+  faction: 2,
+  facet: 3,
+  format: 4,
+  author: 5,
 };
 const GROUP_CAP: Record<SuggestKind, number> = {
   book: 6,
+  podcast: 6,
   faction: 5,
   facet: 5,
   format: 4,
@@ -217,6 +232,7 @@ export function rankSuggestions(
 
 export const SUGGEST_GROUP_LABEL: Record<SuggestKind, string> = {
   book: "Books",
+  podcast: "Podcasts",
   faction: "Factions",
   facet: "Facets",
   format: "Formats",

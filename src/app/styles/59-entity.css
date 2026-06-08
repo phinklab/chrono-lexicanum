@@ -292,7 +292,7 @@ main.entity::before {
   border-bottom-color: var(--cl-bone);
 }
 
-/* ── Works groups (collapsible) + borderless tiles ──────────────────────── */
+/* ── Works groups + borderless tiles ────────────────────────────────────── */
 
 .entity-view__work-group {
   margin-top: 18px;
@@ -302,51 +302,21 @@ main.entity::before {
   margin-top: 8px;
 }
 
-/* Disclosure header — mirrors the podcast-year accordion (pod-year__toggle):
-   a full-width quiet mono row that brightens on hover, a cyan chevron that
-   rotates 90° when open, and a faint count pushed to the right. */
+/* Group header — a quiet mono row, label left, faint count pushed right. The
+   tile grid below always renders (always-expanded, Brief 132), so this is a
+   static heading, not a disclosure toggle. */
 .entity-view__group-head {
-  margin: 0;
-}
-
-.entity-view__group-toggle {
   display: flex;
   align-items: center;
   gap: 11px;
-  width: 100%;
+  margin: 0;
   padding: 9px 2px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  text-align: left;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--cl-dim);
-  transition: color 0.18s;
-}
-
-.entity-view__group-toggle:hover {
-  color: var(--cl-bone);
-}
-
-.entity-view__group-toggle:focus-visible {
-  outline: 1px solid var(--cl-cyan);
-  outline-offset: 2px;
-}
-
-.entity-view__group-chevron {
-  flex: 0 0 auto;
-  color: var(--cl-cyan);
-  font-size: 15px;
-  line-height: 1;
-  transition: transform 0.18s;
-}
-
-.entity-view__group-toggle[aria-expanded="true"] .entity-view__group-chevron {
-  transform: rotate(90deg);
 }
 
 .entity-view__group-label {
