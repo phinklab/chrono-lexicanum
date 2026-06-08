@@ -70,6 +70,56 @@ const toDate = (v: unknown): Date | null => {
   return null;
 };
 
+/**
+ * Decode a Postgres array value coming back over postgres.js. The client runs
+ * with `fetch_types: false` (src/db/client.ts — the transaction pooler
+ * misbehaves with type introspection), which disables array decoding: an
+ * `array_agg(...)` column arrives as the raw Postgres array literal *string* —
+ * `"{author,narrator}"` — never a JS array. (Until this helper existed, the
+ * `Array.isArray` guard at the one call site always fell through to `[]`,
+ * silently emptying every consumer of `roles` — e.g. the Compendium "Authors"
+ * category resolved to zero people.) This parses the literal into a `string[]`,
+ * honouring quoted/escaped elements and dropping unquoted SQL NULLs. An
+ * already-decoded array passes straight through, so the call site stays correct
+ * if `fetch_types` is ever re-enabled. Route any future `array_agg` through here.
+ */
+const parsePgTextArray = (value: unknown): string[] => {
+  if (Array.isArray(value)) return value.map((x) => String(x));
+  if (typeof value !== "string") return [];
+  const body = value.trim();
+  if (!body.startsWith("{") || !body.endsWith("}")) return [];
+  const inner = body.slice(1, -1);
+  if (inner === "") return [];
+
+  const out: string[] = [];
+  let cur = "";
+  let inQuotes = false;
+  let elemQuoted = false;
+  const flush = () => {
+    // An unquoted NULL token is SQL NULL → drop it; quoted "NULL" is the string.
+    if (!(cur === "NULL" && !elemQuoted)) out.push(cur);
+    cur = "";
+    elemQuoted = false;
+  };
+  for (let i = 0; i < inner.length; i++) {
+    const ch = inner[i];
+    if (inQuotes) {
+      if (ch === "\\") cur += inner[++i] ?? "";
+      else if (ch === '"') inQuotes = false;
+      else cur += ch;
+    } else if (ch === '"') {
+      inQuotes = true;
+      elemQuoted = true;
+    } else if (ch === ",") {
+      flush();
+    } else {
+      cur += ch;
+    }
+  }
+  flush();
+  return out;
+};
+
 export async function getBridgeStats(): Promise<BridgeStats> {
   // Single round-trip — pgbouncer transaction-mode + postgres-js chokes
   // hard on 30 parallel COUNTs from the same request (statement_timeout
@@ -749,10 +799,7 @@ export async function getPersonenRows(): Promise<PersonenRow[]> {
 
     return rows
       .map((r): PersonenRow => {
-        const rawRoles = r["roles"];
-        const roles = Array.isArray(rawRoles)
-          ? rawRoles.map((x) => String(x))
-          : [];
+        const roles = parsePgTextArray(r["roles"]);
         return {
           id: String(r["id"]),
           name: String(r["name"]),
