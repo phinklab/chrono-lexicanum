@@ -153,7 +153,6 @@ export default function BookDetailView({
         {book.factions.length > 0 && (
           <section className="book-detail__section">
             <div className="book-detail__section-label">{"// FACTIONS"}</div>
-            <span className="c-hairline" aria-hidden />
             <ul className="book-detail__chip-row">
               {book.factions.map((f) => (
                 <li key={f.id}>
@@ -173,7 +172,6 @@ export default function BookDetailView({
         {book.locations.length > 0 && (
           <section className="book-detail__section">
             <div className="book-detail__section-label">{"// LOCATIONS"}</div>
-            <span className="c-hairline" aria-hidden />
             <ul className="book-detail__chip-row">
               {book.locations.map((l) => (
                 <li key={l.id}>
@@ -193,7 +191,6 @@ export default function BookDetailView({
         {book.characters.length > 0 && (
           <section className="book-detail__section">
             <div className="book-detail__section-label">{"// CHARACTERS"}</div>
-            <span className="c-hairline" aria-hidden />
             <ul className="book-detail__chip-row">
               {book.characters.map((c) => (
                 <li key={c.id}>
@@ -213,7 +210,6 @@ export default function BookDetailView({
         {book.facets.length > 0 && (
           <section className="book-detail__section">
             <div className="book-detail__section-label">{"// FACETS"}</div>
-            <span className="c-hairline" aria-hidden />
             <ul className="book-detail__chip-row">
               {book.facets.map((f) => (
                 <li

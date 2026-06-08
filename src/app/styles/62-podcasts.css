@@ -744,6 +744,31 @@ body:has(main.podcasts) .site-bg::after {
 .pod-ep.is-playing {
   background: var(--pod-wash-on);
 }
+/* Deep-link arrival highlight — a podcast link from an entity panel lands here
+   with `#ep-<id>`; the archive expands the year, scrolls the row in and marks it
+   briefly. Gold (the page's own accent), a left tick + wash that fades out
+   (≤22% glow, no new border — restraint laws). The class is cleared by JS after
+   the fade; reduced-motion holds the static mark until then. */
+.pod-ep.is-linked {
+  background: rgba(201, 166, 90, 0.12);
+  box-shadow: inset 3px 0 0 var(--cl-gold);
+  animation: podEpLinked 2.4s ease-out both;
+}
+@keyframes podEpLinked {
+  0% {
+    background: rgba(201, 166, 90, 0.18);
+    box-shadow: inset 3px 0 0 var(--cl-gold);
+  }
+  100% {
+    background: transparent;
+    box-shadow: inset 3px 0 0 transparent;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pod-ep.is-linked {
+    animation: none;
+  }
+}
 
 /* Borderless, slightly larger transport glyph (no boxed frame): the gold ▸ is
    the affordance, the row's hover/is-playing wash carries the state. */

@@ -126,6 +126,7 @@ function workHref(
   kind: string,
   slug: string,
   showSlug: string | null,
+  workId: string,
 ): string | null {
   switch (kind) {
     case "book":
@@ -133,8 +134,10 @@ function workHref(
     case "podcast":
       return `/podcasts/${slug}`;
     case "podcast_episode":
-      // Episodes have no own page — link to the parent show's archive.
-      return showSlug ? `/podcasts/${showSlug}` : null;
+      // Episodes have no own page — deep-link into the parent show's archive,
+      // targeting this episode by work id (`#ep-<id>`). The archive island
+      // expands that episode's year, scrolls it into view and highlights it.
+      return showSlug ? `/podcasts/${showSlug}#ep-${workId}` : null;
     default:
       return null;
   }
@@ -205,7 +208,7 @@ async function buildWorkGroups(
       releaseYear: r.releaseYear,
       coverUrl: r.coverUrl,
       role: r.role && r.role !== defaultRole ? r.role : null,
-      href: workHref(r.kind, r.slug, show?.slug ?? null),
+      href: workHref(r.kind, r.slug, show?.slug ?? null, r.id),
       showTitle: show?.title ?? null,
     };
     const list = byKind.get(r.kind);
