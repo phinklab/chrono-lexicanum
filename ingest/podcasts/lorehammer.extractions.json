@@ -1,0 +1,7469 @@
+{
+  "show": "lorehammer",
+  "tagging": "cc-direct",
+  "model": "claude-sonnet-4-6",
+  "promptVersion": "3f6a5ff87efa",
+  "extractions": {
+    "01ae1880-cd58-11ef-806e-3b3d3807a18d": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "League of Votann"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "0304974c-b069-484f-9177-81f53743f90f": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "04c51442-d1a6-4ac3-a221-7ed084aa71b3": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Marines",
+          "Dark Mechanicum",
+          "Adeptus Mechanicus",
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "057de42a-1607-11f0-9375-4709c8bc0eb4": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "0693d220-8305-435e-a37c-73ca2b71997e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Minotaurs"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "080fdb73-ea2e-479a-a46a-dab7f7eeda71": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Leagues of Votann"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "0903b704-82ee-45a0-981b-c0e8d2e4425d": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "091e1586-bf77-4bc8-9f52-fe11e3e169ac": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "0d39d8f8-e933-4732-a6d1-67b2b624239b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Duke Severus XIII"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Severan Dominate"
+        ],
+        "mentioned": [
+          "High Lords of Terra"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Terra"
+        ]
+      }
+    },
+    "0da1596a-f852-4cd2-833e-d8962a068cad": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "0ea73e73-b645-492d-8330-5dd239a0978c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "The Emperor of Mankind"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "0f7c4103-6951-4702-97be-2faba54cf16c": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "10b3ddc5-1fc8-42bd-a6f0-c11a47caad9b": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "139494f7-32a9-46bb-b86a-27bb598659cb": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos",
+          "The Lost and the Damned"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "14c1c550-7abb-4491-b154-d100bca97b58": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Sanguinius",
+          "The Emperor of Mankind"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Blood Angels"
+        ],
+        "mentioned": [
+          "Imperium of Man"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "15d1fd16-d4fa-47f4-b8ef-8eb906c5d961": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks",
+          "Freebooterz"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "15e19c09-9043-4e08-87a0-0b3f37ed380c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "the Emperor"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Thunder Warriors"
+        ],
+        "mentioned": [
+          "Space Marines"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Terra"
+        ],
+        "mentioned": []
+      }
+    },
+    "17bccf6c-4564-483b-9acf-19703b8994d0": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Yvraine"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Aeldari",
+          "Ynnead"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "1acaa9b6-2b61-11f0-b9e2-3f72a4a8a225": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "1b0feeff-7351-4346-9eb5-0a79d9ce5cd0": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Malice"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Cult of the Doomed Ones"
+        ],
+        "mentioned": [
+          "Chaos"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "1cfed3c3-95f9-48ab-b924-a2553ee13127": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "1dc2a253-25f0-4b09-bb26-892f4894157d": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Sol System",
+          "Terra",
+          "Segmentum Solar"
+        ],
+        "mentioned": []
+      }
+    },
+    "212e081a-6703-4da3-8964-5a9a26ae4bfc": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "22e2ee57-04f7-4ea6-899d-0025c16ceacb": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Emperor of Mankind"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Terra"
+        ],
+        "mentioned": []
+      }
+    },
+    "23d1c755-357b-4ef2-b5d9-2d1b286314d5": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Ferrus Manus"
+        ],
+        "mentioned": [
+          "Emperor of Mankind"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Iron Hands"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Medusa"
+        ],
+        "mentioned": []
+      }
+    },
+    "24fc0513-e63e-48d6-9e94-d4380f5fa597": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "254233d4-38e0-4013-9a35-494ab825fc8c": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "26f7cc98-bd40-4c40-a899-b19e51397121": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2863c8c3-abcb-4aca-ace1-832dd5d4f478": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperial Knights",
+          "Adeptus Mechanicus",
+          "Necrons"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "28e8f79d-c723-407b-a668-ff44fab06352": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "29433df5-aa6a-486c-87bf-a074f30c43cb": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [
+          "Roboute Guilliman"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Great Rift"
+        ]
+      }
+    },
+    "299711cc-ca0a-11ef-9632-e3b8507f8405": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Leagues of Votann"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "29b95fa2-5e01-40a0-96d8-5491805376d1": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "29d9ad11-2d39-4b9c-a1f8-e58539b70695": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Malcador the Sigilite"
+        ],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Grey Knights",
+          "Inquisition"
+        ],
+        "mentioned": [
+          "Imperium of Man"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "29f84fbe-ca0a-11ef-9632-3346ed213b66": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Fulgrim"
+        ],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Emperor's Children"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Chemos"
+        ],
+        "mentioned": []
+      }
+    },
+    "2a253218-ca0a-11ef-9632-1f6535bc16c7": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Fulgrim"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Emperor's Children"
+        ],
+        "mentioned": [
+          "Chaos",
+          "Laer",
+          "Slaanesh"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Laer"
+        ]
+      }
+    },
+    "2a507626-ca0a-11ef-9632-479abdebea38": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Fulgrim"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Emperor's Children"
+        ],
+        "mentioned": [
+          "Palatine Blades",
+          "Phoenix Guard"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2a7eaba4-ca0a-11ef-9632-3f987e3e2cff": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Fulgrim"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Emperor's Children"
+        ],
+        "mentioned": [
+          "Adeptus Astartes",
+          "Chaos Space Marines"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2aacce8a-ca0a-11ef-9632-af27de1b9861": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "Ghazghkull Thraka"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Astra Militarum",
+          "Armageddon Steel Legion"
+        ],
+        "mentioned": [
+          "Orks"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Armageddon"
+        ],
+        "mentioned": []
+      }
+    },
+    "2ade34ac-ca0a-11ef-9632-9f37120f2d73": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Anakwanar Sek",
+          "Urlock Gaur"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Blood Pact",
+          "Sons of Sek"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Sabbat Worlds"
+        ],
+        "mentioned": []
+      }
+    },
+    "2b0fcb84-ca0a-11ef-9632-2b714f802f1e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tyranids",
+          "Hive Fleet Grendyllus"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2b3d8aa6-ca0a-11ef-9632-2f6be7a9ea8c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Imotekh the Stormlord"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons",
+          "Sautekh Dynasty"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2b6c116e-ca0a-11ef-9632-fb883b74a971": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Krorks",
+          "Prime Orks"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2b9bc044-ca0a-11ef-9632-af2c56608214": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Aeldari",
+          "Necrons",
+          "Orks"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Webway",
+          "the Warp"
+        ]
+      }
+    },
+    "2bc9c7be-ca0a-11ef-9632-27e6595c6a37": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Perturabo"
+        ],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Iron Warriors"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Olympia"
+        ],
+        "mentioned": []
+      }
+    },
+    "2bf93670-ca0a-11ef-9632-8f27d7525d29": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Horus",
+          "Perturabo"
+        ],
+        "mentioned": [
+          "Rogal Dorn",
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Iron Warriors"
+        ],
+        "mentioned": [
+          "Chaos"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Terra"
+        ],
+        "mentioned": []
+      }
+    },
+    "2c2b2c84-ca0a-11ef-9632-bb8cc34b6daa": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Perturabo"
+        ],
+        "mentioned": [
+          "Horus"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Iron Warriors"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2c5b5cba-ca0a-11ef-9632-2b1a11a8fe19": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Iron Warriors"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Eye of Terror"
+        ]
+      }
+    },
+    "2c8c46b8-ca0a-11ef-9632-3388ff8492b7": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Nurgle"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos Gods",
+          "Khorne",
+          "Nurgle",
+          "Slaanesh",
+          "Tzeentch"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "the Warp"
+        ],
+        "mentioned": []
+      }
+    },
+    "2cbc3b2a-ca0a-11ef-9632-473301cd2734": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Thousand Sons",
+          "Tzeentch"
+        ],
+        "mentioned": [
+          "Chaos",
+          "Khorne",
+          "Slaanesh"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2cec3406-ca0a-11ef-9632-23a5cd268638": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Nurgle"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Death Guard",
+          "Nurgle"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2d1a41d4-ca0a-11ef-9632-ffd252d119e7": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Khorne",
+          "World Eaters"
+        ],
+        "mentioned": [
+          "Slaanesh",
+          "Tzeentch"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2d3f38b3-a3a1-42fe-8b97-681f521c6519": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Crimson Armada"
+        ],
+        "mentioned": [
+          "Dark Mechanicum"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2d49ad3e-ca0a-11ef-9632-77643d932ef4": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Emperor's Children",
+          "Slaanesh"
+        ],
+        "mentioned": [
+          "Aeldari"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "the Warp"
+        ]
+      }
+    },
+    "2d6e5d5e-87e0-42cf-80a0-a5110a7e45a5": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Roboute Guilliman"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Primarchs"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2d7cac5c-ca0a-11ef-9632-fb576eda587e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "The Emperor",
+          "Malal"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "The Warp"
+        ],
+        "mentioned": [
+          "Immaterium"
+        ]
+      }
+    },
+    "2dac4476-ca0a-11ef-9632-57793290a9f7": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Gork",
+          "Mork"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2ddf2a8a-ca0a-11ef-9632-4baf18a69ca6": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Jaghatai Khan"
+        ],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "White Scars"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Chogoris"
+        ],
+        "mentioned": []
+      }
+    },
+    "2e07d5df-8449-453a-8aa9-bf0ec15dabb3": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Astra Militarum",
+          "Vostroyan Firstborn"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Vostroya"
+        ],
+        "mentioned": []
+      }
+    },
+    "2e0ed3de-ca0a-11ef-9632-e71976c71e91": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Jaghatai Khan",
+          "Mortarion"
+        ],
+        "mentioned": [
+          "Horus",
+          "Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Death Guard",
+          "White Scars"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Terra"
+        ],
+        "mentioned": []
+      }
+    },
+    "2e3d3b70-ca0a-11ef-9632-4bed21a03e49": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Jaghatai Khan"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "White Scars"
+        ],
+        "mentioned": [
+          "Alpha Legion"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Terra"
+        ]
+      }
+    },
+    "2e6cd8ee-ca0a-11ef-9632-af8ad0ea978d": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Jaghatai Khan"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "White Scars"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Chogoris"
+        ],
+        "mentioned": [
+          "Terra"
+        ]
+      }
+    },
+    "2e9bb3b2-ca0a-11ef-9632-2f6a0ec1a64d": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Daemons of Tzeentch",
+          "Scintillating Legions"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2ec9269e-ca0a-11ef-9632-dbdde8ae5fac": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Great Unclean Ones"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Garden of Nurgle"
+        ],
+        "mentioned": []
+      }
+    },
+    "2ef79efc-ca0a-11ef-9632-df0c90f810af": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos Space Marines",
+          "Khorne",
+          "Blood Legions"
+        ],
+        "mentioned": [
+          "Bloodthirsters"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2f26a2d8-ca0a-11ef-9632-c31c8e7f43a2": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Emperor's Children",
+          "Slaanesh",
+          "Legions of Excess",
+          "Noise Marines"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2f4e8c8d-36b4-4a32-98a4-e74ba5dede3d": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Marines"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2f55335a-ca0a-11ef-9632-7f522a32a4ea": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos Undivided"
+        ],
+        "mentioned": [
+          "Dark Gods"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "the Warp"
+        ],
+        "mentioned": []
+      }
+    },
+    "2f734776-3289-49ef-b00e-922b3cdf0450": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Christoph",
+          "Marckus"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2f882756-ca0a-11ef-9632-837d17961129": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Leman Russ"
+        ],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Space Wolves"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Fenris"
+        ],
+        "mentioned": []
+      }
+    },
+    "2fc65256-ca0a-11ef-9632-1385d88493da": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Leman Russ"
+        ],
+        "mentioned": [
+          "Horus",
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Space Wolves"
+        ],
+        "mentioned": [
+          "Chaos",
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "2ff58e7c-ca0a-11ef-9632-7bf6000fed57": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Leman Russ"
+        ],
+        "mentioned": [
+          "Emperor of Mankind"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Space Wolves"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "3025054e-ca0a-11ef-9632-07c8dd302ba4": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Leman Russ"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Wolves"
+        ],
+        "mentioned": [
+          "Adeptus Astartes"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Fenris"
+        ],
+        "mentioned": []
+      }
+    },
+    "305620ac-ca0a-11ef-9632-4b950679bced": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tzeentch",
+          "Cult of Change"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "3084545e-ca0a-11ef-9632-c39faacf4235": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Nurgle"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Nurgle",
+          "Cult of Decay"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Garden of Nurgle"
+        ],
+        "mentioned": [
+          "the Imperium",
+          "the Warp"
+        ]
+      }
+    },
+    "30b1952c-ca0a-11ef-9632-8b5fd2e091fa": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Khorne",
+          "World Eaters"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "30de2bd2-ca0a-11ef-9632-eb6e5d1fc824": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Emperor's Children",
+          "Slaanesh",
+          "Cult of Excess"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "310b425c-ca0a-11ef-9632-8722bb2ea048": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Malice"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Doomed Ones"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "313b4114-ca0a-11ef-9632-af47e3b5cfda": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Void Dragon"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Mechanicus"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Mars"
+        ],
+        "mentioned": []
+      }
+    },
+    "316cf70e-ca0a-11ef-9632-5ba772441a91": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Rogal Dorn"
+        ],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Imperial Fists"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Inwit"
+        ],
+        "mentioned": []
+      }
+    },
+    "319d8360-ca0a-11ef-9632-e37b8772a56b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Rogal Dorn"
+        ],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Imperial Fists"
+        ],
+        "mentioned": [
+          "Chaos"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Terra"
+        ],
+        "mentioned": [
+          "Imperial Palace"
+        ]
+      }
+    },
+    "31cee41e-ca0a-11ef-9632-63bc7a7ccd05": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Rogal Dorn"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperial Fists"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Terra"
+        ],
+        "mentioned": []
+      }
+    },
+    "32007bd2-ca0a-11ef-9632-a30607dffb20": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Rogal Dorn"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperial Fists"
+        ],
+        "mentioned": [
+          "Adeptus Astartes",
+          "Traitor Legions"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Terra"
+        ],
+        "mentioned": []
+      }
+    },
+    "3230c652-ca0a-11ef-9632-e34d8cd6075e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Drukhari",
+          "Necrons"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "3260c442-ca0a-11ef-9632-57cb6e9ffc4e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chromes",
+          "Demiurg",
+          "Enoulians"
+        ],
+        "mentioned": [
+          "Imperium",
+          "Orks",
+          "T'au"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "3290e532-ca0a-11ef-9632-632e27ab485b": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "32c0290a-ca0a-11ef-9632-df06a03d0e87": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Hrud",
+          "Fra'al",
+          "Jindarii"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "32ef95aa-ca0a-11ef-9632-578414859d4d": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Jokaero",
+          "Khrave",
+          "Lacrymole"
+        ],
+        "mentioned": [
+          "Adeptus Mechanicus"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "33200460-ca0a-11ef-9632-0b2fbcab0f0c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Kroot"
+        ],
+        "mentioned": [
+          "T'au Empire"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Pech"
+        ],
+        "mentioned": [
+          "T'au Empire"
+        ]
+      }
+    },
+    "334d9b14-ca0a-11ef-9632-ef2242f3b61b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Loxatl",
+          "Medusae",
+          "Megarachnid"
+        ],
+        "mentioned": [
+          "Aeldari",
+          "Orks",
+          "Tyranids"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Murder"
+        ],
+        "mentioned": []
+      }
+    },
+    "337cfd5a-ca0a-11ef-9632-2781084eab81": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Konrad Curze"
+        ],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Night Lords"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Nostramo"
+        ],
+        "mentioned": []
+      }
+    },
+    "33aff6ba-ca0a-11ef-9632-13b711ca155c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Konrad Curze"
+        ],
+        "mentioned": [
+          "Horus",
+          "Emperor of Mankind"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Night Lords"
+        ],
+        "mentioned": [
+          "Imperium of Man"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "33e33eda-ca0a-11ef-9632-77518a9317a1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Konrad Curze"
+        ],
+        "mentioned": [
+          "Horus"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Night Lords"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Nostramo"
+        ],
+        "mentioned": []
+      }
+    },
+    "3411e014-ca0a-11ef-9632-172b1f388848": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Night Lords"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "3443e992-ca0a-11ef-9632-ef6e63486cfb": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "3472f142-ca0a-11ef-9632-f7c6debb991a": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "34a249e2-ca0a-11ef-9632-f7ef6ae150ad": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "34b510be-cd64-42b0-93d7-9b6e08ae065c": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "34d2926e-ca0a-11ef-9632-3f6400e1a38a": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "3500dae8-ca0a-11ef-9632-1b50b793ce13": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "352d80de-ca0a-11ef-9632-53b691041398": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "353065b7-324b-4fc1-940f-bbac7d3ee5a9": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Varak"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "World Eaters",
+          "Knights of Slaughter"
+        ],
+        "mentioned": [
+          "Dark Angels"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "355f7f62-ca0a-11ef-9632-ef8b11ced2d8": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "358fda40-ca0a-11ef-9632-c7bfbb29678a": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Nekulli",
+          "Oretti",
+          "Q'orl"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "35c18ff4-ca0a-11ef-9632-d34bb305f611": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Rak'Gol"
+        ],
+        "mentioned": [
+          "Rogue Traders"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "35f41028-ca0a-11ef-9632-67f799ef4ada": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "3621aeb6-ca0a-11ef-9632-df2c118474a4": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Slanni",
+          "Slaugth",
+          "Sslyth"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "365268d0-ca0a-11ef-9632-4b5752014c4c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Stryxis",
+          "Thyrrus",
+          "Umbra"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "36813e6c-ca0a-11ef-9632-8b0ef44791ae": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "T'au Empire",
+          "Galg",
+          "Nicassar",
+          "Tarellians",
+          "Vespid"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "T'au Empire"
+        ],
+        "mentioned": []
+      }
+    },
+    "36b000da-ca0a-11ef-9632-3fd281d6d491": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Viskeon",
+          "Yu'vath",
+          "Zoats"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "36cb9f16-cbff-42c2-ad15-fe7844c693f9": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Sanguinius"
+        ],
+        "mentioned": [
+          "Emperor of Mankind"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Blood Angels"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "36df1406-ca0a-11ef-9632-ff48817bb293": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos Unbound"
+        ],
+        "mentioned": [
+          "Malice"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "the Warp"
+        ],
+        "mentioned": []
+      }
+    },
+    "370e2c6e-29b2-471f-8a9d-0692a6c4a08c": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "37dc8716-a475-4080-8906-ea88c224fa14": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Carcharodons Astra"
+        ],
+        "mentioned": [
+          "Inquisition"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "3b8791ec-859f-4d65-b255-f6c50cf6f5e7": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necromunda"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Necromunda"
+        ],
+        "mentioned": []
+      }
+    },
+    "3c0cb7d0-1e48-4ae6-82ea-891751cbff23": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Vashtorr the Arkifane"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Ruinous Powers"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Forge of Souls"
+        ],
+        "mentioned": []
+      }
+    },
+    "3c530a7c-9349-46bf-ab70-45a78bce8df5": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Astra Militarum",
+          "Imperial Navy"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Jupiter"
+        ]
+      }
+    },
+    "3d6ec396-fa9a-4421-857a-3eb07aed08a6": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Angron"
+        ],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "World Eaters",
+          "War Hounds"
+        ],
+        "mentioned": [
+          "Eaters of Cities"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Nuceria"
+        ],
+        "mentioned": []
+      }
+    },
+    "3d7906ad-9ff1-459c-a43c-2ff62995fc8a": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Sanguinius"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Blood Angels"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "3eeea9c5-5e95-46b1-87e9-e02ee157a29b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Eldar"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Webway"
+        ],
+        "mentioned": []
+      }
+    },
+    "40ffdf61-3a1c-487e-b5db-00eff2875de4": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "41b77215-f6e5-4fd4-8f69-ed2abfab8b1c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Brass Legion",
+          "Crimson Armada"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "42074aa4-9c6b-4025-a640-f35218f5fe30": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Knights of Slaughter"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "421d45d2-4fe4-498e-ba74-bcfb9e5f9db4": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "Nurgle"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Chaos"
+        ],
+        "mentioned": [
+          "Nurgle"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "The Warp"
+        ],
+        "mentioned": []
+      }
+    },
+    "421f224b-408c-4887-b01d-a9f6618916a9": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "T'au Empire"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "T'au Empire"
+        ],
+        "mentioned": []
+      }
+    },
+    "4279b0a4-08f6-46b9-868b-b6f1db6f6e8c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Asdrubael Vect"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Dark Eldar",
+          "Kabal of the Black Heart"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Commorragh"
+        ],
+        "mentioned": [
+          "Webway"
+        ]
+      }
+    },
+    "42b9ee95-a915-44df-aee1-9a5ae91ded02": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Roboute Guilliman"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Ultramarines"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Ultramar"
+        ],
+        "mentioned": [
+          "Calth"
+        ]
+      }
+    },
+    "43d64130-a7a4-4a47-91e7-81d0e7dfe135": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "45289112-035d-4b66-9eb1-c1008005c897": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Inquisition",
+          "Adeptus Mechanicus"
+        ],
+        "mentioned": [
+          "Heretics"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "48a567c2-72ce-4d19-b391-2b035448108e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Ferrus Manus",
+          "Fulgrim"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Iron Hands"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Istvaan V"
+        ],
+        "mentioned": []
+      }
+    },
+    "48fe6605-3e5c-4839-9a41-5cb74c0dbeb4": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Knights of Slaughter"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "49ed7fe9-9d85-4435-8b9a-cb537b012c63": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Ancestor Lord Bilboa"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Squats"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "4b3acbab-5990-488e-b7a4-f2e584a04819": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "4bd66c35-aae8-4121-b6b5-7bc041aeb138": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Freebooterz"
+        ],
+        "mentioned": [
+          "Orks"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "4c6f0ede-62dd-4ded-99d7-d237e3daa068": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Swarmlord"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tyranids"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "4efba94d-a597-4425-8642-c36b8d91ca64": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Ork Freebooterz"
+        ],
+        "mentioned": [
+          "Orks"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "51051cc5-7de3-4dbc-80c5-ca6220fa81ce": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tyranids"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "51c6cbd3-cddf-4d4f-84ae-c2b6c70f852c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Knight Houses"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "5246382a-c1ec-4d2b-8ba2-b988284ae9c3": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Roboute Guilliman"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Ultramarines"
+        ],
+        "mentioned": [
+          "Tyranids"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Ultramar"
+        ],
+        "mentioned": []
+      }
+    },
+    "52b10f7d-d5aa-48b4-90b4-0c8ec13d7d3c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Drukhari",
+          "Haemonculi Covens"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "56005312-fe31-4b10-976c-0d4f8ffd43df": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Leagues of Votann"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "566abc49-f528-4d4f-bb81-ad84b5379aff": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Commander Shadowsun"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau"
+        ],
+        "mentioned": [
+          "Orks",
+          "Farsight Enclaves"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "580457b5-666c-4f94-9b5c-d64bfdb5504f": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "the Warp"
+        ]
+      }
+    },
+    "5eecb664-ad24-4f28-be27-8e5ae1f40f62": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "611e09cf-80fe-4976-911b-95a214dadd94": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "6373f71c-3140-4bef-a45d-3fe8c8fe3681": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "64081848-1a20-49f4-a021-9aa32ca72b3e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "Stefan"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Black Templars"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "64f5d611-17ae-4d28-ac7a-0aa366b996b9": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Inquisitor Kryptman"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks",
+          "Tyranids"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Octarius"
+        ],
+        "mentioned": []
+      }
+    },
+    "66be6055-5527-4fbf-84cb-20c57d32295f": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Ghazghkull Mag Uruk Thraka"
+        ],
+        "mentioned": [
+          "Gork",
+          "Mork"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "6b92044c-27bd-4899-ae00-85093b6b0dbf": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Terra"
+        ],
+        "mentioned": []
+      }
+    },
+    "6d6beb9c-56a0-4343-bea9-1b4390765f1d": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Arkhan Land"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": [
+          "Dark Angels",
+          "Ravenwing"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "6e5230c3-31b1-4c43-ab63-06acd6381374": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "749eff83-e84d-4d7f-871a-6bd159635545": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Roboute Guilliman",
+          "Konor Guilliman"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Ultramarines"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Macragge",
+          "Ultramar"
+        ],
+        "mentioned": []
+      }
+    },
+    "76c9001f-72f4-40cf-8419-5ab9fb9af0a8": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Marines",
+          "Chaos Space Marines"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "7b364444-71ea-4f9b-bd18-c0c2cd1c8eb9": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "80d92da7-8645-408c-9505-87f23f5fc29b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Eldrad Ulthran",
+          "Ghazghkull Thraka"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperium"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "80f64066-f61a-49b1-bb56-9e691c5a6213": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Terra"
+        ],
+        "mentioned": []
+      }
+    },
+    "824b87de-07cf-46e1-8e2e-4af6c5d2e5cb": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Angron"
+        ],
+        "mentioned": [
+          "Horus"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "World Eaters"
+        ],
+        "mentioned": [
+          "Chaos Daemons"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "8346a14c-ca0a-11ef-a74c-3bfbdb88ad50": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos Unbound"
+        ],
+        "mentioned": [
+          "Malice"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "the Warp"
+        ],
+        "mentioned": []
+      }
+    },
+    "83a44338-ca0a-11ef-a74c-dfaf0b4b7961": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "85ceba78-64b6-4f01-b6b8-a30253c90a08": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Horrors of Tzeentch",
+          "Lords of Change"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "88e4848c-51eb-455d-9c4a-b8fb7196898d": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "89850559-7e22-4714-af9f-e2b3565db205": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "900ee2c3-9e76-4122-a0d1-f0463fa79017": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "91b85d8c-a695-4ebd-8867-89c2c94992b6": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Magnus the Red"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons",
+          "Tyranids"
+        ],
+        "mentioned": [
+          "Adeptus Astartes"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "91cabe30-d070-11ef-ab4f-079098ad4b3f": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "T'au Empire"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "T'au Empire",
+          "Startide Nexus"
+        ],
+        "mentioned": []
+      }
+    },
+    "925df445-54b7-430b-857a-1e20fb92a5d1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Elysian Drop Troops",
+          "Ghost Wolves"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Elysium",
+          "Korelia"
+        ]
+      }
+    },
+    "925ee112-cbc7-11ef-ad47-17a0449115fc": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "League of Votann"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "94309396-1924-4502-8d47-7a0dbff77232": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Orks",
+          "Tyranids"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Segmentum Tempestus"
+        ],
+        "mentioned": []
+      }
+    },
+    "95b9f96c-40a0-408c-8e6d-04e5bc7960fe": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "95f98ff4-344d-11f0-bed7-070b87cd2b72": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Liber Malleus",
+          "The Reforge",
+          "The Unbound"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "The Maelstrom"
+        ],
+        "mentioned": []
+      }
+    },
+    "978fa201-8461-4911-ab72-d2bf695eb33e": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Ork Freebooterz"
+        ],
+        "mentioned": [
+          "Orks"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "97a46724-2577-4f16-bb33-92528632c904": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "9856350c-52ad-4721-bb91-4ed70b9030ac": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "99ae9328-d4d1-11ef-b641-b70ba9e3c52e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Cegorach",
+          "Dromlach",
+          "Isha",
+          "Kurnous"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Eldar",
+          "Ynnead"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "9a84a78d-71e0-43fd-b0bb-21b4af86b347": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Catachan Jungle Fighters",
+          "Harlequins",
+          "Adeptus Mechanicus",
+          "Orks"
+        ],
+        "mentioned": [
+          "Chaos Daemons",
+          "Slaanesh"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Cerberus II"
+        ],
+        "mentioned": []
+      }
+    },
+    "9d5ed5da-40be-41ac-8d28-899bbce7678b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Astra Crota"
+        ],
+        "mentioned": [
+          "Imperium",
+          "White Scars"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "9dd9eee4-48a9-4df1-a434-8099d8e0047b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Horus"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Black Legion"
+        ],
+        "mentioned": [
+          "Chaos"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "9f061fd8-e6fd-11ef-91bc-ab2ad101beec": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "a1a110e5-9f57-4749-8507-5b4cdf872781": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Ferrus Manus"
+        ],
+        "mentioned": [
+          "Fulgrim"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Iron Hands"
+        ],
+        "mentioned": [
+          "Emperor's Children"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Medusa"
+        ],
+        "mentioned": [
+          "Isstvan V"
+        ]
+      }
+    },
+    "a1c9cd7d-c71e-4b56-9951-2c183a4d2fad": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "a288ea04-b0c3-46d7-8f62-b6e30956c485": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "a3e7b690-c706-11ef-bc38-7b2c1edb2ac8": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Dark Angels",
+          "The Fallen",
+          "Deathwing",
+          "Inner Circle",
+          "Ravenwing"
+        ],
+        "mentioned": [
+          "Adeptus Astartes"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "a4e21648-f521-4c97-a4d8-ee9864ced4eb": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Sons of Malice"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "a592de0a-cbc7-11ef-af75-5f6d9addbec9": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "League of Votann"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "a70fe3dd-457a-4b76-a218-d73cdc674661": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "a729b7fc-ced8-11ef-bcb3-6fdd608849fe": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos Gods",
+          "Daemons"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Daemon Worlds",
+          "the Warp"
+        ],
+        "mentioned": [
+          "the Immaterium"
+        ]
+      }
+    },
+    "a82ff277-9d44-4095-b207-c13c76de262d": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Eldar Corsairs",
+          "Eldar Exodites"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "a896bcc8-8213-4b6b-b360-6290f10f2598": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Drukhari",
+          "Kabals"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Commorragh"
+        ],
+        "mentioned": []
+      }
+    },
+    "a8c80978-3423-4db3-bbaf-0899fd65392b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Chaos",
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "acc7cfd5-fce8-453d-9c56-e0420a081519": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes",
+          "Inquisition"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "ae10b944-199d-4932-bce4-f0c4c7ee7140": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "aea8e37e-c706-11ef-8e4c-330eda9c9a33": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos Gods"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "The Warp"
+        ],
+        "mentioned": []
+      }
+    },
+    "af814b84-ea6e-11ef-9e0c-ab785f9cd074": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "b538deff-dcec-4d28-9bc6-f235d91a2750": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Ork Freebooterz"
+        ],
+        "mentioned": [
+          "Orks"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "b6f8691c-7e43-4db9-9c06-d93d0c7b98d7": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "bedd135f-7077-4587-9683-af649b11e164": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Knights of Slaughter"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "bfe71d11-de65-4e33-84ac-97b868ff94da": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "The Emperor"
+        ],
+        "mentioned": [
+          "Horus"
+        ]
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "c04ffa00-6fc4-48cd-a653-286cf33551a5": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "c166671b-1b4c-43a6-b458-9bde16951ebd": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "c19183a1-32ad-4548-a5bc-3d49309ae5ed": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Angron"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Knights of Slaughter"
+        ],
+        "mentioned": [
+          "World Eaters"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "c2f92c40-65c4-4d5e-b7cc-714c89e916b9": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "c41be22a-f513-11ef-af08-23e3536840f0": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "c552d347-ef9f-4d36-9d62-c192f925b5b3": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Crimson Armada",
+          "House Belli Obligatus"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Black Hold"
+        ],
+        "mentioned": []
+      }
+    },
+    "c6086ced-2152-419e-bc0c-72e023c51717": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Space Marines"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "c63af5c4-ec0e-4a4a-b545-d2072dbea9e1": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "ca3cc409-b445-49f2-8a22-0f8c25b4a89a": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [
+          "Sanguinius"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Blood Angels"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "ca8cd81b-6ac2-4bc0-8de1-d14e55a3691c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Crimson Armada"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "cb6e958a-6d06-4d0c-8d4b-9d7039eb90fa": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos",
+          "Traitor Legions"
+        ],
+        "mentioned": [
+          "Khorne",
+          "Slaanesh"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "cc97b129-faba-4769-8089-a435924a24a3": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "Solomon Zane"
+        ]
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "ccd6b03e-641c-4f0b-acf7-f89bc687e649": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Xenos Biologis"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "ce50fe7d-bcd6-4733-9e3f-cf98317b4919": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes",
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Segmentum Pacificus"
+        ],
+        "mentioned": []
+      }
+    },
+    "cf31ab0b-efde-47ad-9d30-9275b4a5c505": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Chaos"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Segmentum Obscurus"
+        ],
+        "mentioned": [
+          "Cadia",
+          "Eye of Terror",
+          "Great Rift",
+          "Terra"
+        ]
+      }
+    },
+    "cfedfa7a-435a-4ac5-be84-07b023369951": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "d2fd0cb4-2e17-425f-99de-5b5d29875738": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Blood Angels",
+          "Ultramarines"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Baal",
+          "Ultramar",
+          "Ultima Segmentum"
+        ],
+        "mentioned": [
+          "Great Rift"
+        ]
+      }
+    },
+    "d301dc1e-fa43-4f87-9644-c1e408719187": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "d3e38d9f-7aa7-4779-8705-270447636527": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "d4920a2c-6dc5-4fe1-ab34-8ff471806e01": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Collegia Titanica",
+          "Adeptus Mechanicus"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "d504ee3c-c3db-445b-9ffc-f62096727bfb": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Duke Severus XIII"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Severan Dominate"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Kokyotos",
+          "Kulth",
+          "Ohmsworld"
+        ],
+        "mentioned": [
+          "Spinward Front"
+        ]
+      }
+    },
+    "d56e6d37-9464-4216-881f-4fe2e51293cf": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Fulgrim"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Emperor's Children"
+        ],
+        "mentioned": [
+          "Adeptus Astartes",
+          "Chaos Space Marines"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "d5eb2626-cd1a-11ef-8a90-f3f95417722d": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "League of Votann"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "d667a791-402b-4726-9130-f4b975808930": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Ferrus Manus"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Iron Hands"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Medusa"
+        ],
+        "mentioned": []
+      }
+    },
+    "d69270e9-744e-4801-ba21-e6760a8e1878": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Astra Militarum",
+          "Death Korps of Krieg"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "d7663870-9b71-4ed8-b6e1-6f05a8eff437": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Roboute Guilliman"
+        ],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes",
+          "Ultramarines"
+        ],
+        "mentioned": [
+          "Traitor Legions"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Terra",
+          "Ultramar"
+        ],
+        "mentioned": []
+      }
+    },
+    "d7765ebd-c86b-4fe6-8ffe-dd6cfa2eb711": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "World Eaters",
+          "Evil Sunz",
+          "Farsight Enclaves"
+        ],
+        "mentioned": [
+          "Flash Gitz"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "d8113db6-1fe3-4256-bb0d-35e3245f4e86": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Angron",
+          "Khârn the Betrayer"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "World Eaters"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Skalathrax"
+        ],
+        "mentioned": []
+      }
+    },
+    "d85b00ab-5802-4c28-a3f4-543d4efbcb1c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Eldar"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "d9fb513f-f011-41a2-ba4f-459eca9fa2e5": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Beast of Armageddon",
+          "Old One Eye",
+          "Void Dragon"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks",
+          "Tyranids"
+        ],
+        "mentioned": [
+          "Astra Militarum",
+          "Imperium",
+          "Adeptus Mechanicus"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Armageddon",
+          "Mars"
+        ],
+        "mentioned": []
+      }
+    },
+    "da5a9f5c-31b9-4856-89cd-0f1f9283cdc6": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Sanguinius"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Blood Angels"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "db6c8d88-37ce-409f-a967-0d30919ba2e7": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Eye of Terror",
+          "Great Rift"
+        ],
+        "mentioned": []
+      }
+    },
+    "db88fa1d-232e-44ef-83c7-44b47c0e0e39": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Sanguinius"
+        ],
+        "mentioned": [
+          "Horus",
+          "Madail"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Blood Angels"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Davin"
+        ],
+        "mentioned": []
+      }
+    },
+    "db8b6462-78b4-4b3b-a8f3-93d59abb69e5": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperial Knights"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "e0602ecf-2af1-464f-abaf-691f6e037ad3": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "The Emperor of Mankind"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Marine Legions"
+        ],
+        "mentioned": [
+          "Imperium of Man"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Terra"
+        ]
+      }
+    },
+    "e0d89bd1-84e6-4b38-aee4-32e4561de3df": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "e348545b-4373-417e-bc35-b2f59853b766": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Segmentum Solar"
+        ]
+      }
+    },
+    "e5bd4584-e115-40c8-8d97-a4a41b95f90d": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "T'au Empire",
+          "Kor'vattra"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "T'au Empire"
+        ],
+        "mentioned": []
+      }
+    },
+    "e8a8466e-c706-11ef-9fbe-b745dcd7d777": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Ecclesiarchy",
+          "Imperium of Man",
+          "Inquisition",
+          "Adeptus Mechanicus",
+          "High Lords of Terra"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Terra"
+        ],
+        "mentioned": []
+      }
+    },
+    "e9705d93-4fa8-4390-ba82-4d44cd8e52a0": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks",
+          "Beast Snagga Boyz"
+        ],
+        "mentioned": [
+          "Goffs",
+          "Bad Moons"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "e9b8b91b-18f4-48d1-bed8-7abf26b3dd13": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Angron"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "World Eaters"
+        ],
+        "mentioned": [
+          "War Hounds"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "ecc0cfd1-f3b1-47dc-82a7-7a31eaa168b9": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Mechanicus",
+          "Skitarii",
+          "Divisio Militaris"
+        ],
+        "mentioned": [
+          "Collegia Titanica"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "ecdb7e4b-fb36-4f22-8cfc-0f6e6ba098db": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "eedde4fd-fe23-41c8-8e7a-d76f90e05189": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Phoenix Lords"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Aeldari"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "f65e65eb-1fee-4c19-b9e8-88d9e72c28dd": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "f6ab5211-173a-4072-a764-144505d065ac": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Wolves"
+        ],
+        "mentioned": [
+          "Inquisition"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "f6c02c50-574f-4149-80c5-49d8ac91d2ca": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "f973b915-0e04-410b-8c55-da6a928349ee": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes",
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "fb398e29-f682-4396-a297-e5c31bd27528": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Marines"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "fbf7a06b-9dc1-4560-97fe-9398507ea262": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "fce4f5bf-a7ba-486a-9f0b-53be0fbf2117": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Death Songs Chapter",
+          "Iron Marines",
+          "Iron Skulls"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "fd3fd36d-0632-4fbb-85ba-17a66d521b7e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "fe0950ed-d8f0-42de-bbfa-bb7ef891385b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Militarum Tempestus"
+        ],
+        "mentioned": [
+          "Astra Militarum",
+          "Ecclesiarchy"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "http://lorehammer.podbean.com/e/04-the-rise-and-fall-of-the-eldar/": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Eldar"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Eye of Terror"
+        ],
+        "mentioned": []
+      }
+    },
+    "http://lorehammer.podbean.com/e/05-humanity-pre-imperium/": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "The Emperor of Mankind"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Terra"
+        ],
+        "mentioned": []
+      }
+    },
+    "http://lorehammer.podbean.com/e/episode-01-the-warp/": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Space Marines"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "The Warp"
+        ],
+        "mentioned": []
+      }
+    },
+    "http://lorehammer.podbean.com/e/episode-02-the-war-in-heaven/": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrontyr",
+          "Old Ones"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "http://lorehammer.podbean.com/e/episode-03-the-ork-infestation/": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "http://lorehammer.podbean.com/e/intro-to-lorehammer/": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/62534989": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Lamenters"
+        ],
+        "mentioned": [
+          "Adeptus Astartes"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/62590152": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/62623666": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Duke Severus XIII"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Severan Dominate"
+        ],
+        "mentioned": [
+          "High Lords of Terra"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": [
+          "Terra"
+        ]
+      }
+    },
+    "https://api.spreaker.com/episode/62681422": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necromunda",
+          "Cold Traders"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Necromunda"
+        ],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/62691287": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Duke Severus XIII"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Severan Dominate"
+        ],
+        "mentioned": [
+          "Astra Militarum",
+          "Imperium of Man",
+          "Orks"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Spinward Front"
+        ],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/62760823": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Titus"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks",
+          "Ultramarines"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/62779097": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Arbites"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/62801801": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Duke Severus XIII"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Severan Dominate"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Kokyotos",
+          "Kulth",
+          "Ohmsworld",
+          "Spinward Front"
+        ],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/62974139": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos",
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/62987252": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/62987317": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/62991774": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63009493": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Arbites"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63032074": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "Nurgle"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Chaos"
+        ],
+        "mentioned": [
+          "Nurgle"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "The Warp"
+        ],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63073152": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Be'lakor"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63098743": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Szarekh"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons"
+        ],
+        "mentioned": [
+          "C'tan",
+          "Necrontyr"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63115870": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Commander Farsight",
+          "Commander Shadowsun",
+          "Commander Puretide",
+          "Kais"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau Empire"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63189927": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Swarmlord"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tyranids"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63197959": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks",
+          "Beast Snagga Boyz"
+        ],
+        "mentioned": [
+          "Goffs",
+          "Bad Moons"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63256237": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Aeldari",
+          "Asuryani",
+          "Eldar Rangers"
+        ],
+        "mentioned": [
+          "Craftworlds"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63305825": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "The Emperor of Mankind"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Primarchs"
+        ],
+        "mentioned": [
+          "Imperium of Man"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63322184": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Lion El'Jonson"
+        ],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Dark Angels"
+        ],
+        "mentioned": [
+          "The Order"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Caliban"
+        ],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63328677": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Space Marine Chapters",
+          "Space Marine Legions"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63394251": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Lion El'Jonson",
+          "Luther"
+        ],
+        "mentioned": [
+          "Roboute Guilliman"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Dark Angels"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Caliban"
+        ],
+        "mentioned": [
+          "Terra"
+        ]
+      }
+    },
+    "https://api.spreaker.com/episode/63455019": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Lion El'Jonson"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Dark Angels"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "https://api.spreaker.com/episode/63455456": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Sanguinius"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Ministorum",
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/06-humanity-the-great-crusade-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "The Emperor of Mankind"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/08-humanity-age-of-the-imperium-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/0aed9cc2-fead-56e1-a5bc-dfb37b0fb396": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "The Hive Mind"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tyranids"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/10-eldar-the-exiled-ones-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Craftworld Aeldari",
+          "Harlequins"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/11-tau-the-greater-good-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/12-necron-awakening-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Tomb Worlds"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/13-tyranids-the-great-devourer-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tyranids"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/14-cicatrix-maledictum-the-great-rift-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Cicatrix Maledictum"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/15-the-minor-xenos-races-part-1-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/16-the-minor-xenos-races-part-2-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Minor Xenos Races"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/17-abhumans-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Abhumans"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/18-the-minor-xenos-races-part-3-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/19-the-minor-xenos-races-part-4-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Minor Xenos races"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/1abf8c88-a1f7-5de5-a320-25e9337e1498": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Iron Hands"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/20-creation-of-a-space-marine-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/21-forces-of-the-astartes-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Marines",
+          "Primaris Space Marines"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/22-the-imperial-guard-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Astra Militarum"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/22810f71-d32f-5976-930e-af7cfe923a71": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/23-adeptus-mechanicus-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Mechanicus"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/24-the-ecclesiarchy-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "God Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Ecclesiarchy"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/25-harlequins-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Harlequins"
+        ],
+        "mentioned": [
+          "Eldar"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/26-ctan-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "C'tan"
+        ],
+        "mentioned": [
+          "Necrons",
+          "Old Ones"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/2608bcbe-af47-5c97-aa3e-766c4c0f0b39": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "T'au Empire"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Damocles Gulf",
+          "T'au Empire"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/27-ork-warlords-1c42ea10a42a6669d136e806db5131ed": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Grukk the Face-Eater"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/27a61661-1979-5aed-9429-950e963b04f8": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Roboute Guilliman"
+        ],
+        "mentioned": [
+          "Belisarius Cawl"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Primaris Space Marines"
+        ],
+        "mentioned": [
+          "Imperium of Man"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/28-tyranid-hive-fleets-a8bb4cf27e73ae41fb2deae6a3799b8c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tyranids"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/29-t%e2%80%99au-culture-1681b81a2ac8fe45e55a0d9fc0fc129d": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "T'au Empire"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "T'au Empire"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/30-chaos-ascendant-720f73b0faa4e20cc67893a4e88fc741": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/31-nobody-expected-the-inquisition-63c7f70cd5f535c3ed62dc94d39a94aa": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Emperor of Mankind"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Inquisition"
+        ],
+        "mentioned": [
+          "Ordos Majoris"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/32-ordo-malleus-and-the-grey-knights-d883f794932f3665e77a679f33af40cb": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Grey Knights",
+          "Ordo Malleus"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/33-ordo-xenos-and-the-deathwatch-4669b0c9818919aa21cedf48789d03c8": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Deathwatch",
+          "Ordo Xenos"
+        ],
+        "mentioned": [
+          "Inquisition"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/34-ordo-hereticus-and-the-adepta-sororitas-dcd3776bbbfd6ca4539a7e98ffae3292": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Ordo Hereticus",
+          "Adepta Sororitas"
+        ],
+        "mentioned": [
+          "Inquisition"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/35-the-path-of-the-eldar-35c029f01f1f6f8701389a5bcc78d561": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Aeldari"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/36-commorragh-the-dark-city-cc0540ed9d038ff9cf96b79899318584": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Drukhari"
+        ],
+        "mentioned": [
+          "Chaos"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Commorragh"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/37-ork-klans-ff8dab4e28d7ec97f8684018f3d86798": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Bugrat Skumdreg"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Goffs",
+          "Orks",
+          "Bad Moons",
+          "Evil Sunz"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/38-genestealer-cults-8516b50f3ba44530a80ff9f1ebd0c9fc": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Genestealer Cults"
+        ],
+        "mentioned": [
+          "Tyranids"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/39-necron-dynasties-d95f53e943626d1f2d0f47bbbf8caba8": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons",
+          "Sautekh Dynasty",
+          "Mephrit Dynasty"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/40-tau-the-first-sphere-of-expansion-81b912f2c9ed4ed584d94e090fc4a58b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "T'au Empire"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "T'au Empire"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/41-the-dark-mechanicum-06301e617e059b515cc5d2703851ad30": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Dark Mechanicum"
+        ],
+        "mentioned": [
+          "Traitor Titan Legions",
+          "Chaos Space Marines"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/42-travelling-the-void-d67169019bc1181c83b8d3510eae7ba3": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/43-navis-nobilite-9add78ea8a6d00ac3d47007e25c98152": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Navis Nobilite"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/44-the-astronomican-dad8d50a67a77d6b57b6c3a95a06ee10": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Astronomican"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/45-skitarii-dcdb44354ae012051f54027ddd588392": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Mechanicus",
+          "Skitarii"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/46-aeldari-path-of-the-warrior-part-1-57a54a2db224c327b9e1af0b5a7bbddf": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Khaela Mensha Khaine"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Aeldari",
+          "Aspect Warriors"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/47-aeldari-path-of-the-warrior-part-2-ec6caf8a462969f0a3959cff138b663f": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Aeldari",
+          "Aspect Warriors"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/48-grots-snots-and-squigs-92d5868e0513eb65d36ff861a27ad4e9": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/49-kabals-of-the-dark-eldar-5138ed814645de37f519edae36e469b4": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Dark Eldar",
+          "Kabals"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Commorragh"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/50-tyranid-biomorphs-3505e38fba0530a90eb5bece04a3af00": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tyranids"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/51-crypts-of-the-necron-5121f079bb047de94814b5424c5f1d8e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Stavon IX"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/52-the-second-sphere-of-expansion-943cf03f2f456fdab3e42c04629d00b8": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "T'au"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/53-heretic-astartes-aa408074cad4d24041c71206dea6a64f": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "the Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Heretic Astartes"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/54-imperial-planet-classification-b2191ed5a98fd4cefdf8e22f1b58484c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Imperium of Man"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/55-adeptus-custodes-the-right-hand-848c1faf817b8d872676a7271d35adf7": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": [
+          "God-Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Custodes"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/56-sisters-of-silence-the-left-hand-f6e20ed4af97ba1b68b46b5827025107": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Sisters of Silence"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/57e3dd40-e276-569a-a2af-52904f7ab6fc": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/59-oddboyz-and-odd-boyz-51c8bb817ba9b9cb9ba133ea26c8cf9a": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/6ff7750e-d409-58a1-b2b4-bde738e81793": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Lorehammer"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/73c50aa4-aceb-58f6-9f96-969d60053a86": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/75e8d948-6b97-5d68-9726-281baaa7c812": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Nurgle"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Space Marines",
+          "Adeptus Mechanicus",
+          "Nurgle",
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/7a6de118-88f0-5e27-8849-0f4bfe0a66c3": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Abaddon the Despoiler"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Black Legion"
+        ],
+        "mentioned": [
+          "Chaos Space Marines"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Eye of Terror"
+        ],
+        "mentioned": [
+          "Cadia"
+        ]
+      }
+    },
+    "lorehammer.podbean.com/828e292f-532b-5ce7-bc0a-0f8122a09b11": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Weirdboyz"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/85d90cb3-572d-5147-94ac-8afdc2f5fecc": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Commander Farsight"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau Empire",
+          "Farsight Enclaves"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/930a5976-a393-5f4f-a0e3-0cf0523af355": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/a0792e5f-7dff-5742-8c53-ff0a5f792d4f": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes",
+          "Astra Militarum",
+          "Heretic Astartes",
+          "Adeptus Mechanicus",
+          "Necrons",
+          "Abyssal Krakens",
+          "Fenrisian Einherjar",
+          "Nihivokh Dynasty"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Cedrinum",
+          "Nurien Alpha"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/a12215f3-cc35-57a4-adc0-8a255e825173": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tyranids"
+        ],
+        "mentioned": [
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/a8d4bc22-a202-508e-9e05-f81eee1afefd": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Aeldari"
+        ],
+        "mentioned": [
+          "Space Marines"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/adb27b0d-91ab-5f46-9156-415b8f14bf21": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Drukhari",
+          "Wych Cults"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-10-cold-open-stories-062ebf702d4e2b26f0bd0c9bd7e5a177": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-11-marks-obliterators-and-eriks-nekhebet-dynasty-b51b658da38c69f402c67a1f1943d0ea": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons",
+          "Iron Skulls"
+        ],
+        "mentioned": [
+          "Obliterators"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-12-an-impromptu-conversation-d0609e20a34198b33a9f3f32666d361f": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "T'au",
+          "Ultramarines"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-13-recapping-the-lorehammer-game-day-c5811b587b94eda50165dcec406069b1": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-14-mark-and-trevor-forever-3c86b881af72f0a38ada55cbd66be633": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Orks"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-4-homebrew-xenos-and-shelf-armies-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-5-the-knights-of-house-arokis-63e78d2eaf5075a7dc27dc3101beab5b": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "House Arokis"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-6-the-nekhebet-dynasty-d0886beaf851331757c34d5919b1e5f7": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-7-solarray-enclave-cba03ec8cddc22a7dba170b062361050": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [
+          "Mon'praus"
+        ],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-8-the-dylan-show-07043f58fa29a1a1abacb20264fecd83": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-9-mark-contracts-the-obliterator-virus-3eac9d105980faf93e451e48c1a6e427": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Obliterators"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-female-representation-and-our-speculation-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/bonus-episode-warhammer-plot-holes-inconsistencies-and-our-gripes-24b00f90dd1700f333f1ee8f1a4eedd1": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/c09ed4b3-1c2d-5234-89e0-0c1a5d930207": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [
+          "Abaddon the Despoiler"
+        ],
+        "mentioned": [
+          "Horus",
+          "The Emperor"
+        ]
+      },
+      "factions": {
+        "primary": [
+          "Black Legion"
+        ],
+        "mentioned": [
+          "Chaos",
+          "Imperium"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/c2f46fa9-bc44-574f-99a0-336b06caad2a": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Legio Cybernetica",
+          "Adeptus Mechanicus"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/c4447809-a247-5466-bdbb-17190519fa6e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/cac70444-1299-5fda-a962-4dddb4897b47": {
+      "episodeKind": "interview",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/cdb6ebe7-cd49-5325-bba5-7553769a5c8c": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Bleachskullz",
+          "Nyuserra Dynasty",
+          "Order of the Crimson Lily",
+          "Stormbreakers"
+        ],
+        "mentioned": [
+          "Adeptus Astartes",
+          "Necrons",
+          "Orks",
+          "Sisters of Battle"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/d00ce0bc-111f-56b2-940e-3f4fd7186c29": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/d144103e-811f-3482-94f6-1c468a5f6dab": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Chaos Undivided"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/d1ac969f-ab22-528b-a26a-7a6b33dea254": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Necrons"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/d593c4a3-8d76-55eb-842d-f0703e119a33": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Adeptus Astartes"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/d7f28192-7fc0-5928-8bbf-3999e4ffb05f": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/d8d637e2-09ab-52ed-8e71-375b4571fe8f": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/e6bfc4e3-c0d1-5af1-97c2-f6ddc17fb46e": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/eternal-horizon-part-1-1355a723d7a53090937578fa1b4b6d75": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/eternal-horizon-part-2-a892b69dc995e91c5352dd675891249e": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/eternal-horizon-part-3-ae65faeb1ffc867b3f2a352e73fad5b6": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/eternal-horizon-part-4-d467b723b63ad57bc2ff3f8f33754fa8": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/eternal-horizon-part-6-efbc0d2a97a17568d724013f8de6cdfe": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/eternal-horizon-part-7-78a310d508bb8ce4e901a6397c0ea3e4": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Tau"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/f23a5aa5-3138-5b7f-af14-aa8acf69dc10": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": [
+          "Orks"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/ff6e1226-f7ca-3c67-b9cb-20232d7cf3e5": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/important-information-lorehammer-is-hosting-a-tournament-db479e0fa9cd439435258a660d21a5da": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/listener-lore-1-2708b425c446fa3e72a2511fba6e387d": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/listener-lore-2-5c21209628fbb38e547012e575b7c6c8": {
+      "episodeKind": "other",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/listener-lore-3-356a07e3cf73e11d3fe73d1fed7cb575": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Astra Militarum",
+          "House Koldere"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Viđrfold"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/listener-lore-4-d1810303a6f73a92bec8d3ff085d885d": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Deathwatch",
+          "Orks",
+          "Thousand Sons",
+          "Astral Knights"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/listener-lore-5-35d368edc13ba263eccbf39d43122315": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Astra Militarum",
+          "Adeptus Mechanicus"
+        ],
+        "mentioned": [
+          "Tyranids"
+        ]
+      },
+      "locations": {
+        "primary": [],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/listener-lore-6-822fcbbae105e64c97353e8bfdfb4147": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Dark Angels",
+          "Dark Eldar",
+          "Imperial Knights"
+        ],
+        "mentioned": []
+      },
+      "locations": {
+        "primary": [
+          "Commorragh"
+        ],
+        "mentioned": []
+      }
+    },
+    "lorehammer.podbean.com/listener-lore-7-ed125c527efaeedb84f66799a97f5985": {
+      "episodeKind": "lore",
+      "characters": {
+        "primary": [],
+        "mentioned": []
+      },
+      "factions": {
+        "primary": [
+          "Crimson Fists",
+          "Loota Kult",
+          "Void Hunter Chapter"
+        ],
+        "mentioned": [
+          "Space Marines",
+          "Astra Militarum",
+          "Orks"
+        ]
+      },
+      "locations": {
+        "primary": [
+          "Rynn's World"
+        ],
+        "mentioned": []
+      }
+    }
+  }
+}
