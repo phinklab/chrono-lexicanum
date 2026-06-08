@@ -87,6 +87,12 @@ yarn-error.log*
 # 800-Buch-Voll-Lauf, deshalb wie /ingest/.cache/ gitignored.
 /ingest/.llm-cache/
 
+# --- cc-direct podcast tagging working files (Brief 131) --------------------
+# run-podcast-tag-loop.sh + podcast-cc-tag.ts stage per-run working files here
+# (the acquire manifest + per-batch input/output). Regenerated each run; the
+# committed contract is ingest/podcasts/<slug>.extractions.json, not these.
+/ingest/podcasts/.cc-tag/
+
 # --- ingestion pipeline state (resumable run state, NOT diffs) -------------
 # /ingest/.state/ holds the in-progress run snapshot — regenerated each run,
 # wiped on success, irrelevant to other developers. Diffs in /ingest/.last-run/

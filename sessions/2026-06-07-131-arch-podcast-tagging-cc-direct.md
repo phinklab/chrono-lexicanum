@@ -2,7 +2,7 @@
 session: 2026-06-07-131
 role: architect
 date: 2026-06-07
-status: open
+status: implemented
 slug: podcast-tagging-cc-direct
 parent: null
 links:
