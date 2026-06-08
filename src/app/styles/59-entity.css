@@ -203,10 +203,9 @@ main.entity::before {
     gap: 48px;
     align-items: start;
   }
+  /* No drawn divider (Brief 131) — the 48px grid gap separates the rail. */
   .entity-view__body--railed .entity-view__rail {
     margin-top: 0;
-    padding-left: 28px;
-    border-left: 1px solid var(--cl-ghost);
   }
 }
 
@@ -293,14 +292,74 @@ main.entity::before {
   border-bottom-color: var(--cl-bone);
 }
 
-/* ── Works cards ────────────────────────────────────────────────────────── */
+/* ── Works groups (collapsible) + borderless tiles ──────────────────────── */
 
 .entity-view__work-group {
-  margin-top: 24px;
+  margin-top: 18px;
 }
 
 .entity-view__work-group:first-of-type {
-  margin-top: 0;
+  margin-top: 8px;
+}
+
+/* Disclosure header — mirrors the podcast-year accordion (pod-year__toggle):
+   a full-width quiet mono row that brightens on hover, a cyan chevron that
+   rotates 90° when open, and a faint count pushed to the right. */
+.entity-view__group-head {
+  margin: 0;
+}
+
+.entity-view__group-toggle {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 9px 2px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  transition: color 0.18s;
+}
+
+.entity-view__group-toggle:hover {
+  color: var(--cl-bone);
+}
+
+.entity-view__group-toggle:focus-visible {
+  outline: 1px solid var(--cl-cyan);
+  outline-offset: 2px;
+}
+
+.entity-view__group-chevron {
+  flex: 0 0 auto;
+  color: var(--cl-cyan);
+  font-size: 15px;
+  line-height: 1;
+  transition: transform 0.18s;
+}
+
+.entity-view__group-toggle[aria-expanded="true"] .entity-view__group-chevron {
+  transform: rotate(90deg);
+}
+
+.entity-view__group-label {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.entity-view__group-count {
+  margin-left: auto;
+  flex: 0 0 auto;
+  color: var(--cl-faint);
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.16em;
 }
 
 .entity-view__cards {
@@ -309,7 +368,7 @@ main.entity::before {
   gap: 10px;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 6px 0 0;
 }
 
 .entity-view__card-li {
@@ -317,35 +376,29 @@ main.entity::before {
   min-width: 0;
 }
 
+/* Borderless tile (Brief 131): a faint cool raise above the dark card defines
+   the segment — no drawn outline. Linked tiles warm to a cyan wash + lift on
+   hover; inert (mute) tiles keep the quiet fill with a dimmed title. */
 .entity-view__card {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   gap: 6px;
   min-width: 0;
-  padding: 12px 14px;
-  border: 1px solid var(--cl-ghost);
-  border-radius: 2px;
-  background: linear-gradient(
-    180deg,
-    rgba(8, 12, 20, 0.52),
-    rgba(4, 8, 14, 0.62)
-  );
+  padding: 13px 15px;
+  border-radius: 4px;
+  background: rgba(150, 180, 230, 0.05);
   text-decoration: none;
 }
 
 .entity-view__card--link {
-  transition: border-color 0.18s, background 0.18s, transform 0.18s;
+  transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
 }
 
 .entity-view__card--link:hover {
-  border-color: var(--cl-cyan-dim);
-  background: linear-gradient(
-    180deg,
-    rgba(8, 12, 20, 0.7),
-    rgba(4, 8, 14, 0.78)
-  );
+  background: rgba(156, 230, 255, 0.1);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.7);
 }
 
 .entity-view__card-title {
@@ -387,6 +440,8 @@ main.entity::before {
   display: flex;
 }
 
+/* Soft filled pill — no outline (Brief 131); a faint cool fill carries the
+   shape, cyan warms the fill + text on hover/focus for the linked chips. */
 .entity-view__chip {
   display: inline-flex;
   align-items: center;
@@ -394,28 +449,25 @@ main.entity::before {
   font-size: var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  padding: 5px 10px;
-  border: 1px solid var(--cl-cyan-dim);
-  color: var(--cl-cyan);
-  background: rgba(156, 230, 255, 0.04);
-  border-radius: 2px;
+  padding: 6px 11px;
+  color: var(--cl-bone);
+  background: rgba(150, 180, 230, 0.06);
+  border-radius: 3px;
   text-decoration: none;
 }
 
 .entity-view__chip--link {
-  transition: color 0.18s, background 0.18s, border-color 0.18s;
+  transition: color 0.18s, background 0.18s;
 }
 
 .entity-view__chip--link:hover {
-  color: var(--cl-bone);
-  background: rgba(156, 230, 255, 0.08);
-  border-color: var(--cl-cyan);
+  color: var(--cl-cyan);
+  background: rgba(156, 230, 255, 0.12);
 }
 
 .entity-view__chip--mute {
   color: var(--cl-dim);
-  border-color: var(--cl-ghost);
-  background: transparent;
+  background: rgba(150, 180, 230, 0.04);
 }
 
 .entity-view__chip-role {

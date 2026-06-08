@@ -99,9 +99,9 @@ export default async function CompendiumOverview() {
                   </p>
                 ) : null}
 
-                <Link href={href} className="cmp-door__all">
-                  View all {c.label} →
-                </Link>
+                {/* Visual CTA only — the whole card is the link via the
+                    stretched `.cmp-door__head::after`. */}
+                <span className="cmp-door__all">View all {c.label} →</span>
               </article>
             </li>
           );

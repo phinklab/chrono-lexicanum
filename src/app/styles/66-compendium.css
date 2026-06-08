@@ -264,6 +264,15 @@ body:has(main.compendium) .site-bg::after {
   row-gap: 3px;
   text-decoration: none;
 }
+/* Stretch the head link's hit area over the whole card so the blurb + stat text
+   between the links is clickable too (Brief 131). `.cmp-door` is the positioned
+   ancestor; the `View all` line is now a plain span, so no nested anchor sits
+   under this overlay. */
+.cmp-door__head::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
 .cmp-door__eyebrow {
   grid-area: eyebrow;
   font-family: var(--font-plex-mono), ui-monospace, monospace;

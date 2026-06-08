@@ -16,7 +16,7 @@
  * The visual vocabulary is borrowed from /buecher (archive-gold hairline rows,
  * gold pills); the filter *logic* is its own — no portage of the works filters.
  */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { PodcastEpisode } from "@/app/podcasts/loader";
 
@@ -97,6 +97,42 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
   // Manual disclosure state for the year headings — empty = all collapsed (the
   // requested first state). A year is in the set iff the reader expanded it.
   const [openYears, setOpenYears] = useState<Set<YearKey>>(new Set());
+  // Deep-link target — a podcast link in an entity panel lands here as
+  // `/podcasts/[show]#ep-<id>`. The id of the episode to highlight, or null.
+  const [linkedId, setLinkedId] = useState<string | null>(null);
+
+  // Read the `#ep-<id>` hash on mount (and on later in-page hash changes):
+  // expand the episode's year so its row mounts, then flag it as linked. The
+  // scroll + highlight-clear is a second effect, after the row has rendered.
+  useEffect(() => {
+    function applyHash() {
+      const m = window.location.hash.match(/^#ep-(.+)$/);
+      if (!m) return;
+      const id = decodeURIComponent(m[1]);
+      const ep = episodes.find((e) => e.id === id);
+      if (!ep) return;
+      const year = yearOf(ep.pubDateMs);
+      setOpenYears((cur) => (cur.has(year) ? cur : new Set(cur).add(year)));
+      setLinkedId(id);
+    }
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, [episodes]);
+
+  // Once the linked row is in the DOM (its year is open), scroll it into view and
+  // clear the flag after the CSS fade so the mark doesn't linger.
+  useEffect(() => {
+    if (!linkedId) return;
+    const el = document.getElementById(`pod-ep-${linkedId}`);
+    if (!el) return;
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+    const t = setTimeout(() => setLinkedId(null), 2600);
+    return () => clearTimeout(t);
+  }, [linkedId]);
 
   // Kind toggles reflect only the kinds this show actually carries; a show that
   // is pure 'lore' gets no kind row at all.
@@ -349,6 +385,7 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
                         <EpisodeRow
                           ep={ep}
                           playing={playingId === ep.id}
+                          linked={linkedId === ep.id}
                           onToggle={() =>
                             setPlayingId((cur) => (cur === ep.id ? null : ep.id))
                           }
@@ -369,10 +406,12 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
 function EpisodeRow({
   ep,
   playing,
+  linked,
   onToggle,
 }: {
   ep: PodcastEpisode;
   playing: boolean;
+  linked: boolean;
   onToggle: () => void;
 }) {
   const dur = formatDuration(ep.durationSec);
@@ -384,7 +423,12 @@ function EpisodeRow({
 
   return (
     <>
-      <div className={`pod-ep${playing ? " is-playing" : ""}`}>
+      <div
+        id={`pod-ep-${ep.id}`}
+        className={`pod-ep${playing ? " is-playing" : ""}${
+          linked ? " is-linked" : ""
+        }`}
+      >
         {canPlay ? (
           <button
             type="button"
