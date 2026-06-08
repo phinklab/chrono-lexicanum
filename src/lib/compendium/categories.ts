@@ -77,7 +77,6 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
     noun: "primarch",
     blurb: "The twenty sons of the Emperor — the demigods who led the Legions.",
     grouped: false,
-    pending: true,
   },
   {
     slug: "charaktere",

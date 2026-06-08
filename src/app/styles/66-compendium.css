@@ -208,10 +208,12 @@ body:has(main.compendium) .site-bg::after {
 }
 
 /* ── Overview: the hall of doorways ───────────────────────────────────────── */
-/* Frameless threshold blocks — no glass fill, no border, no L-bracket corners,
-   no icons (the /ask + /podcasts language). Each door is a block stacked in one
-   column, divided by a single cyan hairline and lifted by a cyan wash on hover;
-   the scriptorium photo / void shows straight through. */
+/* Frameless washed segments — the /ask "two-segment" treatment. A 2-up grid:
+   Factions featured full-width on top, the other four in a 2×2 below. Each panel
+   carries a whisper of void wash (no border, no radius, no shadow — the /ask
+   `.ask-card` discipline) so it reads as a discrete surface over the backdrop,
+   lifts on hover, and pins its "view all" to the foot. No peek list — a short
+   intro and one quiet coverage stat. */
 .cmp-overview {
   margin: 0;
 }
@@ -219,28 +221,33 @@ body:has(main.compendium) .site-bg::after {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
 }
 .cmp-doors__cell {
   list-style: none;
   display: block;
+}
+/* Factions leads — the first segment spans both columns as the featured door;
+   the other four fall into the 2×2 below it. */
+.cmp-doors__cell:first-child {
+  grid-column: 1 / -1;
 }
 .cmp-door {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;
-  padding: 22px 8px;
-  border-top: 1px solid color-mix(in oklch, var(--cl-cyan) 12%, transparent);
+  height: 100%;
+  padding: clamp(20px, 2.4vw, 28px);
+  /* The /ask "segment" wash: a whisper of void over the backdrop photo so each
+     panel reads as a discrete surface — no border, no radius, no shadow. */
+  background: rgba(2, 3, 10, 0.25);
   transition: background 180ms;
 }
-.cmp-doors__cell:first-child .cmp-door {
-  border-top: none;
-}
 .cmp-door:hover {
-  background: rgba(156, 230, 255, 0.05);
+  background: rgba(14, 22, 30, 0.5);
 }
 .cmp-door:focus-within {
   outline: 1px solid var(--cl-cyan);
@@ -277,6 +284,17 @@ body:has(main.compendium) .site-bg::after {
 .cmp-door:hover .cmp-door__label {
   color: var(--cl-cyan);
 }
+/* The featured Factions segment — more presence: extra padding, a larger title
+   and a cyan eyebrow marking it as the flagship door (it spans the full top row). */
+.cmp-door--hero {
+  padding: clamp(24px, 3vw, 36px);
+}
+.cmp-door--hero .cmp-door__label {
+  font-size: clamp(25px, 3vw, 32px);
+}
+.cmp-door--hero .cmp-door__eyebrow {
+  color: var(--cl-cyan);
+}
 .cmp-door__count {
   grid-area: count;
   justify-self: end;
@@ -289,59 +307,30 @@ body:has(main.compendium) .site-bg::after {
 }
 .cmp-door__blurb {
   margin: 0;
+  max-width: 62ch;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
   line-height: 1.42;
   color: var(--cl-dim);
 }
-.cmp-door__peek {
-  list-style: none;
-  margin: 2px 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
-.cmp-door__peek > li {
-  list-style: none;
-  border-top: 1px solid color-mix(in oklch, var(--cl-cyan) 10%, transparent);
-}
-.cmp-door__peek > li:first-child {
-  border-top: none;
-}
-.cmp-door__peek-item {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 6px 2px;
-  text-decoration: none;
-  transition: background 160ms;
-}
-.cmp-door__peek-item:hover {
-  background: rgba(156, 230, 255, 0.06);
-}
-.cmp-door__peek-name {
-  min-width: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-sm);
-  font-weight: var(--fw-read);
-  color: var(--cl-bone);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  transition: color 160ms;
-}
-.cmp-door__peek-item:hover .cmp-door__peek-name {
-  color: var(--cl-cyan);
-}
-.cmp-door__peek-meta {
-  flex: none;
+/* The data-forward coverage line — one quiet mono stat where the peek list used
+   to be. The number is the single live cyan value; the words rest in dim, and the
+   figure lifts to full cyan with the panel on hover. */
+.cmp-door__stat {
+  margin: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-xs);
-  letter-spacing: 0.12em;
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cl-faint);
+  color: var(--cl-dim);
+}
+.cmp-door__stat-n {
+  color: var(--cl-cyan-dim);
+  transition: color 180ms;
+}
+.cmp-door:hover .cmp-door__stat-n {
+  color: var(--cl-cyan);
 }
 .cmp-door__pending {
   margin: 2px 0 0;
@@ -368,6 +357,16 @@ body:has(main.compendium) .site-bg::after {
 .cmp-door__all:hover,
 .cmp-door__all:focus-visible {
   color: var(--cl-cyan);
+}
+
+/* Staggered page-load reveal — the segments fade up in sequence (the house
+   chronoFade), keyed off the per-cell `--door-i` set in page.tsx. Motion-gated:
+   reduced-motion readers get them instantly. */
+@media (prefers-reduced-motion: no-preference) {
+  .cmp-doors__cell {
+    animation: chronoFade 0.5s ease-out both;
+    animation-delay: calc(var(--door-i, 0) * 70ms);
+  }
 }
 
 /* ── Directory: one category, dense rows ──────────────────────────────────── */
@@ -693,8 +692,16 @@ body:has(main.compendium) .site-bg::after {
     margin-top: -56px;
     padding: 18px 14px 0;
   }
+  /* The two-up grid collapses to a single column; the featured door no longer
+     needs to span (every segment is already full-width when stacked). */
+  .cmp-doors {
+    grid-template-columns: 1fr;
+  }
+  .cmp-doors__cell:first-child {
+    grid-column: auto;
+  }
   .cmp-door {
-    padding: 18px 4px;
+    padding: 18px 16px;
   }
   .cmp-row {
     grid-template-columns: 32px 14px minmax(0, 1fr) auto 14px;
@@ -713,7 +720,6 @@ body:has(main.compendium) .site-bg::after {
   .cmp-row__chevron,
   .cmp-door,
   .cmp-door__label,
-  .cmp-door__peek-item,
   .cmp-door__all {
     transition: none;
   }
