@@ -1,0 +1,398 @@
+{
+  "$schema": "entity-blurbs-v1",
+  "entityType": "character",
+  "blurbs": [
+    {
+      "id": "roboute_guilliman",
+      "blurb": "Primarch of the Ultramarines and author of the Codex Astartes; resurrected in the 41st Millennium, he now leads the Imperium as Lord Commander after ten thousand years.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Roboute_Guilliman",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "magnus_the_red",
+      "blurb": "Primarch of the Thousand Sons, a peerless psyker whose pursuit of sorcery led his Legion to ruin and into the service of the Chaos God Tzeentch.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Magnus_the_Red",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ferrus_manus",
+      "blurb": "Primarch of the Iron Hands, slain by his fallen brother Fulgrim during the Dropsite Massacre on Istvaan V.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ferrus_Manus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vulkan",
+      "blurb": "Primarch of the Salamanders, a renowned smith and Perpetual known for his compassion and his devotion to protecting humanity.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Vulkan",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "mortarion",
+      "blurb": "Primarch of the Death Guard, who turned traitor during the Horus Heresy and became a daemon primarch of the Plague God Nurgle.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Mortarion",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "horus",
+      "blurb": "Primarch of the Sons of Horus and Warmaster of the Imperium, whose corruption by Chaos sparked the galaxy-spanning civil war known as the Horus Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Horus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "lion_el_jonson",
+      "blurb": "Primarch of the Dark Angels, recently returned after millennia lost in the warp; his ancient feud with his lieutenant Luther created the Fallen.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Lion_El'Jonson",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "leman_russ",
+      "blurb": "Primarch of the Space Wolves, a ferocious warrior who departed on a mysterious quest and is prophesied to return at the Imperium's hour of greatest need.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Leman_Russ",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "lorgar",
+      "blurb": "Primarch of the Word Bearers, the first primarch to embrace Chaos worship, who set the Horus Heresy in motion and became a daemon primarch.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Lorgar",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "fulgrim",
+      "blurb": "Primarch of the Emperor's Children, whose quest for perfection led him to fall to the Chaos God Slaanesh and become a daemon primarch.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Fulgrim",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "alpharius",
+      "blurb": "The last-discovered primarch and twin of Omegon, who together led the Alpha Legion; master of infiltration, his death and identity were deliberately obscured.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Alpharius",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "omegon",
+      "blurb": "Twin brother of Alpharius and co-commander of the secretive Alpha Legion, whose very existence was concealed even within the Legion.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Omegon",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "angron",
+      "blurb": "Primarch of the World Eaters, enslaved by neural implants that drove him to berserk rage; he fell to the Blood God Khorne and became a daemon primarch.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Angron",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "rogal_dorn",
+      "blurb": "Primarch of the Imperial Fists and master of siegecraft, who oversaw the defence of the Imperial Palace during the Siege of Terra.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Rogal_Dorn",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "corax",
+      "blurb": "Primarch of the Raven Guard, a master of stealth warfare who vanished into the Eye of Terror after the Heresy in search of atonement.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Corax",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "konrad_curze",
+      "blurb": "Primarch of the Night Lords, a tormented figure plagued by violent visions who ruled through terror and was eventually assassinated at his own invitation.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Konrad_Curze",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sanguinius",
+      "blurb": "Primarch of the Blood Angels, a winged and beloved figure who died defending Terra in single combat against the Warmaster Horus.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sanguinius",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "jaghatai_khan",
+      "blurb": "Primarch of the White Scars, a master of swift cavalry-style warfare from the plains world of Chogoris.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Jaghatai_Khan",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "perturabo",
+      "blurb": "Primarch of the Iron Warriors, a brilliant and bitter siege-master who turned traitor and became a daemon primarch of Chaos.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Perturabo",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "the_emperor",
+      "blurb": "The immortal founder and ruler of the Imperium of Mankind, a being of vast psychic power who has sat entombed on the Golden Throne of Terra since the Horus Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Emperor_of_Mankind",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ibram_gaunt",
+      "blurb": "A Colonel-Commissar of the Astra Militarum who leads the Tanith First-and-Only; the protagonist of the Gaunt's Ghosts novels set in the Sabbat Worlds Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ibram_Gaunt",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "gregor_eisenhorn",
+      "blurb": "An Inquisitor of the Ordo Xenos and protagonist of the Eisenhorn novels, whose career charts a gradual slide from puritan orthodoxy toward radicalism.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Gregor_Eisenhorn",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "gideon_ravenor",
+      "blurb": "An Inquisitor and former pupil of Eisenhorn, paralysed and confined to a life-support chair, who leads his own retinue across the Ravenor novels.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Gideon_Ravenor",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ciaphas_cain",
+      "blurb": "A celebrated Commissar of the Astra Militarum and self-styled Hero of the Imperium, whose comedic memoirs recount a heroic reputation he insists is undeserved.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ciaphas_Cain",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "kharn_the_betrayer",
+      "blurb": "A champion of the World Eaters and the Blood God Khorne, infamous for slaughtering friend and foe alike in unrelenting battle-frenzy.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Kharn_the_Betrayer",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "uriel_ventris",
+      "blurb": "A Captain of the Ultramarines and protagonist of Graham McNeill's Ultramarines novels, known for bending the strictures of the Codex Astartes.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Uriel_Ventris",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ragnar_blackmane",
+      "blurb": "A Wolf Lord of the Space Wolves, raised from a Fenrisian youth to one of the Chapter's most celebrated heroes; protagonist of the Space Wolf novels.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ragnar_Blackmane",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "cato_sicarius",
+      "blurb": "Captain of the Ultramarines Second Company, a decorated and ambitious officer renowned for both battlefield brilliance and pride.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Cato_Sicarius",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "marneus_calgar",
+      "blurb": "Chapter Master of the Ultramarines and Lord of Macragge, one of the most distinguished commanders in the Imperium.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Marneus_Calgar",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "mephiston",
+      "blurb": "Chief Librarian of the Blood Angels, called the Lord of Death for mastering the Black Rage that consumes his Chapter's psyche.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Mephiston",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "asdrubael_vect",
+      "blurb": "Supreme Overlord of the Dark Eldar city of Commorragh, a ruthless and ancient schemer who rose from low birth to rule the Dark City.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Asdrubael_Vect",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "eldrad_ulthran",
+      "blurb": "The most renowned Farseer of Craftworld Ulthwe, an ancient Aeldari psyker who manipulates events across the galaxy to safeguard his people.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Eldrad_Ulthran",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "cypher",
+      "blurb": "An enigmatic member of the Fallen Dark Angels, the Lord of the Fallen, who roams the Imperium toward Terra for purposes unknown.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Cypher",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "typhus",
+      "blurb": "Herald of Nurgle and host of the Destroyer Hive, a lord of the Death Guard who once served as Mortarion's First Captain under the name Calas Typhon.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Typhus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "szarekh",
+      "blurb": "The Silent King, last overlord of the Necrons, who led their race in the war against the C'tan and now returns to unite the dynasties against the galaxy's threats.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Szarekh",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "amberley_vail",
+      "blurb": "An Inquisitor of the Ordo Xenos who compiles and annotates the memoirs of Commissar Ciaphas Cain, with whom she is romantically entangled.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Amberley_Vail",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "fabius_bile",
+      "blurb": "A renegade Apothecary of the Emperor's Children, an amoral master of genetic and flesh-craft notorious for his monstrous creations.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Fabius_Bile",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "honsou",
+      "blurb": "A Warsmith of the Iron Warriors, a half-breed risen to command who becomes a recurring antagonist across Graham McNeill's Ultramarines novels.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Honsou",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "luther",
+      "blurb": "The greatest of the Dark Angels' followers and Lion El'Jonson's mentor, whose fall to Chaos created the Fallen and doomed the world of Caliban.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Luther",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "elim_rawne",
+      "blurb": "Major and one of the Tanith First's founding officers, Rawne is Gaunt's most dangerous subordinate — capable, ruthless, and long harbouring a personal hatred for his colonel-commissar. Despite that enmity, his battlefield competence makes him indispensable.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Elim_Rawne",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hlaine_larkin",
+      "blurb": "The Tanith First's foremost marksman, Larkin is a long-las specialist whose uncanny accuracy borders on preternatural. Volatile and eccentric — earning him the nickname 'Mad' — his mental instability in no way diminishes his value as the regiment's deadliest sniper.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hlaine_Larkin",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "oan_mkoll",
+      "blurb": "Chief Scout of the Tanith First-and-Only, Mkoll is regarded as one of the finest reconnaissance specialists in the Sabbat Worlds Crusade. Silent, self-contained, and supernaturally gifted in fieldcraft, he is the standard against which all Ghost scouts are measured.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Oan_Mkoll",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "viktor_hark",
+      "blurb": "Commissar assigned to the Tanith First-and-Only, Hark initially arrives as an adversarial watchdog but over time becomes a steadying force within the regiment. A former Navy officer, he brings an unusual breadth of experience to his duties.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Viktor_Hark",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "jurgen",
+      "blurb": "Aide and dogsbody to Commissar Ciaphas Cain, Jurgen is unassuming in manner but possesses a rare psychic blank quality — his null aura disrupts psykers and daemons alike. Malodorous and methodical, he has saved Cain's life on more occasions than either likely cares to count.",
+      "source_kind": "manual",
+      "confidence": 0.96,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Jurgen",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tona_criid",
+      "blurb": "A former Vervunhive ganger who joined the Tanith First-and-Only after the Chaos siege of Verghast, Criid rose to become the regiment's first female sergeant and eventual commander of A Company. Her grit and street-honed instincts forged her into one of the Ghosts' most dependable leaders.",
+      "source_kind": "manual",
+      "confidence": 0.94,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tona_Criid",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "colm_corbec",
+      "blurb": "Colonel and second-in-command of the Tanith First-and-Only, Corbec is the regiment's warm, boisterous heart — a beloved figure who balances Gaunt's discipline with a father's approachability. A native Tanith, he carries the weight of his lost world with quiet dignity.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Colm_Corbec",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "caffran",
+      "blurb": "Trooper Dermon Caffran is one of the Tanith First's original Tanith-born soldiers — young, earnest, and a steady presence in the ranks. His relationship with Tona Criid and their adoption of two orphaned children give him an unusually domestic anchor amid the grind of the crusade.",
+      "source_kind": "manual",
+      "confidence": 0.91,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Dermon_Caffran",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ban_daur",
+      "blurb": "A former Vervun Primary PDF officer, Captain Ban Daur joined the Tanith First-and-Only after the siege of Verghast and became a key liaison between the regiment's native Tanith core and its large Verghastite contingent. Reliable and personable, he excels in support and command roles.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ban_Daur",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "regina_kasteen",
+      "blurb": "Colonel and commanding officer of the Valhallan 597th, Kasteen is Ciaphas Cain's direct superior and a capable, pragmatic commander. She rebuilt the regiment's cohesion after a damaging internal schism, and her steady professionalism provides the institutional backbone Cain so conspicuously avoids.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Regina_Kasteen",
+      "checkedAt": "2026-06-09"
+    }
+  ]
+}

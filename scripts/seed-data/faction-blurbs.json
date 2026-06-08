@@ -1,0 +1,454 @@
+{
+  "$schema": "entity-blurbs-v1",
+  "entityType": "faction",
+  "blurbs": [
+    {
+      "id": "astra_militarum",
+      "blurb": "The Imperium's vast army of unaugmented human soldiers, raised from countless worlds; it bears the brunt of the Imperium's wars through sheer numbers, massed armour, and artillery.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Astra_Militarum",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "adeptus_astartes",
+      "blurb": "The Space Marines: genetically engineered, power-armoured superhuman warriors organised into Chapters, created from the gene-seed of the primarchs to serve as the Imperium's elite shock troops.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Adeptus_Astartes",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "heretic_astartes",
+      "blurb": "The Chaos Space Marines: Space Marine traitors who turned from the Imperium to serve the Chaos Gods, many surviving for millennia through the corruption of the warp.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Chaos_Space_Marines",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "inquisition",
+      "blurb": "A secretive Imperial agency whose Inquisitors wield near-unlimited authority to root out heresy, mutation, and alien influence, answerable to almost no one.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Inquisition",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "mechanicus",
+      "blurb": "The Adeptus Mechanicus: the Imperium's tech-priesthood, based on Mars, which worships the Machine God and controls the manufacture of its weapons, vehicles, and technology.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Adeptus_Mechanicus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "adeptus_titanicus",
+      "blurb": "The Titan Legions of the Collegia Titanica, a branch of the Adeptus Mechanicus that crews the god-machine Titans — towering war-engines fielded in the Imperium's greatest battles.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Collegia_Titanica",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "commissariat",
+      "blurb": "The Officio Prefectus body of commissars: political officers attached to the Astra Militarum to enforce discipline and morale, often by summary execution.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Commissar",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "custodes",
+      "blurb": "The Adeptus Custodes: the Emperor's personal guardians, individually crafted superhuman warriors who watch over the Imperial Palace on Terra.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Adeptus_Custodes",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sisters_of_battle",
+      "blurb": "The Adepta Sororitas, or Sisters of Battle: the militant arm of the Ecclesiarchy, an all-female order of zealous warriors devoted to the Imperial Creed.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Adepta_Sororitas",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ecclesiarchy",
+      "blurb": "The Adeptus Ministorum, the Imperium's official state church, which promotes worship of the God-Emperor across a million worlds.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ecclesiarchy",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "imperial_navy",
+      "blurb": "The Imperium's space-faring fleet, responsible for void warfare, troop transport, and the defence of Imperial space between the stars.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Imperial_Navy",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "officio_assassinorum",
+      "blurb": "A clandestine Imperial organisation of temple-trained assassins, deployed to eliminate grave threats to the Imperium through targeted killing.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Officio_Assassinorum",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "grey_knights",
+      "blurb": "A secret Space Marine Chapter of psykers raised to combat daemons, serving as the militant arm of the Ordo Malleus.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Grey_Knights",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "chaos",
+      "blurb": "The malign powers of the warp — the Dark Gods Khorne, Tzeentch, Nurgle, and Slaanesh and their daemonic and mortal followers — and the Imperium's eternal spiritual enemy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Chaos",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "eldar",
+      "blurb": "The Aeldari: an ancient, long-lived xenos race of great psychic and technological sophistication, scattered across the galaxy after the fall of their empire.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Aeldari",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tau",
+      "blurb": "A young, technologically advanced xenos civilisation of the Eastern Fringe, united under the philosophy of the Greater Good and expanding through conquest and diplomacy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tau_Empire",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "necrons",
+      "blurb": "An ancient race of undying machine-warriors reawakening across the galaxy after sixty million years of hibernation to reclaim their former empire.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Necrons",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tyranids",
+      "blurb": "A migratory swarm of extragalactic alien organisms directed by the Hive Mind, which consumes all biomass in its path to fuel further evolution.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tyranids",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "orks",
+      "blurb": "A brutal, fungoid xenos race that lives for war, spread across the galaxy in vast warlike tribes and counted among the Imperium's most persistent threats.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Orks",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "imperium",
+      "blurb": "The Imperium of Man: the vast, authoritarian interstellar empire of humanity, spanning a million worlds and ruled in the name of the God-Emperor of Mankind.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Imperium",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ultramarines",
+      "blurb": "A renowned loyalist Space Marine Chapter born of the gene-seed of Roboute Guilliman, ruling the realm of Ultramar from the world of Macragge.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ultramarines",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "blood_angels",
+      "blurb": "A loyalist Space Marine Chapter descended from the primarch Sanguinius, renowned for nobility and artistry yet cursed by the Red Thirst and the Black Rage.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Blood_Angels",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "space_wolves",
+      "blurb": "A loyalist Space Marine Chapter from the ice world of Fenris, descended from Leman Russ and known for wolf-themed savagery and disregard for the Codex Astartes.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Space_Wolves",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "dark_angels",
+      "blurb": "The First Legion, a loyalist Space Marine Chapter descended from Lion El'Jonson that secretly hunts the Fallen — traitors from its own ranks — to atone for an ancient betrayal.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Dark_Angels",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "raven_guard",
+      "blurb": "A loyalist Space Marine Chapter descended from the primarch Corax, specialising in stealth, raids, and lightning strikes.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Raven_Guard",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "salamanders",
+      "blurb": "A loyalist Space Marine Chapter from the volcanic world of Nocturne, descended from Vulkan and known for master craftsmanship, flame weaponry, and protecting civilians.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Salamanders",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "imperial_fists",
+      "blurb": "A loyalist Space Marine Chapter descended from Rogal Dorn, renowned as siege specialists and defenders who held the walls of the Imperial Palace during the Horus Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Imperial_Fists",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "iron_hands",
+      "blurb": "A loyalist Space Marine Chapter descended from Ferrus Manus that replaces flesh with bionics, rejecting what it sees as the weakness of the body.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Iron_Hands",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "white_scars",
+      "blurb": "A loyalist Space Marine Chapter descended from Jaghatai Khan, masters of fast-moving hit-and-run warfare drawn from the plains world of Chogoris.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/White_Scars",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sons_of_horus",
+      "blurb": "The XVI Legion, Horus's own Space Marines, who formed the heart of his rebellion during the Horus Heresy and were later reforged as the Black Legion.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sons_of_Horus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "night_lords",
+      "blurb": "A traitor Space Marine Legion descended from Konrad Curze that wages war through terror and atrocity rather than open devotion to the Chaos Gods.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Night_Lords",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "thousand_sons",
+      "blurb": "A traitor Space Marine Legion of sorcerers led by the primarch Magnus the Red, whose pursuit of forbidden knowledge drove its fall to the Chaos God Tzeentch.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Thousand_Sons",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "world_eaters",
+      "blurb": "A traitor Space Marine Legion descended from Angron, reduced to frenzied butchery by neural implants and their devotion to the Blood God Khorne.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/World_Eaters",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "word_bearers",
+      "blurb": "A traitor Space Marine Legion descended from Lorgar, the first to embrace Chaos worship, which spread the faith of the Dark Gods and helped instigate the Horus Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Word_Bearers",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "iron_warriors",
+      "blurb": "A traitor Space Marine Legion descended from Perturabo, master siege-breakers embittered against the Imperium and now in service to Chaos.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Iron_Warriors",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "alpha_legion",
+      "blurb": "A traitor Space Marine Legion led by the twin primarchs Alpharius and Omegon, masters of infiltration and misdirection whose true loyalties remain ambiguous.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Alpha_Legion",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "death_guard",
+      "blurb": "A traitor Space Marine Legion descended from Mortarion, dedicated to the Plague God Nurgle and inured to harm through bloated, disease-ridden resilience.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Death_Guard",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "emperors_children",
+      "blurb": "A traitor Space Marine Legion descended from Fulgrim, whose quest for perfection led it to fall to the Chaos God Slaanesh.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Emperor's_Children",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "black_legion",
+      "blurb": "A traitor Space Marine force forged by Abaddon the Despoiler from the remnants of the Sons of Horus, now the foremost of the Chaos Space Marine warbands.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Black_Legion",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "black_templars",
+      "blurb": "A loyalist Space Marine Chapter and successor of the Imperial Fists, a zealous crusading brotherhood that wages perpetual war against the enemies of the Emperor.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Black_Templars",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "deathwatch",
+      "blurb": "An elite Space Marine force drawn from many Chapters to serve the Ordo Xenos, specialising in combating alien threats.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Deathwatch",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tanith_first",
+      "blurb": "The Tanith First-and-Only, nicknamed Gaunt's Ghosts: an Astra Militarum light-infantry regiment of scouts and stealth troops, the sole survivors of the lost world of Tanith.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tanith_First_and_Only",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "harlequins",
+      "blurb": "Wandering Aeldari warrior-performers who serve the Laughing God Cegorach, blending lethal combat with theatrical dance to keep alive the myths of their race.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Harlequins",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ynnari",
+      "blurb": "A cross-Aeldari faction united by devotion to Ynnead, the nascent god of the dead, and led by the Emissary Yvraine in a bid to save their race.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ynnari",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "genestealer_cults",
+      "blurb": "Hidden cults of human-alien hybrids spread by Genestealer infection, which subvert Imperial worlds from within as a vanguard for the Tyranid hive fleets.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Genestealer_Cult",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "adeptus_arbites",
+      "blurb": "The Imperium's interstellar law-enforcement agency, which upholds Imperial Law and crushes rebellion on worlds across the galaxy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Adeptus_Arbites",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ordo_xenos",
+      "blurb": "The Ordo Xenos is the branch of the Inquisition tasked with hunting alien threats to the Imperium. Its agents study, contain, and exterminate xenos species — and may sanction the use of alien artefacts or even operatives when the mission demands it.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ordo_Xenos",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ordo_malleus",
+      "blurb": "The Ordo Malleus exists to combat the daemonic — hunting possessions, incursions, and the corrupting influence of Chaos within the Imperium's own ranks. Its Inquisitors wield psychic and arcane knowledge that would condemn lesser men as heretics.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ordo_Malleus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ordo_hereticus",
+      "blurb": "The Ordo Hereticus polices humanity itself — rooting out witches, rogue psykers, religious deviancy, and sedition from within the Imperium. It fields the Sisters of Battle as its chamber militant and is feared as much by Imperial citizens as by any xenos.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ordo_Hereticus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "verghastite_ghosts",
+      "blurb": "The Verghastites are survivors of Vervunhive who were absorbed into the Tanith First-and-Only after the siege of their world. Their addition roughly doubled the regiment's strength and brought new blood — including its first female troopers — into Gaunt's command.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Tanith_First-and-Only",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "blood_pact",
+      "blurb": "The Blood Pact are a disciplined Chaos warband sworn to Khorne and the Archon Urlock Gaur, operating across the Sabbat Worlds. Unlike most Chaos rabble they fight with military order and proper equipment, making them a uniquely dangerous opponent for the Imperial Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Blood_Pact",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "belladon",
+      "blurb": "The 81st Belladon were an Astra Militarum regiment folded into the Tanith First-and-Only to replenish its dwindling numbers. The merger brought fresh soldiers — and fresh tensions — as Belladon troopers integrated into the tight-knit culture of Gaunt's Ghosts.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Tanith_First-and-Only",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sons_of_sek",
+      "blurb": "The Sons of Sek are a Chaos warband built by the Sabbat Worlds warlord Anakwanar Sek as a rival to Urlock Gaur's Blood Pact. Trained to Imperial Guard standards, they are unusually regimented for an Archenemy force and serve as the primary antagonists in the later Gaunt's Ghosts novels.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sons_of_Sek",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "urdeshi",
+      "blurb": "The Urdeshi regiments are Astra Militarum forces raised on the forge world Urdesh in the Sabbat Worlds, known for their shock-assault capability and distinctive black-and-white camouflage. As soldiers of a heavily industrialised world, they are regarded as among the most disciplined and well-equipped troops in the Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Urdesh",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "valhallan_597th",
+      "blurb": "The Valhallan 597th is a mixed-gender Astra Militarum regiment and the primary military unit in Sandy Mitchell's Ciaphas Cain novels. Drawn from the ice world of Valhalla, its soldiers are tough, stoic, and perpetually assigned to whatever crisis the reluctant hero Commissar Cain is trying to survive.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Valhallan_597th",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "phantine_air_corps",
+      "blurb": "The Phantine Air Corps is an Astra Militarum regiment raised on the hive-topped peaks of Phantine, fielding aviators rather than ground troops. They appear in the Gaunt's Ghosts series and take centre stage in Dan Abnett's standalone novel Double Eagle, where they contest air superiority over the Sabbat Worlds.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Phantine_Air_Corps",
+      "checkedAt": "2026-06-09"
+    }
+  ]
+}

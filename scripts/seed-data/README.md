@@ -47,6 +47,9 @@ lives in your local archive only.
 | `ask-questions.json` | Recommendation questionnaire | consumed by `src/lib/recommend/` (future) |
 | `collection-gaps.json` | Known incomplete collection/omnibus membership where the collection remains a normal book but constituent links are not complete yet | future roster maintenance / `work_collections` completion |
 | `podcast-shows.json` | Podcast show registry (`slug`, `feedUrl`, `appleId`, `podcastGuid`, curated show-level `links[]`) for the multi-show ingest | consumed by `scripts/ingest-podcast.ts` (`--show`/`--all`); **not** loaded by `scripts/seed.ts` |
+| `faction-blurbs.json` | Short factual blurbs (2–3 sentences) for factions, keyed by `factions.id` — growing toward full coverage | curation layer (no schema); see "Notes on entity-blurbs" below |
+| `character-blurbs.json` | Short factual blurbs (2–3 sentences) for characters, keyed by `characters.id` — growing toward full coverage | curation layer (no schema) |
+| `location-blurbs.json` | Short factual blurbs (2–3 sentences) for worlds/locations, keyed by `locations.id` — growing toward full coverage | curation layer (no schema) |
 
 ## Notes on `books.json` shape
 
@@ -90,6 +93,45 @@ take string arrays. Facet ids must exist in `facet-catalog.json` — the seed
 script validates before opening a transaction and throws a clear error on
 typos. Service ids must exist in `services.json`. Person ids must exist in
 `persons.json`.
+
+## Notes on entity-blurbs (Board 122-B3)
+
+`faction-blurbs.json` / `character-blurbs.json` / `location-blurbs.json` are a thin
+**curation layer over existing entity ids — no schema, no migration, no `seed.ts`
+change** (Spec 129 decision #4: "Kurations-Schicht = committed JSON über vorhandene IDs,
+kein Schema"). The `factions` / `characters` / `locations` tables have no blurb column;
+the blurb text lives only in these JSONs and is read at request time by the consuming
+loader (Product strand). They are **not** loaded by `scripts/seed.ts`.
+
+Each file is `{ "$schema": "entity-blurbs-v1", "entityType": "...", "blurbs": [...] }`.
+Each blurb row carries provenance, mirroring `audiobook-narrators.json`:
+
+```jsonc
+{
+  "id": "thousand_sons",        // MUST exist in the matching entity seed file
+  "blurb": "A Space Marine Legion of sorcerer-warriors led by the primarch Magnus the Red; their pursuit of forbidden knowledge drove their fall to the Chaos god Tzeentch.",
+  "source_kind": "manual",       // hand-authored composition (DB source_kind enum)
+  "confidence": 0.95,            // 0.85–0.95; lower if a fact was hard to confirm
+  "sourceUrl": "https://wh40k.lexicanum.com/wiki/Thousand_Sons",  // web verification source
+  "checkedAt": "2026-06-09"
+}
+```
+
+The B3 first pass seeded a **curated subset** (113 entities: door-factions, primarchs +
+spotlight characters, the 28 Cartographer-visible worlds), then a 30-entity long-tail
+re-pilot brought the total to **143** (56 factions / 49 characters / 38 locations). The
+remaining ~838 entities are filled by the **full-coverage sweep**, run via subscription
+Sonnet subagents (NOT the metered API) — see
+[`scripts/runbooks/entity-blurbs-full-run.md`](../runbooks/entity-blurbs-full-run.md).
+
+- **What's left:** `npm run blurbs:remaining` (`scripts/list-uncovered-blurbs.ts`) diffs
+  the entity seed files against the blurb files and prints the remainder as ready-to-feed
+  batches. This is the resume oracle — there is no separate progress ledger.
+- **Integrity:** `scripts/test-entity-blurbs.ts` (`npm run test:blurbs`) asserts shape,
+  that every blurb id resolves to an existing entity (no dangling), no duplicates, and
+  that each blurb stays ≤ 460 chars / ≤ 3 sentences — a dangling or over-long blurb fails
+  the build. Set `BLURBS_REQUIRE_FULL=1` to additionally require 100 % coverage (the final
+  gate after the sweep completes).
 
 ## Editing
 
