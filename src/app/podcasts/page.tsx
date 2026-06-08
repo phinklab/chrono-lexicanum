@@ -6,7 +6,15 @@ import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
-import { loadPodcastIndex, type PodcastIndexShow } from "./loader";
+import PodcastsSearch from "@/components/podcast/PodcastsSearch";
+import { loadBrowseBooks } from "@/app/werke/loader";
+import { buildSearchIndex } from "@/app/werke/filters";
+import {
+  loadPodcastIndex,
+  loadPodcastSearchIndex,
+  buildPodcastSuggestions,
+  type PodcastIndexShow,
+} from "./loader";
 
 export const metadata: Metadata = {
   title: "Podcasts — Chrono Lexicanum",
@@ -39,10 +47,20 @@ function yearSpan(first: number | null, last: number | null): string | null {
 }
 
 export default async function PodcastsPage() {
-  const shows = await loadPodcastIndex();
+  // The show hall plus the unified search index — books (from /werke) merged with
+  // podcasts so /podcasts carries the same archive-wide search Home and /werke do.
+  const [shows, { books }, podcastData] = await Promise.all([
+    loadPodcastIndex(),
+    loadBrowseBooks(),
+    loadPodcastSearchIndex(),
+  ]);
   const totalEpisodes = shows.reduce((n, s) => n + s.episodeCount, 0);
   const showWord =
     shows.length === 1 ? "One show" : `${shows.length} shows`;
+  const searchIndex = [
+    ...buildSearchIndex(books),
+    ...buildPodcastSuggestions(podcastData),
+  ];
 
   return (
     <main className="podcasts">
@@ -94,6 +112,8 @@ export default async function PodcastsPage() {
       </section>
 
       <div className="pod-body">
+        {searchIndex.length > 0 && <PodcastsSearch index={searchIndex} />}
+
         {shows.length > 0 && (
           <div className="pod-toolbar">
             <span className="pod-toolbar__count">

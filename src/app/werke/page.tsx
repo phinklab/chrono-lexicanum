@@ -10,6 +10,10 @@ import ScrollScrim from "@/app/buecher/ScrollScrim";
 import WerkeFilters from "./WerkeFilters";
 import { loadBrowseBooks, type BrowseBook } from "./loader";
 import {
+  loadPodcastSearchIndex,
+  buildPodcastSuggestions,
+} from "@/app/podcasts/loader";
+import {
   applyWorksFilters,
   buildSearchIndex,
   FORMAT_ORDER,
@@ -66,7 +70,10 @@ function hrefWith(base: WorksParams, key: string, value: string): string {
 export default async function WerkePage({ searchParams }: WerkePageProps) {
   const sp = await searchParams;
   const params = parseWorksParams(sp);
-  const { books } = await loadBrowseBooks();
+  const [{ books }, podcastData] = await Promise.all([
+    loadBrowseBooks(),
+    loadPodcastSearchIndex(),
+  ]);
 
   const filtered = applyWorksFilters(books, params);
   const filtering = isFiltered(params);
@@ -85,11 +92,14 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
     (f) => ({ value: f, label: FORMAT_LABELS[f] ?? f }),
   );
 
-  // The typeahead index (books + authors + factions + facets + formats), built
-  // server-side from the same data the list renders so it never goes stale.
-  // Shared with Home via buildSearchIndex; the client console ranks it per
-  // keystroke (rankSuggestions).
-  const searchIndex = buildSearchIndex(books);
+  // The typeahead index — books (+ authors/factions/facets/formats) merged with
+  // podcasts (episodes + shows), built server-side from the same data the lists
+  // render so it never goes stale. Shared with Home/podcasts; the client console
+  // ranks it per keystroke (rankSuggestions), books first then podcasts.
+  const searchIndex = [
+    ...buildSearchIndex(books),
+    ...buildPodcastSuggestions(podcastData),
+  ];
 
   // Resolve the active facet (if any) to a display chip.
   let activeFacet: { id: string; name: string; category: string | null } | null =

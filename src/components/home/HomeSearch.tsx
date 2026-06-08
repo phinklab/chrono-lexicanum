@@ -11,13 +11,14 @@ import type { Suggestion } from "@/app/werke/filters";
  * list on the page (Home has none), it *arrives at the archive with the query*.
  *
  *   - book              → /buch/[slug]          (open the book directly)
+ *   - podcast              → /podcasts/[slug](#ep-…)  (show page or episode deep link)
  *   - faction/facet/format → /werke?<param>=…   (land in the archive, pre-filtered)
  *   - author / raw Enter   → /werke?q=…          (land in the archive, searched)
  *   - empty Enter          → /werke              (open the unfiltered archive)
  *
- * The grouped typeahead is fed by the same server-built `index` /werke uses, so
- * the suggestions are live and identical. The combobox mechanics live in the
- * shared console; this wrapper only supplies the routing.
+ * The grouped typeahead is fed by the same server-built `index` /werke uses
+ * (books + podcasts), so the suggestions are live and identical. The combobox
+ * mechanics live in the shared console; this wrapper only supplies the routing.
  */
 export default function HomeSearch({ index }: { index: Suggestion[] }) {
   const router = useRouter();
@@ -43,6 +44,14 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
         // this input, onFocus doesn't reopen the dropdown over the dismissed book.
         setQ("");
         router.push(`/buch/${s.value}`);
+        break;
+      case "podcast":
+        // Episodes deep-link to `#ep-<id>` on the show page; shows to the page
+        // itself. Both leave Home for /podcasts, so just navigate to `href`.
+        if (s.href) {
+          setQ("");
+          router.push(s.href);
+        }
         break;
       case "faction":
         toWerke("faction", s.value);

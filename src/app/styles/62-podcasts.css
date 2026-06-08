@@ -164,6 +164,72 @@ body:has(main.podcasts) .site-bg::after {
   padding: 24px clamp(20px, 3vw, 48px) 80px;
 }
 
+/* ── Unified archive search (books + podcasts) ────────────────────────────── */
+/* The shared <BrowseSearch> console, gold-skinned to match the .catalogue
+ * surface (mirrors `.catalogue--werke .browse-search`): an elegant serif query
+ * line under a gold hairline, not a heavy boxed control. Sits at the top of the
+ * content band, above the toolbar. */
+.pod-search {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 22px;
+}
+.pod-search__kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-gold-dim);
+}
+.pod-search .browse-search {
+  width: 100%;
+  max-width: 540px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 32%, transparent);
+  transition: border-color 200ms;
+}
+.pod-search .browse-search:focus-within {
+  border-bottom-color: var(--cl-gold-dim);
+}
+.pod-search .browse-search__sigil {
+  width: 15px;
+  height: 15px;
+  margin-left: 1px;
+  margin-right: 4px;
+}
+.pod-search .browse-search__input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  letter-spacing: 0.01em;
+  padding: 8px 4px;
+}
+.pod-search .browse-search__input::placeholder {
+  font-style: italic;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--cl-dim);
+}
+
+/* Gold re-skin for the typeahead popover on /podcasts — the cyan house default
+ * (61-browse.css) re-tinted gold, the same overrides `body:has(main.catalogue)`
+ * applies on /werke + Home's archive surface. */
+body:has(main.podcasts) .browse-suggest {
+  border-color: color-mix(in oklch, var(--cl-gold) 30%, transparent);
+}
+body:has(main.podcasts) .browse-suggest__opt.is-active {
+  background: rgba(201, 166, 90, 0.12);
+  border-left-color: var(--cl-gold);
+}
+body:has(main.podcasts) .browse-suggest__hit {
+  color: var(--cl-gold);
+}
+
 .pod-toolbar {
   display: flex;
   flex-wrap: wrap;

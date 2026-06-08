@@ -10,6 +10,10 @@ import HomeExplore from "@/components/home/HomeExplore";
 import HubScrollReset from "@/components/home/HubScrollReset";
 import { buildSearchIndex } from "@/app/werke/filters";
 import { loadBrowseBooks } from "@/app/werke/loader";
+import {
+  loadPodcastSearchIndex,
+  buildPodcastSuggestions,
+} from "@/app/podcasts/loader";
 
 export const revalidate = 3600;
 
@@ -31,11 +35,18 @@ const READOUT_LINES = [
 ];
 
 export default async function HubPage() {
-  // Reuse the public /werke loader so the Home search console is fed the same
-  // live index the archive ranks (display-only — no schema/data change here).
-  const { books } = await loadBrowseBooks();
+  // Reuse the public /werke + /podcasts loaders so the Home search console is fed
+  // the same live, unified index the archive ranks — books first, then podcasts
+  // (display-only — no schema/data change here).
+  const [{ books }, podcastData] = await Promise.all([
+    loadBrowseBooks(),
+    loadPodcastSearchIndex(),
+  ]);
   const novelCount = books.length;
-  const searchIndex = buildSearchIndex(books);
+  const searchIndex = [
+    ...buildSearchIndex(books),
+    ...buildPodcastSuggestions(podcastData),
+  ];
   const stats = `${novelCount} NOVELS · 7 ERAS · 5 SEGMENTA`;
 
   // Three full-viewport "acts" with firm (mandatory) scroll-snap between them:
