@@ -1,0 +1,310 @@
+{
+  "$schema": "entity-blurbs-v1",
+  "entityType": "location",
+  "blurbs": [
+    {
+      "id": "terra",
+      "blurb": "The cradle of humanity and capital of the Imperium, site of the Imperial Palace and the Golden Throne upon which the Emperor resides.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Terra",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "mars",
+      "blurb": "The red planet of the Sol System, a sacred forge world and seat of the Adeptus Mechanicus that supplies much of the Imperium's war materiel.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Mars",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "luna",
+      "blurb": "Earth's moon in the Sol System, an early conquest of the Emperor's unification and home to the gene-cults that helped create the first Space Marines.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Luna",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "eye_of_terror",
+      "blurb": "A vast warp rift where the material and immaterial realms merge, a Chaos stronghold and refuge of the Traitor Legions since the Horus Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Eye_of_Terror",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "cadia",
+      "blurb": "A fortress world that long guarded the Cadian Gate, the most stable passage out of the Eye of Terror, until it was destroyed during the 13th Black Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Cadia",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "prospero",
+      "blurb": "The homeworld of the Thousand Sons, destroyed by the Space Wolves in the campaign known as the Burning of Prospero.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Prospero",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "fenris",
+      "blurb": "A lethal ice world of the Imperium, homeworld of the Space Wolves, whose brutal seasons forge the warriors recruited into the Chapter.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Fenris",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "caliban",
+      "blurb": "The forest world that was the Dark Angels' homeworld and Lion El'Jonson's adopted home, destroyed during Luther's rebellion.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Caliban",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "armageddon",
+      "blurb": "A heavily industrialised hive world fought over in a series of devastating wars, most famously against the Ork Warlord Ghazghkull Thraka.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Armageddon",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "istvaan_v",
+      "blurb": "The world that was the site of the Dropsite Massacre, where Horus's traitors ambushed and devastated the loyalist Legions early in the Horus Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Isstvan_V",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "davin",
+      "blurb": "A feral world whose moon was where Horus was wounded and corrupted by Chaos, the spark that began his fall during the Great Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Davin",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "macragge",
+      "blurb": "The capital of the realm of Ultramar and homeworld of the Ultramarines, a fortified civilised world ruled from the fortress-monastery of the Chapter.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Macragge",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "calth",
+      "blurb": "A world of Ultramar devastated during the Battle of Calth, where the Word Bearers betrayed the Ultramarines and drove the survivors into the planet's underworld.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Calth",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vigilus",
+      "blurb": "A strategically vital world on the edge of the Great Rift, contested in a sprawling war after the rift cut it off from Imperial reinforcement.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Vigilus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tau_empire",
+      "blurb": "The interstellar domain of the T'au, a young and expanding xenos civilisation of the Eastern Fringe united under the philosophy of the Greater Good.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tau_Empire",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "octarius",
+      "blurb": "A war-torn system where the Imperium engineered a conflict between an Ork empire and a Tyranid hive fleet, a battle that spiralled dangerously out of control.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Octarius",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "damnos",
+      "blurb": "An icy Imperial world that became a battleground between the Ultramarines and the reawakening Necrons of the Sautekh Dynasty.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Damnos",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "scintilla",
+      "blurb": "The capital world of the Calixis Sector, a populous hive world and seat of sector government in the setting of the Dark Heresy stories.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Scintilla",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "calixis",
+      "blurb": "A sector of the Segmentum Obscurus notorious for intrigue and heresy, the principal setting of the Dark Heresy roleplaying material.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Calixis_Sector",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "gudrun",
+      "blurb": "A civilised world of the Scarus Sector and former capital of the Helican Subsector, a recurring locale in the Eisenhorn novels.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Gudrun",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sabbat",
+      "blurb": "The Sabbat Worlds: a cluster of star systems contested in the Sabbat Worlds Crusade, the setting of the Gaunt's Ghosts novels.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sabbat_Worlds",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "baal",
+      "blurb": "The irradiated desert homeworld of the Blood Angels, orbited by the moons Baal Primus and Baal Secundus from which the Chapter draws its recruits.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Baal",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "nocturne",
+      "blurb": "A volcanic death world wracked by seismic upheaval, the homeworld of the Salamanders Space Marine Chapter.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Nocturne",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "medusa",
+      "blurb": "A harsh, geologically violent world that is the homeworld of the Iron Hands Space Marine Chapter.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Medusa",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "cretacia",
+      "blurb": "A lethal jungle world as deadly as any death world, the homeworld of the Flesh Tearers Space Marine Chapter.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Cretacia",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "great_rift",
+      "blurb": "Also called the Cicatrix Maledictum, a galaxy-spanning warp rift torn open in the 41st Millennium that split the Imperium in two.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Great_Rift",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "void",
+      "blurb": "A map marker for the Warp: the turbulent parallel dimension of psychic energy through which Imperial ships travel and from which the daemons of Chaos emerge.",
+      "source_kind": "manual",
+      "confidence": 0.8,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Warp",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "istvaan_iii",
+      "blurb": "The world purged in the Istvaan III atrocity, where Horus virus-bombed his own loyalist troops to open the Horus Heresy in outright war.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Isstvan_III",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "scarus",
+      "blurb": "A sector of the Segmentum Obscurus and the primary setting of Dan Abnett's Eisenhorn and Ravenor trilogies. Its worlds range from ancient hive cities to remote frontier outposts, and it has long been troubled by heretical cults and daemonic incursions.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Scarus_Sector",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "helican",
+      "blurb": "A subsector within the Scarus Sector and the home region of Inquisitor Gregor Eisenhorn. Several of the Eisenhorn novels are set across its worlds, and the subsector is notable for its Inquisitorial presence and recurring heretical threats.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Helican_Subsector",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "eustis_majoris",
+      "blurb": "A densely populated hive world serving as the administrative capital of its sector, and the central setting of Dan Abnett's Ravenor trilogy. Inquisitor Ravenor's investigations into the trade in the illegal substance flects bring him repeatedly to its teeming underhive streets.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Eustis_Majoris",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sancour",
+      "blurb": "An Imperial world within the Scarus Sector that features in Dan Abnett's Eisenhorn series and the later Pariah novel. It serves as a key location in the confrontation between Eisenhorn and forces connected to the Cognitae.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sancour",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "damocles_gulf",
+      "blurb": "A vast and largely uncharted expanse of space forming the buffer between the eastern Imperium and the Tau Empire. It is the theatre of the Damocles Crusade, depicted in multiple Black Library novels, and a recurring flashpoint in Imperial–Tau conflict.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Damocles_Gulf",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "voltemand",
+      "blurb": "An Imperial world of the Sabbat Worlds Crusade zone and one of the earliest battlegrounds for Gaunt's Tanith First-and-Only. The campaign for Voltis City, marked by treacherous friendly fire from a rival regiment, is chronicled in Ghostmaker and revisited in The Vincula Insurgency.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Voltemand",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "gereon",
+      "blurb": "A Sabbat Worlds planet that fell under Chaos occupation during the Crusade, serving as the grim setting of Gaunt's Ghosts: Traitor General. A small team of Ghosts infiltrate it on a covert extraction mission, facing a world remade by the Ruinous Powers.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Gereon",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "urdesh",
+      "blurb": "A strategically vital forge world contested throughout the later Sabbat Worlds Crusade and the central setting of the later Gaunt's Ghosts novels, including The Warmaster and Anarch. Control of its industrial output makes it a prize both sides fight for at tremendous cost.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Urdesh",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "eltath",
+      "blurb": "An Imperial world on the Sabbat Worlds front and the site of a major assault by the Archenemy forces of Anarch Sek, depicted in Gaunt's Ghosts: Anarch. The Tanith First hold defensive positions here while Gaunt confronts the demands of his new command.",
+      "source_kind": "manual",
+      "confidence": 0.8,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Gaunt%27s_Ghosts_(Series)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hubris",
+      "blurb": "A frigid, ice-locked world within the Helican Subsector and the opening setting of Eisenhorn: Xenos. Inquisitor Eisenhorn's investigation of an archaeological find on Hubris draws him into the conspiracy that will define his career.",
+      "source_kind": "manual",
+      "confidence": 0.91,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hubris",
+      "checkedAt": "2026-06-09"
+    }
+  ]
+}
