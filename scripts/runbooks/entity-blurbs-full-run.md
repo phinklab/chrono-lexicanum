@@ -53,6 +53,24 @@ subagent = one batch of ~15 entities of a single type.
    dangling ids, ≤460 chars, ≤3 sentences, valid shape).
 6. Repeat until `npm run blurbs:remaining` shows 0 / 0 / 0.
 
+> **Step 4 tooling.** The "parse + stamp + append" of step 4 is done by
+> `scripts/append-blurbs.ts` (the deterministic apply half of the trio with
+> `list-uncovered-blurbs.ts`). It reads a subagent's raw output, validates every
+> row against the *same* guardrails `test-entity-blurbs.ts` enforces, stamps
+> `source_kind:"manual"` + `checkedAt`, and appends the survivors — rejecting
+> (never writing) anything that would fail the test, and skipping ids already
+> present (idempotent, so it is safe to re-run on resume):
+>
+> ```
+> npx tsx scripts/append-blurbs.ts --type <faction|character|location> --date <YYYY-MM-DD> --in <subagent-output.json>
+> ```
+>
+> A convenient pattern for the obscure `character` pole: split the per-batch
+> input JSON to files once (`list-uncovered-blurbs.ts | scripts/.cache/split-batches.mjs`,
+> the cache dir is gitignored), have each subagent read its `char-input-bN.json`
+> and write `char-output-bN.json`, then `append-blurbs.ts` each output file. This
+> keeps the batch JSON out of the driving session's context entirely.
+
 ### Final gate
 
 When all three types read 0 remaining:
