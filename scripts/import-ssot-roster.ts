@@ -3,9 +3,14 @@
  * `scripts/seed-data/book-roster.json` that the Brief-058+ V2 pipeline reads
  * straight (skipping Wikipedia/TLBranson Discovery).
  *
- * Pure file I/O — no DB access. Re-run-stable: identical Excel → byte-identical
- * JSON. All validation issues are collected; loader prints the full list and
- * exits non-zero rather than failing on the first problem.
+ * Pure file I/O — no DB access. Re-run-stable: identical (Excel + roster
+ * extension) → byte-identical JSON. All validation issues are collected; loader
+ * prints the full list and exits non-zero rather than failing on the first problem.
+ *
+ * The Excel is the FROZEN original 859; books greenlit from the weekly refresh
+ * pass accrete in `book-roster.extension.json` and are merged in below (Pass 3b),
+ * so the rest of the pipeline (loop:next → override → apply:override) absorbs them
+ * exactly like Excel rows. An empty/absent extension is a no-op. See roster-extension.ts.
  *
  * Usage:
  *   npm run import:ssot-roster
@@ -13,11 +18,14 @@
  * Brief 057 (2026-05-10) — see sessions/2026-05-10-057-arch-excel-roster-import.md
  * for the contract (16-column Books sheet, 10-column Collection Links sheet).
  */
+import { readFileSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 
 import { readSheet } from "read-excel-file/node";
 
 import { slugify } from "@/lib/slug";
+
+import { parseExtensionFile, ROSTER_EXTENSION_FILE } from "./roster-extension";
 
 import type {
   BookFormat,
@@ -558,6 +566,23 @@ function compareString(a: string, b: string): number {
   return a < b ? -1 : a > b ? 1 : 0;
 }
 
+/** Read + JSON-parse the additive roster extension; null when the file is absent. */
+function readExtensionRaw(): unknown | null {
+  let text: string;
+  try {
+    text = readFileSync(ROSTER_EXTENSION_FILE, "utf8");
+  } catch {
+    return null; // absent → no-op (byte-stable, as before the extension existed)
+  }
+  try {
+    return JSON.parse(text) as unknown;
+  } catch (e) {
+    throw new Error(
+      `${ROSTER_EXTENSION_FILE}: invalid JSON — ${e instanceof Error ? e.message : String(e)}`,
+    );
+  }
+}
+
 async function main(): Promise<void> {
   console.log(`[import-ssot-roster] reading ${SOURCE_FILE}`);
 
@@ -655,6 +680,31 @@ async function main(): Promise<void> {
     });
   }
 
+  // -------- Pass 3b: merge the additive roster extension --------
+  // The Excel is the frozen original 859; books greenlit from the weekly refresh
+  // (refresh:check → maintainer review) accrete in book-roster.extension.json and
+  // are appended here so loop:next → override → apply:override absorbs them like
+  // Excel rows. Collections stay Excel-only (extension is books-only); an
+  // empty/absent extension is a no-op (byte-identical roster).
+  const excelSlugs = new Set<string>(books.map((b) => b.slug));
+  const extensionRaw = readExtensionRaw();
+  let extensionCount = 0;
+  if (extensionRaw !== null) {
+    const ext = parseExtensionFile(extensionRaw, externalIdSet, excelSlugs);
+    for (const issue of ext.issues) {
+      issues.pushIssue({
+        sheet: "extension",
+        rowIndex: issue.index,
+        message: issue.message,
+      });
+    }
+    for (const b of ext.books) {
+      externalIdSet.add(b.externalBookId);
+      books.push(b);
+    }
+    extensionCount = ext.books.length;
+  }
+
   // -------- Pass 4: pre-build maps for display_order derivation --------
   // Parent → ordered child-titles (semicolon-split from Books-sheet
   // "Collects Titles"). Empty parents simply don't appear here.
@@ -723,6 +773,7 @@ async function main(): Promise<void> {
   // -------- Empirics for impl-report --------
   console.log(`[import-ssot-roster] wrote ${OUTPUT_FILE}`);
   console.log(`  books:        ${books.length}`);
+  console.log(`  extension:    ${extensionCount} merged from ${ROSTER_EXTENSION_FILE}`);
   console.log(`  collections:  ${collections.length}`);
   console.log(`[slug] section-disambiguations: ${slugResult.sectionDisambigSamples.length}`);
   if (slugResult.sectionDisambigSamples.length > 0) {

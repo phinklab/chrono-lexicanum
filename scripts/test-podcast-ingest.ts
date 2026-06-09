@@ -288,6 +288,7 @@ function cfg(partial: Partial<PodcastShowConfig> & { slug: string }): PodcastSho
     youtubeChannelId: partial.youtubeChannelId ?? null,
     excludePlaylists: partial.excludePlaylists ?? [],
     includeVideoIds: partial.includeVideoIds ?? [],
+    excludeTitlePatterns: partial.excludeTitlePatterns ?? [],
   };
 }
 

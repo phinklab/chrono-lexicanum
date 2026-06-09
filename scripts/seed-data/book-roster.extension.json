@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "1.0",
+  "_comment": "Additive roster extension. The Excel SSOT (source/Warhammer_Books_SSOT.xlsx) is the FROZEN original 859 books; books greenlit from the weekly refresh pass (npm run refresh:check) accrete HERE and are merged into book-roster.json by `npm run import:ssot-roster`. To promote a detected book: paste its row verbatim from ingest/refresh/<week>/proposal.json (books.newBooks[]) into the books[] array below (extra keys like source_kind/confidence are ignored), run import:ssot-roster, then `npm run loop:next` surfaces it as the next curation batch → curate an override → `npm run db:apply-override`. Collections are not supported here yet (new-anthology membership goes via the Excel). See scripts/runbooks/weekly-refresh-runbook.md.",
+  "books": [],
+  "collections": []
+}

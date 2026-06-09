@@ -37,7 +37,8 @@
       { "serviceId": "official_website", "url": "https://linktr.ee/Lorehammer40k" }
     ],
     "youtubeChannelUrl": null,
-    "youtubeChannelId": null
+    "youtubeChannelId": null,
+    "excludeTitlePatterns": ["(Video)"]
   },
   {
     "slug": "luetin09",

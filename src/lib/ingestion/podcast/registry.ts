@@ -100,6 +100,15 @@ export interface PodcastShowConfig {
    * for RSS shows. Video ids are permanent, so the list never goes stale.
    */
   includeVideoIds: string[];
+  /**
+   * Title-substring patterns (case-insensitive) whose matching episodes are
+   * EXCLUDED at BOTH detection (the refresh report) and ingest (never written to
+   * the artifact/DB). The RSS analogue of the YouTube playlist denylist: a feed
+   * that publishes audio + video twins of each episode (e.g. Lorehammer's
+   * "(Video) …" items) lists `["(Video)"]` here to keep only the audio cut.
+   * Honored for any source; empty for shows that don't need it. (Philipp 2026-06-09.)
+   */
+  excludeTitlePatterns: string[];
 }
 
 /**
@@ -197,6 +206,23 @@ function parseIncludeVideoIds(
   return ids;
 }
 
+/**
+ * Optional `string[]` of case-insensitive title-substring patterns to exclude —
+ * absent → `[]`. Unlike the YouTube-only denylists above, this is valid for ANY
+ * source (an RSS feed is the primary user: dropping "(Video)" twins).
+ */
+function parseExcludeTitlePatterns(o: Record<string, unknown>, where: string): string[] {
+  const v = o.excludeTitlePatterns;
+  if (v === undefined || v === null) return [];
+  if (!Array.isArray(v)) throw new Error(`${where}.excludeTitlePatterns: must be an array of strings`);
+  return v.map((t, i) => {
+    if (typeof t !== "string" || t.trim() === "") {
+      throw new Error(`${where}.excludeTitlePatterns[${i}]: must be a non-empty string`);
+    }
+    return t;
+  });
+}
+
 function parseLink(raw: unknown, where: string): RegistryLinkInput {
   if (!isObject(raw)) throw new Error(`${where}: must be an object`);
   const serviceId = reqString(raw, "serviceId", where);
@@ -285,6 +311,7 @@ export function parseRegistry(raw: unknown): PodcastShowConfig[] {
       youtubeChannelId: optString(entry, "youtubeChannelId", where),
       excludePlaylists: parseExcludePlaylists(entry, source, where),
       includeVideoIds: parseIncludeVideoIds(entry, source, where),
+      excludeTitlePatterns: parseExcludeTitlePatterns(entry, where),
     };
   });
 }
@@ -318,4 +345,15 @@ export function selectShows(
 ): PodcastShowConfig[] {
   if (opts.all) return [...registry];
   return [getShow(registry, opts.show ?? DEFAULT_SHOW_SLUG)];
+}
+
+/**
+ * Whether an episode title matches any exclude pattern (case-insensitive
+ * substring). Shared by the refresh diff (detection) and the ingest acquire
+ * (write path) so the two never drift. Empty patterns → never excluded.
+ */
+export function isTitleExcluded(title: string, patterns: readonly string[]): boolean {
+  if (patterns.length === 0) return false;
+  const t = title.toLowerCase();
+  return patterns.some((p) => t.includes(p.toLowerCase()));
 }
