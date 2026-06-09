@@ -14,8 +14,9 @@ weekly GitHub-Action cron + rolling-PR automation is **PR2** (see § PR2 below).
 ## TL;DR — run it
 
 ```bash
-npm run refresh:check          # local: fetch sources, diff, write a proposal if there are findings
-npm run test:refresh           # offline unit tests (no network, no DB)
+npm run refresh:check                              # local: fetch sources, diff, write a proposal if there are findings
+npm run refresh:mark-reviewed -- --show <slug>     # advance a show's curation cursor to today (--all for every show)
+npm run test:refresh                               # offline unit tests (no network, no DB)
 ```
 
 - Findings → writes `ingest/refresh/<YYYY-Www>/report.md` + `proposal.json`, prints
@@ -39,9 +40,9 @@ Flags: `--week=YYYY-Www` overrides the output bucket (deterministic re-runs / te
 2. **Podcasts** — for each registered show (`podcast-shows.json`), pulls the live feed
    via the existing primitives (`feed.ts` `fetchFeed`/`parseFeed` for RSS,
    `youtube.ts` `fetchYoutubeFeed` for YouTube) and diffs episode `guid`s against the
-   committed artifact `ingest/podcasts/<slug>.json`. New-and-recent guids → listed (§
-   Recency window). `ingest-podcast.ts` is **not** touched — only its exported building
-   blocks are reused.
+   committed artifact `ingest/podcasts/<slug>.json`. New guids on/after the show's
+   curation cursor and not title-excluded → listed (§ Curation cursor + title exclusion).
+   `ingest-podcast.ts` is **not** touched — only its exported building blocks are reused.
 3. **Emit** — assembles a `RefreshProposal`, and only if there are findings writes the
    Markdown report + the deterministic `proposal.json`.
 
@@ -127,7 +128,7 @@ over precision (a few reprints to wave off in review).
 
 ---
 
-## Scope gate, dedup, recency window — why the counts are sane
+## Scope gate, dedup, floors — why the counts are sane
 
 The tracker spans **all** Black Library output; our roster is **40k + Horus Heresy only**.
 Three filters keep the proposal reviewable (every drop is counted in the report, never
@@ -144,18 +145,29 @@ silent):
   announce-date + release-date) collapses to ONE proposal, keyed year-relaxed.
 - **Year floor** — `trackOfWords.sinceYear` (currently 2025) keeps the pass
   currency-focused; older rows are skipped and counted.
-- **Podcast date floor** — `podcasts.episodeSinceDate` (default `2026-01-01`), an
-  *absolute* date (not a relative window). A *refresh* only ever considers episodes
-  published on/after it; the entire pre-floor back-catalog (e.g. luetin09's years of
-  non-lore gaming uploads) is never diffed, only counted (`skippedBeforeFloor`, reported as
-  a number). Backfilling a show's full history is a separate, explicit `ingest:podcast`
-  task — not a weekly refresh. **Revisit trigger:** bump the date forward once the corpus
-  is current to a later point, so the pass stays focused on the genuine long tail.
+- **Podcast curation cursor** — each show is diffed from its own floor: the date it was
+  last reviewed up to (`ingest/refresh/curation-state.json`, `slug → ISO date`), falling
+  back to the baseline `podcasts.episodeSinceDate` (default `2026-01-01`) when never
+  reviewed. A *refresh* only ever considers episodes on/after that floor — the pre-floor
+  back-catalog (e.g. luetin09's years of non-lore uploads) is never diffed, only counted
+  (`skippedBeforeFloor`). The cursor advances ONLY on an explicit
+  `npm run refresh:mark-reviewed -- --show <slug>` (never on a plain `refresh:check`), so
+  "I looked at this show and skipped the rest" sticks — skipped episodes are not
+  re-proposed next week. This is the "since the last curation run" floor Philipp asked for
+  (2026-06-09); backfilling a show's full history stays a separate, explicit
+  `ingest:podcast` task.
+- **Podcast title exclusion** — a show's `excludeTitlePatterns` (case-insensitive
+  substrings, in `podcast-shows.json`) drop matching episodes at BOTH detection (the
+  report) and ingest (never written to the artifact/DB), counted as
+  `skippedExcludedByTitle`. Lorehammer carries `["(Video)"]`: its RSS feed publishes an
+  audio + a video twin of most episodes as two GUIDs, and we keep only the audio cut. The
+  RSS analogue of the YouTube playlist denylist (honored at ingest for RSS; YouTube shows
+  use `excludePlaylists`/`includeVideoIds`).
 
-For reference, the first live run (2026-W24) went from a raw 122 "new" books to **61**
-after scope+dedup (330 out-of-scope + 31 dupe rows removed), and podcast deltas from ~1878
-to a handful once episodes before the date floor are ignored (luetin09's 1663 lifetime
-uploads → 1 post-floor).
+For reference, the live run (2026-W24) goes from a raw 122 "new" books to **61** after
+scope+dedup (330 out-of-scope + 31 dupe rows removed), and podcast deltas from ~1878 to
+**3** once the cursor + title filter apply: luetin09 1849 pre-floor → 1; lorehammer 524
+pre-floor + **40 "(Video)" twins** → 1 audio episode; the-40k-lorecast 1; adeptus 0.
 
 ---
 
@@ -169,11 +181,21 @@ uploads → 1 post-floor).
     "gid": 374689393,        // used to rebuild the CSV URL if re-discovery fires
     "sinceYear": 2025        // year floor
   },
-  "podcasts": { "episodeSinceDate": "2026-01-01" }   // optional; defaults to 2026-01-01
+  "podcasts": { "episodeSinceDate": "2026-01-01" }   // BASELINE floor; per-show cursors override
 }
 ```
 
 Validated on load (`config.ts`) — an edited/malformed config fails loud at startup.
+
+Two sibling files complete the podcast side:
+
+- **`scripts/seed-data/podcast-shows.json`** — the show registry. Per show,
+  `excludeTitlePatterns: string[]` (case-insensitive title substrings) drops unwanted
+  episodes at detection AND ingest (Lorehammer: `["(Video)"]`).
+- **`ingest/refresh/curation-state.json`** — the per-show curation cursor
+  (`{ "shows": { "<slug>": "YYYY-MM-DD" } }`), advanced via `refresh:mark-reviewed`.
+  Absent on first run (every show falls back to the baseline). Committed, deterministic
+  (slugs sorted).
 
 ---
 
@@ -199,10 +221,24 @@ existing, quality-gated apply paths.
 > the path; the merge step is fold-in-PR2-or-PR3 work. The Excel SSOT is never touched.
 
 **Podcasts** (`proposal.json` `podcasts.shows[].newEpisodes[]` are report-only, NOT roster
-rows):
+rows). The intended loop is conversational — review the report WITH Claude Code in the
+terminal ("lorehammer passt, bei luetin die eine, Video raus"), and Claude runs the steps
+for what fits (or you do it by hand):
 
-1. `npm run ingest:podcast -- --show <slug>` (re-pull + tag the show),
-2. `npm run apply:podcast` (idempotent, episodeGuid-keyed DB write).
+1. `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast -- --show <slug>` (re-pull +
+   LLM-tag; honors `excludeTitlePatterns`, so "(Video)" twins never enter the artifact —
+   the book-default Haiku under-tags podcasts, so the Sonnet env knob is required),
+2. `npm run apply:podcast -- --show <slug>` (idempotent, episodeGuid-keyed DB write),
+3. `npm run refresh:mark-reviewed -- --show <slug>` — stamp the cursor to today so next
+   week's report only shows what's newer. Run this EVEN IF you ingest nothing (you've
+   reviewed the show and chosen to skip its backlog); the skipped episodes won't re-appear.
+
+> **Note — show-level, not per-episode.** `ingest:podcast` re-pulls the *whole* feed and
+> tags every (non-excluded) episode; there is no per-episode cherry-pick. Per-episode
+> curation happens through `excludeTitlePatterns` (permanent) + the cursor (a "reviewed up
+> to here" line), not an accept/reject of individual episodes. Per-episode Apple deep-links
+> are not produced by the pipeline (episode links = the RSS audio enclosure; Apple is a
+> show-level link) — add one by hand if ever needed.
 
 ---
 

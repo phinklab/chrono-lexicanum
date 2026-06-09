@@ -28,6 +28,7 @@ import { loadRegistry } from "@/lib/ingestion/podcast/registry";
 
 import { detectMissingBooks } from "./refresh/book-source";
 import { loadRefreshSources } from "./refresh/config";
+import { floorIsoForShow, loadCurationState } from "./refresh/curation-state";
 import {
   buildReportMarkdown,
   isoWeekOf,
@@ -70,7 +71,10 @@ function logHealth(books: BookDiffResult, podcasts: PodcastDiffResult): void {
   }
   for (const s of podcasts.shows) {
     const old = s.skippedBeforeFloor > 0 ? `, ${s.skippedBeforeFloor} before floor` : "";
-    console.error(`[podcast ${s.slug}] ${s.status} — ${s.newEpisodes.length} new${old} (${s.note ?? "ok"})`);
+    const vid = s.skippedExcludedByTitle > 0 ? `, ${s.skippedExcludedByTitle} title-excluded` : "";
+    console.error(
+      `[podcast ${s.slug}] ${s.status} — ${s.newEpisodes.length} new since ${s.floorIso}${old}${vid} (${s.note ?? "ok"})`,
+    );
   }
 }
 
@@ -91,8 +95,12 @@ async function main(): Promise<void> {
     artifactDir: join(repoRoot, "ingest", "podcasts"),
     youtubeApiKey: process.env.YOUTUBE_API_KEY,
   });
+  // Per-show floor = the curation cursor, or the baseline `episodeSinceDate` when
+  // a show was never reviewed. The cursor advances only via `refresh:mark-reviewed`.
+  const curation = loadCurationState();
+  const baselineDate = sources.podcasts.episodeSinceDate;
   const podcasts = await diffPodcasts(registry, deps, {
-    sinceMs: Date.parse(sources.podcasts.episodeSinceDate),
+    floorIsoFor: (slug) => floorIsoForShow(curation, slug, baselineDate),
   });
 
   const newEpisodeCount = podcasts.shows.reduce((n, s) => n + s.newEpisodes.length, 0);
@@ -117,7 +125,7 @@ async function main(): Promise<void> {
   mkdirSync(outDir, { recursive: true });
   const report = buildReportMarkdown(proposal, {
     generatedAtIso: new Date().toISOString(),
-    episodeSinceDate: sources.podcasts.episodeSinceDate,
+    episodeSinceDate: baselineDate,
   });
   writeFileSync(join(outDir, "report.md"), report, "utf8");
   writeFileSync(join(outDir, "proposal.json"), serializeProposal(proposal), "utf8");

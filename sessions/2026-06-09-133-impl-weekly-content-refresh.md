@@ -44,19 +44,27 @@ type-only so the path never loads `drizzle-orm`):
   (`detectMissingBooks`, fail-soft, DI'd fetch), `isInScopeSetting`, sheet re-discovery
   (`extractSheetUrl`/`toCsvExportUrl`), hand-rolled `parseCsv`.
 - `scripts/refresh/podcast-diff.ts` — `diffPodcasts` reusing the exported `feed.ts` /
-  `youtube.ts` primitives directly (NOT `ingest-podcast.ts`); fail-soft per show; recency
-  window.
+  `youtube.ts` primitives directly (NOT `ingest-podcast.ts`); fail-soft per show; per-show
+  curation cursor + title exclusion.
+- `scripts/refresh/curation-state.ts` — the per-show curation cursor
+  (`ingest/refresh/curation-state.json`): `loadCurationState`, `floorIsoForShow`,
+  `markReviewed`, deterministic `serializeCurationState`.
 - `scripts/refresh/proposal.ts` — `makeIdAllocator` (per-prefix max+1, deterministic) +
   `toProposedRow`.
 - `scripts/refresh/emit.ts` — Markdown report + deterministic `serializeProposal` +
   `isoWeekOf` + `proposalHasFindings`.
 - `scripts/refresh/config.ts` + `scripts/seed-data/refresh-sources.json` — config-driven,
-  validated source config (pinned CSV URL, year floor, podcast recency window).
+  validated source config (pinned CSV URL, year floor, podcast baseline floor).
 - `scripts/refresh-check.ts` — orchestrator (npm `refresh:check`). `REFRESH_RESULT=noop` /
   `=findings …` stdout contract; exit 1 only on unexpected error.
-- `scripts/test-refresh.ts` — offline, fixture-driven harness (npm `test:refresh`), 38 tests.
+- `scripts/refresh-mark-reviewed.ts` — advance a show's curation cursor (npm
+  `refresh:mark-reviewed`). No DB/network; reads the registry + writes the cursor file.
+- `src/lib/ingestion/podcast/registry.ts` + `scripts/ingest-podcast.ts` — the one pipeline
+  touch: a new `excludeTitlePatterns` registry field + shared `isTitleExcluded`, honored at
+  both detection and the RSS ingest acquire, so "(Video)" twins never reach the artifact/DB.
+- `scripts/test-refresh.ts` — offline, fixture-driven harness (npm `test:refresh`), 45 tests.
 - `scripts/runbooks/weekly-refresh-runbook.md` — operational doc + the promotion path.
-- `package.json` — `refresh:check`, `test:refresh`.
+- `package.json` — `refresh:check`, `refresh:mark-reviewed`, `test:refresh`.
 
 ## Decisions I made
 
@@ -86,6 +94,17 @@ type-only so the path never loads `drizzle-orm`):
   (luetin09 1663→1). This is in-spirit with "ONE maintainer-reviewable proposal," not scope
   creep. (Per Philipp, 2026-06-09: an absolute date floor, not a relative window, so
   luetin09's old back-catalog is never even considered.)
+- **Refinement (Philipp, 2026-06-09, same day): per-show curation cursor + title
+  exclusion.** The absolute floor became the *baseline*; each show now diffs from its own
+  cursor (`ingest/refresh/curation-state.json`, advanced via `refresh:mark-reviewed`), so a
+  weekly run surfaces only what's new SINCE THE LAST CURATION — not the whole post-baseline
+  tail. And `excludeTitlePatterns` (Lorehammer `["(Video)"]`) drops audio/video twins at
+  BOTH detection and ingest. This is the one place the work touches the podcast pipeline
+  (registry field + RSS acquire filter + shared `isTitleExcluded`), explicitly authorized
+  by the request. Live result: podcasts ~1878 → **3** (lorehammer 41→1 with **40 "(Video)"
+  excluded**; luetin09 1; lorecast 1; adeptus 0). The curation loop is conversational
+  (review the report with Claude → Claude ingests what fits + bumps the cursor), NOT CI
+  auto-apply.
 - **`hasFindings` excludes review-books.** A title-collision (reprint) collides
   *permanently*, so gating the PR on it would create a PR that never clears. New books / new
   episodes trigger; collisions surface in the report only when a run already has findings.
@@ -122,18 +141,20 @@ type-only so the path never loads `drizzle-orm`):
 
 - `npm run lint` (eslint) — **pass**.
 - `npm run typecheck` (tsc --noEmit, strict, no `any`) — **pass**.
-- `npm run test:refresh` — **38 passed, 0 failed** (offline, fixtures): firewall incl.
+- `npm run test:refresh` — **45 passed, 0 failed** (offline, fixtures): firewall incl.
   Carnage→new + zero false-positives across all roster titles + reprint/various/reversed-
   author exact-matches; CSV parse (quoted comma, escaped quote, embedded newline,
   header-by-name, missing-column → unreachable); scope gate + dedup; sheet re-discovery;
   fail-soft (injected unreachable → partial, no throw); podcast diff (new-by-guid,
-  missing-artifact → failed not "all new", youtube-no-key → skipped, recency window);
-  allocator; no-op rule; deterministic serialize.
+  missing-artifact → failed not "all new", youtube-no-key → skipped, date floor, per-show
+  cursor, title exclusion); curation-state (cursor fallback / markReviewed / sorted
+  serialize / bad-date throws); allocator; no-op rule; deterministic serialize.
 - **Live smoke** `npm run refresh:check` (real sources): books `ok — 61 new, 15 review |
   119 considered, 572 below year floor, 330 out-of-scope, 31 dupes`; **Carnage Unending
-  present** (`W40K-0573`, various/2026/anthology); podcasts (date floor 2026-01-01)
-  the-40k-lorecast 1, adeptus-ridiculous 0, lorehammer 41, luetin09 1 — each with the
-  pre-floor back-catalog ignored, only counted (luetin09: **1849 before floor**). Wrote
+  present** (`W40K-0573`, various/2026/anthology); podcasts (baseline floor 2026-01-01, no
+  cursors yet) the-40k-lorecast 1, adeptus-ridiculous 0, **lorehammer 1 (40 "(Video)"
+  title-excluded)**, luetin09 1 — pre-floor back-catalog ignored, only counted (luetin09:
+  **1849 before floor**); **episodes=3** total. Wrote
   `ingest/refresh/2026-W24/{report.md,proposal.json}` (not staged for PR1 — a smoke
   artifact; PR2's cron produces the real weekly outputs).
 
@@ -165,10 +186,16 @@ None blocking. Notes:
   **+Track of Words** (the brief's Cadence-ADR-Amendment note). Source anchor = the embedded
   Google Sheet CSV (`gid=374689393`), not prose.
 - **Board 122-B10** ("Weekly content refresh") — PR1 (detection) done; PR2 (cron) open.
-- **New surface:** `npm run refresh:check` (+ `test:refresh`); config
-  `scripts/seed-data/refresh-sources.json`; output `ingest/refresh/<YYYY-Www>/`; runbook
-  `scripts/runbooks/weekly-refresh-runbook.md`. Detection imports neither the DB client nor
-  the old crawlers.
+- **New surface:** `npm run refresh:check` (+ `test:refresh`, `refresh:mark-reviewed`);
+  config `scripts/seed-data/refresh-sources.json` + per-show cursor
+  `ingest/refresh/curation-state.json` + `excludeTitlePatterns` in `podcast-shows.json`;
+  output `ingest/refresh/<YYYY-Www>/`; runbook `scripts/runbooks/weekly-refresh-runbook.md`.
+  Detection imports neither the DB client nor the old crawlers; the one pipeline touch is a
+  shared `isTitleExcluded` (registry) honored at detection + RSS ingest.
+- **Curation model (decided 2026-06-09):** podcast promotion is a *conversational* loop
+  (review the report with Claude → Claude runs `ingest:podcast`/`apply:podcast` for what
+  fits + `refresh:mark-reviewed`), NOT CI auto-apply. PR2 stays a notifier; the DB write
+  remains maintainer-driven.
 
 ## References
 

@@ -12,8 +12,11 @@ import { join } from "node:path";
 import type { TrackOfWordsConfig } from "./book-source";
 
 export interface PodcastRefreshConfig {
-  /** Absolute date floor for the episode diff (ISO `YYYY-MM-DD`). Episodes published
-   *  before it are never considered — only the back-catalog they form is counted. */
+  /** BASELINE date floor for the episode diff (ISO `YYYY-MM-DD`) — the floor for a
+   *  show that has never been reviewed. Per-show curation cursors
+   *  (`ingest/refresh/curation-state.json`, advanced via `refresh:mark-reviewed`)
+   *  override it once a show is curated. Episodes before a show's effective floor
+   *  are never considered — only counted. */
   episodeSinceDate: string;
 }
 

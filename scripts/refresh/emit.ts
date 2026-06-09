@@ -114,13 +114,18 @@ function booksSection(books: BookDiffResult): string[] {
   return lines;
 }
 
-function podcastsSection(podcasts: PodcastDiffResult, episodeSinceDate: string): string[] {
+function podcastsSection(podcasts: PodcastDiffResult, baselineDate: string): string[] {
   const lines: string[] = [];
   if (podcasts.shows.length === 0) {
     lines.push("No registered shows.");
     return lines;
   }
-  lines.push(`_Only episodes published on/after **${episodeSinceDate}** are considered; older feed entries are ignored._`);
+  lines.push(
+    `_Each show is diffed from its own curation cursor — the date it was last reviewed up to ` +
+      `(baseline **${baselineDate}** when never reviewed). Episodes before the cursor, and titles ` +
+      `matching a show's exclude patterns (e.g. "(Video)" twins), are ignored — only counted. ` +
+      `Advance a cursor after curating with \`npm run refresh:mark-reviewed -- --show <slug>\`._`,
+  );
   lines.push("");
   const icon = (s: string): string => (s === "ok" ? "✅" : s === "skipped" ? "⏭️" : "⚠");
   for (const show of podcasts.shows) {
@@ -130,10 +135,14 @@ function podcastsSection(podcasts: PodcastDiffResult, episodeSinceDate: string):
     );
     lines.push("");
     if (show.status === "ok") {
-      const oldNote =
-        show.skippedBeforeFloor > 0 ? ` (${show.skippedBeforeFloor} older feed entries ignored)` : "";
+      const ignoredNotes: string[] = [];
+      if (show.skippedBeforeFloor > 0) ignoredNotes.push(`${show.skippedBeforeFloor} before cursor`);
+      if (show.skippedExcludedByTitle > 0) {
+        ignoredNotes.push(`${show.skippedExcludedByTitle} title-excluded`);
+      }
+      const ignored = ignoredNotes.length > 0 ? ` (${ignoredNotes.join(", ")} ignored)` : "";
       lines.push(
-        `Committed ${show.committedCount}, fetched ${show.freshCount}, **${newCount} new since ${episodeSinceDate}**${oldNote}.`,
+        `Committed ${show.committedCount}, fetched ${show.freshCount}, **${newCount} new since ${show.floorIso}**${ignored}.`,
       );
       if (newCount > 0) {
         lines.push("");

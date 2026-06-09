@@ -10,6 +10,7 @@
  */
 import assert from "node:assert/strict";
 
+import { isTitleExcluded, parseRegistry, type PodcastShowConfig } from "@/lib/ingestion/podcast/registry";
 import { slugify } from "@/lib/slug";
 
 import {
@@ -23,12 +24,18 @@ import {
   type TrackOfWordsConfig,
 } from "./refresh/book-source";
 import { loadRefreshSources, parseRefreshSources } from "./refresh/config";
+import {
+  emptyCurationState,
+  floorIsoForShow,
+  markReviewed,
+  parseCurationState,
+  serializeCurationState,
+} from "./refresh/curation-state";
 import { buildReportMarkdown, isoWeekOf, proposalHasFindings, serializeProposal } from "./refresh/emit";
 import { authorKey, bookIdentityKey, buildRosterIndex, classifyCandidate } from "./refresh/identity";
 import { diffPodcasts, type PodcastDiffDeps } from "./refresh/podcast-diff";
 import { makeIdAllocator } from "./refresh/proposal";
 
-import type { PodcastShowConfig } from "@/lib/ingestion/podcast/registry";
 import type { PodcastEpisode } from "@/lib/ingestion/podcast/types";
 import type { CandidateBook, RefreshProposal } from "./refresh/types";
 import type { BookFormat, RosterBook, RosterFile } from "./seed-data/types";
@@ -96,8 +103,8 @@ const CFG: TrackOfWordsConfig = {
   sinceYear: 2025,
 };
 
-/** Fixed podcast date floor — fixture "current" episodes (pubDate 2026-01-01) are on/after it. */
-const FLOOR = { sinceMs: Date.UTC(2026, 0, 1) };
+/** Baseline podcast floor resolver — fixture "current" episodes (pubDate 2026-01-01) are on/after it. */
+const FLOOR = { floorIsoFor: () => "2026-01-01" };
 
 /** Realistic tracker CSV slice — verbose Title header + the real Carnage row. */
 const TRACKER_CSV = [
@@ -152,6 +159,7 @@ function show(
     youtubeChannelId: p.youtubeChannelId ?? null,
     excludePlaylists: p.excludePlaylists ?? [],
     includeVideoIds: p.includeVideoIds ?? [],
+    excludeTitlePatterns: p.excludeTitlePatterns ?? [],
   };
 }
 
@@ -556,6 +564,100 @@ async function main(): Promise<void> {
       ["recent"], // the 2019 episode is below the floor — never listed
     );
     assert.equal(r.shows[0].skippedBeforeFloor, 1);
+  });
+
+  await test("isTitleExcluded: case-insensitive substring; empty patterns never match", () => {
+    assert.equal(isTitleExcluded("(Video) 236 - Aircraft", ["(Video)"]), true);
+    assert.equal(isTitleExcluded("(video) lower twin", ["(Video)"]), true); // case-insensitive
+    assert.equal(isTitleExcluded("236 - Aircraft", ["(Video)"]), false);
+    assert.equal(isTitleExcluded("anything", []), false);
+  });
+
+  await test("parseRegistry: excludeTitlePatterns valid on an RSS show (defaults to [])", () => {
+    const [withPat] = parseRegistry([
+      { slug: "r", title: "R", feedUrl: "https://r", excludeTitlePatterns: ["(Video)"] },
+    ]);
+    assert.deepEqual(withPat.excludeTitlePatterns, ["(Video)"]);
+    const [without] = parseRegistry([{ slug: "r2", title: "R2", feedUrl: "https://r2" }]);
+    assert.deepEqual(without.excludeTitlePatterns, []);
+    assert.throws(
+      () => parseRegistry([{ slug: "r3", title: "R3", feedUrl: "https://r3", excludeTitlePatterns: "x" }]),
+      /must be an array/,
+    );
+  });
+
+  await test("diffPodcasts: title-excluded episodes are dropped and counted", async () => {
+    const SHOW = show({
+      slug: "show-a",
+      source: "rss",
+      title: "Show A",
+      feedUrl: "https://a/feed",
+      excludeTitlePatterns: ["(Video)"],
+    });
+    const deps: PodcastDiffDeps = {
+      fetchRss: () =>
+        Promise.resolve([
+          ep("g1", "236 - Aircraft"),
+          ep("g2", "(Video) 236 - Aircraft"),
+          ep("g3", "237 - Tanks"),
+        ]),
+      fetchYoutube: () => Promise.resolve([]),
+      loadCommittedGuids: () => new Set<string>(),
+      youtubeEnabled: true,
+    };
+    const r = await diffPodcasts([SHOW], deps, FLOOR);
+    assert.equal(r.shows[0].status, "ok");
+    assert.deepEqual(
+      r.shows[0].newEpisodes.map((e) => e.guid),
+      ["g1", "g3"], // the "(Video)" twin is dropped
+    );
+    assert.equal(r.shows[0].skippedExcludedByTitle, 1);
+  });
+
+  await test("diffPodcasts: a show's curation cursor advances its floor", async () => {
+    const deps: PodcastDiffDeps = {
+      fetchRss: () =>
+        Promise.resolve([
+          epAt("old", "Old", "2026-02-01T00:00:00.000Z"),
+          epAt("fresh", "Fresh", "2026-06-05T00:00:00.000Z"),
+        ]),
+      fetchYoutube: () => Promise.resolve([]),
+      loadCommittedGuids: () => new Set<string>(),
+      youtubeEnabled: true,
+    };
+    // Cursor at 2026-06-01 → only the June episode counts; the Feb one is pre-cursor.
+    const floor = { floorIsoFor: (slug: string) => (slug === "show-a" ? "2026-06-01" : "2026-01-01") };
+    const r = await diffPodcasts([RSS_SHOW], deps, floor);
+    assert.deepEqual(
+      r.shows[0].newEpisodes.map((e) => e.guid),
+      ["fresh"],
+    );
+    assert.equal(r.shows[0].skippedBeforeFloor, 1);
+    assert.equal(r.shows[0].floorIso, "2026-06-01");
+  });
+
+  // --- curation cursor ------------------------------------------------------
+
+  await test("curation-state: empty + floorIsoForShow falls back to the baseline", () => {
+    assert.equal(floorIsoForShow(emptyCurationState(), "any", "2026-01-01"), "2026-01-01");
+    const st = parseCurationState({ shows: { lorehammer: "2026-06-09" } });
+    assert.equal(floorIsoForShow(st, "lorehammer", "2026-01-01"), "2026-06-09");
+    assert.equal(floorIsoForShow(st, "other", "2026-01-01"), "2026-01-01");
+  });
+
+  await test("curation-state: markReviewed stamps slugs; serialize is sorted, stable, round-trips", () => {
+    const st = markReviewed(emptyCurationState(), ["b-show", "a-show"], "2026-06-09");
+    assert.equal(st.shows["a-show"], "2026-06-09");
+    assert.equal(st.shows["b-show"], "2026-06-09");
+    const json = serializeCurationState(st);
+    assert.ok(json.endsWith("\n"));
+    assert.equal(serializeCurationState(st), json); // stable across calls
+    assert.ok(json.indexOf('"a-show"') < json.indexOf('"b-show"')); // slugs sorted
+    assert.deepEqual(parseCurationState(JSON.parse(json)).shows, st.shows);
+  });
+
+  await test("curation-state: a non-date cursor value throws", () => {
+    assert.throws(() => parseCurationState({ shows: { x: "not-a-date" } }), /ISO date/);
   });
 
   // --- emit / serialize / no-op rule ---------------------------------------

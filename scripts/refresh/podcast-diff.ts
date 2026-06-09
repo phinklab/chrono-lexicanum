@@ -19,9 +19,9 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { fetchFeed, parseFeed } from "@/lib/ingestion/podcast/feed";
+import { isTitleExcluded, type PodcastShowConfig } from "@/lib/ingestion/podcast/registry";
 import { fetchYoutubeFeed } from "@/lib/ingestion/podcast/youtube";
 
-import type { PodcastShowConfig } from "@/lib/ingestion/podcast/registry";
 import type { PodcastEpisode } from "@/lib/ingestion/podcast/types";
 import type { NewEpisode, PodcastDiffResult, PodcastShowDiff } from "./types";
 
@@ -36,15 +36,17 @@ export interface PodcastDiffDeps {
 }
 
 /**
- * Absolute date floor for the diff. A *refresh* only ever considers episodes
- * published on/after this instant — the entire pre-floor back-catalog (e.g.
- * luetin09's years of non-lore uploads) is never diffed, only counted. Fixed
- * anchor (not a relative window), so the cutoff is stable and predictable: the
- * podcast analog of the book `sinceYear` floor.
+ * Per-show date floor for the diff. A *refresh* only ever considers episodes
+ * published on/after the floor — the pre-floor back-catalog (e.g. luetin09's
+ * years of non-lore uploads) is never diffed, only counted. The floor is the
+ * show's curation cursor (the date it was last reviewed up to), falling back to
+ * the baseline `episodeSinceDate` when never reviewed — so each weekly run shows
+ * only what's new SINCE THE LAST CURATION, not the whole post-baseline tail.
+ * The podcast analog of the book `sinceYear` floor, advanced per show.
  */
 export interface PodcastDiffFloor {
-  /** Floor instant in epoch ms (e.g. `Date.parse("2026-01-01")`). */
-  sinceMs: number;
+  /** Resolve the floor ISO date (`YYYY-MM-DD`) for a show slug. */
+  floorIsoFor(slug: string): string;
 }
 
 function errMsg(e: unknown): string {
@@ -70,6 +72,7 @@ async function diffOneShow(
   floor: PodcastDiffFloor,
 ): Promise<PodcastShowDiff> {
   const base = { slug: cfg.slug, title: cfg.title, source: cfg.source };
+  const floorIso = floor.floorIsoFor(cfg.slug);
 
   if (cfg.source === "youtube" && !deps.youtubeEnabled) {
     const committed = deps.loadCommittedGuids(cfg.slug);
@@ -77,10 +80,12 @@ async function diffOneShow(
       ...base,
       status: "skipped",
       note: "youtube source skipped — no YOUTUBE_API_KEY in env",
+      floorIso,
       committedCount: committed?.size ?? 0,
       freshCount: 0,
       newEpisodes: [],
       skippedBeforeFloor: 0,
+      skippedExcludedByTitle: 0,
     };
   }
 
@@ -90,10 +95,12 @@ async function diffOneShow(
       ...base,
       status: "failed",
       note: `no committed artifact ingest/podcasts/${cfg.slug}.json — run ingest:podcast first (skipped to avoid a false "all-new" diff)`,
+      floorIso,
       committedCount: 0,
       freshCount: 0,
       newEpisodes: [],
       skippedBeforeFloor: 0,
+      skippedExcludedByTitle: 0,
     };
   }
 
@@ -105,24 +112,33 @@ async function diffOneShow(
       ...base,
       status: "failed",
       note: `feed fetch failed: ${errMsg(e)}`,
+      floorIso,
       committedCount: committed.size,
       freshCount: 0,
       newEpisodes: [],
       skippedBeforeFloor: 0,
+      skippedExcludedByTitle: 0,
     };
   }
 
-  // Only episodes on/after the floor are considered at all; the rest are ignored.
-  const inWindow = fresh.filter((e) => onOrAfterFloor(e.pubDate, floor.sinceMs));
-  const newEpisodes = inWindow.filter((e) => !committed.has(e.guid)).map(toNewEpisode);
+  // Two ordered filters, each counted (never silent): (1) the floor — only
+  // episodes on/after the show's curation cursor are considered; (2) the title
+  // exclusion — "(Video)" twins etc. are dropped. What remains and is not yet
+  // committed is genuinely new.
+  const floorMs = Date.parse(floorIso);
+  const inWindow = fresh.filter((e) => onOrAfterFloor(e.pubDate, floorMs));
+  const afterTitle = inWindow.filter((e) => !isTitleExcluded(e.title, cfg.excludeTitlePatterns));
+  const newEpisodes = afterTitle.filter((e) => !committed.has(e.guid)).map(toNewEpisode);
   return {
     ...base,
     status: "ok",
     note: null,
+    floorIso,
     committedCount: committed.size,
     freshCount: fresh.length,
     newEpisodes,
     skippedBeforeFloor: fresh.length - inWindow.length,
+    skippedExcludedByTitle: inWindow.length - afterTitle.length,
   };
 }
 

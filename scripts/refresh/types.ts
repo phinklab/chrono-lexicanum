@@ -116,13 +116,17 @@ export interface PodcastShowDiff {
   source: "rss" | "youtube";
   status: "ok" | "failed" | "skipped";
   note: string | null;
+  /** The floor ISO date actually used for this show — its curation cursor, or the baseline when never reviewed. */
+  floorIso: string;
   committedCount: number;
   /** Total episodes fetched from the live feed (the full-feed scale, pre-floor). */
   freshCount: number;
-  /** New episodes (in the feed, not in the committed artifact) ON/AFTER the date floor. */
+  /** New episodes (in the feed, not in the committed artifact) ON/AFTER the floor AND not title-excluded. */
   newEpisodes: NewEpisode[];
-  /** Feed episodes published BEFORE the date floor — never considered, only counted (the "old back-catalog" Philipp wants ignored). */
+  /** Feed episodes published BEFORE the show's floor — never considered, only counted (the "old back-catalog" Philipp wants ignored). */
   skippedBeforeFloor: number;
+  /** On/after-floor episodes dropped by the show's `excludeTitlePatterns` (e.g. Lorehammer "(Video)" twins) — counted, never silent. */
+  skippedExcludedByTitle: number;
 }
 
 export interface PodcastDiffResult {
