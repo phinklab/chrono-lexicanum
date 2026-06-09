@@ -449,6 +449,1174 @@
       "confidence": 0.93,
       "sourceUrl": "https://wh40k.lexicanum.com/wiki/Phantine_Air_Corps",
       "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "gereon_resistance",
+      "blurb": "A guerrilla network of ex-PDF soldiers, Arbites, and civilians who fought a years-long insurgency against the Chaos occupation of the agri-world Gereon in the Sabbat Worlds. Trained to effectiveness by Gaunt's Ghosts during their covert mission there, the resistance eventually helped break the occupation from within.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Gereon",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "jantine_patricians",
+      "blurb": "Heavy infantry regiments of the Astra Militarum raised on Jant Normanidus Prime, considered among the most disciplined and decorated formations committed to the Sabbat Worlds Crusade. Known for chanting the ancient Alto Credo war-hymn in battle, the First Regiment was destroyed on Menazoid Epsilon after attempting to eliminate the Tanith First and Only.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Jantine_Patricians",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vervunhive_militia",
+      "blurb": "The standing defence forces of Vervunhive on Verghast, thrust into a brutal 54-day siege when the corrupted Zoican Host attacked. Their tenacious resistance, alongside the Tanith First and Only, saved the hive; surviving militia volunteers were subsequently folded into the Tanith regiment as replacements.",
+      "source_kind": "manual",
+      "confidence": 0.91,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Necropolis_(Novel)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "zoican_host",
+      "blurb": "The mass-mobilised war machine of the corrupted hive city Ferrozoica on Verghast, its thirteen million inhabitants enslaved to the will of the Chaos Lord Heritor Asphodel. The Host besieged the loyalist Vervunhive in a grinding campaign that nearly succeeded before Imperial forces destroyed its mobile command fortress.",
+      "source_kind": "manual",
+      "confidence": 0.91,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ferrozoica",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "aexegarian_forces",
+      "blurb": "An Imperial military force mentioned in the Sabbat Worlds conflict, fighting alongside other crusade elements in support of the wider campaign against Chaos. Details are sparse in published sources.",
+      "source_kind": "manual",
+      "confidence": 0.55,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sabbat_Worlds_Crusade",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "mortifactors",
+      "blurb": "A Second Founding successor Chapter of the Ultramarines, recruited from the death-shrouded feral world Posul. Their culture is steeped in death-ritual — neophytes are called the Faceless until they claim their first kill, and the skulls of honoured dead and defeated foes line the halls of their fortress-monastery.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Mortifactors",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "lords_of_unholy_host",
+      "blurb": "A Chaos Space Marine warband aligned with the Ruinous Powers, operating in the 41st Millennium against Imperial forces. Specific origins and allegiance within the traitor factions are not well-documented in published sources.",
+      "source_kind": "manual",
+      "confidence": 0.5,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Chaos_Space_Marine_Legions_and_Warbands_(List)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "daemons",
+      "blurb": "Entities of the Immaterium given physical form, daemons are the foot-soldiers and champions of the Chaos Gods given corporeal presence wherever the boundary between realspace and the Warp weakens. They range from vast armies of lesser fiends to mighty Greater Daemons embodying each god's core nature.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Daemon",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "crimson_slaughter",
+      "blurb": "Formerly the loyalist Crimson Sabres Chapter, they were cursed by Khorne to hear the voices of every soul they killed — silenced only by further bloodshed. Their slow descent through paranoia and mass murder on the world of Umidia ended in excommunication and a full fall to Chaos as the Crimson Slaughter.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Crimson_Slaughter",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "violators",
+      "blurb": "A Slaanesh-devoted warband of Chaos Space Marines whose members treat their own mutated bodies as temples to the Prince of Pleasure. Their blue armour is slowly consumed by their physical alterations, and they prize sensation above all tactical consideration.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Violators",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "fabius_bile_coterie",
+      "blurb": "The personal retinue and experimental army of Fabius Bile, former Chief Apothecary of the Emperor's Children. Bile surrounds himself with enhanced warriors, Chaos Space Marine mercenaries, and the products of his own gene-craft, directing their violence in service of his obsessive quest to surpass the Emperor's original work.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Fabius_Bile",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "unfleshed",
+      "blurb": "Grotesque byproducts of the Iron Warriors' Daemonculaba on Medrengard — failed attempts to forge new Chaos Space Marines that instead produced skinless, mutated wretches. Despite their origins in Chaos sorcery, the Unfleshed retained a reverence for the Emperor and allied with Uriel Ventris during his mission into the daemon world.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Unfleshed",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "dark_mechanicum",
+      "blurb": "The traitorous Tech-priests and Magi who sided with Horus during the Heresy, driven into the Eye of Terror after the Loyalist victory. Within Chaos space they maintain the war machines of the Traitor Legions and pursue forbidden technologies that the Adeptus Mechanicus brands as the highest heresy.",
+      "source_kind": "manual",
+      "confidence": 0.96,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Dark_Mechanicum",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "crimson_fists",
+      "blurb": "A Second Founding successor of the Imperial Fists, homeworld-based on Rynn's World. Near-destroyed when an errant missile obliterated their fortress-monastery and gene-seed reserves during the Ork Waaagh! of Warboss Snagrod, the Chapter has become a symbol of defiant survival and slow reconstitution.",
+      "source_kind": "manual",
+      "confidence": 0.96,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Crimson_Fists",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "iron_snakes",
+      "blurb": "A non-Codex successor Chapter of the Ultramarines recruited from the ocean world Ithaka, whose warriors must hunt and slay a sea serpent as a rite of passage. Featured in Dan Abnett's Brothers of the Snake, they operate as independent squads despatched across distant war-zones to honour ancient pacts of protection.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Iron_Snakes",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "silver_skulls",
+      "blurb": "A Codex-compliant Chapter believed to descend from the Ultramarines, the Silver Skulls are defined by their Prognosticators — psyker-seers who read the Emperor's Tarot before every engagement. Their divination culture shapes every tactical decision the Chapter makes.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Silver_Skulls",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "dark_hunters",
+      "blurb": "Founded during the Occlusiad with roots in the White Scars, the Dark Hunters earned a lasting distrust of machines after their first campaign against Daemon Engines and a corrupted Titan. They are perpetual hunters of Chaos warbands, and their strained relationship with the Mechanicus endures to this day.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Dark_Hunters",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "mentors",
+      "blurb": "A secretive Chapter raised during the 26th Founding, the Mentors deploy individual squads as tactical advisors attached to other Imperial forces across the galaxy. Their obsession with perfecting the intersection of warfare and military technology makes them unlike any other Astartes Chapter.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Mentors",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "emperors_spears",
+      "blurb": "An Ultramarine successor founded in the 25th Founding, the Emperor's Spears stand as one of three Chapters guarding the remote worlds of Elara's Veil on the edge of the Ultima Segmentum. Depicted in Aaron Dembski-Bowden's novel Spear of the Emperor as a Chapter fighting on the edge of extinction.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Emperor%27s_Spears",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "star_scorpions",
+      "blurb": "A now-extinct Chapter from the 25th Founding, the Star Scorpions once shared guard over Elara's Veil alongside the Emperor's Spears and Celestial Lions. Catastrophic gene-seed failure and the loss of their entire fleet in the Warp brought an end to the Chapter; their remnants fell to Chaos and returned as the warband known as the Pure.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Star_Scorpions",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "celestial_lions",
+      "blurb": "An Imperial Fists successor raised in the 38th Millennium, the Celestial Lions are fierce defenders of Elara's Veil alongside the Emperor's Spears. The Chapter suffered severe losses at Armageddon and subsequently endured a damaging conflict with the Inquisition that left its future in question.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Celestial_Lions",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "wulfen",
+      "blurb": "Wulfen are Space Wolves consumed by the Curse of the Wulfen — a flaw in the Canis Helix gene-seed that drives warriors into a savage, half-wolf state. Once culled in secret, they were recovered en masse from the Eye of Terror and now fight alongside the Chapter as howling shock troops.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Wulfen",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "khorne",
+      "blurb": "Khorne is the Chaos God of war, slaughter, and martial dominance, drawing power from every act of killing regardless of cause or allegiance. His servants reject sorcery utterly, seeking only to spill blood in his name — \"Blood for the Blood God\" is the creed of his numberless worshippers.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Khorne",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "slaanesh",
+      "blurb": "Slaanesh is the Chaos God of excess, sensation, and obsession, born from the millennia-long moral collapse of the Aeldari civilisation. Worshippers pursue every pleasure and sensation to its most extreme conclusion, serving a deity of terrifying beauty and absolute depravity.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Slaanesh",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tzeentch",
+      "blurb": "Tzeentch is the Chaos God of change, scheming, and sorcery, weaving plans within plans across centuries of galactic history. He embodies the hope and ambition of mortals twisted beyond reason, and his followers pursue arcane power in service of a will that may have no final goal at all.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tzeentch",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "nurgle",
+      "blurb": "Nurgle is the Chaos God of disease, entropy, and dark fecundity, offering his followers a grotesque form of immortality through pestilence. His servants embrace decay as a gift, finding perverse joy in spreading suffering across the galaxy in their patron's name.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Nurgle",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legio_invicta",
+      "blurb": "A Loyalist Titan Legion based on the Forge World of Proximus, the Legio Invicta traces its origins to the Age of Strife. The Legion is best known for its defence of Forge World Orestes against Chaos forces, where it fought alongside the embattled Legio Tempestus.",
+      "source_kind": "manual",
+      "confidence": 0.87,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legio_Invicta",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legio_tempestus",
+      "blurb": "One of the oldest Titan Legions in the Imperium, the Legio Tempestus — the Stormlords — was founded on Mars alongside the Legio Mortis and Legio Ignatum at the dawn of the Age of Strife. Their engines fought at the forefront of the Great Crusade, and the Legion endured the schism of the Horus Heresy with its Loyalist core intact.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legio_Tempestus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legio_metalica",
+      "blurb": "Known as the Iron Skulls, the Legio Metalica is one of the oldest and most decorated Titan Legions, hailing from Forge World Metalica in the Charadon Sector. Their engines have fought across thousands of years of Imperial history and remain a formidable presence in the ongoing war against Ork and Chaos alike.",
+      "source_kind": "manual",
+      "confidence": 0.91,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legio_Metalica",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "pallidus_mor",
+      "blurb": "The Legio Pallidus Mor — the Pale Riders — is a Loyalist Titan Legion from Forge World Tolkhan in the Segmentum Tempestus. They took part in operations at the outset of the Horus Heresy and have maintained a reputation as a sombre and relentless force throughout Imperial history.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Legio_Pallidus_Mor",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "imperial_hunters",
+      "blurb": "Legio Solaria, known as the Imperial Hunters, is a Loyalist Titan Legion based on the Forge World of Tigrus, distinguished by an overwhelmingly female princeps tradition. Their doctrine favours fast hunting-pack strikes using Warhound maniples to run down enemies before heavier Titans deliver the killing blow.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Legio_Solaria",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "imperial_knights",
+      "blurb": "Imperial Knights are towering war machines piloted by the noble rulers of Knight Worlds, pledged in service to the Imperium and the Adeptus Mechanicus. Each Knight is a dynastic heirloom, its pilot bound to the machine-spirit through the neural Throne Mechanicum, and their households have fought alongside the Astartes since the Great Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Imperial_Knights",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "skitarii",
+      "blurb": "The Skitarii — also called the Legiones Skitarii — are the cybernetically rebuilt soldiery of the Adeptus Mechanicus, defending Forge Worlds and spearheading the Quest for Knowledge. Extensively augmented with bionics and neurosync implants, they fight in coordinated maniples uplinked directly to the Tech-priests who command them.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Skitarii",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vindicare_temple",
+      "blurb": "The Vindicare Temple trains the Officio Assassinorum's precision marksmen, each operative capable of eliminating a single high-value target from extreme range. Their kills are surgical: one shot, one death, chosen to decapitate enemy leadership or deny a critical asset without broader collateral.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Vindicare_Temple",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "eversor_temple",
+      "blurb": "Eversor assassins are living weapons of mass psychological terror, kept in chemical stasis between deployments and unleashed to butcher entire enemy cadres rather than a single target. Their bodies are saturated with combat stimulants that make them faster and more lethal than any unaugmented fighter — and almost impossible to stop once activated.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Eversor_Temple",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "callidus_temple",
+      "blurb": "Callidus assassins are masters of infiltration and impersonation, using the shape-altering drug Polymorphine to assume any form and slip inside an enemy's inner circle before striking. Their preferred kill is close, personal, and designed to sow maximum confusion before they vanish.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Callidus_Temple",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "culexus_temple",
+      "blurb": "Culexus assassins are Untouchables — individuals born with a total absence of presence in the Warp — making them anathema to psykers and devastating against sorcery-reliant foes. Their pariah nature causes instinctive dread in all nearby, and they deploy animus spectres to amplify this soul-draining effect on the battlefield.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Culexus_Temple",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "rogue_traders",
+      "blurb": "Rogue Traders are Imperial agents bearing a Warrant of Trade — hereditary letters of marque granting near-unlimited authority to explore, trade, and conquer beyond the Imperium's borders. Operating on the frontier, they serve as a blade-edge of Imperial expansion, equal parts merchant prince, explorer, and warlord.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Rogue_Trader",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "navis_nobilite",
+      "blurb": "The Navis Nobilite is an ancient order of mutant noble houses whose members — Navigators — possess a third eye granting the ability to perceive the Astronomican and guide voidships safely through the Warp. Without them, interstellar travel across the Imperium's vast distances would be suicidal, making the Nobilite indispensable and politically untouchable.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Navis_Nobilite",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "squats",
+      "blurb": "Squats are a robust abhuman strain descended from humans stranded in the resource-rich star systems near the galactic core, long since adapted to high-gravity Worlds and fiercely independent from the Imperium. Once absent from official canon for decades, they re-emerged as the Leagues of Votann — a clone-dependent civilisation of Kin with advanced technology and an ancient rivalry with both the Eldar and humanity's great powers.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Squats_(Original)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hive_fleet_leviathan",
+      "blurb": "Hive Fleet Leviathan struck the Imperium from below the galactic plane, bypassing established defences and attacking on two fronts simultaneously to cut off worlds before consuming them. Regarded as the largest Tyranid fleet yet encountered, its assault on Macragge and the defence of the Ultramarines home world became one of the defining crises of the late 41st Millennium.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hive_Fleet_Leviathan",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hive_fleet_kraken",
+      "blurb": "Hive Fleet Kraken struck the Eastern Fringe in the late 41st Millennium, its tendrils fracturing to overwhelm multiple systems simultaneously rather than advancing as a single mass. The assault nearly broke the Eldar of Iyanden and overran Ichar IV before being turned back at great cost to the Ultramarines.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hive_Fleet_Kraken",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "fire_caste",
+      "blurb": "The Fire Caste are the dedicated warrior class of the T'au Empire, responsible for all military operations under the guiding philosophy of the Greater Good. They combine disciplined combined-arms tactics with advanced pulse weaponry and the elite XV battlesuit teams known as Crisis Suits.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Fire_Caste",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ethereal_caste",
+      "blurb": "The Ethereals are the enigmatic ruling caste of T'au society, commanding absolute and unquestioned authority over all other castes through a mysterious influence that no T'au has ever satisfactorily explained. Their origins and the true source of their power remain among the deepest secrets of the T'au Empire.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ethereal",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ctan",
+      "blurb": "The C'tan are ancient star-gods of immense power, beings of living metal who fed on stellar energy before the Necrontyr gods bound them to physical forms and eventually shattered their consciousness into fragments called Shards. These Shards are now caged by the Necrons and wielded as weapons of terrible destructive force.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/C%27tan",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "arkan_confederates",
+      "blurb": "Astra Militarum regiments raised from the world of Providence, near the Maelstrom. Known for independently designed Providence-pattern equipment and a fierce rivalry with the Imperial Navy, they fight with equal parts stubbornness and adaptability.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Arkan_Confederates",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "bloodborn",
+      "blurb": "A broad Chaos alliance assembled by Iron Warriors Warsmith Honsou and the Daemon Prince M'kar the Reborn, comprising multiple Chaos Space Marine warbands and rogue Guard units. Their invasion of Ultramar in 999.M41 — the Invasion of Ultramar — was ultimately repelled by the Ultramarines.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Bloodborn",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "cult_of_chaos",
+      "blurb": "Secretive cells of Chaos worshippers embedded within Imperial society, corrupted by the promises of the Ruinous Powers. Ranging from blood-soaked ritual gatherings on feral worlds to philosophical cabals on hive worlds, they work to undermine Imperial order from within.",
+      "source_kind": "manual",
+      "confidence": 0.8,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Chaos_Cult",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "roaring_blades",
+      "blurb": "Once the Righteous Blades, a decorated Great Crusade infantry formation vassalled to Fulgrim's Emperor's Children, they fell into Slaaneshi excess alongside their liege-masters. Now a sensation-addicted warband, they favour screaming close-combat charges over any semblance of military order.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Roaring_Blades",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "salinas_liberation_front",
+      "blurb": "An insurgent faction on the war-torn planet Salinas in the Paragonus sub-sector, where Warp instability has long made the world a breeding ground for Chaos-tinged rebellion. They represent the ongoing armed resistance against Imperial occupation following a brutal decades-long civil conflict.",
+      "source_kind": "manual",
+      "confidence": 0.65,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Salinas",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "punishers",
+      "blurb": "A Slaanesh-devoted amalgam of Chaos Space Marine warbands of uncertain founding, infamous for instigating the twin Punisher Wars against the Imperium. Their enduring rivalry with the Dark Hunters Chapter drives much of their ongoing predation across Imperial space.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Punishers",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "fallen_angels",
+      "blurb": "Renegade Space Marines of the original Dark Angels Legion, scattered across space and time by a Warp storm at the end of the Horus Heresy. Their allegiances vary widely — some serve Chaos openly, others operate as independent warlords or recluses — but all are hunted relentlessly by the Unforgiven.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Fallen",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hydra_cabal",
+      "blurb": "An extremist splinter of the Illuminati composed largely of high-ranking Inquisitors, the Ordo Hydra pursued a radical plan to weaponise a Warp-born psychic entity — the Hydra — to permanently subjugate Chaos. Even their own Illuminati allies moved to stop them, deeming the cure worse than the disease.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Ordo_Hydra",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "cadian_shock_troops",
+      "blurb": "The backbone infantry regiments of the Fortress World Cadia, bred for war from birth in the shadow of the Eye of Terror. For ten thousand years they stood as the Imperium's foremost bulwark against Abaddon's Black Crusades before Cadia's fall in the 13th Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Cadian_Shock_Troops",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "antari_rifles",
+      "blurb": "An Astra Militarum regiment best known through the 11th Antari Rifles, protagonists of Rachel Harrison's Honourbound series. Assigned to the Bale Stars theatre under Commissar Severina Raine, they wage a grinding crusade against Chaos incursion across a fractured subsector.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Antari_Rifles",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "volpone_bluebloods",
+      "blurb": "The 50th Royal Volpone — the Bluebloods — are an elite Astra Militarum regiment drawn exclusively from the noble houses of Volpone. Haughty, well-equipped, and effective, they appear in Dan Abnett's Gaunt's Ghosts series as proud rivals of the Tanith First-and-Only during the Sabbat Worlds Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Royal_Volpone",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "catachan_jungle_fighters",
+      "blurb": "Ferocious light infantry from Catachan, a death world of lethal flora and fauna that produces some of the toughest soldiers in the Imperium. Their exceptional survival skills and brute endurance make them ideal for dense terrain combat, and they carry a fierce pride in their homeworld's lethal reputation.",
+      "source_kind": "manual",
+      "confidence": 0.96,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Catachan_Jungle_Fighters",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "death_korps_of_krieg",
+      "blurb": "Grim, gas-masked infantry from the irradiated wasteland of Krieg, forged by centuries of penitential civil war into an army that treats death as a sacrament. They specialise in grinding siege warfare and trench combat, and their regiments are deployed to the most costly, attritional campaigns the Imperium faces.",
+      "source_kind": "manual",
+      "confidence": 0.96,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Death_Korps_of_Krieg",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "kasrkin",
+      "blurb": "The elite shock troops of Cadia, selected from the best Whiteshields and trained beyond even the standard Storm Trooper threshold. Armed with carapace armour and hot-shot lasguns, they served as Cadia's finest defenders and, after the planet's fall, carry on as a revered and vengeful remnant force.",
+      "source_kind": "manual",
+      "confidence": 0.94,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Kasrkin",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "aeronautica_imperialis",
+      "blurb": "The atmospheric combat wing of the Imperial Navy, responsible for air superiority, ground-strike missions, and close support across the battlefields of the 41st Millennium. Operating fighters, bombers, and strike craft, it forms the aerial arm of nearly every major Imperial campaign.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Aeronautica_Imperialis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "the_sighted",
+      "blurb": "A Chaos cult that rose to infamy during its assault on the Bale Stars, spreading corruption and ruin across multiple Imperial worlds. The Imperium deployed significant forces under Lord General Militant Alar Serek to contain and destroy them.",
+      "source_kind": "manual",
+      "confidence": 0.75,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sighted",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "order_of_our_martyred_lady",
+      "blurb": "One of the six Major Orders Militant of the Adepta Sororitas, founded in memory of Saint Katherine and bearing her bloody rose as their symbol. They are among the most celebrated of the Sisters of Battle, fighting with particular ferocity in the Emperor's name.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Order_of_Our_Martyred_Lady",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "order_of_the_last_candle",
+      "blurb": "A minor Order Sororitas who for centuries have kept vigil on their isolated sanctuary world, seeking to interpret the tormented visions of their founder. Their unorthodox mysticism sets them apart from mainstream Ecclesiarchy doctrine, as explored in Peter Fehervari's novel Requiem Infernal.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Order_of_the_Last_Candle",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "scythes_of_the_emperor",
+      "blurb": "A loyalist Space Marine Chapter that suffered near-annihilation when Hive Fleet Kraken overran their recruiting world of Sotha. The survivors carry the weight of that catastrophe forward, rebuilding their numbers while waging an obsessive war of vengeance against the Tyranids.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Scythes_of_the_Emperor",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "carcharodons",
+      "blurb": "Known as the Space Sharks, this enigmatic Chapter operates at the extreme fringe of Imperial space and returns only to wage brutal pacification campaigns. Their origins and long absences remain unexplained; their methods are savage and they show little mercy to any who stand against them.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Carcharodons",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "flesh_tearers",
+      "blurb": "A Blood Angels successor Chapter afflicted by an especially virulent strain of the Black Rage and Red Thirst. Their ferocity in close combat is legendary, but their struggles with self-control have made them a deeply diminished and feared brotherhood, as much a danger to allies as to foes.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Flesh_Tearers",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "aeldari_corsairs",
+      "blurb": "Aeldari who have abandoned the rigid discipline of the Craftworlds to roam the void as raiders and mercenaries. Neither wholly Craftworld Aeldari nor Drukhari, they pursue freedom and personal glory, making them unpredictable and dangerous actors across the galaxy.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Eldar_Corsair",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "starsplinters",
+      "blurb": "An Aeldari Corsair fleet formerly led by Princess Tishria, whose capricious rule demanded constant results from her followers. After Tishria's fall, command passed to Corsair Baron Myrin Stormdawn, a former admiral of Craftworld Ilmaren.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Starsplinters",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "triarch_praetorians",
+      "blurb": "Elite warriors who once served as the enforcement arm of the ancient Necron Triarch, sworn to preserve the traditions and unity of the Necron dynasties. They slept through the long hibernation and now re-emerge to rally fractured tomb worlds back to order.",
+      "source_kind": "manual",
+      "confidence": 0.91,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Triarch_Praetorian",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_brobantis",
+      "blurb": "An ancient Navigator House of the Navis Nobilite based on Vorlese, known for broad mercantile connections and considerable political influence. Their symbol is a winged triangle bearing three stars representing the two natural eyes and the warp-sight of a Navigator.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Brobantis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "goffs",
+      "blurb": "The largest and most straightforwardly brutal of the major Ork klans, the Goffs value close-quarters combat above all else and look down on trickery or flashy technology. Their warbands are characterised by black-and-white colours and an almost single-minded appetite for melee violence.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Goffs",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "necromunda",
+      "blurb": "A densely populated hive world in the Segmentum Solar, dominated by colossal city-spires and the lawless Underhive sprawling beneath them. It is a primary source of Astra Militarum troops and manufactured goods, and the setting for the gang warfare chronicled in the Necromunda game line.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Necromunda",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_helmawr",
+      "blurb": "The ruling Noble House of Necromunda's Hive Primus and seat of the planetary governor, House Helmawr controls the tithe obligations that flow to Terra. Their grip on power is maintained through a combination of Imperial mandate, military force, and ruthless political maneuvering against rival houses.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Helmawr",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_koiron",
+      "blurb": "A matriarchal Noble House of Necromunda's Hive Primus with deep ties to the Ecclesiarchy, projecting an outward image of Imperial piety from their seat in Hive Temenos. Beneath that devout facade, the house pursues its ambitions through assassination, sabotage, and political intrigue.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Ko'iron",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_ulanti",
+      "blurb": "One of Necromunda's Noble Houses, renowned for extravagant decadence and enormous wealth, including private ownership of the hive world's own moon. Like other noble families, they dispatch their heirs into the Underhive as Spyrers to prove themselves before taking positions of power.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Ulanti",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_cawdor",
+      "blurb": "A fanatical underhive gang bound together by fervent Imperial faith. Cawdor gangers are drawn from the poorest dregs of Necromunda's hive stacks, wielding scavenged weapons and burning conviction in equal measure. Their zealotry makes them unpredictable allies and savage enemies.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Cawdor",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_escher",
+      "blurb": "An all-female gang house that dominates the narco-chemical trade in Necromunda's underhive. Escher fighters are renowned for their speed and skill with blades and poisons, sustaining their physiques through a monopoly on rare stimms. They are among the most feared combatants in the hive depths.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Escher",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_goliath",
+      "blurb": "Goliath gangers are muscle-enhanced labourers bred to toil in Necromunda's forge-pits, augmented with growth stimms that grant enormous physical power at the cost of shortened lives. The house controls much of the underhive's heavy industry and settles disputes with brute force.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Goliath",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_orlock",
+      "blurb": "Known as the House of Iron, Orlock controls Necromunda's vital ore-road trade routes connecting the hive spire to the underhive. Their gangers are tough, pragmatic road warriors who prize reputation and solidarity, making Orlock one of the most stable and broadly connected of the great houses.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Orlock",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_delaque",
+      "blurb": "A secretive information-brokering house whose pale, hairless gangers are rarely seen until it is too late. Delaque's true power lies in espionage and blackmail rather than open combat; they are suspected of psyker ties and of reporting to shadowy off-world patrons, making them one of Necromunda's most dangerous factions.",
+      "source_kind": "manual",
+      "confidence": 0.91,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Delaque",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_van_saar",
+      "blurb": "The most technologically advanced of Necromunda's great houses, Van Saar gangers deploy cutting-edge energy weapons and void-suits adapted from an ancient STC fragment their house guards obsessively. The same technology slowly irradiates them, giving Van Saar warriors both peerless firepower and a dark shared fate.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Van_Saar",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "redemptionists",
+      "blurb": "A violent puritan cult operating within the underhive, the Redemptionists are a militant offshoot of House Cawdor's faith who believe Necromunda's sinners must be cleansed by fire. Armed with flamers and eviscerators, they conduct pogroms through the hive depths with apocalyptic fervour.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Redemptionist",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "guilders",
+      "blurb": "The merchant guilds of Necromunda act as the economic backbone connecting the noble spire to the lawless underhive, controlling trade in water, weapons, and slaves. Individually neutral in gang warfare, Guilders hire their own armed retinues and can call on brutal enforcement when debts go unpaid.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Necromunda_Guilds",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "spyrers",
+      "blurb": "Young nobles from Necromunda's spire who descend into the underhive clad in powerful exo-armour rigs for blood sport. Spyrers are not a gang in the conventional sense — they hunt for the thrill and to prove themselves — but their advanced weaponry makes them apex predators in any settlement they enter.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Spyrer",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "necromunda_enforcers",
+      "blurb": "The Palanite Enforcers are Necromunda's militarised law-keeping force, deployed by the Noble House Helmawr to maintain order and collect tithes in the upper hive and frontier zones. Better equipped than ordinary gangs, they operate under a strict code of conduct that still permits considerable brutality in the name of Imperial law.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Palanite_Enforcer",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ratskins",
+      "blurb": "The Ratskins — who call themselves the Kuloq, meaning The People — are the indigenous tribes of Necromunda's underhive, pre-dating the great hive cities. They worship the spirits of the hive as a living entity and possess an unmatched knowledge of its tunnels, making them invaluable guides even as they are persecuted by the guilds.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ratskins",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "venators",
+      "blurb": "Venator bands are mercenary coalitions of bounty hunters who roam Necromunda pursuing contracts for profit. Unlike house gangs they have no shared origin, drawing together ex-soldiers, exiled gang members, off-worlders, and even mutants under a common goal: credits. Their eclectic composition makes every warband unique.",
+      "source_kind": "manual",
+      "confidence": 0.91,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Venator_Gang",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "last_chancers",
+      "blurb": "The 13th Penal Legion, nicknamed the Last Chancers, is an Astra Militarum penal unit assembled from condemned soldiers offered one final chance at redemption through suicide missions. Colonel Schaeffer hand-picks convicts for near-impossible objectives, and survivors — if any — theoretically earn their freedom.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/13th_Penal_Legion",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_belisarius",
+      "blurb": "One of the oldest and most influential Navigator Houses, House Belisarius maintains a compound on Terra and holds an exclusive pact with the Space Wolves Chapter, whose Wolfblade warriors serve as the Celestarch's bodyguard. The house's ten-millennia secret alliance with Craftworld Ulthwé — the Pact of Anwyn — remains its most dangerous hidden liability.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Belisarius",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "soul_drinkers",
+      "blurb": "A renegade Space Marine Chapter excommunicated after a dispute with the Adeptus Mechanicus spiralled into open conflict and daemonic corruption. The Soul Drinkers renounced both the Imperium and Chaos, fighting instead for their own interpretation of the Emperor's ideals until their destruction. Ben Counter's novel series chronicles their tragic arc.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Soul_Drinkers",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "howling_griffons",
+      "blurb": "A loyalist Space Marine Chapter known for their bold quartered yellow-and-red heraldry and aggressive close-quarters doctrine. They hold a bitter, centuries-long vendetta against the Chaos Lord Periclitor, who has repeatedly struck at the Chapter's worlds.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Howling_Griffons",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "blood_ravens",
+      "blurb": "A loyalist Chapter shrouded in deliberate mystery surrounding their Founding and gene-seed lineage. Unusually reliant on psykers and scholars, they appear prominently in the Dawn of War games and the related Warhammer 40,000 novels.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Blood_Ravens",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "adeptus_astra_telepathica",
+      "blurb": "The Imperial institution responsible for identifying, collecting, and training human psykers across the galaxy. Its Black Ships conduct sweeps of Imperial worlds to gather untrained psykers, who are assessed, conscripted into service, or sacrificed to sustain the Emperor.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Adeptus_Astra_Telepathica",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "mordian_iron_guard",
+      "blurb": "An Astra Militarum regiment from the perpetually dark hive-world of Mordian, renowned for parade-ground precision and iron discipline maintained even under fire. Their rigid formations and immaculate dress uniforms belie a ferocious determination in defence.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Mordian_Iron_Guard",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vostroyan_firstborn",
+      "blurb": "Elite Astra Militarum regiments drawn from the hive-world of Vostroya, whose ruling class atones for refusing to send troops during the Horus Heresy by conscripting every family's eldest son into lifelong military service. They are recognisable by ornate, heirloom-quality equipment passed down through generations.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Vostroyan_Firstborn",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tallarn_desert_raiders",
+      "blurb": "Astra Militarum regiments originating from the desert world of Tallarn, whose population survived a catastrophic viral bombardment during the Horus Heresy by retreating underground. They specialise in fast-moving armoured warfare and fluid hit-and-run tactics born from fighting across vast open deserts.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tallarn_Desert_Raiders",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tempestus_scions",
+      "blurb": "The elite shock troops of the Militarum Tempestus, orphaned children raised from infancy in Schola Progenium academies and trained to an exceptional standard. Deployed on precision insertion missions too demanding for standard Guard regiments, they answer directly to the Departmento Munitorum.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tempestus_Scions",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "savlar_chem_dogs",
+      "blurb": "Astra Militarum regiments raised from the convict population of the toxic mining world Savlar, whose soldiers are granted pardons in exchange for service. They are notorious for indiscipline, scavenging enemy equipment, and an alarming disregard for personal safety born from lives spent in chemical squalor.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Savlar_Chem-Dogs",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "dragon_warriors",
+      "blurb": "A Chaos Space Marine warband led by the sorcerer Nihilan, a former Salamanders Librarian consumed by vengeance against his old Chapter. Specialists in melta and flame weapons, they wear dark red scaled armour and are the primary antagonists of the Tome of Fire novel series.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Dragon_Warriors",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "red_corsairs",
+      "blurb": "A vast renegade warband based in the Maelstrom warp rift, led by the self-styled High Corsair Huron Blackheart. Originally the loyalist Astral Claws Chapter, they turned renegade after the Badab War and now prey on Imperial shipping, drawing countless other renegades and deserters into their ranks.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Red_Corsairs",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "white_consuls",
+      "blurb": "A Second Founding Ultramarines successor and one of the Astartes Praeses Chapters tasked with guarding the approaches to the Eye of Terror. Unusually, the Chapter maintains two simultaneous Chapter Masters — one to defend their homeworld Sabatine, another to lead forces in distant war zones.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/White_Consuls",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "relictors",
+      "blurb": "A Chapter founded to guard the Eye of Terror that became notorious for collecting and wielding Chaos artefacts, believing they could be turned against the enemy. Their controversial doctrine drew escalating Inquisitorial censure, ultimately resulting in an Excommunicate Traitoris decree and near-annihilation by the Grey Knights.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Relictors",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "blood_gorgons",
+      "blurb": "A renegade Chaos warband of the Cursed 21st Founding, devoted to Chaos Undivided and operating out of the Bastion Sector. Their culture centres on a ritual bond-brotherhood that physically links pairs of warriors through shared organs and blood. Featured as the protagonists of Henry Zou's novel Blood Gorgons.",
+      "source_kind": "manual",
+      "confidence": 0.91,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Blood_Gorgons",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "doom_eagles",
+      "blurb": "A loyalist Chapter whose culture is defined by constant meditation on mortality and the certainty of their own deaths in service to the Emperor. This sombre philosophy shapes every aspect of their conduct and makes them utterly fearless warriors, indifferent to self-preservation.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Doom_Eagles",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "marines_errant",
+      "blurb": "A fleet-based Chapter of Ultramarines lineage founded during the 23rd Founding, permanently on crusade without a fixed homeworld or fortress-monastery. They are among the few Chapters to have campaigned beyond the outer edge of Imperial space and returned. Their gene-seed repository at Vilamus was targeted by Huron Blackheart and the Red Corsairs.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Marines_Errant",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legion_of_the_damned",
+      "blurb": "A spectral force of Space Marines that appears unbidden on doomed battlefields, their armour wreathed in bone-white flames. Their origin is unknown — whether ghosts, survivors, or something stranger — but their intervention reliably turns the tide before they vanish without trace.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legion_of_the_Damned",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "talons_of_the_emperor",
+      "blurb": "The collective designation for the Adeptus Custodes and the Sisters of Silence — the Emperor's right and left hands respectively. Together they guard the Imperial Palace and stand as the supreme bulwark against daemonic incursion, combining martial peerlessness with the Sisters' psychic nullity.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Talons_of_the_Emperor",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "senatorum_imperialis",
+      "blurb": "The High Lords of Terra, the supreme ruling council of the Imperium convened in the Emperor's name. Comprised of the heads of the greatest Imperial institutions, the Senatorum wields ultimate legislative and executive authority over humanity's dominion in the Emperor's stead.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Senatorum_Imperialis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_chimaeros",
+      "blurb": "An Imperial Knight House from the world of Adrastapol that fell to Chaos, pledging itself to the Word Bearers and betraying its former allies. Its treachery was ultimately crushed by the loyalist houses, and House Chimaeros was purged from Adrastapol entirely.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Chimaeros",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_draconis",
+      "blurb": "The ruling Knight House of Adrastapol, whose warriors are known for patient, precisely timed strikes and whose ancestral fortress crowns an active volcano. House Draconis has held the High Kingship of Adrastapol and stood firm for the Imperium across centuries of conflict.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Draconis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "kroot",
+      "blurb": "Carnivorous avian warriors from the Pech system, the Kroot serve the Tau Empire as skilled mercenary auxilia. They absorb the genetic traits of whatever they consume, allowing their Shapers to guide their kindred's evolution — making them one of the most adaptable species in the galaxy.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Kroot",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ratlings",
+      "blurb": "Abhuman auxiliaries of the Astra Militarum, standing barely a metre tall but valued for exceptional marksmanship and stealth. Ratlings serve as snipers and scouts, their small frames and natural nimbleness making them disproportionately effective at picking off high-value targets.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ratling",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "traitor_guard",
+      "blurb": "Imperial Guard regiments that have turned from the Emperor's service, seduced or coerced into the service of Chaos. Traitor Guard fill out the infantry core of Chaos warbands, bringing military training and heavy weapons to bear against the very Imperium that created them.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Traitor_Guard",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "lamenters",
+      "blurb": "A cursed Successor Chapter of the Blood Angels, the Lamenters are beset by misfortune that follows them across every campaign. Their history reads as a chronicle of catastrophe, yet they endure with a compassion and selflessness rare among the Adeptus Astartes.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Lamenters",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "blood_drinkers",
+      "blurb": "A Blood Angels Successor Chapter that struggles with a particularly acute manifestation of the Red Thirst. They have developed ritual practices to manage the curse, walking a careful line between controlled hunger and the savagery of the Black Rage.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Blood_Drinkers",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ogryns",
+      "blurb": "Massive abhuman soldiers serving as shock troops in the Astra Militarum, bred for brute strength and resilience on high-gravity worlds. Too large and too loyal to be subtle, Ogryns crash into enemy lines as living battering rams, their sheer bulk shrugging off wounds that would kill a baseline human.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ogryn",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sautekh_dynasty",
+      "blurb": "One of the most powerful Necron dynasties, the Sautekh command vast tomb fleets and legions across the galaxy. Their Overlords pursue the reconquest of lost star empires with methodical ruthlessness, making them a dominant force in any narrative involving Necron expansion.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sautekh_Dynasty",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "cabal",
+      "blurb": "An ancient conclave of alien species, including Eldar, that has observed and opposed the Chaos powers for longer than humanity has existed. During the Horus Heresy the Cabal approached Alpharius Omegon with a bleak prophecy, urging the Alpha Legion to ensure Horus's victory as the sole path to destroying Chaos.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Cabal",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "interex",
+      "blurb": "An advanced interstellar human civilisation encountered during the Great Crusade, notable for peacefully coexisting with alien species rather than exterminating them. Diplomatic contact collapsed after an Anathame blade was stolen from their vaults by Word Bearers agents, triggering a conflict that had lasting consequences for the Horus Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Interex",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "laer",
+      "blurb": "A serpentine, genetically engineered xenos species that worshipped Slaanesh, dwelling on floating coral islands above their world Laeran. Their extermination by the Emperor's Children during the Great Crusade was the event that began Fulgrim's corruption, as a daemon-bound blade recovered from a Slaaneshi temple ensnared the Primarch.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Laeran",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "knights_of_taranis",
+      "blurb": "The oldest of all Knight houses, founded on Mars itself during the Age of Technology. Unusually for a Knight house, Taranis operates without feudal hierarchy, their pilots bound to the Mechanicum rather than to noble bloodlines. They stood loyally for the Emperor during the Battle of Mars.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Taranis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legio_mortis",
+      "blurb": "One of the oldest and most feared Titan Legions, the Death's Heads were among the first to betray the Emperor and declare for Horus. Their god-engines walked at Isstvan III and later at the Siege of Terra, making them a symbol of the Heresy's catastrophic toll on the Mechanicum.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legio_Mortis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "order_of_caliban",
+      "blurb": "A knightly brotherhood native to the death world of Caliban, the Order trained warriors to hunt the great beasts that plagued the planet's forests. Its finest sons became the first recruits of the Dark Angels Legion, cementing a bond between Caliban's feudal culture and the nascent Imperium.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Order_(Caliban)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "knights_errant",
+      "blurb": "A clandestine cadre assembled by Malcador the Sigillite from loyal Space Marines of multiple Legions during the Horus Heresy. Tasked with covert operations against traitor forces, they served as the seed from which the Grey Knights Chapter would eventually grow.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Knights-Errant",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "lectitio_divinitatus",
+      "blurb": "A text authored by the Primarch Lorgar proclaiming the Emperor to be a living god. Outlawed during the Great Crusade, its underground followers spread across the Imperium and ultimately gave rise to the Imperial Cult — the state religion that now defines the Imperium's spiritual identity.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Lectitio_Divinitatus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legio_ignatum",
+      "blurb": "Known as the Fire Wasps, Legio Ignatum is one of the most storied loyalist Titan Legions, based on Mars. They fought to defend the forge world during the Martian civil war and committed their god-engines to the final defence of Terra during the Siege.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legio_Ignatum",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legio_solaria",
+      "blurb": "An all-female Princeps corps known as the Imperial Hunters, Legio Solaria fields swift, hunter-pattern Titans. Staunchly loyal during the Horus Heresy, they fought alongside the defenders of Terra and are celebrated for their discipline and aggressive precision in battle.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legio_Solaria",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legio_vulpa",
+      "blurb": "Called the Death Stalkers, Legio Vulpa was founded on Anvillus and pledged itself to Horus when the Heresy erupted. Corrupted through the influence of the Word Bearers, the Legion bound itself to Khorne and fought at the Siege of Terra before continuing to serve Chaos in later centuries.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legio_Vulpa",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "selenar_gene_cult",
+      "blurb": "An ancient order of genetic engineers dwelling on Luna, the Selenar possessed some of the most advanced gene-craft in the human-settled galaxy. Subjugated in the first battle of the Great Crusade, their biotechnology enabled the mass production of Legiones Astartes — but their resentment later drove them to aid Horus during the Solar War.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Selenar",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "thunder_warriors",
+      "blurb": "The Emperor's first gene-enhanced soldiers, created before the Legiones Astartes to conquer a fractured Terra. Powerful but psychologically unstable, they were disbanded and largely eliminated once their purpose was spent, becoming a suppressed chapter of pre-Imperial history.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Thunder_Warriors",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "house_devine",
+      "blurb": "A Knight house that turned traitor during the Horus Heresy, its ruling family having fallen to the influence of Slaanesh. House Devine sided with the Word Bearers during the massacre at Calth, deploying their Knights against loyalist forces in one of the Heresy's earliest betrayals.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/House_Devine",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sanguinary_guard",
+      "blurb": "The elite honour guard of the Blood Angels Primarch Sanguinius, clad in golden artificer armour and bearing wings in reflection of their lord. They fight with exceptional ferocity and serve as the finest warriors the IX Legion can field, standing at the centre of Blood Angels mythology and ceremony.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sanguinary_Guard",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "rangdan",
+      "blurb": "A highly advanced and hostile alien species encountered in the galactic north during the Great Crusade. The Rangdan Xenocides — three devastating campaigns to stop their advance — cost the Imperium over eighty thousand Legiones Astartes lives. Records of the conflict were later sealed, primarily by the Dark Angels.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Rangda",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hrud",
+      "blurb": "A shadowy xenos species whose bodies emit a field that accelerates entropy, causing rapid aging in nearby life and decay in matter. Nomadic and reclusive, Hrud migrations can devastate entire regions. The Imperium has fought them since the Great Crusade but understands little of their nature or origins.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hrud",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "crusader_host",
+      "blurb": "A garrison of Space Marines drawn from all eighteen Legions, stationed within the Sol System during the Great Crusade. When the Heresy was revealed, Rogal Dorn had the non-Imperial Fists members imprisoned. A few later escaped and became known as the Outcast Dead.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Crusader_Host",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "serpent_cult",
+      "blurb": "A Chaos-aligned cult devoted to the serpentine deity worshipped on the world of Molech, operating in secret within House Devine. The cult's corruption tied the Knight House to Slaanesh and drove its members to treachery, making House Devine the first Knight House to betray the Imperium during the Horus Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/House_Devine",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "therion_cohort",
+      "blurb": "An elite regiment of the Imperial Army raised from the world of Therion, assigned to the Raven Guard Legion during the Great Crusade and Horus Heresy. The Cohort is celebrated for mounting the rescue mission that extracted Corvus Corax and surviving Raven Guard from the carnage of Isstvan V.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Therion_Cohort",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "davinite_lodge",
+      "blurb": "A Chaos cult rooted in the pre-Imperial warrior society of Davin, whose temple became the site of Horus's spiritual corruption after the Battle of Davin's Moon. The lodge's rituals, conducted under Erebus's direction, opened the path that turned the Warmaster to the service of the Ruinous Powers.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Serpent_Lodge",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ordo_sinister",
+      "blurb": "A clandestine division of the Collegia Titanica that fields Psi-Titans — Warlord-class god-machines whose weapons are powered by bound and suffering psykers. Known as the Left Hand of the Emperor, the Ordo Sinister operates in extreme secrecy and deploys psychic annihilation on a scale few other weapons can match.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ordo_Sinister",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legio_audax",
+      "blurb": "A Traitor Titan Legion known as the Ember Wolves, defined by an exclusively Warhound-class order of battle and a pack-hunter doctrine shared with their World Eaters allies. Their savagery and speed made them a persistent threat throughout the Horus Heresy, most notoriously in the destruction of the loyalist Legio Castigatra.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legio_Audax",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legio_castigatra",
+      "blurb": "A younger loyalist Titan Legion founded during the Great Crusade that declared for Terra and fought a desperate war of attrition against the Traitor Ember Wolves on the world of Absolom. Near-annihilated by the Legio Audax, the Legion's last act was detonating a Warmonger-class Imperator to deny the enemy its prize.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legio_Castigatra",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legio_cybernetica",
+      "blurb": "The Adeptus Mechanicus division responsible for deploying and maintaining battle-automata in warfare, organised into small independent cohorts to prevent any single magos from amassing dangerous concentrations of robotic power. During the Horus Heresy the Legio was split, with traitor cohorts fleeing into the Eye of Terror after the war's end.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legio_Cybernetica",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "blackshields",
+      "blurb": "A loose designation for Space Marines who renounced their Legion allegiance during the Horus Heresy, painting their armour black to erase their origins. Blackshields fought on both sides of the war or for no side at all, their motivations ranging from ideological exile to piracy and death-seeking.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Blackshields",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "officio_sigillite",
+      "blurb": "The apparatus of intelligence and covert operations assembled by Malcador the Sigillite, First Lord of Terra, during the Horus Heresy. Under his direction it encompassed the Knights-Errant and the proto-Inquisition — agents charged with rooting out treachery across the Imperium at a time when no institution yet existed for the task.",
+      "source_kind": "manual",
+      "confidence": 0.8,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Malcador_the_Sigillite",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "legio_praesagius",
+      "blurb": "A venerable loyalist Titan Legion known as the True Messengers, long allied with the Ultramarines and renowned for precision gunnery and ceremonial pageantry. Their presence at Calth proved catastrophic: the Word Bearers' surprise attack reduced the once-proud Legion to barely a dozen surviving engines.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Legio_Praesagius",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "adeptus_administratum",
+      "blurb": "The largest division of the Adeptus Terra and the central bureaucratic engine of the Imperium, employing billions of scribes and clerks to manage taxation, logistics, tithes, and record-keeping across a million worlds. Its sheer scale means whole departments can vanish into their own paperwork, still dutifully fulfilling mandates whose purpose has long ceased to exist.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Adeptus_Administratum",
+      "checkedAt": "2026-06-09"
     }
   ]
 }

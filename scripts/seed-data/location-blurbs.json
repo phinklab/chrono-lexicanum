@@ -305,6 +305,2014 @@
       "confidence": 0.91,
       "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hubris",
       "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "thracian_primaris",
+      "blurb": "A hive world in the Helican Sub-sector that became the sub-sector's administrative capital after the disgrace of Gudrun in 241.M41. It serves as a backdrop for events in Dan Abnett's Eisenhorn series, where it represents the seat of Imperial authority in the region.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Scarus_Sector",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "spaeton_house",
+      "blurb": "A private country estate on the civilised world of Gudrun, Helican Sub-sector, maintained by Inquisitor Gregor Eisenhorn as his personal base of operations. It recurs throughout the Eisenhorn trilogy as a refuge and headquarters between investigations.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Gudrun",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "yassilli_sarum",
+      "blurb": "A civilised world and sub-sector capital within the Scarus Sector, referenced in the Eisenhorn and Ravenor novel series by Dan Abnett. It holds administrative significance as one of the anchor worlds of Imperial governance in the region.",
+      "source_kind": "manual",
+      "confidence": 0.65,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Scarus_Sector",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "queen_mab",
+      "blurb": "A vast hive city on the world of Sancour in the Angelus Sub-sector, Scarus Sector. It features prominently in the Ravenor and Eisenhorn novel series as a setting for Inquisitorial investigations into heresy and forbidden knowledge.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sancour",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "perlia",
+      "blurb": "An agri-world that serves as the primary setting of the Ciaphas Cain novel *Cain's Last Stand*, where an ageing Commissar Cain must rally local defences against a major Chaos invasion. Its pastoral character contrasts sharply with the ferocity of the assault it endures.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Perlia",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ironfound",
+      "blurb": "A forge world and vital munitions producer featured in the Ciaphas Cain novel series, threatened by Chaos corruption spreading from a nearby mining world. Its industrial output makes it a strategically critical target during the regional campaign.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ironfound",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tanith",
+      "blurb": "A densely forested world in the Sabbat Worlds region, destroyed by Chaos forces shortly after its single Imperial Guard regiment was raised. That regiment — the Tanith First-and-Only, Gaunt's Ghosts — carries the world's memory as the last of its people.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Tanith",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "pyrites",
+      "blurb": "A world in the Sabbat Worlds Crusade zone used as a rest-and-recuperation base for Imperial Guard regiments, including the Tanith First-and-Only. Its capital, Cracia City, is dominated by a towering 3,000-metre iron spire known as the Imperial Needle.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Pyrites",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "fortis_binary",
+      "blurb": "A forge world orbiting a binary star system in the Sabbat Worlds, and a significant industrial prize contested during the Sabbat Worlds Crusade. It appears in the Gaunt's Ghosts series as a site of hard mechanised warfare.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Gaunt%27s_Ghosts_(Series)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "menazoid_epsilon",
+      "blurb": "A remote world in the Sabbat Worlds featuring dense jungle and extensive underground cavern systems, contested during the Sabbat Worlds Crusade. It features in the early Gaunt's Ghosts novels as a site of brutal subterranean combat.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Gaunt%27s_Ghosts_(Series)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "monthax",
+      "blurb": "A sweltering jungle world in the Sabbat Worlds occupied by Aeldari forces, forming the framing narrative of *Ghostmaker*, the second Gaunt's Ghosts novel. The Tanith First-and-Only await orders to advance into its dense jungle while Gaunt reflects on their shared history.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Monthax",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "verghast",
+      "blurb": "An industrialised hive world in the Sabbat Worlds and the setting of *Necropolis*, the third Gaunt's Ghosts novel. Its two rival hive cities — loyalist Vervunhive and the Chaos-corrupted Ferrozoica — collide in a brutal siege that reshapes the Tanith regiment.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Verghast",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vervunhive",
+      "blurb": "The principal loyalist hive city of Verghast, besieged by the Chaos-corrupted forces of Ferrozoica in *Necropolis*. Its defence draws in the Tanith First-and-Only and results in Gaunt recruiting Verghast survivors — the 'Verghastites' — into his regiment.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Vervunhive",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ferrozoica",
+      "blurb": "A rival hive city on Verghast whose entire population was corrupted by the Chaos warlord Heritor Asphodel, triggering the siege of Vervunhive. The 'Zoican' forces, numbering in the millions, serve as the primary antagonist faction in *Necropolis*.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ferrozoica",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hagia",
+      "blurb": "A sacred pilgrim world in the Sabbat Worlds revered as the birthplace of the Beati Sabbat, the saint for whom the entire crusade is named. It is the setting of *Honour Guard*, where Gaunt's Ghosts are tasked with defending its holiest shrine from Chaos assault.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Hagia",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "phantine",
+      "blurb": "A Sabbat Worlds planet whose toxic lower atmosphere — the Scald — renders its surface uninhabitable, forcing all settlements into elevated dome-cities above the poisonous murk. Phantine's vast promethium vapour mills made it a key strategic prize during the Sabbat Worlds Crusade, reclaimed through a major Imperial airborne assault.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Phantine",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "cirenholm",
+      "blurb": "A dome-city on Phantine, elevated above the planet's lethal Scald atmosphere. Seized by the Blood Pact, Cirenholm served as the first target of the Imperial airborne offensive on Phantine, with the Tanith First-and-Only assaulting it to secure a foothold for the push toward Ouranberg.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Phantine",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ouranberg",
+      "blurb": "Phantine's largest dome-city and home to the planet's primary promethium vapour mill complex. Held by the Blood Pact under Sagittar Slaith, it was the ultimate objective of the Imperial assault on Phantine, liberated after a covert strike team eliminated the Chaos commander in Operation Larisel.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ouranberg",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "aexe_cardinal",
+      "blurb": "A heavily populated Sabbat Worlds planet locked in grinding continental warfare during the Crusade, where Imperial forces fought alongside the Aexe Alliance against entrenched Chaos armies. The Tanith First-and-Only were deployed here under difficult coalition command, navigating both enemy resistance and fractious allied politics.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Aexe_Cardinal",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "herodor",
+      "blurb": "A Sabbat Worlds pilgrimage world of deep spiritual significance, site of the ancient Civitas Beati. During the Crusade it became the focal point of a massive Chaos assault when the reincarnated Saint Sabbat manifested there, drawing both fanatical defenders and enemy forces to its walls.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Herodor",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "civitas_beati",
+      "blurb": "The holy city on Herodor, founded by Saint Sabbat millennia before the Crusade and named in her honour. It served as the setting for the miraculous reappearance of the Saint's incarnation, and withstood a furious Blood Pact siege in which the Tanith First-and-Only played a central role.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sabbat_Martyr_(Novel)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ancreon_sextus",
+      "blurb": "A Sabbat Worlds planet dominated by vast, ancient steppe-cities that Chaos forces heavily fortified during the Crusade. It features in the aftermath of the Gereon mission, where Gaunt and the Ghosts were processed through Camp Xeno after extraction from behind enemy lines.",
+      "source_kind": "manual",
+      "confidence": 0.8,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Gaunt's_Ghosts_(Novel_Series)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "jago",
+      "blurb": "A harsh, arid fortress-world in the Sabbat Worlds whose mountainous desert terrain is riddled with ancient fortifications carved by a long-vanished alien civilisation. The Tanith First-and-Only were stationed here to hold one such structure — the unsettling citadel of Hinzerhaus — against a Blood Pact assault.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Only_in_Death_(Novel)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hinzerhaus",
+      "blurb": "An ancient mountain citadel on Jago, tunnelled into the rock by a long-dead alien species and later pressed into Imperial service. The fortress's labyrinthine, inconsistently mapped interior gave rise to reports of hauntings when the Tanith First-and-Only held it against a Blood Pact assault in the events of *Only in Death*.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Only_in_Death_(Novel)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "balhaut",
+      "blurb": "One of the most strategically vital worlds in the Sabbat Worlds Crusade, whose liberation marked a turning point in the campaign and the death of the Chaos Archon Nadzybar at Warmaster Slaydo's hand. Its name became a byword for Imperial sacrifice and hard-won victory throughout the sector.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Balhaut",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "balopolis",
+      "blurb": "A hive city on Balhaut that saw some of the bloodiest urban fighting of the Sabbat Worlds Crusade. Imperial Guard forces under General Currel battled the Chaos Kith warbands of Magister Sholen Skara through its streets, suffering severe casualties among senior commanders.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Sabbat_Worlds_Crusade",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "salvations_reach",
+      "blurb": "A remote Chaos outpost and covert research installation in enemy-held space, originally established by Heritor Asphodel. Later used by the Sons of Sek as a Dark Mechanicum weapons-development site, it became the target of a daring Tanith deep-strike raid in the novel of the same name.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Salvation's_Reach_(Novel)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "pavonis",
+      "blurb": "An Ultima Segmentum mining world governed by competing industrial cartels whose internal rivalries left it dangerously exposed. It features in two Ultramarines novels: first when Captain Uriel Ventris prevented the awakening of a C'tan beneath its surface, then when he returned to defend it from a Tau invasion.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Pavonis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tarsis_ultra",
+      "blurb": "An Ultima Segmentum world that bore the full brunt of Hive Fleet Leviathan's advance, defended by the Ultramarines Fourth Company alongside the Mortifactors and two Imperial Guard regiments. The desperate battle here, chronicled in *Warriors of Ultramar*, forced Uriel Ventris into unorthodox tactics that would later cost him dearly.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tarsis_Ultra",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "medrengard",
+      "blurb": "A Daemon World within the Eye of Terror, reshaped by Primarch Perturabo into a single planet-spanning fortress of towers, bastions, and subterranean dungeons. It serves as the spiritual homeworld of the Iron Warriors, where rival Warsmiths each hold their own fortified domain and slave armies toil without end.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Medrengard",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ultramar",
+      "blurb": "A realm of roughly five hundred worlds in the Ultima Segmentum, governed by the Ultramarines Chapter and long regarded as a model of Imperial order. Attacked repeatedly by Chaos and Tyranid forces, it remains one of the most strategically vital domains outside Terra itself.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ultramar",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "imperium_nihilus",
+      "blurb": "The vast swathe of Imperial space cut off from Terra by the Cicatrix Maledictum following the fall of Cadia. Plunged into warp-shadow and largely unreachable by reinforcement, it became a realm of desperate, isolated defenders fighting without guidance from the Golden Throne.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Imperium_Nihilus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "maelstrom",
+      "blurb": "A massive warp rift at the heart of the galaxy, smaller than the Eye of Terror but no less dangerous. It serves as a stronghold for countless renegade warbands and piratical forces, most notably Huron Blackheart's Red Corsairs.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Maelstrom",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "webway",
+      "blurb": "An ancient network of tunnels threading through subspace, built by the Aeldari and predating the Imperium by aeons. Bypassing the dangers of conventional warp travel, its labyrinthine passages are contested by Aeldari, Dark Eldar, and other factions.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Webway",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hydra_cordatus",
+      "blurb": "A Forge World near the Eye of Terror, notable as one of the few sites where the Adeptus Mechanicus stored tithes of Imperial Fists gene-seed. It was besieged twice by the Iron Warriors, most famously in late M41 when a Grand Company attacked on Abaddon's orders ahead of the 13th Black Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hydra_Cordatus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "killing_ground",
+      "blurb": "A forbidden, haunted zone on the planet Salinas, sealed off by the planetary defence force after a massacre left its ground soaked in innocent blood. The site's psychic residue drove the dead to rise and tear at the walls between realspace and the warp.",
+      "source_kind": "manual",
+      "confidence": 0.8,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Killing_Ground_(Novel)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "salinas",
+      "blurb": "An Imperial world in the Paragonus sub-sector where the barrier between realspace and the warp is dangerously thin. A colonial massacre by the occupying Achaman Falcatas regiment left a psychic wound that eventually summoned the vengeful dead, requiring multiple Grey Knights interventions.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Salinas",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "commorragh",
+      "blurb": "The hidden city of the Drukhari, a sprawling pocket realm carved out of the webway beyond the reach of the Immaterium. Seat of the Kabal hierarchies and a place of perpetual cruelty, it is sustained by the suffering of captives harvested from across the galaxy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Commorragh",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "iax",
+      "blurb": "Once a fertile agri-world and one of Ultramar's four Master Worlds, Iax earned the name Garden of Ultramar for its cultivated landscape. During the Plague Wars it was ravaged by Nurgle's forces and finally scoured of life by a virus bomb detonated by Mortarion on his retreat.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Iax",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "casus_belli",
+      "blurb": "An Imperator Titan of the Legio Metalica, one of the most powerful war engines in Imperial service. It led a battlegroup against the corrupted forges of Nicomedua, where the traitorous Legio Fureans attempted to subvert its crew.",
+      "source_kind": "manual",
+      "confidence": 0.8,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Casus_Belli",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "solace",
+      "blurb": "A Repulsive-class Grand Cruiser dragged into the Eye of Terror and warped by Nurgle's influence over millennia until it became semi-sentient. Serving as the flagship of the Death Guard warband known as the Lords of Silence, it demands a steady toll of flesh to keep its hunger in check.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Solace",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "rynns_world",
+      "blurb": "The homeworld of the Crimson Fists Space Marine Chapter, an Imperial world that suffered a devastating Ork invasion under Waaagh! Snagrod. The accidental destruction of the Chapter's fortress-monastery at the outset left the Crimson Fists fighting for survival with a fraction of their strength.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Rynn%27s_World",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "arx_tyrannus",
+      "blurb": "The fortress-monastery of the Crimson Fists, constructed in the Hellblade Mountains of Rynn's World from the hull of the ancient battle barge Rutilus Tyrannus. It was obliterated at the start of the Ork invasion when a misfired defence missile struck its armory, nearly wiping out the entire Chapter in a single catastrophic blast.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Arx_Tyrannus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "necromunda",
+      "blurb": "A vast Hive World in the Segmentum Solar, its colossal city-spires housing billions across a rigid social hierarchy of noble houses, underhive gangs, and outlanders. Infamous for the gang warfare that perpetually tears through its depths, it is a major source of Imperial Guard recruits.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Necromunda",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "black_reach",
+      "blurb": "A Hive World in the southern Ultima Segmentum of strategic value to Ultramar, surrounded by dense asteroid belts that make full pacification of any xenos incursion enormously difficult. It is best known as the site of the Assault on Black Reach, where the Ultramarines 2nd Company crushed Waaagh! Zanzag at great cost to the planet's population.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Black_Reach",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "elaras_veil",
+      "blurb": "A nebula-shrouded sub-sector of roughly twenty inhabited worlds in the Ultima Segmentum, guarded by the three Astartes Chapters known as the Adeptus Vaelarii. After the Great Rift, the Veil was swallowed by the Imperium Nihilus and left to fight a grinding war of survival against the Chaos faction known as the Exilarchy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Elara's_Veil",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tsadrekha",
+      "blurb": "An oceanic Hive World cut off by the Great Rift whose darkness was held at bay by a uniquely powerful psyker acting as a beacon. That beacon drew three competing Chaos warbands simultaneously, and despite intervention by the Imperial Fists and Saint Celestine the world was left devastated. Featured in Andy Clark's novel Shroud of Night.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tsadrekha",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "darkand",
+      "blurb": "An Imperial world whose defence became a proving ground for the White Scars 4th Brotherhood when Tyranid Splinter Fleet Cicatrix struck. Though heavily outnumbered, Joghaten Khan broke the invasion by slaying the Hive Tyrant leading it, securing the planet.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Darkand",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ikara_ix",
+      "blurb": "An Industrial and Mining World overrun by the Ork Waaagh! of Warlord Urgork after the Great Rift formed. A Primaris-only Ultramarines demi-company, the Fulminata, led the relief effort, but the arrival of a second Ork fleet forced the Imperial fleet to withdraw, leaving the world's fate in the balance.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ikara_IX",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "nicomedua",
+      "blurb": "An Adeptus Mechanicus tributary world whose ruling Tech-Priests turned to the Dark Mechanicum during the upheaval of the Great Rift. Years of Imperial Guard fighting achieved only stalemate until a Legio Metalica Titan Battlegroup led by the Imperator Titan Casus Belli broke the heretic hold. Featured in the novel Imperator: Wrath of the Omnissiah.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Nicomedua",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sycorax",
+      "blurb": "A Death World in the Ultima Segmentum perpetually wracked by psychic storms, making it a harsh but invaluable training ground for the Adeptus Astra Telepathica. During the Indomitus Crusade it was targeted by a Necron force including a shard of the Nightbringer, repelled only with the aid of Uriel Ventris's Ultramarines.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sycorax_(Death_World)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "opis",
+      "blurb": "A remote Imperial world unwittingly drawn into catastrophe when the rogue Maerorus assassin Legienstrasse took refuge there. The Officio Assassinorum spent decades covertly seeding Opis with Chaos cults to flush her out, a scheme ultimately ended — at great cost — by Imperial Fists Captain Darnath Lysander.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Maerorus_Temple",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "phaedra",
+      "blurb": "A dense ocean world — known to the T'au as Fi'draah — where islands are smothered by a near-sentient tangle of fungi and vegetation. Home to the Saathlaa mutant strain, it was the site of a T'au diplomatic and military campaign that turned much of the indigenous population toward the Greater Good.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Phaedra",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "equixus",
+      "blurb": "A Hive World where the vessel of the Night Lords Chaos Space Marine Zso Sahaal crash-landed after emerging from the Warp. Its gang-ruled underhive became the backdrop for Sahaal's hunt to recover the Corona Nox, while an Ordo Hereticus Inquisitor closed in around him.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Zso_Sahaal",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ithaka",
+      "blurb": "A feral ocean world in the Reef Stars region of the Segmentum Obscurus, known to its people as the Cradle of Snakes. Its deep seas and serpentine Water Wyrms form the cultural bedrock of the Iron Snakes Space Marine Chapter, which draws its Neophytes entirely from Ithaka's seafaring tribes.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ithaka",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "karybdis",
+      "blurb": "A moon orbiting Ithaka in the Reef Stars, serving as the fortified home of the Iron Snakes Chapter's Fortress-Monastery. Its proximity to the Chapter's recruiting world makes it the nerve centre from which the Iron Snakes deploy to police the surrounding region.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Karybdis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "reef_stars",
+      "blurb": "A loose linear constellation of inhabited worlds in the Segmentum Obscurus, taking roughly three and a half Warp-years to traverse end to end. The Iron Snakes Space Marine Chapter has held a standing mandate to defend the Reef Stars for millennia, fighting persistent Dark Eldar raids and occasional Ork invasions.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Reef_Stars",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "kaelor",
+      "blurb": "A minor Asuryani craftworld that made a Webway jump to the galaxy's edge long ago and has remained isolated there for millennia. Governed by a rigid feudal oligarchy of noble houses, Kaelor is so forgotten that even the Harlequins have nearly lost track of its existence.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Kaelor",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "phobian",
+      "blurb": "A sunless ice world and homeworld of the Dark Hunters Space Marine Chapter, whose fortress-monastery Mors Angnar crowns the Argahast mountain range. Its perpetual darkness and the silent predatory bats that stalk its nomadic tribes shaped the Chapter's signature doctrine of swift, silent warfare.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Phobian",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ras_hanem",
+      "blurb": "An Imperial world that came under assault during the Second Punisher War when the Chaos Punishers Warband invaded under the watch of Planetary Governor Riedling and the Hanemite Guard. Details of the campaign are recorded in Lexicanum but remain limited.",
+      "source_kind": "manual",
+      "confidence": 0.72,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ras_Hanem",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "temple_of_shades",
+      "blurb": "A Chaos construct ripped from a Daemon World within the Eye of Terror. Manifested on Achyllan Prime during the Thirteenth Black Crusade, it served as an anchor between the Materium and the Warp, intended to fuel a rift that would threaten Terra itself.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Temple_of_Shades",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "valoria_quintus",
+      "blurb": "An Imperial world that became the theatre of a traitor-backed insurrection confronted by the Silver Skulls Space Marines. The campaign, chronicled in S.P. Cawkwell's novel Portents, drew scrutiny from the Inquisition over the Chapter's psyker Prognosticars.",
+      "source_kind": "manual",
+      "confidence": 0.78,
+      "sourceUrl": "https://www.blacklibrary.com/all-products/silver-skulls-portents-ebook.html",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "eastern_fringe",
+      "blurb": "A vast galactic region marking the outermost eastern reaches of the Milky Way, far from Terra and the Astronomican's reliable light. It is a frontier zone shared by Tau expansion, Tyranid Hive Fleet incursions, and scattered Ork empires, with minimal Imperial oversight.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Eastern_Fringe",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "orestes",
+      "blurb": "A Forge World of the Adeptus Mechanicus, home to the Titan Legion Legio Tempestus and a major supply node for the Sabbat Worlds Crusade. The world survived a devastating assault by Chaos Titans in 779.M41 only through the timely intervention of Legio Invicta, an event depicted in Dan Abnett's Titanicus.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Orestes",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vernailis",
+      "blurb": "A bleak mining world in Segmentum Obscurus, its landscape of jagged flint and shale shrouded by fumes from vast oil seas. Its single industry — petrochemical extraction shipped via orbital elevators — belies the cruel irony of a name meaning 'springtide' in a forgotten Terran tongue.",
+      "source_kind": "manual",
+      "confidence": 0.75,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Vernalis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "black_library_place",
+      "blurb": "A hidden Aeldari repository concealed within the shifting labyrinth of the Webway, said to contain the most dangerous lore concerning Chaos ever compiled. Access is jealously controlled by the Harlequins, and even the greatest Farseers may wait centuries for entry.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Black_Library",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "iyanden",
+      "blurb": "One of the largest surviving Aeldari Craftworlds, once populous beyond measure before Hive Fleet Kraken devastated it in 992.M41. Its vast halls are now populated more by the wraith-constructs of the dead than by the living, giving it an air of spectral melancholy unique even among Craftworlds.",
+      "source_kind": "manual",
+      "confidence": 0.96,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Iyanden",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "duriel",
+      "blurb": "The Aeldari name for the world known to the Imperium as Valedor. It became the site of a desperate last stand against remnants of Hive Fleet Kraken in 778.999.M41, ending only when a Harlequin-brokered coalition of Craftworld and Dark Eldar forces triggered the Fireheart device, destroying the planet entirely.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Valedor_(planet)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "dolumar_iv",
+      "blurb": "A heavily industrialised desert world on the Eastern Fringe, home to a captive Lord of Change bound by Aeldari Farseers since the 31st Millennium. Its fate — and the daemon's liberation — forms the backdrop of the Fire Warrior game; the planet was ultimately subjected to Exterminatus after Chaos corruption rendered it unsalvageable.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Dolumar_IV",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sigmatus",
+      "blurb": "A Feudal World on the fringes of the Eye of Terror in Segmentum Obscurus, divided among five principal nations across three continents. Its proximity to the Eye makes it a world forever shadowed by the threat of Chaos incursion.",
+      "source_kind": "manual",
+      "confidence": 0.72,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sigmatus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "torvendis",
+      "blurb": "A Daemon World at the heart of the Maelstrom, once a verdant Aeldari Maiden World before corruption transformed it into a realm of Chaos. Its ever-shifting geography and blood-soaked bedrock — compressed from centuries of fallen warriors — make it the setting of Ben Counter's novel Daemon World.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Torvendis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "piscina_iv",
+      "blurb": "An Imperial mining world and Dark Angels stronghold in the Piscina System, housing geneseed reserves and recruit training facilities. During the Third War for Armageddon in 997.M41, the 3rd Company under Captain Belial fought a grinding defence against an Ork invasion backed by Ghazghkull himself — the conflict depicted in Gav Thorpe's The Purging of Kadillus.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Piscina_IV",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "enothis",
+      "blurb": "An Imperial world within the Sabbat Worlds, partially overrun during the Sabbat Worlds Crusade when Anakwanar Sek's Blood Pact seized its southern hives. The Northern Commonwealth held out until liberation in 774.M41; the aerial campaign over its deserts is the heart of Dan Abnett's novel Double Eagle.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Enothis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hive_trazior",
+      "blurb": "A frontier hive city on Necromunda, situated on the edge of the Great Equatorial Waste as the southernmost node of the Palatine Cluster. Known for its three spires — the 'Three Sisters' — it serves as the primary trading depot for convoys crossing the southern wastes, and is dominated by House Orlock.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hive_Trazior",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "isle_of_st_capilene",
+      "blurb": "A former Missionary World of the Imperium, purged of a Genestealer Cult infestation by a Deathwatch Kill-Team under Inquisitor Severnius. It was subsequently consumed by Hive Fleet Leviathan, stripped of all atmosphere and life in the Tyranid advance.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/St_Capilene",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "bale_stars",
+      "blurb": "A besieged Imperial sector that became the focus of a decades-long crusade against the Sighted Chaos Cult. Its worlds endured sustained corruption and open rebellion, with the campaign led by Lord General Militant Alar Serek.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Bale_Stars_Crusade",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "candleworld",
+      "blurb": "A storm-wracked holy world also known as Redemption 219, home to the Adepta Sororitas of the Last Candle, who have kept vigil there for centuries. Malign forces stir in its spires, as depicted in Peter Fehervari's novel Requiem Infernal.",
+      "source_kind": "manual",
+      "confidence": 0.87,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Candleworld",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sotha",
+      "blurb": "An Imperial world in Segmentum Ultima, homeworld of the Scythes of the Emperor Chapter and site of the Pharos — an ancient xenos beacon that once guided ships across the galaxy. Consumed by Hive Fleet Kraken in M41, it is being slowly terraformed back to life in the Era Indomitus.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Sotha",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ophelia_vii",
+      "blurb": "The oldest Cardinal World in the Imperium and its second holiest site after Terra, Ophelia VII is blanketed with vast cathedral complexes and hosts the Adepta Sororitas Convent Sanctorum. After the Great Rift tore open, it was enslaved by a Lord of Change until freed by Guilliman's Indomitus Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Ophelia_VII",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vorlese",
+      "blurb": "A prosperous world in Segmentum Solar positioned at the hub of one of the eight major warp routes to Terra, making it a linchpin of interstellar travel. During the Plague Wars era the Black Legion attempted to drop a Cadian Pylon shard onto the surface to sever those routes entirely.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Vorlese",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "galimo_prime",
+      "blurb": "An Imperial world referenced in late-M41 or Era Indomitus campaign material. Specific planetary classification and notable events remain poorly documented in major sources.",
+      "source_kind": "manual",
+      "confidence": 0.4,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Planets_(List)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "pariah_nexus",
+      "blurb": "A vast region in the Nephilim Sector where the Necrons have activated a network of anti-psychic pylons, suppressing the Warp across dozens of star systems and draining the souls of the living. The Silent King's plan to permanently seal away the empyrean from reality hinges on its completion.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Pariah_Nexus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "silent_kingdom",
+      "blurb": "A term used for the growing void of psychic silence at the heart of the Pariah Nexus, where Necron null-field generators have extinguished all Warp presence. Within its boundaries psykers are rendered helpless and Chaos entities cannot manifest.",
+      "source_kind": "manual",
+      "confidence": 0.72,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Pariah_Nexus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hephaesto",
+      "blurb": "An Imperial Forge World specialising in STC research and advanced weapons development, home to the ancient Legio Hephaesto Titan Legion. The planet suffered successive Ork invasions and internal Chaos corruption before a brutal struggle to reclaim it.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hephaesto",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "attruso",
+      "blurb": "An Imperial world appearing in Era Indomitus campaign context. Specific classification and major events are not well attested in available sources.",
+      "source_kind": "manual",
+      "confidence": 0.4,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Planets_(List)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "stalinvast",
+      "blurb": "A former Hive World of a thousand cities, once rich with blue-green jungles between its coral-like hive growths. Overrun by a Genestealer uprising and a Warp entity called the Hydra, it was destroyed by a misdirected Exterminatus order in the early 39th Millennium and left a Dead World.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Stalinvast",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sabulorb",
+      "blurb": "An Imperial world that suffered a Genestealer infestation contained by a Callidus Assassin, later used as a base by Inquisitor Jaq Draco. It was ultimately destroyed when conflict unleashed by a Thousand Sons attack spiralled into total societal collapse and planetary catastrophe.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Jaq_Draco",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "solemnace",
+      "blurb": "A Necron Tomb World on the Eastern Fringe ruled by Trazyn the Infinite, Overlord of the Nihilakh Dynasty. Its galleries contain some of the most remarkable artefacts in the galaxy, collected across aeons — and Trazyn is not shy about expanding the collection.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Solemnace",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "cepharil",
+      "blurb": "An artificial world on the Eastern Fringe known by three names — Cepharil to the Eldar, Cephris to the Necrons, and Serenade to the Imperium. Tomb World of the Ammunos Dynasty and site of a long rivalry between Trazyn and Orikan the Diviner, it was ultimately destroyed by Exterminatus during a Genestealer uprising.",
+      "source_kind": "manual",
+      "confidence": 0.87,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Solemnace",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "orymous",
+      "blurb": "An Imperial world appearing in Warhammer 40,000 campaign or novel material. Reliable details about its classification and role are not attested in major sources currently.",
+      "source_kind": "manual",
+      "confidence": 0.4,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Planets_(List)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ithracas_vengeance",
+      "blurb": "Strike Cruiser of the Ultramarines, assigned to Battle Group Kallides during the Indomitus Crusade. Under Captain Aeschelus it carried nearly two thousand Space Marines and serfs into the Pariah Nexus to contest the Necron threat.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ithraca's_Vengeance",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "steel_tread",
+      "blurb": "A Leman Russ Demolisher tank serving with a Cadian regiment on the war-world of Croatoas. The vehicle is the namesake and command tank of tanker Hadeya Etsul in Andy Clark's novel of the same name.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Steel_Tread_(Novel)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "croatoas",
+      "blurb": "An Imperial industrial world that descended into civil strife and heresy after the opening of the Great Rift. The Coronal Crusade was launched to reclaim it, making Croatoas the backdrop for a brutal Astra Militarum versus Chaos campaign depicted in Andy Clark's novel Steel Tread.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Croatoas",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "gondwa_vi",
+      "blurb": "An Imperial world in M42 where Ork forces have been tightening their grip, prompting the Imperium to deploy multiple regiments — including the Catachan 57th Jungle Fighters — to contest the invasion. Featured in the novel Catachan Devil.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Gondwa_VI",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hive_primus",
+      "blurb": "The capital hive of Necromunda and the largest city in the Palatine Cluster, also called the Palatine after the ruling House Helmawr's fortress-palace. Its layered districts — Spire, Hive City, and Underhive — form the primary setting for the Necromunda game and fiction.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hive_Primus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "underhive",
+      "blurb": "The lawless depths beneath Hive Primus on Necromunda, where crumbling domes, toxic sumps, and collapsed infrastructure stretch for kilometres. Gangs, outcasts, and mutants fight for scraps of territory here, far beyond the reach of uphive authority.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Underhive",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "spire",
+      "blurb": "The towering apex of Hive Primus on Necromunda, rising above the cloud line to the lower atmosphere. Home to the noble houses and the planetary governor's palace, it is a world of airy luxury utterly divorced from the squalor of the hive below.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://necromunda.fandom.com/wiki/Hive_Primus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hopes_end",
+      "blurb": "A world of the Nexaris System that was habitable until the M39 era, when the system's sun began radiating corrupting darkness. The surviving worlds were subsequently quarantined by the Imperium.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hope's_End_(Planet)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "dim_zone",
+      "blurb": "A contested region bordering the Underhive in Hive Primus on Necromunda, where gang territory is perpetually disputed. House Escher outfits such as the Wild Hydras have claimed footholds here, only to face encroachment from rival Goliath overlords.",
+      "source_kind": "manual",
+      "confidence": 0.7,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Necromunda_(planet)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "floodgrave",
+      "blurb": "A settlement on Necromunda, its name the starting point of Mike Brooks' novella Road to Redemption. When Floodgrave is destroyed and its people killed, a House Cawdor survivor takes up arms and descends deeper into the hive in search of those responsible.",
+      "source_kind": "manual",
+      "confidence": 0.8,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Road_to_Redemption_(Novella)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "fallen_dome_of_periculus",
+      "blurb": "A long-lost habitation dome deep within the Underhive of Hive Primus, Necromunda. Once a thriving hub of commerce, Periculus was mysteriously abandoned and its location forgotten — until rediscovery unearthed forbidden archeotech and a maddening affliction that threatens the entire hive. Central to the novel Fire Made Flesh by Denny Flowers.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Necromunda_(Novel_Series)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "junktion",
+      "blurb": "A trade settlement in the Underhive of Necromunda, grown up at the intersection of several major transit routes around a great collapse-shaft. Merchants and wanderers pass through to barter raw goods and archeotech, making Junktion a rare pocket of commerce in the lawless deep-hive. Featured in the novel Junktion by Matthew Farrer.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Junktion_(Novel)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "fang",
+      "blurb": "The fortress-monastery of the Space Wolves, carved into the highest peak of Asaheim on Fenris. Its uppermost spire pierces the atmosphere and its depths extend for kilometres through solid rock; it is considered the mightiest bastion of the Imperium outside Terra itself, and has never been taken.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Fang",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "asaheim",
+      "blurb": "The northern polar continent of Fenris, shielded by towering coastal cliffs and home to the tribes from which the Space Wolves recruit. Asaheim's glacial wilds harbour creatures found nowhere else on the death world, and its tallest peaks — crowned by The Fang — are revered as the realm of the gods by the native people.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Fenris",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "aerius",
+      "blurb": "A Hive World and imperial keystone world that has twice suffered devastating plagues, the second linked to the Nurgle Greater Daemon Botchulaz restrained beneath an ancient Aeldari Black Pyramid. The Space Wolves, including the young Ragnar Blackmane, were called to lift the curse in the 41st Millennium.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Aerius",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "galt",
+      "blurb": "An Imperial world whose name appears in Gothic War-era records. Its precise classification and strategic role remain poorly documented in surviving sources.",
+      "source_kind": "manual",
+      "confidence": 0.5,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Planets_(List)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "garm",
+      "blurb": "An Industrial World lying on the warp corridor between Fenris and the Eye of Terror, Garm is closely tied to the Space Wolves. Named for a Wolf Lord who sacrificed himself defending Leman Russ, it became the site of a Chaos uprising fomented by over-taxed manufacturing cartels and was retaken by a full muster of ten Great Companies.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Garm",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hyades",
+      "blurb": "A jungle world unusually rich in promethium, Hyades sits under Space Wolves protection and was heavily invested in by Navigator House Belisarius. Its fast-growing canopy must be constantly cleared back, and it is home to a native xenos species the settlers call Reptos.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hyades",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "planet_of_the_sorcerers",
+      "blurb": "Also named Sortiarius, this volcanic Daemon World deep within the Eye of Terror serves as the fortress-home of the Thousand Sons and their Primarch Magnus the Red. Magnus transported it there from the ruins of Prospero, and its dark spires and warp-wracked skies mirror the twisted legacy of the Legion's fall.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Planet_of_the_Sorcerers",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "venam",
+      "blurb": "An Imperial world referenced in Black Library fiction. Specific details about its classification and strategic significance are not well documented in available sources.",
+      "source_kind": "manual",
+      "confidence": 0.45,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Planets_(List)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "acheron",
+      "blurb": "A mysterious world that surfaces from the Warp once every five millennia, Acheron became a flashpoint in M41 when the ancient weapon known as the Spear of Khaine was discovered there. Blood Ravens, Eldar, and Orks clashed over it before a Chaos trap was sprung — ending with the planet's destruction when Gabriel Angelos drove a Battle Barge into its core.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Acheron_(World)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "gothic_sector",
+      "blurb": "A heavily populated Imperial region bordering the Eye of Terror, the Gothic Sector was the principal theatre of Abaddon's Twelfth Black Crusade — the Gothic War — from 139–160.M41. Its six Blackstone Fortresses, ancient weapons of terrifying power, made it the prize both sides fought hardest to hold.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Gothic_Sector",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "shadow_point",
+      "blurb": "A strategic system within the Gothic Sector that features in the Gothic War-era naval campaign. The name is most closely associated with the mid-war period covered in Gordon Rennie's fiction set around the battles fought by Captain Leoten Semper.",
+      "source_kind": "manual",
+      "confidence": 0.65,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Gothic_War_(Novel_Series)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "typhos_prime",
+      "blurb": "Capital world of the Typhon system and the final objective of the 13th Penal Legion — the Last Chancers. The Imperial penal force was tasked with destroying Coritanorum, a rebel fortress-city overrun by Genestealers, at enormous cost, with only a handful of soldiers surviving the operation.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/13th_Penal_Legion",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "phalanx",
+      "blurb": "The Phalanx is a continent-sized void-fortress and the mobile home of the Imperial Fists Chapter, constructed during the Dark Age of Technology and discovered by Primarch Rogal Dorn above Inwit. Dwarfing any conventional warship, it serves simultaneously as fleet command vessel, fortress-monastery, and the Chapter's true seat of power.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Phalanx",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "selaaca",
+      "blurb": "An Imperial world referenced in Black Library fiction. Available sources provide insufficient detail to confirm its classification, location, or role in the wider conflict.",
+      "source_kind": "manual",
+      "confidence": 0.45,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Planets_(List)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vanqualis",
+      "blurb": "An Imperial world in the Obsidian System, Scaephan Sector, ruled in near-feudal fashion by the Falken family. When an Ork horde overran its capital Palatium, both the Soul Drinkers and the Howling Griffons responded alongside the 901st Penal Legion to reclaim it.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Vanqualis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hydraphur",
+      "blurb": "A Forge World and the administrative and fleet capital of Segmentum Pacificus, Hydraphur wields enormous logistical authority over one of the Imperium's five great segmentums. It is the setting for Matthew Farrer's Shira Calpurnia novels, which follow an Adeptus Arbites officer navigating its complex political and criminal landscape.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hydraphur",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "kepris",
+      "blurb": "A sacred Imperial world that fell to the Chaos cult of Yeceqath in early M42, Kepris was chosen for reclamation by the Indomitus Crusade partly because of the holy relics held there. Its liberation gave the Imperium a much-needed symbolic victory at the opening of a new dark age.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Kepris",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tartarus",
+      "blurb": "A populated Imperial world with a history of recurring daemonic incursion every three thousand years, Tartarus was contested by Blood Ravens, Alpha Legion, Eldar Biel-Tan, and Orks when the ancient artefact called the Maledictum was unearthed there in 999.M41. Its capital Lloovre Marr stood at the centre of the conflict featured in the original Dawn of War game.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tartarus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "rahes_paradise",
+      "blurb": "A harsh desert feral world and Blood Ravens recruitment ground, known to the Aeldari as Lsathranil's Shield. An ancient Aeldari psychic device kept its buried Necron population dormant for millennia. When the shield finally failed, the Strike Cruiser Rage of Erudition reduced the planet to rubble via Exterminatus.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Rahe's_Paradise",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "solemnus",
+      "blurb": "An Imperial world and former Black Templars recruitment posting, held by a chapter monastery-fortress. A Blood Scar Ork armada devastated the fortress, massacring those inside before the Templars drove off the invaders. The chapter subsequently abandoned and demolished the ruins, leaving Solemnus as a memorial world.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Solemnus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "chaeroneia",
+      "blurb": "A former Adeptus Mechanicus Forge World that was swallowed by the Warp and returned a century later horribly transformed. Its industrial structures now pulse with biological matter, fused flesh and metal under the rule of the Dark Mechanicum. Featured in the Grey Knights novel series by Ben Counter.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Chaeroneia",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "drakaasi",
+      "blurb": "A Daemon World dedicated to Khorne, located within the Eye of Terror. Its landscape is dominated by a vast sea of blood connecting gladiatorial city-states, each staging daily slaughter in the Blood God's honour. Ruled by the Daemon Prince Ebondrake, it features in Ben Counter's Soul Drinkers-era fiction.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Drakaasi",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sin_of_damnation",
+      "blurb": "A massive Space Hulk assembled from the wrecks of nearly a dozen ships, infamous as the site of a catastrophic Blood Angels defeat by Genestealers centuries before its eventual cleansing. In 589.M41, a Terminator force under Captain Raphael exterminated over forty thousand Genestealers aboard it, redeeming the chapter's earlier loss.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sin_of_Damnation",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "broucheroc",
+      "blurb": "An Imperial industrial world whose promethium reserves made it a target for an Ork Waaagh!. A single under-strength regiment, the 902nd Vardan Rifles, held the city of Broucheroc for over a decade against overwhelming Ork numbers. The siege forms the backdrop of Mitchel Scanlon's novel Fifteen Hours.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Fifteen_Hours_(Novel)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "rogar_iii",
+      "blurb": "An Imperial jungle Death World whose ecology is actively evolving to kill its human inhabitants. Catachan Jungle Fighters were deployed to reinforce the planet against an Ork incursion, fighting both xenos invaders and increasingly lethal native wildlife. Featured in Steve Lyons' novel Death World.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Rogar_III",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "daniks_world",
+      "blurb": "A former Imperial Agri World plunged into a two-thousand-year ice age following catastrophic volcanic upheaval in M39. Neglected by the Administratum during the long winter, its population turned to open rebellion once temperatures began to recover. Imperial forces subsequently fought a protracted counter-insurgency against both separatists and opportunistic Ork raiders.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Danik's_World",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "golgotha",
+      "blurb": "An Ork-held world in the Golgotha Sub-sector, site of a devastating Imperial ambush orchestrated by Warboss Ghazghkull Thraka. Commissar Yarrick was captured here and later led a slave revolt before his eventual release. He returned with a full Mechanicum army to scour the planet, as chronicled in the novella Yarrick: Chains of Golgotha.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Battle_of_Golgotha",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "kathur",
+      "blurb": "A Shrine World dedicated to an Imperial Saint, overrun by a Nurgle-sent plague that raised the dead against the living. Imperial forces including Raven Guard and the Inquisition launched the Kathurite Reclamation to retake it, only to face Death Guard Plague Marines under Typhus reinforcing the corrupted population.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Kathur",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hieronymous_theta",
+      "blurb": "A densely populated Imperial industrial world home to nearly nine billion souls, its expanding mining operations broke into long-dormant Necron tombs. The Death Korps of Krieg were deployed to meet the awakening threat. The planet is the setting of Steve Lyons' novel Dead Men Walking.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hieronymous_Theta",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "orath",
+      "blurb": "A quiet Imperial agri world targeted by Nurgle's servants, its population devastated by a creeping plague that threatened to tear open a new warp rift. Ultramarines and their allies fought a grinding campaign to expunge the Death Guard presence and seal the corruption. The conflict is told across the Plagues of Orath anthology.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Plagues_of_Orath_(Anthology)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "agrellan",
+      "blurb": "An Imperial Hive World serving as a gateway to the strategically vital Dovar System, seized by the T'au Empire in a single day during the Third Sphere Expansion and renamed Mu'gulath Bay. The Imperium launched a costly counter-offensive but ultimately destroyed the planet via Exterminatus rather than allow it to remain in T'au hands.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Battle_of_Mu'gulath_Bay",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "cryptus",
+      "blurb": "A fortified Imperial system lying between Hive Fleet Leviathan and the Blood Angels' homeworld of Baal, acting as a last defensive barrier. The Tyranids overran its shield worlds in days, consuming billions. The Blood Angels, Flesh Tearers, and allied forces fought desperately here in the Shield of Baal campaign to buy time for Baal's defence.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Cryptus_Campaign",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "dalyth",
+      "blurb": "A major T'au Sept World and one of the most prosperous in the empire, its surface blanketed by tessellating hexagonal city-networks linked by high-speed transit. Birthplace of the legendary Commander Puretide, Dal'yth is also notable for brokering trade alliances with the Demiurg. An Imperial crusade sent to conquer it ground to a stalemate, ending in negotiated peace.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Dal'yth",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sanctus_reach",
+      "blurb": "A strategically contested region in Ultima Segmentum, home to the Knight World of Alaric Prime and several sister worlds. It became the epicentre of a devastating Ork invasion — the Red Waaagh! — in late M41, drawing in Space Wolves, Imperial Knights, and Astra Militarum in a bitter multi-world campaign.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sanctus_Reach",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "alaric_prime",
+      "blurb": "An ancient Knight World in the Sanctus Reach, its vast sulphurous seas and chemical tides surround island landmasses governed by numerous noble Knightly Houses under strict archaic law. Sacred Mountain at its heart is rumoured to shelter a vault of lost archeotech, guarded by the legendary Freeblade known as the Forgotten Knight.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Alaric_Prime",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "boros_gate",
+      "blurb": "A binary star system in Segmentum Obscurus second only to the Cadian Gate in strategic value, its stable Warp routes offer a direct path toward Terra from the Eye of Terror. Its immense Kronos Star Fort and surrounding fleet made it a perennial target for Chaos incursions, most notably a major Word Bearers offensive just before the 13th Black Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Boros_Gate",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "crythe",
+      "blurb": "The central world of the Crythe Cluster, a grouping of five worlds bound by economic and military ties. Crythe Prime is a Forge World whose industrial output made it a target for Abaddon the Despoiler; a relief fleet of Blood Angels, Flesh Tearers, and Sons of Guilliman was required to break the Chaos assault.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Crythe_Prime",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ilissus",
+      "blurb": "A doomed Imperial world that became the focus of an Inquisitorial investigation when a Terran navigator house sought its destruction for unknown reasons. With a daemon breaking free aboard the surface, Inquisitor Mortmain ordered Exterminatus — the Relictors Space Marines raced to uncover the planet's secrets before the final bombardment fell.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Architect_of_Fate_(Anthology)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "lepidus_prime",
+      "blurb": "An Imperial world near the Ork empire of Octarius, settled late due to its proximity to xenos territory. When the Overfiend of Octarius turned its eye on the system, the Imperium responded with a coalition of White Scars, Raven Guard, and Salamanders — alongside an unlikely Saim-Hann Eldar alliance — to repel the invasion.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Lepidus_Prime",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "lycheate",
+      "blurb": "A heavily industrialised Imperial world that serves as the setting for a covert hunt by a squad of Sisters of Battle. Their quarry was Scafidis Zale, a dangerous heretic and psyker-witch, with the planet's industrial sprawl making for a grim and treacherous battlefield.",
+      "source_kind": "manual",
+      "confidence": 0.78,
+      "sourceUrl": "https://www.blacklibrary.com/warhammer-40000/novels/wreck-and-ruin-ebook-2019.html",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "medina_corridor",
+      "blurb": "A sub-sector of the Imperium centred on three core worlds — Cantica, Khopesh, and Aridun — settled during the Dark Age of Technology. Cantica serves as its defensive anchor, and the region's dedicated Cantican Colonial regiments have guarded it since the 35th Millennium.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Cantican_Colonial",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "neva",
+      "blurb": "An Imperial world with an unusually powerful Ecclesiarchy presence, Neva harbours a dark secret: residual Warp taint from ancient storms produces psykers at roughly five times the galactic average. Lord Deacon Viktor LaHayn exploited this anomaly from within the Null Keep, conducting covert experiments on the population's gifted.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Neva",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "port_of_anguish",
+      "blurb": "A notorious location referenced in the darker corners of 40K fiction, associated with the trade in misery, captives, or piratical operations on the fringes of civilised space. Details remain obscure in major canonical sources.",
+      "source_kind": "manual",
+      "confidence": 0.4,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Main_Page",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sanctuary_101",
+      "blurb": "A fortified Adepta Sororitas convent of the Order of Our Martyred Lady, sited on a barren world in the Vidar Sector. In 897.M41 it became the site of the Imperium's first documented open contact with the Necrons — every Sister present was slain, an event that shaped the Order's identity for centuries.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sanctuary_101",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "stratos",
+      "blurb": "A Mining World in the Reductus Sector's Hadron Belt, whose chlorine-saturated oceans force the entire population to live aboard vast floating loft-cities tethered high in the breathable upper atmosphere. Its Stratosan Aircorps regiments and oceanic mineral exports make it a valued, if precarious, Imperial holding.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Stratos",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tanakreg",
+      "blurb": "An Imperial world known for its extensive salt mines and formidable air-defence network, Tanakreg was invaded by the Word Bearers in M41 under Dark Apostle Jarulek, who sought to construct a Gehemehnet — a vast daemonic entity — from the ruins of its capital. A concealed Necron Monolith buried deep beneath the crust added a further dimension to the conflict.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tanakreg",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tsagualsa",
+      "blurb": "A desolate world on the Eastern Fringe, chosen by Primarch Konrad Curze as the Night Lords' base of operations after the destruction of Nostramo. Curze constructed a grotesque palace of living bodies and black stone here, and it was on Tsagualsa that the Night Haunter finally met his end at the hands of a Callidus assassin.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tsagualsa",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "van_horne",
+      "blurb": "An Imperial Cardinal World whose great Basilica of Saint Mariel concealed a terrible secret: a Greater Daemon of Khorne bound within a stasis-reliquary. When renovation work cracked its prison in 876.M41, Ka'jagga'nath was unleashed, drowning the world in the Bloodtide for eight days until the Grey Knights' 4th Brotherhood intervened.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Van_Horne",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vilamus",
+      "blurb": "Fortress-monastery of the Marines Errant Chapter, a heavily shielded bastion in the Ultima Segmentum. It became infamous when Huron Blackheart and the Red Corsairs raided it to seize the Chapter's gene-seed stockpiles, leaving the Chapter severely diminished.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Vilamus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ullanor",
+      "blurb": "Ork-dominated world in the galactic core that served as the seat of a vast greenskin empire during the Great Crusade. The Emperor's climactic assault here — the Ullanor Crusade — shattered the Ork empire and prompted Horus's elevation to Warmaster.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ullanor",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "alaitoc",
+      "blurb": "One of the great Craftworlds of the Aeldari, known for strict adherence to the Path and a fierce aversion to Chaos corruption. Alaitoc fields the largest numbers of Rangers of any Craftworld, its exiles becoming scouts who roam the galaxy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Alaitoc",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "velchanos_magna",
+      "blurb": "A Forge World corrupted by the Dark Mechanicum and besieged by Iron Warriors Traitor forces. Archmagos Omnid Torquora led an Adeptus Mechanicus counter-assault to reclaim it, ultimately destroying the world entirely rather than let its tainted forges endure.",
+      "source_kind": "manual",
+      "confidence": 0.87,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Velchanos_Magna",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "adrastapol",
+      "blurb": "A Knight World in the Majestis System, home to multiple noble households sworn to the Imperium. Its history is marked by Ork invasions and the betrayal of two of its houses to Chaos, events that shook Imperial confidence in the world's loyalty.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Adrastapol",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "demetrius",
+      "blurb": "An Imperial world linked to Astra Militarum operations, appearing in campaign records as a theatre of conflict. Details on its classification and broader role remain sparse in available sources.",
+      "source_kind": "manual",
+      "confidence": 0.65,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Demetrius",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "loki",
+      "blurb": "An industrial world in Segmentum Pacificus that featured in Lord Solar Macharius's great Crusade in the 41st Millennium. Imperial forces fought to seize a traitor general's citadel here, with an orbital strike redirected into the surface to break the defence.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Loki_(Macharian_Crusade)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "mistral",
+      "blurb": "A windswept Imperial world whose rapid rotation drives constant gales across most of its surface. Ruled by competing baronial noble houses, Mistral supplies infantry regiments to the Astra Militarum and is the setting for a notable Commissar Yarrick story.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Mistral_(Planet)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "phall",
+      "blurb": "A lightly populated agri system in Segmentum Obscurus that became the scene of a brutal fleet engagement during the Horus Heresy. The Battle of Phall between the Imperial Fists and Iron Warriors ended inconclusively, a result that helped prolong the entire civil war.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Phall_system",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "rock",
+      "blurb": "The mobile fortress-monastery of the Dark Angels Chapter, a massive asteroid-hulk converted into a battleship and home to the Inner Circle. Its deepest vaults hold secrets from the Horus Heresy — including cells where the Fallen are held for interrogation.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Rock",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ulthwe",
+      "blurb": "An Aeldari Craftworld orbiting near the Eye of Terror, placing it in constant proximity to the Warp's most dangerous border. This perilous location has made Ulthwe a formidable force, reliant on vast numbers of Warlocks and its celebrated Black Guardians.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ulthwe",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "inwit",
+      "blurb": "A frigid, industrialised world in Segmentum Solar and the birthplace of Rogal Dorn, primarch of the Imperial Fists. Its harsh climate and entrenched hive-clusters forged the stoic, disciplined character that came to define the Legion.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Inwit",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "baal_secundus",
+      "blurb": "A radiation-blasted moon orbiting Baal in Segmentum Tempestus, and the savage birthworld of Sanguinius, primarch of the Blood Angels. Tribes of mutant-scarred survivors compete brutally here — the crucible from which aspirants to the Blood Angels are drawn.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Baal_Secundus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "blackstone_fortress",
+      "blurb": "Vast, pre-Imperial void-structures of unknown xenos origin, each the size of a space station and capable of annihilating stars. Six were deployed as weapons during the Gothic War; a seventh was later discovered drifting in the Segmentum Pacificus and became the focus of desperate expeditions.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Blackstone_Fortress",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "precipice",
+      "blurb": "A ramshackle void station assembled from the wreckage of ships destroyed near the Seventh Blackstone Fortress, located in Segmentum Pacificus. It serves as the last outpost of civilisation for treasure hunters, mercenaries, and explorers before they venture inside the fortress.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Precipice",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "crannog_mons",
+      "blurb": "An island fortress on Malouri, Crannog Mons became the last holdout of heretical forces after the Malouri Uprising was suppressed. When the rebels destroyed the connecting bridges, a years-long siege began — eventually broken by the Cadian 101st in the novel Traitor Rock.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Malouri_Uprising",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "malouri",
+      "blurb": "An Imperial world in Segmentum Obscurus that erupted in rebellion during the Dark Imperium, its people following a priest who sought to restore the Temple of the Saviour Emperor. The Malouri Uprising was crushed by Imperial forces, though the island fortress of Crannog Mons held out longest.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Malouri",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "almace",
+      "blurb": "A cardinal world of the Ecclesiarchy, Almace draws the wrath of the Word Bearers Traitor Legion in the Age of the Dark Imperium. Primaris Marines of three Chapters race to defend it in Josh Reynolds's novel Apocalypse, where the planet's hidden secret becomes as dangerous as the invasion itself.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://www.blacklibrary.com/series/series-smc/smc-apocalypse-ebook-2019.html",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tizca",
+      "blurb": "The City of Light — Prospero's sole great metropolis and heart of the Thousand Sons Legion. A centre of scholarship and sorcery arranged in sweeping radial patterns around towering pyramids, Tizca was razed by the Space Wolves at the outset of the Horus Heresy in the Burning of Prospero.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tizca",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "thennos",
+      "blurb": "An Adeptus Mechanicus world in Segmentum Tempestus that falls to treachery, drawing a brutal Iron Hands response. Its reconquest is the central campaign of David Guymer's novel The Eye of Medusa, which probes the Chapter's merciless doctrine and the cost of its uncompromising creed.",
+      "source_kind": "manual",
+      "confidence": 0.87,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Thennos",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "saim_hann",
+      "blurb": "An Aeldari craftworld renowned for speed, independence, and the feral Wild Rider clans who fight from jetbikes and grav-tanks. Saim-Hann was among the first craftworlds to flee the Crone Worlds before the Fall, and its world-rune — the Serpent — symbolises knowledge of both the material and psychic realms.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Saim-Hann",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "dominicus_prime",
+      "blurb": "A cardinal world and the most sacred site in the Caradryad Sector, Dominicus Prime is covered in monasteries and pilgrimage shrines. It serves as the setting for John French's story The Absolution of Swords, in which Inquisitor Covenant moves to purge a spreading taint from its holy grounds.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Dominicus_Prime",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "malveil",
+      "blurb": "A brooding ancestral manor in the city of Valgaast, Malveil is a place saturated with malice and a dark history. In David Annandale's Warhammer Horror novel The House of Night and Chain, a war-broken colonel returns here to take up governorship, only to find the house holds terrors worse than any battlefield.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Malveil",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "theotokos",
+      "blurb": "A drought-stricken Imperial world rotting under corrupt Ecclesiarchy rule. When a devastating plague called the Grey Tears strikes in the wake of its cardinal's death, Theotokos becomes the harrowing stage for David Annandale's Warhammer Horror novel The Deacon of Wounds.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Theotokos",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vansen_falls",
+      "blurb": "A fog-bound, marsh-shrouded settlement whose mists conceal something deeply unsettling. Vansen Falls is the remote locale surrounding Grayloc Manor in Graham McNeill's Warhammer Horror novella The Colonel's Monograph, where the damp isolation amplifies the gothic dread.",
+      "source_kind": "manual",
+      "confidence": 0.8,
+      "sourceUrl": "https://www.trackofwords.com/2020/08/24/the-colonels-monograph-graham-mcneill/",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "grayloc_manor",
+      "blurb": "A foreboding estate set amid the marshes of Vansen Falls, home to the late Colonel Grayloc and his unsettling collection. In Graham McNeill's Warhammer Horror novella The Colonel's Monograph, an archivist arrives to catalogue the library and uncovers horrors left behind by its celebrated owner.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://www.trackofwords.com/2020/08/24/the-colonels-monograph-graham-mcneill/",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "varangantua",
+      "blurb": "A sprawling, billions-strong hive city on the planet Alecto in Segmentum Tempestus, and the setting for Black Library's Warhammer Crime fiction. Far from the front lines of the greater war, Varangantua festers with corruption, poverty, and scheming elites — its mean streets anchoring a series of noir investigations.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Varangantua",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "alecto",
+      "blurb": "A hive world in Segmentum Tempestus, colonised during the Dark Age of Technology, whose surface is dominated by the vast conurbation of Varangantua. Alecto suffers from extreme seasonal darkness due to its axial tilt, and has slid into economic decline since the opening of the Great Rift.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Alecto_(Hive_World)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "antikef",
+      "blurb": "The Crownworld of the Necron Ithakas Dynasty, seat of the mad Phaeron Unnas and his Flayed One court. Antikef was ultimately overrun by an Imperial Crusade and then scoured by the retreating Necrons under Lord Oltyx, as recounted in the Twice Dead King series.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Antikef",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sedh",
+      "blurb": "A crumbling, marginal world of the Ithakas Necron Dynasty, where the exiled Lord Oltyx kept his court. When an Imperial Crusade descended on Sedh, Oltyx was forced to abandon it and seek aid from the Crownworld Antikef — setting in motion the events of the Twice Dead King novels.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Antikef",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "anaxian_line",
+      "blurb": "A fortified defensive corridor in the galactic east, the Anaxian Line is a chain of Imperial strongpoints holding back encroaching xenos threats. Its contested frontier status makes it a recurring theatre for Space Marine deployments.",
+      "source_kind": "manual",
+      "confidence": 0.65,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Anaxian_Line",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hive_blackbracken",
+      "blurb": "A hive city notable in Black Library fiction as a dense industrial settlement typical of Imperium's forge-worlds and hive planets. Its cramped underhives and factorum sprawl serve as backdrops for Inquisitorial and Astra Militarum operations.",
+      "source_kind": "manual",
+      "confidence": 0.55,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Hive_Blackbracken",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "imperial_palace",
+      "blurb": "The colossal seat of the Imperium on Holy Terra, the Imperial Palace houses the Golden Throne sustaining the Emperor and is defended by the Adeptus Custodes. Once a resplendent monument, its vast fortifications were tested during Horus's siege at the end of the Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Imperial_Palace",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ghoul_stars",
+      "blurb": "A bleak region beyond the galaxy's eastern fringe, the Ghoul Stars are famed for the terrifying xenos civilisations lurking there, including ancient Necron tomb-complexes. Imperial expeditions rarely return, and the region is associated with dread and isolation.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Ghoul_Stars",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "gathalamor",
+      "blurb": "A cardinal world of great ecclesiastical significance, Gathalamor is a pilgrimage destination and seat of Ministorum power in its subsector. It became a key site during the opening campaigns of Abaddon's Thirteenth Black Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Gathalamor",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "kamidar",
+      "blurb": "A Knight world whose noble houses field towering war-engines in service to the Imperium, Kamidar is defined by the feudal honour codes and dynastic rivalries of its Knight families. It features in fiction centred on the Imperial Knights and their oaths of allegiance.",
+      "source_kind": "manual",
+      "confidence": 0.72,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Kamidar",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "the_spoil",
+      "blurb": "A blighted region or stretch of ravaged territory scarred by war or catastrophe, the Spoil is referenced in Black Library fiction as a lawless or desolate zone beyond easy Imperial reach.",
+      "source_kind": "manual",
+      "confidence": 0.5,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/The_Spoil",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "istvaan_system",
+      "blurb": "A star system in Segmentum Obscurus made infamous during the Horus Heresy, Istvaan III and V were sites of catastrophic betrayals where Horus purged loyal Astartes and ambushed four Space Marine Legions. The Dropsite Massacre on Istvaan V marked a turning point of the civil war.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Istvaan_System",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "colchis",
+      "blurb": "The homeworld of Lorgar and the birthplace of the Word Bearers Legion, Colchis was a deeply religious world whose fanatical cults shaped the Primarch's obsession with worship. The Emperor's visit and the subsequent purging of its old faith left lasting scars on Lorgar's psyche.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Colchis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "monarchia",
+      "blurb": "A city on the world of Khur, Monarchia was a gleaming monument raised by the Word Bearers to worship the Emperor as a god. The Emperor ordered its total destruction by the Ultramarines as a rebuke to Lorgar's devotional excess, an act of humiliation that drove the Word Bearers toward Chaos.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Monarchia",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "khur",
+      "blurb": "A world brought to compliance by Lorgar's Word Bearers and the site of Monarchia, Khur was where the Emperor delivered his most devastating censure to the XVII Legion. The planet's significance lies almost entirely in that moment of divine repudiation and its catastrophic consequences.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Khur",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "nikaea",
+      "blurb": "A tranquil world chosen as neutral ground for the great Council of Nikaea, where the Emperor ruled on the use of psychic powers within the Legions. His edict banning Librarians — soon abandoned after Prospero — makes Nikaea a pivotal location in the Heresy's early chapters.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Nikaea",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "deliverance",
+      "blurb": "The moon homeworld of the Raven Guard Legion, Deliverance — also known as Lycaeus — orbits the toxic industrial world of Kiavahr. Corvus Corax led a slave revolt here before the Emperor's arrival, and the moon later became the Legion's fortress-monastery and recruitment base.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Deliverance",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "aghoru",
+      "blurb": "A remote desert world encountered by the Thousand Sons Legion during the Great Crusade, Aghoru is home to a mysterious mountain said to be a gateway to the warp. The Legion's investigations there deepen Magnus's understanding of psychic power and foreshadow coming catastrophe.",
+      "source_kind": "manual",
+      "confidence": 0.82,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Aghoru",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "laeran",
+      "blurb": "A beautiful but xenos-held world cleansed by Fulgrim's Emperor's Children, Laeran was the site of the Legion's first and most fateful corruption. A Slaaneshi blade recovered from a Laer temple began Fulgrim's slow fall to Chaos, making the world synonymous with the III Legion's damnation.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Laeran",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "diamat",
+      "blurb": "Forge World of the Adeptus Mechanicus, located barely fifty light-years from the Istvaan System. Its strategic value lies in the Ordinatii siege engines stockpiled there — weapons both Loyalist and Traitor forces raced to secure at the outbreak of the Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Diamat",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sol_system",
+      "blurb": "The cradle of humanity and seat of the Imperium, home to Terra, the Imperial Palace, and the Golden Throne. Every war of the Age of Darkness ultimately points toward Sol — its defence is the reason the Heresy is fought at all.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sol_System",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "vengeful_spirit",
+      "blurb": "Flagship of Warmaster Horus and the most infamous warship of the Age of Darkness. A Gloriana-class battleship, it served as Horus's mobile command throne throughout the Heresy and was the site of the final confrontation between Horus and the Emperor above Terra.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Vengeful_Spirit",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "lions_gate_spaceport",
+      "blurb": "One of the four great orbital-transit spaceports anchoring Terra's defences, situated at the southern face of the Imperial Palace. Control of its landing pads and void-locks made it a fierce flashpoint during the Siege of Terra.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Lion%27s_Gate_Spaceport",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "chondax",
+      "blurb": "A remote world on the eastern fringe where the White Scars Legion conducted a protracted greenskin clearance campaign. Horus's agents worked to keep Jaghatai Khan and his warriors isolated here, delaying their response to the opening betrayals of the Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Chondax",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "molech",
+      "blurb": "A Knight World harbouring a hidden Warp Gate deep beneath its surface — a portal the Emperor himself once passed through to bargain for power. Horus invaded Molech specifically to access this gate, and the betrayal of Knight House Devine sealed the world's fall.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Molech",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "pluto",
+      "blurb": "The outermost sentinel of the Sol System, heavily fortified by the Imperial Navy and the Adeptus Custodes as the first line of defence on the approach to Terra. Its void stations and weapons batteries were a critical barrier against any fleet assault on the throneworld.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Pluto",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "tallarn",
+      "blurb": "Once a fertile agri-world, Tallarn was rendered a toxic desert wasteland after a Traitor Legion unleashed virus bombs upon it. The planet became the site of the largest tank battle in the history of the Heresy as Imperial forces fought to reclaim what remained.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Tallarn",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "nuceria",
+      "blurb": "A feudal world whose brutal gladiatorial slave-culture shaped Angron before the Emperor came for him — and whose cities he destroyed in vengeance upon his return. Nuceria's fate encapsulates the World Eaters Primarch's bottomless rage against his past.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Nuceria",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "signus_prime",
+      "blurb": "Capital of the Signus Cluster, a trinary system seeded with daemonic corruption by Chaos agents. Horus lured Sanguinius and the Blood Angels here, hoping the Red Thirst would claim them; instead they cleansed the cluster and the system was sealed as morti perpetua.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Signus_Prime",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "pythos",
+      "blurb": "A jungle death world in the Pandorax System, refuge to Heresy survivors after Istvaan V. Beneath its surface lies the Damnation Cache, an ancient Warp portal that drew Chaos forces to the world — and whose shadow would stretch ten millennia into the future.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Pythos",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "iydris",
+      "blurb": "An artificial Eldar Crone World deep within the Eye of Terror, orbiting a supermassive black hole. Said to have been favoured by the goddess Lileath, it was the destination of Fulgrim and Perturabo's joint expedition in search of the weapon called the Angel Exterminatus — and was consumed by the black hole when Fulgrim ascended to daemonhood.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Iydris",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "nostramo",
+      "blurb": "A sunless hive world in the Segmentum Obscurus, perpetually dark and ruled by organised crime before Konrad Curze rose to impose brutal order. Birthplace of the Night Lords Legion's grim culture; Curze shattered it from orbit when he departed, and it was eventually destroyed entirely.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Nostramo",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "chogoris",
+      "blurb": "The White Scars' homeworld — a vast, windswept steppe planet whose nomadic horse-warrior culture directly shaped the Legion's doctrine of rapid hit-and-run warfare. Jaghatai Khan drew his recruits from Chogoris's fiercest tribes.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Chogoris",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "armatura",
+      "blurb": "A heavily fortified war-world at the heart of Ultramar, garrisoned by a billion soldiers and Titan Legions. The World Eaters and Word Bearers targeted it during the Shadow Crusade; its fall to Angron's berserker assault opened the road through the Five Hundred Worlds.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Armatura",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "beta_garmon",
+      "blurb": "A star cluster lying astride the only viable approach to the Solar System, Beta-Garmon was the site of the vast Titandeath battle late in the Horus Heresy. Rogal Dorn committed hundreds of Titan Legions here to blunt the Traitor advance, and the carnage redefined how the Imperium would deploy god-machines for millennia.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Battle_of_Beta-Garmon",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "eternity_gate",
+      "blurb": "The Eternity Gate is the colossal inner gate of the Imperial Palace on Terra, the last barrier before the Sanctum Imperialis itself. During the Siege of Terra it became a focal point of the most desperate fighting, with the Primarch Sanguinius making his final stand in its shadow.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Eternity_Gate",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "eternity_wall_spaceport",
+      "blurb": "One of the great orbital-access spaceports ringing the Imperial Palace, the Eternity Wall Spaceport was a critical logistics node controlling the drop of troops and materiel onto Terra. Its fall to Traitor forces during the Siege opened a breach through which Horus's armies poured into the Palace's outer districts.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Eternity_Wall_Spaceport",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "saturnine_gate",
+      "blurb": "The Saturnine Gate was one of the heavily fortified entry points into the inner Palace complex on Terra. During the Siege it was the target of a daring covert assault by Traitor forces seeking to bypass the main defensive lines and strike directly at the heart of the Emperor's fortress.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Saturnine_Gate",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "mercury_wall",
+      "blurb": "The Mercury Wall is one of the vast outer defensive curtain-walls of the Imperial Palace on Terra, named for the innermost planet of the Solar System. It formed a key tier of the layered fortifications that the defenders of Terra held against the Traitor Legions during the Horus Heresy's climactic Siege.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Mercury_Wall",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "delphic_battlement",
+      "blurb": "The Delphic Battlement is a major fortified wall-section of the Imperial Palace, forming part of the inner ring of defences closest to the Sanctum Imperialis. It saw some of the most intense close-quarters combat during the Siege of Terra as Traitor forces fought to breach the final barriers to the Emperor.",
+      "source_kind": "manual",
+      "confidence": 0.87,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Delphic_Battlement",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "golden_throne",
+      "blurb": "The Golden Throne is an ancient life-support mechanism and psychic amplifier deep within the Imperial Palace on Terra, upon which the Emperor of Mankind has sat in a state of living death since the end of the Horus Heresy. It sustains both the Emperor's broken body and the Astronomican, the psychic beacon that makes interstellar travel possible.",
+      "source_kind": "manual",
+      "confidence": 0.97,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Golden_Throne",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sanctum_imperialis",
+      "blurb": "The Sanctum Imperialis is the innermost sanctum of the Imperial Palace on Terra, housing the Golden Throne and the Emperor himself. It is the most sacrosanct location in the Imperium, sealed from the outside world and accessible only to the highest servants of the Adeptus Custodes and the Adeptus Ministorum.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sanctum_Imperialis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "galaspar",
+      "blurb": "Galaspar was the capital world of the Galaspar Cluster, an eleven-system region in Segmentum Pacificus ruled during the Great Crusade era by a brutal oligarchic slavocracy called the Order. Its conquest by Mortarion and the Death Guard was one of the Primarch's first major independent commands, driven by his personal hatred of tyranny.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Galaspar",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "olympia",
+      "blurb": "Olympia was the homeworld of Primarch Perturabo and birthplace of the Iron Warriors Legion's identity. A mountainous, city-state world of feuding polities, it was ultimately destroyed by Perturabo's own hand after its populace rose in rebellion — an act of obliteration the Primarch carried as a deep wound throughout the Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Olympia",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "barbarus",
+      "blurb": "Barbarus was the poison-shrouded Death Guard homeworld where Primarch Mortarion grew up under the dominion of cruel warlords who used toxic mists to keep the human population subjugated. Mortarion's eventual liberation of its people forged his hatred of weakness and dependence — themes that defined both the Death Guard and his fall to Nurgle.",
+      "source_kind": "manual",
+      "confidence": 0.96,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Barbarus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "cthonia",
+      "blurb": "Cthonia was a mineral-exhausted hive world near Terra, riddled with gang-ruled underhive tunnels, and the homeworld of the Sons of Horus. Horus himself grew up among its violent gangs before the Emperor found him, and the Legion inherited Cthonia's brutal, pragmatic street-fighter culture.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Cthonia",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "kiavahr",
+      "blurb": "Kiavahr is a heavily industrialised forge world and the planetary partner of Deliverance, the moon on which Primarch Corax and the Raven Guard are based. Its tech-guilds long exploited Deliverance's population as slave labour until Corax led a rebellion that toppled their control and secured the moon as the Legion's own domain.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Kiavahr",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "thramas_sector",
+      "blurb": "The Thramas Sector is a region of the Eastern Fringe containing several Mechanicum Forge Worlds that remained loyal to the Emperor. During the Horus Heresy, Warmaster Horus dispatched Konrad Curze and the Night Lords here to pin the Dark Angels Legion and protect the Traitor advance's flank — a brutal, years-long campaign known as the Thramas Crusade.",
+      "source_kind": "manual",
+      "confidence": 0.91,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Thramas_Crusade",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "urgall_depression",
+      "blurb": "The Urgall Depression is a vast volcanic valley on Isstvan V, deliberately chosen by Horus as the killing ground for the Drop Site Massacre. Loyalist Space Marine forces who landed expecting to relieve traitor-held positions were instead caught in a prepared ambush on its dark sands, resulting in one of the worst loyalist defeats of the Horus Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Drop_Site_Massacre",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "occluda_noctis",
+      "blurb": "A vast multi-system region lying beyond the Northern Major Warp Storm, whose interference blocked the Astronomican and blinded even the Emperor's sight into it. Brought to Imperial compliance during the Great Crusade's Night Crusade by a force including Primarchs Horus, Dorn, Fulgrim, and El'Jonson.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Occluda_Noctis",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "deshea",
+      "blurb": "The capital city-state of Nuceria, the world where Primarch Angron was enslaved and forced to fight in gladiatorial arenas. The city became infamous as the seat of his captivity and later the site of his wrathful return when he ordered Nuceria's destruction.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Nuceria",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "alaxxes_nebula",
+      "blurb": "A dense cloud of corrosive dust and hydrogen ice where the Space Wolves sought refuge after suffering heavy losses at Prospero and Yarant. The Alpha Legion besieged them here until a Dark Angels fleet broke the encirclement, a pivotal early engagement of the Horus Heresy.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Alaxxes_Nebula",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "constanix_ii",
+      "blurb": "A Forge World in Segmentum Tempestus dominated by acidic seas, its population housed on vast barge-cities kept aloft by ancient technology. Its archmagos was courted by the Word Bearers before the Horus Heresy; the world was later retaken for the Imperium by Corax and the Raven Guard.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Constanix_II",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "terathalion",
+      "blurb": "An Imperial library world brought into compliance by the Thousand Sons, housing knowledge catalogued in a thousand languages. During the Horus Heresy, Mortarion led the Death Guard to Terathalion seeking warp-lore, ultimately destroying the world and scattering its accumulated knowledge.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Terathalion",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "titan",
+      "blurb": "Saturn's largest moon in the Sol System, secretly home to the fortress-monastery of the Grey Knights — the Imperium's foremost daemon-hunting Space Marine Chapter. Its existence and purpose are known only to the Ordo Malleus, making Titan among the most classified locations in Imperial space.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Titan_(Moon)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "hy_brasil",
+      "blurb": "A powerful techno-barbarian state occupying the former territory of ancient Brazil on Terra, ruled from the hive-sprawl of the Planalto. During the Unification Wars it was reckoned the most formidable of all the Sud Merican cantons, until the Emperor brought it to heel.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hy_Brasil",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "lesser_damantyne",
+      "blurb": "A lifeless world garrisoned by the loyalist Iron Warriors Warsmith Barabas Dantioch and the site of the Great Siege of Lesser Damantyne during the Horus Heresy. Dantioch's formidable underground fortress, the Schadenhold, held off a year-long traitor assault before its dramatic final destruction.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Great_Siege_of_Lesser_Damantyne",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "schadenhold",
+      "blurb": "An Iron Warriors fortress carved from a colossal stalactite inside a subterranean cavern on Lesser Damantyne, engineered by the loyalist Warsmith Barabas Dantioch. It withstood a 366-day siege by traitor Iron Warriors before Dantioch collapsed the entire structure onto the besieging army.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Schadenhold",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "iron_blood",
+      "blurb": "A Gloriana-class battleship and personal flagship of Primarch Perturabo of the Iron Warriors, constructed to his own exacting specifications at the Olympian orbital yards. Notable for its featureless armoured hull — built without viewports, as Perturabo considered them a battlefield vanity.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Iron_Blood",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "molechs_enlightenment",
+      "blurb": "A loyalist Cobra-class Destroyer that fought in the void battle over Molech during the Horus Heresy, the only Imperial warship to survive the engagement. It then served as a refugee ship for over a year, carrying the campaign's sole survivors on a harrowing journey back to Terra.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Molech's_Enlightenment",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ring_of_iron",
+      "blurb": "The immense belt of orbital shipyards, refineries, and construction docks that encircles Mars, widely regarded as the largest artificial structure in the galaxy. It built the fleets of the Great Crusade and, despite heavy damage during the Schism of Mars, remains the Imperium's foremost naval construction facility.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Ring_of_Iron",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "chemos",
+      "blurb": "A resource-depleted mining world where Primarch Fulgrim landed during the Great Crusade and rebuilt from near-collapse, becoming its ruler and inspiring the ethos of excellence that defined the Emperor's Children. Later abandoned and destroyed by the Dark Angels, its ruins placed under Inquisitorial quarantine.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Chemos",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "macragges_honour",
+      "blurb": "A Gloriana-class battleship and flagship of Primarch Roboute Guilliman, at roughly twenty-six kilometres one of the largest vessels of its class. After the Battle of Calth it pursued the Word Bearers flagship into the warp, becoming becalmed there before eventually returning to service as Guilliman's command vessel.",
+      "source_kind": "manual",
+      "confidence": 0.95,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Macragge's_Honour",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "irkalla",
+      "blurb": "An Imperial Black Ship operated by the League of Black Ships during the Horus Heresy, tasked with collecting unsanctioned psykers for transport to Terra. The vessel was boarded by Word Bearers Traitor Astartes, who seized its psyker cargo for their own dark purposes.",
+      "source_kind": "manual",
+      "confidence": 0.75,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Irkalla",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "imperial_webway",
+      "blurb": "The Imperial Webway is the fragment of the ancient eldar transit network that the Emperor secretly worked to expand beneath the Imperial Palace on Terra, intending to give humanity a safe alternative to Warp travel. Magnus the Red's forbidden psychic contact shattered the protective wards, flooding the tunnels with daemons and ending the project. Malcador the Sigillite gave his life to seal the breach.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Webway_Project",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "albia",
+      "blurb": "Albia is a warrior-state of Old Earth, set in the region corresponding to the ancient British Isles, that resisted the Emperor's Unification Wars longer than most. Its clan-warriors and proto-Dreadnought war machines matched the Thunder Warriors battle for battle before its warlords accepted terms and became ardent supporters of unification. Albian culture left a deep mark on the XIV Legion, later named the Death Guard.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Albia",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "illyrium",
+      "blurb": "Illyrium is the lawless northern region of Macragge, long beyond the reach of the Macraggian high-houses, that Roboute Guilliman was dispatched to pacify as a young officer. During the Horus Heresy it became a refuge for Konrad Curze, and the Dark Angels' Dreadwing devastated the region hunting him down.",
+      "source_kind": "manual",
+      "confidence": 0.9,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Illyrium",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "jupiter",
+      "blurb": "Jupiter is the fifth world of the Sol System and a major Adeptus Mechanicus forge world, whose orbital Jovian Shipyards have produced warships since before the Age of Strife. Its moon-girdled orbit became a key defensive line during the Solar War, and it was here that the Word Bearers secretly constructed their apocalypse-class battleship the Furious Abyss.",
+      "source_kind": "manual",
+      "confidence": 0.92,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Jupiter",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "astagar",
+      "blurb": "Astagar is an Imperial world that was the site of a brutal six-day engagement during the Horus Heresy, where Ultramarines Captain Lucretius Corvo led a desperate counterattack against a Word Bearers force and destroyed a Traitor Warlord-class Titan. Guilliman personally awarded Corvo the Laurel of Defiance for the defence; Corvo later became the first Chapter Master of the Novamarines.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Astagar",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "pharos",
+      "blurb": "The Pharos is an ancient xenos — later identified as Necron — navigation device buried beneath Sotha in Ultramar, capable of projecting a psychic beacon through the Warp. During the Horus Heresy, Guilliman used it to guide scattered loyalist fleets to Macragge; its catastrophic overload during the Battle of Sotha repelled the Night Lords but sent a signal that would eventually draw the Tyranid Hive Fleets toward the galaxy.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://warhammer40k.fandom.com/wiki/Pharos",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "sicarus",
+      "blurb": "Sicarus is a Daemon World deep within the Eye of Terror and the fortress-homeworld of the Word Bearers Traitor Legion. The entire surface is blanketed in kilometres-high cathedral spires and temples raised by millions of slaves in perpetual devotion to the Ruinous Powers. The Dark Council rules from the Basilica of the Word, while Lorgar meditates in isolation within the Templum Inficio.",
+      "source_kind": "manual",
+      "confidence": 0.93,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Sicarus",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "ithraca",
+      "blurb": "Ithraca is a port city on the Ultramarine world of Calth. It became a symbol of the Word Bearers' treachery when loyalist warships were blasted out of the sky above the city during the opening of the Battle of Calth, raining wreckage down on the assembled Ultramarines host below.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Betrayal_at_Ithraca",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "northwilds",
+      "blurb": "The Northwilds is a vast, ancient wilderness region of Caliban, homeworld of the Dark Angels Legion. It was the stronghold of Caliban's great predatory beasts and the last refuge of the renegade Knights of Lupus. Later, strange corruption stirred beneath its diseased woodland, where Zahariel encountered the Watchers in the Dark and a malign presence linked to Caliban's hidden taint.",
+      "source_kind": "manual",
+      "confidence": 0.85,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Fallen_Angels_(Novel)",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "numinus",
+      "blurb": "Numinus is a major city on the Ultramarine world of Calth, home to the Holophusikon — a grand universal museum — and the gubernatorial residence of Leptius Numinus. During the Battle of Calth, loyalist forces made a desperate stand in the city against the treacherous Word Bearers assault.",
+      "source_kind": "manual",
+      "confidence": 0.88,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Numinus_City",
+      "checkedAt": "2026-06-09"
+    },
+    {
+      "id": "pelago",
+      "blurb": "Pelago is a primitive ocean world that features in the audio drama Hunter's Moon. A Space Wolves squad fleeing Alpha Legion pursuit crash-landed here after escaping aboard a stolen enemy vessel, with saboteurs still aboard; the world's fisherfolk became unwitting witnesses to the aftermath.",
+      "source_kind": "manual",
+      "confidence": 0.78,
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Hunter's_Moon_(Audio_Drama)",
+      "checkedAt": "2026-06-09"
     }
   ]
 }
