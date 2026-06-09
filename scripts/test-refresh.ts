@@ -96,8 +96,8 @@ const CFG: TrackOfWordsConfig = {
   sinceYear: 2025,
 };
 
-/** Fixed clock for the podcast recency window — fixture episodes pubDate within it. */
-const WINDOW = { nowMs: Date.UTC(2026, 2, 1), sinceDays: 120 };
+/** Fixed podcast date floor — fixture "current" episodes (pubDate 2026-01-01) are on/after it. */
+const FLOOR = { sinceMs: Date.UTC(2026, 0, 1) };
 
 /** Realistic tracker CSV slice — verbose Title header + the real Carnage row. */
 const TRACKER_CSV = [
@@ -478,7 +478,7 @@ async function main(): Promise<void> {
       loadCommittedGuids: (slug) => (slug === "show-a" ? new Set(["g1", "g2"]) : null),
       youtubeEnabled: true,
     };
-    const r = await diffPodcasts([RSS_SHOW], deps, WINDOW);
+    const r = await diffPodcasts([RSS_SHOW], deps, FLOOR);
     assert.equal(r.shows[0].status, "ok");
     assert.equal(r.shows[0].committedCount, 2);
     assert.equal(r.shows[0].freshCount, 4);
@@ -495,7 +495,7 @@ async function main(): Promise<void> {
       loadCommittedGuids: () => null,
       youtubeEnabled: true,
     };
-    const r = await diffPodcasts([RSS_SHOW], deps, WINDOW);
+    const r = await diffPodcasts([RSS_SHOW], deps, FLOOR);
     assert.equal(r.shows[0].status, "failed");
     assert.equal(r.shows[0].newEpisodes.length, 0);
     assert.match(r.shows[0].note ?? "", /ingest:podcast/);
@@ -508,7 +508,7 @@ async function main(): Promise<void> {
       loadCommittedGuids: (slug) => (slug === "show-b" ? new Set(["v0"]) : null),
       youtubeEnabled: false,
     };
-    const r = await diffPodcasts([YT_SHOW], deps, WINDOW);
+    const r = await diffPodcasts([YT_SHOW], deps, FLOOR);
     assert.equal(r.shows[0].status, "skipped");
     assert.equal(r.shows[0].committedCount, 1);
     assert.equal(r.shows[0].newEpisodes.length, 0);
@@ -521,7 +521,7 @@ async function main(): Promise<void> {
       loadCommittedGuids: () => new Set(["g1", "g2"]),
       youtubeEnabled: true,
     };
-    const r = await diffPodcasts([RSS_SHOW], deps, WINDOW);
+    const r = await diffPodcasts([RSS_SHOW], deps, FLOOR);
     assert.equal(r.shows[0].status, "failed");
     assert.equal(r.shows[0].committedCount, 2);
     assert.match(r.shows[0].note ?? "", /boom/);
@@ -534,7 +534,7 @@ async function main(): Promise<void> {
       loadCommittedGuids: (slug) => (slug === "show-b" ? new Set(["v1"]) : null),
       youtubeEnabled: true,
     };
-    const r = await diffPodcasts([YT_SHOW], deps, WINDOW);
+    const r = await diffPodcasts([YT_SHOW], deps, FLOOR);
     assert.equal(r.shows[0].status, "ok");
     assert.deepEqual(
       r.shows[0].newEpisodes.map((e) => e.guid),
@@ -542,20 +542,20 @@ async function main(): Promise<void> {
     );
   });
 
-  await test("diffPodcasts: new-but-old episodes counted (staleNewCount), not listed (recency window)", async () => {
+  await test("diffPodcasts: episodes before the date floor are not considered, only counted", async () => {
     const deps: PodcastDiffDeps = {
       fetchRss: () => Promise.resolve([ep("recent", "Recent"), epAt("ancient", "Ancient", "2019-05-01T00:00:00.000Z")]),
       fetchYoutube: () => Promise.resolve([]),
       loadCommittedGuids: () => new Set<string>(),
       youtubeEnabled: true,
     };
-    const r = await diffPodcasts([RSS_SHOW], deps, WINDOW);
+    const r = await diffPodcasts([RSS_SHOW], deps, FLOOR);
     assert.equal(r.shows[0].status, "ok");
     assert.deepEqual(
       r.shows[0].newEpisodes.map((e) => e.guid),
-      ["recent"],
+      ["recent"], // the 2019 episode is below the floor — never listed
     );
-    assert.equal(r.shows[0].staleNewCount, 1);
+    assert.equal(r.shows[0].skippedBeforeFloor, 1);
   });
 
   // --- emit / serialize / no-op rule ---------------------------------------
@@ -611,7 +611,7 @@ async function main(): Promise<void> {
       loadCommittedGuids: () => new Set(["g1"]),
       youtubeEnabled: true,
     };
-    const podcasts = await diffPodcasts([RSS_SHOW], deps, WINDOW);
+    const podcasts = await diffPodcasts([RSS_SHOW], deps, FLOOR);
     const proposal: RefreshProposal = {
       $generatedBy: "test",
       isoWeek: "2026-W24",
@@ -619,11 +619,15 @@ async function main(): Promise<void> {
       podcasts,
       hasFindings: true,
     };
-    const md = buildReportMarkdown(proposal, { generatedAtIso: "2026-06-09T00:00:00.000Z" });
+    const md = buildReportMarkdown(proposal, {
+      generatedAtIso: "2026-06-09T00:00:00.000Z",
+      episodeSinceDate: "2026-01-01",
+    });
     assert.match(md, /Carnage Unending/);
     assert.match(md, /W40K-0566/);
     assert.match(md, /## Books/);
     assert.match(md, /## Podcasts/);
+    assert.match(md, /2026-01-01/); // the podcast date floor is stated
     assert.match(md, /Xenos/); // the review-book table
   });
 
@@ -634,11 +638,25 @@ async function main(): Promise<void> {
     assert.equal(cfg.trackOfWords.gid, 374689393);
     assert.ok(cfg.trackOfWords.sheetCsvUrl.includes("gid=374689393"));
     assert.equal(typeof cfg.trackOfWords.sinceYear, "number");
+    assert.ok(!Number.isNaN(Date.parse(cfg.podcasts.episodeSinceDate))); // parseable date floor
   });
 
-  await test("config: malformed config throws", () => {
+  await test("config: malformed config throws; default date floor applied", () => {
     assert.throws(() => parseRefreshSources({}), /trackOfWords/);
     assert.throws(() => parseRefreshSources({ trackOfWords: { articleUrl: "x" } }), /sheetCsvUrl/);
+    // Podcasts omitted → default floor; a bad date string → throw.
+    const ok = parseRefreshSources({
+      trackOfWords: { articleUrl: "a", sheetCsvUrl: "b", gid: 1, sinceYear: 2025 },
+    });
+    assert.equal(ok.podcasts.episodeSinceDate, "2026-01-01");
+    assert.throws(
+      () =>
+        parseRefreshSources({
+          trackOfWords: { articleUrl: "a", sheetCsvUrl: "b", gid: 1, sinceYear: 2025 },
+          podcasts: { episodeSinceDate: "not-a-date" },
+        }),
+      /episodeSinceDate/,
+    );
   });
 
   console.log(`\nrefresh: ${passed} passed, ${failed} failed`);

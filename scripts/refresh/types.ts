@@ -117,11 +117,12 @@ export interface PodcastShowDiff {
   status: "ok" | "failed" | "skipped";
   note: string | null;
   committedCount: number;
+  /** Total episodes fetched from the live feed (the full-feed scale, pre-floor). */
   freshCount: number;
-  /** New episodes (not in the committed artifact) WITHIN the recency window. */
+  /** New episodes (in the feed, not in the committed artifact) ON/AFTER the date floor. */
   newEpisodes: NewEpisode[];
-  /** New-but-older-than-the-window episodes (a back-catalog backfill, not a weekly refresh — logged, not listed). */
-  staleNewCount: number;
+  /** Feed episodes published BEFORE the date floor — never considered, only counted (the "old back-catalog" Philipp wants ignored). */
+  skippedBeforeFloor: number;
 }
 
 export interface PodcastDiffResult {

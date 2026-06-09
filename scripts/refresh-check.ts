@@ -69,8 +69,8 @@ function logHealth(books: BookDiffResult, podcasts: PodcastDiffResult): void {
     );
   }
   for (const s of podcasts.shows) {
-    const stale = s.staleNewCount > 0 ? `, ${s.staleNewCount} older than window` : "";
-    console.error(`[podcast ${s.slug}] ${s.status} — ${s.newEpisodes.length} new${stale} (${s.note ?? "ok"})`);
+    const old = s.skippedBeforeFloor > 0 ? `, ${s.skippedBeforeFloor} before floor` : "";
+    console.error(`[podcast ${s.slug}] ${s.status} — ${s.newEpisodes.length} new${old} (${s.note ?? "ok"})`);
   }
 }
 
@@ -92,8 +92,7 @@ async function main(): Promise<void> {
     youtubeApiKey: process.env.YOUTUBE_API_KEY,
   });
   const podcasts = await diffPodcasts(registry, deps, {
-    nowMs: Date.now(),
-    sinceDays: sources.podcasts.episodeSinceDays,
+    sinceMs: Date.parse(sources.podcasts.episodeSinceDate),
   });
 
   const newEpisodeCount = podcasts.shows.reduce((n, s) => n + s.newEpisodes.length, 0);
@@ -116,7 +115,10 @@ async function main(): Promise<void> {
 
   const outDir = refreshOutDir(repoRoot, isoWeek);
   mkdirSync(outDir, { recursive: true });
-  const report = buildReportMarkdown(proposal, { generatedAtIso: new Date().toISOString() });
+  const report = buildReportMarkdown(proposal, {
+    generatedAtIso: new Date().toISOString(),
+    episodeSinceDate: sources.podcasts.episodeSinceDate,
+  });
   writeFileSync(join(outDir, "report.md"), report, "utf8");
   writeFileSync(join(outDir, "proposal.json"), serializeProposal(proposal), "utf8");
 

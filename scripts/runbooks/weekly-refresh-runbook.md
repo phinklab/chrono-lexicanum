@@ -144,14 +144,18 @@ silent):
   announce-date + release-date) collapses to ONE proposal, keyed year-relaxed.
 - **Year floor** — `trackOfWords.sinceYear` (currently 2025) keeps the pass
   currency-focused; older rows are skipped and counted.
-- **Podcast recency window** — `podcasts.episodeSinceDays` (default 120). A *refresh*
-  reports recent additions, not the entire un-ingested back-catalog. New-but-old episodes
-  are counted (`staleNewCount`) and reported as a number, not listed. Backfilling a show's
-  full history is a separate, explicit `ingest:podcast` task — not a weekly refresh.
+- **Podcast date floor** — `podcasts.episodeSinceDate` (default `2026-01-01`), an
+  *absolute* date (not a relative window). A *refresh* only ever considers episodes
+  published on/after it; the entire pre-floor back-catalog (e.g. luetin09's years of
+  non-lore gaming uploads) is never diffed, only counted (`skippedBeforeFloor`, reported as
+  a number). Backfilling a show's full history is a separate, explicit `ingest:podcast`
+  task — not a weekly refresh. **Revisit trigger:** bump the date forward once the corpus
+  is current to a later point, so the pass stays focused on the genuine long tail.
 
 For reference, the first live run (2026-W24) went from a raw 122 "new" books to **61**
-after scope+dedup (330 out-of-scope + 31 dupe rows removed), and podcast deltas from 1878
-to 37 after the recency window (luetin09's 1663 lifetime uploads → 1 recent).
+after scope+dedup (330 out-of-scope + 31 dupe rows removed), and podcast deltas from ~1878
+to a handful once episodes before the date floor are ignored (luetin09's 1663 lifetime
+uploads → 1 post-floor).
 
 ---
 
@@ -165,7 +169,7 @@ to 37 after the recency window (luetin09's 1663 lifetime uploads → 1 recent).
     "gid": 374689393,        // used to rebuild the CSV URL if re-discovery fires
     "sinceYear": 2025        // year floor
   },
-  "podcasts": { "episodeSinceDays": 120 }   // optional; defaults to 120
+  "podcasts": { "episodeSinceDate": "2026-01-01" }   // optional; defaults to 2026-01-01
 }
 ```
 

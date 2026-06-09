@@ -12,8 +12,9 @@ import { join } from "node:path";
 import type { TrackOfWordsConfig } from "./book-source";
 
 export interface PodcastRefreshConfig {
-  /** Recency window for the episode diff (days). A refresh reports recent additions. */
-  episodeSinceDays: number;
+  /** Absolute date floor for the episode diff (ISO `YYYY-MM-DD`). Episodes published
+   *  before it are never considered — only the back-catalog they form is counted. */
+  episodeSinceDate: string;
 }
 
 export interface RefreshSourcesConfig {
@@ -21,9 +22,9 @@ export interface RefreshSourcesConfig {
   podcasts: PodcastRefreshConfig;
 }
 
-/** Default podcast recency window when the config omits it (≈4 months — generous
- *  between weekly runs, tight enough to keep the back-catalog out of a refresh). */
-const DEFAULT_EPISODE_SINCE_DAYS = 120;
+/** Default podcast date floor when the config omits it — only consider episodes
+ *  from 2026 on (the corpus is current to ~2026; older feed entries are noise). */
+const DEFAULT_EPISODE_SINCE_DATE = "2026-01-01";
 
 export const REFRESH_SOURCES_PATH = join(
   process.cwd(),
@@ -52,12 +53,12 @@ function reqNumber(o: Record<string, unknown>, key: string, where: string): numb
   return v;
 }
 
-/** Optional positive-number field with a fallback default. */
-function optNumber(o: Record<string, unknown>, key: string, fallback: number, where: string): number {
+/** Optional ISO-date field with a fallback default; validated parseable. */
+function optDate(o: Record<string, unknown>, key: string, fallback: string, where: string): string {
   const v = o[key];
   if (v === undefined || v === null) return fallback;
-  if (typeof v !== "number" || !Number.isFinite(v) || v <= 0) {
-    throw new Error(`${where}.${key}: must be a positive number when present`);
+  if (typeof v !== "string" || Number.isNaN(Date.parse(v))) {
+    throw new Error(`${where}.${key}: must be a parseable ISO date string (e.g. "2026-01-01") when present`);
   }
   return v;
 }
@@ -76,7 +77,7 @@ export function parseRefreshSources(raw: unknown): RefreshSourcesConfig {
       sinceYear: reqNumber(tow, "sinceYear", "trackOfWords"),
     },
     podcasts: {
-      episodeSinceDays: optNumber(podcasts, "episodeSinceDays", DEFAULT_EPISODE_SINCE_DAYS, "podcasts"),
+      episodeSinceDate: optDate(podcasts, "episodeSinceDate", DEFAULT_EPISODE_SINCE_DATE, "podcasts"),
     },
   };
 }

@@ -79,10 +79,13 @@ type-only so the path never loads `drizzle-orm`):
 - **Three live-driven quality filters** (the raw first run was un-reviewable — 122 "books"
   incl. 18 "No new BL pre-orders this weekend" separators + Age-of-Sigmar/Old-World titles +
   multi-format duplicate rows): a **scope gate** (40k + Horus Heresy only — also kills the
-  setting-less separators), **intra-tracker dedup** (year-relaxed), and a **podcast recency
-  window** (the currency analog of the book year-floor). Every drop is **counted in the
-  report**, never silent. Result: 122→61 books, 1878→37 episodes. This is in-spirit with
-  "ONE maintainer-reviewable proposal," not scope creep.
+  setting-less separators), **intra-tracker dedup** (year-relaxed), and a **podcast date
+  floor** (`episodeSinceDate`, default `2026-01-01` — an absolute date, the currency analog
+  of the book year-floor). Every drop is **counted in the report**, never silent. Result:
+  122→61 books, and podcasts from ~1878 to a handful once pre-floor episodes are ignored
+  (luetin09 1663→1). This is in-spirit with "ONE maintainer-reviewable proposal," not scope
+  creep. (Per Philipp, 2026-06-09: an absolute date floor, not a relative window, so
+  luetin09's old back-catalog is never even considered.)
 - **`hasFindings` excludes review-books.** A title-collision (reprint) collides
   *permanently*, so gating the PR on it would create a PR that never clears. New books / new
   episodes trigger; collisions surface in the report only when a run already has findings.
@@ -128,8 +131,9 @@ type-only so the path never loads `drizzle-orm`):
   allocator; no-op rule; deterministic serialize.
 - **Live smoke** `npm run refresh:check` (real sources): books `ok — 61 new, 15 review |
   119 considered, 572 below year floor, 330 out-of-scope, 31 dupes`; **Carnage Unending
-  present** (`W40K-0573`, various/2026/anthology); podcasts the-40k-lorecast 1, adeptus-
-  ridiculous 0, lorehammer 35 (+179 windowed), luetin09 1 (+1662 windowed). Wrote
+  present** (`W40K-0573`, various/2026/anthology); podcasts (date floor 2026-01-01)
+  the-40k-lorecast 1, adeptus-ridiculous 0, lorehammer 41, luetin09 1 — each with the
+  pre-floor back-catalog ignored, only counted (luetin09: **1849 before floor**). Wrote
   `ingest/refresh/2026-W24/{report.md,proposal.json}` (not staged for PR1 — a smoke
   artifact; PR2's cron produces the real weekly outputs).
 
@@ -137,9 +141,10 @@ type-only so the path never loads `drizzle-orm`):
 
 None blocking. Notes:
 
-- The live podcast counts confirm the **committed artifacts are behind** (lorehammer 179 /
-  luetin09 1662 new-but-older-than-window episodes). That's a real backfill task, not a
-  refresh — the recency window keeps it out of the weekly proposal. A one-off full
+- The live podcast counts confirm the **committed artifacts are behind**, but most of the
+  gap is pre-2026 (luetin09 alone has 1849 episodes before the floor). That's a real
+  backfill task, not a refresh — the absolute date floor (`episodeSinceDate`) keeps the old
+  back-catalog out of the weekly proposal entirely (only counted). A one-off full
   `ingest:podcast` per show would re-baseline them.
 - `ingest/refresh/` is intentionally **not** gitignored (PR2's `create-pull-request` must be
   able to commit there).

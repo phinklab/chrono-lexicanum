@@ -6,6 +6,6 @@
     "sinceYear": 2025
   },
   "podcasts": {
-    "episodeSinceDays": 120
+    "episodeSinceDate": "2026-01-01"
   }
 }

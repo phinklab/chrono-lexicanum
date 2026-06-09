@@ -114,12 +114,14 @@ function booksSection(books: BookDiffResult): string[] {
   return lines;
 }
 
-function podcastsSection(podcasts: PodcastDiffResult): string[] {
+function podcastsSection(podcasts: PodcastDiffResult, episodeSinceDate: string): string[] {
   const lines: string[] = [];
   if (podcasts.shows.length === 0) {
     lines.push("No registered shows.");
     return lines;
   }
+  lines.push(`_Only episodes published on/after **${episodeSinceDate}** are considered; older feed entries are ignored._`);
+  lines.push("");
   const icon = (s: string): string => (s === "ok" ? "✅" : s === "skipped" ? "⏭️" : "⚠");
   for (const show of podcasts.shows) {
     const newCount = show.newEpisodes.length;
@@ -128,10 +130,10 @@ function podcastsSection(podcasts: PodcastDiffResult): string[] {
     );
     lines.push("");
     if (show.status === "ok") {
-      const staleNote =
-        show.staleNewCount > 0 ? ` (+${show.staleNewCount} new but older than the window, not listed)` : "";
+      const oldNote =
+        show.skippedBeforeFloor > 0 ? ` (${show.skippedBeforeFloor} older feed entries ignored)` : "";
       lines.push(
-        `Committed ${show.committedCount}, fetched ${show.freshCount}, **${newCount} new in window**${staleNote}.`,
+        `Committed ${show.committedCount}, fetched ${show.freshCount}, **${newCount} new since ${episodeSinceDate}**${oldNote}.`,
       );
       if (newCount > 0) {
         lines.push("");
@@ -155,7 +157,7 @@ function podcastsSection(podcasts: PodcastDiffResult): string[] {
  */
 export function buildReportMarkdown(
   proposal: RefreshProposal,
-  opts: { generatedAtIso: string },
+  opts: { generatedAtIso: string; episodeSinceDate: string },
 ): string {
   const { books, podcasts } = proposal;
   const newBookCount = books.newBooks.length;
@@ -182,7 +184,7 @@ export function buildReportMarkdown(
     "",
     "## Podcasts",
     "",
-    ...podcastsSection(podcasts),
+    ...podcastsSection(podcasts, opts.episodeSinceDate),
     "## Promote (maintainer, after review)",
     "",
     "- **Books:** copy the chosen rows from `proposal.json` into " +

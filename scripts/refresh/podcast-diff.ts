@@ -35,13 +35,16 @@ export interface PodcastDiffDeps {
   youtubeEnabled: boolean;
 }
 
-/** Recency window for the diff — a *refresh* reports recent additions, not the
- *  whole un-ingested back-catalog (which is a separate `ingest:podcast` backfill). */
-export interface PodcastDiffWindow {
-  /** "Now" in epoch ms — injected by the orchestrator (tests pass a fixed value). */
-  nowMs: number;
-  /** Episodes older than this many days are counted (`staleNewCount`) but not listed. */
-  sinceDays: number;
+/**
+ * Absolute date floor for the diff. A *refresh* only ever considers episodes
+ * published on/after this instant — the entire pre-floor back-catalog (e.g.
+ * luetin09's years of non-lore uploads) is never diffed, only counted. Fixed
+ * anchor (not a relative window), so the cutoff is stable and predictable: the
+ * podcast analog of the book `sinceYear` floor.
+ */
+export interface PodcastDiffFloor {
+  /** Floor instant in epoch ms (e.g. `Date.parse("2026-01-01")`). */
+  sinceMs: number;
 }
 
 function errMsg(e: unknown): string {
@@ -52,19 +55,19 @@ function toNewEpisode(e: PodcastEpisode): NewEpisode {
   return { guid: e.guid, title: e.title, pubDate: e.pubDate, link: e.link };
 }
 
-/** Whether an episode falls within the recency window. Undated episodes are kept (can't tell). */
-function withinWindow(pubDate: string | null, cutoffMs: number): boolean {
+/** Whether an episode is on/after the floor. Undated episodes are kept (can't tell — rare). */
+function onOrAfterFloor(pubDate: string | null, sinceMs: number): boolean {
   if (pubDate === null) return true;
   const t = Date.parse(pubDate);
   if (Number.isNaN(t)) return true;
-  return t >= cutoffMs;
+  return t >= sinceMs;
 }
 
 /** Diff one show's live feed against its committed artifact. Never throws. */
 async function diffOneShow(
   cfg: PodcastShowConfig,
   deps: PodcastDiffDeps,
-  window: PodcastDiffWindow,
+  floor: PodcastDiffFloor,
 ): Promise<PodcastShowDiff> {
   const base = { slug: cfg.slug, title: cfg.title, source: cfg.source };
 
@@ -77,7 +80,7 @@ async function diffOneShow(
       committedCount: committed?.size ?? 0,
       freshCount: 0,
       newEpisodes: [],
-      staleNewCount: 0,
+      skippedBeforeFloor: 0,
     };
   }
 
@@ -90,7 +93,7 @@ async function diffOneShow(
       committedCount: 0,
       freshCount: 0,
       newEpisodes: [],
-      staleNewCount: 0,
+      skippedBeforeFloor: 0,
     };
   }
 
@@ -105,21 +108,21 @@ async function diffOneShow(
       committedCount: committed.size,
       freshCount: 0,
       newEpisodes: [],
-      staleNewCount: 0,
+      skippedBeforeFloor: 0,
     };
   }
 
-  const cutoffMs = window.nowMs - window.sinceDays * 86_400_000;
-  const allNew = fresh.filter((e) => !committed.has(e.guid));
-  const recent = allNew.filter((e) => withinWindow(e.pubDate, cutoffMs));
+  // Only episodes on/after the floor are considered at all; the rest are ignored.
+  const inWindow = fresh.filter((e) => onOrAfterFloor(e.pubDate, floor.sinceMs));
+  const newEpisodes = inWindow.filter((e) => !committed.has(e.guid)).map(toNewEpisode);
   return {
     ...base,
     status: "ok",
     note: null,
     committedCount: committed.size,
     freshCount: fresh.length,
-    newEpisodes: recent.map(toNewEpisode),
-    staleNewCount: allNew.length - recent.length,
+    newEpisodes,
+    skippedBeforeFloor: fresh.length - inWindow.length,
   };
 }
 
@@ -127,11 +130,11 @@ async function diffOneShow(
 export async function diffPodcasts(
   shows: PodcastShowConfig[],
   deps: PodcastDiffDeps,
-  window: PodcastDiffWindow,
+  floor: PodcastDiffFloor,
 ): Promise<PodcastDiffResult> {
   const out: PodcastShowDiff[] = [];
   for (const cfg of shows) {
-    out.push(await diffOneShow(cfg, deps, window));
+    out.push(await diffOneShow(cfg, deps, floor));
   }
   return { shows: out };
 }
