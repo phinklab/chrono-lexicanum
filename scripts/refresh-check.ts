@@ -26,6 +26,7 @@ import { join } from "node:path";
 
 import { loadRegistry } from "@/lib/ingestion/podcast/registry";
 
+import { ignoredSlugSet, loadBookIgnore } from "./refresh/book-ignore";
 import { detectMissingBooks } from "./refresh/book-source";
 import { loadRefreshSources } from "./refresh/config";
 import { floorIsoForShow, loadCurationState } from "./refresh/curation-state";
@@ -65,7 +66,8 @@ function logHealth(books: BookDiffResult, podcasts: PodcastDiffResult): void {
   } else {
     console.error(
       `[books] ok — ${books.newBooks.length} new, ${books.reviewBooks.length} review | ` +
-        `${books.consideredRows} considered, ${books.skippedOlderRows} below year floor, ` +
+        `${books.consideredRows} considered, ${books.skippedIgnoredRows} ignore-listed, ` +
+        `${books.skippedOlderRows} below year floor, ` +
         `${books.skippedOutOfScopeRows} out-of-scope, ${books.skippedDuplicateRows} dupes`,
     );
   }
@@ -87,7 +89,10 @@ async function main(): Promise<void> {
   const index = buildRosterIndex(roster);
   const allocator = makeIdAllocator(roster);
   const sources = loadRefreshSources();
-  const books = await detectMissingBooks(sources.trackOfWords, index, allocator);
+  // Maintainer "book cutoff": title-slugs dismissed in `book-ignore.json` are
+  // dropped before bucketing, so a duplicate / unwanted edition is not re-proposed.
+  const ignore = ignoredSlugSet(loadBookIgnore());
+  const books = await detectMissingBooks(sources.trackOfWords, index, allocator, undefined, ignore);
 
   // --- Podcasts (fail-soft) ---
   const registry = loadRegistry();

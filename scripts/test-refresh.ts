@@ -23,6 +23,14 @@ import {
   toCsvExportUrl,
   type TrackOfWordsConfig,
 } from "./refresh/book-source";
+import {
+  addIgnoredTitles,
+  emptyBookIgnore,
+  ignoredSlugSet,
+  isBookIgnored,
+  parseBookIgnore,
+  serializeBookIgnore,
+} from "./refresh/book-ignore";
 import { loadRefreshSources, parseRefreshSources } from "./refresh/config";
 import {
   emptyCurationState,
@@ -465,6 +473,40 @@ async function main(): Promise<void> {
     assert.equal(res.skippedDuplicateRows, 2);
   });
 
+  await test("detectMissingBooks: ignore-list drops would-be-new AND would-be-review, counts them", async () => {
+    // carnage-unending would be new; xenos (John Doe) would be a title-collision review.
+    const ignore = new Set([slugify("Carnage Unending"), slugify("Xenos")]);
+    const res = await detectMissingBooks(
+      CFG,
+      INDEX,
+      makeIdAllocator(ROSTER),
+      fakeFetcher({ [CFG.sheetCsvUrl]: TRACKER_CSV }),
+      ignore,
+    );
+    assert.equal(res.status, "ok");
+    // Only The Vorbis Deception (HH) survives as new; Carnage is dismissed.
+    assert.deepEqual(
+      res.newBooks.map((b) => b.title),
+      ["The Vorbis Deception"],
+    );
+    assert.equal(res.reviewBooks.length, 0); // the Xenos collision is dismissed too
+    assert.equal(res.skippedIgnoredRows, 2);
+    assert.equal(res.consideredRows, 3); // 5 in-scope − 2 ignored
+  });
+
+  await test("detectMissingBooks: empty ignore-list is a no-op (unchanged buckets)", async () => {
+    const withEmpty = await detectMissingBooks(
+      CFG,
+      INDEX,
+      makeIdAllocator(ROSTER),
+      fakeFetcher({ [CFG.sheetCsvUrl]: TRACKER_CSV }),
+      new Set<string>(),
+    );
+    assert.equal(withEmpty.newBooks.length, 2);
+    assert.equal(withEmpty.reviewBooks.length, 1);
+    assert.equal(withEmpty.skippedIgnoredRows, 0);
+  });
+
   // --- id allocator ---------------------------------------------------------
 
   await test("makeIdAllocator: seeds from roster maxima, increments per prefix", () => {
@@ -658,6 +700,43 @@ async function main(): Promise<void> {
 
   await test("curation-state: a non-date cursor value throws", () => {
     assert.throws(() => parseCurationState({ shows: { x: "not-a-date" } }), /ISO date/);
+  });
+
+  // --- book ignore-list ("book cutoff") -------------------------------------
+
+  await test("book-ignore: addIgnoredTitles derives the slug; ignoredSlugSet / isBookIgnored", () => {
+    const st = addIgnoredTitles(emptyBookIgnore(), [
+      { title: "The Art of Warhammer 40,000", reason: "artbook" },
+      { title: "Red Tithe", reason: "already in roster" },
+    ]);
+    assert.ok(isBookIgnored(st, slugify("Red Tithe")));
+    assert.equal(st.books[slugify("Red Tithe")].reason, "already in roster");
+    assert.deepEqual(
+      [...ignoredSlugSet(st)].sort(),
+      [slugify("Red Tithe"), slugify("The Art of Warhammer 40,000")].sort(),
+    );
+  });
+
+  await test("book-ignore: serialize is slug-sorted, trailing newline, round-trips", () => {
+    const st = addIgnoredTitles(emptyBookIgnore(), [
+      { title: "Zzz Last", reason: "x" },
+      { title: "Aaa First", reason: "y" },
+    ]);
+    const json = serializeBookIgnore(st);
+    assert.ok(json.endsWith("\n"));
+    assert.equal(serializeBookIgnore(st), json); // stable across calls
+    assert.ok(json.indexOf("aaa-first") < json.indexOf("zzz-last")); // slugs sorted
+    assert.deepEqual(parseBookIgnore(JSON.parse(json)).books, st.books);
+  });
+
+  await test("book-ignore: a key that is not slugify(title) throws (load-bearing guard)", () => {
+    assert.throws(
+      () => parseBookIgnore({ books: { "wrong-key": { title: "Red Tithe", reason: "x" } } }),
+      /key must equal slugify/,
+    );
+    assert.throws(() => parseBookIgnore({ books: { x: { title: "X" } } }), /reason/);
+    assert.throws(() => parseBookIgnore({ books: { x: "nope" } }), /must be an object/);
+    assert.deepEqual(parseBookIgnore({}).books, {}); // missing `books` ⇒ empty
   });
 
   // --- emit / serialize / no-op rule ---------------------------------------

@@ -58,6 +58,7 @@
     "refresh:check": "tsx --env-file=.env.local scripts/refresh-check.ts",
     "refresh:check:ci": "tsx scripts/refresh-check.ts",
     "refresh:mark-reviewed": "tsx scripts/refresh-mark-reviewed.ts",
+    "refresh:ignore-book": "tsx scripts/refresh-ignore-book.ts",
     "test:refresh": "tsx scripts/test-refresh.ts",
     "test:roster-extension": "tsx scripts/test-roster-extension.ts"
   },
