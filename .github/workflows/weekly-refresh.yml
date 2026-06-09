@@ -1,0 +1,115 @@
+# Weekly content refresh — unattended detection → rolling PR.
+# Brief 133 / Board 122-B10, acceptance 5.
+#
+# Runs the DETECTION pass (`refresh:check:ci`) on a weekly cron: it diffs the Track of
+# Words book tracker + the registered podcast feeds against the committed inventory and,
+# only when something new is found, opens/updates ONE rolling pull request on the fixed
+# `automation/weekly-refresh` branch carrying the proposal under `ingest/refresh/<week>/`.
+# A week with no new books or episodes closes that rolling PR.
+#
+# Detection only — this workflow NEVER writes the database and needs no Anthropic or
+# Supabase secret. `YOUTUBE_API_KEY` is optional (YouTube shows fail-soft skip without it).
+# Merging the PR applies NOTHING; promotion (book-extension merge / podcast apply) stays
+# maintainer-driven — see `scripts/runbooks/weekly-refresh-runbook.md`.
+#
+# Repo prerequisite: Settings → Actions → General → Workflow permissions →
+# "Allow GitHub Actions to create and approve pull requests" must be ON, or
+# create-pull-request fails with a 403. The `permissions:` block below grants the
+# token the rest (contents + pull-requests write).
+
+name: weekly-refresh
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: weekly-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run detection pass
+        id: detect
+        env:
+          # Optional — absent in forks / if the secret is unset; YouTube shows then skip
+          # fail-soft. No Anthropic/Supabase secret: detection writes neither DB nor LLM.
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          set -euo pipefail
+          # stdout carries the REFRESH_RESULT contract (final line); per-source health is
+          # on stderr and streams live to the log. A genuine bug exits non-zero → step fails.
+          out="$(npm run --silent refresh:check:ci)"
+          printf '%s\n' "$out"
+          result="$(printf '%s\n' "$out" | grep -E '^REFRESH_RESULT=' | tail -n1 || true)"
+          if [ -z "$result" ]; then
+            echo "::error::refresh:check:ci produced no REFRESH_RESULT line"
+            exit 1
+          fi
+          if printf '%s' "$result" | grep -q '^REFRESH_RESULT=findings'; then
+            dir="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]path=\(.*\)$/\1/p')"
+            rel="${dir#"$GITHUB_WORKSPACE/"}"
+            books="$(printf '%s' "$result" | sed -n 's/.*books=\([0-9][0-9]*\).*/\1/p')"
+            eps="$(printf '%s' "$result" | sed -n 's/.*episodes=\([0-9][0-9]*\).*/\1/p')"
+            week="$(basename "$rel")"
+            {
+              echo "findings=true"
+              echo "report_path=$rel/report.md"
+              echo "pr_title=Weekly content refresh ($week) — ${books} new book(s), ${eps} new episode(s)"
+            } >> "$GITHUB_OUTPUT"
+            echo "Findings: ${books} book(s), ${eps} episode(s) → ${rel}"
+          else
+            echo "findings=false" >> "$GITHUB_OUTPUT"
+            echo "No findings this week (REFRESH_RESULT=noop)."
+          fi
+
+      # Findings → open or update the single rolling PR on the fixed branch. `add-paths`
+      # is the hard guardrail: only `ingest/refresh/**` can ever be committed — never the
+      # roster, the Excel SSOT, brain/, or src/.
+      - name: Open / update rolling PR
+        if: steps.detect.outputs.findings == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          base: main
+          branch: automation/weekly-refresh
+          add-paths: ingest/refresh/**
+          commit-message: "Weekly content refresh: detection proposal"
+          title: ${{ steps.detect.outputs.pr_title }}
+          body-path: ${{ steps.detect.outputs.report_path }}
+          delete-branch: false
+
+      # No findings → close the rolling PR (and delete its branch) if one is open.
+      - name: Close rolling PR on a no-op week
+        if: steps.detect.outputs.findings == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          branch="automation/weekly-refresh"
+          num="$(gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')"
+          if [ -n "$num" ]; then
+            echo "No findings — closing rolling PR #$num and deleting $branch."
+            gh pr close "$num" --delete-branch \
+              --comment "No new books or podcast episodes detected this week — closing the rolling refresh PR. It reopens automatically when the next release is found."
+          else
+            echo "No findings and no open rolling PR — nothing to do."
+          fi
