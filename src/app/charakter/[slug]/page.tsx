@@ -5,13 +5,14 @@
  * segment IS the character id. The page owns the frame (main + photo backdrop +
  * decor); the db-free <EntityView> renders the body from `loadEntity`.
  */
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import CornerAuspex from "@/components/chrono/CornerAuspex";
 import EntityBackLink from "@/components/entity/EntityBackLink";
 import EntityView from "@/components/entity/EntityView";
 import { listEntityIds, loadEntity } from "@/lib/entity/loader";
+import { absorbedInto } from "@/lib/compendium/primarchs";
 
 type Params = { slug: string };
 
@@ -40,6 +41,10 @@ export default async function CharacterPage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
+  // A twin absorbed into a merged primarch (e.g. Omegon → Alpharius Omegon) has
+  // no standalone page; send it to the canonical merged entry.
+  const canonical = absorbedInto(slug);
+  if (canonical) redirect(`/charakter/${canonical}`);
   const view = await loadEntity("character", slug);
   if (!view) notFound();
 

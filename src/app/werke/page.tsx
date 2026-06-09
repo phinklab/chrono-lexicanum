@@ -13,6 +13,7 @@ import {
   loadPodcastSearchIndex,
   buildPodcastSuggestions,
 } from "@/app/podcasts/loader";
+import { loadPrimarchSuggestions } from "@/lib/compendium/loader";
 import {
   applyWorksFilters,
   buildSearchIndex,
@@ -70,9 +71,10 @@ function hrefWith(base: WorksParams, key: string, value: string): string {
 export default async function WerkePage({ searchParams }: WerkePageProps) {
   const sp = await searchParams;
   const params = parseWorksParams(sp);
-  const [{ books }, podcastData] = await Promise.all([
+  const [{ books }, podcastData, primarchSuggestions] = await Promise.all([
     loadBrowseBooks(),
     loadPodcastSearchIndex(),
+    loadPrimarchSuggestions(),
   ]);
 
   const filtered = applyWorksFilters(books, params);
@@ -99,6 +101,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
   const searchIndex = [
     ...buildSearchIndex(books),
     ...buildPodcastSuggestions(podcastData),
+    ...primarchSuggestions,
   ];
 
   // Resolve the active facet (if any) to a display chip.

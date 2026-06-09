@@ -138,6 +138,7 @@ export type SuggestKind =
   | "podcast"
   | "author"
   | "faction"
+  | "primarch"
   | "facet"
   | "format";
 
@@ -165,14 +166,16 @@ const GROUP_ORDER: Record<SuggestKind, number> = {
   book: 0,
   podcast: 1,
   faction: 2,
-  facet: 3,
-  format: 4,
-  author: 5,
+  primarch: 3,
+  facet: 4,
+  format: 5,
+  author: 6,
 };
 const GROUP_CAP: Record<SuggestKind, number> = {
   book: 6,
   podcast: 6,
   faction: 5,
+  primarch: 5,
   facet: 5,
   format: 4,
   author: 4,
@@ -234,10 +237,39 @@ export const SUGGEST_GROUP_LABEL: Record<SuggestKind, string> = {
   book: "Books",
   podcast: "Podcasts",
   faction: "Factions",
+  primarch: "Primarchs",
   facet: "Facets",
   format: "Formats",
   author: "Authors",
 };
+
+/**
+ * Where an entity pick from the universal search lands, shared by every console
+ * (Home, /podcasts, /werke) so the behaviour can't drift: the matching Compendium
+ * directory with that entity's overlay auto-opened. The directory page reads
+ * `focus`, resolves it to the row's detail href, and `CompendiumFocusOpener`
+ * soft-navs there (e.g. /fraktion/<id>, /charakter/<id>) — which the root @modal
+ * intercept turns into the in-context popup (books AND podcasts inside). Closing
+ * the popup leaves the visitor in the browsable directory, not on the page they
+ * searched from.
+ */
+function compendiumFocusHref(category: string, id: string): string {
+  return `/compendium/${category}?focus=${encodeURIComponent(id)}`;
+}
+
+/** Faction pick → the Compendium faction directory with the faction popped open.
+ *  In the /werke search this leaves the archive for the faction hub; the /werke
+ *  "Faction" dropdown stays the in-place list filter. */
+export function factionFocusHref(id: string): string {
+  return compendiumFocusHref("fraktionen", id);
+}
+
+/** Primarch pick → the Compendium primarch directory with the primarch popped
+ *  open. `id` is the canonical character id (the merged "Alpharius Omegon" uses
+ *  `alpharius`), so picking the merged entry opens its union detail view. */
+export function primarchFocusHref(id: string): string {
+  return compendiumFocusHref("primarchen", id);
+}
 
 /**
  * Build the typeahead index from the loaded browse books — one book entry each,

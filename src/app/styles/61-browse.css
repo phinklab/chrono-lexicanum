@@ -160,6 +160,7 @@
 }
 /* Non-book picks read as labels, not prose → mono, tracked, like the chips. */
 .browse-suggest__opt--faction .browse-suggest__label,
+.browse-suggest__opt--primarch .browse-suggest__label,
 .browse-suggest__opt--facet .browse-suggest__label,
 .browse-suggest__opt--format .browse-suggest__label,
 .browse-suggest__opt--author .browse-suggest__label {

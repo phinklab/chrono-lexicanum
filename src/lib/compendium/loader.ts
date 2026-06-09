@@ -27,8 +27,14 @@ import {
   type FactionGuide,
 } from "@/app/fraktionen/loader";
 import { hasContent } from "@/app/fraktionen/filters";
+import { loadEntity } from "@/lib/entity/loader";
+import type { Suggestion } from "@/app/werke/filters";
 import type { CompendiumItem } from "./categories";
-import { CURATED_PRIMARCH_IDS } from "./primarchs";
+import {
+  ALL_PRIMARCH_CHARACTER_IDS,
+  CURATED_PRIMARCH_IDS,
+  PRIMARCH_MERGES,
+} from "./primarchs";
 
 /**
  * A world earns a place only once the archive returns to it. The threshold is a
@@ -117,9 +123,11 @@ export const loadFactionItems = cache(async (): Promise<CompendiumItem[]> => {
 
 export const loadCharacterItems = cache(async (): Promise<CompendiumItem[]> => {
   const rows = await cachedCharaktere();
-  const primarchs = new Set(CURATED_PRIMARCH_IDS);
+  const primarchs = new Set(ALL_PRIMARCH_CHARACTER_IDS);
   // A character earns a row when it actually appears in a work; primarchs are
   // hoisted into their own category, so they're excluded here (no double-listing).
+  // The exclusion set covers absorbed twins too (e.g. Omegon), so a merged
+  // primarch never leaks back into the broad Characters deck.
   return rows
     .filter((c) => c.workCount > 0 && !primarchs.has(c.id))
     .map((c): CompendiumItem => ({
@@ -152,21 +160,66 @@ export const loadPrimarchItems = cache(async (): Promise<CompendiumItem[]> => {
       );
       continue;
     }
+    const merge = PRIMARCH_MERGES[id];
+    let name = c.name;
+    let workCount = c.workCount;
+    if (merge) {
+      name = merge.name;
+      // Honest union count = exactly the works the merged detail page lists
+      // (deduped across the twins). Reuse the cached entity loader so the card's
+      // "N appearances" can never drift from the page it links to. On a failed
+      // read the cheap aggregate (canonical twin only) is the graceful fallback.
+      const view = await loadEntity("character", id);
+      if (view) {
+        workCount = view.worksByKind.reduce((n, g) => n + g.works.length, 0);
+      }
+    }
     items.push({
       id: c.id,
-      name: c.name,
+      name,
       href: `/charakter/${c.id}`,
       kicker: c.primaryFactionName,
-      meta: c.workCount > 0 ? plural(c.workCount, "appearance") : null,
+      meta: workCount > 0 ? plural(workCount, "appearance") : null,
       dotColor: c.primaryFactionName ? factionDot(c.primaryFactionName) : null,
       glyph: null,
       facet: null,
       groupKey: null,
       groupLabel: null,
-      weight: c.workCount,
+      weight: workCount,
     });
   }
   return items;
+});
+
+/**
+ * Primarch typeahead entries for the universal search (Home / /podcasts / /werke).
+ * Deliberately CHEAP — it reuses the already-cached character rows (same
+ * `cachedCharaktere` the directory builds on) and only needs id + label + a
+ * faction hint, so it does NOT call `loadEntity` (the per-entity work-union the
+ * directory cards need for their counts). Merged twins surface under their
+ * combined name with the canonical id as `value` ("Alpharius Omegon" → `alpharius`),
+ * and "Alpharius Omegon" contains "omegon", so a search for "omegon" still hits
+ * the merged entry. A pick routes via `primarchFocusHref` to the Compendium
+ * primarch directory with the overlay popped open.
+ */
+export const loadPrimarchSuggestions = cache(async (): Promise<Suggestion[]> => {
+  const ids = CURATED_PRIMARCH_IDS;
+  if (ids.length === 0) return [];
+  const rows = await cachedCharaktere();
+  const byId = new Map(rows.map((c) => [c.id, c]));
+  const out: Suggestion[] = [];
+  for (const id of ids) {
+    const c = byId.get(id);
+    if (!c) continue; // a missing id is reported by loadPrimarchItems; stay quiet here
+    const merge = PRIMARCH_MERGES[id];
+    out.push({
+      kind: "primarch",
+      label: merge ? merge.name : c.name,
+      value: id,
+      hint: c.primaryFactionName,
+    });
+  }
+  return out;
 });
 
 export const loadWorldItems = cache(async (): Promise<CompendiumItem[]> => {
