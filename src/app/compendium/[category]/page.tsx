@@ -23,6 +23,7 @@ import {
   parseCompendiumParams,
 } from "@/lib/compendium/filters";
 import CompendiumControls from "@/components/compendium/CompendiumControls";
+import CompendiumFocusOpener from "@/components/compendium/CompendiumFocusOpener";
 
 type Params = { category: string };
 type Search = Record<string, string | string[] | undefined>;
@@ -103,8 +104,19 @@ export default async function CompendiumCategoryPage({
   const groups = groupItems(shown, c);
   const filtering = isFiltered(p);
 
+  // Deep-link from the universal search (Home / /podcasts / /werke): a faction or
+  // primarch pick lands here with `?focus=<id>` and opens that row's overlay over
+  // the directory (resolved to its detail href so the client island stays
+  // route-agnostic). An id not in this category is a graceful no-op.
+  const focusRaw = sp.focus;
+  const focusId = Array.isArray(focusRaw) ? focusRaw[0] : focusRaw;
+  const focusHref = focusId
+    ? all.find((it) => it.id === focusId)?.href ?? null
+    : null;
+
   return (
     <section className="cmp-directory" aria-label={`${c.label} directory`}>
+      {focusHref ? <CompendiumFocusOpener href={focusHref} /> : null}
       <header className="cmp-cat-intro">
         <p className="cmp-cat-intro__eyebrow">{c.eyebrow}</p>
         <h2 className="cmp-cat-intro__heading">{c.label}</h2>

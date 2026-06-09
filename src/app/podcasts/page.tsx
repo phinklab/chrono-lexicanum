@@ -9,6 +9,7 @@ import ScrollScrim from "@/app/buecher/ScrollScrim";
 import PodcastsSearch from "@/components/podcast/PodcastsSearch";
 import { loadBrowseBooks } from "@/app/werke/loader";
 import { buildSearchIndex } from "@/app/werke/filters";
+import { loadPrimarchSuggestions } from "@/lib/compendium/loader";
 import {
   loadPodcastIndex,
   loadPodcastSearchIndex,
@@ -49,10 +50,11 @@ function yearSpan(first: number | null, last: number | null): string | null {
 export default async function PodcastsPage() {
   // The show hall plus the unified search index — books (from /werke) merged with
   // podcasts so /podcasts carries the same archive-wide search Home and /werke do.
-  const [shows, { books }, podcastData] = await Promise.all([
+  const [shows, { books }, podcastData, primarchSuggestions] = await Promise.all([
     loadPodcastIndex(),
     loadBrowseBooks(),
     loadPodcastSearchIndex(),
+    loadPrimarchSuggestions(),
   ]);
   const totalEpisodes = shows.reduce((n, s) => n + s.episodeCount, 0);
   const showWord =
@@ -60,6 +62,7 @@ export default async function PodcastsPage() {
   const searchIndex = [
     ...buildSearchIndex(books),
     ...buildPodcastSuggestions(podcastData),
+    ...primarchSuggestions,
   ];
 
   return (

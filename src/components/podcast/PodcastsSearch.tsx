@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import BrowseSearch from "@/components/browse/BrowseSearch";
-import type { Suggestion } from "@/app/werke/filters";
+import { factionFocusHref, primarchFocusHref, type Suggestion } from "@/app/werke/filters";
 
 /**
  * Podcast-page search (Brief 132) — the same archive-wide console Home and
@@ -13,7 +13,9 @@ import type { Suggestion } from "@/app/werke/filters";
  *
  *   - book                 → /buch/[slug]          (opens the book modal here)
  *   - podcast              → s.href                 (show page, or #ep-<id> deep link)
- *   - faction/facet/format → /werke?<param>=…       (land in the archive, pre-filtered)
+ *   - faction              → /compendium/fraktionen?focus=[id]  (faction directory + popup)
+ *   - primarch             → /compendium/primarchen?focus=[id] (primarch directory + popup)
+ *   - facet/format         → /werke?<param>=…       (land in the archive, pre-filtered)
  *   - author / raw Enter   → /werke?q=…             (land in the archive, searched)
  *   - empty Enter          → /werke                 (open the unfiltered archive)
  *
@@ -50,7 +52,16 @@ export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
         }
         break;
       case "faction":
-        toWerke("faction", s.value);
+        // Leave /podcasts for the faction hub (books AND podcasts), opened as a
+        // popup over the Compendium faction directory — same as Home.
+        setQ("");
+        router.push(factionFocusHref(s.value));
+        break;
+      case "primarch":
+        // Leave /podcasts for the primarch hub (books AND podcasts; union of the
+        // merged twins), opened as a popup over the Compendium primarch directory.
+        setQ("");
+        router.push(primarchFocusHref(s.value));
         break;
       case "facet":
         toWerke("facet", s.value);

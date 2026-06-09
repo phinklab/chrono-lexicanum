@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import BrowseSearch from "@/components/browse/BrowseSearch";
-import type { Suggestion } from "@/app/werke/filters";
+import { factionFocusHref, primarchFocusHref, type Suggestion } from "@/app/werke/filters";
 
 /**
  * Home search (Brief 121) — the real archive search console (design-language
@@ -12,7 +12,9 @@ import type { Suggestion } from "@/app/werke/filters";
  *
  *   - book              → /buch/[slug]          (open the book directly)
  *   - podcast              → /podcasts/[slug](#ep-…)  (show page or episode deep link)
- *   - faction/facet/format → /werke?<param>=…   (land in the archive, pre-filtered)
+ *   - faction              → /compendium/fraktionen?focus=[id]  (faction directory + popup)
+ *   - primarch             → /compendium/primarchen?focus=[id] (primarch directory + popup)
+ *   - facet/format         → /werke?<param>=…   (land in the archive, pre-filtered)
  *   - author / raw Enter   → /werke?q=…          (land in the archive, searched)
  *   - empty Enter          → /werke              (open the unfiltered archive)
  *
@@ -54,7 +56,22 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
         }
         break;
       case "faction":
-        toWerke("faction", s.value);
+        // A faction pick lands in the Compendium's faction directory and pops the
+        // faction overlay on top of it: the compendium page reads `focus` and
+        // soft-navs to /fraktion/<id>, which the root @modal intercept turns into
+        // the in-context popup (books AND podcasts) — identical to clicking a row
+        // there. Closing the popup leaves the visitor in the browsable list, not
+        // back on Home. Consume the draft like the book pick.
+        setQ("");
+        router.push(factionFocusHref(s.value));
+        break;
+      case "primarch":
+        // Same shape as the faction pick: land in the Compendium primarch
+        // directory with the primarch's overlay popped open (books AND podcasts,
+        // and for the merged Alpha Legion twins the union of both). The popup's
+        // Back leaves the visitor in the browsable primarch list.
+        setQ("");
+        router.push(primarchFocusHref(s.value));
         break;
       case "facet":
         toWerke("facet", s.value);

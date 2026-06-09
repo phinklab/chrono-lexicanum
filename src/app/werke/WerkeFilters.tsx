@@ -4,7 +4,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import BrowseSearch from "@/components/browse/BrowseSearch";
 import FilterSelect from "@/components/browse/FilterSelect";
-import { SORT_OPTIONS, type SortKey, type Suggestion } from "./filters";
+import { factionFocusHref, primarchFocusHref, SORT_OPTIONS, type SortKey, type Suggestion } from "./filters";
 
 type Option = { value: string; label: string };
 
@@ -16,11 +16,12 @@ type Option = { value: string; label: string };
  *
  * The search itself is the shared `<BrowseSearch>` console (design-language
  * §5.2): a grouped typeahead over the server-built `index` of books, podcasts,
- * factions, facets, formats and authors. Here it filters IN PLACE — picking a
- * faction/facet/format applies that filter, an author or raw Enter sets `q`, a
- * book opens it; a podcast is the one pick that leaves the archive (→ /podcasts).
- * (Home renders the same console in navigate-mode.) The console owns the
- * combobox mechanics; this island owns the routing semantics.
+ * factions, facets, formats and authors. Here it mostly filters IN PLACE —
+ * picking a facet/format applies that filter, an author or raw Enter sets `q`, a
+ * book opens it; a faction jumps to its hub and a podcast leaves the archive
+ * (→ /podcasts), the two picks that navigate away. (Home renders the same console
+ * in navigate-mode.) The console owns the combobox mechanics; this island owns
+ * the routing semantics.
  *
  * Two rows by design: the prominent query console over a quieter row of facet
  * controls (Faction / Format / Sort). The dropdowns are the on-brand
@@ -74,8 +75,8 @@ export default function WerkeFilters({
   }
 
   // Commit a picked suggestion. A book opens (soft-nav → the `(.)buch` intercept
-  // mounts the overlay); a faction/facet/format applies that filter and consumes
-  // the typed text; an author runs a text search for that name.
+  // mounts the overlay); a faction jumps to its hub; facet/format apply that
+  // filter and consume the typed text; an author runs a text search for that name.
   function onPick(s: Suggestion) {
     switch (s.kind) {
       case "book":
@@ -94,8 +95,17 @@ export default function WerkeFilters({
         }
         break;
       case "faction":
+        // A faction picked in the SEARCH jumps to the faction hub (popup over the
+        // Compendium directory, books AND podcasts) — consistent with Home and
+        // /podcasts. The "Faction" dropdown below stays the in-place list filter.
         setQ("");
-        setParam("faction", s.value);
+        router.push(factionFocusHref(s.value));
+        break;
+      case "primarch":
+        // Like the faction pick — leaves the archive for the primarch hub (popup
+        // over the Compendium primarch directory, books AND podcasts).
+        setQ("");
+        router.push(primarchFocusHref(s.value));
         break;
       case "facet":
         setQ("");

@@ -9,11 +9,12 @@
  * A hard nav / refresh / shared link bypasses the intercept and renders
  * `src/app/charakter/[slug]/page.tsx` (the canonical SSG page).
  */
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import DetailModal from "@/components/shared/DetailModal";
 import EntityView from "@/components/entity/EntityView";
 import { loadEntity } from "@/lib/entity/loader";
 import { entityHref } from "@/lib/entity/types";
+import { absorbedInto } from "@/lib/compendium/primarchs";
 
 export default async function CharacterModal({
   params,
@@ -21,6 +22,10 @@ export default async function CharacterModal({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  // A twin absorbed into a merged primarch (e.g. Omegon → Alpharius Omegon) has
+  // no standalone view; redirect the soft-nav to the canonical merged entry.
+  const canonical = absorbedInto(slug);
+  if (canonical) redirect(`/charakter/${canonical}`);
   const view = await loadEntity("character", slug);
   if (!view) notFound();
 

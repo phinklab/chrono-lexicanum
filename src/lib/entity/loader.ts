@@ -27,6 +27,7 @@ import { and, asc, eq, inArray, ne } from "drizzle-orm";
 import { alias } from "drizzle-orm/pg-core";
 import { db } from "@/db/client";
 import { getBlurb } from "@/lib/blurbs";
+import { PRIMARCH_MERGES } from "@/lib/compendium/primarchs";
 import {
   characters as charactersTable,
   factions as factionsTable,
@@ -260,6 +261,13 @@ function mergePersonWorks(rows: RelatedWorkRow[]): RelatedWorkRow[] {
 // ── Per-type loaders ────────────────────────────────────────────────────────
 
 async function loadCharacter(id: string): Promise<EntityView | null> {
+  // Curated twin-merge (e.g. Alpha Legion's Alpharius + Omegon → one entry): the
+  // head row stays the canonical `id`, but works are pulled for the whole pair so
+  // the page lists every book/podcast featuring EITHER twin. `name` is overridden
+  // to the merged label; non-merged characters take the single-id path unchanged.
+  const merge = PRIMARCH_MERGES[id];
+  const characterIds = merge ? [id, ...merge.absorbs] : [id];
+
   const [headRows, workRows] = await Promise.all([
     db
       .select({
@@ -289,11 +297,24 @@ async function loadCharacter(id: string): Promise<EntityView | null> {
       })
       .from(workCharactersTable)
       .innerJoin(worksTable, eq(worksTable.id, workCharactersTable.workId))
-      .where(eq(workCharactersTable.characterId, id)),
+      .where(
+        characterIds.length === 1
+          ? eq(workCharactersTable.characterId, id)
+          : inArray(workCharactersTable.characterId, characterIds),
+      ),
   ]);
 
   const row = headRows[0];
   if (!row) return null;
+
+  // A work featuring both twins comes back once per twin → keep the first row so
+  // `buildWorkGroups` lists each work exactly once. A no-op for a single id.
+  const seenWorks = new Set<string>();
+  const uniqueWorkRows = workRows.filter((w) => {
+    if (seenWorks.has(w.id)) return false;
+    seenWorks.add(w.id);
+    return true;
+  });
 
   const facts: FactRow[] = [];
   if (row.primaryFactionId && row.factionName) {
@@ -306,10 +327,10 @@ async function loadCharacter(id: string): Promise<EntityView | null> {
   return {
     type: "character",
     id: row.id,
-    name: row.name,
+    name: merge ? merge.name : row.name,
     blurb: getBlurb("character", id) ?? undefined,
     facts,
-    worksByKind: await buildWorkGroups(workRows, "character"),
+    worksByKind: await buildWorkGroups(uniqueWorkRows, "character"),
     crossLinks: [],
   };
 }

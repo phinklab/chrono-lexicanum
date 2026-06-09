@@ -14,6 +14,7 @@ import {
   loadPodcastSearchIndex,
   buildPodcastSuggestions,
 } from "@/app/podcasts/loader";
+import { loadPrimarchSuggestions } from "@/lib/compendium/loader";
 
 export const revalidate = 3600;
 
@@ -38,14 +39,16 @@ export default async function HubPage() {
   // Reuse the public /werke + /podcasts loaders so the Home search console is fed
   // the same live, unified index the archive ranks — books first, then podcasts
   // (display-only — no schema/data change here).
-  const [{ books }, podcastData] = await Promise.all([
+  const [{ books }, podcastData, primarchSuggestions] = await Promise.all([
     loadBrowseBooks(),
     loadPodcastSearchIndex(),
+    loadPrimarchSuggestions(),
   ]);
   const novelCount = books.length;
   const searchIndex = [
     ...buildSearchIndex(books),
     ...buildPodcastSuggestions(podcastData),
+    ...primarchSuggestions,
   ];
   const stats = `${novelCount} NOVELS · 7 ERAS · 5 SEGMENTA`;
 
