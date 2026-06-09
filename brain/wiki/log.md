@@ -1366,3 +1366,22 @@ Wechsel von Einzel-Briefs zu zwei **stehenden Strang-Boards**. Briefing pro Task
 **Ask-Naht:** 122-B4 (`recommend()`-Logik + Fragen-/Pfad-Modell, DB) zuerst; 121-P3 (Funnel-UI) gegen den Typen-Contract danach — Cowork liefert den Contract über Chat.
 
 **Offen (Hygiene, kein Blocker):** implementierte Paare 104/108/109/110/113/114 noch im Root → späterer Archiv-Sweep.
+
+---
+
+## 2026-06-09 · Decision/Move · Brief 134 retired → Chronicle-Datierung als Hand-Kuratierung
+
+Brief 134 (*Chronicle setting dates* — Voll-Automatisierung: Events-Tabelle + Schema-Migration + freie Volltext-Probe + EPUB-Extraktion + Apply-Pfad in einem Rutsch) **gelöscht**. Befund beim Schärfen von 134: Ein 40k-Roman zu datieren ist eine **Kurations-Entscheidung, keine Pipeline** („wie eng ist eng genug?", „welches Buch rein/raus?", „ist dieser Snippet belastbar?" sind Mensch-Calls). Entscheidung mit Philipp (Cowork-Chat, 2026-06-09): Cowork + Philipp kuratieren die Timeline-Daten **von Hand** in einem git-ignored `/timeline-workshop/` — Events-Spine M1–M42 zuerst, dann per-Buch-Datierung mit Inclusion-Gate „kein Buch ohne wenigstens groben Richtwert". Das graduiert erst als sauberer Batches-Brief (Events-Tabelle + Apply-Pfad + Provenance + Undatierbar-Liste) zu CC.
+
+**Warum git-ignored:** Parallelität (CC läuft auf 121/122 weiter; der Workshop existiert in den Strang-Worktrees gar nicht) + es ist exploratives Kuratieren, kein committeter Datensatz. `.gitignore` → `/timeline-workshop/`.
+
+**M-Scale-Befund (am Rande):** top-level `CLAUDE.md` schreibt die Formel als `(M-1)*1000+year`, aber Code (`eras.json`, `roster.ts`, `parseChrono`) und das eigene Beispiel `M30.997 → 30997` sind `M*1000+year`. Code ist Autorität; der Prosatext in CLAUDE.md ist falsch (Fix = separater Doc-Edit, hier nur notiert).
+
+**Edits (doc-only → main):**
+- `sessions/2026-06-09-134-arch-chronicle-setting-dates.md` — **gelöscht** (Philipp via `git rm`).
+- `sessions/README.md` — Kopf-„Ebenfalls 2026-06-09"-Block auf den Pivot umgeschrieben; 134-Active-Threads-Zeile entfernt.
+- `sessions/2026-06-03-122-arch-batches-board.md` — B5 auf ⏸ „Cowork-Hand-Kuratierung", 134-Link raus, „CC: nicht anfangen".
+- `.gitignore` — `/timeline-workshop/` ergänzt.
+- `timeline-workshop/README.md` (+ späteres `events.md`) — **nicht committet** (git-ignored).
+
+**Out of scope (unverändert):** grafisches Event-Rendering + Chronicle-UI-Switch auf DB-Daten = Product/121 (Follow-ups).

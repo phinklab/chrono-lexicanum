@@ -32,7 +32,7 @@ Stehendes Strang-Board. Daten + Logik, kein UI (das ist 121). Status-Spalte = Wa
 | B1 | Podcast Step 3: weitere Shows; pro Show website/youtube/spotify-Link wo vorhanden; Schema ggf. um Show-Links | ☐ |
 | B2 | Buch-Kuratierung: Faction add/remove + Hand-Fixes via Override; Content-Warnings aus Daten/Schema; Override-Format definieren (was auto-rollt / Augen braucht) | ☐ |
 | B3 | Entity-Blurbs: F/C/W je 1–2 Satz per Websuche als Seed/Override-Daten. Kurz, faktisch, kein Lore-Essay | ☐ |
-| B5 | Chronicle-Daten: mehr Bücher mit Timeline-Position (`atY`/Ära) | ☐ |
+| B5 | Chronicle-Daten: präzise/event-anchored Setting-Placement → `works.startY/endY` (Maximalpräzision, **kein** Ära-Bucketing — nicht spezifisch verortbare Bücher bleiben raus). **Läuft als Cowork+Philipp-Hand-Kuratierung im git-ignored `/timeline-workshop/`** (Events-Spine M1–M42 zuerst, dann per-Buch-Datierung; Inclusion-Gate „kein Buch ohne groben Richtwert"). Graduiert erst als sauberer Brief zu CC (Events-Tabelle + Apply-Pfad + Date-Provenance + Inclusion-Gate + Undatierbar-Liste). **CC: nicht anfangen** bis der Brief landet. Brief 134 dafür retired/gelöscht. (NB: `atY` ist per-Location, **nicht** das Buch-Setting-Date.) | ⏸ Cowork-Hand |
 | B6 | Dead-Code-Retirement: V1-Ingestion + V2-LLM + V2-Rest ausmustern (Carve-out: Excel-SSOT-Loader bleibt); stale `CLAUDE.md`-Stack-Tabelle fixen | ☐ |
 | B7 | brain:lint always-read Budget-Guardrail (Spec: archivierter Brief 112) | ☐ |
 | B8 | Kuratierte Themen-Straenge: seed-data-JSON (Titel/Blurb + Refs auf vorhandene work-/entity-IDs), kein Schema; dangling ID faellt laut. Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☐ |

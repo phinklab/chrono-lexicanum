@@ -68,6 +68,15 @@ yarn-error.log*
 /sessions/_drafts/
 /reviews/
 
+# --- timeline-workshop (Cowork+Philipp manual Chronicle dating) -------------
+# Cowork and Philipp curate the in-universe events spine + per-book setting
+# dates here BY HAND, across sessions, OUTSIDE git — so CC can keep working the
+# 121/122 boards in parallel without collisions. This is exploratory curation,
+# not a committed dataset; when a clean events set + a proven per-book dating
+# procedure emerge, they graduate into a proper Batches brief (events table +
+# apply path). The work-in-progress is intentionally never committed.
+/timeline-workshop/
+
 # --- sitewide MediaPlayer audio (large binaries, repo is public) -----------
 # MP3/WAV/OGG tracks under public/audio/ are NOT committed: ~25 MB of binaries
 # in a public repo's permanent history + unclear rights. The README.md (how to
