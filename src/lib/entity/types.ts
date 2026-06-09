@@ -71,6 +71,22 @@ export type EntityRef = {
   name: string;
 };
 
+/**
+ * A curated one-or-two-sentence description of an entity (Board 121-P5). The
+ * text lives in `scripts/seed-data/{faction,character,location}-blurbs.json` (a
+ * thin curation layer, no DB column — Spec 129) and is resolved server-side in
+ * the loader. This is a pure shape: the data module that reads the JSON is
+ * `server-only` (`@/lib/blurbs`); only the resolved object reaches the view.
+ */
+export type Blurb = {
+  /** The description sentence(s). */
+  text: string;
+  /** Curation confidence 0–1; a very low value renders more quietly. */
+  confidence: number;
+  /** Attribution URL (e.g. Lexicanum), shown as an optional subtle cite. */
+  sourceUrl?: string;
+};
+
 /** href for a cross-link / linked fact. Pure — safe in a client bundle. */
 export function entityHref(ref: EntityRef): string {
   return `${TYPE_TO_ROUTE[ref.type]}/${encodeURIComponent(ref.id)}`;
@@ -131,6 +147,8 @@ export type EntityView = {
   name: string;
   /** Short tagline under the title (allegiance / sector / tone). */
   oneLine?: string;
+  /** Curated description lead (Board 121-P5); omitted when none is curated. */
+  blurb?: Blurb;
   facts: FactRow[];
   /** Free-text chips (location `tags`); omitted when empty. */
   tags?: string[];

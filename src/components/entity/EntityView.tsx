@@ -24,6 +24,7 @@ import type {
   EntityType,
 } from "@/lib/entity/types";
 import EntityHeader from "./EntityHeader";
+import EntityBlurb from "./EntityBlurb";
 import EntityFacts from "./EntityFacts";
 import RelatedWorks from "./RelatedWorks";
 import CrossLinkRail from "./CrossLinkRail";
@@ -74,6 +75,7 @@ export default function EntityView({ data }: { data: EntityViewData }) {
         }
       >
         <div className="entity-view__main">
+          {data.blurb ? <EntityBlurb blurb={data.blurb} /> : null}
           <EntityFacts facts={dossierFacts} tags={data.tags} />
           <RelatedWorks groups={data.worksByKind} />
         </div>
