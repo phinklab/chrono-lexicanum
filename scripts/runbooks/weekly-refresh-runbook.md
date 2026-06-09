@@ -209,16 +209,28 @@ existing, quality-gated apply paths.
 
 1. Review `report.md`; drop the false positives (reprints/edition re-issues flagged via
    the review table or the subtitle-drift limitation above).
-2. Copy the chosen rows into `scripts/seed-data/book-roster.extension.json` (the promotion
-   target — keeps the byte-stable 859 importer untouched).
-3. `npm run import:ssot-roster` merges the extension into `book-roster.json`.
-4. Standard per-book curation (`claude -p` override → `apply-override`) — each new book
-   gets the same treatment as the 859.
+2. Paste the chosen rows verbatim into `scripts/seed-data/book-roster.extension.json`'s
+   `books[]` array (the additive promotion target — extra provenance keys like
+   `source_kind`/`confidence` are ignored on merge). Or tell Claude Code in the terminal
+   which rows fit and let it paste them.
+3. `npm run import:ssot-roster` — reads the Excel **and** the extension and merges the new
+   rows into `book-roster.json` (`extension: N merged` in the log). An empty/absent extension
+   is a no-op, so this is safe to run anytime.
+4. `npm run loop:next` now surfaces the new book(s) as the next curation batch.
+5. Standard per-book curation (`claude -p` override → `npm run db:apply-override`) — each new
+   book gets the same tagging (factions/locations/characters/synopsis) as the 859 and lands
+   in the DB via the existing idempotent apply path.
 
-> **Tracked follow-up (not in PR1):** wiring `import:ssot-roster` to actually *merge* a
-> `book-roster.extension.json` is a small, separable change to the byte-stable 859
-> importer and deserves its own focused PR. PR1 emits the extension-shaped rows + documents
-> the path; the merge step is fold-in-PR2-or-PR3 work. The Excel SSOT is never touched.
+> **The extension is additive + permanent.** The Excel SSOT (`source/Warhammer_Books_SSOT.xlsx`)
+> is the FROZEN original 859; every book promoted from the refresh accretes in
+> `book-roster.extension.json` and never needs hand-typing into the binary Excel.
+> `import:ssot-roster` always emits `Excel + extension`, so re-runs stay byte-stable (an
+> unchanged extension ⇒ byte-identical roster). `parseExtensionFile` firewalls the merge:
+> external ids must match `W40K-####`/`HH-####`, ids/slugs may not collide with the roster or
+> each other, `format` must be a valid `book_format` enum value — any violation is a loud-error
+> that aborts the import. Collection membership for a *new anthology* is not yet expressible in
+> the extension (a non-empty `collections[]` is a loud-error) — add those edges via the Excel
+> if/when needed. The Excel SSOT itself is never written by the refresh path.
 
 **Podcasts** (`proposal.json` `podcasts.shows[].newEpisodes[]` are report-only, NOT roster
 rows). The intended loop is conversational — review the report WITH Claude Code in the

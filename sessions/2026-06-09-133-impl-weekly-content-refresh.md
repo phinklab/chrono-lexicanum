@@ -2,7 +2,7 @@
 session: 2026-06-09-133
 role: implementer
 date: 2026-06-09
-status: complete         # PR1 (detection) complete; PR2 (cron) deferred per agreed phasing
+status: complete         # PR1 (detection + book-promotion merge) complete; PR2 (cron) deferred per agreed phasing
 slug: weekly-content-refresh
 parent: 2026-06-09-133
 links:
@@ -62,9 +62,17 @@ type-only so the path never loads `drizzle-orm`):
 - `src/lib/ingestion/podcast/registry.ts` + `scripts/ingest-podcast.ts` — the one pipeline
   touch: a new `excludeTitlePatterns` registry field + shared `isTitleExcluded`, honored at
   both detection and the RSS ingest acquire, so "(Video)" twins never reach the artifact/DB.
+- `scripts/roster-extension.ts` (NEW) + `scripts/import-ssot-roster.ts` (Pass 3b) — the
+  book-promotion merge. `import:ssot-roster` now reads the Excel **and** an additive
+  `scripts/seed-data/book-roster.extension.json` (NEW, committed empty), appending greenlit
+  refresh books to `book-roster.json` so `loop:next → override → apply:override` absorbs them
+  like Excel rows. Pure `parseExtensionFile` firewalls id/slug collisions + format; the
+  importer's `main()` is untouched (the logic lives in the import-safe module); empty/absent
+  extension = byte-stable no-op.
 - `scripts/test-refresh.ts` — offline, fixture-driven harness (npm `test:refresh`), 45 tests.
-- `scripts/runbooks/weekly-refresh-runbook.md` — operational doc + the promotion path.
-- `package.json` — `refresh:check`, `refresh:mark-reviewed`, `test:refresh`.
+- `scripts/test-roster-extension.ts` (NEW) — offline harness (npm `test:roster-extension`), 20 tests.
+- `scripts/runbooks/weekly-refresh-runbook.md` — operational doc + the (now wired) promotion path.
+- `package.json` — `refresh:check`, `refresh:mark-reviewed`, `test:refresh`, `test:roster-extension`.
 
 ## Decisions I made
 
@@ -113,10 +121,15 @@ type-only so the path never loads `drizzle-orm`):
 - **Two-PR phasing (Philipp, this session).** PR1 = detection + report + proposal + firewall
   + tests + runbook (locally fully testable; satisfies acceptance 1–4, 6, 7, 8). PR2 = the
   weekly cron + rolling-PR automation (acceptance 5).
-- **`import:ssot-roster` merge-wiring deferred.** PR1 emits roster-extension-shaped rows +
-  documents the promotion path (acceptance 7 only requires documentation). Actually teaching
-  the importer to merge a `book-roster.extension.json` touches the byte-stable 859 importer
-  and deserves its own focused change — fold into PR2/PR3. The Excel SSOT is never touched.
+- **`import:ssot-roster` merge-wiring — BUILT (folded into this PR; Philipp, 2026-06-09).**
+  Originally slated as a separable follow-up; Philipp asked for the full book path now ("say
+  yes to a book → it lands in the DB the usual way, with tagging"), so the extension merge
+  ships here. New pure module `scripts/roster-extension.ts` keeps the byte-stable importer's
+  `main()` untouched (import-safe → offline-unit-testable); the importer gains a ~20-line
+  "Pass 3b" that appends validated extension books before the deterministic sort. The Excel
+  SSOT is still never written. **Consequence:** the Excel is now the FROZEN original 859; new
+  books live additively in `book-roster.extension.json` (no more hand-editing the binary xlsx).
+  Collections stay Excel-only (a non-empty extension `collections[]` is a loud-error).
 
 ## Open questions (from the brief — answered)
 
@@ -149,6 +162,17 @@ type-only so the path never loads `drizzle-orm`):
   missing-artifact → failed not "all new", youtube-no-key → skipped, date floor, per-show
   cursor, title exclusion); curation-state (cursor fallback / markReviewed / sorted
   serialize / bad-date throws); allocator; no-op rule; deterministic serialize.
+- `npm run test:roster-extension` — **20 passed, 0 failed** (offline): a verbatim
+  `proposal.json` row → RosterBook with synthetic `sourceRow` + dropped provenance keys;
+  id/slug collision firewalls (vs Excel AND intra-extension); every field validation
+  (prefix/format/year/editorialNote/authors); books-only collections loud-error; empty/absent
+  no-op; plus a drift guard asserting `VALID_BOOK_FORMATS == bookFormat.enumValues`.
+- **Live importer proof** `npm run import:ssot-roster`: empty extension → `books: 859,
+  extension: 0 merged` and `book-roster.json` byte-identical (git clean) — the merge is a true
+  no-op and the Excel is in sync with the committed roster. Injecting one row (Carnage
+  Unending, `W40K-0566`) → `books: 860, extension: 1 merged`, the book present in
+  `book-roster.json` (slug `carnage-unending`); both temp files reverted (the committed
+  extension ships empty).
 - **Live smoke** `npm run refresh:check` (real sources): books `ok — 61 new, 15 review |
   119 considered, 572 below year floor, 330 out-of-scope, 31 dupes`; **Carnage Unending
   present** (`W40K-0573`, various/2026/anthology); podcasts (baseline floor 2026-01-01, no
@@ -175,8 +199,6 @@ None blocking. Notes:
 - **PR2:** `.github/workflows/weekly-refresh.yml` weekly cron + `refresh:check:ci` sibling
   (no `--env-file`) + `peter-evans/create-pull-request@v7` on fixed branch
   `automation/weekly-refresh`. Needs the repo "Allow Actions to create PRs" setting ON.
-- **Importer merge-wiring:** teach `import:ssot-roster` to merge `book-roster.extension.json`
-  (fold into PR2/PR3) — the only piece between a merged proposal and the standard curation.
 - **Optional firewall precision:** edition-marker stripping ("… 20th Anniversary Edition")
   to cut the reprint false-positives that currently land in the new-books table.
 
@@ -185,13 +207,20 @@ None blocking. Notes:
 - **ADR amendment trigger fired:** `why-bulk-backfill.md` monthly→weekly + source-set
   **+Track of Words** (the brief's Cadence-ADR-Amendment note). Source anchor = the embedded
   Google Sheet CSV (`gid=374689393`), not prose.
-- **Board 122-B10** ("Weekly content refresh") — PR1 (detection) done; PR2 (cron) open.
+- **Board 122-B10** ("Weekly content refresh") — PR1 (detection + book-promotion merge) done;
+  PR2 (cron) open.
 - **New surface:** `npm run refresh:check` (+ `test:refresh`, `refresh:mark-reviewed`);
   config `scripts/seed-data/refresh-sources.json` + per-show cursor
   `ingest/refresh/curation-state.json` + `excludeTitlePatterns` in `podcast-shows.json`;
   output `ingest/refresh/<YYYY-Www>/`; runbook `scripts/runbooks/weekly-refresh-runbook.md`.
   Detection imports neither the DB client nor the old crawlers; the one pipeline touch is a
   shared `isTitleExcluded` (registry) honored at detection + RSS ingest.
+- **Book promotion is now wired** (folded into PR #149 at Philipp's request): `import:ssot-roster`
+  merges an additive `scripts/seed-data/book-roster.extension.json` into `book-roster.json`
+  (pure `scripts/roster-extension.ts`, `npm run test:roster-extension`), so a greenlit refresh
+  book flows `loop:next → override → apply:override` exactly like an Excel row — same tagging,
+  same DB path. The Excel is now the frozen original 859; new books accrete additively in the
+  extension (the binary xlsx is never hand-edited again). Collections stay Excel-only.
 - **Curation model (decided 2026-06-09):** podcast promotion is a *conversational* loop
   (review the report with Claude → Claude runs `ingest:podcast`/`apply:podcast` for what
   fits + `refresh:mark-reviewed`), NOT CI auto-apply. PR2 stays a notifier; the DB write

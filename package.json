@@ -57,7 +57,8 @@
     "apply:podcast": "tsx --env-file=.env.local scripts/apply-podcast.ts",
     "refresh:check": "tsx --env-file=.env.local scripts/refresh-check.ts",
     "refresh:mark-reviewed": "tsx scripts/refresh-mark-reviewed.ts",
-    "test:refresh": "tsx scripts/test-refresh.ts"
+    "test:refresh": "tsx scripts/test-refresh.ts",
+    "test:roster-extension": "tsx scripts/test-roster-extension.ts"
   },
   "engines": {
     "node": ">=22"
