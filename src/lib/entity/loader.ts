@@ -26,6 +26,7 @@ import { cache } from "react";
 import { and, asc, eq, inArray, ne } from "drizzle-orm";
 import { alias } from "drizzle-orm/pg-core";
 import { db } from "@/db/client";
+import { getBlurb } from "@/lib/blurbs";
 import {
   characters as charactersTable,
   factions as factionsTable,
@@ -306,6 +307,7 @@ async function loadCharacter(id: string): Promise<EntityView | null> {
     type: "character",
     id: row.id,
     name: row.name,
+    blurb: getBlurb("character", id) ?? undefined,
     facts,
     worksByKind: await buildWorkGroups(workRows, "character"),
     crossLinks: [],
@@ -321,7 +323,6 @@ async function loadFaction(id: string): Promise<EntityView | null> {
         name: factionsTable.name,
         alignment: factionsTable.alignment,
         glyph: factionsTable.glyph,
-        tone: factionsTable.tone,
         parentId: factionsTable.parentId,
         parentName: parentFactions.name,
       })
@@ -394,7 +395,9 @@ async function loadFaction(id: string): Promise<EntityView | null> {
     type: "faction",
     id: row.id,
     name: row.name,
-    oneLine: row.tone ?? undefined,
+    // The curated blurb is the faction's lead now; the bare `tone` keyword
+    // ("arcane", "warmaster") no longer reads as a tagline (Board 121-P5).
+    blurb: getBlurb("faction", id) ?? undefined,
     facts,
     worksByKind: await buildWorkGroups(workRows, "faction"),
     crossLinks,
@@ -476,6 +479,7 @@ async function loadLocation(id: string): Promise<EntityView | null> {
     type: "location",
     id: row.id,
     name: row.name,
+    blurb: getBlurb("location", id) ?? undefined,
     facts,
     tags: row.tags && row.tags.length > 0 ? row.tags : undefined,
     worksByKind: await buildWorkGroups(workRows, "location"),

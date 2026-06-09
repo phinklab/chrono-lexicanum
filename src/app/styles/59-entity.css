@@ -175,6 +175,52 @@ main.entity::before {
   border-bottom-color: var(--cl-bone);
 }
 
+/* ── Curated blurb — lead description (Board 121-P5) ─────────────────────────
+   The dek: a calm Cormorant lead that orients the reader before the mono
+   dossier. It sits at the top of the reading column, so it reads the same on
+   the full page and inside the overlay. A very low-confidence blurb drops to
+   the dim ink; an optional source URL renders as a whisper-quiet mono cite in
+   the label grammar. */
+
+.entity-view__blurb {
+  /* No top margin — first child of the reading column; the DOSSIER section
+     below carries the 36px gap. The small bottom margin only shows when the
+     blurb stands alone (an entity with no facts/works). */
+  margin: 0 0 4px;
+  max-width: 62ch;
+}
+
+.entity-view__blurb-text {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-lg);
+  font-weight: var(--fw-read);
+  line-height: 1.5;
+  color: var(--cl-bone);
+}
+
+.entity-view__blurb--soft .entity-view__blurb-text {
+  color: var(--cl-dim);
+}
+
+.entity-view__blurb-cite {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.entity-view__blurb-cite:hover,
+.entity-view__blurb-cite:focus-visible {
+  color: var(--cl-cyan);
+}
+
 /* ── Two-column body (header full-width above) ──────────────────────────── */
 
 .entity-view__body {
@@ -501,7 +547,8 @@ main.entity::before {
   .entity-view__card--link,
   .entity-view__card--link:hover,
   .entity__back::before,
-  .entity__back:hover::before {
+  .entity__back:hover::before,
+  .entity-view__blurb-cite {
     transition: none;
     transform: none;
   }
