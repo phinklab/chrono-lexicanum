@@ -54,7 +54,9 @@
     "backfill:hardcover-rating": "tsx --env-file=.env.local scripts/backfill-hardcover-rating.ts",
     "backfill:goodreads-rating": "tsx --env-file=.env.local scripts/backfill-goodreads-rating.ts",
     "apply:audiobook-narrators": "tsx --env-file=.env.local scripts/apply-audiobook-narrators.ts",
-    "apply:podcast": "tsx --env-file=.env.local scripts/apply-podcast.ts"
+    "apply:podcast": "tsx --env-file=.env.local scripts/apply-podcast.ts",
+    "refresh:check": "tsx --env-file=.env.local scripts/refresh-check.ts",
+    "test:refresh": "tsx scripts/test-refresh.ts"
   },
   "engines": {
     "node": ">=22"
