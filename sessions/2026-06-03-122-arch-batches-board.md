@@ -37,6 +37,7 @@ Stehendes Strang-Board. Daten + Logik, kein UI (das ist 121). Status-Spalte = Wa
 | B7 | brain:lint always-read Budget-Guardrail (Spec: archivierter Brief 112) | ☐ |
 | B8 | Kuratierte Themen-Straenge: seed-data-JSON (Titel/Blurb + Refs auf vorhandene work-/entity-IDs), kein Schema; dangling ID faellt laut. Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☐ |
 | B9 | Kuratierte Charakter-Auswahl: seed-data-JSON ueber `characters` (Spotlight-Flag + `is_primarch`-Flag), kein Schema; Blurbs reiten auf B3. Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☐ |
+| B10 | Weekly content refresh: wöchentl. Cron difft Track of Words (Bücher) + Registry-Podcast-Feeds gegen committeten Bestand → Vorschlag-Report + Apply-File → PR-Approval → bestehende Apply-Pfade. Additions-only, kein DB-Write aus CI. Spec [133](./2026-06-09-133-arch-weekly-content-refresh.md) | ☐ |
 
 ## Standing tool
 
