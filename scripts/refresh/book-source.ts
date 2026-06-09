@@ -317,6 +317,7 @@ function unreachable(cfg: TrackOfWordsConfig, csvUrl: string | null, note: strin
     formatDefaultedIds: [],
     reviewBooks: [],
     consideredRows: 0,
+    skippedIgnoredRows: 0,
     skippedOlderRows: 0,
     skippedOutOfScopeRows: 0,
     skippedDuplicateRows: 0,
@@ -328,12 +329,19 @@ function unreachable(cfg: TrackOfWordsConfig, csvUrl: string | null, note: strin
  * on failure, re-discover the sheet from the article HTML before giving up. Any
  * unrecoverable failure returns `status:"unreachable"` (never throws). New rows
  * become proposed roster-extension rows; title-collisions go to `reviewBooks`.
+ *
+ * `ignoreSlugs` is the maintainer ignore-list (`book-ignore.json`, keyed on
+ * `slugify(title)`): a candidate whose title-slug is in the set is dropped before
+ * classification — it reaches neither `newBooks` nor `reviewBooks` and is counted
+ * in `skippedIgnoredRows`. A trailing, defaulted param so existing callers/tests
+ * are unaffected.
  */
 export async function detectMissingBooks(
   cfg: TrackOfWordsConfig,
   index: RosterIndex,
   allocator: IdAllocator,
   deps: BookSourceDeps = { fetchText },
+  ignoreSlugs: ReadonlySet<string> = new Set<string>(),
 ): Promise<BookDiffResult> {
   let csv: string;
   let csvUrl = cfg.sheetCsvUrl;
@@ -366,6 +374,7 @@ export async function detectMissingBooks(
   const formatDefaultedIds: string[] = [];
   const reviewBooks: ReviewBook[] = [];
   let consideredRows = 0;
+  let skippedIgnoredRows = 0;
   let skippedOlderRows = 0;
   let skippedOutOfScopeRows = 0;
   let skippedDuplicateRows = 0;
@@ -387,6 +396,12 @@ export async function detectMissingBooks(
       continue;
     }
     seenDedupKeys.add(dedupKey);
+    // Maintainer ignore-list ("book cutoff"): a dismissed title-slug never reaches
+    // the new/review buckets — dropped here, after dedup, before classification.
+    if (ignoreSlugs.has(cand.titleSlug)) {
+      skippedIgnoredRows++;
+      continue;
+    }
     consideredRows++;
     const verdict = classifyCandidate(cand, index);
     if (verdict.kind === "new") {
@@ -413,6 +428,7 @@ export async function detectMissingBooks(
     formatDefaultedIds,
     reviewBooks,
     consideredRows,
+    skippedIgnoredRows,
     skippedOlderRows,
     skippedOutOfScopeRows,
     skippedDuplicateRows,

@@ -1,0 +1,188 @@
+{
+  "books": {
+    "above-and-beyond": {
+      "title": "Above and Beyond",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "anarch": {
+      "title": "Anarch",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "archmagos": {
+      "title": "Archmagos",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "ashes-of-the-imperium": {
+      "title": "Ashes of the Imperium",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "da-red-gobbo-collection": {
+      "title": "Da Red Gobbo Collection",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "da-red-gobbos-last-stand": {
+      "title": "Da Red Gobbo's Last Stand",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "death-and-duty": {
+      "title": "Death and Duty",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "death-world-20th-anniversary-edition": {
+      "title": "Death World 20th Anniversary Edition",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "elemental-council": {
+      "title": "Elemental Council",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "faith-fire-20th-anniversary-edition": {
+      "title": "Faith & Fire 20th Anniversary Edition",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "farsight-blade-of-truth": {
+      "title": "Farsight: Blade of Truth",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "fifteen-hours-20th-anniversary-edition": {
+      "title": "Fifteen Hours 20th Anniversary Edition",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "final-deployment": {
+      "title": "Final Deployment",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "first-founding": {
+      "title": "First Founding",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "fulgrim-the-perfect-son": {
+      "title": "Fulgrim: The Perfect Son",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "grey-knights-the-omnibus": {
+      "title": "Grey Knights: The Omnibus",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "hells-last": {
+      "title": "Hell's Last",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "here-is-where-it-will-end-map": {
+      "title": "Here Is Where It Will End Map",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "hereticus-illustrated-edition": {
+      "title": "Hereticus Illustrated Edition",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "horus-heresy-novella-collection-1": {
+      "title": "Horus Heresy Novella Collection 1",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "horus-heresy-novella-collection-2": {
+      "title": "Horus Heresy Novella Collection 2",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "horus-heresy-novella-collection-3": {
+      "title": "Horus Heresy Novella Collection 3",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "horus-heresy-novella-collection-4": {
+      "title": "Horus Heresy Novella Collection 4",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "horus-heresy-novella-collection-5": {
+      "title": "Horus Heresy Novella Collection 5",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "horus-heresy-novella-collection-6": {
+      "title": "Horus Heresy Novella Collection 6",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "horus-heresy-novella-collection-7": {
+      "title": "Horus Heresy Novella Collection 7",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "horus-heresy-novella-collection-8": {
+      "title": "Horus Heresy Novella Collection 8",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "interceptor-city": {
+      "title": "Interceptor City",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "lucius-the-faultltess-blade": {
+      "title": "Lucius: The Faultltess Blade",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "master-of-rites": {
+      "title": "Master of Rites",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "no-peace-among-stars": {
+      "title": "No Peace Among Stars",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "outer-dark": {
+      "title": "Outer Dark",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "red-tithe": {
+      "title": "Red Tithe",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "space-wolves-spear-of-russ": {
+      "title": "Space Wolves: Spear of Russ",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "space-wolves-the-young-wolf": {
+      "title": "Space Wolves: The Young Wolf",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "the-art-of-warhammer-40-000": {
+      "title": "The Art of Warhammer 40,000",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "the-end-and-the-death-volume-2": {
+      "title": "The End and the Death: Volume 2",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "the-end-and-the-death-volume-3": {
+      "title": "The End and the Death: Volume 3",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "the-green-tide": {
+      "title": "The Green Tide",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "the-imperial-infantrymans-handbook": {
+      "title": "The Imperial Infantryman's Handbook",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "the-primarchs-collection-visions-of-glory-and-despair": {
+      "title": "The Primarchs Collection: Visions of Glory and Despair",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "the-relentless-dead": {
+      "title": "The Relentless Dead",
+      "reason": "duplicate of an existing roster book (title-slug collision)"
+    },
+    "the-twice-dead-king-the-omnibus": {
+      "title": "The Twice Dead King: The Omnibus",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "the-vengeful-spirit-map": {
+      "title": "The Vengeful Spirit Map",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    },
+    "void-exile": {
+      "title": "Void Exile",
+      "reason": "already in the roster under another title / edition / reissue"
+    },
+    "yarrick-the-box-set": {
+      "title": "Yarrick: The Box Set",
+      "reason": "format or edition not archived (map / artbook / box set / omnibus / collection / handbook)"
+    }
+  }
+}

@@ -68,6 +68,13 @@ function booksSection(books: BookDiffResult): string[] {
       `${books.skippedOlderRows} below the year floor, ${books.skippedOutOfScopeRows} out-of-scope ` +
       `(other settings / weekly separators), ${books.skippedDuplicateRows} duplicate listing(s).`,
   );
+  if (books.skippedIgnoredRows > 0) {
+    lines.push("");
+    lines.push(
+      `Plus ${books.skippedIgnoredRows} dismissed via the maintainer ignore-list ` +
+        "(`ingest/refresh/book-ignore.json`) — duplicates / unwanted editions, never re-proposed.",
+    );
+  }
   lines.push("");
 
   lines.push(`### New books (${books.newBooks.length})`);

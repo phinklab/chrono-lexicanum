@@ -93,6 +93,8 @@ export interface BookDiffResult {
   reviewBooks: ReviewBook[];
   /** Unique, in-scope, recent rows actually classified. */
   consideredRows: number;
+  /** Rows dropped because their title-slug is on the maintainer ignore-list (`book-ignore.json`) — counted, never silent. */
+  skippedIgnoredRows: number;
   /** Rows skipped by the `sinceYear` floor (logged, never silently dropped). */
   skippedOlderRows: number;
   /** Rows skipped as out-of-scope settings (Age of Sigmar / Old World / setting-less separators). */
