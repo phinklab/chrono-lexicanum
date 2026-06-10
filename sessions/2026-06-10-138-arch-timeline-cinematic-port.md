@@ -48,8 +48,16 @@ Postgres instead of the prototype's inline demo data.
     media[]/art). Its demo *content* is superseded by the DB.
   - `chronicle.css` — visual language; port into the `src/app/styles/` partial
     system (new partial(s), follow the numbering convention).
-  - `tweaks-panel.jsx`, `ios-frame.jsx`, `Mobile Preview.html` — dev/preview
-    shells, **do not port**.
+  - `tweaks-panel.jsx`, `chronicle-tweaks.jsx`, `ios-frame.jsx`,
+    `Mobile Preview.html`, `Timeline Wireframes.html`, `screenshots/`,
+    `uploads/` — dev/preview shells and reference material, **do not port**.
+  - The export's HTML also carries a **burger button + full-screen `#site-menu`**
+    (Philipp's navigation design). That is *app-shell* navigation, not part of
+    the timeline page: a separate nav session lands it (or its successor) on
+    `main` before this brief runs. Reuse whatever global nav exists on `main`
+    at session start; port only the timeline-internal nav (era bands, mode
+    toggle, scrubber, minimap). If the shell nav is missing or contradicts the
+    prototype, flag it in the report instead of porting the mock.
 - **Data source (from Brief 137):** `eras` (8 rows, with `short/mLabel/sub/tagline/
   intro/coverRef`), `events` (144, with `eraId/sortIndex/tier/approx/dateLabel/
   blurb/artworkRef/artCredit*`), `event_works` (resolved hooks with role,
@@ -135,7 +143,9 @@ patterns:
 
 - Any schema/seed/apply change (Brief 137 owns those; if data looks wrong, flag
   it in the report — `status: needs-decision` if blocking).
-- Porting `tweaks-panel.jsx` / `ios-frame.jsx` / `Mobile Preview.html`.
+- Porting `tweaks-panel.jsx` / `chronicle-tweaks.jsx` / `ios-frame.jsx` /
+  `Mobile Preview.html` / `Timeline Wireframes.html` / `screenshots/` / `uploads/`.
+- Porting the prototype's burger + `#site-menu` (app-shell nav — see Context).
 - Music player, HUD, Map — unrelated Product surfaces.
 - Committing `design-export/` or the raw PNGs.
 
