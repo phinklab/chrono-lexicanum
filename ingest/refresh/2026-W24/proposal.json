@@ -1,0 +1,96 @@
+{
+  "$generatedBy": "refresh:check (Brief 133 / Board 122-B10)",
+  "isoWeek": "2026-W24",
+  "books": {
+    "status": "ok",
+    "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "csvUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSZFSFiuzKtDuEsxnzWBNsc1JgU2XH0WGt5aDjX11wveRRv3JFspbLcV1xIlERcoumOG2X7RKDUlU83/pub?gid=374689393&single=true&output=csv",
+    "note": null,
+    "newBooks": [],
+    "formatDefaultedIds": [],
+    "reviewBooks": [],
+    "consideredRows": 73,
+    "skippedIgnoredRows": 46,
+    "skippedOlderRows": 572,
+    "skippedOutOfScopeRows": 330,
+    "skippedDuplicateRows": 31
+  },
+  "podcasts": {
+    "shows": [
+      {
+        "slug": "the-40k-lorecast",
+        "title": "The 40k Lorecast",
+        "source": "rss",
+        "status": "ok",
+        "note": null,
+        "floorIso": "2026-01-01",
+        "committedCount": 149,
+        "freshCount": 150,
+        "newEpisodes": [
+          {
+            "guid": "d6c6bed4-d3eb-4feb-9b04-1ed3a6a0ca3c",
+            "title": "Episode 142 - Space Hulks, yeah.... they can be kind of a nightmare",
+            "pubDate": "2026-06-08T23:00:38.000Z",
+            "link": "https://the40klorecast.com/"
+          }
+        ],
+        "skippedBeforeFloor": 125,
+        "skippedExcludedByTitle": 0
+      },
+      {
+        "slug": "adeptus-ridiculous",
+        "title": "Adeptus Ridiculous",
+        "source": "rss",
+        "status": "ok",
+        "note": null,
+        "floorIso": "2026-01-01",
+        "committedCount": 363,
+        "freshCount": 364,
+        "newEpisodes": [
+          {
+            "guid": "Buzzsprout-19324978",
+            "title": "CIAPHAS CAIN - HERO OF THE IMPERIUM | Warhammer 40k Lore",
+            "pubDate": "2026-06-10T16:00:00.000Z",
+            "link": null
+          }
+        ],
+        "skippedBeforeFloor": 339,
+        "skippedExcludedByTitle": 0
+      },
+      {
+        "slug": "lorehammer",
+        "title": "Lorehammer - A Warhammer 40k Podcast",
+        "source": "rss",
+        "status": "ok",
+        "note": null,
+        "floorIso": "2026-01-01",
+        "committedCount": 391,
+        "freshCount": 605,
+        "newEpisodes": [
+          {
+            "guid": "bf72b37a-7594-4449-847a-b0a12cff3ef9",
+            "title": "236 - Astartes Armoury: Aircraft",
+            "pubDate": "2026-06-08T10:00:00.000Z",
+            "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/236---Astartes-Armoury-Aircraft-e3kfgo4"
+          }
+        ],
+        "skippedBeforeFloor": 524,
+        "skippedExcludedByTitle": 40
+      },
+      {
+        "slug": "luetin09",
+        "title": "Luetin09",
+        "source": "youtube",
+        "status": "ok",
+        "note": null,
+        "floorIso": "2026-01-01",
+        "committedCount": 191,
+        "freshCount": 1853,
+        "newEpisodes": [],
+        "skippedBeforeFloor": 1849,
+        "skippedExcludedByTitle": 0
+      }
+    ]
+  },
+  "hasFindings": true
+}
