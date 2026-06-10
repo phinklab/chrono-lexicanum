@@ -90,7 +90,7 @@ Resolver-Fortschritt bei Implementierungs-Zeitpunkt: 7 Pässe komplett, Batches 
 - [x] Phase 1 (Factions) — commit a757e8d
 - [x] Phase 2 (Locations) — commit c2082ba
 - [x] Phase 3 (Characters) — commit fe41d38
-- [ ] Phase 4a (Apply)
-- [ ] Phase 4b (Verify)
+- [x] Phase 4a (Apply) — commit 1100b77
+- [x] Phase 4b (Verify) — commit 4b7f8a3
 
-_Outcome: **halt** — pass-driver exit 2._
+_Outcome: **complete (6/6)**. The loop's Phase-4a `claude -p` subsession backgrounded the DB apply and returned early → the driver halted (exit 2, commit `a2bead0`) with the apply still running detached. The apply finished correctly (60/60 batches ok); **Phases 4a + 4b were completed manually in the parent session** (commits `1100b77` / `4b7f8a3`). See `sessions/resolver-dossiers/resolver-pass-16-impl-report.md`._
