@@ -55,6 +55,7 @@
     "backfill:goodreads-rating": "tsx --env-file=.env.local scripts/backfill-goodreads-rating.ts",
     "apply:audiobook-narrators": "tsx --env-file=.env.local scripts/apply-audiobook-narrators.ts",
     "apply:podcast": "tsx --env-file=.env.local scripts/apply-podcast.ts",
+    "apply:timeline": "tsx --env-file=.env.local scripts/apply-timeline-data.ts",
     "refresh:check": "tsx --env-file=.env.local scripts/refresh-check.ts",
     "refresh:check:ci": "tsx scripts/refresh-check.ts",
     "refresh:mark-reviewed": "tsx scripts/refresh-mark-reviewed.ts",
