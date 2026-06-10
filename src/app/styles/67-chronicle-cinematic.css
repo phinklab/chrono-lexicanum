@@ -1,0 +1,1474 @@
+/* 67-chronicle-cinematic.css
+   Chronicle Cinematic/Index timeline (Brief 138) — ported from the design
+   export's chronicle.css. Mechanical port rules:
+
+   - every selector is scoped under `.chron` (the fixed stage root rendered by
+     ChronicleStage), prototype ids became same-named classes
+     (#cine-scroll → .cine-scroll); `body[data-mode]` → `.chron[data-mode]`,
+     `#cine` → `.chron-cine`, `#archive` → `.chron-archive`.
+   - the prototype's burger + #site-menu blocks are NOT ported (global
+     app-shell chrome since impl 139, 43-site-menu.css), nor the tweaks hooks
+     (kb-off / grain-off / #tweaks-root) — config is fixed in code.
+   - fonts bind to the next/font variables already loaded by the root layout
+     (Cormorant Garamond + IBM Plex Mono — the exact prototype faces).
+   - top offsets shift down by var(--top-nav-h) so the timeline chrome clears
+     the global TopNav (the prototype had no top bar of its own); TopNav never
+     collapses here because the window doesn't scroll on this route.
+   - DB era names are Title Case — slots the prototype fed with uppercase data
+     (.ei-name, .at-name, .t-era-done, .tb-name, .an-name, .wipe-name,
+     .bp-name) carry text-transform: uppercase instead.
+   - media chips are now real links: pointer-events re-enabled + a hover state
+     under the dossier's pointer-events:none umbrella. */
+
+.chron {
+  --void: #04060b;
+  --void-2: #070b13;
+  --parchment: #e9dfc8;
+  --parchment-dim: #c7c2b2;
+  --gold: #c9b896;
+  --gold-dim: rgba(201, 184, 150, 0.35);
+  --gold-line: rgba(201, 184, 150, 0.22);
+  --steel: #7d8799;
+  --steel-dim: #566070;
+  --ov: 0.95;             /* overlay darkness — fixed */
+  --rail-x: 72%;          /* rail anchor from right — rail sits left of the text */
+  --rail-anchor-y: 62%;   /* where the current node sits */
+  --rail-vanish-y: 28%;   /* horizon vanishing point */
+  --vanish-dx: 110px;     /* vanish point offset from the rail (+ = leans right) */
+  --eb-pad: 64px;         /* era band end inset */
+  --text-x: clamp(120px, 13vw, 260px); /* dossier distance from bottom */
+  --serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --mono: var(--font-plex-mono), 'IBM Plex Mono', ui-monospace, monospace;
+  /* shared type scale — keep cinematic + index consistent */
+  --fs-mono-lg: 13px;   /* dates, kicker rows */
+  --fs-mono: 12px;      /* section labels, heads, buttons */
+  --fs-mono-sm: 11px;   /* tags, media meta, fine print */
+  --fs-body: 19px;      /* serif reading text */
+  --fs-row-title: 22px; /* index row titles */
+
+  position: fixed;
+  inset: 0;
+  z-index: 10; /* above page flow, below TopNav (50) / SiteMenu (80) */
+  background: var(--void);
+  color: var(--parchment);
+  font-family: var(--serif);
+  overflow: hidden;
+}
+.chron button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* ============================= shared chrome ============================= */
+.chron .chron-mode-toggle {
+  position: absolute;
+  bottom: 18px;
+  right: 20px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+}
+.chron .chron-mode-toggle .lab { color: var(--steel-dim); }
+.chron .chron-mode-toggle .pill {
+  display: flex;
+  border: 1px solid rgba(125, 135, 153, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.chron .chron-mode-toggle button {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  background: transparent;
+  color: var(--steel);
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.chron .chron-mode-toggle button:hover { color: var(--parchment); }
+.chron .chron-mode-toggle button.sel { background: #d8d2c2; color: #0a0e14; }
+
+.chron .grain,
+.chron .ei-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.05'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.chron .grain::after,
+.chron .ei-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.13) 0 1px, transparent 1px 3px);
+}
+
+/* mode crossfade */
+.chron .chron-cine,
+.chron .chron-archive {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.6s ease, visibility 0.6s;
+}
+.chron[data-mode="cine"] .chron-archive {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.chron[data-mode="index"] .chron-cine {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ============================= cinematic mode ============================ */
+.chron .bg-stack {
+  position: absolute;
+  inset: 0;
+  background: var(--void);
+}
+.chron .bg {
+  position: absolute;
+  inset: -3%;
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+.chron .bg.kb { animation: chron-kenburns 38s ease-in-out infinite alternate; }
+@keyframes chron-kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(var(--kb-s, 1.08)) translate3d(-1.2%, 0.8%, 0); }
+}
+.chron .veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 58% 58% at 46% 68%, rgba(2, 4, 8, calc(var(--ov) * 0.85)) 0%, transparent 70%),
+    linear-gradient(to top, rgba(2, 4, 8, calc(var(--ov) + 0.2)) 0%, rgba(2, 4, 8, calc(var(--ov) * 0.55)) 30%, transparent 62%),
+    linear-gradient(100deg, rgba(2, 4, 8, calc(var(--ov) * 0.95)) 0%, transparent 58%),
+    linear-gradient(to bottom, rgba(2, 4, 8, 0.6) 0%, transparent 18%);
+}
+
+/* scroll proxy */
+.chron .cine-scroll {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+.chron .cine-scroll::-webkit-scrollbar { display: none; }
+.chron .cine-scroll .snap {
+  height: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* era bar — below the global TopNav */
+.chron .era-bar {
+  position: absolute;
+  top: calc(var(--top-nav-h, 48px) + 14px);
+  left: 24px;
+  z-index: 10;
+  pointer-events: none;
+  font-family: var(--mono);
+  letter-spacing: 0.24em;
+  font-size: var(--fs-mono);
+  color: var(--steel);
+}
+.chron .era-bar .row1 { display: flex; gap: 12px; align-items: center; }
+.chron .era-bar .era-pos { color: var(--steel-dim); }
+.chron .era-bar .entry-count { color: var(--steel-dim); margin-left: 6px; }
+.chron .era-rail {
+  margin-top: 10px;
+  width: 200px;
+  height: 1px;
+  background: rgba(125, 135, 153, 0.25);
+  position: relative;
+}
+.chron .era-rail .fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(201, 184, 150, 0.6);
+  transition: width 0.15s linear;
+}
+
+/* scroll hint */
+.chron .scroll-hint {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  font-family: var(--mono);
+  font-size: var(--fs-mono-sm);
+  letter-spacing: 0.3em;
+  color: var(--steel);
+  opacity: 1;
+  transition: opacity 0.8s ease;
+  animation: chron-hint-bob 2.6s ease-in-out infinite;
+}
+.chron .scroll-hint.gone { opacity: 0; }
+@keyframes chron-hint-bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 5px); }
+}
+
+/* back-pull indicator — fades in while pulling up at an era's first entry */
+.chron .back-pull {
+  position: absolute;
+  top: calc(var(--top-nav-h, 48px) + 94px);
+  left: 50%;
+  transform: translate(-50%, calc(var(--p, 0) * 12px - 6px));
+  z-index: 10;
+  pointer-events: none;
+  opacity: var(--p, 0);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--parchment-dim);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  white-space: nowrap;
+}
+.chron .back-pull .bp-arrow { color: var(--gold); letter-spacing: 0; font-size: 12px; }
+.chron .back-pull .bp-lab { color: var(--gold); }
+.chron .back-pull .bp-name { text-transform: uppercase; }
+
+/* ----------------------------- 3D rail ----------------------------- */
+/* lies on the "ground": future entries recede up toward a horizon point,
+   scrolling forward brings them toward the viewer */
+.chron .rail3d {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  perspective: 640px;
+  /* vanishing point sits up and slightly toward the text — the road angles
+     across the ground toward the horizon instead of standing upright */
+  perspective-origin: calc(100% - var(--rail-x) + var(--vanish-dx)) var(--rail-vanish-y);
+  transform-style: preserve-3d;
+}
+.chron .node {
+  position: absolute;
+  right: var(--rail-x);
+  top: var(--rail-anchor-y);
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  /* NOTE: opacity/filter/will-change:opacity on this element would force the
+     browser to flatten preserve-3d — fades are applied to children instead */
+  will-change: transform;
+}
+.chron .node .dot,
+.chron .node .nlab {
+  opacity: var(--nop, 1);
+  filter: blur(var(--nblur, 0px));
+}
+.chron .node .seg {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  width: 2px;
+  background: rgba(201, 184, 150, 0.55);
+  box-shadow: 0 0 6px rgba(201, 184, 150, 0.2);
+  transform-origin: top center;
+}
+.chron .node .dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid #97a2b5;
+  background: transparent;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+.chron .node.major .dot { width: 16px; height: 16px; }
+.chron .node.epoch .dot { width: 19px; height: 19px; border-color: var(--gold-dim); }
+.chron .node.past .dot { border-color: var(--gold-dim); background: var(--gold-dim); }
+.chron .node.on .dot {
+  border-color: var(--gold);
+  background: var(--gold);
+  box-shadow: 0 0 0 7px rgba(201, 184, 150, 0.14), 0 0 26px rgba(201, 184, 150, 0.65);
+}
+.chron .node .ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-dim);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.chron .node.on .ring {
+  opacity: 1;
+  animation: chron-ring-pulse 3s ease-in-out infinite;
+}
+@keyframes chron-ring-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.18); }
+}
+.chron .node .nlab {
+  position: absolute;
+  right: 28px;
+  top: 0;
+  transform: translateY(-50%);
+  font-family: var(--mono);
+  font-size: var(--fs-mono-lg);
+  letter-spacing: 0.2em;
+  color: #94a0b4;
+  white-space: nowrap;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
+  transition: color 0.3s;
+}
+.chron .node.on .nlab {
+  color: var(--gold);
+  text-shadow: 0 0 14px rgba(201, 184, 150, 0.4);
+}
+
+/* ------------------- entry text: rail + dossier form one group ------------------- */
+.chron .cine-lower {
+  position: absolute;
+  left: calc(100% - var(--rail-x) + 80px);
+  right: 12%;
+  top: auto;
+  bottom: min(var(--text-x), 24vh);
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 620px;
+  pointer-events: none;
+}
+.chron .dossier { flex: none; width: 100%; min-width: 0; }
+
+.chron .d-kicker {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: var(--fs-mono-lg);
+  letter-spacing: 0.26em;
+  color: var(--steel);
+  margin-bottom: 14px;
+}
+.chron .d-tier { color: var(--gold); }
+.chron .d-tier .approx { color: var(--steel-dim); }
+.chron .d-title {
+  margin: 0 0 16px 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(38px, 4.4vw, 68px);
+  line-height: 1.04;
+  letter-spacing: 0.05em;
+  color: var(--parchment);
+  text-wrap: balance;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.8);
+}
+.chron .d-note {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(18px, 1.55vw, 22px);
+  line-height: 1.55;
+  color: var(--parchment-dim);
+  max-width: 44ch;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.85);
+}
+.chron .caret {
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  background: var(--gold);
+  opacity: 0.8;
+  animation: chron-caret-blink 1s steps(1) infinite;
+}
+@keyframes chron-caret-blink { 50% { opacity: 0; } }
+
+/* media segment — books & podcasts */
+.chron .media-seg { flex: none; max-width: 100%; }
+.chron .m-label {
+  font-family: var(--mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.26em;
+  color: var(--steel);
+  margin-bottom: 12px;
+}
+.chron .m-label::before {
+  content: '';
+  display: block;
+  width: 26px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+.chron .d-media-rows { display: flex; flex-wrap: wrap; gap: 12px 42px; }
+.chron .media-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+.chron .media-row .m-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: var(--parchment);
+}
+.chron .media-row .m-meta {
+  font-family: var(--mono);
+  font-size: var(--fs-mono-sm);
+  letter-spacing: 0.22em;
+  color: var(--steel-dim);
+}
+/* chips are real anchors now (prototype rendered inert rows) — clickable
+   under the dossier's pointer-events:none umbrella, quiet gold hover */
+.chron a.media-row {
+  pointer-events: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+.chron a.media-row .m-title { transition: color 0.2s; }
+.chron a.media-row:hover .m-title,
+.chron a.media-row:focus-visible .m-title { color: var(--gold); }
+.chron .no-books {
+  font-family: var(--mono);
+  font-size: var(--fs-mono-sm);
+  letter-spacing: 0.2em;
+  color: var(--steel-dim);
+}
+
+/* dossier reprint animation */
+@media (prefers-reduced-motion: no-preference) {
+  .chron .cine-lower.print .d-kicker { animation: chron-d-fade 0.45s ease both; }
+  .chron .cine-lower.print .d-title { animation: chron-d-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s both; }
+  .chron .cine-lower.print .media-seg { animation: chron-d-fade 0.6s ease 0.5s both; }
+}
+@keyframes chron-d-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes chron-d-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* artist attribution — reserved bottom-right slot */
+.chron .art-credit {
+  position: absolute;
+  right: 24px;
+  bottom: 66px;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-family: var(--mono);
+  letter-spacing: 0.22em;
+  text-align: right;
+  text-decoration: none;
+  cursor: default;
+}
+.chron .art-credit .ac-lab { font-size: 10px; color: var(--steel-dim); }
+.chron .art-credit .ac-name {
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: var(--steel);
+  transition: color 0.2s;
+}
+.chron .art-credit[href] { cursor: pointer; }
+.chron .art-credit[href] .ac-name {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(125, 135, 153, 0.4);
+}
+.chron .art-credit[href]:hover .ac-name { color: var(--gold); }
+
+/* ----------------------------- era terminus ----------------------------- */
+.chron .terminus {
+  position: absolute;
+  inset: 0;
+  z-index: 13;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.chron .terminus .t-kicker {
+  font-family: var(--mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.32em;
+  color: var(--steel);
+  margin-bottom: 16px;
+}
+.chron .t-era-done {
+  font-family: var(--mono);
+  font-size: var(--fs-mono-lg);
+  letter-spacing: 0.28em;
+  color: var(--parchment-dim);
+  text-transform: uppercase;
+}
+.chron .terminus .t-rule {
+  width: 1px;
+  height: 58px;
+  margin: 28px 0;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+.chron .t-tagline {
+  margin: 0 0 36px 0;
+  max-width: 44ch;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 1.6vw, 21px);
+  line-height: 1.5;
+  color: var(--parchment-dim);
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.85);
+}
+.chron .terminus-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  background: transparent;
+  border: none;
+  padding: 14px 32px;
+  cursor: pointer;
+}
+.chron .terminus-btn .tb-lab {
+  font-family: var(--mono);
+  font-size: var(--fs-mono-sm);
+  letter-spacing: 0.32em;
+  color: var(--gold);
+}
+.chron .terminus-btn .tb-name {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 28px);
+  letter-spacing: 0.1em;
+  color: var(--parchment);
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.8);
+  transition: color 0.25s, text-shadow 0.25s;
+  text-transform: uppercase;
+}
+.chron .terminus-btn:hover .tb-name {
+  color: #fff;
+  text-shadow: 0 0 28px rgba(201, 184, 150, 0.5);
+}
+.chron .terminus-btn .tb-arrow {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--gold);
+  margin-top: 2px;
+  transition: transform 0.25s;
+}
+.chron .terminus-btn:hover .tb-arrow { transform: translateX(6px); }
+.chron .t-scroll {
+  margin-top: 30px;
+  font-family: var(--mono);
+  font-size: var(--fs-mono-sm);
+  letter-spacing: 0.3em;
+  color: var(--steel-dim);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .chron .t-scroll { animation: chron-t-bob 2.6s ease-in-out infinite; }
+}
+@keyframes chron-t-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* ----------------------------- era intro ----------------------------- */
+/* full-bleed era opening: the era's cover art, centred name, typed
+   description. Dismiss = the whole sheet lifts, revealing the identical
+   artwork underneath — a seamless handoff into the timeline. */
+.chron .era-intro {
+  position: absolute;
+  inset: 0;
+  z-index: 24;
+  cursor: pointer;
+  display: none;
+}
+.chron .era-intro.on { display: block; }
+.chron .era-intro.leave {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.75s ease 0.12s;
+}
+.chron .ei-bg {
+  position: absolute;
+  inset: -3%;
+  background-size: cover;
+  background-position: center;
+}
+.chron .ei-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(4, 6, 11, 0.6), rgba(4, 6, 11, 0.28) 32%, rgba(4, 6, 11, 0.32) 62%, rgba(4, 6, 11, 0.8)),
+    radial-gradient(ellipse 75% 70% at 50% 44%, rgba(4, 6, 11, 0.3) 0%, rgba(4, 6, 11, 0.6) 100%);
+}
+.chron .ei-content {
+  position: absolute;
+  inset: 0;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.chron .ei-kicker {
+  font-family: var(--mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  color: var(--gold);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
+}
+.chron .ei-name {
+  margin: 22px 0 0 0;
+  max-width: 18ch;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(38px, 5.6vw, 76px);
+  line-height: 1.1;
+  letter-spacing: 0.13em;
+  text-indent: 0.13em;
+  color: var(--parchment);
+  text-shadow: 0 2px 34px rgba(0, 0, 0, 0.85);
+  text-transform: uppercase;
+}
+.chron .ei-rule {
+  width: 1px;
+  height: 54px;
+  margin: 28px 0 26px 0;
+  background: linear-gradient(to bottom, var(--gold), rgba(201, 184, 150, 0));
+}
+.chron .ei-text {
+  margin: 0;
+  max-width: 56ch;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.62;
+  color: var(--parchment-dim);
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.85);
+}
+.chron .ei-enter {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: var(--fs-mono-sm);
+  letter-spacing: 0.3em;
+  color: var(--steel);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .chron .era-intro.on .ei-kicker { animation: chron-ei-fade 0.9s ease 0.25s both; }
+  .chron .era-intro.on .ei-name { animation: chron-ei-name 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both; }
+  .chron .era-intro.on .ei-rule { animation: chron-ei-rule 0.9s ease 1s both; transform-origin: top; }
+  .chron .era-intro.on .ei-text { animation: chron-ei-fade 0.8s ease 1.05s both; }
+  .chron .era-intro.on .ei-enter { animation: chron-ei-fade 1.2s ease 2s both; }
+}
+@keyframes chron-ei-fade { from { opacity: 0; } }
+@keyframes chron-ei-name {
+  from { opacity: 0; letter-spacing: 0.3em; transform: translateY(12px); }
+}
+@keyframes chron-ei-rule { from { transform: scaleY(0); } }
+.chron .era-intro.leave .ei-content {
+  opacity: 0;
+  transform: translateY(-26px);
+  transition: opacity 0.55s ease, transform 0.7s ease;
+}
+.chron .era-intro.leave .ei-enter { opacity: 0; transition: opacity 0.3s ease; }
+
+/* while the intro is up, the cover art AND the timeline bg underneath are both
+   perfectly still (ken burns held at frame 0); dismissing restarts the drift
+   from scratch — the handoff into the timeline is pixel-identical, no jump */
+.chron .chron-cine.intro-hold .bg { animation: none; }
+
+/* ---- timeline wake — entering an era, the frame draws itself in ----
+   pairs with the JS dolly (rail sweeps in from the horizon): the era band's
+   line pulls open from its centre, stops cascade in, chrome fades up last */
+@media (prefers-reduced-motion: no-preference) {
+  .chron .chron-cine.wake .era-bar { animation: chron-d-fade 0.7s ease 0.75s both; }
+  .chron .chron-cine.wake .art-credit { animation: chron-d-fade 0.7s ease 1.1s both; }
+  .chron .chron-cine.wake .scroll-hint { animation: chron-d-fade 0.9s ease 1.5s both, chron-hint-bob 2.6s ease-in-out 1.5s infinite; }
+  .chron .chron-cine.wake .cine-band .eb-line { animation: chron-eb-open 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both; }
+  .chron .chron-cine.wake .cine-band .eb-fill { animation: chron-d-fade 0.7s ease 0.95s both; }
+  .chron .chron-cine.wake .cine-band .eb-arrow { animation: chron-d-fade 0.7s ease 1.2s both; }
+  .chron .chron-cine.wake .cine-band .eb-stop { animation: chron-eb-stop-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both; }
+  .chron .chron-cine.wake .cine-band .eb-stop:nth-child(4) { animation-delay: 0.59s; }
+  .chron .chron-cine.wake .cine-band .eb-stop:nth-child(5) { animation-delay: 0.68s; }
+  .chron .chron-cine.wake .cine-band .eb-stop:nth-child(6) { animation-delay: 0.77s; }
+  .chron .chron-cine.wake .cine-band .eb-stop:nth-child(7) { animation-delay: 0.86s; }
+  .chron .chron-cine.wake .cine-band .eb-stop:nth-child(8) { animation-delay: 0.95s; }
+  .chron .chron-cine.wake .cine-band .eb-stop:nth-child(9) { animation-delay: 1.04s; }
+}
+@keyframes chron-eb-open { from { transform: scaleX(0); } }
+@keyframes chron-eb-stop-in { from { opacity: 0; translate: 0 -10px; } }
+
+/* era wipe transition */
+.chron .chron-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--void);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.55s ease, visibility 0.55s;
+}
+.chron .chron-wipe.on { opacity: 1; visibility: visible; }
+.chron .chron-wipe .wipe-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: var(--gold);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+}
+.chron .chron-wipe.on .wipe-name { opacity: 1; transform: none; }
+
+/* ============================= archive mode ============================== */
+.chron .chron-archive {
+  background: var(--void);
+  color: var(--parchment);
+}
+.chron .archive-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  filter: saturate(0.5) brightness(0.8);
+  transition: background-image 0.5s, opacity 0.5s;
+}
+.chron .archive-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, transparent 0%, var(--void) 78%);
+}
+.chron .archive-scroll {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--steel-dim) transparent;
+}
+.chron .arch-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: calc(var(--top-nav-h, 48px) + 26px) 40px 120px 40px;
+  position: relative;
+  z-index: 2;
+}
+.chron .arch-head {
+  font-family: var(--mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.24em;
+  color: var(--steel);
+  margin-bottom: 24px;
+}
+
+/* era band — sliding window over the eras, current one marked */
+.chron .era-band {
+  position: relative;
+  height: 74px;
+  cursor: grab;
+  touch-action: pan-y;
+  --eb-step: 150;
+}
+.chron .era-band.dragging { cursor: grabbing; }
+.chron .era-band.dragging .eb-stop,
+.chron .era-band.dragging .eb-arrow { cursor: grabbing; pointer-events: none; }
+.chron .arch-band { margin: 0 0 26px 0; }
+.chron .era-band .eb-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(125, 135, 153, 0.35) 6%, rgba(125, 135, 153, 0.35) 94%, transparent);
+}
+.chron .era-band .eb-fill {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  height: 1px;
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(201, 184, 150, 0.5);
+  opacity: 0.8;
+}
+.chron .eb-stop {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.chron .eb-mark {
+  width: 10px;
+  height: 10px;
+  margin-top: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--steel-dim);
+  background: var(--void);
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+}
+.chron .eb-n {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+  color: var(--steel-dim);
+  white-space: nowrap;
+  transition: color 0.25s;
+}
+.chron .eb-m {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  color: var(--steel-dim);
+  white-space: nowrap;
+  opacity: 0;
+  transition: color 0.25s, opacity 0.25s;
+}
+/* the date appears on hover and under the active era */
+.chron .eb-stop.on .eb-m,
+.chron .eb-stop:hover .eb-m { opacity: 1; }
+/* pan arrows — borderless chevrons on the line ends */
+.chron .eb-arrow {
+  position: absolute;
+  top: 11px;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 22px;
+  line-height: 1;
+  color: var(--steel);
+  transition: color 0.2s, opacity 0.2s;
+}
+.chron .eb-arrow:hover { color: var(--gold); }
+.chron .eb-arrow:disabled { opacity: 0.18; cursor: default; }
+.chron .eb-arrow:disabled:hover { color: var(--steel); }
+.chron .eb-arrow.left { left: -32px; }
+.chron .eb-arrow.right { right: -32px; }
+.chron .eb-stop.past .eb-mark {
+  border-color: var(--gold-dim);
+  background: rgba(201, 184, 150, 0.25);
+}
+.chron .eb-stop.past .eb-m,
+.chron .eb-stop.past .eb-n { color: var(--steel); }
+.chron .eb-stop:hover .eb-mark { border-color: var(--gold); }
+.chron .eb-stop:hover .eb-m,
+.chron .eb-stop:hover .eb-n { color: var(--parchment); }
+.chron .eb-stop.on .eb-mark {
+  border-color: var(--gold);
+  background: var(--gold);
+  box-shadow: 0 0 0 5px rgba(201, 184, 150, 0.12), 0 0 18px rgba(201, 184, 150, 0.55);
+}
+.chron .eb-stop.on .eb-m { color: var(--gold); }
+.chron .eb-stop.on .eb-n { color: var(--parchment); }
+
+/* cinematic top band — same strip, floating over the imagery, scaled up for
+   readability; sits below the global TopNav */
+.chron .cine-band {
+  position: absolute;
+  z-index: 10;
+  top: calc(var(--top-nav-h, 48px) + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(340px, calc(100vw - 600px), 860px);
+  height: 76px;
+  --eb-pad: 80px;
+  --eb-step: 175;
+}
+.chron .cine-band .eb-stop { gap: 9px; }
+.chron .cine-band .eb-mark {
+  width: 11px;
+  height: 11px;
+  background: rgba(4, 6, 11, 0.7);
+}
+.chron .cine-band .eb-stop.on .eb-mark { background: var(--gold); }
+.chron .cine-band .eb-m {
+  font-size: 12.5px;
+  letter-spacing: 0.18em;
+  color: var(--steel);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+}
+.chron .cine-band .eb-stop.on .eb-m { color: var(--gold); }
+.chron .cine-band .eb-n {
+  font-size: 18px;
+  color: var(--parchment-dim);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
+}
+.chron .cine-band .eb-arrow { text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8); }
+.chron .cine-band .eb-arrow.left { left: -56px; }
+.chron .cine-band .eb-arrow.right { right: -56px; }
+
+.chron .arch-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  font-size: clamp(30px, 3.4vw, 46px);
+  color: var(--parchment);
+}
+.chron .arch-title .at-m {
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.34em;
+  color: var(--gold);
+}
+.chron .arch-title .at-name { text-transform: uppercase; }
+.chron .arch-sub {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--steel);
+  font-size: var(--fs-body);
+  margin: 10px 0 38px 0;
+}
+
+/* body — rows get the full width; the era map lives above as a sticky strip */
+.chron .arch-body { display: block; }
+.chron .arch-main { min-width: 0; }
+
+/* horizontal era map — docks at the top of the index while the rows scroll
+   under it; the plate's top padding also covers the strip under the
+   translucent TopNav. Time flows left→right like the era band; the gold
+   cursor marks the slice of the era currently on screen */
+.chron .minimap {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  margin: 4px -40px 30px -40px;
+  padding: calc(var(--top-nav-h, 48px) + 16px) 40px 4px 40px;
+  background: linear-gradient(to bottom, var(--void) 0%, var(--void) 70%, transparent 100%);
+}
+.chron .mm-lab {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  color: var(--steel-dim);
+  margin-bottom: 16px;
+}
+.chron .mm-frame { position: relative; height: 46px; }
+.chron .mm-axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 14px;
+  height: 1px;
+  background: linear-gradient(to right, rgba(125, 135, 153, 0.4), rgba(125, 135, 153, 0.15));
+}
+.chron .mm-view {
+  position: absolute;
+  top: 13px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(201, 184, 150, 0.4);
+  box-shadow: 0 0 12px rgba(201, 184, 150, 0.3);
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.chron .mm-tick {
+  position: absolute;
+  top: 18px;
+  width: 1px;
+  height: 7px;
+  background: rgba(125, 135, 153, 0.3);
+}
+.chron .mm-tick-lab {
+  position: absolute;
+  top: 30px;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--steel-dim);
+  white-space: nowrap;
+}
+.chron .mm-dot {
+  position: absolute;
+  top: 14.5px;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px solid var(--steel);
+  background: var(--void);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.chron .mm-dot.major { width: 9px; height: 9px; }
+.chron .mm-dot.epoch { width: 11px; height: 11px; border-color: var(--gold-dim); }
+.chron .mm-dot.off { border-style: dashed; }
+.chron .mm-dot:hover,
+.chron .mm-dot.on {
+  border-color: var(--gold);
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(201, 184, 150, 0.5);
+}
+.chron .mm-bar {
+  position: absolute;
+  top: 14.5px;
+  transform: translateY(-50%);
+  height: 7px;
+  border-radius: 4px;
+  border: 1.5px solid var(--steel);
+  background: rgba(125, 135, 153, 0.2);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.chron .mm-bar.epoch { border-color: var(--gold-dim); height: 9px; }
+.chron .mm-bar:hover,
+.chron .mm-bar.on {
+  border-color: var(--gold);
+  background: rgba(201, 184, 150, 0.35);
+  box-shadow: 0 0 10px rgba(201, 184, 150, 0.4);
+}
+
+/* century groups */
+.chron .century { margin-bottom: 40px; }
+.chron .century-head {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: 4px;
+}
+.chron .century-head .num {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.chron .century-head .suffix {
+  font-family: var(--mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.22em;
+  color: var(--steel-dim);
+}
+.chron .century-head .rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--gold-line), transparent);
+}
+
+/* rows */
+.chron .row {
+  border-bottom: 1px solid rgba(125, 135, 153, 0.1);
+  cursor: pointer;
+}
+.chron .row-line {
+  display: grid;
+  grid-template-columns: minmax(230px, 1.1fr) 150px 2fr 22px;
+  gap: 18px;
+  align-items: baseline;
+  padding: 17px 10px;
+  transition: background 0.2s;
+}
+.chron .row:hover .row-line { background: rgba(255, 255, 255, 0.03); }
+.chron .row.open .row-line { background: rgba(201, 184, 150, 0.05); }
+.chron .row-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: var(--fs-row-title);
+  letter-spacing: 0.03em;
+  color: var(--parchment);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.chron .row-title .tiermark { font-size: 12px; color: var(--gold); }
+.chron .row-title .tiermark.minor { color: var(--steel-dim); }
+.chron .row-title .tiermark.epoch { font-size: 14px; }
+.chron .row-date {
+  font-family: var(--mono);
+  font-size: var(--fs-mono-lg);
+  letter-spacing: 0.14em;
+  color: var(--steel);
+}
+.chron .row-snip {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--steel);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chron .row-chev {
+  font-family: var(--mono);
+  font-size: var(--fs-mono);
+  color: var(--steel-dim);
+  transition: transform 0.3s;
+}
+.chron .row.open .row-chev { transform: rotate(90deg); color: var(--gold); }
+
+.chron .row-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.chron .row.open .row-detail { grid-template-rows: 1fr; }
+.chron .row-detail-inner { overflow: hidden; }
+.chron .row-detail-pad { padding: 6px 10px 24px 10px; }
+.chron .row-note {
+  margin: 0 0 14px 0;
+  max-width: 720px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  color: var(--parchment-dim);
+}
+.chron .row-media {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.chron .open-cine {
+  font-family: var(--mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.2em;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.chron .open-cine:hover { background: var(--gold); color: #0a0e14; }
+
+/* archive footer — next era (borderless) */
+.chron .arch-next {
+  margin-top: 64px;
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 18px;
+  background: transparent;
+  border: none;
+  padding: 26px 28px;
+  cursor: pointer;
+}
+.chron .arch-next .an-lab {
+  font-family: var(--mono);
+  font-size: var(--fs-mono-sm);
+  letter-spacing: 0.3em;
+  color: var(--gold);
+}
+.chron .arch-next .an-name {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(20px, 2vw, 26px);
+  letter-spacing: 0.08em;
+  color: var(--parchment);
+  transition: color 0.25s, text-shadow 0.25s;
+  text-transform: uppercase;
+}
+.chron .arch-next:hover .an-name {
+  color: #fff;
+  text-shadow: 0 0 24px rgba(201, 184, 150, 0.4);
+}
+.chron .arch-next .an-arrow {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--gold);
+  transition: transform 0.25s;
+}
+.chron .arch-next:hover .an-arrow { transform: translateX(6px); }
+
+/* ---------------- DB-unreachable fallback (server-rendered) ---------------- */
+.chron-shell { min-height: 60vh; }
+.chron-empty {
+  max-width: 520px;
+  margin: 18vh auto 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+.chron-empty .ce-kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: #566070;
+  margin-bottom: 18px;
+}
+.chron-empty .ce-text {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.55;
+  color: #c7c2b2;
+}
+
+/* short windows — compress the dossier so it never climbs into the era band */
+@media (min-width: 761px) and (max-height: 760px) {
+  .chron .cine-lower { gap: 16px; }
+  .chron .d-title { font-size: clamp(28px, 7vh, 44px); margin-bottom: 10px; }
+  .chron .d-note { font-size: 17px; }
+  .chron .media-row .m-title { font-size: 16px; }
+  .chron .cine-lower .d-kicker { margin-bottom: 8px; }
+}
+
+/* larger touch targets on coarse pointers — invisible hit areas only */
+@media (pointer: coarse) {
+  .chron .node .dot::after {
+    content: '';
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+  }
+  .chron .eb-stop::after {
+    content: '';
+    position: absolute;
+    inset: -8px -14px;
+  }
+  .chron .mm-dot::before,
+  .chron .mm-bar::before {
+    content: '';
+    position: absolute;
+    inset: -9px;
+  }
+}
+
+/* ============================= mobile ============================== */
+@media (max-width: 760px) {
+  .chron {
+    --rail-x: 15%;
+    --rail-anchor-y: 42%;
+    --rail-vanish-y: 16%;
+    --vanish-dx: -110px;
+    --eb-pad: 26px;
+    --text-x: 18px;
+  }
+
+  /* chrome — compact toggle (no label), parked bottom-right clear of the hint */
+  .chron .chron-mode-toggle {
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    right: calc(10px + env(safe-area-inset-right, 0px));
+  }
+  .chron .chron-mode-toggle .lab { display: none; }
+  .chron .chron-mode-toggle button { padding: 13px 13px; }
+  .chron .era-bar {
+    top: calc(var(--top-nav-h, 48px) + 8px + env(safe-area-inset-top, 0px));
+    left: calc(14px + env(safe-area-inset-left, 0px));
+    right: 180px;
+  }
+  .chron .era-bar .row1 { gap: 8px; }
+  .chron .era-bar .era-pos { display: none; }
+  .chron .era-bar .entry-count { margin-left: 0; font-size: 11px; }
+  .chron .era-rail { width: 120px; margin-top: 8px; }
+
+  /* cinematic era band — full-width strip under the chrome; tighter step fits 3 eras */
+  .chron .cine-band {
+    top: calc(var(--top-nav-h, 48px) + 40px + env(safe-area-inset-top, 0px));
+    left: 16px;
+    right: 16px;
+    width: auto;
+    transform: none;
+    height: 62px;
+    --eb-pad: 52px;
+    --eb-step: 118;
+  }
+  .chron .cine-band .eb-mark { width: 10px; height: 10px; }
+  .chron .cine-band .eb-m { font-size: 11px; letter-spacing: 0.14em; }
+  .chron .cine-band .eb-n { display: block; font-size: 14px; }
+
+  /* cinematic — rail upper right, dossier as bottom sheet */
+  .chron .cine-lower {
+    left: var(--text-x);
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    top: auto;
+    transform: none;
+    gap: 16px;
+    max-width: none;
+  }
+  .chron .d-kicker {
+    gap: 10px;
+    font-size: 11px;
+    margin-bottom: 9px;
+    flex-wrap: wrap;
+  }
+  .chron .d-title { font-size: 28px; margin-bottom: 9px; }
+  .chron .d-note { font-size: 16px; max-width: none; }
+  .chron .media-seg { max-width: none; }
+  .chron .m-label { margin-bottom: 8px; }
+  .chron .m-label::before { margin-bottom: 8px; }
+  .chron .d-media-rows { gap: 6px 24px; }
+  .chron .media-row .m-title { font-size: 16px; }
+  .chron .media-row .m-meta { font-size: 10px; }
+  .chron .scroll-hint {
+    bottom: auto;
+    top: 46%;
+    left: auto;
+    right: 16px;
+    transform: none;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.26em;
+    animation: none;
+  }
+  /* credit sits clear below the era band; back-pull moves further down to match */
+  .chron .art-credit {
+    right: 14px;
+    bottom: auto;
+    top: calc(var(--top-nav-h, 48px) + 106px + env(safe-area-inset-top, 0px));
+  }
+  .chron .back-pull {
+    top: calc(var(--top-nav-h, 48px) + 148px + env(safe-area-inset-top, 0px));
+  }
+  .chron .node .nlab { font-size: 11px; right: 18px; }
+  .chron .node.epoch .dot { width: 16px; height: 16px; }
+
+  /* terminus */
+  .chron .t-era-done { font-size: 11px; }
+  .chron .terminus .t-rule { height: 42px; margin: 20px 0; }
+  .chron .t-tagline { font-size: 17px; margin-bottom: 28px; }
+  .chron .terminus-btn { padding: 18px 26px; width: 100%; max-width: 340px; }
+  .chron .terminus-btn .tb-name { font-size: 20px; }
+
+  /* terminus + era intro respect the home indicator */
+  .chron .terminus { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .chron .ei-enter { bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }
+
+  /* index */
+  .chron .arch-inner {
+    padding: calc(var(--top-nav-h, 48px) + 8px + env(safe-area-inset-top, 0px)) 16px calc(72px + env(safe-area-inset-bottom, 0px)) 16px;
+  }
+  .chron .arch-head { margin-bottom: 18px; }
+  .chron .arch-band { height: 44px; margin-bottom: 20px; }
+  .chron .eb-m { display: none; }
+  .chron .eb-n { font-size: 12.5px; }
+  .chron .eb-arrow { width: 40px; height: 40px; font-size: 19px; }
+  .chron .cine-band .eb-arrow.left,
+  .chron .arch-band .eb-arrow.left { left: -12px; }
+  .chron .cine-band .eb-arrow.right,
+  .chron .arch-band .eb-arrow.right { right: -12px; }
+  .chron .arch-title { font-size: 27px; gap: 8px; }
+  .chron .arch-title .at-m { font-size: 12px; }
+  .chron .arch-sub { font-size: 16px; margin-bottom: 24px; }
+  .chron .minimap {
+    margin: 2px -16px 22px -16px;
+    padding: calc(var(--top-nav-h, 48px) + 12px) 16px 2px 16px;
+  }
+  .chron .mm-lab { margin-bottom: 12px; }
+  .chron .mm-frame { height: 42px; }
+  .chron .mm-tick-lab { font-size: 9px; letter-spacing: 0.12em; }
+  .chron .century-head .num { font-size: 25px; }
+  .chron .row-line {
+    grid-template-columns: 1fr auto 14px;
+    gap: 10px;
+    padding: 14px 6px;
+  }
+  .chron .row-snip { display: none; }
+  .chron .row-title { font-size: 19px; }
+  .chron .row-note { font-size: 17px; }
+  .chron .open-cine { padding: 12px 18px; min-height: 44px; }
+  .chron .arch-next { padding: 18px 16px; gap: 10px; flex-wrap: wrap; }
+  .chron .arch-next .an-name { font-size: 19px; }
+}
+
+/* short phones (SE-class) — compress the dossier so it never climbs into the band */
+@media (max-width: 760px) and (max-height: 700px) {
+  .chron .cine-lower { gap: 12px; }
+  .chron .d-title { font-size: 24px; margin-bottom: 7px; }
+  .chron .d-note { font-size: 15px; }
+  .chron .d-kicker { font-size: 10px; margin-bottom: 7px; }
+  .chron .media-row .m-title { font-size: 15px; }
+  .chron .cine-band {
+    top: calc(var(--top-nav-h, 48px) + 34px + env(safe-area-inset-top, 0px));
+    height: 56px;
+  }
+  .chron .art-credit {
+    top: calc(var(--top-nav-h, 48px) + 94px + env(safe-area-inset-top, 0px));
+  }
+}
+
+/* phone landscape — dossier hugs the bottom-left, band stays compact */
+@media (min-width: 761px) and (max-height: 480px) {
+  .chron .cine-band {
+    width: clamp(300px, calc(100vw - 420px), 720px);
+    height: 60px;
+    --eb-step: 130;
+  }
+  .chron .cine-band .eb-n { font-size: 14px; }
+  .chron .cine-lower { bottom: 14px; gap: 12px; max-width: 520px; }
+  .chron .d-title { font-size: 26px; margin-bottom: 8px; }
+  .chron .d-note { font-size: 15px; }
+  .chron .terminus .t-rule { height: 30px; margin: 14px 0; }
+  .chron .t-tagline { margin-bottom: 18px; }
+  .chron .ei-rule { height: 32px; margin: 16px 0 14px 0; }
+  .chron .ei-name { font-size: clamp(30px, 6vh, 44px); }
+}
