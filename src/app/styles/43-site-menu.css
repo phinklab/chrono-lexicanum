@@ -1,0 +1,247 @@
+/* 43-site-menu.css
+   Global burger + full-screen site menu (SiteMenu.tsx) — port of the
+   design-export's #burger + #site-menu (chronicle.css §burger + full-screen
+   menu), re-rooted from the prototype's `body.menu-open` onto component-scoped
+   `.is-open`. App-shell chrome on every route, additive to TopNav.
+
+   Layering: the overlay must clear ALL existing chrome — TopNav (50),
+   detail popups (70) — so menu 80, burger 81 (the burger stays clickable on
+   top of its own overlay, morphed to ×).
+
+   Token bridge: the export's parchment/gold/void map onto the house tokens
+   (--cl-bone / --cl-gold / --cl-void; house gold #c9a65a runs warmer than the
+   export's #c9b896 — intended). The cool blue-grey "steel" pair has no project
+   token; the literals are scoped to this partial. */
+
+.site-burger,
+.site-menu {
+  --sm-steel: #7d8799;
+  --sm-steel-dim: #566070;
+  --sm-gold-line: rgba(201, 166, 90, 0.22);
+  --sm-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --sm-serif: var(--font-cormorant), Georgia, serif;
+}
+
+/* ── Burger button ─────────────────────────────────────────────────────── */
+.site-burger {
+  position: fixed;
+  top: 16px;
+  right: 18px;
+  z-index: 81;
+  width: 48px;
+  height: 44px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 9px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.site-burger__line {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: var(--cl-dim);
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease,
+    width 0.35s ease;
+}
+.site-burger__line:nth-child(2) {
+  width: 62%;
+  align-self: flex-end;
+}
+.site-burger:hover .site-burger__line {
+  background: var(--cl-gold);
+  width: 100%;
+}
+.site-burger.is-open .site-burger__line {
+  background: var(--cl-gold);
+  width: 100%;
+}
+.site-burger.is-open .site-burger__line:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+.site-burger.is-open .site-burger__line:nth-child(2) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* ── Full-screen overlay ───────────────────────────────────────────────── */
+.site-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(
+      ellipse 90% 75% at 50% 24%,
+      rgba(13, 19, 32, 0.96) 0%,
+      transparent 70%
+    ),
+    var(--cl-void);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.55s ease,
+    visibility 0.55s;
+}
+.site-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.site-menu__grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.site-menu__inner {
+  width: min(920px, 90vw);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.site-menu__head,
+.site-menu__foot {
+  font-family: var(--sm-mono);
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  color: var(--sm-steel-dim);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.1s;
+}
+.site-menu__head {
+  margin-bottom: clamp(20px, 5vh, 48px);
+}
+.site-menu__foot {
+  margin-top: clamp(20px, 5vh, 48px);
+  transition-delay: 0.45s;
+}
+.site-menu.is-open .site-menu__head,
+.site-menu.is-open .site-menu__foot {
+  opacity: 1;
+}
+
+/* ── Entry list ────────────────────────────────────────────────────────── */
+.site-menu__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-menu__item {
+  position: relative;
+}
+/* superthin separators, fading out toward both ends */
+.site-menu__item + .site-menu__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--sm-gold-line) 28%,
+    var(--sm-gold-line) 72%,
+    transparent 100%
+  );
+  transform: scaleX(0.4);
+  opacity: 0;
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s ease;
+}
+.site-menu.is-open .site-menu__item + .site-menu__item::before {
+  transform: scaleX(1);
+  opacity: 1;
+}
+.site-menu__item a {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 26px;
+  padding: clamp(10px, 2.3vh, 21px) 0;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+.site-menu.is-open .site-menu__item a {
+  opacity: 1;
+}
+.site-menu__num {
+  font-family: var(--sm-mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--sm-steel-dim);
+  min-width: 2.4em;
+  text-align: right;
+  transition: color 0.35s ease;
+}
+.site-menu__name {
+  font-family: var(--sm-serif);
+  font-weight: 500;
+  font-size: clamp(30px, 6.4vh, 60px);
+  line-height: 1.04;
+  color: var(--cl-bone);
+  letter-spacing: 0.01em;
+  transition:
+    color 0.35s ease,
+    text-shadow 0.35s ease;
+  text-wrap: balance;
+  text-align: center;
+}
+.site-menu__item a::after {
+  /* balances the numeral so the name stays optically centred */
+  content: "";
+  min-width: 2.4em;
+}
+.site-menu__item a:hover .site-menu__name,
+.site-menu__item a:focus-visible .site-menu__name {
+  color: var(--cl-gold);
+  text-shadow: 0 0 28px rgba(201, 166, 90, 0.35);
+}
+.site-menu__item a:hover .site-menu__num {
+  color: var(--cl-gold);
+}
+
+/* Staggered reveal — motion only when the visitor allows it. */
+@media (prefers-reduced-motion: no-preference) {
+  .site-menu__item a {
+    transform: translateY(22px);
+    transition:
+      opacity 0.55s ease,
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .site-menu.is-open .site-menu__item a {
+    transform: none;
+  }
+  .site-menu.is-open .site-menu__item:nth-child(1) a { transition-delay: 0.08s; }
+  .site-menu.is-open .site-menu__item:nth-child(2) a { transition-delay: 0.15s; }
+  .site-menu.is-open .site-menu__item:nth-child(3) a { transition-delay: 0.22s; }
+  .site-menu.is-open .site-menu__item:nth-child(4) a { transition-delay: 0.29s; }
+  .site-menu.is-open .site-menu__item:nth-child(5) a { transition-delay: 0.36s; }
+  .site-menu.is-open .site-menu__item:nth-child(6) a { transition-delay: 0.43s; }
+  .site-menu.is-open .site-menu__item:nth-child(2)::before { transition-delay: 0.18s; }
+  .site-menu.is-open .site-menu__item:nth-child(3)::before { transition-delay: 0.25s; }
+  .site-menu.is-open .site-menu__item:nth-child(4)::before { transition-delay: 0.32s; }
+  .site-menu.is-open .site-menu__item:nth-child(5)::before { transition-delay: 0.39s; }
+  .site-menu.is-open .site-menu__item:nth-child(6)::before { transition-delay: 0.46s; }
+}
+
+/* Safe-area nudge so the burger clears notches/rounded corners on mobile. */
+@media (max-width: 720px) {
+  .site-burger {
+    top: calc(8px + env(safe-area-inset-top, 0px));
+    right: calc(8px + env(safe-area-inset-right, 0px));
+  }
+}
