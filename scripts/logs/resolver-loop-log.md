@@ -83,3 +83,14 @@ Resolver-Fortschritt bei Implementierungs-Zeitpunkt: 7 Pässe komplett, Batches 
 - [x] Phase 3 (Characters) — commit 95e62c2
 - [x] Phase 4a (Apply) — commit 8e7f3cb
 - [x] Phase 4b (Verify) — commit 8eaa4d0
+
+## 2026-06-10 · Resolver-Pass 16 (Welle ssot-w40k-058..060, 22 Bücher)
+
+- [x] Phase 0 (Preflight) — commit e7aac73
+- [x] Phase 1 (Factions) — commit a757e8d
+- [x] Phase 2 (Locations) — commit c2082ba
+- [x] Phase 3 (Characters) — commit fe41d38
+- [ ] Phase 4a (Apply)
+- [ ] Phase 4b (Verify)
+
+_Outcome: **halt** — pass-driver exit 2._
