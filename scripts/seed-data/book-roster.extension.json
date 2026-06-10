@@ -1,6 +1,505 @@
 {
   "schemaVersion": "1.0",
   "_comment": "Additive roster extension. The Excel SSOT (source/Warhammer_Books_SSOT.xlsx) is the FROZEN original 859 books; books greenlit from the weekly refresh pass (npm run refresh:check) accrete HERE and are merged into book-roster.json by `npm run import:ssot-roster`. To promote a detected book: paste its row verbatim from ingest/refresh/<week>/proposal.json (books.newBooks[]) into the books[] array below (extra keys like source_kind/confidence are ignored), run import:ssot-roster, then `npm run loop:next` surfaces it as the next curation batch → curate an override → `npm run db:apply-override`. Collections are not supported here yet (new-anthology membership goes via the Excel). See scripts/runbooks/weekly-refresh-runbook.md.",
-  "books": [],
+  "books": [
+    {
+      "externalBookId": "W40K-0566",
+      "slug": "hive",
+      "title": "Hive",
+      "authors": [
+        "Dan Abnett"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2026,
+      "format": "novel",
+      "seriesHint": "40k - TBC",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0567",
+      "slug": "da-freebooterz-code",
+      "title": "Da Freebooterz Code",
+      "authors": [
+        "Justin Woolley"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2026,
+      "format": "novel",
+      "seriesHint": "40k - Orks",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0568",
+      "slug": "world-ablaze",
+      "title": "World Ablaze",
+      "authors": [],
+      "editors": [],
+      "editorialNote": "various",
+      "releaseYear": 2026,
+      "format": "anthology",
+      "seriesHint": "40k",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0569",
+      "slug": "legends-of-the-waaagh",
+      "title": "Legends of the Waaagh!",
+      "authors": [],
+      "editors": [],
+      "editorialNote": "various",
+      "releaseYear": 2026,
+      "format": "omnibus",
+      "seriesHint": "40k - Various",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0570",
+      "slug": "veterans-of-the-fall",
+      "title": "Veterans of the Fall",
+      "authors": [
+        "William Crowe"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2026,
+      "format": "novel",
+      "seriesHint": "40k - Imperial Guard",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "HH-0295",
+      "slug": "zardu-layak-the-crimson-apostle",
+      "title": "Zardu Layak: The Crimson Apostle",
+      "authors": [
+        "Rich McCormick"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2026,
+      "format": "novel",
+      "seriesHint": "Horus Heresy - Character Series",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0571",
+      "slug": "aestred-thurga-pyre-of-faith",
+      "title": "Aestred Thurga: Pyre of Faith",
+      "authors": [
+        "Danie Ware"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2026,
+      "format": "novel",
+      "seriesHint": "40k - Character Series",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0572",
+      "slug": "carnage-unending",
+      "title": "Carnage Unending",
+      "authors": [],
+      "editors": [],
+      "editorialNote": "various",
+      "releaseYear": 2026,
+      "format": "anthology",
+      "seriesHint": "40k - TBC",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0573",
+      "slug": "paragon-of-faith-and-other-stories",
+      "title": "Paragon of Faith and Other Stories",
+      "authors": [],
+      "editors": [],
+      "editorialNote": "various",
+      "releaseYear": 2026,
+      "format": "anthology",
+      "seriesHint": "40k - Sisters of Battle",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0574",
+      "slug": "apostle",
+      "title": "Apostle",
+      "authors": [
+        "David Annandale"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2026,
+      "format": "novel",
+      "seriesHint": "40k - Word Bearers",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "HH-0296",
+      "slug": "the-shattered-and-the-soulless",
+      "title": "The Shattered and the Soulless",
+      "authors": [
+        "Graham McNeill"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2026,
+      "format": "omnibus",
+      "seriesHint": "Horus Heresy - The Siege of Terra",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0575",
+      "slug": "the-dark-coil-ascension",
+      "title": "The Dark Coil: Ascension",
+      "authors": [
+        "Peter Fehervari"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "omnibus",
+      "seriesHint": "40k - The Dark Coil",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "HH-0297",
+      "slug": "dropsite-massacre",
+      "title": "Dropsite Massacre",
+      "authors": [
+        "John French"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "novel",
+      "seriesHint": "Horus Heresy",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0576",
+      "slug": "morvenn-vahl-spear-of-faith",
+      "title": "Morvenn Vahl: Spear of Faith",
+      "authors": [
+        "Jude Reid"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "novel",
+      "seriesHint": "40k - Sisters of Battle",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0577",
+      "slug": "darkness-eternal",
+      "title": "Darkness Eternal",
+      "authors": [],
+      "editors": [],
+      "editorialNote": "various",
+      "releaseYear": 2025,
+      "format": "anthology",
+      "seriesHint": "40k",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0578",
+      "slug": "saints-of-the-imperium",
+      "title": "Saints of the Imperium",
+      "authors": [
+        "David Annandale",
+        "Andy Clark",
+        "Danie Ware"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "collection",
+      "seriesHint": "40k - Sisters of Battle",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0579",
+      "slug": "ciaphas-cain-the-anthology",
+      "title": "Ciaphas Cain: The Anthology",
+      "authors": [
+        "Sandy Mitchell"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "anthology",
+      "seriesHint": "40k - Ciaphas Cain",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0580",
+      "slug": "the-high-kahls-oath",
+      "title": "The High Kâhl’s Oath",
+      "authors": [
+        "Gav Thorpe"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "novel",
+      "seriesHint": "40k - Leagues of Votann",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0581",
+      "slug": "daemonhammer",
+      "title": "Daemonhammer",
+      "authors": [
+        "Darius Hinks"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "novel",
+      "seriesHint": "40k - Inquisition",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0582",
+      "slug": "oaths-of-damnation",
+      "title": "Oaths of Damnation",
+      "authors": [
+        "Robbie MacNiven"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "novel",
+      "seriesHint": "40k - Exorcists",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0583",
+      "slug": "grotsnik-da-mad-dok",
+      "title": "Grotsnik: Da Mad Dok",
+      "authors": [
+        "Denny Flowers"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "novel",
+      "seriesHint": "40k - Character Series",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0584",
+      "slug": "dominion-genesis",
+      "title": "Dominion Genesis",
+      "authors": [
+        "Jonathan D. Beer"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "novel",
+      "seriesHint": "40k - Adeptus Mechanicus",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0585",
+      "slug": "yarrick-imperial-creed",
+      "title": "Yarrick: Imperial Creed",
+      "authors": [
+        "David Annandale"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "novel",
+      "seriesHint": "40k - Imperial Guard",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0586",
+      "slug": "legends-of-the-wolf-the-omnibus",
+      "title": "Legends of the Wolf: The Omnibus",
+      "authors": [
+        "Chris Wraight"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "omnibus",
+      "seriesHint": "40k - Space Wolves",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0587",
+      "slug": "blood-of-the-imperium",
+      "title": "Blood of the Imperium",
+      "authors": [],
+      "editors": [],
+      "editorialNote": "various",
+      "releaseYear": 2025,
+      "format": "anthology",
+      "seriesHint": "40k",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0588",
+      "slug": "siege-of-vraks",
+      "title": "Siege of Vraks",
+      "authors": [
+        "Steve Lyons"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "novel",
+      "seriesHint": "40k - Imperial Guard",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0589",
+      "slug": "the-dark-coil-damnation",
+      "title": "The Dark Coil: Damnation",
+      "authors": [
+        "Peter Fehervari"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "omnibus",
+      "seriesHint": "40k - The Dark Coil",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0590",
+      "slug": "leontus",
+      "title": "Leontus",
+      "authors": [
+        "Rob Young"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "novel",
+      "seriesHint": "40k - Character Series",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0591",
+      "slug": "soldiers-of-the-imperium",
+      "title": "Soldiers of the Imperium",
+      "authors": [],
+      "editors": [],
+      "editorialNote": "various",
+      "releaseYear": 2025,
+      "format": "omnibus",
+      "seriesHint": "40k - Imperial Guard",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    },
+    {
+      "externalBookId": "W40K-0592",
+      "slug": "renegades-lord-of-excess",
+      "title": "Renegades: Lord of Excess",
+      "authors": [
+        "Rich McCormick"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2025,
+      "format": "novel",
+      "seriesHint": "40k - Emperor's Children",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "source_kind": "track_of_words",
+      "confidence": 0.6
+    }
+  ],
   "collections": []
 }

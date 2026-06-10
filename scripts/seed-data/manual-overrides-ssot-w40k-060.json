@@ -1,0 +1,164 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-060",
+  "createdBy": "claude-code",
+  "createdAt": "2026-06-10",
+  "model": "claude-opus-4-8[1m]",
+  "rationale": "Weekly-refresh promotion wave 3 — the new two-book W40K domain-end restbatch (W40K-0591..0592). The Astra Militarum omnibus Soldiers of the Imperium (Death World / Kasrkin / Witchbringer + four shorts) and the Emperor's Children Chaos novel Renegades: Lord of Excess. Both 2025, both page-rated. Closes W40K coverage at 592/592.",
+  "books": [
+    {
+      "externalBookId": "W40K-0591",
+      "slug": "soldiers-of-the-imperium",
+      "overrides": {
+        "synopsis": "Three novels and four short stories follow the soldiers of the Astra Militarum across the most brutal fronts of the 41st Millennium. In Death World by Steve Lyons, Catachan Jungle Fighters are sent to Rogar III to eliminate an ork warboss, only to find the planet's own ecosystem evolving to kill them. In Kasrkin by Edoardo Albert, an elite Cadian commando team led by Captain Obeysekera braves a hostile desert world and T'au-held territory to rescue a downed Imperial general whose capture could break the war effort. In Witchbringer by Steven B. Fischer, former Cadian officer and newly sanctioned primaris psyker Glavia Aerand is deployed to the fog-shrouded death world of Visage, where warp-touched terrain and a haunting premonition force her to confront both the enemy and her own power. Four accompanying short stories deepen the front-line portraits of soldiery, sacrifice, and survival across these campaigns.",
+        "facetIds": [
+          "book",
+          "en",
+          "ensemble",
+          "multi",
+          "imperium",
+          "galactic",
+          "standalone",
+          "doorstopper",
+          "war_story",
+          "grimdark",
+          "war",
+          "sacrifice",
+          "brotherhood",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Catachan Jungle Fighters",
+            "role": "primary"
+          },
+          {
+            "name": "Cadian Kasrkin",
+            "role": "primary"
+          },
+          {
+            "name": "Astra Militarum",
+            "role": "primary"
+          },
+          {
+            "name": "T'au Empire",
+            "role": "antagonist"
+          },
+          {
+            "name": "Orks",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Rogar III",
+            "role": "primary"
+          },
+          {
+            "name": "Dasht i-Kevar",
+            "role": "primary"
+          },
+          {
+            "name": "Visage",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Lorenzo",
+            "role": "pov"
+          },
+          {
+            "name": "Captain Obeysekera",
+            "role": "pov"
+          },
+          {
+            "name": "Glavia Aerand",
+            "role": "pov"
+          },
+          {
+            "name": "Commissar Roshant",
+            "role": "supporting"
+          },
+          {
+            "name": "Sergeant Greiss",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4,
+          "count": 22,
+          "evidenceUrl": "https://www.goodreads.com/book/show/216173826-soldiers-of-the-imperium"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0592",
+      "slug": "renegades-lord-of-excess",
+      "overrides": {
+        "synopsis": "The Emperor's Children have long since shattered into warring splinters, pillaging the galaxy to feed appetites that can never be sated. Xantine, lord of the warband known as the Adored and a self-styled son of Fulgrim, craves something grander than endless raiding. When he discovers Serrine — a wealthy planet rotting under corrupt misrule and cut off from the Imperium by warp storms — he sees not a prize to be plundered but a canvas for perfection. He will reshape this world in his image. But Serrine has its own festering secrets, treachery waits within the Adored's own ranks, and the daemon that shares Xantine's flesh has appetites of its own. As Xantine's grand vision begins to devour itself, the cruel truth at the heart of every Chaos ambition is laid bare.",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "space_marine",
+          "chaos",
+          "sector",
+          "mid_series",
+          "standard",
+          "character_study",
+          "grimdark",
+          "hubris",
+          "betrayal",
+          "cw_violence",
+          "cw_sex",
+          "cw_disturbing"
+        ],
+        "factions": [
+          {
+            "name": "Emperor's Children",
+            "role": "primary"
+          },
+          {
+            "name": "Genestealer Cults",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Serrine",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Xantine",
+            "role": "pov"
+          },
+          {
+            "name": "S'janth",
+            "role": "supporting"
+          }
+        ],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "factions",
+            "reason": "No named loyalist Imperial military faction opposes the warband in available sources; only generic Imperial authorities and a Genestealer Cult are mentioned on Serrine."
+          }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.86,
+          "count": 471,
+          "evidenceUrl": "https://www.goodreads.com/book/show/210353156-lord-of-excess"
+        }
+      }
+    }
+  ]
+}
