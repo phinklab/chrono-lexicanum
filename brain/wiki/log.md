@@ -1385,3 +1385,13 @@ Brief 134 (*Chronicle setting dates* — Voll-Automatisierung: Events-Tabelle + 
 - `timeline-workshop/README.md` (+ späteres `events.md`) — **nicht committet** (git-ignored).
 
 **Out of scope (unverändert):** grafisches Event-Rendering + Chronicle-UI-Switch auf DB-Daten = Product/121 (Follow-ups).
+
+## 2026-06-11 · Ingest · Timeline-Datenfundament applied + Archive-Merge gemerged (impl 137/139)
+
+**Quelle:** `sessions/2026-06-10-137-impl-timeline-data-foundation.md` (PR #159), `sessions/2026-06-10-139-impl-archive-site-menu.md` (PR #158, Report liegt im Product-Tree-Commit).
+
+- Brief 137 ist merged **und applied**; Cowork hat live in Supabase gegengezählt (2026-06-11): 8 Eras (alle Editorial-Felder gefüllt, age_rebirth/long_war retired, 0 Bücher darauf), 144 Events (6/23/21/19/20/21/22/12 über die Eras, genau die 2 erwarteten Off-Scale-Rows), 223 event_works (95 book / 125 episode / 3 series), 97 Werke mit Setting-Date (53 event-anchored). `apply:timeline` idempotent.
+- Archive-Merge (PR #158): `/werke` + `/podcasts` → `/archive` (+ `/archive/podcasts`), 308-Redirects, `workHref()` nachgezogen, `?focus=`-Opener auf `/archive` (Brief-138-Deliverable vorgezogen), globale Burger-Nav `SiteMenu.tsx` als App-Shell-Chrome.
+- Brief 138 entsprechend nachgezogen (Commit 27a297a): Chip-Ziele auf `/archive…`, `?focus=`-Deliverable als erledigt markiert, Burger-Port explizit out of scope, Abhängigkeit „Archive-PR auf main" ergänzt. **138 ist startklar.**
+
+**Edits:** `brain/wiki/open-questions.md` — neues Item (16) mit den drei Folge-Themen aus impl 137 (db:rebuild-Lücke, primaryEraId-Placeholder, Atlas-Events). `brain/wiki/log.md` — dieser Eintrag.
