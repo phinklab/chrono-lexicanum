@@ -577,3 +577,65 @@ body:has(main.catalogue) .browse-facet-chip {
 body:has(main.catalogue) .browse-facet-chip:hover {
   background: rgba(201, 166, 90, 0.18);
 }
+
+/* ── Archive mode toggle (BOOKS | PODCASTS) ──────────────────────────────────
+   Port of the design-export "mode-toggle" pill (chronicle.css §shared chrome):
+   fixed bottom-right, mono micro-type, hairline frame, parchment-solid selected
+   state. Steel greys are design literals — the project tokens have no cool
+   blue-grey; scoped here on purpose. MediaPlayer owns bottom-LEFT at z 40; the
+   toggle sits at 45 so it clears the player wave but stays under TopNav (50)
+   and the detail popup (70). */
+.archive-toggle {
+  position: fixed;
+  bottom: 18px;
+  right: 20px;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+}
+.archive-toggle__lab {
+  color: #566070; /* design --steel-dim */
+}
+.archive-toggle__pill {
+  display: flex;
+  border: 1px solid rgba(125, 135, 153, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+  /* The export floats over a pure-void stage; our archive surfaces run photo
+     heroes, so the track gets a faint dark glass for legibility. */
+  background: rgba(8, 12, 20, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.archive-toggle__opt {
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: #7d8799; /* design --steel */
+  text-decoration: none;
+  padding: 6px 12px;
+  transition: color 0.2s ease;
+}
+.archive-toggle__opt:hover {
+  color: var(--cl-bone);
+}
+.archive-toggle__opt.is-selected {
+  background: #d8d2c2;
+  color: #0a0e14;
+}
+@media (max-width: 720px) {
+  .archive-toggle {
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    right: calc(10px + env(safe-area-inset-right, 0px));
+  }
+  .archive-toggle__lab {
+    display: none;
+  }
+  .archive-toggle__opt {
+    padding: 13px 13px;
+  }
+}

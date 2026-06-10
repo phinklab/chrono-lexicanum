@@ -20,6 +20,23 @@ const nextConfig: NextConfig = {
   experimental: {
     // Reserved for future toggles (PPR, dynamicIO etc.)
   },
+
+  // /werke + /podcasts merged under /archive (session 139). Query strings are
+  // auto-forwarded; `#ep-` fragments never reach the server and are re-applied
+  // by the browser after the 308 — episode deep-links keep scrolling+highlighting
+  // on hard loads. Internal links all point at /archive/*; these serve bookmarks
+  // and external references.
+  async redirects() {
+    return [
+      { source: "/werke", destination: "/archive", permanent: true },
+      { source: "/podcasts", destination: "/archive/podcasts", permanent: true },
+      {
+        source: "/podcasts/:slug",
+        destination: "/archive/podcasts/:slug",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

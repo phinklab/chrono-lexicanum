@@ -18,7 +18,7 @@
  */
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import type { PodcastEpisode } from "@/app/podcasts/loader";
+import type { PodcastEpisode } from "@/app/archive/podcasts/loader";
 
 type Props = {
   episodes: PodcastEpisode[];
@@ -98,7 +98,7 @@ export default function PodcastEpisodeArchive({ episodes, showTitle }: Props) {
   // requested first state). A year is in the set iff the reader expanded it.
   const [openYears, setOpenYears] = useState<Set<YearKey>>(new Set());
   // Deep-link target — a podcast link in an entity panel lands here as
-  // `/podcasts/[show]#ep-<id>`. The id of the episode to highlight, or null.
+  // `/archive/podcasts/[show]#ep-<id>`. The id of the episode to highlight, or null.
   const [linkedId, setLinkedId] = useState<string | null>(null);
 
   // Read the `#ep-<id>` hash on mount (and on later in-page hash changes):

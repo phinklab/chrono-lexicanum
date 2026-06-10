@@ -18,6 +18,10 @@ const eslintConfig = [
       // served verbatim from /public, reference-only for the live TSX port
       // under src/components/timeline/chronicle/. Not part of the module graph.
       "public/lab/timeline-prototype/**",
+      // Cowork design-direction exports (gitignored, local reference only).
+      // ESLint does not read .gitignore, so the ignore must live here too or
+      // `npm run lint` (eslint .) trips over the prototype JSX.
+      "design-export/**",
     ],
   },
   ...nextCoreWebVitals,

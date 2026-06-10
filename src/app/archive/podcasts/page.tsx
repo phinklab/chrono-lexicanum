@@ -7,8 +7,9 @@ import GhostReadout from "@/components/chrono/GhostReadout";
 import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
 import PodcastsSearch from "@/components/podcast/PodcastsSearch";
-import { loadBrowseBooks } from "@/app/werke/loader";
-import { buildSearchIndex } from "@/app/werke/filters";
+import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
+import { loadBrowseBooks } from "@/app/archive/loader";
+import { buildSearchIndex } from "@/app/archive/filters";
 import { loadPrimarchSuggestions } from "@/lib/compendium/loader";
 import {
   loadPodcastIndex,
@@ -48,8 +49,9 @@ function yearSpan(first: number | null, last: number | null): string | null {
 }
 
 export default async function PodcastsPage() {
-  // The show hall plus the unified search index — books (from /werke) merged with
-  // podcasts so /podcasts carries the same archive-wide search Home and /werke do.
+  // The show hall plus the unified search index — books (from /archive) merged
+  // with podcasts so this view carries the same archive-wide search Home and
+  // the books view do.
   const [shows, { books }, podcastData, primarchSuggestions] = await Promise.all([
     loadPodcastIndex(),
     loadBrowseBooks(),
@@ -67,6 +69,7 @@ export default async function PodcastsPage() {
 
   return (
     <main className="podcasts">
+      <ArchiveModeToggle active="podcasts" />
       <SiteBackground variant="vox" position="50% 38%" />
       <ScrollScrim
         className="pod-scrim"
@@ -178,7 +181,7 @@ function ShowCard({ show }: { show: PodcastIndexShow }) {
       <div className="pod-card__body">
         <div className="pod-card__kicker">PODCAST · LORE CAST</div>
         <h2 className="pod-card__title">
-          <Link href={`/podcasts/${show.slug}`} className="pod-card__title-link">
+          <Link href={`/archive/podcasts/${show.slug}`} className="pod-card__title-link">
             {show.title}
           </Link>
         </h2>

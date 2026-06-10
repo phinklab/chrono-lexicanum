@@ -61,6 +61,12 @@ yarn-error.log*
 # prototype on your disk for reference, but never push it.
 /archive/
 
+# --- design exports (local reference material, never committed) -------------
+# Cowork design-direction exports (HTML/CSS/JSX + assets) land here for the
+# port sessions. Reference-only, like /archive/ — keep local, never push.
+# Gitignoring also keeps Tailwind v4 source-detection from scanning them.
+/design-export/
+
 # --- scratch / drafts (anything you want to try without committing) --------
 .scratch/
 *.scratch.*

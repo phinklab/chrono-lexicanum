@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import BrowseSearch from "@/components/browse/BrowseSearch";
-import { factionFocusHref, primarchFocusHref, type Suggestion } from "@/app/werke/filters";
+import { factionFocusHref, primarchFocusHref, type Suggestion } from "@/app/archive/filters";
 
 /**
  * Home search (Brief 121) — the real archive search console (design-language
@@ -11,14 +11,14 @@ import { factionFocusHref, primarchFocusHref, type Suggestion } from "@/app/werk
  * list on the page (Home has none), it *arrives at the archive with the query*.
  *
  *   - book              → /buch/[slug]          (open the book directly)
- *   - podcast              → /podcasts/[slug](#ep-…)  (show page or episode deep link)
+ *   - podcast              → /archive/podcasts/[slug](#ep-…)  (show page or episode deep link)
  *   - faction              → /compendium/fraktionen?focus=[id]  (faction directory + popup)
  *   - primarch             → /compendium/primarchen?focus=[id] (primarch directory + popup)
- *   - facet/format         → /werke?<param>=…   (land in the archive, pre-filtered)
- *   - author / raw Enter   → /werke?q=…          (land in the archive, searched)
- *   - empty Enter          → /werke              (open the unfiltered archive)
+ *   - facet/format         → /archive?<param>=…   (land in the archive, pre-filtered)
+ *   - author / raw Enter   → /archive?q=…          (land in the archive, searched)
+ *   - empty Enter          → /archive              (open the unfiltered archive)
  *
- * The grouped typeahead is fed by the same server-built `index` /werke uses
+ * The grouped typeahead is fed by the same server-built `index` /archive uses
  * (books + podcasts), so the suggestions are live and identical. The combobox
  * mechanics live in the shared console; this wrapper only supplies the routing.
  */
@@ -26,15 +26,15 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
   const router = useRouter();
   const [q, setQ] = useState("");
 
-  /** Land on /werke with a single param set (or unfiltered when empty). */
+  /** Land on /archive with a single param set (or unfiltered when empty). */
   function toWerke(key: string | null, value: string): void {
     if (!key || !value) {
-      router.push("/werke");
+      router.push("/archive");
       return;
     }
     const sp = new URLSearchParams();
     sp.set(key, value);
-    router.push(`/werke?${sp.toString()}`);
+    router.push(`/archive?${sp.toString()}`);
   }
 
   function onPick(s: Suggestion): void {

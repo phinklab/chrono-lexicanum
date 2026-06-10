@@ -7,12 +7,14 @@ import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
+import CompendiumFocusOpener from "@/components/compendium/CompendiumFocusOpener";
+import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import WerkeFilters from "./WerkeFilters";
-import { loadBrowseBooks, type BrowseBook } from "./loader";
+import { bookSlugById, loadBrowseBooks, type BrowseBook } from "./loader";
 import {
   loadPodcastSearchIndex,
   buildPodcastSuggestions,
-} from "@/app/podcasts/loader";
+} from "@/app/archive/podcasts/loader";
 import { loadPrimarchSuggestions } from "@/lib/compendium/loader";
 import {
   applyWorksFilters,
@@ -24,7 +26,7 @@ import {
 } from "./filters";
 
 export const metadata: Metadata = {
-  title: "Works — Chrono Lexicanum",
+  title: "Archive — Chrono Lexicanum",
   description:
     "Browse the full Warhammer 40,000 novel archive — by era, faction, format and mood.",
 };
@@ -56,7 +58,7 @@ function formatLabel(format: string | null): string | null {
   return format ? FORMAT_LABELS[format] ?? format : null;
 }
 
-/** Build a `/werke` href that keeps the current filters and overrides one key. */
+/** Build an `/archive` href that keeps the current filters and overrides one key. */
 function hrefWith(base: WorksParams, key: string, value: string): string {
   const sp = new URLSearchParams();
   if (base.q) sp.set("q", base.q);
@@ -65,7 +67,7 @@ function hrefWith(base: WorksParams, key: string, value: string): string {
   if (base.facet) sp.set("facet", base.facet);
   if (base.sort !== "title") sp.set("sort", base.sort);
   sp.set(key, value);
-  return `/werke?${sp.toString()}`;
+  return `/archive?${sp.toString()}`;
 }
 
 export default async function WerkePage({ searchParams }: WerkePageProps) {
@@ -79,6 +81,14 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
 
   const filtered = applyWorksFilters(books, params);
   const filtering = isFiltered(params);
+
+  // Deep-link: `?focus=<workId>` opens that book's popup over the catalogue
+  // (compendium `?focus=` pattern; Brief 138's timeline chips link here). The
+  // id resolves via its own lookup — NOT via the browse list — so a future
+  // filter/limit on the catalogue query can't turn the link into a no-op.
+  const focusRaw = sp.focus;
+  const focusId = Array.isArray(focusRaw) ? focusRaw[0] : focusRaw;
+  const focusSlug = focusId ? await bookSlugById(focusId) : null;
 
   // Filter options reflect what the data actually carries (Brief: "soweit
   // vorhandene Daten es tragen"). Era was dropped in the polish pass — it lives
@@ -120,6 +130,8 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
 
   return (
     <main className="catalogue catalogue--werke">
+      {focusSlug ? <CompendiumFocusOpener href={`/buch/${focusSlug}`} /> : null}
+      <ArchiveModeToggle active="books" />
       <section className="catalogue-hero" aria-label="Works — the novel archive">
         <div className="catalogue-hero__photo" aria-hidden />
         <div className="catalogue-hero__fade" aria-hidden />
