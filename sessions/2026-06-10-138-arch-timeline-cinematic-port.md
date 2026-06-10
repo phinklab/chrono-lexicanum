@@ -24,6 +24,16 @@ Postgres instead of the prototype's inline demo data.
 
 ## Context
 
+- **Load the `/frontend-design` skill at session start** (before writing any UI
+  code). This is a porting/UI session; the skill's design discipline applies to
+  every component built here. The prototype defines the target look — the skill
+  governs *how* the React/Tailwind implementation gets there cleanly.
+- **Expect a real port, not a copy.** The export was built by Claude Design
+  outside our stack (vanilla JS + standalone HTML/CSS, no Next.js, no React, no
+  Tailwind, no App Router). Assume *nothing* drops in as-is: interaction code is
+  re-implemented as React components (spec below), CSS is adapted into the
+  partial system, data wiring is replaced by the DB loader. Budget the session
+  accordingly.
 - **The prototype is the porting source.** Philipp copies the exported folder into
   this worktree root as `design-export/` (git-ignored / untracked — like the
   original HTML prototype: *port forward, don't edit, don't commit*). Key files:
