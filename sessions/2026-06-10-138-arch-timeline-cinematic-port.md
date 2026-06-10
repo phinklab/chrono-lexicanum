@@ -2,7 +2,7 @@
 session: 2026-06-10-138
 role: architect
 date: 2026-06-10
-status: open
+status: implemented
 slug: timeline-cinematic-port
 parent: 2026-06-10-137  # data foundation — MUST be applied (DB live) before this session starts
 links: [2026-06-10-137, 2026-06-10-139]
