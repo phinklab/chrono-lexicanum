@@ -597,6 +597,33 @@ check("alias - Resolver-Pass 15 confirmation Knights-Errant (hyphen) still route
   assert.equal(resolveFaction("Knights-Errant").id, "knights_errant");
 });
 
+check("direct match - Resolver-Pass 16 Leagues of Votann (9th/10th-edition Kin faction, first Votann novel, freq=2 strict W40K-0577 Darkness Eternal + W40K-0580 The High Kâhl's Oath, parent=null top-level xenos parity, distinct from squats historical row)", () => {
+  assert.equal(resolveFaction("Leagues of Votann").id, "leagues_of_votann");
+});
+
+check("alias - Resolver-Pass 16 Kindred of the Eternal Starforge routes to leagues_of_votann (Votann sub-org → umbrella, Authority-Layer-Coarseness analog Cadian → cadian_shock_troops, W40K-0580)", () => {
+  assert.equal(
+    resolveFaction("Kindred of the Eternal Starforge").id,
+    "leagues_of_votann",
+  );
+});
+
+check("direct match - Resolver-Pass 16 Order Pronatus (non-militant Sororitas relic-keeper Order, title faction of Aestred Thurga: Pyre of Faith W40K-0571, freq=1 lore-iconic, parent=sisters_of_battle parity with order_of_our_martyred_lady)", () => {
+  assert.equal(resolveFaction("Order Pronatus").id, "order_pronatus");
+});
+
+check("direct match - Resolver-Pass 16 Exorcists (Codex-divergent daemon-binding Space Marine chapter, protagonist of Oaths of Damnation W40K-0582, freq=1 lore-iconic, parent=adeptus_astartes single-chapter-row parity)", () => {
+  assert.equal(resolveFaction("Exorcists").id, "exorcists");
+});
+
+check("alias - Resolver-Pass 16 Aeldari Harlequins routes to harlequins (precise existing eldar sub-row, Saints of the Imperium W40K-0578, lore-eindeutig)", () => {
+  assert.equal(resolveFaction("Aeldari Harlequins").id, "harlequins");
+});
+
+check("alias - Resolver-Pass 16 Cadian Kasrkin routes to kasrkin (precise existing row — Kasrkin sind Cadian-Elite-Stormtroopers, Soldiers of the Imperium W40K-0591)", () => {
+  assert.equal(resolveFaction("Cadian Kasrkin").id, "kasrkin");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
@@ -1141,6 +1168,37 @@ check("direct match - Resolver-Pass 15 Northwilds (curated freq=1 lore-iconic �
 
 check("direct match - Resolver-Pass 15 Numinus (curated freq=1 lore-iconic — Calth-region locale, HH-0273 Garro: Oath of Moment, cross-arc with Calth-region sub-locale set, sector ultima parity with ithraca)", () => {
   assert.equal(resolveLocation("Numinus").id, "numinus");
+});
+
+check("direct match - Resolver-Pass 16 Vraks Prime (Siege of Vraks armoury world, lore-major Imperial-Armour campaign locale, Siege of Vraks W40K-0588, freq=1 lore-iconic, tags=['death_korps_of_krieg'])", () => {
+  assert.equal(resolveLocation("Vraks Prime").id, "vraks_prime");
+});
+
+check("direct match - Resolver-Pass 16 Citadel of Vraks (distinct fortress sub-location of the Vraks siege — separate identity from the vraks_prime planet per runbook §4, W40K-0588, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Citadel of Vraks").id, "citadel_of_vraks");
+});
+
+check("direct match - Resolver-Pass 16 Kindred of the Eternal Starforge Hold ship (Leagues of Votann Hold-ship vessel, tags=['vessel'] gx/gy=null per runbook §3 Phase 2 vessel-convention, The High Kâhl's Oath W40K-0580)", () => {
+  assert.equal(
+    resolveLocation("Kindred of the Eternal Starforge Hold ship").id,
+    "eternal_starforge_hold",
+  );
+});
+
+check("direct match - Resolver-Pass 16 Gryphonne IV (Forge World consumed by Hive Fleet Leviathan, Dominion Genesis W40K-0584, freq=1 lore-iconic, tags=['mechanicus'])", () => {
+  assert.equal(resolveLocation("Gryphonne IV").id, "gryphonne_iv");
+});
+
+check("direct match - Resolver-Pass 16 Ras Shakeh (Wraight Space Wolves shrine world, Legends of the Wolf: The Omnibus W40K-0586, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Ras Shakeh").id, "ras_shakeh");
+});
+
+check("direct match - Resolver-Pass 16 Formosa Sector (sector-grain locale of Coteaz's Daemonhammer W40K-0581, freq=1 lore-iconic, tags=['region'] parity with gothic_sector/thramas_sector)", () => {
+  assert.equal(resolveLocation("Formosa Sector").id, "formosa_sector");
+});
+
+check("direct match - Resolver-Pass 16 Fortuna Minor (Lord Solar Leontus vs a Speed Waaagh! warzone, Leontus W40K-0590, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Fortuna Minor").id, "fortuna_minor");
 });
 
 console.log("\nresolveCharacter");
@@ -1789,6 +1847,51 @@ check("alias-consolidation - Resolver-Pass 15 (7d Cross-Era same-identity disamb
 
 check("alias-consolidation - Resolver-Pass 15 confirmation Horus Lupercal still routes to horus (Pass-11 alias holds — HH-0277 The Either + HH-0291 Collected Visions + HH-0294 Visions of Heresy 2018 ed.)", () => {
   assert.equal(resolveCharacter("Horus Lupercal").id, "horus");
+});
+
+check("direct match - Resolver-Pass 16 Morvenn Vahl (7c strong curated freq-1 lore-iconic title character — Abbess Sanctorum, supreme commander of the Adepta Sororitas, Morvenn Vahl: Spear of Faith W40K-0576, primaryFactionId sisters_of_battle)", () => {
+  assert.equal(resolveCharacter("Morvenn Vahl").id, "morvenn_vahl");
+});
+
+check("direct match - Resolver-Pass 16 Torquemada Coteaz (7c strong curated freq-1 lore-iconic title character — Inquisitor Coteaz of the Ordo Malleus, Daemonhammer W40K-0581, primaryFactionId ordo_malleus)", () => {
+  assert.equal(resolveCharacter("Torquemada Coteaz").id, "torquemada_coteaz");
+});
+
+check("direct match - Resolver-Pass 16 Arcadian Leontus (7c strong curated freq-1 lore-iconic title character — Lord Solar Leontus, 10th-edition Astra Militarum supreme commander, Leontus W40K-0590, primaryFactionId astra_militarum)", () => {
+  assert.equal(resolveCharacter("Arcadian Leontus").id, "arcadian_leontus");
+});
+
+check("direct match - Resolver-Pass 16 Grotsnik (7c strong curated freq-1 lore-iconic title character — Mad Dok / Painboss Grotsnik, iconic named Ork, Grotsnik: Da Mad Dok W40K-0583, primaryFactionId orks)", () => {
+  assert.equal(resolveCharacter("Grotsnik").id, "grotsnik");
+});
+
+check("direct match - Resolver-Pass 16 Aestred Thurga (7c curated freq-1 title character — Order Pronatus relic-bearer, Aestred Thurga: Pyre of Faith W40K-0571, primaryFactionId order_pronatus finer-grain row landed Phase 1)", () => {
+  assert.equal(resolveCharacter("Aestred Thurga").id, "aestred_thurga");
+});
+
+check("direct match - Resolver-Pass 16 Xantine (7c curated freq-1 title antagonist — 'Xantine, the Adored', Emperor's Children title-antagonist, Renegades: Lord of Excess W40K-0592, primaryFactionId emperors_children)", () => {
+  assert.equal(resolveCharacter("Xantine").id, "xantine");
+});
+
+check("direct match - Resolver-Pass 16 Darya Nevic (7b strict-freq-2 cross-batch spine — only freq>=2 unresolved character this wave, W40K-0587 Blood of the Imperium + W40K-0590 Leontus, both Astra-Militarum-adjacent; distinctive full name -> single canonical row per runbook §4 freq>=2-strict)", () => {
+  assert.equal(resolveCharacter("Darya Nevic").id, "darya_nevic");
+});
+
+check("alias-consolidation - Resolver-Pass 16 (7a Case A cross-batch identity-merge already landed) Commissar Yarrick (W40K-0572 Carnage Unending, batch 058) + Sebastian Yarrick (W40K-0585 Yarrick: Imperial Creed, batch 059) both route to the single sebastian_yarrick row", () => {
+  assert.equal(resolveCharacter("Commissar Yarrick").id, "sebastian_yarrick");
+  assert.equal(resolveCharacter("Sebastian Yarrick").id, "sebastian_yarrick");
+});
+
+check("alias-consolidation - Resolver-Pass 16 (7a discretionary short-form, runbook §4 Character-Honor-Title-Split convention — lore-unambiguous, no cross-axis collision) Leontus routes to arcadian_leontus (book/short surface vs full name Arcadian Leontus, Leontus W40K-0590)", () => {
+  assert.equal(resolveCharacter("Leontus").id, "arcadian_leontus");
+});
+
+check("alias-consolidation - Resolver-Pass 16 (7a discretionary short-form, runbook §4 Character-Honor-Title-Split convention — lore-unambiguous, no cross-axis collision) Coteaz routes to torquemada_coteaz (dominant short surface for Inquisitor Coteaz, Daemonhammer W40K-0581)", () => {
+  assert.equal(resolveCharacter("Coteaz").id, "torquemada_coteaz");
+});
+
+check("alias-consolidation - Resolver-Pass 16 (7a discretionary short-form, runbook §4 Character-Honor-Title-Split convention — lore-unambiguous, no cross-axis collision) Vahl routes to morvenn_vahl (short surface for the Abbess Sanctorum, Morvenn Vahl: Spear of Faith W40K-0576)", () => {
+  assert.equal(resolveCharacter("Vahl").id, "morvenn_vahl");
 });
 
 console.log("\nnormalizeCharacterRole");

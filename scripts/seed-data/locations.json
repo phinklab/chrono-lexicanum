@@ -2409,5 +2409,61 @@
     "gx": null,
     "gy": null,
     "tags": ["space_wolves"]
+  },
+  {
+    "id": "vraks_prime",
+    "name": "Vraks Prime",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["death_korps_of_krieg"]
+  },
+  {
+    "id": "citadel_of_vraks",
+    "name": "Citadel of Vraks",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "eternal_starforge_hold",
+    "name": "Kindred of the Eternal Starforge Hold ship",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["vessel"]
+  },
+  {
+    "id": "gryphonne_iv",
+    "name": "Gryphonne IV",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["mechanicus"]
+  },
+  {
+    "id": "ras_shakeh",
+    "name": "Ras Shakeh",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "formosa_sector",
+    "name": "Formosa Sector",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "fortuna_minor",
+    "name": "Fortuna Minor",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
   }
 ]

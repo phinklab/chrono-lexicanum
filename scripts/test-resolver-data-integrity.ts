@@ -79,6 +79,9 @@ const OVERRIDE_BATCHES = [
   { domain: "w40k", n: "055" },
   { domain: "w40k", n: "056" },
   { domain: "w40k", n: "057" },
+  { domain: "w40k", n: "058" },
+  { domain: "w40k", n: "059" },
+  { domain: "w40k", n: "060" },
   { domain: "hh", n: "001" },
   { domain: "hh", n: "002" },
   { domain: "hh", n: "003" },
@@ -349,7 +352,7 @@ function main(): void {
     }
   });
 
-  check("coverage smoke slugs exist in w40k-001..057 + hh-001..030", () => {
+  check("coverage smoke slugs exist in w40k-001..060 + hh-001..030", () => {
     const slugs = new Set<string>();
     for (const batch of OVERRIDE_BATCHES) {
       const override = readJson<OverrideFile>(
