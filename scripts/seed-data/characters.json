@@ -3477,5 +3477,26 @@
     "primaryFactionId": "astra_militarum",
     "lexicanumUrl": null,
     "notes": "Resolver-Pass 16 Phase 3 (7b strict-freq-2 cross-batch spine — the only freq>=2 unresolved character this wave, W40K-0587 Blood of the Imperium + W40K-0590 Leontus, both Astra-Militarum-adjacent contexts; distinctive full name carries low same-name-collision risk -> single canonical row per runbook §4 freq>=2-strict threshold, no needs-decision stop). primaryFactionId astra_militarum."
+  },
+  {
+    "id": "ulrach_branthan",
+    "name": "Ulrach Branthan",
+    "primaryFactionId": "iron_hands",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 16 gap follow-up (restbatch-extension HH-0295..0297, identity web-verified high-confidence): Captain of the Iron Hands 65th Clan-Company (Nirankar Clan) and commander of the strike cruiser Sisypheum; POV in Sons of the Selenar, collected in The Shattered and the Soulless (HH-0296). Override surface form 'Branthan' aliased to this full-name canonical row (surname -> full-name, cf. Cawl/Draco/Stern). primaryFactionId iron_hands — the individual is unambiguously Iron Hands, distinct from the Sisypheum's mixed Shattered-Legions crew (Iron Hands + Salamanders + Raven Guard)."
+  },
+  {
+    "id": "castrmen_orth",
+    "name": "Castrmen Orth",
+    "primaryFactionId": "iron_hands",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 16 gap follow-up (restbatch-extension HH-0295..0297, identity web-verified high-confidence): Iron Hands Spearhead-Centurion of Clan Avernii (long-standing Forge World Horus Heresy special character), POV in Dropsite Massacre (HH-0297, John French). Surface form matches canonical name (direct match). primaryFactionId iron_hands."
+  },
+  {
+    "id": "kaedes_nex",
+    "name": "Kaedes Nex",
+    "primaryFactionId": "raven_guard",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 16 gap follow-up (restbatch-extension HH-0295..0297, identity web-verified high-confidence): Raven Guard Moritat-Prime 'The Blood Crow' of the 14th Interdiction Company (Forge World Horus Heresy special character, Isstvan V / Drop Site Massacre), POV in Dropsite Massacre (HH-0297, John French). Surface form matches canonical name (direct match). primaryFactionId raven_guard."
   }
 ]

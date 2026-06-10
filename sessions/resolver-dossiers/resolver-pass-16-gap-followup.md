@@ -46,3 +46,17 @@ A targeted custom-config `run-resolver-pass.sh` wave (NOT the auto-loop — it's
 Each re-aggregates the full batch (already-resolved books are idempotent) and promotes only the
 novel tail. **Known hazard:** the Phase-4a subsession must NOT background the apply (that is what
 halted Pass 16 — see the impl report); run the apply synchronously or finish 4a/4b by hand.
+
+## Closure (applied 2026-06-10, branch `codex/ingest-batches-resolver-gap`)
+
+Closed as a **single manual top-up** (not a full 6-phase wave). Seed JSON edits → `db:seed-resolver-extensions` (+8 reference rows) → synchronous foreground re-apply of `ssot-w40k-057` + `ssot-hh-030`. All identity-uncertain Heresy entities were web-verified (research + adversarial-refute pass) — all five returned `confirmed / high-confidence / promote`.
+
+**Promoted (8 reference rows + 2 aliases):**
+- Faction `freebooterz` — new row, `parent=orks, alignment=xenos, tone=alien` (exact `goffs` Ork-sub-type precedent). Direct name-match (W40K-0567).
+- Faction alias `Valhallan Ice Warriors → valhallan_597th` — **judgment call.** The dossier offered "alias→`astra_militarum`, or a new `valhallans` row." Chose a third path: alias to the **already-existing** `valhallan_597th` row, because (a) it is the only canonical Valhallan anchor in the corpus, (b) the tagging book (W40K-0569 *Legends of the Waaagh!*) carries the 597th via *Caves of Ice*, (c) Authority-Layer-Coarseness precedent (`Cadian → cadian_shock_troops`, `Kindred of the Eternal Starforge → leagues_of_votann`), (d) zero new rows / no `astra_militarum` coarsening that would discard the Valhallan grain. Revisit if a generic `valhallans` row is later preferred.
+- Locations `halo_stars` (`tags:["region"]`, `ghoul_stars` precedent), `nusquam_fundumentibus` (ice world), `sacramentus` (hive city, `Hive` W40K-0566 — name confirmed against final GW sources), `helwain` (world, HH-0295) — all `sector/gx/gy=null`, direct name-match.
+- Characters `ulrach_branthan` (Iron Hands, Sisypheum captain; override surface form `Branthan` → alias to full-name row), `castrmen_orth` (Iron Hands, Clan Avernii), `kaedes_nex` (Raven Guard Moritat-Prime) — all HH POVs, identity web-verified.
+
+**Left unresolved per runbook §4 (acceptable freq-1 tail, confirmed in apply output):** characters Skeeg Horntoof, Antoinette von Hume (W40K-0567 `char=0`), Sgt Kostantin Taikon (W40K-0570 `char=0`); vessel `Gork's Revenge` (W40K-0567 `loc=1` = Halo Stars only). The unnamed Chaos cults (Hive, Veterans of the Fall) and `HH-0291` artbook authorship remain intentionally low-confidence/unresolved.
+
+**Resulting junctions (all 8 gap books now fully resolved; W40K-0568 was already complete):** W40K-0566 loc=1 · W40K-0567 fac=2/loc=1 · W40K-0569 fac=4/loc=2 · HH-0295 loc=1 · HH-0296 char=2 · HH-0297 char=5. Checks green: `test:resolver` (507 pass, +10 gap cases), `test:resolver-data`, `test:resolver-coverage`, `test:apply-override-dry` (0 missing FK / 0 dangling refs), `test:collection-refs`, `lint`, `typecheck`.

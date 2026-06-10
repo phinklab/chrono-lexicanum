@@ -2465,5 +2465,37 @@
     "gx": null,
     "gy": null,
     "tags": []
+  },
+  {
+    "id": "halo_stars",
+    "name": "Halo Stars",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": ["region"]
+  },
+  {
+    "id": "nusquam_fundumentibus",
+    "name": "Nusquam Fundumentibus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "sacramentus",
+    "name": "Sacramentus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "helwain",
+    "name": "Helwain",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
   }
 ]

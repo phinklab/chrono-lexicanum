@@ -1416,5 +1416,12 @@
     "parent": "adeptus_astartes",
     "alignment": "imperium",
     "tone": "imperial"
+  },
+  {
+    "id": "freebooterz",
+    "name": "Freebooterz",
+    "parent": "orks",
+    "alignment": "xenos",
+    "tone": "alien"
   }
 ]
