@@ -6,6 +6,12 @@
  * is server-side and URL-mirrored (the <CompendiumControls> island writes the
  * params); factions group by alignment, the rest are flat. A not-yet-curated
  * category (Primarchs) renders a graceful pending state instead of a 404.
+ *
+ * Deliberately no `generateStaticParams`: reading `searchParams` makes the page
+ * per-request dynamic anyway, so prebuilding the five categories only forced a
+ * build-time render whose layout aggregates (`loadCompendiumCounts`) ran into
+ * Vercel's static-generation timeout. Runtime perf is carried by the
+ * `cachedRead` layer in the loaders, not by prerendering.
  */
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -27,11 +33,6 @@ import CompendiumFocusOpener from "@/components/compendium/CompendiumFocusOpener
 
 type Params = { category: string };
 type Search = Record<string, string | string[] | undefined>;
-
-// Build the five known categories ahead of time; an unknown slug 404s.
-export function generateStaticParams(): Params[] {
-  return COMPENDIUM_CATEGORIES.map((c) => ({ category: c.slug }));
-}
 
 export async function generateMetadata({
   params,

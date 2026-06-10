@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   // Strict mode catches common bugs early; keep on in dev.
   reactStrictMode: true,
 
+  // /compendium (ISR, revalidate=300) still prerenders at build and shares the
+  // max-5 pooler pool with ~1100 entity detail pages rendering concurrently —
+  // its cold aggregate fill can exceed the 60s default and abort the deploy.
+  staticPageGenerationTimeout: 180,
+
   // We do not yet ship images from external CDNs. Add remote patterns here
   // when cover-image work picks an actual source. (Goodreads is no longer a
   // candidate — its API was discontinued December 2020. Phase-3 sources are

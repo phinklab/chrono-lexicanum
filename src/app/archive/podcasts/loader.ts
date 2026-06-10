@@ -441,16 +441,3 @@ export function buildPodcastSuggestions(data: PodcastSearchData): Suggestion[] {
   }
   return out;
 }
-
-// ── podcastShowSlugs (generateStaticParams) ─────────────────────────────────
-export async function podcastShowSlugs(): Promise<string[]> {
-  try {
-    const rows = await db.query.works.findMany({
-      where: (w, { eq }) => eq(w.kind, "podcast"),
-      columns: { slug: true },
-    });
-    return rows.map((r) => r.slug);
-  } catch {
-    return [];
-  }
-}
