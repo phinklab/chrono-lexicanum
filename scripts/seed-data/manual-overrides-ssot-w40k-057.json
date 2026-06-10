@@ -4,7 +4,7 @@
   "createdBy": "claude-code",
   "createdAt": "2026-05-23",
   "model": "claude-opus-4-7[1m]",
-  "rationale": "Final 5-book W40K wave closes the loop at 565/565 (cumulativeBefore=560). Three Black Library novellas frame tight single-faction character pieces (Custodes hunt on Vorganthian, Necron court at Doahht, Imperial Guard breakout from an ork camp), and two full novels bookend the Imperium's edges — Alpha Legion empire-building under Solomon Akurra and Cypher's unreliable raid on the Throneworld during the Great Rift. Coverage solid across all five, including freshly-rated Ghost Legion (Feb 2026).",
+  "rationale": "Final 5-book W40K wave closes the loop at 565/565 (cumulativeBefore=560). Three Black Library novellas frame tight single-faction character pieces (Custodes hunt on Vorganthian, Necron court at Doahht, Imperial Guard breakout from an ork camp), and two full novels bookend the Imperium's edges — Alpha Legion empire-building under Solomon Akurra and Cypher's unreliable raid on the Throneworld during the Great Rift. Coverage solid across all five, including freshly-rated Ghost Legion (Feb 2026). | Extended 2026-06-10 (claude-opus-4-8[1m]): appended W40K-0566..0570, the first five books of the weekly-refresh promotion wave (Brief 133). They fall inside this domain-end restbatch's positional slot, so loop:next never surfaced them on its own; adding them fills 057 to a full 10-book batch. New five: Hive (Abnett hive-noir), Da Freebooterz Code (Ork pirates), World Ablaze (Armageddon anthology), Legends of the Waaagh! (Ork omnibus), Veterans of the Fall (Cadian-survivors novella). Hive and World Ablaze are 2026 titles with no Goodreads edition yet (unrated).",
   "books": [
     {
       "externalBookId": "W40K-0561",
@@ -248,6 +248,312 @@
           "value": 4.02,
           "count": 60,
           "evidenceUrl": "https://www.goodreads.com/en/book/show/55919783"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0566",
+      "slug": "hive",
+      "overrides": {
+        "synopsis": "Sacramentus is a hive city on the edge. The planetary governor has fallen amid scandal and treachery, and the Imperial authorities have installed an outsider to fill the void — an unpopular choice in a rough, dogmatic city where austerity bites deep and Adeptus Arbites patrols enforce the Lex Imperialis without mercy or sympathy. In the upper spires, whispers of rebellion grow louder. In the depths, rival gangs carve out territory and forbidden cults grow bolder, feeding on resentment and desperation. But the visible unrest is not the greatest threat to Sacramentus. Something darker stirs in the lower reaches — something that the Arbites sense but cannot yet name, and that no faction scheming for control of the hive is prepared for.",
+        "facetIds": [
+          "book",
+          "en",
+          "ensemble",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "doorstopper",
+          "political_thriller",
+          "grimdark",
+          "betrayal",
+          "faith",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Adeptus Arbites",
+            "role": "primary"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Sacramentus",
+            "role": "primary"
+          }
+        ],
+        "characters": [],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "factions",
+            "reason": "A hidden Chaos cult is the antagonist, but no specific patron god or sub-faction is confirmed in pre-release coverage, so it is left unbound rather than guessed."
+          },
+          {
+            "kind": "low_confidence",
+            "field": "characters",
+            "reason": "No named POV characters are confirmed in pre-release sources; the novel uses multiple shifting perspectives."
+          }
+        ],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "no Goodreads edition found",
+          "evidenceUrl": null
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0567",
+      "slug": "da-freebooterz-code",
+      "overrides": {
+        "synopsis": "Skeeg Horntoof has one dream: the biggest hat, the most dakka, and a name that echoes across the void. As kaptin of Gork's Revenge, he commands his crew of Freebooterz by Da Freebooterz Code — a set of rules so outrageous they just might work. His latest plan is his boldest yet: plunder the hunting grounds of Lord Captain Antoinette von Hume, the merciless pirate queen who has terrorised the Halo Stars for decades. But von Hume did not earn her legend by suffering upstart Ork kaptins gladly, and she has no intention of letting Horntoof walk away with her prize. A raucous clash of pirates — green and otherwise — in the lawless dark beyond the Imperium's reach.",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "standalone",
+          "standard",
+          "heist",
+          "satirical",
+          "action_heavy",
+          "hubris",
+          "cw_violence",
+          "cw_language"
+        ],
+        "factions": [
+          {
+            "name": "Freebooterz",
+            "role": "primary"
+          },
+          {
+            "name": "Rogue Traders",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Halo Stars",
+            "role": "primary"
+          },
+          {
+            "name": "Gork's Revenge",
+            "role": "supporting"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Skeeg Horntoof",
+            "role": "pov"
+          },
+          {
+            "name": "Lord Captain Antoinette von Hume",
+            "role": "antagonist"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.3,
+          "count": 27,
+          "evidenceUrl": "https://www.goodreads.com/book/show/251416944-da-freebooterz-code"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0568",
+      "slug": "world-ablaze",
+      "overrides": {
+        "synopsis": "Eleven stories. One burning world. World Ablaze gathers an ensemble of Black Library voices to chronicle the relentless defence of Armageddon — a war world where every hive block, ash waste, and frozen wasteland has become a killing ground. Blood Angels fight desperate rearguard actions, Black Templars drag their wounded across miles of ice, Space Wolves and Salamanders forge an unlikely brotherhood in the crucible, and Crimson Fists make their final stand against the greenskin tide. Astra Militarum troopers find salvation in the most unlikely places, while veteran ork pilots pursue one last moment of glory. Across every story, the scale of the invasion bears down on soldiers great and ordinary alike, showing the war for Armageddon as it has never been told before.",
+        "facetIds": [
+          "book",
+          "en",
+          "ensemble",
+          "multi",
+          "dual",
+          "galactic",
+          "standalone",
+          "short",
+          "war_story",
+          "grimdark",
+          "war",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Astra Militarum",
+            "role": "primary"
+          },
+          {
+            "name": "Blood Angels",
+            "role": "primary"
+          },
+          {
+            "name": "Black Templars",
+            "role": "primary"
+          },
+          {
+            "name": "Orks",
+            "role": "antagonist"
+          },
+          {
+            "name": "Crimson Fists",
+            "role": "supporting"
+          },
+          {
+            "name": "Salamanders",
+            "role": "supporting"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Armageddon",
+            "role": "primary"
+          }
+        ],
+        "characters": [],
+        "flags": [],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "no Goodreads edition found",
+          "evidenceUrl": null
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0569",
+      "slug": "legends-of-the-waaagh",
+      "overrides": {
+        "synopsis": "Three of Black Library's finest authors — Dan Abnett, Aaron Dembski-Bowden, and Sandy Mitchell — deliver two novels, a novella, and three short stories united by one green tide. In Helsreach, the Black Templars make a ferocious last stand to defend Hive Helsreach on Armageddon as an ork horde of unprecedented scale crashes over the city walls. In Caves of Ice, Commissar Ciaphas Cain leads Valhallan Ice Warriors on a frozen mining world where an ork invasion masks something far older and more dangerous stirring beneath the permafrost. In I Am Slaughter, the Imperial Fists depart Terra for the first time in centuries only to find a xenos onslaught that threatens the entire Imperium. Three short stories round out the collection, each placing soldiers, commissars, and Space Marines face-to-face with the unrelenting ferocity of the Waaagh.",
+        "facetIds": [
+          "book",
+          "en",
+          "ensemble",
+          "multi",
+          "dual",
+          "galactic",
+          "standalone",
+          "doorstopper",
+          "war_story",
+          "action_heavy",
+          "war",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Black Templars",
+            "role": "primary"
+          },
+          {
+            "name": "Valhallan Ice Warriors",
+            "role": "primary"
+          },
+          {
+            "name": "Imperial Fists",
+            "role": "primary"
+          },
+          {
+            "name": "Orks",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Armageddon",
+            "role": "primary"
+          },
+          {
+            "name": "Nusquam Fundumentibus",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Ciaphas Cain",
+            "role": "pov"
+          }
+        ],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "characters",
+            "reason": "No named ork warbosses are confirmed for this omnibus; Orks appear as the collective antagonist across the collected stories."
+          }
+        ],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "no Goodreads edition found",
+          "evidenceUrl": null
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0570",
+      "slug": "veterans-of-the-fall",
+      "overrides": {
+        "synopsis": "When Cadia fell, a handful of traumatised survivors found themselves stranded on a ruined world carved apart by rival cults. Since then, the Kasrkin veterans known as the Tattershields have anchored the crumbling Imperial defence, holding back the overwhelming might of the Archenemy through sabotage, assassinations, and unbreakable discipline. Their commander, Sergeant Kostantin Taikon, is an inspiration to the beleaguered defenders — but he is haunted by guilt and consumed by fatalism, fighting on with no hope of victory or atonement. As infiltrators sow discord in their ranks and a sadistic new enemy closes in, Taikon must lead his indomitable Kasrkin to the bitter end. Collecting the short story Tattershield, the serial Tatters of Hope, and the novella Veterans of the Fall.",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "guardsman",
+          "imperium",
+          "company",
+          "standalone",
+          "standard",
+          "war_story",
+          "grimdark",
+          "brotherhood",
+          "sacrifice",
+          "loyalty",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Kasrkin",
+            "role": "primary"
+          },
+          {
+            "name": "Astra Militarum",
+            "role": "supporting"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Cadia",
+            "role": "supporting"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Sergeant Kostantin Taikon",
+            "role": "pov"
+          }
+        ],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "factions",
+            "reason": "The antagonist is named only as 'the Archenemy' and 'rival cults'; no specific Chaos warband or Legion is identified in available sources, so it is left unbound."
+          }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.25,
+          "count": 8,
+          "evidenceUrl": "https://www.goodreads.com/book/show/251417061-veterans-of-the-fall"
         }
       }
     }

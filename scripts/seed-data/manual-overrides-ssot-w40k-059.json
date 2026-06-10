@@ -1,0 +1,711 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-059",
+  "createdBy": "claude-code",
+  "createdAt": "2026-06-10",
+  "model": "claude-opus-4-8[1m]",
+  "rationale": "Weekly-refresh promotion wave 2 (W40K-0581..0590). Ten 2025 backlist titles the frozen Excel never carried: the Coteaz Inquisition novel Daemonhammer, the Exorcists novel Oaths of Damnation, the Ork comedy Grotsnik: Da Mad Dok, the Mechanicus quest Dominion Genesis, the re-released Yarrick: Imperial Creed, Chris Wraight's Legends of the Wolf omnibus, the anthology Blood of the Imperium, Steve Lyons' Siege of Vraks, Fehervari's second Dark Coil omnibus (Damnation), and the Lord Solar novel Leontus. All ten page-rated on Goodreads (3.77-4.32). Faction granularity kept concrete; unnamed Chaos antagonists left unbound per the 057 precedent.",
+  "books": [
+    {
+      "externalBookId": "W40K-0581",
+      "slug": "daemonhammer",
+      "overrides": {
+        "synopsis": "Zealous and uncompromising, Inquisitor Torquemada Coteaz is the scourge of cultist and daemon alike — lord inquisitor and High Protector of the Formosa Sector, a man whose will has broken cults and banished daemons across decades of thankless service. But the long years exact their price, and his body is failing. When sinister tidings from a forgotten corner of the sector hint at spectres from his past — and a mysterious artefact known as the Soul Glass surfaces amid whispers of heresy — Coteaz must confront a terrible choice: relinquish his throne to rivals who would undo his life's work, or seize forbidden power to endure. His interrogators Voltas and Elias are drawn into an investigation that winds through decaying hive cities and heretical conspiracies, as daemonic forces move in the shadows. Should Coteaz succumb to the darkness he has hunted all his life, billions will fall with him.",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "inquisitor",
+          "imperium",
+          "sector",
+          "standalone",
+          "standard",
+          "mystery",
+          "grimdark",
+          "doubt",
+          "faith",
+          "hubris",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Ordo Malleus",
+            "role": "primary"
+          },
+          {
+            "name": "Chaos Daemons",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Formosa Sector",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Torquemada Coteaz",
+            "role": "pov"
+          },
+          {
+            "name": "Voltas",
+            "role": "supporting"
+          },
+          {
+            "name": "Elias",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.77,
+          "count": 133,
+          "evidenceUrl": "https://www.goodreads.com/book/show/217351424-daemonhammer"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0582",
+      "slug": "oaths-of-damnation",
+      "overrides": {
+        "synopsis": "The Exorcists are a Space Marine Chapter unlike any other. Their brutal initiation demands that each aspirant endure daemonic possession, and those who survive are rendered forever resistant to Chaos corruption. Those who fail become Broken Ones — living prisons for the terrors expelled from their brethren. When one of these wretched souls escapes and is hunted across the ancient battlefields of Fidem IV, the elite Hexbreakers are dispatched to retrieve him. But for strike force commander Almoner-Lieutenant Daggan Zaidu, the Broken One known as the Red Marshal is more than a loose end — and their connection threatens to unravel the entire mission. Worse still, a warband of Word Bearers has also come to Fidem IV, and their designs on the Broken One are far from holy.",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "space_marine",
+          "imperium",
+          "squad",
+          "mid_series",
+          "standard",
+          "war_story",
+          "grimdark",
+          "faith",
+          "brotherhood",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Exorcists",
+            "role": "primary"
+          },
+          {
+            "name": "Word Bearers",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Fidem IV",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Daggan Zaidu",
+            "role": "pov"
+          },
+          {
+            "name": "Torrin Vey",
+            "role": "pov"
+          },
+          {
+            "name": "The Red Marshal",
+            "role": "antagonist"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.86,
+          "count": 356,
+          "evidenceUrl": "https://www.goodreads.com/book/show/217351369-oaths-of-damnation"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0583",
+      "slug": "grotsnik-da-mad-dok",
+      "overrides": {
+        "synopsis": "Da Mad Dok Grotsnik, creator of Ghazghkull Thraka and the most infamous painboy in the galaxy, is a legend even among legends. When Grotsnik answers the call of Beastboss Bakmun, whose assault on Hive Prome is teetering on the edge of an embarrassing failure, Bakmun can't believe his luck. But through a series of increasingly suspicious accidents, Grotsnik's orderly Valtun and the grot Ikor begin to suspect that the Mad Dok is up to something far bigger than patching up wounded boyz. Deep in the bowels of Grotsnik's colossal Painwagon, something is being built — something that could surpass even the Prophet of the Waaagh! himself. Part heist, part philosophical nightmare, and entirely unhinged, this darkly comedic ork tale asks the ancient question: if you keep replacing the parts, is it still the same monster?",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "pc_xenos",
+          "xenos",
+          "standalone",
+          "standard",
+          "character_study",
+          "satirical",
+          "action_heavy",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Orks",
+            "role": "primary"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Hive Prome",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Grotsnik",
+            "role": "pov"
+          },
+          {
+            "name": "Valtun the Patient",
+            "role": "pov"
+          },
+          {
+            "name": "Beastboss Bakmun",
+            "role": "supporting"
+          },
+          {
+            "name": "Ikor",
+            "role": "supporting"
+          }
+        ],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "factions",
+            "reason": "The Imperial defenders of Hive Prome are not named as a specific regiment or body in available sources, so they are left unbound; both Ork forces are tagged under the parent faction."
+          }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.05,
+          "count": 234,
+          "evidenceUrl": "https://www.goodreads.com/book/show/229201761"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0584",
+      "slug": "dominion-genesis",
+      "overrides": {
+        "synopsis": "Gryphonne IV, one of the mightiest forge worlds of the Adeptus Mechanicus, has been devoured by Hive Fleet Leviathan. Its surviving tech-priests are left adrift, stripped of purpose and home. Explorator Talin Sherax refuses to accept oblivion. When word reaches her of a legendary relic from humanity's most distant past — one that might restore all that was lost — she assembles a crew and sets out on a desperate journey across a war-torn galaxy. But the quest demands ever-greater sacrifices, drawing Sherax closer to the edge of outright heresy. Ancient dangers, rival powers, and the scars of loss stand between her and salvation — if salvation is even what she will find at the end of the road.",
+        "facetIds": [
+          "book",
+          "en",
+          "female",
+          "tech_priest",
+          "imperium",
+          "sector",
+          "series_start",
+          "standard",
+          "journey",
+          "grimdark",
+          "redemption",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Adeptus Mechanicus",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Fleet Leviathan",
+            "role": "antagonist"
+          },
+          {
+            "name": "Vostroyan Blackbloods",
+            "role": "supporting"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Gryphonne IV",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Talin Sherax",
+            "role": "pov"
+          }
+        ],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "factions",
+            "reason": "Reviews mention Orks, Aeldari and Necrons as xenos encountered en route, but name no specific dynasty or warband as a sustained antagonist; only Hive Fleet Leviathan is confirmed."
+          }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.8,
+          "count": 237,
+          "evidenceUrl": "https://www.goodreads.com/book/show/218582282-dominion-genesis"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0585",
+      "slug": "yarrick-imperial-creed",
+      "overrides": {
+        "synopsis": "Before he became the legend who defied the orks on Armageddon, Sebastian Yarrick was a freshly commissioned officer of the Commissariat, uncertain of his place in the brutal machinery of the Imperium. Assigned to the feudal world of Mistral under the watchful eye of Lord Commissar Rasp, Yarrick's first mission plunges him into a baronial uprising that quickly proves far more treacherous than any open battlefield. Imperial politics on Mistral are layered with deception, old loyalties are weaponised, and unlikely alliances must be forged to survive. Heretic cults work in the shadows, the Adepta Sororitas pursue their own zealous agenda, and clandestine agents of the Inquisition move unseen through the turmoil. Told in Yarrick's own voice, this is the story of how faith, will, and brutal experience began to shape the commissar the galaxy would one day fear.",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "commissar",
+          "imperium",
+          "planetary",
+          "series_start",
+          "standard",
+          "political_thriller",
+          "grimdark",
+          "faith",
+          "loyalty",
+          "betrayal",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Astra Militarum",
+            "role": "primary"
+          },
+          {
+            "name": "Adepta Sororitas",
+            "role": "supporting"
+          },
+          {
+            "name": "Inquisition",
+            "role": "supporting"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Mistral",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Sebastian Yarrick",
+            "role": "pov"
+          },
+          {
+            "name": "Lord Commissar Rasp",
+            "role": "supporting"
+          },
+          {
+            "name": "Cardinal Wangenheim",
+            "role": "antagonist"
+          }
+        ],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "factions",
+            "reason": "The shadowy heretic cult is embodied in the named antagonist Cardinal Wangenheim; no distinct Chaos faction is confirmed, so it is left unbound rather than tagged."
+          }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.03,
+          "count": 339,
+          "evidenceUrl": "https://www.goodreads.com/book/show/18749592-yarrick"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0586",
+      "slug": "legends-of-the-wolf-the-omnibus",
+      "overrides": {
+        "synopsis": "Collecting Chris Wraight's complete Space Wolves trilogy alongside the short story Kraken, this omnibus follows the Jarnhamar pack across three wars. In Blood of Asaheim, Ingvar returns from decades of service with the Deathwatch to find his old pack fractured by loyalty and pride — even as the Death Guard descend on the plague-wracked world of Ras Shakeh. In Stormcaller, a fragile alliance with the Sisters of Battle begins to crack when the Ecclesiarchy uncovers a secret that could doom the planet entirely. In The Helwinter Gate, the pack pursues a shadowy enemy through the ruins of broken worlds, uncovering an ancient betrayal that reaches back to the founding of their Chapter. Together the three novels trace the bonds, rivalries, and ferocity of Fenris's warrior-sons across a single sustained saga.",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "space_marine",
+          "imperium",
+          "sector",
+          "doorstopper",
+          "requires_context",
+          "war_story",
+          "action_heavy",
+          "brotherhood",
+          "loyalty",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Space Wolves",
+            "role": "primary"
+          },
+          {
+            "name": "Death Guard",
+            "role": "antagonist"
+          },
+          {
+            "name": "Adepta Sororitas",
+            "role": "supporting"
+          },
+          {
+            "name": "Deathwatch",
+            "role": "supporting"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Ras Shakeh",
+            "role": "primary"
+          },
+          {
+            "name": "Fenris",
+            "role": "supporting"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Ingvar",
+            "role": "pov"
+          },
+          {
+            "name": "Gunnlaugur",
+            "role": "pov"
+          },
+          {
+            "name": "Baldr",
+            "role": "supporting"
+          },
+          {
+            "name": "Olgeir",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.31,
+          "count": 45,
+          "evidenceUrl": "https://www.goodreads.com/book/show/220714736-legends-of-the-wolf"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0587",
+      "slug": "blood-of-the-imperium",
+      "overrides": {
+        "synopsis": "Eleven tales of war, survival, and sacrifice from across the galaxy of the 41st Millennium, assembled from some of Black Library's most acclaimed authors. Orks fall prey to the sadistic cruelty of the Drukhari in a brutal xenos encounter. A Tyranid hive fleet devours a world from the inside out, its alien hunger rendered in intimate and terrifying detail. A lone Sister of Battle fights to stop an epidemic spreading through the wounded. A Space Wolf cut off from his pack struggles to uphold his oaths in alien captivity. Imperial soldiers desert, propaganda artists spin their lies, and the Tome Keepers Chapter wages a four-part campaign of defiance against impossible odds. From cosmic horror to dark humour, the anthology spans the breadth of the Imperium's endless war.",
+        "facetIds": [
+          "book",
+          "en",
+          "ensemble",
+          "multi",
+          "imperium",
+          "galactic",
+          "standalone",
+          "standard",
+          "war_story",
+          "grimdark",
+          "war",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Space Wolves",
+            "role": "primary"
+          },
+          {
+            "name": "Astra Militarum",
+            "role": "primary"
+          },
+          {
+            "name": "Tyranids",
+            "role": "antagonist"
+          },
+          {
+            "name": "Orks",
+            "role": "supporting"
+          },
+          {
+            "name": "Drukhari",
+            "role": "antagonist"
+          },
+          {
+            "name": "Adepta Sororitas",
+            "role": "supporting"
+          }
+        ],
+        "locations": [],
+        "characters": [
+          {
+            "name": "Fjolnir",
+            "role": "pov"
+          },
+          {
+            "name": "Lucille von Shard",
+            "role": "supporting"
+          },
+          {
+            "name": "Darya Nevic",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.08,
+          "count": 38,
+          "evidenceUrl": "https://www.goodreads.com/book/show/228265844-blood-of-the-imperium"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0588",
+      "slug": "siege-of-vraks",
+      "overrides": {
+        "synopsis": "Vraks Prime is an armoury world that feeds the endless wars along the Eye of Terror, and when its Cardinal-Astra Xaphan raises his voice in holy rebellion, the Imperium cannot afford to lose it. Millions of renegade soldiers stand ready to die for their prophet, and from the depths of the warp, the Alpha Legion, the World Eaters, and the Death Guard have answered the call. Dispatched to reclaim the planet inch by bloody inch, the Death Korps of Krieg dig their trenches and begin a siege that will last seventeen years. At its heart is Tyborc, a Krieg officer who must lead men bred to die without hesitation across a wasteland of mud, shell-craters, and corpses — and ask whether the regiment's fearless indifference to death is strength or a slow self-destruction. A story of attrition, faith twisted into fanaticism, and the terrible cost of victory on a world that may not be worth saving.",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "guardsman",
+          "imperium",
+          "regiment",
+          "standalone",
+          "doorstopper",
+          "siege",
+          "grimdark",
+          "war",
+          "sacrifice",
+          "cw_violence",
+          "cw_death",
+          "cw_disturbing"
+        ],
+        "factions": [
+          {
+            "name": "Death Korps of Krieg",
+            "role": "primary"
+          },
+          {
+            "name": "Vraksian Renegade Militia",
+            "role": "antagonist"
+          },
+          {
+            "name": "Alpha Legion",
+            "role": "antagonist"
+          },
+          {
+            "name": "World Eaters",
+            "role": "antagonist"
+          },
+          {
+            "name": "Death Guard",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Vraks Prime",
+            "role": "primary"
+          },
+          {
+            "name": "Citadel of Vraks",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Tyborc",
+            "role": "pov"
+          },
+          {
+            "name": "Cardinal-Astra Xaphan",
+            "role": "antagonist"
+          },
+          {
+            "name": "Arkos the Faithless",
+            "role": "supporting"
+          },
+          {
+            "name": "Confessor Tenaxus",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4,
+          "count": 828,
+          "evidenceUrl": "https://www.goodreads.com/book/show/214397932-siege-of-vraks"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0589",
+      "slug": "the-dark-coil-damnation",
+      "overrides": {
+        "synopsis": "The first of two omnibus volumes collecting Peter Fehervari's interconnected Dark Coil cycle, a web of stories where space, time, and sanity bend under the Warp's corrupting influence. At its heart are two novels: Fire Caste, a Vietnam-inflected horror story set on the cursed swamp world Phaedra, where the battered 19th Arkan Confederates are ground between an Imperial stalemate and an eerily patient T'au enemy while their minds fracture around them; and Cult of the Spiral Dawn, a theological horror tracing a Genestealer infestation as it hollows out the shrine world Redemption from within, guiding its unknowing faithful toward a Tyranid fleet. Seven short stories thread through these pillars, passing characters and dread from one tale to the next, deepening the sense that the Dark Coil itself is a living thing — a Chaos-touched tangle that has wormed its way through the galaxy by way of its own constituent tendrils.",
+        "facetIds": [
+          "book",
+          "en",
+          "ensemble",
+          "multi",
+          "dual",
+          "planetary",
+          "requires_context",
+          "doorstopper",
+          "mystery",
+          "cosmic_horror",
+          "grimdark",
+          "somber",
+          "philosophical",
+          "cw_violence",
+          "cw_disturbing",
+          "cw_mental_health",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Astra Militarum",
+            "role": "primary"
+          },
+          {
+            "name": "T'au Empire",
+            "role": "antagonist"
+          },
+          {
+            "name": "Genestealer Cults",
+            "role": "antagonist"
+          },
+          {
+            "name": "Adeptus Ministorum",
+            "role": "supporting"
+          },
+          {
+            "name": "Tyranids",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Phaedra",
+            "role": "primary"
+          },
+          {
+            "name": "Redemption",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Holt Iverson",
+            "role": "pov"
+          },
+          {
+            "name": "Ensor Cutler",
+            "role": "supporting"
+          },
+          {
+            "name": "Skjoldis",
+            "role": "supporting"
+          },
+          {
+            "name": "Cross",
+            "role": "pov"
+          },
+          {
+            "name": "Ariken",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.32,
+          "count": 113,
+          "evidenceUrl": "https://www.goodreads.com/book/show/216173820-the-dark-coil"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0590",
+      "slug": "leontus",
+      "overrides": {
+        "synopsis": "Arcadian Leontus, Lord Commander of the Segmentum Solar, has never known defeat — but on the arid world of Fortuna Minor, a Speed Waaagh! strips him of his armies and leaves him stranded with a handful of survivors and freed prisoners. Cut off from reinforcement, outgunned, and hunted by a dangerously cunning ork warlord, the Lord Commander must forge a coherent fighting force from desperate soldiers and prove that tactical genius alone can wrest a world back from the green tide. As the noose tightens and the Waaagh! gathers speed, Leontus learns that the line between a commander's confidence and his hubris can be measured in the blood of the men who follow him. A portrait of command under impossible odds.",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "last_stand",
+          "action_heavy",
+          "war",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Astra Militarum",
+            "role": "primary"
+          },
+          {
+            "name": "Orks",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Fortuna Minor",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Arcadian Leontus",
+            "role": "pov"
+          },
+          {
+            "name": "Darya Nevic",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 3.81,
+          "count": 218,
+          "evidenceUrl": "https://www.goodreads.com/en/book/show/221160742-leontus"
+        }
+      }
+    }
+  ]
+}

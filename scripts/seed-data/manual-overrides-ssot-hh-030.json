@@ -4,7 +4,7 @@
   "createdBy": "claude-code",
   "createdAt": "2026-05-26",
   "model": "claude-opus-4-7",
-  "rationale": "Final HH wave (4 books). All four are non-narrative meta-volumes: the 2007 Collected Visions artbook omnibus, both Scripts script-books printing audio-drama production texts, and the 2018 hardback Visions of Heresy re-release. Per the omnibus/collection/scriptbook rule, factions/locations/characters/facets aggregate the constituent works (the four original Visions volumes + Kaban Project for the artbooks; six audio dramas per script volume).",
+  "rationale": "Final HH wave (4 books). All four are non-narrative meta-volumes: the 2007 Collected Visions artbook omnibus, both Scripts script-books printing audio-drama production texts, and the 2018 hardback Visions of Heresy re-release. Per the omnibus/collection/scriptbook rule, factions/locations/characters/facets aggregate the constituent works (the four original Visions volumes + Kaban Project for the artbooks; six audio dramas per script volume). | Extended 2026-06-10 (claude-opus-4-8[1m]): appended HH-0295..0297 from the weekly-refresh promotion wave (Brief 133). They fall inside this HH domain-end restbatch's positional slot, so loop:next reported the HH domain complete and never surfaced them; adding them grows 030 to seven books. New three: Zardu Layak: The Crimson Apostle (Word Bearers character study, 2026, unrated), The Shattered and the Soulless (Siege of Terra omnibus), Dropsite Massacre (Isstvan V, John French).",
   "books": [
     {
       "externalBookId": "HH-0291",
@@ -264,6 +264,237 @@
           "value": 4.36,
           "count": 248,
           "evidenceUrl": "https://www.goodreads.com/book/show/16130681-horus-heresy"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0295",
+      "slug": "zardu-layak-the-crimson-apostle",
+      "overrides": {
+        "synopsis": "Zardu Layak has been chosen by the gods. Guided by visions of his primarch Lorgar, the Crimson Apostle of the Word Bearers believes he is destined to set the stage for the great rebellion and change the galaxy forever. To fulfil that destiny, he must journey to the forgotten world of Helwain and claim the Anakatis Blades — weapons of terrible and malign power. But Helwain is haunted, and as spectral echoes of his past surround him, Layak is forced to confront the question that broke his Legion's faith: what if the truth is a lie? A character study of devotion, corruption, and the cost of surrender to a dark purpose, tracing how a Space Marine remakes himself into something far more terrible in service to gods who may never be satisfied.",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "space_marine",
+          "chaos",
+          "planetary",
+          "mid_series",
+          "standard",
+          "character_study",
+          "philosophical",
+          "faith",
+          "betrayal",
+          "cw_violence",
+          "cw_disturbing"
+        ],
+        "factions": [
+          {
+            "name": "Word Bearers",
+            "role": "primary"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Helwain",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Zardu Layak",
+            "role": "pov"
+          },
+          {
+            "name": "Lorgar",
+            "role": "supporting"
+          },
+          {
+            "name": "Erebus",
+            "role": "supporting"
+          }
+        ],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "factions",
+            "reason": "The conflict is internal and supernatural; no opposing loyalist Legion is identified in available sources, so only the Word Bearers are tagged."
+          }
+        ],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "no Goodreads edition found",
+          "evidenceUrl": null
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0296",
+      "slug": "the-shattered-and-the-soulless",
+      "overrides": {
+        "synopsis": "An omnibus collecting two novellas set during the Siege of Terra. In Sons of the Selenar, the battered crew of the Sisypheum — survivors drawn from the Iron Hands, Salamanders, and Raven Guard who forged the Shattered Legions after Isstvan — descend to the ravaged surface of Luna following garbled transmissions, only to find themselves ensnared in the ancient secrets of the Selenar genesmiths and the terrifying origins of the Space Marine. In Fury of Magnus, the Crimson King himself comes to the Imperial Palace during the Siege, pursuing a fragment of his own shattered soul into the most heavily defended sanctum on Terra and toward a final reckoning with the Emperor. Together the two novellas form a companion piece to Graham McNeill's Thousand Sons saga and close out the arc of the Sisypheum's survivors.",
+        "facetIds": [
+          "book",
+          "en",
+          "space_marine",
+          "dual",
+          "planetary",
+          "requires_context",
+          "doorstopper",
+          "siege",
+          "grimdark",
+          "war",
+          "sacrifice",
+          "brotherhood",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Thousand Sons",
+            "role": "primary"
+          },
+          {
+            "name": "Iron Hands",
+            "role": "primary"
+          },
+          {
+            "name": "Salamanders",
+            "role": "supporting"
+          },
+          {
+            "name": "Raven Guard",
+            "role": "supporting"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Terra",
+            "role": "primary"
+          },
+          {
+            "name": "Imperial Palace",
+            "role": "primary"
+          },
+          {
+            "name": "Luna",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Magnus the Red",
+            "role": "pov"
+          },
+          {
+            "name": "Branthan",
+            "role": "pov"
+          }
+        ],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "factions",
+            "reason": "Two distinct novellas with different foes (the Selenar/Luna horrors in one, the Palace defenders facing Magnus in the other); no single opposing Legion is pinned, so antagonist Legions are left untagged."
+          }
+        ],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.23,
+          "count": 35,
+          "evidenceUrl": "https://www.goodreads.com/book/show/236668631-the-shattered-and-the-soulless"
+        }
+      }
+    },
+    {
+      "externalBookId": "HH-0297",
+      "slug": "dropsite-massacre",
+      "overrides": {
+        "synopsis": "When Horus's rebellion is revealed, Rogal Dorn and Malcador the Sigillite dispatch the largest loyalist force ever assembled to crush the uprising before it can spread. Three entire Legions — the Iron Hands, Raven Guard, and Salamanders — descend on Isstvan V expecting to deliver judgement. They do not know that four more Legions wait in orbit, loyal only to the Warmaster. Through the eyes of Iron Hands warrior Castrmen Orth and the Blood Crow Kaedes Nex of the Raven Guard, witness the moment the Imperium breaks. The first wave of loyalists is shattered by treachery, cut down by the very brothers they fought beside across a hundred worlds. On the ash-fields of Isstvan V, the Great Crusade ends and a new age of darkness begins.",
+        "facetIds": [
+          "book",
+          "en",
+          "space_marine",
+          "ensemble",
+          "dual",
+          "sector",
+          "mid_series",
+          "standard",
+          "war_story",
+          "last_stand",
+          "betrayal",
+          "sacrifice",
+          "grimdark",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Iron Hands",
+            "role": "primary"
+          },
+          {
+            "name": "Raven Guard",
+            "role": "primary"
+          },
+          {
+            "name": "Salamanders",
+            "role": "supporting"
+          },
+          {
+            "name": "Word Bearers",
+            "role": "antagonist"
+          },
+          {
+            "name": "Iron Warriors",
+            "role": "antagonist"
+          },
+          {
+            "name": "Night Lords",
+            "role": "antagonist"
+          },
+          {
+            "name": "Alpha Legion",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Isstvan V",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Castrmen Orth",
+            "role": "pov"
+          },
+          {
+            "name": "Kaedes Nex",
+            "role": "pov"
+          },
+          {
+            "name": "Ferrus Manus",
+            "role": "supporting"
+          },
+          {
+            "name": "Maloghurst the Twisted",
+            "role": "supporting"
+          },
+          {
+            "name": "Kharn",
+            "role": "antagonist"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "rated",
+          "source": "goodreads",
+          "value": 4.24,
+          "count": 733,
+          "evidenceUrl": "https://www.goodreads.com/book/show/240892106-dropsite-massacre"
         }
       }
     }

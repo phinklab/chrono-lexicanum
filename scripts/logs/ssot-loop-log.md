@@ -2440,3 +2440,57 @@
 - **Notable surface-forms (within this batch):** "Visions of War", "Visions of Darkness", "Visions of Treachery", "Visions of Death" (the four constituent artbook volumes), "The Kaban Project" (Graham McNeill short story embedded in both artbooks), "Pallas Ravachol" (Mechanicum adept, Kaban Project POV), "Knight-Errant" (Garro arc, consistent with prior HH batches), "Aeonid Thiel" (Censure, also tagged in ssot-hh-029 Nightfane), "Sons of Horus"/"Luna Wolves" (kept both surface forms — same Legion, different eras, both appear in the constituent volumes).
 - **Verification:** `npm run lint` / `npm run typecheck` / `npm run brain:lint` skipped per Brief-061 convention (pure data commit: one JSON file + Markdown append, no code/schema/config changes).
 - **Note:** This batch closes out the HH domain (290 + 4 = 294 HH books) and the full 859-book roster. The next `loop:next` invocation is expected to return `loopComplete: true`; that complete-block will be appended in the next iteration per runbook §4.
+
+
+## 2026-06-10 · Weekly-refresh promotion (Brief 133 / Board 122-B10) · W40K-0566..0592 + HH-0295..0297 · ✅
+
+First promotion wave off the weekly content-refresh pipeline: **30 newly-detected books** (27 W40K + 3 HH), promoted through `book-roster.extension.json` → `import:ssot-roster` (roster 859→889) → curation here. Per-book research fanned out to subagents (WebSearch synopsis/factions/characters/locations + Goodreads page-read for ratings), then validated and assembled by claude-opus-4-8[1m]: faction/location granularity kept concrete (no bare Imperium/Chaos/Xenos), facet IDs checked against `facet-catalog.json`, every synopsis run through the Public-Synopsis-Forward guard, and unnamed Chaos antagonists left **unbound + low_confidence flag** per the 057 precedent.
+
+**Restbatch note (loop:next blind spot).** The two domain-end restbatches were partial — `ssot-w40k-057` held 5 (W40K-0561..0565), `ssot-hh-030` held 4 (HH-0291..0294). `loop:next` tiles positionally (slice = max·10 … max·10+10), so it could not surface the new books that landed *inside* those restbatches' slots. Filled both by **extension** rather than mis-numbering: w40k-057 5→10 (+0566..0570), hh-030 4→7 (+0295..0297). apply-override is delete-then-insert idempotent, so re-applying the extended batches re-resolves the existing books unchanged. Net: `loop:next` now reports `loopComplete` at 889/889, every roster position covered exactly once. New W40K domain-end restbatch is `ssot-w40k-060` (2 books).
+
+Roster split this wave: 057:+5, 058:+10, 059:+10, 060:+2, hh-030:+3 = 30. 24 of 30 page-rated on Goodreads (3.77–4.32); 6 unrated (no Goodreads edition: Aestred Thurga, Saints of the Imperium, Hive, World Ablaze, Legends of the Waaagh!, Zardu Layak).
+
+### ssot-w40k-057 (extended) · +W40K-0566..0570 · ✅
+- W40K-0566 **Hive** — Abnett hive-noir on Sacramentus; Adeptus Arbites primary, hidden Chaos cult left unbound (patron unconfirmed) and no named POV (shifting perspectives) → two low_confidence flags. 2026, unrated.
+- W40K-0567 **Da Freebooterz Code** — Ork-pirate caper; Freebooterz vs Rogue Traders (Kaptin Horntoof vs Lord Captain von Hume). 4.3/27.
+- W40K-0568 **World Ablaze** — Armageddon anthology (Blood Angels / Black Templars / Crimson Fists / Salamanders vs Orks). 2026, unrated. Dropped a shaky Wazdakka attribution → no named characters.
+- W40K-0569 **Legends of the Waaagh!** — Ork omnibus (Helsreach / Caves of Ice / I Am Slaughter + shorts); Cain POV. 2026, unrated.
+- W40K-0570 **Veterans of the Fall** — Kasrkin "Tattershields" post-Cadia; the Archenemy left unbound. 4.25/8.
+
+### ssot-w40k-058 · W40K-0571..0580 · ✅
+- W40K-0571 **Aestred Thurga: Pyre of Faith** — Order Pronatus relic-defence; Nurgle cult left unbound (no Legion confirmed). Unrated.
+- W40K-0572 **Carnage Unending** — Armageddon Ork-war anthology; Yarrick. 3.77/22.
+- W40K-0573 **Paragon of Faith and Other Stories** — Adepta Sororitas collection. 3.52/50.
+- W40K-0574 **Apostle** — Word Bearers (Cerastes) vs Adepta Sororitas on Legitur. 3.90/212.
+- W40K-0575 **The Dark Coil: Ascension** — Fehervari omnibus (The Reverie / Requiem Infernal + shorts). 4.38/34.
+- W40K-0576 **Morvenn Vahl: Spear of Faith** — Abbess Sanctorum vs Night Lords on Ophelia VII. 3.84/321.
+- W40K-0577 **Darkness Eternal** — multi-POV Guard/T'au/Kroot anthology; Minka Lesk. 3.35/48.
+- W40K-0578 **Saints of the Imperium** — Sororitas saints omnibus (Celestine / Ephrael Stern / Saint Katherine). Unrated.
+- W40K-0579 **Ciaphas Cain: The Anthology** — Cain novella + 13 shorts. 4.28/498.
+- W40K-0580 **The High Kâhl's Oath** — first Leagues of Votann novel (Myrtun Dammergot). 3.65/370.
+
+### ssot-w40k-059 · W40K-0581..0590 · ✅
+- W40K-0581 **Daemonhammer** — Inquisitor Coteaz / Ordo Malleus, Formosa Sector; Chaos Daemons antagonist. 3.77/133.
+- W40K-0582 **Oaths of Damnation** — Exorcists vs Word Bearers on Fidem IV. 3.86/356.
+- W40K-0583 **Grotsnik: Da Mad Dok** — Ork comedy on Hive Prome; single "Orks" faction, unnamed Imperial defenders unbound. 4.05/234.
+- W40K-0584 **Dominion Genesis** — Adeptus Mechanicus survivors of Gryphonne IV vs Hive Fleet Leviathan. 3.80/237.
+- W40K-0585 **Yarrick: Imperial Creed** — young Yarrick on Mistral; heretic cult embodied in Cardinal Wangenheim (unbound). 4.03/339.
+- W40K-0586 **Legends of the Wolf: The Omnibus** — Wraight's Space Wolves trilogy + Kraken; vs Death Guard. 4.31/45.
+- W40K-0587 **Blood of the Imperium** — anthology (Space Wolves / Astra Militarum / Tyranids / Drukhari). 4.08/38.
+- W40K-0588 **Siege of Vraks** — Death Korps of Krieg vs Vraksian militia + Alpha Legion / World Eaters / Death Guard. 4.00/828.
+- W40K-0589 **The Dark Coil: Damnation** — Fehervari omnibus (Fire Caste / Cult of the Spiral Dawn); cosmic_horror. 4.32/113.
+- W40K-0590 **Leontus** — Lord Solar Leontus vs a Speed Waaagh! on Fortuna Minor. 3.81/218.
+
+### ssot-w40k-060 · W40K-0591..0592 (new W40K domain-end restbatch) · ✅
+- W40K-0591 **Soldiers of the Imperium** — Astra Militarum omnibus (Death World / Kasrkin / Witchbringer + 4 shorts). 4.00/22.
+- W40K-0592 **Renegades: Lord of Excess** — Emperor's Children (Xantine, the Adored) on Serrine; Chaos-POV. 3.86/471.
+
+### ssot-hh-030 (extended) · +HH-0295..0297 · ✅
+- HH-0295 **Zardu Layak: The Crimson Apostle** — Word Bearers character study on Helwain; internal/supernatural conflict, no loyalist opponent → single-faction. 2026, unrated.
+- HH-0296 **The Shattered and the Soulless** — Siege of Terra omnibus (Sons of the Selenar + Fury of Magnus); Thousand Sons + Shattered Legions; antagonist Legions left untagged (two distinct foes). 4.23/35.
+- HH-0297 **Dropsite Massacre** — Isstvan V (John French); 3 loyalist + 4 traitor Legions, Castrmen Orth / Kaedes Nex POV. 4.24/733.
+
+- **value_outside_vocabulary:** [] — all facet IDs present in `facet-catalog.json` (one agent-proposed "horror" plot_type corrected to "mystery" pre-commit; one invalid "duty" theme dropped from 0571 pre-commit).
+- **Notable curation calls:** unnamed Chaos antagonists left unbound + low_confidence (Hive, Veterans of the Fall, Grotsnik, Yarrick, Aestred Thurga, Renegades, Zardu Layak); compound/parenthetical faction surface-forms normalised to canonical bodies before write; "Imperium Nihilus" / "Imperium of Man" umbrella locations/factions dropped (Saints of the Imperium, The High Kâhl's Oath).
+- **Apply / resolver:** db:apply-override per batch (057, 058, 059, 060, hh-030) then a resolver pass for the 30 new books — recorded in the impl report, not here.
+- **Verification:** `npm run typecheck` / `lint` / `brain:lint` skipped per Brief-061 convention (pure data + Markdown; no code/schema/config). Each override file validated pre-commit: roster id/slug match, facet-catalog membership, rating-shape, synopsis-guard — all green.

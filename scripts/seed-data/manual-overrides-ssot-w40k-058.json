@@ -1,0 +1,248 @@
+{
+  "$schema": "manual-overrides-v1",
+  "batch": "ssot-w40k-058",
+  "createdBy": "claude-code",
+  "createdAt": "2026-06-10",
+  "model": "claude-opus-4-8[1m]",
+  "rationale": "Weekly-refresh promotion wave 1 of 3 (W40K-0571..0580) — the first books accreted from book-roster.extension.json. Heavy Adepta Sororitas skew (Aestred Thurga, Morvenn Vahl, Paragon of Faith, Saints of the Imperium), plus Fehervari's Dark Coil: Ascension omnibus, the Word Bearers novel Apostle, the Ciaphas Cain anthology, two multi-author anthologies (Carnage Unending, Darkness Eternal) and the first Leagues of Votann novel (The High Kahl's Oath). Two titles have no Goodreads edition yet (Aestred Thurga, Saints of the Imperium) and are unrated; the other eight were page-read (3.35-4.38). Per-book research fanned out to subagents, then assembled and guard-validated here.",
+  "books": [
+    {
+      "externalBookId": "W40K-0571",
+      "slug": "aestred-thurga-pyre-of-faith",
+      "overrides": {
+        "synopsis": "Aestred Thurga is the Reliquant at Arms, a holy warrior of the Order Pronatus tasked with defending the sacred relics of the Imperium. While returning the legendary Sword of Saarim to its rightful place upon the necropolis world of Katerah, Aestred is ambushed by a cult of the Plague God that seizes the blade for itself. Horrified at her defeat, she plunges herself and her Adepta Sororitas companions into a brutal battle against the forces of Chaos that overwhelm the planet from within, determined to reclaim both the relic and her honour. But when the billions of heroes laid to rest on Katerah begin to rise from their graves, Aestred must choose whether it is more important to defend the Imperium's living people or to protect its history. Confronted with an awful truth, she learns that sometimes even the most devoted Sister can fail her mission, in a tale of faith and fury as the daughters of the Emperor are pitted against the rot of Nurgle.",
+        "facetIds": ["book", "audiobook", "en", "female", "sister", "imperium", "squad", "standalone", "novella", "war_story", "grimdark", "faith", "cw_violence", "cw_death", "cw_disturbing"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Order Pronatus", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Katerah", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Aestred Thurga", "role": "pov" }
+        ],
+        "flags": [
+          { "kind": "low_confidence", "field": "factions", "reason": "Sources name the antagonist only as a cult of Nurgle / the Plague God; no specific Heretic Astartes Legion is confirmed, so the cult is left unbound rather than mis-tagged as Death Guard." }
+        ],
+        "rating": { "status": "unrated", "source": "goodreads", "reason": "no Goodreads edition found", "evidenceUrl": null }
+      }
+    },
+    {
+      "externalBookId": "W40K-0572",
+      "slug": "carnage-unending",
+      "overrides": {
+        "synopsis": "Where the orks and the Imperium collide, there is only slaughter without end. Across a dozen battlefields, the warriors of mankind stand against the green tide and the servants of the Ruinous Powers, and few of them will live to tell of it. On the hive world of Armageddon, the Black Templars hurl themselves into the teeth of the ork hordes while the soldiers of the Astra Militarum fight simply to survive another hour. A Dreadnought of the Black Templars remembers the man he once was as he grinds through the enemy, Castellan Emeric leads his brethren to crush a world in open revolt, and an inquisitor confronts a dangerous secret buried within the ranks of the Space Wolves. Through it all looms the grim figure of Commissar Yarrick, from the desperate ork-hunting guardsmen of his early days to the moment he lies trapped and broken inside an overturned tank, refusing to die. Bringing together eleven short stories and a novella from acclaimed authors including Dan Abnett, Guy Haley, Chris Wraight and Mike Brooks, this collection delivers relentless, unflinching war in the grim darkness of the far future.",
+        "facetIds": ["book", "en", "ensemble", "multi", "space_marine", "guardsman", "commissar", "inquisitor", "dual", "galactic", "requires_context", "standard", "war_story", "last_stand", "grimdark", "action_heavy", "war", "sacrifice"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Black Templars", "role": "primary" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Space Wolves", "role": "supporting" },
+          { "name": "Inquisition", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Armageddon", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Commissar Yarrick", "role": "pov" },
+          { "name": "Castellan Emeric", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.77, "count": 22, "evidenceUrl": "https://www.goodreads.com/book/show/238972647-carnage-unending" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0573",
+      "slug": "paragon-of-faith-and-other-stories",
+      "overrides": {
+        "synopsis": "Across two novellas and five short stories, the Battle Sisters of the Adepta Sororitas wage holy war in the Emperor's name. In the title novella, Sister Aenor leads a squad of indomitable Paragon Warsuits in a desperate defence of a sacred pilgrimage world as a hidden menace boils up from below and innumerable cultist hordes close in. As the planet crumbles around her, Aenor must master crippling self-doubt to hold the line. In Saint's Judgement, Sister Hospitaller Docia confronts a virulent plague that twists mind, body and soul, fighting to find a cure before her infirmary is consumed and her faith is the only weapon left to her. The remaining tales carry the Sororitas through battles against daemon engines, corrupting cults and the reclamation of lost shrines, each a chronicle of valiant sacrifice, unbreakable devotion and martial fury.",
+        "facetIds": ["book", "en", "sister", "female", "ensemble", "imperium", "faith", "sacrifice", "doubt", "war_story", "grimdark", "somber", "action_heavy", "standalone", "short", "cw_violence", "cw_death", "cw_disturbing"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Chaos Daemons", "role": "antagonist" }
+        ],
+        "locations": [],
+        "characters": [
+          { "name": "Sister Aenor", "role": "pov" },
+          { "name": "Sister Hospitaller Docia", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.52, "count": 50, "evidenceUrl": "https://www.goodreads.com/book/show/237444778-paragon-of-faith-and-other-stories" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0574",
+      "slug": "apostle",
+      "overrides": {
+        "synopsis": "Cerastes, Dark Apostle of the Word Bearers, is bowed but not broken. Once, he came to the world of Legitur to drown it in the worship of the Dark Gods, and once he was driven back, his host crushed by Palatine Aesura and the Battle Sisters of the Order of the Thorn. Now he returns to finish what he started. Legitur is a planet devoted utterly to the sacred writings of the Imperial Creed, endlessly producing mountains of scripture and proclaiming itself an exemplar of piety. But beneath that certainty lie secrets the faithful would rather keep buried, and Cerastes means to dig them out, resurrect the Eightfold Bane, and turn the whole world from the false Emperor to Chaos. As revolutionary fire spreads through Legitur's cathedrals and scriptoria, Aesura must hold the line against a heretic who knows this world better than its defenders do.",
+        "facetIds": ["book", "en", "space_marine", "chaos", "squad", "mid_series", "standard", "war_story", "grimdark", "faith", "betrayal", "cw_violence", "cw_death", "cw_stigma"],
+        "factions": [
+          { "name": "Word Bearers", "role": "primary" },
+          { "name": "Adepta Sororitas", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Legitur", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Cerastes", "role": "pov" },
+          { "name": "Palatine Aesura", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.90, "count": 212, "evidenceUrl": "https://www.goodreads.com/book/show/247327031-apostle" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0575",
+      "slug": "the-dark-coil-ascension",
+      "overrides": {
+        "synopsis": "Peter Fehervari, a master of the horror at the heart of the 41st Millennium, returns to the sprawling web of the Dark Coil. In The Reverie, three troubled pilgrims travel to shining Malpertuis, homeworld of the Angels Resplendent, where behind a veneer of enlightenment and artistry an insidious darkness festers within the Space Marine Chapter and the unnatural anomaly that warps the world. In Requiem Infernal, the shattered Darkstar Company of the Exordio Void Breachers seeks healing on the storm-wracked sanctuary world of Vytarn, home to the Adepta Sororitas of the Last Candle; their guide, Sister Hospitaller Asenath Hyades, long ago turned her back on the order, and as the seekers near the sect's bastion the most insidious shadows prove to lie within their own souls. Eight interwoven short stories carry the curse across cursed worlds such as Sarastus, Oblazt and Phaedra, binding fallen and redeemed Chapters, doomed crusaders and damned souls into a whole more sinister than the sum of its parts.",
+        "facetIds": ["book", "en", "doorstopper", "multi", "requires_context", "imperium", "cosmic_horror", "philosophical", "grimdark", "somber", "mystery", "journey", "character_study", "faith", "doubt", "hubris", "cw_disturbing", "cw_violence", "cw_death", "cw_mental_health"],
+        "factions": [
+          { "name": "Adeptus Astartes", "role": "primary" },
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Astra Militarum", "role": "supporting" },
+          { "name": "Deathwatch", "role": "supporting" },
+          { "name": "Adeptus Mechanicus", "role": "supporting" },
+          { "name": "Night Lords", "role": "antagonist" },
+          { "name": "T'au", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Malpertuis", "role": "primary" },
+          { "name": "Vytarn", "role": "primary" },
+          { "name": "Sarastus", "role": "supporting" },
+          { "name": "Oblazt", "role": "supporting" },
+          { "name": "Phaedra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Asenath Hyades", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.38, "count": 34, "evidenceUrl": "https://www.goodreads.com/book/show/231345497-the-dark-coil" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0576",
+      "slug": "morvenn-vahl-spear-of-faith",
+      "overrides": {
+        "synopsis": "Morvenn Vahl is the Abbess Sanctorum and a High Lord of Terra, a warrior born and a faithful daughter of the Emperor. Yet she is only mortal, performing no miracles, untouched by divinity, and though she was chosen not by the Master of Mankind but by his living thralls, the faith is hers to command and to protect. When a monster from myth threatens the cardinal world of Ophelia VII, Morvenn Vahl defies the Senatorum Imperialis and heads to the planet's defence. There, she finds a world in terror — the warlord Kol Rakhul, known as the Death of Saints, has come for the faithful and, with his Heldrake and a host of Night Lords at his back, plans to enshroud the world in flame and blood. This is a reckoning. A holy world is being defiled, and in its defence, Morvenn Vahl must wield an army of Living Saints to stand a hope of survival, let alone victory.",
+        "facetIds": ["book", "en", "sister", "female", "imperium", "squad", "standalone", "standard", "siege", "last_stand", "grimdark", "faith", "doubt", "war", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Night Lords", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Ophelia VII", "role": "primary" },
+          { "name": "Terra", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Morvenn Vahl", "role": "pov" },
+          { "name": "Kol Rakhul", "role": "antagonist" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.84, "count": 321, "evidenceUrl": "https://www.goodreads.com/book/show/218089956-morvenn-vahl" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0577",
+      "slug": "darkness-eternal",
+      "overrides": {
+        "synopsis": "In the grim darkness of the far future, the galaxy burns as its disparate races fight for resources, territory and divine purpose. Across thirteen tales, the 41st Millennium is seen through the eyes of the lowly soldiers, hunters and warriors whose actions keep the nightmares of the galaxy at bay. In the ruins of Traitor Rock, Cadian veteran Minka Lesk drinks with her comrades and tells sanitised stories of a lost homeworld. The legendary pilot Lucille von Shard faces an unusual and deadly foe above the Great Grass Plains, while Major Wulf Khan ventures deep behind t'au lines after his fighter is brought down. A kroot shaper struggles to guide the evolution of his kindred, and the t'au warrior Takka hunts vanguard tyranid organisms with an elite strike force. From the avaricious Leagues of Votann to the ravenous tyranids and the savage kroot, these stories examine the Imperium's struggle for primacy against them all.",
+        "facetIds": ["book", "en", "ensemble", "multi", "dual", "galactic", "standalone", "short", "war_story", "grimdark", "war", "sacrifice", "brotherhood", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "T'au Empire", "role": "primary" },
+          { "name": "Kroot", "role": "supporting" },
+          { "name": "Tyranids", "role": "antagonist" },
+          { "name": "Leagues of Votann", "role": "supporting" }
+        ],
+        "locations": [
+          { "name": "Cadia", "role": "supporting" },
+          { "name": "Traitor Rock", "role": "supporting" },
+          { "name": "Great Grass Plains", "role": "supporting" }
+        ],
+        "characters": [
+          { "name": "Minka Lesk", "role": "pov" },
+          { "name": "Lucille von Shard", "role": "pov" },
+          { "name": "Wulf Khan", "role": "pov" },
+          { "name": "Takka", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.35, "count": 48, "evidenceUrl": "https://www.goodreads.com/book/show/241816322-darkness-eternal" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0578",
+      "slug": "saints-of-the-imperium",
+      "overrides": {
+        "synopsis": "This collection gathers three tales of the most venerated champions of the Adepta Sororitas. In Celestine, the immortal Living Saint returns again and again to the battlefields beyond the Great Rift, cut down only to be reborn; each death drags her into a realm of torment where her faith in the God-Emperor must be proven anew before she can fight on, accompanied by the short story Revelation. In Ephrael Stern: The Heretic Saint, the thrice-born Daemonifuge is stranded in the isolated reaches when a mysterious stranger and the Harlequin Kyganil lead her toward the fallen world of Severitas and a threat greater than any mankind has faced, drawing the attention of the Inquisition, the forces of Chaos and the Ynnari leader Yvraine. In The Triumph of Saint Katherine, the sacred funerary procession marches from warzone to warzone bearing the sarcophagus of the saint, and Sister Avra of the Order of Our Martyred Lady, defending the world of Kiros against the followers of Nurgle, is seized by a vision that reveals the Emperor has far greater plans for her.",
+        "facetIds": ["book", "en", "sister", "female", "imperium", "galactic", "standalone", "doorstopper", "war_story", "last_stand", "grimdark", "somber", "faith", "sacrifice", "redemption", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Adepta Sororitas", "role": "primary" },
+          { "name": "Order of Our Martyred Lady", "role": "supporting" },
+          { "name": "Aeldari Harlequins", "role": "supporting" },
+          { "name": "Death Guard", "role": "antagonist" },
+          { "name": "Word Bearers", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Severitas", "role": "primary" },
+          { "name": "Kiros", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Saint Celestine", "role": "pov" },
+          { "name": "Ephrael Stern", "role": "pov" },
+          { "name": "Sister Avra", "role": "pov" },
+          { "name": "Kyganil", "role": "supporting" },
+          { "name": "Yvraine", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "unrated", "source": "goodreads", "reason": "no Goodreads edition found (constituent novels are rated separately)", "evidenceUrl": null }
+      }
+    },
+    {
+      "externalBookId": "W40K-0579",
+      "slug": "ciaphas-cain-the-anthology",
+      "overrides": {
+        "synopsis": "Ciaphas Cain is a true hero of the Imperium: brave, stalwart, a cool head under fire... or so the propaganda claims. In truth, the Commissar of the Valhallan 597th is simply a self-serving rogue trying to stay alive in a hostile galaxy, his reputation built on luck, quick thinking and a talent for being in the wrong place at the right time. Now Inquisitor Amberley Vail opens the Cain archive to present a selection of his strangest and most celebrated exploits. With his ever-loyal, malodorous aide Jurgen at his side, Cain hunts a warp-tainted infection on Lentonia, blunders into his first terrifying encounter with the Necrons when tech-priests rouse a slumbering tomb, and uncovers a genestealer cult festering beneath a soldiers' brothel. Across mining worlds and frontier sectors he faces rampaging orks, a tyranid swarm, treacherous heretics and the murder of a fellow commissar that threatens to end his charmed career for good. Collecting the novella Old Soldiers Never Die and thirteen short stories, this is the reluctant hero at his cowardly, quick-witted best.",
+        "facetIds": ["book", "en", "commissar", "male", "imperium", "regiment", "mid_series", "standard", "war_story", "character_study", "satirical", "action_heavy", "war", "loyalty", "cw_violence", "cw_death", "cw_language"],
+        "factions": [
+          { "name": "Astra Militarum", "role": "primary" },
+          { "name": "Necrons", "role": "antagonist" },
+          { "name": "Genestealer Cults", "role": "antagonist" },
+          { "name": "Orks", "role": "antagonist" },
+          { "name": "Tyranids", "role": "antagonist" }
+        ],
+        "locations": [
+          { "name": "Lentonia", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Ciaphas Cain", "role": "pov" },
+          { "name": "Jurgen", "role": "supporting" },
+          { "name": "Amberley Vail", "role": "supporting" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 4.28, "count": 498, "evidenceUrl": "https://www.goodreads.com/book/show/198372706-ciaphas-cain" }
+      }
+    },
+    {
+      "externalBookId": "W40K-0580",
+      "slug": "the-high-kahls-oath",
+      "overrides": {
+        "synopsis": "The galactic core is beset by warp storms of a fury the Leagues of Votann have not seen for ten millennia. With both the Imperium and the powers of the warp encroaching ever further onto the Kin's territories, war reigns supreme amongst the coreward stars. Myrtun Dammergot, a Hernkyn Prospect leader of the Kindred of the Eternal Starforge, is in her element, exploiting the unending conflict and living a life of adventure without the unwanted burden of responsibility. But when a messenger from her Kindred's Hold ship brings news that upends everything she knows, responsibility, challenges and opportunity all come knocking at once. Plunged into a venture beyond her wildest expectations, Myrtun and her companions find themselves set against an ancient, deadly foe guarding a mysterious but magnificent prize.",
+        "facetIds": ["book", "en", "female", "pc_xenos", "xenos", "series_start", "standard", "journey", "character_study", "grimdark", "action_heavy", "war", "doubt", "loyalty", "cw_violence", "cw_death"],
+        "factions": [
+          { "name": "Leagues of Votann", "role": "primary" },
+          { "name": "Kindred of the Eternal Starforge", "role": "primary" }
+        ],
+        "locations": [
+          { "name": "Kindred of the Eternal Starforge Hold ship", "role": "primary" }
+        ],
+        "characters": [
+          { "name": "Myrtun Dammergot", "role": "pov" }
+        ],
+        "flags": [],
+        "rating": { "status": "rated", "source": "goodreads", "value": 3.65, "count": 370, "evidenceUrl": "https://www.goodreads.com/book/show/221124958-the-high-k-hl-s-oath" }
+      }
+    }
+  ]
+}
