@@ -12,11 +12,15 @@ import Link from "next/link";
 import { COMPENDIUM_CATEGORIES } from "@/lib/compendium/categories";
 import { loadCategoryItems } from "@/lib/compendium/loader";
 
-// The overview reads no searchParams, so it can be statically generated and
-// served from the CDN, refreshed every few minutes (matches Home / /podcasts).
-// Kept in step with READ_CACHE_TTL in src/lib/db-cache.ts. The category pages
-// stay dynamic (searchParams) but pull from the same cached loaders.
-export const revalidate = 300;
+// Rendered per request, never prerendered at build. The overview's cold fill
+// (five category builders + the layout counts) is the heaviest aggregate in the
+// app; as an ISR page it ran at build time, competed with ~1100 entity pages
+// for the max-5 pooler pool and blew Vercel's static-generation timeout,
+// aborting deploys. At runtime the cachedRead layer (READ_CACHE_TTL, 300s)
+// makes this fast — one real fill per TTL window, every other request served
+// from the Data Cache. The category pages are dynamic anyway (searchParams)
+// and pull from the same cached loaders.
+export const dynamic = "force-dynamic";
 
 function countCopy(n: number, noun: string, pending: boolean): string {
   if (pending && n === 0) return "Curation in progress";

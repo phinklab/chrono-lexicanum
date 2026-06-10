@@ -5,7 +5,8 @@
  * (/archive/podcasts) is a hall of show doorways; this route opens one show and lists
  * every episode through the client archive island (filter + inline play +
  * faction chips). Mirrors the /buch/[slug] route shape — `params` Promise,
- * `notFound()` on a miss, `generateStaticParams` + `generateMetadata`.
+ * `notFound()` on a miss, `generateMetadata`. Shows render on demand (empty
+ * `generateStaticParams`), never at build time.
  */
 import { cache } from "react";
 import type { Metadata } from "next";
@@ -18,7 +19,7 @@ import GhostReadout from "@/components/chrono/GhostReadout";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
 import PodcastEpisodeArchive from "@/components/podcast/PodcastEpisodeArchive";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
-import { loadPodcastShow, podcastShowSlugs } from "../loader";
+import { loadPodcastShow } from "../loader";
 
 // Static shell, refreshed hourly — newly-ingested episodes surface without a
 // redeploy, matching the index.
@@ -44,9 +45,15 @@ function yearSpan(first: number | null, last: number | null): string | null {
   return first === last ? `${last}` : `${first}–${last}`;
 }
 
+// No build-time prerender. Each show costs ~3 uncached DB queries via
+// `loadPodcastShow`; under the build's page concurrency those queued through
+// the small pooler pool past Vercel's 60s static-generation timeout. The empty
+// array is Next's documented "all paths at runtime" pattern: the route stays
+// ISR (`revalidate` above), the first visitor fills the cache, and the build
+// does zero DB work here. Don't delete the function — without it the route
+// would render fully dynamically on every request instead.
 export async function generateStaticParams(): Promise<Params[]> {
-  const slugs = await podcastShowSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return [];
 }
 
 export async function generateMetadata({
