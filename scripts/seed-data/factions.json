@@ -1396,5 +1396,25 @@
     "parent": "imperium",
     "alignment": "imperium",
     "tone": "archive"
+  },
+  {
+    "id": "leagues_of_votann",
+    "name": "Leagues of Votann",
+    "parent": null,
+    "tone": "alien"
+  },
+  {
+    "id": "order_pronatus",
+    "name": "Order Pronatus",
+    "parent": "sisters_of_battle",
+    "alignment": "imperium",
+    "tone": "archive"
+  },
+  {
+    "id": "exorcists",
+    "name": "Exorcists",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
   }
 ]

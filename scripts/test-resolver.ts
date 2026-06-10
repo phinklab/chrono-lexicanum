@@ -597,6 +597,33 @@ check("alias - Resolver-Pass 15 confirmation Knights-Errant (hyphen) still route
   assert.equal(resolveFaction("Knights-Errant").id, "knights_errant");
 });
 
+check("direct match - Resolver-Pass 16 Leagues of Votann (9th/10th-edition Kin faction, first Votann novel, freq=2 strict W40K-0577 Darkness Eternal + W40K-0580 The High Kâhl's Oath, parent=null top-level xenos parity, distinct from squats historical row)", () => {
+  assert.equal(resolveFaction("Leagues of Votann").id, "leagues_of_votann");
+});
+
+check("alias - Resolver-Pass 16 Kindred of the Eternal Starforge routes to leagues_of_votann (Votann sub-org → umbrella, Authority-Layer-Coarseness analog Cadian → cadian_shock_troops, W40K-0580)", () => {
+  assert.equal(
+    resolveFaction("Kindred of the Eternal Starforge").id,
+    "leagues_of_votann",
+  );
+});
+
+check("direct match - Resolver-Pass 16 Order Pronatus (non-militant Sororitas relic-keeper Order, title faction of Aestred Thurga: Pyre of Faith W40K-0571, freq=1 lore-iconic, parent=sisters_of_battle parity with order_of_our_martyred_lady)", () => {
+  assert.equal(resolveFaction("Order Pronatus").id, "order_pronatus");
+});
+
+check("direct match - Resolver-Pass 16 Exorcists (Codex-divergent daemon-binding Space Marine chapter, protagonist of Oaths of Damnation W40K-0582, freq=1 lore-iconic, parent=adeptus_astartes single-chapter-row parity)", () => {
+  assert.equal(resolveFaction("Exorcists").id, "exorcists");
+});
+
+check("alias - Resolver-Pass 16 Aeldari Harlequins routes to harlequins (precise existing eldar sub-row, Saints of the Imperium W40K-0578, lore-eindeutig)", () => {
+  assert.equal(resolveFaction("Aeldari Harlequins").id, "harlequins");
+});
+
+check("alias - Resolver-Pass 16 Cadian Kasrkin routes to kasrkin (precise existing row — Kasrkin sind Cadian-Elite-Stormtroopers, Soldiers of the Imperium W40K-0591)", () => {
+  assert.equal(resolveFaction("Cadian Kasrkin").id, "kasrkin");
+});
+
 console.log("\nresolveLocation");
 
 check("direct match - existing canonical Terra", () => {
