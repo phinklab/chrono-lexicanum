@@ -2370,5 +2370,46 @@ check("rating override - absent field is no-op", () => {
   });
 });
 
+// --- Resolver-Pass 16 gap follow-up (restbatch-extension W40K-0566..0570 / HH-0295..0297) ---
+check("direct match - Pass 16 gap Freebooterz (Ork sub-type, goffs precedent, Da Freebooterz Code W40K-0567)", () => {
+  assert.equal(resolveFaction("Freebooterz").id, "freebooterz");
+});
+
+check("alias - Pass 16 gap Valhallan Ice Warriors routes to valhallan_597th (Authority-Layer-Coarseness analog Cadian -> cadian_shock_troops, Legends of the Waaagh! W40K-0569)", () => {
+  assert.equal(resolveFaction("Valhallan Ice Warriors").id, "valhallan_597th");
+});
+
+check("direct match - Pass 16 gap Halo Stars (rim region, Da Freebooterz Code W40K-0567)", () => {
+  assert.equal(resolveLocation("Halo Stars").id, "halo_stars");
+});
+
+check("direct match - Pass 16 gap Nusquam Fundumentibus (ice world, Legends of the Waaagh! W40K-0569)", () => {
+  assert.equal(resolveLocation("Nusquam Fundumentibus").id, "nusquam_fundumentibus");
+});
+
+check("direct match - Pass 16 gap Sacramentus (hive city, Hive W40K-0566)", () => {
+  assert.equal(resolveLocation("Sacramentus").id, "sacramentus");
+});
+
+check("direct match - Pass 16 gap Helwain (world, Zardu Layak: The Crimson Apostle HH-0295)", () => {
+  assert.equal(resolveLocation("Helwain").id, "helwain");
+});
+
+check("direct match - Pass 16 gap Castrmen Orth (Iron Hands Spearhead-Centurion, Dropsite Massacre HH-0297)", () => {
+  assert.equal(resolveCharacter("Castrmen Orth").id, "castrmen_orth");
+});
+
+check("direct match - Pass 16 gap Kaedes Nex (Raven Guard Moritat-Prime, Dropsite Massacre HH-0297)", () => {
+  assert.equal(resolveCharacter("Kaedes Nex").id, "kaedes_nex");
+});
+
+check("alias - Pass 16 gap Branthan routes to Ulrach Branthan (surname -> full-name canonical row, Iron Hands, The Shattered and the Soulless HH-0296)", () => {
+  assert.equal(resolveCharacter("Branthan").id, "ulrach_branthan");
+});
+
+check("direct match - Pass 16 gap Ulrach Branthan (Iron Hands captain of the Sisypheum)", () => {
+  assert.equal(resolveCharacter("Ulrach Branthan").id, "ulrach_branthan");
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 if (fail > 0) process.exit(1);
