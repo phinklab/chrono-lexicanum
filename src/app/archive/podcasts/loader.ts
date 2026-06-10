@@ -32,7 +32,7 @@ import { cache } from "react";
 import { db } from "@/db/client";
 import { eq, inArray } from "drizzle-orm";
 import { podcastEpisodeDetails } from "@/db/schema";
-import type { Suggestion } from "@/app/werke/filters";
+import type { Suggestion } from "@/app/archive/filters";
 
 // ── Shared shapes ───────────────────────────────────────────────────────────
 
@@ -425,7 +425,7 @@ export function buildPodcastSuggestions(data: PodcastSearchData): Suggestion[] {
       label: ep.title,
       value: ep.id,
       hint: ep.showTitle,
-      href: `/podcasts/${ep.showSlug}#ep-${ep.id}`,
+      href: `/archive/podcasts/${ep.showSlug}#ep-${ep.id}`,
     });
   }
   for (const s of data.shows) {
@@ -436,7 +436,7 @@ export function buildPodcastSuggestions(data: PodcastSearchData): Suggestion[] {
       hint: `Show · ${s.episodeCount} ${
         s.episodeCount === 1 ? "episode" : "episodes"
       }`,
-      href: `/podcasts/${s.slug}`,
+      href: `/archive/podcasts/${s.slug}`,
     });
   }
   return out;

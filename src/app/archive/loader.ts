@@ -160,7 +160,25 @@ export async function loadBrowseBooks(): Promise<BrowseData> {
     return { books, eras };
   } catch (err) {
     const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-    console.error(`[/werke] DB fetch failed (${msg}); rendering empty hall.`);
+    console.error(`[/archive] DB fetch failed (${msg}); rendering empty hall.`);
     return { books: [], eras: [] };
+  }
+}
+
+/**
+ * Resolve a `?focus=<workId>` deep-link target to its book slug, independent of
+ * the browse list above — robust against any future filter/limit on the
+ * catalogue query (Brief 138's timeline chips link here). Unknown id, non-book
+ * kind, malformed UUID or DB error all degrade to null (graceful no-op).
+ */
+export async function bookSlugById(id: string): Promise<string | null> {
+  try {
+    const row = await db.query.works.findFirst({
+      where: (w, { and, eq }) => and(eq(w.id, id), eq(w.kind, "book")),
+      columns: { slug: true },
+    });
+    return row?.slug ?? null;
+  } catch {
+    return null;
   }
 }

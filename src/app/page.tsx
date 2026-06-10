@@ -8,12 +8,12 @@ import HeroScrollCue from "@/components/home/HeroScrollCue";
 import HomeSearch from "@/components/home/HomeSearch";
 import HomeExplore from "@/components/home/HomeExplore";
 import HubScrollReset from "@/components/home/HubScrollReset";
-import { buildSearchIndex } from "@/app/werke/filters";
-import { loadBrowseBooks } from "@/app/werke/loader";
+import { buildSearchIndex } from "@/app/archive/filters";
+import { loadBrowseBooks } from "@/app/archive/loader";
 import {
   loadPodcastSearchIndex,
   buildPodcastSuggestions,
-} from "@/app/podcasts/loader";
+} from "@/app/archive/podcasts/loader";
 import { loadPrimarchSuggestions } from "@/lib/compendium/loader";
 
 export const revalidate = 3600;
@@ -36,7 +36,7 @@ const READOUT_LINES = [
 ];
 
 export default async function HubPage() {
-  // Reuse the public /werke + /podcasts loaders so the Home search console is fed
+  // Reuse the public /archive loaders so the Home search console is fed
   // the same live, unified index the archive ranks — books first, then podcasts
   // (display-only — no schema/data change here).
   const [{ books }, podcastData, primarchSuggestions] = await Promise.all([

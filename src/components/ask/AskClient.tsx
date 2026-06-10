@@ -263,7 +263,7 @@ export default function AskClient({
               <button type="button" className="ask-pill" onClick={reset}>
                 Reset
               </button>
-              <Link href="/werke" className="ask-pill">
+              <Link href="/archive" className="ask-pill">
                 Complete archive
               </Link>
             </div>

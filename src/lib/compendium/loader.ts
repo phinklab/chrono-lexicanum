@@ -28,7 +28,7 @@ import {
 } from "@/app/fraktionen/loader";
 import { hasContent } from "@/app/fraktionen/filters";
 import { loadEntity } from "@/lib/entity/loader";
-import type { Suggestion } from "@/app/werke/filters";
+import type { Suggestion } from "@/app/archive/filters";
 import type { CompendiumItem } from "./categories";
 import {
   ALL_PRIMARCH_CHARACTER_IDS,

@@ -134,12 +134,12 @@ function workHref(
     case "book":
       return `/buch/${slug}`;
     case "podcast":
-      return `/podcasts/${slug}`;
+      return `/archive/podcasts/${slug}`;
     case "podcast_episode":
       // Episodes have no own page — deep-link into the parent show's archive,
       // targeting this episode by work id (`#ep-<id>`). The archive island
       // expands that episode's year, scrolls it into view and highlights it.
-      return showSlug ? `/podcasts/${showSlug}#ep-${workId}` : null;
+      return showSlug ? `/archive/podcasts/${showSlug}#ep-${workId}` : null;
     default:
       return null;
   }

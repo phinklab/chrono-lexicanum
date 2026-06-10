@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import BrowseSearch from "@/components/browse/BrowseSearch";
-import { factionFocusHref, primarchFocusHref, type Suggestion } from "@/app/werke/filters";
+import { factionFocusHref, primarchFocusHref, type Suggestion } from "@/app/archive/filters";
 
 /**
  * Podcast-page search (Brief 132) — the same archive-wide console Home and
@@ -15,9 +15,9 @@ import { factionFocusHref, primarchFocusHref, type Suggestion } from "@/app/werk
  *   - podcast              → s.href                 (show page, or #ep-<id> deep link)
  *   - faction              → /compendium/fraktionen?focus=[id]  (faction directory + popup)
  *   - primarch             → /compendium/primarchen?focus=[id] (primarch directory + popup)
- *   - facet/format         → /werke?<param>=…       (land in the archive, pre-filtered)
- *   - author / raw Enter   → /werke?q=…             (land in the archive, searched)
- *   - empty Enter          → /werke                 (open the unfiltered archive)
+ *   - facet/format         → /archive?<param>=…     (land in the archive, pre-filtered)
+ *   - author / raw Enter   → /archive?q=…           (land in the archive, searched)
+ *   - empty Enter          → /archive               (open the unfiltered archive)
  *
  * The combobox mechanics live in the shared `<BrowseSearch>`; this wrapper only
  * supplies the routing + the gold-skinned `.pod-search` chrome.
@@ -26,15 +26,15 @@ export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
   const router = useRouter();
   const [q, setQ] = useState("");
 
-  /** Land on /werke with a single param set (or unfiltered when empty). */
+  /** Land on /archive with a single param set (or unfiltered when empty). */
   function toWerke(key: string | null, value: string): void {
     if (!key || !value) {
-      router.push("/werke");
+      router.push("/archive");
       return;
     }
     const sp = new URLSearchParams();
     sp.set(key, value);
-    router.push(`/werke?${sp.toString()}`);
+    router.push(`/archive?${sp.toString()}`);
   }
 
   function onPick(s: Suggestion): void {

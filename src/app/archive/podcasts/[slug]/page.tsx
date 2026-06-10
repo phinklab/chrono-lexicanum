@@ -1,8 +1,8 @@
 /**
- * Per-show podcast detail page. /podcasts/the-40k-lorecast
+ * Per-show podcast detail page. /archive/podcasts/the-40k-lorecast
  *
  * 121-P4 (2026-06-06): the second half of the podcast redesign. The index
- * (/podcasts) is a hall of show doorways; this route opens one show and lists
+ * (/archive/podcasts) is a hall of show doorways; this route opens one show and lists
  * every episode through the client archive island (filter + inline play +
  * faction chips). Mirrors the /buch/[slug] route shape — `params` Promise,
  * `notFound()` on a miss, `generateStaticParams` + `generateMetadata`.
@@ -17,6 +17,7 @@ import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
 import PodcastEpisodeArchive from "@/components/podcast/PodcastEpisodeArchive";
+import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import { loadPodcastShow, podcastShowSlugs } from "../loader";
 
 // Static shell, refreshed hourly — newly-ingested episodes surface without a
@@ -79,6 +80,7 @@ export default async function PodcastShowPage({
 
   return (
     <main className="podcasts podcasts--show">
+      <ArchiveModeToggle active="podcasts" />
       <SiteBackground variant="vox" position="50% 38%" />
       <ScrollScrim
         className="pod-scrim"
@@ -162,7 +164,7 @@ export default async function PodcastShowPage({
               </div>
             )}
 
-            <Link href="/podcasts" className="pod-plate__back">
+            <Link href="/archive/podcasts" className="pod-plate__back">
               ← All podcasts
             </Link>
           </div>

@@ -15,7 +15,7 @@ import {
   SUGGEST_GROUP_LABEL,
   SUGGEST_MIN_LEN,
   type Suggestion,
-} from "@/app/werke/filters";
+} from "@/app/archive/filters";
 
 /**
  * BrowseSearch — the canonical "search everything we can filter" combobox

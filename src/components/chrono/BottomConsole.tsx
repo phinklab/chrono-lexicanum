@@ -38,7 +38,7 @@ const DEFAULT_DOORWAYS: Doorway[] = [
     l: "BIBLIOTHECA",
     t: "Books",
     d: "Browse the full novel catalogue — search, filter and sort by era, faction and format.",
-    href: "/werke",
+    href: "/archive",
   },
   {
     l: "CARTOGRAPHIA",

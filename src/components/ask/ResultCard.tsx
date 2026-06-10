@@ -189,7 +189,7 @@ export default function ResultCard({
           Reset
         </button>
         <span className="ask-footer__spacer" aria-hidden />
-        <Link href="/werke" className="ask-pill">
+        <Link href="/archive" className="ask-pill">
           Complete archive
         </Link>
       </div>
