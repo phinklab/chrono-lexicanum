@@ -5,7 +5,7 @@ date: 2026-06-10
 status: open
 slug: timeline-cinematic-port
 parent: 2026-06-10-137  # data foundation — MUST be applied (DB live) before this session starts
-links: [2026-06-10-137]
+links: [2026-06-10-137, 2026-06-10-139]
 commits: []
 ---
 
@@ -14,6 +14,9 @@ commits: []
 > **Strand: Product** (`chrono-lexicanum-product`). UI port + loader + assets.
 > **Hard dependency:** Brief 137 (events/eras/event_works tables seeded in
 > Supabase) must be merged *and applied* first — this page reads those tables.
+> **Also required on `main`:** the Archive/SiteMenu PR (impl 139) — it provides
+> the chip targets (`/archive?focus=`, `/archive/podcasts/…#ep-…`) and the
+> global burger nav this brief assumes.
 
 ## Goal
 
@@ -52,12 +55,15 @@ Postgres instead of the prototype's inline demo data.
     `Mobile Preview.html`, `Timeline Wireframes.html`, `screenshots/`,
     `uploads/` — dev/preview shells and reference material, **do not port**.
   - The export's HTML also carries a **burger button + full-screen `#site-menu`**
-    (Philipp's navigation design). That is *app-shell* navigation, not part of
-    the timeline page: a separate nav session lands it (or its successor) on
-    `main` before this brief runs. Reuse whatever global nav exists on `main`
-    at session start; port only the timeline-internal nav (era bands, mode
-    toggle, scrubber, minimap). If the shell nav is missing or contradicts the
-    prototype, flag it in the report instead of porting the mock.
+    (Philipp's navigation design). That nav is **already live on `main`** as
+    global app-shell chrome (impl 139: `src/components/chrome/SiteMenu.tsx`,
+    mounted in `layout.tsx` next to the still-present `TopNav`; burger z 81,
+    menu z 80). **Do not port the prototype's burger/menu markup** — port only
+    the timeline-internal nav (era bands, mode toggle, scrubber, minimap). The
+    prototype was designed *with* the burger top-right, so the global one
+    should slot in visually; if the TopNav top bar collides with the cinematic
+    view, flag it in the report — hiding/restyling the shell on `/timeline` is
+    a separate design decision, not this session's call.
 - **Data source (from Brief 137):** `eras` (8 rows, with `short/mLabel/sub/tagline/
   intro/coverRef`), `events` (144, with `eraId/sortIndex/tier/approx/dateLabel/
   blurb/artworkRef/artCredit*`), `event_works` (resolved hooks with role,
@@ -79,20 +85,21 @@ Chips are **not** bespoke elements; they reuse the site's existing deep-link
 patterns:
 
 - **Podcast chip** → the parent show's archive with the episode expanded,
-  scrolled-to and highlighted: `/podcasts/<showSlug>#ep-<workId>` — exactly the
-  existing pattern from entity panels (`workHref()` in `src/lib/entity/loader.ts`;
-  the hash effect in `PodcastEpisodeArchive` already works on a fresh document
-  load, so it survives new-tab opening). Reuse/extract that helper rather than
-  duplicating it.
-- **Book chip** → the book **popup over the works directory**, not the bare
-  full page: link to `/werke?focus=<workId>`. `/werke` does not support `?focus=`
-  yet — add it, mirroring the Compendium pattern
-  (`src/app/compendium/[category]/page.tsx` reads `?focus=<id>`, resolves to the
-  row's detail href, renders `CompendiumFocusOpener`, which link-clicks into the
-  `@modal/(.)buch/[slug]` intercept → DetailModal popup). The opener component is
-  reusable as-is.
-- **Series chip** (series-level hooks like Gaunt's Ghosts) → `/werke` filtered to
-  that series (existing series filter param), new tab, no popup.
+  scrolled-to and highlighted: `/archive/podcasts/<showSlug>#ep-<workId>` —
+  exactly the existing pattern from entity panels (`workHref()` in
+  `src/lib/entity/loader.ts` already emits this route since impl 139; the hash
+  effect in `PodcastEpisodeArchive` works on a fresh document load, so it
+  survives new-tab opening). Reuse/extract that helper rather than duplicating
+  it.
+- **Book chip** → the book **popup over the archive catalog**, not the bare
+  full page: link to `/archive?focus=<workId>`. This **already works** (impl
+  139): `src/app/archive/page.tsx` reads `?focus=`, resolves the id via
+  `bookSlugById()` (robust against catalog filters/limits) and renders
+  `CompendiumFocusOpener` into the `@modal/(.)buch/[slug]` intercept →
+  DetailModal popup. Unknown ids degrade to a no-op. Nothing to build here —
+  just emit the link.
+- **Series chip** (series-level hooks like Gaunt's Ghosts) → `/archive` filtered
+  to that series (existing series filter param), new tab, no popup.
 - **Both kinds open in a new tab and should NOT steal focus.** Reality check the
   implementer must respect: browsers do not reliably let a page open a true
   background tab — that's user-gesture territory (middle-click/Ctrl+click, which
@@ -113,7 +120,8 @@ patterns:
    href }` server-side (book title/author from `works`+`bookDetails`, episode
    show-slug join for the `#ep-` href, series name from `series`). `displayLabel`
    from `event_works` wins over derived attribution when present.
-3. **`/werke?focus=` opener** as described above.
+3. ~~`?focus=` opener~~ — **already shipped** (impl 139) as
+   `/archive?focus=<workId>`; this session only emits links to it.
 4. **Artwork assets:** optimize the 19 prototype PNGs (`design-export/assets/bg/`,
    ~2 MB each) to WebP (quality ~80, target ≤300 KB each) at
    `public/timeline/bg/<same-basename>.webp`. The DB `coverRef`/`artworkRef`
@@ -145,7 +153,8 @@ patterns:
   it in the report — `status: needs-decision` if blocking).
 - Porting `tweaks-panel.jsx` / `chronicle-tweaks.jsx` / `ios-frame.jsx` /
   `Mobile Preview.html` / `Timeline Wireframes.html` / `screenshots/` / `uploads/`.
-- Porting the prototype's burger + `#site-menu` (app-shell nav — see Context).
+- Porting the prototype's burger + `#site-menu` (already live on `main` since
+  impl 139 — see Context).
 - Music player, HUD, Map — unrelated Product surfaces.
 - Committing `design-export/` or the raw PNGs.
 
@@ -156,9 +165,10 @@ The session is done when:
 - [ ] `/timeline` renders all 8 chapters from the DB (zero inline event data),
       Cinematic + Index views, scrubber, minimap incl. deep-history offscale pin.
 - [ ] Podcast chip on an event (e.g. Gothic War) opens
-      `/podcasts/<show>#ep-<id>` in a new tab with the episode highlighted.
-- [ ] Book chip opens `/werke?focus=<id>` in a new tab showing the book popup
-      over the works directory; middle-click/Ctrl+click still work natively.
+      `/archive/podcasts/<show>#ep-<id>` in a new tab with the episode
+      highlighted.
+- [ ] Book chip opens `/archive?focus=<id>` in a new tab showing the book popup
+      over the archive catalog; middle-click/Ctrl+click still work natively.
 - [ ] 19 optimized WebP files under `public/timeline/bg/`, total ≤ ~6 MB.
 - [ ] Old `?era=` values redirect into the matching new chapter.
 - [ ] `npx tsc --noEmit` + `npm run lint` green; dev server restarted clean for
