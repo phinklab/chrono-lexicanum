@@ -3428,5 +3428,54 @@
     "primaryFactionId": "iron_warriors",
     "lexicanumUrl": null,
     "notes": "Brief 103 Daten-Pass (audit gap-pilot — non-audio_drama-Pilotbackfill aus Welle ssot-hh-027, HH-0270 c=0 -> c>=1): Iron Warriors Warsmith, sole POV of Iron Corpses (HH-0270, John French — Tallarn-Nachhall-Audio-Drama), explizit als wreck-survivor warsmith genannt, der den abgestürzten Warlord-Titan Ostentio Contritio bergt. primaryFactionId iron_warriors."
+  },
+  {
+    "id": "morvenn_vahl",
+    "name": "Morvenn Vahl",
+    "primaryFactionId": "sisters_of_battle",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 16 Phase 3 (7c strong curated freq-1 lore-iconic title character — Abbess Sanctorum, supreme commander of the Adepta Sororitas, current major named GW character): Morvenn Vahl: Spear of Faith (W40K-0576, Jude Reid — Abbess Sanctorum vs Night Lords on Ophelia VII). primaryFactionId sisters_of_battle (whole-order command, not a single Order). Short-form alias 'Vahl' -> morvenn_vahl (character-aliases.json)."
+  },
+  {
+    "id": "torquemada_coteaz",
+    "name": "Torquemada Coteaz",
+    "primaryFactionId": "ordo_malleus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 16 Phase 3 (7c strong curated freq-1 lore-iconic title character — Inquisitor Coteaz of the Ordo Malleus, long-iconic named Inquisitor): Daemonhammer (W40K-0581, Darius Hinks — Coteaz / Ordo Malleus, Formosa Sector). primaryFactionId ordo_malleus (the precise Ordo grain over the coarse inquisition). Short-form alias 'Coteaz' -> torquemada_coteaz (character-aliases.json)."
+  },
+  {
+    "id": "arcadian_leontus",
+    "name": "Arcadian Leontus",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 16 Phase 3 (7c strong curated freq-1 lore-iconic title character — Lord Solar Leontus, named 10th-edition Astra Militarum supreme commander): Leontus (W40K-0590, Rob Young — Lord Solar Leontus vs a Speed Waaagh! on Fortuna Minor). primaryFactionId astra_militarum. Short-form alias 'Leontus' -> arcadian_leontus (character-aliases.json)."
+  },
+  {
+    "id": "grotsnik",
+    "name": "Grotsnik",
+    "primaryFactionId": "orks",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 16 Phase 3 (7c strong curated freq-1 lore-iconic title character — Mad Dok / Painboss Grotsnik, iconic named Ork): Grotsnik: Da Mad Dok (W40K-0583, Denny Flowers — Ork comedy on Hive Prome). primaryFactionId orks."
+  },
+  {
+    "id": "aestred_thurga",
+    "name": "Aestred Thurga",
+    "primaryFactionId": "order_pronatus",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 16 Phase 3 (7c curated freq-1 title character — Order Pronatus relic-bearer): Aestred Thurga: Pyre of Faith (W40K-0571, Danie Ware — Order Pronatus relic-defence). primaryFactionId order_pronatus (finer Sororitas-Order grain than sisters_of_battle; the order_pronatus row landed in Phase 1)."
+  },
+  {
+    "id": "xantine",
+    "name": "Xantine",
+    "primaryFactionId": "emperors_children",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 16 Phase 3 (7c curated freq-1 title antagonist — 'Xantine, the Adored', the Emperor's Children title-antagonist): Renegades: Lord of Excess (W40K-0592, Rich McCormick — Emperor's Children Chaos-POV on Serrine). primaryFactionId emperors_children."
+  },
+  {
+    "id": "darya_nevic",
+    "name": "Darya Nevic",
+    "primaryFactionId": "astra_militarum",
+    "lexicanumUrl": null,
+    "notes": "Resolver-Pass 16 Phase 3 (7b strict-freq-2 cross-batch spine — the only freq>=2 unresolved character this wave, W40K-0587 Blood of the Imperium + W40K-0590 Leontus, both Astra-Militarum-adjacent contexts; distinctive full name carries low same-name-collision risk -> single canonical row per runbook §4 freq>=2-strict threshold, no needs-decision stop). primaryFactionId astra_militarum."
   }
 ]

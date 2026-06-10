@@ -1849,6 +1849,51 @@ check("alias-consolidation - Resolver-Pass 15 confirmation Horus Lupercal still 
   assert.equal(resolveCharacter("Horus Lupercal").id, "horus");
 });
 
+check("direct match - Resolver-Pass 16 Morvenn Vahl (7c strong curated freq-1 lore-iconic title character — Abbess Sanctorum, supreme commander of the Adepta Sororitas, Morvenn Vahl: Spear of Faith W40K-0576, primaryFactionId sisters_of_battle)", () => {
+  assert.equal(resolveCharacter("Morvenn Vahl").id, "morvenn_vahl");
+});
+
+check("direct match - Resolver-Pass 16 Torquemada Coteaz (7c strong curated freq-1 lore-iconic title character — Inquisitor Coteaz of the Ordo Malleus, Daemonhammer W40K-0581, primaryFactionId ordo_malleus)", () => {
+  assert.equal(resolveCharacter("Torquemada Coteaz").id, "torquemada_coteaz");
+});
+
+check("direct match - Resolver-Pass 16 Arcadian Leontus (7c strong curated freq-1 lore-iconic title character — Lord Solar Leontus, 10th-edition Astra Militarum supreme commander, Leontus W40K-0590, primaryFactionId astra_militarum)", () => {
+  assert.equal(resolveCharacter("Arcadian Leontus").id, "arcadian_leontus");
+});
+
+check("direct match - Resolver-Pass 16 Grotsnik (7c strong curated freq-1 lore-iconic title character — Mad Dok / Painboss Grotsnik, iconic named Ork, Grotsnik: Da Mad Dok W40K-0583, primaryFactionId orks)", () => {
+  assert.equal(resolveCharacter("Grotsnik").id, "grotsnik");
+});
+
+check("direct match - Resolver-Pass 16 Aestred Thurga (7c curated freq-1 title character — Order Pronatus relic-bearer, Aestred Thurga: Pyre of Faith W40K-0571, primaryFactionId order_pronatus finer-grain row landed Phase 1)", () => {
+  assert.equal(resolveCharacter("Aestred Thurga").id, "aestred_thurga");
+});
+
+check("direct match - Resolver-Pass 16 Xantine (7c curated freq-1 title antagonist — 'Xantine, the Adored', Emperor's Children title-antagonist, Renegades: Lord of Excess W40K-0592, primaryFactionId emperors_children)", () => {
+  assert.equal(resolveCharacter("Xantine").id, "xantine");
+});
+
+check("direct match - Resolver-Pass 16 Darya Nevic (7b strict-freq-2 cross-batch spine — only freq>=2 unresolved character this wave, W40K-0587 Blood of the Imperium + W40K-0590 Leontus, both Astra-Militarum-adjacent; distinctive full name -> single canonical row per runbook §4 freq>=2-strict)", () => {
+  assert.equal(resolveCharacter("Darya Nevic").id, "darya_nevic");
+});
+
+check("alias-consolidation - Resolver-Pass 16 (7a Case A cross-batch identity-merge already landed) Commissar Yarrick (W40K-0572 Carnage Unending, batch 058) + Sebastian Yarrick (W40K-0585 Yarrick: Imperial Creed, batch 059) both route to the single sebastian_yarrick row", () => {
+  assert.equal(resolveCharacter("Commissar Yarrick").id, "sebastian_yarrick");
+  assert.equal(resolveCharacter("Sebastian Yarrick").id, "sebastian_yarrick");
+});
+
+check("alias-consolidation - Resolver-Pass 16 (7a discretionary short-form, runbook §4 Character-Honor-Title-Split convention — lore-unambiguous, no cross-axis collision) Leontus routes to arcadian_leontus (book/short surface vs full name Arcadian Leontus, Leontus W40K-0590)", () => {
+  assert.equal(resolveCharacter("Leontus").id, "arcadian_leontus");
+});
+
+check("alias-consolidation - Resolver-Pass 16 (7a discretionary short-form, runbook §4 Character-Honor-Title-Split convention — lore-unambiguous, no cross-axis collision) Coteaz routes to torquemada_coteaz (dominant short surface for Inquisitor Coteaz, Daemonhammer W40K-0581)", () => {
+  assert.equal(resolveCharacter("Coteaz").id, "torquemada_coteaz");
+});
+
+check("alias-consolidation - Resolver-Pass 16 (7a discretionary short-form, runbook §4 Character-Honor-Title-Split convention — lore-unambiguous, no cross-axis collision) Vahl routes to morvenn_vahl (short surface for the Abbess Sanctorum, Morvenn Vahl: Spear of Faith W40K-0576)", () => {
+  assert.equal(resolveCharacter("Vahl").id, "morvenn_vahl");
+});
+
 console.log("\nnormalizeCharacterRole");
 
 check("role - pov stays pov", () => {
