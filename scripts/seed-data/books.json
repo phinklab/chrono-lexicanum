@@ -223,7 +223,7 @@
     "pubYear": 2014,
     "startY": 31040,
     "endY": 31040,
-    "primaryEraId": "age_rebirth",
+    "primaryEraId": "horus_heresy",
 
     "format": "novel",
     "confidence": 0.7,
@@ -261,7 +261,7 @@
     "pubYear": 2015,
     "startY": 32544,
     "endY": 32544,
-    "primaryEraId": "long_war",
+    "primaryEraId": "the_forging",
 
     "format": "novel",
     "synopsis": "Two thousand years after the Heresy, an Ork empire of unprecedented scale erupts from Ullanor. The Imperial Fists are sent to break the assault — and are themselves broken. The greatest Waaagh! the galaxy has ever seen has only just begun.",

@@ -2,7 +2,7 @@
 session: 2026-06-10-137
 role: architect
 date: 2026-06-10
-status: open
+status: implemented
 slug: timeline-data-foundation
 parent: null            # design session ran Cowork-side in timeline-workshop/ (git-ignored); Brief 134 is retired
 links: [2026-06-10-138]

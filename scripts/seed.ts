@@ -48,7 +48,21 @@ const SEED_DIR = join(process.cwd(), "scripts", "seed-data");
 const readJson = <T>(file: string): T =>
   JSON.parse(readFileSync(join(SEED_DIR, file), "utf8")) as T;
 
-interface RawEra { id: string; name: string; start: number; end: number; tone?: string }
+interface RawEra {
+  id: string;
+  name: string;
+  start: number;
+  end: number;
+  tone?: string;
+  // Brief 137 (2026-06-10): Editorial-Copy der 8-Era-Timeline.
+  short?: string;
+  mLabel?: string;
+  sub?: string;
+  tagline?: string;
+  intro?: string;
+  coverRef?: string;
+  sortOrder?: number;
+}
 type FactionAlignment = "imperium" | "chaos" | "xenos" | "neutral";
 const FACTION_ALIGNMENTS = new Set<FactionAlignment>([
   "imperium",
@@ -312,7 +326,13 @@ async function main() {
       startY: String(e.start),
       endY: String(e.end),
       tone: e.tone ?? null,
-      sortOrder: i,
+      sortOrder: e.sortOrder ?? i,
+      short: e.short ?? null,
+      mLabel: e.mLabel ?? null,
+      sub: e.sub ?? null,
+      tagline: e.tagline ?? null,
+      intro: e.intro ?? null,
+      coverRef: e.coverRef ?? null,
     })),
   );
   console.log(`Inserted ${RAW.eras.length} eras.`);

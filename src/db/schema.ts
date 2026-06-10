@@ -56,9 +56,10 @@ import {
   primaryKey,
   unique,
   index,
+  check,
   jsonb,
 } from "drizzle-orm/pg-core";
-import { relations } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 
 // =============================================================================
 // ENUMS
@@ -179,6 +180,11 @@ export const bookAvailability = pgEnum("book_availability", [
   "unavailable",
 ]);
 
+// Brief 137 (2026-06-10): Chronicle-Timeline-Spine. Display-Gewicht eines
+// kuratierten Events — 'epoch' = Kapitel-Anker, 'major' = voller Eintrag,
+// 'minor' = kompakte Zeile.
+export const eventTier = pgEnum("event_tier", ["epoch", "major", "minor"]);
+
 // =============================================================================
 // REFERENCE: Eras, Factions, Series
 // (Slowly-changing, small N, edited via Drizzle Studio + PR)
@@ -191,6 +197,18 @@ export const eras = pgTable("eras", {
   endY: numeric("end_y", { precision: 10, scale: 3 }).notNull(),
   tone: text("tone"),
   sortOrder: integer("sort_order").notNull().default(0),
+  // Brief 137 (2026-06-10): Editorial-Copy für die neue 8-Era-Timeline.
+  // Alle nullable — die Spalten kamen per ALTER auf bestehende Rows.
+  // Grouping-Mode / Minimap-Tuning bleiben bewusst Product-seitige View-Config
+  // (Brief 138), nicht DB.
+  short: text("short"),
+  mLabel: text("m_label"),
+  sub: text("sub"),
+  tagline: text("tagline"),
+  intro: text("intro"),
+  // Public-Asset-Pfad (/timeline/bg/*.webp). String, kein FK — die Datei
+  // selbst shipped Brief 138; bis dahin darf der Pfad dangeln.
+  coverRef: text("cover_ref"),
 });
 
 export const factions = pgTable("factions", {
@@ -231,6 +249,20 @@ export const works = pgTable(
     // In-universe time (M-scale). Channels typically NULL.
     startY: numeric("start_y", { precision: 10, scale: 3 }),
     endY: numeric("end_y", { precision: 10, scale: 3 }),
+
+    // Brief 137 (2026-06-10): Dating-Provenance für die kuratierten Setting-
+    // Dates (book-dates.json), die startY/endY befüllen. settingMethod ist
+    // text statt enum, damit das Kurations-Vokabular ('explicit',
+    // 'event-anchored', 'roster', 'bracket', 'series-inherited', …) ohne
+    // Migration wachsen kann. settingAnchorEventId zeigt auf das Event, von
+    // dem die Datierung abgeleitet wurde (nullable — nicht jede Datierung ist
+    // event-verankert).
+    settingDateLabel: text("setting_date_label"),
+    settingMethod: text("setting_method"),
+    settingConfidence: varchar("setting_confidence", { length: 1 }),
+    settingAnchorEventId: varchar("setting_anchor_event_id", {
+      length: 64,
+    }).references(() => events.id),
 
     // Real-world year. Universal sort/filter axis. Nullable: channels and
     // works without a clear publication year stay NULL.
@@ -686,6 +718,98 @@ export const characters = pgTable("characters", {
 });
 
 // =============================================================================
+// TIMELINE: Events + event↔work hooks (Brief 137, 2026-06-10)
+// Die hand-kuratierte Chronicle-Spine: 144 datierte Events über acht Eras,
+// plus eine Junction, die Buch-/Serien-/Podcast-Hooks pro Event trägt.
+// Seed-Quelle: scripts/seed-data/{events,event-works}.json, geladen über
+// scripts/apply-timeline-data.ts (idempotent, dry-run-fähig).
+// =============================================================================
+
+export const events = pgTable(
+  "events",
+  {
+    // snake_case Reference-Table-Konvention, z. B. 'razing_of_monarchia'.
+    id: varchar("id", { length: 64 }).primaryKey(),
+    title: text("title").notNull(),
+    // Verbatim-Imperial-Notation / Legenden-Label ("964.M30", "~60,000,000
+    // YEARS AGO") — wird NIE aus startY re-deriviert.
+    dateLabel: text("date_label").notNull(),
+    // Nullable: Deep-History-Events (War in Heaven, …) sind off-scale.
+    startY: numeric("start_y", { precision: 10, scale: 3 }),
+    endY: numeric("end_y", { precision: 10, scale: 3 }),
+    offscale: boolean("offscale").notNull().default(false),
+    // Editorial zugewiesen, NIE aus scaleY abgeleitet — Fall of Cadia
+    // (999.M41) sitzt in 'indomitus', M36-Apostasy-Beats in 'age_apostasy'.
+    // Rows, deren startY außerhalb der Era-Bounds liegt, sind kein Fehler.
+    eraId: varchar("era_id", { length: 64 })
+      .notNull()
+      .references(() => eras.id),
+    // Display-Reihenfolge innerhalb der Era (export-gestempelt).
+    sortIndex: integer("sort_index").notNull(),
+    tier: eventTier("tier").notNull(),
+    approx: boolean("approx").notNull().default(false),
+    // 'H' / 'M' / 'L' — Workshop-Provenance, gleicher Geist wie
+    // works.confidence, aber das kuratierte Buchstaben-Vokabular verbatim.
+    confidence: varchar("confidence", { length: 1 }),
+    // Workshop-Provenance-String ('lex', 'fandom', 'tl', 'roster', 'chron',
+    // 'lore', Kombis wie 'fandom/lex') — text statt enum, Kurations-Vokabular.
+    sourceKind: text("source_kind"),
+    // Englische Display-Copy, von der neuen Timeline gerendert.
+    blurb: text("blurb").notNull(),
+    // Interne Provenance-Notiz, nicht gerendert.
+    curatorNote: text("curator_note"),
+    // Public-Asset-Pfad; Datei shipped Brief 138 — String darf dangeln.
+    artworkRef: text("artwork_ref"),
+    artCreditName: text("art_credit_name"),
+    artCreditUrl: text("art_credit_url"),
+  },
+  (t) => ({
+    eraIdx: index("events_era_idx").on(t.eraId),
+    startYIdx: index("events_start_y_idx").on(t.startY),
+  }),
+);
+
+// Eine Junction für Buch-Hooks UND Podcast-Picks — Episoden sind bereits
+// works-Rows. seriesId deckt Serien-Level-Hooks ab (Gaunt's Ghosts, The Beast
+// Arises), wo kein einzelnes Buch das Event trägt.
+export const eventWorks = pgTable(
+  "event_works",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    eventId: varchar("event_id", { length: 64 })
+      .notNull()
+      .references(() => events.id, { onDelete: "cascade" }),
+    workId: uuid("work_id").references(() => works.id),
+    seriesId: varchar("series_id", { length: 64 }).references(() => series.id),
+    // 'book' | 'podcast' — varchar-artiges text-Feld statt enum, gleiche
+    // Begründung wie work_factions.role (Vokabular wächst ohne Migration).
+    role: text("role").notNull(),
+    // Kuratierte Attribution-Line-Override ("G. McNeill · PROLOGUE 739.M30",
+    // "EP. 112", "SERIES · 23 BOOKS"); NULL = Frontend baut den Default.
+    displayLabel: text("display_label"),
+    // Chip-Reihenfolge innerhalb des Events.
+    position: integer("position").notNull().default(0),
+  },
+  (t) => ({
+    // Postgres default NULLS DISTINCT: mehrere Serien-Hooks pro Event
+    // kollidieren nicht auf (eventId, NULL-workId) und umgekehrt.
+    eventWorkUnique: unique("event_works_event_work_unique").on(
+      t.eventId,
+      t.workId,
+    ),
+    eventSeriesUnique: unique("event_works_event_series_unique").on(
+      t.eventId,
+      t.seriesId,
+    ),
+    // Genau eines von workId / seriesId gesetzt.
+    exactlyOneTarget: check(
+      "event_works_exactly_one_target",
+      sql`(work_id IS NULL) <> (series_id IS NULL)`,
+    ),
+  }),
+);
+
+// =============================================================================
 // COMMUNITY: Submissions
 // =============================================================================
 
@@ -721,6 +845,28 @@ export const factionsRelations = relations(factions, ({ one, many }) => ({
 
 export const seriesRelations = relations(series, ({ many }) => ({
   bookDetails: many(bookDetails),
+  eventWorks: many(eventWorks),
+}));
+
+export const erasRelations = relations(eras, ({ many }) => ({
+  events: many(events),
+}));
+
+export const eventsRelations = relations(events, ({ one, many }) => ({
+  era: one(eras, { fields: [events.eraId], references: [eras.id] }),
+  works: many(eventWorks),
+}));
+
+export const eventWorksRelations = relations(eventWorks, ({ one }) => ({
+  event: one(events, {
+    fields: [eventWorks.eventId],
+    references: [events.id],
+  }),
+  work: one(works, { fields: [eventWorks.workId], references: [works.id] }),
+  series: one(series, {
+    fields: [eventWorks.seriesId],
+    references: [series.id],
+  }),
 }));
 
 export const worksRelations = relations(works, ({ one, many }) => ({
@@ -763,6 +909,7 @@ export const worksRelations = relations(works, ({ one, many }) => ({
   containedIn: many(workCollections, { relationName: "work_collection_content" }),
   contains: many(workCollections, { relationName: "work_collection_collection" }),
   externalLinks: many(externalLinks),
+  eventWorks: many(eventWorks),
 }));
 
 export const bookDetailsRelations = relations(bookDetails, ({ one }) => ({

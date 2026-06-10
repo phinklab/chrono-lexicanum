@@ -42,7 +42,8 @@
  *   - `works.confidence`      ← const "1.00"
  *   - `bookDetails.format`    ← roster (or override `data_conflict.suggestion`)
  *   - `bookDetails.notes`     ← surfaceForms + optional authorship JSON blocks
- *   - `bookDetails.primaryEraId` ← const "time_ending" (M41)
+ *   - `bookDetails.primaryEraId` ← const "time_ending" (M41 — Platzhalter,
+ *     keine Kuration; siehe Warnkommentar an M41_ERA_ID)
  *   - `bookDetails.seriesId`/`seriesIndex` ← seriesHint→reference mapping
  *   - `work_persons.*`        ← roster.authors[]/roster.editors[] (slugified)
  *
@@ -125,6 +126,14 @@ const LOCATIONS_PATH = resolve(SEED_DIR, "locations.json");
 const LOCATION_ALIASES_PATH = resolve(SEED_DIR, "location-aliases.json");
 const OVERRIDE_FILENAME_PREFIX = "manual-overrides-";
 
+// ⚠ Platzhalter, KEINE Kuration (Befund Brief 137): dieser konstante Stempel
+// landet bei JEDEM Upsert in `book_details.primary_era_id` — Insert wie Update.
+// Praktisch der ganze SSOT-Korpus trägt deshalb 'time_ending'; das Feld ist als
+// Era-Anker editorial wertlos, und jede künftige per-Buch-Kuration würde von der
+// nächsten Welle / dem nächsten Refresh wieder überstempelt. Bevor ein Consumer
+// primary_era_id ernsthaft nutzt: echten Wert ableiten (naheliegend: aus den
+// Setting-Dates `works.startY/setting*` aus Brief 137 bucketen) und dieses
+// Überschreiben hier entfernen.
 const M41_ERA_ID = "time_ending";
 const BATCH_NAME_PATTERN = /^ssot-(w40k|hh)-\d{3}$/;
 

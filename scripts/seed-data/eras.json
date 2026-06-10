@@ -1,51 +1,114 @@
 [
   {
+    "id": "deep_history",
+    "name": "Deep History",
+    "short": "DEEP HISTORY",
+    "mLabel": "PRE-M30",
+    "sub": "The ages of myth, the epochs before the Imperium. Dates are legend, not record.",
+    "tagline": "Before the Imperium, there was only myth, and the wreckage of older wars.",
+    "intro": "Before the Imperium there was only myth: sixty million years of older wars, golden ages and utter collapse, the wreckage upon which the Emperor will build. Dates in this chapter are legend, not record.",
+    "coverRef": "/timeline/bg/war-in-heaven.webp",
+    "start": 0,
+    "end": 29999,
+    "tone": "Myth and ruin before the Imperium.",
+    "sortOrder": 1
+  },
+  {
     "id": "great_crusade",
     "name": "Great Crusade",
-    "start": 30798,
-    "end": 30997,
-    "tone": "The Emperor reclaims the galaxy for humanity."
+    "short": "GREAT CRUSADE",
+    "mLabel": "M30",
+    "sub": "The Emperor unifies Terra, then reconquers the galaxy.",
+    "tagline": "The storms abate. The Emperor casts off his veils and reaches for the stars.",
+    "intro": "The warp storms abate, and the Emperor casts off his veils. Terra is unified by thunder and Mars bound by treaty; for two centuries the Legions reconquer the galaxy, world by compliant world.",
+    "coverRef": "/timeline/bg/era-great-crusade.webp",
+    "start": 30000,
+    "end": 31000,
+    "tone": "The Emperor reclaims the galaxy for humanity.",
+    "sortOrder": 2
   },
   {
     "id": "horus_heresy",
-    "name": "Horus Heresy",
-    "start": 30998,
-    "end": 31014,
-    "tone": "Civil war shatters the Imperium."
-  },
-  {
-    "id": "age_rebirth",
-    "name": "Age of Rebirth",
-    "start": 31015,
+    "name": "Horus Heresy & The Great Scouring",
+    "short": "HORUS HERESY",
+    "mLabel": "M31",
+    "sub": "The galaxy burns in civil war, the most tightly chronicled decade in the archive.",
+    "tagline": "The Warmaster turns. Half the Imperium turns with him.",
+    "intro": "Horus, Warmaster, brightest of the Emperor's sons, turns, and half the Imperium turns with him. A decade of civil war ends at the walls of the Imperial Palace: a dead son, a broken father, ten thousand years of consequence.",
+    "coverRef": "/timeline/bg/era-horus-heresy.webp",
+    "start": 31001,
     "end": 31999,
-    "tone": "Recovery under the High Lords of Terra."
+    "tone": "Civil war shatters the Imperium.",
+    "sortOrder": 3
   },
   {
-    "id": "long_war",
-    "name": "The Long War",
+    "id": "the_forging",
+    "name": "The Forging",
+    "short": "THE FORGING",
+    "mLabel": "M32–34",
+    "sub": "The Imperium rebuilds after the Heresy, survives the Beast; then two millennia of thin and strange records.",
+    "tagline": "The Imperium rebuilds upon the ashes, until the Beast rises.",
+    "intro": "Upon the ashes of the Heresy, the Imperium hardens into the shape it will keep for ten millennia. The Beast rises and is broken. Then the records grow thin and strange, and whole centuries survive only as names.",
+    "coverRef": "/timeline/bg/era-forging.webp",
     "start": 32000,
-    "end": 36999,
-    "tone": "Ten thousand years of attrition."
+    "end": 34999,
+    "tone": "The Imperium hardens upon the ashes.",
+    "sortOrder": 4
   },
   {
     "id": "age_apostasy",
     "name": "Age of Apostasy",
-    "start": 37000,
+    "short": "APOSTASY",
+    "mLabel": "M35–37",
+    "sub": "Twin empires, the Reign of Blood, and the centuries of zealous penance that follow.",
+    "tagline": "Nova Terra renounces the Golden Throne, and the church answers in blood and fire.",
+    "intro": "Nova Terra renounces the Golden Throne, and for nine hundred years mankind serves two masters. Then Goge Vandire seizes both thrones of Terra and the Reign of Blood begins: apostasy, and after it, redemption written in fire.",
+    "coverRef": "/timeline/bg/era-apostasy.webp",
+    "start": 35000,
     "end": 37999,
-    "tone": "Schism and tyranny."
+    "tone": "Schism and tyranny.",
+    "sortOrder": 5
+  },
+  {
+    "id": "the_waning",
+    "name": "The Waning",
+    "short": "THE WANING",
+    "mLabel": "M38–40",
+    "sub": "Three millennia of slow Imperial decline; ever more worlds left to fend for themselves.",
+    "tagline": "The light dims so slowly that no one alive remembers it brighter.",
+    "intro": "No single catastrophe marks these millennia, only the slow dimming of a light no one alive remembers brighter. Ever more worlds are left to fend for themselves, and the archive grows quiet.",
+    "coverRef": "/timeline/bg/era-waning.webp",
+    "start": 38000,
+    "end": 40999,
+    "tone": "The long, slow dimming.",
+    "sortOrder": 6
   },
   {
     "id": "time_ending",
     "name": "Time of Ending",
-    "start": 40997,
+    "short": "TIME OF ENDING",
+    "mLabel": "M41",
+    "sub": "Every recorded event of the era, grouped by century and charted in proportion.",
+    "tagline": "The candle of the Imperium gutters. The Time of Ending begins.",
+    "intro": "The candle of the Imperium gutters. Hive fleets rise from the dark between galaxies, the Despoiler musters his hosts, and every war begun in this chapter will never truly end.",
+    "coverRef": "/timeline/bg/era-time-of-ending.webp",
+    "start": 41000,
     "end": 41999,
-    "tone": "Omens gather before the Rift."
+    "tone": "Omens gather before the Rift.",
+    "sortOrder": 7
   },
   {
     "id": "indomitus",
-    "name": "Indomitus Era",
+    "name": "Era Indomitus",
+    "short": "ERA INDOMITUS",
+    "mLabel": "M42",
+    "sub": "Cadia falls, the galaxy splits, a Primarch returns. All M42 dates are provisional.",
+    "tagline": "The Cadian Gate breaks, and the galaxy is torn in two.",
+    "intro": "Cadia breaks, and the Great Rift tears the galaxy in two. Yet in the darkest hour a Primarch wakes from ten thousand years of silence. This is the chronicle's burning present.",
+    "coverRef": "/timeline/bg/era-indomitus.webp",
     "start": 42000,
     "end": 42100,
-    "tone": "A sundered galaxy. Guilliman returns."
+    "tone": "A sundered galaxy. Guilliman returns.",
+    "sortOrder": 8
   }
 ]
