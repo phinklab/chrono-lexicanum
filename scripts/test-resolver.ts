@@ -1170,6 +1170,37 @@ check("direct match - Resolver-Pass 15 Numinus (curated freq=1 lore-iconic — C
   assert.equal(resolveLocation("Numinus").id, "numinus");
 });
 
+check("direct match - Resolver-Pass 16 Vraks Prime (Siege of Vraks armoury world, lore-major Imperial-Armour campaign locale, Siege of Vraks W40K-0588, freq=1 lore-iconic, tags=['death_korps_of_krieg'])", () => {
+  assert.equal(resolveLocation("Vraks Prime").id, "vraks_prime");
+});
+
+check("direct match - Resolver-Pass 16 Citadel of Vraks (distinct fortress sub-location of the Vraks siege — separate identity from the vraks_prime planet per runbook §4, W40K-0588, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Citadel of Vraks").id, "citadel_of_vraks");
+});
+
+check("direct match - Resolver-Pass 16 Kindred of the Eternal Starforge Hold ship (Leagues of Votann Hold-ship vessel, tags=['vessel'] gx/gy=null per runbook §3 Phase 2 vessel-convention, The High Kâhl's Oath W40K-0580)", () => {
+  assert.equal(
+    resolveLocation("Kindred of the Eternal Starforge Hold ship").id,
+    "eternal_starforge_hold",
+  );
+});
+
+check("direct match - Resolver-Pass 16 Gryphonne IV (Forge World consumed by Hive Fleet Leviathan, Dominion Genesis W40K-0584, freq=1 lore-iconic, tags=['mechanicus'])", () => {
+  assert.equal(resolveLocation("Gryphonne IV").id, "gryphonne_iv");
+});
+
+check("direct match - Resolver-Pass 16 Ras Shakeh (Wraight Space Wolves shrine world, Legends of the Wolf: The Omnibus W40K-0586, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Ras Shakeh").id, "ras_shakeh");
+});
+
+check("direct match - Resolver-Pass 16 Formosa Sector (sector-grain locale of Coteaz's Daemonhammer W40K-0581, freq=1 lore-iconic, tags=['region'] parity with gothic_sector/thramas_sector)", () => {
+  assert.equal(resolveLocation("Formosa Sector").id, "formosa_sector");
+});
+
+check("direct match - Resolver-Pass 16 Fortuna Minor (Lord Solar Leontus vs a Speed Waaagh! warzone, Leontus W40K-0590, freq=1 lore-iconic)", () => {
+  assert.equal(resolveLocation("Fortuna Minor").id, "fortuna_minor");
+});
+
 console.log("\nresolveCharacter");
 
 check("direct match - first resolver wave Ibram Gaunt", () => {
