@@ -173,9 +173,19 @@ body:has(main.compendium) .site-bg::after {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+  /* The tabs spread to fill the full bar over the Terminus line (real tab-bar
+     posture, maintainer call 2026-06-11); below 960px they wrap, so they fall
+     back to a centered cluster instead of ragged-left. */
+  justify-content: space-between;
   gap: 2px;
   margin: 0 0 26px;
   padding: 0 0 3px;
+}
+@media (max-width: 960px) {
+  .cmp-nav {
+    justify-content: center;
+    gap: 2px 10px;
+  }
 }
 .cmp-nav::after {
   content: "";
@@ -210,10 +220,6 @@ body:has(main.compendium) .site-bg::after {
 }
 .cmp-nav__tab:hover {
   color: var(--cl-bone);
-}
-.cmp-nav__tab:focus-visible {
-  outline: 1px solid var(--cl-gold);
-  outline-offset: 2px;
 }
 .cmp-nav__tab.is-active {
   color: var(--cl-gold);
@@ -284,10 +290,6 @@ body:has(main.compendium) .site-bg::after {
 }
 .cmp-door:hover::after {
   color: color-mix(in oklch, var(--cl-gold) 62%, transparent);
-}
-.cmp-door:focus-within {
-  outline: 1px solid var(--cl-gold);
-  outline-offset: -2px;
 }
 .cmp-door__head {
   display: grid;
@@ -594,9 +596,6 @@ body:has(main.compendium) .site-bg::after {
 .compendium .browse-pill:hover {
   border-color: var(--cl-gold-dim);
 }
-.compendium .browse-pill:focus-visible {
-  outline-color: var(--cl-gold);
-}
 .compendium .browse-pill.active {
   color: var(--cl-gold);
   border-color: color-mix(in oklch, var(--cl-gold) 34%, transparent);
@@ -692,10 +691,6 @@ body:has(main.compendium) .site-bg::after {
 .cmp-row:hover {
   background: rgba(201, 166, 90, 0.05);
 }
-.cmp-row:focus-visible {
-  outline: 1px solid var(--cl-gold);
-  outline-offset: -2px;
-}
 .cmp-row__index {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
@@ -771,13 +766,6 @@ body:has(main.compendium) .site-bg::after {
 }
 .cmp-note__text {
   font-style: italic;
-}
-
-/* Page-scoped gold focus ring — overrides the global cyan glow (10-base.css)
-   until the site-wide token migration lands. */
-main.compendium :focus-visible {
-  outline: 1px solid var(--cl-gold);
-  box-shadow: none;
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */
