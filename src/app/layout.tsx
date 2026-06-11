@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
-import TopNav from "@/components/chrome/TopNav";
 import SiteMenu from "@/components/chrome/SiteMenu";
 import MediaPlayer from "@/components/chrome/MediaPlayer";
 import "./globals.css";
@@ -76,7 +75,6 @@ export default function RootLayout({
       className={`${cinzel.variable} ${cormorant.variable} ${plexMono.variable} ${spaceGrotesk.variable}`}
     >
       <body suppressHydrationWarning>
-        <TopNav />
         <SiteMenu />
         {children}
         {modal}

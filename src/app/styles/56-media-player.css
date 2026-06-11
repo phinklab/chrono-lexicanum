@@ -465,3 +465,11 @@
   .media-player__wave { height: 24px; }
   .media-player__panel-track-title { font-size: var(--fs-read-sm); }
 }
+
+/* Auf Mobile vorerst komplett ausgeblendet (Philipp, Session 140 Follow-up):
+   der fixed bottom-left Block kollidiert mit Mobile-Flächen wie dem
+   Chronicle-Bottom-Sheet. Interim-Lösung — ein mobiles Player-Konzept
+   (Mini-Glyph? Einklappen?) steht in docs/ui-backlog.md zur Wiedervorlage. */
+@media (max-width: 760px) {
+  .media-player { display: none; }
+}

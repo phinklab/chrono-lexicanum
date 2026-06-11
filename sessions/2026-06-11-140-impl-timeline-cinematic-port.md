@@ -149,29 +149,59 @@ exist in the new 8-era map and pass through. Unknown values render chapter I
   scroll/keyboard/touch feel, new-tab focus behavior per browser — Philipp
   eyeballs in the browser.
 
+## Follow-up adjustments (same session, after Philipp's browser eyeball)
+
+Philipp reviewed in the browser and decided the open design questions inline;
+implemented in this same PR:
+
+- **TopNav removed entirely** (his call: the burger is the navigation,
+  site-wide — exactly the chrome the prototype was designed against).
+  `TopNav.tsx` + `42-top-nav.css` deleted, layout mounts only SiteMenu +
+  MediaPlayer. `--top-nav-h` stays pinned to `0px` on `body`
+  (44-nav-frame.css) because many partials consume it as
+  `var(--top-nav-h, 48px)` — without the pin the 48px fallback would
+  resurrect the old offset. The global `main { padding-top }` rule and the
+  collapsed-state machinery are gone; dead `.top-nav` responsive rules in
+  45-bottom-console.css removed; `WorldPanel` (map) no longer starts at
+  `top: 48` (its × close button moved to `top: 62` so the global burger,
+  z 81, can't intercept its clicks — the same viewport spot it occupied
+  before).
+- **Chronicle top offsets back to prototype originals**: every
+  `calc(var(--top-nav-h, 48px) + X)` in 67-chronicle-cinematic.css collapsed
+  to plain `X` — no shift needed anymore.
+- **Burger lines more visible**: 2px (was 1px hairline) + full `--cl-bone`
+  (was 62%-alpha `--cl-dim`) + a soft dark drop shadow so it reads over
+  bright artwork; × cross offsets retuned (5.5px) for the thicker lines.
+- **MediaPlayer hidden on mobile** (`max-width: 760px`,
+  56-media-player.css) — interim call; it collided with the chronicle bottom
+  sheet. Re-entry concept tracked in `docs/ui-backlog.md` ("MediaPlayer auf
+  Mobile wieder einführen").
+- **Cinematic dossier readability**: blurb column widened
+  (`.d-note` 44ch → 60ch, line-height 1.6; `.cine-lower` max-width
+  620 → 760px, right inset 12% → 8%) — long blurbs wrapped past 4 lines into
+  a tall, hard-to-read column. Dossier moved further right of the rail
+  (`.cine-lower` left: rail + 140px, was +80px). Mobile bottom-sheet layout
+  untouched (it overrides these properties itself).
+- Artist-credit placeholders stay as designed — new artwork with credits is
+  planned, no curation pass needed now.
+
 ## Open issues / blockers
 
-- **TopNav collides visually with the cinematic view** — the page works (its
-  own chrome sits below the bar; the window never scrolls so the bar never
-  collapses), but the cinematic mode now has the TopNav wordmark + links
-  floating over the artwork at the top, doubling up with the burger as
-  navigation. The prototype was designed with ONLY the burger top-right.
-  Whether /timeline hides/restyles the shell is the separate design decision
-  the brief reserved — needs a Cowork call.
 - **Series-chip data gap**: of the 3 series hooks, only "Gaunt's Ghosts"
   yields archive results via `?q=` (matched on book titles). "The Beast
   Arises" and "Dawn of Fire" have ZERO catalog books (no `book_details`
   rows reference those series ids — checked live), so their chips land on an
   empty filtered archive until the catalog grows. Chip pattern is correct;
-  the gap is Batches-strand catalog completeness.
-- **MediaPlayer (global, fixed bottom-left, z 40) overlaps the mobile dossier**
-  (bottom sheet) and sits inside the cinematic frame on desktop. Same family
-  as the TopNav question: global chrome vs. full-bleed surface.
+  the gap is Batches-strand catalog completeness. (Philipp: acknowledged,
+  fine for now.)
+- **No audio access on mobile** while the MediaPlayer hide stands — see
+  ui-backlog item.
 
 ## For next session
 
-- The shell-on-/timeline design decision (hide TopNav? collapse to burger-only
-  like the prototype? same question for MediaPlayer on mobile).
+- ~~The shell-on-/timeline design decision~~ — decided & shipped in this PR:
+  TopNav removed site-wide, burger-only navigation; MediaPlayer hidden on
+  mobile (interim, ui-backlog).
 - Roster retirement (brief already plans it): `src/lib/chronicle/roster.ts`,
   `src/components/timeline/chronicle/*`, `DetailPanel` timeline usage,
   `20-timeline-shell.css`/`57-chronicle.css` and the `SiteBackground`

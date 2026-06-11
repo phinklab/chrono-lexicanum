@@ -164,9 +164,5 @@
 .bottom-console--compact-cards .bottom-console__card-sect { font-size: var(--fs-label-xs); }
 
 @media (max-width: 900px) {
-  .top-nav { --tn-pad: 14px; }
-  .top-nav__links { gap: 2px; }
-  .top-nav__link { padding: 6px 8px; font-size: var(--fs-label); }
-  .top-nav__name { display: none; }
   .bottom-console__strip { gap: 14px; font-size: var(--fs-label); }
 }

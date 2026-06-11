@@ -2,11 +2,12 @@
    Global burger + full-screen site menu (SiteMenu.tsx) — port of the
    design-export's #burger + #site-menu (chronicle.css §burger + full-screen
    menu), re-rooted from the prototype's `body.menu-open` onto component-scoped
-   `.is-open`. App-shell chrome on every route, additive to TopNav.
+   `.is-open`. App-shell chrome on every route — seit dem TopNav-Removal
+   (Session 140 Follow-up) die einzige globale Navigation.
 
-   Layering: the overlay must clear ALL existing chrome — TopNav (50),
-   detail popups (70) — so menu 80, burger 81 (the burger stays clickable on
-   top of its own overlay, morphed to ×).
+   Layering: the overlay must clear ALL existing chrome — detail popups (70)
+   — so menu 80, burger 81 (the burger stays clickable on top of its own
+   overlay, morphed to ×).
 
    Token bridge: the export's parchment/gold/void map onto the house tokens
    (--cl-bone / --cl-gold / --cl-void; house gold #c9a65a runs warmer than the
@@ -39,11 +40,15 @@
   border: none;
   cursor: pointer;
 }
+/* 2px + volles Bone statt 1px-Hairline in --cl-dim: seit dem TopNav-Removal
+   (Session 140 Follow-up) ist der Burger die einzige sichtbare Navigation —
+   er muss auch über hellem Artwork sofort auffindbar sein. */
 .site-burger__line {
   display: block;
-  height: 1px;
+  height: 2px;
   width: 100%;
-  background: var(--cl-dim);
+  background: var(--cl-bone);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
   transition:
     transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
     background 0.3s ease,
@@ -62,10 +67,10 @@
   width: 100%;
 }
 .site-burger.is-open .site-burger__line:nth-child(1) {
-  transform: translateY(5px) rotate(45deg);
+  transform: translateY(5.5px) rotate(45deg);
 }
 .site-burger.is-open .site-burger__line:nth-child(2) {
-  transform: translateY(-5px) rotate(-45deg);
+  transform: translateY(-5.5px) rotate(-45deg);
 }
 
 /* ── Full-screen overlay ───────────────────────────────────────────────── */

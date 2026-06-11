@@ -8,8 +8,8 @@ export const metadata: Metadata = { title: "Cartographer — Chrono Lexicanum" }
 
 // Server component (~30 LOC). Reads the auth signal forwarded by proxy.ts and
 // mounts the client tree inside a `.map-route` wrapper so the print stylesheet
-// can be scoped without bleeding into other pages. The global TopNav (z-index
-// 50, declared in `app/layout.tsx`) sits above the full-bleed map.
+// can be scoped without bleeding into other pages. The global burger/SiteMenu
+// (z 80/81, declared in `app/layout.tsx`) sits above the full-bleed map.
 export default async function MapPage() {
   return (
     <main

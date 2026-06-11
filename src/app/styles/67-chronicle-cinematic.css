@@ -11,9 +11,9 @@
      (kb-off / grain-off / #tweaks-root) — config is fixed in code.
    - fonts bind to the next/font variables already loaded by the root layout
      (Cormorant Garamond + IBM Plex Mono — the exact prototype faces).
-   - top offsets shift down by var(--top-nav-h) so the timeline chrome clears
-     the global TopNav (the prototype had no top bar of its own); TopNav never
-     collapses here because the window doesn't scroll on this route.
+   - top offsets are the prototype originals: the global TopNav was removed
+     (session 140 follow-up), only the burger (43-site-menu.css) floats
+     top-right — exactly the chrome the prototype was designed against.
    - DB era names are Title Case — slots the prototype fed with uppercase data
      (.ei-name, .at-name, .t-era-done, .tb-name, .an-name, .wipe-name,
      .bp-name) carry text-transform: uppercase instead.
@@ -48,7 +48,7 @@
 
   position: fixed;
   inset: 0;
-  z-index: 10; /* above page flow, below TopNav (50) / SiteMenu (80) */
+  z-index: 10; /* above page flow, below SiteMenu (80) / burger (81) */
   background: var(--void);
   color: var(--parchment);
   font-family: var(--serif);
@@ -175,10 +175,10 @@
   scroll-snap-stop: always;
 }
 
-/* era bar — below the global TopNav */
+/* era bar */
 .chron .era-bar {
   position: absolute;
-  top: calc(var(--top-nav-h, 48px) + 14px);
+  top: 14px;
   left: 24px;
   z-index: 10;
   pointer-events: none;
@@ -233,7 +233,7 @@
 /* back-pull indicator — fades in while pulling up at an era's first entry */
 .chron .back-pull {
   position: absolute;
-  top: calc(var(--top-nav-h, 48px) + 94px);
+  top: 94px;
   left: 50%;
   transform: translate(-50%, calc(var(--p, 0) * 12px - 6px));
   z-index: 10;
@@ -352,11 +352,14 @@
   text-shadow: 0 0 14px rgba(201, 184, 150, 0.4);
 }
 
-/* ------------------- entry text: rail + dossier form one group ------------------- */
+/* ------------------- entry text: rail + dossier form one group -------------------
+   +140px rail clearance + 760px cap (prototype: +80 / 620): the dossier sat too
+   close to the rail and long blurbs wrapped into a tall, hard-to-read column
+   (Philipp, session 140 follow-up). */
 .chron .cine-lower {
   position: absolute;
-  left: calc(100% - var(--rail-x) + 80px);
-  right: 12%;
+  left: calc(100% - var(--rail-x) + 140px);
+  right: 8%;
   top: auto;
   bottom: min(var(--text-x), 24vh);
   z-index: 12;
@@ -364,7 +367,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 30px;
-  max-width: 620px;
+  max-width: 760px;
   pointer-events: none;
 }
 .chron .dossier { flex: none; width: 100%; min-width: 0; }
@@ -398,9 +401,9 @@
   font-style: italic;
   font-weight: 400;
   font-size: clamp(18px, 1.55vw, 22px);
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--parchment-dim);
-  max-width: 44ch;
+  max-width: 60ch; /* 44ch wrapped long blurbs past 4 lines — unreadable */
   text-shadow: 0 1px 16px rgba(0, 0, 0, 0.85);
 }
 .chron .caret {
@@ -807,7 +810,7 @@
 .chron .arch-inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: calc(var(--top-nav-h, 48px) + 26px) 40px 120px 40px;
+  padding: 26px 40px 120px 40px;
   position: relative;
   z-index: 2;
 }
@@ -934,11 +937,11 @@
 .chron .eb-stop.on .eb-n { color: var(--parchment); }
 
 /* cinematic top band — same strip, floating over the imagery, scaled up for
-   readability; sits below the global TopNav */
+   readability */
 .chron .cine-band {
   position: absolute;
   z-index: 10;
-  top: calc(var(--top-nav-h, 48px) + 6px);
+  top: 6px;
   left: 50%;
   transform: translateX(-50%);
   width: clamp(340px, calc(100vw - 600px), 860px);
@@ -1001,15 +1004,14 @@
 .chron .arch-main { min-width: 0; }
 
 /* horizontal era map — docks at the top of the index while the rows scroll
-   under it; the plate's top padding also covers the strip under the
-   translucent TopNav. Time flows left→right like the era band; the gold
-   cursor marks the slice of the era currently on screen */
+   under it. Time flows left→right like the era band; the gold cursor marks
+   the slice of the era currently on screen */
 .chron .minimap {
   position: sticky;
   top: 0;
   z-index: 6;
   margin: 4px -40px 30px -40px;
-  padding: calc(var(--top-nav-h, 48px) + 16px) 40px 4px 40px;
+  padding: 16px 40px 4px 40px;
   background: linear-gradient(to bottom, var(--void) 0%, var(--void) 70%, transparent 100%);
 }
 .chron .mm-lab {
@@ -1322,7 +1324,7 @@
   .chron .chron-mode-toggle .lab { display: none; }
   .chron .chron-mode-toggle button { padding: 13px 13px; }
   .chron .era-bar {
-    top: calc(var(--top-nav-h, 48px) + 8px + env(safe-area-inset-top, 0px));
+    top: calc(8px + env(safe-area-inset-top, 0px));
     left: calc(14px + env(safe-area-inset-left, 0px));
     right: 180px;
   }
@@ -1333,7 +1335,7 @@
 
   /* cinematic era band — full-width strip under the chrome; tighter step fits 3 eras */
   .chron .cine-band {
-    top: calc(var(--top-nav-h, 48px) + 40px + env(safe-area-inset-top, 0px));
+    top: calc(40px + env(safe-area-inset-top, 0px));
     left: 16px;
     right: 16px;
     width: auto;
@@ -1384,10 +1386,10 @@
   .chron .art-credit {
     right: 14px;
     bottom: auto;
-    top: calc(var(--top-nav-h, 48px) + 106px + env(safe-area-inset-top, 0px));
+    top: calc(106px + env(safe-area-inset-top, 0px));
   }
   .chron .back-pull {
-    top: calc(var(--top-nav-h, 48px) + 148px + env(safe-area-inset-top, 0px));
+    top: calc(148px + env(safe-area-inset-top, 0px));
   }
   .chron .node .nlab { font-size: 11px; right: 18px; }
   .chron .node.epoch .dot { width: 16px; height: 16px; }
@@ -1405,7 +1407,7 @@
 
   /* index */
   .chron .arch-inner {
-    padding: calc(var(--top-nav-h, 48px) + 8px + env(safe-area-inset-top, 0px)) 16px calc(72px + env(safe-area-inset-bottom, 0px)) 16px;
+    padding: calc(8px + env(safe-area-inset-top, 0px)) 16px calc(72px + env(safe-area-inset-bottom, 0px)) 16px;
   }
   .chron .arch-head { margin-bottom: 18px; }
   .chron .arch-band { height: 44px; margin-bottom: 20px; }
@@ -1421,7 +1423,7 @@
   .chron .arch-sub { font-size: 16px; margin-bottom: 24px; }
   .chron .minimap {
     margin: 2px -16px 22px -16px;
-    padding: calc(var(--top-nav-h, 48px) + 12px) 16px 2px 16px;
+    padding: 12px 16px 2px 16px;
   }
   .chron .mm-lab { margin-bottom: 12px; }
   .chron .mm-frame { height: 42px; }
@@ -1448,11 +1450,11 @@
   .chron .d-kicker { font-size: 10px; margin-bottom: 7px; }
   .chron .media-row .m-title { font-size: 15px; }
   .chron .cine-band {
-    top: calc(var(--top-nav-h, 48px) + 34px + env(safe-area-inset-top, 0px));
+    top: calc(34px + env(safe-area-inset-top, 0px));
     height: 56px;
   }
   .chron .art-credit {
-    top: calc(var(--top-nav-h, 48px) + 94px + env(safe-area-inset-top, 0px));
+    top: calc(94px + env(safe-area-inset-top, 0px));
   }
 }
 
