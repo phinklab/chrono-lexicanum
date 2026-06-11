@@ -271,9 +271,9 @@
    */
   --fs-read-xs:  16px;  /* dense / secondary prose (captions, table cells)   */
   --fs-read-sm:  18px;  /* compact body                                      */
-  --fs-read:     clamp(20px, 1.8vw, 26px); /* standard body — the Chronicle
-                           era-intro measure (.ei-text), promoted site-wide   */
-  --fs-read-lg:  clamp(23px, 2vw, 29px);   /* lead body — one step above     */
+  --fs-read:     clamp(19px, 1.5vw, 22px); /* standard body — 22px on desktop
+                           (maintainer-tuned 2026-06-11; 26px read too big)   */
+  --fs-read-lg:  clamp(21px, 1.7vw, 25px); /* lead body — one step above     */
   --fw-read:     500;   /* reading weight (400 reads thin on the void)       */
   --lh-read:     1.62;  /* reading line-height (matches .ei-text)            */
 
