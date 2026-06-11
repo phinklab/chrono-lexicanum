@@ -24,31 +24,37 @@
 }
 
 /* ── Burger button ─────────────────────────────────────────────────────── */
+/* Seit dem TopNav-Removal (Session 140 Follow-up) die einzige sichtbare
+   Navigation: auf Desktop oben MITTIG zentriert mit "MENU"/"CLOSE"-Label
+   neben den Strichen; auf Mobile oben rechts, Label ausgeblendet (Philipps
+   Call — Sichtbarkeit über das Label, nicht über dickere Striche). */
 .site-burger {
   position: fixed;
   top: 16px;
-  right: 18px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 81;
-  width: 48px;
   height: 44px;
   padding: 12px 10px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 9px;
+  align-items: center;
+  gap: 10px;
   background: transparent;
   border: none;
   cursor: pointer;
 }
-/* 2px + volles Bone statt 1px-Hairline in --cl-dim: seit dem TopNav-Removal
-   (Session 140 Follow-up) ist der Burger die einzige sichtbare Navigation —
-   er muss auch über hellem Artwork sofort auffindbar sein. */
+.site-burger__icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 9px;
+  width: 28px;
+}
 .site-burger__line {
   display: block;
-  height: 2px;
+  height: 1px;
   width: 100%;
-  background: var(--cl-bone);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+  background: var(--cl-dim);
   transition:
     transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
     background 0.3s ease,
@@ -58,19 +64,33 @@
   width: 62%;
   align-self: flex-end;
 }
+.site-burger__label {
+  font-family: var(--sm-mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: var(--cl-dim);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+  transition: color 0.3s ease;
+}
 .site-burger:hover .site-burger__line {
   background: var(--cl-gold);
   width: 100%;
+}
+.site-burger:hover .site-burger__label {
+  color: var(--cl-gold);
 }
 .site-burger.is-open .site-burger__line {
   background: var(--cl-gold);
   width: 100%;
 }
+.site-burger.is-open .site-burger__label {
+  color: var(--cl-gold);
+}
 .site-burger.is-open .site-burger__line:nth-child(1) {
-  transform: translateY(5.5px) rotate(45deg);
+  transform: translateY(5px) rotate(45deg);
 }
 .site-burger.is-open .site-burger__line:nth-child(2) {
-  transform: translateY(-5.5px) rotate(-45deg);
+  transform: translateY(-5px) rotate(-45deg);
 }
 
 /* ── Full-screen overlay ───────────────────────────────────────────────── */
@@ -243,10 +263,14 @@
   .site-menu.is-open .site-menu__item:nth-child(6)::before { transition-delay: 0.46s; }
 }
 
-/* Safe-area nudge so the burger clears notches/rounded corners on mobile. */
+/* Mobile: oben rechts (statt zentriert), Label weg, safe-area nudge so the
+   burger clears notches/rounded corners. */
 @media (max-width: 720px) {
   .site-burger {
     top: calc(8px + env(safe-area-inset-top, 0px));
+    left: auto;
     right: calc(8px + env(safe-area-inset-right, 0px));
+    transform: none;
   }
+  .site-burger__label { display: none; }
 }

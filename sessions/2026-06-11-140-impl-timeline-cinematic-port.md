@@ -169,9 +169,13 @@ implemented in this same PR:
 - **Chronicle top offsets back to prototype originals**: every
   `calc(var(--top-nav-h, 48px) + X)` in 67-chronicle-cinematic.css collapsed
   to plain `X` — no shift needed anymore.
-- **Burger lines more visible**: 2px (was 1px hairline) + full `--cl-bone`
-  (was 62%-alpha `--cl-dim`) + a soft dark drop shadow so it reads over
-  bright artwork; × cross offsets retuned (5.5px) for the thicker lines.
+- **Burger visibility via label + position, not thicker lines** (Philipp's
+  second-pass call): lines stay 1px hairline; a mono "MENU"/"CLOSE" label sits
+  next to them (hidden on mobile). Desktop: burger centred top
+  (`left: 50%`); mobile: top-right as before. The chronicle's centred top
+  chrome moved down to clear it (cine-band 6 → 64px, back-pull 94 → 152px,
+  index minimap padding-top 16 → 40px; mobile values untouched — the burger
+  is top-right there).
 - **MediaPlayer hidden on mobile** (`max-width: 760px`,
   56-media-player.css) — interim call; it collided with the chronicle bottom
   sheet. Re-entry concept tracked in `docs/ui-backlog.md` ("MediaPlayer auf
@@ -182,6 +186,11 @@ implemented in this same PR:
   a tall, hard-to-read column. Dossier moved further right of the rail
   (`.cine-lower` left: rail + 140px, was +80px). Mobile bottom-sheet layout
   untouched (it overrides these properties itself).
+- **Era-intro readability**: the intro's body text (`.ei-text`, the typed
+  era description) bumped 17–21px → 20–26px, and `.ei-veil` now uses the
+  exact gradient stack of the cinematic `.veil` (the intro's own lighter
+  veil left the title sheet harder to read than the event view —
+  consistency + readability over the cover art).
 - Artist-credit placeholders stay as designed — new artwork with credits is
   planned, no curation pass needed now.
 

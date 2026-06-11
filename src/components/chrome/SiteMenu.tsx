@@ -107,8 +107,13 @@ export default function SiteMenu() {
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((o) => !o)}
       >
-        <span className="site-burger__line" aria-hidden />
-        <span className="site-burger__line" aria-hidden />
+        <span className="site-burger__icon" aria-hidden>
+          <span className="site-burger__line" />
+          <span className="site-burger__line" />
+        </span>
+        <span className="site-burger__label" aria-hidden>
+          {open ? "CLOSE" : "MENU"}
+        </span>
       </button>
 
       <nav
