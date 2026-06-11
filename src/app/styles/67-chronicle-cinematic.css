@@ -520,6 +520,23 @@
 }
 .chron .art-credit[href]:hover .ac-name { color: var(--gold); }
 
+/* era-cover credit — profile links under the artist name */
+.chron .art-credit .ac-links {
+  display: flex;
+  gap: 14px;
+  margin-top: 2px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+.chron .art-credit .ac-links a {
+  color: var(--steel);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(125, 135, 153, 0.4);
+  transition: color 0.2s;
+}
+.chron .art-credit .ac-links a:hover { color: var(--gold); }
+
 /* ----------------------------- era terminus ----------------------------- */
 .chron .terminus {
   position: absolute;
