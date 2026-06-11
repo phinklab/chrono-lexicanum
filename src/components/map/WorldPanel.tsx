@@ -124,7 +124,8 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                 fontSize: 32,
                 letterSpacing: t.letterTitle,
                 color: t.accent,
-                textShadow: `0 0 18px ${t.primary}`,
+                // Faint bloom + dark drop, matching the site's title shadows.
+                textShadow: `0 0 26px ${t.primarySoft}, 0 2px 10px rgba(0, 0, 0, 0.9)`,
                 lineHeight: 1,
                 marginBottom: 6,
                 textTransform: "uppercase",
