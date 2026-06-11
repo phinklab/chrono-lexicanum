@@ -125,8 +125,16 @@ main.catalogue {
     0 0 32px rgba(201, 166, 90, 0.22),
     0 4px 14px rgba(0, 0, 0, 0.95);
 }
+/* Terminus line as title ornament (.cogitator-loading__scan reference). */
+.catalogue-hero__rule {
+  width: min(300px, 52vw);
+  height: 1px;
+  margin: 20px auto 0;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.85;
+}
 .catalogue-hero__sub {
-  margin: 14px auto 0;
+  margin: 16px auto 0;
   max-width: 640px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
@@ -274,19 +282,32 @@ main.catalogue {
 }
 .catalogue-list > li {
   list-style: none;
+  position: relative;
+}
+/* Row separators as Terminus lines — hairlines fading out on both ends (the
+ * .cogitator-loading__scan reference; Session 142 row-table port). */
+.catalogue-list > li + li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 13%, transparent) 14%,
+    color-mix(in oklch, var(--cl-gold) 13%, transparent) 86%,
+    transparent
+  );
 }
 
-/* Calm hairline-separated rows — the /ask "book-list" discipline ported to
- * the catalogue in gold: no per-row glass card or accent border-left, just a
- * gold-faint hairline dividing each row. The accent (gold) is reserved for
- * live data (the year + the active status chip); structure stays neutral.
- * Enriched/stub is signalled by the title colour (see below), not a border. */
+/* Calm rows — no per-row glass card or accent border-left; the accent (gold)
+ * is reserved for live data (the year + the active status chip); structure
+ * stays neutral. Enriched/stub is signalled by the title colour, not a border. */
 .catalogue-row {
-  border-top: 1px solid color-mix(in oklch, var(--cl-gold) 13%, transparent);
   transition: background 180ms;
-}
-.catalogue-list > li:first-child .catalogue-row {
-  border-top: none;
 }
 .catalogue-row[open] {
   background: rgba(201, 166, 90, 0.045);
@@ -355,6 +376,9 @@ main.catalogue {
 }
 .catalogue-row__summary:hover .catalogue-row__chevron {
   color: var(--cl-gold-dim);
+}
+.catalogue-row__summary:hover .catalogue-row__title {
+  color: var(--cl-gold);
 }
 
 .catalogue-row__index {
@@ -480,20 +504,31 @@ main.catalogue {
   border-color: var(--cl-cyan-dim);
 }
 
-/* Expanded detail body for the <details> row. */
-
-/* Expanded detail reads as an inset ask-card: the same soft glass gradient as
- * /ask's .ask-card, divided from the summary by a gold-faint hairline. */
+/* Expanded detail body for the <details> row — the dossier state (Lectio
+ * Profvnda, Session 142): no inset glass plate, the row's own gold wash
+ * ([open] above) carries the open state; the summary is divided from the
+ * dossier by a Terminus hairline. */
 .catalogue-row__detail {
+  position: relative;
   display: grid;
   grid-template-columns: 160px 1fr;
-  gap: 22px;
-  padding: 22px 22px 26px 60px;
-  border-top: 1px solid color-mix(in oklch, var(--cl-gold) 16%, transparent);
+  gap: clamp(18px, 3vw, 36px);
+  padding: 22px 22px 28px 60px;
+  background: transparent;
+}
+.catalogue-row__detail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
   background: linear-gradient(
-    180deg,
-    rgba(8, 12, 20, 0.55) 0%,
-    rgba(4, 8, 14, 0.72) 100%
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 16%, transparent) 14%,
+    color-mix(in oklch, var(--cl-gold) 16%, transparent) 86%,
+    transparent
   );
 }
 .catalogue-row__cover {
@@ -550,15 +585,18 @@ main.catalogue {
   letter-spacing: 0.18em;
   color: var(--cl-dim);
 }
+/* Dossier meta line — quiet mono provenance over the reading text. */
 .catalogue-row__meta {
   margin: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
-  color: var(--cl-bone);
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
 }
 .catalogue-row__synopsis {
   margin: 0;
+  max-width: 68ch;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: var(--fs-read);
   font-weight: var(--fw-read);
@@ -607,18 +645,27 @@ main.catalogue {
 .catalogue-tag--collection a:hover { color: var(--cl-gold); }
 
 .catalogue-row__footer {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 12px;
   padding-top: 10px;
   margin-top: 4px;
-  border-top: 1px solid var(--cl-ghost);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--cl-dim);
+}
+.catalogue-row__footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cl-ghost) 20%, var(--cl-ghost) 80%, transparent);
 }
 .catalogue-row__series { color: var(--cl-bone); }
 .catalogue-row__link {
@@ -627,6 +674,13 @@ main.catalogue {
   transition: color 180ms;
 }
 .catalogue-row__link:hover { color: var(--cl-bone); }
+
+/* Page-scoped gold focus ring — overrides the global cyan glow (10-base.css)
+   until the site-wide token migration lands. */
+main.catalogue :focus-visible {
+  outline: 1px solid var(--cl-gold);
+  box-shadow: none;
+}
 
 .catalogue-footer {
   margin-top: 48px;

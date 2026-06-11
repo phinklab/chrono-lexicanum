@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FORMAT_LABELS } from "@/lib/book-labels";
 import { partitionByLengthIntent } from "@/lib/ask/length-match";
+import { roman } from "@/lib/roman";
 import type {
   AskAnswers,
   AskQuestion,
@@ -32,7 +33,7 @@ function formatMeta(recommendation: AskRecommendation): string {
     recommendation.primaryEraId?.replaceAll("_", " ") ?? null,
   ].filter((part): part is string => Boolean(part));
 
-  return parts.join(" / ");
+  return parts.join(" · ");
 }
 
 function excerpt(text: string | null | undefined): string | null {
@@ -54,7 +55,48 @@ function reasonText(reason: AskRecommendationReason): string {
   return `${reason.label}: ${reason.detail}`;
 }
 
-function RecommendationRow({
+/* Rank I — the dossier (Report 141, idea C3-3): large roman ordinal, kicker,
+   Cinzel title, prose note, reason chips, one framed exit. */
+function PrimeRecommendation({ recommendation }: { recommendation: AskRecommendation }) {
+  const meta = formatMeta(recommendation);
+  const copy = excerpt(recommendation.synopsis);
+  const reasons = bestReasons(recommendation);
+
+  return (
+    <article className="ask-prime">
+      <div className="ask-prime__rank" aria-hidden>
+        <span className="n">I</span>
+        <span className="cap">RANK</span>
+      </div>
+      <div className="ask-prime__body">
+        <p className="ask-prime__kicker">
+          {meta && <span>{meta}</span>}
+          <span className="ask-prime__tier">◆ Top match</span>
+        </p>
+        <h3 className="ask-prime__title">{recommendation.title}</h3>
+        {copy && <p className="lx-prose ask-prime__note">{copy}</p>}
+        {reasons.length > 0 && (
+          <ul
+            className="ask-prime__chips"
+            aria-label={`Why ${recommendation.title} matched`}
+          >
+            {reasons.map((reason) => (
+              <li key={reason.tag} className="lx-tag lx-tag--sm">
+                {reasonText(reason)}
+              </li>
+            ))}
+          </ul>
+        )}
+        <Link href={`/buch/${recommendation.slug}`} className="lx-btn">
+          Open record
+        </Link>
+      </div>
+    </article>
+  );
+}
+
+/* Ranks II+ — runner cards in the frameless wash treatment. */
+function RunnerRecommendation({
   recommendation,
   index,
 }: {
@@ -66,28 +108,17 @@ function RecommendationRow({
   const reasons = bestReasons(recommendation);
 
   return (
-    <article className="ask-result">
-      <Link href={`/buch/${recommendation.slug}`} className="ask-result__main">
-        <span className="ask-result__rank" aria-hidden>
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <span className="ask-result__content">
-          <span className="ask-result__title">{recommendation.title}</span>
-          {meta && <span className="ask-result__meta">{meta}</span>}
-        </span>
-        <span className="ask-result__action" aria-hidden>
-          Detail
-        </span>
-      </Link>
-      {copy && <p className="ask-result__synopsis">{copy}</p>}
+    <Link href={`/buch/${recommendation.slug}`} className="lx-card ask-runner">
+      <span className="lx-card__folio">RANK {roman(index + 1)}</span>
+      {meta && <span className="lx-card__eyebrow">{meta}</span>}
+      <h3 className="lx-card__title">{recommendation.title}</h3>
+      {copy && <p className="lx-card__snip">{copy}</p>}
       {reasons.length > 0 && (
-        <ul className="ask-reasons" aria-label={`Why ${recommendation.title} matched`}>
-          {reasons.map((reason) => (
-            <li key={reason.tag}>{reasonText(reason)}</li>
-          ))}
-        </ul>
+        <span className="lx-card__meta">
+          {reasons.map(reasonText).join(" · ")}
+        </span>
       )}
-    </article>
+    </Link>
   );
 }
 
@@ -101,12 +132,22 @@ function ResultList({
   label?: string;
 }) {
   return (
-    <ol className="ask-results__list" aria-label={label}>
-      {items.map((recommendation, index) => (
-        <li key={recommendation.id}>
-          <RecommendationRow recommendation={recommendation} index={offset + index} />
-        </li>
-      ))}
+    <ol className="ask-verdict-list" aria-label={label}>
+      {items.map((recommendation, index) => {
+        const overall = offset + index;
+        return (
+          <li
+            key={recommendation.id}
+            className={overall === 0 ? "ask-verdict-list__prime" : undefined}
+          >
+            {overall === 0 ? (
+              <PrimeRecommendation recommendation={recommendation} />
+            ) : (
+              <RunnerRecommendation recommendation={recommendation} index={overall} />
+            )}
+          </li>
+        );
+      })}
     </ol>
   );
 }
@@ -126,12 +167,11 @@ export default function ResultCard({
   const lengthLabel = lengthQuestion ? answerLabel(lengthQuestion, answers) : null;
 
   return (
-    <section className="ask-results ask-card c-fade-in" aria-labelledby="ask-results-title">
+    <section className="ask-results c-fade-in" aria-labelledby="ask-results-title">
       <div className="ask-results__head">
-        <div>
-          <p className="card-eyebrow">{"// RESPONSVM / TOP FIVE"}</p>
-          <h2 id="ask-results-title">The archive recommends</h2>
-        </div>
+        <h2 id="ask-results-title" className="ask-results__title">
+          Verdictvm · The archive recommends
+        </h2>
         <span className="ask-results__count">
           {String(recommendations.length).padStart(2, "0")} hits
         </span>
@@ -189,7 +229,7 @@ export default function ResultCard({
           Reset
         </button>
         <span className="ask-footer__spacer" aria-hidden />
-        <Link href="/archive" className="ask-pill">
+        <Link href="/archive" className="lx-tag">
           Complete archive
         </Link>
       </div>

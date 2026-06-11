@@ -5,8 +5,9 @@
    The page owns the frame (main.entity + SiteBackground + scrim + decor +
    breadcrumb); the db-free <EntityView> (src/components/entity/) renders
    .entity-view. The typographic grammar mirrors 51-book-detail.css (mono `//`
-   eyebrow, Cinzel title, Cormorant tagline, cyan section labels, cyan chips) so
-   the reference pages read as one family with /buch/[slug].
+   eyebrow, Cinzel title, Cormorant tagline, gold section labels, hairline-pill
+   chips — Session 142 gold port) so the reference pages read as one family
+   with /buch/[slug].
 
    Layout: a full-width header over a two-column body (main column + a right
    CONNECTIONS rail). `.entity-view` is a query container, so the rail reflows
@@ -91,16 +92,17 @@ main.entity::before {
   content: "‹";
   font-size: 15px;
   line-height: 1;
-  color: var(--cl-cyan);
-  transition: transform 0.18s;
+  color: var(--cl-gold-dim);
+  transition: color 0.18s;
 }
 
 .entity__back:hover {
   color: var(--cl-bone);
 }
 
+/* Hover answers in colour, not motion (Session 142). */
 .entity__back:hover::before {
-  transform: translateX(-2px);
+  color: var(--cl-gold);
 }
 
 /* =============================================================================
@@ -121,7 +123,7 @@ main.entity::before {
   font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
 }
 
 .entity-view__title {
@@ -165,9 +167,9 @@ main.entity::before {
 }
 
 .entity-view__meta-link {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   text-decoration: none;
-  border-bottom: 1px solid var(--cl-cyan-dim);
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 32%, transparent);
 }
 
 .entity-view__meta-link:hover {
@@ -218,7 +220,7 @@ main.entity::before {
 
 .entity-view__blurb-cite:hover,
 .entity-view__blurb-cite:focus-visible {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 
 /* ── Two-column body (header full-width above) ──────────────────────────── */
@@ -261,19 +263,26 @@ main.entity::before {
   margin-top: 36px;
 }
 
+/* Section label — the .lx-sect idiom: mono kicker with the hairline running
+   out to the right (the former standalone .c-hairline under DOSSIER is gone). */
 .entity-view__section-label {
-  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 10px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   font-weight: 400;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
 }
-
-.entity-view__section .c-hairline,
-.entity-view__rail .c-hairline {
-  margin-bottom: 14px;
+.entity-view__section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cl-gold-dim), transparent);
+  opacity: 0.45;
 }
 
 .entity-view__subsection {
@@ -315,7 +324,7 @@ main.entity::before {
   font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
 }
 
 .entity-view__fact-val {
@@ -328,9 +337,9 @@ main.entity::before {
 }
 
 .entity-view__link {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   text-decoration: none;
-  border-bottom: 1px solid var(--cl-cyan-dim);
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 32%, transparent);
 }
 
 .entity-view__link:hover {
@@ -392,29 +401,48 @@ main.entity::before {
   min-width: 0;
 }
 
-/* Borderless tile (Brief 131): a faint cool raise above the dark card defines
-   the segment — no drawn outline. Linked tiles warm to a cyan wash + lift on
-   hover; inert (mute) tiles keep the quiet fill with a dimmed title. */
+/* Frameless tile (Session 142, .lx-card idiom): a dark wash carries the
+   surface, the only boundary is the Terminus base line. Hover answers in
+   colour — deeper ground, the line and the title lift to gold — not motion. */
 .entity-view__card {
+  position: relative;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   gap: 6px;
   min-width: 0;
   padding: 13px 15px;
-  border-radius: 4px;
-  background: rgba(150, 180, 230, 0.05);
+  background: rgba(2, 3, 10, 0.25);
   text-decoration: none;
+}
+.entity-view__card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  color: color-mix(in oklch, var(--cl-gold) 24%, transparent);
+  background: linear-gradient(90deg, transparent, currentColor 22%, currentColor 78%, transparent);
+  transition: color 0.2s;
 }
 
 .entity-view__card--link {
-  transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+  transition: background 0.18s;
 }
 
 .entity-view__card--link:hover {
-  background: rgba(156, 230, 255, 0.1);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.7);
+  background: rgba(10, 14, 22, 0.45);
+}
+.entity-view__card--link:hover::after {
+  color: color-mix(in oklch, var(--cl-gold) 62%, transparent);
+}
+.entity-view__card--link:hover .entity-view__card-title {
+  color: var(--cl-gold);
+}
+
+.entity-view__card--mute::after {
+  color: color-mix(in oklch, var(--cl-gold) 12%, transparent);
 }
 
 .entity-view__card-title {
@@ -423,6 +451,7 @@ main.entity::before {
   font-weight: var(--fw-read);
   line-height: 1.22;
   color: var(--cl-bone);
+  transition: color 0.18s;
 }
 
 .entity-view__card--mute .entity-view__card-title {
@@ -456,8 +485,9 @@ main.entity::before {
   display: flex;
 }
 
-/* Soft filled pill — no outline (Brief 131); a faint cool fill carries the
-   shape, cyan warms the fill + text on hover/focus for the linked chips. */
+/* Hairline pill — the .lx-tag idiom (tags keep their hairline frames,
+   maintainer decision): transparent ground, faint frame, gold answer on
+   hover/focus for the linked chips. */
 .entity-view__chip {
   display: inline-flex;
   align-items: center;
@@ -467,23 +497,24 @@ main.entity::before {
   text-transform: uppercase;
   padding: 6px 11px;
   color: var(--cl-bone);
-  background: rgba(150, 180, 230, 0.06);
-  border-radius: 3px;
+  background: transparent;
+  border: 1px solid var(--cl-faint);
   text-decoration: none;
 }
 
 .entity-view__chip--link {
-  transition: color 0.18s, background 0.18s;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
 }
 
 .entity-view__chip--link:hover {
-  color: var(--cl-cyan);
-  background: rgba(156, 230, 255, 0.12);
+  color: var(--cl-gold);
+  border-color: var(--cl-gold-dim);
+  background: rgba(201, 166, 90, 0.08);
 }
 
 .entity-view__chip--mute {
   color: var(--cl-dim);
-  background: rgba(150, 180, 230, 0.04);
+  border-color: color-mix(in oklch, var(--cl-faint) 60%, transparent);
 }
 
 .entity-view__chip-role {
@@ -539,17 +570,13 @@ main.entity::before {
   }
 }
 
-/* =============================================================================
- * Reduced motion — keep colour/border hover feedback, drop the translate/slide.
- * ============================================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .entity-view__card--link,
-  .entity-view__card--link:hover,
-  .entity__back::before,
-  .entity__back:hover::before,
-  .entity-view__blurb-cite {
-    transition: none;
-    transform: none;
-  }
+/* Page-scoped gold focus ring — overrides the global cyan glow (10-base.css)
+   on the canonical full pages; the popup carries its own override in
+   64-detail-modal.css. */
+main.entity :focus-visible {
+  outline: 1px solid var(--cl-gold);
+  box-shadow: none;
 }
+
+/* No reduced-motion block needed: every hover here answers in colour (Session
+   142), and the global cascade in 10-base.css collapses the transitions. */

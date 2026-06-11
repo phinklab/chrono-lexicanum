@@ -117,7 +117,6 @@
   padding: 4px;
   background: var(--cl-void-2);
   border: 1px solid var(--cl-cyan-dim);
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.6);
 }
 /* The listbox itself holds only options + (presentational) group headers; the
    footer hint + empty-state live OUTSIDE it as <p> siblings, so role=listbox
@@ -283,7 +282,6 @@
   list-style: none;
   background: var(--cl-void-2);
   border: 1px solid var(--cl-cyan-dim);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
 }
 .filter-select__list:focus-visible {
   outline: none;
@@ -399,32 +397,73 @@
  * Only /werke (the gold .catalogue surface) stacks into two rows: a prominent
  * search console over a quieter facet-control row. /fraktionen keeps the shared
  * single wrapping row (it renders no .browse-controls), so this is scoped. */
-/* Dissolve the boxed panel: the filter zone reads as part of the lean table,
-   separated by a single gold hairline rather than a heavy bordered plate. */
+/* Centred under the masthead text (maintainer adjustment 2026-06-11): the
+   search line sits mid-axis like the hub search, the facet controls wrap
+   centred beneath it, and the whole zone closes with a Terminus hairline. */
 .catalogue--werke .browse-filters {
+  position: relative;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   gap: 16px;
   margin: 0 0 22px;
-  padding: 0 0 18px;
+  padding: 0 0 20px;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 16%, transparent);
 }
-/* Search is one elegant catalogue line — a serif query under a gold hairline,
-   echoing the table's title font — not a heavy boxed control. Width-capped so
-   it no longer spans the full table. */
+.catalogue--werke .browse-filters::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 16%, transparent) 18%,
+    color-mix(in oklch, var(--cl-gold) 16%, transparent) 82%,
+    transparent
+  );
+}
+/* Search is one elegant serif line over a Terminus underline (the hub search
+   gesture, in gold) — not a heavy boxed control. */
 .catalogue--werke .browse-search {
   width: 100%;
-  max-width: 540px;
+  max-width: 560px;
   padding: 0;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 32%, transparent);
-  transition: border-color 200ms;
 }
-.catalogue--werke .browse-search:focus-within {
-  border-bottom-color: var(--cl-gold-dim);
+.catalogue--werke .browse-search::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in oklch, var(--cl-gold) 45%, transparent) 26%,
+    color-mix(in oklch, var(--cl-gold) 45%, transparent) 74%,
+    transparent 100%
+  );
+  opacity: 0.75;
+  transition: opacity 200ms, background 200ms;
+}
+.catalogue--werke .browse-search:focus-within::after {
+  opacity: 1;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--cl-gold) 24%,
+    var(--cl-gold) 76%,
+    transparent 100%
+  );
+}
+.catalogue--werke .browse-controls {
+  justify-content: center;
 }
 .catalogue--werke .browse-search__sigil {
   width: 15px;
@@ -435,11 +474,12 @@
 .catalogue--werke .browse-search__input {
   flex: 1;
   min-width: 0;
+  text-align: center;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: var(--fs-read);
   font-weight: var(--fw-read);
   letter-spacing: 0.01em;
-  padding: 8px 4px;
+  padding: 10px 4px;
 }
 .catalogue--werke .browse-search__input::placeholder {
   font-style: italic;
@@ -578,64 +618,56 @@ body:has(main.catalogue) .browse-facet-chip:hover {
   background: rgba(201, 166, 90, 0.18);
 }
 
-/* ── Archive mode toggle (BOOKS | PODCASTS) ──────────────────────────────────
-   Port of the design-export "mode-toggle" pill (chronicle.css §shared chrome):
-   fixed bottom-right, mono micro-type, hairline frame, parchment-solid selected
-   state. Steel greys are design literals — the project tokens have no cool
-   blue-grey; scoped here on purpose. MediaPlayer owns bottom-LEFT at z 40; the
-   toggle sits at 45 so it clears the player wave but stays under TopNav (50)
-   and the detail popup (70). */
-.archive-toggle {
-  position: fixed;
-  bottom: 18px;
-  right: 20px;
-  z-index: 45;
-  display: flex;
+/* ── Archive register switch (WORKS | PODCASTS) ──────────────────────────────
+   Session 142 (maintainer feedback): the fixed bottom-right micro-pill is
+   retired — too quiet for the fork between the archive's two pillars. The
+   switch now sits inline in the controls row under the search console (first
+   item, before Faction/Format/Sort on /archive; its own .pod-controls row on
+   the podcast pages), in the house pill grammar one size up from the sort
+   pills: hairline frames, the active register in gold on a faint gold fill. */
+.archive-mode {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+}
+.archive-mode__lab {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: var(--fs-label);
   letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+  margin-right: 2px;
 }
-.archive-toggle__lab {
-  color: #566070; /* design --steel-dim */
-}
-.archive-toggle__pill {
-  display: flex;
-  border: 1px solid rgba(125, 135, 153, 0.3);
-  border-radius: 3px;
-  overflow: hidden;
-  /* The export floats over a pure-void stage; our archive surfaces run photo
-     heroes, so the track gets a faint dark glass for legibility. */
-  background: rgba(8, 12, 20, 0.55);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.archive-toggle__opt {
-  font-family: inherit;
-  font-size: 10px;
+.archive-mode__opt {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
   letter-spacing: 0.18em;
-  color: #7d8799; /* design --steel */
+  text-transform: uppercase;
   text-decoration: none;
-  padding: 6px 12px;
-  transition: color 0.2s ease;
+  color: var(--cl-dim);
+  border: 1px solid var(--cl-faint);
+  background: transparent;
+  padding: 8px 18px;
+  transition: color 180ms, border-color 180ms, background 180ms;
 }
-.archive-toggle__opt:hover {
+.archive-mode__opt:hover {
   color: var(--cl-bone);
+  border-color: var(--cl-gold-dim);
 }
-.archive-toggle__opt.is-selected {
-  background: #d8d2c2;
-  color: #0a0e14;
+.archive-mode__opt:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: 2px;
+}
+.archive-mode__opt.is-selected {
+  color: var(--cl-gold);
+  border-color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.1);
 }
 @media (max-width: 720px) {
-  .archive-toggle {
-    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-    right: calc(10px + env(safe-area-inset-right, 0px));
-  }
-  .archive-toggle__lab {
+  .archive-mode__lab {
     display: none;
   }
-  .archive-toggle__opt {
-    padding: 13px 13px;
+  .archive-mode__opt {
+    padding: 8px 14px;
   }
 }

@@ -1,20 +1,22 @@
 /* 50-hub.css
-   Home (/) — a three-act, full-viewport SCROLL-SNAP variant of the §3 media
-   language, in CYAN (Brief 121 → snap pass). Home keeps the design vocabulary
-   (// MONO eyebrows, Cinzel headings, the frameless row idiom, the cyan house
-   accent, the fixed hub.webp + <ScrollScrim>) but departs from the shared
-   skeleton in one way: instead of one continuous scroll with a -80px content
-   pull-up, the page is three discrete 100dvh "acts" with a firm section snap
-   between them —
+   Home (/) — three discrete 100dvh "acts" with a firm section snap between
+   them, over the fixed hub.webp + <ScrollScrim>. Session 142 ports the
+   /lab/home_example language (Report 141): GOLD instead of cyan, a Terminus
+   rule under the splash title, Act 2 as a Praefatio — centred head, then a
+   left reading column with a drop-cap initial (.lx-prose/.lx-initial; NO
+   marginalia apparatus — the REF block was cut by maintainer decision), the
+   search over a Terminus underline with an honest holdings line beneath
+   (novels / episodes / podcasts), Act 3 as the grouped registry with roman
+   numerals, Terminus row separators and a hover marginalia gloss, closed by
+   the shared Imprimatur foot (.lx-foot) —
 
      · Act 1 (--splash)   title pushed LOW into the dark band + the scroll cue
-     · Act 2 (--intro)    "What can I do here?" + the live archive search console
+     · Act 2 (--intro)    Praefatio + the live archive search console
      · Act 3 (--explore)  "More to explore" — the doorways as a grouped registry
 
    The fixed photo/scrim and the BottomConsole HUD persist across all three.
-   Gold is reserved for the catalogue; Home stays cyan (the cyan→gold shift
-   cues entering /werke). Snap is desktop-only — mobile falls back to a normal
-   stacked scroll (Act 3's rows would not fit one mandatory-snapped phone). */
+   Snap is desktop-only — mobile falls back to a normal stacked scroll (Act 3's
+   rows would not fit one mandatory-snapped phone). */
 
 main.hub {
   position: relative;
@@ -65,6 +67,13 @@ body:has(main.hub) {
    fixed photo/scrim (z -1) and the in-flow act content. */
 body:has(main.hub) .bottom-console {
   z-index: 1;
+}
+
+/* Page-scoped gold focus — the global ring is cyan; on Home everything that
+   takes focus answers in gold (the specific rules below add their offsets). */
+main.hub :focus-visible {
+  outline: 1px solid var(--cl-gold);
+  box-shadow: none;
 }
 
 /* Crisp-top, fade-to-void — the /ask + /werke hero treatment, applied to the
@@ -188,12 +197,14 @@ body:has(main.hub) .site-bg::after {
   max-width: 760px;
   text-align: center;
 }
-.hub-hero__eyebrow {
+/* Shared gold // kicker — all three act heads use the same eyebrow. */
+.hub-eyebrow {
+  margin: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 .hub-hero__heading {
@@ -209,8 +220,16 @@ body:has(main.hub) .site-bg::after {
     0 4px 18px rgba(0, 0, 0, 0.95),
     0 2px 6px rgba(0, 0, 0, 0.9);
 }
+/* The Terminus rule as title ornament — the cogitator scan-line at rest. */
+.hub-hero__rule {
+  width: min(300px, 52vw);
+  height: 1px;
+  margin: 20px auto 0;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.85;
+}
 .hub-hero__sub {
-  margin: 14px auto 0;
+  margin: 16px auto 0;
   max-width: 640px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
@@ -221,7 +240,7 @@ body:has(main.hub) .site-bg::after {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 
-/* ── Scroll cue — a `// NEXT` kicker + the next act's name + cyan chevrons ────
+/* ── Scroll cue — a `// NEXT` kicker + the next act's name + gold chevrons ────
    Previews what's one snap down. Used at the foot of Act 1 (→ Act 2, in flow)
    and Act 2 (→ Act 3, floated to the act floor with --floor). */
 .hub-cue {
@@ -240,7 +259,7 @@ body:has(main.hub) .site-bg::after {
   font-size: var(--fs-label);
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--cl-cyan-dim);
+  color: color-mix(in oklch, var(--cl-gold) 55%, transparent);
   transition: color 200ms;
 }
 .hub-cue__label {
@@ -253,18 +272,20 @@ body:has(main.hub) .site-bg::after {
   transition: color 200ms;
 }
 .hub-cue:hover .hub-cue__kicker,
-.hub-cue:focus-visible .hub-cue__kicker,
+.hub-cue:focus-visible .hub-cue__kicker {
+  color: var(--cl-gold);
+}
 .hub-cue:hover .hub-cue__label,
 .hub-cue:focus-visible .hub-cue__label {
-  color: var(--cl-cyan);
+  color: var(--cl-bone);
 }
 .hub-cue__chev {
   margin-top: 2px;
   fill: none;
-  stroke: var(--cl-cyan);
+  stroke: var(--cl-gold);
   stroke-width: 1.4;
   /* Capped glow ≤18% alpha (restraint #1). */
-  filter: drop-shadow(0 0 6px rgba(156, 230, 255, 0.18));
+  filter: drop-shadow(0 0 6px rgba(201, 166, 90, 0.18));
 }
 .hub-cue__chev path {
   opacity: 0;
@@ -277,7 +298,7 @@ body:has(main.hub) .site-bg::after {
   animation-delay: 1s;
 }
 .hub-cue:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 4px;
 }
 /* Act-2 cue — its content is centred, so pin the cue to the act floor (above
@@ -291,30 +312,19 @@ body:has(main.hub) .site-bg::after {
   transform: translateX(-50%);
 }
 
-/* ── Act 2 count line — the cogitator reporting the catalogue size ─────────── */
-.hub-toolbar {
-  display: flex;
+/* ── Act 2 holdings line — the cogitator reporting REAL archive counts
+   (novels · episodes · podcasts), centred under the search. .lx-stat carries
+   the type; this only centres it and lifts it off the dark vista. */
+.hub-stat {
   justify-content: center;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 clamp(18px, 3vh, 30px);
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-.hub-toolbar__count {
-  color: var(--cl-cyan);
-}
-.hub-toolbar__total {
-  color: var(--cl-dim);
+  margin-top: 14px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
-/* ── Act 2 search — the real archive console (§5.2) in its cyan skin ─────────
-   The same console /werke renders; here it dissolves into a cyan hairline
-   underline with a Cormorant query, centred. The grouped typeahead popover
-   keeps the default cyan styling — no .catalogue gold scope on Home. */
+/* ── Act 2 search — the real archive console over a gold Terminus underline.
+   The same console /werke renders; here it dissolves into a hairline underline
+   with a centred Cormorant query (the .lx-field gesture, kept on the
+   .browse-search anatomy the shared combobox brings along). */
 .hub-search {
   display: flex;
   flex-direction: column;
@@ -328,13 +338,13 @@ body:has(main.hub) .site-bg::after {
   font-size: var(--fs-label);
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--cl-cyan-dim);
+  color: color-mix(in oklch, var(--cl-gold) 55%, var(--cl-dim));
 }
-/* The console dissolves into ONE centred Cormorant query over a hairline that
-   fades out at both ends — the cogitator scan-line motif (65-loading.css), in
-   cyan. No box and no native focus ring: the line is the whole affordance
-   (cyan-dim at rest → full cyan on focus). The sigil (left) and clear × (right)
-   are pinned to the ends so the query text stays optically centred over it. */
+/* The console dissolves into ONE centred Cormorant query over a Terminus
+   hairline that fades out at both ends — the cogitator scan-line motif
+   (65-loading.css), in gold. No box and no native focus ring: the line is the
+   whole affordance (dim gold at rest → full gold on focus). The sigil (left)
+   and clear × (right) are pinned to the ends so the query stays centred. */
 .hub-search .browse-search {
   position: relative;
   width: 100%;
@@ -354,8 +364,8 @@ body:has(main.hub) .site-bg::after {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--cl-cyan-dim) 26%,
-    var(--cl-cyan-dim) 74%,
+    color-mix(in oklch, var(--cl-gold) 45%, transparent) 26%,
+    color-mix(in oklch, var(--cl-gold) 45%, transparent) 74%,
     transparent 100%
   );
   opacity: 0.75;
@@ -366,8 +376,8 @@ body:has(main.hub) .site-bg::after {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--cl-cyan) 24%,
-    var(--cl-cyan) 76%,
+    var(--cl-gold) 24%,
+    var(--cl-gold) 76%,
     transparent 100%
   );
 }
@@ -379,7 +389,7 @@ body:has(main.hub) .site-bg::after {
   height: 16px;
   margin: 0;
   transform: translateY(-50%);
-  color: var(--cl-cyan-dim);
+  color: var(--cl-gold-dim);
   pointer-events: none;
 }
 .hub-search .browse-search__input {
@@ -418,14 +428,19 @@ body:has(main.hub) .site-bg::after {
   transform: translateY(-50%);
 }
 
-/* ── Act 2 intro — a short welcoming section, centred ──────────────────────── */
+/* ── Act 2 Praefatio — centred head, then the left reading column with its
+   drop-cap initial (.lx-prose/.lx-initial from 42-lex-primitives.css). ─────── */
 .hub-intro {
-  max-width: 660px;
+  width: 100%;
+  max-width: 760px;
   margin: 0 auto clamp(20px, 4vh, 36px);
+}
+.hub-intro__head {
   text-align: center;
+  margin-bottom: clamp(20px, 3.5vh, 34px);
 }
 .hub-intro__heading {
-  margin: 14px 0 12px;
+  margin: 14px 0 0;
   font-family: var(--font-cinzel), serif;
   font-weight: 500;
   font-size: clamp(22px, 2.8vw, 28px);
@@ -434,16 +449,9 @@ body:has(main.hub) .site-bg::after {
   color: var(--cl-bone);
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
 }
-.hub-intro__body {
-  margin: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-style: italic;
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  line-height: var(--lh-read);
-  color: var(--cl-bone);
-  opacity: 0.88;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.78);
+/* Lift the reading text off the darkened vista. */
+.hub-intro .lx-prose {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 /* ── Act 3 heading — the doorways masthead ─────────────────────────────────── */
@@ -462,33 +470,17 @@ body:has(main.hub) .site-bg::after {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
 }
 
-/* ── Act 3 footer triad — mono caps, cyan middle (the /werke footer line) ──── */
-.hub-footer {
+/* ── Act 3 foot — the shared Imprimatur (.lx-foot via <ArchiveFooter>) sits
+   inside a centred flex act; stretch it so the triad spreads like the rows. */
+.hub-act--explore .lx-foot {
   width: 100%;
-  max-width: 820px;
-  margin: clamp(28px, 5vh, 48px) auto 0;
-  padding-top: 18px;
-  border-top: 1px solid var(--cl-ghost);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--cl-dim);
-}
-.hub-footer__mid {
-  color: var(--cl-cyan);
 }
 
 /* ── Act 3 registry — "More to explore" as a grouped index ───────────────────
    Three plain-language bands (The Library / Browse by Topic / Discover More) of
-   compact single-line rows — index · title · short description · chevron. Same
-   frameless idiom as the rest of the hub (hairline band header, cyan only on
-   hover/focus), just sectioned. */
+   compact single-line rows — roman numeral · title · short description · hover
+   gloss · chevron. Frameless idiom: Terminus separators between rows, gold only
+   on hover/focus, the archivist's marginalia gloss fading in on hover. */
 .hub-explore {
   width: 100%;
   max-width: 860px;
@@ -509,7 +501,7 @@ body:has(main.hub) .site-bg::after {
   flex: 1;
   height: 1px;
   margin-left: 14px;
-  background: linear-gradient(90deg, var(--cl-cyan-dim), transparent);
+  background: linear-gradient(90deg, var(--cl-gold-dim), transparent);
   opacity: 0.5;
 }
 .hub-explore__divider-label {
@@ -518,7 +510,7 @@ body:has(main.hub) .site-bg::after {
   font-size: var(--fs-label);
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--cl-cyan-dim);
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
 }
 .hub-explore__list {
   list-style: none;
@@ -529,27 +521,40 @@ body:has(main.hub) .site-bg::after {
   list-style: none;
 }
 .hub-explore__row {
+  position: relative;
   display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) auto;
+  grid-template-columns: 34px minmax(0, 1fr) auto 18px;
   align-items: baseline;
   gap: 16px;
-  padding: 11px 10px;
-  border-top: 1px solid var(--line-0);
+  padding: 12px 10px;
   text-decoration: none;
   color: inherit;
 }
-/* First row in each band sits right under the header — no doubled hairline. */
-.hub-explore__band .hub-explore__list > li:first-child .hub-explore__row {
-  border-top: 0;
+/* Row separators as Terminus lines instead of a full hairline — li+li keeps
+   the first row of each band clean under its header. */
+.hub-explore__list > li + li .hub-explore__row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 13%, transparent) 18%,
+    color-mix(in oklch, var(--cl-gold) 13%, transparent) 82%,
+    transparent
+  );
 }
 .hub-explore__row--link {
   transition: background 180ms;
 }
 .hub-explore__row--link:hover {
-  background: rgba(156, 230, 255, 0.05);
+  background: rgba(201, 166, 90, 0.05);
 }
 .hub-explore__row--link:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: -2px;
 }
 .hub-explore__index {
@@ -561,14 +566,14 @@ body:has(main.hub) .site-bg::after {
 }
 .hub-explore__row--link:hover .hub-explore__index,
 .hub-explore__row--link:focus-visible .hub-explore__index {
-  color: var(--cl-dim);
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
 }
 /* Title + description: a fixed title column so the descriptions line up; the
    description fills the rest on one truncated line. */
 .hub-explore__main {
   min-width: 0;
   display: grid;
-  grid-template-columns: 184px minmax(0, 1fr);
+  grid-template-columns: 200px minmax(0, 1fr);
   align-items: baseline;
   gap: 16px;
 }
@@ -583,7 +588,7 @@ body:has(main.hub) .site-bg::after {
 }
 .hub-explore__row--link:hover .hub-explore__title,
 .hub-explore__row--link:focus-visible .hub-explore__title {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .hub-explore__desc {
   min-width: 0;
@@ -597,6 +602,23 @@ body:has(main.hub) .site-bg::after {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+/* Marginalia gloss — the archivist adds a margin note on hover (C1-3). */
+.hub-explore__gloss {
+  justify-self: end;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--cl-gold) 70%, transparent);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 220ms, transform 220ms;
+}
+.hub-explore__row--link:hover .hub-explore__gloss,
+.hub-explore__row--link:focus-visible .hub-explore__gloss {
+  opacity: 1;
+  transform: none;
+}
 .hub-explore__chevron {
   justify-self: end;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -607,10 +629,11 @@ body:has(main.hub) .site-bg::after {
 }
 .hub-explore__row--link:hover .hub-explore__chevron,
 .hub-explore__row--link:focus-visible .hub-explore__chevron {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   transform: translateX(3px);
 }
-/* Inert rows (no page yet) — muted, with a SOON marker where the chevron sits. */
+/* Inert rows (no page yet) — muted, with a SOON marker spanning the gloss +
+   chevron slots so it lines up with the live rows' right edge. */
 .hub-explore__row--soon {
   cursor: default;
 }
@@ -621,6 +644,7 @@ body:has(main.hub) .site-bg::after {
   color: var(--cl-faint);
 }
 .hub-explore__soon {
+  grid-column: 3 / -1;
   justify-self: end;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-xs);
@@ -663,11 +687,18 @@ body:has(main.hub) .site-bg::after {
     font-size: clamp(34px, 8vw, 56px);
     letter-spacing: 0.14em;
   }
-  /* Act 3 registry: tighten the index column and stack the description under the
-     title (let it wrap) so a row fits a phone cleanly. */
+  /* Act 3 registry: tighten the index column, drop the hover gloss (no hover
+     on touch) and stack the description under the title (let it wrap) so a row
+     fits a phone cleanly. */
   .hub-explore__row {
-    grid-template-columns: 26px minmax(0, 1fr) auto;
+    grid-template-columns: 26px minmax(0, 1fr) 18px;
     gap: 12px;
+  }
+  .hub-explore__gloss {
+    display: none;
+  }
+  .hub-explore__soon {
+    grid-column: 3;
   }
   .hub-explore__main {
     grid-template-columns: 1fr;
@@ -675,11 +706,5 @@ body:has(main.hub) .site-bg::after {
   }
   .hub-explore__desc {
     white-space: normal;
-  }
-  .hub-footer {
-    gap: 8px;
-  }
-  .hub-footer__mid {
-    display: none;
   }
 }

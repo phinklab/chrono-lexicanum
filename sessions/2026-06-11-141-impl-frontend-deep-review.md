@@ -222,27 +222,42 @@ schneller als die filmische Eigenvorgabe — drosseln oder an Interaktion binden
 - **Cyan-Glow auf Cogitator-Dot** — `45-bottom-console.css:50` (`box-shadow: 0 0 6px var(--cl-cyan)`)
   · S2/S17 · **high / S** · widerspricht den eigenen Kommentaren in `50-hub.css` („no cyan halo, no bloom"). Fix: Glow raus.
 - **BottomConsole-Cards = `.c-glass` + `.c-corners`** — `BottomConsole.tsx:99` · S7/S8/S11 · **high / M** · → A.Q2; Ziel: Hairline-Plate.
-- **GhostReadout + LiveTelemetry + FloatingCoord = Pseudo-Telemetrie ohne Datenquelle**
+- ~~**GhostReadout + LiveTelemetry + FloatingCoord = Pseudo-Telemetrie ohne Datenquelle**
   — `components/chrono/GhostReadout.tsx`, `LiveTelemetry.tsx`, `page.tsx:21-101` · S18 ·
   **high / M** · proposal: entfernen oder auf 1–2 statische Zeilen mit echtem Inhalt
   reduzieren (z. B. echter Record-Count, letzter Ingest — vgl. Do/Don't „Status &
-  Telemetrie" auf `/lab/design`).
+  Telemetrie" auf `/lab/design`).~~
+  **→ live umgesetzt (2026-06-11, /home), Home-Anteil:** Readout-Zeilen tragen
+  jetzt echte Bestände (Records/Podcasts/Episoden aus den Seiten-Loadern,
+  Quellen-Triple, Eras/Segmenta); Warp-Tide-/Volt-Zeilen entfernt. Die
+  FloatingCoords bleiben per Lab-Referenz erhalten (gold); LiveTelemetry
+  (andere Flächen) steht noch aus.
 - **MainAuspex-RadialGradient-Glow** — `MainAuspex.tsx:59-63` · S2 · **medium / S** ·
   Glow-Aura hinter der Disc entfernen, Strokes reichen. (Gleiche Korrektur in
   `CornerAuspex.tsx:73-77`.)
-- **Chevron-Drop-Shadow** — `50-hub.css:267` · S2 · **medium / S**.
-- **Suchfeld-Hairline cyan → gold** bei Migration — `50-hub.css:347-373` · low / S.
+- ~~**Chevron-Drop-Shadow** — `50-hub.css:267` · S2 · **medium / S**.~~
+  **→ anders entschieden (2026-06-11, /home):** die Lab-Referenz
+  (`main.lexh .hub-cue__chev`) behält den ≤18%-Glow bewusst — live auf Gold
+  umgestimmt statt entfernt.
+- ~~**Suchfeld-Hairline cyan → gold** bei Migration — `50-hub.css:347-373` · low / S.~~
+  **→ live umgesetzt (2026-06-11, /home):** Terminus-Underline gold (45 %-Mix
+  ruhend, voll auf Fokus), Sigil gold-dim.
 - Verifiziert-als-ok: die `//`-Eyebrows des Hubs sind funktionale Archiv-Labels, kein
   S14 (Finding dazu wurde widerlegt); Scroll-Snap-Architektur bewusst (nur Doku-Notiz).
 
 ### A.2 — Archive (BOOKS + Toggle)
 
-- **Empty-States tragen `.c-glass .c-corners`** — `archive/page.tsx:206,210` · S7/S8 ·
-  **high / S** · Fix: Serif-italic auf Void + optionale Hairline (Muster `.catalogue-row__note`).
-- **Toggle-Pill mit `backdrop-filter: blur(8px)`** — `61-browse.css:610-613` · S8 ·
-  **medium / S** · Timeline-Original (`.chron-mode-toggle .pill`) hat null Blur — direkt portierbar.
-- **Suggest-Popover + FilterSelect-Liste: breite Soft-Shadows** — `61-browse.css:119-120,286` ·
-  S11 · **medium / S** · Schatten raus, Hairline + dunklerer Grund tragen die Tiefe.
+- ~~**Empty-States tragen `.c-glass .c-corners`** — `archive/page.tsx:206,210` · S7/S8 ·
+  **high / S** · Fix: Serif-italic auf Void + optionale Hairline (Muster `.catalogue-row__note`).~~
+  **→ live umgesetzt (2026-06-11, /archive):** Klassen entfernt, Empty-State ist
+  jetzt die nackte Serif-italic-Zeile auf dem Void.
+- ~~**Toggle-Pill mit `backdrop-filter: blur(8px)`** — `61-browse.css:610-613` · S8 ·
+  **medium / S** · Timeline-Original (`.chron-mode-toggle .pill`) hat null Blur — direkt portierbar.~~
+  **→ live umgesetzt (2026-06-11, /archive):** Blur raus, dunklere Solid-Füllung
+  (0.55 → 0.72) trägt die Legibilität.
+- ~~**Suggest-Popover + FilterSelect-Liste: breite Soft-Shadows** — `61-browse.css:119-120,286` ·
+  S11 · **medium / S** · Schatten raus, Hairline + dunklerer Grund tragen die Tiefe.~~
+  **→ live umgesetzt (2026-06-11, /archive):** beide box-shadows entfernt.
 - FilterSelect-Hover ohne Text-Farbantwort auf der Gold-Surface (`:529-531`) und
   Mobile-Wrapping der Controls (`:457-476`) → **ui-backlog** (Kosmetik).
 - Empty-Copy nicht in Haus-Stimme („No books in the database yet" vs. „EX TENEBRIS
@@ -260,9 +275,12 @@ schneller als die filmische Eigenvorgabe — drosseln oder an Interaktion binden
 
 ### A.4 — Compendium
 
-- **Cyan-Halo auf Hero-Heading** — `66-compendium.css:140` (`0 0 32px rgba(156,230,255,.18)`)
+- ~~**Cyan-Halo auf Hero-Heading** — `66-compendium.css:140` (`0 0 32px rgba(156,230,255,.18)`)
   · S2 · **medium / S** · nur den schwarzen Legibility-Shadow behalten; Eyebrow (`:127`)
-  hat ihn schon korrekt → Inkonsistenz gleich mit weg.
+  hat ihn schon korrekt → Inkonsistenz gleich mit weg.~~
+  **→ live umgesetzt (2026-06-11, /compendium):** komplette Teal-Phase abgewickelt
+  (Registerwerk-Redesign C2-3, Gold durchgängig); Hero-Shadow jetzt Gold @0.22
+  wie die Geschwister-Masten.
 - **AuspexSweep-RadialGlow** (`AuspexSweep.tsx:46-53`) + `opacity`-Stapelung (`:84`) ·
   S2 · **medium / S** (Komponente ist Site-weiter Hausstil — Fix in der Komponente,
   wirkt überall).
@@ -273,12 +291,16 @@ schneller als die filmische Eigenvorgabe — drosseln oder an Interaktion binden
 
 ### A.5 — Ask
 
-- **Komplette Seite läuft in der Cyan-Phase** — 27+ `--cl-cyan`-Instanzen in
+- ~~**Komplette Seite läuft in der Cyan-Phase** — 27+ `--cl-cyan`-Instanzen in
   `58-ask-booklist.css`, Hero-Glow `53-ask.css:116-118`, drei hartcodierte
   `color="var(--cl-cyan)"`-Props (`ask/page.tsx:72,87,96`), `ProcessingDots`-Default
   ist Cyan (`ProcessingDots.tsx:13`) · S1/S2 · **high / M** · Fix: mechanische
   Migration cyan→gold (die Komponenten-Defaults sind teils schon Gold — Overrides
-  einfach entfernen). /ask ist Launch-Einstiegspunkt → früh restylen.
+  einfach entfernen). /ask ist Launch-Einstiegspunkt → früh restylen.~~
+  **→ live umgesetzt (2026-06-11, /ask):** komplettes Befragungsprotokoll-Redesign
+  (C2-4 + C3-3) statt nur Farbmigration; `ProcessingDots` + `ProgressDots`
+  ersatzlos entfernt (Cogitator-Interstitial bzw. Protocollvm-Rail übernehmen);
+  Hero-Glow jetzt Gold @0.22; seiten-scoped Gold-Fokusring.
 
 ### A.6 — Map
 
@@ -311,11 +333,14 @@ der eigentliche Befund:
   Admin-Fläche. **Fix (medium / M):** 24er aus der globalen Kaskade nehmen und
   audit-kontextualisiert laden (oder explizit als „audit-legacy" kommentieren), damit
   die Verwechslung nicht wieder passiert.
-- **BookDetailView-Cover-Panel trägt `.c-glass .c-corners`** — `BookDetailView.tsx:79` ·
+- ~~**BookDetailView-Cover-Panel trägt `.c-glass .c-corners`** — `BookDetailView.tsx:79` ·
   S7 · **medium / M** · inkonsistent mit dem eigenen 64er-Modal; auf plain Panel +
-  Hairline umstellen (→ A.Q2).
-- **Cyan-Wash-Hovers** — `51-book-detail.css:193,261,334` · **low / S** · auf
-  Farbantwort (Text → Gold) reduzieren, wie Benchmark-`media-row`.
+  Hairline umstellen (→ A.Q2).~~ → live umgesetzt (2026-06-11, Popups): Cover
+  frei stehend mit Schattenwurf über Terminus-Grundlinie, Glass-Klassen entfernt.
+- ~~**Cyan-Wash-Hovers** — `51-book-detail.css:193,261,334` · **low / S** · auf
+  Farbantwort (Text → Gold) reduzieren, wie Benchmark-`media-row`.~~ → live
+  umgesetzt (2026-06-11, Popups): Chips/Actions/Region-Pills antworten in Gold
+  (Hairline-Pill- bzw. Hairline-Button-Idiom), Pfeil-Transform entfernt.
 - MediaPlayer-Befunde unter A.9 (gleiches Modal-Umfeld).
 
 ### A.8 — Entity-Seiten
@@ -323,7 +348,10 @@ der eigentliche Befund:
 - Kernbefund ist A.Q1 (drei Paletten; `--cl-bone` vs. Parchment). Die Cyan-Chips/Washes
   der Entity-Familie sind **dokumentierter** Bestand (59-entity.css-Kommentare) — die
   Verifier haben die pauschalen Cyan-Findings deshalb gekippt: das ist eine
-  *Migrations*-Frage (Brief A.Q1), kein verstecktes Versehen.
+  *Migrations*-Frage (Brief A.Q1), kein verstecktes Versehen. → Migration für
+  diese Fläche live erfolgt (2026-06-11, Popups): 59-entity.css komplett auf
+  Gold (Labels/Fact-Terms/Links/Chips/Kacheln), Kachel-Lift durch Farbantwort
+  ersetzt.
 - `63-fraktionen.css:144` nutzt das alte warme Gold für Imperium-Karten — bei
   Token-Konsolidierung mitziehen oder als bewusste Allegorik dokumentieren (low / S).
 
@@ -662,6 +690,114 @@ freistehenden Papier-Komposition:
 - Alte Eigen-Chrome-Leiste ersetzt durch diskreten `LAB·SPECIMEN`-Switcher oben
   links (fixed, unterhalb Burger-z); Imprimatur-Fuß (C1-1) bleibt als Baustein.
 - `tsc` + `eslint` grün; Dev-Server lief weiter (HMR), Stichproben-Route 200.
+
+## Nachtrag 2026-06-11 (3) — Live-Restyle-Session (Branch `codex/product-live-restyle`)
+
+Direktauftrag Philipp: das Design der vier Beispielseiten auf die Live-Seiten
+portieren (nur Markup + CSS; URL-Verträge, Loader, Datenfluss, Client-Logik
+unverändert). Lab-Dateien sind Referenz, werden nicht angefasst. Eine Seite =
+ein Commit; /compact nur an Seitengrenzen direkt nach dem Commit. Diese
+Checkliste ist der Wiedereinstiegspunkt nach jedem /compact:
+
+- [x] **1 · /ask** — Befragungsprotokoll-Design übernehmen; **Lesbarkeit:
+  Protocollum-Segment deutlich größerer Text als im Beispiel**. Commit.
+  *Erledigt 2026-06-11: QVAESTIO-Ziffer + Ballot ◇→◆ (QuestionCard), Protocollvm-
+  Rail mit römischen Marken (eine Typo-Stufe größer als Lab: Fragen 17px serif,
+  Status 12px mono), Cogitator-Interstitial (ProcessingPanel), Verdikt als
+  Rank-Dossier + Runner-Karten (ResultCard), Gold-HUD, Terminus-Masthead,
+  Imprimatur-Fuß. Neu: `42-lex-primitives.css` (.lx-*-Bausteine, geteilt),
+  `ArchiveFooter`, `lib/roman.ts`. Entfernt: ProgressDots, ProcessingDots
+  (verwaist). tsc + eslint grün.*
+- [x] **2 · /compendium** — Registerwerk-Design 1:1 übertragen. Commit.
+  *Erledigt 2026-06-11: Layout + Overview + Category-Directory komplett
+  Teal→Gold (Hero-Rule, Terminus-Nav, Türen als rahmenlose Wash-Karten mit
+  Terminus-Bodenlinie, REGISTRVM-Eyebrows mit echten count-abgeleiteten
+  pp.-Bereichen, Kurations-Marginalie via .lx-apparatus, Terminus-Row-Trenner
+  im Directory, Browse-Controls gold-skinned, Imprimatur-Fuß im Layout,
+  seiten-scoped Gold-Fokusring). tsc + eslint grün.*
+- [x] **3 · /archive** — Cinematic Row-Table übernehmen, mit Abweichungen:
+  (a) in geöffneter Row die Zeile „REF M42.347 SOURCE · MANUAL CONFIDENCE ·
+  HIGH SCRIBE · PH. LEXICANVS" entfernen; (b) keine M31-Sortierung/Gruppierung
+  (nicht alle Bücher haben M-Daten); (c) Suche zentral unter den Text unter
+  „WORKS" setzen. Commit.
+  *Erledigt 2026-06-11: Hero-Terminus-Rule; Suche zentriert als erste
+  Body-Zeile (Terminus-Underline, zentrierter Serif-Input, Controls mittig,
+  Zone schließt mit Terminus) — Abweichung (c); Zeilentrenner + Dossier-Trenner
+  als Terminus-Linien; Titel-Hover gold; offene Row als Dossier ohne
+  Glass-Plate (Gold-Wash + Mono-Meta + Synopsis mit Initiale `lx-initial`);
+  KEIN Marginalien-Apparat — Abweichung (a); KEINE Era-Gruppen — Abweichung (b);
+  Empty-States entboxt; Toggle-Blur + Popover-Schatten raus (A.2 komplett);
+  catalogue-footer-Triade (inkl. „STAMP M42.347") durch Imprimatur-Fuß ersetzt;
+  seiten-scoped Gold-Fokusring. tsc + eslint grün.*
+- [x] **4 · /home** — Titelblatt-Design übernehmen, mit Abweichungen:
+  (a) „What can I do here"-Sektion: unter „889 novels" auch Podcast-Episoden
+  und Podcasts mit Anzahl aufführen; (b) die große Initiale „A" fügt sich
+  nicht ein (Farbe/Schriftart) — anpassen; (c) Element „REF M42.347 SOURCE ·
+  MANUAL CONFIDENCE · HIGH SCRIBE · PH. LEXICANVS" entfernen. Commit.
+  *Erledigt 2026-06-11: drei Snap-Acts strukturell unverändert, komplett auf
+  Gold (Eyebrows als geteilte `.hub-eyebrow`, Auspex-Discs/FloatingCoords/Cue
+  gold, Terminus-Rule unter dem Splash-Titel); Act 2 als Praefatio —
+  zentrierter Kopf, linksbündige Lesespalte `.lx-prose .lx-initial`, OHNE
+  Marginalien-Apparat — Abweichung (c); Initiale jetzt Cormorant statt Cinzel
+  (Textschrift + Gold-Akzent, Fix im geteilten `.lx-initial`, wirkt auch im
+  Archive-Dossier) — Abweichung (b); Bestandszeile `.lx-stat` unter der Suche
+  mit echten Zählwerten NOVELS · EPISODES · PODCASTS (aus dem ohnehin
+  geladenen Podcast-Suchindex, kein neuer DB-Call) — Abweichung (a);
+  Ghost-Readout auf ehrliche Bestandszeilen umgestellt (Warp/Volt-Telemetrie
+  raus); Suche mit Gold-Terminus-Underline, Kicker „Query the Archive";
+  Registry mit römischen Ordnungszahlen I–VIII, Terminus-Zeilentrennern und
+  Hover-Marginalien-Gloss (SOON-Reihen behalten ihre Marke im Gloss-Slot);
+  hub-footer-Triade (inkl. „STAMP M42.347") durch Imprimatur-Fuß ersetzt;
+  seiten-scoped Gold-Fokusring. Client-Logik (HomeSearch-Routing, Snap,
+  ScrollScrim, BottomConsole) unverändert. tsc + eslint grün.*
+- [x] **5 · Popups** — Buch-/Fraktion-/Entity-Detail-Modals (64-detail-modal,
+  BookDetailView) aufs neue Design umbauen. Commit.
+  *Erledigt 2026-06-11: EINE Shell (`DetailModal` + 64-detail-modal.css) trägt
+  alle In-Context-Popups (buch/fraktion/charakter/welt/person), und die Bodies
+  sind mit den kanonischen Vollseiten geteilt — der Umbau von
+  51-book-detail.css + 59-entity.css restyled also Popup UND /buch/[slug] +
+  /fraktion|charakter|welt|person/[slug] in einem Zug. Chrome: Back/Expand/
+  Close-Hovers gold, Terminus-Linie unter der Top-Bar als einzige gezeichnete
+  Linie, Overlay-scoped Gold-Fokus. Buch-Body: Cover ohne Glass-Box (frei
+  stehend mit Schattenwurf über Terminus-Grundlinie, `c-glass c-corners` aus
+  BookDetailView entfernt), Eyebrow/Section-Labels im lx-sect-Idiom (Gold-Mix
+  + auslaufende Hairline), Chips als Hairline-Pills (lx-tag-Idiom, kein
+  Radius), Buy/Listen-Reihen als Hairline-Buttons mit Farbantwort (Pfeil-
+  Transform raus), Region-Pills in Sort-Pill-Grammatik (Gold-aktiv statt
+  Cyan-Füllung). Entity-Body: Eyebrow/Fact-Terms/Section-Labels gold,
+  redundante `c-hairline`-Span unter DOSSIER aus EntityFacts entfernt,
+  Werk-Kacheln im lx-card-Idiom (dunkler Wash + Terminus-Grundlinie, Hover =
+  Farbe statt translateY-Lift), Chips als Hairline-Pills, Breadcrumb-Chevron
+  gold ohne Hover-Slide, seiten-scoped Gold-Fokus. Legacy-Audit-Modal
+  (24-detail-modal.css, /buch/[slug]/audit) bewusst unangetastet. tsc +
+  eslint grün.*
+- [x] **6 · Abschluss** — tsc + eslint, Dev-Server sauber neu starten, max.
+  ein Curl-Check, push, PR (kein Co-Author, kein Generated-Footer).
+  *Erledigt 2026-06-11: tsc + eslint repo-weit grün; Dev-Server sauber
+  neu gestartet (Streuner gekillt, .next geleert, EIN Server); ein
+  Up-Check; Branch `codex/product-live-restyle` gepusht, PR #165 erstellt.
+  Browser-Abnahme + Merge durch Philipp.*
+- [x] **7 · Nachsteuerung (Maintainer-Feedback nach PR #165):**
+  /archive/podcasts als Geschwisterseite zu /archive + Register-Switch
+  prominent statt Fixed-Pill unten rechts.
+  *Erledigt 2026-06-11: Podcast-Index + Show-Detail auf die
+  Geschwister-Merkmale des Archive-Ports gezogen — Terminus-Rule im Mast,
+  Suche zentriert (Kicker + Serif-Input mittig), Konsole-Zone schließt mit
+  Terminus, Toolbar ohne Volllinie, Ghost-Readout auf echte Bestände
+  (Shows/Episoden statt FEED-MOUNTED/LATENCY-Telemetrie), Footer-Triade
+  (inkl. „STAMP M42.347") durch Imprimatur-Fuß ersetzt, seiten-scoped
+  Gold-Fokus (mit restated Suchfeld-Suppression wegen Kaskaden-Reihenfolge
+  61→62). Register-Switch: `ArchiveModeToggle` vom fixed Bottom-Right-Pill
+  (Steel-Literale, Parchment-Füllung) zum Inline-Register WORKS | PODCASTS
+  in der Controls-Zeile — auf /archive als erster Punkt der Zeile vor
+  Faction/Format/Sort (Maintainer-Vorschlag), auf den Podcast-Seiten als
+  eigene zentrierte `.pod-controls`-Zeile; Pill-Grammatik eine Stufe größer
+  als die Sort-Pills, aktiv = Gold-Rahmen + Gold-Wash. URL bleibt der Modus
+  (echte Links, ISR unverändert). tsc + eslint grün.*
+
+Regeln: Gold statt Cyan, Terminus-Linien, rahmenlose Karten,
+Initiale/Marginalie wie in den Beispielen. Umgesetzte Review-Punkte oben im
+Report ~~durchstreichen~~ + „→ live umgesetzt (Datum, Seite)" markieren.
 
 ## Brief-Kandidaten für Cowork (geschnitten nach Abhängigkeit)
 

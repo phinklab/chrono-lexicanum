@@ -1,22 +1,25 @@
 import Link from "next/link";
 
 /**
- * HomeExplore (Brief 121) — Home's Act 3 "More to explore": the archive doorways
- * as a grouped registry. Three plain-language bands — The Library, Browse by
- * Topic, Discover More — of compact single-line rows (index · title · short
- * description · chevron). The frameless row idiom in cyan: no per-row box, accent
- * only on hover/focus.
+ * HomeExplore (Brief 121 → Session 142 lab port) — Home's Act 3 "More to
+ * explore": the archive doorways as a grouped registry. Three plain-language
+ * bands — The Library, Browse by Topic, Discover More — of compact single-line
+ * rows (roman numeral · title · short description · hover gloss · chevron).
+ * The frameless row idiom in gold: Terminus separators between rows, accent
+ * only on hover/focus, and the archivist's marginalia gloss fading in on hover.
  *
- * Two rows have no destination yet (04 Characters, 05 Hot Topics — both future
- * curated pages); they render inert with a SOON marker rather than linking to a
- * 404. Server component (static links).
+ * Two rows have no destination yet (IV Characters, V Hot Topics — both future
+ * curated pages); they render inert with a SOON marker in the gloss slot rather
+ * than linking to a 404. Server component (static links).
  */
 
 type Row = {
-  /** Zero-padded registry index. */
+  /** Roman registry numeral. */
   n: string;
   title: string;
   desc: string;
+  /** Hover marginalia (mono caps); omitted on SOON rows. */
+  gloss?: string;
   /** Omitted = no page yet → renders inert with a SOON marker. */
   href?: string;
 };
@@ -31,15 +34,17 @@ const BANDS: Band[] = [
     name: "The Library",
     rows: [
       {
-        n: "01",
+        n: "I",
         title: "Works",
         desc: "Every novel, novella and audio drama in the archive.",
+        gloss: "CATALOGVS · LIBRORVM",
         href: "/archive",
       },
       {
-        n: "02",
+        n: "II",
         title: "Podcasts",
         desc: "The second pillar — lore-casts, newest first.",
+        gloss: "VOX · ARCHIVVM",
         href: "/archive/podcasts",
       },
     ],
@@ -48,18 +53,19 @@ const BANDS: Band[] = [
     name: "Browse by Topic",
     rows: [
       {
-        n: "03",
+        n: "III",
         title: "Factions",
         desc: "Pick an allegiance and see what sits behind it.",
+        gloss: "INDEX FACTIONVM",
         href: "/fraktionen",
       },
       {
-        n: "04",
+        n: "IV",
         title: "Characters",
         desc: "The primarchs and the cast the novels follow.",
       },
       {
-        n: "05",
+        n: "V",
         title: "Hot Topics",
         desc: "Curated reading threads through the lore.",
       },
@@ -69,21 +75,24 @@ const BANDS: Band[] = [
     name: "Discover More",
     rows: [
       {
-        n: "06",
+        n: "VI",
         title: "Ask the Archive",
         desc: "Five questions to your one entry book.",
+        gloss: "INTERROGATORIVM",
         href: "/ask",
       },
       {
-        n: "07",
+        n: "VII",
         title: "Chronicle",
         desc: "The in-universe timeline, M30 to M42.",
+        gloss: "LINEA TEMPORVM",
         href: "/timeline",
       },
       {
-        n: "08",
+        n: "VIII",
         title: "Cartographer",
         desc: "Every novel pinned to the world it haunts.",
+        gloss: "CARTOGRAPHIA",
         href: "/map",
       },
     ],
@@ -99,9 +108,14 @@ function RowInner({ row }: { row: Row }) {
         <span className="hub-explore__desc">{row.desc}</span>
       </span>
       {row.href ? (
-        <span className="hub-explore__chevron" aria-hidden>
-          ›
-        </span>
+        <>
+          <span className="hub-explore__gloss" aria-hidden>
+            {row.gloss}
+          </span>
+          <span className="hub-explore__chevron" aria-hidden>
+            ›
+          </span>
+        </>
       ) : (
         <span className="hub-explore__soon" aria-hidden>
           SOON

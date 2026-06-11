@@ -19,6 +19,7 @@ import GhostReadout from "@/components/chrono/GhostReadout";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
 import PodcastEpisodeArchive from "@/components/podcast/PodcastEpisodeArchive";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
+import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import { loadPodcastShow } from "../loader";
 
 // Static shell, refreshed hourly — newly-ingested episodes surface without a
@@ -30,15 +31,6 @@ export const revalidate = 3600;
 const getShow = cache(loadPodcastShow);
 
 type Params = { slug: string };
-
-const READOUT_LINES = [
-  "· VOX · DECODE STREAM",
-  "· FEED MOUNTED · RSS STABLE",
-  "· ENCLOSVRE · MP3 NOMINAL",
-  "· INDEX · ANNVS / FACTIO",
-  "· LATENCY NOMINAL",
-  "· AVDITIO · READY",
-];
 
 function yearSpan(first: number | null, last: number | null): string | null {
   if (first == null || last == null) return null;
@@ -85,9 +77,18 @@ export default async function PodcastShowPage({
   const span = yearSpan(show.firstPubYear, show.lastPubYear);
   const stats = `${show.episodeCount} episodes${span ? ` · ${span}` : ""}`;
 
+  // Honest readout — this show's real holdings, no pseudo-telemetry
+  // (Report 141; sibling of the index readout).
+  const readoutLines = [
+    "· VOX · ARCHIVVM SONORVM",
+    `· ${show.episodeCount} EPISODES${span ? ` · ${span}` : ""}`,
+    "· INDEX · ANNVS / FACTIO",
+    "· PLAY / DOWNLOAD / OPEN IN APP",
+    "· COGNITIO LINK STABLE",
+  ];
+
   return (
     <main className="podcasts podcasts--show">
-      <ArchiveModeToggle active="podcasts" />
       <SiteBackground variant="vox" position="50% 38%" />
       <ScrollScrim
         className="pod-scrim"
@@ -103,7 +104,7 @@ export default async function PodcastShowPage({
           lineMs={5000}
           typeSpeed={80}
           max={4}
-          lines={READOUT_LINES}
+          lines={readoutLines}
         />
       </div>
       <div className="pod-hud" aria-hidden>
@@ -127,11 +128,18 @@ export default async function PodcastShowPage({
           <h1 className="pod-mast__heading pod-mast__heading--show">
             {show.title}
           </h1>
+          <div className="pod-mast__rule" aria-hidden />
           <p className="pod-mast__sub">{stats} · entity-tagged, newest first.</p>
         </div>
       </section>
 
       <div className="pod-body">
+        {/* The register fork in the controls position — same placement as the
+            index, so the switch stays present one level deeper (Session 142). */}
+        <div className="pod-controls">
+          <ArchiveModeToggle active="podcasts" />
+        </div>
+
         <div className="pod-plate">
           <div className="pod-plate__art" aria-hidden>
             {show.artUrl ? (
@@ -179,11 +187,7 @@ export default async function PodcastShowPage({
 
         <PodcastEpisodeArchive episodes={show.episodes} showTitle={show.title} />
 
-        <footer className="pod-footer">
-          <span>EX VOCE · COGNITIO</span>
-          <span className="pod-footer__mid">DIRECT FEED · NO TRACKING</span>
-          <span>STAMP M42.347</span>
-        </footer>
+        <ArchiveFooter mid="DIRECT FEED · NO TRACKING" />
       </div>
     </main>
   );

@@ -104,6 +104,17 @@ body:has(main.ask) .site-bg::after {
   pointer-events: none;
 }
 
+/* Masthead eyebrow — gold mono, replacing the cyan .card-eyebrow default. */
+.ask-console__eyebrow {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
 .ask-console__title {
   margin: 12px auto 0;
   max-width: 920px;
@@ -114,13 +125,23 @@ body:has(main.ask) .site-bg::after {
   text-transform: uppercase;
   color: var(--cl-bone);
   text-shadow:
-    0 0 32px rgba(156, 230, 255, 0.20),
+    0 0 32px rgba(201, 166, 90, 0.22),
     0 4px 14px rgba(0, 0, 0, 0.95);
+}
+
+/* Terminus line as title ornament — the house reference element
+   (.cogitator-loading__scan), resting under the masthead title. */
+.ask-console__rule {
+  width: min(300px, 52vw);
+  height: 1px;
+  margin: 20px auto 0;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.85;
 }
 
 .ask-console__sub {
   max-width: 640px;
-  margin: 14px auto 0;
+  margin: 16px auto 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
   font-size: var(--fs-read);
@@ -132,7 +153,7 @@ body:has(main.ask) .site-bg::after {
 
 .ask-console__grid {
   display: grid;
-  /* Content (.ask-stage) left in the wide column, status rail (.ask-status)
+  /* Content (.ask-stage) left in the wide column, status rail (.ask-rail)
      right in the narrow one. DOM order matches (stage first) so reading/tab
      order tracks the visual L→R. */
   grid-template-columns: minmax(0, 1fr) minmax(248px, 318px);
@@ -179,6 +200,20 @@ body:has(main.ask) .site-bg::after {
   color: var(--cl-faint);
 }
 
+/* Page-scoped gold focus ring — overrides the global cyan glow (10-base.css)
+   until the site-wide token migration lands. */
+main.ask :focus-visible {
+  outline: 1px solid var(--cl-gold);
+  box-shadow: none;
+}
+
+/* Imprimatur foot wrapper — gives the shared .lx-foot its side gutters. */
+.ask-foot {
+  position: relative;
+  z-index: 4;
+  padding: 0 clamp(20px, 3vw, 48px);
+}
+
 @media (max-width: 960px) {
   .ask-readout {
     display: none;
@@ -190,7 +225,7 @@ body:has(main.ask) .site-bg::after {
 
   /* When the grid stacks, keep the stepper above the question (unchanged from
      before the desktop column swap — the swap only reorders columns). */
-  .ask-status {
+  .ask-rail {
     order: -1;
   }
 }

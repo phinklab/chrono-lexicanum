@@ -1,20 +1,15 @@
 /* 66-compendium.css
-   The Compendium — entity directory (Brief 129 — Doorways), teal re-skin.
+   The Compendium — entity directory (Brief 129 — Doorways), restyled in
+   Session 142 as the REGISTRVM of the archive (Report 141, idea C2-3, ported
+   from /lab/compendium_example). The teal re-skin is retired: gold is the one
+   accent language, Terminus lines (hairlines fading out on both ends) replace
+   hard borders, and the doors are frameless wash cards bounded only by their
+   Terminus base line.
 
-   The surface is plain `<main className="compendium">` (NO `catalogue` class),
-   so the TopNav, the `.c-glass` / `.c-corners` primitives and the shared
-   `.browse-*` controls all stay in their cyan house default — the Compendium is
-   the archive's *index in teal*, distinct from the gold reading-rooms (/werke,
-   /buecher, /podcasts). It borrows their layout discipline — a vista backdrop
-   that fades to void for readability (the /ask + /podcasts treatment), a lean
-   hero, a persistent category nav, and dense hairline-separated rows — but the
-   accent is cyan throughout.
-
-   Restraint laws (shared with the gold surfaces): no border-radius; glow ≤ 22%
-   alpha; cyan is reserved for the single hero eyebrow, hovers, focus, active
-   states and live values — never a resting wall of teal. Structure is carried by
-   bone/dim text and cyan-tinted hairlines, not by colour. Atmosphere comes from
-   the backdrop fade, not from halos or warm gradients. */
+   Restraint laws: no border-radius; glow ≤ 22% alpha; gold is reserved for the
+   hero eyebrow, hovers, focus, active states and live values — never a resting
+   wall of colour. Structure is carried by bone/dim text and gold-tinted
+   hairlines; atmosphere comes from the backdrop fade, not from halos. */
 
 /* ── Surface + readability backdrop ───────────────────────────────────────── */
 main.compendium {
@@ -123,7 +118,7 @@ body:has(main.compendium) .site-bg::after {
   font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 .cmp-hero__heading {
@@ -135,14 +130,22 @@ body:has(main.compendium) .site-bg::after {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-bone);
-  /* Cyan halo <= 22% alpha (restraint law) + a hard black drop for legibility. */
+  /* Gold halo <= 22% alpha (restraint law) + a hard black drop for legibility. */
   text-shadow:
-    0 0 32px rgba(156, 230, 255, 0.18),
+    0 0 32px rgba(201, 166, 90, 0.22),
     0 4px 14px rgba(0, 0, 0, 0.95);
+}
+/* Terminus line as title ornament (.cogitator-loading__scan reference). */
+.cmp-hero__rule {
+  width: min(300px, 52vw);
+  height: 1px;
+  margin: 20px auto 0;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.85;
 }
 .cmp-hero__sub {
   max-width: 640px;
-  margin: 14px auto 0;
+  margin: 16px auto 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
   font-size: var(--fs-read);
@@ -163,16 +166,31 @@ body:has(main.compendium) .site-bg::after {
 
 /* ── Category nav ─────────────────────────────────────────────────────────── */
 /* A persistent row of doorway tabs: the Index plus the five categories, each
-   with a live count. A cyan underline marks the active tab; the rest are dim
-   until hovered. Wraps below the wrap point so the full set stays reachable. */
+   with a live count, over a Terminus hairline (fading out on both ends). A
+   gold underline marks the active tab; the rest are dim until hovered. */
 .cmp-nav {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   gap: 2px;
   margin: 0 0 26px;
-  padding: 0 0 2px;
-  border-bottom: 1px solid color-mix(in oklch, var(--cl-cyan) 16%, transparent);
+  padding: 0 0 3px;
+}
+.cmp-nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 28%, transparent) 10%,
+    color-mix(in oklch, var(--cl-gold) 28%, transparent) 90%,
+    transparent
+  );
 }
 .cmp-nav__tab {
   display: inline-flex;
@@ -194,12 +212,12 @@ body:has(main.compendium) .site-bg::after {
   color: var(--cl-bone);
 }
 .cmp-nav__tab:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 2px;
 }
 .cmp-nav__tab.is-active {
-  color: var(--cl-cyan);
-  border-bottom-color: var(--cl-cyan);
+  color: var(--cl-gold);
+  border-bottom-color: var(--cl-gold);
 }
 .cmp-nav__count {
   font-size: var(--fs-label-xs);
@@ -207,7 +225,7 @@ body:has(main.compendium) .site-bg::after {
   color: var(--cl-faint);
 }
 .cmp-nav__tab.is-active .cmp-nav__count {
-  color: var(--cl-cyan-dim);
+  color: color-mix(in oklch, var(--cl-gold) 60%, transparent);
 }
 
 /* ── Overview: the hall of doorways ───────────────────────────────────────── */
@@ -244,16 +262,31 @@ body:has(main.compendium) .site-bg::after {
   gap: 10px;
   height: 100%;
   padding: clamp(20px, 2.4vw, 28px);
-  /* The /ask "segment" wash: a whisper of void over the backdrop photo so each
-     panel reads as a discrete surface — no border, no radius, no shadow. */
+  /* Frameless wash card (accepted treatment 2026-06-11): a whisper of void over
+     the backdrop photo — no border, no radius, no shadow. The only boundary is
+     the Terminus base line below; hover answers in colour, not motion. */
   background: rgba(2, 3, 10, 0.25);
   transition: background 180ms;
 }
+.cmp-door::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  color: color-mix(in oklch, var(--cl-gold) 24%, transparent);
+  background: linear-gradient(90deg, transparent, currentColor 22%, currentColor 78%, transparent);
+  transition: color 200ms;
+}
 .cmp-door:hover {
-  background: rgba(14, 22, 30, 0.5);
+  background: rgba(10, 14, 22, 0.45);
+}
+.cmp-door:hover::after {
+  color: color-mix(in oklch, var(--cl-gold) 62%, transparent);
 }
 .cmp-door:focus-within {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: -2px;
 }
 .cmp-door__head {
@@ -294,10 +327,10 @@ body:has(main.compendium) .site-bg::after {
   transition: color 180ms;
 }
 .cmp-door:hover .cmp-door__label {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 /* The featured Factions segment — more presence: extra padding, a larger title
-   and a cyan eyebrow marking it as the flagship door (it spans the full top row). */
+   and a gold eyebrow marking it as the flagship register (full top row). */
 .cmp-door--hero {
   padding: clamp(24px, 3vw, 36px);
 }
@@ -305,7 +338,7 @@ body:has(main.compendium) .site-bg::after {
   font-size: clamp(25px, 3vw, 32px);
 }
 .cmp-door--hero .cmp-door__eyebrow {
-  color: var(--cl-cyan);
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
 }
 .cmp-door__count {
   grid-area: count;
@@ -327,8 +360,8 @@ body:has(main.compendium) .site-bg::after {
   color: var(--cl-dim);
 }
 /* The data-forward coverage line — one quiet mono stat where the peek list used
-   to be. The number is the single live cyan value; the words rest in dim, and the
-   figure lifts to full cyan with the panel on hover. */
+   to be. The number is the single live gold value; the words rest in dim, and the
+   figure lifts to full gold with the panel on hover. */
 .cmp-door__stat {
   margin: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -338,11 +371,11 @@ body:has(main.compendium) .site-bg::after {
   color: var(--cl-dim);
 }
 .cmp-door__stat-n {
-  color: var(--cl-cyan-dim);
+  color: var(--cl-gold-dim);
   transition: color 180ms;
 }
 .cmp-door:hover .cmp-door__stat-n {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .cmp-door__pending {
   margin: 2px 0 0;
@@ -352,23 +385,22 @@ body:has(main.compendium) .site-bg::after {
   font-weight: var(--fw-read);
   color: var(--cl-dim);
 }
-/* "View all X →" — neutral at rest, revealed in cyan on hover, mirroring the
-   gold surfaces' hover-revealed CTAs (accent for interaction, not at rest). */
+/* "View all X →" — gold-leaning at rest, full gold with the hovered door. */
 .cmp-door__all {
   margin-top: auto;
-  padding-top: 4px;
+  padding-top: 8px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--cl-dim);
+  color: color-mix(in oklch, var(--cl-gold) 55%, var(--cl-dim));
   text-decoration: none;
   transition: color 180ms;
 }
 .cmp-door:hover .cmp-door__all,
 .cmp-door__all:hover,
 .cmp-door__all:focus-visible {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 
 /* Staggered page-load reveal — the segments fade up in sequence (the house
@@ -397,7 +429,7 @@ body:has(main.compendium) .site-bg::after {
   font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 .cmp-cat-intro__heading {
@@ -441,7 +473,7 @@ body:has(main.compendium) .site-bg::after {
   font-size: var(--fs-label);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .cmp-empty p {
   margin: 0;
@@ -449,9 +481,9 @@ body:has(main.compendium) .site-bg::after {
 
 /* ── Table header: status line + dissolved search console ─────────────────── */
 /* The directory's "header" is one console band: a live count line, the serif
-   search line, and the facet/sort pills — capped from the rows by a cyan
-   hairline. The count is the single live cyan value; everything else rests in
-   bone/dim and lights cyan only on interaction. */
+   search line, and the facet/sort pills — capped from the rows by a Terminus
+   hairline. The count is the single live gold value; everything else rests in
+   bone/dim and lights gold only on interaction. */
 .cmp-toolbar {
   display: flex;
   align-items: baseline;
@@ -465,7 +497,7 @@ body:has(main.compendium) .site-bg::after {
 .cmp-toolbar__count {
   font-size: var(--fs-label-lg);
   letter-spacing: 0.18em;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .cmp-toolbar__total {
   font-size: var(--fs-label);
@@ -478,15 +510,16 @@ body:has(main.compendium) .site-bg::after {
   color: var(--cl-dim);
 }
 .cmp-toolbar__query-term {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 
 /* The shared `.browse-*` controls (cyan defaults from 61-browse.css) are
-   dissolved here into /werke's two-row query console — but teal. Row 1 is one
-   elegant serif search line under a cyan hairline (no boxed control); row 2 is
-   the quieter facet + sort pills. A cyan hairline at the foot separates the
+   dissolved here into /werke's two-row query console — in gold. Row 1 is one
+   elegant serif search line over a gold underline (no boxed control); row 2 is
+   the quieter facet + sort pills. A Terminus hairline at the foot separates the
    whole header band from the rows below. */
 .compendium .browse-filters {
+  position: relative;
   flex-direction: column;
   align-items: stretch;
   gap: 16px;
@@ -494,7 +527,21 @@ body:has(main.compendium) .site-bg::after {
   padding: 0 0 18px;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid color-mix(in oklch, var(--cl-cyan) 16%, transparent);
+}
+.compendium .browse-filters::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 22%, transparent) 12%,
+    color-mix(in oklch, var(--cl-gold) 22%, transparent) 88%,
+    transparent
+  );
 }
 .compendium .browse-search {
   width: 100%;
@@ -502,18 +549,18 @@ body:has(main.compendium) .site-bg::after {
   padding: 0;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid color-mix(in oklch, var(--cl-cyan) 32%, transparent);
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 32%, transparent);
   transition: border-color 200ms;
 }
 .compendium .browse-search:focus-within {
-  border-bottom-color: var(--cl-cyan-dim);
+  border-bottom-color: var(--cl-gold-dim);
 }
 .compendium .browse-search__sigil {
   width: 15px;
   height: 15px;
   margin-left: 1px;
   margin-right: 4px;
-  color: var(--cl-cyan-dim);
+  color: var(--cl-gold-dim);
 }
 .compendium .browse-search__input {
   flex: 1;
@@ -530,15 +577,38 @@ body:has(main.compendium) .site-bg::after {
   text-transform: none;
   color: var(--cl-dim);
 }
-/* Dissolve the boxed → submit: borderless, cyan-dim, lights cyan on hover. */
+/* Dissolve the boxed → submit: borderless, gold-dim, lights gold on hover. */
 .compendium .browse-search__go {
   border: 0;
-  color: var(--cl-cyan-dim);
+  color: var(--cl-gold-dim);
   padding: 7px 6px;
 }
 .compendium .browse-search__go:hover {
   background: transparent;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
+}
+/* Facet + sort pills — the catalogue gold re-skin, scoped to this surface. */
+.compendium .browse-pill {
+  border-color: color-mix(in oklch, var(--cl-gold) 18%, transparent);
+}
+.compendium .browse-pill:hover {
+  border-color: var(--cl-gold-dim);
+}
+.compendium .browse-pill:focus-visible {
+  outline-color: var(--cl-gold);
+}
+.compendium .browse-pill.active {
+  color: var(--cl-gold);
+  border-color: color-mix(in oklch, var(--cl-gold) 34%, transparent);
+  background: rgba(201, 166, 90, 0.1);
+}
+.compendium .browse-facet-chip {
+  color: var(--cl-gold);
+  border-color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.1);
+}
+.compendium .browse-facet-chip:hover {
+  background: rgba(201, 166, 90, 0.18);
 }
 
 /* ── Directory: dense rows ────────────────────────────────────────────────── */
@@ -550,8 +620,8 @@ body:has(main.compendium) .site-bg::after {
 .cmp-group {
   margin: 0;
 }
-/* A teal section legend: the alignment name in cyan mono on the left, a count on
-   the right, joined by a fading cyan rule. Reads as a manifest divider, not a
+/* A gold section legend: the alignment name in gold mono on the left, a count on
+   the right, joined by a fading gold rule. Reads as a manifest divider, not a
    floating `//` comment — the fix for the old weak group header. */
 .cmp-group__label {
   display: flex;
@@ -566,16 +636,13 @@ body:has(main.compendium) .site-bg::after {
   font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
 }
 .cmp-group__rule {
   flex: 1 1 auto;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    color-mix(in oklch, var(--cl-cyan) 30%, transparent),
-    transparent
-  );
+  background: linear-gradient(90deg, var(--cl-gold-dim), transparent);
+  opacity: 0.45;
 }
 .cmp-group__count {
   flex: none;
@@ -591,6 +658,23 @@ body:has(main.compendium) .site-bg::after {
 }
 .cmp-rows > li {
   list-style: none;
+  position: relative;
+}
+/* Row separators as Terminus lines — fading out on both ends. */
+.cmp-rows > li + li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 13%, transparent) 14%,
+    color-mix(in oklch, var(--cl-gold) 13%, transparent) 86%,
+    transparent
+  );
 }
 
 /* The row: a hairline-divided directory line — index, faction dot or category
@@ -602,18 +686,14 @@ body:has(main.compendium) .site-bg::after {
   align-items: center;
   gap: 14px;
   padding: 11px 14px;
-  border-top: 1px solid color-mix(in oklch, var(--cl-cyan) 12%, transparent);
   text-decoration: none;
   transition: background 180ms;
 }
-.cmp-rows > li:first-child .cmp-row {
-  border-top: none;
-}
 .cmp-row:hover {
-  background: rgba(156, 230, 255, 0.05);
+  background: rgba(201, 166, 90, 0.05);
 }
 .cmp-row:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: -2px;
 }
 .cmp-row__index {
@@ -627,7 +707,7 @@ body:has(main.compendium) .site-bg::after {
   font-size: 15px;
   line-height: 1;
   text-align: center;
-  color: var(--cl-cyan-dim);
+  color: var(--cl-gold-dim);
 }
 .cmp-row__dot {
   width: 10px;
@@ -649,7 +729,7 @@ body:has(main.compendium) .site-bg::after {
   transition: color 180ms;
 }
 .cmp-row:hover .cmp-row__name {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .cmp-row__kicker {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -681,8 +761,23 @@ body:has(main.compendium) .site-bg::after {
   transition: color 200ms, transform 200ms;
 }
 .cmp-row:hover .cmp-row__chevron {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   transform: translateX(2px);
+}
+
+/* ── Curation note (overview) — marginalia apparatus over the void ────────── */
+.cmp-note {
+  margin-top: clamp(34px, 6vh, 54px);
+}
+.cmp-note__text {
+  font-style: italic;
+}
+
+/* Page-scoped gold focus ring — overrides the global cyan glow (10-base.css)
+   until the site-wide token migration lands. */
+main.compendium :focus-visible {
+  outline: 1px solid var(--cl-gold);
+  box-shadow: none;
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */

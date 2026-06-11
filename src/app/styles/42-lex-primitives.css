@@ -1,0 +1,493 @@
+/* 42-lex-primitives.css
+   Shared primitives of the new design language (Session 141 styleguide
+   /lab/design + the four /lab/*_example pages, ported live in Session 142).
+   Gold instead of cyan, Terminus lines (hairlines that run out on both ends)
+   instead of hard frames, frameless wash cards with a Terminus base line,
+   drop-cap initial + marginalia apparatus, honest mono status lines.
+
+   Prefix `.lx-` — deliberately distinct from the lab's `.lex-` scope so the
+   reference pages under /lab keep rendering from their own example.css.
+   Tokens come from 00-tokens.css; the cogitator keyframes from 65-loading.css.
+   The legacy primitives in 40-primitives.css (.c-glass/.c-corners/…) stay
+   untouched until their last consumers are migrated. */
+
+/* Entry stagger (stilled by the global reduced-motion kill in 10-base.css). */
+@keyframes lxRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.lx-rise {
+  animation: lxRise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--rise-i, 0) * 90ms);
+}
+
+/* Terminus line — THE divider of the new language (house reference:
+   .cogitator-loading__scan). */
+.lx-rule {
+  height: 1px;
+  border: 0;
+  margin: clamp(28px, 5vh, 44px) 0;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.7;
+}
+
+/* Section label: mono kicker + hairline running out to the right. */
+.lx-sect {
+  margin-top: clamp(34px, 6vh, 54px);
+}
+.lx-sect__label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 clamp(14px, 2.5vh, 22px);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+}
+.lx-sect__label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cl-gold-dim), transparent);
+  opacity: 0.45;
+}
+
+/* Status line carrying REAL information (no pseudo-telemetry). */
+.lx-stat {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 18px;
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.lx-stat b {
+  font-weight: 400;
+  color: var(--cl-gold);
+}
+
+/* Tag / pill — buttons keep their hairline frames (maintainer decision). */
+.lx-tag {
+  display: inline-flex;
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--cl-faint);
+  color: var(--cl-dim);
+  padding: 6px 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 180ms, border-color 180ms, background 180ms;
+}
+.lx-tag:hover {
+  color: var(--cl-bone);
+  border-color: var(--cl-gold-dim);
+}
+.lx-tag:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: 2px;
+}
+.lx-tag--on {
+  color: var(--cl-gold);
+  border-color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.1);
+}
+.lx-tag--sm {
+  padding: 2px 7px;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.14em;
+}
+
+/* Button — hairline frame, gold answer on hover. */
+.lx-btn {
+  display: inline-block;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  border: 1px solid color-mix(in oklch, var(--cl-gold) 45%, transparent);
+  background: transparent;
+  padding: 11px 24px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 180ms, background 180ms;
+}
+.lx-btn:hover {
+  border-color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.1);
+}
+.lx-btn:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: 3px;
+}
+
+/* Underline search field — the hub search gesture (Terminus underline), gold. */
+.lx-field {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+}
+.lx-field input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  text-align: center;
+  padding: 12px 30px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-lg);
+  font-weight: var(--fw-read);
+  letter-spacing: 0.01em;
+  color: var(--cl-bone);
+}
+.lx-field input::placeholder {
+  font-style: italic;
+  color: var(--cl-dim);
+}
+.lx-field::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in oklch, var(--cl-gold) 45%, transparent) 26%,
+    color-mix(in oklch, var(--cl-gold) 45%, transparent) 74%,
+    transparent 100%
+  );
+  opacity: 0.75;
+  transition: opacity 200ms, background 200ms;
+}
+.lx-field:focus-within::after {
+  opacity: 1;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--cl-gold) 24%,
+    var(--cl-gold) 76%,
+    transparent 100%
+  );
+}
+.lx-field__kicker {
+  display: block;
+  margin: 0 0 6px;
+  text-align: center;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--cl-gold) 55%, var(--cl-dim));
+}
+/* Left-aligned variant (toolbar use). */
+.lx-field--line input {
+  text-align: left;
+  padding: 10px 4px;
+  font-size: var(--fs-read);
+}
+.lx-field--line .lx-field__kicker {
+  text-align: left;
+  letter-spacing: 0.2em;
+}
+
+/* Card — the accepted 2026-06-11 treatment: frameless wash surface, the only
+   boundary is the Terminus base line; hover answers in colour, not motion. */
+.lx-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(20px, 2.4vw, 28px);
+  background: rgba(2, 3, 10, 0.25);
+  text-decoration: none;
+  color: inherit;
+  transition: background 180ms;
+}
+.lx-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  color: color-mix(in oklch, var(--cl-gold) 24%, transparent);
+  background: linear-gradient(90deg, transparent, currentColor 22%, currentColor 78%, transparent);
+  transition: color 200ms;
+}
+.lx-card:hover {
+  background: rgba(10, 14, 22, 0.45);
+}
+.lx-card:hover::after {
+  color: color-mix(in oklch, var(--cl-gold) 62%, transparent);
+}
+.lx-card:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: -2px;
+}
+.lx-card__folio {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+}
+.lx-card__eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.lx-card__title {
+  margin: 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: clamp(19px, 2vw, 23px);
+  letter-spacing: 0.05em;
+  color: var(--cl-bone);
+  transition: color 180ms;
+}
+.lx-card:hover .lx-card__title {
+  color: var(--cl-gold);
+}
+.lx-card__meta {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.lx-card__snip {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
+  line-height: 1.45;
+  color: var(--cl-dim);
+}
+
+/* Reading text + drop-cap initial — one initial per view. */
+.lx-prose {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  line-height: var(--lh-read);
+  color: color-mix(in oklch, var(--cl-bone) 88%, transparent);
+}
+/* The drop-cap keeps the TEXT face (Cormorant, not the lab's Cinzel) so it
+   blends with the reading column — gold alone marks it as ornament
+   (maintainer: the Cinzel "A" read as a foreign glyph). */
+.lx-initial::first-letter {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 600;
+  font-size: 3.4em;
+  line-height: 0.78;
+  float: left;
+  padding: 5px 12px 0 0;
+  color: var(--cl-gold);
+}
+
+/* Marginalia apparatus — side column with a vertically fading hairline. */
+.lx-apparatus {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  gap: clamp(20px, 3.5vw, 44px);
+  align-items: start;
+}
+.lx-margin {
+  position: relative;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.lx-margin::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.6;
+}
+.lx-margin b {
+  font-weight: 400;
+  color: var(--cl-dim);
+}
+@media (max-width: 860px) {
+  .lx-apparatus {
+    grid-template-columns: 1fr;
+  }
+  .lx-margin {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    padding-left: 0;
+    padding-top: 12px;
+  }
+  .lx-margin::before {
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  }
+}
+
+/* Cogitator interstitial — the loading anatomy from 65-loading.css, compact;
+   reuses the global cogitator* keyframes. */
+.lx-cog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: clamp(26px, 5vh, 44px) 0;
+  text-align: center;
+}
+.lx-cog__core {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+}
+.lx-cog__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--cl-ghost);
+  border-top-color: var(--cl-gold);
+  border-right-color: var(--cl-gold-dim);
+  animation: cogitatorSpin 1.4s linear infinite;
+}
+.lx-cog__seed {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cl-gold);
+  animation: cogitatorSeed 1.8s ease-in-out infinite;
+}
+.lx-cog__eyebrow {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.lx-cog__phrase {
+  margin: 0;
+  font-family: var(--font-cinzel), serif;
+  font-size: clamp(18px, 3.2vw, 27px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--cl-bone);
+}
+.lx-cog__dots {
+  color: var(--cl-gold);
+}
+.lx-cog__scan {
+  width: min(260px, 56vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.55;
+  animation: cogitatorScan 2.6s ease-in-out infinite;
+}
+
+/* Imprimatur foot (accepted idea C1-1) — Terminus line on top, seal, then the
+   mono triad. Page supplies the middle motto. */
+.lx-foot {
+  position: relative;
+  max-width: 860px;
+  margin: clamp(44px, 8vh, 80px) auto 0;
+  padding-top: 30px;
+}
+.lx-foot::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.6;
+}
+.lx-foot__seal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.lx-foot__aq {
+  font-size: 17px;
+  line-height: 1;
+  color: var(--cl-gold);
+  opacity: 0.8;
+}
+.lx-foot__l1 {
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.lx-foot__l2 {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+.lx-foot__triad {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+.lx-foot__mid {
+  color: var(--cl-gold);
+}
+@media (max-width: 720px) {
+  .lx-foot__mid {
+    display: none;
+  }
+}
