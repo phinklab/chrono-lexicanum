@@ -8,9 +8,10 @@ import Link from "next/link";
  * The frameless row idiom in gold: Terminus separators between rows, accent
  * only on hover/focus, and the archivist's marginalia gloss fading in on hover.
  *
- * Two rows have no destination yet (IV Characters, V Hot Topics — both future
- * curated pages); they render inert with a SOON marker in the gloss slot rather
- * than linking to a 404. Server component (static links).
+ * "Browse by Topic" mirrors the five Compendium categories (2026-06-11) — every
+ * row is a live link; the former inert SOON rows are gone. Server component
+ * (static links). The SOON idiom (RowInner else-branch + .hub-explore__soon)
+ * stays dormant for future curated pages.
  */
 
 type Row = {
@@ -56,18 +57,36 @@ const BANDS: Band[] = [
         n: "III",
         title: "Factions",
         desc: "Pick an allegiance and see what sits behind it.",
-        gloss: "INDEX FACTIONVM",
-        href: "/fraktionen",
+        gloss: "COMPENDIVM · FRACTIO",
+        href: "/compendium/fraktionen",
       },
       {
         n: "IV",
-        title: "Characters",
-        desc: "The primarchs and the cast the novels follow.",
+        title: "Primarchs",
+        desc: "The twenty sons of the Emperor who led the Legions.",
+        gloss: "COMPENDIVM · PRIMARCHA",
+        href: "/compendium/primarchen",
       },
       {
         n: "V",
-        title: "Hot Topics",
-        desc: "Curated reading threads through the lore.",
+        title: "Characters",
+        desc: "The named who recur across the archive.",
+        gloss: "COMPENDIVM · PERSONA",
+        href: "/compendium/charaktere",
+      },
+      {
+        n: "VI",
+        title: "Worlds",
+        desc: "The worlds the stories keep returning to.",
+        gloss: "COMPENDIVM · MVNDVS",
+        href: "/compendium/welten",
+      },
+      {
+        n: "VII",
+        title: "Authors",
+        desc: "The writers behind the canon, traced by hand.",
+        gloss: "COMPENDIVM · AVCTOR",
+        href: "/compendium/autoren",
       },
     ],
   },
@@ -75,21 +94,21 @@ const BANDS: Band[] = [
     name: "Discover More",
     rows: [
       {
-        n: "VI",
+        n: "VIII",
         title: "Ask the Archive",
         desc: "Five questions to your one entry book.",
         gloss: "INTERROGATORIVM",
         href: "/ask",
       },
       {
-        n: "VII",
+        n: "IX",
         title: "Chronicle",
         desc: "The in-universe timeline, M30 to M42.",
         gloss: "LINEA TEMPORVM",
         href: "/timeline",
       },
       {
-        n: "VIII",
+        n: "X",
         title: "Cartographer",
         desc: "Every novel pinned to the world it haunts.",
         gloss: "CARTOGRAPHIA",

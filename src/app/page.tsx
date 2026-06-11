@@ -2,6 +2,7 @@ import BottomConsole from "@/components/chrono/BottomConsole";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import MainAuspex from "@/components/chrono/MainAuspex";
+import ScanLine from "@/components/chrono/ScanLine";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
@@ -64,7 +65,7 @@ export default async function HubPage() {
       <div className="hub-readout" aria-hidden>
         <GhostReadout
           color="var(--cl-gold)"
-          opacity={0.32}
+          opacity={0.5}
           lineMs={5200}
           typeSpeed={82}
           max={4}
@@ -77,6 +78,8 @@ export default async function HubPage() {
         className="hub-act hub-act--splash"
         aria-label="Chrono Lexicanum — the archive"
       >
+        <ScanLine period={13} color="var(--cl-gold)" opacity={0.09} />
+
         <FloatingCoord
           x="42%"
           y="120px"
@@ -84,7 +87,7 @@ export default async function HubPage() {
           delay={1.2}
           lifetime={5}
           color="var(--cl-gold)"
-          opacity={0.5}
+          opacity={0.7}
         />
         <FloatingCoord
           x="58%"
@@ -93,7 +96,16 @@ export default async function HubPage() {
           delay={3}
           lifetime={5}
           color="var(--cl-gold)"
-          opacity={0.45}
+          opacity={0.6}
+        />
+        <FloatingCoord
+          x="26%"
+          y="34%"
+          label="SCAN · SEGMENTVM OBSCVRVS"
+          delay={5.4}
+          lifetime={5}
+          color="var(--cl-gold)"
+          opacity={0.55}
         />
 
         <div className="hub-hero__auspex hub-hero__auspex--main" aria-hidden>
@@ -116,12 +128,18 @@ export default async function HubPage() {
         </div>
 
         <div className="hub-hero__title">
+          <span className="hub-corner hub-corner--tl" aria-hidden />
+          <span className="hub-corner hub-corner--tr" aria-hidden />
+          <span className="hub-corner hub-corner--bl" aria-hidden />
+          <span className="hub-corner hub-corner--br" aria-hidden />
           <p className="hub-eyebrow">{"ARCHIVVM · COGITATOR ACTIVVS"}</p>
           <h1 className="hub-hero__heading">CHRONO LEXICANUM</h1>
           <div className="hub-hero__rule" aria-hidden />
           <p className="hub-hero__sub">
-            A fan-made archive of Warhammer 40,000 novels — and the lore podcasts
-            beside them — charted by era, faction and world.
+            A fan-made archive of Warhammer 40,000 novels and the lore podcasts
+            beside them. Chart the eras in the Chronicle, roam the galaxy with
+            the Cartographer, browse the Compendium — or Ask the Archive for
+            your next book.
           </p>
         </div>
 

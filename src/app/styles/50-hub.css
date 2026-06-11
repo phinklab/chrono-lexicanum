@@ -69,13 +69,6 @@ body:has(main.hub) .bottom-console {
   z-index: 1;
 }
 
-/* Page-scoped gold focus — the global ring is cyan; on Home everything that
-   takes focus answers in gold (the specific rules below add their offsets). */
-main.hub :focus-visible {
-  outline: 1px solid var(--cl-gold);
-  box-shadow: none;
-}
-
 /* Crisp-top, fade-to-void — the /ask + /werke hero treatment, applied to the
    FIXED vista so every act sees a bright upper band fading to void at its base.
    Neutral void only — no cyan halo, no warm gradient, no bloom (restraint #1). */
@@ -176,7 +169,9 @@ body:has(main.hub) .site-bg::after {
   top: 46%;
   margin-left: calc(var(--auspex-size) / -2);
   margin-top: calc(var(--auspex-size) / -2);
-  opacity: 0.28;
+  /* Gold-on-warm-vista needs more presence than the cyan original did at 0.28 —
+     the discs read as "gone" below ~0.4 (maintainer feedback 2026-06-11). */
+  opacity: 0.5;
   animation: hubAuspexDriftA 38s ease-in-out infinite alternate;
 }
 /* Secondary disc — smaller, upper-offset and dimmer, for parallax depth. */
@@ -186,7 +181,7 @@ body:has(main.hub) .site-bg::after {
   height: var(--auspex-size);
   right: clamp(-30px, 4vw, 70px);
   top: clamp(80px, 16vh, 190px);
-  opacity: 0.1;
+  opacity: 0.22;
   animation: hubAuspexDriftB 53s ease-in-out infinite alternate;
 }
 
@@ -197,6 +192,21 @@ body:has(main.hub) .site-bg::after {
   max-width: 760px;
   text-align: center;
 }
+/* Targeting brackets around the title block — the auspex acquiring the
+   masthead. Staggered slow pulse; gold only, no glow. */
+.hub-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 0 solid var(--cl-gold);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: chronoPulse 4.6s ease-in-out infinite;
+}
+.hub-corner--tl { top: -24px; left: -28px; border-top-width: 1.5px; border-left-width: 1.5px; }
+.hub-corner--tr { top: -24px; right: -28px; border-top-width: 1.5px; border-right-width: 1.5px; animation-delay: 1.15s; }
+.hub-corner--bl { bottom: -24px; left: -28px; border-bottom-width: 1.5px; border-left-width: 1.5px; animation-delay: 2.3s; }
+.hub-corner--br { bottom: -24px; right: -28px; border-bottom-width: 1.5px; border-right-width: 1.5px; animation-delay: 3.45s; }
 /* Shared gold // kicker — all three act heads use the same eyebrow. */
 .hub-eyebrow {
   margin: 0;
@@ -230,7 +240,7 @@ body:has(main.hub) .site-bg::after {
 }
 .hub-hero__sub {
   margin: 16px auto 0;
-  max-width: 640px;
+  max-width: 700px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
   font-size: var(--fs-read);
@@ -296,10 +306,6 @@ body:has(main.hub) .site-bg::after {
 }
 .hub-cue__chev path:nth-child(3) {
   animation-delay: 1s;
-}
-.hub-cue:focus-visible {
-  outline: 1px solid var(--cl-gold);
-  outline-offset: 4px;
 }
 /* Act-2 cue — its content is centred, so pin the cue to the act floor (above
    the persistent console). translateX owns the centring; the chevron keyframe
@@ -553,10 +559,6 @@ body:has(main.hub) .site-bg::after {
 .hub-explore__row--link:hover {
   background: rgba(201, 166, 90, 0.05);
 }
-.hub-explore__row--link:focus-visible {
-  outline: 1px solid var(--cl-gold);
-  outline-offset: -2px;
-}
 .hub-explore__index {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
@@ -677,6 +679,10 @@ body:has(main.hub) .site-bg::after {
     display: none;
   }
   .hub-hero__auspex--secondary {
+    display: none;
+  }
+  /* The negative bracket offsets would clip against the act gutter. */
+  .hub-corner {
     display: none;
   }
   .hub-hero__auspex--main {
