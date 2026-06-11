@@ -1,0 +1,123 @@
+/* =============================== /login ===============================
+   Preview gate — full-bleed archive-hall photo with the site's black
+   bottom gradient (hub pattern), a single centered credential column,
+   and no page chrome (burger/menu/media player hidden).
+*/
+
+body:has(main.login) .site-burger,
+body:has(main.login) .site-menu,
+body:has(main.login) .media-player {
+  display: none;
+}
+
+body:has(main.login) .site-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 34%,
+      transparent 50%,
+      rgba(2, 3, 10, 0.25) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 3, 10, 0.4) 0%,
+      rgba(2, 3, 10, 0) 24%,
+      rgba(2, 3, 10, 0) 44%,
+      rgba(2, 3, 10, 0.55) 68%,
+      rgba(2, 3, 10, 0.94) 100%
+    );
+}
+
+main.login {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.login-console {
+  width: min(430px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.login-kicker {
+  margin: 0 0 16px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.32em;
+  color: var(--cl-dim);
+}
+
+.login-title {
+  margin: 0;
+  font-family: var(--font-cinzel), serif;
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-bone);
+  text-shadow: 0 0 32px rgba(201, 166, 90, 0.22);
+}
+
+.login-rule {
+  width: 130px;
+  height: 1px;
+  margin: 20px 0 18px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 55%, transparent) 30%,
+    color-mix(in oklch, var(--cl-gold) 55%, transparent) 70%,
+    transparent
+  );
+}
+
+.login-sub {
+  margin: 0 0 34px;
+  max-width: 36ch;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read);
+  line-height: 1.5;
+  color: var(--cl-dim);
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.login-lab {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--cl-faint);
+}
+
+.login-error {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.22em;
+  color: var(--cl-blood);
+}
+
+.login-btn {
+  margin-top: 8px;
+}

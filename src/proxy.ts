@@ -1,10 +1,14 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { PREVIEW_COOKIE, previewGateEnabled } from "@/lib/previewGate";
 
 // Next.js 16 file convention: this file replaces the pre-v16 `middleware.ts`.
-// The matcher covers both /atlas (gated) and /map (public, but credentials are
-// detected so the optional admin signal can be forwarded).
+// The matcher covers every page route (preview gate, session 145) — excluded
+// are /login itself, Next internals, and the public/ asset folders. /atlas
+// and /map additionally run the Basic-Auth admin detection below.
 export const config = {
-  matcher: ["/atlas/:path*", "/map/:path*"],
+  matcher: [
+    "/((?!_next/|login|img/|audio/|timeline/|lab/|aquila\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
+  ],
 };
 
 const REALM = 'Basic realm="Chrono Atlas"';
@@ -23,6 +27,16 @@ function parseBasic(authHeader: string | null): { user: string; pass: string } |
 }
 
 export function proxy(req: NextRequest): NextResponse {
+  // Preview gate — the whole site sits behind /login while in private
+  // preview: any route without the preview cookie redirects there. Local
+  // dev bypasses (NODE_ENV !== "production"); Vercel previews and
+  // production both enforce. PREVIEW_GATE=off disables the gate for launch
+  // without a code change. Runs before the Basic-Auth block because that
+  // block early-returns on non-prod (which includes Vercel previews).
+  if (previewGateEnabled() && req.cookies.get(PREVIEW_COOKIE)?.value !== "1") {
+    return NextResponse.redirect(new URL("/login", req.url));
+  }
+
   // Local dev and Vercel preview both bypass the Basic-Auth check:
   //   - Preview deployments sit behind Vercel's own SSO gate; a second prompt
   //     would be redundant.
