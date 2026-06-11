@@ -237,12 +237,17 @@ schneller als die filmische Eigenvorgabe — drosseln oder an Interaktion binden
 
 ### A.2 — Archive (BOOKS + Toggle)
 
-- **Empty-States tragen `.c-glass .c-corners`** — `archive/page.tsx:206,210` · S7/S8 ·
-  **high / S** · Fix: Serif-italic auf Void + optionale Hairline (Muster `.catalogue-row__note`).
-- **Toggle-Pill mit `backdrop-filter: blur(8px)`** — `61-browse.css:610-613` · S8 ·
-  **medium / S** · Timeline-Original (`.chron-mode-toggle .pill`) hat null Blur — direkt portierbar.
-- **Suggest-Popover + FilterSelect-Liste: breite Soft-Shadows** — `61-browse.css:119-120,286` ·
-  S11 · **medium / S** · Schatten raus, Hairline + dunklerer Grund tragen die Tiefe.
+- ~~**Empty-States tragen `.c-glass .c-corners`** — `archive/page.tsx:206,210` · S7/S8 ·
+  **high / S** · Fix: Serif-italic auf Void + optionale Hairline (Muster `.catalogue-row__note`).~~
+  **→ live umgesetzt (2026-06-11, /archive):** Klassen entfernt, Empty-State ist
+  jetzt die nackte Serif-italic-Zeile auf dem Void.
+- ~~**Toggle-Pill mit `backdrop-filter: blur(8px)`** — `61-browse.css:610-613` · S8 ·
+  **medium / S** · Timeline-Original (`.chron-mode-toggle .pill`) hat null Blur — direkt portierbar.~~
+  **→ live umgesetzt (2026-06-11, /archive):** Blur raus, dunklere Solid-Füllung
+  (0.55 → 0.72) trägt die Legibilität.
+- ~~**Suggest-Popover + FilterSelect-Liste: breite Soft-Shadows** — `61-browse.css:119-120,286` ·
+  S11 · **medium / S** · Schatten raus, Hairline + dunklerer Grund tragen die Tiefe.~~
+  **→ live umgesetzt (2026-06-11, /archive):** beide box-shadows entfernt.
 - FilterSelect-Hover ohne Text-Farbantwort auf der Gold-Surface (`:529-531`) und
   Mobile-Wrapping der Controls (`:457-476`) → **ui-backlog** (Kosmetik).
 - Empty-Copy nicht in Haus-Stimme („No books in the database yet" vs. „EX TENEBRIS
@@ -694,11 +699,20 @@ Checkliste ist der Wiedereinstiegspunkt nach jedem /compact:
   pp.-Bereichen, Kurations-Marginalie via .lx-apparatus, Terminus-Row-Trenner
   im Directory, Browse-Controls gold-skinned, Imprimatur-Fuß im Layout,
   seiten-scoped Gold-Fokusring). tsc + eslint grün.*
-- [ ] **3 · /archive** — Cinematic Row-Table übernehmen, mit Abweichungen:
+- [x] **3 · /archive** — Cinematic Row-Table übernehmen, mit Abweichungen:
   (a) in geöffneter Row die Zeile „REF M42.347 SOURCE · MANUAL CONFIDENCE ·
   HIGH SCRIBE · PH. LEXICANVS" entfernen; (b) keine M31-Sortierung/Gruppierung
   (nicht alle Bücher haben M-Daten); (c) Suche zentral unter den Text unter
   „WORKS" setzen. Commit.
+  *Erledigt 2026-06-11: Hero-Terminus-Rule; Suche zentriert als erste
+  Body-Zeile (Terminus-Underline, zentrierter Serif-Input, Controls mittig,
+  Zone schließt mit Terminus) — Abweichung (c); Zeilentrenner + Dossier-Trenner
+  als Terminus-Linien; Titel-Hover gold; offene Row als Dossier ohne
+  Glass-Plate (Gold-Wash + Mono-Meta + Synopsis mit Initiale `lx-initial`);
+  KEIN Marginalien-Apparat — Abweichung (a); KEINE Era-Gruppen — Abweichung (b);
+  Empty-States entboxt; Toggle-Blur + Popover-Schatten raus (A.2 komplett);
+  catalogue-footer-Triade (inkl. „STAMP M42.347") durch Imprimatur-Fuß ersetzt;
+  seiten-scoped Gold-Fokusring. tsc + eslint grün.*
 - [ ] **4 · /home** — Titelblatt-Design übernehmen, mit Abweichungen:
   (a) „What can I do here"-Sektion: unter „889 novels" auch Podcast-Episoden
   und Podcasts mit Anzahl aufführen; (b) die große Initiale „A" fügt sich

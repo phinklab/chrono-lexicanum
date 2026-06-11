@@ -9,6 +9,7 @@ import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
 import CompendiumFocusOpener from "@/components/compendium/CompendiumFocusOpener";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
+import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import WerkeFilters from "./WerkeFilters";
 import { bookSlugById, loadBrowseBooks, type BrowseBook } from "./loader";
 import {
@@ -170,6 +171,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
         <div className="catalogue-hero__title">
           <div className="catalogue-hero__eyebrow">{"// CATALOGVS · LIBRORVM"}</div>
           <h1 className="catalogue-hero__heading">WORKS</h1>
+          <div className="catalogue-hero__rule" aria-hidden />
           <p className="catalogue-hero__sub">
             {books.length === 0
               ? "No books in the database yet."
@@ -179,6 +181,17 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
       </section>
 
       <div className="catalogue-body">
+        {/* Search console first, centred under the masthead text (maintainer
+            adjustment 2026-06-11); the count line follows below it. */}
+        {books.length > 0 && (
+          <WerkeFilters
+            factions={factionOptions}
+            formats={formatOptions}
+            activeFacet={activeFacet}
+            index={searchIndex}
+          />
+        )}
+
         <div className="catalogue-toolbar">
           <div className="catalogue-toolbar__left">
             <span className="catalogue-toolbar__count">{filtered.length} · SHOWN</span>
@@ -193,21 +206,12 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
           </div>
         </div>
 
-        {books.length > 0 && (
-          <WerkeFilters
-            factions={factionOptions}
-            formats={formatOptions}
-            activeFacet={activeFacet}
-            index={searchIndex}
-          />
-        )}
-
         {books.length === 0 ? (
-          <div className="catalogue-empty c-glass c-corners">
+          <div className="catalogue-empty">
             The database is empty. Once books are ingested they will appear here.
           </div>
         ) : filtered.length === 0 ? (
-          <div className="catalogue-empty c-glass c-corners">
+          <div className="catalogue-empty">
             No works match {filtering ? "these filters" : "this view"}. Try widening
             the search.
           </div>
@@ -221,11 +225,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
           </ol>
         )}
 
-        <footer className="catalogue-footer">
-          <span>EX TENEBRIS · COGNITIO</span>
-          <span className="catalogue-footer__mid">CLICK ANY TITLE · LECTIO PROFVNDA</span>
-          <span>STAMP M42.347</span>
-        </footer>
+        <ArchiveFooter mid="CLICK ANY TITLE · LECTIO PROFVNDA" />
       </div>
     </main>
   );
@@ -303,7 +303,9 @@ function WorkRow({
             <p className="catalogue-row__meta">{metaParts.join(" · ")}</p>
           )}
 
-          {book.synopsis && <p className="catalogue-row__synopsis">{book.synopsis}</p>}
+          {book.synopsis && (
+            <p className="catalogue-row__synopsis lx-initial">{book.synopsis}</p>
+          )}
 
           {book.factions.length > 0 && (
             <div className="catalogue-row__tagrow">
