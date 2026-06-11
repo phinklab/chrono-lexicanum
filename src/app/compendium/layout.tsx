@@ -3,9 +3,9 @@
  * and every category directory (`/compendium/[category]`) in one teal-archive
  * frame: a vista backdrop with the /ask + /podcasts readability fade, a lean
  * hero, and the persistent category nav with live counts. The surface is plain
- * `<main className="compendium">` — no `catalogue` class — so the TopNav, the
- * `.c-glass` / `.c-corners` primitives and the shared `.browse-*` controls stay
- * in their cyan house default instead of the gold /werke re-skin.
+ * `<main className="compendium">` — no `catalogue` class — so the `.c-glass` /
+ * `.c-corners` primitives and the shared `.browse-*` controls stay in their
+ * cyan house default instead of the gold /werke re-skin.
  *
  * Server component: it loads the per-category counts once (cached, so the active
  * directory page dedupes its own builder call) and hands them to the db-free

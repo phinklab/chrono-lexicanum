@@ -17,7 +17,13 @@ Differences from neighbouring docs:
 
 ## Open
 
-_None currently open._
+- **MediaPlayer auf Mobile wieder einführen** (2026-06-11, Session 140 Follow-up).
+  Der globale MediaPlayer (fixed bottom-left, z 40) ist auf Mobile (`max-width:
+  760px`, `56-media-player.css`) komplett ausgeblendet — Interim-Entscheidung von
+  Philipp, weil der Block mit Mobile-Flächen kollidierte (v. a. das
+  Chronicle-Bottom-Sheet auf `/timeline`). Hier braucht es ein echtes
+  Mobile-Konzept (Mini-Glyph? einklappbar? per-Route ausweichen?) statt des
+  Hides; bis dahin gibt es auf Mobile keinen Audio-Zugang.
 
 > **Obsoleted 2026-05-31 — "Series-label crowding in EraDetail" (spotted 2026-05-02).**
 > The item described the old `EraDetail` track-packing surface and its

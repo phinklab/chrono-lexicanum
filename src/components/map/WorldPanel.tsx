@@ -85,11 +85,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
     <div
       style={{
         position: "fixed",
-        // The global TopNav is 48px tall, fixed at top:0, z-index 50. The
-        // panel needs to start below it — otherwise the header (and the X
-        // close button at top:14) sits underneath the nav, which intercepts
-        // pointer events and the close looks broken.
-        top: 48,
+        top: 0,
         right: 0,
         bottom: 0,
         width: 380,
@@ -153,7 +149,10 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
               aria-label="Close"
               style={{
                 position: "absolute",
-                top: 14,
+                // The global burger (fixed top:16 right:18, 48×44, z 81) floats
+                // over the panel's top-right corner — the × must clear it or
+                // its clicks get intercepted.
+                top: 62,
                 right: 14,
                 background: "transparent",
                 border: `1px solid ${t.stroke}`,

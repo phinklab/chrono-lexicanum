@@ -6,8 +6,8 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * SiteMenu — global burger button + full-screen navigation overlay, mounted in
- * the root layout next to TopNav (additive app-shell chrome, it does not
- * replace the top bar). Rebuild of the design-export's `#burger` + `#site-menu`
+ * the root layout. Since the TopNav removal (session 140 follow-up) this is
+ * the ONLY global navigation. Rebuild of the design-export's `#burger` + `#site-menu`
  * (Chronicle Timeline.html + chronicle.css §burger), re-rooted from the
  * prototype's `body.menu-open` class onto component-scoped `.is-open` state.
  *
@@ -107,8 +107,13 @@ export default function SiteMenu() {
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((o) => !o)}
       >
-        <span className="site-burger__line" aria-hidden />
-        <span className="site-burger__line" aria-hidden />
+        <span className="site-burger__icon" aria-hidden>
+          <span className="site-burger__line" />
+          <span className="site-burger__line" />
+        </span>
+        <span className="site-burger__label" aria-hidden>
+          {open ? "CLOSE" : "MENU"}
+        </span>
       </button>
 
       <nav
