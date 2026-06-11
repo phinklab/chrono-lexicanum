@@ -775,8 +775,25 @@ Checkliste ist der Wiedereinstiegspunkt nach jedem /compact:
   ein Curl-Check, push, PR (kein Co-Author, kein Generated-Footer).
   *Erledigt 2026-06-11: tsc + eslint repo-weit grün; Dev-Server sauber
   neu gestartet (Streuner gekillt, .next geleert, EIN Server); ein
-  Up-Check; Branch `codex/product-live-restyle` gepusht, PR erstellt.
+  Up-Check; Branch `codex/product-live-restyle` gepusht, PR #165 erstellt.
   Browser-Abnahme + Merge durch Philipp.*
+- [x] **7 · Nachsteuerung (Maintainer-Feedback nach PR #165):**
+  /archive/podcasts als Geschwisterseite zu /archive + Register-Switch
+  prominent statt Fixed-Pill unten rechts.
+  *Erledigt 2026-06-11: Podcast-Index + Show-Detail auf die
+  Geschwister-Merkmale des Archive-Ports gezogen — Terminus-Rule im Mast,
+  Suche zentriert (Kicker + Serif-Input mittig), Konsole-Zone schließt mit
+  Terminus, Toolbar ohne Volllinie, Ghost-Readout auf echte Bestände
+  (Shows/Episoden statt FEED-MOUNTED/LATENCY-Telemetrie), Footer-Triade
+  (inkl. „STAMP M42.347") durch Imprimatur-Fuß ersetzt, seiten-scoped
+  Gold-Fokus (mit restated Suchfeld-Suppression wegen Kaskaden-Reihenfolge
+  61→62). Register-Switch: `ArchiveModeToggle` vom fixed Bottom-Right-Pill
+  (Steel-Literale, Parchment-Füllung) zum Inline-Register WORKS | PODCASTS
+  in der Controls-Zeile — auf /archive als erster Punkt der Zeile vor
+  Faction/Format/Sort (Maintainer-Vorschlag), auf den Podcast-Seiten als
+  eigene zentrierte `.pod-controls`-Zeile; Pill-Grammatik eine Stufe größer
+  als die Sort-Pills, aktiv = Gold-Rahmen + Gold-Wash. URL bleibt der Modus
+  (echte Links, ISR unverändert). tsc + eslint grün.*
 
 Regeln: Gold statt Cyan, Terminus-Linien, rahmenlose Karten,
 Initiale/Marginalie wie in den Beispielen. Umgesetzte Review-Punkte oben im

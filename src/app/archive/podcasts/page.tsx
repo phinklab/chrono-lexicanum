@@ -8,6 +8,7 @@ import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
 import PodcastsSearch from "@/components/podcast/PodcastsSearch";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
+import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import { loadBrowseBooks } from "@/app/archive/loader";
 import { buildSearchIndex } from "@/app/archive/filters";
 import { loadPrimarchSuggestions } from "@/lib/compendium/loader";
@@ -27,15 +28,6 @@ export const metadata: Metadata = {
 // Static shell, refreshed hourly (matches Home) so newly-ingested episodes
 // surface without a redeploy. No searchParams here, so the page stays static.
 export const revalidate = 3600;
-
-const READOUT_LINES = [
-  "· VOX · ARCHIVVM SONORVM",
-  "· FEED MOUNTED · RSS STABLE",
-  "· DECODE · MP3 ENCLOSVRE",
-  "· SIGNAL · LORE CAST",
-  "· LATENCY NOMINAL",
-  "· AVDITIO · READY",
-];
 
 const DAY_MONTH = new Intl.DateTimeFormat("en", { day: "2-digit", month: "short" });
 
@@ -67,9 +59,18 @@ export default async function PodcastsPage() {
     ...primarchSuggestions,
   ];
 
+  // Honest readout — real holdings, no pseudo-telemetry (the feed/latency
+  // lines died with the lab port, Report 141; sibling of /archive's readout).
+  const readoutLines = [
+    "· VOX · ARCHIVVM SONORVM",
+    `· ${shows.length} ${shows.length === 1 ? "SHOW" : "SHOWS"} · ${totalEpisodes} EPISODES`,
+    "· FEED · RSS DIRECT",
+    "· PLAY / DOWNLOAD / OPEN IN APP",
+    "· COGNITIO LINK STABLE",
+  ];
+
   return (
     <main className="podcasts">
-      <ArchiveModeToggle active="podcasts" />
       <SiteBackground variant="vox" position="50% 38%" />
       <ScrollScrim
         className="pod-scrim"
@@ -87,7 +88,7 @@ export default async function PodcastsPage() {
           lineMs={5000}
           typeSpeed={80}
           max={4}
-          lines={READOUT_LINES}
+          lines={readoutLines}
         />
       </div>
       <div className="pod-hud" aria-hidden>
@@ -109,6 +110,7 @@ export default async function PodcastsPage() {
         <div className="pod-mast__inner">
           <div className="pod-mast__eyebrow">{"// VOX · ARCHIVVM SONORVM"}</div>
           <h1 className="pod-mast__heading">PODCASTS</h1>
+          <div className="pod-mast__rule" aria-hidden />
           <p className="pod-mast__sub">
             {shows.length === 0
               ? "No podcasts in the database yet."
@@ -119,6 +121,13 @@ export default async function PodcastsPage() {
 
       <div className="pod-body">
         {searchIndex.length > 0 && <PodcastsSearch index={searchIndex} />}
+
+        {/* The register fork, prominent in the controls position under the
+            search — sibling of /archive's browse-controls row (Session 142;
+            the fixed bottom-right micro-pill is retired). */}
+        <div className="pod-controls">
+          <ArchiveModeToggle active="podcasts" />
+        </div>
 
         {shows.length > 0 && (
           <div className="pod-toolbar">
@@ -147,11 +156,7 @@ export default async function PodcastsPage() {
         )}
 
         {shows.length > 0 && (
-          <footer className="pod-footer">
-            <span>EX VOCE · COGNITIO</span>
-            <span className="pod-footer__mid">DIRECT FEED · NO TRACKING</span>
-            <span>STAMP M42.347</span>
-          </footer>
+          <ArchiveFooter mid="DIRECT FEED · NO TRACKING" />
         )}
       </div>
     </main>

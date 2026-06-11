@@ -1,11 +1,14 @@
 import Link from "next/link";
 
 /**
- * Archive mode toggle — BOOKS | PODCASTS, fixed bottom-right on every /archive
- * surface (port of the design-export "mode-toggle" pill, Chronicle Timeline.html
- * + chronicle.css §shared chrome). Two real links instead of client state: the
- * URL is the mode (shareable, back-button-safe) and the podcast pages keep their
- * ISR shells. The rendering page passes its own mode — no usePathname island.
+ * Archive register switch — WORKS | PODCASTS, the fork between the archive's
+ * two pillars. Session 142 (maintainer feedback): the fixed bottom-right
+ * micro-pill was too quiet — the switch now sits INLINE in the controls row
+ * under the search console (the row that carries Faction/Format/Sort on
+ * /archive), in the house pill grammar one size up from the sort pills, the
+ * active register in gold. Two real links instead of client state: the URL is
+ * the mode (shareable, back-button-safe) and the podcast pages keep their ISR
+ * shells. The rendering page passes its own mode — no usePathname island.
  */
 export default function ArchiveModeToggle({
   active,
@@ -13,26 +16,24 @@ export default function ArchiveModeToggle({
   active: "books" | "podcasts";
 }) {
   return (
-    <nav className="archive-toggle" aria-label="Archive view">
-      <span className="archive-toggle__lab" aria-hidden>
-        VIEW
+    <nav className="archive-mode" aria-label="Archive register">
+      <span className="archive-mode__lab" aria-hidden>
+        REGISTER
       </span>
-      <div className="archive-toggle__pill">
-        <Link
-          href="/archive"
-          className={`archive-toggle__opt${active === "books" ? " is-selected" : ""}`}
-          aria-current={active === "books" ? "page" : undefined}
-        >
-          BOOKS
-        </Link>
-        <Link
-          href="/archive/podcasts"
-          className={`archive-toggle__opt${active === "podcasts" ? " is-selected" : ""}`}
-          aria-current={active === "podcasts" ? "page" : undefined}
-        >
-          PODCASTS
-        </Link>
-      </div>
+      <Link
+        href="/archive"
+        className={`archive-mode__opt${active === "books" ? " is-selected" : ""}`}
+        aria-current={active === "books" ? "page" : undefined}
+      >
+        WORKS
+      </Link>
+      <Link
+        href="/archive/podcasts"
+        className={`archive-mode__opt${active === "podcasts" ? " is-selected" : ""}`}
+        aria-current={active === "podcasts" ? "page" : undefined}
+      >
+        PODCASTS
+      </Link>
     </nav>
   );
 }

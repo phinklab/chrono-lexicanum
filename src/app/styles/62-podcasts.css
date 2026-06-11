@@ -26,6 +26,20 @@ main.podcasts {
   --pod-wash-on: rgba(201, 166, 90, 0.07);
 }
 
+/* Page-scoped gold focus ring — overrides the global cyan glow (10-base.css),
+   the sibling of main.catalogue's override in 31-catalogue.css. Placed BEFORE
+   this file's .pod-filter__input suppression so that later equal-specificity
+   rule still wins its tie. */
+main.podcasts :focus-visible {
+  outline: 1px solid var(--cl-gold);
+  box-shadow: none;
+}
+/* 61-browse's input suppression (underline is the focus cue) loads before this
+   file and would lose to the override above — restate it at higher specificity. */
+main.podcasts .browse-search__input:focus-visible {
+  outline: none;
+}
+
 /* ── Fixed backdrop fade + scroll scrim (the /ask treatment) ──────────────── */
 /* Crisp-top, fade-to-void: the cathedral-vox photo is sharp through the upper
  * band (title), then ramps to full void where the content band sits. Neutral
@@ -143,6 +157,15 @@ body:has(main.podcasts) .site-bg::after {
   letter-spacing: 0.14em;
   max-width: 20ch;
 }
+/* Terminus line as title ornament — identical to .catalogue-hero__rule, the
+   sibling masthead (Session 142). */
+.pod-mast__rule {
+  width: min(300px, 52vw);
+  height: 1px;
+  margin: 20px auto 0;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.85;
+}
 .pod-mast__sub {
   max-width: 640px;
   margin: 14px auto 0;
@@ -167,15 +190,18 @@ body:has(main.podcasts) .site-bg::after {
 /* ── Unified archive search (books + podcasts) ────────────────────────────── */
 /* The shared <BrowseSearch> console, gold-skinned to match the .catalogue
  * surface (mirrors `.catalogue--werke .browse-search`): an elegant serif query
- * line under a gold hairline, not a heavy boxed control. Sits at the top of the
- * content band, above the toolbar. */
+ * line under a gold hairline, not a heavy boxed control. Centred mid-axis like
+ * the /archive console (Session 142 — the maintainer's centred-search
+ * adjustment carries over to the sibling page). */
 .pod-search {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 8px;
-  margin: 0 0 22px;
+  margin: 0 0 16px;
 }
 .pod-search__kicker {
+  text-align: center;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
@@ -203,6 +229,7 @@ body:has(main.podcasts) .site-bg::after {
 .pod-search .browse-search__input {
   flex: 1;
   min-width: 0;
+  text-align: center;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: var(--fs-read);
   font-weight: var(--fw-read);
@@ -230,14 +257,41 @@ body:has(main.podcasts) .browse-suggest__hit {
   color: var(--cl-gold);
 }
 
+/* The register fork's row (controls position, sibling of /archive's
+   browse-controls): centred, closing the console zone with a Terminus —
+   the same seam .catalogue--werke .browse-filters::after draws. */
+.pod-controls {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 22px;
+  padding: 0 0 20px;
+}
+.pod-controls::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 16%, transparent) 18%,
+    color-mix(in oklch, var(--cl-gold) 16%, transparent) 82%,
+    transparent
+  );
+}
+
+/* No drawn line — the Terminus above closes the console zone (Session 142;
+   mirrors the borderless .catalogue-toolbar). */
 .pod-toolbar {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: 10px;
-  padding: 0 2px 14px;
-  margin-bottom: 22px;
-  border-bottom: 1px solid var(--cl-faint);
+  padding: 0 2px;
+  margin-bottom: 20px;
 }
 .pod-toolbar__count {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -980,23 +1034,8 @@ body:has(main.podcasts) .browse-suggest__hit {
   width: 100%;
 }
 
-/* ── Footer ───────────────────────────────────────────────────────────────── */
-.pod-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 40px 0 0;
-  padding-top: 16px;
-  border-top: 1px solid var(--cl-faint);
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cl-dim);
-}
-.pod-footer__mid {
-  color: var(--cl-gold);
-}
+/* Footer: the shared imprimatur foot (<ArchiveFooter> → .lx-foot) replaced the
+   mono triad with its fake "STAMP M42.347" (Session 142). */
 
 /* ── Narrow ───────────────────────────────────────────────────────────────── */
 @media (max-width: 720px) {
@@ -1079,9 +1118,5 @@ body:has(main.podcasts) .browse-suggest__hit {
   .pod-ep__dl {
     order: 6;
     margin-left: auto;
-  }
-  .pod-footer {
-    flex-direction: column;
-    gap: 4px;
   }
 }

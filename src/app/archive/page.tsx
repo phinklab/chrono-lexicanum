@@ -8,7 +8,6 @@ import GhostReadout from "@/components/chrono/GhostReadout";
 import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
 import CompendiumFocusOpener from "@/components/compendium/CompendiumFocusOpener";
-import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import WerkeFilters from "./WerkeFilters";
 import { bookSlugById, loadBrowseBooks, type BrowseBook } from "./loader";
@@ -132,7 +131,6 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
   return (
     <main className="catalogue catalogue--werke">
       {focusSlug ? <CompendiumFocusOpener href={`/buch/${focusSlug}`} /> : null}
-      <ArchiveModeToggle active="books" />
       <section className="catalogue-hero" aria-label="Works — the novel archive">
         <div className="catalogue-hero__photo" aria-hidden />
         <div className="catalogue-hero__fade" aria-hidden />
