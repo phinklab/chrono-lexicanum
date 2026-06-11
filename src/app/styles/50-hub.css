@@ -192,21 +192,6 @@ body:has(main.hub) .site-bg::after {
   max-width: 760px;
   text-align: center;
 }
-/* Targeting brackets around the title block — the auspex acquiring the
-   masthead. Staggered slow pulse; gold only, no glow. */
-.hub-corner {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 0 solid var(--cl-gold);
-  opacity: 0.55;
-  pointer-events: none;
-  animation: chronoPulse 4.6s ease-in-out infinite;
-}
-.hub-corner--tl { top: -24px; left: -28px; border-top-width: 1.5px; border-left-width: 1.5px; }
-.hub-corner--tr { top: -24px; right: -28px; border-top-width: 1.5px; border-right-width: 1.5px; animation-delay: 1.15s; }
-.hub-corner--bl { bottom: -24px; left: -28px; border-bottom-width: 1.5px; border-left-width: 1.5px; animation-delay: 2.3s; }
-.hub-corner--br { bottom: -24px; right: -28px; border-bottom-width: 1.5px; border-right-width: 1.5px; animation-delay: 3.45s; }
 /* Shared gold // kicker — all three act heads use the same eyebrow. */
 .hub-eyebrow {
   margin: 0;
@@ -244,10 +229,12 @@ body:has(main.hub) .site-bg::after {
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
   font-size: var(--fs-read);
-  font-weight: var(--fw-read);
+  /* Lighter than the --fw-read norm: at the promoted size the 500 cut read
+     fat over the vista (maintainer review 2026-06-11). */
+  font-weight: 300;
   line-height: var(--lh-read);
   color: var(--cl-bone);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
 }
 
 /* ── Scroll cue — a `// NEXT` kicker + the next act's name + gold chevrons ────
@@ -679,10 +666,6 @@ body:has(main.hub) .site-bg::after {
     display: none;
   }
   .hub-hero__auspex--secondary {
-    display: none;
-  }
-  /* The negative bracket offsets would clip against the act gutter. */
-  .hub-corner {
     display: none;
   }
   .hub-hero__auspex--main {

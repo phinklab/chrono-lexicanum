@@ -2,7 +2,6 @@ import BottomConsole from "@/components/chrono/BottomConsole";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import MainAuspex from "@/components/chrono/MainAuspex";
-import ScanLine from "@/components/chrono/ScanLine";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
@@ -78,8 +77,6 @@ export default async function HubPage() {
         className="hub-act hub-act--splash"
         aria-label="Chrono Lexicanum — the archive"
       >
-        <ScanLine period={13} color="var(--cl-gold)" opacity={0.09} />
-
         <FloatingCoord
           x="42%"
           y="120px"
@@ -128,10 +125,6 @@ export default async function HubPage() {
         </div>
 
         <div className="hub-hero__title">
-          <span className="hub-corner hub-corner--tl" aria-hidden />
-          <span className="hub-corner hub-corner--tr" aria-hidden />
-          <span className="hub-corner hub-corner--bl" aria-hidden />
-          <span className="hub-corner hub-corner--br" aria-hidden />
           <p className="hub-eyebrow">{"ARCHIVVM · COGITATOR ACTIVVS"}</p>
           <h1 className="hub-hero__heading">CHRONO LEXICANUM</h1>
           <div className="hub-hero__rule" aria-hidden />
