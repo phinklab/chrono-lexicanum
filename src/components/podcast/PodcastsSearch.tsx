@@ -82,7 +82,7 @@ export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
   return (
     <div className="pod-search">
       <span className="pod-search__kicker" aria-hidden>
-        {"// SCAN · VOX ET LIBRORVM"}
+        {"SCAN · VOX ET LIBRORVM"}
       </span>
       <BrowseSearch
         index={index}

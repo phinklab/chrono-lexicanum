@@ -476,7 +476,7 @@ export default function DesignLanguagePage() {
                   <span className="ring" />
                   <span className="seed" />
                 </div>
-                <p className="eyebrow">{"// COGNITIO LINK · ESTABLISHING"}</p>
+                <p className="eyebrow">{"COGNITIO LINK · ESTABLISHING"}</p>
                 <p className="phrase">
                   Cogitator loading<span className="dots">…</span>
                 </p>

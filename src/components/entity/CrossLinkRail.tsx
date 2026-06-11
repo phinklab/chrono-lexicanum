@@ -12,7 +12,7 @@ export default function CrossLinkRail({ groups }: { groups: CrossLinkGroup[] }) 
 
   return (
     <aside className="entity-view__rail" aria-label="Connections">
-      <h2 className="entity-view__section-label">{"// CONNECTIONS"}</h2>
+      <h2 className="entity-view__section-label">{"CONNECTIONS"}</h2>
 
       {groups.map((g) => (
         <div className="entity-view__subsection" key={g.label}>

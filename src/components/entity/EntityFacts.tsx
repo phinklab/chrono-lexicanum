@@ -14,7 +14,7 @@ export default function EntityFacts({
 
   return (
     <section className="entity-view__section">
-      <h2 className="entity-view__section-label">{"// DOSSIER"}</h2>
+      <h2 className="entity-view__section-label">{"DOSSIER"}</h2>
 
       {facts.length > 0 ? (
         <dl className="entity-view__facts">

@@ -16,7 +16,7 @@ export default function ProcessingPanel({ title, detail }: ProcessingPanelProps)
           <span className="lx-cog__ring" />
           <span className="lx-cog__seed" />
         </div>
-        <p className="lx-cog__eyebrow">{"// BALLOT SEALED · COGITATOR WEIGHING"}</p>
+        <p className="lx-cog__eyebrow">{"BALLOT SEALED · COGITATOR WEIGHING"}</p>
         <p className="lx-cog__phrase">
           {title}
           <span className="lx-cog__dots">…</span>

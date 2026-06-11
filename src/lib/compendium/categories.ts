@@ -60,7 +60,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
   {
     slug: "fraktionen",
     label: "Factions",
-    eyebrow: "// FRACTIO · FACTION",
+    eyebrow: "FRACTIO · FACTION",
     sigil: "✠",
     noun: "faction",
     blurb:
@@ -72,7 +72,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
   {
     slug: "primarchen",
     label: "Primarchs",
-    eyebrow: "// PRIMARCHA · PRIMARCH",
+    eyebrow: "PRIMARCHA · PRIMARCH",
     sigil: "❂",
     noun: "primarch",
     blurb: "The twenty sons of the Emperor — the demigods who led the Legions.",
@@ -81,7 +81,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
   {
     slug: "charaktere",
     label: "Characters",
-    eyebrow: "// PERSONA · CHARACTER",
+    eyebrow: "PERSONA · CHARACTER",
     sigil: "✶",
     noun: "character",
     blurb:
@@ -91,7 +91,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
   {
     slug: "welten",
     label: "Worlds",
-    eyebrow: "// MVNDVS · WORLD",
+    eyebrow: "MVNDVS · WORLD",
     sigil: "◉",
     noun: "world",
     blurb:
@@ -101,7 +101,7 @@ export const COMPENDIUM_CATEGORIES: ReadonlyArray<CompendiumCategory> = [
   {
     slug: "autoren",
     label: "Authors",
-    eyebrow: "// AVCTOR · AUTHOR",
+    eyebrow: "AVCTOR · AUTHOR",
     sigil: "❡",
     noun: "author",
     blurb: "The writers behind the canon — every novel and story traced to its hand.",

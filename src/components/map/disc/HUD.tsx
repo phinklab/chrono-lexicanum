@@ -50,7 +50,7 @@ export default function HUD({ theme, view, dived }: HUDProps) {
         />
         Link · Active
       </span>
-      <span>Auspex // {t.id.toUpperCase()}</span>
+      <span>Auspex · {t.id.toUpperCase()}</span>
       <span style={{ opacity: 0.7 }}>SCALE {view === "galaxy" ? "1:10⁹ LY" : "1:10⁷ LY"}</span>
       <span style={{ opacity: 0.7 }}>STAMP M42.{stamp.slice(-3)}</span>
       <span style={{ opacity: dived ? 1 : 0.4, color: dived ? t.accent : t.primary }}>

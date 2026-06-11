@@ -138,7 +138,7 @@ export default function AskClient({
       <section className="ask-console" aria-labelledby="ask-title">
         <header className="ask-console__mast">
           <p className="ask-console__eyebrow">
-            {"// INTERROGATORIVM · QVINQVE QVAESTIONES"}
+            {"INTERROGATORIVM · QVINQVE QVAESTIONES"}
           </p>
           <h1 id="ask-title" className="ask-console__title">
             Ask the Archive
@@ -161,7 +161,7 @@ export default function AskClient({
 
             {showResult && recommendationError && (
               <div className="ask-empty ask-card" role="alert">
-                <p className="card-eyebrow">{"// RECOMMENDATION ERROR"}</p>
+                <p className="card-eyebrow">{"RECOMMENDATION ERROR"}</p>
                 <h2>The cogitator lost its link.</h2>
                 <p>{recommendationError} Your answers are still preserved in the URL.</p>
                 <div className="ask-empty__actions">
@@ -187,7 +187,7 @@ export default function AskClient({
 
             {showResult && !recommendationError && !result && (
               <div className="ask-empty ask-card">
-                <p className="card-eyebrow">{"// NO RESULT PAYLOAD"}</p>
+                <p className="card-eyebrow">{"NO RESULT PAYLOAD"}</p>
                 <h2>No recommendation payload arrived.</h2>
                 <p>Try resetting the funnel or widening your answers.</p>
                 <div className="ask-empty__actions">

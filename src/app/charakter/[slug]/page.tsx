@@ -52,7 +52,7 @@ export default async function CharacterPage({
     <main className="entity">
       <SiteBackground variant="vista" position="50% 24%" />
       <div className="entity__decor" aria-hidden>
-        <CornerAuspex size={140} label="PERSONA // 1011" />
+        <CornerAuspex size={140} label="PERSONA · 1011" />
       </div>
       <div className="entity__inner">
         <EntityBackLink type="character" />

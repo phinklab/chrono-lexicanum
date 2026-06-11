@@ -47,7 +47,7 @@ export default async function FactionPage({
     <main className="entity">
       <SiteBackground variant="vista" position="50% 28%" />
       <div className="entity__decor" aria-hidden>
-        <CornerAuspex size={140} label="FRACTIO // 1011" />
+        <CornerAuspex size={140} label="FRACTIO · 1011" />
       </div>
       <div className="entity__inner">
         <EntityBackLink type="faction" />

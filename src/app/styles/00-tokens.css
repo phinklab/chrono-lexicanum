@@ -269,14 +269,16 @@
    *   --fs-read-*   → Cormorant reading text
    *   --fs-label-*  → mono labels / tags / chips / eyebrows
    */
-  --fs-read-xs:  15px;  /* dense / secondary prose (captions, table cells)   */
-  --fs-read-sm:  17px;  /* compact body                                      */
-  --fs-read:     19px;  /* standard body, synopses, hero subs                */
-  --fs-read-lg:  22px;  /* lead body — book description, hub intro           */
+  --fs-read-xs:  16px;  /* dense / secondary prose (captions, table cells)   */
+  --fs-read-sm:  18px;  /* compact body                                      */
+  --fs-read:     clamp(20px, 1.8vw, 26px); /* standard body — the Chronicle
+                           era-intro measure (.ei-text), promoted site-wide   */
+  --fs-read-lg:  clamp(23px, 2vw, 29px);   /* lead body — one step above     */
   --fw-read:     500;   /* reading weight (400 reads thin on the void)       */
-  --lh-read:     1.6;   /* reading line-height                               */
+  --lh-read:     1.62;  /* reading line-height (matches .ei-text)            */
 
   --fs-label-xs: 11px;  /* eyebrows & micro-captions   (was 8.5–10px)        */
   --fs-label:    12px;  /* standard label / tag / chip (was 10–11px)         */
   --fs-label-lg: 13px;  /* prominent label / button    (was 12–12.5px)       */
+  --fs-label-xl: 15px;  /* heading-grade mono — stepper/rail headers         */
 }

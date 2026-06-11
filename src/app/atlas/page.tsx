@@ -41,7 +41,7 @@ export default async function AtlasBridgePage() {
       <header className="atlas-hero" aria-label="Atlas — Command Bridge">
         <div className="atlas-hero__line">
           <span className="atlas-hero__dot" aria-hidden />
-          <span>{"// ATLAS · COMMAND BRIDGE · LECTIO"}</span>
+          <span>{"ATLAS · COMMAND BRIDGE · LECTIO"}</span>
           <span className="atlas-hero__dot" aria-hidden />
         </div>
         <h1 className="atlas-hero__title">BRIDGE</h1>

@@ -30,7 +30,7 @@ export default async function IngestPage() {
     <main className="ingest-shell">
       <header className="ingest-header">
         <p className="ingest-eyebrow">
-          <span aria-hidden>{"// Ingestion console"}</span>
+          <span aria-hidden>{"Ingestion console"}</span>
           <span className="ingest-eyebrow-dot" aria-hidden />
           <span aria-hidden>
             {entries.length === 0

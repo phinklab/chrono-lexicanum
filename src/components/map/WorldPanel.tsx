@@ -116,7 +116,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                 marginBottom: 6,
               }}
             >
-              ◆ STELLAR RECORD // {world.id.toUpperCase()}
+              ◆ STELLAR RECORD · {world.id.toUpperCase()}
             </div>
             <div
               style={{

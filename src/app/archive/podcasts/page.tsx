@@ -108,7 +108,7 @@ export default async function PodcastsPage() {
           opacity={0.5}
         />
         <div className="pod-mast__inner">
-          <div className="pod-mast__eyebrow">{"// VOX · ARCHIVVM SONORVM"}</div>
+          <div className="pod-mast__eyebrow">{"VOX · ARCHIVVM SONORVM"}</div>
           <h1 className="pod-mast__heading">PODCASTS</h1>
           <div className="pod-mast__rule" aria-hidden />
           <p className="pod-mast__sub">

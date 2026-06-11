@@ -29,7 +29,7 @@ export default function AudioCredit({ credit }: { credit: AudioCreditData }) {
 
   return (
     <p className="book-detail__audio-credit">
-      <span className="book-detail__audio-credit-label">{"// AUDIOBOOK"}</span>
+      <span className="book-detail__audio-credit-label">{"AUDIOBOOK"}</span>
       <span className="book-detail__audio-credit-name">{text}</span>
     </p>
   );

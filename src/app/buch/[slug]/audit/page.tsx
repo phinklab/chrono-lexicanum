@@ -324,7 +324,7 @@ export default async function BookAuditPage({ params }: { params: Promise<Params
     <main className="audit-shell">
       <header className="audit-header">
         <div>
-          <p className="audit-kicker">{"// Cogitator-Audit · provenance"}</p>
+          <p className="audit-kicker">{"Cogitator-Audit · provenance"}</p>
           <h1>{work.title}</h1>
           <div className="audit-header-strip" aria-label="Audit provenance">
             <span>{work.externalBookId ?? FIELD_EMPTY}</span>

@@ -49,7 +49,7 @@ export default function CogitatorLoading() {
       </div>
 
       <p className="cogitator-loading__eyebrow" aria-hidden>
-        {"// COGNITIO LINK · ESTABLISHING"}
+        {"COGNITIO LINK · ESTABLISHING"}
       </p>
 
       <p

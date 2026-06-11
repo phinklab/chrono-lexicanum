@@ -186,7 +186,7 @@ export default function ResultCard({
         <>
           <p className="ask-results__note" role="note">
             <span className="ask-results__note-key" aria-hidden>
-              {"// NO EXACT MATCH"}
+              {"NO EXACT MATCH"}
             </span>
             <span>
               None of your top picks are{" "}

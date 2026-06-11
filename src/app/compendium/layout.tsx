@@ -83,7 +83,7 @@ export default async function CompendiumLayout({
           opacity={0.5}
         />
         <div className="cmp-hero__inner">
-          <p className="cmp-hero__eyebrow">{"// COMPENDIVM · INDEX RERVM"}</p>
+          <p className="cmp-hero__eyebrow">{"COMPENDIVM · INDEX RERVM"}</p>
           <h1 className="cmp-hero__heading">COMPENDIUM</h1>
           <div className="cmp-hero__rule" aria-hidden />
           <p className="cmp-hero__sub">

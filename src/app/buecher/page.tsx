@@ -546,7 +546,7 @@ export default async function CataloguePage({ searchParams }: CataloguePageProps
           opacity={0.55}
         />
         <div className="catalogue-hero__title">
-          <div className="catalogue-hero__eyebrow">{"// CATALOGVS · LIBRORVM"}</div>
+          <div className="catalogue-hero__eyebrow">{"CATALOGVS · LIBRORVM"}</div>
           <h1 className="catalogue-hero__heading">ARCHIVE</h1>
           <p className="catalogue-hero__sub">
             {books.length === 0

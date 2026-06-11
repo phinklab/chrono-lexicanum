@@ -15,7 +15,7 @@ type CornerAuspexProps = {
 export default function CornerAuspex({
   size = 220,
   accent = "var(--cl-cyan)",
-  label = "AUSPEX // 1011",
+  label = "AUSPEX · 1011",
 }: CornerAuspexProps) {
   const r = size / 2;
   const uid = `ca-${size}-${label.replace(/\W/g, "")}`;
