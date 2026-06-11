@@ -13,6 +13,7 @@
  *   - "chronicle"  ← Timeline / Chronicle (cathedral timeline diagram)
  *   - "cartog"     ← cartog-hall (handoff photo, currently unused)
  *   - "cartog-holo" ← /map (Mechanicus holo-table plot room)
+ *   - "login"      ← /login (gilded archive hall, scribe at the lectern)
  *   - "none"       ← just vignette + grain over the void
  */
 
@@ -26,6 +27,7 @@ export type SiteBgVariant =
   | "chronicle"
   | "cartog"
   | "cartog-holo"
+  | "login"
   | "none";
 
 const PHOTOS: Record<SiteBgVariant, string | null> = {
@@ -38,6 +40,7 @@ const PHOTOS: Record<SiteBgVariant, string | null> = {
   chronicle: "/img/chronicle-hall.webp",
   cartog: "/img/cartog-hall.webp",
   "cartog-holo": "/img/cartog-holo.webp",
+  login: "/img/login.webp",
   none: null,
 };
 
