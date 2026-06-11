@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
 import ProcessingPanel from "./ProcessingPanel";
-import ProgressDots from "./ProgressDots";
 import QuestionCard from "./QuestionCard";
 import ResultCard from "./ResultCard";
+import { roman } from "@/lib/roman";
 import {
   buildAskHref,
   countAskAnswers,
@@ -131,19 +131,22 @@ export default function AskClient({
     <>
       <div className="ask-hud" aria-hidden>
         <div className="ask-hud__sweep">
-          <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-cyan)" />
+          <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-gold)" />
         </div>
       </div>
 
       <section className="ask-console" aria-labelledby="ask-title">
         <header className="ask-console__mast">
-          <p className="card-eyebrow">{"// ORACVLVM · ASK THE ARCHIVE"}</p>
+          <p className="ask-console__eyebrow">
+            {"// INTERROGATORIVM · QVINQVE QVAESTIONES"}
+          </p>
           <h1 id="ask-title" className="ask-console__title">
-            Oracle
+            Ask the Archive
           </h1>
+          <div className="ask-console__rule" aria-hidden />
           <p className="ask-console__sub">
-            Five questions, then ranked entry points drawn from the living
-            archive.
+            Five questions; the cogitator weighs the catalogue and returns five
+            doorways — real recommendations from the archive, not a horoscope.
           </p>
         </header>
 
@@ -151,7 +154,7 @@ export default function AskClient({
           <div className="ask-stage" aria-live="polite">
             {showProcessing && (
               <ProcessingPanel
-                title="Consulting the archive"
+                title="Weighing the catalogue"
                 detail="The answers are sealed in the URL; the ranking runs server-side."
               />
             )}
@@ -162,7 +165,7 @@ export default function AskClient({
                 <h2>The cogitator lost its link.</h2>
                 <p>{recommendationError} Your answers are still preserved in the URL.</p>
                 <div className="ask-empty__actions">
-                  <button type="button" className="ask-cta" onClick={() => navigateWithAnswers(answers)}>
+                  <button type="button" className="lx-btn" onClick={() => navigateWithAnswers(answers)}>
                     Try again
                   </button>
                   <button type="button" className="ask-footlink" onClick={reset}>
@@ -226,44 +229,49 @@ export default function AskClient({
             </div>
           </div>
 
-          <aside className="ask-status ask-card" aria-label="Ask progress">
-            <div className="ask-status__head">
-              <span>{statusLabel}</span>
-              <span aria-hidden>{String(answeredCount).padStart(2, "0")}</span>
+          {/* Status rail — the protocol card (PROTOCOLLVM): roman marks I–V,
+              each row still a button that revisits its question. */}
+          <aside className="ask-rail" aria-label="Ask progress">
+            <div className="ask-rail__head">
+              <p className="ask-rail__label">Protocollvm</p>
+              <span className="ask-rail__count" aria-hidden>
+                {answeredCount} / {questions.length}
+              </span>
             </div>
-            <ProgressDots
-              current={showResult ? questions.length : activeIndex + 1}
-              total={questions.length}
-              answered={answeredCount}
-              pending={isPending}
-            />
-            <ol className="ask-answer-list">
-              {selectedSummary.map((item, index) => (
-                <li key={item.id}>
-                  <button
-                    type="button"
-                    className="ask-answer-step"
-                    data-current={item.isCurrent}
-                    data-complete={Boolean(item.value)}
-                    onClick={() => revisitQuestion(index)}
-                    aria-current={item.isCurrent ? "step" : undefined}
-                  >
-                    <span className="ask-answer-step__index">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="ask-answer-step__text">
-                      <span>{item.label}</span>
-                      <span>{item.value ?? "Awaiting answer"}</span>
-                    </span>
-                  </button>
-                </li>
-              ))}
+            <ol className="ask-marks">
+              {selectedSummary.map((item, index) => {
+                const sealed = Boolean(item.value);
+                const cls = item.isCurrent ? "cur" : sealed ? "done" : undefined;
+                return (
+                  <li key={item.id} className={cls}>
+                    <button
+                      type="button"
+                      className="ask-mark"
+                      onClick={() => revisitQuestion(index)}
+                      aria-current={item.isCurrent ? "step" : undefined}
+                    >
+                      <span className="ask-mark__rn" aria-hidden>
+                        {roman(index + 1)}
+                      </span>
+                      <span className="ask-mark__body">
+                        <span className="ask-mark__q">{item.label}</span>
+                        <span className="ask-mark__a">
+                          {item.value ?? "Awaiting answer"}
+                        </span>
+                      </span>
+                      <span className="ask-mark__st">
+                        {sealed ? "SEALED" : item.isCurrent ? "OPEN" : "—"}
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
             </ol>
-            <div className="ask-status__actions">
-              <button type="button" className="ask-pill" onClick={reset}>
+            <div className="ask-rail__actions">
+              <button type="button" className="lx-tag" onClick={reset}>
                 Reset
               </button>
-              <Link href="/archive" className="ask-pill">
+              <Link href="/archive" className="lx-tag">
                 Complete archive
               </Link>
             </div>

@@ -273,12 +273,16 @@ schneller als die filmische Eigenvorgabe — drosseln oder an Interaktion binden
 
 ### A.5 — Ask
 
-- **Komplette Seite läuft in der Cyan-Phase** — 27+ `--cl-cyan`-Instanzen in
+- ~~**Komplette Seite läuft in der Cyan-Phase** — 27+ `--cl-cyan`-Instanzen in
   `58-ask-booklist.css`, Hero-Glow `53-ask.css:116-118`, drei hartcodierte
   `color="var(--cl-cyan)"`-Props (`ask/page.tsx:72,87,96`), `ProcessingDots`-Default
   ist Cyan (`ProcessingDots.tsx:13`) · S1/S2 · **high / M** · Fix: mechanische
   Migration cyan→gold (die Komponenten-Defaults sind teils schon Gold — Overrides
-  einfach entfernen). /ask ist Launch-Einstiegspunkt → früh restylen.
+  einfach entfernen). /ask ist Launch-Einstiegspunkt → früh restylen.~~
+  **→ live umgesetzt (2026-06-11, /ask):** komplettes Befragungsprotokoll-Redesign
+  (C2-4 + C3-3) statt nur Farbmigration; `ProcessingDots` + `ProgressDots`
+  ersatzlos entfernt (Cogitator-Interstitial bzw. Protocollvm-Rail übernehmen);
+  Hero-Glow jetzt Gold @0.22; seiten-scoped Gold-Fokusring.
 
 ### A.6 — Map
 
@@ -662,6 +666,43 @@ freistehenden Papier-Komposition:
 - Alte Eigen-Chrome-Leiste ersetzt durch diskreten `LAB·SPECIMEN`-Switcher oben
   links (fixed, unterhalb Burger-z); Imprimatur-Fuß (C1-1) bleibt als Baustein.
 - `tsc` + `eslint` grün; Dev-Server lief weiter (HMR), Stichproben-Route 200.
+
+## Nachtrag 2026-06-11 (3) — Live-Restyle-Session (Branch `codex/product-live-restyle`)
+
+Direktauftrag Philipp: das Design der vier Beispielseiten auf die Live-Seiten
+portieren (nur Markup + CSS; URL-Verträge, Loader, Datenfluss, Client-Logik
+unverändert). Lab-Dateien sind Referenz, werden nicht angefasst. Eine Seite =
+ein Commit; /compact nur an Seitengrenzen direkt nach dem Commit. Diese
+Checkliste ist der Wiedereinstiegspunkt nach jedem /compact:
+
+- [x] **1 · /ask** — Befragungsprotokoll-Design übernehmen; **Lesbarkeit:
+  Protocollum-Segment deutlich größerer Text als im Beispiel**. Commit.
+  *Erledigt 2026-06-11: QVAESTIO-Ziffer + Ballot ◇→◆ (QuestionCard), Protocollvm-
+  Rail mit römischen Marken (eine Typo-Stufe größer als Lab: Fragen 17px serif,
+  Status 12px mono), Cogitator-Interstitial (ProcessingPanel), Verdikt als
+  Rank-Dossier + Runner-Karten (ResultCard), Gold-HUD, Terminus-Masthead,
+  Imprimatur-Fuß. Neu: `42-lex-primitives.css` (.lx-*-Bausteine, geteilt),
+  `ArchiveFooter`, `lib/roman.ts`. Entfernt: ProgressDots, ProcessingDots
+  (verwaist). tsc + eslint grün.*
+- [ ] **2 · /compendium** — Registerwerk-Design 1:1 übertragen. Commit.
+- [ ] **3 · /archive** — Cinematic Row-Table übernehmen, mit Abweichungen:
+  (a) in geöffneter Row die Zeile „REF M42.347 SOURCE · MANUAL CONFIDENCE ·
+  HIGH SCRIBE · PH. LEXICANVS" entfernen; (b) keine M31-Sortierung/Gruppierung
+  (nicht alle Bücher haben M-Daten); (c) Suche zentral unter den Text unter
+  „WORKS" setzen. Commit.
+- [ ] **4 · /home** — Titelblatt-Design übernehmen, mit Abweichungen:
+  (a) „What can I do here"-Sektion: unter „889 novels" auch Podcast-Episoden
+  und Podcasts mit Anzahl aufführen; (b) die große Initiale „A" fügt sich
+  nicht ein (Farbe/Schriftart) — anpassen; (c) Element „REF M42.347 SOURCE ·
+  MANUAL CONFIDENCE · HIGH SCRIBE · PH. LEXICANVS" entfernen. Commit.
+- [ ] **5 · Popups** — Buch-/Fraktion-/Entity-Detail-Modals (64-detail-modal,
+  BookDetailView) aufs neue Design umbauen. Commit.
+- [ ] **6 · Abschluss** — tsc + eslint, Dev-Server sauber neu starten, max.
+  ein Curl-Check, push, PR (kein Co-Author, kein Generated-Footer).
+
+Regeln: Gold statt Cyan, Terminus-Linien, rahmenlose Karten,
+Initiale/Marginalie wie in den Beispielen. Umgesetzte Review-Punkte oben im
+Report ~~durchstreichen~~ + „→ live umgesetzt (Datum, Seite)" markieren.
 
 ## Brief-Kandidaten für Cowork (geschnitten nach Abhängigkeit)
 

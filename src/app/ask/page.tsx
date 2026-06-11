@@ -4,6 +4,7 @@ import ScrollScrim from "@/app/buecher/ScrollScrim";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import AskClient from "@/components/ask/AskClient";
+import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import { ASK_QUESTIONS } from "@/lib/ask/questions";
 import {
   countAskAnswers,
@@ -24,14 +25,12 @@ interface AskPageProps {
 }
 
 const ASK_READOUT_LINES = [
-  "ASK CONTRACT ONLINE",
-  "FIVE QUESTIONS / FLAT PROFILE",
-  "RECOMMENDATION ENGINE READY",
-  "CURATION OVERLAY SEALED",
-  "ANSWER SIGNALS: EXPERIENCE / FACTION / TONE",
-  "ANSWER SIGNALS: LENGTH / ERA",
-  "PUBLIC FUNNEL AWAITING INPUT",
-  "ARCHIVE QUERY IS SERVER-SIDE",
+  "· INTERROGATORIVM · ONLINE",
+  "· V QVAESTIONES · FLAT PROFILE",
+  "· SIGNALS · EXPERIENCE / FACTION",
+  "· SIGNALS · TONE / LENGTH / ERA",
+  "· RECOMMENDATION ENGINE READY",
+  "· ARCHIVE QUERY IS SERVER-SIDE",
 ];
 
 function recommendationErrorCopy(error: unknown): string {
@@ -69,7 +68,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
 
       <div className="ask-readout" aria-hidden>
         <GhostReadout
-          color="var(--cl-cyan)"
+          color="var(--cl-gold)"
           opacity={0.28}
           lineMs={5200}
           typeSpeed={78}
@@ -81,19 +80,19 @@ export default async function AskPage({ searchParams }: AskPageProps) {
       <FloatingCoord
         x="42%"
         y="120px"
-        label="QUERY / PUBLIC"
+        label="QUERY · PVBLIC"
         delay={1.2}
         lifetime={5}
-        color="var(--cl-cyan)"
+        color="var(--cl-gold)"
         opacity={0.5}
       />
       <FloatingCoord
         x="58%"
         y="220px"
-        label={`PROFILE / ${answeredCount} OF ${ASK_QUESTIONS.length}`}
+        label={`PROFILE · ${answeredCount} OF ${ASK_QUESTIONS.length}`}
         delay={3}
         lifetime={5}
-        color="var(--cl-cyan)"
+        color="var(--cl-gold)"
         opacity={0.5}
       />
 
@@ -104,6 +103,10 @@ export default async function AskPage({ searchParams }: AskPageProps) {
         result={result}
         recommendationError={recommendationError}
       />
+
+      <div className="ask-foot">
+        <ArchiveFooter mid="QVINQVE QVAESTIONES" />
+      </div>
     </main>
   );
 }

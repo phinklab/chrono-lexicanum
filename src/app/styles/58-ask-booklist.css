@@ -1,22 +1,21 @@
 /* 58-ask-booklist.css
-   Ask funnel components: progress rail, option buttons, recommendation rows. */
+   Ask funnel — the interrogation protocol (Report 141, ideas C2-4 + C3-3,
+   ported live from /lab/ask_example): roman ordinal as ornament, frameless
+   ballot matrix ◇ → ◆, PROTOCOLLVM status rail, cogitator interstitial and
+   the verdict as rank dossier + runner cards. Gold language throughout; the
+   shared primitives (.lx-*) live in 42-lex-primitives.css. */
 
-/* Sharp-cornered glass — the house `.c-glass` discipline (no border-radius),
- * matched so the funnel panels read as the same angular, gothic surface as
- * /werke rather than soft rounded cards. */
-/* Frameless, to match /werke: no glass fill, no blur, no drop-shadow, no border
- * line and no corner ticks (the `c-corners` class is dropped from the markup).
- * Just a *whisper* of a transparent void wash — enough that you can make out the
- * two panels as separate surfaces (and read text where the photo is still faintly
- * visible up top), but far too slight to read as a solid box. The page's strong
- * void fade does most of the legibility work; this only nudges it. */
+/* Frameless wash surface — kept for the error/empty states. Accent is gold
+   now; the cyan phase of this page is retired. */
 .ask-card {
-  --row-accent: var(--cl-cyan);
+  --row-accent: var(--cl-gold);
   position: relative;
   border: 0;
   background: rgba(2, 3, 10, 0.25);
 }
 
+/* Mono eyebrow shared with the hub cards (reads its accent from the nearest
+   --row-accent, falling back to cyan for not-yet-migrated consumers). */
 .card-eyebrow {
   margin: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -26,206 +25,336 @@
   color: var(--row-accent, var(--cl-cyan));
 }
 
-.ask-status {
-  padding: 18px;
-}
+/* ---- Question stage: protocol line + roman ordinal + ballot ---- */
 
-.ask-status__head {
+.ask-protocol {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cl-dim);
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: clamp(20px, 3.5vh, 32px);
 }
 
-.ask-status__head span:last-child {
-  color: var(--cl-cyan);
-}
-
-.ask-progress {
+.ask-q {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 14px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line-0);
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(18px, 3.4vw, 36px);
+  align-items: start;
 }
 
-.ask-progress__bars {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 6px;
+.ask-q__num {
+  font-family: var(--font-cinzel), serif;
+  font-weight: 400;
+  font-size: clamp(58px, 8vw, 88px);
+  line-height: 0.9;
+  color: color-mix(in oklch, var(--cl-gold) 30%, transparent);
 }
 
-.ask-progress__bar {
+.ask-q__num small {
   display: block;
-  height: 1px;
-  background: var(--line-1);
-  transition: background 180ms;
-}
-
-.ask-progress__bar[data-filled="true"] {
-  background: var(--cl-cyan-dim);
-}
-
-.ask-progress__bar[data-current="true"] {
-  background: var(--cl-cyan);
-}
-
-.ask-progress__bar[data-pending="true"] {
-  background: linear-gradient(90deg, var(--cl-cyan), var(--cl-bone));
-}
-
-.ask-progress__label {
+  margin-top: 10px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.14em;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
   color: var(--cl-faint);
 }
 
-.ask-answer-list {
+.ask-q__main {
+  min-width: 0;
+}
+
+.ask-q__prompt {
+  margin: 0 0 6px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(26px, 3.4vw, 34px);
+  line-height: 1.25;
+  color: var(--cl-bone);
+}
+
+.ask-q__hint {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
+  color: var(--cl-dim);
+}
+
+/* Ballot — 2×2 matrix of frameless options, ◇ → ◆. */
+.ask-ballot {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: clamp(18px, 3vh, 28px) 0 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0; /* fieldset default min-width fix */
+}
+
+.ask-opt {
+  position: relative;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 12px;
+  padding: 16px 18px 18px;
+  text-align: left;
+  background: rgba(2, 3, 10, 0.25);
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  transition: background 180ms;
+}
+
+.ask-opt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  color: color-mix(in oklch, var(--cl-gold) 18%, transparent);
+  background: linear-gradient(90deg, transparent, currentColor 22%, currentColor 78%, transparent);
+  transition: color 200ms;
+}
+
+.ask-opt:hover {
+  background: rgba(10, 14, 22, 0.45);
+}
+
+.ask-opt:hover::after {
+  color: color-mix(in oklch, var(--cl-gold) 50%, transparent);
+}
+
+.ask-opt:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: -2px;
+}
+
+.ask-opt__glyph {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--cl-faint);
+  transition: color 180ms;
+}
+
+.ask-opt:hover .ask-opt__glyph {
+  color: var(--cl-gold-dim);
+}
+
+.ask-opt__body {
+  min-width: 0;
+  display: block;
+}
+
+.ask-opt__label {
+  display: block;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: var(--fw-read);
+  font-size: var(--fs-read);
+  line-height: 1.35;
+  color: var(--cl-bone);
+}
+
+.ask-opt__sub {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cl-faint);
+}
+
+.ask-opt[data-selected="true"] {
+  background: rgba(201, 166, 90, 0.07);
+}
+
+.ask-opt[data-selected="true"]::after {
+  color: color-mix(in oklch, var(--cl-gold) 62%, transparent);
+}
+
+.ask-opt[data-selected="true"] .ask-opt__glyph {
+  color: var(--cl-gold);
+}
+
+.ask-opt[data-selected="true"] .ask-opt__sub {
+  color: var(--cl-dim);
+}
+
+/* ---- Status rail — the PROTOCOLLVM card with roman marks I–V ----
+   Sized a full step up from the lab specimen: the rail is a reading surface,
+   not a micro-caption column (maintainer feedback 2026-06-11). */
+
+.ask-rail {
+  position: relative;
+  padding: 18px 20px 24px;
+  background: rgba(2, 3, 10, 0.25);
+}
+
+.ask-rail::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 24%, transparent) 22%,
+    color-mix(in oklch, var(--cl-gold) 24%, transparent) 78%,
+    transparent
+  );
+}
+
+.ask-rail__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.ask-rail__label {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+}
+
+.ask-rail__count {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  color: var(--cl-dim);
+}
+
+.ask-marks {
   list-style: none;
-  margin: 16px 0 0;
+  margin: 0;
   padding: 0;
 }
 
-.ask-answer-step {
+.ask-marks > li {
+  list-style: none;
+}
+
+.ask-marks > li + li {
+  border-top: 1px solid var(--line-0);
+}
+
+.ask-mark {
   width: 100%;
   display: grid;
-  grid-template-columns: 32px minmax(0, 1fr);
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  align-items: baseline;
   gap: 10px;
-  align-items: start;
-  padding: 10px 0;
+  padding: 11px 2px;
   border: 0;
-  border-top: 1px solid var(--line-0);
   background: transparent;
   color: inherit;
   text-align: left;
   cursor: pointer;
 }
 
-.ask-answer-list > li:first-child .ask-answer-step {
-  border-top: 0;
-}
-
-.ask-answer-step:hover .ask-answer-step__text span:first-child,
-.ask-answer-step:focus-visible .ask-answer-step__text span:first-child {
-  color: var(--cl-bone);
-}
-
-.ask-answer-step[data-current="true"] .ask-answer-step__index {
-  color: var(--cl-cyan);
-}
-
-.ask-answer-step[data-complete="true"] .ask-answer-step__text span:last-child {
-  color: var(--cl-cyan);
-}
-
-.ask-answer-step__index {
+.ask-mark__rn {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.10em;
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.14em;
   color: var(--cl-faint);
 }
 
-.ask-answer-step__text {
+.ask-mark__body {
   min-width: 0;
   display: grid;
   gap: 3px;
 }
 
-.ask-answer-step__text span:first-child {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.ask-mark__q {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
+  line-height: 1.35;
   color: var(--cl-dim);
 }
 
-.ask-answer-step__text span:last-child {
+.ask-mark__a {
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-sm);
-  font-style: italic;
+  font-size: var(--fs-read-xs);
   font-weight: var(--fw-read);
   color: var(--cl-faint);
 }
 
-.ask-status__actions {
-  display: flex;
-  /* Compact, auto-width pills on a wrapping row — /werke's .browse-controls
-     layout — not big full-width blocks. Each hugs its own label; the long
-     "COMPLETE ARCHIVE" just wraps to its own line in a narrow sidebar. */
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line-0);
-}
-
-/* Subtle exit button — /werke's .filter-select__btn vocabulary: a quiet dark
-   fill, a faint hairline border and a light label at rest; only the border
-   reacts on hover (no fill flood, no text-colour flip), with a cyan focus
-   outline for a11y. Shared by the sidebar action pair AND the results-footer
-   "Complete archive" so every way out of the funnel reads identically. */
-.ask-pill {
-  flex: 0 0 auto;
-  appearance: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 11px;
-  border: 1px solid var(--cl-faint);
-  background: rgba(2, 3, 10, 0.4);
-  color: var(--cl-bone);
-  cursor: pointer;
+.ask-mark__st {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  text-decoration: none;
-  transition: border-color 180ms;
-}
-.ask-pill:hover:not(:disabled) {
-  border-color: var(--cl-cyan-dim);
-  text-decoration: none;
-}
-.ask-pill:focus-visible {
-  border-color: var(--cl-cyan-dim);
-  outline: 1px solid var(--cl-cyan);
-  outline-offset: 1px;
-  text-decoration: none;
-}
-.ask-pill:disabled {
-  color: var(--cl-ghost);
-  cursor: not-allowed;
+  color: var(--cl-faint);
 }
 
-.ask-question {
-  padding: clamp(22px, 3vw, 34px);
+.ask-mark:hover .ask-mark__q,
+.ask-mark:focus-visible .ask-mark__q {
+  color: var(--cl-bone);
 }
 
-.ask-question__kicker {
+.ask-marks > li.done .ask-mark__rn,
+.ask-marks > li.done .ask-mark__st {
+  color: var(--cl-gold-dim);
+}
+
+.ask-marks > li.done .ask-mark__a {
+  color: color-mix(in oklch, var(--cl-gold) 55%, var(--cl-dim));
+}
+
+.ask-marks > li.cur .ask-mark__rn,
+.ask-marks > li.cur .ask-mark__st {
+  color: var(--cl-gold);
+}
+
+.ask-marks > li.cur .ask-mark__q {
+  color: var(--cl-bone);
+}
+
+.ask-rail__actions {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 16px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--cl-cyan);
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-0);
 }
 
-.ask-question h2,
-.ask-processing h2,
-.ask-empty h2,
-.ask-results h2 {
+/* ---- Processing — cogitator interstitial ---- */
+
+.ask-processing .lx-rule {
+  margin: clamp(12px, 2vh, 20px) 0;
+}
+
+.ask-processing__detail {
+  margin: 4px 0 0;
+  max-width: 520px;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read-sm);
+  font-weight: var(--fw-read);
+  line-height: var(--lh-read);
+  color: var(--cl-dim);
+}
+
+/* ---- Empty / error states ---- */
+
+.ask-empty {
+  padding: clamp(26px, 4vw, 44px);
+}
+
+.ask-empty h2 {
   margin: 0;
   font-family: var(--font-cinzel), serif;
   font-size: clamp(25px, 3.4vw, 40px);
@@ -234,8 +363,6 @@
   color: var(--cl-bone);
 }
 
-.ask-question__hint,
-.ask-processing p,
 .ask-empty p {
   margin: 10px 0 0;
   max-width: 640px;
@@ -247,154 +374,45 @@
   color: var(--cl-dim);
 }
 
-/* ---- Ask option list — /werke catalogue-row discipline, in cyan ----
-   Slim hairline-divided rows, single column. No per-row box, no fill at
-   rest, no drop-shadow, no translateY lift, no boxed number badge. The
-   accent (cyan) is reserved for live state (hover chevron + selected row);
-   the divider is the page's own neutral hairline so the structure stays
-   colour-free, exactly like the sibling .ask-answer-step / .ask-result rows. */
-.ask-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 22px 0 0;
-  padding: 0;
-  border: 0;
-  min-inline-size: 0; /* fieldset default min-width fix */
-}
-
-.ask-option {
-  display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) 16px;
-  align-items: baseline;
-  gap: 12px;
-  width: 100%;
-  padding: 13px 4px;
-  border: 0;
-  border-top: 1px solid var(--line-0);
-  background: transparent;
-  color: inherit;
-  text-align: left;
-  cursor: pointer;
-  transition: background 180ms;
-}
-
-.ask-options > .ask-option:first-of-type {
-  border-top: 0;
-}
-
-/* Hover — quiet flat wash; index lifts, label warms, chevron colours up.
-   No lift, no shadow, no glow. */
-.ask-option:hover {
-  background: rgba(156, 230, 255, 0.05);
-}
-.ask-option:hover .ask-option__code,
-.ask-option:focus-visible .ask-option__code {
-  color: var(--cl-dim);
-}
-.ask-option:hover .ask-option__label {
-  color: var(--cl-bone);
-}
-.ask-option:hover .ask-option__mark {
-  color: var(--cl-cyan-dim);
-}
-
-.ask-option:focus-visible {
-  outline: 1px solid var(--cl-cyan);
-  outline-offset: -2px;
-}
-
-/* Selected — non-hue cues without a left rule: a flat wash, cyan index + cyan
-   label, and the filled solid-cyan trailing glyph (›→▸ is a shape change, not
-   just colour). The old inset bar read as a disconnected floating line when a
-   completed answer was revisited from the results view, so it is gone. */
-.ask-option[data-selected="true"] {
-  background: rgba(156, 230, 255, 0.07);
-}
-.ask-option[data-selected="true"] .ask-option__code,
-.ask-option[data-selected="true"] .ask-option__label,
-.ask-option[data-selected="true"] .ask-option__mark {
-  color: var(--cl-cyan);
-}
-
-/* Bare left-aligned mono index — like .catalogue-row__index. */
-.ask-option__code {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
-  color: var(--cl-faint);
-  transition: color 180ms;
-}
-
-.ask-option__body {
-  min-width: 0;
-  display: grid;
-  gap: 3px;
-}
-
-.ask-option__label {
-  font-family: var(--font-cinzel), serif;
-  font-size: clamp(15px, 1.7vw, 18px);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: var(--cl-bone);
-  transition: color 180ms;
-}
-
-.ask-option__sub {
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-sm);
-  font-style: italic;
-  font-weight: var(--fw-read);
-  line-height: 1.45;
-  color: var(--cl-dim);
-}
-
-/* Trailing chevron — quiet at rest, colours up on hover, fills (›→▸) and
-   goes solid cyan when selected. Sharp glyph, no box. */
-.ask-option__mark {
-  justify-self: end;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 16px;
-  line-height: 1;
-  color: var(--cl-faint);
-  transition: color 200ms;
-}
-
-.ask-processing,
-.ask-empty {
-  padding: clamp(26px, 4vw, 44px);
-}
-
-.ask-processing__dots {
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line-0);
-}
-
 .ask-empty__actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 14px;
   margin-top: 22px;
 }
 
-.ask-results {
-  padding: clamp(20px, 3vw, 30px);
-}
+/* ---- Verdict — rank dossier + runner cards ---- */
 
 .ask-results__head {
+  position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   justify-content: space-between;
   gap: 18px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--line-0);
+  padding-bottom: 14px;
+  margin-bottom: clamp(20px, 3.5vh, 32px);
 }
 
-.ask-results__head h2 {
-  margin-top: 8px;
-  font-size: clamp(24px, 3vw, 34px);
+.ask-results__head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.6;
+}
+
+.ask-results__title {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
 }
 
 .ask-results__count {
@@ -403,130 +421,127 @@
   font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 
-.ask-results__list {
+/* Verdict list — rank I spans the full width as dossier, the runners sit in a
+   two-column card grid beneath it. */
+.ask-verdict-list {
   list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
   margin: 0;
   padding: 0;
 }
 
-.ask-result {
-  padding: 16px 0;
-  border-top: 1px solid var(--line-0);
-}
-
-.ask-results__list > li:first-child .ask-result {
-  border-top: 0;
-}
-
-.ask-result__main {
+.ask-verdict-list > li {
+  list-style: none;
+  min-width: 0;
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr) auto;
-  gap: 14px;
-  align-items: baseline;
-  color: inherit;
-  text-decoration: none;
 }
 
-.ask-result__main:hover .ask-result__title,
-.ask-result__main:focus-visible .ask-result__title {
-  color: var(--cl-cyan);
+.ask-verdict-list > li.ask-verdict-list__prime {
+  grid-column: 1 / -1;
 }
 
-.ask-result__rank {
+.ask-runner {
+  height: 100%;
+}
+
+.ask-prime {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(22px, 4.5vw, 52px);
+  align-items: start;
+  padding: clamp(8px, 1.5vh, 16px) 0 clamp(14px, 2.5vh, 24px);
+}
+
+.ask-prime__rank {
+  text-align: center;
+}
+
+.ask-prime__rank .n {
+  display: block;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 400;
+  font-size: clamp(64px, 9vw, 96px);
+  line-height: 0.9;
+  color: color-mix(in oklch, var(--cl-gold) 38%, transparent);
+}
+
+.ask-prime__rank .cap {
+  display: block;
+  margin-top: 12px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.12em;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
   color: var(--cl-faint);
 }
 
-.ask-result__content {
-  min-width: 0;
-  display: grid;
-  gap: 4px;
+.ask-prime__kicker {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 0 0 10px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
 }
 
-.ask-result__title {
+.ask-prime__tier {
+  color: var(--cl-gold);
+}
+
+.ask-prime__title {
+  margin: 0 0 12px;
   font-family: var(--font-cinzel), serif;
-  font-size: clamp(16px, 2vw, 20px);
   font-weight: 500;
+  font-size: clamp(28px, 3.6vw, 38px);
   letter-spacing: 0.04em;
   color: var(--cl-bone);
-  transition: color 180ms;
 }
 
-.ask-result__meta {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--cl-dim);
+.ask-prime__note {
+  max-width: 56ch;
 }
 
-.ask-result__action {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cl-cyan);
-}
-
-.ask-result__synopsis {
-  margin: 10px 0 0 48px;
-  max-width: 760px;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-sm);
-  font-weight: var(--fw-read);
-  line-height: var(--lh-read);
-  color: var(--cl-dim);
-}
-
-.ask-reasons {
+.ask-prime__chips {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 12px 0 0 48px;
+  margin: 16px 0 20px;
   padding: 0;
   list-style: none;
 }
 
-.ask-reasons li {
-  border: 1px solid color-mix(in oklch, var(--cl-cyan) 24%, transparent);
-  padding: 5px 9px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-xs);
-  letter-spacing: 0.08em;
-  color: var(--cl-cyan);
-  background: rgba(156, 230, 255, 0.07);
+.ask-prime__chips > li {
+  list-style: none;
 }
 
-.ask-results__empty {
-  padding: 24px 0;
-}
-
-.ask-results__empty h3 {
-  margin: 0;
-  font-size: 20px;
-  color: var(--cl-bone);
-}
-
-.ask-results__empty p {
-  margin: 8px 0 0;
-  color: var(--cl-dim);
-}
-
-/* Honest no-exact-match banner: when nothing satisfies the chosen commitment,
-   we say so above the closest picks rather than passing them off as matches. */
+/* Honest no-exact-match note: gold key over a Terminus line, no accent box. */
 .ask-results__note {
+  position: relative;
   display: grid;
   gap: 8px;
-  margin: 18px 0 4px;
-  padding: 14px 16px;
-  border: 1px solid color-mix(in oklch, var(--cl-cyan) 22%, transparent);
-  border-left-width: 3px;
-  background: rgba(156, 230, 255, 0.05);
+  margin: 0 0 clamp(18px, 3vh, 26px);
+  padding: 0 0 14px;
+}
+
+.ask-results__note::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.5;
 }
 
 .ask-results__note-key {
@@ -534,7 +549,7 @@
   font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 
 .ask-results__note > span:last-child {
@@ -553,13 +568,24 @@
 
 /* Divider between length-matching picks and the strong-but-different rest. */
 .ask-results__divider {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: 6px 12px;
-  margin: 22px 0 4px;
+  margin: clamp(22px, 4vh, 32px) 0 clamp(14px, 2.5vh, 20px);
   padding-top: 16px;
-  border-top: 1px solid var(--line-0);
+}
+
+.ask-results__divider::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.5;
 }
 
 .ask-results__divider-label {
@@ -567,7 +593,7 @@
   font-size: var(--fs-label);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
 }
 
 .ask-results__divider-note {
@@ -583,13 +609,36 @@
   color: var(--cl-dim);
 }
 
+.ask-results__empty {
+  padding: 24px 0;
+}
+
+.ask-results__empty h3 {
+  margin: 0;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--cl-bone);
+}
+
+.ask-results__empty p {
+  margin: 8px 0 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  line-height: var(--lh-read);
+  color: var(--cl-dim);
+}
+
+/* Sealed answers echo under the verdict. */
 .ask-responsa {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 14px;
-  margin: 18px 0 0;
+  margin: clamp(22px, 4vh, 32px) 0 0;
   padding-top: 16px;
-  border-top: 1px solid var(--line-0);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-xs);
   letter-spacing: 0.12em;
@@ -597,13 +646,26 @@
   color: var(--cl-faint);
 }
 
+.ask-responsa::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.4;
+}
+
 .ask-responsa .k {
-  color: var(--cl-cyan);
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
 }
 
 .ask-responsa .v {
   color: var(--cl-dim);
 }
+
+/* ---- Footer + quiet links ---- */
 
 .ask-footer {
   display: flex;
@@ -612,7 +674,6 @@
   flex-wrap: wrap;
   margin-top: 18px;
   padding-top: 16px;
-  border-top: 1px solid var(--line-0);
 }
 
 .ask-footer__spacer {
@@ -623,7 +684,7 @@
   appearance: none;
   border: 0;
   background: transparent;
-  color: var(--cl-dim);
+  color: color-mix(in oklch, var(--cl-gold) 45%, var(--cl-dim));
   cursor: pointer;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
@@ -636,37 +697,12 @@
 
 .ask-footlink:hover:not(:disabled),
 .ask-footlink:focus-visible {
-  color: var(--cl-bone);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  color: var(--cl-gold);
 }
 
 .ask-footlink:disabled {
   color: var(--cl-ghost);
   cursor: not-allowed;
-}
-
-.ask-cta {
-  appearance: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--cl-cyan);
-  background: var(--cl-cyan);
-  color: var(--cl-void);
-  cursor: pointer;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 10px 14px;
-  transition: background 180ms, box-shadow 180ms;
-}
-
-.ask-cta:hover,
-.ask-cta:focus-visible {
-  background: color-mix(in oklch, var(--cl-cyan) 88%, white);
 }
 
 .ask-sr-only {
@@ -682,36 +718,49 @@
 }
 
 @media (max-width: 720px) {
-  .ask-status,
-  .ask-question,
-  .ask-results,
-  .ask-processing,
+  .ask-q {
+    grid-template-columns: 1fr;
+  }
+
+  .ask-q__num {
+    font-size: 48px;
+  }
+
+  .ask-q__num small {
+    display: inline;
+    margin-left: 10px;
+  }
+
+  .ask-ballot,
+  .ask-verdict-list {
+    grid-template-columns: 1fr;
+  }
+
+  .ask-prime {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .ask-prime__rank {
+    text-align: left;
+  }
+
+  .ask-prime__rank .n {
+    display: inline;
+    font-size: 48px;
+  }
+
+  .ask-prime__rank .cap {
+    display: inline;
+    margin-left: 12px;
+  }
+
+  .ask-rail {
+    padding: 14px 16px 20px;
+  }
+
   .ask-empty {
     padding: 16px;
-  }
-
-  .ask-option {
-    grid-template-columns: 28px minmax(0, 1fr) 16px;
-    gap: 10px;
-    padding: 13px 2px;
-  }
-
-  .ask-results__head {
-    display: grid;
-  }
-
-  .ask-result__main {
-    grid-template-columns: 30px minmax(0, 1fr);
-  }
-
-  .ask-result__action {
-    grid-column: 2;
-    justify-self: start;
-  }
-
-  .ask-result__synopsis,
-  .ask-reasons {
-    margin-left: 44px;
   }
 
   .ask-footer__spacer {
