@@ -222,16 +222,26 @@ schneller als die filmische Eigenvorgabe — drosseln oder an Interaktion binden
 - **Cyan-Glow auf Cogitator-Dot** — `45-bottom-console.css:50` (`box-shadow: 0 0 6px var(--cl-cyan)`)
   · S2/S17 · **high / S** · widerspricht den eigenen Kommentaren in `50-hub.css` („no cyan halo, no bloom"). Fix: Glow raus.
 - **BottomConsole-Cards = `.c-glass` + `.c-corners`** — `BottomConsole.tsx:99` · S7/S8/S11 · **high / M** · → A.Q2; Ziel: Hairline-Plate.
-- **GhostReadout + LiveTelemetry + FloatingCoord = Pseudo-Telemetrie ohne Datenquelle**
+- ~~**GhostReadout + LiveTelemetry + FloatingCoord = Pseudo-Telemetrie ohne Datenquelle**
   — `components/chrono/GhostReadout.tsx`, `LiveTelemetry.tsx`, `page.tsx:21-101` · S18 ·
   **high / M** · proposal: entfernen oder auf 1–2 statische Zeilen mit echtem Inhalt
   reduzieren (z. B. echter Record-Count, letzter Ingest — vgl. Do/Don't „Status &
-  Telemetrie" auf `/lab/design`).
+  Telemetrie" auf `/lab/design`).~~
+  **→ live umgesetzt (2026-06-11, /home), Home-Anteil:** Readout-Zeilen tragen
+  jetzt echte Bestände (Records/Podcasts/Episoden aus den Seiten-Loadern,
+  Quellen-Triple, Eras/Segmenta); Warp-Tide-/Volt-Zeilen entfernt. Die
+  FloatingCoords bleiben per Lab-Referenz erhalten (gold); LiveTelemetry
+  (andere Flächen) steht noch aus.
 - **MainAuspex-RadialGradient-Glow** — `MainAuspex.tsx:59-63` · S2 · **medium / S** ·
   Glow-Aura hinter der Disc entfernen, Strokes reichen. (Gleiche Korrektur in
   `CornerAuspex.tsx:73-77`.)
-- **Chevron-Drop-Shadow** — `50-hub.css:267` · S2 · **medium / S**.
-- **Suchfeld-Hairline cyan → gold** bei Migration — `50-hub.css:347-373` · low / S.
+- ~~**Chevron-Drop-Shadow** — `50-hub.css:267` · S2 · **medium / S**.~~
+  **→ anders entschieden (2026-06-11, /home):** die Lab-Referenz
+  (`main.lexh .hub-cue__chev`) behält den ≤18%-Glow bewusst — live auf Gold
+  umgestimmt statt entfernt.
+- ~~**Suchfeld-Hairline cyan → gold** bei Migration — `50-hub.css:347-373` · low / S.~~
+  **→ live umgesetzt (2026-06-11, /home):** Terminus-Underline gold (45 %-Mix
+  ruhend, voll auf Fokus), Sigil gold-dim.
 - Verifiziert-als-ok: die `//`-Eyebrows des Hubs sind funktionale Archiv-Labels, kein
   S14 (Finding dazu wurde widerlegt); Scroll-Snap-Architektur bewusst (nur Doku-Notiz).
 
@@ -713,11 +723,27 @@ Checkliste ist der Wiedereinstiegspunkt nach jedem /compact:
   Empty-States entboxt; Toggle-Blur + Popover-Schatten raus (A.2 komplett);
   catalogue-footer-Triade (inkl. „STAMP M42.347") durch Imprimatur-Fuß ersetzt;
   seiten-scoped Gold-Fokusring. tsc + eslint grün.*
-- [ ] **4 · /home** — Titelblatt-Design übernehmen, mit Abweichungen:
+- [x] **4 · /home** — Titelblatt-Design übernehmen, mit Abweichungen:
   (a) „What can I do here"-Sektion: unter „889 novels" auch Podcast-Episoden
   und Podcasts mit Anzahl aufführen; (b) die große Initiale „A" fügt sich
   nicht ein (Farbe/Schriftart) — anpassen; (c) Element „REF M42.347 SOURCE ·
   MANUAL CONFIDENCE · HIGH SCRIBE · PH. LEXICANVS" entfernen. Commit.
+  *Erledigt 2026-06-11: drei Snap-Acts strukturell unverändert, komplett auf
+  Gold (Eyebrows als geteilte `.hub-eyebrow`, Auspex-Discs/FloatingCoords/Cue
+  gold, Terminus-Rule unter dem Splash-Titel); Act 2 als Praefatio —
+  zentrierter Kopf, linksbündige Lesespalte `.lx-prose .lx-initial`, OHNE
+  Marginalien-Apparat — Abweichung (c); Initiale jetzt Cormorant statt Cinzel
+  (Textschrift + Gold-Akzent, Fix im geteilten `.lx-initial`, wirkt auch im
+  Archive-Dossier) — Abweichung (b); Bestandszeile `.lx-stat` unter der Suche
+  mit echten Zählwerten NOVELS · EPISODES · PODCASTS (aus dem ohnehin
+  geladenen Podcast-Suchindex, kein neuer DB-Call) — Abweichung (a);
+  Ghost-Readout auf ehrliche Bestandszeilen umgestellt (Warp/Volt-Telemetrie
+  raus); Suche mit Gold-Terminus-Underline, Kicker „Query the Archive";
+  Registry mit römischen Ordnungszahlen I–VIII, Terminus-Zeilentrennern und
+  Hover-Marginalien-Gloss (SOON-Reihen behalten ihre Marke im Gloss-Slot);
+  hub-footer-Triade (inkl. „STAMP M42.347") durch Imprimatur-Fuß ersetzt;
+  seiten-scoped Gold-Fokusring. Client-Logik (HomeSearch-Routing, Snap,
+  ScrollScrim, BottomConsole) unverändert. tsc + eslint grün.*
 - [ ] **5 · Popups** — Buch-/Fraktion-/Entity-Detail-Modals (64-detail-modal,
   BookDetailView) aufs neue Design umbauen. Commit.
 - [ ] **6 · Abschluss** — tsc + eslint, Dev-Server sauber neu starten, max.

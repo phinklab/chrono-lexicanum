@@ -298,13 +298,16 @@
   line-height: var(--lh-read);
   color: color-mix(in oklch, var(--cl-bone) 88%, transparent);
 }
+/* The drop-cap keeps the TEXT face (Cormorant, not the lab's Cinzel) so it
+   blends with the reading column — gold alone marks it as ornament
+   (maintainer: the Cinzel "A" read as a foreign glyph). */
 .lx-initial::first-letter {
-  font-family: var(--font-cinzel), serif;
-  font-weight: 500;
-  font-size: 3.1em;
-  line-height: 0.82;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 600;
+  font-size: 3.4em;
+  line-height: 0.78;
   float: left;
-  padding: 7px 14px 0 0;
+  padding: 5px 12px 0 0;
   color: var(--cl-gold);
 }
 
