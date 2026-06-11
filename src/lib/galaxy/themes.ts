@@ -1,5 +1,9 @@
-// Holographic theme palettes — port of public/lab/cartographer-prototype/themes.js.
-// Identifiers, colors, fonts, scanline opacity are kept byte-identical.
+// Holographic theme palettes — originally a byte-identical port of
+// public/lab/cartographer-prototype/themes.js. The default `mechanicus`
+// palette was re-tuned 2026-06-12 to the site's design language (gold /
+// bone / void, Cinzel + Cormorant + Plex Mono via the next/font CSS vars —
+// literal family names like "Cinzel" would NOT resolve, next/font hashes
+// them). `astropath` keeps its prototype values as an alternate flavor.
 
 import type { Theme, ThemeId } from "./types";
 
@@ -8,27 +12,27 @@ export const THEMES: Record<ThemeId, Theme> = {
     id: "mechanicus",
     label: "Mechanicus Battle-Table",
     sub: "Cult Mechanicus · Cogitator-1011 · Datastream Stable",
-    bg0: "#020608",
-    bg1: "#021018",
+    bg0: "#02030a",
+    bg1: "#06080f",
     vignette:
-      "radial-gradient(ellipse at center, rgba(0,30,50,0.45) 0%, rgba(1,4,7,0.95) 75%)",
-    primary: "#5ec8ef",
-    primaryDim: "#1e6c8c",
-    primarySoft: "rgba(94, 200, 239, 0.18)",
-    accent: "#bff4ff",
+      "radial-gradient(ellipse at center, rgba(8, 10, 18, 0.45) 0%, rgba(2, 3, 10, 0.95) 75%)",
+    primary: "#c9a65a",
+    primaryDim: "#8a6f2c",
+    primarySoft: "rgba(201, 166, 90, 0.16)",
+    accent: "#e8dcc0",
     danger: "#ff6b6b",
-    stroke: "rgba(94, 200, 239, 0.38)",
-    strokeFaint: "rgba(94, 200, 239, 0.12)",
-    grid: "rgba(94, 200, 239, 0.08)",
-    fontDisplay: '"Rajdhani", sans-serif',
-    fontBody: '"Rajdhani", sans-serif',
-    fontMono: '"JetBrains Mono", monospace',
-    letterTitle: "0.32em",
-    scanlineOpacity: 0.12,
-    cornerStyle: "tech",
-    starColor: "#9fe4ff",
+    stroke: "rgba(201, 166, 90, 0.38)",
+    strokeFaint: "rgba(201, 166, 90, 0.12)",
+    grid: "rgba(201, 166, 90, 0.08)",
+    fontDisplay: "var(--font-cinzel), serif",
+    fontBody: "var(--font-cormorant), Georgia, serif",
+    fontMono: "var(--font-plex-mono), ui-monospace, monospace",
+    letterTitle: "0.22em",
+    scanlineOpacity: 0.1,
+    cornerStyle: "gothic",
+    starColor: "#e8dcc0",
     starHot: "#ffffff",
-    discFill: "rgba(8, 30, 48, 0.55)",
+    discFill: "rgba(14, 12, 6, 0.55)",
   },
   astropath: {
     id: "astropath",

@@ -651,7 +651,9 @@ export default function GalaxyHologram() {
             fontSize: 18,
             letterSpacing: "0.36em",
             color: t.accent,
-            textShadow: `0 0 14px ${t.primary}`,
+            // Site title treatment (53-ask.css): faint primary bloom + hard
+            // dark drop — not the old neon halo.
+            textShadow: `0 0 24px ${t.primarySoft}, 0 2px 10px rgba(0, 0, 0, 0.9)`,
             opacity: 0.92,
             textAlign: "right",
           }}
@@ -677,8 +679,8 @@ export default function GalaxyHologram() {
             padding: "12px 22px 12px 18px",
             textTransform: "uppercase",
             cursor: "pointer",
-            textShadow: `0 0 8px ${t.primary}`,
-            boxShadow: `0 0 24px ${t.primarySoft}, inset 0 1px 0 ${t.strokeFaint}`,
+            textShadow: "0 2px 8px rgba(0, 0, 0, 0.85)",
+            boxShadow: `0 4px 18px rgba(0, 0, 0, 0.45), inset 0 1px 0 ${t.strokeFaint}`,
             display: "flex",
             alignItems: "center",
             gap: 10,

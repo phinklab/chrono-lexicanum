@@ -7,6 +7,7 @@
 import { useState } from "react";
 
 import { ERAS } from "@/lib/galaxy/eras";
+import { getTheme } from "@/lib/galaxy/themes";
 
 import { useGalaxy, useGalaxyActions } from "./context";
 
@@ -14,6 +15,7 @@ export default function EraSwitcher() {
   const state = useGalaxy();
   const { switchEra } = useGalaxyActions();
   const [open, setOpen] = useState(false);
+  const t = getTheme(state.tweaks.theme);
   const cur = ERAS.find((e) => e.id === state.era) ?? ERAS[ERAS.length - 1];
   if (!cur) return null;
   return (
@@ -25,8 +27,8 @@ export default function EraSwitcher() {
         top: 84,
         zIndex: 2147483640,
         width: 280,
-        fontFamily: '"Rajdhani", system-ui, sans-serif',
-        color: "#f0b248",
+        fontFamily: t.fontMono,
+        color: t.primary,
         userSelect: "none",
       }}
     >
@@ -39,8 +41,8 @@ export default function EraSwitcher() {
           gap: 10,
           width: "100%",
           padding: "8px 12px 8px 14px",
-          background: "rgba(10,7,3,0.78)",
-          border: "1px solid rgba(240,178,72,.35)",
+          background: `${t.bg0}c7`,
+          border: `1px solid ${t.stroke}`,
           borderLeft: `3px solid ${cur.accent}`,
           color: "inherit",
           cursor: "pointer",
@@ -73,8 +75,8 @@ export default function EraSwitcher() {
             position: "absolute",
             left: 0,
             top: "calc(100% + 6px)",
-            background: "rgba(10,7,3,0.92)",
-            border: "1px solid rgba(240,178,72,.35)",
+            background: `${t.bg0}eb`,
+            border: `1px solid ${t.stroke}`,
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
             boxShadow: "0 8px 28px rgba(0,0,0,0.55)",
@@ -88,7 +90,7 @@ export default function EraSwitcher() {
               letterSpacing: "0.32em",
               opacity: 0.5,
               textTransform: "uppercase",
-              borderBottom: "1px solid rgba(240,178,72,.15)",
+              borderBottom: `1px solid ${t.strokeFaint}`,
             }}
           >
             Select Timeline
@@ -113,19 +115,19 @@ export default function EraSwitcher() {
                   alignItems: "stretch",
                   width: "100%",
                   padding: "10px 12px 10px 14px",
-                  background: isActive ? "rgba(240,178,72,.10)" : "transparent",
+                  background: isActive ? "rgba(201,166,90,.10)" : "transparent",
                   border: "none",
                   borderLeft: `3px solid ${isActive ? e.accent : "transparent"}`,
                   color: "inherit",
                   cursor: locked ? "not-allowed" : "pointer",
                   fontFamily: "inherit",
                   textAlign: "left",
-                  borderTop: "1px solid rgba(240,178,72,.06)",
+                  borderTop: "1px solid rgba(201,166,90,.06)",
                   opacity: locked ? 0.42 : 1,
                   position: "relative",
                 }}
                 onMouseEnter={(ev) => {
-                  if (!isActive && !locked) ev.currentTarget.style.background = "rgba(240,178,72,.05)";
+                  if (!isActive && !locked) ev.currentTarget.style.background = "rgba(201,166,90,.05)";
                 }}
                 onMouseLeave={(ev) => {
                   if (!isActive && !locked) ev.currentTarget.style.background = "transparent";
@@ -154,9 +156,9 @@ export default function EraSwitcher() {
                         letterSpacing: "0.28em",
                         textTransform: "uppercase",
                         padding: "2px 6px",
-                        border: "1px solid rgba(240,178,72,.30)",
-                        color: "rgba(240,178,72,.65)",
-                        fontFamily: '"JetBrains Mono", monospace',
+                        border: "1px solid rgba(201,166,90,.30)",
+                        color: "rgba(201,166,90,.65)",
+                        fontFamily: t.fontMono,
                       }}
                     >
                       Coming soon
@@ -177,13 +179,14 @@ export default function EraSwitcher() {
                 </div>
                 <div
                   style={{
-                    fontSize: 11,
-                    opacity: 0.65,
+                    fontSize: 13,
+                    opacity: 0.7,
                     lineHeight: 1.4,
                     marginTop: 6,
                     marginLeft: 40,
-                    fontFamily: '"Cormorant Garamond", serif',
+                    fontFamily: t.fontBody,
                     fontStyle: "italic",
+                    color: t.accent,
                   }}
                 >
                   {e.blurb}
@@ -197,7 +200,7 @@ export default function EraSwitcher() {
               fontSize: 10,
               opacity: 0.5,
               lineHeight: 1.4,
-              borderTop: "1px solid rgba(240,178,72,.15)",
+              borderTop: `1px solid ${t.strokeFaint}`,
             }}
           >
             Each timeline saves its own map state. Edits, added worlds and warp zones are kept per-era.

@@ -83,24 +83,10 @@
   transition: background 180ms;
 }
 
-.ask-opt::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  color: color-mix(in oklch, var(--cl-gold) 18%, transparent);
-  background: linear-gradient(90deg, transparent, currentColor 22%, currentColor 78%, transparent);
-  transition: color 200ms;
-}
-
+/* No per-option underline (line-budget trim 2026-06-12 — four stacked
+   Terminus hairlines read as clutter): wash + glyph carry hover/selected. */
 .ask-opt:hover {
   background: rgba(10, 14, 22, 0.45);
-}
-
-.ask-opt:hover::after {
-  color: color-mix(in oklch, var(--cl-gold) 50%, transparent);
 }
 
 .ask-opt__glyph {
@@ -142,10 +128,6 @@
   background: rgba(201, 166, 90, 0.07);
 }
 
-.ask-opt[data-selected="true"]::after {
-  color: color-mix(in oklch, var(--cl-gold) 62%, transparent);
-}
-
 .ask-opt[data-selected="true"] .ask-opt__glyph {
   color: var(--cl-gold);
 }
@@ -160,21 +142,12 @@
    question. States: ◆ sealed (gold) · ◇ current (bone) · coming (faint);
    a sealed mark echoes its chosen answer in small italic serif below. */
 
+/* No closing hairline under the block (line-budget trim 2026-06-12): the
+   inter-mark joints carry the path, whitespace separates it from the prompt. */
 .ask-stepper {
   position: relative;
   margin: 0 0 clamp(20px, 3vh, 28px);
-  padding-bottom: 14px;
-}
-
-.ask-stepper::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
-  opacity: 0.35;
+  padding-bottom: 6px;
 }
 
 .ask-stepper__head {
@@ -507,24 +480,12 @@
   list-style: none;
 }
 
-/* Honest no-exact-match note: gold key over a Terminus line, no accent box. */
+/* Honest no-exact-match note: gold key, no accent box, no closing line
+   (line-budget trim 2026-06-12 — the head rule above already frames it). */
 .ask-results__note {
-  position: relative;
   display: grid;
   gap: 8px;
   margin: 0 0 clamp(18px, 3vh, 26px);
-  padding: 0 0 14px;
-}
-
-.ask-results__note::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
-  opacity: 0.5;
 }
 
 .ask-results__note-key {
@@ -614,30 +575,18 @@
   color: var(--cl-dim);
 }
 
-/* Sealed answers echo under the verdict. */
+/* Sealed answers echo under the verdict — whitespace-separated, no opening
+   line (line-budget trim 2026-06-12). */
 .ask-responsa {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 14px;
   margin: clamp(22px, 4vh, 32px) 0 0;
-  padding-top: 16px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--cl-faint);
-}
-
-.ask-responsa::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
-  opacity: 0.4;
 }
 
 .ask-responsa .k {
