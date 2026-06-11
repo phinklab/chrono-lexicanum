@@ -771,8 +771,12 @@ Checkliste ist der Wiedereinstiegspunkt nach jedem /compact:
   gold ohne Hover-Slide, seiten-scoped Gold-Fokus. Legacy-Audit-Modal
   (24-detail-modal.css, /buch/[slug]/audit) bewusst unangetastet. tsc +
   eslint grün.*
-- [ ] **6 · Abschluss** — tsc + eslint, Dev-Server sauber neu starten, max.
+- [x] **6 · Abschluss** — tsc + eslint, Dev-Server sauber neu starten, max.
   ein Curl-Check, push, PR (kein Co-Author, kein Generated-Footer).
+  *Erledigt 2026-06-11: tsc + eslint repo-weit grün; Dev-Server sauber
+  neu gestartet (Streuner gekillt, .next geleert, EIN Server); ein
+  Up-Check; Branch `codex/product-live-restyle` gepusht, PR erstellt.
+  Browser-Abnahme + Merge durch Philipp.*
 
 Regeln: Gold statt Cyan, Terminus-Linien, rahmenlose Karten,
 Initiale/Marginalie wie in den Beispielen. Umgesetzte Review-Punkte oben im
