@@ -15,12 +15,14 @@
    `position:fixed; top/left:50%` onto this card and shoved it off-screen; the
    `-panel` suffix keeps the two shells fully independent.
 
-   Restraint (Brief 131): no drawn frame at all — the card edge is carried by
-   the drop shadow + a faint top light-catch (no bone hairline, no cyan border);
-   cyan is reserved for text accents, hovers, focus and live values (the
-   compendium law). z-index 70 sits above the app chrome (TopNav 50,
-   MediaPlayer 40). The card is near-opaque dark because no full-page scrim is
-   present here — it supplies the dark ground the body reads on.
+   Restraint (Brief 131, gold port Session 142): no drawn frame at all — the
+   card edge is carried by the drop shadow + a faint top light-catch (no bone
+   hairline, no drawn border); gold is reserved for text accents, hovers, focus
+   and live values (the compendium law). The one drawn line is the Terminus
+   under the top bar — the new language's divider. z-index 70 sits above the
+   app chrome (TopNav 50, MediaPlayer 40). The card is near-opaque dark because
+   no full-page scrim is present here — it supplies the dark ground the body
+   reads on.
 
    Reduced motion: the global cascade in 10-base.css collapses every transition +
    animation to instant under `prefers-reduced-motion: reduce`, so the fade/rise
@@ -68,19 +70,36 @@
 
 /* ── Top bar (fixed; content scrolls beneath) ─────────────────────────────── */
 .detail-modal__bar {
+  position: relative;
   flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding: 13px 16px;
-  /* No divider line (Brief 131) — a slightly deeper bar ground steps it off
-     the body beneath. */
   background: rgba(3, 6, 12, 0.5);
 }
 
-/* The prominent primary close affordance — quiet at rest (bone on a neutral
-   hairline), lighting cyan on hover/focus (hover-reveal, no full-cyan fill). */
+/* Terminus under the bar — the divider of the gold language (mirrors the
+   /archive expanded-row seam). */
+.detail-modal__bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 16%, transparent) 14%,
+    color-mix(in oklch, var(--cl-gold) 16%, transparent) 86%,
+    transparent
+  );
+}
+
+/* The prominent primary close affordance — quiet at rest, lighting gold on
+   hover/focus (hover-reveal, no filled state). */
 .detail-modal__back {
   display: inline-flex;
   align-items: center;
@@ -93,16 +112,15 @@
   color: var(--cl-bone);
   background: transparent;
   border: none;
-  border-radius: 3px;
   cursor: pointer;
   transition: color 0.18s, background 0.18s;
 }
 .detail-modal__back:hover {
-  color: var(--cl-cyan);
-  background: rgba(156, 230, 255, 0.1);
+  color: var(--cl-gold);
+  background: rgba(201, 166, 90, 0.08);
 }
 .detail-modal__back:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 2px;
 }
 .detail-modal__back-arrow {
@@ -126,7 +144,7 @@
   transition: color 0.18s;
 }
 .detail-modal__expand:hover {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 
 .detail-modal__close {
@@ -142,13 +160,19 @@
   color: var(--cl-dim);
   background: transparent;
   border: none;
-  border-radius: 3px;
   cursor: pointer;
   transition: color 0.18s, background 0.18s;
 }
 .detail-modal__close:hover {
   color: var(--cl-bone);
-  background: rgba(156, 230, 255, 0.1);
+  background: rgba(201, 166, 90, 0.08);
+}
+
+/* Overlay-scoped gold focus — overrides the global cyan glow (10-base.css)
+   for everything inside the popup, incl. the body view's links and chips. */
+.detail-modal-root :focus-visible {
+  outline: 1px solid var(--cl-gold);
+  box-shadow: none;
 }
 
 /* ── Scroll body — hosts <BookDetailView> / <EntityView> ──────────────────── */

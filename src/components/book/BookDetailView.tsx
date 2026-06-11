@@ -76,7 +76,7 @@ export default function BookDetailView({
   return (
     <div className="book-detail__layout">
       <div className="book-detail__rail">
-        <aside className="book-detail__cover-panel c-glass c-corners">
+        <aside className="book-detail__cover-panel">
           {book.coverUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img

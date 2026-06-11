@@ -333,11 +333,14 @@ der eigentliche Befund:
   Admin-Fläche. **Fix (medium / M):** 24er aus der globalen Kaskade nehmen und
   audit-kontextualisiert laden (oder explizit als „audit-legacy" kommentieren), damit
   die Verwechslung nicht wieder passiert.
-- **BookDetailView-Cover-Panel trägt `.c-glass .c-corners`** — `BookDetailView.tsx:79` ·
+- ~~**BookDetailView-Cover-Panel trägt `.c-glass .c-corners`** — `BookDetailView.tsx:79` ·
   S7 · **medium / M** · inkonsistent mit dem eigenen 64er-Modal; auf plain Panel +
-  Hairline umstellen (→ A.Q2).
-- **Cyan-Wash-Hovers** — `51-book-detail.css:193,261,334` · **low / S** · auf
-  Farbantwort (Text → Gold) reduzieren, wie Benchmark-`media-row`.
+  Hairline umstellen (→ A.Q2).~~ → live umgesetzt (2026-06-11, Popups): Cover
+  frei stehend mit Schattenwurf über Terminus-Grundlinie, Glass-Klassen entfernt.
+- ~~**Cyan-Wash-Hovers** — `51-book-detail.css:193,261,334` · **low / S** · auf
+  Farbantwort (Text → Gold) reduzieren, wie Benchmark-`media-row`.~~ → live
+  umgesetzt (2026-06-11, Popups): Chips/Actions/Region-Pills antworten in Gold
+  (Hairline-Pill- bzw. Hairline-Button-Idiom), Pfeil-Transform entfernt.
 - MediaPlayer-Befunde unter A.9 (gleiches Modal-Umfeld).
 
 ### A.8 — Entity-Seiten
@@ -345,7 +348,10 @@ der eigentliche Befund:
 - Kernbefund ist A.Q1 (drei Paletten; `--cl-bone` vs. Parchment). Die Cyan-Chips/Washes
   der Entity-Familie sind **dokumentierter** Bestand (59-entity.css-Kommentare) — die
   Verifier haben die pauschalen Cyan-Findings deshalb gekippt: das ist eine
-  *Migrations*-Frage (Brief A.Q1), kein verstecktes Versehen.
+  *Migrations*-Frage (Brief A.Q1), kein verstecktes Versehen. → Migration für
+  diese Fläche live erfolgt (2026-06-11, Popups): 59-entity.css komplett auf
+  Gold (Labels/Fact-Terms/Links/Chips/Kacheln), Kachel-Lift durch Farbantwort
+  ersetzt.
 - `63-fraktionen.css:144` nutzt das alte warme Gold für Imperium-Karten — bei
   Token-Konsolidierung mitziehen oder als bewusste Allegorik dokumentieren (low / S).
 
@@ -744,8 +750,27 @@ Checkliste ist der Wiedereinstiegspunkt nach jedem /compact:
   hub-footer-Triade (inkl. „STAMP M42.347") durch Imprimatur-Fuß ersetzt;
   seiten-scoped Gold-Fokusring. Client-Logik (HomeSearch-Routing, Snap,
   ScrollScrim, BottomConsole) unverändert. tsc + eslint grün.*
-- [ ] **5 · Popups** — Buch-/Fraktion-/Entity-Detail-Modals (64-detail-modal,
+- [x] **5 · Popups** — Buch-/Fraktion-/Entity-Detail-Modals (64-detail-modal,
   BookDetailView) aufs neue Design umbauen. Commit.
+  *Erledigt 2026-06-11: EINE Shell (`DetailModal` + 64-detail-modal.css) trägt
+  alle In-Context-Popups (buch/fraktion/charakter/welt/person), und die Bodies
+  sind mit den kanonischen Vollseiten geteilt — der Umbau von
+  51-book-detail.css + 59-entity.css restyled also Popup UND /buch/[slug] +
+  /fraktion|charakter|welt|person/[slug] in einem Zug. Chrome: Back/Expand/
+  Close-Hovers gold, Terminus-Linie unter der Top-Bar als einzige gezeichnete
+  Linie, Overlay-scoped Gold-Fokus. Buch-Body: Cover ohne Glass-Box (frei
+  stehend mit Schattenwurf über Terminus-Grundlinie, `c-glass c-corners` aus
+  BookDetailView entfernt), Eyebrow/Section-Labels im lx-sect-Idiom (Gold-Mix
+  + auslaufende Hairline), Chips als Hairline-Pills (lx-tag-Idiom, kein
+  Radius), Buy/Listen-Reihen als Hairline-Buttons mit Farbantwort (Pfeil-
+  Transform raus), Region-Pills in Sort-Pill-Grammatik (Gold-aktiv statt
+  Cyan-Füllung). Entity-Body: Eyebrow/Fact-Terms/Section-Labels gold,
+  redundante `c-hairline`-Span unter DOSSIER aus EntityFacts entfernt,
+  Werk-Kacheln im lx-card-Idiom (dunkler Wash + Terminus-Grundlinie, Hover =
+  Farbe statt translateY-Lift), Chips als Hairline-Pills, Breadcrumb-Chevron
+  gold ohne Hover-Slide, seiten-scoped Gold-Fokus. Legacy-Audit-Modal
+  (24-detail-modal.css, /buch/[slug]/audit) bewusst unangetastet. tsc +
+  eslint grün.*
 - [ ] **6 · Abschluss** — tsc + eslint, Dev-Server sauber neu starten, max.
   ein Curl-Check, push, PR (kein Co-Author, kein Generated-Footer).
 
