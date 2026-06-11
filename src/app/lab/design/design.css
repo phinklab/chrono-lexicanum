@@ -2,7 +2,7 @@
    Alle Selektoren sind unter .lds gescoped; kein bestehendes Partial wird
    angefasst. Palette spiegelt die Timeline-Benchmark (67-chronicle-cinematic
    .css, .chron-Scope); die Typoskala konsumiert seit 2026-06-11 die globalen
-   --fs-read-*/--fs-label-*-Tokens aus 00-tokens.css (die Promotion, die der
+   --fs-read-* und --fs-label-*-Tokens aus 00-tokens.css (die Promotion, die der
    Review-Report empfahl, ist passiert — der Guide darf nicht driften). Die
    DON'T-Beispiele replizieren Slop-Muster bewusst inline (statt z.B.
    .c-glass/.c-corners zu konsumieren), damit der Guide nicht an
