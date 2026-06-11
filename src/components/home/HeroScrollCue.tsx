@@ -14,7 +14,7 @@
 export default function HeroScrollCue({
   label,
   target,
-  kicker = "// NEXT",
+  kicker = "NEXT",
   className,
 }: {
   /** The next section's name — what's one snap down. */

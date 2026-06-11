@@ -29,10 +29,10 @@ body:has(main.ask) .site-bg::after {
     linear-gradient(
       180deg,
       rgba(2, 3, 10, 0) 0%,
-      rgba(2, 3, 10, 0) 38%,
-      rgba(2, 3, 10, 0.52) 56%,
-      rgba(2, 3, 10, 0.90) 74%,
-      rgba(2, 3, 10, 1) 90%
+      rgba(2, 3, 10, 0) 22%,
+      rgba(2, 3, 10, 0.52) 40%,
+      rgba(2, 3, 10, 0.90) 60%,
+      rgba(2, 3, 10, 1) 78%
     );
 }
 
@@ -70,15 +70,17 @@ body:has(main.ask) .site-bg::after {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.62;
+  /* Quieter than the tall-mast era (0.62): the compact masthead puts the title
+     nearer the sweep, so the instrument recedes further behind it. */
+  opacity: 0.45;
 }
 
 .ask-hud__sweep {
   position: absolute;
   left: 50%;
-  top: 60px;
-  width: 360px;
-  height: 360px;
+  top: 36px;
+  width: 320px;
+  height: 320px;
   transform: translateX(-50%);
   aspect-ratio: 1;
 }
@@ -92,14 +94,14 @@ body:has(main.ask) .site-bg::after {
 
 .ask-console__mast {
   position: relative;
-  /* Cap the masthead height so the funnel grid (margin-top:-80px below) doesn't
-   * get pushed far down on tall viewports — the title stays fixed at 320px, the
-   * console pulls up to a steady gap on every screen >~1167px tall. /werke's
-   * .catalogue-hero carries the identical clamp so both pages stay aligned. */
-  height: clamp(520px, 60vh, 700px);
+  /* Compact masthead (maintainer call 2026-06-11): the funnel is the page and
+   * the title is an entrance — roughly half the old 60vh band. Auto height
+   * (min-height only) so the sub can never collide with the funnel below it
+   * on short viewports. */
+  min-height: clamp(300px, 38vh, 420px);
   max-width: none;
   margin: 0;
-  padding: 320px clamp(18px, 4vw, 48px) 0;
+  padding: clamp(140px, 20vh, 210px) clamp(18px, 4vw, 48px) 30px;
   text-align: center;
   pointer-events: none;
 }
@@ -152,31 +154,71 @@ body:has(main.ask) .site-bg::after {
 }
 
 .ask-console__grid {
-  display: grid;
-  /* Content (.ask-stage) left in the wide column, status rail (.ask-rail)
-     right in the narrow one. DOM order matches (stage first) so reading/tab
-     order tracks the visual L→R. */
-  grid-template-columns: minmax(0, 1fr) minmax(248px, 318px);
-  gap: clamp(18px, 3vw, 34px);
-  align-items: start;
-  max-width: 1180px;
-  margin: -80px auto 0;
-  padding: 24px clamp(20px, 3vw, 48px) 0;
+  /* One centered reading column (single-column redesign 2026-06-11) — the old
+     stage+rail two-column grid is gone; the stepper lives inside the stage. */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8px clamp(20px, 3vw, 48px) 0;
   /* So a reset re-anchored here (AskClient.reset) clears the fixed TopNav
      instead of tucking the funnel under it. */
   scroll-margin-top: 72px;
 }
 
+/* The one calm reading window: a firmer void wash than the old 0.25 cards
+   (the funnel sat hard-to-read directly on the photo), frameless, closed by
+   a Terminus base line. Stepper · question · nav all live inside it. */
 .ask-stage {
+  position: relative;
   min-width: 0;
+  padding: clamp(22px, 3.5vh, 32px) clamp(22px, 3.5vw, 44px) clamp(18px, 2.5vh, 24px);
+  background: rgba(2, 3, 10, 0.5);
+}
+
+.ask-stage::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 24%, transparent) 22%,
+    color-mix(in oklch, var(--cl-gold) 24%, transparent) 78%,
+    transparent
+  );
+}
+
+/* Error/empty cards nested in the window: the window already carries the wash,
+   so the inner card surface goes flat instead of stacking darker. */
+.ask-stage .ask-card {
+  background: transparent;
+}
+
+.ask-stage .ask-empty {
+  padding: 8px 0;
 }
 
 .ask-stage__nav {
+  position: relative;
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr) 120px;
   align-items: center;
   gap: 12px;
-  margin-top: 16px;
+  margin-top: clamp(20px, 3vh, 28px);
+  padding-top: 14px;
+}
+
+.ask-stage__nav::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.35;
 }
 
 .ask-stage__nav .ask-footlink:first-child {
@@ -200,13 +242,6 @@ body:has(main.ask) .site-bg::after {
   color: var(--cl-faint);
 }
 
-/* Page-scoped gold focus ring — overrides the global cyan glow (10-base.css)
-   until the site-wide token migration lands. */
-main.ask :focus-visible {
-  outline: 1px solid var(--cl-gold);
-  box-shadow: none;
-}
-
 /* Imprimatur foot wrapper — gives the shared .lx-foot its side gutters. */
 .ask-foot {
   position: relative;
@@ -217,16 +252,6 @@ main.ask :focus-visible {
 @media (max-width: 960px) {
   .ask-readout {
     display: none;
-  }
-
-  .ask-console__grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* When the grid stacks, keep the stepper above the question (unchanged from
-     before the desktop column swap — the swap only reorders columns). */
-  .ask-rail {
-    order: -1;
   }
 }
 
@@ -240,15 +265,14 @@ main.ask :focus-visible {
   }
 
   .ask-hud__sweep {
-    top: 48px;
-    width: 260px;
-    height: 260px;
+    top: 32px;
+    width: 240px;
+    height: 240px;
   }
 
   .ask-console__mast {
-    min-height: 420px;
-    height: 420px;
-    padding: 240px 14px 0;
+    min-height: 0;
+    padding: 140px 14px 22px;
   }
 
   .ask-console__title {
@@ -265,8 +289,11 @@ main.ask :focus-visible {
   }
 
   .ask-console__grid {
-    margin-top: -48px;
-    padding: 18px 14px 0;
+    padding: 8px 12px 0;
+  }
+
+  .ask-stage {
+    padding: 18px 16px 16px;
   }
 
   .ask-stage__nav-status {

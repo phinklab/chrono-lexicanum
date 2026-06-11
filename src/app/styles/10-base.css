@@ -51,10 +51,16 @@ h1, h2, h3 {
   letter-spacing: 0.02em;
 }
 
+/* No focus outlines, site-wide (maintainer decision 2026-06-11): the gold/cyan
+   rings flashed on every click (inputs always match :focus-visible on mouse
+   focus) and read as visual noise. Interactive surfaces keep their own focus
+   affordances (underline brightening, hover-grade color shifts). The !important
+   deliberately neutralises the ~50 per-component outline rules across the
+   partials in one place — remove those rules opportunistically when touching
+   their files. Outline only: box-shadow stays available for decorative use. */
+:focus,
 :focus-visible {
-  outline: 1px solid var(--cl-cyan);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(156, 230, 255, 0.18);
+  outline: none !important;
 }
 
 /* Every route's <main> sits above the fixed Starfield (z-index 0) and below

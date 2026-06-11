@@ -240,7 +240,9 @@
   min-width: 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: var(--fs-read);
+  /* Pinned to -sm: the player bar is dense chrome — the 22px reading norm
+     would blow the 48px bar open. */
+  font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
   line-height: 1;
   letter-spacing: 0.02em;
@@ -398,7 +400,8 @@
 .media-player__panel-track-title {
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: var(--fs-read);
+  /* Pinned to -sm — dense track rows, same rationale as the bar title. */
+  font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
   line-height: 1.1;
   letter-spacing: 0.02em;

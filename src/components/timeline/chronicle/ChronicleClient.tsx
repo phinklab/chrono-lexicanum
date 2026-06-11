@@ -211,7 +211,7 @@ export default function ChronicleClient({
       <div className="tlp-root">
         <header className="chronicle-hero">
           <div className="chronicle-hero__title">
-            <div className="chronicle-hero__eyebrow">{"// CHRONICA · IMPERIALIS"}</div>
+            <div className="chronicle-hero__eyebrow">{"CHRONICA · IMPERIALIS"}</div>
             <h1 className="chronicle-hero__heading">CHRONICLE</h1>
             <p className="chronicle-hero__sub">
               The history of the Imperium, charted · {books.length}{" "}

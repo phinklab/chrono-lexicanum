@@ -19,7 +19,7 @@ export default function StubPage({ deck }: { deck: DeckMeta }) {
       <section className="atlas-entity__body">
         <div className="atlas-stub c-glass c-corners">
           <span className="atlas-stub__eyebrow">
-            {"// PHASE 2 — JUNCTIONS-DRILLDOWN"}
+            {"PHASE 2 — JUNCTIONS-DRILLDOWN"}
           </span>
           <h2 className="atlas-stub__title">Drilldown to follow.</h2>
           <p className="atlas-stub__body">

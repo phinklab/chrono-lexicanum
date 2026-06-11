@@ -30,7 +30,7 @@ export default function RelatedWorks({ groups }: { groups: WorkGroup[] }) {
 
   return (
     <section className="entity-view__section">
-      <h2 className="entity-view__section-label">{"// RELATED WORKS"}</h2>
+      <h2 className="entity-view__section-label">{"RELATED WORKS"}</h2>
 
       {groups.map((g) => (
         <div className="entity-view__work-group" key={g.kind}>

@@ -1,11 +1,11 @@
 /* /lab/design — Hausstil-Styleguide (additiv, Session 141).
    Alle Selektoren sind unter .lds gescoped; kein bestehendes Partial wird
-   angefasst. Die Palette/Typo-Werte spiegeln die Timeline-Benchmark
-   (67-chronicle-cinematic.css, .chron-Scope) verbatim — die Timeline-Palette
-   lebt bisher nur dort als lokale Custom-Properties; ihre Promotion zu
-   globalen Tokens ist eine Empfehlung des Review-Reports, nicht Teil dieser
-   Seite. Die DON'T-Beispiele replizieren Slop-Muster bewusst inline (statt
-   z.B. .c-glass/.c-corners zu konsumieren), damit der Guide nicht an
+   angefasst. Palette spiegelt die Timeline-Benchmark (67-chronicle-cinematic
+   .css, .chron-Scope); die Typoskala konsumiert seit 2026-06-11 die globalen
+   --fs-read-*/--fs-label-*-Tokens aus 00-tokens.css (die Promotion, die der
+   Review-Report empfahl, ist passiert — der Guide darf nicht driften). Die
+   DON'T-Beispiele replizieren Slop-Muster bewusst inline (statt z.B.
+   .c-glass/.c-corners zu konsumieren), damit der Guide nicht an
    Alt-Primitives gekoppelt ist. */
 
 .lds {
@@ -28,13 +28,19 @@
   --lds-mono: var(--font-plex-mono), 'IBM Plex Mono', ui-monospace, monospace;
   --lds-display: var(--font-cinzel), serif;
 
-  /* Mono-Leiter (Benchmark: --fs-mono-*) */
-  --lds-mono-lg: 13px;
-  --lds-mono-md: 12px;
-  --lds-mono-sm: 11px;
-  --lds-mono-xs: 10px;
-  /* Serif-Leiter */
-  --lds-body: 19px;
+  /* Typoskala — konsumiert seit 2026-06-11 die globalen Tokens
+     (00-tokens.css), damit der Styleguide nicht von der Live-Site driftet.
+     Mono-Leiter (global --fs-label-*) */
+  --lds-mono-xl: var(--fs-label-xl); /* 15px — Stepper-/Rail-Header */
+  --lds-mono-lg: var(--fs-label-lg); /* 13px */
+  --lds-mono-md: var(--fs-label);    /* 12px */
+  --lds-mono-sm: var(--fs-label-xs); /* 11px */
+  --lds-mono-xs: 10px;               /* Ornament — nur Lab/Folio, kein Site-Token */
+  /* Serif-Leiter (global --fs-read-*) */
+  --lds-body: var(--fs-read);        /* Norm: clamp(19px → 22px Desktop) */
+  --lds-body-lg: var(--fs-read-lg);  /* Lead: clamp(21px → 25px) */
+  --lds-body-sm: var(--fs-read-sm);  /* 18px — kompakte/dichte Flächen */
+  --lds-body-xs: var(--fs-read-xs);  /* 16px — Captions, Tabellenzellen */
   --lds-row-title: 22px;
 
   position: relative;
@@ -43,16 +49,11 @@
   color: var(--lds-parch);
   font-family: var(--lds-serif);
   font-size: var(--lds-body);
-  line-height: 1.6;
+  line-height: var(--lh-read);
 }
 
-/* Innerhalb des Guides gilt der Ziel-Fokusring (gold, kein Glow). Der globale
-   :focus-visible-Ring (10-base.css) ist noch cyan — Report-Finding. */
-.lds :focus-visible {
-  outline: 1px solid var(--lds-gold);
-  outline-offset: 2px;
-  box-shadow: none;
-}
+/* Fokus: site-weit kein Outline-Ring mehr (Kill-Switch in 10-base.css,
+   Maintainer-Entscheid 2026-06-11) — Affordance kommt aus Farbe/Unterlinie. */
 
 /* Film-Grain + dezente Scanline-Textur, wie .chron .grain */
 .lds-grain {
@@ -237,6 +238,13 @@
   letter-spacing: 0.03em;
 }
 .lds-t-body { font-size: var(--lds-body); max-width: 62ch; }
+.lds-t-body-lg { font-size: var(--lds-body-lg); max-width: 62ch; }
+.lds-t-body-sm { font-size: var(--lds-body-sm); max-width: 62ch; }
+.lds-t-body-xs {
+  font-size: var(--lds-body-xs);
+  max-width: 62ch;
+  color: var(--lds-parch-dim);
+}
 .lds-t-note {
   font-style: italic;
   font-size: var(--lds-body);
@@ -250,6 +258,7 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
 }
+.lds-t-mono-xl,
 .lds-t-mono-lg,
 .lds-t-mono-md,
 .lds-t-mono-sm,
@@ -257,6 +266,11 @@
   font-family: var(--lds-mono);
   text-transform: uppercase;
   color: var(--lds-steel);
+}
+.lds-t-mono-xl {
+  font-size: var(--lds-mono-xl);
+  letter-spacing: 0.3em;
+  color: var(--lds-gold);
 }
 .lds-t-mono-lg { font-size: var(--lds-mono-lg); letter-spacing: 0.26em; }
 .lds-t-mono-md { font-size: var(--lds-mono-md); letter-spacing: 0.24em; }

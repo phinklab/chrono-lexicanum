@@ -167,7 +167,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
           opacity={0.55}
         />
         <div className="catalogue-hero__title">
-          <div className="catalogue-hero__eyebrow">{"// CATALOGVS · LIBRORVM"}</div>
+          <div className="catalogue-hero__eyebrow">{"CATALOGVS · LIBRORVM"}</div>
           <h1 className="catalogue-hero__heading">WORKS</h1>
           <div className="catalogue-hero__rule" aria-hidden />
           <p className="catalogue-hero__sub">

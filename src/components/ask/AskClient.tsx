@@ -2,7 +2,6 @@
 
 import { useMemo, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
 import ProcessingPanel from "./ProcessingPanel";
 import QuestionCard from "./QuestionCard";
@@ -138,7 +137,7 @@ export default function AskClient({
       <section className="ask-console" aria-labelledby="ask-title">
         <header className="ask-console__mast">
           <p className="ask-console__eyebrow">
-            {"// INTERROGATORIVM · QVINQVE QVAESTIONES"}
+            {"INTERROGATORIVM · QVINQVE QVAESTIONES"}
           </p>
           <h1 id="ask-title" className="ask-console__title">
             Ask the Archive
@@ -151,7 +150,50 @@ export default function AskClient({
         </header>
 
         <div className="ask-console__grid" ref={gridRef}>
-          <div className="ask-stage" aria-live="polite">
+          <div className="ask-stage">
+            {/* PROTOCOLLVM — horizontal stepper across the top of the stage
+                window (single-column redesign 2026-06-11; replaces the side
+                rail). Five roman marks joined by Terminus hairlines; each mark
+                is still a button that revisits its question, and a sealed
+                mark echoes its chosen answer underneath. */}
+            <div className="ask-stepper" aria-label="Ask progress">
+              <div className="ask-stepper__head">
+                <p className="ask-stepper__label">Protocollvm</p>
+                <span className="ask-stepper__count" aria-hidden>
+                  {answeredCount} / {questions.length}
+                </span>
+              </div>
+              <ol className="ask-steps">
+                {selectedSummary.map((item, index) => {
+                  const sealed = Boolean(item.value);
+                  const cls = item.isCurrent ? "cur" : sealed ? "done" : undefined;
+                  return (
+                    <li key={item.id} className={cls}>
+                      <button
+                        type="button"
+                        className="ask-step"
+                        onClick={() => revisitQuestion(index)}
+                        aria-current={item.isCurrent ? "step" : undefined}
+                        title={item.label}
+                      >
+                        <span className="ask-step__mark" aria-hidden>
+                          <span className="ask-step__glyph">
+                            {sealed ? "◆" : "◇"}
+                          </span>
+                          <span className="ask-step__rn">{roman(index + 1)}</span>
+                        </span>
+                        <span className="ask-step__a">
+                          {item.value ?? (item.isCurrent ? "Open" : "—")}
+                        </span>
+                        <span className="ask-sr-only">{item.label}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+
+            <div className="ask-stage__body" aria-live="polite">
             {showProcessing && (
               <ProcessingPanel
                 title="Weighing the catalogue"
@@ -161,7 +203,7 @@ export default function AskClient({
 
             {showResult && recommendationError && (
               <div className="ask-empty ask-card" role="alert">
-                <p className="card-eyebrow">{"// RECOMMENDATION ERROR"}</p>
+                <p className="card-eyebrow">{"RECOMMENDATION ERROR"}</p>
                 <h2>The cogitator lost its link.</h2>
                 <p>{recommendationError} Your answers are still preserved in the URL.</p>
                 <div className="ask-empty__actions">
@@ -187,7 +229,7 @@ export default function AskClient({
 
             {showResult && !recommendationError && !result && (
               <div className="ask-empty ask-card">
-                <p className="card-eyebrow">{"// NO RESULT PAYLOAD"}</p>
+                <p className="card-eyebrow">{"NO RESULT PAYLOAD"}</p>
                 <h2>No recommendation payload arrived.</h2>
                 <p>Try resetting the funnel or widening your answers.</p>
                 <div className="ask-empty__actions">
@@ -206,12 +248,12 @@ export default function AskClient({
                 key={currentQuestion.id}
                 question={currentQuestion}
                 index={activeIndex}
-                total={questions.length}
                 value={selectedValue}
                 disabled={isPending}
                 onPick={chooseOption}
               />
             )}
+            </div>
 
             <div className="ask-stage__nav">
               <button
@@ -228,54 +270,6 @@ export default function AskClient({
               </button>
             </div>
           </div>
-
-          {/* Status rail — the protocol card (PROTOCOLLVM): roman marks I–V,
-              each row still a button that revisits its question. */}
-          <aside className="ask-rail" aria-label="Ask progress">
-            <div className="ask-rail__head">
-              <p className="ask-rail__label">Protocollvm</p>
-              <span className="ask-rail__count" aria-hidden>
-                {answeredCount} / {questions.length}
-              </span>
-            </div>
-            <ol className="ask-marks">
-              {selectedSummary.map((item, index) => {
-                const sealed = Boolean(item.value);
-                const cls = item.isCurrent ? "cur" : sealed ? "done" : undefined;
-                return (
-                  <li key={item.id} className={cls}>
-                    <button
-                      type="button"
-                      className="ask-mark"
-                      onClick={() => revisitQuestion(index)}
-                      aria-current={item.isCurrent ? "step" : undefined}
-                    >
-                      <span className="ask-mark__rn" aria-hidden>
-                        {roman(index + 1)}
-                      </span>
-                      <span className="ask-mark__body">
-                        <span className="ask-mark__q">{item.label}</span>
-                        <span className="ask-mark__a">
-                          {item.value ?? "Awaiting answer"}
-                        </span>
-                      </span>
-                      <span className="ask-mark__st">
-                        {sealed ? "SEALED" : item.isCurrent ? "OPEN" : "—"}
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ol>
-            <div className="ask-rail__actions">
-              <button type="button" className="lx-tag" onClick={reset}>
-                Reset
-              </button>
-              <Link href="/archive" className="lx-tag">
-                Complete archive
-              </Link>
-            </div>
-          </aside>
         </div>
       </section>
     </>

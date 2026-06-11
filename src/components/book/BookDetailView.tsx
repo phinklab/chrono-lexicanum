@@ -105,7 +105,7 @@ export default function BookDetailView({
       </div>
 
       <article className="book-detail__title-block">
-        <div className="book-detail__eyebrow">{"// LECTIO PROFVNDA · BOOK"}</div>
+        <div className="book-detail__eyebrow">{"LECTIO PROFVNDA · BOOK"}</div>
         <h1 className="book-detail__title">{book.title}</h1>
 
         {authorRows.length > 0 && (
@@ -152,7 +152,7 @@ export default function BookDetailView({
 
         {book.factions.length > 0 && (
           <section className="book-detail__section">
-            <div className="book-detail__section-label">{"// FACTIONS"}</div>
+            <div className="book-detail__section-label">{"FACTIONS"}</div>
             <ul className="book-detail__chip-row">
               {book.factions.map((f) => (
                 <li key={f.id}>
@@ -171,7 +171,7 @@ export default function BookDetailView({
 
         {book.locations.length > 0 && (
           <section className="book-detail__section">
-            <div className="book-detail__section-label">{"// LOCATIONS"}</div>
+            <div className="book-detail__section-label">{"LOCATIONS"}</div>
             <ul className="book-detail__chip-row">
               {book.locations.map((l) => (
                 <li key={l.id}>
@@ -190,7 +190,7 @@ export default function BookDetailView({
 
         {book.characters.length > 0 && (
           <section className="book-detail__section">
-            <div className="book-detail__section-label">{"// CHARACTERS"}</div>
+            <div className="book-detail__section-label">{"CHARACTERS"}</div>
             <ul className="book-detail__chip-row">
               {book.characters.map((c) => (
                 <li key={c.id}>
@@ -209,7 +209,7 @@ export default function BookDetailView({
 
         {book.facets.length > 0 && (
           <section className="book-detail__section">
-            <div className="book-detail__section-label">{"// FACETS"}</div>
+            <div className="book-detail__section-label">{"FACETS"}</div>
             <ul className="book-detail__chip-row">
               {book.facets.map((f) => (
                 <li
@@ -228,7 +228,7 @@ export default function BookDetailView({
             href={`/buch/${book.slug}/audit`}
             className="book-detail__audit-link"
           >
-            {"// audit"}
+            {"audit"}
           </Link>
         </footer>
       </article>

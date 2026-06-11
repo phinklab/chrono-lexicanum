@@ -56,18 +56,11 @@ export default function MainAuspex({
       aria-hidden
     >
       <defs>
-        <radialGradient id={`${uid}-glow`} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor={accent} stopOpacity="0.22" />
-          <stop offset="55%" stopColor={accent} stopOpacity="0.06" />
-          <stop offset="100%" stopColor="transparent" />
-        </radialGradient>
         <linearGradient id={`${uid}-sweep`} x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor={accent} stopOpacity="0" />
           <stop offset="100%" stopColor={accent} stopOpacity="0.85" />
         </linearGradient>
       </defs>
-
-      <circle r={r - 4} fill={`url(#${uid}-glow)`} />
 
       <g
         style={{
@@ -102,8 +95,8 @@ export default function MainAuspex({
           r={r * f}
           fill="none"
           stroke={accent}
-          strokeOpacity={i === 0 ? 0.85 : 0.32}
-          strokeWidth={i === 0 ? 1.2 : 0.5}
+          strokeOpacity="0.32"
+          strokeWidth="0.5"
           strokeDasharray={i === 2 ? "2 6" : "none"}
         />
       ))}
@@ -176,8 +169,9 @@ export default function MainAuspex({
         opacity="0.5"
       />
 
-      <circle r="46" fill="none" stroke={accent} strokeWidth="1" opacity="0.8" />
-      <circle r="46" fill={accent} fillOpacity="0.04" />
+      {/* Center: one hairline circle, no fill — the washed disc + heavy ring
+          read as filled areas over the vista (maintainer fix 2026-06-11). */}
+      <circle r="46" fill="none" stroke={accent} strokeWidth="0.5" opacity="0.4" />
 
       {blips.map(([x, y], i) => (
         <g key={i}>

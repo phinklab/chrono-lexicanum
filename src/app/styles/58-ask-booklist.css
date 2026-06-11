@@ -25,51 +25,25 @@
   color: var(--row-accent, var(--cl-cyan));
 }
 
-/* ---- Question stage: protocol line + roman ordinal + ballot ---- */
+/* ---- Question stage: kicker + prompt + single-column ballot ----
+   Single-column redesign (2026-06-11): the protocol line and the giant roman
+   ornament are gone — the stepper above the stage carries position; a small
+   mono kicker keeps the ordinal next to the question itself. */
 
-.ask-protocol {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 8px 18px;
-  margin-bottom: clamp(20px, 3.5vh, 32px);
-}
-
-.ask-q {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(18px, 3.4vw, 36px);
-  align-items: start;
-}
-
-.ask-q__num {
-  font-family: var(--font-cinzel), serif;
-  font-weight: 400;
-  font-size: clamp(58px, 8vw, 88px);
-  line-height: 0.9;
-  color: color-mix(in oklch, var(--cl-gold) 30%, transparent);
-}
-
-.ask-q__num small {
-  display: block;
-  margin-top: 10px;
+.ask-q__kicker {
+  margin: 0 0 10px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-xs);
+  font-size: var(--fs-label);
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--cl-faint);
-}
-
-.ask-q__main {
-  min-width: 0;
+  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
 }
 
 .ask-q__prompt {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-family: var(--font-cormorant), Georgia, serif;
   font-weight: 500;
-  font-size: clamp(26px, 3.4vw, 34px);
+  font-size: clamp(28px, 3.6vw, 38px);
   line-height: 1.25;
   color: var(--cl-bone);
 }
@@ -83,11 +57,12 @@
   color: var(--cl-dim);
 }
 
-/* Ballot — 2×2 matrix of frameless options, ◇ → ◆. */
+/* Ballot — frameless options ◇ → ◆, one full-width row per option so the
+   four answers read as a list, not a matrix (single-column redesign). */
 .ask-ballot {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 10px;
   margin: clamp(18px, 3vh, 28px) 0 0;
   padding: 0;
   border: 0;
@@ -128,11 +103,6 @@
   color: color-mix(in oklch, var(--cl-gold) 50%, transparent);
 }
 
-.ask-opt:focus-visible {
-  outline: 1px solid var(--cl-gold);
-  outline-offset: -2px;
-}
-
 .ask-opt__glyph {
   font-size: 13px;
   line-height: 1.7;
@@ -165,7 +135,7 @@
   font-size: var(--fs-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cl-faint);
+  color: var(--cl-dim);
 }
 
 .ask-opt[data-selected="true"] {
@@ -184,151 +154,164 @@
   color: var(--cl-dim);
 }
 
-/* ---- Status rail — the PROTOCOLLVM card with roman marks I–V ----
-   Sized a full step up from the lab specimen: the rail is a reading surface,
-   not a micro-caption column (maintainer feedback 2026-06-11). */
+/* ---- PROTOCOLLVM — horizontal stepper across the top of the stage ----
+   Single-column redesign (2026-06-11): replaces the side rail. Five roman
+   marks joined by Terminus hairlines, each a button that revisits its
+   question. States: ◆ sealed (gold) · ◇ current (bone) · coming (faint);
+   a sealed mark echoes its chosen answer in small italic serif below. */
 
-.ask-rail {
+.ask-stepper {
   position: relative;
-  padding: 18px 20px 24px;
-  background: rgba(2, 3, 10, 0.25);
+  margin: 0 0 clamp(20px, 3vh, 28px);
+  padding-bottom: 14px;
 }
 
-.ask-rail::after {
+.ask-stepper::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklch, var(--cl-gold) 24%, transparent) 22%,
-    color-mix(in oklch, var(--cl-gold) 24%, transparent) 78%,
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.35;
 }
 
-.ask-rail__head {
+.ask-stepper__head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
-.ask-rail__label {
+.ask-stepper__label {
   margin: 0;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-lg);
+  font-size: var(--fs-label-xl);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+  color: color-mix(in oklch, var(--cl-gold) 70%, var(--cl-dim));
 }
 
-.ask-rail__count {
+.ask-stepper__count {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
+  font-size: var(--fs-label-lg);
   letter-spacing: 0.14em;
   color: var(--cl-dim);
 }
 
-.ask-marks {
+.ask-steps {
   list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   margin: 0;
   padding: 0;
 }
 
-.ask-marks > li {
+.ask-steps > li {
+  position: relative;
   list-style: none;
+  min-width: 0;
 }
 
-.ask-marks > li + li {
-  border-top: 1px solid var(--line-0);
+/* Terminus hairline joining each mark to the previous one, at glyph height;
+   it brightens once the step it leads away from is sealed. */
+.ask-steps > li + li::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: calc(50% + 32px);
+  left: calc(-50% + 32px);
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 20%, transparent) 30%,
+    color-mix(in oklch, var(--cl-gold) 20%, transparent) 70%,
+    transparent
+  );
 }
 
-.ask-mark {
+.ask-steps > li.done + li::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--cl-gold) 45%, transparent) 30%,
+    color-mix(in oklch, var(--cl-gold) 45%, transparent) 70%,
+    transparent
+  );
+}
+
+.ask-step {
   width: 100%;
   display: grid;
-  grid-template-columns: 30px minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: 10px;
-  padding: 11px 2px;
+  justify-items: center;
+  gap: 7px;
+  padding: 8px 6px 2px;
   border: 0;
   background: transparent;
   color: inherit;
-  text-align: left;
   cursor: pointer;
 }
 
-.ask-mark__rn {
+.ask-step__mark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.ask-step__glyph {
+  font-size: 12px;
+  line-height: 1;
+  color: var(--cl-faint);
+  transition: color 180ms;
+}
+
+.ask-step__rn {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: var(--cl-faint);
+  transition: color 180ms;
 }
 
-.ask-mark__body {
-  min-width: 0;
-  display: grid;
-  gap: 3px;
-}
-
-.ask-mark__q {
+.ask-step__a {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
   font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
-  line-height: 1.35;
-  color: var(--cl-dim);
-}
-
-.ask-mark__a {
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-xs);
-  font-weight: var(--fw-read);
+  line-height: 1.3;
   color: var(--cl-faint);
+  transition: color 180ms;
 }
 
-.ask-mark__st {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cl-faint);
-}
-
-.ask-mark:hover .ask-mark__q,
-.ask-mark:focus-visible .ask-mark__q {
+.ask-step:hover .ask-step__rn,
+.ask-step:hover .ask-step__glyph {
   color: var(--cl-bone);
 }
 
-.ask-marks > li.done .ask-mark__rn,
-.ask-marks > li.done .ask-mark__st {
-  color: var(--cl-gold-dim);
-}
-
-.ask-marks > li.done .ask-mark__a {
-  color: color-mix(in oklch, var(--cl-gold) 55%, var(--cl-dim));
-}
-
-.ask-marks > li.cur .ask-mark__rn,
-.ask-marks > li.cur .ask-mark__st {
+.ask-steps > li.done .ask-step__glyph,
+.ask-steps > li.done .ask-step__rn {
   color: var(--cl-gold);
 }
 
-.ask-marks > li.cur .ask-mark__q {
+.ask-steps > li.done .ask-step__a {
+  color: color-mix(in oklch, var(--cl-gold) 45%, var(--cl-dim));
+}
+
+.ask-steps > li.cur .ask-step__glyph,
+.ask-steps > li.cur .ask-step__rn {
   color: var(--cl-bone);
 }
 
-.ask-rail__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line-0);
+.ask-steps > li.cur .ask-step__a {
+  color: var(--cl-dim);
 }
 
 /* ---- Processing — cogitator interstitial ---- */
@@ -718,20 +701,17 @@
 }
 
 @media (max-width: 720px) {
-  .ask-q {
-    grid-template-columns: 1fr;
+  /* Compact stepper: marks + count only — the sealed-answer echoes are too
+     cramped at five columns on a phone. */
+  .ask-step__a {
+    display: none;
   }
 
-  .ask-q__num {
-    font-size: 48px;
+  .ask-steps > li + li::before {
+    right: calc(50% + 22px);
+    left: calc(-50% + 22px);
   }
 
-  .ask-q__num small {
-    display: inline;
-    margin-left: 10px;
-  }
-
-  .ask-ballot,
   .ask-verdict-list {
     grid-template-columns: 1fr;
   }
@@ -753,10 +733,6 @@
   .ask-prime__rank .cap {
     display: inline;
     margin-left: 12px;
-  }
-
-  .ask-rail {
-    padding: 14px 16px 20px;
   }
 
   .ask-empty {

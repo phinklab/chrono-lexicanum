@@ -85,7 +85,7 @@ function PanelBody({ onClose }: PanelBodyProps) {
   return (
     <div ref={panelRef} data-no-drag className="twk-panel">
       <div className="twk-hd">
-        <span className="twk-hd-eyebrow">{"// CARTOGRAPHER"}</span>
+        <span className="twk-hd-eyebrow">{"CARTOGRAPHER"}</span>
         <span className="twk-hd-title">Settings</span>
         <button
           type="button"

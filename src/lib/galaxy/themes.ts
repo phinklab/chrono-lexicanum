@@ -7,7 +7,7 @@ export const THEMES: Record<ThemeId, Theme> = {
   mechanicus: {
     id: "mechanicus",
     label: "Mechanicus Battle-Table",
-    sub: "Cult Mechanicus · Cogitator-1011 // Datastream Stable",
+    sub: "Cult Mechanicus · Cogitator-1011 · Datastream Stable",
     bg0: "#020608",
     bg1: "#021018",
     vignette:

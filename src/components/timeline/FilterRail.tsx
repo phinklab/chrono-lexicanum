@@ -88,7 +88,7 @@ export default function FilterRail({
     >
       <div className="fr-header">
         <span className="fr-eyebrow" aria-hidden>
-          {"// FILTER"}
+          {"FILTER"}
         </span>
         <span className="fr-count" aria-live="polite">
           <span className="fr-count-num">

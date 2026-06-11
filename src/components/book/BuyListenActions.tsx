@@ -32,7 +32,7 @@ export default function BuyListenActions({
 
   return (
     <section className="book-detail__obtain" aria-label="Buy or listen">
-      <div className="book-detail__section-label">{"// ACQUIRE"}</div>
+      <div className="book-detail__section-label">{"ACQUIRE"}</div>
       <div className="book-detail__actions">
         <a
           className="book-detail__action"

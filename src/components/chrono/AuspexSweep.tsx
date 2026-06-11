@@ -43,15 +43,10 @@ export default function AuspexSweep({
           <stop offset="0%" stopColor={accent} stopOpacity="0" />
           <stop offset="100%" stopColor={accent} stopOpacity="0.75" />
         </linearGradient>
-        <radialGradient id={`${uid}-glow`} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor={accent} stopOpacity="0.18" />
-          <stop offset="60%" stopColor={accent} stopOpacity="0.04" />
-          <stop offset="100%" stopColor="transparent" />
-        </radialGradient>
       </defs>
 
-      <circle r={r * 0.92} fill={`url(#${uid}-glow)`} />
-
+      {/* No radial glow fill — filled washes over the photo read as a dim
+          disc (maintainer fix 2026-06-11); the instrument is lines only. */}
       <circle r="3" fill={accent} />
       <circle r="10" fill="none" stroke={accent} strokeWidth="0.7" className="c-pulse" />
       <circle r="22" fill="none" stroke={dim} strokeOpacity="0.33" strokeWidth="0.5" />

@@ -9,10 +9,10 @@ import { entityHref, type EntityType, type FactRow } from "@/lib/entity/types";
 
 /** Per-type eyebrow, in the /buch surface's mono `// LATIN · ROLE` grammar. */
 const EYEBROW: Record<EntityType, string> = {
-  character: "// PERSONA · CHARACTER",
-  faction: "// FRACTIO · FACTION",
-  location: "// MVNDVS · WORLD",
-  person: "// AVCTOR · AUTHOR",
+  character: "PERSONA · CHARACTER",
+  faction: "FRACTIO · FACTION",
+  location: "MVNDVS · WORLD",
+  person: "AVCTOR · AUTHOR",
 };
 
 export default function EntityHeader({

@@ -47,7 +47,7 @@ export default async function WorldPage({
     <main className="entity">
       <SiteBackground variant="vista" position="50% 32%" />
       <div className="entity__decor" aria-hidden>
-        <CornerAuspex size={140} label="MVNDVS // 1011" />
+        <CornerAuspex size={140} label="MVNDVS · 1011" />
       </div>
       <div className="entity__inner">
         <EntityBackLink type="location" />

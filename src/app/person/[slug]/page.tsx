@@ -48,7 +48,7 @@ export default async function PersonPage({
     <main className="entity">
       <SiteBackground variant="vista" position="50% 24%" />
       <div className="entity__decor" aria-hidden>
-        <CornerAuspex size={140} label="AVCTOR // 0451" />
+        <CornerAuspex size={140} label="AVCTOR · 0451" />
       </div>
       <div className="entity__inner">
         <EntityBackLink type="person" />
