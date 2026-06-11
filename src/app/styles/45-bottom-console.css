@@ -111,7 +111,8 @@
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
   color: var(--cl-dim);
-  font-size: var(--fs-read);
+  /* Pinned to -sm: HUD console cards are dense chrome, not reading surface. */
+  font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
   margin-top: 6px;
   line-height: 1.5;

@@ -176,14 +176,38 @@ export default function DesignLanguagePage() {
             <TypeRow spec={["Row-Titel", "Cormorant 500", "22px · ls 0.03em"]}>
               <div className="lds-t-row">The Drop Site Massacre</div>
             </TypeRow>
-            <TypeRow spec={["Body", "Cormorant 500", "19px · lh 1.6"]}>
+            <TypeRow
+              spec={["Body Lead", "Cormorant 500", "21–25px fluid · eine Stufe über der Norm"]}
+            >
+              <p className="lds-t-body-lg" style={{ margin: 0 }}>
+                A lead paragraph — the opening voice of a page, one step above
+                the reading norm.
+              </p>
+            </TypeRow>
+            <TypeRow spec={["Body (Norm)", "Cormorant 500", "19–22px fluid · lh 1.62"]}>
               <p className="lds-t-body" style={{ margin: 0 }}>
                 The Warmaster turns. Seven Legions descend on Isstvan V under
                 the banner of betrayal, and the galaxy learns what treachery
                 weighs.
               </p>
             </TypeRow>
-            <TypeRow spec={["Note", "Cormorant Italic", "18–22px · parchment-dim"]}>
+            <TypeRow
+              spec={["Body Kompakt", "Cormorant 500", "18px · dichte Chrome (Player, Konsole)"]}
+            >
+              <p className="lds-t-body-sm" style={{ margin: 0 }}>
+                Compact body for dense chrome — the media player bar, console
+                cards, anywhere the norm would blow the surface open.
+              </p>
+            </TypeRow>
+            <TypeRow
+              spec={["Caption", "Cormorant 500", "16px · Tabellenzellen · Sekundärprosa"]}
+            >
+              <p className="lds-t-body-xs" style={{ margin: 0 }}>
+                Captions, table cells and secondary prose — the floor of the
+                serif ladder.
+              </p>
+            </TypeRow>
+            <TypeRow spec={["Note", "Cormorant Italic", "19–22px · parchment-dim"]}>
               <p className="lds-t-note" style={{ margin: 0 }}>
                 An annotation in the margin of the record — quieter, set in
                 italic, never competing with the body.
@@ -191,6 +215,9 @@ export default function DesignLanguagePage() {
             </TypeRow>
             <TypeRow spec={["Lapidar (Bestand)", "Cinzel 400", "ls 0.32em · sparsam"]}>
               <div className="lds-t-lapidar">Chrono Lexicanum</div>
+            </TypeRow>
+            <TypeRow spec={["Mono XL", "Plex Mono", "15px · ls 0.30em · Stepper-/Rail-Header"]}>
+              <div className="lds-t-mono-xl">Protocollvm · 2 / 5</div>
             </TypeRow>
             <TypeRow spec={["Mono LG", "Plex Mono", "13px · ls 0.26em"]}>
               <div className="lds-t-mono-lg">M31.005 — The Heresy Begins</div>
