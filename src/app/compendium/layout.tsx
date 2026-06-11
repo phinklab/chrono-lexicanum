@@ -1,11 +1,11 @@
 /**
- * Compendium shell (Brief 129 — Doorways). Wraps the overview (`/compendium`)
- * and every category directory (`/compendium/[category]`) in one teal-archive
- * frame: a vista backdrop with the /ask + /podcasts readability fade, a lean
- * hero, and the persistent category nav with live counts. The surface is plain
- * `<main className="compendium">` — no `catalogue` class — so the `.c-glass` /
- * `.c-corners` primitives and the shared `.browse-*` controls stay in their
- * cyan house default instead of the gold /werke re-skin.
+ * Compendium shell (Brief 129 — Doorways; restyled Session 142). Wraps the
+ * overview (`/compendium`) and every category directory
+ * (`/compendium/[category]`) in one gold register frame: a vista backdrop with
+ * the /ask + /podcasts readability fade, a lean hero with a Terminus rule, and
+ * the persistent category nav with live counts. The teal re-skin is retired —
+ * the Compendium reads as the REGISTRVM of the archive (Report 141, idea C2-3),
+ * in the same gold language as every other surface.
  *
  * Server component: it loads the per-category counts once (cached, so the active
  * directory page dedupes its own builder call) and hands them to the db-free
@@ -19,6 +19,7 @@ import AuspexSweep from "@/components/chrono/AuspexSweep";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import CompendiumNav from "@/components/compendium/CompendiumNav";
+import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import { loadCompendiumCounts } from "@/lib/compendium/loader";
 
 export const metadata: Metadata = {
@@ -57,7 +58,7 @@ export default async function CompendiumLayout({
           the masthead carries only the title; the HUD lives outside it). */}
       <div className="cmp-readout" aria-hidden>
         <GhostReadout
-          color="var(--cl-cyan)"
+          color="var(--cl-gold)"
           opacity={0.3}
           lineMs={5200}
           typeSpeed={80}
@@ -67,7 +68,7 @@ export default async function CompendiumLayout({
       </div>
       <div className="cmp-hud" aria-hidden>
         <div className="cmp-hud__sweep">
-          <AuspexSweep r={170} sweepDuration={16} accent="var(--cl-cyan)" />
+          <AuspexSweep r={170} sweepDuration={16} accent="var(--cl-gold)" />
         </div>
       </div>
 
@@ -78,12 +79,13 @@ export default async function CompendiumLayout({
           label="ARCHIVVM · RERVM OMNIVM"
           delay={1.4}
           lifetime={5}
-          color="var(--cl-cyan)"
+          color="var(--cl-gold)"
           opacity={0.5}
         />
         <div className="cmp-hero__inner">
           <p className="cmp-hero__eyebrow">{"// COMPENDIVM · INDEX RERVM"}</p>
           <h1 className="cmp-hero__heading">COMPENDIUM</h1>
+          <div className="cmp-hero__rule" aria-hidden />
           <p className="cmp-hero__sub">
             Every faction, world, character and author in the archive — each a
             doorway into the books and podcasts behind it.
@@ -94,6 +96,7 @@ export default async function CompendiumLayout({
       <div className="cmp-body">
         <CompendiumNav counts={counts} />
         {children}
+        <ArchiveFooter mid="INDEX RERVM OMNIVM" />
       </div>
     </main>
   );

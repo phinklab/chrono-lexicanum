@@ -260,9 +260,12 @@ schneller als die filmische Eigenvorgabe — drosseln oder an Interaktion binden
 
 ### A.4 — Compendium
 
-- **Cyan-Halo auf Hero-Heading** — `66-compendium.css:140` (`0 0 32px rgba(156,230,255,.18)`)
+- ~~**Cyan-Halo auf Hero-Heading** — `66-compendium.css:140` (`0 0 32px rgba(156,230,255,.18)`)
   · S2 · **medium / S** · nur den schwarzen Legibility-Shadow behalten; Eyebrow (`:127`)
-  hat ihn schon korrekt → Inkonsistenz gleich mit weg.
+  hat ihn schon korrekt → Inkonsistenz gleich mit weg.~~
+  **→ live umgesetzt (2026-06-11, /compendium):** komplette Teal-Phase abgewickelt
+  (Registerwerk-Redesign C2-3, Gold durchgängig); Hero-Shadow jetzt Gold @0.22
+  wie die Geschwister-Masten.
 - **AuspexSweep-RadialGlow** (`AuspexSweep.tsx:46-53`) + `opacity`-Stapelung (`:84`) ·
   S2 · **medium / S** (Komponente ist Site-weiter Hausstil — Fix in der Komponente,
   wirkt überall).
@@ -684,7 +687,13 @@ Checkliste ist der Wiedereinstiegspunkt nach jedem /compact:
   Imprimatur-Fuß. Neu: `42-lex-primitives.css` (.lx-*-Bausteine, geteilt),
   `ArchiveFooter`, `lib/roman.ts`. Entfernt: ProgressDots, ProcessingDots
   (verwaist). tsc + eslint grün.*
-- [ ] **2 · /compendium** — Registerwerk-Design 1:1 übertragen. Commit.
+- [x] **2 · /compendium** — Registerwerk-Design 1:1 übertragen. Commit.
+  *Erledigt 2026-06-11: Layout + Overview + Category-Directory komplett
+  Teal→Gold (Hero-Rule, Terminus-Nav, Türen als rahmenlose Wash-Karten mit
+  Terminus-Bodenlinie, REGISTRVM-Eyebrows mit echten count-abgeleiteten
+  pp.-Bereichen, Kurations-Marginalie via .lx-apparatus, Terminus-Row-Trenner
+  im Directory, Browse-Controls gold-skinned, Imprimatur-Fuß im Layout,
+  seiten-scoped Gold-Fokusring). tsc + eslint grün.*
 - [ ] **3 · /archive** — Cinematic Row-Table übernehmen, mit Abweichungen:
   (a) in geöffneter Row die Zeile „REF M42.347 SOURCE · MANUAL CONFIDENCE ·
   HIGH SCRIBE · PH. LEXICANVS" entfernen; (b) keine M31-Sortierung/Gruppierung

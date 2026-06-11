@@ -11,6 +11,7 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import { COMPENDIUM_CATEGORIES } from "@/lib/compendium/categories";
 import { loadCategoryItems } from "@/lib/compendium/loader";
+import { roman } from "@/lib/roman";
 
 // Rendered per request, never prerendered at build. The overview's cold fill
 // (five category builders + the layout counts) is the heaviest aggregate in the
@@ -58,6 +59,23 @@ function statLine(
   }
 }
 
+/**
+ * REGISTRVM eyebrow with stylised folio ranges (Report 141, idea C2-3): each
+ * door is a register volume, its page span derived from the REAL entry counts
+ * (one entry = one folio page, cumulative across the five registers). A
+ * pending register (count 0) carries no range.
+ */
+function registerEyebrows(counts: ReadonlyArray<number>): string[] {
+  let page = 0;
+  return counts.map((count, i) => {
+    const start = page + 1;
+    page += count;
+    if (count <= 0) return `Registrvm ${roman(i + 1)}`;
+    const pad = (n: number) => String(n).padStart(3, "0");
+    return `Registrvm ${roman(i + 1)} · pp. ${pad(start)}–${pad(page)}`;
+  });
+}
+
 export default async function CompendiumOverview() {
   const doors = await Promise.all(
     COMPENDIUM_CATEGORIES.map(async (c) => {
@@ -66,6 +84,7 @@ export default async function CompendiumOverview() {
       return { category: c, count: items.length, sumWeight };
     }),
   );
+  const eyebrows = registerEyebrows(doors.map((d) => d.count));
 
   return (
     <section className="cmp-overview" aria-label="Compendium categories">
@@ -84,7 +103,7 @@ export default async function CompendiumOverview() {
             >
               <article className={cls}>
                 <Link href={href} className="cmp-door__head">
-                  <span className="cmp-door__eyebrow">{c.eyebrow}</span>
+                  <span className="cmp-door__eyebrow">{eyebrows[i]}</span>
                   <span className="cmp-door__label">{c.label}</span>
                   <span className="cmp-door__count">
                     {countCopy(count, c.noun, Boolean(c.pending))}
@@ -111,6 +130,25 @@ export default async function CompendiumOverview() {
           );
         })}
       </ul>
+
+      {/* Curation note with marginalia apparatus — honest provenance lines. */}
+      <section className="cmp-note" aria-label="Curation note">
+        <div className="lx-apparatus">
+          <p className="lx-prose cmp-note__text">
+            Every entry in the register is drawn from the archive&rsquo;s own
+            tables and carries its source and confidence in the margin — the
+            compendium shows what the records support, and marks where the
+            curation is still under way.
+          </p>
+          <div className="lx-margin">
+            <div>
+              <b>STATUS</b> CURATION
+            </div>
+            <div>SOURCE · POSTGRES</div>
+            <div>REGEN · WEEKLY</div>
+          </div>
+        </div>
+      </section>
     </section>
   );
 }
