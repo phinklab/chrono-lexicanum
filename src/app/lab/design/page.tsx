@@ -246,6 +246,13 @@ export default function DesignLanguagePage() {
               </div>
               <div className="lds-rule-h2" />
             </div>
+            <div>
+              <div className="lds-t-mono-xs" style={{ marginBottom: 10 }}>
+                Terminus-Linie · läuft beidseitig aus (Bestand:
+                Cogitator-Loading — Maintainer-Referenz)
+              </div>
+              <div className="lds-rule-fade" />
+            </div>
             <div style={{ display: "flex", gap: 28, alignItems: "center" }}>
               <div className="lds-rule-v" />
               <span className="lds-t-mono-xs">
@@ -260,7 +267,7 @@ export default function DesignLanguagePage() {
           id="bausteine"
           label="04 · Bausteine"
           title="Kern-Bausteine"
-          note="Jeder Baustein folgt denselben Regeln: Mono beschriftet, Serife benennt, Hairline rahmt, der Selected-State invertiert auf Parchment. Hover ist eine Farbantwort (steel → gold), keine Bewegung."
+          note="Jeder Baustein folgt denselben Regeln: Mono beschriftet, Serife benennt, der Selected-State invertiert auf Parchment. Buttons tragen Hairline-Rahmen; Karten und andere Flächen sind rahmenlos (Wash statt Kasten) und enden in einer beidseitig auslaufenden Bodenlinie. Hover ist eine Farbantwort (steel → gold), keine Bewegung."
         >
           <div className="lds-blocks">
             <div className="lds-block">
@@ -341,7 +348,10 @@ export default function DesignLanguagePage() {
                 </p>
               </div>
               <p className="lds-block-note">
-                Gold-line-Rahmen, Folio-Nummer statt Icon, Hover hebt die
+                Rahmenlos (Maintainer-Entscheid 2026-06-11): eine leise
+                Wash-Fläche statt Border-Kasten, abgeschlossen nur von einer
+                Bodenlinie, die beidseitig ausläuft (Terminus-Linie aus dem
+                Cogitator-Loading). Folio-Nummer statt Icon, Hover hebt die
                 Fläche minimal (gold 5%). Kein Radius, kein Schatten, kein
                 Cover-Zoom.
               </p>
@@ -456,6 +466,71 @@ export default function DesignLanguagePage() {
                 Zebra-Streifen, keine Card-Verpackung pro Zeile.
               </p>
             </div>
+
+            <div className="lds-block">
+              <span className="lds-block-cap">
+                Ladezustand (Cogitator) — Bestand · Referenz
+              </span>
+              <div className="lds-cogitator" aria-hidden="true">
+                <div className="core">
+                  <span className="ring" />
+                  <span className="seed" />
+                </div>
+                <p className="eyebrow">{"// COGNITIO LINK · ESTABLISHING"}</p>
+                <p className="phrase">
+                  Cogitator loading<span className="dots">…</span>
+                </p>
+                <span className="scan" />
+              </div>
+              <p className="lds-block-note">
+                Bestands-Element (CogitatorLoading.tsx), vom Maintainer als
+                Positiv-Beispiel bestätigt: Ring aus Hairlines statt
+                Spinner-Bibliothek, Mono-Eyebrow, Cinzel-Phrase — und darunter
+                die beidseitig auslaufende Terminus-Linie, die jetzt auch die
+                Katalogkarte abschließt.
+              </p>
+            </div>
+
+            <div className="lds-block">
+              <span className="lds-block-cap">
+                Initiale (Drop Cap) — angenommen 2026-06-11
+              </span>
+              <p className="lds-initial">
+                Many records begin mid-sentence, salvaged from burned
+                libraries. A single illuminated initial — gold, restrained —
+                marks where a longer reading text opens, and nowhere else.
+              </p>
+              <p className="lds-block-note">
+                Nur für Lese-Längen (Buch-Synopsis, Era-Einführung), maximal
+                eine pro View.
+              </p>
+            </div>
+
+            <div className="lds-block" style={{ gridColumn: "1 / -1" }}>
+              <span className="lds-block-cap">
+                Marginalie — angenommen 2026-06-11
+              </span>
+              <div className="lds-marginalia">
+                <p className="body">
+                  The Index lists every engagement of the Heresy in order of
+                  record, not of occurrence — the archivists of Terra wrote
+                  down what reached them, when it reached them, and the gaps
+                  are part of the text.
+                </p>
+                <div className="note">
+                  <div>
+                    <b>REF</b> M31.014
+                  </div>
+                  <div>SOURCE · LEXICANUM</div>
+                  <div>CONFIDENCE · HIGH</div>
+                </div>
+              </div>
+              <p className="lds-block-note">
+                Quellen-/Konfidenz-Apparat als Randspalte statt Footnote-Pill —
+                macht die source_kind/confidence-Daten der DB sichtbar, im
+                Duktus eines annotierten Folianten.
+              </p>
+            </div>
           </div>
         </Section>
 
@@ -539,7 +614,7 @@ export default function DesignLanguagePage() {
             />
             <Pair
               cap="Card-Anatomie"
-              doWhy="Katalogkarte: Hairline, Folio-Nummer, Serif-Titel, Mono-Meta. Fläche statt Schwebe."
+              doWhy="Katalogkarte: rahmenlose Wash-Fläche, Folio-Nummer, Serif-Titel, Mono-Meta — abgeschlossen von einer beidseitig auslaufenden Bodenlinie. Fläche statt Schwebe."
               dontWhy="Default-Card: 16px-Radius + Soft-Shadow + Gradient-Icon-Kachel (S9) — austauschbar mit jedem SaaS."
               doDemo={
                 <div className="lds-card" style={{ maxWidth: "100%" }}>
@@ -589,7 +664,7 @@ export default function DesignLanguagePage() {
           id="vorschlaege"
           label="07 · Vorschläge"
           title="Mögliche neue Bausteine"
-          note="Ideen aus Dimension C des Reviews, hier als gebaute Skizzen — VORSCHLÄGE, nicht implementierter Bestand. Übernahme entscheidet ein eigener Brief."
+          note="Ideen aus Dimension C des Reviews, hier als gebaute Skizzen — VORSCHLÄGE, nicht implementierter Bestand. Übernahme entscheidet ein eigener Brief. Initiale (Drop Cap) und Marginalie wurden am 2026-06-11 vom Maintainer angenommen und sind zu den Kern-Bausteinen (Sektion 04) gewandert."
         >
           <div className="lds-blocks">
             <div className="lds-proposal">
@@ -607,45 +682,6 @@ export default function DesignLanguagePage() {
               <p className="lds-block-note">
                 Abschluss-Vignette für Seitenfüße und Modal-Enden: ein stilles
                 Echtheitssiegel statt eines klassischen Footers.
-              </p>
-            </div>
-
-            <div className="lds-proposal">
-              <span className="lds-proposal-badge">Vorschlag</span>
-              <span className="lds-block-cap">Initiale (Drop Cap)</span>
-              <p className="lds-initial">
-                Many records begin mid-sentence, salvaged from burned
-                libraries. A single illuminated initial — gold, restrained —
-                marks where a longer reading text opens, and nowhere else.
-              </p>
-              <p className="lds-block-note">
-                Nur für Lese-Längen (Buch-Synopsis, Era-Einführung), maximal
-                eine pro View.
-              </p>
-            </div>
-
-            <div className="lds-proposal" style={{ gridColumn: "1 / -1" }}>
-              <span className="lds-proposal-badge">Vorschlag</span>
-              <span className="lds-block-cap">Marginalie</span>
-              <div className="lds-marginalia">
-                <p className="body">
-                  The Index lists every engagement of the Heresy in order of
-                  record, not of occurrence — the archivists of Terra wrote
-                  down what reached them, when it reached them, and the gaps
-                  are part of the text.
-                </p>
-                <div className="note">
-                  <div>
-                    <b>REF</b> M31.014
-                  </div>
-                  <div>SOURCE · LEXICANUM</div>
-                  <div>CONFIDENCE · HIGH</div>
-                </div>
-              </div>
-              <p className="lds-block-note">
-                Quellen-/Konfidenz-Apparat als Randspalte statt Footnote-Pill —
-                macht die source_kind/confidence-Daten der DB sichtbar, im
-                Duktus eines annotierten Folianten.
               </p>
             </div>
           </div>

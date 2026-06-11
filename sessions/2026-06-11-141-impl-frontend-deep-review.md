@@ -613,6 +613,56 @@ Häufigste Todesursachen, als Kalibrierhilfe für künftige Reviews:
   wurde während der Probe versehentlich mit beendet; danach nach Memory-Muster sauber
   neu gestartet (ein Prozess, frisches `.next`, läuft auf diesem Review-Branch — 200 OK).
 
+## Nachtrag 2026-06-11 — Feedback-Runde Philipp (gleiche Branch, nach PR-Eröffnung)
+
+Maintainer-Feedback auf `/lab/design` eingearbeitet plus vier Dummy-Beispielseiten:
+
+1. **Katalogkarte rahmenlos:** Border-Kasten entfernt (Borders bleiben bei Buttons ok);
+   die Karte trägt jetzt nur eine Wash-Fläche + eine **Bodenlinie, die beidseitig
+   ausläuft** — dieselbe Terminus-Linie wie im Cogitator-Loading
+   (`.cogitator-loading__scan`, 65-loading.css), das Philipp explizit als
+   Positiv-Referenz benannt hat.
+2. **Cogitator-Loading als Positiv-Beispiel** in den Styleguide aufgenommen
+   (Baustein in § 04 + Terminus-Linie in § 03).
+3. **Initiale (Drop Cap) + Marginalie angenommen:** von § 07 (Vorschläge) zu den
+   Kern-Bausteinen (§ 04) befördert; § 07 behält nur noch Siegel/Imprimatur.
+4. **Vier Beispielseiten** (nur unter `/lab`, Dummy-Daten, statisch, kein DB-Zugriff):
+   `/lab/home_example` (Titelblatt/Frontispiz, C2-1 + Großzahl-Schicht C2-6 +
+   Marginalien-Hover C1-3), `/lab/archive_example` (Cinematic Row-Table, C3-2),
+   `/lab/compendium_example` (Registerwerk, C2-3), `/lab/ask_example`
+   (Befragungsprotokoll C2-4 + Rank-Dossier C3-3 + Cogitator-Interstitial).
+   Geteilte Hülle + CSS unter `src/app/lab/_example/` (`.lex`-Scope, additiv;
+   Folio-Chrome + Imprimatur-Fuß aus Idee C1-1). `tsc` + `eslint` grün; Dev-Server
+   sauber neu gestartet, beide Stichproben-Routen 200.
+
+## Nachtrag 2026-06-11 (2) — Beispielseiten-Rework nach zweitem Feedback
+
+Philipps Befund zur ersten Fassung: Seiten wirken zusammengesteckt, **Hintergründe
+der Ausgangsseiten fehlen** — gewünscht ist „im Großen und Ganzen wie die
+Ausgangsseite, nur mit den neuen Design-Elementen". Konsequenz: kompletter
+Neuaufbau der vier Seiten auf dem **echten Produktions-Skelett**, statt einer
+freistehenden Papier-Komposition:
+
+- **Echte Backdrops wiederverwendet:** `SiteBackground` (hub/scriptorium/oracle
+  + Vignette + Grain) bzw. fürs Archiv das fixe `books.webp`+Fade-Paar aus
+  31-catalogue.css; dazu der produktive Fade-to-void (`body:has(main.lex)
+  .site-bg::after`, Stops 1:1 aus 53-ask/66-compendium bzw. 50-hub) und der
+  echte `<ScrollScrim>`.
+- **Echte Skelette:** Masthead mit bei 320px geparktem Cinzel-Titel
+  (`clamp(520px,60vh,700px)`), Body um −80px hochgezogen; Home als drei
+  100dvh-Acts mit Scroll-Snap (`html:has(main.lexh)`), inkl. `MainAuspex`-Discs,
+  `HeroScrollCue`, `GhostReadout`/`FloatingCoord`/`AuspexSweep` — alle über ihre
+  `accent`/`color`-Props auf Gold gestellt (Komponenten unangetastet).
+- **Neue Sprache obendrauf:** Terminus-Linie als Titel-Schmuck und als
+  Zeilen-/Fuß-Trenner, rahmenlose Wash-Karten mit Terminus-Bodenlinie
+  (Türen, Ballot, Runner), Initiale + Marginalien-Apparat (Home-Praefatio,
+  Archiv-Dossier, Compendium-Fußnote), römische Ordnung (Registry-Zeilen,
+  QVAESTIO-Ziffer, Protokoll-Marken), ehrliche Status-Zeilen, Gold statt Cyan
+  durchgängig (auch Compendium: Teal → Gold für die eine Akzentsprache).
+- Alte Eigen-Chrome-Leiste ersetzt durch diskreten `LAB·SPECIMEN`-Switcher oben
+  links (fixed, unterhalb Burger-z); Imprimatur-Fuß (C1-1) bleibt als Baustein.
+- `tsc` + `eslint` grün; Dev-Server lief weiter (HMR), Stichproben-Route 200.
+
 ## Brief-Kandidaten für Cowork (geschnitten nach Abhängigkeit)
 
 1. **Token-Konsolidierung + Primitives-Ablöse** (A.Q1–A.Q4, A.T, B2) — Fundament,

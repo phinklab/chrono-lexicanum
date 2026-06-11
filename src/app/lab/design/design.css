@@ -308,6 +308,10 @@
 .lds-rules { display: flex; flex-direction: column; gap: 22px; }
 .lds-rule-h { height: 1px; background: linear-gradient(to right, var(--lds-line), transparent); }
 .lds-rule-h2 { height: 1px; background: rgba(125, 135, 153, 0.1); }
+/* Terminus-Linie: läuft nach BEIDEN Seiten aus. Bestand in 65-loading.css
+   (.cogitator-loading__scan), vom Maintainer als Positiv-Beispiel bestätigt
+   (2026-06-11); schließt jetzt auch die Katalogkarte ab. */
+.lds-rule-fade { height: 1px; background: linear-gradient(90deg, transparent, var(--lds-gold-dim), transparent); }
 .lds-rule-v {
   width: 1px;
   height: 58px;
@@ -428,17 +432,33 @@
 }
 .lds-tag--on { color: var(--lds-gold); border-color: var(--lds-gold-dim); }
 
-/* Karte (Katalogkarte) */
+/* Karte (Katalogkarte) — rahmenlos (Maintainer-Feedback 2026-06-11): der
+   Border-Kasten ist weg. Eine leise Wash-Fläche (das /ask-Segment-Treatment)
+   trägt die Karte; einziger Abschluss ist eine Bodenlinie, die nach beiden
+   Seiten ausläuft — dieselbe Terminus-Linie wie im Cogitator-Loading
+   (65-loading.css, .cogitator-loading__scan). Der Gradient läuft über
+   currentColor, damit der Hover als Farbantwort animiert. */
 .lds-card {
   position: relative;
-  border: 1px solid var(--lds-line);
   background: rgba(255, 255, 255, 0.015);
-  padding: 20px 22px 22px;
+  padding: 20px 22px 24px;
   max-width: 460px;
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s;
   cursor: pointer;
 }
-.lds-card:hover { background: rgba(201, 184, 150, 0.05); border-color: var(--lds-gold-dim); }
+.lds-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  color: var(--lds-line);
+  background: linear-gradient(90deg, transparent, currentColor 22%, currentColor 78%, transparent);
+  transition: color 0.2s;
+}
+.lds-card:hover { background: rgba(201, 184, 150, 0.05); }
+.lds-card:hover::after { color: var(--lds-gold-dim); }
 .lds-card .folio {
   position: absolute;
   top: 14px;
@@ -638,6 +658,70 @@
   line-height: 1.55;
   color: var(--lds-parch-dim);
   max-width: 720px;
+}
+
+/* Ladezustand (Cogitator) — Bestands-Element (CogitatorLoading.tsx +
+   65-loading.css), hier verbatim als Positiv-Beispiel nachgebaut: Ring aus
+   Hairlines statt Spinner-Bibliothek, Mono-Eyebrow, Cinzel-Phrase, beidseitig
+   auslaufende Scan-Linie. Maintainer-OK 2026-06-11. Reduced-motion stillt die
+   Animationen über die globale Kaskade (10-base.css). */
+.lds-cogitator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 30px 20px 26px;
+  text-align: center;
+}
+.lds-cogitator .core {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+}
+.lds-cogitator .ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--lds-steel-line);
+  border-top-color: var(--lds-gold);
+  border-right-color: var(--lds-gold-dim);
+  animation: ldsCogSpin 1.4s linear infinite;
+}
+.lds-cogitator .seed {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lds-gold);
+  animation: ldsCogSeed 1.8s ease-in-out infinite;
+}
+.lds-cogitator .eyebrow {
+  margin: 0;
+  font-family: var(--lds-mono);
+  font-size: var(--lds-mono-xs);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--lds-steel);
+}
+.lds-cogitator .phrase {
+  margin: 0;
+  font-family: var(--lds-display);
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  color: var(--lds-parch);
+}
+.lds-cogitator .phrase .dots { color: var(--lds-gold); }
+.lds-cogitator .scan {
+  width: min(240px, 60%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--lds-gold-dim), transparent);
+}
+@keyframes ldsCogSpin { to { transform: rotate(360deg); } }
+@keyframes ldsCogSeed {
+  0%, 100% { opacity: 0.35; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1); }
 }
 
 /* ── Motion ────────────────────────────────────────────────────────────── */
@@ -922,6 +1006,8 @@
   text-transform: uppercase;
   color: var(--lds-steel-dim);
 }
+/* Initiale + Marginalie: 2026-06-11 vom Maintainer angenommen — keine
+   Vorschläge mehr, sondern reguläre Bausteine (Sektion 04). */
 .lds-initial {
   max-width: 62ch;
   margin: 0;
