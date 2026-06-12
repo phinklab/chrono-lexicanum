@@ -6,7 +6,8 @@
  * the active tab tracks `usePathname`; the counts are loaded server-side in the
  * layout and passed down (the nav itself is db-free). A pending category with no
  * data yet shows "soon" instead of a zero, so the door reads as forthcoming, not
- * empty.
+ * empty. `counts: null` is the layout's Suspense fallback while the counts
+ * stream in — the tabs render without badges rather than with misleading zeros.
  */
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,7 +16,7 @@ import { COMPENDIUM_CATEGORIES } from "@/lib/compendium/categories";
 export default function CompendiumNav({
   counts,
 }: {
-  counts: Record<string, number>;
+  counts: Record<string, number> | null;
 }) {
   const pathname = usePathname();
   const indexActive = pathname === "/compendium";
@@ -32,7 +33,7 @@ export default function CompendiumNav({
       {COMPENDIUM_CATEGORIES.map((c) => {
         const href = `/compendium/${c.slug}`;
         const active = pathname === href;
-        const n = counts[c.slug] ?? 0;
+        const n = counts ? counts[c.slug] ?? 0 : null;
         return (
           <Link
             key={c.slug}
@@ -41,9 +42,11 @@ export default function CompendiumNav({
             aria-current={active ? "page" : undefined}
           >
             <span className="cmp-nav__label">{c.label}</span>
-            <span className="cmp-nav__count" aria-hidden>
-              {c.pending && n === 0 ? "soon" : n}
-            </span>
+            {n != null && (
+              <span className="cmp-nav__count" aria-hidden>
+                {c.pending && n === 0 ? "soon" : n}
+              </span>
+            )}
           </Link>
         );
       })}

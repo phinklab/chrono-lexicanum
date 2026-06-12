@@ -11,6 +11,7 @@
  */
 import { db } from "@/db/client";
 import { eras as erasTable } from "@/db/schema";
+import { memoryCachedRead } from "@/lib/db-cache";
 
 export interface BrowseFacet {
   id: string;
@@ -51,7 +52,27 @@ export interface BrowseData {
   eras: EraOption[];
 }
 
-export async function loadBrowseBooks(): Promise<BrowseData> {
+/**
+ * Browse rows carry a *teaser*, not the full synopsis — the catalogue renders
+ * all ~900 expanded row bodies into one HTML document, and full synopses were
+ * the single biggest driver of its measured 16.45 MB payload (Report 144
+ * § P.2/DB.3). The full text lives one click away on `/buch/[slug]`. Cut at a
+ * word boundary near the cap so the teaser never ends mid-word.
+ */
+const SYNOPSIS_TEASER_MAX = 280;
+
+function synopsisTeaser(raw: string | null): string | null {
+  if (!raw) return null;
+  const s = raw.trim();
+  if (!s) return null;
+  if (s.length <= SYNOPSIS_TEASER_MAX) return s;
+  const cut = s.slice(0, SYNOPSIS_TEASER_MAX);
+  const lastSpace = cut.lastIndexOf(" ");
+  const safe = lastSpace > SYNOPSIS_TEASER_MAX - 80 ? cut.slice(0, lastSpace) : cut;
+  return `${safe.trimEnd()}…`;
+}
+
+async function fetchBrowseBooks(): Promise<BrowseData> {
   try {
     const [rows, erasRows] = await Promise.all([
       db.query.works.findMany({
@@ -136,7 +157,7 @@ export async function loadBrowseBooks(): Promise<BrowseData> {
         id: w.id,
         slug: w.slug,
         title: w.title,
-        synopsis: w.synopsis ?? null,
+        synopsis: synopsisTeaser(w.synopsis),
         coverUrl: w.coverUrl,
         releaseYear: w.releaseYear,
         startY: w.startY == null ? null : Number(w.startY),
@@ -164,6 +185,20 @@ export async function loadBrowseBooks(): Promise<BrowseData> {
     return { books: [], eras: [] };
   }
 }
+
+/**
+ * The public entry point: `fetchBrowseBooks` behind a per-instance memory
+ * cache. The blob is too big for the persistent Data Cache (2.21 MB even with
+ * teaser synopses, vs Next's 2 MB cap — see `src/lib/db-cache.ts`), so this
+ * uses `memoryCachedRead`: one real DB fan-out per instance per TTL window,
+ * and concurrent requests coalesce onto the same in-flight read instead of
+ * each firing their own pool-exhausting query (Report 144 § P.2 measured six
+ * parallel `/archive` requests starving the whole `max:5` pool). An empty
+ * result is the degraded DB-error shape and is never retained.
+ */
+export const loadBrowseBooks = memoryCachedRead(fetchBrowseBooks, {
+  isDegraded: (d) => d.books.length === 0,
+});
 
 /**
  * Resolve a `?focus=<workId>` deep-link target to its book slug, independent of

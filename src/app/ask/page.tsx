@@ -51,7 +51,11 @@ export default async function AskPage({ searchParams }: AskPageProps) {
 
   if (isComplete) {
     try {
-      result = await recommend(answers, { limit: 5, onError: "throw" });
+      // `cacheBooks` keeps the full book load out of the per-answer hot path —
+      // without it every completed questionnaire re-read all ~900 books from
+      // the DB (Report 144 § P.3). The module-level cache is cleared via
+      // `POST /api/revalidate` after ingestion runs.
+      result = await recommend(answers, { limit: 5, onError: "throw", cacheBooks: true });
     } catch (error) {
       recommendationError = recommendationErrorCopy(error);
     }

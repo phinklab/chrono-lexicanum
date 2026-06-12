@@ -17,10 +17,14 @@ import { roman } from "@/lib/roman";
 // (five category builders + the layout counts) is the heaviest aggregate in the
 // app; as an ISR page it ran at build time, competed with ~1100 entity pages
 // for the max-5 pooler pool and blew Vercel's static-generation timeout,
-// aborting deploys. At runtime the cachedRead layer (READ_CACHE_TTL, 300s)
-// makes this fast — one real fill per TTL window, every other request served
-// from the Data Cache. The category pages are dynamic anyway (searchParams)
-// and pull from the same cached loaders.
+// aborting deploys. Re-checked for Report 144 § P.1 and kept: ISR would also
+// cache a degraded (DB-error → empty) render as the page's HTML for a full
+// revalidate window, where force-dynamic limits a bad fill to one request.
+// At runtime the cachedRead layer (READ_CACHE_TTL, now 3600 s — § P.1's actual
+// lever) makes this fast: one real fill per hour, every other request served
+// from the Data Cache, with `loading.tsx` covering the rare cold fill. The
+// category pages are dynamic anyway (searchParams) and pull from the same
+// cached loaders.
 export const dynamic = "force-dynamic";
 
 function countCopy(n: number, noun: string, pending: boolean): string {
