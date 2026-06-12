@@ -220,7 +220,7 @@
   flex-direction: column;
   gap: 10px;
   padding: clamp(20px, 2.4vw, 28px);
-  background: rgba(2, 3, 10, 0.25);
+  background: color-mix(in srgb, var(--cl-void) 25%, transparent);
   text-decoration: none;
   color: inherit;
   transition: background 180ms;

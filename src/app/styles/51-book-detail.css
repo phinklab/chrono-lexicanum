@@ -61,7 +61,7 @@ main.book-detail {
   font-family: var(--font-cinzel), serif;
   font-size: 64px;
   color: var(--cl-faint);
-  background: rgba(2, 3, 10, 0.4);
+  background: color-mix(in srgb, var(--cl-void) 40%, transparent);
 }
 
 .book-detail__title-block {

@@ -77,4 +77,14 @@ main {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+
+  /* Ambient HUD components (ScanLine, FloatingCoord, WordField, LetterField)
+     animate via INLINE styles — the duration clamp above happens to cover them,
+     but only because of its !important; this explicit gate is the contract
+     (Report 141 § B5 / Report 144 Welle 7). They are pure decoration whose
+     base state is invisible or parked off-view, so `none` simply stills them. */
+  .chrono-ambient,
+  .chrono-ambient * {
+    animation: none !important;
+  }
 }

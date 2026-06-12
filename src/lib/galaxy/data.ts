@@ -682,8 +682,11 @@ export const SPIRAL_ARMS: readonly (readonly Polar[])[] = (() => {
 
 // Default snapshot — what each era falls back to when its localStorage slot
 // is empty. Frozen to prevent accidental mutation by display components.
+// `structuredClone` instead of a JSON round-trip: same deep-copy result for
+// this plain data, without the parse/stringify detour and its blind cast
+// (Report 144 § T.4).
 function deepClone<T>(v: T): T {
-  return JSON.parse(JSON.stringify(v)) as T;
+  return structuredClone(v);
 }
 
 export function makeDefaultGalaxyData(): GalaxyData {

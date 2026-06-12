@@ -12,7 +12,7 @@
  * <CompendiumNav>.
  */
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import ScrollScrim from "@/app/buecher/ScrollScrim";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
@@ -36,13 +36,35 @@ const READOUT_LINES = [
   "· COGNITIO LINK STABLE",
 ];
 
-export default async function CompendiumLayout({
+/**
+ * The count-bearing nav as its own async island: the layout itself must not
+ * await `loadCompendiumCounts()` — that await sits ABOVE the page's
+ * `loading.tsx` boundary, so on a cold cache fill (the only slow case) it
+ * blocked the first paint of the entire shell and the loading state never
+ * showed (Report 144 § P.1/P.5). Suspense-wrapped, the hero + tabs paint
+ * immediately (count badges blank) and the counts stream in when the shared
+ * cached builders resolve.
+ *
+ * try/catch (Report 144 § R.6): an uncaught loader error here would bubble out
+ * of the Suspense boundary into the root error boundary and replace the WHOLE
+ * compendium — hero, nav and the child page — with the error page. Counts are
+ * decoration; on failure the nav simply renders without badges.
+ */
+async function NavWithCounts() {
+  let counts: Record<string, number> | null = null;
+  try {
+    counts = await loadCompendiumCounts();
+  } catch {
+    counts = null;
+  }
+  return <CompendiumNav counts={counts} />;
+}
+
+export default function CompendiumLayout({
   children,
 }: {
   children: ReactNode;
 }) {
-  const counts = await loadCompendiumCounts();
-
   return (
     <main className="compendium">
       <SiteBackground variant="scriptorium" position="50% 30%" />
@@ -94,7 +116,9 @@ export default async function CompendiumLayout({
       </header>
 
       <div className="cmp-body">
-        <CompendiumNav counts={counts} />
+        <Suspense fallback={<CompendiumNav counts={null} />}>
+          <NavWithCounts />
+        </Suspense>
         {children}
         <ArchiveFooter mid="INDEX RERVM OMNIVM" />
       </div>

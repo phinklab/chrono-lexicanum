@@ -11,7 +11,7 @@
   --row-accent: var(--cl-gold);
   position: relative;
   border: 0;
-  background: rgba(2, 3, 10, 0.25);
+  background: color-mix(in srgb, var(--cl-void) 25%, transparent);
 }
 
 /* Mono eyebrow shared with the hub cards (reads its accent from the nearest
@@ -76,7 +76,7 @@
   gap: 12px;
   padding: 16px 18px 18px;
   text-align: left;
-  background: rgba(2, 3, 10, 0.25);
+  background: color-mix(in srgb, var(--cl-void) 25%, transparent);
   border: 0;
   color: inherit;
   cursor: pointer;

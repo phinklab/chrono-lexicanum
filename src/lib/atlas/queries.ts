@@ -29,6 +29,7 @@ import {
 } from "@/db/schema";
 import type { BridgeStats } from "./types";
 import { tallyAxisDrift } from "@/lib/aliases";
+import { coerceDate } from "@/lib/dates";
 
 // =============================================================================
 // Bridge — 12 decks, strictly parallel.
@@ -120,6 +121,31 @@ const parsePgTextArray = (value: unknown): string[] => {
   return out;
 };
 
+/**
+ * Shape-check a raw `db.execute()` result before treating it as a row set
+ * (Report 144 § T.1). The raw-SQL paths here are deliberate (`fetch_types:
+ * false` + transaction pooler — see the header), but the old
+ * `as unknown as ReadonlyArray<…>` double-casts asserted the shape blind: on
+ * schema drift or a driver change they would have broken *silently* into the
+ * per-field `toNumber`/`String()` guards. This validates the one structural
+ * assumption (array of plain row objects) at runtime and throws loudly into
+ * each query's existing try/catch → degraded-empty path. Field-level coercion
+ * stays with `toNumber`/`toDate`/`parsePgTextArray` as before.
+ */
+function validateSqlResult(result: unknown): ReadonlyArray<Record<string, unknown>> {
+  if (!Array.isArray(result)) {
+    throw new Error("[atlas/queries] SQL result is not a row array");
+  }
+  const rows: Array<Record<string, unknown>> = [];
+  for (const row of result) {
+    if (typeof row !== "object" || row === null || Array.isArray(row)) {
+      throw new Error("[atlas/queries] SQL result row is not a plain object");
+    }
+    rows.push(row);
+  }
+  return rows;
+}
+
 export async function getBridgeStats(): Promise<BridgeStats> {
   // Single round-trip — pgbouncer transaction-mode + postgres-js chokes
   // hard on 30 parallel COUNTs from the same request (statement_timeout
@@ -127,7 +153,7 @@ export async function getBridgeStats(): Promise<BridgeStats> {
   // Collapsing every deck aggregate into one statement makes each query
   // cost a single sequential scan on a tiny table and keeps the whole
   // call comfortably under the 1.5 s cold-start budget.
-  const rows = (await db.execute(sql`
+  const rows = validateSqlResult(await db.execute(sql`
     SELECT
       (SELECT count(*)::int                  FROM works        WHERE kind = 'book')                          AS werke_count,
       (SELECT count(*)::int                  FROM works        WHERE kind = 'book' AND source_kind = 'ssot') AS werke_ssot,
@@ -160,7 +186,7 @@ export async function getBridgeStats(): Promise<BridgeStats> {
       (SELECT count(*)::int                  FROM work_persons)                                              AS j_wp,
       (SELECT count(*)::int                  FROM work_facets)                                               AS j_wfac,
       (SELECT count(*)::int                  FROM work_collections)                                          AS j_wcol
-  `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+  `));
 
   const r = rows[0] ?? {};
   const num = (k: string): number => toNumber(r[k]);
@@ -447,10 +473,7 @@ export async function getWerkeRows(): Promise<WerkeRow[]> {
           isSsot: w.sourceKind === "ssot",
           isInMultipleCollections: containedIn.length >= 2,
           isEnriched: typeof w.synopsis === "string" && w.synopsis.trim().length > 0,
-          updatedAt:
-            w.updatedAt instanceof Date
-              ? w.updatedAt
-              : new Date(w.updatedAt as unknown as string),
+          updatedAt: coerceDate(w.updatedAt),
         };
       })
       .sort((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime());
@@ -479,7 +502,7 @@ export interface FraktionRow {
 
 export async function getFraktionenRows(): Promise<FraktionRow[]> {
   try {
-    const rows = (await db.execute(sql`
+    const rows = validateSqlResult(await db.execute(sql`
       SELECT
         f.id,
         f.name,
@@ -499,7 +522,7 @@ export async function getFraktionenRows(): Promise<FraktionRow[]> {
         WHERE primary_faction_id IS NOT NULL
         GROUP BY primary_faction_id
       ) c ON c.primary_faction_id = f.id
-    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+    `));
 
     return rows
       .map((r): FraktionRow => ({
@@ -532,7 +555,7 @@ export interface WeltenRow {
 
 export async function getWeltenRows(): Promise<WeltenRow[]> {
   try {
-    const rows = (await db.execute(sql`
+    const rows = validateSqlResult(await db.execute(sql`
       SELECT
         l.id,
         l.name,
@@ -550,7 +573,7 @@ export async function getWeltenRows(): Promise<WeltenRow[]> {
         FROM work_locations
         GROUP BY location_id
       ) wl ON wl.location_id = l.id
-    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+    `));
 
     return rows
       .map((r): WeltenRow => ({
@@ -583,7 +606,7 @@ export interface CharaktereRow {
 
 export async function getCharaktereRows(): Promise<CharaktereRow[]> {
   try {
-    const rows = (await db.execute(sql`
+    const rows = validateSqlResult(await db.execute(sql`
       SELECT
         c.id,
         c.name,
@@ -598,7 +621,7 @@ export async function getCharaktereRows(): Promise<CharaktereRow[]> {
         FROM work_characters
         GROUP BY character_id
       ) wc ON wc.character_id = c.id
-    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+    `));
 
     return rows
       .map((r): CharaktereRow => ({
@@ -640,7 +663,7 @@ export interface SektorenRow {
 
 export async function getSektorenRows(): Promise<SektorenRow[]> {
   try {
-    const rows = (await db.execute(sql`
+    const rows = validateSqlResult(await db.execute(sql`
       SELECT
         s.id,
         s.name,
@@ -662,7 +685,7 @@ export async function getSektorenRows(): Promise<SektorenRow[]> {
         WHERE sector_id IS NOT NULL
         GROUP BY sector_id
       ) l ON l.sector_id = s.id
-    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+    `));
 
     return rows
       .map((r): SektorenRow => ({
@@ -693,7 +716,7 @@ export interface AereRow {
 
 export async function getAerenRows(): Promise<AereRow[]> {
   try {
-    const rows = (await db.execute(sql`
+    const rows = validateSqlResult(await db.execute(sql`
       SELECT
         e.id,
         e.name,
@@ -708,7 +731,7 @@ export async function getAerenRows(): Promise<AereRow[]> {
         WHERE primary_era_id IS NOT NULL
         GROUP BY primary_era_id
       ) bd ON bd.primary_era_id = e.id
-    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+    `));
 
     return rows
       .map((r): AereRow => ({
@@ -736,7 +759,7 @@ export interface SerieRow {
 
 export async function getSerienRows(): Promise<SerieRow[]> {
   try {
-    const rows = (await db.execute(sql`
+    const rows = validateSqlResult(await db.execute(sql`
       SELECT
         s.id,
         s.name,
@@ -749,7 +772,7 @@ export async function getSerienRows(): Promise<SerieRow[]> {
         WHERE series_id IS NOT NULL
         GROUP BY series_id
       ) bd ON bd.series_id = s.id
-    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+    `));
 
     return rows
       .map((r): SerieRow => ({
@@ -777,7 +800,7 @@ export interface PersonenRow {
 
 export async function getPersonenRows(): Promise<PersonenRow[]> {
   try {
-    const rows = (await db.execute(sql`
+    const rows = validateSqlResult(await db.execute(sql`
       SELECT
         p.id,
         p.name,
@@ -795,7 +818,7 @@ export async function getPersonenRows(): Promise<PersonenRow[]> {
         FROM work_persons
         GROUP BY person_id
       ) wp ON wp.person_id = p.id
-    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+    `));
 
     return rows
       .map((r): PersonenRow => {
@@ -867,7 +890,7 @@ const PAYLOAD_PREVIEW_LEN = 96;
 
 export async function getSubmissionsRows(): Promise<SubmissionRow[]> {
   try {
-    const rows = (await db.execute(sql`
+    const rows = validateSqlResult(await db.execute(sql`
       SELECT
         id,
         entity_type,
@@ -881,7 +904,7 @@ export async function getSubmissionsRows(): Promise<SubmissionRow[]> {
         reviewed_at
       FROM submissions
       ORDER BY created_at DESC
-    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+    `));
 
     return rows.map((r): SubmissionRow => {
       const head = r["payload_head"] == null ? "" : String(r["payload_head"]);
@@ -926,7 +949,7 @@ export interface FacetRow {
 
 export async function getFacetsRows(): Promise<FacetRow[]> {
   try {
-    const rows = (await db.execute(sql`
+    const rows = validateSqlResult(await db.execute(sql`
       SELECT
         fc.id,
         fc.name,
@@ -947,7 +970,7 @@ export async function getFacetsRows(): Promise<FacetRow[]> {
         JOIN facet_values fv2 ON fv2.id = wf2.facet_value_id
         GROUP BY fv2.category_id
       ) wf ON wf.category_id = fc.id
-    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+    `));
 
     return rows
       .map((r): FacetRow => ({
@@ -984,7 +1007,7 @@ export interface ServiceRow {
 
 export async function getServicesRows(): Promise<ServiceRow[]> {
   try {
-    const rows = (await db.execute(sql`
+    const rows = validateSqlResult(await db.execute(sql`
       SELECT
         s.id,
         s.name,
@@ -1002,7 +1025,7 @@ export async function getServicesRows(): Promise<ServiceRow[]> {
         FROM external_links
         GROUP BY service_id
       ) el ON el.service_id = s.id
-    `)) as unknown as ReadonlyArray<Record<string, unknown>>;
+    `));
 
     return rows
       .map((r): ServiceRow => ({

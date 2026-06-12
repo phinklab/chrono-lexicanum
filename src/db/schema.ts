@@ -287,6 +287,11 @@ export const works = pgTable(
     canonicityIdx: index("works_canonicity_idx").on(t.canonicity),
     releaseYearIdx: index("works_release_year_idx").on(t.releaseYear),
     slugIdx: index("works_slug_idx").on(t.slug),
+    // Reverse-Lookup "welche Werke verankern auf Event X" (Timeline-Chips)
+    // lief sonst auf Seq-Scan (Report 144 § DB.1).
+    settingAnchorEventIdx: index("works_setting_anchor_event_idx").on(
+      t.settingAnchorEventId,
+    ),
   }),
 );
 
@@ -806,6 +811,9 @@ export const eventWorks = pgTable(
       "event_works_exactly_one_target",
       sql`(work_id IS NULL) <> (series_id IS NULL)`,
     ),
+    // Reverse-Lookup "welche event_works für work_id=X": der Unique-Index
+    // führt mit event_id und trägt diese Richtung nicht (Report 144 § DB.2).
+    workIdx: index("event_works_work_idx").on(t.workId),
   }),
 );
 

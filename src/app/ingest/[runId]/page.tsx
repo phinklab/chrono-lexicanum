@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { getIsAdmin } from "@/lib/atlas/auth";
 import {
   listValidRunIds,
   loadDiffById,
@@ -36,10 +37,16 @@ export async function generateMetadata(
   const { runId } = await params;
   return {
     title: `Run ${runId} — Ingestion runs — Chrono Lexicanum`,
+    robots: { index: false, follow: false },
   };
 }
 
 export default async function IngestRunPage({ params }: DetailParams) {
+  // Admin-only (Report 144 § S.3) — see /ingest. The headers() read inside
+  // getIsAdmin() opts this route out of the generateStaticParams prerender
+  // into request rendering, which the per-request gate requires.
+  if (!(await getIsAdmin())) notFound();
+
   const { runId } = await params;
   const diff = await loadDiffById(runId);
   if (!diff) notFound();

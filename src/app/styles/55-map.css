@@ -62,6 +62,16 @@
   opacity: 0;
 }
 
+/* Reduced motion (Report 141 § B5): the holo flicker is pure ambience on a
+   mix-blend-mode overlay — without its keyframe it must stay dark, exactly
+   like the data-anims="off" state above. */
+@media (prefers-reduced-motion: reduce) {
+  .map-route .map-holo-flicker {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 /* Lightweight atmospheric overlay for the dive transition. Pulses in/out over
    the dive duration (700 ms), peaking between 35–65 % of the animation —
    exactly the window where the CSS-transform tween is at its highest motion.

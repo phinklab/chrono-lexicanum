@@ -39,16 +39,16 @@ main.entity::before {
   background:
     linear-gradient(
       90deg,
-      rgba(2, 3, 10, 0.66) 0%,
-      rgba(2, 3, 10, 0.32) 46%,
-      rgba(2, 3, 10, 0) 76%
+      color-mix(in srgb, var(--cl-void) 66%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 32%, transparent) 46%,
+      color-mix(in srgb, var(--cl-void) 0%, transparent) 76%
     ),
     linear-gradient(
       180deg,
-      rgba(2, 3, 10, 0.92) 0%,
-      rgba(2, 3, 10, 0.64) 32%,
-      rgba(2, 3, 10, 0.42) 62%,
-      rgba(2, 3, 10, 0.56) 100%
+      color-mix(in srgb, var(--cl-void) 92%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 64%, transparent) 32%,
+      color-mix(in srgb, var(--cl-void) 42%, transparent) 62%,
+      color-mix(in srgb, var(--cl-void) 56%, transparent) 100%
     );
 }
 
@@ -412,7 +412,7 @@ main.entity::before {
   gap: 6px;
   min-width: 0;
   padding: 13px 15px;
-  background: rgba(2, 3, 10, 0.25);
+  background: color-mix(in srgb, var(--cl-void) 25%, transparent);
   text-decoration: none;
 }
 .entity-view__card::after {

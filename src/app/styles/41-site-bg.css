@@ -24,7 +24,7 @@
   background: radial-gradient(
     ellipse at 50% 38%,
     transparent 30%,
-    rgba(2, 3, 10, 0.55) 95%
+    color-mix(in srgb, var(--cl-void) 55%, transparent) 95%
   );
 }
 .site-bg__grain {

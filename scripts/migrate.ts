@@ -1,9 +1,9 @@
 /**
  * Programmatic Drizzle migrator.
  *
- * Two callers:
+ * Two callers (decoupled from the Vercel build — Report 144 § B.1):
  *   - `npm run db:migrate` locally (tsx --env-file=.env.local)
- *   - `vercel-build` on Vercel (DATABASE_URL injected by the platform)
+ *   - the manual `migrate` GitHub Actions workflow (DATABASE_URL from secrets)
  *
  * Mirrors the runtime client (src/db/client.ts) for connection options:
  * Supabase pooler => ssl required, prepare:false. We use max:1 because this

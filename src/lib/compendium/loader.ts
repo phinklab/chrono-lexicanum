@@ -13,6 +13,7 @@
  * the shared builder calls (and the shared `getCharaktereRows` behind Characters
  * + Primarchs) to one DB fan-out per request.
  */
+import "server-only";
 import { cache } from "react";
 import { cachedRead } from "@/lib/db-cache";
 import {
@@ -150,45 +151,51 @@ export const loadPrimarchItems = cache(async (): Promise<CompendiumItem[]> => {
   if (ids.length === 0) return []; // Roster not curated yet → graceful pending.
   const rows = await cachedCharaktere();
   const byId = new Map(rows.map((c) => [c.id, c]));
-  const items: CompendiumItem[] = [];
-  for (const id of ids) {
-    const c = byId.get(id);
-    if (!c) {
-      // A curated id that no longer resolves is a data error, not a silent drop.
-      console.error(
-        `[/compendium/primarchen] curated primarch id "${id}" not found in characters — dropping.`,
-      );
-      continue;
-    }
-    const merge = PRIMARCH_MERGES[id];
-    let name = c.name;
-    let workCount = c.workCount;
-    if (merge) {
-      name = merge.name;
-      // Honest union count = exactly the works the merged detail page lists
-      // (deduped across the twins). Reuse the cached entity loader so the card's
-      // "N appearances" can never drift from the page it links to. On a failed
-      // read the cheap aggregate (canonical twin only) is the graceful fallback.
-      const view = await loadEntity("character", id);
-      if (view) {
-        workCount = view.worksByKind.reduce((n, g) => n + g.works.length, 0);
+  // Resolved in PARALLEL (Report 144 § DB.4): the old sequential for-loop made
+  // the builder's latency scale linearly with the number of merged entries'
+  // `loadEntity` fan-outs. Today only one id is merged, but the shape must not
+  // become a serial query cascade as merges grow. `Promise.all` keeps order;
+  // each entity fan-out is ≤4 queries, deduped per request via `cache()`.
+  const items = await Promise.all(
+    ids.map(async (id): Promise<CompendiumItem | null> => {
+      const c = byId.get(id);
+      if (!c) {
+        // A curated id that no longer resolves is a data error, not a silent drop.
+        console.error(
+          `[/compendium/primarchen] curated primarch id "${id}" not found in characters — dropping.`,
+        );
+        return null;
       }
-    }
-    items.push({
-      id: c.id,
-      name,
-      href: `/charakter/${c.id}`,
-      kicker: c.primaryFactionName,
-      meta: workCount > 0 ? plural(workCount, "appearance") : null,
-      dotColor: c.primaryFactionName ? factionDot(c.primaryFactionName) : null,
-      glyph: null,
-      facet: null,
-      groupKey: null,
-      groupLabel: null,
-      weight: workCount,
-    });
-  }
-  return items;
+      const merge = PRIMARCH_MERGES[id];
+      let name = c.name;
+      let workCount = c.workCount;
+      if (merge) {
+        name = merge.name;
+        // Honest union count = exactly the works the merged detail page lists
+        // (deduped across the twins). Reuse the cached entity loader so the card's
+        // "N appearances" can never drift from the page it links to. On a failed
+        // read the cheap aggregate (canonical twin only) is the graceful fallback.
+        const view = await loadEntity("character", id);
+        if (view) {
+          workCount = view.worksByKind.reduce((n, g) => n + g.works.length, 0);
+        }
+      }
+      return {
+        id: c.id,
+        name,
+        href: `/charakter/${c.id}`,
+        kicker: c.primaryFactionName,
+        meta: workCount > 0 ? plural(workCount, "appearance") : null,
+        dotColor: c.primaryFactionName ? factionDot(c.primaryFactionName) : null,
+        glyph: null,
+        facet: null,
+        groupKey: null,
+        groupLabel: null,
+        weight: workCount,
+      };
+    }),
+  );
+  return items.filter((it): it is CompendiumItem => it !== null);
 });
 
 /**

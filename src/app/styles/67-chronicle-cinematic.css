@@ -21,6 +21,11 @@
      under the dossier's pointer-events:none umbrella. */
 
 .chron {
+  /* DELIBERATE local palette (Report 144 § C.2): these are the prototype's
+     own values from the Brief-138 design export and differ from the global
+     tokens (e.g. --void #04060b vs --cl-void #02030a, --gold #c9b896 vs the
+     site gold). The cinematic stage is a scoped port — do NOT "fix" these to
+     the global tokens; that would be a design change, not a dedup. */
   --void: #04060b;
   --void-2: #070b13;
   --parchment: #e9dfc8;
@@ -29,7 +34,11 @@
   --gold-dim: rgba(201, 184, 150, 0.35);
   --gold-line: rgba(201, 184, 150, 0.22);
   --steel: #7d8799;
-  --steel-dim: #566070;
+  /* Lightened from the prototype's #566070 (~3.1:1 on void, under WCAG AA
+     4.5:1) — the one deliberate deviation from the Brief-138 port, because
+     steel-dim carries REAL text (entry counts, approx dates, art credits),
+     not ornament (Report 141 § B5 / Report 144 Welle 7). */
+  --steel-dim: #758ba3;
   --ov: 0.95;             /* overlay darkness — fixed */
   --rail-x: 72%;          /* rail anchor from right — rail sits left of the text */
   --rail-anchor-y: 62%;   /* where the current node sits */
@@ -1312,7 +1321,9 @@
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 11px;
   letter-spacing: 0.34em;
-  color: #566070;
+  /* lightened with --steel-dim (WCAG AA, Report 141 § B5); literal because
+     .chron-empty renders OUTSIDE the .chron scope that defines the token */
+  color: #758ba3;
   margin-bottom: 18px;
 }
 .chron-empty .ce-text {
@@ -1521,4 +1532,19 @@
   .chron .t-tagline { margin-bottom: 18px; }
   .chron .ei-rule { height: 32px; margin: 16px 0 14px 0; }
   .chron .ei-name { font-size: clamp(30px, 6vh, 44px); }
+}
+
+/* ====================== reduced motion (Report 141 § B5) ===================
+   The stage's three infinite ambience animations get an explicit gate instead
+   of relying on the global 0.001ms clamp (10-base.css): the Ken Burns pan
+   holds its resting frame, the scroll hint stops bobbing (stays readable),
+   and the caret stands steady at its base opacity. Entrance/transition
+   animations stay with the global clamp — they complete instantly, which
+   keeps their fill states intact. */
+@media (prefers-reduced-motion: reduce) {
+  .chron .bg.kb,
+  .chron .scroll-hint,
+  .chron .caret {
+    animation: none;
+  }
 }

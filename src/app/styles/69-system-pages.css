@@ -1,0 +1,76 @@
+/* 69-system-pages.css
+   Root system boundaries (Report 144 § R.4/R.5): the global 404 catch-all
+   (`app/not-found.tsx`) and the root error boundary (`app/error.tsx`). Same
+   vocabulary as 65-loading.css — flat void surface, gold hairline, Cinzel +
+   Plex Mono, deliberately WITHOUT glow halos or warm gradients (house
+   aesthetic). `app/global-error.tsx` can NOT use these classes: it replaces
+   the root layout, so globals.css never loads there — it carries its own
+   inline styles instead. */
+
+.syspage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 96px 24px 120px;
+  background: var(--cl-void);
+  text-align: center;
+}
+
+.syspage__eyebrow {
+  margin: 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--cl-dim);
+}
+
+.syspage__heading {
+  margin: 14px 0 0;
+  max-width: 920px;
+  font-family: var(--font-cinzel), serif;
+  font-weight: 400;
+  font-size: clamp(26px, 5vw, 44px);
+  letter-spacing: 0.08em;
+  color: var(--cl-bone);
+}
+
+.syspage__rule {
+  width: min(300px, 52vw);
+  height: 1px;
+  margin: 20px auto 0;
+  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  opacity: 0.85;
+}
+
+.syspage__sub {
+  max-width: 560px;
+  margin: 16px auto 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read);
+  font-weight: var(--fw-read);
+  line-height: var(--lh-read);
+  color: var(--cl-dim);
+}
+
+/* Error digest reference — mono, ghosted; only rendered when Next attaches one. */
+.syspage__digest {
+  margin: 18px 0 0;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.22em;
+  color: var(--cl-dim);
+  opacity: 0.7;
+}
+
+.syspage__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 34px;
+}

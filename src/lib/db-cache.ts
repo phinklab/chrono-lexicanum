@@ -24,16 +24,36 @@
  * It is deprecated-in-name but fully supported while `cacheComponents` is off
  * (Next 16.2).
  */
+import "server-only";
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
 
 /**
- * Default TTL for cached catalogue reads, in seconds. Stale-by-a-few-minutes is
- * fine — the data only changes on ingestion. Five minutes is frequent enough to
- * feel live, rare enough to reduce the DB to ~one read per window per cache key.
- * Bump in one place if the catalogue ever needs to feel fresher.
+ * Default TTL for cached catalogue reads, in seconds. Stale-by-up-to-an-hour is
+ * fine — the data only changes when an ingestion/apply run lands (roughly
+ * weekly). The original 300 s meant a heavy cold refill every five minutes; the
+ * /compendium fill was measured at 60–120 s and wedged the whole `max:5` pool
+ * while it ran (Report 144 § P.1), so the refill must be rare, not frequent.
+ * Freshness after an apply run comes from on-demand invalidation
+ * (`POST /api/revalidate` → `revalidateTag`), not from a short TTL.
  */
-export const READ_CACHE_TTL = 300;
+export const READ_CACHE_TTL = 3600;
+
+/**
+ * Canonical registry of catalogue cache tags. Every `cachedRead` call site
+ * draws its tags from this set so `POST /api/revalidate` can blow the whole
+ * catalogue cache after an ingestion/apply run without the two lists drifting.
+ * Add here first when introducing a new tag.
+ */
+export const CATALOGUE_TAGS = [
+  "compendium",
+  "factions",
+  "characters",
+  "worlds",
+  "authors",
+  "archive",
+  "books",
+] as const;
 
 interface CachedReadOptions<T> {
   /** Cache tags for on-demand invalidation (e.g. from the ingestion pipeline). */
@@ -64,9 +84,9 @@ interface CachedReadOptions<T> {
  * It MUST also stay under Next's hard **2 MB per-cache-entry limit**. Over that,
  * `unstable_cache` refuses to store it and the set-failure surfaces as an
  * uncatchable background unhandledRejection (the set is fire-and-forget after
- * the value returns) — so only cache compact, list-shaped reads. This is why the
- * fat `/werke` book loader (full synopses + every relation ≈ 2.8 MB) is NOT
- * routed through here; cache lean row-projections, not heavy detail payloads.
+ * the value returns) — so only cache compact, list-shaped reads. Payloads that
+ * cannot fit (the `/archive` browse blob measured 2.21 MB even with truncated
+ * synopses) go through {@link memoryCachedRead} below instead.
  */
 export function cachedRead<T>(
   fn: () => Promise<T>,
@@ -97,4 +117,63 @@ export function cachedRead<T>(
       return fn();
     }
   });
+}
+
+/** Reset hooks for every {@link memoryCachedRead} instance (best-effort,
+ *  current process only) — called by `POST /api/revalidate` alongside
+ *  `revalidateTag` so an apply run can also nudge the in-memory layer. */
+const memoryCacheResets: Array<() => void> = [];
+
+export function resetMemoryCaches(): void {
+  for (const reset of memoryCacheResets) reset();
+}
+
+/**
+ * In-memory, per-instance sibling of {@link cachedRead} for read-mostly
+ * payloads that exceed Next's 2 MB per-cache-entry limit and therefore cannot
+ * use the persistent Data Cache (the `/archive` browse blob: 2.60 MB full,
+ * 2.21 MB with truncated synopses — measured 2026-06-12, 889 books).
+ *
+ * The cache holds the *promise*, so concurrent callers coalesce onto one
+ * in-flight read — the anti-stampede property that stops N parallel `/archive`
+ * requests from firing N pool-exhausting queries (Report 144 § P.2). Scope is
+ * one server process: each serverless instance fills once per TTL window,
+ * which trades the cross-instance sharing of `cachedRead` for freedom from the
+ * size cap. A degraded or thrown fill is dropped immediately so the next
+ * request retries instead of pinning a bad value for the whole TTL.
+ */
+export function memoryCachedRead<T>(
+  fn: () => Promise<T>,
+  options: { ttlSeconds?: number; isDegraded?: (value: T) => boolean } = {},
+): () => Promise<T> {
+  const { ttlSeconds = READ_CACHE_TTL, isDegraded } = options;
+  let cached: Promise<T> | null = null;
+  let expiresAt = 0;
+  let fillSeq = 0;
+  memoryCacheResets.push(() => {
+    cached = null;
+  });
+
+  return async (): Promise<T> => {
+    if (cached && expiresAt > Date.now()) return cached;
+    // Sequence number guards the late-resolution paths: a degraded/failed fill
+    // only clears the slot if no newer fill has replaced it in the meantime.
+    const seq = ++fillSeq;
+    const value = (async () => {
+      try {
+        const v = await fn();
+        // A degraded (empty-on-error) fill serves this round of callers but is
+        // not retained — the next request retries instead of pinning a bad
+        // value for the whole TTL.
+        if (isDegraded?.(v) && seq === fillSeq) cached = null;
+        return v;
+      } catch (err) {
+        if (seq === fillSeq) cached = null;
+        throw err;
+      }
+    })();
+    cached = value;
+    expiresAt = Date.now() + ttlSeconds * 1000;
+    return value;
+  };
 }

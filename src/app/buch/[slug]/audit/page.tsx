@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { asc, eq } from "drizzle-orm";
+import { getIsAdmin } from "@/lib/atlas/auth";
 import { db } from "@/db/client";
 import {
   bookDetails as bookDetailsTable,
@@ -283,6 +284,13 @@ function EmptyRow({ label }: { label?: string }) {
 }
 
 export default async function BookAuditPage({ params }: { params: Promise<Params> }) {
+  // Admin-only (Report 144 § S.3): provenance internals (source_kind,
+  // confidence, raw names, drift markers). Read-only — the page has no
+  // server action and no write path (§ S.4, verified) — but it is internal
+  // tooling, not public surface. The proxy 401s it in prod; this gate is
+  // the defense-in-depth layer.
+  if (!(await getIsAdmin())) notFound();
+
   const { slug } = await params;
   const audit = await loadAuditWork(slug);
   if (!audit) notFound();

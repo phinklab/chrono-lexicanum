@@ -23,7 +23,7 @@
   display: inline-flex;
   align-items: center;
   border: 1px solid var(--cl-faint);
-  background: rgba(2, 3, 10, 0.4);
+  background: color-mix(in srgb, var(--cl-void) 40%, transparent);
 }
 .browse-search__input {
   background: transparent;
@@ -225,7 +225,7 @@
   align-items: center;
   gap: 8px;
   appearance: none;
-  background: rgba(2, 3, 10, 0.4);
+  background: color-mix(in srgb, var(--cl-void) 40%, transparent);
   border: 1px solid var(--cl-faint);
   color: var(--cl-bone);
   font-family: var(--font-plex-mono), ui-monospace, monospace;

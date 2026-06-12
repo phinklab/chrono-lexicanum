@@ -9,7 +9,9 @@ type ProcessingPanelProps = {
    positive reference (65-loading.css), framed by two Terminus lines. */
 export default function ProcessingPanel({ title, detail }: ProcessingPanelProps) {
   return (
-    <section className="ask-processing c-fade-in" role="status">
+    // aria-busy tells AT the region's content is still settling (Report 141
+    // § B5); role="status" alone only announces, it doesn't flag in-progress.
+    <section className="ask-processing c-fade-in" role="status" aria-busy="true">
       <div className="lx-rule" aria-hidden />
       <div className="lx-cog">
         <div className="lx-cog__core" aria-hidden>

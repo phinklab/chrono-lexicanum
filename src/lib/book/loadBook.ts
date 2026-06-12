@@ -9,8 +9,10 @@
  * export dedupe to a single fan-out) with try/catch → null so one flaky row
  * degrades to a 404 instead of failing `next build`.
  */
+import "server-only";
 import { cache } from "react";
 import { asc, eq } from "drizzle-orm";
+import { cachedRead } from "@/lib/db-cache";
 import { db } from "@/db/client";
 import {
   bookDetails as bookDetailsTable,
@@ -149,10 +151,20 @@ async function loadBookBySlug(slug: string) {
 /**
  * Load one book's full detail payload by slug, or null if missing/unloadable.
  * `cache()`-memoised per request; shared by the canonical page + the modal.
+ *
+ * The per-slug `cachedRead` layer (Report 144 § P.4) serves repeat visits from
+ * Next's persistent Data Cache instead of re-running the 8-query fan-out on
+ * every request — under load the uncached route degraded from 0.21 s to a 90 s
+ * timeout. One book's payload is a few KB, far under the 2 MB cache cap. A
+ * missing slug caches as `null` (a stable 404 is a legitimate result); a DB
+ * error is never cached and degrades to `null` for that one request. The
+ * `books` tag is invalidated by `POST /api/revalidate` after ingestion.
  */
 export const loadBook = cache(async (slug: string) => {
   try {
-    return await loadBookBySlug(slug);
+    return await cachedRead(() => loadBookBySlug(slug), ["book", slug], {
+      tags: ["books"],
+    })();
   } catch {
     return null;
   }

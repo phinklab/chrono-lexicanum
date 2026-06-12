@@ -1,7 +1,12 @@
 name: ci
 
+# Runs on every PR and on every push to main: doc-only commits land directly
+# on main per the PR policy (CLAUDE.md § Git) and previously skipped CI
+# entirely (Report 144 § B.2) — lint/typecheck/brain:lint now cover that path.
 on:
   pull_request:
+  push:
+    branches: [main]
 
 concurrency:
   group: ci-${{ github.ref }}
