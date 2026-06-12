@@ -22,6 +22,7 @@
  * stuffs the resolved `href`/`showTitle` onto the `WorkRef` — the view stays
  * dumb (it just renders `href` or an inert card).
  */
+import "server-only";
 import { cache } from "react";
 import { and, asc, eq, inArray, ne } from "drizzle-orm";
 import { alias } from "drizzle-orm/pg-core";

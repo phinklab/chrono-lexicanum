@@ -28,6 +28,7 @@
  *     row renders a "View ↗" out-link instead of "Listen ↗" + inline player.
  * "Listen in your app" stays served by the show-level `platformLinks`.
  */
+import "server-only";
 import { cache } from "react";
 import { db } from "@/db/client";
 import { eq, inArray } from "drizzle-orm";

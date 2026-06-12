@@ -13,6 +13,7 @@
  * the shared builder calls (and the shared `getCharaktereRows` behind Characters
  * + Primarchs) to one DB fan-out per request.
  */
+import "server-only";
 import { cache } from "react";
 import { cachedRead } from "@/lib/db-cache";
 import {

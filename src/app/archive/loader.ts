@@ -9,6 +9,7 @@
  * time degrades to an empty hall instead of failing `next build` (the
  * `/buecher` + atlas pattern).
  */
+import "server-only";
 import { db } from "@/db/client";
 import { eras as erasTable } from "@/db/schema";
 import { memoryCachedRead } from "@/lib/db-cache";

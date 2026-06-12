@@ -9,6 +9,7 @@
  * self-parent edge. Wrapped try/catch → empty so an unreachable DB at build
  * time degrades to an empty hall instead of failing `next build`.
  */
+import "server-only";
 import { count, eq, isNotNull } from "drizzle-orm";
 import { db } from "@/db/client";
 import {

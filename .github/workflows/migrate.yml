@@ -1,0 +1,37 @@
+# Manual production-DB migration (Report 144 § B.1).
+#
+# Migrations are deliberately DECOUPLED from the Vercel build: `vercel-build`
+# used to run `tsx scripts/migrate.ts && next build`, which migrated the prod
+# DB on every deploy — including rollbacks and doc-only redeploys — and a
+# failing migration aborted the deploy with the DB possibly mid-state. Build
+# reproducibility and DB migration are different risk classes, so applying a
+# migration is now an explicit act: trigger this workflow from the Actions tab
+# (or run `npm run db:migrate` locally against .env.local).
+#
+# Requires the `DATABASE_URL` repository secret — use the Supabase *pooler*
+# URL (the direct connection is IPv6-only, which GitHub-hosted runners lack).
+name: migrate
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: migrate-prod
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx tsx scripts/migrate.ts
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}

@@ -9,6 +9,7 @@
  * export dedupe to a single fan-out) with try/catch → null so one flaky row
  * degrades to a 404 instead of failing `next build`.
  */
+import "server-only";
 import { cache } from "react";
 import { asc, eq } from "drizzle-orm";
 import { cachedRead } from "@/lib/db-cache";

@@ -44,9 +44,19 @@ const READOUT_LINES = [
  * showed (Report 144 § P.1/P.5). Suspense-wrapped, the hero + tabs paint
  * immediately (count badges blank) and the counts stream in when the shared
  * cached builders resolve.
+ *
+ * try/catch (Report 144 § R.6): an uncaught loader error here would bubble out
+ * of the Suspense boundary into the root error boundary and replace the WHOLE
+ * compendium — hero, nav and the child page — with the error page. Counts are
+ * decoration; on failure the nav simply renders without badges.
  */
 async function NavWithCounts() {
-  const counts = await loadCompendiumCounts();
+  let counts: Record<string, number> | null = null;
+  try {
+    counts = await loadCompendiumCounts();
+  } catch {
+    counts = null;
+  }
   return <CompendiumNav counts={counts} />;
 }
 

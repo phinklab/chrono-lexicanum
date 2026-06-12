@@ -24,6 +24,7 @@
  * It is deprecated-in-name but fully supported while `cacheComponents` is off
  * (Next 16.2).
  */
+import "server-only";
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
 
