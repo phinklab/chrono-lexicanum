@@ -43,6 +43,40 @@
   border: none;
   cursor: pointer;
 }
+/* top scrim — small dark gradient behind the burger so it stays legible over
+   scrolled content. Off at rest; SiteMenu toggles `.is-scrolled` once the page
+   (or a route's inner scroller) has scrolled. Translucent void falling in from
+   the viewport edge, masked out to the sides — a band, not a box. */
+.site-burger::before {
+  content: "";
+  position: absolute;
+  top: -16px; /* back up to the viewport edge (burger sits at top: 16px) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 72px;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--cl-void) 58%, transparent) 0%,
+    color-mix(in srgb, var(--cl-void) 28%, transparent) 45%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 22%,
+    #000 78%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.site-burger.is-scrolled::before {
+  opacity: 1;
+}
+
 .site-burger__icon {
   display: flex;
   flex-direction: column;
@@ -66,7 +100,7 @@
 }
 .site-burger__label {
   font-family: var(--sm-mono);
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.32em;
   color: var(--cl-dim);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
@@ -273,4 +307,5 @@
     transform: none;
   }
   .site-burger__label { display: none; }
+  .site-burger::before { display: none; } /* mobile burger stays untouched */
 }

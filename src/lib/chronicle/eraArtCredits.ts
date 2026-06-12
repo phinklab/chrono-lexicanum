@@ -20,4 +20,8 @@ export const ERA_ART_CREDITS: Record<string, EraArtCredit> = {
       { label: "INSTAGRAM", url: "https://www.instagram.com/richard_bagnall_art/" },
     ],
   },
+  the_waning: {
+    name: "Javelin05",
+    links: [{ label: "REDDIT", url: "https://www.reddit.com/user/Javelin05/" }],
+  },
 };
