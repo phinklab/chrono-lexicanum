@@ -113,6 +113,17 @@ const PERSON_ROLE_ORDER = [
 /** Cap on multi-item cross-link groups (key characters / sibling worlds). */
 const CROSSLINK_CAP = 40;
 
+/**
+ * Growth guard on the reverse-junction work queries (Report 144 § DB.5): an
+ * entity with N work links must not pull an unbounded row set. Far above every
+ * current maximum (the busiest entity carries well under 200 links), so the
+ * cap never binds today — it exists so 5× data growth degrades to a truncated
+ * list instead of a pool-exhausting query. Brief-109 contract update: all
+ * sibling/child/junction queries in this loader are capped (`CROSSLINK_CAP`
+ * for cross-link groups, this for work lists).
+ */
+const WORK_LIST_CAP = 500;
+
 type RelatedWorkRow = {
   id: string;
   slug: string;
@@ -253,7 +264,8 @@ async function loadCharacter(id: string): Promise<EntityView | null> {
         characterIds.length === 1
           ? eq(workCharactersTable.characterId, id)
           : inArray(workCharactersTable.characterId, characterIds),
-      ),
+      )
+      .limit(WORK_LIST_CAP),
   ]);
 
   const row = headRows[0];
@@ -315,12 +327,14 @@ async function loadFaction(id: string): Promise<EntityView | null> {
       })
       .from(workFactionsTable)
       .innerJoin(worksTable, eq(worksTable.id, workFactionsTable.workId))
-      .where(eq(workFactionsTable.factionId, id)),
+      .where(eq(workFactionsTable.factionId, id))
+      .limit(WORK_LIST_CAP),
     db
       .select({ id: factionsTable.id, name: factionsTable.name })
       .from(factionsTable)
       .where(eq(factionsTable.parentId, id))
-      .orderBy(asc(factionsTable.name)),
+      .orderBy(asc(factionsTable.name))
+      .limit(CROSSLINK_CAP),
     db
       .select({ id: charactersTable.id, name: charactersTable.name })
       .from(charactersTable)
@@ -407,7 +421,8 @@ async function loadLocation(id: string): Promise<EntityView | null> {
       })
       .from(workLocationsTable)
       .innerJoin(worksTable, eq(worksTable.id, workLocationsTable.workId))
-      .where(eq(workLocationsTable.locationId, id)),
+      .where(eq(workLocationsTable.locationId, id))
+      .limit(WORK_LIST_CAP),
   ]);
 
   const row = headRows[0];
@@ -487,7 +502,8 @@ async function loadPerson(id: string): Promise<EntityView | null> {
       })
       .from(workPersonsTable)
       .innerJoin(worksTable, eq(worksTable.id, workPersonsTable.workId))
-      .where(eq(workPersonsTable.personId, id)),
+      .where(eq(workPersonsTable.personId, id))
+      .limit(WORK_LIST_CAP),
   ]);
 
   const row = headRows[0];
