@@ -53,14 +53,14 @@
   top: -16px; /* back up to the viewport edge (burger sits at top: 16px) */
   left: 50%;
   transform: translateX(-50%);
-  width: 360px;
-  height: 104px;
+  width: 220px;
+  height: 72px;
   z-index: -1;
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    color-mix(in srgb, var(--cl-void) 82%, transparent) 0%,
-    color-mix(in srgb, var(--cl-void) 45%, transparent) 45%,
+    color-mix(in srgb, var(--cl-void) 58%, transparent) 0%,
+    color-mix(in srgb, var(--cl-void) 28%, transparent) 45%,
     transparent 100%
   );
   mask-image: linear-gradient(
