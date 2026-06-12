@@ -7,7 +7,7 @@ slug: technical-deep-review
 parent: (kein Arch-Brief — Direktauftrag Philipp, technisches Deep-Review: Code-Qualität, Security/DB, Performance)
 links: [2026-06-11-140, 2026-06-11-141]
 commits:
-  - (der Commit, der diesen Report trägt — doc-only, direkt auf main)
+  - 0f27a94 (doc-only, direkt auf main)
 ---
 
 # Technical-Deep-Review — Code-Qualität, Security/DB-Härtung, Performance
@@ -96,7 +96,7 @@ Abuse-Fläche / Sicherheits-Patch / Correctness-Bug · S2 = Best-Practice-Versto
 10. **Injection-Fläche ist sauber:** 13 `sql`-Templates vollständig parametrisiert, **0× `sql.raw`**, **0×
     `dangerouslySetInnerHTML`**, alle searchParams/Slugs gegen Whitelists validiert. Einzige Lücke: die
     `format`/`faction`/`facet`-Filter in `archive/filters.ts` haben (anders als `sort`) keine Enum-
-    Whitelist — kein Injection-Risiko (in-memory-Filter), aber Validierungs-Inkonsistenz (§ S.4).
+    Whitelist — kein Injection-Risiko (in-memory-Filter), aber Validierungs-Inkonsistenz (§ S.8).
 
 ---
 
@@ -216,7 +216,7 @@ Hobby: 5k Transformationen/Monat frei — [image limits](https://vercel.com/docs
 | **B.1** | S1 | M | `vercel-build` koppelt Migration an jeden Deploy |
 | **B.2** | S1 | S | CI nur `on: pull_request` → Direct-to-main ohne Checks |
 | **T.1** | S1 | M | `as unknown`-Muster in `queries.ts` ohne Validierungsschicht |
-| **R.1** | S1 | M | `setTimeout` in `useCallback` ohne Cleanup (setState-after-unmount) |
+| **R.1** | S1 | M | `setTimeout` ohne Cleanup (setState-after-unmount) |
 | **T.3** | S1 | M | `localStorage`-Daten ohne Schema-Validierung; `zod` ungenutzt |
 | **DB.4** | S1 | M | Compendium-Primarch-Kaskade (72 Queries) erschöpft den Pool |
 | **S.1b** | S2 | S | Proxy strippt client-`x-atlas-admin` nicht → `/map`-UI spoofbar |
@@ -263,12 +263,12 @@ Doppel-Casts und wiederholte Guard-Muster. **Fix-Spec:** `isDateLike()`-Predicat
 gemeinsame `ask/validators.ts`; `parsePgTextArray`-Muster (das vorbildlich typsicher ist,
 `queries.ts:86-121`) als Vorlage für `parsePgNumeric`/`parsePgBoolean`. Niedrigprior, Hygiene.
 
-### R.1 · `setTimeout` in `useCallback` ohne Cleanup (setState-after-unmount) — **S1 / M**
-`src/components/map/context.tsx:554-567`, `timeline/cinematic/CinematicView.tsx:329-339`,
-`map/GalaxyHologram.tsx:145-156`
-`dive`/`surface`/`dismissIntro`/`captureAddModeClick` starten Timeouts ohne Cleanup; feuert nach Unmount
-ein `setState` → React-Warning + potenzieller State-Leak. **Fix-Spec:** Timeout-Handle in `useRef`
-speichern, in `useEffect`-Cleanup `clearTimeout`; oder `AbortController`. Referenz: React-Effect-Cleanup.
+### R.1 · `setTimeout` ohne Cleanup (setState-after-unmount) — **S1 / M**
+`src/components/map/context.tsx:554-567` (`dive`/`surface`, useCallback), `map/GalaxyHologram.tsx:145-156`
+(`captureAddModeClick`, plain function)
+Beide starten Timeouts ohne Cleanup; feuert nach Unmount ein `setState` → React-Warning + potenzieller
+State-Leak. **Fix-Spec:** Timeout-Handle in `useRef` speichern, in `useEffect`-Cleanup `clearTimeout`;
+oder `AbortController`. Referenz: React-Effect-Cleanup.
 
 ### R.2 · Stale-Ref-Closure in `CinematicView.goTo` — **S2 / S**
 `src/components/timeline/cinematic/CinematicView.tsx:273-280`
@@ -412,8 +412,8 @@ Suspense-Fallback (§ P.5). **Nicht** den Pool erhöhen. Referenz: BP-A1/B1, Nex
 `src/app/archive/page.tsx:34-80`, `src/app/archive/loader.ts:54-105`
 Liest `searchParams` (→ dynamic), ruft `loadBrowseBooks()` **ohne** `cachedRead`-Wrapper. Empirisch: 16,45
 MB HTML/Request, 6 parallel = alle Timeout. **Fix-Spec:** (a) `loadBrowseBooks()` in `cachedRead` wrappen
-**und** die Payload schlanken — `loadBrowseBooks` lädt volle `works`-Rows inkl. `synopsis` (Text-Feld); via
-`columns`-Filter / `select()` nur die ~6 Browse-Felder laden (§ DB.3), das adressiert beide Probleme; (b)
+**und** die Payload schlanken — der explizite `columns`-Filter selektiert `synopsis` (Text-Feld) mit;
+`synopsis` rausnehmen bzw. truncaten (§ DB.3), das adressiert beide Probleme; (b)
 `export const revalidate = 3600`. **Caveat (carried-over 141-D.1):** 16,45 MB nähert sich dem 2-MB-Data-
 Cache-Limit von Next — daher **erst Payload schlanken, dann cachen** (sonst überschreitet der Cache-Eintrag
 das Limit und wird verworfen). Referenz: BP-A2 (use cache ohne Runtime-APIs), Drizzle RQB.
@@ -469,11 +469,11 @@ FK auf `works.id`; Queries „welche `event_works` für `work_id=X`" brauchen Si
 `index('event_works_work_idx').on(t.workId)`. (Falls ein Composite-Index mit führendem `workId` existiert,
 entfällt es — im Brief prüfen.)
 
-### DB.3 · `loadBrowseBooks` lädt alle Spalten inkl. `synopsis` — **S2 / S**
+### DB.3 · `loadBrowseBooks` selektiert `synopsis` mit — **S2 / S**
 `src/app/archive/loader.ts:54-105`
-`db.query.works.findMany` ohne `columns`-Filter zieht das `synopsis`-Text-Feld mit → Haupttreiber der
-16,45-MB-`/archive`-Payload (§ P.2). **Fix-Spec:** `columns: { … }` auf die ~6 Browse-Felder beschränken
-bzw. `synopsis` weglassen/auf 200–300 Zeichen truncaten. **Direkter Hebel gegen P.2.**
+Der `columns`-Filter von `db.query.works.findMany` ist explizit, führt aber das `synopsis`-Text-Feld mit →
+Haupttreiber der 16,45-MB-`/archive`-Payload (§ P.2). **Fix-Spec:** `synopsis` aus dem `columns`-Filter
+nehmen bzw. auf 200–300 Zeichen truncaten. **Direkter Hebel gegen P.2.**
 
 ### DB.4 · Compendium-Primarch-Kaskade — 72 Queries, Pool-Erschöpfung — **S1 / M**
 `src/lib/compendium/loader.ts:148-192`, `src/lib/entity/loader.ts:146-185`
@@ -555,7 +555,7 @@ Härtung notiert, **nicht** als Finding geführt.
 ## Dimension A — Resilienz/Boundary & Ingestion (Nachzügler-Block)
 
 ### A.1 · Kein `server-only`-Guard auf Server-exklusiven Modulen — **S2 / S**
-`src/lib/ingestion/types.ts`, `src/app/*/loader.ts`, `src/lib/*/loader.ts` (nur `lib/blurbs/index.ts` hat ihn)
+`src/lib/ingestion/types.ts`, `src/app/*/loader.ts`, `src/lib/*/loader.ts` (nur `lib/blurbs/index.ts` und `lib/store-region.ts` haben ihn)
 Die Boundary ist **heute sauber** (Audit der 90 `"use client"`-Dateien: **kein** `@/db`-Import in Client-
 Code — A.2/GAP1-03 bestätigt „sauber"), aber ungeschützt: ein künftiger versehentlicher Client-Import eines
 Loaders würde erst zur Laufzeit/im Bundle auffallen. **Fix-Spec:** `import "server-only";` an den Kopf der
@@ -634,27 +634,38 @@ an `revalidateTag` (§ P.6).
 
 ---
 
-## Brief-Kandidaten (geschnitten nach Abhängigkeit)
+## Brief-Kandidaten (Security bewusst zuletzt — Modell-Switch)
 
-1. **Sofort-Patch (S, ein PR):** `next@16.2.9` (§ S.5) + `npm audit`-Bereinigung. Größter Sicherheitsgewinn
-   pro Aufwand; sollte nicht auf eine Welle warten.
-2. **Security-Härtung (§ S.1a/S.1b/S.2/S.3/S.6/S.7/S.8):** Security-Header, `/audit`+`/ingest`-Gating
-   (inkl. Schreibpfad-Verifikation), `x-atlas-admin`-Strip, timing-safe Vergleich, healthz-Disclosure,
-   Filter-Whitelist. Reddit-Launch-kritisch. Code-PR.
-3. **Caching-/Rendering-Welle (§ P.1–P.7, DB.3, Hypothese TTL):** ISR auf `/compendium`, `/archive`-Cache +
+> **⚠ Reihenfolge — Security wird EXPLIZIT zuletzt angefasst, nicht zuerst.** Erst alle nicht-Security-
+> Wellen (1–7), dann die Security-Härtung (8) als isolierter Schlussblock. Grund: sobald eine Session
+> substanzielle Security-Analyse anfasst (Auth, Header-Spoof, CVE-Pfade), greift Fable 5's Dual-Use-Safety-
+> Layer und der Harness switcht **automatisch auf Opus** — in dieser Session beim Übergang in die Security-
+> Phase passiert und danach ~1 h „sticky" geblieben (deckte den ganzen Review-Workflow). Mittendrin
+> angefasst liefe potenziell der gesamte Rest auf Opus statt Fable 5; ans Ende gelegt bleibt der Fallback
+> auf den Schlussblock begrenzt.
+>
+> **Bei bemerktem Modell-Switch: anhalten.** Fällt während der Arbeit ein Wechsel auf Opus auf (Fallback-
+> Notiz im Verlauf), **nicht stillschweigend weiterlaufen** — die Session pausieren und gemeinsam mit
+> Philipp prüfen, ob sich der aktuelle Punkt mit Fable 5 umgehen/umformulieren lässt, bevor es weitergeht.
+
+1. **Caching-/Rendering-Welle (§ P.1–P.7, DB.3, Hypothese TTL):** ISR auf `/compendium`, `/archive`-Cache +
    Payload schlanken, `/buch/[slug]`-SSG, `cacheBooks:true`, `loading.tsx`-Abdeckung, `revalidateTag`,
    Metadata. **Der messbar größte Nutzwert für den Launch.** Code-PR. (Pool **nicht** anrühren.)
-4. **DB-Index- & Query-Welle (§ DB.1/DB.2/DB.4/DB.5/DB.6):** Indizes (Migration = Code-PR, committen),
-   Primarch-Kaskade entstauen, Junction-`LIMIT`s. Verwandt mit Welle 3 (DB.3/DB.4 ↔ P.1/P.2).
-5. **Dead-Code- + TS-Hygiene-Sweep (§ T.1–T.5, D.1, D.2):** tote TS-Dateien löschen, Dependencies
+2. **DB-Index- & Query-Welle (§ DB.1/DB.2/DB.4/DB.5/DB.6):** Indizes (Migration = Code-PR, committen),
+   Primarch-Kaskade entstauen, Junction-`LIMIT`s. Verwandt mit Welle 1 (DB.3/DB.4 ↔ P.1/P.2).
+3. **Dead-Code- + TS-Hygiene-Sweep (§ T.1–T.5, D.1, D.2):** tote TS-Dateien löschen, Dependencies
    umklassifizieren, `as unknown`-Wrapper, Zod an den Vertrauensgrenzen. FilterRail-Dormanz = Entscheidung.
-6. **CSS-Hygiene-Sweep (§ C.1–C.3):** Token-Dedup (Wartung, kein Design), tote `outline`-Regeln. Niedrigprior.
-7. **Resilienz + Build/CI (§ R.4/R.5/R.6/B.1/B.2/B.3, A.1/A.3):** Error-Boundaries, Migration vom Deploy
+4. **CSS-Hygiene-Sweep (§ C.1–C.3):** Token-Dedup (Wartung, kein Design), tote `outline`-Regeln. Niedrigprior.
+5. **Resilienz + Build/CI (§ R.4/R.5/R.6/B.1/B.2/B.3, A.1/A.3):** Error-Boundaries, Migration vom Deploy
    entkoppeln, CI-Push-Trigger, `server-only`-Guards, Build-Contention. B.1/B.2 sind kleine, wichtige
    Plattform-Fixes.
-8. **Ingestion-Effizienz (§ A.4/A.5):** Batches-Strang, kein Launch-Bezug — Notiz, kein Brief.
-9. **A11y-Pass (nicht re-verifiziert, aus 141 übernommen):** reduced-motion-Inventar, steel-dim-Kontrast,
+6. **Ingestion-Effizienz (§ A.4/A.5):** Batches-Strang, kein Launch-Bezug — Notiz, kein Brief.
+7. **A11y-Pass (nicht re-verifiziert, aus 141 übernommen):** reduced-motion-Inventar, steel-dim-Kontrast,
    `inert` — die A11y-Dimension fiel hier teilweise aus; 141er-Befunde gelten weiter.
-10. **Entscheidungen für Philipp (kein Brief, ein Nicken):** FilterRail-Dormanz beenden? CSP-Strategie
-    (statisch/SRI vs. Nonce+dynamisch)? `/buecher`-Zukunft (141-E.6, unverlinkt/redundant)? TweaksPanel
-    gaten (§ S.1b/141-A.6)?
+8. **Security-Härtung (§ S.1a/S.1b/S.2/S.3/S.6/S.7/S.8) — bewusst ZULETZT (s. Reihenfolge-Hinweis oben):**
+   Security-Header, `/audit`+`/ingest`-Gating (inkl. Schreibpfad-Verifikation), `x-atlas-admin`-Strip,
+   timing-safe Vergleich, healthz-Disclosure, Filter-Whitelist. Reddit-Launch-kritisch. Code-PR. (§ S.5
+   `next@16.2.9` + `npm audit`-Bereinigung separat bereits gelandet — PR #167.)
+9. **Entscheidungen für Philipp (kein Brief, ein Nicken):** FilterRail-Dormanz beenden? CSP-Strategie
+   (statisch/SRI vs. Nonce+dynamisch)? `/buecher`-Zukunft (141-E.6, unverlinkt/redundant)? TweaksPanel
+   gaten (§ S.1b/141-A.6)?
