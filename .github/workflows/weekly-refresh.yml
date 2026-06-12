@@ -5,7 +5,9 @@
 # Words book tracker + the registered podcast feeds against the committed inventory and,
 # only when something new is found, opens/updates ONE rolling pull request on the fixed
 # `automation/weekly-refresh` branch carrying the proposal under `ingest/refresh/<week>/`.
-# A week with no new books or episodes closes that rolling PR.
+# "New" = not yet marked seen: books in `ingest/refresh/book-seen.json` ride along as a
+# pending backlog in the report but never (re)open the PR. A week with no fresh books or
+# episodes closes that rolling PR.
 #
 # Detection only — this workflow NEVER writes the database and needs no Anthropic or
 # Supabase secret. `YOUTUBE_API_KEY` is optional (YouTube shows fail-soft skip without it).
@@ -68,15 +70,22 @@ jobs:
           if printf '%s' "$result" | grep -q '^REFRESH_RESULT=findings'; then
             dir="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]path=\(.*\)$/\1/p')"
             rel="${dir#"$GITHUB_WORKSPACE/"}"
-            books="$(printf '%s' "$result" | sed -n 's/.*books=\([0-9][0-9]*\).*/\1/p')"
-            eps="$(printf '%s' "$result" | sed -n 's/.*episodes=\([0-9][0-9]*\).*/\1/p')"
+            books="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]books=\([0-9][0-9]*\).*/\1/p')"
+            pending="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]pending=\([0-9][0-9]*\).*/\1/p')"
+            eps="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]episodes=\([0-9][0-9]*\).*/\1/p')"
             week="$(basename "$rel")"
+            # books= counts FRESH books only; the seen-but-undecided backlog is pending=
+            # (absent on pre-cursor runs — treat as 0).
+            book_part="${books} new book(s)"
+            if [ -n "$pending" ] && [ "$pending" -gt 0 ]; then
+              book_part="${books} new book(s) (+${pending} pending)"
+            fi
             {
               echo "findings=true"
               echo "report_path=$rel/report.md"
-              echo "pr_title=Weekly content refresh ($week) — ${books} new book(s), ${eps} new episode(s)"
+              echo "pr_title=Weekly content refresh ($week) — ${book_part}, ${eps} new episode(s)"
             } >> "$GITHUB_OUTPUT"
-            echo "Findings: ${books} book(s), ${eps} episode(s) → ${rel}"
+            echo "Findings: ${books} book(s) (+${pending:-0} pending), ${eps} episode(s) → ${rel}"
           else
             echo "findings=false" >> "$GITHUB_OUTPUT"
             echo "No findings this week (REFRESH_RESULT=noop)."

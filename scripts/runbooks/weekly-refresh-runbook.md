@@ -16,17 +16,22 @@ weekly GitHub-Action cron + rolling-PR automation is **PR2** (see § PR2 below).
 ```bash
 npm run refresh:check                              # local: fetch sources, diff, write a proposal if there are findings
 npm run refresh:mark-reviewed -- --show <slug>     # advance a show's curation cursor to today (--all for every show)
+npm run refresh:mark-reviewed -- --books           # mark the newest proposal's books as seen (→ pending backlog)
 npm run test:refresh                               # offline unit tests (no network, no DB)
 ```
 
 - Findings → writes `ingest/refresh/<YYYY-Www>/report.md` + `proposal.json`, prints
-  `REFRESH_RESULT=findings books=<n> episodes=<m> path=<dir>`, exits 0.
+  `REFRESH_RESULT=findings books=<fresh> pending=<seen-backlog> episodes=<m> path=<dir>`, exits 0.
+  **Findings = fresh only:** ≥1 book not yet in `book-seen.json`, or ≥1 new episode. A
+  week where only the seen backlog re-detects is a `noop` (the rolling PR closes).
 - No findings → writes nothing, prints `REFRESH_RESULT=noop`, exits 0.
 - Unexpected error → prints a stack, exits 1. The per-source diffs are **fail-soft**
   and never throw, so a `noop`/`findings` exit means the run completed; an exit 1 is a
   genuine bug (missing roster, malformed config, write failure).
 
-Flags: `--week=YYYY-Www` overrides the output bucket (deterministic re-runs / tests).
+Flags: `--week=YYYY-Www` overrides the output bucket (deterministic re-runs / tests);
+`--include-seen` treats the book backlog as unseen — regenerates the full pending list
+locally after noop weeks, when no committed proposal carries it anymore.
 
 ---
 
@@ -36,7 +41,10 @@ Flags: `--week=YYYY-Www` overrides the output bucket (deterministic re-runs / te
    parses it, and diffs each row against the committed `book-roster.json` via the
    identity firewall (§ Identity). Rows present upstream but absent from the roster →
    **proposed new rows** (roster-extension shape + provenance). Title-collisions →
-   **review** (human call, never auto-proposed).
+   **review** (human call, never auto-proposed). Each bucket is then partitioned by
+   the book backlog cursor (§ Book backlog cursor): titles already in
+   `book-seen.json` land in `pendingBooks` / `pendingReviewBooks` — full rows in the
+   proposal, a collapsed section in the report, and never a PR trigger.
 2. **Podcasts** — for each registered show (`podcast-shows.json`), pulls the live feed
    via the existing primitives (`feed.ts` `fetchFeed`/`parseFeed` for RSS,
    `youtube.ts` `fetchYoutubeFeed` for YouTube) and diffs episode `guid`s against the
@@ -171,6 +179,40 @@ pre-floor + **40 "(Video)" twins** → 1 audio episode; the-40k-lorecast 1; adep
 
 ---
 
+## Book backlog cursor — `ingest/refresh/book-seen.json` (`scripts/refresh/book-seen.ts`)
+
+The book analog of the podcast curation cursor, sitting between the permanent
+ignore-list and promotion. Without it, every not-yet-promoted/not-ignored book since the
+year floor re-appears as "new" **every week** — the 2026-W24 report listed 30 "new"
+books when the actual week-over-week delta was a fraction of that.
+
+- **Semantics:** title-slugs the maintainer has *seen in a proposal without deciding
+  yet*. Seen books still get detected and keep their proposal rows (`pendingBooks` /
+  `pendingReviewBooks`, promotion copy-paste keeps working), but they render as a
+  collapsed "Pending backlog" section and **never (re)open the rolling PR** — only
+  fresh books and new episodes do.
+- **Advancing:** ONLY via the explicit `npm run refresh:mark-reviewed -- --books`
+  (never on a plain `refresh:check` — same rule as the podcast cursor). It resolves
+  the newest `ingest/refresh/<week>/proposal.json` (`--week` / `--proposal <path>`
+  override) and marks everything surfaced there (new + pending + both review buckets);
+  `firstSeen` is stamped from the proposal's ISO week, first-seen wins on re-marks.
+- **Sequencing trap:** week dirs land on `main` only when the rolling PR is *merged*.
+  Mark **after** merging/fetching the PR (or pass `--proposal`), or you mark against an
+  older proposal and this week's fresh finds stay unseen.
+- **Ids shift, slugs don't:** proposed `W40K-####` ids are re-allocated from the roster
+  high-water mark each run, so pending-table ids move after any promotion. Copy rows
+  out of `proposal.json`; never bookmark ids. (Seen-keying is on title-slug for exactly
+  this reason — see the same note in `book-ignore.ts`.)
+- **Backlog regeneration:** after a noop week the rolling PR is closed and no new
+  proposal is written — run `npm run refresh:check -- --include-seen` locally to
+  re-emit the full backlog when you want to work through it.
+- **Lifecycle:** a seen book that gets promoted starts matching the roster (`exact`)
+  and drops out of detection by itself; its stale `book-seen.json` entry is harmless.
+  A seen book you decide against belongs in `book-ignore.json` (use
+  `refresh:ignore-book`, which resolves new **and** pending ids).
+
+---
+
 ## Config — `scripts/seed-data/refresh-sources.json`
 
 ```jsonc
@@ -220,6 +262,11 @@ existing, quality-gated apply paths.
 5. Standard per-book curation (`claude -p` override → `npm run db:apply-override`) — each new
    book gets the same tagging (factions/locations/characters/synopsis) as the 859 and lands
    in the DB via the existing idempotent apply path.
+6. `npm run refresh:mark-reviewed -- --books` — stamp everything you've now looked at as
+   seen, so next week's report/PR only shows what is genuinely new. Run this EVEN IF you
+   promote/ignore nothing (you've reviewed the list and chosen to defer); the deferred
+   books move to the pending backlog instead of re-leading the report (§ Book backlog
+   cursor, note the sequencing trap).
 
 > **The extension is additive + permanent.** The Excel SSOT (`source/Warhammer_Books_SSOT.xlsx`)
 > is the FROZEN original 859; every book promoted from the refresh accretes in

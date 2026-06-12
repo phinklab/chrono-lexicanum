@@ -31,6 +31,13 @@ import {
   parseBookIgnore,
   serializeBookIgnore,
 } from "./refresh/book-ignore";
+import {
+  emptyBookSeen,
+  markSeenTitles,
+  parseBookSeen,
+  seenSlugSet,
+  serializeBookSeen,
+} from "./refresh/book-seen";
 import { loadRefreshSources, parseRefreshSources } from "./refresh/config";
 import {
   emptyCurationState,
@@ -481,7 +488,7 @@ async function main(): Promise<void> {
       INDEX,
       makeIdAllocator(ROSTER),
       fakeFetcher({ [CFG.sheetCsvUrl]: TRACKER_CSV }),
-      ignore,
+      { ignoreSlugs: ignore },
     );
     assert.equal(res.status, "ok");
     // Only The Vorbis Deception (HH) survives as new; Carnage is dismissed.
@@ -500,11 +507,42 @@ async function main(): Promise<void> {
       INDEX,
       makeIdAllocator(ROSTER),
       fakeFetcher({ [CFG.sheetCsvUrl]: TRACKER_CSV }),
-      new Set<string>(),
+      { ignoreSlugs: new Set<string>() },
     );
     assert.equal(withEmpty.newBooks.length, 2);
     assert.equal(withEmpty.reviewBooks.length, 1);
     assert.equal(withEmpty.skippedIgnoredRows, 0);
+  });
+
+  await test("detectMissingBooks: seen-set partitions into pending buckets, ids stay stable", async () => {
+    // carnage-unending would be new; xenos (John Doe) would be a title-collision review.
+    const seen = new Set([slugify("Carnage Unending"), slugify("Xenos")]);
+    const res = await detectMissingBooks(
+      CFG,
+      INDEX,
+      makeIdAllocator(ROSTER),
+      fakeFetcher({ [CFG.sheetCsvUrl]: TRACKER_CSV }),
+      { seenSlugs: seen },
+    );
+    assert.equal(res.status, "ok");
+    assert.deepEqual(
+      res.newBooks.map((b) => b.title),
+      ["The Vorbis Deception"],
+    );
+    assert.deepEqual(
+      res.pendingBooks.map((b) => b.title),
+      ["Carnage Unending"],
+    );
+    // Allocation happens BEFORE the partition: Carnage keeps the id it gets in
+    // an unseen run (proposal byte-stability across mark-reviewed).
+    assert.equal(res.pendingBooks[0].externalBookId, "W40K-0566");
+    assert.equal(res.newBooks[0].externalBookId, "HH-0295");
+    assert.equal(res.reviewBooks.length, 0);
+    assert.deepEqual(
+      res.pendingReviewBooks.map((r) => r.title),
+      ["Xenos"],
+    );
+    assert.equal(res.consideredRows, 5); // seen rows are still considered, not skipped
   });
 
   // --- id allocator ---------------------------------------------------------
@@ -739,6 +777,47 @@ async function main(): Promise<void> {
     assert.deepEqual(parseBookIgnore({}).books, {}); // missing `books` ⇒ empty
   });
 
+  // --- book seen-set (backlog cursor) ----------------------------------------
+
+  await test("book-seen: markSeenTitles derives the slug; FIRST seen wins on re-mark", () => {
+    const st = markSeenTitles(emptyBookSeen(), [
+      { title: "Carnage Unending", firstSeen: "2026-W24" },
+      { title: "Leontus", firstSeen: "2026-W24" },
+    ]);
+    assert.deepEqual(
+      [...seenSlugSet(st)].sort(),
+      [slugify("Carnage Unending"), slugify("Leontus")].sort(),
+    );
+    // Re-marking from a later proposal keeps the original firstSeen week.
+    const again = markSeenTitles(st, [{ title: "Carnage Unending", firstSeen: "2026-W30" }]);
+    assert.equal(again.books[slugify("Carnage Unending")].firstSeen, "2026-W24");
+  });
+
+  await test("book-seen: serialize is slug-sorted, trailing newline, round-trips", () => {
+    const st = markSeenTitles(emptyBookSeen(), [
+      { title: "Zzz Last", firstSeen: "2026-W24" },
+      { title: "Aaa First", firstSeen: "2026-W23" },
+    ]);
+    const json = serializeBookSeen(st);
+    assert.ok(json.endsWith("\n"));
+    assert.equal(serializeBookSeen(st), json); // stable across calls
+    assert.ok(json.indexOf("aaa-first") < json.indexOf("zzz-last")); // slugs sorted
+    assert.deepEqual(parseBookSeen(JSON.parse(json)).books, st.books);
+  });
+
+  await test("book-seen: drifted key / bad firstSeen throw (load-bearing guards)", () => {
+    assert.throws(
+      () => parseBookSeen({ books: { "wrong-key": { title: "Leontus", firstSeen: "2026-W24" } } }),
+      /key must equal slugify/,
+    );
+    assert.throws(
+      () => parseBookSeen({ books: { leontus: { title: "Leontus", firstSeen: "2026-06-09" } } }),
+      /ISO week/,
+    );
+    assert.throws(() => parseBookSeen({ books: { leontus: { title: "Leontus" } } }), /firstSeen/);
+    assert.deepEqual(parseBookSeen({}).books, {}); // missing `books` ⇒ empty
+  });
+
   // --- emit / serialize / no-op rule ---------------------------------------
 
   await test("isoWeekOf: ISO-week label incl. cross-year boundary", () => {
@@ -764,6 +843,19 @@ async function main(): Promise<void> {
     assert.equal(reviewOnly.newBooks.length, 0);
     assert.equal(reviewOnly.reviewBooks.length, 1);
     assert.equal(proposalHasFindings(reviewOnly, empty), false); // collisions alone ⇒ no-op
+
+    // A fully-seen backlog (everything pending, nothing fresh) is a no-op week too.
+    const allSeen = new Set([slugify("Carnage Unending"), slugify("The Vorbis Deception")]);
+    const pendingOnly = await detectMissingBooks(
+      CFG,
+      INDEX,
+      makeIdAllocator(ROSTER),
+      fakeFetcher({ [CFG.sheetCsvUrl]: TRACKER_CSV }),
+      { seenSlugs: allSeen },
+    );
+    assert.equal(pendingOnly.newBooks.length, 0);
+    assert.equal(pendingOnly.pendingBooks.length, 2);
+    assert.equal(proposalHasFindings(pendingOnly, empty), false); // backlog alone ⇒ no-op
   });
 
   await test("serializeProposal: deterministic + timestamp-free", async () => {
@@ -810,6 +902,47 @@ async function main(): Promise<void> {
     assert.match(md, /## Podcasts/);
     assert.match(md, /2026-01-01/); // the podcast date floor is stated
     assert.match(md, /Xenos/); // the review-book table
+    assert.match(md, /New since last review \(2\)/);
+    assert.match(md, /Pending backlog \(0\)/);
+    assert.match(md, /2 new, 0 pending, 1 to review/); // summary carries all three counts
+  });
+
+  await test("buildReportMarkdown: pending backlog renders collapsed, keeps the ⚠ flag per section", async () => {
+    // One fresh book with an unmappable Type (⚠) + one seen book with a clean type:
+    // the footnote must render under the NEW table only.
+    const csv =
+      "Year,Month,Day,Title,Author,Setting/series,Type,Format,Notes\n" +
+      "2026,Jan,1st,Mystery Format Book,New Author,40k,Graphic Novel,Paperback,\n" +
+      "2026,Jan,1st,Seen Clean Book,New Author,40k,Novel,Hardback,\n";
+    const books = await detectMissingBooks(
+      CFG,
+      INDEX,
+      makeIdAllocator(ROSTER),
+      fakeFetcher({ [CFG.sheetCsvUrl]: csv }),
+      { seenSlugs: new Set([slugify("Seen Clean Book")]) },
+    );
+    const proposal: RefreshProposal = {
+      $generatedBy: "test",
+      isoWeek: "2026-W24",
+      books,
+      podcasts: { shows: [] },
+      hasFindings: true,
+    };
+    const md = buildReportMarkdown(proposal, {
+      generatedAtIso: "2026-06-09T00:00:00.000Z",
+      episodeSinceDate: "2026-01-01",
+    });
+    assert.match(md, /New since last review \(1\)/);
+    assert.match(md, /Pending backlog \(1\)/);
+    assert.match(md, /<details>/);
+    assert.match(md, /Show all 1 pending book\(s\)/);
+    assert.match(md, /Seen Clean Book/);
+    assert.match(md, /refresh:mark-reviewed -- --books/); // the next-step command is stated
+    // The ⚠ footnote renders exactly once (the new table; the pending row is clean).
+    const footnotes = md.match(/Format inferred from the tracker/g) ?? [];
+    assert.equal(footnotes.length, 1);
+    assert.match(md, /Mystery Format Book.*novel ⚠/);
+    assert.doesNotMatch(md, /Seen Clean Book.*novel ⚠/);
   });
 
   // --- committed config -----------------------------------------------------

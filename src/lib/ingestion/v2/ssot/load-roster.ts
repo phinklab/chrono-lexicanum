@@ -60,16 +60,31 @@ export function parseSsotBatchName(batchName: string): SsotBatchSpec {
 export async function loadRoster(): Promise<RosterFile> {
   const path = join(process.cwd(), ROSTER_PATH);
   const raw = await readFile(path, "utf8");
-  const parsed = JSON.parse(raw) as RosterFile;
-  if (parsed.schemaVersion !== "1.0") {
+  const parsed = JSON.parse(raw) as unknown;
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+    throw new Error(`roster ${ROSTER_PATH} is not a JSON object — refusing to proceed`);
+  }
+  const roster = parsed as RosterFile;
+  if (roster.schemaVersion !== "1.0") {
     throw new Error(
-      `unexpected roster schemaVersion "${parsed.schemaVersion}"; loader was built against "1.0"`,
+      `unexpected roster schemaVersion "${roster.schemaVersion}"; loader was built against "1.0"`,
     );
   }
-  if (!Array.isArray(parsed.books) || parsed.books.length === 0) {
+  if (!Array.isArray(roster.books) || roster.books.length === 0) {
     throw new Error(`roster has no books — refusing to proceed`);
   }
-  return parsed;
+  // Element sample: a wrong-shaped file would otherwise type-lie its way into
+  // batch slicing (findClusterStart reads externalBookId on every row).
+  const first: unknown = roster.books[0];
+  if (
+    !first ||
+    typeof first !== "object" ||
+    typeof (first as Record<string, unknown>).externalBookId !== "string" ||
+    typeof (first as Record<string, unknown>).title !== "string"
+  ) {
+    throw new Error(`roster books[0] does not look like a RosterBook — refusing to proceed`);
+  }
+  return roster;
 }
 
 /**

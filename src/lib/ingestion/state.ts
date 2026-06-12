@@ -14,13 +14,42 @@ const STATE_DIR = join(process.cwd(), "ingest", ".state");
 const STATE_FILE = join(STATE_DIR, "in-progress.json");
 
 export async function loadState(): Promise<RunState | null> {
+  let raw: string;
   try {
-    const raw = await readFile(STATE_FILE, "utf8");
-    return JSON.parse(raw) as RunState;
+    raw = await readFile(STATE_FILE, "utf8");
   } catch (e) {
     if (isNotFoundError(e)) return null;
     throw e;
   }
+  const parsed = JSON.parse(raw) as unknown;
+  if (!isRunStateLike(parsed)) {
+    throw new Error(
+      `corrupt run state: ${STATE_FILE} parses as JSON but does not match the RunState shape — ` +
+        "delete the file to start a fresh (non-resumed) run",
+    );
+  }
+  return parsed;
+}
+
+/**
+ * Structural guard against a silent type-lie on a hand-edited / wrong-version
+ * state file. Top-level shape only — a resume reads `partialDiff`/`config`
+ * fields directly, but those are machine-written in the same atomic save.
+ */
+function isRunStateLike(v: unknown): v is RunState {
+  if (!v || typeof v !== "object") return false;
+  const s = v as Record<string, unknown>;
+  return (
+    typeof s.runId === "string" &&
+    typeof s.startedAt === "string" &&
+    Array.isArray(s.discoveryPages) &&
+    Array.isArray(s.discoveredRoster) &&
+    typeof s.processedIndex === "number" &&
+    !!s.partialDiff &&
+    typeof s.partialDiff === "object" &&
+    !!s.config &&
+    typeof s.config === "object"
+  );
 }
 
 export async function saveState(state: RunState): Promise<void> {
