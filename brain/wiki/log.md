@@ -1415,3 +1415,9 @@ Brief 134 (*Chronicle setting dates* — Voll-Automatisierung: Events-Tabelle + 
 **CLAUDE.md-Fixes (lange notierte Drift):** M-Scale-Formel-Prosa korrigiert (`M*1000 + year`, Code ist Autorität — Befund aus dem 134-Retirement-Eintrag) + CI-Caveat aktualisiert (`ci.yml` lintet seit 147 auch direct-to-`main`-Pushes).
 
 **Edits:** `project-state.md` (Neuschrieb auf Stand 2026-06-12), `open-questions.md` (15 zu, 17 neu), `roadmap.md` (Status-Snapshot 2026-06-12), `index.md` (Katalog-Zeilen entschlackt + Daten), `sessions/README.md` (Kopf + Active Threads), Boards 121/122 (Status-Spalten + B10-Spec-Link), `CLAUDE.md` (2 Fixes), dieser Eintrag.
+
+---
+
+## 2026-06-12 · Update · Korrektur: angekündigter Frontend-Brief entfällt (via Rogue-Session 143 erledigt)
+
+Philipp-Klärung direkt nach dem Rollup-Pass: die in 146 angekündigte „intensive Ausarbeitung eines Frontend-Briefings" ist **nicht mehr geplant** — die Frontend-Arbeit lief maintainer-direkt als Rogue-Design-Session 143 (+ Polish 145/146) und ist gemergt. Kein neuer Report; 143 war bereits eingefaltet/archiviert. **Edits:** `project-state.md` (§ What's open-Bullet umgeschrieben, § Next likely brief umsortiert — Boards vor, OQ 17 als Punkt 3), `sessions/README.md` (Kopf-„Als Nächstes" korrigiert), dieser Eintrag.

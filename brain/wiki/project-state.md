@@ -62,15 +62,15 @@ Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit): **121** offen P5
 
 Kleinkram außerhalb Boards/OQs:
 
-- **Großer Frontend-Brief angekündigt** (Philipp, Session 146) — nächste Architekten-Arbeit; Inputs: `/lab/design`, Reviews 141/143, Farbsprachen-Konsolidierung (Review-141-Hauptbefund: drei Farbsprachen, Slop in 4 Primitives).
+- **Frontend-Polish lief maintainer-direkt statt als Brief** (Philipp, 2026-06-12): die in 146 angekündigte „intensive Ausarbeitung eines Frontend-Briefings" ist durch die Rogue-Design-Session 143 (+ 145/146) abgedeckt — kein Brief mehr geplant. Offene Frontend-Substanz damit nur noch: Board-Tasks P5–P9 + Farbsprachen-Konsolidierung aus Review 141 (drei Farbsprachen, Slop in 4 Primitives), falls Philipp sie noch will.
 - **Batches-Tail:** Resolver-Welle `ssot-w40k-058..060` + extended Restbatches (custom Config nötig — Auto-Detection-Blind-Spot, Session 136); Blurbs-Full-Sweep ~838; Lorehammer-Twin-Filter für Cold-Reingest; Podcast-Alias-Backlog (~63 Luetin- + ~212 Lorehammer-Surface-Forms); S4 YouTube-Episode-Matching (abgegrenzt, Session 128); `book-seen.json` entsteht beim ersten `refresh:mark-reviewed -- --books` (bewusst nicht initial committed, Session 148).
 - **Tote Konstante:** `scripts/run-ssot-loop.sh` Z. 51 `BRIEF_PATH` zeigt auf den jetzt archivierten Brief 061 (ungenutzt; Einzeiler im nächsten Batches-Code-PR mitnehmen).
 - **Maintainer-Hebel:** `REVALIDATE_TOKEN` in Vercel setzen (sonst `/api/revalidate` 503); Primarchen-Kuration (122-B9) schaltet die Compendium-Primarchen-Kategorie frei; Repo-Setting „Allow Actions to create PRs" muss ON bleiben.
 
 ## Next likely brief
 
-1. **Frontend-Brief (Product)** — der angekündigte große Polish-/Konsolidierungs-Brief auf Basis `/lab/design` + Reviews; Design-Freiheit wie immer bei CC.
-2. **Board-Briefings per Chat** — 122: B2 (Buch-Kuratierung), B6 (Dead-Code), B7 (brain:lint-Guardrail), Blurbs-Sweep, Resolver-Welle; 121: P5/P6/P8/P9 (P8/P9 brauchen 122-B8/B9-Daten zuerst, Spec Brief 129).
-3. **B5 Chronicle-Datierung** läuft als Cowork+Philipp-Hand-Kuratierung weiter; graduiert als sauberer Batches-Brief (Rest-Bücher-Datierung auf dem 137er-Fundament).
+1. **Board-Briefings per Chat** — 122: B2 (Buch-Kuratierung), B6 (Dead-Code), B7 (brain:lint-Guardrail), Blurbs-Sweep, Resolver-Welle; 121: P5/P6/P8/P9 (P8/P9 brauchen 122-B8/B9-Daten zuerst, Spec Brief 129). (Der in 146 angekündigte Frontend-Brief ist entfallen — via Rogue-Session 143 maintainer-direkt erledigt.)
+2. **B5 Chronicle-Datierung** läuft als Cowork+Philipp-Hand-Kuratierung weiter; graduiert als sauberer Batches-Brief (Rest-Bücher-Datierung auf dem 137er-Fundament).
+3. **OQ 17 abräumen** — Maintainer-Entscheide (CSP, `/buecher`, FilterRail) + Preview-Gate vs. Maschinen-Endpoints, ggf. als kleiner Hardening-Nachzügler.
 
 Session-end-Disziplin: [`workflows/session-end.md`](./workflows/session-end.md); Rollup-Files ändern sich ausschließlich über den Koordinations-Pass (Brief 095).
