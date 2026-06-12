@@ -135,6 +135,13 @@ export default function IndexView({
     const v = viewRef.current;
     const sc = scrollRef.current;
     if (!v || !sc) return;
+    const mm = minimapRef.current;
+    if (mm) {
+      // backdrop only once the sticky map has docked and rows slide beneath
+      const docked =
+        mm.getBoundingClientRect().top <= sc.getBoundingClientRect().top + 1;
+      mm.classList.toggle("scrolled", docked);
+    }
     const mapH = minimapRef.current?.offsetHeight ?? 0;
     const topEdge = mapH + 8;
     const botEdge = sc.clientHeight - 8;
@@ -168,8 +175,13 @@ export default function IndexView({
         const sc = scrollRef.current;
         const r = rowRefs.current[i];
         if (sc && r) {
+          // centre the row in the viewport (its expanded detail unfolds into
+          // the lower half) instead of parking it under the sticky era map
           sc.scrollTo({
-            top: Math.max(0, r.offsetTop - 150),
+            top: Math.max(
+              0,
+              r.offsetTop - Math.max(0, (sc.clientHeight - r.offsetHeight) / 2),
+            ),
             behavior: reducedRef.current ? "auto" : "smooth",
           });
         }

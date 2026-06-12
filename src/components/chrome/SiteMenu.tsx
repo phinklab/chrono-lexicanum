@@ -31,9 +31,43 @@ const ENTRIES = [
 
 export default function SiteMenu() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const burgerRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLElement>(null);
+
+  // Scrim trigger: the burger gets a small top gradient once the content under
+  // it has scrolled. Capture-phase listener on document so the routes' inner
+  // scrollers (timeline archive/cinematic) count as much as window scroll —
+  // only scrollers that own the viewport's top edge are considered.
+  useEffect(() => {
+    function topScrollOf(t: EventTarget | null): number | null {
+      if (t === document) {
+        return window.scrollY || document.documentElement.scrollTop;
+      }
+      if (t instanceof Element) {
+        if (t.getBoundingClientRect().top > 80) return null;
+        return t.scrollTop;
+      }
+      return null;
+    }
+    function onScroll(e: Event) {
+      const top = topScrollOf(e.target);
+      if (top !== null) setScrolled(top > 24);
+    }
+    // initial sync after paint — covers reloads restored mid-scroll
+    const raf = requestAnimationFrame(() => {
+      setScrolled((window.scrollY || document.documentElement.scrollTop) > 24);
+    });
+    document.addEventListener("scroll", onScroll, {
+      capture: true,
+      passive: true,
+    });
+    return () => {
+      cancelAnimationFrame(raf);
+      document.removeEventListener("scroll", onScroll, { capture: true });
+    };
+  }, []);
 
   // Close when navigation actually happens (soft-nav from a menu link or any
   // other route change while the menu is open).
@@ -101,7 +135,7 @@ export default function SiteMenu() {
       <button
         ref={burgerRef}
         type="button"
-        className={`site-burger${open ? " is-open" : ""}`}
+        className={`site-burger${open ? " is-open" : ""}${scrolled ? " is-scrolled" : ""}`}
         aria-expanded={open}
         aria-controls="site-menu"
         aria-label={open ? "Close menu" : "Open menu"}
