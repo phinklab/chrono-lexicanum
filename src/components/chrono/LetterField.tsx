@@ -42,6 +42,7 @@ export default function LetterField({
 
   return (
     <div
+      className="chrono-ambient"
       style={{ position: "fixed", inset: 0, pointerEvents: "none", overflow: "hidden", zIndex: 2 }}
       aria-hidden
     >

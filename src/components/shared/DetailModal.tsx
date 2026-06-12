@@ -34,9 +34,12 @@
  *     `/podcasts/…#ep-…` related-work) pass through and navigate away, clearing
  *     the overlay via the catch-all slot.
  *   • A11y to the WAI-ARIA APG "Dialog (Modal)" pattern: focus moves in on open,
- *     Tab is trapped, Escape closes, focus returns to the trigger, the backdrop
- *     is inert to AT, body scroll is locked. `prefers-reduced-motion` is honoured
- *     by the global cascade in 10-base.css.
+ *     Tab is trapped, Escape closes, focus returns to the trigger, the page
+ *     behind the dialog is made `inert` while it is open (Report 141 § B5 —
+ *     `aria-modal` only *claims* the background is unreachable; `inert` enforces
+ *     it for clicks and AT, the SiteMenu counterpart pattern), body scroll is
+ *     locked. `prefers-reduced-motion` is honoured by the global cascade in
+ *     10-base.css.
  */
 
 import { useEffect, useRef } from "react";
@@ -66,11 +69,21 @@ export default function DetailModal({
   const panelRef = useRef<HTMLDivElement>(null);
   /** The element focused right before the panel opened, restored on close. */
   const triggerRef = useRef<HTMLElement | null>(null);
+  /** Body-level siblings we made `inert` on open, released on close. */
+  const inertedRef = useRef<HTMLElement[]>([]);
+
+  function releaseInert() {
+    for (const el of inertedRef.current) el.inert = false;
+    inertedRef.current = [];
+  }
 
   function handleClose() {
-    // Restore focus synchronously while the trigger is still mounted (the
+    // Release `inert` FIRST — the trigger lives in the inerted page behind the
+    // panel, and focusing an element inside an inert subtree is a silent no-op.
+    // Then restore focus synchronously while the trigger is still mounted (the
     // underlying page stays mounted under the modal slot), then unwind the push
     // that opened the panel.
+    releaseInert();
     triggerRef.current?.focus({ preventScroll: true });
     router.back();
   }
@@ -121,6 +134,25 @@ export default function DetailModal({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Make everything behind the dialog inert (Report 141 § B5): the Tab trap
+  // already handles keyboard, but without `inert` the page behind stays click-
+  // and AT-reachable despite `aria-modal="true"`. Skip siblings that are
+  // already inert (the closed SiteMenu manages its own) so we don't clobber
+  // their owners' state on release.
+  useEffect(() => {
+    const root = panelRef.current;
+    if (!root) return;
+    const made: HTMLElement[] = [];
+    for (const el of Array.from(document.body.children)) {
+      if (el instanceof HTMLElement && !el.contains(root) && !el.inert) {
+        el.inert = true;
+        made.push(el);
+      }
+    }
+    inertedRef.current = made;
+    return releaseInert;
   }, []);
 
   // Lock body scroll so the underlying context doesn't drift behind the panel.

@@ -294,6 +294,21 @@ body:has(main.hub) .site-bg::after {
 .hub-cue__chev path:nth-child(3) {
   animation-delay: 1s;
 }
+/* Reduced motion (Report 141 § B5): the 38/53 s auspex drifts and the chevron
+   cascade are infinite ambience. The discs hold their resting frame; the
+   chevrons' keyframe owns their visibility (base opacity 0), so they get a
+   static opacity instead of vanishing — the scroll cue stays readable. */
+@media (prefers-reduced-motion: reduce) {
+  .hub-hero__auspex--main,
+  .hub-hero__auspex--secondary {
+    animation: none;
+  }
+  .hub-cue__chev path {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
 /* Act-2 cue — its content is centred, so pin the cue to the act floor (above
    the persistent console). translateX owns the centring; the chevron keyframe
    only transforms the <path>s, so there is no transform conflict. */

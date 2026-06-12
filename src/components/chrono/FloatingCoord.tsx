@@ -27,6 +27,7 @@ export default function FloatingCoord({
 }: FloatingCoordProps) {
   return (
     <div
+      className="chrono-ambient"
       style={{
         position: "absolute",
         left: x,

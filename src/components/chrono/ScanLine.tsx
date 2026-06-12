@@ -21,6 +21,7 @@ export default function ScanLine({
   const isV = orient === "v";
   return (
     <div
+      className="chrono-ambient"
       style={{
         position: "absolute",
         inset: 0,
