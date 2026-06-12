@@ -55,17 +55,41 @@ export type DiffListEntry =
   | { kind: "ok"; summary: DiffSummary }
   | { kind: "error"; error: DiffSummaryError };
 
+/**
+ * Sample-Check von Element [0] einer Liste (leer ⇒ ok). Tripwire gegen
+ * Writer-Schema-Drift — die korrumpiert alle Elemente gleichförmig, also
+ * reicht eine Stichprobe. Bewusst KEINE Voll-Validierung jeder Zeile und kein
+ * Zod-Schema: das wäre genau der Type-Mirror zu `DiffFile`, den dieses Modul
+ * per Invariant (s. Header) ausschließt.
+ */
+function sampleOk(arr: unknown[], check: (el: Record<string, unknown>) => boolean): boolean {
+  if (arr.length === 0) return true;
+  const el: unknown = arr[0];
+  if (!el || typeof el !== "object") return false;
+  return check(el as Record<string, unknown>);
+}
+
 function isDiffFileLike(value: unknown): value is DiffFile {
   if (!value || typeof value !== "object") return false;
   const v = value as Record<string, unknown>;
+  const { added, updated, field_conflicts } = v;
+  if (
+    typeof v.ranAt !== "string" ||
+    !Array.isArray(added) ||
+    !Array.isArray(updated) ||
+    !Array.isArray(v.skipped_manual) ||
+    !Array.isArray(v.skipped_unchanged) ||
+    !Array.isArray(field_conflicts) ||
+    !Array.isArray(v.errors)
+  ) {
+    return false;
+  }
+  // Geprüft wird, was der Detail-View non-optional dereferenziert
+  // (added[].payload, updated[].diff, field_conflicts[].sources).
   return (
-    typeof v.ranAt === "string" &&
-    Array.isArray(v.added) &&
-    Array.isArray(v.updated) &&
-    Array.isArray(v.skipped_manual) &&
-    Array.isArray(v.skipped_unchanged) &&
-    Array.isArray(v.field_conflicts) &&
-    Array.isArray(v.errors)
+    sampleOk(added, (e) => typeof e.slug === "string" && !!e.payload && typeof e.payload === "object") &&
+    sampleOk(updated, (e) => typeof e.slug === "string" && !!e.diff && typeof e.diff === "object") &&
+    sampleOk(field_conflicts, (e) => typeof e.slug === "string" && Array.isArray(e.sources))
   );
 }
 
@@ -89,26 +113,28 @@ export async function listDiffFiles(): Promise<DiffListEntry[]> {
   }
 
   const diffs = filenames.filter((f) => f.endsWith(DIFF_SUFFIX));
-  const entries: DiffListEntry[] = [];
-  for (const filename of diffs) {
-    const runId = filename.slice(0, -DIFF_SUFFIX.length);
-    const filepath = path.join(DIFF_DIR, filename);
-    try {
-      const raw = await fs.readFile(filepath, "utf8");
-      const parsed = JSON.parse(raw) as unknown;
-      if (!isDiffFileLike(parsed)) {
-        entries.push({
-          kind: "error",
-          error: { runId, filename, error: "structure does not match DiffFile shape" },
-        });
-        continue;
+  // IO-bound → parallel lesen; die Reihenfolge stellt der Sort danach her,
+  // Fehler bleiben per-File-Slots (Promise.all rejected hier nie).
+  const entries = await Promise.all(
+    diffs.map(async (filename): Promise<DiffListEntry> => {
+      const runId = filename.slice(0, -DIFF_SUFFIX.length);
+      const filepath = path.join(DIFF_DIR, filename);
+      try {
+        const raw = await fs.readFile(filepath, "utf8");
+        const parsed = JSON.parse(raw) as unknown;
+        if (!isDiffFileLike(parsed)) {
+          return {
+            kind: "error",
+            error: { runId, filename, error: "structure does not match DiffFile shape" },
+          };
+        }
+        return { kind: "ok", summary: toSummary(runId, parsed) };
+      } catch (err) {
+        const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+        return { kind: "error", error: { runId, filename, error: msg } };
       }
-      entries.push({ kind: "ok", summary: toSummary(runId, parsed) });
-    } catch (err) {
-      const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-      entries.push({ kind: "error", error: { runId, filename, error: msg } });
-    }
-  }
+    }),
+  );
 
   entries.sort((a, b) => sortKey(b).localeCompare(sortKey(a)));
   return entries;
