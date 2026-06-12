@@ -21,6 +21,11 @@
      under the dossier's pointer-events:none umbrella. */
 
 .chron {
+  /* DELIBERATE local palette (Report 144 § C.2): these are the prototype's
+     own values from the Brief-138 design export and differ from the global
+     tokens (e.g. --void #04060b vs --cl-void #02030a, --gold #c9b896 vs the
+     site gold). The cinematic stage is a scoped port — do NOT "fix" these to
+     the global tokens; that would be a design change, not a dedup. */
   --void: #04060b;
   --void-2: #070b13;
   --parchment: #e9dfc8;

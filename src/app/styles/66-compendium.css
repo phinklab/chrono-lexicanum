@@ -33,15 +33,15 @@ body:has(main.compendium) .site-bg::after {
     radial-gradient(
       ellipse at 50% 34%,
       transparent 50%,
-      rgba(2, 3, 10, 0.2) 100%
+      color-mix(in srgb, var(--cl-void) 20%, transparent) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(2, 3, 10, 0) 0%,
-      rgba(2, 3, 10, 0) 38%,
-      rgba(2, 3, 10, 0.52) 56%,
-      rgba(2, 3, 10, 0.9) 74%,
-      rgba(2, 3, 10, 1) 90%
+      color-mix(in srgb, var(--cl-void) 0%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 0%, transparent) 38%,
+      color-mix(in srgb, var(--cl-void) 52%, transparent) 56%,
+      color-mix(in srgb, var(--cl-void) 90%, transparent) 74%,
+      var(--cl-void) 90%
     );
 }
 
@@ -271,7 +271,7 @@ body:has(main.compendium) .site-bg::after {
   /* Frameless wash card (accepted treatment 2026-06-11): a whisper of void over
      the backdrop photo — no border, no radius, no shadow. The only boundary is
      the Terminus base line below; hover answers in colour, not motion. */
-  background: rgba(2, 3, 10, 0.25);
+  background: color-mix(in srgb, var(--cl-void) 25%, transparent);
   transition: background 180ms;
 }
 .cmp-door::after {

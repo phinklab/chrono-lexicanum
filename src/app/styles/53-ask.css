@@ -24,15 +24,15 @@ body:has(main.ask) .site-bg::after {
     radial-gradient(
       ellipse at 50% 34%,
       transparent 50%,
-      rgba(2, 3, 10, 0.20) 100%
+      color-mix(in srgb, var(--cl-void) 20%, transparent) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(2, 3, 10, 0) 0%,
-      rgba(2, 3, 10, 0) 22%,
-      rgba(2, 3, 10, 0.52) 40%,
-      rgba(2, 3, 10, 0.90) 60%,
-      rgba(2, 3, 10, 1) 78%
+      color-mix(in srgb, var(--cl-void) 0%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 0%, transparent) 22%,
+      color-mix(in srgb, var(--cl-void) 52%, transparent) 40%,
+      color-mix(in srgb, var(--cl-void) 90%, transparent) 60%,
+      var(--cl-void) 78%
     );
 }
 
@@ -171,7 +171,7 @@ body:has(main.ask) .site-bg::after {
   position: relative;
   min-width: 0;
   padding: clamp(22px, 3.5vh, 32px) clamp(22px, 3.5vw, 44px) clamp(18px, 2.5vh, 24px);
-  background: rgba(2, 3, 10, 0.5);
+  background: color-mix(in srgb, var(--cl-void) 50%, transparent);
 }
 
 .ask-stage::after {

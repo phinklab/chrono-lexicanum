@@ -52,7 +52,7 @@ main.atlas {
   letter-spacing: 0.16em;
   color: var(--cl-bone);
   text-shadow:
-    0 0 36px rgba(156, 230, 255, 0.22),
+    0 0 36px color-mix(in srgb, var(--cl-cyan) 22%, transparent),
     0 4px 14px rgba(0, 0, 0, 0.95);
 }
 .atlas-hero__sub {
@@ -75,7 +75,7 @@ main.atlas {
   padding: 10px 22px;
   border: 1px solid var(--cl-cyan-fnt);
   border-radius: 999px;
-  background: rgba(2, 3, 10, 0.55);
+  background: color-mix(in srgb, var(--cl-void) 55%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -90,7 +90,7 @@ main.atlas {
 .atlas-hero__readout-num {
   font-size: 18px;
   color: var(--cl-cyan);
-  text-shadow: 0 0 10px rgba(156, 230, 255, 0.4);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--cl-cyan) 40%, transparent);
 }
 .atlas-hero__readout-tag {
   font-size: 9px;
@@ -130,7 +130,7 @@ main.atlas {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, transparent 60%, rgba(156, 230, 255, 0.05));
+  background: linear-gradient(180deg, transparent 60%, color-mix(in srgb, var(--cl-cyan) 5%, transparent));
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -183,7 +183,7 @@ main.atlas {
   letter-spacing: 0.02em;
   line-height: 1;
   color: var(--cl-bone);
-  text-shadow: 0 0 28px rgba(156, 230, 255, 0.18);
+  text-shadow: 0 0 28px var(--cl-cyan-fnt);
 }
 .atlas-deck--gold .atlas-deck__count-num {
   text-shadow: 0 0 28px rgba(201, 166, 90, 0.22);
@@ -256,10 +256,10 @@ main.atlas {
 }
 .atlas-pill--cyan {
   border-color: var(--cl-cyan-dim);
-  background: rgba(156, 230, 255, 0.07);
+  background: color-mix(in srgb, var(--cl-cyan) 7%, transparent);
   color: var(--cl-cyan);
 }
-.atlas-pill--cyan .atlas-pill__label { color: rgba(156, 230, 255, 0.7); }
+.atlas-pill--cyan .atlas-pill__label { color: color-mix(in srgb, var(--cl-cyan) 70%, transparent); }
 .atlas-pill--cyan .atlas-pill__value { color: var(--cl-cyan); }
 .atlas-pill--blood {
   border-color: rgba(165, 28, 28, 0.45);
@@ -397,7 +397,7 @@ main.atlas {
   gap: 12px;
   padding: 10px 14px;
   border: 1px solid var(--cl-cyan-fnt);
-  background: rgba(2, 3, 10, 0.45);
+  background: color-mix(in srgb, var(--cl-void) 45%, transparent);
 }
 .atlas-search__label {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -529,7 +529,7 @@ main.atlas {
 .atlas-table__chip--ssot {
   color: var(--cl-cyan);
   border-color: var(--cl-cyan-dim);
-  background: rgba(156, 230, 255, 0.08);
+  background: color-mix(in srgb, var(--cl-cyan) 8%, transparent);
 }
 .atlas-table__chip--mute { color: var(--cl-faint); border-color: transparent; }
 .atlas-table__prov {
@@ -728,7 +728,7 @@ button.atlas-inv__c--head:hover .atlas-inv__head-arrow {
 .atlas-signal--live {
   color: var(--cl-cyan);
   border-color: var(--cl-cyan-dim);
-  background: rgba(156, 230, 255, 0.07);
+  background: color-mix(in srgb, var(--cl-cyan) 7%, transparent);
 }
 .atlas-signal--queue {
   color: var(--cl-gold);
@@ -794,7 +794,7 @@ button.atlas-inv__c--head:hover .atlas-inv__head-arrow {
 .atlas-statuspill.active {
   color: var(--cl-cyan);
   border-color: var(--cl-cyan);
-  background: rgba(156, 230, 255, 0.10);
+  background: color-mix(in srgb, var(--cl-cyan) 10%, transparent);
 }
 .atlas-statuspill__count {
   font-size: 9.5px;

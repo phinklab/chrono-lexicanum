@@ -60,7 +60,7 @@
 .timeline-shell--chronicle .tlp-stars {
   background-image:
     radial-gradient(1px 1px at 20px 30px, rgba(232,220,192,0.55), transparent),
-    radial-gradient(1px 1px at 130px 90px, rgba(156,230,255,0.45), transparent),
+    radial-gradient(1px 1px at 130px 90px, var(--cl-cyan-dim), transparent),
     radial-gradient(1px 1px at 80px 160px, rgba(232,220,192,0.35), transparent),
     radial-gradient(1.4px 1.4px at 200px 50px, rgba(232,220,192,0.5), transparent);
   background-size: 240px 240px;
@@ -68,9 +68,9 @@
 }
 .timeline-shell--chronicle .tlp-stars2 {
   background-image:
-    radial-gradient(1px 1px at 50px 120px, rgba(156,230,255,0.3), transparent),
+    radial-gradient(1px 1px at 50px 120px, color-mix(in srgb, var(--cl-cyan) 30%, transparent), transparent),
     radial-gradient(1px 1px at 170px 200px, rgba(232,220,192,0.25), transparent),
-    radial-gradient(1px 1px at 300px 80px, rgba(156,230,255,0.22), transparent);
+    radial-gradient(1px 1px at 300px 80px, color-mix(in srgb, var(--cl-cyan) 22%, transparent), transparent);
   background-size: 360px 360px;
   opacity: 0.7;
   animation: tlpDrift2 340s linear infinite;
@@ -128,7 +128,7 @@
   font-size: clamp(44px, 4.6vw, 64px); letter-spacing: 0.22em;
   color: var(--cl-bone);
   text-shadow:
-    0 0 32px rgba(156, 230, 255, 0.18),
+    0 0 32px var(--cl-cyan-fnt),
     0 4px 14px rgba(0, 0, 0, 0.95);
 }
 .timeline-shell--chronicle .chronicle-hero__sub {
@@ -179,7 +179,7 @@
   letter-spacing: 0.22em; text-transform: uppercase; color: var(--cl-dim); cursor: pointer;
   transition: color .18s var(--ease), background .18s var(--ease); }
 .timeline-shell--chronicle .tlp-seg-btn:hover { color: var(--cl-bone); }
-.timeline-shell--chronicle .tlp-seg-btn.is-active { color: var(--cl-cyan); background: rgba(156,230,255,0.15); }
+.timeline-shell--chronicle .tlp-seg-btn.is-active { color: var(--cl-cyan); background: color-mix(in srgb, var(--cl-cyan) 15%, transparent); }
 
 /* Mobile hero geometry mirrors the catalogue's @media (max-width: 720px) block
    so the landing keeps lining up with /buecher + /ask at small widths: the hero
@@ -203,7 +203,7 @@
   border-left: 1px solid var(--line-0); cursor: pointer;
   transition: background .35s var(--ease); animation: tlpFadeSlide .7s var(--ease) backwards; }
 .timeline-shell--chronicle .tlp-era:first-child { border-left: none; }
-.timeline-shell--chronicle .tlp-era:hover { background: linear-gradient(180deg, rgba(156,230,255,0.05), transparent 70%); }
+.timeline-shell--chronicle .tlp-era:hover { background: linear-gradient(180deg, color-mix(in srgb, var(--cl-cyan) 5%, transparent), transparent 70%); }
 .timeline-shell--chronicle .tlp-era.is-empty { cursor: default; opacity: 0.55; }
 .timeline-shell--chronicle .tlp-era-top { display: flex; flex-direction: column; align-items: center; gap: 4px;
   margin-bottom: auto; padding-top: 8%; text-align: center; }
@@ -236,7 +236,7 @@
 .timeline-shell--chronicle .tlp-back { display: flex; align-items: center; gap: 8px; padding: 8px 14px; margin-top: 4px;
   border: 1px solid var(--line-1); border-radius: 2px; font-family: var(--font-mono);
   font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cl-dim); transition: all .25s var(--ease); }
-.timeline-shell--chronicle .tlp-back:hover { color: var(--cl-cyan); border-color: var(--cl-cyan-dim); background: rgba(156,230,255,0.05); }
+.timeline-shell--chronicle .tlp-back:hover { color: var(--cl-cyan); border-color: var(--cl-cyan-dim); background: color-mix(in srgb, var(--cl-cyan) 5%, transparent); }
 .timeline-shell--chronicle .tlp-segview-titles { flex: 1; }
 .timeline-shell--chronicle .tlp-segview-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.30em;
   text-transform: uppercase; color: var(--cl-cyan-dim); margin-bottom: 6px; }
@@ -266,7 +266,7 @@
 .timeline-shell--chronicle .tlp-lanes { position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden; padding-right: 4px; }
 .timeline-shell--chronicle .tlp-lane { position: relative; display: flex; align-items: center; height: 46px;
   border-bottom: 1px solid var(--line-0); }
-.timeline-shell--chronicle .tlp-lane:hover { background: rgba(156,230,255,0.03); }
+.timeline-shell--chronicle .tlp-lane:hover { background: color-mix(in srgb, var(--cl-cyan) 3%, transparent); }
 .timeline-shell--chronicle .tlp-lane.is-standalones { border-top: 1px solid var(--line-1); }
 .timeline-shell--chronicle .tlp-lane-label { flex: 0 0 178px; padding-right: 16px; display: flex; align-items: baseline;
   justify-content: flex-end; gap: 9px; overflow: hidden; }
@@ -312,7 +312,7 @@
 .tlp-cluster-pop-row { display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 9px;
   border-radius: 2px; text-align: left; background: none; border: none; cursor: pointer;
   transition: background .18s cubic-bezier(.2,.8,.2,1); }
-.tlp-cluster-pop-row:hover { background: rgba(156,230,255,0.06); }
+.tlp-cluster-pop-row:hover { background: color-mix(in srgb, var(--cl-cyan) 6%, transparent); }
 .tlp-cluster-pop-row .tlp-mark { flex: 0 0 auto; }
 .tlp-cluster-pop-title { flex: 1; font-family: var(--font-cinzel); font-size: 12.5px; letter-spacing: 0.02em;
   color: var(--cl-bone); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
