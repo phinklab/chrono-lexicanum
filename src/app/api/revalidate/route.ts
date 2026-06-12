@@ -24,6 +24,7 @@ import { revalidateTag } from "next/cache";
 import { NextResponse, type NextRequest } from "next/server";
 import { CATALOGUE_TAGS, resetMemoryCaches } from "@/lib/db-cache";
 import { clearAskRecommendationCache } from "@/lib/ask/recommend";
+import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 
 const KNOWN_TAGS: ReadonlySet<string> = new Set(CATALOGUE_TAGS);
 
@@ -35,8 +36,10 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       { status: 503 },
     );
   }
+  // Constant-time token check (Report 144 § S.1a sweep) — `!==` would leak
+  // a prefix-timing oracle on the bearer token.
   const auth = req.headers.get("authorization");
-  if (auth !== `Bearer ${expected}`) {
+  if (!auth || !(await timingSafeEqualStr(auth, `Bearer ${expected}`))) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }
 

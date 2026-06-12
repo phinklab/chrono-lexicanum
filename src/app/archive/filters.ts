@@ -44,6 +44,25 @@ function parseSort(raw: string | undefined): SortKey {
   return raw === "release" || raw === "chrono" ? raw : "title";
 }
 
+/** Validators for the remaining URL params, analog to `parseSort` (Report 144
+ *  § S.8). No injection risk either way (pure in-memory filters, no SQL), but
+ *  an unvalidated value would echo attacker-shaped text back into the filter
+ *  links the page renders. `format` has a closed enum; faction/facet IDs are
+ *  lowercase snake_case reference-table slugs (CLAUDE.md data conventions) —
+ *  anything outside that shape cannot match a row, so it parses to `null`
+ *  (= filter off) instead of riding along as an opaque string. */
+const ID_PATTERN = /^[a-z0-9_-]{1,64}$/;
+
+function parseFormat(raw: string | undefined): string | null {
+  const s = raw?.trim();
+  return s && FORMAT_ORDER.includes(s) ? s : null;
+}
+
+function parseId(raw: string | undefined): string | null {
+  const s = raw?.trim();
+  return s && ID_PATTERN.test(s) ? s : null;
+}
+
 export function parseWorksParams(sp: {
   q?: string | string[];
   faction?: string | string[];
@@ -51,15 +70,11 @@ export function parseWorksParams(sp: {
   facet?: string | string[];
   sort?: string | string[];
 }): WorksParams {
-  const trim = (v: string | string[] | undefined): string | null => {
-    const s = first(v)?.trim();
-    return s ? s : null;
-  };
   return {
     q: first(sp.q)?.trim() ?? "",
-    faction: trim(sp.faction),
-    format: trim(sp.format),
-    facet: trim(sp.facet),
+    faction: parseId(first(sp.faction)),
+    format: parseFormat(first(sp.format)),
+    facet: parseId(first(sp.facet)),
     sort: parseSort(first(sp.sort)),
   };
 }

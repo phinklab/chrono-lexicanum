@@ -13,12 +13,12 @@ export async function GET() {
       { status: 200, headers: NO_CACHE },
     );
   } catch (err) {
-    const message = (err instanceof Error ? err.message : String(err))
-      .replace(/\s+/g, " ")
-      .trim()
-      .slice(0, 200);
+    // Raw driver errors can leak pooler host/port/internals (Report 144
+    // § S.6) — the public endpoint reports a generic failure, the detail
+    // goes to the server log for the operator.
+    console.error("[healthz] DB connectivity check failed:", err);
     return Response.json(
-      { ok: false, db: "down", error: message },
+      { ok: false, db: "down", error: "Database connectivity failed" },
       { status: 503, headers: NO_CACHE },
     );
   }

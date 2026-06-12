@@ -34,6 +34,28 @@ const nextConfig: NextConfig = {
     staticGenerationMaxConcurrency: 3,
   },
 
+  // Baseline security headers (Report 144 § S.2). HSTS is deliberately NOT
+  // set here — Vercel adds it on production domains, doubling it just risks
+  // drift. CSP is the bigger, separate step (static hash list vs. proxy
+  // nonce, the latter costs dynamic rendering) and stays a maintainer
+  // decision — see the session report.
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+          },
+        ],
+      },
+    ];
+  },
+
   // /werke + /podcasts merged under /archive (session 139). Query strings are
   // auto-forwarded; `#ep-` fragments never reach the server and are re-applied
   // by the browser after the 308 — episode deep-links keep scrolling+highlighting

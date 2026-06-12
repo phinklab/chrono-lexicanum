@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
+import { getIsAdmin } from "@/lib/atlas/auth";
 import {
   type DiffListEntry,
   type DiffSummary,
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
   title: "Ingestion runs — Chrono Lexicanum",
   description:
     "Read-only inspector for the committed diff files of the bulk-backfill pipeline.",
+  robots: { index: false, follow: false },
 };
 
 /**
@@ -22,6 +25,12 @@ export const metadata: Metadata = {
  * Filesystem — Updates werden sichtbar nach `git push` + Vercel-Re-build.
  */
 export default async function IngestPage() {
+  // Admin-only (Report 144 § S.3): internal ingest logs + raw LLM payloads.
+  // The proxy already 401s the route in prod; this in-page gate is the
+  // defense-in-depth layer (and makes the page request-rendered, which a
+  // per-request gate needs anyway).
+  if (!(await getIsAdmin())) notFound();
+
   const entries = await listDiffFiles();
   const okCount = entries.filter((e) => e.kind === "ok").length;
   const errCount = entries.length - okCount;

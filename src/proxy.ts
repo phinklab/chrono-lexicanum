@@ -1,10 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { PREVIEW_COOKIE, previewGateEnabled } from "@/lib/previewGate";
+import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 
 // Next.js 16 file convention: this file replaces the pre-v16 `middleware.ts`.
 // The matcher covers every page route (preview gate, session 145) — excluded
 // are /login itself, Next internals, and the public/ asset folders. /atlas
-// and /map additionally run the Basic-Auth admin detection below.
+// and the admin-only paths below additionally run the Basic-Auth admin
+// detection.
 export const config = {
   matcher: [
     "/((?!_next/|login|img/|audio/|timeline/|lab/|aquila\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
@@ -26,7 +28,27 @@ function parseBasic(authHeader: string | null): { user: string; pass: string } |
   return { user: decoded.slice(0, sep), pass: decoded.slice(sep + 1) };
 }
 
-export function proxy(req: NextRequest): NextResponse {
+/** Admin-only page routes, hard-401ed in prod without Basic-Auth (Report 144
+ *  § S.3): /atlas (the admin dashboard), /ingest (internal ingestion logs +
+ *  raw LLM payloads), /buch/[slug]/audit (provenance internals). The pages
+ *  additionally check `getIsAdmin()` themselves — defense in depth, in case
+ *  a future matcher edit drops one of them out of this proxy. */
+function isAdminPath(path: string): boolean {
+  if (path === "/atlas" || path.startsWith("/atlas/")) return true;
+  if (path === "/ingest" || path.startsWith("/ingest/")) return true;
+  return /^\/buch\/[^/]+\/audit$/.test(path);
+}
+
+export async function proxy(req: NextRequest): Promise<NextResponse> {
+  // Spoof guard (Report 144 § S.1b): `x-atlas-admin` is purely a proxy→server
+  // signal — a copy sent by the client must never reach `getIsAdmin()`. Strip
+  // it from EVERY forwarded request first; only the verified branches below
+  // re-set it. (Routes excluded from the matcher never run this strip, but
+  // none of them read the header — today only /map and the admin paths do,
+  // all of which are matched.)
+  const forwarded = new Headers(req.headers);
+  forwarded.delete("x-atlas-admin");
+
   // Preview gate — the whole site sits behind /login while in private
   // preview: any route without the preview cookie redirects there. Local
   // dev bypasses (NODE_ENV !== "production"); Vercel previews and
@@ -47,7 +69,6 @@ export function proxy(req: NextRequest): NextResponse {
   const isProd = process.env.NODE_ENV === "production" && process.env.VERCEL_ENV !== "preview";
 
   if (!isProd) {
-    const forwarded = new Headers(req.headers);
     forwarded.set("x-atlas-admin", "1");
     return NextResponse.next({ request: { headers: forwarded } });
   }
@@ -58,15 +79,29 @@ export function proxy(req: NextRequest): NextResponse {
   let ok = false;
   if (expectedPass) {
     const creds = parseBasic(req.headers.get("authorization"));
-    if (creds && creds.user === expectedUser && creds.pass === expectedPass) {
-      ok = true;
+    if (creds) {
+      // Constant-time compares (Report 144 § S.1a) — `===` leaks a timing
+      // oracle on the first differing character. Both compares always run
+      // (no `&&` short-circuit), so user- and pass-mismatch are
+      // indistinguishable by duration.
+      const [userOk, passOk] = await Promise.all([
+        timingSafeEqualStr(creds.user, expectedUser),
+        timingSafeEqualStr(creds.pass, expectedPass),
+      ]);
+      ok = userOk && passOk;
     }
   }
 
-  const path = req.nextUrl.pathname;
-  const isAtlas = path === "/atlas" || path.startsWith("/atlas/");
-
-  if (isAtlas && !ok) {
+  if (isAdminPath(req.nextUrl.pathname) && !ok) {
+    if (!expectedPass) {
+      // S.7: without ATLAS_PASS the admin routes are unreachable in prod.
+      // 401 is the secure default — surface the misconfiguration in the
+      // server log instead of taking the whole public site down with a
+      // boot-time throw over an admin-only secret.
+      console.error(
+        "[proxy] ATLAS_PASS is not set in production — admin routes (/atlas, /ingest, /buch/*/audit) are locked out.",
+      );
+    }
     return new NextResponse("Authentication required", {
       status: 401,
       headers: { "WWW-Authenticate": REALM },
@@ -74,10 +109,10 @@ export function proxy(req: NextRequest): NextResponse {
   }
 
   if (ok) {
-    const forwarded = new Headers(req.headers);
     forwarded.set("x-atlas-admin", "1");
-    return NextResponse.next({ request: { headers: forwarded } });
   }
-
-  return NextResponse.next();
+  // Always forward the stripped header set — the pre-S.1b fall-through
+  // (`NextResponse.next()` with the ORIGINAL headers) is what made the
+  // client-sent `x-atlas-admin: 1` reach /map.
+  return NextResponse.next({ request: { headers: forwarded } });
 }
