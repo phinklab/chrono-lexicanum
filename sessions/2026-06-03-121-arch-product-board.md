@@ -35,12 +35,12 @@ Optik = deine (frontend-design Skill): Farben, Spacing, Typo, Motion, Copy, Klas
 | # | Task | Status |
 |---|---|---|
 | P1 | Home `/` Redesign - 3-Baender-Regroup (Bestand / Tueren-nach-Thema / Linsen), Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☑ erledigt (PR #129) |
-| P2 | Chronicle `/timeline` Redesign (Contract bleibt) | ☐ |
+| P2 | Chronicle `/timeline` Redesign (Contract bleibt) | ☑ erledigt (Briefe 137/138/140 Timeline-Cinematic-Port; Polish 145/146) |
 | P3 | Ask `/ask` Funnel-Redesign, wired gegen 122-B4 | ☑ erledigt (126) |
 | P4 | Podcast `/podcasts` Redesign + Link-zur-Show & Download-Option (Daten 122-B1) | ☑ erledigt (129, PR #133) |
 | P5 | Entity-Hubs `/fraktionen` + `/fraktion\|charakter\|welt/[id]` als Guides, Blurbs aus 122-B3 | ☐ |
 | P6 | Display-Tweaks: Content-Warnings raus, leere Factions aus, Blurbs/Counts ein | ☐ |
-| P7 | Frontend-Lockdown: CSS/TS-Cleanup, tote Components, Cleanup-Ledger im Handoff | ☐ |
+| P7 | Frontend-Lockdown: CSS/TS-Cleanup, tote Components, Cleanup-Ledger im Handoff | ☐ (Teile via 147: DetailPanel/Aquila/roster.ts gelöscht, Deps bereinigt; Rest offen, u. a. FilterRail-Entscheid + Partials 20/22/57) |
 | P8 | Topic-Straenge `/themen` + `/thema/[slug]` (reuse EntityView/RelatedWorks-Primitive); Daten aus 122-B8. Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☐ |
 | P9 | Charakter-Galerie `/charaktere` (nur kuratiert) + Primarchen-Tier; Daten aus 122-B9/B3. Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☐ |
 

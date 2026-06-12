@@ -2,97 +2,75 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-06-03
+updated: 2026-06-12
 sources:
   - ../../sessions/README.md
-  - ../../sessions/2026-06-01-104-impl-alias-aware-drift.md
-  - ../../sessions/2026-06-01-109-impl-entity-graph-arc.md
-  - ../../sessions/2026-06-01-110-impl-podcast-ingest-pilot.md
-  - ../../sessions/archive/2026-06/2026-06-02-117-impl-tooling-files-relocation.md
+  - ../../sessions/archive/2026-06/2026-06-09-133-arch-weekly-content-refresh.md
+  - ../../sessions/archive/2026-06/2026-06-10-136-impl-book-promote-30.md
+  - ../../sessions/archive/2026-06/2026-06-08-132-impl-luetin09-full-40k-apply.md
+  - ../../sessions/archive/2026-06/2026-06-11-140-impl-timeline-cinematic-port.md
+  - ../../sessions/archive/2026-06/2026-06-11-144-impl-technical-deep-review.md
+  - ../../sessions/2026-06-12-147-impl-deep-review-fixes.md
+  - ../../sessions/2026-06-12-148-impl-weekly-refresh-delta.md
 related:
   - ./open-questions.md
   - ./roadmap.md
   - ./architecture.md
   - ./pipeline-state.md
   - ./log.md
-  - ./decisions/why-excel-ssot-not-crawl.md
-  - ./decisions/why-cc-direct-curation.md
-  - ./decisions/cross-era-identities.md
 confidence: high
 ---
 
-# Project state — 2026-06-01 (Korpus datenkomplett, post-Brief 104/105/107)
+# Project state — 2026-06-12 (Pre-Launch: Discovery-Layer shipped, Site hinter Preview-Gate)
 
-> The "where are we now" anchor. Cowork und Claude Code starten jede Session hier (nach `brain/CLAUDE.md` + `wiki/index.md`).
->
-> **Nur aktueller Stand. Historie → [`log.md`](./log.md) + git.** Die früheren 12 „Latest pipeline state"-Snapshots, die Session-Level-„Recently shipped"-Liste und der Frontmatter-Changelog wurden 2026-06-01 ausgelagert (Token-Diet-Session: dieses File war auf ~58k Token gewachsen). Dieses File trägt ab jetzt nur den aktuellen Stand — wer einen historischen Snapshot braucht, liest `log.md` oder `git log`.
+> The "where are we now" anchor. **Nur aktueller Stand. Historie → [`log.md`](./log.md) + git.**
 
 ## Phase
 
-**Phase 3 — Bulk-Backfill-Pipeline: substanziell erledigt.** Der Korpus ist datenkomplett *und* konsolidiert: **859/859 Bücher** (565 W40K + 294 HH) liegen als `works`/`book_details`/Junctions in Postgres (post-PR-107, 2026-05-27). Zwei Konsolidierungs-Pässe gefahren (Pass 1 W40K, Pass 2 Full-Corpus) — Brief-094-§-Cadence-Bogen geschlossen; künftige Konsolidierungs-Pässe sind ad-hoc. Phasen 1 (foundation), 1.1/1.5 (stack/hygiene), 2 (Chronicle/Timeline) und 3a–3c (Pipeline-Skeleton + Aux-Sources + LLM-Enrichment) sind shipped. **Phase 4 (Discovery-Layer) + Phase 5 (Cartographer + Ask the Archive)** folgen. Voller Phasenplan: [`roadmap.md`](./roadmap.md). Ein formaler Phase-3-Seal-Brief steht aus (§ Next likely brief).
+**Phase 3 (Pipeline) ist im Wartungsmodus, Phase 4/5 (Discovery + Tools) sind substanziell shipped, der Fokus liegt auf Pre-Launch-Härtung + Frontend-Polish.** Der Buchkorpus läuft additions-only über den **Weekly-Content-Refresh** (Brief 133: Cron → Detection → Rolling-PR → bestehende Apply-Pfade). Die Site trägt seit Juni das volle öffentliche Gerüst — Home (3 Bänder), `/archive`, `/compendium`, `/timeline` (Cinematic), `/ask`, `/podcasts`-in-`/archive` — und steht **hinter einem Preview-Login-Gate** (Session 145; Kill-Switch `PREVIEW_GATE=off` für den Launch). Drei Deep-Reviews (140 Backend / 141 Frontend / 144 Technical, zusammen ~290 verifizierte Findings) plus Umsetzungs-PR (147, sieben Wellen) haben Caching, Security, Resilienz und A11y auf Launch-Niveau gezogen. Phasenplan: [`roadmap.md`](./roadmap.md) (Status-Snapshot 2026-06-12).
 
-Live-Pfad der Pipeline heute: **Excel-SSOT-Roster → `claude -p`-Loop (CC + WebSearch) → `apply-override.ts` → DB.** Die V1-Crawl-Discovery und die V2-LLM-Enrichment-Stage sind beide ersetzt (ADRs [`why-excel-ssot-not-crawl.md`](./decisions/why-excel-ssot-not-crawl.md) + [`why-cc-direct-curation.md`](./decisions/why-cc-direct-curation.md)); der bypassed-aber-nicht-retired Code ist OQ (13). V2-Pilot-Architektur-Detail (5 Validatoren, Slim-LLM, Provenance pro Feld) liegt in [`pipeline-state.md`](./pipeline-state.md).
+**Arbeitsmodus:** zwei stehende Strang-Boards ([121 Product](../../sessions/2026-06-03-121-arch-product-board.md), [122 Batches](../../sessions/2026-06-03-122-arch-batches-board.md)) statt Einzel-Briefs; Briefing pro Task über Chat, kleine CC-Handoff-Docs, Cowork reviewt + archiviert. Daneben Maintainer-direkte Zwischensessions (143/145/146) für Polish.
 
 ## Branch & Worktrees
 
-`origin/main` ist **read-only für Code** — jede Code-/Daten-/Config-Änderung läuft über Task-Branch + PR; **Doc-only-Änderungen landen direkt auf `main`** (PR-Policy 2026-05-25, `CLAUDE.md` § Git). Drei produktive Worktrees: Coordination (`C:\Users\Phil\chrono-lexicanum`, `main`), Product/UI (`chrono-lexicanum-product`), Batches/Ingestion (`chrono-lexicanum-batches`); Altlast `chrono-batches-011-015` bewusst unangetastet (Brief 082). **Brief 095 Rollup-Ownership ist scharf:** `sessions/README.md` + `brain/**` werden ausschließlich aus dem Coordination-Worktree geschrieben.
+Unverändert: `origin/main` read-only für Code (Task-Branch + PR), Doc-only direkt auf `main`; drei Worktrees (Coordination/Product/Batches); Rollup-Ownership Brief 095 (nur Coordination schreibt `brain/**` + `sessions/README.md`); Cowork fasst nie `git` in der Sandbox an, git-Kommandos an Philipp **zeilenweise** (PowerShell 5, kein `&&`). **Neu seit 147:** `ci.yml` läuft auch auf `push: main` — direct-to-`main` Doc-Commits werden jetzt von CI gelintet (lokales `brain:lint -- --no-write` vor dem Push bleibt trotzdem Pflicht-Höflichkeit). **Ebenfalls neu seit 147:** der Vercel-Build migriert **nicht mehr automatisch** — Migrationen laufen via `npm run db:migrate` lokal oder `.github/workflows/migrate.yml` (workflow_dispatch, Pooler-URL).
 
-**Git-Sandbox-Regel:** Cowork fasst `git` nie in der Sandbox an (9P/drvfs korrumpiert git-Metadaten) — editiert nur Working-Tree-Files über die Datei-Tools, erfragt den Git-Stand beim Maintainer und liefert PowerShell-sichere Kommandos **zeilenweise** zurück. Vor jedem Doc-Commit `npm run brain:lint -- --no-write` lokal grün ziehen.
+## Latest state (2026-06-12)
 
-## Latest pipeline state (2026-06-01)
+**Korpus: 889 Bücher** = 859 Excel-SSOT (frozen) + 30 Weekly-Refresh-Promotions via `book-roster.extension.json` (Session 136; Override-Batches `ssot-w40k-058..060` + extended `057`/`hh-030`, alle 30 kuratiert + in der DB). Migrationen durch `0013` applied.
 
-**Korpus 859/859 datenkomplett + konsolidiert.** Zuletzt gemergt: Brief **104** (`alias-aware-drift` — drift_works **380 → 0**, PR #118; jeder der 500 Drift-Junctions über 380 Bücher ist ein registrierter Edition-Rename), Brief **105** (Cluster A: Kauf-/Hör-Links auf `/buch/[slug]` + 66 Audiobook-Credits, PR #112+#114), Brief **107** (Full-Rebuild-Restore-Wiring — `apply:audiobook-narrators` als deterministischer Tail der Reset-Sequenz, PR #115). **Seit dem gemergt (2026-06-01):** Brief **109** (Entity-Graph Step 1 — echte `/charakter` `/fraktion` `/welt`-Hubs auf einer geteilten frame-agnostischen `EntityView` + server-only Loader `src/lib/entity/`, voll SSG, 1004 Seiten in 3.6s; `52-stub-shell.css` → `59-entity.css`) + Brief **110** (Podcast-Pilot — *The 40k Lorecast* Dry-Run: 148 Folgen, 136 = 91.9% getaggt, 510 Tags via `resolveSurfaceForm`/Brief 104, committed Artefakt + Quality-Report unter `ingest/podcasts/`; **kein** Schema/DB).
+**Podcasts/YouTube: 4 Shows, ~1094 `podcast_episode`-Works.** The 40k Lorecast (149 Ep.), Adeptus Ridiculous (363), Lorehammer (391, „(Video)"-Twins dedupliziert), Luetin09 (YouTube-Adapter Brief 130; 191 Lore-Episoden aus 1854 Uploads, `source_kind=youtube`). Show-/Episode-Links autoritativ in `external_links` (Provenance `sourceKind`+`confidence`, Migration 0011); Tagging über `resolveSurfaceForm`; **CC-Direct-Tagging** (`--tagging=cc-direct`, Brief 131/132: `claude -p`-Subsessions auf der Max-Allowance, byte-identisch zum API-Pfad) ist der bewährte Null-Kosten-Pfad.
 
-DB-Stand (post-PR-109/Brief-105):
+**Timeline-Daten (Brief 137, live verifiziert):** 8 kuratierte Eras, 144 Events, 223 `event_works`-Hooks (95 Buch / 125 Episode / 3 Serie), 97 datierte Werke (53 event-anchored). Migration 0012; `apply:timeline` idempotent. Quelle war die Cowork+Philipp-Hand-Kuratierung im git-ignorierten `/timeline-workshop/` (Board 122-B5, weiter ⏸ für die Rest-Bücher).
 
-- **works 859** = 565 W40K (`ssot-w40k-001..057`) + 294 HH (`ssot-hh-001..030`).
-- Reference: factions **202**, locations **289**, characters **490**, facet_values 86; Aliases faction ~73 / location ~25 / character **66**.
-- Junctions: work_factions **2754**, work_locations **1146**, work_characters **1999**, work_collections **196**, work_persons **873** (post-105: +88 Audio-Rollen narrator/co_narrator/full_cast über 66 Bücher), work_facets **16845**.
-- `book_details.rating` bei ~820/859 (119 `hardcover` + ~701 `goodreads`; ~39 ohne aggregierte Wertung = 2025/26-Releases + Edge-Cases).
-- `EXPECTED_RANGES`: factions.max **3200** (~14% headroom), locations.max **1500** (~24%), characters.max **2500** (~25%).
-- Migrations durch `0009_lucky_pete_wisdom.sql` applied; seit Resolver-Pass 7 brauchte **keine** Welle eine Schema-Migration.
+**Entity-Blurbs (Board 122-B3):** 143 Blurbs (56 Factions / 49 Characters / 38 Worlds) als seed-data-JSON mit per-Row-Provenance; ~838 Rest über `scripts/runbooks/entity-blurbs-full-run.md` (Sonnet-Subagents) als Folge-Sweep; Resume-Oracle `npm run blurbs:remaining`.
+
+**Ask-Modell (122-B4 + 121-P3):** flacher 5-Fragen-Contract, server-only `recommend()` mit Curation-Overlay (`ask-curation.json`) und Hard Boundaries (Faction-Gate, Single-Book-Format-Gate); alle 1080 Kombinationen liefern ≥1 Empfehlung (Audit `npm run audit:ask-combinations`).
 
 ## What's running
 
-- **App on Vercel** — <https://chrono-lexicanum.vercel.app/>. Hub + `/timeline` (+ `/[era]`) + `/buch/[slug]` (+ `/audit`) + `/buecher` (Catalogue mit Audit-Pillen + Drift-/Alias-Signalen) + `/ingest` (read-only Diff-Inspector) + `/healthz`. Echte Entity-Hubs **`/charakter` `/fraktion` `/welt`** (SSG, geteilte `EntityView`, Brief 109); Stub-Shells nur noch `/ask` `/map` (Brief 096 Phase E).
-- **CI on GitHub Actions** — `lint-and-typecheck` + `brain:lint --no-write` auf jedem PR. Vercel macht Production-Builds; CI läuft *kein* `next build`. Direct-to-`main` Doc-Commits skippen CI → lokal `brain:lint --no-write` grün ziehen.
-- **DB on Supabase** — Pooler (Port 6543) zeigt auf prod (kein Test-Branch).
-- **Excel-SSOT-Roster** — `scripts/seed-data/source/Warhammer_Books_SSOT.xlsx` (Maintainer-extern) → `import-ssot-roster.ts` → deterministisch `book-roster.json` (859 Bücher + 196 Collections). Alle 859 kristallisiert + in der DB; Resolver-Loop emittiert `all-complete`.
-- **Loop-Driver** — `run-ssot-loop.sh` (Brief 094, cadence-frei) + headless `run-resolver-loop.sh` (Brief 094/100, zwei-domänen-fähig W40K+HH, Terminal-Zustände `open-wave | idle | all-complete`). Beide stehen still (Korpus komplett), bleiben für Ad-hoc-Roster-Erweiterungen im Repo. Vier Loop-Disziplinen: Public-Synopsis (076/080, Apply-Layer-hard-enforced), Faction-Granularity (077), Locations-Granularity (084), Goodreads-Rating (087).
-- **Konsolidierungs-Pass** — runbook-getriebener Pass-Typ (`consolidation-aggregate/-db-snapshot/-db-sync.ts` + `consolidation-pass-runbook.md`), arbeitet auf dem Entitäten-Set (wellengrößen-unabhängig). Zweimal gefahren.
-- **Atlas-Regen** — `npm run atlas:regen` schreibt einen Postgres-Mirror-Obsidian-Vault nach `~/chrono-atlas/`. Manual trigger; [`workflows/atlas-regen.md`](./workflows/atlas-regen.md).
-- **Brain-Lint** — `npm run brain:lint` (11 Check-Kategorien) + CI-Gate `--no-write`. Reports unter `brain/outputs/lint/YYYY-MM-DD.md`.
+- **App auf Vercel** — <https://chrono-lexicanum.vercel.app/>, **anonyme Besucher sehen nur `/login`** (httpOnly-Cookie, Default-Creds committed = bewusster Soft-Lock; `PREVIEW_GATE=off` zum Launch). Routen: Home (3-Bänder-IA, Brief 120/129), `/archive` + `/archive/podcasts` (ex `/werke`+`/podcasts`, 308-Redirects, `?focus=`-Opener), `/compendium` (5 Kategorien; Primarchen-Seam wartet auf 122-B9-Kuration) + `/person/[slug]`, `/timeline` (Cinematic+Index, DB-fed, 19 WebP-Era/Event-Artworks mit Artist-Credits, Brief 138/140 + Polish 145/146), `/ask` (Funnel), `/buch/[slug]`, `/map`, Entity-Hubs. Globales Chrome: Burger-`SiteMenu` (TopNav gelöscht, Session 139/140).
+- **Caching/Hardening (147):** `READ_CACHE_TTL` 3600 s, `/api/revalidate` (Bearer `REVALIDATE_TOKEN`), Teaser-Synopsis senkt `/archive`-Payload 16,45→2,21 MB, `loading.tsx` auf 7 Routen, Security-Header, `/audit`+`/ingest` admin-ge-gatet, timing-safe Auth-Vergleiche, Next-CVE-Bump.
+- **CI:** `lint-and-typecheck` + `brain:lint --no-write` auf PRs **und** `push: main`; `migrate.yml` (workflow_dispatch) für DB-Migrationen; `weekly-refresh.yml` Cron Mo 06:00 UTC → Rolling-PR `automation/weekly-refresh` (detection-only, keine DB-Secrets), Delta-Reporting via `book-seen.json`-Cursor + `book-ignore.json` (133/134/148).
+- **DB auf Supabase** — Pooler 6543, prod; Pool `max:5` ist bewusst und bleibt (Review-144-Schiedsspruch: Hebel ist Caching, nicht Pool-Size).
+- **Standing tools (dormant):** SSOT-Loop + Resolver-Loop (Ad-hoc-Roster-Erweiterungen), Konsolidierungs-Pass, Atlas-Regen, Brain-Lint.
+- **`/lab/design`** — Styleguide-Deliverable aus Review 141 (Palette, Typoskala, Kern-Bausteine, Do/Don'ts); Grundlage für den angekündigten Frontend-Brief.
 
 ## What's open
 
-Top-Items aus [`open-questions.md`](./open-questions.md), sortiert post-Brief-109/110:
+Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit): **121** offen P5/P6/P7(teilw. via 147 erledigt)/P8/P9; **122** offen B2/B5(⏸ Hand-Kuratierung)/B6/B7/B8/B9. Erledigt: P1–P4, B1, B3, B4, B10. Queue-Items: [`open-questions.md`](./open-questions.md) (16 Timeline-Folgen, 17 Deep-Review-Rest).
 
-> **Strang-Task-Tracker neu (2026-06-03): Boards [121](../../sessions/2026-06-03-121-arch-product-board.md) (Product) + [122](../../sessions/2026-06-03-122-arch-batches-board.md) (Batches).** Sie sind ab jetzt die laufende Checkliste für Redesign-Sweep + Daten/Logik-Arbeit; Briefing pro Task über Chat (Cowork → Philipp → CC), CC-Handoff-Docs klein, Cowork reviewt/archiviert. Offene Alt-Briefs/OQs sind abgeräumt: 096/118/119 geschlossen, 061 → Runbook-Tool, 112 → 122-B7, OQ 3/13 → 122-B2/B6. Viele der Punkte unten werden nach und nach in die Boards eingezogen.
+Kleinkram außerhalb Boards/OQs:
 
-- **Entity-Graph-Arc — Steps 2–5 offen (Product).** Step 1 (Brief 109) gemergt: echte `/charakter` `/fraktion` `/welt`-Hubs auf der geteilten `EntityView` + `loadEntity`-Loader. Nächste: **Step 2** In-Context-Panel (intercepting route, reused `loadEntity`+`EntityView`, zero fork), Step 3 Suche (verdrahtet `resolveSurfaceForm`), Step 4 `/werke`-Browse, Step 5 Startseite. Near-free Follow-up: `/aera` + `/serie`-Hubs (ASCII-Routen; book-only related bis andere Medien Era/Serie-Anker tragen). Konvergenz: geteilte Chip/Section-Label/Hairline-Grammatik in ein Primitive heben, das `/buch` + Hubs teilen. **Maintainer-Visual-Pass** der Hubs (Desktop + ≤720px) offen (CC nur curl). `CROSSLINK_CAP=40` ist ein stiller Cap (nicht blockierend).
-- **Podcast-Track — Step 2+ offen (Batches).** Step 1 (Brief 110) gemergt: Pilot-Artefakt + Report, kein DB. Nächste: **Step 2** Schema (`podcast` + `podcast_episode` work-kinds nach dem channel/video-CTI-Muster, `episodeGuid`-keyed idempotenter Apply) + Tags → `work_*`-Junctions (`role=subject|mentioned`); **Quick alias wins** (`Guilliman`/`Vect`/`Magnus`/`Titus`/webway-immaterium → `*-aliases.json`, hebt Coverage billig); Extraction-Prompt gegen Common-Noun-Over-Extraction; Step 3 = kuratierte Shows (Lorehammer, Adeptus Ridiculous, Laying Down The Lore, ~$1.3/Show Sonnet). Die 126 unresolved Surface-Forms sind eine Worklist (echte fehlende Entities: Leagues of Votann, Be'lakor, Eldrad, Skarbrand, Imotekh, …).
-- **Token-Diet-Folge — Brief 111 + Brief 117 gemergt:** 111 (doc-only, `2c9af45`, 2026-06-02) archivierte 7 geschlossene Paare → `archive/2026-05/`, löste die 098/099-Kollision → 115/116 und fixte die Frontmatter-Schema-Regression der always-read-Files. **Brief 117** (Code-PR, 2026-06-02) zog die 6 script-gekoppelten Tooling-Files raus aus `sessions/` (2 Loop-Logs → `scripts/logs/`, 4 Runbooks → `scripts/runbooks/`), zentralisierte den Pfad pro Runner-Familie (`scripts/lib/tooling-paths.ts` + je eine Shell-Konstante) und mit-archivierte 102/107. **Brief 112** (brain:lint-Budget-Guardrail) ist in Board [122-B7](../../sessions/2026-06-03-122-arch-batches-board.md) gefaltet.
-- **Brief 096 geschlossen (2026-06-03 → Board 121).** `b60b0fb` mergte G (Chronicle/Timeline) + H (Ask-Funnel) lokal-iterativ via PR #113; 096 ist jetzt `implemented`. Der G+H-Look wird im Product-Board [121](../../sessions/2026-06-03-121-arch-product-board.md) auf die `/werke`-Blaupause gezogen.
-- **Brief-104-Folgen** (kein Blocker): `?audit=drift` ist auf dem aktuellen Korpus dauerhaft leer (drift_works=0) → Drift-Pille/Brief-103-Sub-Sort behalten/umlabeln/zurückbauen entscheiden; die ruhige Alias-Klasse liegt always-on auf ~44% der Bücher → ggf. detail-only/hinter `?audit=alias`; `resolveSurfaceForm` wird von **Brief 109 Step 3** verdrahtet; der **Maintainer-Visual-Pass** der Alias-UI (Desktop + ≤640px) steht aus (CC fuhr nur curl-Smoke).
-- **Audiobook-Full-Sweep 859** — Brief 105 creditete 66 Bücher (Major-Reihen + meistgelesene); die ~790 Rest-Bücher sind ein Folge-Sweep (gleiche One-Search-pro-Buch-Methode) + Cast-Tiefe + Spelling-Watch. Die 4 `no_audiobook`-Rows sind reale Gaps. Short-Title-Store-Link-Kollisionen (*Legion*/*Nemesis*/…) sind ein UI-Daten-Befund.
-- **Phase-3-Seal-Brief** — `ROADMAP.md` Phase 3 → shipped, Phase 4/5 öffnen, Phase-3-Tail explizit als Backlog mappen. Doc-only, klein.
-- **`/buch/[slug]/audit`-Detail-Refinement** — Detailseite könnte analog zur Liste die volle Drift-Achse + die fehlende Gap-Achse zeigen (UI + Daten verzahnen).
-- **Audio-Drama-Dämpfung site-weit** — heute nur im Single-Gap-Cockpit; `book.format==='audio_drama'` + `.catalogue-row__audio-tag` sind für die public `/buecher`-Liste wiederverwendbar.
-- **Legacy-Token-Cleanup** — `--color-void / --color-aquila / --color-frost-*` sind post-096 möglicherweise unused; Code-Review-Sweep, dann `@theme {}`-Aliases droppen.
-- **Public-Page-Rating-Render** — `bookDetails.rating` (~820/859) wird auf `/buch/[slug]` nicht gerendert; **angedockt an Brief 096**, kein eigener Brief.
-- **Hand-Check-Workflow + Override-Schema** (OQ 3) → in Board **122-B2** (Buch-Kuratierung) gefaltet.
-- **Crawl-Simplification / Dead-Code-Retirement** (OQ 13) → in Board **122-B6** gefaltet (Carve-out Excel-SSOT-Loader bleibt; im selben Zug die stale `CLAUDE.md`-Stack-Tabelle korrigieren).
-- **Maintainer-Excel-Sweep** über die `audit:gap-candidates`-Restliste (325 → ~10–20 echte fixable Backfills) — laufende Maintainer-Arbeit, kein Brief.
-- **Längerfristig / bei Bedarf:** Aggregator-Pass-3-Refinement (auto-no-merge `tags:vessel↔planet` + `primarch-stem↔captain`), Codex-Review-Sicht auf Konsolidierungs-Pass 2, Collection-Gap-Ledger-Pflege, Slug-Delta W40K-0259/0330 (geparkt — `apply-override` friert `slug`/`title` on update ein), Vokabular-Hygiene-Stack, `run-ssot-loop.sh`-Refinements, Cockpit-Refinements (smoke-slugs-Regression-Probe, coverage two-line output).
+- **Großer Frontend-Brief angekündigt** (Philipp, Session 146) — nächste Architekten-Arbeit; Inputs: `/lab/design`, Reviews 141/143, Farbsprachen-Konsolidierung (Review-141-Hauptbefund: drei Farbsprachen, Slop in 4 Primitives).
+- **Batches-Tail:** Resolver-Welle `ssot-w40k-058..060` + extended Restbatches (custom Config nötig — Auto-Detection-Blind-Spot, Session 136); Blurbs-Full-Sweep ~838; Lorehammer-Twin-Filter für Cold-Reingest; Podcast-Alias-Backlog (~63 Luetin- + ~212 Lorehammer-Surface-Forms); S4 YouTube-Episode-Matching (abgegrenzt, Session 128); `book-seen.json` entsteht beim ersten `refresh:mark-reviewed -- --books` (bewusst nicht initial committed, Session 148).
+- **Tote Konstante:** `scripts/run-ssot-loop.sh` Z. 51 `BRIEF_PATH` zeigt auf den jetzt archivierten Brief 061 (ungenutzt; Einzeiler im nächsten Batches-Code-PR mitnehmen).
+- **Maintainer-Hebel:** `REVALIDATE_TOKEN` in Vercel setzen (sonst `/api/revalidate` 503); Primarchen-Kuration (122-B9) schaltet die Compendium-Primarchen-Kategorie frei; Repo-Setting „Allow Actions to create PRs" muss ON bleiben.
 
 ## Next likely brief
 
-Stand 2026-06-03. **Aktive Arbeit läuft über die stehenden Strang-Boards [121](../../sessions/2026-06-03-121-arch-product-board.md) (Product) + [122](../../sessions/2026-06-03-122-arch-batches-board.md) (Batches)**, nicht mehr über Einzel-Briefs; Briefing pro Task über Chat, CC-Handoff-Docs klein. Ask strang-übergreifend: 122-B4 zuerst, dann 121-P3. Entity-Graph Step 2 (113) + Podcast Step 2 (114) sind gemergt. Die nummerierten Punkte unten sind historischer Kontext (teils erledigt) und werden in die Boards überführt.
+1. **Frontend-Brief (Product)** — der angekündigte große Polish-/Konsolidierungs-Brief auf Basis `/lab/design` + Reviews; Design-Freiheit wie immer bei CC.
+2. **Board-Briefings per Chat** — 122: B2 (Buch-Kuratierung), B6 (Dead-Code), B7 (brain:lint-Guardrail), Blurbs-Sweep, Resolver-Welle; 121: P5/P6/P8/P9 (P8/P9 brauchen 122-B8/B9-Daten zuerst, Spec Brief 129).
+3. **B5 Chronicle-Datierung** läuft als Cowork+Philipp-Hand-Kuratierung weiter; graduiert als sauberer Batches-Brief (Rest-Bücher-Datierung auf dem 137er-Fundament).
 
-1. **Entity-Graph Step 2 (Brief 113, Product) + Podcast Step 2 (Brief 114, Batches) parallel anwerfen** — beide geschrieben + offen. Entity Step 2 (Brief 113) ist jetzt **phasiert** (Maintainer-Wunsch, Token-Fenster klein halten, `/clear` zwischen den Phasen): Phase A = EntityView-Redesign aufs Design-Mockup (Header-Meta aus vorhandenen Fakten, Werk-Karten je Kind, rechte VERKNÜPFT-Rail mit Reflow, Gradient-to-dark; kein Bild, keine neuen Daten), Phase B = In-Context-Panel (intercepting routes, reused `loadEntity` + `EntityView`, zero fork — das 109-impl beschreibt die Naht). Ein PR mit A+B am Ende, `/clear` zwischen den Phasen (kein Zwischen-Merge). Podcast Step 2 = Schema (`podcast`/`podcast_episode` work-kinds nach dem channel/video-CTI-Muster, `episodeGuid`-keyed idempotenter Apply) + Tags → `work_*`-Junctions; dazu die billigen Quick-alias-wins als Coverage-Lift. Optional near-free dazu: `/aera` + `/serie`-Entity-Hubs (das Step-1-System trägt sie fast gratis).
-2. **Phase-3-Seal-Brief** — formaler Phasen-Abschluss (doc-only, klein, parallel-fähig).
-3. **Brief-096 G + H** bleiben lokal-iterativ im Product-Worktree; der nächste Product-PR kommt auf ausdrückliches `fertig`.
-
-Sekundär (Maintainer-Wahl, weniger zeitkritisch): Crawl-Simplification/Dead-Code-Retirement (OQ 13), Aggregator-Pass-3-Refinement, Hand-Check-Workflow (OQ 3), Refresh-Button (per-Buch on-demand Goodreads-Refresh).
-
-Session-end-Disziplin (post-049): jeder Architekten-Brief + CC-Report läuft durch [`workflows/session-end.md`](./workflows/session-end.md) — diese Seite updaten, `open-questions.md` prunen, ggf. Decisions schreiben. Seit Brief 095 ist der Post-Merge-Koordinations-Pass der **einzige** Pfad, über den `sessions/README.md` + `brain/**` sich ändern (Cowork als alleiniger Schreiber aus dem Koordinations-Worktree).
+Session-end-Disziplin: [`workflows/session-end.md`](./workflows/session-end.md); Rollup-Files ändern sich ausschließlich über den Koordinations-Pass (Brief 095).

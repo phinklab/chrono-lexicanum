@@ -23,7 +23,7 @@ sources:
   - ../../sessions/archive/2026-05/2026-05-11-058-impl-v2-ssot-mode-first-batch.md
   - ../../sessions/archive/2026-05/2026-05-11-060-arch-ssot-w40k-001-db-apply.md
   - ../../sessions/archive/2026-05/2026-05-11-060-impl-ssot-w40k-001-db-apply.md
-  - ../../sessions/2026-05-11-061-arch-ssot-loop.md
+  - ../../sessions/archive/2026-05/2026-05-11-061-arch-ssot-loop.md
   - ../../sessions/archive/2026-05/2026-05-12-063-arch-resolver-50-books.md
   - ../../sessions/archive/2026-05/2026-05-12-063-impl-resolver-50-books.md
   - ../../sessions/archive/2026-05/2026-05-12-067-impl-resolver-apply-readiness.md

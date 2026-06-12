@@ -2,11 +2,11 @@
 title: Open questions (next-brief queue)
 type: overview
 created: 2026-05-09
-updated: 2026-06-11
+updated: 2026-06-12
 sources:
   - ../../sessions/README.md
-  - ../../sessions/2026-06-03-122-arch-batches-board.md
-  - ../../sessions/2026-06-10-137-impl-timeline-data-foundation.md
+  - ../../sessions/archive/2026-06/2026-06-10-137-impl-timeline-data-foundation.md
+  - ../../sessions/2026-06-12-147-impl-deep-review-fixes.md
 related:
   - ./project-state.md
   - ./deferred-questions.md
@@ -17,36 +17,31 @@ confidence: high
 
 # Open questions
 
-> Items the **next** architect brief MUST address. The queue is intentionally small (3–5 items). Cowork prunes here when an item lands in a brief or is otherwise resolved. Dormant/distant items live in [`./deferred-questions.md`](./deferred-questions.md); phase-internal backlog (3d/3e/3f reminders) in [`./pipeline-state.md`](./pipeline-state.md).
+> Items the **next** architect brief MUST address. The queue is intentionally small (3–5 items). Cowork prunes here when an item lands in a brief or is otherwise resolved. Dormant/distant items live in [`./deferred-questions.md`](./deferred-questions.md). Strang-Backlog lebt in den Boards 121/122; operativer Kleinkram in `project-state.md` § What's open.
 >
-> **Geschlossene OQs liegen in git + [`log.md`](./log.md).** Die durchgestrichenen/`-historic`-Einträge (OQ 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14) und die kompakte Migrations-Historie wurden 2026-06-01 ausgelagert (Token-Diet-Session: dieses File war auf ~19k Token gewachsen, ~14 von 16 Einträgen waren geschlossen). Wer die Schließungs-Begründung eines alten OQ braucht, liest `git log` oder `log.md`.
+> **Geschlossene OQs liegen in git + [`log.md`](./log.md).** OQ (15) Compendium-Taxonomie wurde 2026-06-12 geschlossen: `/compendium` ist shipped (129-impl-compendium-doorways), die Restpunkte (Primarchen-Kuration, Themen-Stränge, Autoren-Tiefe) leben als 121-P8/P9 + 122-B8/B9 in den Boards.
 
 Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions: …` (raw sources) · `Follow-up brief: …` (if known).
 
 ---
 
-> **Queue leer seit 2026-06-03.** Die beiden zuletzt offenen Items sind in die
-> stehenden Strang-Boards gefaltet und werden dort getrackt — die Boards sind ab
-> jetzt der laufende Task-Tracker für Strang-Arbeit:
->
-> - **(3) Hand-Check-Workflow / Override-Format** → Board **[122-B2](../../sessions/2026-06-03-122-arch-batches-board.md)** (Buch-Kuratierung).
-> - **(13) Crawl-Simplification / Dead-Code-Retirement** → Board **[122-B6](../../sessions/2026-06-03-122-arch-batches-board.md)**.
->
-> Die ausgelagerten Detailtexte stehen in `git log`. Neue Carry-over-Items aus
-> Impl-Reports kommen wie gewohnt hier als nummerierte Einträge rein.
-
----
-
-**(15) Compendium — Entity-Hub-Taxonomie + Tags als Türen (Bücher ∪ Podcasts)**
-`Owner: Cowork` (in die P5/P9-Task-Briefings falten — kein eigener Brief) · `Sessions: Chat 2026-06-07` · `Follow-up brief: 121-P5 (Entity-Hubs) + 121-P9 (Charakter-/Primarchen-Galerie); Kurations-Schicht 129/122-B9; Cross-Podcast-Suche → 121 (Podcast-Redesign); Backend-Gate → 130/131/122-B1`
-
-Der „Factions"-Hub wird zum **Compendium**: ein Entity-Verzeichnis mit den Top-Level-Kategorien **Factions**, **Primarchen** (eigener Top-Level-Typ, getragen vom `is_primarch`-Kurationsflag aus 122-B9/129 — erscheinen nur hier, nicht zusätzlich unter Characters), **Characters**, **Welten/Orte** und **Autoren**.
-
----
-
 **(16) Timeline-Datenfundament — drei Folgethemen aus impl 137**
-`Owner: Cowork (Brief-Schnitt) / Batches (a, b) / Cowork (c)` · `Sessions: 2026-06-10-137-impl-timeline-data-foundation.md` · `Follow-up brief: offen`
+`Owner: Cowork (Brief-Schnitt) / Batches (a) / Cowork (b, c)` · `Sessions: archive/2026-06/2026-06-10-137-impl-timeline-data-foundation.md` · `Follow-up brief: offen`
 
-- **(a) `db:rebuild` wischt Timeline-Daten mit weg.** `db-reset-for-ssot` macht `TRUNCATE works CASCADE` → `event_works` leer, `works.startY/endY/setting*` weg (`events`/`eras` überleben). **Interim-Regel: nach jedem `db:rebuild` muss `npm run apply:timeline` laufen.** Sauber: Tail-Step in `db-rebuild.sh` analog `apply:audiobook-narrators` (kleines Batches-Item; Runbook-governed, deshalb in 137 bewusst nicht angefasst).
-- **(b) `primaryEraId` ist ein Placeholder-Feld.** `apply-override.ts` (Z. 929/939) hardcodet `'time_ending'` bei **jedem** SSOT-Upsert → ~859 SSOT-Bücher tragen den editorial wertlosen M41-Anker, und jede künftige Kuration würde von der nächsten Resolver-Welle überstempelt. Brief nötig, sobald ein Consumer `primaryEraId` ernsthaft nutzt (heute: Overview/EraDetail mit nur ~26 `book_details`-Büchern). Naheliegende Ableitung: aus den jetzt vorhandenen Setting-Dates bucketen + apply-override das Überschreiben abgewöhnen.
-- **(c) Atlas-Extension für Events.** Events sind jetzt first-class kuratierte Entities (Provenance + Hooks) — `atlas:regen` um einen Event-Page-Type erweitern (eine Seite pro Event, Era-Index-Seiten). CC-Empfehlung aus 137, out of scope dort. Welten sind **schwellen-gegated**: ein Ort wird erst ab ~4–5 Erwähnungen über Bücher und/oder Podcasts ein Eintrag (exakte Schwelle datengetrieben; v1 evtl. ganz gecuttet). **Autoren** sind real-world — separate Achse, nicht in denselben Topf wie die In-Universe-Typen. Die `persons`-Tabelle hängt über die work-keyed `work_persons`-Junction (Rollen author/co_author/translator/narrator/…) bereits an Bücher **und** Episoden; eine Autoren-Seite zeigt Werke + Podcast-Auftritte also ohne Schema-Änderung. v1-Scope: `role=author/co_author`; Gate = nur Daten-Population der Episode-Person-Rollen. Tags in Büchern (heute nicht klickbar) und Podcasts (heute → `/werke?faction=`) öffnen das Compendium-Entity-Overlay (`@modal`-Pattern aus 113), das Bücher **und** Podcast-Episoden vereint zeigt. **Backend-Gate:** Podcast-Episoden sind heute nur faction-getaggt — Charakter-/Welt-Pivots aus Podcasts (und das Welt-Schwellen-Counting über Podcasts) setzen Episode-Tagging über Factions hinaus voraus → Podcast-Tagging-Achse (130/131/122-B1). Exakter Schwellenwert, Copy und Visuals = Design-Freiheit/CC.
+- **(a) `db:rebuild` wischt Timeline-Daten mit weg.** `TRUNCATE works CASCADE` leert `event_works` + `works.setting*`. **Interim-Regel: nach jedem `db:rebuild` muss `npm run apply:timeline` laufen.** Sauber: Tail-Step in `db-rebuild.sh` analog `apply:audiobook-narrators` (kleines Batches-Item; Runbook-governed).
+- **(b) `primaryEraId` ist ein Placeholder-Feld.** `apply-override.ts` hardcodet `'time_ending'` bei jedem SSOT-Upsert. Seit der neue `/timeline` auf Events + Setting-Dates läuft, ist der Consumer-Druck gesunken — Brief erst, wenn ein Consumer das Feld ernsthaft nutzt; naheliegende Ableitung: aus Setting-Dates bucketen + Überschreiben abgewöhnen.
+- **(c) Atlas-Extension für Events.** Events sind first-class kuratierte Entities — `atlas:regen` um einen Event-Page-Type erweitern (eine Seite pro Event, Era-Index-Seiten).
+
+---
+
+**(17) Deep-Review-Rest — Maintainer-Entscheide + Maschinen-Endpoints**
+`Owner: Philipp (Entscheide) / Cowork (Brief-Schnitt) / Product (Umsetzung)` · `Sessions: 2026-06-12-147-impl-deep-review-fixes.md` · `Follow-up brief: in den angekündigten Frontend-Brief bzw. einen kleinen Hardening-Nachzügler falten`
+
+Aus 147 § „Open issues" / „Decisions for Philipp", noch unentschieden bzw. unerledigt:
+
+- **Preview-Gate vs. Maschinen-Endpoints:** der Catch-all-Matcher in `src/proxy.ts` schickt auch `/api/revalidate` + `/healthz` ohne Cookie auf den Login-Redirect — externe Monitor-/Apply-Aufrufe scheitern mit 307. Negative-Lookahead erweitern oder bewusst so lassen, bis das Gate fällt.
+- **CSP-Strategie** (statisch/Hash vs. Nonce+dynamisch vs. vorerst ohne) — einziger fehlender Security-Header.
+- **`/buecher` vs. `/archive`:** redundant — behalten oder 308-Redirect?
+- **FilterRail:** dormant — endgültig löschen oder reaktivieren? (Kandidat für 121-P7-Cleanup-Ledger.)
+- **`/buch/[slug]`-SSG-Blockade:** `searchParams`+`headers()` aus Brief 105 verhindern Prerender — lohnt der Client-Insel-Umbau?
+- **`REVALIDATE_TOKEN`** in Vercel setzen (operativ, kein Brief — hier nur, bis es passiert ist).

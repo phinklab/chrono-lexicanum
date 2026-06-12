@@ -215,7 +215,7 @@ liegen unter `src/lib/ingestion/**` bzw. `scripts/**` — Batches-Pfade, hier ni
 
 ## References
 
-- Report 144 (`sessions/2026-06-11-144-impl-technical-deep-review.md`) — Arbeitsgrundlage, alle §-Verweise.
+- Report 144 (`sessions/archive/2026-06/2026-06-11-144-impl-technical-deep-review.md`) — Arbeitsgrundlage, alle §-Verweise.
 - Report 141 § B5 — A11y-Inventar für Welle 7.
 - Next-16-Daten: Data-Cache-Limit 2 MB, `staticGenerationMaxConcurrency`-Default 8
   (`node_modules/next/dist/server/config-shared.js`), `revalidateTag(tag, "max")`-Form für Route-Handler.

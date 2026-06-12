@@ -194,6 +194,6 @@ Brief 084 (2026-05-19) implementiert:
 - `scripts/test-resolver-coverage.ts` neuer Tail `(post-Brief-084-skip, M location umbrella surface forms suppressed)`.
 - `scripts/db-counts-084.ts` Helper-Skript für Pre/Post-Counts-Verifikation.
 - `scripts/smoke-locations-084.ts` Smoke-Probe (3 Skip- + 2 Erhaltungs-Slugs).
-- `sessions/2026-05-11-061-arch-ssot-loop.md` neuer `Locations-Granularity-Discipline`-Block.
+- `sessions/archive/2026-05/2026-05-11-061-arch-ssot-loop.md` neuer `Locations-Granularity-Discipline`-Block.
 - `scripts/run-ssot-loop.sh` `base_trigger`-Heredoc erweitert.
 - Re-Apply `ssot-w40k-001..020` (Backfill, Notes-Bucket-Umsortierung).

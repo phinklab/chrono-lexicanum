@@ -164,7 +164,7 @@ exakt wie bisher; beim nächsten Findings-PR einmal nach dem Review ausführen (
 
 ## References
 
-- Report 144 (`sessions/2026-06-11-144-impl-technical-deep-review.md`) § A.4/A.5/T.4 —
+- Report 144 (`sessions/archive/2026-06/2026-06-11-144-impl-technical-deep-review.md`) § A.4/A.5/T.4 —
   Specs der Welle-6-Kandidaten.
 - Report 147 (`sessions/2026-06-12-147-impl-deep-review-fixes.md`) § „Welle 6 —
   übersprungen" — Skip-Begründung (Strang-Regel) + die drei T.4-Reststellen.

@@ -2,7 +2,7 @@
 title: Roadmap
 type: overview
 created: 2026-05-09
-updated: 2026-05-20
+updated: 2026-06-12
 sources:
   - ../raw/historical/2026-05-08-pre-reset/ROADMAP.md
   - ../../sessions/README.md
@@ -19,22 +19,22 @@ confidence: high
 >
 > **Plan-Reshuffle 2026-05-02** ([decision page](./decisions/plan-reshuffle-2026-05-02.md)) reordered Phases 3 ↔ 4 (data ingestion forward; discovery layer follows once data exists), folded EntryRail into Phase-5 Ask-the-Archive, and moved Cartographer + Ask the Archive out of Phase 2 into Phase 5.
 
-## Status snapshot (2026-05-09)
+## Status snapshot (2026-06-12)
 
 | Phase | Status | Notes |
 |---|---|---|
 | 1 — Foundation | ✅ shipped 2026-04-28 | Next.js + TS + Tailwind + Drizzle + Supabase, Vercel-deployed, schema seeded |
 | 1.1 — Stack bumps | ✅ shipped 2026-04-28 | Next major + Tailwind v4, CSS-first via `@theme` |
-| 1.5 — Build/deploy hygiene | ✅ shipped 2026-05-01 | CI lint+typecheck, Drizzle migrate on Vercel build, `/healthz` |
-| 2 — Chronicle (Timeline) | ✅ shipped 2026-05-02 | DB-driven; DetailPanel + deep-link; Minimal-FilterRail |
-| 3 — Bulk-Backfill-Pipeline | 🔄 in flight (dry-run) | 3a + 3b + 3c shipped; 3.5 dashboard live; 3d/3e/3f open |
-| 3.5 — Ingestion-Dashboard | ✅ shipped 2026-05-04 | `/ingest` read-only diff inspector |
-| 4 — Discovery-Layer | ⏳ queued | Timeline-Reshape + DB-Suche + Detail-Seiten + persönliche Bibliothek |
-| 5 — Cartographer + Ask the Archive | ⏳ queued | The other two tools |
+| 1.5 — Build/deploy hygiene | ✅ shipped 2026-05-01 | CI lint+typecheck, `/healthz`. **Update 2026-06-12:** Vercel-Build migriert nicht mehr automatisch — Migrationen via `migrate.yml` (workflow_dispatch) oder lokal; `ci.yml` lintet auch `push: main` (Session 147) |
+| 2 — Chronicle (Timeline) | ✅ shipped 2026-05-02, **ersetzt 2026-06-11** | Alte DB-Timeline → Cinematic-Port (Briefs 137/138/140): Events-Datenfundament (8 Eras / 144 Events / 223 Hooks) + neue `/timeline` |
+| 3 — Bulk-Backfill-Pipeline | ✅ shipped, Wartungsmodus | Korpus 889 (Excel-SSOT + CC-direct curation + Extension-Pfad); 3f superseded durch Weekly-Refresh (Brief 133: Cron → Rolling-PR, additions-only) |
+| 3.5 — Ingestion-Dashboard | ✅ shipped 2026-05-04 | `/ingest` read-only diff inspector (seit Session 147 admin-ge-gatet) |
+| 4 — Discovery-Layer | ✅ weitgehend shipped 2026-06 | 4a = Timeline-Cinematic; 4b = `/archive`; 4c = Detail-Seiten + `/compendium`; **4d (persönliche Bibliothek) bleibt queued** |
+| 5 — Cartographer + Ask the Archive | ✅ weitgehend shipped 2026-06 | 5b `/ask` shipped (5-Fragen-Funnel auf `recommend()`, Boards 122-B4 + 121-P3); 5a `/map` live, Feinschliff offen |
 | 6 — Community contributions | ⏳ queued | Public submissions + admin review |
-| 7 — Polish & launch | ⏳ queued | Custom domain, performance pass, Reddit launch |
+| 7 — Polish & launch | 🔄 **current focus** | Deep-Reviews + Fixes (Sessions 140/141/144/147), Preview-Gate (Kill-Switch `PREVIEW_GATE=off`), großer Frontend-Brief angekündigt; dann Custom domain + Reddit launch |
 
-## Phase 3 — Bulk-Backfill-Pipeline (current focus)
+## Phase 3 — Bulk-Backfill-Pipeline (shipped; Wartung = Weekly-Refresh)
 
 **Strategy** (post-Plan-Reshuffle and post-Bulk-Backfill-decision): all ~600–900 W40k novels with multi-source data + LLM-paraphrased synopses. Wikipedia for discovery; Lexicanum (MediaWiki API via curl-shell-out, Cloudflare-blocked on Node-native) for lore; Open Library for bibliography (ISBN, cover, pub year); Hardcover for ratings/tags; Anthropic Haiku 4.5 + Web-Search for synopsis paraphrase + soft-facets + plausibility cross-check + reader-rating capture. **Goodreads is out** — see [`./decisions/no-goodreads.md`](./decisions/no-goodreads.md).
 

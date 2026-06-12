@@ -4,7 +4,7 @@ type: decision
 created: 2026-05-15
 updated: 2026-05-15
 sources:
-  - ../../../sessions/2026-05-11-061-arch-ssot-loop.md
+  - ../../../sessions/archive/2026-05/2026-05-11-061-arch-ssot-loop.md
   - ../../../sessions/archive/2026-05/2026-05-13-071-arch-loop-driver.md
   - ../../../sessions/archive/2026-05/2026-05-13-071-impl-loop-driver.md
   - ../../../sessions/archive/2026-05/2026-05-14-072-impl-resolver-batch-2.md

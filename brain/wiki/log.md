@@ -1395,3 +1395,23 @@ Brief 134 (*Chronicle setting dates* — Voll-Automatisierung: Events-Tabelle + 
 - Brief 138 entsprechend nachgezogen (Commit 27a297a): Chip-Ziele auf `/archive…`, `?focus=`-Deliverable als erledigt markiert, Burger-Port explizit out of scope, Abhängigkeit „Archive-PR auf main" ergänzt. **138 ist startklar.**
 
 **Edits:** `brain/wiki/open-questions.md` — neues Item (16) mit den drei Folge-Themen aus impl 137 (db:rebuild-Lücke, primaryEraId-Placeholder, Atlas-Events). `brain/wiki/log.md` — dieser Eintrag.
+
+---
+
+## 2026-06-12 · Ingest + Move · Großer Rollup-Pass: Sessions 123–148 eingefaltet + Archiv-Sweep (57 Files)
+
+**Anlass:** Die Rollup-Files hingen ~10 Tage hinter dem Repo (project-state Stand 06-03; 30+ ungerollte Strang-Reports). Voller Koordinations-Pass aus dem Coordination-Worktree, doc-only → direkt auf `main`.
+
+**Eingefaltet (Highlights):**
+
+- **Boards-Ära produktiv:** P1–P4 + B1/B3/B4/B10 erledigt. Ask-Arc (123–127: flacher 5-Fragen-Contract, `recommend()` + Curation-Overlay + Hard Boundaries, 1080-Kombinationen-Audit, `/ask`-Funnel). Podcast-B1 (S1–S3: `external_links`-Provenance Migration 0011, Registry `podcast-shows.json`, autoritativer Link-Apply; Shows: Lorecast 149 / Adeptus Ridiculous 363 / Lorehammer 391 / Luetin09 191 via YouTube-Adapter Brief 130 + CC-Direct-Tagging Brief 131/132). Entity-Blurbs (122-B3: 143 Blurbs + Full-Sweep-Machinery). Weekly-Refresh (Brief 133 PR1+PR2 + 134 Ignore-List + 148 Delta-Cursor `book-seen.json`): Cron Mo 06:00 UTC → Rolling-PR, additions-only. **Korpus 859 → 889** (Session 136, `book-roster.extension.json`, Batches 058–060 + extended Restbatches).
+- **Product-Sweep:** `/compendium` (129-impl, 5 Kategorien + Primarchen-Seam + `db-cache.ts`), `/archive`-Merge + Burger-SiteMenu, TopNav gelöscht (139/140), **Timeline-Cinematic-Port** (137-Datenfundament: 8 Eras / 144 Events / 223 Hooks / 97 datierte Werke, Migration 0012; 138/140: neue `/timeline` DB-fed mit 19 WebP-Artworks), Era-Art + Credits + Chrome-Polish (143/145/146), **Preview-Login-Gate** (145, `PREVIEW_GATE=off` als Kill-Switch).
+- **Deep-Review-Zyklus:** Reviews 140 (Backend) / 141 (Frontend, `/lab/design`-Styleguide) / 144 (Technical, 72 bestätigte Findings, kein S0) → Umsetzung 147 (7 Wellen: Caching TTL 3600 + `/api/revalidate`, Migration 0013-Indizes, Dead-Code, CSS-Tokens, Resilienz + **`vercel-build` migriert nicht mehr** (`migrate.yml` workflow_dispatch) + **`ci.yml` auch auf `push: main`**, A11y, Security-Header + Admin-Gates + CVE-Bump) → 148 (Welle-6-Rest: 3 umgesetzt, 1 verworfen). Migration 0013 ist applied (Philipp bestätigt 2026-06-12).
+
+**OQ-Bewegung:** (15) Compendium geschlossen (shipped; Rest → Boards 121-P8/P9 + 122-B8/B9). (16) Timeline-Folgen bleibt (aktualisiert). **Neu (17):** Deep-Review-Rest (Preview-Gate vs. Maschinen-Endpoints, CSP, `/buecher`, FilterRail, `/buch`-SSG, `REVALIDATE_TOKEN`).
+
+**Archiv-Sweep:** 52 geschlossene Session-Files → `archive/2026-06/`, 5 Mai-Altlasten (061/104/108/109/110-arch) → `archive/2026-05/`. Root hält nur noch: Boards 121/122, Brief 129 (open), Reports 147/148 (just-closed). Referenz-Rewrite in `decisions/location-policy.md`, `why-cc-direct-curation.md`, `why-sonnet-not-haiku.md`, `pipeline-state.md` (frontmatter), 147/148 (144-Ref). Befund: `scripts/run-ssot-loop.sh` Z. 51 trägt eine **ungenutzte** `BRIEF_PATH`-Konstante auf den archivierten 061 — Einzeiler für den nächsten Batches-Code-PR, kein Bruch.
+
+**CLAUDE.md-Fixes (lange notierte Drift):** M-Scale-Formel-Prosa korrigiert (`M*1000 + year`, Code ist Autorität — Befund aus dem 134-Retirement-Eintrag) + CI-Caveat aktualisiert (`ci.yml` lintet seit 147 auch direct-to-`main`-Pushes).
+
+**Edits:** `project-state.md` (Neuschrieb auf Stand 2026-06-12), `open-questions.md` (15 zu, 17 neu), `roadmap.md` (Status-Snapshot 2026-06-12), `index.md` (Katalog-Zeilen entschlackt + Daten), `sessions/README.md` (Kopf + Active Threads), Boards 121/122 (Status-Spalten + B10-Spec-Link), `CLAUDE.md` (2 Fixes), dieser Eintrag.

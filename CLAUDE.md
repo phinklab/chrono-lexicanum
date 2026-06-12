@@ -155,7 +155,7 @@ The original HTML prototype lives **outside the repo** (in `archive/` locally, g
 
 ### Data
 
-- Custom in-universe time scale: `(M-1)*1000 + year_within_M`. M30.997 → `30997.000`. Stored as `numeric(10,3)`.
+- Custom in-universe time scale: `M*1000 + year_within_M`. M30.997 → `30997.000`. Stored as `numeric(10,3)`. (Formel-Prosa 2026-06-12 an den Code angeglichen — `eras.json`/`parseChrono` waren immer `M*1000+year`.)
 - Reference tables (`eras`, `factions`, `series`, `sectors`, `locations`, `characters`) use **string IDs** (e.g. `'thousand_sons'`).
 - `books` use UUIDs internally with a slug column for URLs (`/buch/eisenhorn-xenos`).
 - Every scraped row carries `source_kind` and `confidence` so we can audit and override.
@@ -179,7 +179,7 @@ A pull request is a code-review + CI mechanism. A change that touches **only doc
 - **Code / data / config → branch + PR.** A diff that touches anything else — `src/`, `scripts/`, `src/db/` (incl. migrations), `package.json` / `package-lock.json`, `.github/**`, the root `*.config.*` files — goes through a task branch + PR, reviewed and merged as before. The classifier is the **file set**, not the worktree.
 - **Mixed change → PR.** If one logical change genuinely touches docs *and* code, the code drags the docs along — the whole thing goes through the PR. The rule removes the *requirement* of a separate doc PR; it never forbids docs riding inside a code PR.
 - **A code-handing brief.** The architect brief is doc-only → it lands on `main` directly. CC then branches from `main`, implements, and flips the brief's `status: open → implemented` as a one-line edit *inside that code PR*. No separate PR for the brief, none for the status flip.
-- **CI caveat.** `.github/workflows/ci.yml` runs `on: pull_request` only, so direct-to-`main` commits currently skip `brain:lint`. Until `ci.yml` also carries a `push: branches: [main]` trigger (itself a code change → its own PR), run `npm run brain:lint -- --no-write` locally green before pushing a doc-only commit.
+- **CI caveat (resolved 2026-06-12).** `ci.yml` trägt seit Session 147 auch den `push: branches: [main]`-Trigger — direct-to-`main` Doc-Commits werden jetzt von CI gelintet. `npm run brain:lint -- --no-write` lokal grün ziehen bleibt trotzdem die Höflichkeit, die einen roten `main` vermeidet.
 - **Branch-protection caveat.** This rule assumes `main` accepts direct pushes. If GitHub branch protection rejects them, relax it for this single-maintainer repo, or fall back to bundling the doc change into the next PR.
 
 Cowork never runs `git` (sandbox — see the KRITISCH banner above): it writes the files and hands Philipp die exakten git-Kommandos zum Einfügen.
