@@ -260,6 +260,9 @@ export function buildReportMarkdown(
       "`scripts/seed-data/book-roster.extension.json`, then `npm run import:ssot-roster` to merge, " +
       "and curate/apply as usual. See `scripts/runbooks/weekly-refresh-runbook.md`.",
     "- **Podcasts:** `npm run ingest:podcast -- --show <slug>` then `npm run apply:podcast`.",
+    "- **Afterwards:** `npm run refresh:mark-reviewed -- --books` (after merging this PR — even if " +
+      "you promote/ignore nothing): marks everything listed here as seen, so next week's PR only " +
+      "shows what is genuinely new.",
     "",
   ];
   return `${lines.join("\n")}`;

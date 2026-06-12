@@ -905,6 +905,9 @@ async function main(): Promise<void> {
     assert.match(md, /New since last review \(2\)/);
     assert.match(md, /Pending backlog \(0\)/);
     assert.match(md, /2 new, 0 pending, 1 to review/); // summary carries all three counts
+    // Bootstrap guarantee: the --books step is stated even with an EMPTY pending
+    // section (the first findings PR is exactly the moment the cursor must surface).
+    assert.match(md, /refresh:mark-reviewed -- --books/);
   });
 
   await test("buildReportMarkdown: pending backlog renders collapsed, keeps the ⚠ flag per section", async () => {
