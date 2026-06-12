@@ -1421,3 +1421,17 @@ Brief 134 (*Chronicle setting dates* — Voll-Automatisierung: Events-Tabelle + 
 ## 2026-06-12 · Update · Korrektur: angekündigter Frontend-Brief entfällt (via Rogue-Session 143 erledigt)
 
 Philipp-Klärung direkt nach dem Rollup-Pass: die in 146 angekündigte „intensive Ausarbeitung eines Frontend-Briefings" ist **nicht mehr geplant** — die Frontend-Arbeit lief maintainer-direkt als Rogue-Design-Session 143 (+ Polish 145/146) und ist gemergt. Kein neuer Report; 143 war bereits eingefaltet/archiviert. **Edits:** `project-state.md` (§ What's open-Bullet umgeschrieben, § Next likely brief umsortiert — Boards vor, OQ 17 als Punkt 3), `sessions/README.md` (Kopf-„Als Nächstes" korrigiert), dieser Eintrag.
+
+---
+
+## 2026-06-12 · Decision + Briefs · Backlog-Sort mit Philipp → Briefs 149/150, Boards erweitert, OQ 17 geschlossen
+
+Philipp warf 11 neue Punkte in den Topf (Buch-Popup-„Open Full Page" raus, `/atlas`-Rückbau + Admin-Seite, Ask-Logik-Überarbeitung, großer Buch-Reviewer, URL-Migration EN, Fraktions-Icons statt Punkt, Loading-Transparenz, Mobile-Sweep, Map-Redesign ⏸ extern, Login-BG + Credit „bubondubon", Credit-Slot generalisieren). Cowork sortierte alles in 8 Pakete; Reihenfolge mit Philipp festgelegt (AskUserQuestion).
+
+**Status-Korrekturen aus dem Chat + Repo-Check:** P5 erledigt (Compendium + Blurbs), P6 bis auf CW-Anzeige, **B3-Full-Sweep komplett** (981/981 Blurbs: 202/490/289 — nicht nur das 143er-Subset), Factions ohne Werke werden nicht mehr gelistet; **B6 NICHT gelaufen** (V1/V2-Ingestion-Code liegt vollständig unter `src/lib/ingestion/`); FilterRail + alte Chronicle-Komponenten existieren noch.
+
+**OQ 17 vollständig entschieden** (alle Empfehlungen angenommen): Gate-Ausnahmen `/healthz`+`/api/revalidate` ja; CSP einfach statisch; `/buecher` → 308; FilterRail löschen; `/buch`-SSG-Refactor ja, vor Launch. Umsetzung → 121-P11/P12. OQ-Queue damit nur noch (16).
+
+**Geschrieben:** Brief `2026-06-12-149-arch-curation-foundation.md` (B2: Hand-Override-Format final vs. Review-Queue, Vorrang-Garantie gegen alle Auto-Writer, rebuild-fester Tail, Content-Warnings aus den Daten, programmatisch aufrufbar für die spätere Admin-Seite) + Brief `2026-06-12-150-arch-polish-sweep.md` (P10: CW-Anzeige raus, Fraktions-Icons Imperium/SM/Xenos/Chaos, Cogitator-Loading transparent, Login-BG + generalisierter Credit-Slot; mit Design-freedom-Sektion).
+
+**Boards erweitert:** 121 + P10 (Brief 150) / P11 (Admin+Rückbau, nach 149) / P12 (URL-EN + SSG) / P13 (Mobile) / P14 (Map ⏸); 122 + B11 (Buch-Reviewer, nach 149) / B12 (Ask-Tuning, nach B11). **Edits:** Boards 121/122, `open-questions.md` (17 zu), `project-state.md` (Blurbs-Korrektur, Boards-Absatz, Next-Sektion), `sessions/README.md` (Kopf + 149/150-Zeilen), dieser Eintrag.

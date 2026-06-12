@@ -38,11 +38,16 @@ Optik = deine (frontend-design Skill): Farben, Spacing, Typo, Motion, Copy, Klas
 | P2 | Chronicle `/timeline` Redesign (Contract bleibt) | ☑ erledigt (Briefe 137/138/140 Timeline-Cinematic-Port; Polish 145/146) |
 | P3 | Ask `/ask` Funnel-Redesign, wired gegen 122-B4 | ☑ erledigt (126) |
 | P4 | Podcast `/podcasts` Redesign + Link-zur-Show & Download-Option (Daten 122-B1) | ☑ erledigt (129, PR #133) |
-| P5 | Entity-Hubs `/fraktionen` + `/fraktion\|charakter\|welt/[id]` als Guides, Blurbs aus 122-B3 | ☐ |
-| P6 | Display-Tweaks: Content-Warnings raus, leere Factions aus, Blurbs/Counts ein | ☐ |
+| P5 | Entity-Hubs `/fraktionen` + `/fraktion\|charakter\|welt/[id]` als Guides, Blurbs aus 122-B3 | ☑ erledigt (maintainer-direkt: `/compendium` + Blurbs live, 981/981) |
+| P6 | Display-Tweaks: Content-Warnings raus, leere Factions aus, Blurbs/Counts ein | ☑ erledigt bis auf CW-Anzeige → P10/Brief 150 |
 | P7 | Frontend-Lockdown: CSS/TS-Cleanup, tote Components, Cleanup-Ledger im Handoff | ☐ (Teile via 147: DetailPanel/Aquila/roster.ts gelöscht, Deps bereinigt; Rest offen, u. a. FilterRail-Entscheid + Partials 20/22/57) |
 | P8 | Topic-Straenge `/themen` + `/thema/[slug]` (reuse EntityView/RelatedWorks-Primitive); Daten aus 122-B8. Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☐ |
 | P9 | Charakter-Galerie `/charaktere` (nur kuratiert) + Primarchen-Tier; Daten aus 122-B9/B3. Spec [129](./2026-06-04-129-arch-doorways-curation-layer.md) | ☐ |
+| P10 | Polish-Sweep: CW-Anzeige raus, Fraktions-Icons statt Punkt (Imperium/SM/Xenos/Chaos), Cogitator-Loading transparent, Login-BG neu + generalisierter Artist-Credit-Slot (bubondubon). Brief [150](./2026-06-12-150-arch-polish-sweep.md) | ☐ |
+| P11 | Admin-Seite + Seiten-Rückbau: Admin-UI für Hand-Kuration (auf 149er-Apply-Pfad, hinter Admin-Gate); Rückbau `/atlas`-Seite, `/buecher` (308), „Open Full Page"-Reiter im Buch-Popup, FilterRail + alte Chronicle-Komponenten; Gate-Ausnahmen `/healthz` + `/api/revalidate`; einfache statische CSP (Entscheide 2026-06-12). **Nach Brief 149** | ☐ |
+| P12 | URL-Migration Englisch (`/factions`, `/characters`, `/worlds`, …) + 308-Redirects + interne Links; im selben Zug `/buch/[slug]`-SSG-Refactor (searchParams/headers in Client-Insel) | ☐ |
+| P13 | Mobile-Optimierung aller Seiten außer Map (seitenweise, mehrere Sessions) | ☐ |
+| P14 | Map-Komplett-Überarbeitung | ⏸ extern (wartet auf Redditor-Daten: Koordinaten + 100+ Planeten) |
 
 ## Optional context (nur laden wenn der Task es braucht)
 

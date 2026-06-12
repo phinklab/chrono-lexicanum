@@ -19,7 +19,7 @@ confidence: high
 
 > Items the **next** architect brief MUST address. The queue is intentionally small (3–5 items). Cowork prunes here when an item lands in a brief or is otherwise resolved. Dormant/distant items live in [`./deferred-questions.md`](./deferred-questions.md). Strang-Backlog lebt in den Boards 121/122; operativer Kleinkram in `project-state.md` § What's open.
 >
-> **Geschlossene OQs liegen in git + [`log.md`](./log.md).** OQ (15) Compendium-Taxonomie wurde 2026-06-12 geschlossen: `/compendium` ist shipped (129-impl-compendium-doorways), die Restpunkte (Primarchen-Kuration, Themen-Stränge, Autoren-Tiefe) leben als 121-P8/P9 + 122-B8/B9 in den Boards.
+> **Geschlossene OQs liegen in git + [`log.md`](./log.md).** OQ (15) Compendium-Taxonomie 2026-06-12 geschlossen (shipped; Rest → Boards 121-P8/P9 + 122-B8/B9). **OQ (17) Deep-Review-Rest 2026-06-12 geschlossen** — alle Punkte mit Philipp entschieden (Backlog-Sort-Chat): Gate-Ausnahmen `/healthz`+`/api/revalidate` ja, CSP einfach statisch, `/buecher` stilllegen, FilterRail löschen → alles Board **121-P11**; `/buch`-SSG ja, vor Launch → **121-P12**; `REVALIDATE_TOKEN` bleibt als Maintainer-Hebel in `project-state.md`.
 
 Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions: …` (raw sources) · `Follow-up brief: …` (if known).
 
@@ -34,14 +34,4 @@ Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions
 
 ---
 
-**(17) Deep-Review-Rest — Maintainer-Entscheide + Maschinen-Endpoints**
-`Owner: Philipp (Entscheide) / Cowork (Brief-Schnitt) / Product (Umsetzung)` · `Sessions: 2026-06-12-147-impl-deep-review-fixes.md` · `Follow-up brief: in den angekündigten Frontend-Brief bzw. einen kleinen Hardening-Nachzügler falten`
-
-Aus 147 § „Open issues" / „Decisions for Philipp", noch unentschieden bzw. unerledigt:
-
-- **Preview-Gate vs. Maschinen-Endpoints:** der Catch-all-Matcher in `src/proxy.ts` schickt auch `/api/revalidate` + `/healthz` ohne Cookie auf den Login-Redirect — externe Monitor-/Apply-Aufrufe scheitern mit 307. Negative-Lookahead erweitern oder bewusst so lassen, bis das Gate fällt.
-- **CSP-Strategie** (statisch/Hash vs. Nonce+dynamisch vs. vorerst ohne) — einziger fehlender Security-Header.
-- **`/buecher` vs. `/archive`:** redundant — behalten oder 308-Redirect?
-- **FilterRail:** dormant — endgültig löschen oder reaktivieren? (Kandidat für 121-P7-Cleanup-Ledger.)
-- **`/buch/[slug]`-SSG-Blockade:** `searchParams`+`headers()` aus Brief 105 verhindern Prerender — lohnt der Client-Insel-Umbau?
-- **`REVALIDATE_TOKEN`** in Vercel setzen (operativ, kein Brief — hier nur, bis es passiert ist).
+*(Queue aktuell: nur (16). Neue Items aus Impl-Reports kommen wie gewohnt nummeriert dazu.)*

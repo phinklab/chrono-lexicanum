@@ -43,7 +43,7 @@ Unverändert: `origin/main` read-only für Code (Task-Branch + PR), Doc-only dir
 
 **Timeline-Daten (Brief 137, live verifiziert):** 8 kuratierte Eras, 144 Events, 223 `event_works`-Hooks (95 Buch / 125 Episode / 3 Serie), 97 datierte Werke (53 event-anchored). Migration 0012; `apply:timeline` idempotent. Quelle war die Cowork+Philipp-Hand-Kuratierung im git-ignorierten `/timeline-workshop/` (Board 122-B5, weiter ⏸ für die Rest-Bücher).
 
-**Entity-Blurbs (Board 122-B3):** 143 Blurbs (56 Factions / 49 Characters / 38 Worlds) als seed-data-JSON mit per-Row-Provenance; ~838 Rest über `scripts/runbooks/entity-blurbs-full-run.md` (Sonnet-Subagents) als Folge-Sweep; Resume-Oracle `npm run blurbs:remaining`.
+**Entity-Blurbs (Board 122-B3): Full-Coverage 981/981** (202 Factions / 490 Characters / 289 Worlds) als seed-data-JSON mit per-Row-Provenance — Subset + Machinery via Handoff (2026-06-09), Full-Sweep maintainer-direkt nachgezogen. Live im `/compendium`; Factions ohne Werke werden nicht mehr gelistet.
 
 **Ask-Modell (122-B4 + 121-P3):** flacher 5-Fragen-Contract, server-only `recommend()` mit Curation-Overlay (`ask-curation.json`) und Hard Boundaries (Faction-Gate, Single-Book-Format-Gate); alle 1080 Kombinationen liefern ≥1 Empfehlung (Audit `npm run audit:ask-combinations`).
 
@@ -58,19 +58,21 @@ Unverändert: `origin/main` read-only für Code (Task-Branch + PR), Doc-only dir
 
 ## What's open
 
-Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit): **121** offen P5/P6/P7(teilw. via 147 erledigt)/P8/P9; **122** offen B2/B5(⏸ Hand-Kuratierung)/B6/B7/B8/B9. Erledigt: P1–P4, B1, B3, B4, B10. Queue-Items: [`open-questions.md`](./open-questions.md) (16 Timeline-Folgen, 17 Deep-Review-Rest).
+Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit, erweitert 2026-06-12 um den Backlog-Sort): **121** offen P7(teilw. via 147)/P8/P9 + **P10** Polish-Sweep (Brief 150) / **P11** Admin-Seite+Rückbau (nach 149; inkl. Gate-Ausnahmen, CSP, `/buecher`-Redirect, FilterRail-Löschung) / **P12** URL-Migration EN + `/buch`-SSG / **P13** Mobile-Sweep / **P14** Map ⏸ extern. **122** offen B2 (Brief 149 liegt)/B5(⏸ Hand)/B6 (geprüft 2026-06-12: **nicht** gelaufen, V1/V2-Code liegt komplett)/B7/B8/B9 + **B11** Großer Buch-Reviewer (nach 149) / **B12** Ask-Logik-Tuning (nach B11). Erledigt: P1–P6, B1, B3 (Full 981/981), B4, B10. Queue: [`open-questions.md`](./open-questions.md) (nur noch 16 Timeline-Folgen; 17 am 2026-06-12 entschieden → P11/P12).
 
 Kleinkram außerhalb Boards/OQs:
 
-- **Frontend-Polish lief maintainer-direkt statt als Brief** (Philipp, 2026-06-12): die in 146 angekündigte „intensive Ausarbeitung eines Frontend-Briefings" ist durch die Rogue-Design-Session 143 (+ 145/146) abgedeckt — kein Brief mehr geplant. Offene Frontend-Substanz damit nur noch: Board-Tasks P5–P9 + Farbsprachen-Konsolidierung aus Review 141 (drei Farbsprachen, Slop in 4 Primitives), falls Philipp sie noch will.
-- **Batches-Tail:** Resolver-Welle `ssot-w40k-058..060` + extended Restbatches (custom Config nötig — Auto-Detection-Blind-Spot, Session 136); Blurbs-Full-Sweep ~838; Lorehammer-Twin-Filter für Cold-Reingest; Podcast-Alias-Backlog (~63 Luetin- + ~212 Lorehammer-Surface-Forms); S4 YouTube-Episode-Matching (abgegrenzt, Session 128); `book-seen.json` entsteht beim ersten `refresh:mark-reviewed -- --books` (bewusst nicht initial committed, Session 148).
+- **Frontend lief maintainer-direkt statt als Brief** (Philipp, 2026-06-12): Rogue-Session 143 (+ 145/146) deckt den in 146 angekündigten Frontend-Brief ab. Rest-Substanz: Boards P7–P13 + Farbsprachen-Konsolidierung aus Review 141, falls Philipp sie noch will.
+- **Batches-Tail:** Resolver-Welle `ssot-w40k-058..060` + extended Restbatches (custom Config nötig — Auto-Detection-Blind-Spot, Session 136); Lorehammer-Twin-Filter für Cold-Reingest; Podcast-Alias-Backlog (~63 Luetin- + ~212 Lorehammer-Surface-Forms); S4 YouTube-Episode-Matching (abgegrenzt, Session 128); `book-seen.json` entsteht beim ersten `refresh:mark-reviewed -- --books` (bewusst nicht initial committed, Session 148).
 - **Tote Konstante:** `scripts/run-ssot-loop.sh` Z. 51 `BRIEF_PATH` zeigt auf den jetzt archivierten Brief 061 (ungenutzt; Einzeiler im nächsten Batches-Code-PR mitnehmen).
 - **Maintainer-Hebel:** `REVALIDATE_TOKEN` in Vercel setzen (sonst `/api/revalidate` 503); Primarchen-Kuration (122-B9) schaltet die Compendium-Primarchen-Kategorie frei; Repo-Setting „Allow Actions to create PRs" muss ON bleiben.
 
 ## Next likely brief
 
-1. **Board-Briefings per Chat** — 122: B2 (Buch-Kuratierung), B6 (Dead-Code), B7 (brain:lint-Guardrail), Blurbs-Sweep, Resolver-Welle; 121: P5/P6/P8/P9 (P8/P9 brauchen 122-B8/B9-Daten zuerst, Spec Brief 129). (Der in 146 angekündigte Frontend-Brief ist entfallen — via Rogue-Session 143 maintainer-direkt erledigt.)
-2. **B5 Chronicle-Datierung** läuft als Cowork+Philipp-Hand-Kuratierung weiter; graduiert als sauberer Batches-Brief (Rest-Bücher-Datierung auf dem 137er-Fundament).
-3. **OQ 17 abräumen** — Maintainer-Entscheide (CSP, `/buecher`, FilterRail) + Preview-Gate vs. Maschinen-Endpoints, ggf. als kleiner Hardening-Nachzügler.
+Backlog-Sort 2026-06-12 (Cowork-Chat) hat die Reihenfolge festgelegt:
+
+1. **Brief [149](../../sessions/2026-06-12-149-arch-curation-foundation.md) (Batches, B2)** — Kurations-Fundament: Hand-Override-Format + Apply-Pfad + Content-Warnings aus den Daten. Entsperrt P11 (Admin-Seite) + B11 (Reviewer).
+2. **Brief [150](../../sessions/2026-06-12-150-arch-polish-sweep.md) (Product, P10)** — Polish-Sweep, parallel fahrbar.
+3. Danach: **P11** Admin+Rückbau → **P12** URL-EN+SSG → **B11** Reviewer → **B12** Ask-Tuning → **P13** Mobile; B6 dazwischen, wann Luft ist; **B5** läuft als Hand-Kuratierung weiter; **P14** Map ⏸ bis Redditor-Daten.
 
 Session-end-Disziplin: [`workflows/session-end.md`](./workflows/session-end.md); Rollup-Files ändern sich ausschließlich über den Koordinations-Pass (Brief 095).
