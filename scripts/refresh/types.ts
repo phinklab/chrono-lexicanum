@@ -85,12 +85,20 @@ export interface BookDiffResult {
   csvUrl: string | null;
   /** Human-readable reason when `status === "unreachable"` (or a soft warning). */
   note: string | null;
-  /** Rows present upstream, absent from the roster — proposed additions. */
+  /** Rows present upstream, absent from the roster, NOT yet marked seen — the week's true delta. */
   newBooks: ProposedRosterRow[];
-  /** externalBookIds of new rows whose `format` was defaulted (Type unmappable) — the report flags these. */
+  /**
+   * Like `newBooks`, but already surfaced in an earlier proposal and marked seen
+   * (`book-seen.json`) — the standing backlog awaiting a promote/ignore decision.
+   * Full rows so promotion copy-paste keeps working; never triggers the PR.
+   */
+  pendingBooks: ProposedRosterRow[];
+  /** externalBookIds of new/pending rows whose `format` was defaulted (Type unmappable) — the report flags these. */
   formatDefaultedIds: string[];
   /** Title-collisions needing a human eye (NOT auto-proposed). */
   reviewBooks: ReviewBook[];
+  /** Title-collisions already marked seen — kept in the proposal, only counted in the report. */
+  pendingReviewBooks: ReviewBook[];
   /** Unique, in-scope, recent rows actually classified. */
   consideredRows: number;
   /** Rows dropped because their title-slug is on the maintainer ignore-list (`book-ignore.json`) — counted, never silent. */

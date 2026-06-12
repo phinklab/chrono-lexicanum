@@ -14,12 +14,21 @@
  *
  * Output contract (stdout, final line):
  *   REFRESH_RESULT=noop
- *   REFRESH_RESULT=findings books=<n> episodes=<m> path=<dir>
+ *   REFRESH_RESULT=findings books=<fresh> pending=<seen-backlog> episodes=<m> path=<dir>
+ * `books=` counts FRESH books only (not yet in `book-seen.json`); the seen
+ * backlog rides in `pending=`. Token-order constraints (the workflow parses this
+ * line with sed): `path=` must stay the LAST token (its sed captures to end of
+ * line), and no token name may END in another token's name (the `.*books=`-style
+ * seds are greedy — e.g. a `newbooks=` token would corrupt the `books=` capture).
  * Exit 0 on any clean run (findings or noop); exit 1 only on an unexpected error
  * — the book + podcast diffs are fail-soft and never throw.
  *
  * Flags:
  *   --week=YYYY-Www   override the output bucket (deterministic re-runs / tests)
+ *   --include-seen    treat the book backlog as unseen (everything lands in
+ *                     `books=`/the New table) — regenerates the full pending
+ *                     list locally after noop weeks, when no committed proposal
+ *                     carries it anymore
  */
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -27,6 +36,7 @@ import { join } from "node:path";
 import { loadRegistry } from "@/lib/ingestion/podcast/registry";
 
 import { ignoredSlugSet, loadBookIgnore } from "./refresh/book-ignore";
+import { loadBookSeen, seenSlugSet } from "./refresh/book-seen";
 import { detectMissingBooks } from "./refresh/book-source";
 import { loadRefreshSources } from "./refresh/config";
 import { floorIsoForShow, loadCurationState } from "./refresh/curation-state";
@@ -65,7 +75,8 @@ function logHealth(books: BookDiffResult, podcasts: PodcastDiffResult): void {
     console.error(`[books] UNREACHABLE — ${books.note ?? ""}`);
   } else {
     console.error(
-      `[books] ok — ${books.newBooks.length} new, ${books.reviewBooks.length} review | ` +
+      `[books] ok — ${books.newBooks.length} new, ${books.pendingBooks.length} pending, ` +
+        `${books.reviewBooks.length} review (+${books.pendingReviewBooks.length} seen) | ` +
         `${books.consideredRows} considered, ${books.skippedIgnoredRows} ignore-listed, ` +
         `${books.skippedOlderRows} below year floor, ` +
         `${books.skippedOutOfScopeRows} out-of-scope, ${books.skippedDuplicateRows} dupes`,
@@ -82,7 +93,9 @@ function logHealth(books: BookDiffResult, podcasts: PodcastDiffResult): void {
 
 async function main(): Promise<void> {
   const repoRoot = process.cwd();
-  const isoWeek = parseWeekArg(process.argv.slice(2)) ?? isoWeekOf(new Date());
+  const argv = process.argv.slice(2);
+  const isoWeek = parseWeekArg(argv) ?? isoWeekOf(new Date());
+  const includeSeen = argv.includes("--include-seen");
 
   // --- Books (fail-soft) ---
   const roster = loadRoster();
@@ -92,7 +105,13 @@ async function main(): Promise<void> {
   // Maintainer "book cutoff": title-slugs dismissed in `book-ignore.json` are
   // dropped before bucketing, so a duplicate / unwanted edition is not re-proposed.
   const ignore = ignoredSlugSet(loadBookIgnore());
-  const books = await detectMissingBooks(sources.trackOfWords, index, allocator, undefined, ignore);
+  // Book backlog cursor: seen-but-undecided titles land in the pending buckets
+  // instead of `new`, so only a true delta (re)opens the rolling PR.
+  const seen = includeSeen ? new Set<string>() : seenSlugSet(loadBookSeen());
+  const books = await detectMissingBooks(sources.trackOfWords, index, allocator, undefined, {
+    ignoreSlugs: ignore,
+    seenSlugs: seen,
+  });
 
   // --- Podcasts (fail-soft) ---
   const registry = loadRegistry();
@@ -136,7 +155,8 @@ async function main(): Promise<void> {
   writeFileSync(join(outDir, "proposal.json"), serializeProposal(proposal), "utf8");
 
   console.log(
-    `REFRESH_RESULT=findings books=${books.newBooks.length} episodes=${newEpisodeCount} path=${outDir}`,
+    `REFRESH_RESULT=findings books=${books.newBooks.length} pending=${books.pendingBooks.length} ` +
+      `episodes=${newEpisodeCount} path=${outDir}`,
   );
 }
 

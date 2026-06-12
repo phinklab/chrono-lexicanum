@@ -314,8 +314,10 @@ function unreachable(cfg: TrackOfWordsConfig, csvUrl: string | null, note: strin
     csvUrl,
     note,
     newBooks: [],
+    pendingBooks: [],
     formatDefaultedIds: [],
     reviewBooks: [],
+    pendingReviewBooks: [],
     consideredRows: 0,
     skippedIgnoredRows: 0,
     skippedOlderRows: 0,
@@ -324,25 +326,39 @@ function unreachable(cfg: TrackOfWordsConfig, csvUrl: string | null, note: strin
   };
 }
 
+/** Maintainer filter inputs for `detectMissingBooks` — both keyed on `slugify(title)`. */
+export interface BookDetectFilters {
+  /**
+   * Permanent ignore-list (`book-ignore.json`): a matching candidate is dropped
+   * BEFORE classification — it reaches neither bucket and is counted in
+   * `skippedIgnoredRows`.
+   */
+  ignoreSlugs?: ReadonlySet<string>;
+  /**
+   * Book backlog cursor (`book-seen.json`): a matching candidate is partitioned
+   * into the `pending*` buckets AFTER classification + id allocation, so the
+   * allocation order — and thus the proposal's byte-stability — is identical
+   * with or without a seen-set.
+   */
+  seenSlugs?: ReadonlySet<string>;
+}
+
 /**
  * Fetch the tracker, parse it, and diff against the roster. Pinned CSV URL first;
  * on failure, re-discover the sheet from the article HTML before giving up. Any
  * unrecoverable failure returns `status:"unreachable"` (never throws). New rows
- * become proposed roster-extension rows; title-collisions go to `reviewBooks`.
- *
- * `ignoreSlugs` is the maintainer ignore-list (`book-ignore.json`, keyed on
- * `slugify(title)`): a candidate whose title-slug is in the set is dropped before
- * classification — it reaches neither `newBooks` nor `reviewBooks` and is counted
- * in `skippedIgnoredRows`. A trailing, defaulted param so existing callers/tests
- * are unaffected.
+ * become proposed roster-extension rows; title-collisions go to `reviewBooks` —
+ * each partitioned into its `pending*` sibling when already marked seen.
  */
 export async function detectMissingBooks(
   cfg: TrackOfWordsConfig,
   index: RosterIndex,
   allocator: IdAllocator,
   deps: BookSourceDeps = { fetchText },
-  ignoreSlugs: ReadonlySet<string> = new Set<string>(),
+  filters: BookDetectFilters = {},
 ): Promise<BookDiffResult> {
+  const ignoreSlugs = filters.ignoreSlugs ?? new Set<string>();
+  const seenSlugs = filters.seenSlugs ?? new Set<string>();
   let csv: string;
   let csvUrl = cfg.sheetCsvUrl;
   try {
@@ -371,8 +387,10 @@ export async function detectMissingBooks(
   }
 
   const newBooks: ProposedRosterRow[] = [];
+  const pendingBooks: ProposedRosterRow[] = [];
   const formatDefaultedIds: string[] = [];
   const reviewBooks: ReviewBook[] = [];
+  const pendingReviewBooks: ReviewBook[] = [];
   let consideredRows = 0;
   let skippedIgnoredRows = 0;
   let skippedOlderRows = 0;
@@ -405,17 +423,20 @@ export async function detectMissingBooks(
     consideredRows++;
     const verdict = classifyCandidate(cand, index);
     if (verdict.kind === "new") {
+      // Allocate + flag BEFORE the seen-partition: ids stay positional in CSV
+      // order, so marking books seen never shifts the remaining ids.
       const row = toProposedRow(cand, allocator, cfg.articleUrl);
-      newBooks.push(row);
       if (cand.format === null) formatDefaultedIds.push(row.externalBookId);
+      (seenSlugs.has(cand.titleSlug) ? pendingBooks : newBooks).push(row);
     } else if (verdict.kind === "title-collision") {
-      reviewBooks.push({
+      const review: ReviewBook = {
         title: cand.title,
         authorsRaw: cand.authorsRaw,
         releaseYear: cand.releaseYear,
         collidesWithId: verdict.rosterId,
         collidesWithTitle: verdict.rosterTitle,
-      });
+      };
+      (seenSlugs.has(cand.titleSlug) ? pendingReviewBooks : reviewBooks).push(review);
     }
   }
 
@@ -425,8 +446,10 @@ export async function detectMissingBooks(
     csvUrl,
     note: null,
     newBooks,
+    pendingBooks,
     formatDefaultedIds,
     reviewBooks,
+    pendingReviewBooks,
     consideredRows,
     skippedIgnoredRows,
     skippedOlderRows,

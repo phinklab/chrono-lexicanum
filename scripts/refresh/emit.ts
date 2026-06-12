@@ -33,10 +33,13 @@ export function serializeProposal(proposal: RefreshProposal): string {
 }
 
 /**
- * The PR/no-op decision: a run has findings iff there is ≥1 proposed new book or
- * ≥1 new episode. Title-collisions (review books) deliberately do NOT trigger —
- * a reprint collides permanently, so gating on it would create a PR that never
- * clears. They surface in the report only when a run already has other findings.
+ * The PR/no-op decision: a run has findings iff there is ≥1 FRESH proposed new
+ * book or ≥1 new episode. Books already marked seen (`book-seen.json` → the
+ * `pendingBooks` backlog) deliberately do NOT trigger — a standing backlog would
+ * otherwise reopen the rolling PR every week with nothing actually new.
+ * Title-collisions (review books) deliberately do NOT trigger either — a reprint
+ * collides permanently, so gating on it would create a PR that never clears.
+ * Both surface in the report only when a run already has other findings.
  */
 export function proposalHasFindings(books: BookDiffResult, podcasts: PodcastDiffResult): boolean {
   if (books.newBooks.length > 0) return true;
@@ -54,6 +57,34 @@ function mdEscape(s: string): string {
   return s.replace(/\|/g, "\\|");
 }
 
+/**
+ * Render one proposed-rows table. `defaulted` must be intersected per section
+ * (fresh vs pending) so the ⚠ footnote only renders under a table that actually
+ * contains a flagged row.
+ */
+function bookTable(rows: ProposedRosterRow[], defaulted: ReadonlySet<string>): string[] {
+  const lines: string[] = [
+    "| Proposed ID | Title | Author(s) | Year | Format | Series hint | Conf. |",
+    "|---|---|---|---|---|---|---|",
+  ];
+  for (const row of rows) {
+    const fmt = defaulted.has(row.externalBookId) ? `${row.format} ⚠` : row.format;
+    lines.push(
+      `| \`${row.externalBookId}\` | ${mdEscape(row.title)} | ${mdEscape(authorDisplay(row))} | ` +
+        `${row.releaseYear ?? "—"} | ${fmt} | ${mdEscape(row.seriesHint ?? "—")} | ${row.confidence} |`,
+    );
+  }
+  return lines;
+}
+
+const FORMAT_FOOTNOTE =
+  "> ⚠ Format inferred from the tracker `Type` column; flagged rows had an unmappable type and " +
+  "defaulted to `novel` — verify before promotion.";
+
+function sectionDefaulted(rows: ProposedRosterRow[], all: ReadonlySet<string>): Set<string> {
+  return new Set(rows.map((r) => r.externalBookId).filter((id) => all.has(id)));
+}
+
 function booksSection(books: BookDiffResult): string[] {
   const lines: string[] = [];
   if (books.status === "unreachable") {
@@ -62,7 +93,7 @@ function booksSection(books: BookDiffResult): string[] {
     return lines;
   }
 
-  const defaulted = new Set(books.formatDefaultedIds);
+  const allDefaulted: ReadonlySet<string> = new Set(books.formatDefaultedIds);
   lines.push(
     `Considered ${books.consideredRows} in-scope, de-duplicated row(s) — skipped ` +
       `${books.skippedOlderRows} below the year floor, ${books.skippedOutOfScopeRows} out-of-scope ` +
@@ -77,28 +108,42 @@ function booksSection(books: BookDiffResult): string[] {
   }
   lines.push("");
 
-  lines.push(`### New books (${books.newBooks.length})`);
+  lines.push(`### New since last review (${books.newBooks.length})`);
+  lines.push("");
   if (books.newBooks.length === 0) {
-    lines.push("");
     lines.push("None.");
   } else {
-    lines.push("");
-    lines.push("| Proposed ID | Title | Author(s) | Year | Format | Series hint | Conf. |");
-    lines.push("|---|---|---|---|---|---|---|");
-    for (const row of books.newBooks) {
-      const fmt = defaulted.has(row.externalBookId) ? `${row.format} ⚠` : row.format;
-      lines.push(
-        `| \`${row.externalBookId}\` | ${mdEscape(row.title)} | ${mdEscape(authorDisplay(row))} | ` +
-          `${row.releaseYear ?? "—"} | ${fmt} | ${mdEscape(row.seriesHint ?? "—")} | ${row.confidence} |`,
-      );
-    }
-    if (books.formatDefaultedIds.length > 0) {
+    const defaulted = sectionDefaulted(books.newBooks, allDefaulted);
+    lines.push(...bookTable(books.newBooks, defaulted));
+    if (defaulted.size > 0) {
       lines.push("");
-      lines.push(
-        "> ⚠ Format inferred from the tracker `Type` column; flagged rows had an unmappable type and " +
-          "defaulted to `novel` — verify before promotion.",
-      );
+      lines.push(FORMAT_FOOTNOTE);
     }
+  }
+
+  lines.push("");
+  lines.push(`### Pending backlog (${books.pendingBooks.length})`);
+  lines.push("");
+  if (books.pendingBooks.length === 0) {
+    lines.push("None.");
+  } else {
+    lines.push(
+      "_Seen in an earlier report (`ingest/refresh/book-seen.json`), promote/ignore decision still " +
+        "open. These rows never (re)open the rolling PR. After reviewing this report, mark the new " +
+        "rows as seen with `npm run refresh:mark-reviewed -- --books`._",
+    );
+    lines.push("");
+    lines.push("<details>");
+    lines.push(`<summary>Show all ${books.pendingBooks.length} pending book(s)</summary>`);
+    lines.push("");
+    const defaulted = sectionDefaulted(books.pendingBooks, allDefaulted);
+    lines.push(...bookTable(books.pendingBooks, defaulted));
+    if (defaulted.size > 0) {
+      lines.push("");
+      lines.push(FORMAT_FOOTNOTE);
+    }
+    lines.push("");
+    lines.push("</details>");
   }
 
   lines.push("");
@@ -117,6 +162,13 @@ function booksSection(books: BookDiffResult): string[] {
           `\`${r.collidesWithId}\` ${mdEscape(r.collidesWithTitle)} |`,
       );
     }
+  }
+  if (books.pendingReviewBooks.length > 0) {
+    lines.push("");
+    lines.push(
+      `_Plus ${books.pendingReviewBooks.length} previously-seen collision(s) — still listed in ` +
+        "`proposal.json` (`pendingReviewBooks`), not repeated here._",
+    );
   }
   return lines;
 }
@@ -177,6 +229,7 @@ export function buildReportMarkdown(
 ): string {
   const { books, podcasts } = proposal;
   const newBookCount = books.newBooks.length;
+  const pendingCount = books.pendingBooks.length;
   const reviewCount = books.reviewBooks.length;
   const newEpisodeCount = podcasts.shows.reduce((n, s) => n + s.newEpisodes.length, 0);
   const okShows = podcasts.shows.filter((s) => s.status === "ok").length;
@@ -191,7 +244,7 @@ export function buildReportMarkdown(
     "",
     "## Summary",
     "",
-    `- **Books:** ${newBookCount} new, ${reviewCount} to review (source: ${bookHealth})`,
+    `- **Books:** ${newBookCount} new, ${pendingCount} pending, ${reviewCount} to review (source: ${bookHealth})`,
     `- **Podcasts:** ${newEpisodeCount} new episode(s) — ${okShows} ok, ${failedShows} failed, ${skippedShows} skipped`,
     "",
     "## Books",
