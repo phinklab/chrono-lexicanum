@@ -62,6 +62,18 @@ async function ensureCacheDir(): Promise<void> {
   await mkdir(CACHE_DIR, { recursive: true });
 }
 
+/** Nur was `readCache` dereferenziert (key/model/payload) — korrupt ⇒ Miss. */
+function isCacheEntryLike(v: unknown): v is CachedLlmEntry {
+  if (!v || typeof v !== "object") return false;
+  const e = v as Record<string, unknown>;
+  return (
+    typeof e.key === "string" &&
+    typeof e.model === "string" &&
+    !!e.payload &&
+    typeof e.payload === "object"
+  );
+}
+
 /**
  * Returns the cached payload + the model that produced it if present AND the
  * key matches; otherwise undefined. Silent on file-not-found and on
@@ -84,7 +96,11 @@ export async function readCache(
 
   let entry: CachedLlmEntry;
   try {
-    entry = JSON.parse(raw) as CachedLlmEntry;
+    const parsed = JSON.parse(raw) as unknown;
+    // Shape-Guard statt Blind-Cast: `JSON.parse("null")` o.ä. wäre sonst ein
+    // TypeError beim `.key`-Zugriff statt des dokumentierten Miss.
+    if (!isCacheEntryLike(parsed)) return undefined;
+    entry = parsed;
   } catch {
     return undefined;
   }
