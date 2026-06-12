@@ -1,8 +1,15 @@
 // LocalStorage for tweaks, active era, and per-era data snapshots.
-// SSR-safe: every entry point guards `typeof window`. Schema-validation is
-// lenient (matches the prototype) — if a saved blob is malformed we fall back
-// to defaults rather than throwing.
+// SSR-safe: every entry point guards `typeof window`.
+//
+// Report 144 § T.3: localStorage is a TRUST BOUNDARY — anything here can be
+// edited by the user (or a future XSS-class bug), so blobs are validated with
+// zod `safeParse` instead of being cast with `as Partial<…>`. Validation is
+// still *lenient in effect*: a malformed blob falls back to defaults (per
+// layer for the element snapshots) rather than throwing. The schemas must stay
+// in sync with `./types`; the `satisfies`-style assignments below make a drift
+// a compile error.
 
+import { z } from "zod";
 import { DEFAULT_TWEAKS, makeDefaultGalaxyData } from "./data";
 import { DEFAULT_ERA } from "./eras";
 import type { EraId, GalaxyData, Tweaks } from "./types";
@@ -10,6 +17,110 @@ import type { EraId, GalaxyData, Tweaks } from "./types";
 const LS_TWEAKS = "40k.galaxy.tweaks.v1";
 const LS_ELEMENTS_BASE = "40k.galaxy.elements.v1";
 const LS_ERA = "40k.galaxy.era.v1";
+
+// ── Schemas (mirror ./types — keep in sync) ─────────────────────────────────
+
+const tweaksSchema = z
+  .object({
+    theme: z.enum(["mechanicus", "astropath"]),
+    factionFilter: z.enum(["all", "imperium", "chaos", "xenos"]),
+    riftPattern: z.enum([
+      "strict-square",
+      "strict-square-dense",
+      "strict-brick",
+      "triangular",
+      "mega-dense",
+    ]),
+    astronomican: z.boolean(),
+    editWarps: z.boolean(),
+    addMode: z.boolean(),
+    outerObscurus: z.number().finite(),
+    outerUltima: z.number().finite(),
+    outerTempestus: z.number().finite(),
+    outerPacificus: z.number().finite(),
+    boundaryNE: z.number().finite(),
+    boundarySE: z.number().finite(),
+    boundarySW: z.number().finite(),
+    boundaryNW: z.number().finite(),
+  })
+  .partial();
+
+const polarSchema = z.tuple([z.number().finite(), z.number().finite()]);
+
+const worldKindSchema = z.enum([
+  "throne",
+  "astartes",
+  "fortress",
+  "forge",
+  "hive",
+  "death",
+  "war",
+  "dead",
+  "warp",
+  "shrine",
+  "civilised",
+  "xenos",
+  "chaos",
+  "necron",
+  "tyranid",
+]);
+
+const factionSchema = z.enum([
+  "imperium",
+  "chaos",
+  "xenos",
+  "necron",
+  "tyranid",
+  "neutral",
+]);
+
+const segmentumIdSchema = z.enum([
+  "solar",
+  "obscurus",
+  "ultima",
+  "tempestus",
+  "pacificus",
+]);
+
+const landmarkSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  r: z.number().finite(),
+  a: z.number().finite(),
+  kind: worldKindSchema,
+  faction: factionSchema,
+  segment: segmentumIdSchema,
+});
+
+const nebulaSchema = z.object({
+  name: z.string(),
+  r: z.number().finite().optional(),
+  a: z.number().finite().optional(),
+  size: z.number().finite().optional(),
+  type: z.enum(["warp", "forbidden"]).optional(),
+  color: z.string(),
+  isRift: z.boolean().optional(),
+});
+
+const densitySchema = z.enum(["high", "mid", "low"]);
+
+const necronDynastySchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  color: z.string(),
+  density: densitySchema,
+  pts: z.array(polarSchema),
+});
+
+const tyranidSwarmSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  color: z.string(),
+  density: densitySchema,
+  pts: z.array(polarSchema),
+});
+
+// ── localStorage plumbing ───────────────────────────────────────────────────
 
 function eraSlot(eraId: EraId): string {
   return `${LS_ELEMENTS_BASE}.${eraId}`;
@@ -42,12 +153,17 @@ function lsRemove(key: string): void {
   }
 }
 
+// ── Public API ──────────────────────────────────────────────────────────────
+
 export function loadTweaks(): Tweaks {
   const raw = lsGet(LS_TWEAKS);
   if (!raw) return { ...DEFAULT_TWEAKS };
   try {
-    const parsed = JSON.parse(raw) as Partial<Tweaks>;
-    return { ...DEFAULT_TWEAKS, ...parsed };
+    const result = tweaksSchema.safeParse(JSON.parse(raw));
+    if (!result.success) return { ...DEFAULT_TWEAKS };
+    // Compile-time sync guard: schema output must stay a valid Tweaks patch.
+    const patch: Partial<Tweaks> = result.data;
+    return { ...DEFAULT_TWEAKS, ...patch };
   } catch {
     return { ...DEFAULT_TWEAKS };
   }
@@ -74,15 +190,30 @@ export function loadElementsFor(eraId: EraId): GalaxyData {
   const raw = lsGet(eraSlot(eraId));
   if (!raw) return makeDefaultGalaxyData();
   try {
-    const parsed = JSON.parse(raw) as Partial<GalaxyData>;
     const def = makeDefaultGalaxyData();
-    return {
-      landmarks: Array.isArray(parsed.landmarks) ? parsed.landmarks : def.landmarks,
-      nebulae: Array.isArray(parsed.nebulae) ? parsed.nebulae : def.nebulae,
-      cicatrix: Array.isArray(parsed.cicatrix) ? parsed.cicatrix : def.cicatrix,
-      necron: Array.isArray(parsed.necron) ? parsed.necron : def.necron,
-      tyranid: Array.isArray(parsed.tyranid) ? parsed.tyranid : def.tyranid,
-    };
+    // Zod outputs mutable tuples; the `Polar` points are readonly tuples —
+    // rebuild them mutably for the `.catch` defaults (fresh copies anyway).
+    const mutablePts = (pts: readonly (readonly [number, number])[]) =>
+      pts.map(([r, a]): [number, number] => [r, a]);
+    // Per-layer `.catch` keeps the old granularity: one corrupt layer falls
+    // back to its default without nuking the other (user-edited) layers. The
+    // defaults are fresh clones per call, so cached schema instances would
+    // share mutable state — build the snapshot schema per invocation.
+    const snapshotSchema = z.object({
+      landmarks: z.array(landmarkSchema).catch(def.landmarks),
+      nebulae: z.array(nebulaSchema).catch(def.nebulae),
+      cicatrix: z.array(polarSchema).catch(mutablePts(def.cicatrix)),
+      necron: z
+        .array(necronDynastySchema)
+        .catch(def.necron.map((d) => ({ ...d, pts: mutablePts(d.pts) }))),
+      tyranid: z
+        .array(tyranidSwarmSchema)
+        .catch(def.tyranid.map((s) => ({ ...s, pts: mutablePts(s.pts) }))),
+    });
+    const result = snapshotSchema.safeParse(JSON.parse(raw));
+    if (!result.success) return def;
+    const data: GalaxyData = result.data;
+    return data;
   } catch {
     return makeDefaultGalaxyData();
   }

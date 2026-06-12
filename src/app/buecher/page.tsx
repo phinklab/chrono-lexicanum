@@ -21,6 +21,7 @@ import SortPills from "./SortPills";
 import GapAudioToggle from "./GapAudioToggle";
 import ScrollScrim from "./ScrollScrim";
 import { tallyAxisDrift, type KnownAliasHit } from "@/lib/aliases";
+import { coerceDate } from "@/lib/dates";
 
 export const metadata: Metadata = { title: "Archive — Chrono Lexicanum" };
 
@@ -332,10 +333,7 @@ async function loadBooks(): Promise<CatalogueBook[]> {
         containedIn,
         isEnriched:
           typeof w.synopsis === "string" && w.synopsis.trim().length > 0,
-        updatedAt:
-          w.updatedAt instanceof Date
-            ? w.updatedAt
-            : new Date(w.updatedAt as unknown as string),
+        updatedAt: coerceDate(w.updatedAt),
         audit: {
           externalBookId: w.externalBookId,
           sourceKind: w.sourceKind,
