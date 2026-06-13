@@ -19,7 +19,6 @@ import CoordReadout from "./editor/CoordReadout";
 import EditOverlay from "./editor/EditOverlay";
 import EditPanel from "./editor/EditPanel";
 import PlacementCursor from "./editor/PlacementCursor";
-import CornerOrnament from "./disc/CornerOrnament";
 import GalacticDisc from "./disc/GalacticDisc";
 import HUD from "./disc/HUD";
 import LandmarkLabels from "./disc/LandmarkLabels";
@@ -618,21 +617,9 @@ export default function GalaxyHologram() {
         <DiveAtmosphereCurtain theme={t} />
       )}
 
-      <div style={{ position: "absolute", top: 20, left: 20 }}>
-        <CornerOrnament theme={t} pos="tl" />
-      </div>
-      <div style={{ position: "absolute", top: 20, right: 20 }}>
-        <CornerOrnament theme={t} pos="tr" />
-      </div>
-      <div style={{ position: "absolute", bottom: 20, left: 20 }}>
-        <CornerOrnament theme={t} pos="bl" />
-      </div>
-      <div style={{ position: "absolute", bottom: 20, right: 20 }}>
-        <CornerOrnament theme={t} pos="br" />
-      </div>
-
-      {/* Top-left logo + subtitle removed 2026-05-27 — overlapped the disc;
-          only the right-side segmentum title remains. */}
+      {/* Corner ornaments removed 2026-06-13 (Session 150 eyeballing) — the
+          gold language draws no frame; the viewport edge is carried by the
+          vignette alone. Top-left logo + subtitle removed 2026-05-27. */}
       <div
         style={{
           position: "absolute",
@@ -662,30 +649,40 @@ export default function GalaxyHologram() {
         </div>
       </div>
 
+      {/* Gold language (64-detail-modal.css .detail-modal__back): transparent
+          text button, no drawn frame — quiet at rest, gold on hover. */}
       {isDived && (
         <button
           onClick={() => surface()}
           data-no-drag
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = t.primary;
+            e.currentTarget.style.background = "rgba(201, 166, 90, 0.08)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = t.accent;
+            e.currentTarget.style.background = "transparent";
+          }}
           style={{
             position: "absolute",
             top: 144,
             left: 100,
-            background: `linear-gradient(180deg, ${t.bg1}cc, ${t.bg0}ee)`,
+            background: "transparent",
             color: t.accent,
-            border: `1px solid ${t.stroke}`,
-            fontFamily: t.fontDisplay,
+            border: "none",
+            fontFamily: t.fontMono,
             fontSize: 11,
-            letterSpacing: "0.32em",
-            padding: "12px 22px 12px 18px",
+            letterSpacing: "0.24em",
+            padding: "10px 16px 10px 12px",
             textTransform: "uppercase",
             cursor: "pointer",
             textShadow: "0 2px 8px rgba(0, 0, 0, 0.85)",
-            boxShadow: `0 4px 18px rgba(0, 0, 0, 0.45), inset 0 1px 0 ${t.strokeFaint}`,
             display: "flex",
             alignItems: "center",
             gap: 10,
             pointerEvents: "auto",
             zIndex: 4,
+            transition: "color 0.18s, background 0.18s",
             animation: "mapFadeInUp 0.5s cubic-bezier(.2,.7,.2,1) both",
             animationDelay: "0.5s",
           }}
@@ -722,11 +719,11 @@ export default function GalaxyHologram() {
               title={b.title}
               onMouseEnter={(e) => {
                 e.currentTarget.style.opacity = "1";
-                e.currentTarget.style.borderBottomColor = t.accent;
+                e.currentTarget.style.background = "rgba(201, 166, 90, 0.08)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.opacity = "0.72";
-                e.currentTarget.style.borderBottomColor = t.stroke;
+                e.currentTarget.style.background = "transparent";
               }}
               style={{
                 minWidth: 26,
@@ -734,14 +731,13 @@ export default function GalaxyHologram() {
                 padding: "0 8px 1px 8px",
                 background: "transparent",
                 border: "none",
-                borderBottom: `1px solid ${t.stroke}`,
                 color: t.primary,
                 fontFamily: t.fontMono,
                 fontSize: 14,
                 lineHeight: 1,
                 cursor: "pointer",
                 opacity: 0.72,
-                transition: "opacity .25s ease, border-color .25s ease",
+                transition: "opacity .25s ease, background .25s ease",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

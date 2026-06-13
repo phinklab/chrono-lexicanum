@@ -12,7 +12,6 @@ import { notFound } from "next/navigation";
 import DetailModal from "@/components/shared/DetailModal";
 import EntityView from "@/components/entity/EntityView";
 import { loadEntity } from "@/lib/entity/loader";
-import { entityHref } from "@/lib/entity/types";
 
 export default async function PersonModal({
   params,
@@ -24,10 +23,7 @@ export default async function PersonModal({
   if (!view) notFound();
 
   return (
-    <DetailModal
-      title={view.name}
-      canonicalHref={entityHref({ type: "person", id: slug, name: view.name })}
-    >
+    <DetailModal title={view.name}>
       <EntityView data={view} />
     </DetailModal>
   );

@@ -92,16 +92,16 @@ export default function GalacticDisc({
   return (
     <svg viewBox="0 0 100 100" style={{ width: "100%", height: "100%", overflow: "visible" }}>
       <defs>
-        <radialGradient id="mapDiscGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor={t.primary} stopOpacity="0.22" />
-          <stop offset="55%" stopColor={t.primary} stopOpacity="0.08" />
-          <stop offset="100%" stopColor={t.primary} stopOpacity="0" />
-        </radialGradient>
+        {/* mapDiscGrad (the full-disc gold wash) removed entirely 2026-06-13
+            (Session 150 eyeballing, round 2): even halved it still read as a
+            gold film over the segments. The disc ground is carried by stars,
+            arms and wedge strokes alone now. Astronomican halved the same
+            round — it only shows when toggled on. */}
         <radialGradient id="mapAstronomicanGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#fff2c0" stopOpacity="0.72" />
-          <stop offset="14%" stopColor="#ffd560" stopOpacity="0.46" />
-          <stop offset="40%" stopColor="#f0a830" stopOpacity="0.18" />
-          <stop offset="75%" stopColor="#a06010" stopOpacity="0.05" />
+          <stop offset="0%" stopColor="#fff2c0" stopOpacity="0.38" />
+          <stop offset="14%" stopColor="#ffd560" stopOpacity="0.24" />
+          <stop offset="40%" stopColor="#f0a830" stopOpacity="0.10" />
+          <stop offset="75%" stopColor="#a06010" stopOpacity="0.03" />
           <stop offset="100%" stopColor="#5a3000" stopOpacity="0" />
         </radialGradient>
         <radialGradient id="mapCoreGlow" cx="50%" cy="50%" r="50%">
@@ -119,9 +119,12 @@ export default function GalacticDisc({
           <stop offset="40%" stopColor="#7ab0e8" stopOpacity="0.35" />
           <stop offset="100%" stopColor="#3366aa" stopOpacity="0" />
         </radialGradient>
+        {/* Sweep fan softened 2026-06-13: the rotating gold sector painted a
+            strong film over whichever segments it crossed. The sweep line
+            keeps full presence; only the trailing fill is quieter. */}
         <radialGradient id="mapSweepFan" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-          <stop offset="0%" stopColor={t.primary} stopOpacity="0.35" />
-          <stop offset="60%" stopColor={t.primary} stopOpacity="0.1" />
+          <stop offset="0%" stopColor={t.primary} stopOpacity="0.16" />
+          <stop offset="60%" stopColor={t.primary} stopOpacity="0.05" />
           <stop offset="100%" stopColor={t.primary} stopOpacity="0" />
         </radialGradient>
         <clipPath id="mapDiscClip">

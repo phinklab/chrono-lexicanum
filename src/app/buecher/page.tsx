@@ -12,7 +12,9 @@ import {
   FORMAT_LABELS,
   PERSON_ROLE_LABELS,
 } from "@/lib/book-labels";
-import { factionDot } from "@/lib/faction-colors";
+import { factionIconClass, primaryRowFaction } from "@/lib/faction-icon";
+import { isVisibleFacetCategory } from "@/lib/facet-visibility";
+import FactionClassIcon from "@/components/chrome/FactionClassIcon";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
@@ -92,7 +94,13 @@ interface CatalogueBook {
   seriesIndex: number | null;
   authors: string[];
   otherPersons: CataloguePerson[];
-  factions: Array<{ id: string; name: string }>;
+  factions: Array<{
+    id: string;
+    name: string;
+    role: string | null;
+    alignment: string | null;
+    parentId: string | null;
+  }>;
   facets: CatalogueFacet[];
   containedIn: CatalogueCollection[];
   isEnriched: boolean;
@@ -151,7 +159,11 @@ async function loadBooks(): Promise<CatalogueBook[]> {
             with: { series: { columns: { id: true, name: true } } },
           },
           factions: {
-            with: { faction: { columns: { id: true, name: true } } },
+            with: {
+              faction: {
+                columns: { id: true, name: true, alignment: true, parentId: true },
+              },
+            },
           },
           locations: {
             with: { location: { columns: { id: true, name: true } } },
@@ -266,10 +278,17 @@ async function loadBooks(): Promise<CatalogueBook[]> {
       );
 
       const factions = w.factions
-        .map((wf) => ({ id: wf.faction.id, name: wf.faction.name }))
+        .map((wf) => ({
+          id: wf.faction.id,
+          name: wf.faction.name,
+          role: wf.role ?? null,
+          alignment: wf.faction.alignment ?? null,
+          parentId: wf.faction.parentId ?? null,
+        }))
         .sort((a, b) => a.name.localeCompare(b.name, "de"));
 
       const facets: CatalogueFacet[] = w.facets
+        .filter((wf) => isVisibleFacetCategory(wf.facetValue.categoryId))
         .map((wf) => ({
           id: wf.facetValue.id,
           name: wf.facetValue.name,
@@ -654,8 +673,8 @@ function BookRow({
   const updatedRel = formatRelative(book.updatedAt, now);
   const updatedAbs = book.updatedAt.toLocaleString("en-US");
   const detailHref = auditMode ? `/buch/${book.slug}/audit` : `/buch/${book.slug}`;
-  const primaryFaction = book.factions[0]?.name ?? null;
-  const dotColor = factionDot(primaryFaction);
+  const rowFaction = primaryRowFaction(book.factions);
+  const primaryFaction = rowFaction?.name ?? null;
 
   return (
     <details
@@ -665,12 +684,7 @@ function BookRow({
     >
       <summary className="catalogue-row__summary">
         <span className="catalogue-row__index">{String(index + 1).padStart(3, "0")}</span>
-        <span
-          className="catalogue-row__dot"
-          aria-hidden
-          style={{ background: dotColor }}
-          title={primaryFaction ?? "Unclassified"}
-        />
+        <FactionClassIcon cls={factionIconClass(rowFaction)} label={primaryFaction} />
         <div className="catalogue-row__main">
           <span className="catalogue-row__title">{book.title}</span>
           {dimmed && (

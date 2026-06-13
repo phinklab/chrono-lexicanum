@@ -179,7 +179,6 @@ export interface Theme {
   fontMono: string;
   letterTitle: string;
   scanlineOpacity: number;
-  cornerStyle: "tech" | "rune" | "gothic";
   starColor: string;
   starHot: string;
   discFill: string;

@@ -4,7 +4,7 @@
    64-book-modal.css + 60-entity-panel.css).
 
    Owns the overlay CHROME only (backdrop scrim, centered card, top bar, the
-   prominent Back action, "open full page" + close affordances). The card body is
+   prominent Back action + close affordance). The card body is
    the db-free <BookDetailView> / <EntityView> the canonical pages render — their
    `.book-detail__*` / `.entity-view*` styles live in 51-book-detail.css /
    59-entity.css and are reused verbatim. A LARGE CENTERED card (not a side
@@ -132,19 +132,6 @@
   display: flex;
   align-items: center;
   gap: 14px;
-}
-
-.detail-modal__expand {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--cl-dim);
-  text-decoration: none;
-  transition: color 0.18s;
-}
-.detail-modal__expand:hover {
-  color: var(--cl-gold);
 }
 
 .detail-modal__close {

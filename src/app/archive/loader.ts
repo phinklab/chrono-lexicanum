@@ -13,12 +13,23 @@ import "server-only";
 import { db } from "@/db/client";
 import { eras as erasTable } from "@/db/schema";
 import { memoryCachedRead } from "@/lib/db-cache";
+import { isVisibleFacetCategory } from "@/lib/facet-visibility";
 
 export interface BrowseFacet {
   id: string;
   name: string;
   categoryId: string;
   categoryName: string | null;
+}
+
+export interface BrowseFaction {
+  id: string;
+  name: string;
+  /** `work_factions.role` — 'primary' decides the row marker. */
+  role: string | null;
+  /** `factions.alignment` + parent link, feed `factionIconClass`. */
+  alignment: string | null;
+  parentId: string | null;
 }
 
 export interface BrowseBook {
@@ -37,7 +48,7 @@ export interface BrowseBook {
   seriesName: string | null;
   seriesIndex: number | null;
   authors: string[];
-  factions: Array<{ id: string; name: string }>;
+  factions: BrowseFaction[];
   facets: BrowseFacet[];
 }
 
@@ -99,8 +110,12 @@ async function fetchBrowseBooks(): Promise<BrowseData> {
             with: { series: { columns: { name: true } } },
           },
           factions: {
-            columns: {},
-            with: { faction: { columns: { id: true, name: true } } },
+            columns: { role: true },
+            with: {
+              faction: {
+                columns: { id: true, name: true, alignment: true, parentId: true },
+              },
+            },
           },
           facets: {
             columns: {},
@@ -133,11 +148,18 @@ async function fetchBrowseBooks(): Promise<BrowseData> {
         .filter((wp) => wp.role === "author")
         .map((wp) => wp.person.name);
 
-      const factions = w.factions
-        .map((wf) => ({ id: wf.faction.id, name: wf.faction.name }))
+      const factions: BrowseFaction[] = w.factions
+        .map((wf) => ({
+          id: wf.faction.id,
+          name: wf.faction.name,
+          role: wf.role ?? null,
+          alignment: wf.faction.alignment ?? null,
+          parentId: wf.faction.parentId ?? null,
+        }))
         .sort((a, b) => a.name.localeCompare(b.name, "en"));
 
       const facets: BrowseFacet[] = w.facets
+        .filter((wf) => isVisibleFacetCategory(wf.facetValue.categoryId))
         .map((wf) => ({
           id: wf.facetValue.id,
           name: wf.facetValue.name,

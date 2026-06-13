@@ -29,10 +29,9 @@
  *     Unlike the entity-to-entity replace above, the book hop DOES stack one
  *     history step — that single Back is what walks the reader back to where
  *     they came from.
- *   • Two-segment links (`/buch/[slug]/audit`), the "Open full page" affordance
- *     (`data-detail-hardnav`), external/new-tab and non-detail links (e.g. a
- *     `/podcasts/…#ep-…` related-work) pass through and navigate away, clearing
- *     the overlay via the catch-all slot.
+ *   • Two-segment links (`/buch/[slug]/audit`), external/new-tab and non-detail
+ *     links (e.g. a `/podcasts/…#ep-…` related-work) pass through and navigate
+ *     away, clearing the overlay via the catch-all slot.
  *   • A11y to the WAI-ARIA APG "Dialog (Modal)" pattern: focus moves in on open,
  *     Tab is trapped, Escape closes, focus returns to the trigger, the page
  *     behind the dialog is made `inert` while it is open (Report 141 § B5 —
@@ -56,13 +55,10 @@ const DETAIL_HREF = new RegExp(
 
 export default function DetailModal({
   title,
-  canonicalHref,
   children,
 }: {
   /** Book / entity name — labels the dialog for assistive tech. */
   title: string;
-  /** Same URL the panel shows; the "open full page" link hard-navigates here. */
-  canonicalHref: string;
   children: React.ReactNode;
 }) {
   const router = useRouter();
@@ -170,7 +166,7 @@ export default function DetailModal({
   // Flat panel: rewrite an in-panel click on another detail link to replace-nav,
   // so hops don't stack history (capture runs before <Link>'s handler; marking
   // the event defaultPrevented makes Next skip its push). The audit link,
-  // "open full page", external links and modified clicks (new tab) pass through.
+  // external links and modified clicks (new tab) pass through.
   function onClickCapture(e: React.MouseEvent<HTMLElement>) {
     if (
       e.defaultPrevented ||
@@ -184,8 +180,6 @@ export default function DetailModal({
     }
     const anchor = (e.target as HTMLElement).closest("a");
     if (!anchor) return;
-    // The "open full page" affordance opts out → browser does the hard nav.
-    if (anchor.dataset.detailHardnav !== undefined) return;
     if (anchor.target && anchor.target !== "_self") return;
     const href = anchor.getAttribute("href");
     if (!href || !DETAIL_HREF.test(href)) return;
@@ -230,13 +224,6 @@ export default function DetailModal({
             Back
           </button>
           <div className="detail-modal__bar-end">
-            <a
-              className="detail-modal__expand"
-              href={canonicalHref}
-              data-detail-hardnav
-            >
-              Open full page ↗
-            </a>
             <button
               type="button"
               className="detail-modal__close"

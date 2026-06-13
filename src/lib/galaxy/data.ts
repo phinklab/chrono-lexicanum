@@ -627,26 +627,9 @@ export const NECRON_DYNASTIES_BASE: readonly NecronDynasty[] = [
       [0.70, 138],
     ],
   },
-  {
-    id: "mephrit",
-    name: "Mephrit Dynasty",
-    color: "#7ad8a4",
-    density: "mid",
-    pts: [
-      [0.42, 65],
-      [0.58, 78],
-    ],
-  },
-  {
-    id: "nihilakh",
-    name: "Nihilakh Dynasty",
-    color: "#5cd09a",
-    density: "mid",
-    pts: [
-      [0.80, 155],
-      [0.62, 165],
-    ],
-  },
+  // Mephrit + Nihilakh removed 2026-06-13 (Philipp, Session 150 eyeballing) —
+  // their ids are tombstoned in storage.ts so stale localStorage snapshots
+  // can't resurrect them.
 ];
 
 export const TYRANID_SWARMS_BASE: readonly TyranidSwarm[] = [

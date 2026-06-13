@@ -35,3 +35,58 @@
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   background-size: 160px 160px;
 }
+
+/* Artist credit for the background artwork (Brief 150) — the shared
+ * <ArtCreditTag> with the `--site` modifier: fixed bottom-right, the same
+ * label/name/links grammar as the cinematic timeline's slot, in site tokens.
+ * Sits above the page flow (the bg itself is z -1) but under overlays. */
+.art-credit--site {
+  position: fixed;
+  right: 22px;
+  bottom: 16px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  letter-spacing: 0.22em;
+  text-align: right;
+}
+.art-credit--site .ac-lab {
+  font-size: 10px;
+  color: var(--cl-faint);
+}
+.art-credit--site .ac-name {
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: var(--cl-dim);
+}
+.art-credit--site .ac-links {
+  display: flex;
+  gap: 14px;
+  margin-top: 2px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+.art-credit--site .ac-links a {
+  color: var(--cl-dim);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--cl-dim) 40%, transparent);
+  transition: color 0.2s;
+}
+.art-credit--site .ac-links a:hover,
+.art-credit--site .ac-links a:focus-visible {
+  color: var(--cl-gold);
+}
+.art-credit--site .ac-links a:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: 3px;
+}
+@media (max-width: 720px) {
+  .art-credit--site {
+    right: 14px;
+    bottom: 12px;
+  }
+}

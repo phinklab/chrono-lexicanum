@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FORMAT_LABELS } from "@/lib/book-labels";
-import { factionDot } from "@/lib/faction-colors";
+import { factionIconClass, primaryRowFaction } from "@/lib/faction-icon";
+import FactionClassIcon from "@/components/chrome/FactionClassIcon";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
@@ -251,19 +252,14 @@ function WorkRow({
     book.releaseYear != null ? String(book.releaseYear) : null,
   ].filter((v): v is string => Boolean(v));
 
-  const primaryFaction = book.factions[0]?.name ?? null;
-  const dotColor = factionDot(primaryFaction);
+  const rowFaction = primaryRowFaction(book.factions);
+  const primaryFaction = rowFaction?.name ?? null;
 
   return (
     <details className={`catalogue-row${isEnriched ? " is-enriched" : " is-stub"}`}>
       <summary className="catalogue-row__summary">
         <span className="catalogue-row__index">{String(index + 1).padStart(3, "0")}</span>
-        <span
-          className="catalogue-row__dot"
-          aria-hidden
-          style={{ background: dotColor }}
-          title={primaryFaction ?? "Unclassified"}
-        />
+        <FactionClassIcon cls={factionIconClass(rowFaction)} label={primaryFaction} />
         <div className="catalogue-row__main">
           <span className="catalogue-row__title">{book.title}</span>
           {book.authors.length > 0 && (

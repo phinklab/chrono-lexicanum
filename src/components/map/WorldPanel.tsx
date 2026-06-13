@@ -3,7 +3,7 @@
 // 380px codex side-panel that slides in from the right when a world is
 // selected. Lore + book entries + recorded events + auspex telemetry.
 
-import { useMemo } from "react";
+import { useMemo, type CSSProperties } from "react";
 
 import { FACTION_COLORS, SEGMENTUM_WORLDS } from "@/lib/galaxy/data";
 import type { Theme, World } from "@/lib/galaxy/types";
@@ -23,6 +23,15 @@ function findWorldById(id: string | null): World | null {
   return null;
 }
 
+// The one drawn line of the gold language (64-detail-modal.css): a gradient
+// hairline that fades out at both ends — replaces every solid/dashed border.
+const HAIRLINE =
+  "linear-gradient(90deg, transparent, rgba(201,166,90,0.16) 14%, rgba(201,166,90,0.16) 86%, transparent)";
+
+function Hairline({ style }: { style?: CSSProperties }) {
+  return <div style={{ height: 1, background: HAIRLINE, ...style }} />;
+}
+
 function SectionHeader({ theme, label, sub }: { theme: Theme; label: string; sub?: string }) {
   const t = theme;
   return (
@@ -33,9 +42,10 @@ function SectionHeader({ theme, label, sub }: { theme: Theme; label: string; sub
         gap: 10,
         marginBottom: 10,
         paddingBottom: 6,
-        borderBottom: `1px solid ${t.strokeFaint}`,
+        position: "relative",
       }}
     >
+      <Hairline style={{ position: "absolute", left: 0, right: 0, bottom: 0 }} />
       <span
         style={{
           fontFamily: t.fontDisplay,
@@ -91,10 +101,11 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
         width: 380,
         transform: open ? "translateX(0)" : "translateX(110%)",
         transition: "transform 0.45s cubic-bezier(.2,.7,.2,1)",
-        background: `linear-gradient(180deg, ${t.bg0}f8 0%, ${t.bg1}f0 100%)`,
-        borderLeft: `1px solid ${t.stroke}`,
+        // Gold language: no drawn frame — the card edge is the drop shadow
+        // plus a faint bone light-catch on the leading edge.
+        background: "linear-gradient(180deg, rgba(6,9,16,0.97) 0%, rgba(2,4,10,0.98) 100%)",
         backdropFilter: "blur(10px)",
-        boxShadow: `-10px 0 40px ${t.bg0}aa, inset 1px 0 0 ${t.strokeFaint}`,
+        boxShadow: `-30px 0 80px -20px rgba(0,0,0,0.85), inset 1px 0 0 rgba(232,220,192,0.06)`,
         pointerEvents: open ? "auto" : "none",
         zIndex: 49,
         color: t.primary,
@@ -105,7 +116,8 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
     >
       {world && (
         <>
-          <div style={{ padding: "20px 22px 14px", borderBottom: `1px solid ${t.strokeFaint}`, position: "relative" }}>
+          <div style={{ padding: "20px 22px 14px", position: "relative" }}>
+            <Hairline style={{ position: "absolute", left: 0, right: 0, bottom: 0 }} />
             <div
               style={{
                 fontFamily: t.fontMono,
@@ -148,6 +160,14 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
             <button
               onClick={() => chooseWorld(null)}
               aria-label="Close"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = t.accent;
+                e.currentTarget.style.background = "rgba(201, 166, 90, 0.08)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "rgba(232, 220, 192, 0.55)";
+                e.currentTarget.style.background = "transparent";
+              }}
               style={{
                 position: "absolute",
                 // The global burger (fixed top:16 right:18, 48×44, z 81) floats
@@ -156,17 +176,18 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                 top: 62,
                 right: 14,
                 background: "transparent",
-                border: `1px solid ${t.stroke}`,
-                color: t.primary,
-                width: 26,
-                height: 26,
+                border: "none",
+                color: "rgba(232, 220, 192, 0.55)",
+                width: 28,
+                height: 28,
                 borderRadius: 0,
                 cursor: "pointer",
                 fontFamily: t.fontMono,
-                fontSize: 12,
+                fontSize: 16,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                transition: "color 0.18s, background 0.18s",
               }}
             >
               ×
@@ -199,8 +220,8 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                 <div
                   key={i}
                   style={{
-                    border: `1px solid ${t.strokeFaint}`,
-                    background: t.primarySoft,
+                    background: "rgba(201, 166, 90, 0.07)",
+                    boxShadow: "inset 0 1px 0 rgba(232, 220, 192, 0.05)",
                     padding: "10px 12px",
                     position: "relative",
                   }}
@@ -243,8 +264,11 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                       display: "flex",
                       alignItems: "center",
                       gap: 6,
-                      paddingTop: 4,
-                      borderTop: `1px dashed ${t.strokeFaint}`,
+                      paddingTop: 5,
+                      backgroundImage: HAIRLINE,
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "100% 1px",
+                      backgroundPosition: "top left",
                     }}
                   >
                     <span style={{ opacity: 0.5 }}>◉ Setting</span>
@@ -264,7 +288,10 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                     gridTemplateColumns: "64px 1fr",
                     gap: 12,
                     paddingBottom: 10,
-                    borderBottom: i < world.events.length - 1 ? `1px dashed ${t.strokeFaint}` : "none",
+                    backgroundImage: i < world.events.length - 1 ? HAIRLINE : "none",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "100% 1px",
+                    backgroundPosition: "bottom left",
                   }}
                 >
                   <div

@@ -325,13 +325,12 @@ main.catalogue {
 .catalogue-row.is-audio-dim[open] {
   opacity: 1;
 }
-/* The faction dot is the row's strongest accent. Shrink + desaturate it on
+/* The faction sigil is the row's strongest accent. Shrink + desaturate it on
  * audio rows so the demotion still reads where the gap sort clusters dimmed
  * rows together — there opacity alone has no bright neighbour to contrast
- * against, but a smaller, greyer dot is an absolute per-row cue. */
-.catalogue-row.is-audio-dim .catalogue-row__dot {
-  width: 5px;
-  height: 5px;
+ * against, but a smaller, greyer mark is an absolute per-row cue. */
+.catalogue-row.is-audio-dim .fci {
+  transform: scale(0.62);
   filter: saturate(0.45);
 }
 .catalogue-row__audio-tag {
@@ -387,10 +386,32 @@ main.catalogue {
   letter-spacing: 0.18em;
   color: var(--cl-faint);
 }
-.catalogue-row__dot {
-  width: 10px;
-  height: 10px;
+/* Faction-class sigil (Brief 150) — the marker cell before the title. Four
+ * solid marks (aquila / Astartes helm / claw / chaos star) on muted class
+ * tints; rows without a classifiable faction keep a plain dot via ::before.
+ * Solid silhouettes, no glow — accent comes from the tint alone. */
+.fci {
+  display: inline-grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+}
+.fci svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.92;
+}
+.fci--imperium { color: var(--cl-gold); }
+.fci--space-marines { color: #8a9cb0; }
+.fci--xenos { color: #79a16b; }
+.fci--chaos { color: #a83a32; }
+.fci--none::before {
+  content: "";
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
+  background: var(--cl-dim);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
 }
 .catalogue-row__main {
@@ -402,7 +423,9 @@ main.catalogue {
 .catalogue-row__title {
   font-family: var(--font-cinzel), serif;
   font-weight: 500;
-  font-size: 16px;
+  /* 18px — Cinzel runs small for its size; 16px read as squint territory in
+     the dense rows (Philipp, Session 150 eyeballing). */
+  font-size: 18px;
   letter-spacing: 0.05em;
   color: var(--cl-bone);
   white-space: nowrap;

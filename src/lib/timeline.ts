@@ -109,9 +109,10 @@ export interface BookDetail {
     /** `work_factions.role`: 'primary' | 'supporting' | 'antagonist'. */
     role: string;
   }>;
-  /** Keyed by `facet_categories.id`. Loader returns ALL 12 categories the work
-   *  has values for; the panel curates 5 (entry_point, length_tier, tone, theme,
-   *  content_warning). FilterRail (2a.2) will read the rest. */
+  /** Keyed by `facet_categories.id`. Loader returns the categories the work
+   *  has values for; the panel curates 4 (entry_point, length_tier, tone,
+   *  theme). Content warnings are display-retired (Brief 150,
+   *  `src/lib/facet-visibility.ts`). FilterRail (2a.2) reads the rest. */
   facets: Record<string, {
     categoryId: string;
     categoryName: string;

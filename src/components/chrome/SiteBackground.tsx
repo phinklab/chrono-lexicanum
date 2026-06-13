@@ -2,6 +2,9 @@
  * SiteBackground — full-bleed photo + vignette + grain for a route.
  * Server component; pages opt-in by rendering it once near the top of
  * their <main>. Routes that don't render one get the plain void body bg.
+ * When the photo has a registered artist credit (`src/lib/art-credits.ts`),
+ * the shared <ArtCreditTag> renders bottom-right — outside the aria-hidden
+ * backdrop, so the credit links stay reachable.
  *
  * Variants:
  *   - "hub"        ← Hub (gothic cathedral-city, cosmic rings overhead)
@@ -12,10 +15,12 @@
  *   - "oracle"     ← Ask the Archive (gothic scriptorium, void window)
  *   - "chronicle"  ← Timeline / Chronicle (cathedral timeline diagram)
  *   - "cartog"     ← cartog-hall (handoff photo, currently unused)
- *   - "cartog-holo" ← /map (Mechanicus holo-table plot room)
- *   - "login"      ← /login (gilded archive hall, scribe at the lectern)
+ *   - "cartog-holo" ← /map (holo-dais observatory chamber; 55-map.css dims it)
+ *   - "login"      ← /login (lightless cathedral librarium — Philipp Künzler)
  *   - "none"       ← just vignette + grain over the void
  */
+import ArtCreditTag from "@/components/chrome/ArtCreditTag";
+import { backgroundArtCredit } from "@/lib/art-credits";
 
 export type SiteBgVariant =
   | "hub"
@@ -54,16 +59,20 @@ export default function SiteBackground({
   position = "center",
 }: SiteBackgroundProps) {
   const photo = PHOTOS[variant];
+  const credit = backgroundArtCredit(photo);
   return (
-    <div className="site-bg" aria-hidden>
-      {photo && (
-        <div
-          className="site-bg__photo"
-          style={{ backgroundImage: `url(${photo})`, backgroundPosition: position }}
-        />
-      )}
-      <div className="site-bg__vignette" />
-      <div className="site-bg__grain" />
-    </div>
+    <>
+      <div className="site-bg" aria-hidden>
+        {photo && (
+          <div
+            className="site-bg__photo"
+            style={{ backgroundImage: `url(${photo})`, backgroundPosition: position }}
+          />
+        )}
+        <div className="site-bg__vignette" />
+        <div className="site-bg__grain" />
+      </div>
+      {credit && <ArtCreditTag credit={credit} className="art-credit--site" />}
+    </>
   );
 }

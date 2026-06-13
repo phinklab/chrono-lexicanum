@@ -1,7 +1,10 @@
 /* =============================== /login ===============================
-   Preview gate — full-bleed archive-hall photo with the site's black
-   bottom gradient (hub pattern), a single centered credential column,
-   and no page chrome (burger/menu/media player hidden).
+   Preview gate — the librarium artwork with only a whisper of bottom
+   darkening (the lit marble floor stays visible), a single credential
+   column, and no page chrome (burger/menu/media player hidden). Desktop
+   shows the artwork uncropped (contain, anchored bottom-right) with the
+   console on the left over the void / dark shelf column; small screens
+   keep the centered full-bleed.
 */
 
 body:has(main.login) .site-burger,
@@ -25,9 +28,8 @@ body:has(main.login) .site-bg::after {
       180deg,
       color-mix(in srgb, var(--cl-void) 40%, transparent) 0%,
       color-mix(in srgb, var(--cl-void) 0%, transparent) 24%,
-      color-mix(in srgb, var(--cl-void) 0%, transparent) 44%,
-      color-mix(in srgb, var(--cl-void) 55%, transparent) 68%,
-      color-mix(in srgb, var(--cl-void) 94%, transparent) 100%
+      color-mix(in srgb, var(--cl-void) 0%, transparent) 72%,
+      color-mix(in srgb, var(--cl-void) 30%, transparent) 100%
     );
 }
 
@@ -37,6 +39,55 @@ main.login {
   align-items: center;
   justify-content: center;
   padding: 48px 24px;
+}
+
+/* Desktop: the artwork un-zoomed — `contain` instead of `cover`, anchored
+   bottom-right so the bright floor and the right shelf run flush to the
+   viewport edges. The two edges that CAN fall inside the viewport (top vault,
+   left shelf) are near-black, so the image dissolves into the void with no
+   seam at any aspect ratio. The slack collects on the LEFT as pure void and
+   the credential console moves over it. `background-position` arrives inline
+   from <SiteBackground> (center), hence the !important. */
+@media (min-width: 960px) {
+  body:has(main.login) .site-bg__photo {
+    background-size: contain;
+    background-position: right bottom !important;
+  }
+
+  /* The artwork is narrower than most desktop viewports, so `contain` leaves
+     void to its left. This left→right void gradient folds the image's left
+     edge into that void, so the librarium emerges fluidly out of darkness
+     instead of ending on a visible seam. It must stay strong out to ~30%
+     because the edge lands anywhere between ~4% (bare 16:9) and ~28%
+     (ultrawide) of the viewport width. Replaces the base ::after stack —
+     radial + bottom layers identical, only the left layer is added. */
+  body:has(main.login) .site-bg::after {
+    background:
+      linear-gradient(
+        90deg,
+        var(--cl-void) 0%,
+        color-mix(in srgb, var(--cl-void) 88%, transparent) 22%,
+        color-mix(in srgb, var(--cl-void) 45%, transparent) 38%,
+        transparent 58%
+      ),
+      radial-gradient(
+        ellipse at 50% 34%,
+        transparent 50%,
+        color-mix(in srgb, var(--cl-void) 25%, transparent) 100%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--cl-void) 40%, transparent) 0%,
+        color-mix(in srgb, var(--cl-void) 0%, transparent) 24%,
+        color-mix(in srgb, var(--cl-void) 0%, transparent) 72%,
+        color-mix(in srgb, var(--cl-void) 30%, transparent) 100%
+      );
+  }
+
+  main.login {
+    justify-content: flex-start;
+    padding-left: clamp(64px, 12vw, 240px);
+  }
 }
 
 .login-console {
