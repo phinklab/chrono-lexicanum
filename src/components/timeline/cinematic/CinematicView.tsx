@@ -22,13 +22,10 @@ import {
   useLayoutEffect,
   useRef,
   useState,
-  type MouseEvent,
 } from "react";
 import type { ChronicleEraData } from "@/lib/chronicle/loadTimeline";
-import {
-  ERA_ART_CREDITS,
-  type EraArtCredit,
-} from "@/lib/chronicle/eraArtCredits";
+import { ERA_ART_CREDITS } from "@/lib/chronicle/eraArtCredits";
+import ArtCreditTag from "@/components/chrome/ArtCreditTag";
 import EraBand from "./EraBand";
 import MediaRows from "./MediaRows";
 import {
@@ -45,29 +42,6 @@ import {
 const SPACING = 140; // px between rail nodes (screen y)
 const DEPTH = 420; // px z-recession per node
 const PULL_MAX = 300; // wheel/touch distance to re-enter the previous era
-
-/** Credit block for the era cover artwork — name plus external profile links. */
-function EraArtCreditBlock({
-  credit,
-  onClick,
-}: {
-  credit: EraArtCredit;
-  onClick?: (e: MouseEvent) => void;
-}) {
-  return (
-    <div className="art-credit" onClick={onClick}>
-      <span className="ac-lab">ARTWORK</span>
-      <span className="ac-name">{credit.name}</span>
-      <span className="ac-links">
-        {credit.links.map((l) => (
-          <a key={l.url} href={l.url} target="_blank" rel="noopener">
-            {l.label}
-          </a>
-        ))}
-      </span>
-    </div>
-  );
-}
 
 interface CinematicViewProps {
   era: ChronicleEraData;
@@ -483,7 +457,7 @@ export default function CinematicView({
           />
         </div>
         <div className="veil" />
-        {eraCredit && <EraArtCreditBlock credit={eraCredit} />}
+        {eraCredit && <ArtCreditTag credit={eraCredit} />}
       </section>
     );
   }
@@ -639,7 +613,7 @@ export default function CinematicView({
       {/* artist attribution — reserved bottom-right slot; event credit wins,
           otherwise the era cover's credit (the bg shown is the era cover) */}
       {!ev.artCreditName && !ev.artCreditUrl && eraCredit ? (
-        <EraArtCreditBlock credit={eraCredit} />
+        <ArtCreditTag credit={eraCredit} />
       ) : (
         <a
           className="art-credit"
@@ -702,7 +676,7 @@ export default function CinematicView({
         {eraCredit && (
           // stopPropagation: a click on the credit links must not double as
           // the intro's dismiss tap
-          <EraArtCreditBlock
+          <ArtCreditTag
             credit={eraCredit}
             onClick={(e) => e.stopPropagation()}
           />

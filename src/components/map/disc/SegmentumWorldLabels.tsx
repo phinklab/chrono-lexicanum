@@ -73,7 +73,9 @@ export default function SegmentumWorldLabels({
                 fontSize: 8.5,
                 letterSpacing: "0.18em",
                 color: isSel ? t.accent : isHov ? t.starHot : fc,
-                textShadow: `0 0 ${isHov ? 12 : 6}px ${fc}`,
+                // Dark drop for crispness — the old colored halo glow read as
+                // bloom behind every nameplate (Philipp: no glow halos).
+                textShadow: "0 1px 4px rgba(0, 0, 0, 0.9)",
                 opacity: dim ? 0.15 : isHov || isSel ? 0 : 0.85,
                 cursor: "pointer",
                 pointerEvents: dimmed ? "none" : "auto",

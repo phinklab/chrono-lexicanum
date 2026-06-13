@@ -32,6 +32,8 @@ export default function EraSwitcher() {
         userSelect: "none",
       }}
     >
+      {/* Gold language: no drawn frame — the era-accent bar on the left is
+          the only edge; depth comes from shadow + a faint top light-catch. */}
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -42,7 +44,7 @@ export default function EraSwitcher() {
           width: "100%",
           padding: "8px 12px 8px 14px",
           background: `${t.bg0}c7`,
-          border: `1px solid ${t.stroke}`,
+          border: "none",
           borderLeft: `3px solid ${cur.accent}`,
           color: "inherit",
           cursor: "pointer",
@@ -51,7 +53,7 @@ export default function EraSwitcher() {
           fontFamily: "inherit",
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          boxShadow: "0 4px 18px rgba(0,0,0,0.45)",
+          boxShadow: "0 4px 18px rgba(0,0,0,0.45), inset 0 1px 0 rgba(232,220,192,0.06)",
         }}
       >
         <span style={{ fontSize: 9, opacity: 0.55, letterSpacing: "0.32em" }}>TIMELINE</span>
@@ -76,13 +78,14 @@ export default function EraSwitcher() {
             left: 0,
             top: "calc(100% + 6px)",
             background: `${t.bg0}eb`,
-            border: `1px solid ${t.stroke}`,
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
-            boxShadow: "0 8px 28px rgba(0,0,0,0.55)",
+            boxShadow: "0 8px 28px rgba(0,0,0,0.55), inset 0 1px 0 rgba(232,220,192,0.06)",
             width: 280,
           }}
         >
+          {/* Terminus hairline (the one drawn divider of the gold language)
+              instead of a solid borderBottom. */}
           <div
             style={{
               padding: "8px 12px 6px",
@@ -90,11 +93,17 @@ export default function EraSwitcher() {
               letterSpacing: "0.32em",
               opacity: 0.5,
               textTransform: "uppercase",
-              borderBottom: `1px solid ${t.strokeFaint}`,
             }}
           >
             Select Timeline
           </div>
+          <div
+            style={{
+              height: 1,
+              background:
+                "linear-gradient(90deg, transparent, rgba(201,166,90,0.16) 14%, rgba(201,166,90,0.16) 86%, transparent)",
+            }}
+          />
           {ERAS.map((e) => {
             const isActive = e.id === state.era;
             const locked = !!e.comingSoon;
@@ -122,7 +131,6 @@ export default function EraSwitcher() {
                   cursor: locked ? "not-allowed" : "pointer",
                   fontFamily: "inherit",
                   textAlign: "left",
-                  borderTop: "1px solid rgba(201,166,90,.06)",
                   opacity: locked ? 0.42 : 1,
                   position: "relative",
                 }}
@@ -156,7 +164,7 @@ export default function EraSwitcher() {
                         letterSpacing: "0.28em",
                         textTransform: "uppercase",
                         padding: "2px 6px",
-                        border: "1px solid rgba(201,166,90,.30)",
+                        background: "rgba(201,166,90,.10)",
                         color: "rgba(201,166,90,.65)",
                         fontFamily: t.fontMono,
                       }}
@@ -196,11 +204,17 @@ export default function EraSwitcher() {
           })}
           <div
             style={{
+              height: 1,
+              background:
+                "linear-gradient(90deg, transparent, rgba(201,166,90,0.16) 14%, rgba(201,166,90,0.16) 86%, transparent)",
+            }}
+          />
+          <div
+            style={{
               padding: "8px 12px",
               fontSize: 10,
               opacity: 0.5,
               lineHeight: 1.4,
-              borderTop: `1px solid ${t.strokeFaint}`,
             }}
           >
             Each timeline saves its own map state. Edits, added worlds and warp zones are kept per-era.

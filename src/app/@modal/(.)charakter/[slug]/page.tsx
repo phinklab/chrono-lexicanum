@@ -13,7 +13,6 @@ import { notFound, redirect } from "next/navigation";
 import DetailModal from "@/components/shared/DetailModal";
 import EntityView from "@/components/entity/EntityView";
 import { loadEntity } from "@/lib/entity/loader";
-import { entityHref } from "@/lib/entity/types";
 import { absorbedInto } from "@/lib/compendium/primarchs";
 
 export default async function CharacterModal({
@@ -30,10 +29,7 @@ export default async function CharacterModal({
   if (!view) notFound();
 
   return (
-    <DetailModal
-      title={view.name}
-      canonicalHref={entityHref({ type: "character", id: slug, name: view.name })}
-    >
+    <DetailModal title={view.name}>
       <EntityView data={view} />
     </DetailModal>
   );

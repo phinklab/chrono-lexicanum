@@ -84,13 +84,8 @@ export default function DiscWedges({
         </g>
       </g>
 
-      {/* Outer reach glow — fades when dived or when zoomed in close. */}
-      <path
-        d={silhouettePathD(segments, 0.96)}
-        fill="url(#mapDiscGrad)"
-        opacity={dived ? 0 : Math.max(0, 1 - (userZoom - 1) * 1.4)}
-        style={{ transition: "opacity .4s" }}
-      />
+      {/* Outer-reach glow (full-disc gold wash) removed 2026-06-13 — see the
+          defs comment in GalacticDisc. */}
 
       {/* Astronomican — Emperor's psychic lighthouse. Toggled via tweaks. */}
       <g opacity={astronomican ? 1 : 0} style={{ transition: "opacity 0.6s ease-out" }} pointerEvents="none">
@@ -117,9 +112,11 @@ export default function DiscWedges({
         </g>
       </g>
 
-      {/* Concentric grid rings + dashed silhouette + spokes. */}
+      {/* Concentric grid rings + dashed silhouette + spokes. The 0.18 ring
+          is gone — it sat exactly on the Solar boundary and doubled the
+          line there (Session 150 eyeballing). */}
       <g opacity={dived ? 0 : 1} style={{ transition: "opacity .8s" }}>
-        {[0.18, 0.32, 0.5, 0.7].map((r) => (
+        {[0.32, 0.5, 0.7].map((r) => (
           <circle
             key={r}
             cx="50"
@@ -207,6 +204,38 @@ export default function DiscWedges({
         })}
       </g>
 
+      {/* Segmentum Solar — rendered like the other segmenta (same subtle
+          fill, gold hover, clickable across its whole disc) instead of the
+          old label-only click target. A <circle> because wedgePath
+          degenerates on a full 0–360° sweep. */}
+      {(() => {
+        const solar = segments.find((s) => s.id === "solar");
+        if (!solar) return null;
+        const hovered = hoveredSeg === "solar";
+        const isActive = divedSeg === "solar";
+        const visible = !dived || isActive;
+        const clickable = !dived;
+        const zoomFade = Math.max(0, 1 - (userZoom - 1) * 1.4);
+        const baseFill = dived ? 0 : (hovered ? 0.12 : 0.02) * zoomFade;
+        return (
+          <circle
+            cx="50"
+            cy="50"
+            r={solar.outer * 50}
+            fill={t.primary}
+            fillOpacity={baseFill}
+            stroke={t.stroke}
+            strokeWidth={hovered ? 2 : 1}
+            vectorEffect="non-scaling-stroke"
+            opacity={visible ? 1 : 0}
+            style={{ cursor: clickable ? "pointer" : "default", transition: "all 0.3s" }}
+            onMouseEnter={() => setHoveredSeg("solar")}
+            onMouseLeave={() => setHoveredSeg(null)}
+            onClick={() => clickable && onDive("solar")}
+          />
+        );
+      })()}
+
       {/* Segmentum wedges (non-solar) — clickable on the galaxy view. */}
       {segments
         .filter((s) => s.id !== "solar")
@@ -216,7 +245,9 @@ export default function DiscWedges({
           const visible = !dived || isActive;
           const clickable = !dived;
           const zoomFade = Math.max(0, 1 - (userZoom - 1) * 1.4);
-          const baseFill = dived ? 0 : (hovered ? 0.14 : 0.06) * zoomFade;
+          // Resting fill near-zero (gold is reserved for the hover state) —
+          // the resting wedge reads via its stroke, not a gold film.
+          const baseFill = dived ? 0 : (hovered ? 0.12 : 0.02) * zoomFade;
           return (
             <g
               key={s.id}
@@ -235,14 +266,9 @@ export default function DiscWedges({
                 vectorEffect="non-scaling-stroke"
                 style={{ cursor: clickable ? "pointer" : "default", transition: "all 0.3s" }}
               />
-              <path
-                d={wedgePath(s.inner, s.inner + 0.005, s.a0, s.a1)}
-                fill="none"
-                stroke={t.primary}
-                strokeOpacity="0.4"
-                strokeWidth="1"
-                vectorEffect="non-scaling-stroke"
-              />
+              {/* Inner-edge accent band removed 2026-06-13 — it drew a second
+                  line just outside the Solar boundary (the "two rings" Philipp
+                  flagged); the wedge outline alone marks the edge now. */}
             </g>
           );
         })}
@@ -271,16 +297,10 @@ export default function DiscWedges({
       <g
         opacity={dived ? 0 : Math.max(0, 1 - (userZoom - 1) * 1.2)}
         style={{ transition: "opacity .4s" }}
+        pointerEvents="none"
       >
-        <circle
-          cx="50"
-          cy="50"
-          r={0.18 * 50}
-          fill="none"
-          stroke={t.stroke}
-          strokeWidth="1"
-          vectorEffect="non-scaling-stroke"
-        />
+        {/* Boundary circle removed — the Solar segment circle above draws
+            that line once; this group keeps only the core glow + Sol. */}
         <circle cx="50" cy="50" r="2.4" fill="url(#mapCoreGlow)" />
         <circle cx="50" cy="50" r="1.1" fill={t.accent} opacity="0.4" />
         <circle cx="50" cy="50" r="0.55" fill={t.accent} />

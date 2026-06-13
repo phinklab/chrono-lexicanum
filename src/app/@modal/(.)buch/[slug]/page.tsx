@@ -32,7 +32,7 @@ export default async function BookModal({
   const region = await resolveRegion(sp.store);
 
   return (
-    <DetailModal title={book.title} canonicalHref={`/buch/${book.slug}`}>
+    <DetailModal title={book.title}>
       <BookDetailView book={book} region={region} />
     </DetailModal>
   );

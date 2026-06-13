@@ -5,12 +5,15 @@
  * era credit needs multiple links — so this stays a small frontend map keyed
  * by era id instead of a DB migration. Event-level credits, when present,
  * take precedence in the cinematic view's art-credit slot.
+ *
+ * Shape + rendering are shared with the page-background credits (Brief 150):
+ * `ArtCredit` from `src/lib/art-credits.ts`, rendered via `<ArtCreditTag>`.
+ * Only the keying differs — era id here (artwork swaps per slide), image ref
+ * there (one background per page).
  */
+import type { ArtCredit } from "@/lib/art-credits";
 
-export interface EraArtCredit {
-  name: string;
-  links: { label: string; url: string }[];
-}
+export type EraArtCredit = ArtCredit;
 
 export const ERA_ART_CREDITS: Record<string, EraArtCredit> = {
   horus_heresy: {

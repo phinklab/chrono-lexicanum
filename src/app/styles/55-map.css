@@ -5,6 +5,15 @@
    Animations + print rules for the SVG galaxy hologram. Names are
    `map`-prefixed to avoid colliding with any other route's keyframes. */
 
+/* The holo-chamber backdrop runs FAR darker than the raw artwork — the HUD
+   must own the foreground, the chamber is barely-there ambience (0.55 and
+   then 0.3 still competed with the disc; Philipp, Session 150 eyeballing
+   rounds 2–3). Brightness (not a void wash) keeps the dais glow's hue alive
+   in the murk. */
+.map-route .site-bg__photo {
+  filter: brightness(0.18);
+}
+
 @keyframes mapTwinkle {
   0%, 100% { opacity: 0.3; transform: scale(1); }
   50%      { opacity: 1;   transform: scale(1.4); }

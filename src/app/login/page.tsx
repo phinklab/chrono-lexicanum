@@ -21,7 +21,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
       <SiteBackground variant="login" position="center" />
       <section className="login-console">
         <p className="login-kicker">RESTRICTED ARCHIVE · PREVIEW ACCESS</p>
-        <h1 className="login-title">Chrono · Lexicanum</h1>
+        <h1 className="login-title">Chrono Lexicanum</h1>
         <div className="login-rule" aria-hidden />
         <p className="login-sub">
           The archive is sealed while the preview is underway. Identify

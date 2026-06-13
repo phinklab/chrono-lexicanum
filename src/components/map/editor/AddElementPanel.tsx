@@ -281,9 +281,10 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
         top: 140,
         right: 100,
         width: 340,
-        background: `linear-gradient(180deg, ${t.bg1}f0, ${t.bg0}f5)`,
-        border: `1px solid ${t.stroke}`,
-        boxShadow: `0 0 30px ${t.primarySoft}, inset 0 1px 0 ${t.strokeFaint}`,
+        // Gold language: no drawn frame, no halo glow — depth is the dark
+        // drop shadow + a faint bone top light-catch.
+        background: "linear-gradient(180deg, rgba(6,9,16,0.97), rgba(2,4,10,0.98))",
+        boxShadow: "0 30px 80px -20px rgba(0,0,0,0.85), inset 0 1px 0 rgba(232,220,192,0.06)",
         padding: 16,
         fontFamily: t.fontMono,
         fontSize: 10,

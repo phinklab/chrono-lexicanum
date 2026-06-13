@@ -12,6 +12,7 @@
 import "server-only";
 import { cache } from "react";
 import { asc, eq } from "drizzle-orm";
+import { isVisibleFacetCategory } from "@/lib/facet-visibility";
 import { cachedRead } from "@/lib/db-cache";
 import { db } from "@/db/client";
 import {
@@ -143,7 +144,7 @@ async function loadBookBySlug(slug: string) {
     factions: factionRows,
     locations: locationRows,
     characters: characterRows,
-    facets: facetRows,
+    facets: facetRows.filter((f) => isVisibleFacetCategory(f.category)),
     containedIn: containedInRows,
   };
 }

@@ -1,9 +1,12 @@
 "use client";
 
-// Floating auspex-frame tooltip — pure HTML overlay positioned by polar coords.
-// Used by landmark labels and segmentum world labels on hover.
+// Floating nameplate — pure HTML overlay positioned by polar coords. Used by
+// landmark labels and segmentum world labels on hover. Redesigned 2026-06-13
+// (Session 150 eyeballing) into the gold language: no border, no corner
+// brackets, no halo glow, no caret — a dark plate carried by drop shadow +
+// a faint bone light-catch; the faction color lives only in the name text.
 
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import type { Theme } from "@/lib/galaxy/types";
 
 interface PlanetTooltipProps {
@@ -14,21 +17,6 @@ interface PlanetTooltipProps {
   x: number;
   y: number;
   visible: boolean;
-}
-
-function cornerBracket(t: Theme, pos: "tl" | "tr" | "bl" | "br", c?: string | null): CSSProperties {
-  const base: CSSProperties = {
-    position: "absolute",
-    width: 6,
-    height: 6,
-    borderColor: c || t.primary,
-    borderStyle: "solid",
-    borderWidth: 0,
-  };
-  if (pos === "tl") return { ...base, top: -1, left: -1, borderTopWidth: 1, borderLeftWidth: 1 };
-  if (pos === "tr") return { ...base, top: -1, right: -1, borderTopWidth: 1, borderRightWidth: 1 };
-  if (pos === "bl") return { ...base, bottom: -1, left: -1, borderBottomWidth: 1, borderLeftWidth: 1 };
-  return { ...base, bottom: -1, right: -1, borderBottomWidth: 1, borderRightWidth: 1 };
 }
 
 export default function PlanetTooltip({
@@ -47,7 +35,7 @@ export default function PlanetTooltip({
         position: "absolute",
         left: `${x}%`,
         top: `${y}%`,
-        transform: `translate(-50%, calc(-100% - 18px)) translateY(${visible ? 0 : 4}px)`,
+        transform: `translate(-50%, calc(-100% - 14px)) translateY(${visible ? 0 : 4}px)`,
         pointerEvents: "none",
         zIndex: 3,
         opacity: visible ? 1 : 0,
@@ -57,17 +45,13 @@ export default function PlanetTooltip({
       <div
         style={{
           position: "relative",
-          background: `linear-gradient(180deg, ${t.bg1}ee, ${t.bg0}f4)`,
-          border: `1px solid ${factionColor || t.stroke}`,
-          boxShadow: `0 0 18px ${factionColor || t.primary}40, 0 0 2px ${factionColor || t.primary}80`,
+          background: "linear-gradient(180deg, rgba(6,9,16,0.96), rgba(2,4,10,0.97))",
+          boxShadow:
+            "0 14px 36px -8px rgba(0,0,0,0.8), inset 0 1px 0 rgba(232,220,192,0.07)",
           padding: "7px 12px 8px",
           whiteSpace: "nowrap",
         }}
       >
-        <span style={cornerBracket(t, "tl", factionColor)} />
-        <span style={cornerBracket(t, "tr", factionColor)} />
-        <span style={cornerBracket(t, "bl", factionColor)} />
-        <span style={cornerBracket(t, "br", factionColor)} />
         <div
           style={{
             fontFamily: t.fontDisplay,
@@ -75,7 +59,7 @@ export default function PlanetTooltip({
             letterSpacing: "0.22em",
             color: factionColor || t.accent,
             textTransform: "uppercase",
-            textShadow: `0 0 10px ${factionColor || t.primary}`,
+            textShadow: "0 2px 8px rgba(0, 0, 0, 0.9)",
             lineHeight: 1.1,
           }}
         >
@@ -97,19 +81,6 @@ export default function PlanetTooltip({
           </div>
         )}
       </div>
-      <div
-        style={{
-          position: "absolute",
-          left: "50%",
-          bottom: -7,
-          width: 8,
-          height: 8,
-          transform: "translate(-50%, 0) rotate(45deg)",
-          background: t.bg0,
-          borderRight: `1px solid ${factionColor || t.stroke}`,
-          borderBottom: `1px solid ${factionColor || t.stroke}`,
-        }}
-      />
     </div>
   );
 }

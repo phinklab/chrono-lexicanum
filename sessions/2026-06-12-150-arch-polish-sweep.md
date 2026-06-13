@@ -2,7 +2,7 @@
 session: 2026-06-12-150
 role: architect
 date: 2026-06-12
-status: open
+status: implemented
 slug: polish-sweep
 parent: null
 links:

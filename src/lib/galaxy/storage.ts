@@ -120,6 +120,13 @@ const tyranidSwarmSchema = z.object({
   pts: z.array(polarSchema),
 });
 
+// Dynasties removed from the canon map (Philipp, Session 150). /map hydrates
+// element snapshots from localStorage (persistence is read-only since the
+// 2026-05-27 demo lock), so deleting them from NECRON_DYNASTIES_BASE alone
+// would leave them alive in any browser that ever saved a snapshot — the
+// loader filters these ids out of whatever it parses.
+const RETIRED_NECRON_IDS = new Set(["mephrit", "nihilakh"]);
+
 // ── localStorage plumbing ───────────────────────────────────────────────────
 
 function eraSlot(eraId: EraId): string {
@@ -213,7 +220,10 @@ export function loadElementsFor(eraId: EraId): GalaxyData {
     const result = snapshotSchema.safeParse(JSON.parse(raw));
     if (!result.success) return def;
     const data: GalaxyData = result.data;
-    return data;
+    return {
+      ...data,
+      necron: data.necron.filter((d) => !RETIRED_NECRON_IDS.has(d.id)),
+    };
   } catch {
     return makeDefaultGalaxyData();
   }
