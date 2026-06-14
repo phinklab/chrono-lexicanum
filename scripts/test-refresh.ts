@@ -46,7 +46,14 @@ import {
   parseCurationState,
   serializeCurationState,
 } from "./refresh/curation-state";
-import { buildReportMarkdown, isoWeekOf, proposalHasFindings, serializeProposal } from "./refresh/emit";
+import { auditArtifactDrift, hasDangerousDrift } from "./refresh/artifact-audit";
+import {
+  buildReportMarkdown,
+  classifyRefreshRun,
+  isoWeekOf,
+  proposalHasFindings,
+  serializeProposal,
+} from "./refresh/emit";
 import { authorKey, bookIdentityKey, buildRosterIndex, classifyCandidate } from "./refresh/identity";
 import { diffPodcasts, type PodcastDiffDeps } from "./refresh/podcast-diff";
 import { makeIdAllocator } from "./refresh/proposal";
@@ -858,6 +865,78 @@ async function main(): Promise<void> {
     assert.equal(proposalHasFindings(pendingOnly, empty), false); // backlog alone ⇒ no-op
   });
 
+  // --- degraded ≠ noop (Brief 151 Task 4) ----------------------------------
+
+  // A healthy, nothing-fresh books result + a healthy "no new episodes" show — the
+  // shared baseline for the noop/degraded distinction below.
+  const allSeen = new Set([slugify("Carnage Unending"), slugify("The Vorbis Deception")]);
+  async function quietBooks() {
+    return detectMissingBooks(CFG, INDEX, makeIdAllocator(ROSTER), fakeFetcher({ [CFG.sheetCsvUrl]: TRACKER_CSV }), {
+      seenSlugs: allSeen,
+    });
+  }
+  const okNoNewDeps: PodcastDiffDeps = {
+    fetchRss: () => Promise.resolve([ep("g1", "E1")]),
+    fetchYoutube: () => Promise.resolve([]),
+    loadCommittedGuids: () => new Set(["g1"]),
+    youtubeEnabled: true,
+  };
+
+  await test("classifyRefreshRun: a fresh book or episode → findings", async () => {
+    const withNew = await detectMissingBooks(CFG, INDEX, makeIdAllocator(ROSTER), fakeFetcher({ [CFG.sheetCsvUrl]: TRACKER_CSV }));
+    assert.equal(classifyRefreshRun(withNew, { shows: [] }), "findings");
+  });
+
+  await test("classifyRefreshRun: healthy sources + nothing fresh → noop", async () => {
+    const books = await quietBooks();
+    const podcasts = await diffPodcasts([RSS_SHOW], okNoNewDeps, FLOOR);
+    assert.equal(podcasts.shows[0].status, "ok");
+    assert.equal(classifyRefreshRun(books, podcasts), "noop");
+  });
+
+  await test("classifyRefreshRun: book source unreachable + nothing fresh → degraded", async () => {
+    const unreachable = await detectMissingBooks(
+      CFG,
+      INDEX,
+      makeIdAllocator(ROSTER),
+      fakeFetcher({ [CFG.sheetCsvUrl]: new Error("down"), [CFG.articleUrl]: new Error("down") }),
+    );
+    assert.equal(unreachable.status, "unreachable");
+    assert.equal(classifyRefreshRun(unreachable, { shows: [] }), "degraded");
+  });
+
+  await test("classifyRefreshRun: a failed show + nothing fresh → degraded (outage ≠ quiet week)", async () => {
+    const books = await quietBooks();
+    const failed = await diffPodcasts(
+      [RSS_SHOW],
+      {
+        fetchRss: () => Promise.reject(new Error("boom")),
+        fetchYoutube: () => Promise.resolve([]),
+        loadCommittedGuids: () => new Set(["g1"]),
+        youtubeEnabled: true,
+      },
+      FLOOR,
+    );
+    assert.equal(failed.shows[0].status, "failed");
+    assert.equal(classifyRefreshRun(books, failed), "degraded");
+  });
+
+  await test("classifyRefreshRun: a skipped youtube show is healthy (not degraded)", async () => {
+    const books = await quietBooks();
+    const skipped = await diffPodcasts(
+      [YT_SHOW],
+      {
+        fetchRss: () => Promise.resolve([]),
+        fetchYoutube: () => Promise.resolve([ep("v1", "V1")]),
+        loadCommittedGuids: () => new Set(["v0"]),
+        youtubeEnabled: false,
+      },
+      FLOOR,
+    );
+    assert.equal(skipped.shows[0].status, "skipped");
+    assert.equal(classifyRefreshRun(books, skipped), "noop");
+  });
+
   await test("serializeProposal: deterministic + timestamp-free", async () => {
     const books = await detectMissingBooks(CFG, INDEX, makeIdAllocator(ROSTER), fakeFetcher({ [CFG.sheetCsvUrl]: TRACKER_CSV }));
     const proposal: RefreshProposal = {
@@ -946,6 +1025,68 @@ async function main(): Promise<void> {
     assert.equal(footnotes.length, 1);
     assert.match(md, /Mystery Format Book.*novel ⚠/);
     assert.doesNotMatch(md, /Seen Clean Book.*novel ⚠/);
+  });
+
+  await test("buildReportMarkdown: appends a copy-paste review prompt (Brief 151 Task 1)", async () => {
+    const books = await detectMissingBooks(CFG, INDEX, makeIdAllocator(ROSTER), fakeFetcher({ [CFG.sheetCsvUrl]: TRACKER_CSV }));
+    const proposal: RefreshProposal = {
+      $generatedBy: "test",
+      isoWeek: "2026-W24",
+      books,
+      podcasts: { shows: [] },
+      hasFindings: true,
+    };
+    const md = buildReportMarkdown(proposal, {
+      generatedAtIso: "2026-06-09T00:00:00.000Z",
+      episodeSinceDate: "2026-01-01",
+    });
+    assert.match(md, /## Review prompt \(copy-paste/);
+    assert.match(md, /```text/); // a delimited, copy-pasteable block
+    // The load-bearing guardrail clause.
+    assert.match(md, /DO NOT write the production database unless Philipp explicitly confirms/);
+    // The mark-reviewed steps + the sequencing trap.
+    assert.match(md, /refresh:mark-reviewed -- --books/);
+    assert.match(md, /refresh:mark-reviewed -- --show <slug>/);
+    assert.match(md, /AFTER this PR is merged/);
+    // The week is interpolated, so the prompt names this PR's proposal path.
+    assert.match(md, /ingest\/refresh\/2026-W24\//);
+  });
+
+  // --- artifact ↔ DB drift audit (Brief 151 Task 2, pure set logic) ---------
+
+  await test("auditArtifactDrift: DB ahead of the artifact is the dangerous set", () => {
+    const r = auditArtifactDrift("show-a", new Set(["g1", "g2"]), new Set(["g1", "g2", "g3"]));
+    assert.deepEqual(r.dbMinusArtifact, ["g3"]); // the one that would re-detect as "new"
+    assert.deepEqual(r.artifactMinusDb, []);
+    assert.equal(r.artifactPresent, true);
+    assert.equal(r.artifactCount, 2);
+    assert.equal(r.dbCount, 3);
+    assert.equal(hasDangerousDrift([r]), true);
+  });
+
+  await test("auditArtifactDrift: artifact ahead of the DB is harmless (sorted, no danger)", () => {
+    const r = auditArtifactDrift("show-a", new Set(["g3", "g1", "g2"]), new Set(["g1"]));
+    assert.deepEqual(r.dbMinusArtifact, []);
+    assert.deepEqual(r.artifactMinusDb, ["g2", "g3"]);
+    assert.equal(hasDangerousDrift([r]), false);
+  });
+
+  await test("auditArtifactDrift: in-sync show → no drift either way", () => {
+    const r = auditArtifactDrift("show-a", new Set(["g1", "g2"]), new Set(["g2", "g1"]));
+    assert.deepEqual(r.dbMinusArtifact, []);
+    assert.deepEqual(r.artifactMinusDb, []);
+    assert.equal(hasDangerousDrift([r]), false);
+  });
+
+  await test("auditArtifactDrift: missing artifact → DB episodes dangerous; empty/empty benign", () => {
+    const withDb = auditArtifactDrift("show-a", null, new Set(["g2", "g1"]));
+    assert.equal(withDb.artifactPresent, false);
+    assert.deepEqual(withDb.dbMinusArtifact, ["g1", "g2"]);
+    assert.equal(hasDangerousDrift([withDb]), true);
+    const neither = auditArtifactDrift("show-b", null, new Set<string>());
+    assert.equal(neither.artifactPresent, false);
+    assert.deepEqual(neither.dbMinusArtifact, []);
+    assert.equal(hasDangerousDrift([neither]), false); // never-ingested show is not a failure
   });
 
   // --- committed config -----------------------------------------------------

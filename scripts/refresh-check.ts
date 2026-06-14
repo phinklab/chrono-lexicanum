@@ -14,14 +14,20 @@
  *
  * Output contract (stdout, final line):
  *   REFRESH_RESULT=noop
+ *   REFRESH_RESULT=degraded
  *   REFRESH_RESULT=findings books=<fresh> pending=<seen-backlog> episodes=<m> path=<dir>
  * `books=` counts FRESH books only (not yet in `book-seen.json`); the seen
- * backlog rides in `pending=`. Token-order constraints (the workflow parses this
- * line with sed): `path=` must stay the LAST token (its sed captures to end of
- * line), and no token name may END in another token's name (the `.*books=`-style
- * seds are greedy — e.g. a `newbooks=` token would corrupt the `books=` capture).
- * Exit 0 on any clean run (findings or noop); exit 1 only on an unexpected error
- * — the book + podcast diffs are fail-soft and never throw.
+ * backlog rides in `pending=`. `degraded` (Brief 151 Task 4) means no fresh
+ * findings BUT ≥1 source is down (book source `unreachable` or a show `failed`) —
+ * the workflow then keeps the rolling PR OPEN instead of closing it, so a total
+ * outage can't masquerade as a quiet week. A `degraded` run writes no proposal
+ * (no empty PR is forced). Token-order constraints (the workflow parses the
+ * `findings` line with sed): `path=` must stay the LAST token (its sed captures
+ * to end of line), and no token name may END in another token's name (the
+ * `.*books=`-style seds are greedy — e.g. a `newbooks=` token would corrupt the
+ * `books=` capture); the bare `noop`/`degraded` words carry no tokens to parse.
+ * Exit 0 on any clean run (findings, degraded, or noop); exit 1 only on an
+ * unexpected error — the book + podcast diffs are fail-soft and never throw.
  *
  * Flags:
  *   --week=YYYY-Www   override the output bucket (deterministic re-runs / tests)
@@ -42,8 +48,8 @@ import { loadRefreshSources } from "./refresh/config";
 import { floorIsoForShow, loadCurationState } from "./refresh/curation-state";
 import {
   buildReportMarkdown,
+  classifyRefreshRun,
   isoWeekOf,
-  proposalHasFindings,
   refreshOutDir,
   serializeProposal,
 } from "./refresh/emit";
@@ -128,20 +134,26 @@ async function main(): Promise<void> {
   });
 
   const newEpisodeCount = podcasts.shows.reduce((n, s) => n + s.newEpisodes.length, 0);
-  const hasFindings = proposalHasFindings(books, podcasts);
+  const result = classifyRefreshRun(books, podcasts);
 
   const proposal: RefreshProposal = {
     $generatedBy: GENERATED_BY,
     isoWeek,
     books,
     podcasts,
-    hasFindings,
+    hasFindings: result === "findings",
   };
 
   logHealth(books, podcasts);
 
-  if (!hasFindings) {
-    console.log("REFRESH_RESULT=noop");
+  if (result !== "findings") {
+    // No fresh findings. `noop` = every source healthy → the workflow closes the
+    // rolling PR. `degraded` = ≥1 source down → the workflow keeps the existing
+    // rolling PR OPEN (a total outage must not read as a quiet week). We write NO
+    // proposal in either case — no empty PR is forced; on a `degraded` week the
+    // per-source failure detail is already on stderr (logHealth) and the workflow
+    // turns it into a CI warning. Both are a clean exit 0.
+    console.log(`REFRESH_RESULT=${result}`);
     return;
   }
 
