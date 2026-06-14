@@ -1449,3 +1449,14 @@ Philipp warf 11 neue Punkte in den Topf (Buch-Popup-„Open Full Page" raus, `/a
 - **Boards:** 121-P10 → erledigt; P11 „Open Full Page" als bereits-raus annotiert; **P15 neu** (Map-Chrome-Kohärenz-Pass, Kandidat).
 - **Edits:** Board 121 (P10/P11/P15), `project-state.md` (What's running + What's open + Next-Sektion + frontmatter), `sessions/README.md` (Kopf + Active-Threads), `index.md` (project-state-Datum), dieser Eintrag.
 - **Move:** `2026-06-12-147-impl`, `2026-06-12-148-impl`, `2026-06-12-150-arch` → `archive/2026-06/`. Root hält jetzt: Boards 121/122, 129 (open), 149 (open), 150-impl (just-closed).
+
+---
+
+## 2026-06-14 · Geschrieben + Update · Brief-Split 149→149+151 + Rollup 151 (Weekly-Refresh-Hardening)
+
+- **Anlass:** Maintainer-Review von Brief 149 vor Codex-Übergabe. Befund (Codex + Cowork-Verifikation am Code): 149 war as-written zu live-operational (Beispiel-Apply gegen Prod, `db:rebuild`-Beweis, Content-Warnings aus der DB) und kollidierte mit dem **DB-Freeze**. Entscheidung: saubere **A/B-Zweiteilung** statt Amend.
+- **Geschrieben:** Brief `2026-06-14-151-arch-weekly-refresh-hardening.md` (B13, operativer Preflight, detection-only) + Brief 149 **neugeschnitten** (`2026-06-12-149-...`, Datei-Pfad/Nummer erhalten wegen Board-Link): Hand-Override als **deterministischer Overlay-Tail nach Auto-Apply/Rebuild** (Modell `apply:audiobook-narrators`, weil `apply-override.ts` Junctions delete-then-insert keyed auf `workId` neu baut → `source_kind='manual'` allein überlebt nicht), Additions **und** Suppressions, Beweis gegen Scratch/Dry-Run, **keine** Prod-Mutation. Content-Warning-DB-Cleanup **gestrichen** — Anzeige ist via 150/`facet-visibility.ts` bereits raus, Daten dürfen bleiben.
+- **151 implementiert + gemerged (PR #175):** alle vier Tasks. `scripts/refresh/emit.ts` (`reviewPromptSection`, `classifyRefreshRun`), `refresh-check.ts` (Drei-Wege findings/degraded/noop), `weekly-refresh.yml` (degraded überspringt Open+Close, `::warning::`), gebootstrappte `ingest/refresh/curation-state.json` (Baseline 2026-01-01) + `book-seen.json` (W24-Backlog), neuer read-only `scripts/refresh-audit-artifacts.ts` + `scripts/refresh/artifact-audit.ts`. 65 Tests, lint+tsc grün, CI-Pfad nachweislich DB-frei.
+- **Offen für Maintainer:** einmal `npm run refresh:audit-artifacts` lokal (read-only, freeze-safe) ziehen, bevor dem Wochenlauf vertraut wird. Cron-PR #174 (2026-W24) ist offen — trägt den neuen Review-Prompt erst nach dem nächsten Cron-Lauf/Re-Dispatch.
+- **Boards:** 122 B13 → erledigt; B2/149 als „revidiert, unter DB-Freeze, nach B13/151" annotiert.
+- **Edits:** Board 122 (B2/B13), Brief 149 (rewrite), Brief 151 (+impl, beide via Strang-Merge), dieser Eintrag. **Next:** Brief 149 an Batches.
