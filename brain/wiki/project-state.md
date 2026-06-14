@@ -2,9 +2,10 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - ../../sessions/README.md
+  - ../../sessions/2026-06-13-150-impl-polish-sweep.md
   - ../../sessions/archive/2026-06/2026-06-09-133-arch-weekly-content-refresh.md
   - ../../sessions/archive/2026-06/2026-06-10-136-impl-book-promote-30.md
   - ../../sessions/archive/2026-06/2026-06-08-132-impl-luetin09-full-40k-apply.md
@@ -55,10 +56,11 @@ Unverändert: `origin/main` read-only für Code (Task-Branch + PR), Doc-only dir
 - **DB auf Supabase** — Pooler 6543, prod; Pool `max:5` ist bewusst und bleibt (Review-144-Schiedsspruch: Hebel ist Caching, nicht Pool-Size).
 - **Standing tools (dormant):** SSOT-Loop + Resolver-Loop (Ad-hoc-Roster-Erweiterungen), Konsolidierungs-Pass, Atlas-Regen, Brain-Lint.
 - **`/lab/design`** — Styleguide-Deliverable aus Review 141 (Palette, Typoskala, Kern-Bausteine, Do/Don'ts); Grundlage für den angekündigten Frontend-Brief.
+- **Polish-Sweep shipped (Brief 150, impl 2026-06-13):** Content-Warnings an einer zentralen Stelle (`facet-visibility.ts`) aus jeder Besucher-Oberfläche gefiltert (Admin-Spiegel `/atlas`+`/buch/[slug]/audit` filtern bewusst nicht); Fraktions-Sigils statt Punkt (Imperium/Space-Marines/Xenos/Chaos, `faction-icon.ts` + `FactionClassIcon`); Cogitator-Loader auf 45%-Void-Tint; `/login` mit neuem Artwork (Philipps eigenes → Credit „piwireddit") + generalisiertem `ArtCreditTag`/`art-credits.ts`-Slot (Timeline-Credits migriert aufs geteilte Markup, Daten-Maps bleiben). „Open Full Page"-Reiter aus dem Buch-Popup vorgezogen (Paket-2-Item; Fullpages bleiben kanonisch). **Über Scope hinaus (Eyeballing-Runden 6–8, Philipp-direkt):** `/map`-Chrome in die Gold-Sprache gezogen (Ornamente/Borders/Glows raus, Popups redesignt, Gelb-Washes raus, Solar klickbar, Backdrop 0.18, Necron-Rückbau) — Zwischenstand, kohärenter Map-Design-Pass als Kandidat 121-P15.
 
 ## What's open
 
-Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit, erweitert 2026-06-12 um den Backlog-Sort): **121** offen P7(teilw. via 147)/P8/P9 + **P10** Polish-Sweep (Brief 150) / **P11** Admin-Seite+Rückbau (nach 149; inkl. Gate-Ausnahmen, CSP, `/buecher`-Redirect, FilterRail-Löschung) / **P12** URL-Migration EN + `/buch`-SSG / **P13** Mobile-Sweep / **P14** Map ⏸ extern. **122** offen B2 (Brief 149 liegt)/B5(⏸ Hand)/B6 (geprüft 2026-06-12: **nicht** gelaufen, V1/V2-Code liegt komplett)/B7/B8/B9 + **B11** Großer Buch-Reviewer (nach 149) / **B12** Ask-Logik-Tuning (nach B11). Erledigt: P1–P6, B1, B3 (Full 981/981), B4, B10. Queue: [`open-questions.md`](./open-questions.md) (nur noch 16 Timeline-Folgen; 17 am 2026-06-12 entschieden → P11/P12).
+Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit, erweitert 2026-06-12 um den Backlog-Sort): **121** offen P7(teilw. via 147)/P8/P9 + **P11** Admin-Seite+Rückbau (nach 149; inkl. Gate-Ausnahmen, CSP, `/buecher`-Redirect, FilterRail-Löschung — „Open Full Page" bereits via 150 raus) / **P12** URL-Migration EN + `/buch`-SSG / **P13** Mobile-Sweep / **P14** Map ⏸ extern / **P15** Map-Chrome-Kohärenz-Pass (Kandidat aus 150). **122** offen B2 (Brief 149 liegt)/B5(⏸ Hand)/B6 (geprüft 2026-06-12: **nicht** gelaufen, V1/V2-Code liegt komplett)/B7/B8/B9 + **B11** Großer Buch-Reviewer (nach 149) / **B12** Ask-Logik-Tuning (nach B11). Erledigt: P1–P6, **P10 (Brief 150, impl 2026-06-13)**, B1, B3 (Full 981/981), B4, B10. Queue: [`open-questions.md`](./open-questions.md) (nur noch 16 Timeline-Folgen; 17 am 2026-06-12 entschieden → P11/P12).
 
 Kleinkram außerhalb Boards/OQs:
 
@@ -69,10 +71,9 @@ Kleinkram außerhalb Boards/OQs:
 
 ## Next likely brief
 
-Backlog-Sort 2026-06-12 (Cowork-Chat) hat die Reihenfolge festgelegt:
+Backlog-Sort 2026-06-12 (Cowork-Chat); Brief 150 ist seit 2026-06-13 implementiert (P10 erledigt):
 
-1. **Brief [149](../../sessions/2026-06-12-149-arch-curation-foundation.md) (Batches, B2)** — Kurations-Fundament: Hand-Override-Format + Apply-Pfad + Content-Warnings aus den Daten. Entsperrt P11 (Admin-Seite) + B11 (Reviewer).
-2. **Brief [150](../../sessions/2026-06-12-150-arch-polish-sweep.md) (Product, P10)** — Polish-Sweep, parallel fahrbar.
-3. Danach: **P11** Admin+Rückbau → **P12** URL-EN+SSG → **B11** Reviewer → **B12** Ask-Tuning → **P13** Mobile; B6 dazwischen, wann Luft ist; **B5** läuft als Hand-Kuratierung weiter; **P14** Map ⏸ bis Redditor-Daten.
+1. **Brief [149](../../sessions/2026-06-12-149-arch-curation-foundation.md) (Batches, B2)** — Kurations-Fundament: Hand-Override-Format + Apply-Pfad + Content-Warnings aus den Daten. **Liegt handoff-reif, nächster Handoff.** Entsperrt P11 (Admin-Seite) + B11 (Reviewer).
+2. Danach: **P11** Admin+Rückbau → **P12** URL-EN+SSG → **B11** Reviewer → **B12** Ask-Tuning → **P13** Mobile; B6 dazwischen, wann Luft ist; **B5** läuft als Hand-Kuratierung weiter; **P14** Map ⏸ bis Redditor-Daten; **P15** Map-Chrome-Kohärenz-Pass als eigener Kandidat, wenn Philipp den akkumulierten Map-Look kohärent ziehen will.
 
 Session-end-Disziplin: [`workflows/session-end.md`](./workflows/session-end.md); Rollup-Files ändern sich ausschließlich über den Koordinations-Pass (Brief 095).
