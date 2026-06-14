@@ -46,6 +46,30 @@ export function proposalHasFindings(books: BookDiffResult, podcasts: PodcastDiff
   return podcasts.shows.some((s) => s.newEpisodes.length > 0);
 }
 
+/** Three-way run verdict — the only thing that drives the workflow's PR action. */
+export type RefreshResult = "findings" | "degraded" | "noop";
+
+/**
+ * Brief 151 Task 4 — distinguish a genuine quiet week from a source OUTAGE, so a
+ * total failure can never masquerade as "all clear → close the PR":
+ *
+ *  - `findings` — ≥1 fresh book or episode → open/update the rolling PR.
+ *  - `degraded` — no fresh findings, but ≥1 source is DOWN (the book source is
+ *    `unreachable`, or any show is `failed`). The rolling PR must NOT close on
+ *    a degraded week: a dead source is indistinguishable from a quiet one, so we
+ *    keep the existing PR open and emit a CI warning instead. `skipped` shows
+ *    (youtube without an API key) are healthy-by-design, NOT degraded.
+ *  - `noop` — no fresh findings AND every source healthy (`books.status==='ok'`,
+ *    every show `ok`/`skipped`) → the rolling PR closes, as before.
+ *
+ * All three are a clean run (exit 0); only an unexpected throw is exit 1.
+ */
+export function classifyRefreshRun(books: BookDiffResult, podcasts: PodcastDiffResult): RefreshResult {
+  if (proposalHasFindings(books, podcasts)) return "findings";
+  const sourceDown = books.status === "unreachable" || podcasts.shows.some((s) => s.status === "failed");
+  return sourceDown ? "degraded" : "noop";
+}
+
 // --- Markdown report ---------------------------------------------------------
 
 function authorDisplay(row: ProposedRosterRow): string {
@@ -220,6 +244,55 @@ function podcastsSection(podcasts: PodcastDiffResult, baselineDate: string): str
 }
 
 /**
+ * Brief 151 Task 1 — the copy-paste-ready review prompt that closes the report
+ * (= the PR body). The maintainer hands this verbatim to Claude Code / Codex; the
+ * agent's whole brief is then derivable from the PR alone. Deterministic: the only
+ * run-varying token is `isoWeek`, which is already in the proposal. Two guarantees
+ * are load-bearing and stated explicitly:
+ *   • the "production DB only on explicit confirmation" clause, and
+ *   • the mark-reviewed sequencing trap (mark AFTER the PR is merged + fetched).
+ */
+function reviewPromptSection(proposal: RefreshProposal): string[] {
+  const week = proposal.isoWeek;
+  return [
+    "## Review prompt (copy-paste for Claude Code / Codex)",
+    "",
+    "Hand the agent exactly this — the whole task is derivable from this PR:",
+    "",
+    "```text",
+    `Review this weekly content-refresh PR (ingest/refresh/${week}/report.md + proposal.json).`,
+    "It is DETECTION ONLY — nothing has been written to the database yet.",
+    "",
+    "For each candidate, decide promote / ignore / defer:",
+    "",
+    "Books (proposal.json → books.newBooks[] / books.pendingBooks[], roster-extension-shaped):",
+    "  • Promote: copy the chosen rows verbatim into",
+    "    scripts/seed-data/book-roster.extension.json (books[]), then",
+    "    `npm run import:ssot-roster` to merge them into book-roster.json.",
+    '  • Ignore (reprint / wrong edition / out of scope): `npm run refresh:ignore-book -- --title "<title>"`.',
+    "  • Defer: leave it — it rides the pending backlog and never re-opens this PR on its own.",
+    "  • Collisions (books.reviewBooks[]): a human call — new edition/omnibus vs duplicate.",
+    "",
+    "Podcasts (proposal.json → podcasts.shows[].newEpisodes[], report-only — not roster rows):",
+    "  • Ingest a show: `PODCAST_LLM_MODEL=claude-sonnet-4-6 npm run ingest:podcast -- --show <slug>`,",
+    "    then `npm run apply:podcast -- --show <slug>` (only on explicit DB confirmation — see below).",
+    "",
+    "After reviewing, advance the cursors so next week shows only what is genuinely new.",
+    "SEQUENCING TRAP: run these AFTER this PR is merged AND fetched — the proposal lands on",
+    "`main` only on merge, so marking too early marks against last week's proposal:",
+    "  • `npm run refresh:mark-reviewed -- --books`           (marks this proposal's books seen)",
+    "  • `npm run refresh:mark-reviewed -- --show <slug>`     (per show reviewed; --all for every show)",
+    '  Run --books even if you promote/ignore nothing — "I have seen this list" is the whole point.',
+    "",
+    "DO NOT write the production database unless Philipp explicitly confirms it in this session.",
+    "Without that confirmation, stay at: roster-extension / ignore-list / curation-state file edits",
+    "+ this PR. The DB writes (apply:podcast, db:apply-override, db:rebuild) are the maintainer's call.",
+    "```",
+    "",
+  ];
+}
+
+/**
  * Render the full maintainer report. The generated-at string is the ONLY
  * run-varying datum and lives here (never in `proposal.json`).
  */
@@ -264,6 +337,7 @@ export function buildReportMarkdown(
       "you promote/ignore nothing): marks everything listed here as seen, so next week's PR only " +
       "shows what is genuinely new.",
     "",
+    ...reviewPromptSection(proposal),
   ];
   return `${lines.join("\n")}`;
 }

@@ -6,8 +6,10 @@
 # only when something new is found, opens/updates ONE rolling pull request on the fixed
 # `automation/weekly-refresh` branch carrying the proposal under `ingest/refresh/<week>/`.
 # "New" = not yet marked seen: books in `ingest/refresh/book-seen.json` ride along as a
-# pending backlog in the report but never (re)open the PR. A week with no fresh books or
-# episodes closes that rolling PR.
+# pending backlog in the report but never (re)open the PR. A quiet week with no fresh books
+# or episodes AND every source healthy closes that rolling PR. A week with no fresh findings
+# but a source OUTAGE (book source unreachable / a show failed) is `degraded` (Brief 151):
+# the PR is kept open and a CI warning is emitted, so a total outage can't read as quiet.
 #
 # Detection only — this workflow NEVER writes the database and needs no Anthropic or
 # Supabase secret. `YOUTUBE_API_KEY` is optional (YouTube shows fail-soft skip without it).
@@ -67,35 +69,53 @@ jobs:
             echo "::error::refresh:check:ci produced no REFRESH_RESULT line"
             exit 1
           fi
-          if printf '%s' "$result" | grep -q '^REFRESH_RESULT=findings'; then
-            dir="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]path=\(.*\)$/\1/p')"
-            rel="${dir#"$GITHUB_WORKSPACE/"}"
-            books="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]books=\([0-9][0-9]*\).*/\1/p')"
-            pending="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]pending=\([0-9][0-9]*\).*/\1/p')"
-            eps="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]episodes=\([0-9][0-9]*\).*/\1/p')"
-            week="$(basename "$rel")"
-            # books= counts FRESH books only; the seen-but-undecided backlog is pending=
-            # (absent on pre-cursor runs — treat as 0).
-            book_part="${books} new book(s)"
-            if [ -n "$pending" ] && [ "$pending" -gt 0 ]; then
-              book_part="${books} new book(s) (+${pending} pending)"
-            fi
-            {
-              echo "findings=true"
-              echo "report_path=$rel/report.md"
-              echo "pr_title=Weekly content refresh ($week) — ${book_part}, ${eps} new episode(s)"
-            } >> "$GITHUB_OUTPUT"
-            echo "Findings: ${books} book(s) (+${pending:-0} pending), ${eps} episode(s) → ${rel}"
-          else
-            echo "findings=false" >> "$GITHUB_OUTPUT"
-            echo "No findings this week (REFRESH_RESULT=noop)."
-          fi
+          # Three-way verdict (Brief 151 Task 4): findings | degraded | noop. The kind is
+          # the first lowercase word after `REFRESH_RESULT=`; only `findings` carries the
+          # greedy `books=`/`pending=`/`episodes=`/`path=` tokens that the seds below parse.
+          kind="$(printf '%s' "$result" | sed -n 's/^REFRESH_RESULT=\([a-z][a-z]*\).*/\1/p')"
+          echo "result=$kind" >> "$GITHUB_OUTPUT"
+          case "$kind" in
+            findings)
+              dir="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]path=\(.*\)$/\1/p')"
+              rel="${dir#"$GITHUB_WORKSPACE/"}"
+              books="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]books=\([0-9][0-9]*\).*/\1/p')"
+              pending="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]pending=\([0-9][0-9]*\).*/\1/p')"
+              eps="$(printf '%s' "$result" | sed -n 's/.*[[:space:]]episodes=\([0-9][0-9]*\).*/\1/p')"
+              week="$(basename "$rel")"
+              # books= counts FRESH books only; the seen-but-undecided backlog is pending=
+              # (absent on pre-cursor runs — treat as 0).
+              book_part="${books} new book(s)"
+              if [ -n "$pending" ] && [ "$pending" -gt 0 ]; then
+                book_part="${books} new book(s) (+${pending} pending)"
+              fi
+              {
+                echo "report_path=$rel/report.md"
+                echo "pr_title=Weekly content refresh ($week) — ${book_part}, ${eps} new episode(s)"
+              } >> "$GITHUB_OUTPUT"
+              echo "Findings: ${books} book(s) (+${pending:-0} pending), ${eps} episode(s) → ${rel}"
+              ;;
+            degraded)
+              # ≥1 source down + no fresh findings. Do NOT close the rolling PR — a total
+              # outage must not look like a quiet week. Surface it as a CI warning; the
+              # per-source health detail is in the streamed stderr above. Neither the
+              # open-PR nor the close-PR step runs on `degraded` (both gate on `result`).
+              echo "::warning::weekly-refresh degraded — a content source was unreachable/failed and there were no fresh findings. Keeping any open rolling PR open (not closing). Check the per-source health log above."
+              echo "Degraded (REFRESH_RESULT=degraded) — not opening or closing a PR."
+              ;;
+            noop)
+              echo "No findings this week (REFRESH_RESULT=noop)."
+              ;;
+            *)
+              echo "::error::unrecognized REFRESH_RESULT kind: '$kind' (line: $result)"
+              exit 1
+              ;;
+          esac
 
       # Findings → open or update the single rolling PR on the fixed branch. `add-paths`
       # is the hard guardrail: only `ingest/refresh/**` can ever be committed — never the
       # roster, the Excel SSOT, brain/, or src/.
       - name: Open / update rolling PR
-        if: steps.detect.outputs.findings == 'true'
+        if: steps.detect.outputs.result == 'findings'
         uses: peter-evans/create-pull-request@v8
         with:
           base: main
@@ -106,9 +126,11 @@ jobs:
           body-path: ${{ steps.detect.outputs.report_path }}
           delete-branch: false
 
-      # No findings → close the rolling PR (and delete its branch) if one is open.
+      # Genuine no-op (every source healthy, nothing fresh) → close the rolling PR (and
+      # delete its branch) if one is open. A `degraded` week is deliberately excluded — it
+      # keeps the PR open (the warning is emitted in the detect step above).
       - name: Close rolling PR on a no-op week
-        if: steps.detect.outputs.findings == 'false'
+        if: steps.detect.outputs.result == 'noop'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

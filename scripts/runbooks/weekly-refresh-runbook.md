@@ -15,6 +15,7 @@ weekly GitHub-Action cron + rolling-PR automation is **PR2** (see § PR2 below).
 
 ```bash
 npm run refresh:check                              # local: fetch sources, diff, write a proposal if there are findings
+npm run refresh:audit-artifacts                    # LOCAL preflight: read-only podcast artifact ↔ DB drift audit
 npm run refresh:mark-reviewed -- --show <slug>     # advance a show's curation cursor to today (--all for every show)
 npm run refresh:mark-reviewed -- --books           # mark the newest proposal's books as seen (→ pending backlog)
 npm run test:refresh                               # offline unit tests (no network, no DB)
@@ -24,10 +25,15 @@ npm run test:refresh                               # offline unit tests (no netw
   `REFRESH_RESULT=findings books=<fresh> pending=<seen-backlog> episodes=<m> path=<dir>`, exits 0.
   **Findings = fresh only:** ≥1 book not yet in `book-seen.json`, or ≥1 new episode. A
   week where only the seen backlog re-detects is a `noop` (the rolling PR closes).
-- No findings → writes nothing, prints `REFRESH_RESULT=noop`, exits 0.
+- No findings, every source healthy → writes nothing, prints `REFRESH_RESULT=noop`, exits 0
+  (the rolling PR closes).
+- No findings BUT ≥1 source down (book source `unreachable` / a show `failed`) →
+  `REFRESH_RESULT=degraded`, exits 0, writes nothing — but the workflow **keeps the rolling
+  PR open** and emits a CI warning, so a total outage can't masquerade as a quiet week
+  (Brief 151 Task 4). `skipped` youtube shows (no API key) are healthy, not degraded.
 - Unexpected error → prints a stack, exits 1. The per-source diffs are **fail-soft**
-  and never throw, so a `noop`/`findings` exit means the run completed; an exit 1 is a
-  genuine bug (missing roster, malformed config, write failure).
+  and never throw, so a `noop`/`degraded`/`findings` exit means the run completed; an exit 1
+  is a genuine bug (missing roster, malformed config, write failure).
 
 Flags: `--week=YYYY-Www` overrides the output bucket (deterministic re-runs / tests);
 `--include-seen` treats the book backlog as unseen — regenerates the full pending list
@@ -213,6 +219,32 @@ books when the actual week-over-week delta was a fraction of that.
 
 ---
 
+## Preflight — artifact ↔ DB drift audit (`npm run refresh:audit-artifacts`)
+
+The podcast diff keys "new" on the committed artifact `ingest/podcasts/<slug>.json`, **not**
+on the DB. So if an episode is already in Postgres (`apply:podcast`) but the artifact was
+never re-pulled, that episode is *behind* the artifact's view and re-surfaces as "new" every
+week. **Before trusting the unattended weekly run, pull this audit green once locally.**
+
+```bash
+npm run refresh:audit-artifacts        # read-only; uses --env-file=.env.local
+```
+
+- **Read-only.** The only DB statements are `SELECT`s — it writes nothing (not Postgres, not
+  the artifacts, not the roster). It is purely diagnostic.
+- **Local-only, never in CI.** It needs `DATABASE_URL`; without it (the CI environment) it
+  prints a notice and **exits 0** — it never reddens CI. The CI path (`refresh:check:ci`)
+  stays DB-free; this audit is deliberately *not* wired into the workflow.
+- **What it reports**, per show:
+  - **DB \ Artefakt** (episodes in the DB, missing from the artifact) = the **dangerous** set
+    → would re-detect as "new". Reported loudly; **exit 1** if any show drifts this way, so
+    "pull it green" is meaningful. Fix: `npm run ingest:podcast -- --show <slug>` to re-pull
+    the artifact, then re-commit it.
+  - **Artefakt \ DB** (artifact ahead of the DB) = harmless (detected-but-not-yet-applied),
+    informational only.
+- A show with **no artifact and no DB rows** (never ingested) is benign, not a failure. A
+  missing artifact while the DB *has* episodes is dangerous (every DB episode is flagged).
+
 ## Config — `scripts/seed-data/refresh-sources.json`
 
 ```jsonc
@@ -236,8 +268,14 @@ Two sibling files complete the podcast side:
   episodes at detection AND ingest (Lorehammer: `["(Video)"]`).
 - **`ingest/refresh/curation-state.json`** — the per-show curation cursor
   (`{ "shows": { "<slug>": "YYYY-MM-DD" } }`), advanced via `refresh:mark-reviewed`.
-  Absent on first run (every show falls back to the baseline). Committed, deterministic
-  (slugs sorted).
+  **Bootstrapped + committed** (Brief 151 Task 3): every registered show starts at the
+  baseline `2026-01-01` — the deliberately conservative choice, identical in effect to the
+  empty-file fallback but now a real, committed high-water mark. Advancing further would
+  suppress genuinely-new episodes that were never actually reviewed, so the maintainer
+  advances each show only after a real curation. Committed, deterministic (slugs sorted).
+- **`ingest/refresh/book-seen.json`** — the book backlog cursor (§ Book backlog cursor),
+  **bootstrapped + committed** with the 2026-W24 backlog so the standing list no longer
+  re-leads the report every week. Advanced via `refresh:mark-reviewed -- --books`.
 
 ---
 
@@ -309,9 +347,11 @@ Deferred to a second PR (agreed two-PR phasing). Sketch:
   `permissions: contents: write, pull-requests: write`; Node 22 + `npm ci`.
 - A CI sibling script `refresh:check:ci` (no `--env-file`; `YOUTUBE_API_KEY` via workflow
   `env`, optional). No Anthropic key needed.
-- Findings → `peter-evans/create-pull-request@v7` with a **fixed branch**
+- Findings → `peter-evans/create-pull-request@v8` with a **fixed branch**
   `automation/weekly-refresh` (stable rolling-PR identity), `add-paths: ingest/refresh/**`
-  (cannot touch the roster / Excel / brain). A no-op week closes the rolling PR.
+  (cannot touch the roster / Excel / brain). A genuine `noop` week (every source healthy,
+  nothing fresh) closes the rolling PR; a `degraded` week (a source down) keeps it open and
+  emits a CI warning instead (Brief 151 Task 4 — § TL;DR).
 - Requires the repo setting "Allow GitHub Actions to create … pull requests" ON.
 
 **Rolling vs dated PR (open question — recommendation):** a single **rolling** PR on the

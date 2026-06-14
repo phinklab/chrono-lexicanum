@@ -2,7 +2,7 @@
 session: 2026-06-14-151
 role: architect
 date: 2026-06-14
-status: open
+status: implemented
 slug: weekly-refresh-hardening
 parent: null
 links:
@@ -10,6 +10,7 @@ links:
   - 2026-06-09-133
   - 2026-06-12-148
   - 2026-06-12-149
+  - 2026-06-14-151-impl
 commits: []
 ---
 
