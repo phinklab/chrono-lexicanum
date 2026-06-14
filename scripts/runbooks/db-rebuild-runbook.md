@@ -4,7 +4,7 @@
 
 ## Was der Befehl tut
 
-`npm run db:rebuild` stellt den Works-Domain-Datenbestand **deterministisch aus den committed SSOT-Artefakten wieder her**. Er ist der eine Befehl, der einen From-Reset-Rebuild **vollständig** macht — inklusive der 88 Hörbuch-Credit-Rows, die ein nackter Reset + Apply still verlieren würde.
+`npm run db:rebuild` stellt den Works-Domain-Datenbestand **deterministisch aus den committed SSOT-Artefakten wieder her**. Er ist der eine Befehl, der einen From-Reset-Rebuild **vollständig** macht — inklusive der 88 Hörbuch-Credit-Rows **und** der maintainer-entschiedenen Hand-Overrides (Brief 149), die ein nackter Reset + Apply still verlieren würde.
 
 Der Orchestrator (`scripts/db-rebuild.sh`) sitzt **über** den bestehenden Bausteinen und verkettet sie; er reimplementiert keinen davon.
 
@@ -18,7 +18,7 @@ Der Orchestrator (`scripts/db-rebuild.sh`) sitzt **über** den bestehenden Baust
 1. **Migrationen angewandt.** Das Schema muss existieren — `npm run db:migrate` gegen die Ziel-DB ist gelaufen. Der Rebuild legt **keine** Tabellen an.
 2. **Reference-Katalog vorhanden.** `db:reset-for-ssot` truncatet nur die **Works-Domäne** (`works` + CTI-Children + `work_*`-Junctions + `external_links`) und **bewahrt** die Reference-Tabellen (`eras`, `factions`, `series`, `persons`, `characters`, `locations`, `sectors`, `services`, `facet_categories`, `facet_values`). Der Rebuild **setzt einen vorhandenen Reference-Katalog voraus** — er baut **keine** brandneue, absolut leere DB von Null auf (Base-Reference-Seed + Migrationen sind ein separater Bootstrap, nicht Teil dieses Befehls). `seed-resolver-extensions` + `seed-facets` (innerhalb Schritt 2) erweitern den Katalog non-destruktiv um die kristallisierten Resolver-Rows.
 3. **`.env.local` zeigt auf die Ziel-DB.** Jeder Sub-Schritt lädt `--env-file=.env.local`. Vor einem Rebuild prüfen, dass das die gemeinte Datenbank ist.
-4. **Committed Override-Roster.** Die Re-Apply liest die committed `scripts/seed-data/manual-overrides-ssot-*.json` (alle 859) + das committed Sidecar `scripts/seed-data/audiobook-narrators.json`. Diese sind die Quelle der Wiederherstellung.
+4. **Committed Override-Roster.** Die Re-Apply liest die committed `scripts/seed-data/manual-overrides-ssot-*.json` (alle 859) + das committed Sidecar `scripts/seed-data/audiobook-narrators.json` + das committed Hand-Override-Overlay `scripts/seed-data/curation-overlay.json` (Brief 149). Diese sind die Quelle der Wiederherstellung.
 
 ## Der Befehl (Confirm-gegatet)
 
@@ -46,16 +46,18 @@ Hilfe (kein DB-Zugriff): `npm run db:rebuild -- --help`.
 
 ## Die Sequenz
 
-Der Orchestrator fährt vier Schritte **strikt sequenziell**; jeder Schritt gated den nächsten (Fail-Fast):
+Der Orchestrator fährt sechs Schritte **strikt sequenziell**; jeder Schritt gated den nächsten (Fail-Fast):
 
 1. **`db:reset-for-ssot --confirm`** — `TRUNCATE works CASCADE`. Die Works-Domäne wird geleert; die Reference-Tabellen bleiben unangetastet (`db-reset-for-ssot.ts` assertet das selbst). Die Bestätigung wird durchgereicht.
 2. **`run-phase4-apply.sh scripts/db-rebuild.config.json`** — re-applied den **vollen kristallisierten Override-Roster** beider Domänen (`applyRanges`: W40K 1..57 + HH 1..30 = alle 859) idempotent (delete-then-insert pro Junction). Seedet vorab Resolver-Extensions + Facets non-destruktiv. Reproduziert den datenkompletten **und** konsolidierten Korpus — die adjudizierten Merges sind in die committed Reference-JSONs eingebacken, deshalb braucht der Rebuild **keinen** separaten Konsolidierungs-Schritt. Stellt `author|editor`-`work_persons` wieder her.
 3. **`apply:audiobook-narrators`** (Tail) — stellt die `narrator|co_narrator|full_cast`-`work_persons`-Rows wieder her. Läuft **zuletzt**, weil er `externalBookId → works.id` über das UNIQUE `works.external_book_id` auflöst — die `works` müssen existieren. Idempotent (scoped delete-then-insert der Audio-Rollen).
 4. **`apply:audiobook-narrators --verify`** — read-only Vollständigkeits-Check (siehe unten).
+5. **`apply:curation-overlay`** (Tail, Brief 149) — re-assertet die maintainer-entschiedenen Hand-Overrides aus `scripts/seed-data/curation-overlay.json` (nur `final`, nie `reviewQueue`). Läuft **nach** der Auto-Re-Apply (Schritt 2), weil die Auto-Edges, die das Overlay **suppress**t, erst existieren müssen, um gelöscht zu werden, und die **add**-Edges nach der Welle zuletzt gewinnen sollen. Beide Richtungen, gescopt pro `(workId, entityId)` (PK jeder Junction), idempotent. Bücher, die das Overlay benennt, der Korpus aber nicht trägt, werden graceful übersprungen.
+6. **`apply:curation-overlay --verify`** — read-only Post-Condition: für jedes aufgelöste `final`-Buch ist jede add-Edge präsent (mit Rolle), jede Suppression abwesend, jedes Feld gleich dem Overlay-Wert. Mismatch → Rebuild schlägt fehl.
 
 ## Verify-Schritt — Sidecar-abgeleitet, exakte Mengen-Gleichheit
 
-Der finale Schritt (`apply:audiobook-narrators --verify`, read-only) bestätigt, dass die DB **exakt** die aus dem Sidecar abgeleitete Menge der Audio-`work_persons`-Rows trägt — nicht bloß die richtige Gesamtzahl (eine reine Zählung false-positivt: ein Überschuss in einer Rolle könnte ein Defizit in einer anderen maskieren). Identität ist das Tripel `(workId, personId, role)` — der Primärschlüssel von `work_persons`. Der Verify ist **grün genau dann**, wenn:
+Der Audio-Verify-Schritt (Schritt 4 von 6, `apply:audiobook-narrators --verify`, read-only) bestätigt, dass die DB **exakt** die aus dem Sidecar abgeleitete Menge der Audio-`work_persons`-Rows trägt — nicht bloß die richtige Gesamtzahl (eine reine Zählung false-positivt: ein Überschuss in einer Rolle könnte ein Defizit in einer anderen maskieren). Identität ist das Tripel `(workId, personId, role)` — der Primärschlüssel von `work_persons`. Der Verify ist **grün genau dann**, wenn:
 
 - **jedes** Sidecar-Buch zu einer `works.id` auflöst (ein voller Rebuild stellt alle her),
 - **jeder** Sidecar-Credit als sein exaktes `(workId, personId, role)`-Row präsent ist,
@@ -87,6 +89,7 @@ Alle Zahlen + erwarteten Tripel werden **aus dem Sidecar berechnet**, nicht hart
 - **Kein From-absolutely-empty-Bootstrap.** Migrationen + Base-Reference-Seed sind Vorbedingung, nicht Teil des Befehls (siehe Vorbedingungen 1–2).
 - **Kein Konsolidierungs-Lauf.** Die human-gegateten Konsolidierungs-Skripte (`consolidation-aggregate.ts` / `-db-snapshot.ts` / `-db-sync.ts`) gehören **nicht** in eine automatisierte Sequenz. Die Merges leben in den committed Reference-JSONs; die Re-Apply reproduziert den konsolidierten Korpus.
 - **Kein `db:seed`.** `db:seed` ist der Legacy-V1-26-Manuals-Dev-Seed (anderer ID-Raum) und liegt **nicht** auf dem SSOT-Rebuild-Pfad. Der Rebuild fasst ihn nicht an.
+- **Kein Timeline-Restore (offene Lücke, OQ 16a).** `TRUNCATE works CASCADE` (Schritt 1) räumt über die FK-Kaskade auch `event_works` (FK → `works.id`) leer; `events`/`eras` bleiben stehen (FK → `eras`). Der Rebuild stellt `event_works` **heute nicht** wieder her — `apply:timeline` ist **kein** Tail-Schritt. Bewusst getrennt gehalten (Brief 149): `apply:timeline` hat **keinen** `--verify`-Modus (passt nicht ins verify-gegatete Rebuild-Muster ohne Zusatzarbeit), remappt `book_details.primary_era_id` (Reihenfolge-Interaktion mit dem Curation-Overlay-`primaryEraId`-Feld) und gehört einer anderen Domäne an. Eigener kleiner Brief; **keine** Prod-Rebuild-Pflicht hier.
 
 ## Wartung der Rebuild-Config
 
