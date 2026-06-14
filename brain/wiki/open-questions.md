@@ -6,7 +6,7 @@ updated: 2026-06-12
 sources:
   - ../../sessions/README.md
   - ../../sessions/archive/2026-06/2026-06-10-137-impl-timeline-data-foundation.md
-  - ../../sessions/2026-06-12-147-impl-deep-review-fixes.md
+  - ../../sessions/archive/2026-06/2026-06-12-147-impl-deep-review-fixes.md
 related:
   - ./project-state.md
   - ./deferred-questions.md

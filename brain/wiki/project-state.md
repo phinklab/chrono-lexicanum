@@ -11,8 +11,8 @@ sources:
   - ../../sessions/archive/2026-06/2026-06-08-132-impl-luetin09-full-40k-apply.md
   - ../../sessions/archive/2026-06/2026-06-11-140-impl-timeline-cinematic-port.md
   - ../../sessions/archive/2026-06/2026-06-11-144-impl-technical-deep-review.md
-  - ../../sessions/2026-06-12-147-impl-deep-review-fixes.md
-  - ../../sessions/2026-06-12-148-impl-weekly-refresh-delta.md
+  - ../../sessions/archive/2026-06/2026-06-12-147-impl-deep-review-fixes.md
+  - ../../sessions/archive/2026-06/2026-06-12-148-impl-weekly-refresh-delta.md
 related:
   - ./open-questions.md
   - ./roadmap.md
