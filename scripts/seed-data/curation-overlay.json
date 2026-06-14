@@ -1,0 +1,61 @@
+{
+  "$schemaNote": "Brief 149 — hand-override overlay. The maintainer's per-book decisions, re-asserted as a deterministic TAIL AFTER the auto apply/rebuild by scripts/apply-curation-overlay.ts (a tail because apply-override.ts rebuilds the work_* junctions per-workId delete-then-insert, so a hand fix must run last). ONLY `final` is applied; `reviewQueue` is carried machine-readably (proposals from the B11 book-reviewer / weekly-refresh) and is never applied until promoted to `final`. Edges are scoped to the exact (workId, entityId): add=upsert, remove=delete. Provenance (sourceKind/confidence/checkedAt/note) lives here, not in the junction rows — no DB column, no migration (narrator model). No facet section by design: the overlay structurally cannot write work_facets, so it can never reintroduce a content_warning into the visitor UI (Brief 149/150). Doc: scripts/seed-data/curation-overlay.README.md. NOTE: this example is COMMITTED but, under the Brief-149 DB-freeze, was NOT applied to prod.",
+  "brief": "149",
+  "final": {
+    "books": [
+      {
+        "externalBookId": "W40K-0010",
+        "title": "The Magos",
+        "factions": {
+          "add": [
+            {
+              "id": "ordo_malleus",
+              "role": "supporting",
+              "sourceKind": "manual",
+              "confidence": 0.9,
+              "checkedAt": "2026-06-14",
+              "note": "Eisenhorn operates under Malleus authority in the title novella; the SSOT/auto pass only tagged Ordo Xenos."
+            }
+          ],
+          "remove": [
+            {
+              "id": "chaos",
+              "sourceKind": "manual",
+              "checkedAt": "2026-06-14",
+              "note": "The auto pass tagged Chaos only as faint background; the book's actual antagonists are the Necrons + a Mechanicus heresy. Trim the generic Chaos chip so the faction filter is honest."
+            }
+          ]
+        },
+        "fields": {
+          "format": {
+            "value": "collection",
+            "sourceKind": "manual",
+            "confidence": 1.0,
+            "checkedAt": "2026-06-14",
+            "note": "The Magos is structurally a collection of 10 reprinted Eisenhorn shorts anchored by one new novella; the SSOT roster classifies it as 'novel'. This matches the data_conflict already noted in manual-overrides-ssot-w40k-001.json (W40K-0010)."
+          }
+        }
+      }
+    ]
+  },
+  "reviewQueue": {
+    "books": [
+      {
+        "externalBookId": "W40K-0001",
+        "title": "Eisenhorn: Xenos",
+        "characters": {
+          "add": [
+            {
+              "id": "titus_endor",
+              "role": "mentioned",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.5,
+              "checkedAt": "2026-06-14",
+              "note": "PROPOSAL ONLY (not applied). Example of a B11-reviewer suggestion awaiting maintainer promotion to `final`. The referenced id may not exist yet — reviewQueue is intentionally NOT reference-checked."
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
