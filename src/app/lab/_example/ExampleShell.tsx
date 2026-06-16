@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SiteBackground, { type SiteBgVariant } from "@/components/chrome/SiteBackground";
-import ScrollScrim from "@/app/buecher/ScrollScrim";
+import ScrollScrim from "@/components/chrome/ScrollScrim";
 import "./example.css";
 
 /**

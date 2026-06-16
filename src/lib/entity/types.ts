@@ -30,18 +30,19 @@ export const TYPE_TO_ROUTE: Record<EntityType, string> = {
 };
 
 /**
- * Back-link target: entity type → its inventory deck under /atlas. The hub's
- * "‹ Characters" breadcrumb points here (Brief 113, Phase A). The atlas decks
- * are admin-gated today (a non-admin gets a 404) — that is the accepted
- * behaviour; the breadcrumb still names the canonical list a maintainer owns.
- * `label` matches the deck's own label (English, like /buch and the eyebrows).
+ * Back-link target: entity type → its public directory under /compendium. The
+ * hub's "‹ Characters" breadcrumb points here (Brief 113, Phase A). Repointed
+ * from the removed /atlas admin decks to the public compendium in Board 121-P11
+ * — a visitor now lands on the canonical public list instead of a 404. The
+ * slugs are the compendium category slugs (`lib/compendium/categories.ts`);
+ * `label` matches each category's own English label.
  */
-export const TYPE_TO_ATLAS: Record<EntityType, { href: string; label: string }> =
+export const TYPE_TO_COMPENDIUM: Record<EntityType, { href: string; label: string }> =
   {
-    character: { href: "/atlas/charaktere", label: "Characters" },
-    faction: { href: "/atlas/fraktionen", label: "Factions" },
-    location: { href: "/atlas/welten", label: "Worlds" },
-    person: { href: "/atlas/personen", label: "Authors" },
+    character: { href: "/compendium/charaktere", label: "Characters" },
+    faction: { href: "/compendium/fraktionen", label: "Factions" },
+    location: { href: "/compendium/welten", label: "Worlds" },
+    person: { href: "/compendium/autoren", label: "Authors" },
   };
 
 /**

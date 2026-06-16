@@ -1,5 +1,40 @@
 import type { NextConfig } from "next";
 
+// Simple static Content-Security-Policy (Board 121-P11, Entscheid 2026-06-12).
+// Deliberately the *baseline* form, not the nonce-per-request form the
+// next.config comment below flagged as the bigger step: a nonce forces every
+// page into dynamic rendering, which we do not want for the ISR/SSG catalogue.
+// The cost of going nonce-free is `'unsafe-inline'` (+ `'unsafe-eval'`) on
+// script-src — so this policy does NOT defend against inline-script XSS. What
+// it *does* buy, statically and for free: no external script/object origin can
+// be injected, clickjacking is closed (`frame-ancestors 'self'`, matching the
+// existing X-Frame-Options), and `base-uri`/`form-action` hijacking is blocked.
+// Nonce-based script-src hardening stays a future, separate step (see report).
+//
+// `img-src`/`media-src` allow `https:` because /archive + /archive/podcasts
+// render DB-sourced cover/art URLs as plain <img> from open-ended external
+// hosts (Open Library, podcast CDNs, …). `http:` is intentionally omitted —
+// on the https production origin those would already be mixed-content-blocked.
+// The /lab/cartographer iframe is same-origin (`frame-src 'self'`).
+const isDev = process.env.NODE_ENV !== "production";
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+  "img-src 'self' data: blob: https:",
+  "font-src 'self'",
+  "style-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+  // Dev needs the HMR/React-Refresh websocket; prod talks only to its own origin.
+  `connect-src 'self'${isDev ? " ws: wss:" : ""}`,
+  "frame-src 'self'",
+  "media-src 'self' https:",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+].join("; ");
+
 const nextConfig: NextConfig = {
   // Strict mode catches common bugs early; keep on in dev.
   reactStrictMode: true,
@@ -36,14 +71,14 @@ const nextConfig: NextConfig = {
 
   // Baseline security headers (Report 144 § S.2). HSTS is deliberately NOT
   // set here — Vercel adds it on production domains, doubling it just risks
-  // drift. CSP is the bigger, separate step (static hash list vs. proxy
-  // nonce, the latter costs dynamic rendering) and stays a maintainer
-  // decision — see the session report.
+  // drift. The CSP is the simple static baseline defined above (Board 121-P11):
+  // nonce-based script hardening stays a future, separate step.
   async headers() {
     return [
       {
         source: "/:path*",
         headers: [
+          { key: "Content-Security-Policy", value: contentSecurityPolicy },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
@@ -63,6 +98,9 @@ const nextConfig: NextConfig = {
   // and external references.
   async redirects() {
     return [
+      // /buecher was the maintainer-era catalogue; /archive is the canonical
+      // public media archive (Board 121-P11). 308 keeps old bookmarks alive.
+      { source: "/buecher", destination: "/archive", permanent: true },
       { source: "/werke", destination: "/archive", permanent: true },
       { source: "/podcasts", destination: "/archive/podcasts", permanent: true },
       {

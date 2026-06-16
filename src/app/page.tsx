@@ -4,7 +4,7 @@ import GhostReadout from "@/components/chrono/GhostReadout";
 import MainAuspex from "@/components/chrono/MainAuspex";
 import SiteBackground from "@/components/chrome/SiteBackground";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
-import ScrollScrim from "@/app/buecher/ScrollScrim";
+import ScrollScrim from "@/components/chrome/ScrollScrim";
 import HeroScrollCue from "@/components/home/HeroScrollCue";
 import HomeSearch from "@/components/home/HomeSearch";
 import HomeExplore from "@/components/home/HomeExplore";
