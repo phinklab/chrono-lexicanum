@@ -20,13 +20,32 @@
 #   4. apply:audiobook-narrators --verify  Read-only post-condition: DB audio-role
 #                                          count == sidecar-derived expected (today
 #                                          88), nonzero. Mismatch fails the rebuild.
-#   5. apply:curation-overlay              TAIL — re-assert the maintainer's hand
+#   5. apply:timeline                       TAIL — restore the timeline domain
+#                                          (Brief 137/152): re-upsert eras + events,
+#                                          wholesale-rebuild event_works, re-write
+#                                          works.startY/endY/setting* for the named
+#                                          book-dates, remap+retire age_rebirth /
+#                                          long_war. Runs AFTER the corpus re-apply
+#                                          (step 2) because every hook + book-date
+#                                          resolves against works that must exist.
+#                                          Runs BEFORE curation (step 7) because both
+#                                          can write book_details.primary_era_id and
+#                                          hand-curation must win last.
+#   6. apply:timeline --verify              Read-only post-condition (Brief 152):
+#                                          DB era/event id-sets == seed JSON,
+#                                          event_works set == resolved hooks (incl.
+#                                          displayLabel/position) and nonzero, every
+#                                          named book-date exact, no book_details row
+#                                          on a retired era. Mismatch fails the rebuild.
+#   7. apply:curation-overlay              TAIL — re-assert the maintainer's hand
 #                                          overrides (Brief 149). Runs LAST so the
 #                                          auto-edges it suppresses exist to delete
-#                                          and the edges it adds win over the wave.
-#                                          Both directions, scoped per (workId,
-#                                          entityId), idempotent.
-#   6. apply:curation-overlay --verify     Read-only post-condition: every final add
+#                                          and the edges it adds win over the wave,
+#                                          and its primary_era_id field-fix wins over
+#                                          the timeline remap (step 5). Both
+#                                          directions, scoped per (workId, entityId),
+#                                          idempotent.
+#   8. apply:curation-overlay --verify     Read-only post-condition: every final add
 #                                          present, every suppression absent, every
 #                                          field equal. Mismatch fails the rebuild.
 #
@@ -68,8 +87,10 @@ Sequence (each step gates the next; a failure aborts before later steps run):
   2. run-phase4-apply.sh <rebuild cfg>    re-apply all 859 committed override batches (W40K 1..57 + HH 1..30)
   3. apply:audiobook-narrators            tail — restore the audio-role work_persons rows (works now exist)
   4. apply:audiobook-narrators --verify   confirm DB count == sidecar-derived expected (today 88), nonzero
-  5. apply:curation-overlay               tail — re-assert the maintainer's hand overrides (Brief 149)
-  6. apply:curation-overlay --verify      confirm every final add present / suppression absent / field equal
+  5. apply:timeline                       tail — restore eras/events/event_works + book-dates (works now exist)
+  6. apply:timeline --verify              confirm era/event/event_works/book-date state == seed JSON, no retired era
+  7. apply:curation-overlay               tail — re-assert the maintainer's hand overrides (Brief 149); wins on primary_era_id
+  8. apply:curation-overlay --verify      confirm every final add present / suppression absent / field equal
 
 DESTRUCTIVE — truncates `works`. Requires explicit confirmation via either:
   --confirm                  CLI flag.
@@ -133,37 +154,54 @@ echo "[db-rebuild] starting full SSOT rebuild (confirmed). Rebuild config: $REBU
 
 # 1. Reset the works domain. Confirmation is passed through to the reset step;
 #    reference tables (persons/factions/characters/locations/…) are preserved.
-step "1/6 reset works domain (db:reset-for-ssot)" \
+step "1/8 reset works domain (db:reset-for-ssot)" \
   npm run db:reset-for-ssot -- --confirm
 
 # 2. Re-apply the full crystallized override roster (both domains, all 859).
 #    Idempotent; reproduces the data-complete + consolidated corpus (the merges
 #    are baked into the committed reference JSONs — no separate consolidation step).
-step "2/6 re-apply full corpus (run-phase4-apply.sh)" \
+step "2/8 re-apply full corpus (run-phase4-apply.sh)" \
   bash scripts/run-phase4-apply.sh "$REBUILD_CONFIG"
 
 # 3. TAIL: restore audiobook credits. The works exist now, so every sidecar book
 #    resolves. Runs only after the apply waves succeeded (fail-fast above).
-step "3/6 restore audiobook credits (apply:audiobook-narrators)" \
+step "3/8 restore audiobook credits (apply:audiobook-narrators)" \
   npm run apply:audiobook-narrators
 
 # 4. Verify the audio tail is complete: DB audio-role count == sidecar-derived
 #    expected (today 88), nonzero. Mismatch makes the rebuild fail.
-step "4/6 verify audiobook credits restored (apply:audiobook-narrators --verify)" \
+step "4/8 verify audiobook credits restored (apply:audiobook-narrators --verify)" \
   npm run apply:audiobook-narrators -- --verify
 
-# 5. TAIL: re-assert the maintainer's hand overrides (Brief 149). Runs LAST so
+# 5. TAIL: restore the timeline domain (Brief 137/152). Runs AFTER the corpus
+#    re-apply (step 2) because every event_works hook and book-date resolves
+#    against works.id, so the works must already exist. Runs BEFORE curation
+#    (step 7) on purpose: apply:timeline remaps book_details.primary_era_id
+#    (age_rebirth/long_war retirement) and the curation overlay also writes
+#    primary_era_id — hand-curation must win, so it runs LAST.
+step "5/8 restore timeline (apply:timeline)" \
+  npm run apply:timeline
+
+# 6. Verify the timeline tail (read-only, Brief 152): DB era/event id-sets ==
+#    seed JSON, event_works set == resolved hooks (incl. displayLabel/position)
+#    and nonzero, every named book-date exact, no book_details row on a retired
+#    era. Exact set-/value-equality, not a count. Mismatch makes the rebuild fail.
+step "6/8 verify timeline restored (apply:timeline --verify)" \
+  npm run apply:timeline -- --verify
+
+# 7. TAIL: re-assert the maintainer's hand overrides (Brief 149). Runs LAST so
 #    the auto-edges it suppresses already exist (to delete) and the edges it adds
-#    are re-asserted after the wave. Scoped per (workId, entityId), idempotent.
+#    are re-asserted after the wave; and its primary_era_id field-fix wins over
+#    the step-5 timeline remap. Scoped per (workId, entityId), idempotent.
 #    A book the overlay names but the corpus doesn't carry is skipped gracefully.
-step "5/6 apply hand-override overlay (apply:curation-overlay)" \
+step "7/8 apply hand-override overlay (apply:curation-overlay)" \
   npm run apply:curation-overlay
 
-# 6. Verify the curation tail: every final add present, every suppression absent,
+# 8. Verify the curation tail: every final add present, every suppression absent,
 #    every field equal. Mismatch makes the rebuild fail.
-step "6/6 verify hand overrides applied (apply:curation-overlay --verify)" \
+step "8/8 verify hand overrides applied (apply:curation-overlay --verify)" \
   npm run apply:curation-overlay -- --verify
 
 echo ""
-echo "[db-rebuild] DONE — works domain rebuilt, override roster re-applied, audiobook credits + hand overrides restored + verified."
+echo "[db-rebuild] DONE — works domain rebuilt, override roster re-applied, audiobook credits + timeline + hand overrides restored + verified."
 exit 0

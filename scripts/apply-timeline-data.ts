@@ -34,6 +34,18 @@
  * CLI:
  *   npm run apply:timeline -- --dry-run   # Plan bauen + drucken, keine Writes
  *   npm run apply:timeline                # Apply gegen die DB aus .env.local
+ *   npm run apply:timeline -- --verify    # read-only Post-Condition-Check
+ *
+ * --verify (Brief 152): read-only Vollständigkeits-Check, KEINE Writes. Er ist
+ * der verify-gegatete Tail-Schritt des `db:rebuild`-Orchestrators (Schritt 6/8,
+ * scripts/db-rebuild.sh): er bestätigt, dass ein voller Rebuild den Timeline-
+ * Stand wiederhergestellt hat. Er nutzt dieselben read-only Stages wie der Apply
+ * (parse* + resolveAgainstDb), baut daraus den ERWARTETEN Zustand, lädt den
+ * ISTzustand read-only aus der DB und vergleicht beide über den puren Helper
+ * `diffTimelineState` (scripts/timeline-state.ts). Post-Condition ist exakte
+ * Mengen-/Wert-Gleichheit (eine reine Zählung false-positivt), Exit ≠ 0 bei
+ * jedem Mismatch. `--verify` + `--dry-run` sind unvereinbar (read-only-Vergleich
+ * vs. Write-Plan) und brechen hart ab.
  */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -51,6 +63,15 @@ import {
   series,
   works,
 } from "@/db/schema";
+import {
+  diffTimelineState,
+  type ActualTimeline,
+  type BookDateActual,
+  type ExpectedTimeline,
+  type HookRow,
+  type Mismatch,
+  type MismatchCategory,
+} from "./timeline-state";
 
 const SEED_DIR = join(process.cwd(), "scripts", "seed-data");
 
@@ -817,15 +838,210 @@ async function printDbSummary(): Promise<void> {
   console.log(`works with setting date: ${datedWorks.n} (${anchored.n} event-anchored)`);
 }
 
+// ─── 5b. Verify (read-only) ──────────────────────────────────────────────────
+
+/** ResolvedHook → HookRow: exactly one of workId/seriesId is set post-resolve. */
+function resolvedToHookRow(h: ResolvedHook): HookRow {
+  return h.workId !== null
+    ? {
+        eventId: h.eventId,
+        targetType: "work",
+        targetId: h.workId,
+        role: h.role,
+        displayLabel: h.displayLabel,
+        position: h.position,
+      }
+    : {
+        eventId: h.eventId,
+        targetType: "series",
+        targetId: h.seriesId ?? "",
+        role: h.role,
+        displayLabel: h.displayLabel,
+        position: h.position,
+      };
+}
+
+/**
+ * Read the timeline columns the apply writes to `works`, for exactly the named
+ * book-dates slugs. numeric(10,3) round-trips as a string ("31005.000"), so
+ * startY/endY are coerced to number (NaN if the column is NULL — i.e. drift) to
+ * compare against the JSON numbers. A nullable text column reads back as "" when
+ * NULL so it can never equal a real non-empty label/method/confidence.
+ */
+async function readBookDateActuals(slugs: string[]): Promise<Map<string, BookDateActual>> {
+  const out = new Map<string, BookDateActual>();
+  for (let i = 0; i < slugs.length; i += 200) {
+    const chunk = slugs.slice(i, i + 200);
+    if (chunk.length === 0) continue;
+    const rows = await db
+      .select({
+        slug: works.slug,
+        startY: works.startY,
+        endY: works.endY,
+        settingDateLabel: works.settingDateLabel,
+        settingMethod: works.settingMethod,
+        settingConfidence: works.settingConfidence,
+        settingAnchorEventId: works.settingAnchorEventId,
+      })
+      .from(works)
+      .where(inArray(works.slug, chunk));
+    for (const r of rows) {
+      out.set(r.slug, {
+        settingDateLabel: r.settingDateLabel ?? "",
+        startY: r.startY === null ? NaN : Number(r.startY),
+        endY: r.endY === null ? NaN : Number(r.endY),
+        settingMethod: r.settingMethod ?? "",
+        settingConfidence: r.settingConfidence ?? "",
+        settingAnchorEventId: r.settingAnchorEventId,
+      });
+    }
+  }
+  return out;
+}
+
+/** Group + truncate the mismatch list for the report (counts + examples). */
+function printVerifyReport(
+  expected: ExpectedTimeline,
+  actual: ActualTimeline,
+  mismatches: Mismatch[],
+): void {
+  console.log(`\n=== timeline verify [READ ONLY] ===`);
+  console.log(`eras:        DB ${actual.eraIds.size}  vs eras.json ${expected.eraIds.size}`);
+  console.log(`events:      DB ${actual.eventIds.size}  vs events.json ${expected.eventIds.size}`);
+  console.log(`event_works: DB ${actual.hooks.length}  vs resolved ${expected.hooks.length}`);
+  console.log(`book-dates:  ${expected.bookDates.length} named slug(s) checked`);
+  console.log(`retired primary_era_id refs: ${actual.retiredPrimaryEraRefs.length}`);
+
+  if (mismatches.length === 0) {
+    console.log(
+      "VERIFY OK — DB holds exactly the seed-derived timeline state " +
+        "(era + event id-sets, event_works tuples incl. label/position, every named book-date); " +
+        "no book_details row points at a retired era.",
+    );
+    return;
+  }
+
+  const LIMIT = 20;
+  const byCat = new Map<MismatchCategory, Mismatch[]>();
+  for (const x of mismatches) {
+    const arr = byCat.get(x.category) ?? [];
+    arr.push(x);
+    byCat.set(x.category, arr);
+  }
+  console.error(
+    `\nVERIFY FAILED — ${mismatches.length} mismatch(es) across ${byCat.size} categor${byCat.size === 1 ? "y" : "ies"}:`,
+  );
+  for (const [cat, arr] of byCat) {
+    console.error(`  [${cat}] ${arr.length}:`);
+    for (const x of arr.slice(0, LIMIT)) console.error(`    ✗ ${x.message}`);
+    if (arr.length > LIMIT) console.error(`    … and ${arr.length - LIMIT} more`);
+  }
+}
+
+/**
+ * Read-only post-condition check (Brief 152). Builds the expected timeline state
+ * from the (already validated + DB-resolved) seed data, loads the actual state
+ * with read-only DB reads, and diffs them via the pure `diffTimelineState`.
+ * NO write, no `applyAll`, no `planRemap`. Returns true iff there is no mismatch.
+ */
+async function verifyAgainstDb(opts: {
+  rawEras: RawEra[];
+  rawEvents: RawEvent[];
+  hooks: ResolvedHook[];
+  bookDates: RawBookDate[];
+}): Promise<boolean> {
+  const { rawEras, rawEvents, hooks, bookDates } = opts;
+
+  const expected: ExpectedTimeline = {
+    eraIds: new Set(rawEras.map((e) => e.id)),
+    eventIds: new Set(rawEvents.map((e) => e.id)),
+    hooks: hooks.map(resolvedToHookRow),
+    bookDates: bookDates.map((b) => ({
+      slug: b.slug,
+      settingDateLabel: b.settingDateLabel,
+      startY: b.startY,
+      endY: b.endY,
+      settingMethod: b.settingMethod,
+      settingConfidence: b.settingConfidence,
+      settingAnchorEventId: b.settingAnchorEventId,
+    })),
+  };
+
+  const [dbEras, dbEvents, dbHookRows, bookDateBySlug, retiredRows] = await Promise.all([
+    db.select({ id: eras.id }).from(eras),
+    db.select({ id: events.id }).from(events),
+    db
+      .select({
+        eventId: eventWorks.eventId,
+        workId: eventWorks.workId,
+        seriesId: eventWorks.seriesId,
+        role: eventWorks.role,
+        displayLabel: eventWorks.displayLabel,
+        position: eventWorks.position,
+      })
+      .from(eventWorks),
+    readBookDateActuals(bookDates.map((b) => b.slug)),
+    db
+      .select({ workId: bookDetails.workId, primaryEraId: bookDetails.primaryEraId })
+      .from(bookDetails)
+      .where(inArray(bookDetails.primaryEraId, [...RETIRED_ERAS])),
+  ]);
+
+  const actual: ActualTimeline = {
+    eraIds: new Set(dbEras.map((r) => r.id)),
+    eventIds: new Set(dbEvents.map((r) => r.id)),
+    hooks: dbHookRows.map((r): HookRow =>
+      r.workId !== null
+        ? {
+            eventId: r.eventId,
+            targetType: "work",
+            targetId: r.workId,
+            role: r.role,
+            displayLabel: r.displayLabel,
+            position: r.position,
+          }
+        : {
+            eventId: r.eventId,
+            targetType: "series",
+            targetId: r.seriesId ?? "",
+            role: r.role,
+            displayLabel: r.displayLabel,
+            position: r.position,
+          },
+    ),
+    bookDateBySlug,
+    retiredPrimaryEraRefs: retiredRows.map((r) => ({
+      workId: r.workId,
+      primaryEraId: r.primaryEraId ?? "",
+    })),
+  };
+
+  const mismatches = diffTimelineState(expected, actual);
+  printVerifyReport(expected, actual, mismatches);
+  return mismatches.length === 0;
+}
+
 // ─── 6. Main ─────────────────────────────────────────────────────────────────
 
 async function main(): Promise<void> {
   const { values } = parseArgs({
     options: {
       "dry-run": { type: "boolean", default: false },
+      verify: { type: "boolean", default: false },
     },
   });
   const dryRun = values["dry-run"] === true;
+  const verify = values.verify === true;
+
+  // --verify (read-only compare) and --dry-run (plan a write) are mutually
+  // exclusive — silently picking one would hide a caller's mistake. Hard-abort.
+  if (verify && dryRun) {
+    console.error(
+      "[apply-timeline] --verify and --dry-run are mutually exclusive: " +
+        "--verify reads + compares (read-only), --dry-run plans a write. Pick one.",
+    );
+    process.exit(1);
+  }
 
   // Stage 1: Datei-Shapes + Cross-File-Referenzen.
   const p = new Problems();
@@ -846,6 +1062,19 @@ async function main(): Promise<void> {
   const resolution = await resolveAgainstDb(p2, rawHooks, bookDates);
   p2.failIfAny("DB resolution");
   console.log(`[apply-timeline] DB resolution OK — every hook + book-date slug resolves.`);
+
+  // --verify: read-only post-condition check, no writes. Used as the timeline
+  // tail (step 6/8) of the db:rebuild orchestrator to confirm a full rebuild
+  // restored every era, event, event_works hook and book-date.
+  if (verify) {
+    const ok = await verifyAgainstDb({
+      rawEras,
+      rawEvents,
+      hooks: resolution.hooks,
+      bookDates,
+    });
+    process.exit(ok ? 0 : 1);
+  }
 
   // Stage 3: Plan bauen + drucken.
   const eraDiff = await diffEras(rawEras);

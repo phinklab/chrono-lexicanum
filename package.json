@@ -47,6 +47,7 @@
     "test:collection-refs": "tsx scripts/test-apply-override-collections.ts",
     "test:audiobook-narrators": "tsx scripts/test-audiobook-narrators.ts",
     "test:curation-overlay": "tsx scripts/test-curation-overlay.ts",
+    "test:timeline": "tsx scripts/test-timeline.ts",
     "test:loop-next": "tsx scripts/test-loop-next-batch.ts",
     "test:resolver-loop-detect": "tsx scripts/test-resolver-loop-detect.ts",
     "db:seed-resolver-extensions": "tsx --env-file=.env.local scripts/seed-resolver-extensions.ts",
