@@ -1479,3 +1479,5 @@ Philipp warf 11 neue Punkte in den Topf (Buch-Popup-„Open Full Page" raus, `/a
 Philipp entschied die Admin-Fläche für Hand-Kuration als **Variante 1**: kein deployed `/admin` in der öffentlichen Next/Vercel-App, sondern ein separates lokales Browser-Tool, das nur auf `127.0.0.1`/`localhost` bindet und den 149er Curation-Overlay-Pfad (`curation-overlay.json`, Validator, Dry-Run/Verify/Apply-Result) nutzt. Damit wandert der Admin-Teil aus Product-P11 in den Batches-/Tooling-Strang als **122-B14 Local-only Curation Admin Tool**; Product-P11 bleibt der Seiten-Rückbau/Security-Rest (`/atlas`, `/buecher` 308, FilterRail/alte Chronicle-Komponenten, Gate-Ausnahmen, CSP).
 
 **Edits:** Board 121 (P11 gesplittet), Board 122 (B14 neu), `sessions/README.md` (Kopf + Active Threads), `project-state.md` (What's open + Next).
+
+**Reihenfolge nach Maintainer-Klärung:** Erst P11 im Product-Tree, direkt danach nach `/clear` B14 im Batches-Tree. Keine neuen Architect-Briefs für diese zwei Schritte; die Board-Zeilen sind der Handoff, damit zusammenziehbare Arbeit nicht durch zusätzliche Session-Dokumente aufgeblasen wird.

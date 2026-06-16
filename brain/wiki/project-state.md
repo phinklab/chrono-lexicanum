@@ -76,7 +76,8 @@ Kleinkram außerhalb Boards/OQs:
 
 Backlog-Sort 2026-06-12 (Cowork-Chat); Briefs 149/151/152 sind seit 2026-06-16 gemergt (B2/B13/OQ 16a erledigt):
 
-1. **B14 Local-only Curation Admin Tool** (Batches) ist der nächste Handoff: Variante 1 statt deployed `/admin`. Das Tool startet lokal per npm-Script, bindet nur an `127.0.0.1`/`localhost`, nutzt den 149er `applyCurationOverlay`-Pfad und zeigt Dry-Run/Verify/Apply-Resultate, ohne eine öffentliche Admin-Fläche in die Site zu legen.
-2. Danach: **P11** Product-Rückbau/Security-Rest (`/atlas`-Rückbau, Gate-Ausnahmen, CSP, `/buecher`-Redirect, FilterRail-/alte-Chronicle-Löschung) → **P12** URL-EN+SSG → **B11** Großer Buch-Reviewer → **B12** Ask-Tuning → **P13** Mobile; B6 dazwischen, wann Luft ist; **B5** läuft als Hand-Kuratierung weiter; **P14** Map ⏸ bis Redditor-Daten; **P15** Map-Chrome-Kohärenz-Pass als eigener Kandidat, wenn Philipp den akkumulierten Map-Look kohärent ziehen will.
+1. **P11 Product-Rückbau/Security-Rest** ist der nächste Handoff: `/atlas`-Rückbau, Gate-Ausnahmen, CSP, `/buecher`-Redirect, FilterRail-/alte-Chronicle-Löschung. Admin bleibt bewusst **nicht** in P11/deployed Product-Scope.
+2. **Direkt danach, nach `/clear`: B14 Local-only Curation Admin Tool** (Batches). Variante 1 statt deployed `/admin`: lokales Browser-Tool per npm-Script, bindet nur an `127.0.0.1`/`localhost`, nutzt den 149er `applyCurationOverlay`-Pfad und zeigt Dry-Run/Verify/Apply-Resultate, ohne eine öffentliche Admin-Fläche in die Site zu legen. Kein neuer Architect-Brief nötig; Board-Handoff reicht.
+3. Danach: **P12** URL-EN+SSG → **B11** Großer Buch-Reviewer → **B12** Ask-Tuning → **P13** Mobile; B6 dazwischen, wann Luft ist; **B5** läuft als Hand-Kuratierung weiter; **P14** Map ⏸ bis Redditor-Daten; **P15** Map-Chrome-Kohärenz-Pass als eigener Kandidat, wenn Philipp den akkumulierten Map-Look kohärent ziehen will.
 
 Session-end-Disziplin: [`workflows/session-end.md`](./workflows/session-end.md); Rollup-Files ändern sich ausschließlich über den Koordinations-Pass (Brief 095).
