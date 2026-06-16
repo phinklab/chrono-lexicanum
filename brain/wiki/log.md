@@ -1471,3 +1471,11 @@ Philipp warf 11 neue Punkte in den Topf (Buch-Popup-„Open Full Page" raus, `/a
 - **OQ 16(a) geschlossen:** `apply:timeline` hat jetzt read-only `--verify`; `db:rebuild` ist von 6 auf 8 Schritte erweitert. Timeline-Restore läuft als Schritt 5/8 (`apply:timeline`) + 6/8 (`apply:timeline --verify`) vor Curation 7/8+8/8, damit Hand-Kuration bei `primary_era_id` zuletzt gewinnt. Pure Vergleichslogik `diffTimelineState` + `npm run test:timeline` decken den Verify-Kern DB-frei ab.
 - **DB-Freeze bleibt:** kein Prod-`db:rebuild`, kein Prod-`apply:timeline`; echter `apply:timeline -- --verify` gegen die Ziel-DB bleibt Post-Freeze.
 - **Edits:** `open-questions.md` (16a raus, 16b/c bleiben), `project-state.md`, `index.md`, `sessions/README.md`, dieser Eintrag. Batches-Worktree wurde nach Merge auf `worktree/batches-bootstrap` fast-forwarded und der Task-Branch lokal gelöscht; bekannte untracked Ingest-Strays bleiben unangetastet.
+
+---
+
+## 2026-06-16 · Decision · P11-Admin wird local-only Batches-Tool
+
+Philipp entschied die Admin-Fläche für Hand-Kuration als **Variante 1**: kein deployed `/admin` in der öffentlichen Next/Vercel-App, sondern ein separates lokales Browser-Tool, das nur auf `127.0.0.1`/`localhost` bindet und den 149er Curation-Overlay-Pfad (`curation-overlay.json`, Validator, Dry-Run/Verify/Apply-Result) nutzt. Damit wandert der Admin-Teil aus Product-P11 in den Batches-/Tooling-Strang als **122-B14 Local-only Curation Admin Tool**; Product-P11 bleibt der Seiten-Rückbau/Security-Rest (`/atlas`, `/buecher` 308, FilterRail/alte Chronicle-Komponenten, Gate-Ausnahmen, CSP).
+
+**Edits:** Board 121 (P11 gesplittet), Board 122 (B14 neu), `sessions/README.md` (Kopf + Active Threads), `project-state.md` (What's open + Next).
