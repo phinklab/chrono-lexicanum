@@ -15,7 +15,7 @@ commits: []
 
 ## Summary
 
-Product-Strang, Worktree `chrono-lexicanum-product`, Branch `codex/product-p11-rueckbau` (von `origin/main`). Fünf P11-Teile umgesetzt: `/atlas` als Web-Route/Subtree **wirklich entfernt** (→ 404), `/buecher` per 308 auf `/archive` umgeleitet, toter Timeline/Chronicle-Cluster + `FilterRail` gelöscht, Preview-Gate-Ausnahmen für `/healthz` + `/api/revalidate`, einfache statische CSP ergänzt. **Kein Admin-UI gebaut, keine DB-/Schema-Arbeit** (B14 bleibt Batches). „Open Full Page" war bereits via 150 raus — nicht angefasst. `typecheck` / `lint` / `brain:lint --no-write` grün.
+Product-Strang, Worktree `chrono-lexicanum-product`, Branch `codex/product-p11-rueckbau` (von `origin/main`). Fünf P11-Teile umgesetzt: `/atlas` als Web-Route/Subtree **wirklich entfernt** (→ 404), `/buecher` per 308 auf `/archive` umgeleitet, toter Timeline/Chronicle-Cluster + `FilterRail` gelöscht, Preview-Gate-Ausnahmen für `/healthz` + `/api/revalidate`, einfache statische CSP ergänzt. **Kein Admin-UI gebaut, keine DB-/Schema-Arbeit**. „Open Full Page" war bereits via 150 raus — nicht angefasst. `typecheck` / `lint` / `brain:lint --no-write` grün. **Update 2026-06-17:** B14 wurde nach Maintainer-Test verworfen; Hand-Kuration läuft künftig per Codex-Änderung am 149er `curation-overlay.json`.
 
 Scope-Entscheid `/atlas` (per Chat bestätigt, „Option 4"): die **Web-Route** soll weg (nicht nur gated/env-versteckt), aber nicht blind alles mit „atlas" im Namen löschen — geteilte Loader (`lib/atlas/{auth,queries,types}`), `scripts/atlas-regen.ts`, `/ingest` und `/buch/[slug]/audit` bleiben.
 
@@ -65,5 +65,5 @@ Live-Timeline läuft über `components/timeline/cinematic/**` + `lib/chronicle/*
 
 - **CSP im Vercel-Preview eyeballen** (Covers/Art laden, kein Console-CSP-Block, iframe ok). Bei Bedarf Report-Only-Phase.
 - **P7-Kandidaten aufgedeckt:** (1) `lib/atlas/queries.ts` — ~12 tote atlas-only Exports + irreführender Name/Pfad (`atlas` → Katalog/Compendium); `types.ts` analog (atlas-only `DeckMeta`/`DeckId`/`DeckAccent` jetzt ungenutzt). (2) Verwaiste **Space-Grotesk**-Schrift + `--font-grotesk`-Token. (3) Rein historische Kommentar-Drift (`PodcastEpisodeArchive`, `faction-colors`) nennt noch `/buecher` als Stil-Herkunft — kosmetisch, gelassen.
-- **B14 Local-only Curation Admin Tool** (Batches) ist wie geplant der nächste Schritt nach `/clear` — unberührt von P11.
+- **Update 2026-06-17:** Der hier genannte nächste Schritt **B14 Local-only Curation Admin Tool** wurde verworfen. Kein Browser-Admin-Tool weiterverfolgen; Hand-Korrekturen an vorhandenen Werken laufen per normalem Codex-Auftrag an `curation-overlay.json` + Dry-Run/Verify.
 - Nicht pushen/PR bis „fertig" (Stand: lokal auf `codex/product-p11-rueckbau`, nicht committet).

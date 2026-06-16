@@ -2,7 +2,7 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-06-16
+updated: 2026-06-17
 sources:
   - ../../sessions/README.md
   - ../../sessions/2026-06-13-150-impl-polish-sweep.md
@@ -25,7 +25,7 @@ related:
 confidence: high
 ---
 
-# Project state — 2026-06-12 (Pre-Launch: Discovery-Layer shipped, Site hinter Preview-Gate)
+# Project state — 2026-06-17 (Pre-Launch: Discovery-Layer shipped, Site hinter Preview-Gate)
 
 > The "where are we now" anchor. **Nur aktueller Stand. Historie → [`log.md`](./log.md) + git.**
 
@@ -63,7 +63,7 @@ Unverändert: `origin/main` read-only für Code (Task-Branch + PR), Doc-only dir
 
 ## What's open
 
-Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit, erweitert 2026-06-12 um den Backlog-Sort): **121** offen P7(teilw. via 147)/P8/P9 + **P11** Product-Rückbau/Security-Rest (Gate-Ausnahmen, CSP, `/buecher`-Redirect, FilterRail-/alte-Chronicle-Löschung, `/atlas`-Rückbau — „Open Full Page" bereits via 150 raus) / **P12** URL-Migration EN + `/buch`-SSG / **P13** Mobile-Sweep / **P14** Map ⏸ extern / **P15** Map-Chrome-Kohärenz-Pass (Kandidat aus 150). **122** offen B5(⏸ Hand)/B6 (geprüft 2026-06-12: **nicht** gelaufen, V1/V2-Code liegt komplett)/B7/B8/B9 + **B11** Großer Buch-Reviewer (durch 149 entsperrt) / **B12** Ask-Logik-Tuning (nach B11) + **B14** Local-only Curation Admin Tool (Variante 1, 2026-06-16 entschieden; nicht deployed, bindet nur an `127.0.0.1`/`localhost`). Erledigt: P1–P6, **P10 (Brief 150, impl 2026-06-13)**, B1, **B2 (Kurations-Fundament, Brief 149)**, B3 (Full 981/981), B4, B10, **B13 (Weekly-Refresh-Hardening, Brief 151)**, **OQ 16(a) Rebuild-Timeline-Tail (Brief 152)**. Queue: [`open-questions.md`](./open-questions.md) (nur noch 16b/c Timeline-Folgen; 17 am 2026-06-12 entschieden → P11/P12).
+Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit, erweitert 2026-06-12 um den Backlog-Sort): **121** offen P7(teilw. via 147)/P8/P9 + **P11** Product-Rückbau/Security-Rest (Gate-Ausnahmen, CSP, `/buecher`-Redirect, FilterRail-/alte-Chronicle-Löschung, `/atlas`-Rückbau — „Open Full Page" bereits via 150 raus; **keine Admin-UI mehr**) / **P12** URL-Migration EN + `/buch`-SSG / **P13** Mobile-Sweep / **P14** Map ⏸ extern / **P15** Map-Chrome-Kohärenz-Pass (Kandidat aus 150). **122** offen B5(⏸ Hand)/B6 (geprüft 2026-06-12: **nicht** gelaufen, V1/V2-Code liegt komplett)/B7/B8/B9 + **B11** Großer Buch-Reviewer (durch 149 entsperrt) / **B12** Ask-Logik-Tuning (nach B11). **B14 Local-only Curation Admin Tool wurde am 2026-06-17 verworfen**: JSON-Editor-UI passt nicht zu Philipps Workflow; Hand-Kuration läuft künftig per Codex-Auftrag an `curation-overlay.json` + Dry-Run/Verify. Erledigt: P1–P6, **P10 (Brief 150, impl 2026-06-13)**, B1, **B2 (Kurations-Fundament, Brief 149)**, B3 (Full 981/981), B4, B10, **B13 (Weekly-Refresh-Hardening, Brief 151)**, **OQ 16(a) Rebuild-Timeline-Tail (Brief 152)**. Queue: [`open-questions.md`](./open-questions.md) (nur noch 16b/c Timeline-Folgen; 17 am 2026-06-12 entschieden → P11/P12).
 
 Kleinkram außerhalb Boards/OQs:
 
@@ -74,10 +74,9 @@ Kleinkram außerhalb Boards/OQs:
 
 ## Next likely brief
 
-Backlog-Sort 2026-06-12 (Cowork-Chat); Briefs 149/151/152 sind seit 2026-06-16 gemergt (B2/B13/OQ 16a erledigt):
+Backlog-Sort 2026-06-12 (Cowork-Chat); Briefs 149/151/152 sind seit 2026-06-16 gemergt (B2/B13/OQ 16a erledigt), B14 wurde am 2026-06-17 nach Maintainer-Test verworfen:
 
 1. **P11 Product-Rückbau/Security-Rest** ist der nächste Handoff: `/atlas`-Rückbau, Gate-Ausnahmen, CSP, `/buecher`-Redirect, FilterRail-/alte-Chronicle-Löschung. Admin bleibt bewusst **nicht** in P11/deployed Product-Scope.
-2. **Direkt danach, nach `/clear`: B14 Local-only Curation Admin Tool** (Batches). Variante 1 statt deployed `/admin`: lokales Browser-Tool per npm-Script, bindet nur an `127.0.0.1`/`localhost`, nutzt den 149er `applyCurationOverlay`-Pfad und zeigt Dry-Run/Verify/Apply-Resultate, ohne eine öffentliche Admin-Fläche in die Site zu legen. Kein neuer Architect-Brief nötig; Board-Handoff reicht.
-3. Danach: **P12** URL-EN+SSG → **B11** Großer Buch-Reviewer → **B12** Ask-Tuning → **P13** Mobile; B6 dazwischen, wann Luft ist; **B5** läuft als Hand-Kuratierung weiter; **P14** Map ⏸ bis Redditor-Daten; **P15** Map-Chrome-Kohärenz-Pass als eigener Kandidat, wenn Philipp den akkumulierten Map-Look kohärent ziehen will.
+2. **Danach:** **P12** URL-EN+SSG → **B11** Großer Buch-Reviewer → **B12** Ask-Tuning → **P13** Mobile; B6 dazwischen, wann Luft ist; **B5** läuft als Hand-Kuratierung weiter; **P14** Map ⏸ bis Redditor-Daten; **P15** Map-Chrome-Kohärenz-Pass als eigener Kandidat, wenn Philipp den akkumulierten Map-Look kohärent ziehen will. Hand-Korrekturen an vorhandenen Werken werden bei Bedarf als normaler Codex-Auftrag in `curation-overlay.json` eingetragen und per Dry-Run/Verify geprüft, nicht über ein Browser-Admin-Tool.
 
 Session-end-Disziplin: [`workflows/session-end.md`](./workflows/session-end.md); Rollup-Files ändern sich ausschließlich über den Koordinations-Pass (Brief 095).

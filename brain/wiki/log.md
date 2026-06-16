@@ -1481,3 +1481,11 @@ Philipp entschied die Admin-Fläche für Hand-Kuration als **Variante 1**: kein 
 **Edits:** Board 121 (P11 gesplittet), Board 122 (B14 neu), `sessions/README.md` (Kopf + Active Threads), `project-state.md` (What's open + Next).
 
 **Reihenfolge nach Maintainer-Klärung:** Erst P11 im Product-Tree, direkt danach nach `/clear` B14 im Batches-Tree. Keine neuen Architect-Briefs für diese zwei Schritte; die Board-Zeilen sind der Handoff, damit zusammenziehbare Arbeit nicht durch zusätzliche Session-Dokumente aufgeblasen wird.
+
+---
+
+## 2026-06-17 · Decision · B14 Local-only Admin Tool verworfen
+
+Philipp testete den B14-Ansatz nach der CC-Implementierung und verwarf ihn bewusst: ein lokaler Browser-JSON-Editor für `curation-overlay.json` passt nicht zu seinem Arbeitsmodus und soll nicht weiterverfolgt werden. Die 149er Overlay-Mechanik bleibt das Fundament, aber die Bedienung läuft künftig über normale Codex-Aufträge in Prosa: Philipp beschreibt die Handkorrektur, Codex ändert `curation-overlay.json` und verifiziert per Dry-Run/Verify. Es gibt weder deployed `/admin` noch local-only Admin-Tool.
+
+**Edits:** Board 121 (P11 ohne Admin-UI), Board 122 (B14 `☒ verworfen`), `sessions/README.md` (Kopf + Active Threads), `project-state.md` (What's open + Next), dieser Eintrag.
