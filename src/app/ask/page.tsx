@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SiteBackground from "@/components/chrome/SiteBackground";
-import ScrollScrim from "@/app/buecher/ScrollScrim";
+import ScrollScrim from "@/components/chrome/ScrollScrim";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import AskClient from "@/components/ask/AskClient";

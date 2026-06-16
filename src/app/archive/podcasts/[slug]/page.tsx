@@ -16,7 +16,7 @@ import SiteBackground from "@/components/chrome/SiteBackground";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
-import ScrollScrim from "@/app/buecher/ScrollScrim";
+import ScrollScrim from "@/components/chrome/ScrollScrim";
 import PodcastEpisodeArchive from "@/components/podcast/PodcastEpisodeArchive";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";

@@ -57,8 +57,8 @@ const CANON: Record<AliasAxis, ReadonlyArray<CanonEntity>> = {
 
 // ===========================================================================
 // Drift classification (entity-exact). Consumed by the audit read-path at
-// src/lib/atlas/queries.ts, src/app/buecher/page.tsx and
-// src/app/buch/[slug]/audit/page.tsx — one rule, one place.
+// src/lib/atlas/queries.ts and src/app/buch/[slug]/audit/page.tsx — one rule,
+// one place. (The /buecher consumer was removed in Board 121-P11.)
 // ===========================================================================
 
 export type DriftClass = "none" | "known-alias" | "drift";

@@ -26,10 +26,11 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-// Space Grotesk powers the Chronicle control-bar toggles + series-lane labels
-// (the prototype's `--font-grotesk`). Bound to the existing token name so the
-// ported `tlp-*` rules and the @theme `--font-grotesk` declaration resolve to
-// a real loaded face instead of falling back to system-ui.
+// Space Grotesk is bound to the `--font-grotesk` token (declared in
+// 00-tokens.css). Its only styling consumer was the old Chronicle accordion
+// (`tlp-*` rules in 57-chronicle.css), removed in Board 121-P11 — the face is
+// therefore currently orphaned. Kept wired here deliberately: dropping the font
+// import + token is a P7 CSS/token-cleanup decision, out of P11 scope.
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600"],

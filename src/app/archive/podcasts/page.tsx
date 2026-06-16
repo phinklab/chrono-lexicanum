@@ -5,7 +5,7 @@ import AuspexSweep from "@/components/chrono/AuspexSweep";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
-import ScrollScrim from "@/app/buecher/ScrollScrim";
+import ScrollScrim from "@/components/chrome/ScrollScrim";
 import PodcastsSearch from "@/components/podcast/PodcastsSearch";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";

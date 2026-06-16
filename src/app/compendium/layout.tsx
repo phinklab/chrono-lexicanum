@@ -14,7 +14,7 @@
 import type { Metadata } from "next";
 import { Suspense, type ReactNode } from "react";
 import SiteBackground from "@/components/chrome/SiteBackground";
-import ScrollScrim from "@/app/buecher/ScrollScrim";
+import ScrollScrim from "@/components/chrome/ScrollScrim";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import FloatingCoord from "@/components/chrono/FloatingCoord";

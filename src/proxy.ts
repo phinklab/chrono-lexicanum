@@ -4,12 +4,15 @@ import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 
 // Next.js 16 file convention: this file replaces the pre-v16 `middleware.ts`.
 // The matcher covers every page route (preview gate, session 145) — excluded
-// are /login itself, Next internals, and the public/ asset folders. /atlas
-// and the admin-only paths below additionally run the Basic-Auth admin
-// detection.
+// are /login itself, Next internals, the public/ asset folders, and two machine
+// endpoints that must answer without the preview cookie: /healthz (uptime probe)
+// and /api/revalidate (token-authed cache webhook). Without that exclusion the
+// preview gate would 307-redirect both to /login, breaking the probe and the
+// apply-script webhook (Board 121-P11). The admin-only paths below additionally
+// run the Basic-Auth admin detection.
 export const config = {
   matcher: [
-    "/((?!_next/|login|img/|audio/|timeline/|lab/|aquila\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
+    "/((?!_next/|login|healthz|api/revalidate|img/|audio/|timeline/|lab/|aquila\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
   ],
 };
 
@@ -29,12 +32,13 @@ function parseBasic(authHeader: string | null): { user: string; pass: string } |
 }
 
 /** Admin-only page routes, hard-401ed in prod without Basic-Auth (Report 144
- *  § S.3): /atlas (the admin dashboard), /ingest (internal ingestion logs +
- *  raw LLM payloads), /buch/[slug]/audit (provenance internals). The pages
- *  additionally check `getIsAdmin()` themselves — defense in depth, in case
- *  a future matcher edit drops one of them out of this proxy. */
+ *  § S.3): /ingest (internal ingestion logs + raw LLM payloads) and
+ *  /buch/[slug]/audit (provenance internals). The pages additionally check
+ *  `getIsAdmin()` themselves — defense in depth, in case a future matcher edit
+ *  drops one of them out of this proxy. (The /atlas dashboard was removed from
+ *  the deployed product in Board 121-P11 — it now 404s; admin curation moves to
+ *  a local-only tool, 122-B14.) */
 function isAdminPath(path: string): boolean {
-  if (path === "/atlas" || path.startsWith("/atlas/")) return true;
   if (path === "/ingest" || path.startsWith("/ingest/")) return true;
   return /^\/buch\/[^/]+\/audit$/.test(path);
 }
@@ -64,8 +68,10 @@ export async function proxy(req: NextRequest): Promise<NextResponse> {
   //     would be redundant.
   //   - Local `next dev` should not prompt for credentials when iterating on
   //     UI; the gate is purely a production safeguard.
-  // In both cases we still forward `x-atlas-admin: 1` so the Atlas pages and
-  // Map admin tools render in their authenticated shape.
+  // In both cases we still forward `x-atlas-admin: 1` so the surviving admin
+  // surfaces (/ingest, /buch/*/audit) and the Map admin tools render in their
+  // authenticated shape. (The header name is kept — it is the shared admin
+  // signal read by getIsAdmin(); renaming it is out of P11 scope.)
   const isProd = process.env.NODE_ENV === "production" && process.env.VERCEL_ENV !== "preview";
 
   if (!isProd) {
@@ -99,7 +105,7 @@ export async function proxy(req: NextRequest): Promise<NextResponse> {
       // server log instead of taking the whole public site down with a
       // boot-time throw over an admin-only secret.
       console.error(
-        "[proxy] ATLAS_PASS is not set in production — admin routes (/atlas, /ingest, /buch/*/audit) are locked out.",
+        "[proxy] ATLAS_PASS is not set in production — admin routes (/ingest, /buch/*/audit) are locked out.",
       );
     }
     return new NextResponse("Authentication required", {

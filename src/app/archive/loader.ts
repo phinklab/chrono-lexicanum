@@ -1,13 +1,13 @@
 /**
  * Public book-browse data layer (Brief 120). SERVER-ONLY (imports `@/db`).
  *
- * This is the lean, visitor-facing cousin of `/buecher`'s `loadBooks`: it loads
- * exactly what the public filters (`q`, `faction`, `format`, `facet`, `sort`)
- * and the row rendering need — no drift / alias / junction-gap / SSOT
- * audit machinery (that stays on the maintainer `/buecher` surface). One
- * `findMany` fan-out, wrapped try/catch → empty so an unreachable DB at build
- * time degrades to an empty hall instead of failing `next build` (the
- * `/buecher` + atlas pattern).
+ * This is the lean, visitor-facing book-browse loader: it loads exactly what
+ * the public filters (`q`, `faction`, `format`, `facet`, `sort`) and the row
+ * rendering need — no drift / alias / junction-gap / SSOT audit machinery (that
+ * lived on the removed `/buecher` maintainer surface, Board 121-P11; its query
+ * helpers still sit in `lib/atlas/queries.ts`). One `findMany` fan-out, wrapped
+ * try/catch → empty so an unreachable DB at build time degrades to an empty
+ * hall instead of failing `next build`.
  */
 import "server-only";
 import { db } from "@/db/client";

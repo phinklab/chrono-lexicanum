@@ -1,12 +1,13 @@
 import LiveTelemetry from "./LiveTelemetry";
 
 /**
- * CatalogueTelemetry — the canonical LOAD/COGITATIO readout pair used by
- * archive surfaces (/buecher toolbar, /atlas hero, /atlas/werke toolbar).
- * One source of truth for the drift bands so the three sites stay in sync.
+ * CatalogueTelemetry — the canonical LOAD/COGITATIO readout pair used by the
+ * /archive catalogue + podcasts toolbars. One source of truth for the drift
+ * bands so the surfaces stay in sync. (The /buecher + /atlas toolbars that also
+ * used it were removed in Board 121-P11.)
  *
- * Default accent is cyan (atlas surfaces). /buecher passes `accent="gold"`
- * to match the warm catalogue theme.
+ * `/archive` passes `accent="gold"` to match the warm catalogue theme; cyan is
+ * the neutral default.
  */
 
 type CatalogueTelemetryProps = {

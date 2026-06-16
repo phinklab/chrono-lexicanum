@@ -1,24 +1,21 @@
 /**
- * Atlas queries (Task 2 — Atlas-Brücke).
+ * Catalogue/entity queries — originally the data layer for the /atlas admin
+ * "Brücke".
  *
- * `getBridgeStats()` returns row counts + headline aggregates for all 12
- * decks in a single flat `Promise.all`. Strikt parallel — no waterfalls,
- * no relational `findMany`. Budget: cold-start < 1.5 s against the Supabase
- * pooler.
+ * NOTE (Board 121-P11): the /atlas web dashboard and the /buecher maintainer
+ * catalogue were removed. This module is KEPT because the public `/compendium`
+ * loader still imports from it — but the per-deck inventory exports
+ * (`getBridgeStats`, `getWerkeRows`, `getFraktionenRows`, `getCharaktereRows`,
+ * `getWeltenRows`, `getSektorenRows`, `getAerenRows`, `getSerienRows`,
+ * `getPersonenRows`, `getSubmissionsRows`, `getFacetsRows`, `getServicesRows`)
+ * now have NO live consumer. The module is "shared but badly named"; a focused
+ * later pass should prune the dead exports and rename/relocate the survivors
+ * (the compendium catalogue queries). Deliberately left intact — pruning here
+ * is out of P11 scope.
  *
- * `getWerkeRows()` duplicates the `loadBooks` Drizzle shape from
- * `src/app/buecher/page.tsx` (incl. audit-computation: drift, junction-gap,
- * ssot, contained-in). The duplication is intentional per Task 2 brief —
- * a later cleanup could fold `/buecher` into a thin re-render of this data
- * minus the audit columns, not now.
- *
- * Junctions-Drilldown (Slice 5, follow-up task): `/atlas/junctions` will
- * expand into a 6-panel browser over (work_factions, work_characters,
- * work_locations, work_persons, work_facets, work_collections). Per panel:
- * rowCount, drift-count (rawName != canonical.name), gap-count (works
- * without any junction-row in that table). A two-side picker (canonical
- * entity left → linked works right with rawName, confidence, both detail
- * links) drives the audit-trail / find-drift / find-gaps use cases.
+ * `getWerkeRows()` duplicated the `loadBooks` Drizzle shape from the removed
+ * `/buecher` page (incl. audit-computation: drift, junction-gap, ssot,
+ * contained-in).
  */
 import { eq, inArray, sql } from "drizzle-orm";
 import { db } from "@/db/client";
@@ -291,7 +288,7 @@ export async function getBridgeStats(): Promise<BridgeStats> {
 }
 
 // =============================================================================
-// Werke list — duplicates loadBooks() from src/app/buecher/page.tsx.
+// Werke list — duplicated loadBooks() from the removed /buecher page (P11).
 // =============================================================================
 
 export interface WerkeRow {
