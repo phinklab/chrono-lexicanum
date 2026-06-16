@@ -2,7 +2,7 @@
 title: Wiki index — master catalog
 type: reference
 created: 2026-05-09
-updated: 2026-06-12
+updated: 2026-06-16
 sources: []
 related:
   - ../CLAUDE.md
@@ -21,8 +21,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 
 | Page                                             | Description                                                                                                                 | Updated    |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's open, next likely brief. **Stand 2026-06-12 (großer Rollup-Pass):** Korpus 889, 4 Podcast-Shows (~1094 Episoden), Timeline-Datenfundament + Cinematic-`/timeline`, `/compendium` + `/archive` + `/ask` shipped, Deep-Review-Zyklus (140/141/144 → 147/148) umgesetzt, Polish-Sweep 150 shipped, Site hinter Preview-Gate. Historie der früheren Snapshots → `log.md` + git. | 2026-06-13 |
-| [open-questions.md](./open-questions.md)         | Items the next architect brief must address (Queue klein halten, 3–5). Aktuell: **(16)** Timeline-Folgen aus impl 137 (db:rebuild-Tail, primaryEraId-Placeholder, Atlas-Events) + **(17)** Deep-Review-Rest aus 147 (Preview-Gate vs. Maschinen-Endpoints, CSP, `/buecher`, FilterRail, `/buch`-SSG, `REVALIDATE_TOKEN`). (15) Compendium 2026-06-12 geschlossen → Boards. | 2026-06-12 |
+| [project-state.md](./project-state.md)           | "Where are we now": phase, what's running, what's open, next likely brief. **Stand 2026-06-16:** Korpus 889, 4 Podcast-Shows (~1094 Episoden), Timeline-Datenfundament + Cinematic-`/timeline`, `/compendium` + `/archive` + `/ask` shipped, Deep-Review-Zyklus (140/141/144 → 147/148) umgesetzt, Polish-Sweep 150, Curation-Fundament 149, Weekly-Refresh-Hardening 151 und Timeline-Rebuild-Tail 152 shipped. Site hinter Preview-Gate. | 2026-06-16 |
+| [open-questions.md](./open-questions.md)         | Items the next architect brief must address (Queue klein halten, 3-5). Aktuell: **(16b/c)** Timeline-Folgen aus impl 137/152: `primaryEraId`-Placeholder + Atlas-Events. **16(a) db:rebuild-Tail ist seit Brief 152 geschlossen**; (17) Deep-Review-Rest 2026-06-12 geschlossen -> Boards. | 2026-06-16 |
 | [deferred-questions.md](./deferred-questions.md) | Dormant / distant questions that aren't queue-relevant. Promoted back to `open-questions.md` when their trigger fires. Post-074: enthält `chaos`-pov_side-Promote-Pass mit Promote-Trigger. | 2026-05-15 |
 | [architecture.md](./architecture.md)             | High-level system shape, schema overview, module map, key types/enums. **⚠ Stand vor dem Juni-Sweep** — Events-Schema (0012), `/compendium`/`/archive`/`/timeline`-Cinematic, Proxy-Gate, Caching-Layer fehlen noch; Refresh ist ein eigener Ingest-Pass (gegen den Code, nicht aus Reports). | 2026-05-09 |
 | [roadmap.md](./roadmap.md)                       | Phased plan (1–7) with status per phase + sub-phase breakdown for Phase 3 + Ideas Backlog. **Status-Snapshot 2026-06-12:** Phase 3 shipped (Wartung = Weekly-Refresh), Phase 4 + 5 weitgehend shipped (4d Bibliothek offen), Fokus Phase 7 (Polish & Launch). | 2026-06-12 |
@@ -67,8 +67,8 @@ Updated whenever Ingest adds/edits a page; see [`./workflows/session-end.md`](./
 | Page | Description | Updated |
 |---|---|---|
 | [glossary.md](./glossary.md) | Project-specific terms (M-scale, source_kind, work_facets, primaryEra, llm_flags, junctionsLocked, batched-3e, …) | 2026-05-09 |
-| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-06-12 |
-| (this file) | Master catalog | 2026-06-12 |
+| [log.md](./log.md) | Append-only operation log (chronological history of Brain edits) | 2026-06-16 |
+| (this file) | Master catalog | 2026-06-16 |
 
 > **Sessions-Catalog-Hinweis.** Diese Index-Datei listet keine einzelnen Session-Files — Sessions leben unter `sessions/` (rotierende `archive/YYYY-MM/`), die Cowork/CC-Catalog-Pflege passiert in `sessions/README.md` (Active-Threads-Tabelle) und im Archive-Sweep (Brief 099-Pattern). Brief 101 (HH-Bootstrap Guard-Reason-Split, gemergt 2026-05-26), Resolver-Pass 10 (HH-Bootstrap-Apply, gemergt 2026-05-26), der Resolver-Loop-Mehr-Wellen-Lauf Pässe 11–15 (HH-Wellen `ssot-hh-003..030`, PR #107 gemergt 2026-05-27), Brief 102 (HH-Konsolidierungs-Pass, PR #108 gemergt 2026-05-27) und Brief 103 Daten-Pass (Audit-Helper + 2 Pilot-Backfills, PR #109 gemergt 2026-05-28) erscheinen entsprechend in `sessions/README.md` und [`./log.md`](./log.md) — nicht hier.
 

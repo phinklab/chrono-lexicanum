@@ -1460,3 +1460,14 @@ Philipp warf 11 neue Punkte in den Topf (Buch-Popup-„Open Full Page" raus, `/a
 - **Offen für Maintainer:** einmal `npm run refresh:audit-artifacts` lokal (read-only, freeze-safe) ziehen, bevor dem Wochenlauf vertraut wird. Cron-PR #174 (2026-W24) ist offen — trägt den neuen Review-Prompt erst nach dem nächsten Cron-Lauf/Re-Dispatch.
 - **Boards:** 122 B13 → erledigt; B2/149 als „revidiert, unter DB-Freeze, nach B13/151" annotiert.
 - **Edits:** Board 122 (B2/B13), Brief 149 (rewrite), Brief 151 (+impl, beide via Strang-Merge), dieser Eintrag. **Next:** Brief 149 an Batches.
+
+---
+
+## 2026-06-16 · Ingest · Briefs 149/152 gemergt; OQ 16(a) geschlossen
+
+**Quelle:** `sessions/2026-06-14-149-impl-curation-foundation.md`, `sessions/2026-06-16-152-impl-timeline-rebuild-tail.md`, PR #177 (`3621d6e`).
+
+- **Kurations-Fundament 149 shipped:** `curation-overlay.json` + Validator + programmatischer `apply:curation-overlay` mit Dry-Run/Verify; Tail-Slot in `db:rebuild`; Additions/Suppressions/Feld-Fixes per Sidecar, DB-frei getestet, keine Prod-Mutation unter Freeze. Entsperrt P11 Admin-Seite und B11 Buch-Reviewer.
+- **OQ 16(a) geschlossen:** `apply:timeline` hat jetzt read-only `--verify`; `db:rebuild` ist von 6 auf 8 Schritte erweitert. Timeline-Restore läuft als Schritt 5/8 (`apply:timeline`) + 6/8 (`apply:timeline --verify`) vor Curation 7/8+8/8, damit Hand-Kuration bei `primary_era_id` zuletzt gewinnt. Pure Vergleichslogik `diffTimelineState` + `npm run test:timeline` decken den Verify-Kern DB-frei ab.
+- **DB-Freeze bleibt:** kein Prod-`db:rebuild`, kein Prod-`apply:timeline`; echter `apply:timeline -- --verify` gegen die Ziel-DB bleibt Post-Freeze.
+- **Edits:** `open-questions.md` (16a raus, 16b/c bleiben), `project-state.md`, `index.md`, `sessions/README.md`, dieser Eintrag. Batches-Worktree wurde nach Merge auf `worktree/batches-bootstrap` fast-forwarded und der Task-Branch lokal gelöscht; bekannte untracked Ingest-Strays bleiben unangetastet.
