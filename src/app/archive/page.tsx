@@ -10,6 +10,8 @@ import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
 import CompendiumFocusOpener from "@/components/compendium/CompendiumFocusOpener";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
+import ArtCreditTag from "@/components/chrome/ArtCreditTag";
+import { backgroundArtCredit } from "@/lib/art-credits";
 import WerkeFilters from "./WerkeFilters";
 import { bookSlugById, loadBrowseBooks, type BrowseBook } from "./loader";
 import {
@@ -129,6 +131,10 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
     if (!activeFacet) activeFacet = { id: params.facet, name: params.facet, category: null };
   }
 
+  // The catalogue keeps its own fixed hero photo (not <SiteBackground>), so it
+  // credits the shared library-nave artwork via the same bottom-right slot.
+  const heroCredit = backgroundArtCredit("/img/main-bg.webp");
+
   return (
     <main className="catalogue catalogue--werke">
       {focusSlug ? <CompendiumFocusOpener href={`/buch/${focusSlug}`} /> : null}
@@ -226,6 +232,10 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
 
         <ArchiveFooter mid="CLICK ANY TITLE · LECTIO PROFVNDA" />
       </div>
+
+      {heroCredit && (
+        <ArtCreditTag credit={heroCredit} className="art-credit--site" />
+      )}
     </main>
   );
 }

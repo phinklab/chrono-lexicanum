@@ -7,6 +7,7 @@
  * backdrop, so the credit links stay reachable.
  *
  * Variants:
+ *   - "main"       ← shared library-nave backdrop (Hub, Archive, Compendium, Ask)
  *   - "hub"        ← Hub (gothic cathedral-city, cosmic rings overhead)
  *   - "vista"      ← Books hero, book detail, entity pages (cathedral light)
  *   - "scriptorium" ← Compendium (grand cathedral-library, scribe at a lectern)
@@ -23,6 +24,7 @@ import ArtCreditTag from "@/components/chrome/ArtCreditTag";
 import { backgroundArtCredit } from "@/lib/art-credits";
 
 export type SiteBgVariant =
+  | "main"
   | "hub"
   | "vista"
   | "scriptorium"
@@ -36,6 +38,7 @@ export type SiteBgVariant =
   | "none";
 
 const PHOTOS: Record<SiteBgVariant, string | null> = {
+  main: "/img/main-bg.webp",
   hub: "/img/hub.webp",
   vista: "/img/vista.webp",
   scriptorium: "/img/scriptorium.webp",

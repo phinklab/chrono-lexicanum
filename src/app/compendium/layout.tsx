@@ -67,7 +67,7 @@ export default function CompendiumLayout({
 }) {
   return (
     <main className="compendium">
-      <SiteBackground variant="scriptorium" position="50% 30%" />
+      <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
         className="cmp-scrim"
         varName="--cmp-scrim-opacity"

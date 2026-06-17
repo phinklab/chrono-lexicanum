@@ -54,7 +54,7 @@ export default async function HubPage() {
   return (
     <main className="hub">
       <HubScrollReset />
-      <SiteBackground variant="hub" />
+      <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
         className="hub-scrim"
         varName="--hub-scrim-opacity"

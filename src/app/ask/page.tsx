@@ -63,7 +63,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
 
   return (
     <main className="ask">
-      <SiteBackground variant="oracle" position="50% 30%" />
+      <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
         className="ask-scrim"
         varName="--ask-scrim-opacity"
