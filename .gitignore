@@ -108,6 +108,17 @@ yarn-error.log*
 # committed contract is ingest/podcasts/<slug>.extractions.json, not these.
 /ingest/podcasts/.cc-tag/
 
+# --- cc-direct book-reviewer working files (Brief 154) ----------------------
+# run-book-review-loop.sh + book-review.ts stage per-run working files here
+# (projected chunk inputs + per-chunk finder/findings/verifier). Regenerated
+# each run; the committed outputs are scripts/seed-data/book-review-queue.json
+# + facet-review-queue.json + scripts/logs/book-review-log.md, not these.
+/ingest/book-review/.work/
+
+# --- cc-direct book-reviewer HUMAN-REVIEW slices (regenerable, deletable) ----
+# review-digest .md files Philipp eyeballs then deletes; never committed.
+/ingest/book-review/review/
+
 # --- ingestion pipeline state (resumable run state, NOT diffs) -------------
 # /ingest/.state/ holds the in-progress run snapshot — regenerated each run,
 # wiped on success, irrelevant to other developers. Diffs in /ingest/.last-run/

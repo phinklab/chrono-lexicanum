@@ -1,0 +1,205 @@
+{
+  "$note": "Brief 154 — B11 facet PROPOSALS. NOTES ONLY: no apply script reads this file; it is wired into no curation-overlay apply, db:rebuild, or DB write. Facets never re-enter the visitor UI via this path (Brief 149/150).",
+  "brief": "154",
+  "books": [
+    {
+      "externalBookId": "HH-0007",
+      "facets": {
+        "remove": [
+          {
+            "id": "space_marine",
+            "label": "Space Marine",
+            "category": "protagonist_class",
+            "visible": true,
+            "known": true,
+            "confidence": 0.6,
+            "checkedAt": "2026-06-17",
+            "note": "The two POV characters in the current data (Peto Soneka, an Imperial Army officer, and John Grammaticus, a human operative) are not Astartes, so protagonist_class space_marine misdescribes the principal viewpoint."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "HH-0015",
+      "facets": {
+        "remove": [
+          {
+            "id": "space_marine",
+            "label": "Space Marine",
+            "category": "protagonist_class",
+            "visible": true,
+            "known": true,
+            "confidence": 0.6,
+            "checkedAt": "2026-06-17",
+            "note": "The sole POV/protagonist is the civilian skjald Kasper Hawser (civilian is already tagged); protagonist_class should track the principal viewpoint, so space_marine is over-faceting."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "HH-0155",
+      "facets": {
+        "add": [
+          {
+            "id": "male",
+            "label": "Male",
+            "category": "protagonist_gender",
+            "visible": true,
+            "known": true,
+            "confidence": 0.6,
+            "checkedAt": "2026-06-17",
+            "note": "Principal POV Uriah and the only other principal (the Emperor) are male, so 'male' is the correct protagonist gender."
+          }
+        ],
+        "remove": [
+          {
+            "id": "mixed",
+            "label": "Mixed",
+            "category": "protagonist_gender",
+            "visible": true,
+            "known": true,
+            "confidence": 0.6,
+            "checkedAt": "2026-06-17",
+            "note": "The two principals, priest Uriah Olathaire and the Emperor/'Revelation', are both male; there is no female principal viewpoint to justify protagonist_gender 'mixed'."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "HH-0166",
+      "facets": {
+        "remove": [
+          {
+            "id": "civilian",
+            "label": "Civilian",
+            "category": "protagonist_class",
+            "visible": true,
+            "known": true,
+            "confidence": 0.55,
+            "checkedAt": "2026-06-17",
+            "note": "Archival note: the protagonist is an Officio Assassinorum Eversor — a state-made living weapon — so the civilian protagonist_class misrepresents the viewpoint character."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "HH-0252",
+      "facets": {
+        "remove": [
+          {
+            "id": "mixed",
+            "label": "Mixed",
+            "category": "protagonist_gender",
+            "visible": true,
+            "known": true,
+            "confidence": 0.65,
+            "checkedAt": "2026-06-17",
+            "note": "Both principal viewpoint characters (Malcador POV, Khalid Hassan) are male, so the conflicting 'mixed' protagonist_gender value is wrong alongside the correct 'male'."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0186",
+      "facets": {
+        "remove": [
+          {
+            "id": "civilian",
+            "label": "Civilian",
+            "category": "protagonist_class",
+            "visible": true,
+            "known": true,
+            "confidence": 0.7,
+            "checkedAt": "2026-06-17",
+            "note": "The POV protagonist Captain Leoten Sempter is an Imperial Navy warship commander fighting fleet actions, a military officer rather than a civilian."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0187",
+      "facets": {
+        "remove": [
+          {
+            "id": "civilian",
+            "label": "Civilian",
+            "category": "protagonist_class",
+            "visible": true,
+            "known": true,
+            "confidence": 0.7,
+            "checkedAt": "2026-06-17",
+            "note": "POV protagonist Captain Sempter is an Imperial Navy warship commander, a military officer, not a civilian."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0188",
+      "facets": {
+        "remove": [
+          {
+            "id": "civilian",
+            "label": "Civilian",
+            "category": "protagonist_class",
+            "visible": true,
+            "known": true,
+            "confidence": 0.7,
+            "checkedAt": "2026-06-17",
+            "note": "POV protagonist Captain Sempter is an Imperial Navy warship commander, a military officer, not a civilian."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0408",
+      "facets": {
+        "remove": [
+          {
+            "id": "space_marine",
+            "label": "Space Marine",
+            "category": "protagonist_class",
+            "visible": true,
+            "known": true,
+            "confidence": 0.6,
+            "checkedAt": "2026-06-17",
+            "note": "Synopsis states the story is told through ordinary people 'rather than the superhuman Astartes', so the principal viewpoint class is civilian (already tagged), not space_marine."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0530",
+      "facets": {
+        "remove": [
+          {
+            "id": "mixed",
+            "label": "Mixed",
+            "category": "protagonist_gender",
+            "visible": true,
+            "known": true,
+            "confidence": 0.6,
+            "checkedAt": "2026-06-17",
+            "note": "The protagonists (Logan Grimnar, the Wolf-priests, Ghazghkull, Guilliman) are all male, so the co-present 'male' is correct and the single-value 'mixed' is unsupported."
+          }
+        ]
+      }
+    },
+    {
+      "externalBookId": "W40K-0545",
+      "facets": {
+        "remove": [
+          {
+            "id": "mixed",
+            "label": "Mixed",
+            "category": "protagonist_gender",
+            "visible": true,
+            "known": true,
+            "confidence": 0.6,
+            "checkedAt": "2026-06-17",
+            "note": "Both principal POV characters are explicitly 'two women', so protagonist_gender should be 'female' (also tagged); 'mixed' contradicts the principal-viewpoint rule."
+          }
+        ]
+      }
+    }
+  ]
+}

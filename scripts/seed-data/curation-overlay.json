@@ -1,6 +1,6 @@
 {
-  "$schemaNote": "Brief 149 — hand-override overlay. The maintainer's per-book decisions, re-asserted as a deterministic TAIL AFTER the auto apply/rebuild by scripts/apply-curation-overlay.ts (a tail because apply-override.ts rebuilds the work_* junctions per-workId delete-then-insert, so a hand fix must run last). ONLY `final` is applied; `reviewQueue` is carried machine-readably (proposals from the B11 book-reviewer / weekly-refresh) and is never applied until promoted to `final`. Edges are scoped to the exact (workId, entityId): add=upsert, remove=delete. Provenance (sourceKind/confidence/checkedAt/note) lives here, not in the junction rows — no DB column, no migration (narrator model). No facet section by design: the overlay structurally cannot write work_facets, so it can never reintroduce a content_warning into the visitor UI (Brief 149/150). Doc: scripts/seed-data/curation-overlay.README.md. NOTE: this example is COMMITTED but, under the Brief-149 DB-freeze, was NOT applied to prod.",
-  "brief": "149",
+  "$schemaNote": "Curation overlay (Brief 149 infra). `final` carries the B11 book-reviewer (Brief 154) findings the maintainer reviewed and approved: removes + role-fixes + adds that each resolve to an EXISTING canonical entity. The 500 unresolved surface forms (new entities) stay in book-review-queue.json's reviewQueue for the stage-3 web pass and are NOT here. Applied as a deterministic tail by scripts/apply-curation-overlay.ts (add=upsert, remove=delete, scoped to (workId,entityId), idempotent). Provenance lives here only, never in junction rows. W40K-0010 (The Magos) is the preserved Brief-149 maintainer correction (format→collection + Ordo Malleus add + Chaos remove), kept across the B11 overwrite.",
+  "brief": "154",
   "final": {
     "books": [
       {
@@ -30,10 +30,1419 @@
           "format": {
             "value": "collection",
             "sourceKind": "manual",
-            "confidence": 1.0,
+            "confidence": 1,
             "checkedAt": "2026-06-14",
-            "note": "The Magos is structurally a collection of 10 reprinted Eisenhorn shorts anchored by one new novella; the SSOT roster classifies it as 'novel'. This matches the data_conflict already noted in manual-overrides-ssot-w40k-001.json (W40K-0010)."
+            "note": "The Magos is structurally a collection of 10 reprinted Eisenhorn shorts anchored by one new novella; the SSOT roster classifies it as 'novel'."
           }
+        }
+      },
+      {
+        "externalBookId": "HH-0044",
+        "characters": {
+          "add": [
+            {
+              "id": "sobek",
+              "role": "appears",
+              "rawName": "Sobek",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis explicitly lists Sobek among Ahriman's retinue that crosses into the warp aboard the Torquetum, but he is missing from the characters."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0083",
+        "factions": {
+          "add": [
+            {
+              "id": "iron_warriors",
+              "role": "supporting",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix primary→supporting: The book is centrally a Magnus/Thousand Sons novel; the Iron Warriors are called in by Magnus to share the work and are significant but not the book's center."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0101",
+        "factions": {
+          "add": [
+            {
+              "id": "daemons",
+              "role": "primary",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.65,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix supporting→primary: The entire story unfolds inside Nurgle's garden with the daemon Kau'gath as host, Grandfather Nurgle granting the gift, and a daemon-primarch protagonist — the daemons are the book's center of gravity, not merely supporting."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0109",
+        "characters": {
+          "add": [
+            {
+              "id": "alexis_polux",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: The synopsis frames the book as a Perturabo-only character study after Phall; Pollux is referenced as having escaped, not depicted on-stage."
+            },
+            {
+              "id": "rogal_dorn",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: Dorn is the absent target of Perturabo's plotting; the on-stage scenes are Perturabo at the anvil and before his architects, so Dorn is referenced rather than present."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0110",
+        "characters": {
+          "add": [
+            {
+              "id": "amar_astarte",
+              "role": "pov",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.85,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→pov: The synopsis explicitly names three points of view — Valdor, Kandawire, and the gene-mage Amar Astarte — so Amar Astarte is a POV, not merely appearing."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0120",
+        "locations": {
+          "add": [
+            {
+              "id": "chondax",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: The infiltration takes place at the void station Tenebrae 9-50; Chondax is only the cut-off world the array shields and is never an on-stage setting, so 'secondary' overstates it."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0131",
+        "locations": {
+          "add": [
+            {
+              "id": "prospero",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: Prospero is only the burned homeworld the Wolves are fleeing in the opening framing; the entire story takes place in the Alaxxes nebula, so Prospero is referenced backstory rather than a lesser setting."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0136",
+        "locations": {
+          "add": [
+            {
+              "id": "caliban",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.5,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: Caliban is never visited in the novella; it figures only as distant 'news from Caliban' gnawing at the Lion's command, so it is a mention rather than a lesser setting of the book."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0138",
+        "characters": {
+          "add": [
+            {
+              "id": "lorgar",
+              "role": "pov",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→pov: In Butcher's Nails the synopsis frames Lorgar as the perceiving viewpoint ('the Word Bearer learns, up close, the shape of the cortical implants'), i.e. a POV rather than merely on-stage."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0152",
+        "locations": {
+          "add": [
+            {
+              "id": "monarchia",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: Monarchia appears only as past framing ('after the humiliation at Monarchia'); the story itself is not set there, so it is mentioned, not a lesser setting."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0156",
+        "locations": {
+          "add": [
+            {
+              "id": "deshea",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: The story plays out entirely aboard the War Hounds' flagship 'after Desh'ea'; Desh'ea is the abandoned, grieved-over homeworld rather than an on-page setting, so 'mentioned' fits better than 'secondary'."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0157",
+        "characters": {
+          "add": [
+            {
+              "id": "remus_ventanus",
+              "role": "pov",
+              "rawName": "Remus Ventanus",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.85,
+              "checkedAt": "2026-06-17",
+              "note": "Captain Ventanus of the Fourth Company is the viewpoint protagonist who runs the exercises and comes to understand the Codex, yet only Guilliman is listed in characters."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0169",
+        "locations": {
+          "add": [
+            {
+              "id": "signus_prime",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: The whole story unfolds on Baal; Signus is the off-stage catastrophe reported as news ('Signus has gone'), relevant but not an actual setting of this book."
+            }
+          ]
+        },
+        "characters": {
+          "add": [
+            {
+              "id": "malcador_the_sigillite",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: Malcador is only the off-stage authority whose Errant Knight Rubio carries his disband-orders to Baal; the Sigillite himself is named but not present."
+            },
+            {
+              "id": "sanguinius",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: The synopsis centers on Sanguinius's absence and death — he left Baal five years ago and is now reported dead — so he is referenced throughout but never on-stage in the present narrative."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0172",
+        "characters": {
+          "add": [
+            {
+              "id": "horus",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: Horus's role is the off-stage commission of the Kaban Machine ('commissioned by Horus Lupercal himself'), a reveal rather than an on-stage appearance on Mars."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0174",
+        "locations": {
+          "add": [
+            {
+              "id": "nuceria",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: The story takes place entirely on Isstvan III; Nuceria is invoked only as Angron's origin/backstory ('the slave-pits of Nuceria'), not a setting depicted in this book."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0176",
+        "locations": {
+          "add": [
+            {
+              "id": "caliban",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: Caliban is the prior off-stage errand Loken returns from; the story itself is set in the abandoned bio-dome on Luna, making Caliban a mention rather than a setting."
+            }
+          ]
+        },
+        "characters": {
+          "add": [
+            {
+              "id": "malcador_the_sigillite",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: Malcador is named only as the off-stage authority whose bidding sent Loken to Caliban; the on-stage story is Loken alone on Luna with Torgaddon's apparition."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0196",
+        "locations": {
+          "add": [
+            {
+              "id": "davin",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: The synopsis sets the entire story aboard the Vengeful Spirit 'just below the Warmaster's chamber'; Davin is only the priests' origin, never a setting visited in the book."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0205",
+        "characters": {
+          "add": [
+            {
+              "id": "malcador_the_sigillite",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: The synopsis states Garro 'stands in for a Sigillite who will not appear in person', so Malcador is referenced and central but never on-stage."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0221",
+        "characters": {
+          "add": [
+            {
+              "id": "the_exalted",
+              "role": "appears",
+              "rawName": "The Exalted",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis lists 'his brothers Xarl, Cyrion, and the Exalted' as First Claw squadmates on the battlefield; Xarl and Cyrion are tagged but the Exalted is missing."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0225",
+        "locations": {
+          "add": [
+            {
+              "id": "barbarus",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix primary→mentioned: The story is a single conversation aboard the Emperor's flagship; Barbarus is only Mortarion's backstory homeworld, not where the action of the book happens."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0227",
+        "characters": {
+          "add": [
+            {
+              "id": "kelbor_hal",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: Kelbor-Hal is named only as the distant target of a future counter-strike, not shown on-stage in this House Taranis survival novella."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0229",
+        "factions": {
+          "add": [
+            {
+              "id": "night_lords",
+              "role": "supporting",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix antagonist→supporting: The Night Lords are a single skirmish en route; the book's true opposition is the breakaway Space Wolves pack, so they are not the main antagonist force."
+            }
+          ]
+        },
+        "characters": {
+          "add": [
+            {
+              "id": "leman_russ",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: Russ is only referenced — fighting Horus elsewhere and through something he once said in a quieter year — never on-stage in this story."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0230",
+        "characters": {
+          "add": [
+            {
+              "id": "fulgrim",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: Fulgrim figures only as backstory (he beheaded Eidolon) and as the absent 'Phoenician'; he is not shown on-stage during Eidolon's solo hunt."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0233",
+        "factions": {
+          "remove": [
+            {
+              "id": "crimson_fists",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "The collection is entirely Horus Heresy-era (Fulgrim, Angel Exterminatus, The Crimson Fist, The Reflection Crack'd); the Crimson Fists Chapter is a later 2nd-Founding successor that does not feature, and the edge is an artifact of the short-story title 'The Crimson Fist' whose subject Alexis Polux is already tagged under imperial_fists."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0246",
+        "characters": {
+          "add": [
+            {
+              "id": "iacton_qruze",
+              "role": "appears",
+              "rawName": "Iacton Qruze",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.75,
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis explicitly has Iacton (Q)ruze slipping deeper into the citadel in search of answers, an on-stage role, yet he is absent from the character list."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0259",
+        "characters": {
+          "add": [
+            {
+              "id": "cypher",
+              "role": "appears",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix pov→appears: Cypher is framed entirely externally as the 'enigmatic' guide whose true identity is the mystery, which is incompatible with him being the book's POV; he is on-stage but not the viewpoint."
+            },
+            {
+              "id": "zahariel",
+              "role": "pov",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→pov: The synopsis is narrated through Zahariel's interiority — he 'comes to understand who his strange guide really is' and 'begins to suspect' — marking him as the viewpoint character."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0264",
+        "factions": {
+          "remove": [
+            {
+              "id": "night_lords",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "The Night Lords appear only in the opening strategic framing (the off-screen Thramas Crusade); the entire on-page story is a Caliban political piece about Astelan and Luther, with no Night Lords present."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0282",
+        "characters": {
+          "add": [
+            {
+              "id": "fulgrim",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: The synopsis explicitly frames the story around Fulgrim being 'ascended and absent', so he is referenced rather than on-stage."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0284",
+        "characters": {
+          "add": [
+            {
+              "id": "kelbor_hal",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: Kelbor-Hal is cited as a distant background fact ('still sits on Mars') against the Terra-palace negotiation drama, not as a participant who appears on-stage."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0285",
+        "characters": {
+          "add": [
+            {
+              "id": "horus",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: The whole premise is Argonis acting as Horus's emissary in the planetary lord's hall; Horus is the absent Warmaster being represented, not a character present in the scene."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0286",
+        "factions": {
+          "remove": [
+            {
+              "id": "world_eaters",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "The only World Eaters reference is Haar's origin ('former World Eater turned warlord'); the synopsis shows no present World Eaters force in the Xana raid, so the edge is a background namecheck."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "HH-0297",
+        "factions": {
+          "add": [
+            {
+              "id": "sons_of_horus",
+              "role": "antagonist",
+              "rawName": "Sons of Horus",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "Maloghurst the Twisted, Horus's equerry, is already a current on-stage character, so the Warmaster's own Legion is present at Isstvan V yet is untagged."
+            },
+            {
+              "id": "world_eaters",
+              "role": "antagonist",
+              "rawName": "World Eaters",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "Khârn the Betrayer (World Eaters) is already a current on-stage character, so his Legion is a present traitor force at the Dropsite Massacre yet is untagged."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0037",
+        "characters": {
+          "add": [
+            {
+              "id": "anakwanar_sek",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: The synopsis casts Sek as the off-stage Archenemy commander whose forces threaten Urdesh; his actual on-planet arrival to confront Macaroth is framed as the event of the next book, The Anarch ('Sek arrives on the planet'), so in The Warmaster he is referenced rather than on-stage."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0040",
+        "characters": {
+          "remove": [
+            {
+              "id": "viktor_hark",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "Viktor Hark joins the Tanith First in Honour Guard (book 4) and does not appear in First and Only, Ghostmaker, or Necropolis; the synopsis lists each book's cast and Hark is absent from all three."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0051",
+        "factions": {
+          "remove": [
+            {
+              "id": "iron_warriors",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "The Iron Warriors Legion takes no on-page action in The Killing Ground; only their byproduct (the separately-tagged 'unfleshed' antagonist) and a single mentioned Honsou carry the connection, and the edge's 'background' role is not even a valid faction role."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0056",
+        "factions": {
+          "add": [
+            {
+              "id": "astra_militarum",
+              "role": "supporting",
+              "rawName": "Astra Militarum",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis explicitly names the Imperial Guard holding the line at Tarsis Ultra alongside the Mortifactors, which is itself tagged supporting, yet Astra Militarum is absent from the faction list."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0065",
+        "factions": {
+          "remove": [
+            {
+              "id": "black_legion",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "Appears only as backdrop framing ('eve of a new Black Crusade', 'Abaddon's pulpits') with no on-stage presence — a passing namecheck, not a substantial faction (and currently carries an out-of-vocabulary 'background' role)."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0071",
+        "factions": {
+          "remove": [
+            {
+              "id": "heretic_astartes",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "An aerial-combat novel whose antagonists are Chaos air wings, the Blood Pact, and the human ace Obarkon — no traitor Space Marines feature on stage, so this edge is mis-tagged."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0073",
+        "factions": {
+          "remove": [
+            {
+              "id": "adeptus_astartes",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "The only Astartes presence is the Night Lord Sahaal (heretic_astartes, already tagged); no loyalist Adeptus Astartes feature in this hive-noir manhunt."
+            },
+            {
+              "id": "astra_militarum",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "Tagged with the out-of-vocabulary role 'background' and unsupported by the synopsis as a substantial presence; the Imperial side here is the Inquisition and Arbites, not the Guard."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0077",
+        "factions": {
+          "remove": [
+            {
+              "id": "heretic_astartes",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "The antagonist is a Chaos Titan Legion of traitor god-engines, not Chaos Space Marines; no CSM feature, so heretic_astartes is a mis-tag for the Chaos-aligned enemy."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0078",
+        "factions": {
+          "remove": [
+            {
+              "id": "heretic_astartes",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis identifies the enemy specifically as the Roaring Blades Traitor Guard, a Chaos-corrupted Imperial Guard host (already tagged as roaring_blades); no Chaos Space Marines feature, so heretic_astartes is unsupported."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0087",
+        "characters": {
+          "add": [
+            {
+              "id": "magnus_the_red",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: The synopsis only invokes Magnus through his glyph seen from orbit and the Thousand Sons' revenge, indicating influence/mention rather than an on-stage appearance."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0093",
+        "factions": {
+          "remove": [
+            {
+              "id": "adeptus_astartes",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis describes a purely Chaos/renegade cast — an Alpha Legion warband stitched from legionaries, renegade Astartes and Hydra cultists, hunted by the Inquisition — with no loyalist Adeptus Astartes chapter present; the warband's Astartes are renegades already covered by heretic_astartes (primary)."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0110",
+        "factions": {
+          "add": [
+            {
+              "id": "drukhari",
+              "role": "antagonist",
+              "rawName": "Drukhari",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis names the Drukhari of Commorragh explicitly as the opposing force; only the broad 'Aeldari' umbrella is tagged, so the specific antagonist faction is missing."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0170",
+        "characters": {
+          "add": [
+            {
+              "id": "gerontius_helmawr",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: The synopsis opens with Lord Gerontius Helmawr already dead, so he is the inciting subject rather than an on-stage character."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0179",
+        "factions": {
+          "add": [
+            {
+              "id": "guilders",
+              "role": "primary",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix supporting→primary: The protagonist Tempes Sol of the Guild of Light is the Guilder lens driving the expedition against the Redemptionist antagonist, so Guilders is the book's central faction rather than merely supporting (no faction is currently primary)."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0184",
+        "locations": {
+          "remove": [
+            {
+              "id": "tau_empire",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "\"T'au Empire\" is a polity/faction name (it duplicates the `tau` faction edge), not a discrete place; per the junction conventions a faction name is not a location and resolves to nothing."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0190",
+        "factions": {
+          "add": [
+            {
+              "id": "chaos",
+              "role": "antagonist",
+              "rawName": "Chaos",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.65,
+              "checkedAt": "2026-06-17",
+              "note": "Teturact, a Chaos warlord whose designs and \"daemonic appetite\" form one of the three central pressures, is a substantial antagonist force with no current faction edge and no more specific peer."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0191",
+        "factions": {
+          "add": [
+            {
+              "id": "drukhari",
+              "role": "antagonist",
+              "rawName": "Dark Eldar",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis explicitly names Dark Eldar raiders as a hostile force on the embattled Imperial world."
+            }
+          ],
+          "remove": [
+            {
+              "id": "crimson_fists",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis names no Crimson Fists; the antagonists are Tellos's Chaos warband and Dark Eldar raiders — this edge (tagged antagonist) reads as a mis-resolution from the title \"Crimson Tears\"."
+            },
+            {
+              "id": "eldar",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis specifies \"Dark Eldar raiders\" (Drukhari), a genuinely distinct faction from the Aeldari that the `eldar` id denotes."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0200",
+        "characters": {
+          "add": [
+            {
+              "id": "hoyyon_phrax",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→mentioned: The synopsis opens with Phrax's death driving the plot; the deceased Rogue Trader's will is executed but he does not appear on-stage, so 'mentioned' fits, not 'appears'."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0235",
+        "factions": {
+          "add": [
+            {
+              "id": "astra_militarum",
+              "role": "primary",
+              "rawName": "Astra Militarum",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.9,
+              "checkedAt": "2026-06-17",
+              "note": "The book is centrally about the Brimlock Eleventh, an Imperial Guard regiment, yet only orks are tagged; the Guard faction is the missing primary."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0240",
+        "factions": {
+          "add": [
+            {
+              "id": "raven_guard",
+              "role": "supporting",
+              "rawName": "Raven Guard",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.65,
+              "checkedAt": "2026-06-17",
+              "note": "Cadian Blood's synopsis has a half-company of Raven Guard co-reclaiming the shrine world of Kathur alongside the Cadians, a substantial Astartes presence currently absent from the faction edges."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0251",
+        "factions": {
+          "add": [
+            {
+              "id": "drukhari",
+              "role": "antagonist",
+              "rawName": "Dark Eldar",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.85,
+              "checkedAt": "2026-06-17",
+              "note": "The dark eldar raiders of the Twisted Kin are the central antagonist force (they abduct the captives the kill-team must recover), but they are missing; the existing 'eldar' edge is the Craftworld Ulthwe allies, a distinct faction."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0257",
+        "factions": {
+          "remove": [
+            {
+              "id": "orks",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis describes a creeping horror rising from the deep crypts ('bloodied nightmares bent on a dark purpose') and the book carries a cosmic_horror tone facet; nothing supports an Ork presence, which clashes with the described enemy."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0262",
+        "factions": {
+          "add": [
+            {
+              "id": "rogue_traders",
+              "role": "supporting",
+              "rawName": "Rogue Traders",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.75,
+              "checkedAt": "2026-06-17",
+              "note": "Lucian Gerrit, a rogue trader leading the Imperial Guard, is a POV character and his dynasty is co-central, yet the rogue_traders faction (tagged in every sibling book of the series) is missing here."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0268",
+        "factions": {
+          "add": [
+            {
+              "id": "chaos",
+              "role": "antagonist",
+              "rawName": "Chaos",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "The Ironclads — 'a vast and merciless army of traitors' / daemon-worshipping renegades — are the book's central antagonist, yet no antagonist faction is tagged and no specific Chaos peer is present to suppress the umbrella."
+            }
+          ]
+        },
+        "characters": {
+          "add": [
+            {
+              "id": "obadiah_roth",
+              "role": "pov",
+              "rawName": "Obadiah Roth",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.9,
+              "checkedAt": "2026-06-17",
+              "note": "Inquisitor Obadiah Roth is the named protagonist and POV of the book, but the characters list is empty; the omnibus records him as obadiah_roth with role pov."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0269",
+        "factions": {
+          "add": [
+            {
+              "id": "chaos",
+              "role": "antagonist",
+              "rawName": "Chaos",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.5,
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis states the rebellion's 'roots fed by the corrupting hand of the Ruinous Powers' — Chaos is the true antagonist of the campaign, yet the book carries no antagonist faction (only astra_militarum primary)."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0283",
+        "locations": {
+          "add": [
+            {
+              "id": "fang",
+              "role": "primary",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→primary: The Fang is the titular fortress through whose halls and depths the entire holding action is fought, so it is a principal setting rather than secondary."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0287",
+        "factions": {
+          "add": [
+            {
+              "id": "slaanesh",
+              "role": "antagonist",
+              "rawName": "Slaanesh",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.75,
+              "checkedAt": "2026-06-17",
+              "note": "The enemy is a Slaanesh-worshipping corruption and the daemon incursion the Iron Hands fight, yet the faction list carries only the two Imperial forces and names no antagonist at all."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0288",
+        "locations": {
+          "remove": [
+            {
+              "id": "medrengard",
+              "sourceKind": "reviewer-b11",
+              "checkedAt": "2026-06-17",
+              "note": "Medrengard is the Iron Warriors' Eye-of-Terror homeworld and is never the setting here; the book is set on the separate forge world of Castellax, so this edge is a mis-tag."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0301",
+        "locations": {
+          "add": [
+            {
+              "id": "ultramar",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: Ultramar only appears as framing for Calgar's origin (\"the realm of Ultramar is secure\"); the action happens on Zalidar, so it is a mention rather than a secondary setting."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0335",
+        "factions": {
+          "add": [
+            {
+              "id": "daemons",
+              "role": "antagonist",
+              "rawName": "Daemons",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.65,
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis names daemons alongside renegade Space Marines as the forces barring the way through every battle, but only Heretic Astartes is tagged as antagonist."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0348",
+        "locations": {
+          "add": [
+            {
+              "id": "ulthwe",
+              "role": "mentioned",
+              "rawName": "Ulthwe",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis sets the Eldar farseer antagonist thread on the craftworld of Ulthwe, a relevant secondary/mentioned setting not currently tagged."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0355",
+        "factions": {
+          "add": [
+            {
+              "id": "drukhari",
+              "role": "primary",
+              "rawName": "Dark Eldar",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "The book is wholly about Commorragh, Asdrubael Vect and the Drukhari kabals/archons, yet carries only the race-level 'Aeldari' tag; the catalog splits Aeldari sub-factions (Harlequins has its own id), so the Dark Eldar faction is a genuine missing primary."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0356",
+        "factions": {
+          "add": [
+            {
+              "id": "drukhari",
+              "role": "primary",
+              "rawName": "Dark Eldar",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "A Path of the Dark Eldar novel set entirely in Commorragh among kabals and incubi; the defining Drukhari faction is missing behind the generic 'Aeldari' tag."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0357",
+        "factions": {
+          "add": [
+            {
+              "id": "drukhari",
+              "role": "primary",
+              "rawName": "Dark Eldar",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "The closing Path of the Dark Eldar book turns entirely on Commorragh's archons and Vect's war on his own people, yet the Drukhari faction is absent behind the broad 'Aeldari' tag."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0358",
+        "factions": {
+          "add": [
+            {
+              "id": "drukhari",
+              "role": "primary",
+              "rawName": "Dark Eldar",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "The Path of the Dark Eldar omnibus is exclusively about Commorragh's Drukhari, yet carries only the race-level 'Aeldari' tag; the specific Dark Eldar faction is missing."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0359",
+        "factions": {
+          "add": [
+            {
+              "id": "drukhari",
+              "role": "antagonist",
+              "rawName": "Dark Eldar",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "The hunted suspects are 'the gathered archons' of the Sable Marches — Drukhari — so the antagonist is specifically the Dark Eldar, more precise than the generic 'eldar' antagonist edge currently present."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0360",
+        "factions": {
+          "add": [
+            {
+              "id": "drukhari",
+              "role": "supporting",
+              "rawName": "Dark Eldar",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "Maugra, a dark eldar gladiatrix, is one of the three central companions; the Drukhari are a substantial presence distinct from the tagged Aeldari ranger."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0373",
+        "factions": {
+          "add": [
+            {
+              "id": "inquisition",
+              "role": "supporting",
+              "rawName": "Inquisition",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "The omnibus collects Exile and Sorcerer, in both of which Inquisitor Iobel and the Inquisition substantially hunt Ahriman, but the omnibus carries no Inquisition edge."
+            }
+          ]
+        },
+        "characters": {
+          "add": [
+            {
+              "id": "astraeos",
+              "role": "appears",
+              "rawName": "Astraeos",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "The renegade Librarian Astraeos is Ahriman's central companion across the collected trilogy yet is missing from the omnibus character list."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0380",
+        "locations": {
+          "add": [
+            {
+              "id": "fenris",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.65,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: Per the synopsis the action is on the shrine world, not Fenris; Fenris appears only as the Wolves' origin ('wild sons of Fenris'), i.e. namechecked rather than a real setting."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0383",
+        "characters": {
+          "add": [
+            {
+              "id": "sammael",
+              "role": "pov",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.85,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→pov: The synopsis states the book is 'Told through the eyes of the recruit Annael, the veteran Telemenus, and Grand Master Sammael himself', making Sammael a POV character, not merely appearing."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0386",
+        "characters": {
+          "add": [
+            {
+              "id": "asmodai",
+              "role": "pov",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.65,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→pov: Synopsis lists 'the Chaplains Sapphon and Asmodai' as viewpoint characters of the trilogy, and Asmodai is a pov in the component novel Master of Sanctity (W40K-0384)."
+            },
+            {
+              "id": "sammael",
+              "role": "pov",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→pov: Synopsis explicitly frames the omnibus as told 'through the eyes of ... Grand Master Sammael', a POV role rather than mere appearance."
+            },
+            {
+              "id": "sapphon",
+              "role": "pov",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix appears→pov: Synopsis names Sapphon among the Chaplains the trilogy is told 'through the eyes of', and he is already a pov in the component novel Master of Sanctity (W40K-0384)."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0389",
+        "factions": {
+          "add": [
+            {
+              "id": "world_eaters",
+              "role": "supporting",
+              "rawName": "World Eaters",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "Synopsis names the protagonist band as 'World Eaters, Thousand Sons, and Sons of Horus'; the World Eaters are part of the central band but absent from the faction list."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0398",
+        "factions": {
+          "add": [
+            {
+              "id": "heretic_astartes",
+              "role": "antagonist",
+              "rawName": "Chaos Space Marines",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.65,
+              "checkedAt": "2026-06-17",
+              "note": "The Blood Disciples ('blood-crazed servants of Chaos', a dark mirror of his own kind) are the book's main opposing force, yet no antagonist faction is tagged."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0420",
+        "locations": {
+          "add": [
+            {
+              "id": "ullanor",
+              "role": "mentioned",
+              "rawName": null,
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "role-fix secondary→mentioned: In this book Ullanor is only identified as the Beast's distant lair to strike later; the action goes to Caldera, so Ullanor is mentioned rather than an actual setting."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0427",
+        "characters": {
+          "add": [
+            {
+              "id": "tigurius",
+              "role": "appears",
+              "rawName": "Varro Tigurius",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.78,
+              "checkedAt": "2026-06-17",
+              "note": "The seer Tigurius is named as one of the featured protagonists of the collection but is absent from the current data."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0429",
+        "characters": {
+          "add": [
+            {
+              "id": "ghazghkull_thraka",
+              "role": "appears",
+              "rawName": "Ghazghkull Thraka",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.68,
+              "checkedAt": "2026-06-17",
+              "note": "The ork warlord Ghazghkull is named on-stage dueling Commissar Yarrick, but is not in the current character list."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0524",
+        "factions": {
+          "add": [
+            {
+              "id": "drukhari",
+              "role": "primary",
+              "rawName": "Drukhari",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.7,
+              "checkedAt": "2026-06-17",
+              "note": "The story is centrally about a drukhari haemonculus and coven craft, yet only the broad Aeldari umbrella is tagged and the specific Drukhari faction is missing."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0528",
+        "factions": {
+          "add": [
+            {
+              "id": "imperial_navy",
+              "role": "supporting",
+              "rawName": "Imperial Navy",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.6,
+              "checkedAt": "2026-06-17",
+              "note": "Fleetmistress VanLeskus commands one of the three braided POV threads (the Machorta Sound fleet action), a substantial naval presence not currently tagged."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0568",
+        "factions": {
+          "add": [
+            {
+              "id": "space_wolves",
+              "role": "supporting",
+              "rawName": "Space Wolves",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.85,
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis explicitly features Space Wolves forging an unlikely brotherhood with the Salamanders (who are already tagged supporting), so they are a substantial presence yet missing from the edge set."
+            }
+          ]
+        }
+      },
+      {
+        "externalBookId": "W40K-0578",
+        "factions": {
+          "add": [
+            {
+              "id": "ynnari",
+              "role": "supporting",
+              "rawName": "Ynnari",
+              "sourceKind": "reviewer-b11",
+              "confidence": 0.55,
+              "checkedAt": "2026-06-17",
+              "note": "The synopsis names the Ynnari leader Yvraine (already a character edge) as drawn into the Severitas conflict, but the Ynnari faction itself is missing."
+            }
+          ]
         }
       }
     ]
