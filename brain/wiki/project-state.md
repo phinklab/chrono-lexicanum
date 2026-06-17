@@ -16,6 +16,8 @@ sources:
   - ../../sessions/2026-06-14-149-impl-curation-foundation.md
   - ../../sessions/2026-06-14-151-impl-weekly-refresh-hardening.md
   - ../../sessions/2026-06-16-152-impl-timeline-rebuild-tail.md
+  - ../../sessions/2026-06-16-153-impl-product-p11-rueckbau.md
+  - ../../sessions/2026-06-17-154-arch-book-reviewer.md
 related:
   - ./open-questions.md
   - ./roadmap.md
@@ -63,7 +65,7 @@ Unverändert: `origin/main` read-only für Code (Task-Branch + PR), Doc-only dir
 
 ## What's open
 
-Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit, erweitert 2026-06-12 um den Backlog-Sort): **121** offen P7(teilw. via 147)/P8/P9 + **P11** Product-Rückbau/Security-Rest (Gate-Ausnahmen, CSP, `/buecher`-Redirect, FilterRail-/alte-Chronicle-Löschung, `/atlas`-Rückbau — „Open Full Page" bereits via 150 raus; **keine Admin-UI mehr**) / **P12** URL-Migration EN + `/buch`-SSG / **P13** Mobile-Sweep / **P14** Map ⏸ extern / **P15** Map-Chrome-Kohärenz-Pass (Kandidat aus 150). **122** offen B5(⏸ Hand)/B6 (geprüft 2026-06-12: **nicht** gelaufen, V1/V2-Code liegt komplett)/B7/B8/B9 + **B11** Großer Buch-Reviewer (durch 149 entsperrt) / **B12** Ask-Logik-Tuning (nach B11). **B14 Local-only Curation Admin Tool wurde am 2026-06-17 verworfen**: JSON-Editor-UI passt nicht zu Philipps Workflow; Hand-Kuration läuft künftig per Codex-Auftrag an `curation-overlay.json` + Dry-Run/Verify. Erledigt: P1–P6, **P10 (Brief 150, impl 2026-06-13)**, B1, **B2 (Kurations-Fundament, Brief 149)**, B3 (Full 981/981), B4, B10, **B13 (Weekly-Refresh-Hardening, Brief 151)**, **OQ 16(a) Rebuild-Timeline-Tail (Brief 152)**. Queue: [`open-questions.md`](./open-questions.md) (nur noch 16b/c Timeline-Folgen; 17 am 2026-06-12 entschieden → P11/P12).
+Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit, erweitert 2026-06-12 um den Backlog-Sort): **121** offen P7(teilw. via 147)/P8/P9 / **P12** URL-Migration EN + `/buch`-SSG / **P13** Mobile-Sweep / **P14** Map ⏸ extern / **P15** Map-Chrome-Kohärenz-Pass (Kandidat aus 150). **122** offen **B11** Großer Buch-Reviewer (Pilot beauftragt, **Brief 154**) / B5(⏸ Hand)/B6 (geprüft 2026-06-12: **nicht** gelaufen, V1/V2-Code liegt komplett)/B7/B8/B9 / **B12** Ask-Logik-Tuning (nach B11). **B14 Local-only Curation Admin Tool wurde am 2026-06-17 verworfen**: JSON-Editor-UI passt nicht zu Philipps Workflow; Hand-Kuration läuft künftig per Codex-Auftrag an `curation-overlay.json` + Dry-Run/Verify. Erledigt: P1–P6, **P10 (Brief 150)**, **P11 (Seiten-Rückbau/Security-Rest, Report 153 — PR/Merge ausstehend)**, B1, **B2 (Kurations-Fundament, Brief 149)**, B3 (Full 981/981), B4, B10, **B13 (Weekly-Refresh-Hardening, Brief 151)**, **OQ 16(a) Rebuild-Timeline-Tail (Brief 152)**. Queue: [`open-questions.md`](./open-questions.md) (nur noch 16b/c Timeline-Folgen; 17 am 2026-06-12 entschieden → P11/P12).
 
 Kleinkram außerhalb Boards/OQs:
 
@@ -74,9 +76,9 @@ Kleinkram außerhalb Boards/OQs:
 
 ## Next likely brief
 
-Backlog-Sort 2026-06-12 (Cowork-Chat); Briefs 149/151/152 sind seit 2026-06-16 gemergt (B2/B13/OQ 16a erledigt), B14 wurde am 2026-06-17 nach Maintainer-Test verworfen:
+Backlog-Sort 2026-06-12 (Cowork-Chat), aktualisiert 2026-06-17: P11 ist via Report 153 implementiert (PR/Merge ausstehend), B11 wurde danach vorgezogen und als Pilot-Brief 154 beauftragt:
 
-1. **P11 Product-Rückbau/Security-Rest** ist der nächste Handoff: `/atlas`-Rückbau, Gate-Ausnahmen, CSP, `/buecher`-Redirect, FilterRail-/alte-Chronicle-Löschung. Admin bleibt bewusst **nicht** in P11/deployed Product-Scope.
-2. **Danach:** **P12** URL-EN+SSG → **B11** Großer Buch-Reviewer → **B12** Ask-Tuning → **P13** Mobile; B6 dazwischen, wann Luft ist; **B5** läuft als Hand-Kuratierung weiter; **P14** Map ⏸ bis Redditor-Daten; **P15** Map-Chrome-Kohärenz-Pass als eigener Kandidat, wenn Philipp den akkumulierten Map-Look kohärent ziehen will. Hand-Korrekturen an vorhandenen Werken werden bei Bedarf als normaler Codex-Auftrag in `curation-overlay.json` eingetragen und per Dry-Run/Verify geprüft, nicht über ein Browser-Admin-Tool.
+1. **B11 Großer Buch-Reviewer — Pilot ([Brief 154](../../sessions/2026-06-17-154-arch-book-reviewer.md))** ist der nächste Handoff (Batches-Strang): CC-Direct Batch-Driver (Vorbild 131), Finder + adversariale Verifier (Muster 144) über ~30–50 Bücher, Dimensionen Factions/Junctions(Loc+Char)/Facets. Faction-/Junction-Findings → `reviewQueue` (149), Facet-Findings in separaten read-only Vorschlags-Log (kein Apply-Pfad — schützt die 149/150-Content-Warning-Garantie). Synopsis-Qualität bewusst gestrichen; Series-/Event-Junctions out of scope; Voll-Lauf über 889 = Maintainer-Betrieb, kein Acceptance-Kriterium. Read-only ggü. DB (DB-Freeze).
+2. **Danach:** **P12** URL-EN+SSG → **B12** Ask-Tuning (braucht B11-Datenqualität) → **P13** Mobile; B6 dazwischen, wann Luft ist; **B5** läuft als Hand-Kuratierung weiter; **P14** Map ⏸ bis Redditor-Daten; **P15** Map-Chrome-Kohärenz-Pass als eigener Kandidat. **P11** ist nach Product-PR/Merge separat nachzuhalten (Report 153 liegt lokal auf `codex/product-p11-rueckbau`). Hand-Korrekturen an vorhandenen Werken laufen als normaler Codex-Auftrag in `curation-overlay.json` + Dry-Run/Verify, nicht über ein Browser-Admin-Tool.
 
 Session-end-Disziplin: [`workflows/session-end.md`](./workflows/session-end.md); Rollup-Files ändern sich ausschließlich über den Koordinations-Pass (Brief 095).
