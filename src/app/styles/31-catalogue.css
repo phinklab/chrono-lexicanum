@@ -38,9 +38,9 @@ main.catalogue {
   left: 0;
   right: 0;
   height: 100vh;
-  background-image: url("/img/books.webp");
+  background-image: url("/img/main-bg.webp");
   background-size: cover;
-  background-position: 50% 32%;
+  background-position: right bottom;
   background-repeat: no-repeat;
   z-index: -2;
   pointer-events: none;
