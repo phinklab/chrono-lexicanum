@@ -25,6 +25,8 @@ import {
 } from "react";
 import type { ChronicleEraData } from "@/lib/chronicle/loadTimeline";
 import { ERA_ART_CREDITS } from "@/lib/chronicle/eraArtCredits";
+import { EVENT_ART } from "@/lib/chronicle/eventArt";
+import type { ArtCredit } from "@/lib/art-credits";
 import ArtCreditTag from "@/components/chrome/ArtCreditTag";
 import EraBand from "./EraBand";
 import MediaRows from "./MediaRows";
@@ -80,6 +82,10 @@ export default function CinematicView({
   const terminusBtnRef = useRef<HTMLButtonElement>(null);
   const fillRef = useRef<HTMLDivElement>(null);
   const backPullRef = useRef<HTMLDivElement>(null);
+  // per-event artwork overlay (EVENT_ART) — driven imperatively from an effect
+  // so React re-renders never reset its crossfade; the last background stays on
+  // the element while it fades out, then the era cover shows through again
+  const bgEvRef = useRef<HTMLDivElement>(null);
 
   // target/displayed position — refs, written per scroll event / rAF frame
   const tRef = useRef({ t: entry, vt: entry });
@@ -326,6 +332,23 @@ export default function CinematicView({
     renderCine();
   }, [mobile, renderCine]);
 
+  // per-event artwork overlay: crossfade the active event's own background
+  // (EVENT_ART) in over the era cover, and back out when its slide is left.
+  // Runs after paint so the opacity change animates (CSS transition on .bg-ev);
+  // the background image is kept during fade-out so the artwork dissolves.
+  useEffect(() => {
+    const el = bgEvRef.current;
+    if (!el) return;
+    const active = N > 0 ? era.events[clamp(entry, 0, N - 1)] : null;
+    const bg = active ? EVENT_ART[active.id]?.background ?? null : null;
+    if (bg) {
+      el.style.backgroundImage = `url("${bg}")`;
+      el.style.opacity = "1";
+    } else {
+      el.style.opacity = "0";
+    }
+  }, [entry, era, N]);
+
   // ---------- era intro ----------
 
   const dismissIntro = useCallback(() => {
@@ -464,13 +487,22 @@ export default function CinematicView({
 
   const ev = era.events[clamp(entry, 0, N - 1)];
 
+  // Per-event artwork override (EVENT_ART): a listed event swaps both the
+  // background (handled by the overlay effect above) and the credit for its
+  // slide; everything else keeps the era cover and its credit.
+  const eventArt = EVENT_ART[ev.id];
+  const slideCredit: ArtCredit | null =
+    eventArt?.credit ??
+    (!ev.artCreditName && !ev.artCreditUrl ? eraCredit ?? null : null);
+
   return (
     <section
       ref={sectionRef}
       className={`chron-cine${wake ? " wake" : ""}${introOn ? " intro-hold" : ""}`}
       aria-label="Cinematic timeline"
     >
-      {/* background — one image per era; switches only on era change */}
+      {/* background — era cover underneath, with a per-event artwork override
+          (EVENT_ART) crossfading over it for the length of that event's slide */}
       <div className="bg-stack">
         <div
           className={`bg${reduced ? "" : " kb"}`}
@@ -480,6 +512,7 @@ export default function CinematicView({
             visibility: "visible",
           }}
         />
+        <div ref={bgEvRef} className={`bg bg-ev${reduced ? "" : " kb"}`} />
       </div>
       <div className="veil" />
 
@@ -610,10 +643,11 @@ export default function CinematicView({
         <span className="bp-name">{prev ? `${prev.m} — ${prev.name}` : ""}</span>
       </div>
 
-      {/* artist attribution — reserved bottom-right slot; event credit wins,
-          otherwise the era cover's credit (the bg shown is the era cover) */}
-      {!ev.artCreditName && !ev.artCreditUrl && eraCredit ? (
-        <ArtCreditTag credit={eraCredit} />
+      {/* artist attribution — reserved bottom-right slot. Precedence: an
+          EVENT_ART override (its own artwork), then a per-event DB credit,
+          then the era cover's credit (matching whichever bg is showing). */}
+      {slideCredit ? (
+        <ArtCreditTag credit={slideCredit} />
       ) : (
         <a
           className="art-credit"
