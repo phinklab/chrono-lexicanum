@@ -83,12 +83,12 @@ check("alias - Imperial Guard routes to Astra Militarum", () => {
   assert.equal(resolveFaction("Imperial Guard").id, "astra_militarum");
 });
 
-check("alias - Drukhari routes to collapsed Aeldari umbrella", () => {
-  assert.equal(resolveFaction("Drukhari").id, "eldar");
+check("alias - Drukhari routes to its own drukhari faction", () => {
+  assert.equal(resolveFaction("Drukhari").id, "drukhari");
 });
 
-check("alias - Dark Eldar routes to collapsed Aeldari umbrella", () => {
-  assert.equal(resolveFaction("Dark Eldar").id, "eldar");
+check("alias - Dark Eldar routes to its own drukhari faction", () => {
+  assert.equal(resolveFaction("Dark Eldar").id, "drukhari");
 });
 
 check("alias - Chaos Undivided routes to Chaos umbrella", () => {

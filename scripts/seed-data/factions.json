@@ -851,6 +851,13 @@
     "tone": "alien"
   },
   {
+    "id": "drukhari",
+    "name": "Drukhari",
+    "parent": "eldar",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
     "id": "triarch_praetorians",
     "name": "Triarch Praetorians",
     "parent": "necrons",

@@ -71,37 +71,22 @@ import {
   workLocations,
   workPersons,
 } from "@/db/schema";
-import {
-  resolveCharacter,
-  resolveFaction,
-  resolveLocation,
-} from "@/lib/resolver";
 import { deriveNameSort, slugifyPerson } from "@/lib/seed/persons";
 import {
-  CHARACTER_ROLE_PRIORITY,
-  FACTION_ROLE_PRIORITY,
   normalizeCharacterRole,
   normalizeFactionRole,
   normalizeLocationRole,
-} from "@/lib/resolver/roles";
-import type {
-  CharacterJunctionRole,
-  FactionJunctionRole,
-  LocationJunctionRole,
 } from "@/lib/resolver/roles";
 import {
   type Alignment,
   normalizeAlignment,
 } from "@/lib/seed/alignment";
 import {
-  decideFactionSkips,
-  type ResolvedFaction as SkipResolvedFaction,
-  type SkipDecision,
-} from "./apply-override-skip";
-import {
-  decideLocationSkips,
-  type LocationSkipDecision,
-} from "./apply-override-location-skip";
+  resolveBookEdges,
+  unresolvedCharacters,
+  unresolvedFactions,
+  unresolvedLocations,
+} from "./resolve-book-edges";
 import {
   formatLintError,
   lintSynopsis,
@@ -346,91 +331,11 @@ function pickFinalFormat(roster: RosterBook, override: OverrideBook): {
   return { format: roster.format ?? null, formatOverride: null };
 }
 
-/**
- * Resolve OverrideEntity surface forms to canonical IDs via the resolver
- * module. For factions, collapse multiple surface forms onto the same
- * canonical id and keep the highest-priority role (FACTION_ROLE_PRIORITY).
- * The retained rawName is the surface form that won the role contest —
- * giving the work_factions.raw_name audit column a deterministic value.
- */
-function resolveFactions(
-  input: OverrideEntity[],
-): Array<{ id: string; role: FactionJunctionRole; rawName: string }> {
-  const byId = new Map<string, { role: FactionJunctionRole; rawName: string }>();
-  for (const f of input) {
-    const r = resolveFaction(f.name);
-    if (r.id === null) continue;
-    const normalizedRole = normalizeFactionRole(f.role).role;
-    if (normalizedRole === null) continue;
-    const incomingPriority = FACTION_ROLE_PRIORITY[normalizedRole];
-    const current = byId.get(r.id);
-    const currentPriority = current
-      ? FACTION_ROLE_PRIORITY[current.role]
-      : -1;
-    if (incomingPriority > currentPriority) {
-      byId.set(r.id, { role: normalizedRole, rawName: f.name });
-    }
-  }
-  return [...byId.entries()].map(([id, { role, rawName }]) => ({
-    id,
-    role,
-    rawName,
-  }));
-}
-
-/**
- * Resolve location surface forms. No role-priority table for locations today
- * — keep-first-wins on canonical-id collisions (a surface-form alias and the
- * canonical name collapsing onto the same id is the realistic case).
- */
-function resolveLocations(
-  input: OverrideEntity[],
-): Array<{ id: string; role: LocationJunctionRole; rawName: string }> {
-  const byId = new Map<string, { role: LocationJunctionRole; rawName: string }>();
-  for (const l of input) {
-    const r = resolveLocation(l.name);
-    if (r.id === null) continue;
-    const normalizedRole = normalizeLocationRole(l.role).role;
-    if (normalizedRole === null) continue;
-    if (!byId.has(r.id)) {
-      byId.set(r.id, { role: normalizedRole, rawName: l.name });
-    }
-  }
-  return [...byId.entries()].map(([id, { role, rawName }]) => ({
-    id,
-    role,
-    rawName,
-  }));
-}
-
-/**
- * Resolve character surface forms. Mirrors resolveFactions on the character
- * axis with CHARACTER_ROLE_PRIORITY (pov > appears > mentioned).
- */
-function resolveCharacters(
-  input: OverrideEntity[],
-): Array<{ id: string; role: CharacterJunctionRole; rawName: string }> {
-  const byId = new Map<string, { role: CharacterJunctionRole; rawName: string }>();
-  for (const c of input) {
-    const r = resolveCharacter(c.name);
-    if (r.id === null) continue;
-    const normalizedRole = normalizeCharacterRole(c.role).role;
-    if (normalizedRole === null) continue;
-    const incomingPriority = CHARACTER_ROLE_PRIORITY[normalizedRole];
-    const current = byId.get(r.id);
-    const currentPriority = current
-      ? CHARACTER_ROLE_PRIORITY[current.role]
-      : -1;
-    if (incomingPriority > currentPriority) {
-      byId.set(r.id, { role: normalizedRole, rawName: c.name });
-    }
-  }
-  return [...byId.entries()].map(([id, { role, rawName }]) => ({
-    id,
-    role,
-    rawName,
-  }));
-}
+// Brief 154: the per-axis resolve+normalize+collapse wrappers
+// (`resolveFactions` / `resolveLocations` / `resolveCharacters`) and the
+// `unresolved*` drop helpers moved to `./resolve-book-edges` so the apply path
+// and the B11 book-reviewer projection crystallize edges through ONE shared,
+// parity-tested code path. They are composed here via `resolveBookEdges`.
 
 function buildSurfaceFormsBlock(
   override: OverrideBook,
@@ -438,9 +343,7 @@ function buildSurfaceFormsBlock(
   skippedSurfaceForms: string[] = [],
   skippedLocationSurfaceForms: string[] = [],
 ): string {
-  const factionsUnresolved = override.overrides.factions
-    .filter((f) => resolveFaction(f.name).id === null)
-    .map((f) => ({ name: f.name, role: f.role }));
+  const factionsUnresolved = unresolvedFactions(override.overrides.factions);
   // Brief 084: surface forms that the location-skip helper already classified
   // as redundant umbrella tags do not double-up in `locationsUnresolved`.
   // Case-insensitive trim-match keeps `IMPERIUM` / `Imperium of MAN` aligned
@@ -448,13 +351,12 @@ function buildSurfaceFormsBlock(
   const locationSkipSet = new Set(
     skippedLocationSurfaceForms.map((s) => s.trim().toLowerCase()),
   );
-  const locationsUnresolved = override.overrides.locations
-    .filter((l) => resolveLocation(l.name).id === null)
-    .filter((l) => !locationSkipSet.has(l.name.trim().toLowerCase()))
-    .map((l) => ({ name: l.name, role: l.role }));
-  const charactersUnresolved = override.overrides.characters
-    .filter((c) => resolveCharacter(c.name).id === null)
-    .map((c) => ({ name: c.name, role: c.role }));
+  const locationsUnresolved = unresolvedLocations(
+    override.overrides.locations,
+  ).filter((l) => !locationSkipSet.has(l.name.trim().toLowerCase()));
+  const charactersUnresolved = unresolvedCharacters(
+    override.overrides.characters,
+  );
   const payload: Record<string, unknown> = {
     factionsUnresolved,
     locationsUnresolved,
@@ -819,35 +721,20 @@ async function applyBook(
   return await db.transaction(async (tx) => {
     const { format, formatOverride } = pickFinalFormat(roster, override);
 
-    // Faction resolution moved ahead of buildSurfaceFormsBlock (Brief 077):
-    // the skip-decision needs the resolved set to identify grand-alignment
-    // junctions that are redundant given an alignment-peer sub-faction, and
-    // the skipped surface forms get audited inside the surfaceForms block.
-    const resolvedFactions = resolveFactions(override.overrides.factions);
-    const skipDecision: SkipDecision = decideFactionSkips({
-      resolved: resolvedFactions as SkipResolvedFaction[],
-      original: override.overrides.factions,
-      alignmentById: skipCtx.alignmentById,
-      redundantIds: skipCtx.redundantIds,
-      resolveFaction,
-    });
-    const keepFactions = skipDecision.keep as Array<{
-      id: string;
-      role: FactionJunctionRole;
-      rawName: string;
-    }>;
-
-    // Brief 084: location-skip runs after resolveLocations and before
-    // buildSurfaceFormsBlock so umbrella surface forms (Imperium, Chaos, ...)
-    // route into `locationsSkippedRedundant` when at least one other location
-    // in the block resolves to a real row. work_locations writes are
-    // unaffected (umbrellas resolve to null today and stay that way).
-    const resolvedLocations = resolveLocations(override.overrides.locations);
-    const locationSkipDecision: LocationSkipDecision = decideLocationSkips({
-      surfaceForms: override.overrides.locations,
-      redundantSurfaceForms: locationSkipCtx.redundantSurfaceForms,
-      resolvedLocationIds: resolvedLocations.map((r) => r.id),
-    });
+    // Brief 154: `resolveBookEdges` is the shared crystallizer the B11 reviewer
+    // projection also calls, so the apply path and the review projection cannot
+    // drift. It runs resolveFactions → decideFactionSkips (Brief 077 — the
+    // skip-decision drops a grand-alignment junction redundant given an
+    // alignment-peer sub-faction; skipped surface forms get audited in the
+    // surfaceForms block), resolveLocations + decideLocationSkips (Brief 084,
+    // audit-only — work_locations is unaffected because umbrellas resolve to
+    // null), and resolveCharacters — all in one place.
+    const edges = resolveBookEdges(override.overrides, skipCtx, locationSkipCtx);
+    const keepFactions = edges.keepFactions;
+    const skipDecision = edges.factionSkip;
+    const resolvedLocations = edges.resolvedLocations;
+    const locationSkipDecision = edges.locationSkip;
+    const resolvedCharacters = edges.resolvedCharacters;
 
     const surfaceFormsBlock = buildSurfaceFormsBlock(
       override,
@@ -1036,7 +923,6 @@ async function applyBook(
     // axis; the resolver module + characters.json seed + character-aliases
     // unlock this insert path. Same delete-then-insert pattern as factions.
     await tx.delete(workCharacters).where(eq(workCharacters.workId, workId));
-    const resolvedCharacters = resolveCharacters(override.overrides.characters);
     if (resolvedCharacters.length > 0) {
       await tx.insert(workCharacters).values(
         resolvedCharacters.map((c) => ({

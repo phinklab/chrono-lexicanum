@@ -183,8 +183,8 @@ test("resolve: registered alias forms → canonical tags (faction)", () => {
   assert.equal(guard.matchedVia, "alias");
   assert.equal(guard.confidence, 0.9);
 
-  const dEldar = findTag(tags, "faction", "eldar");
-  assert.ok(dEldar, "Dark Eldar → faction eldar");
+  const dEldar = findTag(tags, "faction", "drukhari");
+  assert.ok(dEldar, "Dark Eldar → faction drukhari");
   assert.equal(dEldar.role, "mentioned");
 
   assert.equal(unresolved.length, 0);

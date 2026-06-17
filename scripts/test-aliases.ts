@@ -60,9 +60,9 @@ test("search: 'eldar' -> eldar", () => {
   assert.ok(has(resolveSurfaceForm("eldar"), "faction", "eldar"));
 });
 
-test("search: 'Dark Eldar' / 'dark eldar' -> eldar", () => {
-  assert.ok(has(resolveSurfaceForm("Dark Eldar"), "faction", "eldar"));
-  assert.ok(has(resolveSurfaceForm("dark eldar"), "faction", "eldar"));
+test("search: 'Dark Eldar' / 'dark eldar' -> drukhari", () => {
+  assert.ok(has(resolveSurfaceForm("Dark Eldar"), "faction", "drukhari"));
+  assert.ok(has(resolveSurfaceForm("dark eldar"), "faction", "drukhari"));
 });
 
 // --- search resolution: empty / unknown / axis filter ----------------------
@@ -89,9 +89,12 @@ test("drift: 'Imperial Guard' -> astra_militarum is known-alias", () => {
   );
 });
 
-test("drift: 'Eldar' / 'Dark Eldar' -> eldar are known-alias", () => {
+test("drift: 'Eldar'→eldar known-alias; post-split 'Dark Eldar' on eldar is drift, on drukhari known-alias", () => {
   assert.equal(classifyDrift("faction", "Eldar", "eldar", "Aeldari"), "known-alias");
-  assert.equal(classifyDrift("faction", "Dark Eldar", "eldar", "Aeldari"), "known-alias");
+  // After the Drukhari split, a "Dark Eldar" surface form on an `eldar` edge is a
+  // mis-resolution (it should resolve to `drukhari`), so it now classifies as drift.
+  assert.equal(classifyDrift("faction", "Dark Eldar", "eldar", "Aeldari"), "drift");
+  assert.equal(classifyDrift("faction", "Dark Eldar", "drukhari", "Drukhari"), "known-alias");
 });
 
 test("drift: alias pointing at a DIFFERENT entity stays suspicious drift", () => {

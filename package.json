@@ -59,13 +59,16 @@
     "apply:curation-overlay": "tsx --env-file=.env.local scripts/apply-curation-overlay.ts",
     "apply:podcast": "tsx --env-file=.env.local scripts/apply-podcast.ts",
     "apply:timeline": "tsx --env-file=.env.local scripts/apply-timeline-data.ts",
+    "review:books": "bash scripts/run-book-review-loop.sh",
+    "review:books:parity": "tsx --env-file=.env.local scripts/book-review.ts parity",
     "refresh:check": "tsx --env-file=.env.local scripts/refresh-check.ts",
     "refresh:check:ci": "tsx scripts/refresh-check.ts",
     "refresh:audit-artifacts": "tsx --env-file=.env.local scripts/refresh-audit-artifacts.ts",
     "refresh:mark-reviewed": "tsx scripts/refresh-mark-reviewed.ts",
     "refresh:ignore-book": "tsx scripts/refresh-ignore-book.ts",
     "test:refresh": "tsx scripts/test-refresh.ts",
-    "test:roster-extension": "tsx scripts/test-roster-extension.ts"
+    "test:roster-extension": "tsx scripts/test-roster-extension.ts",
+    "test:book-review": "tsx scripts/test-book-review.ts"
   },
   "engines": {
     "node": ">=22"
