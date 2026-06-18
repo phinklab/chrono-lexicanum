@@ -5,7 +5,15 @@ import { useState } from "react";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import BrowseSearch from "@/components/browse/BrowseSearch";
 import FilterSelect from "@/components/browse/FilterSelect";
-import { factionFocusHref, primarchFocusHref, SORT_OPTIONS, type SortKey, type Suggestion } from "./filters";
+import {
+  characterFocusHref,
+  factionFocusHref,
+  primarchFocusHref,
+  SORT_OPTIONS,
+  worldFocusHref,
+  type SortKey,
+  type Suggestion,
+} from "./filters";
 
 type Option = { value: string; label: string };
 
@@ -19,10 +27,9 @@ type Option = { value: string; label: string };
  * §5.2): a grouped typeahead over the server-built `index` of books, podcasts,
  * factions, facets, formats and authors. Here it mostly filters IN PLACE —
  * picking a facet/format applies that filter, an author or raw Enter sets `q`, a
- * book opens it; a faction jumps to its hub and a podcast leaves the archive
- * (→ /podcasts), the two picks that navigate away. (Home renders the same console
- * in navigate-mode.) The console owns the combobox mechanics; this island owns
- * the routing semantics.
+ * book opens it; entity and podcast picks navigate to their canonical surfaces.
+ * (Home renders the same console in navigate-mode.) The console owns the
+ * combobox mechanics; this island owns the routing semantics.
  *
  * Two rows by design: the prominent query console over a quieter row of facet
  * controls (Faction / Format / Sort). The dropdowns are the on-brand
@@ -107,6 +114,14 @@ export default function WerkeFilters({
         // over the Compendium primarch directory, books AND podcasts).
         setQ("");
         router.push(primarchFocusHref(s.value));
+        break;
+      case "character":
+        setQ("");
+        router.push(characterFocusHref(s.value));
+        break;
+      case "world":
+        setQ("");
+        router.push(worldFocusHref(s.value));
         break;
       case "facet":
         setQ("");

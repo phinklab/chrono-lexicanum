@@ -116,7 +116,7 @@
   margin: 0;
   padding: 4px;
   background: var(--cl-void-2);
-  border: 1px solid var(--cl-cyan-dim);
+  border: 1px solid color-mix(in oklch, var(--cl-gold) 24%, transparent);
 }
 /* The listbox itself holds only options + (presentational) group headers; the
    footer hint + empty-state live OUTSIDE it as <p> siblings, so role=listbox
@@ -140,11 +140,10 @@
   gap: 10px;
   padding: 7px 10px;
   cursor: pointer;
-  border-left: 2px solid transparent;
+  border-left: 0;
 }
 .browse-suggest__opt.is-active {
-  background: var(--cl-cyan-fnt);
-  border-left-color: var(--cl-cyan);
+  background: rgba(201, 166, 90, 0.12);
 }
 .browse-suggest__label {
   flex: 1;
@@ -160,6 +159,8 @@
 /* Non-book picks read as labels, not prose → mono, tracked, like the chips. */
 .browse-suggest__opt--faction .browse-suggest__label,
 .browse-suggest__opt--primarch .browse-suggest__label,
+.browse-suggest__opt--character .browse-suggest__label,
+.browse-suggest__opt--world .browse-suggest__label,
 .browse-suggest__opt--facet .browse-suggest__label,
 .browse-suggest__opt--format .browse-suggest__label,
 .browse-suggest__opt--author .browse-suggest__label {
@@ -170,7 +171,7 @@
 }
 .browse-suggest__hit {
   background: transparent;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   font-weight: 600;
 }
 .browse-suggest__hint {
@@ -586,7 +587,6 @@ body:has(main.catalogue) .browse-suggest {
 }
 body:has(main.catalogue) .browse-suggest__opt.is-active {
   background: rgba(201, 166, 90, 0.12);
-  border-left-color: var(--cl-gold);
 }
 body:has(main.catalogue) .browse-suggest__hit {
   color: var(--cl-gold);

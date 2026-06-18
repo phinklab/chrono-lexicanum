@@ -18,7 +18,10 @@ import {
   loadPodcastSearchIndex,
   buildPodcastSuggestions,
 } from "@/app/archive/podcasts/loader";
-import { loadPrimarchSuggestions } from "@/lib/compendium/loader";
+import {
+  loadCompendiumSearchSuggestions,
+  loadPrimarchSuggestions,
+} from "@/lib/compendium/loader";
 import {
   applyWorksFilters,
   buildSearchIndex,
@@ -31,7 +34,7 @@ import {
 export const metadata: Metadata = {
   title: "Archive — Chrono Lexicanum",
   description:
-    "Browse the full Warhammer 40,000 novel archive — by era, faction, format and mood.",
+    "Search the Chrono Lexicanum archive — books, podcasts, factions, characters and worlds.",
 };
 
 interface WerkePageProps {
@@ -76,9 +79,15 @@ function hrefWith(base: WorksParams, key: string, value: string): string {
 export default async function WerkePage({ searchParams }: WerkePageProps) {
   const sp = await searchParams;
   const params = parseWorksParams(sp);
-  const [{ books }, podcastData, primarchSuggestions] = await Promise.all([
+  const [
+    { books },
+    podcastData,
+    compendiumSuggestions,
+    primarchSuggestions,
+  ] = await Promise.all([
     loadBrowseBooks(),
     loadPodcastSearchIndex(),
+    loadCompendiumSearchSuggestions(),
     loadPrimarchSuggestions(),
   ]);
 
@@ -114,6 +123,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
   const searchIndex = [
     ...buildSearchIndex(books),
     ...buildPodcastSuggestions(podcastData),
+    ...compendiumSuggestions,
     ...primarchSuggestions,
   ];
 
@@ -138,7 +148,7 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
   return (
     <main className="catalogue catalogue--werke">
       {focusSlug ? <CompendiumFocusOpener href={`/buch/${focusSlug}`} /> : null}
-      <section className="catalogue-hero" aria-label="Works — the novel archive">
+      <section className="catalogue-hero" aria-label="Archive — the media archive">
         <div className="catalogue-hero__photo" aria-hidden />
         <div className="catalogue-hero__fade" aria-hidden />
         <ScrollScrim />
@@ -175,12 +185,12 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
         />
         <div className="catalogue-hero__title">
           <div className="catalogue-hero__eyebrow">{"CATALOGVS · LIBRORVM"}</div>
-          <h1 className="catalogue-hero__heading">WORKS</h1>
+          <h1 className="catalogue-hero__heading">ARCHIVE</h1>
           <div className="catalogue-hero__rule" aria-hidden />
           <p className="catalogue-hero__sub">
             {books.length === 0
-              ? "No books in the database yet."
-              : `${books.length} Warhammer 40,000 novels — by era, faction, format and mood.`}
+              ? "No archive records in the database yet."
+              : `${books.length} novels in the catalogue, with podcasts and Compendium entities searchable from the same console.`}
           </p>
         </div>
       </section>

@@ -154,6 +154,8 @@ export type SuggestKind =
   | "author"
   | "faction"
   | "primarch"
+  | "character"
+  | "world"
   | "facet"
   | "format";
 
@@ -169,6 +171,8 @@ export interface Suggestion {
   /** Navigation target for kinds that route directly (podcast → show page /
    *  `#ep-<id>` deep link). Books/factions/… derive their target from `value`. */
   href?: string | null;
+  /** Canonical label when this row is an alias hit (`Alias → Canonical`). */
+  aliasOf?: string | null;
 }
 
 export interface RankedSuggestion extends Suggestion {
@@ -182,15 +186,19 @@ const GROUP_ORDER: Record<SuggestKind, number> = {
   podcast: 1,
   faction: 2,
   primarch: 3,
-  facet: 4,
-  format: 5,
-  author: 6,
+  character: 4,
+  world: 5,
+  facet: 6,
+  format: 7,
+  author: 8,
 };
 const GROUP_CAP: Record<SuggestKind, number> = {
   book: 6,
   podcast: 6,
   faction: 5,
   primarch: 5,
+  character: 5,
+  world: 5,
   facet: 5,
   format: 4,
   author: 4,
@@ -207,6 +215,27 @@ function matchScore(text: string, needle: string): number {
 
 export const SUGGEST_MIN_LEN = 2;
 
+function dedupeKey(s: Suggestion): string {
+  return `${s.kind}:${s.value}`;
+}
+
+function aliasRank(s: Suggestion): number {
+  return s.aliasOf ? 1 : 0;
+}
+
+function preferRankedSuggestion(
+  current: RankedSuggestion,
+  candidate: RankedSuggestion,
+): RankedSuggestion {
+  if (candidate.score !== current.score) {
+    return candidate.score < current.score ? candidate : current;
+  }
+  if (aliasRank(candidate) !== aliasRank(current)) {
+    return aliasRank(candidate) < aliasRank(current) ? candidate : current;
+  }
+  return candidate.label.localeCompare(current.label, "en") < 0 ? candidate : current;
+}
+
 /**
  * Rank `index` against `query`, returning a flat list ordered by group then
  * relevance, capped per group. A hint-only match ranks below any label match.
@@ -219,7 +248,7 @@ export function rankSuggestions(
   const needle = query.trim().toLowerCase();
   if (needle.length < SUGGEST_MIN_LEN) return [];
 
-  const scored: RankedSuggestion[] = [];
+  const byEntity = new Map<string, RankedSuggestion>();
   for (const s of index) {
     const labelScore = matchScore(s.label.toLowerCase(), needle);
     let score = labelScore;
@@ -228,13 +257,18 @@ export function rankSuggestions(
       if (hintScore >= 0) score = hintScore + 4; // ranks under every label hit
     }
     if (score < 0) continue;
-    scored.push({ ...s, score });
+    const ranked = { ...s, score };
+    const key = dedupeKey(s);
+    const current = byEntity.get(key);
+    byEntity.set(key, current ? preferRankedSuggestion(current, ranked) : ranked);
   }
 
+  const scored = [...byEntity.values()];
   scored.sort(
     (a, b) =>
       GROUP_ORDER[a.kind] - GROUP_ORDER[b.kind] ||
       a.score - b.score ||
+      aliasRank(a) - aliasRank(b) ||
       a.label.localeCompare(b.label, "en"),
   );
 
@@ -253,10 +287,54 @@ export const SUGGEST_GROUP_LABEL: Record<SuggestKind, string> = {
   podcast: "Podcasts",
   faction: "Factions",
   primarch: "Primarchs",
+  character: "Characters",
+  world: "Worlds",
   facet: "Facets",
   format: "Formats",
   author: "Authors",
 };
+
+export type EntitySuggestKind = "faction" | "character" | "world";
+
+export interface EntitySuggestionSource {
+  kind: EntitySuggestKind;
+  label: string;
+  value: string;
+  hint?: string | null;
+  aliases?: readonly string[];
+}
+
+export function buildEntitySuggestions(
+  entities: readonly EntitySuggestionSource[],
+): Suggestion[] {
+  const out: Suggestion[] = [];
+  for (const entity of entities) {
+    out.push({
+      kind: entity.kind,
+      label: entity.label,
+      value: entity.value,
+      hint: entity.hint ?? null,
+    });
+
+    const seenAliases = new Set<string>();
+    for (const rawAlias of entity.aliases ?? []) {
+      const alias = rawAlias.trim();
+      const aliasKey = alias.toLowerCase();
+      if (!alias || aliasKey === entity.label.toLowerCase() || seenAliases.has(aliasKey)) {
+        continue;
+      }
+      seenAliases.add(aliasKey);
+      out.push({
+        kind: entity.kind,
+        label: `${alias} → ${entity.label}`,
+        value: entity.value,
+        hint: entity.hint ?? null,
+        aliasOf: entity.label,
+      });
+    }
+  }
+  return out;
+}
 
 /**
  * Where an entity pick from the universal search lands, shared by every console
@@ -286,16 +364,26 @@ export function primarchFocusHref(id: string): string {
   return compendiumFocusHref("primarchen", id);
 }
 
+export function characterFocusHref(id: string): string {
+  return compendiumFocusHref("charaktere", id);
+}
+
+export function worldFocusHref(id: string): string {
+  return compendiumFocusHref("welten", id);
+}
+
 /**
- * Build the typeahead index from the loaded browse books — one book entry each,
- * plus the distinct factions, facets, formats (present-only, in canon order) and
- * authors. Shared so `/werke` (filter-in-place) and Home (navigate-into-archive)
- * feed their consoles from the *same* index rather than two drifting copies.
+ * Build the media/filter part of the typeahead index from the loaded browse books
+ * — one book entry each, plus distinct facets, formats (present-only, in canon
+ * order) and authors. Compendium entity rows (factions / characters / worlds +
+ * aliases) are merged by the host pages from `loadCompendiumSearchSuggestions`,
+ * because their hints and visibility rules belong to the Compendium loaders.
+ * Shared so `/werke` (filter-in-place) and Home (navigate-into-archive) feed
+ * their consoles from the *same* index rather than two drifting copies.
  * `rankSuggestions` re-groups by kind, so insertion order here is immaterial.
  */
 export function buildSearchIndex(books: readonly BrowseBook[]): Suggestion[] {
   const index: Suggestion[] = [];
-  const factionMap = new Map<string, string>();
   const authorSeen = new Map<string, string>();
   const facetSeen = new Set<string>();
 
@@ -306,7 +394,6 @@ export function buildSearchIndex(books: readonly BrowseBook[]): Suggestion[] {
       value: b.slug,
       hint: b.authors[0] ?? b.seriesName ?? null,
     });
-    for (const f of b.factions) factionMap.set(f.id, f.name);
     for (const a of b.authors) {
       const key = a.toLowerCase();
       if (!authorSeen.has(key)) authorSeen.set(key, a);
@@ -327,9 +414,6 @@ export function buildSearchIndex(books: readonly BrowseBook[]): Suggestion[] {
   for (const f of FORMAT_ORDER) {
     if (!presentFormats.has(f)) continue;
     index.push({ kind: "format", label: FORMAT_LABELS[f] ?? f, value: f });
-  }
-  for (const [value, label] of factionMap) {
-    index.push({ kind: "faction", label, value });
   }
   for (const name of authorSeen.values()) {
     index.push({ kind: "author", label: name, value: name });
