@@ -22,11 +22,30 @@ main.catalogue {
 
 .catalogue-hero {
   position: relative;
-  /* Cap the hero height so the catalogue body (margin-top:-80px) doesn't drop
-   * far below the fixed title on tall viewports. Identical clamp to /ask's
-   * .ask-console__mast so the two pages' content bands stay aligned. */
-  height: clamp(520px, 60vh, 700px);
+  min-height: 100dvh;
+  height: auto;
   background: transparent;
+}
+
+body:has(main.catalogue--werke) .site-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 30%,
+      transparent 36%,
+      color-mix(in srgb, var(--cl-void) 42%, transparent) 100%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--cl-void) 10%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 16%, transparent) 18%,
+      color-mix(in srgb, var(--cl-void) 62%, transparent) 38%,
+      color-mix(in srgb, var(--cl-void) 92%, transparent) 58%,
+      var(--cl-void) 76%
+    );
 }
 /* Photo + fade are viewport-fixed so the title image stays put as the user
  * scrolls into the catalogue body; rows then slide over the image from below.
@@ -89,7 +108,7 @@ main.catalogue {
 .catalogue-hero__sweep {
   position: absolute;
   left: 50%;
-  top: 60px;
+  top: clamp(300px, 55vh, 820px);
   width: 360px;
   height: 360px;
   transform: translateX(-50%);
@@ -100,7 +119,8 @@ main.catalogue {
   position: absolute;
   left: 0;
   right: 0;
-  top: 320px;
+  top: auto;
+  bottom: clamp(148px, 21vh, 230px);
   text-align: center;
   z-index: 3;
   pointer-events: none;
@@ -148,11 +168,8 @@ main.catalogue {
   position: relative;
   z-index: 2;
   max-width: 1320px;
-  /* Pull the toolbar up so the first row overlaps the fading lower edge of
-   * the fixed hero photo (Brief: "die Bücherliste darf das Bild etwas
-   * überlappen"). */
-  margin: -80px auto 0;
-  padding: 24px clamp(20px, 3vw, 48px) 80px;
+  margin: 0 auto;
+  padding: calc(var(--top-nav-h, 48px) + 24px) clamp(20px, 3vw, 48px) 80px;
   /* No boxed backing: the list reads against the full-viewport .catalogue-scrim
    * (edge-to-edge), so there are no hard left/right gradient edges. */
 }
@@ -731,11 +748,13 @@ main.catalogue :focus-visible {
 }
 
 @media (max-width: 720px) {
-  .catalogue-hero { height: 420px; }
-  .catalogue-hero__sweep { width: 260px; height: 260px; top: 48px; }
-  .catalogue-hero__title { top: 240px; }
+  .catalogue-hero {
+    min-height: 100dvh;
+  }
+  .catalogue-hero__sweep { width: 260px; height: 260px; top: clamp(180px, 45vh, 340px); }
+  .catalogue-hero__title { bottom: clamp(138px, 24vh, 190px); }
   .catalogue-hero__heading { font-size: clamp(40px, 8vw, 56px); }
-  .catalogue-body { margin-top: -48px; }
+  .catalogue-body { padding-top: calc(var(--top-nav-h, 48px) + 18px); }
   .catalogue-toolbar { font-size: var(--fs-label); gap: 10px; }
   .catalogue-row__summary {
     grid-template-columns: 28px 12px minmax(0, 1fr) 70px 16px;

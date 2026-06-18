@@ -69,6 +69,7 @@ export default async function HubPage() {
         className="hub-scrim"
         varName="--hub-scrim-opacity"
         heroSelector=".hub-act--splash"
+        maxOpacity={0.86}
       />
 
       <div className="hub-readout" aria-hidden>
@@ -146,15 +147,15 @@ export default async function HubPage() {
           </p>
         </div>
 
-        <HeroScrollCue label="What can I do here?" target=".hub-act--intro" />
+        <HeroScrollCue label="Enter the archive" target=".hub-act--intro" />
       </section>
 
       {/* ── Act 2 · Praefatio — the reading column with initial + live search ── */}
-      <section className="hub-act hub-act--intro" aria-label="What can I do here?">
+      <section className="hub-act hub-act--intro" aria-label="What lives in the archive?">
         <div className="hub-intro">
           <div className="hub-intro__head">
             <p className="hub-eyebrow">{"PRAEFATIO"}</p>
-            <h2 className="hub-intro__heading">What can I do here?</h2>
+            <h2 className="hub-intro__heading">What lives in the archive?</h2>
           </div>
           <p className="lx-prose lx-initial">
             A hobby — a fan-built archive of the 41st millennium, made with love

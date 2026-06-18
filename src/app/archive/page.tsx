@@ -3,15 +3,15 @@ import Link from "next/link";
 import { FORMAT_LABELS } from "@/lib/book-labels";
 import { factionIconClass, primaryRowFaction } from "@/lib/faction-icon";
 import FactionClassIcon from "@/components/chrome/FactionClassIcon";
+import SiteBackground from "@/components/chrome/SiteBackground";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
+import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import CompendiumFocusOpener from "@/components/compendium/CompendiumFocusOpener";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
-import ArtCreditTag from "@/components/chrome/ArtCreditTag";
-import { backgroundArtCredit } from "@/lib/art-credits";
 import WerkeFilters from "./WerkeFilters";
 import { bookSlugById, loadBrowseBooks, type BrowseBook } from "./loader";
 import {
@@ -42,7 +42,7 @@ interface WerkePageProps {
 }
 
 const READOUT_LINES = [
-  "· CATALOGVS · LIBRORVM",
+  "· ARCHIVVM · LIBRORVM / VOX",
   "· INDEX MOUNTED · 7 ERAS",
   "· FILTER · FACTIO / FORMA",
   "· LECTIO PROFVNDA · READY",
@@ -141,17 +141,12 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
     if (!activeFacet) activeFacet = { id: params.facet, name: params.facet, category: null };
   }
 
-  // The catalogue keeps its own fixed hero photo (not <SiteBackground>), so it
-  // credits the shared library-nave artwork via the same bottom-right slot.
-  const heroCredit = backgroundArtCredit("/img/main-bg.webp");
-
   return (
-    <main className="catalogue catalogue--werke">
+    <main className="catalogue catalogue--werke route-snap">
+      <SiteBackground variant="main" position="right bottom" />
       {focusSlug ? <CompendiumFocusOpener href={`/buch/${focusSlug}`} /> : null}
-      <section className="catalogue-hero" aria-label="Archive — the media archive">
-        <div className="catalogue-hero__photo" aria-hidden />
-        <div className="catalogue-hero__fade" aria-hidden />
-        <ScrollScrim />
+      <section className="catalogue-hero route-act" aria-label="Archive — the media archive">
+        <ScrollScrim maxOpacity={0.86} />
         <div className="catalogue-hero__sweep" aria-hidden>
           <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-gold)" />
         </div>
@@ -184,18 +179,19 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
           opacity={0.55}
         />
         <div className="catalogue-hero__title">
-          <div className="catalogue-hero__eyebrow">{"CATALOGVS · LIBRORVM"}</div>
+          <div className="catalogue-hero__eyebrow">{"ARCHIVVM · LIBRORVM ET VOCVM"}</div>
           <h1 className="catalogue-hero__heading">ARCHIVE</h1>
           <div className="catalogue-hero__rule" aria-hidden />
           <p className="catalogue-hero__sub">
             {books.length === 0
               ? "No archive records in the database yet."
-              : `${books.length} novels in the catalogue, with podcasts and Compendium entities searchable from the same console.`}
+              : `${books.length} novels, ${podcastData.episodes.length} podcast episodes and ${podcastData.shows.length} shows in one searchable archive.`}
           </p>
         </div>
+        <RouteScrollCue label="Search the archive" target=".catalogue-body" />
       </section>
 
-      <div className="catalogue-body">
+      <div className="catalogue-body route-body-snap">
         {/* Search console first, centred under the masthead text (maintainer
             adjustment 2026-06-11); the count line follows below it. */}
         {books.length > 0 && (
@@ -242,10 +238,6 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
 
         <ArchiveFooter mid="CLICK ANY TITLE · LECTIO PROFVNDA" />
       </div>
-
-      {heroCredit && (
-        <ArtCreditTag credit={heroCredit} className="art-credit--site" />
-      )}
     </main>
   );
 }

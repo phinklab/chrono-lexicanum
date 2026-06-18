@@ -17,7 +17,7 @@
  *   - "chronicle"  ← Timeline / Chronicle (cathedral timeline diagram)
  *   - "cartog"     ← cartog-hall (handoff photo, currently unused)
  *   - "cartog-holo" ← /map (holo-dais observatory chamber; 55-map.css dims it)
- *   - "login"      ← /login (lightless cathedral librarium — Philipp Künzler)
+ *   - "login"      ← /login (lightless cathedral librarium — phil kuenzler)
  *   - "none"       ← just vignette + grain over the void
  */
 import ArtCreditTag from "@/components/chrome/ArtCreditTag";
