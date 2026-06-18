@@ -262,3 +262,165 @@ export function sentinelId(axis: string, rawName: string): string {
 export function isSentinelId(id: string): boolean {
   return id.startsWith("__unresolved__:");
 }
+
+/** Parse a sentinel id back into its axis + slug (null if not a sentinel). */
+export function parseSentinelId(
+  id: string,
+): { axis: "faction" | "location" | "character"; slug: string } | null {
+  const m = /^__unresolved__:(faction|location|character):(.+)$/.exec(id);
+  if (!m) return null;
+  return { axis: m[1] as "faction" | "location" | "character", slug: m[2]! };
+}
+
+// =============================================================================
+// Stage 3 (Brief 155) — Web-enrichment proposal contract.
+//
+// The B11 finder/verifier above decided WHETHER a structural entity belongs to a
+// book (synopsis-only). Stage 3 takes each confirmed `__unresolved__:faction|
+// location:` sentinel and ENRICHES it to a full catalog entry via web lookup:
+// the fields a Map pin / Ask ranking needs that no synopsis carries (faction
+// alignment+parent+tone; location sector+gx/gy+tags). Every result is a READ-ONLY
+// proposal with cited sources + confidence; materialization is a hand-gate.
+//
+// Three decisions per sentinel:
+//   - new       — a real, canonically-identified entity that is NOT in the
+//                 catalog → propose it with its enriched fields.
+//   - alias     — the entity already EXISTS (the sentinel was only an
+//                 unaliased surface form) → propose a `rawName → existing id`
+//                 alias instead of a duplicate entity.
+//   - unresolved — no credible wiki hit (or existence refuted) → the sentinel
+//                 stays `__unresolved__`; fields blank, never guessed.
+// =============================================================================
+
+/** The two structural axes the enrichment pass covers (characters are out of scope). */
+export type EnrichAxis = "faction" | "location";
+
+const TRUST_VALUES = ["lexicanum", "fandom", "wikipedia", "black-library", "other"] as const;
+
+/**
+ * Normalize a model-written trust label onto the controlled set. The model
+ * drifts on cosmetics — "black_library" / "blacklibrary" / "Black Library" for
+ * `black-library`, "wikia" for `fandom`, "Lexicanum (wh40k)" for `lexicanum`.
+ * Such drift must not drop an otherwise-sound proposal; a genuinely
+ * unrecognizable label conservatively collapses to `other` (lowest trust) rather
+ * than failing the whole batch.
+ */
+function normalizeTrust(v: unknown): unknown {
+  if (typeof v !== "string") return v;
+  const key = v.toLowerCase().replace(/[^a-z]/g, "");
+  if (key.includes("lexicanum")) return "lexicanum";
+  if (key.includes("blacklibrary")) return "black-library";
+  if (key.includes("fandom") || key.includes("wikia")) return "fandom";
+  if (key.includes("wikipedia")) return "wikipedia";
+  if ((TRUST_VALUES as readonly string[]).includes(v)) return v;
+  return "other";
+}
+
+/** A cited web source + where it sits in the Brief-155 trust hierarchy. */
+export const EnrichSourceSchema = z
+  .object({
+    url: z.string().url(),
+    trust: z.preprocess(normalizeTrust, z.enum(TRUST_VALUES)),
+  })
+  .strict();
+
+/**
+ * Faction enrichment payload. A field is `null` when it cannot be evidenced —
+ * NEVER guessed. `parent` is an existing faction id and `tone` a value from the
+ * live catalog vocabulary; both are re-validated against the catalogs at merge.
+ */
+export const FactionEnrichmentSchema = z
+  .object({
+    canonicalName: z.string().min(1),
+    proposedId: z.string().regex(/^[a-z0-9_]+$/, "id must be lower snake_case [a-z0-9_]"),
+    parent: z.string().min(1).nullable(),
+    alignment: z.enum(["imperium", "chaos", "xenos"]).nullable(),
+    tone: z.string().min(1).nullable(),
+    glyph: z.string().min(1).nullable(),
+  })
+  .strict();
+
+/**
+ * Location enrichment payload. `gx`/`gy` are populated ONLY when a canonical
+ * galactic position is evidenced (`placeable: true`); otherwise null. `sector`
+ * is an existing sector id (re-validated at merge). Coordinates are never guessed.
+ */
+export const LocationEnrichmentSchema = z
+  .object({
+    canonicalName: z.string().min(1),
+    proposedId: z.string().regex(/^[a-z0-9_]+$/, "id must be lower snake_case [a-z0-9_]"),
+    sector: z.string().min(1).nullable(),
+    gx: z.number().finite().nullable(),
+    gy: z.number().finite().nullable(),
+    tags: z.array(z.string().min(1)),
+    capital: z.boolean().nullable(),
+    destroyed: z.boolean().nullable(),
+    warp: z.boolean().nullable(),
+    placeable: z.boolean(),
+  })
+  .strict();
+
+/** One enricher decision for one sentinel. Discriminated by `decision`. */
+export const EnrichmentProposalSchema = z
+  .object({
+    sentinelKey: z.string().min(1),
+    axis: z.enum(["faction", "location"]),
+    rawName: z.string().min(1),
+    decision: z.enum(["new", "alias", "unresolved"]),
+    faction: FactionEnrichmentSchema.optional(),
+    location: LocationEnrichmentSchema.optional(),
+    /** decision=alias: an EXISTING canonical id this surface form should map to. */
+    aliasTo: z.string().min(1).optional(),
+    sources: z.array(EnrichSourceSchema),
+    confidence: z.number().min(0).max(1),
+    notes: z.string().min(1),
+  })
+  .strict()
+  .superRefine((p, ctx) => {
+    if (p.faction && p.axis !== "faction")
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "`faction` payload on a non-faction axis" });
+    if (p.location && p.axis !== "location")
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "`location` payload on a non-location axis" });
+    if (p.decision === "new") {
+      if (p.axis === "faction" && !p.faction)
+        ctx.addIssue({ code: z.ZodIssueCode.custom, message: "decision=new (faction) needs a `faction` payload" });
+      if (p.axis === "location" && !p.location)
+        ctx.addIssue({ code: z.ZodIssueCode.custom, message: "decision=new (location) needs a `location` payload" });
+      if (p.sources.length === 0)
+        ctx.addIssue({ code: z.ZodIssueCode.custom, message: "decision=new needs at least one cited source" });
+    }
+    if (p.decision === "alias" && !p.aliasTo)
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "decision=alias needs an `aliasTo` canonical id" });
+  });
+
+/** An enricher batch: an object keyed by sentinelKey. */
+export const EnricherBatchSchema = z.record(z.string(), EnrichmentProposalSchema);
+
+export type EnrichSource = z.infer<typeof EnrichSourceSchema>;
+export type FactionEnrichment = z.infer<typeof FactionEnrichmentSchema>;
+export type LocationEnrichment = z.infer<typeof LocationEnrichmentSchema>;
+export type EnrichmentProposal = z.infer<typeof EnrichmentProposalSchema>;
+export type EnricherBatch = z.infer<typeof EnricherBatchSchema>;
+
+/**
+ * Verifier verdict per sentinel. `existence` is mandatory (is this a real,
+ * canonically-identified entity?); `alignment`/`parent` are checked for factions
+ * (Ask-bearing), `sector` for locations. A field whose verdict is `refute` is
+ * blanked in the merged proposal. Coordinates are deliberately NOT verified
+ * (fuzzy by design — sector plausibility is enough).
+ */
+export const EnrichVerdictSchema = z
+  .object({
+    existence: z.enum(["confirm", "refute"]),
+    alignment: z.enum(["confirm", "refute"]).optional(),
+    parent: z.enum(["confirm", "refute"]).optional(),
+    sector: z.enum(["confirm", "refute"]).optional(),
+    reason: z.string().min(1),
+  })
+  .strict();
+
+/** A verifier batch: an object keyed by sentinelKey. */
+export const EnrichVerifierBatchSchema = z.record(z.string(), EnrichVerdictSchema);
+
+export type EnrichVerdict = z.infer<typeof EnrichVerdictSchema>;
+export type EnrichVerifierBatch = z.infer<typeof EnrichVerifierBatchSchema>;
