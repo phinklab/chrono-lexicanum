@@ -15,7 +15,10 @@ import {
   loadPodcastSearchIndex,
   buildPodcastSuggestions,
 } from "@/app/archive/podcasts/loader";
-import { loadPrimarchSuggestions } from "@/lib/compendium/loader";
+import {
+  loadCompendiumSearchSuggestions,
+  loadPrimarchSuggestions,
+} from "@/lib/compendium/loader";
 
 export const revalidate = 3600;
 
@@ -23,9 +26,15 @@ export default async function HubPage() {
   // Reuse the public /archive loaders so the Home search console is fed
   // the same live, unified index the archive ranks — books first, then podcasts
   // (display-only — no schema/data change here).
-  const [{ books }, podcastData, primarchSuggestions] = await Promise.all([
+  const [
+    { books },
+    podcastData,
+    compendiumSuggestions,
+    primarchSuggestions,
+  ] = await Promise.all([
     loadBrowseBooks(),
     loadPodcastSearchIndex(),
+    loadCompendiumSearchSuggestions(),
     loadPrimarchSuggestions(),
   ]);
   const novelCount = books.length;
@@ -34,6 +43,7 @@ export default async function HubPage() {
   const searchIndex = [
     ...buildSearchIndex(books),
     ...buildPodcastSuggestions(podcastData),
+    ...compendiumSuggestions,
     ...primarchSuggestions,
   ];
   const stats = `${novelCount} NOVELS · 7 ERAS · 5 SEGMENTA`;
@@ -129,10 +139,10 @@ export default async function HubPage() {
           <h1 className="hub-hero__heading">CHRONO LEXICANUM</h1>
           <div className="hub-hero__rule" aria-hidden />
           <p className="hub-hero__sub">
-            A fan-made archive of Warhammer 40,000 novels and the lore podcasts
-            beside them. Chart the eras in the Chronicle, roam the galaxy with
-            the Cartographer, browse the Compendium — or Ask the Archive for
-            your next book.
+            A fan-made non-official guide to Warhammer 40,000 stories: books,
+            podcasts, factions, worlds and characters in one archive. Chart the
+            eras, roam the galaxy, browse the Compendium — or Ask the Archive
+            where to begin.
           </p>
         </div>
 

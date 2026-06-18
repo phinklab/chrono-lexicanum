@@ -251,7 +251,6 @@ body:has(main.podcasts) .browse-suggest {
 }
 body:has(main.podcasts) .browse-suggest__opt.is-active {
   background: rgba(201, 166, 90, 0.12);
-  border-left-color: var(--cl-gold);
 }
 body:has(main.podcasts) .browse-suggest__hit {
   color: var(--cl-gold);

@@ -29,7 +29,12 @@ import {
 } from "@/app/fraktionen/loader";
 import { hasContent } from "@/app/fraktionen/filters";
 import { loadEntity } from "@/lib/entity/loader";
-import type { Suggestion } from "@/app/archive/filters";
+import {
+  buildEntitySuggestions,
+  type EntitySuggestionSource,
+  type Suggestion,
+} from "@/app/archive/filters";
+import { listAliasEntries, type AliasAxis } from "@/lib/aliases";
 import type { CompendiumItem } from "./categories";
 import {
   ALL_PRIMARCH_CHARACTER_IDS,
@@ -42,9 +47,11 @@ import {
  * named constant (Brief 129 leaves N to the implementer): with ~2400 location
  * rows, the long tail is single-mention scenery — 3+ appearances (books +
  * podcast episodes, counted off `work_locations`) marks a world the stories
- * actually orbit, which is what the directory should surface.
+ * actually orbit, which is what the directory should surface. Gate F+L lowered
+ * the UI threshold to 2 so the newly-applied faction/location pass is visible
+ * without opening the single-mention scenery tail.
  */
-export const WORLD_MENTION_THRESHOLD = 3;
+export const WORLD_MENTION_THRESHOLD = 2;
 
 const ALIGNMENT_LABELS: Record<Alignment, string> = {
   imperium: "Imperium",
@@ -228,6 +235,61 @@ export const loadPrimarchSuggestions = cache(async (): Promise<Suggestion[]> => 
   }
   return out;
 });
+
+function itemSearchHint(item: CompendiumItem): string | null {
+  const parts = [item.kicker, item.meta].filter((v): v is string => Boolean(v));
+  return parts.length > 0 ? parts.join(" · ") : null;
+}
+
+function aliasesByCanonicalId(axis: AliasAxis): Map<string, string[]> {
+  const out = new Map<string, string[]>();
+  for (const entry of listAliasEntries(axis)) {
+    const bucket = out.get(entry.canonicalId);
+    if (bucket) bucket.push(entry.surfaceForm);
+    else out.set(entry.canonicalId, [entry.surfaceForm]);
+  }
+  return out;
+}
+
+function entitySource(
+  kind: EntitySuggestionSource["kind"],
+  item: CompendiumItem,
+  aliases: ReadonlyMap<string, readonly string[]>,
+): EntitySuggestionSource {
+  return {
+    kind,
+    label: item.name,
+    value: item.id,
+    hint: itemSearchHint(item),
+    aliases: aliases.get(item.id) ?? [],
+  };
+}
+
+/**
+ * Faction / character / world suggestions for the universal search. This uses
+ * the same visible rows as the Compendium directories, so counts, focus targets
+ * and the search dropdown cannot drift apart. Alias rows are display-only
+ * surfaces (`Alias → Canonical`) that still commit the canonical id.
+ */
+export const loadCompendiumSearchSuggestions = cache(
+  async (): Promise<Suggestion[]> => {
+    const [factions, characters, worlds] = await Promise.all([
+      loadFactionItems(),
+      loadCharacterItems(),
+      loadWorldItems(),
+    ]);
+
+    const factionAliases = aliasesByCanonicalId("faction");
+    const characterAliases = aliasesByCanonicalId("character");
+    const locationAliases = aliasesByCanonicalId("location");
+
+    return buildEntitySuggestions([
+      ...factions.map((item) => entitySource("faction", item, factionAliases)),
+      ...characters.map((item) => entitySource("character", item, characterAliases)),
+      ...worlds.map((item) => entitySource("world", item, locationAliases)),
+    ]);
+  },
+);
 
 export const loadWorldItems = cache(async (): Promise<CompendiumItem[]> => {
   const rows = await cachedWelten();

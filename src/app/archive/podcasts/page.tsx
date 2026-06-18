@@ -11,7 +11,10 @@ import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import { loadBrowseBooks } from "@/app/archive/loader";
 import { buildSearchIndex } from "@/app/archive/filters";
-import { loadPrimarchSuggestions } from "@/lib/compendium/loader";
+import {
+  loadCompendiumSearchSuggestions,
+  loadPrimarchSuggestions,
+} from "@/lib/compendium/loader";
 import {
   loadPodcastIndex,
   loadPodcastSearchIndex,
@@ -44,10 +47,17 @@ export default async function PodcastsPage() {
   // The show hall plus the unified search index — books (from /archive) merged
   // with podcasts so this view carries the same archive-wide search Home and
   // the books view do.
-  const [shows, { books }, podcastData, primarchSuggestions] = await Promise.all([
+  const [
+    shows,
+    { books },
+    podcastData,
+    compendiumSuggestions,
+    primarchSuggestions,
+  ] = await Promise.all([
     loadPodcastIndex(),
     loadBrowseBooks(),
     loadPodcastSearchIndex(),
+    loadCompendiumSearchSuggestions(),
     loadPrimarchSuggestions(),
   ]);
   const totalEpisodes = shows.reduce((n, s) => n + s.episodeCount, 0);
@@ -56,6 +66,7 @@ export default async function PodcastsPage() {
   const searchIndex = [
     ...buildSearchIndex(books),
     ...buildPodcastSuggestions(podcastData),
+    ...compendiumSuggestions,
     ...primarchSuggestions,
   ];
 

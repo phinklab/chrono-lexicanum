@@ -3,7 +3,13 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import BrowseSearch from "@/components/browse/BrowseSearch";
-import { factionFocusHref, primarchFocusHref, type Suggestion } from "@/app/archive/filters";
+import {
+  characterFocusHref,
+  factionFocusHref,
+  primarchFocusHref,
+  worldFocusHref,
+  type Suggestion,
+} from "@/app/archive/filters";
 
 /**
  * Podcast-page search (Brief 132) — the same archive-wide console Home and
@@ -15,6 +21,8 @@ import { factionFocusHref, primarchFocusHref, type Suggestion } from "@/app/arch
  *   - podcast              → s.href                 (show page, or #ep-<id> deep link)
  *   - faction              → /compendium/fraktionen?focus=[id]  (faction directory + popup)
  *   - primarch             → /compendium/primarchen?focus=[id] (primarch directory + popup)
+ *   - character            → /compendium/charaktere?focus=[id] (character directory + popup)
+ *   - world                → /compendium/welten?focus=[id] (world directory + popup)
  *   - facet/format         → /archive?<param>=…     (land in the archive, pre-filtered)
  *   - author / raw Enter   → /archive?q=…           (land in the archive, searched)
  *   - empty Enter          → /archive               (open the unfiltered archive)
@@ -62,6 +70,14 @@ export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
         // merged twins), opened as a popup over the Compendium primarch directory.
         setQ("");
         router.push(primarchFocusHref(s.value));
+        break;
+      case "character":
+        setQ("");
+        router.push(characterFocusHref(s.value));
+        break;
+      case "world":
+        setQ("");
+        router.push(worldFocusHref(s.value));
         break;
       case "facet":
         toWerke("facet", s.value);

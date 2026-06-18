@@ -209,6 +209,7 @@ body:has(main.hub) .site-bg::after {
   font-size: clamp(44px, 4.6vw, 64px);
   letter-spacing: 0.22em;
   color: var(--cl-bone);
+  white-space: nowrap;
   /* Dark shadows only — no cyan bloom behind the resting title (restraint #1
      + the hub-aesthetic no-glow preference). */
   text-shadow:
@@ -690,6 +691,7 @@ body:has(main.hub) .site-bg::after {
   .hub-hero__heading {
     font-size: clamp(34px, 8vw, 56px);
     letter-spacing: 0.14em;
+    white-space: normal;
   }
   /* Act 3 registry: tighten the index column, drop the hover gloss (no hover
      on touch) and stack the description under the title (let it wrap) so a row

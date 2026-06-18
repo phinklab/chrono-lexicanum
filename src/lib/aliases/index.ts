@@ -171,6 +171,21 @@ export interface AliasResolution {
   surfaceForm: string;
 }
 
+export interface AliasEntry {
+  axis: AliasAxis;
+  surfaceForm: string;
+  canonicalId: string;
+}
+
+/** List registered alias keys for UI search indexes without duplicating the JSON imports. */
+export function listAliasEntries(axis: AliasAxis): AliasEntry[] {
+  return Object.entries(ALIAS_MAP[axis]).map(([surfaceForm, canonicalId]) => ({
+    axis,
+    surfaceForm,
+    canonicalId,
+  }));
+}
+
 /**
  * Normalize a query for case-insensitive matching. Trim + lowercase only —
  * deliberately conservative. Diacritic / punctuation folding (e.g. `T'au`)

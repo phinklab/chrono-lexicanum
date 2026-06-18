@@ -36,6 +36,7 @@
     "test:ask-recommend": "tsx --env-file=.env.local scripts/test-ask-recommend.ts",
     "test:resolver": "tsx scripts/test-resolver.ts",
     "test:aliases": "tsx scripts/test-aliases.ts",
+    "test:search-index": "tsx scripts/test-search-index.ts",
     "test:podcast-ingest": "tsx scripts/test-podcast-ingest.ts",
     "test:podcast-youtube": "tsx scripts/test-podcast-youtube.ts",
     "test:podcast-apply": "tsx scripts/test-podcast-apply.ts",
