@@ -278,8 +278,10 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
       data-no-drag
       style={{
         position: "absolute",
+        // Sits to the LEFT of the floating control rail (right: 40) so the two
+        // never overlap when Add Element is toggled on from the rail.
         top: 140,
-        right: 100,
+        right: 240,
         width: 340,
         // Gold language: no drawn frame, no halo glow — depth is the dark
         // drop shadow + a faint bone top light-catch.

@@ -44,9 +44,11 @@ html:has(main.route-snap) {
   /* `proximity`, not `mandatory`: the hero + body-start still pull the scroll
      into place when you are near them, but a body act taller than the viewport
      no longer keeps yanking back to its single (start) snap point — so the
-     reader can rest at, and scroll to, the very bottom (the footer). */
+     reader can rest at, and scroll to, the very bottom (the footer).
+     `scroll-behavior: auto` (not smooth) so the snap lands near-instantly —
+     the slow smooth glide felt sluggish; CSS only offers smooth vs auto. */
   scroll-snap-type: y proximity;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 body:has(main.route-snap) {
   overflow-x: clip;

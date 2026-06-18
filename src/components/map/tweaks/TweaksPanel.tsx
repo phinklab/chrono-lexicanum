@@ -16,12 +16,11 @@ import Button from "./controls/Button";
 import Radio from "./controls/Radio";
 import Section from "./controls/Section";
 import Select from "./controls/Select";
-import Slider from "./controls/Slider";
 import Toggle from "./controls/Toggle";
 import { TWEAKS_PANEL_CSS } from "./styles";
 
 import { copyShareLink } from "@/lib/galaxy/share";
-import type { FactionFilter, RiftPattern, ThemeId, Tweaks } from "@/lib/galaxy/types";
+import type { RiftPattern, ThemeId, Tweaks } from "@/lib/galaxy/types";
 
 export default function TweaksPanel() {
   const [open, setOpen] = useState(false);
@@ -109,20 +108,6 @@ function PanelBody({ onClose }: PanelBodyProps) {
           />
         </Section>
 
-        <Section label="Faction Overlay">
-          <Radio<FactionFilter>
-            label="Filter"
-            value={state.tweaks.factionFilter}
-            onChange={(v) => setTweak({ factionFilter: v })}
-            options={[
-              { value: "all", label: "All" },
-              { value: "imperium", label: "Imperium" },
-              { value: "chaos", label: "Chaos" },
-              { value: "xenos", label: "Xenos" },
-            ]}
-          />
-        </Section>
-
         <Section label="Cicatrix Pattern">
           <Select<RiftPattern>
             label="Grid"
@@ -138,18 +123,6 @@ function PanelBody({ onClose }: PanelBodyProps) {
           />
         </Section>
 
-        <Section label="Astronomican">
-          <Toggle
-            label="Show Emperor's reach"
-            value={state.tweaks.astronomican}
-            onChange={(v) => setTweak({ astronomican: v })}
-          />
-          <div className="twk-hint">
-            Warm halo emanating from Terra. Worlds outside the glow are, in lore,
-            beyond the Emperor&apos;s psychic lighthouse — the Dark Imperium.
-          </div>
-        </Section>
-
         <Section label="Share & Export">
           <CopyShareButton />
           <Button
@@ -163,18 +136,6 @@ function PanelBody({ onClose }: PanelBodyProps) {
           </div>
         </Section>
 
-        <Section label="Add Element">
-          <Toggle
-            label="Show Add panel"
-            value={state.tweaks.addMode}
-            onChange={(v) => setTweak({ addMode: v })}
-          />
-          <div className="twk-hint">
-            Add planets (Imperial / Chaos / Xenos / Necron / Tyranid) or zones
-            (Warp / Necron / Tyranid Swarm). Click the map to place.
-          </div>
-        </Section>
-
         <Section label="Warp Placement">
           <Toggle
             label="Edit warp positions"
@@ -185,84 +146,6 @@ function PanelBody({ onClose }: PanelBodyProps) {
             Drag warp clusters &amp; Cicatrix spine points on the map. Cursor
             coords show bottom-right.
           </div>
-        </Section>
-
-        <Section label="Segmentum Sizes">
-          <div className="twk-hint" style={{ padding: "2px 0 6px" }}>
-            Outer reach (how far from Terra each segmentum extends).
-          </div>
-          <Slider
-            label="Obscurus reach (N)"
-            value={state.tweaks.outerObscurus}
-            min={0.4}
-            max={1.6}
-            step={0.02}
-            onChange={(v) => setTweak({ outerObscurus: v })}
-          />
-          <Slider
-            label="Ultima reach (E)"
-            value={state.tweaks.outerUltima}
-            min={0.4}
-            max={1.6}
-            step={0.02}
-            onChange={(v) => setTweak({ outerUltima: v })}
-          />
-          <Slider
-            label="Tempestus reach (S)"
-            value={state.tweaks.outerTempestus}
-            min={0.4}
-            max={1.6}
-            step={0.02}
-            onChange={(v) => setTweak({ outerTempestus: v })}
-          />
-          <Slider
-            label="Pacificus reach (W)"
-            value={state.tweaks.outerPacificus}
-            min={0.4}
-            max={1.6}
-            step={0.02}
-            onChange={(v) => setTweak({ outerPacificus: v })}
-          />
-          <div className="twk-hint" style={{ padding: "8px 0 4px" }}>
-            Boundaries between neighbouring segmentums (in degrees, 0° = north,
-            clockwise).
-          </div>
-          <Slider
-            label="Obscurus ↔ Ultima (NE)"
-            value={state.tweaks.boundaryNE}
-            min={-10}
-            max={60}
-            step={1}
-            unit="°"
-            onChange={(v) => setTweak({ boundaryNE: v })}
-          />
-          <Slider
-            label="Ultima ↔ Tempestus (SE)"
-            value={state.tweaks.boundarySE}
-            min={120}
-            max={190}
-            step={1}
-            unit="°"
-            onChange={(v) => setTweak({ boundarySE: v })}
-          />
-          <Slider
-            label="Tempestus ↔ Pacificus (SW)"
-            value={state.tweaks.boundarySW}
-            min={195}
-            max={250}
-            step={1}
-            unit="°"
-            onChange={(v) => setTweak({ boundarySW: v })}
-          />
-          <Slider
-            label="Pacificus ↔ Obscurus (NW)"
-            value={state.tweaks.boundaryNW}
-            min={260}
-            max={325}
-            step={1}
-            unit="°"
-            onChange={(v) => setTweak({ boundaryNW: v })}
-          />
         </Section>
 
         <Section label="Tip">

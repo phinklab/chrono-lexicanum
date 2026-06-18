@@ -61,6 +61,10 @@ export interface GalaxyState {
   era: EraId;
   view: GalaxyView;
   selectedWorldId: string | null;
+  // Which character "voyage" path overlay is shown on the galaxy view (null =
+  // none). Not persisted (no localStorage / hash); resets implicitly only via
+  // a full reload.
+  selectedVoyageId: string | null;
   pan: { x: number; y: number };
   userZoom: number;
   transitioning: boolean;
@@ -91,6 +95,7 @@ export type GalaxyAction =
   | { type: "set_era"; era: EraId; data: GalaxyData }
   | { type: "set_view"; view: GalaxyView }
   | { type: "select_world"; worldId: string | null }
+  | { type: "select_voyage"; id: string | null }
   | { type: "set_pan"; pan: { x: number; y: number } }
   | { type: "set_zoom"; userZoom: number }
   | { type: "set_transitioning"; value: boolean }
@@ -178,6 +183,8 @@ function reducer(state: GalaxyState, action: GalaxyAction): GalaxyState {
       return { ...state, view: action.view };
     case "select_world":
       return { ...state, selectedWorldId: action.worldId };
+    case "select_voyage":
+      return { ...state, selectedVoyageId: action.id };
     case "set_pan":
       return { ...state, pan: action.pan };
     case "set_zoom":
@@ -426,6 +433,7 @@ function initialState(isAdmin: boolean): GalaxyState {
     era: DEFAULT_ERA,
     view: "galaxy",
     selectedWorldId: null,
+    selectedVoyageId: null,
     pan: { x: 0, y: 0 },
     userZoom: 1,
     transitioning: false,

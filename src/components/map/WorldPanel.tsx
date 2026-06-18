@@ -1,7 +1,8 @@
 "use client";
 
-// 380px codex side-panel that slides in from the right when a world is
-// selected. Lore + book entries + recorded events + auspex telemetry.
+// Floating codex panel that slides in from the LEFT when a world is selected.
+// Frameless glass card, set off from the viewport edge (not glued to it). Lore
+// + book entries + recorded events + auspex telemetry.
 
 import { useMemo, type CSSProperties } from "react";
 
@@ -49,7 +50,7 @@ function SectionHeader({ theme, label, sub }: { theme: Theme; label: string; sub
       <span
         style={{
           fontFamily: t.fontDisplay,
-          fontSize: 11,
+          fontSize: 12,
           letterSpacing: t.letterTitle,
           color: t.accent,
           textTransform: "uppercase",
@@ -61,7 +62,7 @@ function SectionHeader({ theme, label, sub }: { theme: Theme; label: string; sub
         <span
           style={{
             fontFamily: t.fontMono,
-            fontSize: 9,
+            fontSize: 10,
             letterSpacing: "0.16em",
             color: t.primary,
             opacity: 0.5,
@@ -95,23 +96,26 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
     <div
       style={{
         position: "fixed",
-        top: 0,
-        right: 0,
-        bottom: 0,
-        width: 380,
-        transform: open ? "translateX(0)" : "translateX(110%)",
+        left: 28,
+        top: 112,
+        bottom: 28,
+        width: "min(400px, 34vw)",
+        transform: open ? "translateX(0)" : "translateX(-115%)",
         transition: "transform 0.45s cubic-bezier(.2,.7,.2,1)",
-        // Gold language: no drawn frame — the card edge is the drop shadow
-        // plus a faint bone light-catch on the leading edge.
+        // Gold language: no drawn frame — the floating card edge is the drop
+        // shadow plus a faint bone light-catch along the top. Rounded + inset
+        // from the viewport edge so it reads as a panel hovering over the map.
         background: "linear-gradient(180deg, rgba(6,9,16,0.97) 0%, rgba(2,4,10,0.98) 100%)",
         backdropFilter: "blur(10px)",
-        boxShadow: `-30px 0 80px -20px rgba(0,0,0,0.85), inset 1px 0 0 rgba(232,220,192,0.06)`,
+        borderRadius: 4,
+        boxShadow: `0 30px 80px -20px rgba(0,0,0,0.85), inset 0 1px 0 rgba(232,220,192,0.06)`,
         pointerEvents: open ? "auto" : "none",
         zIndex: 49,
         color: t.primary,
         fontFamily: t.fontBody,
         display: "flex",
         flexDirection: "column",
+        overflow: "hidden",
       }}
     >
       {world && (
@@ -121,7 +125,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
             <div
               style={{
                 fontFamily: t.fontMono,
-                fontSize: 10,
+                fontSize: 11,
                 letterSpacing: "0.28em",
                 color: t.primary,
                 opacity: 0.6,
@@ -148,7 +152,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
             <div
               style={{
                 fontFamily: t.fontMono,
-                fontSize: 10,
+                fontSize: 11,
                 letterSpacing: "0.16em",
                 color: world.faction === "neutral" ? t.primary : FACTION_COLORS[world.faction],
                 textTransform: "uppercase",
@@ -170,10 +174,9 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
               }}
               style={{
                 position: "absolute",
-                // The global burger (fixed top:16 right:18, 48×44, z 81) floats
-                // over the panel's top-right corner — the × must clear it or
-                // its clicks get intercepted.
-                top: 62,
+                // Panel now floats on the LEFT, so the global burger (top-right)
+                // no longer overlaps — the × sits in the panel's own top-right.
+                top: 18,
                 right: 14,
                 background: "transparent",
                 border: "none",
@@ -198,8 +201,8 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
             <p
               style={{
                 fontFamily: t.fontBody,
-                fontSize: 14,
-                lineHeight: 1.55,
+                fontSize: 16,
+                lineHeight: 1.6,
                 color: t.primary,
                 opacity: 0.9,
                 margin: 0,
@@ -229,7 +232,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                   <div
                     style={{
                       fontFamily: t.fontDisplay,
-                      fontSize: 13,
+                      fontSize: 15,
                       letterSpacing: "0.08em",
                       color: t.accent,
                       marginBottom: 3,
@@ -240,7 +243,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                   <div
                     style={{
                       fontFamily: t.fontMono,
-                      fontSize: 10,
+                      fontSize: 11.5,
                       letterSpacing: "0.12em",
                       color: t.primary,
                       opacity: 0.7,
@@ -256,7 +259,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                   <div
                     style={{
                       fontFamily: t.fontMono,
-                      fontSize: 9,
+                      fontSize: 10.5,
                       letterSpacing: "0.18em",
                       color: world.faction === "neutral" ? t.primary : FACTION_COLORS[world.faction],
                       opacity: 0.9,
@@ -297,7 +300,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                   <div
                     style={{
                       fontFamily: t.fontMono,
-                      fontSize: 10,
+                      fontSize: 11.5,
                       color: t.accent,
                       letterSpacing: "0.1em",
                       paddingTop: 1,
@@ -308,8 +311,8 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                   <div
                     style={{
                       fontFamily: t.fontBody,
-                      fontSize: 12.5,
-                      lineHeight: 1.45,
+                      fontSize: 14,
+                      lineHeight: 1.5,
                       color: t.primary,
                       opacity: 0.85,
                       fontStyle: t.id === "astropath" ? "italic" : "normal",
@@ -325,7 +328,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
             <div
               style={{
                 fontFamily: t.fontMono,
-                fontSize: 10,
+                fontSize: 11.5,
                 color: t.primary,
                 opacity: 0.7,
                 letterSpacing: "0.1em",

@@ -27,6 +27,7 @@ import SegmentumDetail from "./disc/SegmentumDetail";
 import SegmentumLabels from "./disc/SegmentumLabels";
 import SegmentumWorldLabels from "./disc/SegmentumWorldLabels";
 import { FlatMotes, StarField } from "./disc/Starfields";
+import VoyagesOverlay from "./disc/VoyagesOverlay";
 
 interface ViewportSize {
   w: number;
@@ -55,7 +56,7 @@ const SEG_DIVE: Record<SegmentumId, { r: number; a: number; scale: number }> = {
 };
 
 function segmentumDisplayName(view: GalaxyView, segments: ReturnType<typeof getLiveSegments>): string {
-  if (view === "galaxy") return "MILKY WAY · M42";
+  if (view === "galaxy") return "ASTRONOMICAN · M42";
   const seg = segments.find((s) => s.id === view);
   return (seg?.name || "SEGMENTUM").toUpperCase();
 }
@@ -399,11 +400,9 @@ export default function GalaxyHologram() {
         ? "transform 460ms cubic-bezier(.5, .05, .25, 1)"
         : "none"; // wheel-zoom snap
 
-  // Only the segmentum name when dived — the galaxy "MILKY WAY · M42" label is
-  // gone (the top-right corner is reserved for the global burger menu).
-  const divedSegmentName = isDived
-    ? segmentumDisplayName(state.view, segments)
-    : null;
+  // Top-left title: the segmentum name when dived, otherwise the galaxy-scale
+  // label "ASTRONOMICAN · M42" when fully zoomed out.
+  const topLeftTitle = segmentumDisplayName(state.view, segments);
 
   return (
     <div
@@ -561,6 +560,8 @@ export default function GalaxyHologram() {
 
               <EditOverlay />
 
+              <VoyagesOverlay theme={t} visible={!isDived && animsOn} />
+
               <PlacementCursor
                 enabled={addModeActive}
                 cursorPolar={state.cursorPolar}
@@ -624,39 +625,35 @@ export default function GalaxyHologram() {
       {/* Corner ornaments removed 2026-06-13 (Session 150 eyeballing) — the
           gold language draws no frame; the viewport edge is carried by the
           vignette alone. Top-left logo + subtitle removed 2026-05-27. The
-          galaxy "MILKY WAY · M42" title (was top-right) removed 2026-06-18 to
-          free the corner for the burger; the segmentum name now shows top-LEFT
-          while dived, above the "Back to Galactic View" button. */}
-      {isDived && (
+          top-LEFT title now always shows: the segmentum name when dived, the
+          galaxy-scale "ASTRONOMICAN · M42" when zoomed out (Session 158). The
+          top-RIGHT corner stays clear for the global burger menu. */}
+      <div
+        style={{
+          position: "absolute",
+          top: 28,
+          left: 32,
+          display: "flex",
+          alignItems: "center",
+          pointerEvents: "none",
+        }}
+      >
         <div
           style={{
-            position: "absolute",
-            top: 34,
-            left: 100,
-            right: 100,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-start",
-            pointerEvents: "none",
+            fontFamily: t.fontDisplay,
+            fontSize: 18,
+            letterSpacing: "0.36em",
+            color: t.accent,
+            // Site title treatment (53-ask.css): faint primary bloom + hard
+            // dark drop — not the old neon halo.
+            textShadow: `0 0 24px ${t.primarySoft}, 0 2px 10px rgba(0, 0, 0, 0.9)`,
+            opacity: 0.92,
+            textAlign: "left",
           }}
         >
-          <div
-            style={{
-              fontFamily: t.fontDisplay,
-              fontSize: 18,
-              letterSpacing: "0.36em",
-              color: t.accent,
-              // Site title treatment (53-ask.css): faint primary bloom + hard
-              // dark drop — not the old neon halo.
-              textShadow: `0 0 24px ${t.primarySoft}, 0 2px 10px rgba(0, 0, 0, 0.9)`,
-              opacity: 0.92,
-              textAlign: "left",
-            }}
-          >
-            {divedSegmentName}
-          </div>
+          {topLeftTitle}
         </div>
-      )}
+      </div>
 
       {/* Gold language (64-detail-modal.css .detail-modal__back): transparent
           text button, no drawn frame — quiet at rest, gold on hover. */}
@@ -674,8 +671,8 @@ export default function GalaxyHologram() {
           }}
           style={{
             position: "absolute",
-            top: 144,
-            left: 100,
+            top: 62,
+            left: 28,
             background: "transparent",
             color: t.accent,
             border: "none",
@@ -761,19 +758,20 @@ export default function GalaxyHologram() {
       <div
         style={{
           position: "absolute",
-          top: 96,
-          right: 100,
+          left: 100,
+          bottom: 128,
           fontFamily: t.fontMono,
           fontSize: 10,
           letterSpacing: "0.24em",
           color: t.primary,
           opacity: 0.65,
           textTransform: "uppercase",
-          textAlign: "right",
+          textAlign: "left",
+          pointerEvents: "none",
         }}
       >
         ZOOM · {Math.round(baseScale * 100)}%
-        <div style={{ marginTop: 4, width: 120, height: 2, background: t.strokeFaint, marginLeft: "auto" }}>
+        <div style={{ marginTop: 4, width: 120, height: 2, background: t.strokeFaint, marginLeft: 0 }}>
           <div
             style={{
               width: `${Math.min(100, ((baseScale - 0.5) / 11.5) * 100)}%`,

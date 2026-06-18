@@ -136,3 +136,127 @@
  * auf opacity 0 — beides snapte instant an finish_transition zurück und
  * trug zum „filters werden re-applied"-Cut bei. Modern Chromium komponiert
  * backdrop-filter GPU-beschleunigt, der Perf-Gewinn lohnt den Snap nicht. */
+
+/* ── Floating control rail (right side, frameless) — Session 158 ──────────
+   The five viewer-facing map controls as a floating menu set off from the
+   right edge; popovers fly out to the LEFT. Gold language: text buttons,
+   fading hairline separators, glass popovers, no drawn frame. The popover
+   bodies reuse the global .twk-* control classes (mounted by TweaksPanel). */
+@keyframes maprailPopIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.maprail {
+  position: fixed;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  pointer-events: none;
+}
+.maprail > * { pointer-events: auto; }
+
+.maprail__item { position: relative; }
+/* fading hairline separators between items — the gold-language rule, no box */
+.maprail__item + .maprail__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 166, 90, 0.22) 45%,
+    rgba(201, 166, 90, 0.22) 100%
+  );
+}
+
+.maprail__btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 11px 4px 11px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  opacity: 0.72;
+  white-space: nowrap;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+.maprail__btn:hover { opacity: 1; color: var(--cl-bone); }
+.maprail__btn:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: 2px;
+  opacity: 1;
+}
+.maprail__btn.is-active { opacity: 1; color: var(--cl-bone); }
+
+.maprail__dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--cl-gold) 55%, transparent);
+  background: transparent;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.maprail__btn.is-active .maprail__dot {
+  background: var(--cl-gold);
+  box-shadow: 0 0 8px var(--cl-gold);
+}
+
+/* Left-flyout popover — frameless glass, depth via drop shadow + top
+   light-catch, no drawn border. */
+.maprail__pop {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 16px;
+  width: 264px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.95) 0%, rgba(3, 6, 12, 0.97) 100%);
+  box-shadow:
+    0 24px 60px -18px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(232, 220, 192, 0.06);
+  border-radius: 3px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  animation: maprailPopIn 0.16s ease-out both;
+}
+.maprail__pop-head {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+.maprail__voyages {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 760px) {
+  .maprail { right: 14px; }
+  .maprail__btn { font-size: 11px; letter-spacing: 0.16em; padding-left: 10px; }
+  .maprail__pop { width: min(264px, 72vw); }
+}

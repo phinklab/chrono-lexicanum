@@ -51,31 +51,16 @@
   gap: 10px;
 }
 
-.media-player__top {
-  display: flex;
-  align-items: baseline;
-  /* Eyebrow (AUDITORIVM · CHANNEL) removed — the PLAYLIST disclose is the only
-     child now, kept at the right edge. */
-  justify-content: flex-end;
-  gap: 12px;
-  min-height: 14px;
-}
-
-.media-player__eyebrow {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-xs);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--cl-gold);
-  opacity: 0.62;
-  line-height: 1;
-}
-
+/* Single control row (Session 158): the PLAYLIST disclose now lives at the end
+   of .media-player__main, after the title, so play / vol / title / PLAYLIST all
+   sit on one horizontally-aligned line. The old two-row .media-player__top
+   wrapper + .media-player__eyebrow are retired. */
 .media-player__disclose {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 2px 0;
+  flex-shrink: 0;
   background: none;
   border: none;
   cursor: pointer;
