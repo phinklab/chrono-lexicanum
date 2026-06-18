@@ -35,9 +35,12 @@ import {
   chunkBookIds,
 } from "./book-review/selection";
 import {
+  EnricherBatchSchema,
+  EnrichVerifierBatchSchema,
   FinderBatchSchema,
   VerifierBatchSchema,
   flattenFindings,
+  parseSentinelId,
   type FlatFinding,
 } from "./book-review/contract";
 import {
@@ -46,6 +49,17 @@ import {
   loadRefSets,
   mergeIntoOverlay,
 } from "./book-review/sidecar";
+import {
+  buildProposals,
+  buildWorklist,
+  loadVocab,
+  renderEnrichLog,
+  ENRICH_BRIEF,
+  PROPOSALS_PATH,
+  type EnrichVocab,
+  type MergeItem,
+  type SentinelWork,
+} from "./book-review/enrichment";
 import { validateOverlay, type CurationOverlay } from "./curation-overlay";
 
 const CWD = process.cwd();
@@ -62,6 +76,13 @@ const findingsPath = (n: number): string => resolve(WORK_DIR, `chunk-${pad(n)}.f
 const verifierOutputPath = (n: number): string => resolve(WORK_DIR, `chunk-${pad(n)}.verifier.json`);
 const MANIFEST_PATH = resolve(WORK_DIR, "manifest.json");
 
+// ---- Stage 3 enrichment work files (Brief 155) ------------------------------
+const ENRICH_MANIFEST_PATH = resolve(WORK_DIR, "enrich-manifest.json");
+const enrichInputPath = (n: number): string => resolve(WORK_DIR, `enrich-chunk-${pad(n)}.input.json`);
+const enrichOutputPath = (n: number): string => resolve(WORK_DIR, `enrich-chunk-${pad(n)}.enrich.json`);
+const enrichVerdictPath = (n: number): string => resolve(WORK_DIR, `enrich-chunk-${pad(n)}.verdict.json`);
+const ENRICH_LOG_PATH = resolve(CWD, "scripts", "logs", "book-enrich-log.md");
+
 interface Manifest {
   scope?: "pilot" | "full";
   generatedFor: string;
@@ -71,6 +92,16 @@ interface Manifest {
 interface FindingsFile {
   chunk: number;
   findings: FlatFinding[];
+}
+interface EnrichManifest {
+  chunkSize: number;
+  generatedFor: string;
+  chunks: Array<{ index: number; sentinelKeys: string[] }>;
+}
+interface EnrichChunkInput {
+  chunk: number;
+  vocab: EnrichVocab;
+  sentinels: SentinelWork[];
 }
 
 function fail(msg: string): never {
@@ -400,6 +431,148 @@ async function cmdParity(): Promise<void> {
   }
 }
 
+// ---- Stage 3 enrichment (Brief 155) — sentinel-keyed, DB-free ---------------
+
+const ENRICH_CHUNK_SIZE = Number(process.env.BOOK_ENRICH_CHUNK_SIZE ?? "4") || 4;
+
+/** Remove stale enrich work files so a chunk-size change never resumes wrongly. */
+async function wipeEnrichChunks(): Promise<void> {
+  if (!existsSync(WORK_DIR)) return;
+  for (const f of await readdir(WORK_DIR)) {
+    if (f === "enrich-manifest.json" || /^enrich-chunk-\d+\.(input|enrich|verdict)\.json$/.test(f) || /^enrich-chunk-\d+\.log$/.test(f)) {
+      await rm(resolve(WORK_DIR, f), { force: true });
+    }
+  }
+}
+
+async function cmdEnrichPrepare(): Promise<void> {
+  const force = process.argv.includes("--force");
+  await mkdir(WORK_DIR, { recursive: true });
+
+  // Idempotent + resume-safe (mirrors `prepare`): keep a same-size manifest with
+  // all inputs present so a re-run resumes; a size change (or --force) rebuilds.
+  if (!force && existsSync(ENRICH_MANIFEST_PATH)) {
+    try {
+      const prev = await readJson<EnrichManifest>(ENRICH_MANIFEST_PATH);
+      const inputsPresent = prev.chunks.every((c) => existsSync(enrichInputPath(c.index)));
+      if (prev.chunkSize === ENRICH_CHUNK_SIZE && inputsPresent) {
+        ok(`enrich manifest current (${prev.chunks.length} chunk(s)) — resuming, no rebuild`);
+        return;
+      }
+    } catch {
+      /* unreadable manifest → rebuild */
+    }
+  }
+  await wipeEnrichChunks();
+
+  const work = await buildWorklist();
+  const vocab = await loadVocab();
+  const chunks: SentinelWork[][] = [];
+  for (let i = 0; i < work.length; i += ENRICH_CHUNK_SIZE) chunks.push(work.slice(i, i + ENRICH_CHUNK_SIZE));
+
+  const factionCount = work.filter((w) => w.axis === "faction").length;
+  const locationCount = work.filter((w) => w.axis === "location").length;
+  const manifest: EnrichManifest = {
+    chunkSize: ENRICH_CHUNK_SIZE,
+    generatedFor: `${work.length} structural sentinels (${factionCount} faction + ${locationCount} location)`,
+    chunks: chunks.map((ss, index) => ({ index, sentinelKeys: ss.map((s) => s.sentinelKey) })),
+  };
+  for (let index = 0; index < chunks.length; index++) {
+    await writeJson(enrichInputPath(index), { chunk: index, vocab, sentinels: chunks[index]! } satisfies EnrichChunkInput);
+  }
+  await writeJson(ENRICH_MANIFEST_PATH, manifest);
+  ok(`prepared ${work.length} sentinels (${factionCount}F + ${locationCount}L) → ${chunks.length} chunk(s) of ≤${ENRICH_CHUNK_SIZE} in ${WORK_DIR}`);
+}
+
+async function loadEnrichChunkKeys(n: number): Promise<string[]> {
+  const manifest = await readJson<EnrichManifest>(ENRICH_MANIFEST_PATH);
+  const entry = manifest.chunks.find((c) => c.index === n);
+  if (!entry) fail(`enrich chunk ${n} not in manifest — run enrich-prepare first`);
+  return entry!.sentinelKeys;
+}
+
+/** Validate an enricher output against the contract + chunk coverage. */
+async function validateEnricher(n: number): Promise<void> {
+  if (!existsSync(enrichOutputPath(n))) fail(`enrich chunk ${n}: enricher output missing`);
+  const keys = await loadEnrichChunkKeys(n);
+  let raw: unknown;
+  try {
+    raw = JSON.parse(await readFile(enrichOutputPath(n), "utf8"));
+  } catch (e) {
+    fail(`enrich chunk ${n}: enricher output is not JSON: ${e instanceof Error ? e.message : e}`);
+  }
+  const parsed = EnricherBatchSchema.safeParse(raw);
+  if (!parsed.success) fail(`enrich chunk ${n}: enricher output fails the contract: ${parsed.error.issues[0]?.message ?? "invalid"}`);
+  const got = new Set(Object.keys(parsed.data));
+  for (const k of keys) if (!got.has(k)) fail(`enrich chunk ${n}: enricher output missing sentinel "${k}"`);
+  for (const k of got) if (!keys.includes(k)) fail(`enrich chunk ${n}: enricher output has stray sentinel "${k}"`);
+  for (const [k, p] of Object.entries(parsed.data)) {
+    if (p.sentinelKey !== k) fail(`enrich chunk ${n}: object key "${k}" mismatches its sentinelKey "${p.sentinelKey}"`);
+    const expectedAxis = parseSentinelId(k)?.axis;
+    if (expectedAxis && expectedAxis !== p.axis) fail(`enrich chunk ${n}: "${k}" axis "${p.axis}" mismatches the sentinel axis "${expectedAxis}"`);
+  }
+}
+
+async function cmdEnrichCheckEnricher(n: number): Promise<void> {
+  await validateEnricher(n);
+  ok(`enrich chunk ${n}: enricher output valid`);
+}
+
+async function cmdEnrichCheckVerifier(n: number): Promise<void> {
+  if (!existsSync(enrichOutputPath(n))) fail(`enrich chunk ${n}: enricher output missing — run the enricher first`);
+  if (!existsSync(enrichVerdictPath(n))) fail(`enrich chunk ${n}: verifier output missing`);
+  const keys = await loadEnrichChunkKeys(n);
+  let raw: unknown;
+  try {
+    raw = JSON.parse(await readFile(enrichVerdictPath(n), "utf8"));
+  } catch (e) {
+    fail(`enrich chunk ${n}: verifier output is not JSON: ${e instanceof Error ? e.message : e}`);
+  }
+  const parsed = EnrichVerifierBatchSchema.safeParse(raw);
+  if (!parsed.success) fail(`enrich chunk ${n}: verifier output fails the contract: ${parsed.error.issues[0]?.message ?? "invalid"}`);
+  for (const k of keys) if (!(k in parsed.data)) fail(`enrich chunk ${n}: verifier output missing verdict for "${k}"`);
+  for (const k of Object.keys(parsed.data)) if (!keys.includes(k)) fail(`enrich chunk ${n}: verifier verdict has stray sentinel "${k}"`);
+  ok(`enrich chunk ${n}: verifier output valid (${keys.length} verdict(s))`);
+}
+
+async function cmdEnrichMerge(): Promise<void> {
+  const manifest = await readJson<EnrichManifest>(ENRICH_MANIFEST_PATH);
+  const refs = await loadRefSets();
+  const vocab = await loadVocab();
+  const work = await buildWorklist();
+  const workByKey = new Map(work.map((w) => [w.sentinelKey, w]));
+
+  const items: MergeItem[] = [];
+  for (const { index } of manifest.chunks) {
+    const enrich = EnricherBatchSchema.parse(await readJson<unknown>(enrichOutputPath(index)));
+    const verdicts = EnrichVerifierBatchSchema.parse(await readJson<unknown>(enrichVerdictPath(index)));
+    for (const [key, proposal] of Object.entries(enrich)) {
+      const w = workByKey.get(key);
+      if (!w) fail(`enrich-merge: proposal "${key}" is not in the worklist — re-run enrich-prepare`);
+      const verdict = verdicts[key];
+      if (!verdict) fail(`enrich-merge: no verdict for "${key}" — run enrich-check-verifier`);
+      items.push({ work: w!, proposal, verdict });
+    }
+  }
+
+  const model = process.env.BOOK_ENRICH_MODEL ?? "opus";
+  const generatedAt = (process.env.BOOK_ENRICH_DATE ?? new Date().toISOString().slice(0, 10)).slice(0, 10);
+  const { file, stats } = buildProposals(items, vocab, refs, model, generatedAt);
+
+  await writeJson(PROPOSALS_PATH, file);
+  await mkdir(resolve(CWD, "scripts", "logs"), { recursive: true });
+  await writeFile(ENRICH_LOG_PATH, renderEnrichLog({ file, stats }, generatedAt, model), "utf8");
+
+  ok(
+    `enrich-merge (brief ${ENRICH_BRIEF}): ${items.length} sentinel(s) → ` +
+      `factions[new ${stats.faction.newConfirmed} / alias ${stats.faction.alias} / unresolved ${stats.faction.unresolved}], ` +
+      `locations[new ${stats.location.newConfirmed} / alias ${stats.location.alias} / unresolved ${stats.location.unresolved}; ` +
+      `placed ${stats.location.placed ?? 0}]`,
+  );
+  ok(`  proposals: ${PROPOSALS_PATH} (READ-ONLY — wired into no apply/rebuild/seed path)`);
+  ok(`  findings:  ${ENRICH_LOG_PATH}`);
+}
+
 // ---- dispatch ---------------------------------------------------------------
 
 async function main(): Promise<void> {
@@ -411,6 +584,14 @@ async function main(): Promise<void> {
       return cmdCheckFinder(chunkArg());
     case "enumerate":
       return cmdEnumerate(chunkArg());
+    case "enrich-prepare":
+      return cmdEnrichPrepare();
+    case "enrich-check-enricher":
+      return cmdEnrichCheckEnricher(chunkArg());
+    case "enrich-check-verifier":
+      return cmdEnrichCheckVerifier(chunkArg());
+    case "enrich-merge":
+      return cmdEnrichMerge();
     case "check-verifier":
       return cmdCheckVerifier(chunkArg());
     case "merge":
@@ -418,7 +599,10 @@ async function main(): Promise<void> {
     case "parity":
       return cmdParity();
     default:
-      fail(`unknown subcommand "${cmd ?? ""}" (prepare|enumerate|check-finder|check-verifier|merge|parity)`);
+      fail(
+        `unknown subcommand "${cmd ?? ""}" (prepare|enumerate|check-finder|check-verifier|merge|parity` +
+          `|enrich-prepare|enrich-check-enricher|enrich-check-verifier|enrich-merge)`,
+      );
   }
 }
 
