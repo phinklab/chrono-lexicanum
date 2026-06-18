@@ -1430,5 +1430,145 @@
     "parent": "orks",
     "alignment": "xenos",
     "tone": "alien"
+  },
+  {
+    "id": "angels_resplendent",
+    "name": "Angels Resplendent",
+    "parent": "blood_angels",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "astral_claws",
+    "name": "Astral Claws",
+    "parent": "heretic_astartes",
+    "alignment": "chaos",
+    "tone": "chaos"
+  },
+  {
+    "id": "astral_knights",
+    "name": "Astral Knights",
+    "parent": "imperial_fists",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "black_dragons",
+    "name": "Black Dragons",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "blood_axes",
+    "name": "Blood Axes",
+    "parent": "orks",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "blood_swords",
+    "name": "Blood Swords",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "brazen_minotaurs",
+    "name": "Brazen Minotaurs",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "crimson_castellans",
+    "name": "Crimson Castellans",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "evil_sunz",
+    "name": "Evil Sunz",
+    "parent": "orks",
+    "alignment": "xenos",
+    "tone": "alien"
+  },
+  {
+    "id": "excoriators",
+    "name": "Excoriators",
+    "parent": "imperial_fists",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "legio_suturvora",
+    "name": "Legio Suturvora",
+    "parent": "adeptus_titanicus",
+    "alignment": "chaos",
+    "tone": "engine",
+    "glyph": "Fire Masters"
+  },
+  {
+    "id": "fulminators",
+    "name": "Fulminators",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "gardinaal",
+    "name": "Gardinaal",
+    "parent": null,
+    "tone": null
+  },
+  {
+    "id": "genesis_chapter",
+    "name": "Genesis Chapter",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "jade_dragons",
+    "name": "Jade Dragons",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "mantis_warriors",
+    "name": "Mantis Warriors",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "novamarines",
+    "name": "Novamarines",
+    "parent": "ultramarines",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "star_dragons",
+    "name": "Star Dragons",
+    "parent": "adeptus_astartes",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "tome_keepers",
+    "name": "Tome Keepers",
+    "parent": "ultramarines",
+    "alignment": "imperium",
+    "tone": "imperial"
+  },
+  {
+    "id": "vanus_temple",
+    "name": "Vanus Temple",
+    "parent": "officio_assassinorum",
+    "alignment": "imperium",
+    "tone": "shadow"
   }
 ]

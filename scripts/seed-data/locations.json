@@ -2497,5 +2497,1567 @@
     "gx": null,
     "gy": null,
     "tags": []
+  },
+  {
+    "id": "absolom",
+    "name": "Absolom",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "adumbria",
+    "name": "Adumbria",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "agarimethea",
+    "name": "Agarimethea",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "eldar",
+      "necrons"
+    ]
+  },
+  {
+    "id": "alia",
+    "name": "Alia",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "astra_militarum"
+    ]
+  },
+  {
+    "id": "andrioch",
+    "name": "Andrioch",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
+    "id": "ardamantua",
+    "name": "Ardamantua",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperial_fists",
+      "orks"
+    ],
+    "destroyed": true
+  },
+  {
+    "id": "arthas_moloch",
+    "name": "Arthas Moloch",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "chaos"
+    ]
+  },
+  {
+    "id": "aurelia",
+    "name": "Subsector Aurelia",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "region",
+      "blood_ravens",
+      "imperium"
+    ]
+  },
+  {
+    "id": "bacchus",
+    "name": "Bacchus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "orks"
+    ]
+  },
+  {
+    "id": "ballards_run",
+    "name": "Ballard's Run",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "bastion",
+    "name": "Bastion",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [],
+    "destroyed": true
+  },
+  {
+    "id": "belmos_vii",
+    "name": "Belmos VII",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "astra_militarum"
+    ]
+  },
+  {
+    "id": "byzas",
+    "name": "Byzas",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "emperors_children"
+    ]
+  },
+  {
+    "id": "caldera",
+    "name": "Caldera",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "salamanders",
+      "orks"
+    ]
+  },
+  {
+    "id": "cao_quo",
+    "name": "Cao Quo",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "tau",
+      "imperium"
+    ]
+  },
+  {
+    "id": "castellax",
+    "name": "Castellax",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "chaos",
+      "iron_warriors"
+    ]
+  },
+  {
+    "id": "ceocan",
+    "name": "Ceocan",
+    "sector": "tempestus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "mechanicus"
+    ]
+  },
+  {
+    "id": "certus_minor",
+    "name": "Certus-Minor",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ecclesiarchy"
+    ]
+  },
+  {
+    "id": "charchera_system",
+    "name": "Charchera System",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "iron_warriors"
+    ]
+  },
+  {
+    "id": "cressida",
+    "name": "Cressida",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ],
+    "destroyed": true
+  },
+  {
+    "id": "crucible",
+    "name": "Crucible",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "cybele",
+    "name": "Cybele",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "blood_angels"
+    ]
+  },
+  {
+    "id": "damask",
+    "name": "Damask",
+    "sector": "helican",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "dasht_i_kevar",
+    "name": "Dasht i-Kevar",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "astra_militarum",
+      "tau"
+    ]
+  },
+  {
+    "id": "deighton",
+    "name": "Deighton",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "astra_militarum"
+    ]
+  },
+  {
+    "id": "diamantus",
+    "name": "Diamantus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "mechanicus"
+    ]
+  },
+  {
+    "id": "divinatus_prime",
+    "name": "Divinatus Prime",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ecclesiarchy"
+    ]
+  },
+  {
+    "id": "doahht",
+    "name": "Doahht",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "necrons",
+      "xenos"
+    ]
+  },
+  {
+    "id": "dominion",
+    "name": "Dominion",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "imperial_knights"
+    ]
+  },
+  {
+    "id": "donatos",
+    "name": "Donatos",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "imperial_knights",
+      "word_bearers"
+    ]
+  },
+  {
+    "id": "drechia",
+    "name": "Drechia",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "astra_militarum"
+    ]
+  },
+  {
+    "id": "duat",
+    "name": "Duat",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "world_eaters"
+    ]
+  },
+  {
+    "id": "dulan",
+    "name": "Dulan",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "space_wolves",
+      "dark_angels"
+    ]
+  },
+  {
+    "id": "dulcis",
+    "name": "Dulcis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "blood_angels"
+    ]
+  },
+  {
+    "id": "dulma_lin",
+    "name": "Dulma'lin",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "astra_militarum",
+      "orks"
+    ]
+  },
+  {
+    "id": "durer",
+    "name": "Durer",
+    "sector": "scarus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "dwell",
+    "name": "Dwell",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "dynikas_v",
+    "name": "Dynikas V",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "tyranids"
+    ]
+  },
+  {
+    "id": "ector",
+    "name": "Ector",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "eechan",
+    "name": "Eechan",
+    "sector": "helican",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "euphoros",
+    "name": "Euphoros",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "emperors_children",
+      "iron_warriors"
+    ]
+  },
+  {
+    "id": "fabris_calivant",
+    "name": "Fabris Calivant",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperial_knights",
+      "iron_hands",
+      "mechanicus"
+    ]
+  },
+  {
+    "id": "fidem_iv",
+    "name": "Fidem IV",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "word_bearers"
+    ]
+  },
+  {
+    "id": "forty_seven_sixteen",
+    "name": "Forty-Seven Sixteen",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "word_bearers"
+    ]
+  },
+  {
+    "id": "furia_penitens",
+    "name": "Furia Penitens",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "astra_militarum"
+    ]
+  },
+  {
+    "id": "gabal",
+    "name": "Gabal",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "orks"
+    ]
+  },
+  {
+    "id": "gathis_ii",
+    "name": "Gathis II",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "doom_eagles"
+    ]
+  },
+  {
+    "id": "geratomro",
+    "name": "Geratomro",
+    "sector": "tempestus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "ghaslakh",
+    "name": "Ghaslakh",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "orks"
+    ]
+  },
+  {
+    "id": "ghyre",
+    "name": "Ghyre",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "imperial_fists"
+    ]
+  },
+  {
+    "id": "gildar_secundus",
+    "name": "Gildar Secundus",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "silver_skulls"
+    ]
+  },
+  {
+    "id": "gnostes",
+    "name": "Gnostes",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "astra_militarum",
+      "chaos"
+    ]
+  },
+  {
+    "id": "gorro",
+    "name": "Gorro",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "orks"
+    ],
+    "destroyed": true
+  },
+  {
+    "id": "gravalax",
+    "name": "Gravalax",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "tau"
+    ]
+  },
+  {
+    "id": "gyptus",
+    "name": "Gyptus",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "hauts_bassiq",
+    "name": "Hauts Bassiq",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "chaos"
+    ]
+  },
+  {
+    "id": "heletine",
+    "name": "Heletine",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ecclesiarchy"
+    ]
+  },
+  {
+    "id": "herodian_iv",
+    "name": "Herodian IV",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "tyranids"
+    ],
+    "destroyed": true
+  },
+  {
+    "id": "hevaran",
+    "name": "Hevaran",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "black_templars"
+    ]
+  },
+  {
+    "id": "hive_prome",
+    "name": "Hive Prome",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "orks"
+    ]
+  },
+  {
+    "id": "honoria",
+    "name": "Honoria",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "dark_angels",
+      "orks"
+    ]
+  },
+  {
+    "id": "iesta_veracrux",
+    "name": "Iesta Veracrux",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "kadillus_harbour",
+    "name": "Kadillus Harbour",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "dark_angels",
+      "orks"
+    ],
+    "capital": true
+  },
+  {
+    "id": "kalidar",
+    "name": "Kalidar",
+    "sector": "pacificus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "orks"
+    ]
+  },
+  {
+    "id": "kallash",
+    "name": "Kallash",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "orks"
+    ]
+  },
+  {
+    "id": "kanai_tertius",
+    "name": "Kanai Tertius",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "orks"
+    ]
+  },
+  {
+    "id": "khadar",
+    "name": "Khadar",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "tyranids"
+    ]
+  },
+  {
+    "id": "kiros",
+    "name": "Kiros",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ecclesiarchy"
+    ]
+  },
+  {
+    "id": "kolovan",
+    "name": "Kolovan",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ultramarines",
+      "tyranids"
+    ]
+  },
+  {
+    "id": "kronus",
+    "name": "Kronus",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "word_bearers",
+      "world_eaters"
+    ]
+  },
+  {
+    "id": "kurbynola_system",
+    "name": "Kurbynola System",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "orks",
+      "tyranids"
+    ]
+  },
+  {
+    "id": "lastrati",
+    "name": "Lastrati",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "chaos"
+    ]
+  },
+  {
+    "id": "legitur",
+    "name": "Legitur",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ecclesiarchy"
+    ]
+  },
+  {
+    "id": "lentonia",
+    "name": "Lentonia",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "astra_militarum"
+    ]
+  },
+  {
+    "id": "lubentina",
+    "name": "Lubentina",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ecclesiarchy"
+    ]
+  },
+  {
+    "id": "lysios",
+    "name": "Lysios",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ],
+    "destroyed": true
+  },
+  {
+    "id": "machorta_sound",
+    "name": "Machorta Sound",
+    "sector": "pacificus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "region"
+    ]
+  },
+  {
+    "id": "malodrax",
+    "name": "Malodrax",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "chaos",
+      "iron_warriors"
+    ],
+    "destroyed": true,
+    "warp": true
+  },
+  {
+    "id": "malpertuis",
+    "name": "Malpertuis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "angels_resplendent"
+    ]
+  },
+  {
+    "id": "miral",
+    "name": "Miral",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "scythes_of_the_emperor"
+    ]
+  },
+  {
+    "id": "morningstar",
+    "name": "Morningstar",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "thousand_sons"
+    ],
+    "destroyed": true
+  },
+  {
+    "id": "morod",
+    "name": "Morod",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "mechanicus"
+    ]
+  },
+  {
+    "id": "morsus",
+    "name": "Morsus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "necrons"
+    ]
+  },
+  {
+    "id": "nurth",
+    "name": "Nurth",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ],
+    "destroyed": true
+  },
+  {
+    "id": "oleris_iii",
+    "name": "Oleris III",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "one_five_four_four",
+    "name": "One-Five-Four Four",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "oran",
+    "name": "Oran",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "ultramarines"
+    ]
+  },
+  {
+    "id": "parmenio",
+    "name": "Parmenio",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ultramarines"
+    ]
+  },
+  {
+    "id": "percepton_primus",
+    "name": "Percepton Primus",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ultramarines",
+      "word_bearers"
+    ]
+  },
+  {
+    "id": "perdition",
+    "name": "Perdition",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "word_bearers",
+      "raven_guard"
+    ]
+  },
+  {
+    "id": "periremunda",
+    "name": "Periremunda",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "phlegethon",
+    "name": "Phlegethon",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "blood_angels",
+      "chaos"
+    ]
+  },
+  {
+    "id": "piamen",
+    "name": "Piamen",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "night_lords"
+    ]
+  },
+  {
+    "id": "piety_v",
+    "name": "Piety V",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ecclesiarchy"
+    ]
+  },
+  {
+    "id": "pontus_avernes",
+    "name": "Pontus Avernes",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "mechanicus"
+    ]
+  },
+  {
+    "id": "port_sanctus",
+    "name": "Port Sanctus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "imperial_navy"
+    ]
+  },
+  {
+    "id": "potence",
+    "name": "Potence",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "astra_militarum"
+    ],
+    "capital": true
+  },
+  {
+    "id": "proxima_apocryphis",
+    "name": "Proxima Apocryphis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "quadravidia",
+    "name": "Quadravidia",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "tau"
+    ]
+  },
+  {
+    "id": "quintus",
+    "name": "Quintus",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "white_scars",
+      "raven_guard",
+      "alpha_legion"
+    ]
+  },
+  {
+    "id": "quradim",
+    "name": "Quradim",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "genesis_chapter",
+      "iron_warriors",
+      "ultramarines"
+    ]
+  },
+  {
+    "id": "regium",
+    "name": "Regium",
+    "sector": "pacificus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ultramarines",
+      "tyranids"
+    ],
+    "destroyed": true
+  },
+  {
+    "id": "rezlan_vi",
+    "name": "Rezlan VI",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "death_korps_of_krieg",
+      "tau"
+    ]
+  },
+  {
+    "id": "rilis",
+    "name": "Rilis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "chaos",
+      "iron_warriors"
+    ]
+  },
+  {
+    "id": "rotauri",
+    "name": "Rotauri",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "orks"
+    ]
+  },
+  {
+    "id": "sabien",
+    "name": "Sabien",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "blood_angels"
+    ]
+  },
+  {
+    "id": "sagaraya",
+    "name": "Sagaraya",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "saltire_vex",
+    "name": "Saltire Vex",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "tau",
+      "dark_angels"
+    ]
+  },
+  {
+    "id": "sandava_ii",
+    "name": "Sandava II",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "grey_knights",
+      "chaos"
+    ],
+    "destroyed": true
+  },
+  {
+    "id": "sandava_iii",
+    "name": "Sandava III",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "grey_knights"
+    ]
+  },
+  {
+    "id": "sargassion_reach",
+    "name": "Sargassion Reach",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "region",
+      "imperium",
+      "raven_guard"
+    ]
+  },
+  {
+    "id": "sarosh",
+    "name": "Sarosh",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "dark_angels"
+    ]
+  },
+  {
+    "id": "serrine",
+    "name": "Serrine",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "chaos",
+      "emperors_children"
+    ]
+  },
+  {
+    "id": "severitas",
+    "name": "Severitas",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "word_bearers",
+      "necrons"
+    ]
+  },
+  {
+    "id": "shardenus",
+    "name": "Shardenus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "iron_hands",
+      "chaos"
+    ]
+  },
+  {
+    "id": "simia_orichalcae",
+    "name": "Simia Orichalcae",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "astra_militarum",
+      "orks",
+      "necrons"
+    ]
+  },
+  {
+    "id": "solo_baston",
+    "name": "Solo-Baston",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "chaos"
+    ]
+  },
+  {
+    "id": "styxia_prime",
+    "name": "Styxia Prime",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ultramarines",
+      "tyranids"
+    ]
+  },
+  {
+    "id": "targian",
+    "name": "Targian",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "necrons"
+    ],
+    "destroyed": true
+  },
+  {
+    "id": "tatricala",
+    "name": "Tatricala",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "chaos",
+      "emperors_children"
+    ]
+  },
+  {
+    "id": "telkens_rest",
+    "name": "Telken's Rest",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "chaos",
+      "astra_militarum",
+      "cadia"
+    ]
+  },
+  {
+    "id": "tempest",
+    "name": "Tempest",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ecclesiarchy"
+    ]
+  },
+  {
+    "id": "thawra",
+    "name": "Thawra",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "thoas",
+    "name": "Thoas",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "ultramarines",
+      "orks"
+    ]
+  },
+  {
+    "id": "vaporis",
+    "name": "Vaporis",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "salamanders"
+    ]
+  },
+  {
+    "id": "velbayne",
+    "name": "Velbayne",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "space_wolves"
+    ]
+  },
+  {
+    "id": "velua",
+    "name": "Velua",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "ecclesiarchy",
+      "adepta_sororitas"
+    ]
+  },
+  {
+    "id": "vincula_city",
+    "name": "Vincula City",
+    "sector": "sabbat_region",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "astra_militarum"
+    ],
+    "capital": true
+  },
+  {
+    "id": "vior_los",
+    "name": "Vior'los",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "xenos",
+      "tau"
+    ],
+    "capital": true
+  },
+  {
+    "id": "virger_mos_ii",
+    "name": "Virger-Mos II",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "viridia",
+    "name": "Viridia",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "visage",
+    "name": "Visage",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "vondrak",
+    "name": "Vondrak",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "mechanicus"
+    ]
+  },
+  {
+    "id": "voor",
+    "name": "Voor",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "orks"
+    ]
+  },
+  {
+    "id": "vorganthian",
+    "name": "Vorganthian",
+    "sector": "solar",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "xana_tisiphone",
+    "name": "Xana-Tisiphone",
+    "sector": "pacificus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "mechanicus"
+    ]
+  },
+  {
+    "id": "zalathras",
+    "name": "Zalathras",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "ultramarines",
+      "orks"
+    ],
+    "capital": true
+  },
+  {
+    "id": "zalidar",
+    "name": "Zalidar",
+    "sector": "ultima",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "ultramarines",
+      "orks"
+    ]
+  },
+  {
+    "id": "zaramund",
+    "name": "Zaramund",
+    "sector": "obscurus",
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "dark_angels",
+      "death_guard"
+    ]
+  },
+  {
+    "id": "zartak",
+    "name": "Zartak",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
+  },
+  {
+    "id": "ziasuthra",
+    "name": "Ziasuthra",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "eldar"
+    ]
+  },
+  {
+    "id": "zoah",
+    "name": "Zoah",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium"
+    ]
   }
 ]

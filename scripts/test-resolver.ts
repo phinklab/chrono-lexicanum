@@ -2395,6 +2395,51 @@ check("direct match - Pass 16 gap Helwain (world, Zardu Layak: The Crimson Apost
   assert.equal(resolveLocation("Helwain").id, "helwain");
 });
 
+// --- Gate F/L web-enrichment proposal materialization (Brief 155 impl follow-up) ---
+check("alias - Gate F Crimson Sabres routes to crimson_slaughter", () => {
+  assert.equal(resolveFaction("Crimson Sabres").id, "crimson_slaughter");
+});
+
+check("alias - Gate F raw Fire Masters surface routes to Legio Suturvora", () => {
+  assert.equal(resolveFaction("Fire Masters").id, "legio_suturvora");
+});
+
+check("direct match - Gate F Gardinaal remains a top-level neutral faction seed", () => {
+  assert.equal(resolveFaction("Gardinaal").id, "gardinaal");
+});
+
+check("alias - Gate L Redemption routes to candleworld", () => {
+  assert.equal(resolveLocation("Redemption").id, "candleworld");
+});
+
+check("alias - Gate L Vytarn routes to candleworld", () => {
+  assert.equal(resolveLocation("Vytarn").id, "candleworld");
+});
+
+check("sentinel - Gate L Rhamiel remains unresolved", () => {
+  assert.equal(resolveLocation("Rhamiel").id, null);
+});
+
+check("alias - Gate L raw Absalom surface routes to Absolom", () => {
+  assert.equal(resolveLocation("Absalom").id, "absolom");
+});
+
+check("alias - Gate L raw Aurelia surface routes to Subsector Aurelia", () => {
+  assert.equal(resolveLocation("Aurelia").id, "aurelia");
+});
+
+check("alias - Gate L raw Gathis surface routes to Gathis II", () => {
+  assert.equal(resolveLocation("Gathis").id, "gathis_ii");
+});
+
+check("alias - Gate L raw Miral Prime surface routes to Miral", () => {
+  assert.equal(resolveLocation("Miral Prime").id, "miral");
+});
+
+check("alias - Gate L raw Styxia surface routes to Styxia Prime", () => {
+  assert.equal(resolveLocation("Styxia").id, "styxia_prime");
+});
+
 check("direct match - Pass 16 gap Castrmen Orth (Iron Hands Spearhead-Centurion, Dropsite Massacre HH-0297)", () => {
   assert.equal(resolveCharacter("Castrmen Orth").id, "castrmen_orth");
 });
