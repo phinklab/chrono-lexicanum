@@ -1489,3 +1489,22 @@ Philipp entschied die Admin-Fläche für Hand-Kuration als **Variante 1**: kein 
 Philipp testete den B14-Ansatz nach der CC-Implementierung und verwarf ihn bewusst: ein lokaler Browser-JSON-Editor für `curation-overlay.json` passt nicht zu seinem Arbeitsmodus und soll nicht weiterverfolgt werden. Die 149er Overlay-Mechanik bleibt das Fundament, aber die Bedienung läuft künftig über normale Codex-Aufträge in Prosa: Philipp beschreibt die Handkorrektur, Codex ändert `curation-overlay.json` und verifiziert per Dry-Run/Verify. Es gibt weder deployed `/admin` noch local-only Admin-Tool.
 
 **Edits:** Board 121 (P11 ohne Admin-UI), Board 122 (B14 `☒ verworfen`), `sessions/README.md` (Kopf + Active Threads), `project-state.md` (What's open + Next), dieser Eintrag.
+
+---
+
+## 2026-06-18 · Coordination · Brief 157 — inkrementeller Apply wird Default (`db:sync`)
+
+**Quelle:** `sessions/2026-06-18-157-arch-incremental-apply-default.md` + `…-157-impl-incremental-apply-default.md` (PR gemerged; Batches-Strang, `scripts/**`). Faltet den zurückgezogenen Brief 156 ein.
+
+**Anlass:** Der 96+Drukhari-Push am 2026-06-18 wurde als Full-`db:rebuild` gefahren und brach mit halb-truncatetem Prod ab. Ursache war kein Einzelbug, sondern ein **Modell-Fehler** — der Rebuild (gebaut als Recovery-Werkzeug, Brief 107) wurde zur Routine-Deployment-Methode gemacht. Brief 157 invertiert die Policy.
+
+- **`db:sync` ist der neue Default** (nicht-destruktiv, idempotent): der `db:rebuild`-Chain **minus Truncate**, plus Podcast-Step, über den **auto-abgeleiteten Voll-Roster** (heute `hh` 1..30 + `w40k` 1..60 = 90 Batches) mit Preflight-Guard (Lücke/Stray → laut HALT vor jedem Schreiben). Mentales Modell für jede Änderung: *Datei ändern → PR/Merge → `db:sync`*. Kein Targeted-/`--only`-Modus. Ehrliche Grenze: ein Mid-Chain-Fehler hinterlässt nie einen Halb-leeren `works`-Bereich (kein Truncate), aber ggf. einen idempotent re-runnable Misch-Zustand — erneut laufen → sauberer Endzustand.
+- **`db:rebuild` ist Disaster-Recovery** = `db:sync` + vorangestelltes confirm-gegatetes Truncate; Help-Text + Runbook markieren es explizit als „brauchst du fast nie".
+- **`db:drift` ist ein read-only Health-Check** aus bestehenden Bausteinen (Tail-`--verify`s + `db-counts` + Batch-Contiguity via neuem `db-apply-scope` + Podcast-Drift via `refresh:audit-artifacts`). Schreibt nie; `refresh:check` ist **kein** Baustein (Ingestion-Frische, nicht DB-Sync). Bewusst **kein** exakter DB==SSOT-Deep-Diff (vertagt → OQ 18b).
+- **`scripts/db-rebuild.config.json` gelöscht** — die hand-gepinnte `to:57`-Obergrenze war die 156-Fehlerquelle; Scope wird jetzt auto-abgeleitet, kein Hand-Pin mehr, der driften kann. Neu: `scripts/db-apply-scope.ts`, `db-sync.sh`, `db-drift.sh`. Runbook `db-rebuild-runbook.md` neu geschrieben (Modell-Tabelle + „Wie kriege ich Änderung X rein"-Tabelle).
+- **Verifikation DB-frei** (Brief: kein Prod-Lauf): lint/typecheck/`test:timeline` grün; Preflight-Guard-Fixtures (Lücke/Stray/leer → HALT); Auto-Derive → 90 reale Batches inkl. `siege-of-vraks` (w40k-059); 125 Podcast-Hooks resolvebar nach `apply:podcast --all`. Ein echter `db:sync` gegen Prod bleibt getrennte Ops-Entscheidung des Maintainers.
+- **Vertagt → neue OQ (18):** (a) `db:apply` mit Plan/Diff (nur Delta upserten); (b) exakter DB==SSOT-Deep-Diff. `db:drift` fängt keine stale Junction *innerhalb* einer applizierten Batch.
+
+**Edits (Coordination-Pass):** `project-state.md` (DB-Apply-Modell in What's running, Timeline-Satz entstaltt, Next-likely-brief, Datums-Bump), `open-questions.md` (OQ 18 neu), `index.md` (open-questions- + project-state-Zeile), `sessions/README.md` (Kopf + Tabelle 157 → implemented), dieser Eintrag.
+
+> **Offen für nächsten Pass (optional):** Runbook-Umbenennung `db-rebuild-runbook.md` → `db-apply-runbook.md` inkl. Link-Fix in diesem `log.md` — CC hat bewusst darauf verzichtet (Dangling-Link über Worktree-Grenze). Kein Druck; Inhalt deckt schon alle drei Befehle ab.

@@ -2,7 +2,7 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-06-17
+updated: 2026-06-18
 sources:
   - ../../sessions/README.md
   - ../../sessions/2026-06-13-150-impl-polish-sweep.md
@@ -27,7 +27,7 @@ related:
 confidence: high
 ---
 
-# Project state — 2026-06-17 (Pre-Launch: Discovery-Layer shipped, Site hinter Preview-Gate)
+# Project state — 2026-06-18 (Pre-Launch: Discovery-Layer shipped, Site hinter Preview-Gate)
 
 > The "where are we now" anchor. **Nur aktueller Stand. Historie → [`log.md`](./log.md) + git.**
 
@@ -47,7 +47,7 @@ Unverändert: `origin/main` read-only für Code (Task-Branch + PR), Doc-only dir
 
 **Podcasts/YouTube: 4 Shows, ~1094 `podcast_episode`-Works.** The 40k Lorecast (149 Ep.), Adeptus Ridiculous (363), Lorehammer (391, „(Video)"-Twins dedupliziert), Luetin09 (YouTube-Adapter Brief 130; 191 Lore-Episoden aus 1854 Uploads, `source_kind=youtube`). Show-/Episode-Links autoritativ in `external_links` (Provenance `sourceKind`+`confidence`, Migration 0011); Tagging über `resolveSurfaceForm`; **CC-Direct-Tagging** (`--tagging=cc-direct`, Brief 131/132: `claude -p`-Subsessions auf der Max-Allowance, byte-identisch zum API-Pfad) ist der bewährte Null-Kosten-Pfad.
 
-**Timeline-Daten (Brief 137 + Rebuild-Tail 152):** 8 kuratierte Eras, 144 Events, 223 `event_works`-Hooks (95 Buch / 125 Episode / 3 Serie), 97 datierte Werke (53 event-anchored). Migration 0012; `apply:timeline` idempotent und seit Brief 152 mit read-only `--verify` (exakte Set-/Wert-Gleichheit via purem `diffTimelineState`, DB-frei getestet). `db:rebuild` stellt Timeline-Daten jetzt als Tail wieder her: Schritt 5/8 `apply:timeline`, Schritt 6/8 `apply:timeline --verify`, bewusst vor Curation Schritt 7/8+8/8, damit Hand-Kuration bei `primary_era_id` zuletzt gewinnt. OQ 16(a) ist geschlossen; echter DB-Verify gegen Prod bleibt Post-Freeze.
+**Timeline-Daten (Brief 137 + Rebuild-Tail 152):** 8 kuratierte Eras, 144 Events, 223 `event_works`-Hooks (95 Buch / 125 Episode / 3 Serie), 97 datierte Werke (53 event-anchored). Migration 0012; `apply:timeline` idempotent und seit Brief 152 mit read-only `--verify` (exakte Set-/Wert-Gleichheit via purem `diffTimelineState`, DB-frei getestet). Der Timeline-Restore ist ein Tail-Schritt der Apply-Kette (`apply:timeline` + `--verify`), bewusst **nach** Podcast und **vor** Curation, damit Hand-Kuration bei `primary_era_id` zuletzt gewinnt; die Kette lebt seit Brief 157 in `db:sync` (siehe DB-Apply-Modell unten). OQ 16(a) ist geschlossen; echter DB-Verify gegen Prod bleibt Post-Freeze.
 
 **Entity-Blurbs (Board 122-B3): Full-Coverage 981/981** (202 Factions / 490 Characters / 289 Worlds) als seed-data-JSON mit per-Row-Provenance — Subset + Machinery via Handoff (2026-06-09), Full-Sweep maintainer-direkt nachgezogen. Live im `/compendium`; Factions ohne Werke werden nicht mehr gelistet.
 
@@ -59,6 +59,7 @@ Unverändert: `origin/main` read-only für Code (Task-Branch + PR), Doc-only dir
 - **Caching/Hardening (147):** `READ_CACHE_TTL` 3600 s, `/api/revalidate` (Bearer `REVALIDATE_TOKEN`), Teaser-Synopsis senkt `/archive`-Payload 16,45→2,21 MB, `loading.tsx` auf 7 Routen, Security-Header, `/audit`+`/ingest` admin-ge-gatet, timing-safe Auth-Vergleiche, Next-CVE-Bump.
 - **CI:** `lint-and-typecheck` + `brain:lint --no-write` auf PRs **und** `push: main`; `migrate.yml` (workflow_dispatch) für DB-Migrationen; `weekly-refresh.yml` Cron Mo 06:00 UTC → Rolling-PR `automation/weekly-refresh` (detection-only, keine DB-Secrets), mit PR-Review-Prompt, degraded≠noop-Guard, gebootstrapptem `curation-state.json`/`book-seen.json` und lokalem read-only `refresh:audit-artifacts` aus Brief 151.
 - **DB auf Supabase** — Pooler 6543, prod; Pool `max:5` ist bewusst und bleibt (Review-144-Schiedsspruch: Hebel ist Caching, nicht Pool-Size).
+- **DB-Apply-Modell (Brief 157, ab 2026-06-18):** der dokumentierte Default für „Änderung in die DB bringen" ist `npm run db:sync` — ein **nicht-destruktiver, idempotenter** Voll-Roster-Re-Apply (= der alte `db:rebuild`-Chain **minus Truncate**, plus Podcast-Step; Scope auto-abgeleitet aus dem committeten Roster mit Preflight-Guard, der bei Lücke/Stray laut anhält). Mentales Modell für jede Änderung: *Datei ändern → PR/Merge → `db:sync`*. `db:rebuild` ist auf **Disaster-Recovery** degradiert (= `db:sync` + vorangestelltes confirm-gegatetes Truncate) — im Normalbetrieb nie nötig. `npm run db:drift` ist ein read-only Health-Check (Tail-`--verify`s + Counts + Batch-Contiguity + Podcast-Artifact-Drift; schreibt nie), der sagt, *ob* ein Rebuild überhaupt gerechtfertigt ist. Die hand-gepinnte `db-rebuild.config.json` (die `to:57`-Fehlerquelle aus dem 96+Drukhari-Vorfall) ist gelöscht.
 - **Standing tools (dormant):** SSOT-Loop + Resolver-Loop (Ad-hoc-Roster-Erweiterungen), Konsolidierungs-Pass, Atlas-Regen, Brain-Lint.
 - **`/lab/design`** — Styleguide-Deliverable aus Review 141 (Palette, Typoskala, Kern-Bausteine, Do/Don'ts); Grundlage für den angekündigten Frontend-Brief.
 - **Polish-Sweep shipped (Brief 150, impl 2026-06-13):** Content-Warnings an einer zentralen Stelle (`facet-visibility.ts`) aus jeder Besucher-Oberfläche gefiltert (Admin-Spiegel `/atlas`+`/buch/[slug]/audit` filtern bewusst nicht); Fraktions-Sigils statt Punkt (Imperium/Space-Marines/Xenos/Chaos, `faction-icon.ts` + `FactionClassIcon`); Cogitator-Loader auf 45%-Void-Tint; `/login` mit neuem Artwork (Philipps eigenes → Credit „piwireddit") + generalisiertem `ArtCreditTag`/`art-credits.ts`-Slot (Timeline-Credits migriert aufs geteilte Markup, Daten-Maps bleiben). „Open Full Page"-Reiter aus dem Buch-Popup vorgezogen (Paket-2-Item; Fullpages bleiben kanonisch). **Über Scope hinaus (Eyeballing-Runden 6–8, Philipp-direkt):** `/map`-Chrome in die Gold-Sprache gezogen (Ornamente/Borders/Glows raus, Popups redesignt, Gelb-Washes raus, Solar klickbar, Backdrop 0.18, Necron-Rückbau) — Zwischenstand, kohärenter Map-Design-Pass als Kandidat 121-P15.
@@ -76,7 +77,7 @@ Kleinkram außerhalb Boards/OQs:
 
 ## Next likely brief
 
-Backlog-Sort 2026-06-12 (Cowork-Chat), aktualisiert 2026-06-17: P11 ist via Report 153 implementiert (PR/Merge ausstehend), B11 wurde danach vorgezogen und als Pilot-Brief 154 beauftragt:
+Aktualisiert 2026-06-18: **Brief 157 (inkrementeller Apply als Default) ist implementiert + gemerged** — `db:sync` ist jetzt der DB-Apply-Pfad. Unmittelbar nächste Schritte: (a) optional `npm run db:drift` gegen Prod, um den Stand nach der Live-Recovery read-only zu bestätigen; (b) **Stage 3 des Buch-Reviewers ([Brief 155](../../sessions/2026-06-18-155-arch-book-review-web-pass.md))** als nächster Batches-Handoff (~166 strukturelle Sentinels per Web-Enrichment); (c) danach P12 URL-EN+SSG → B12 Ask-Tuning → P13 Mobile. Älterer Backlog-Sort (2026-06-12/17) zur Referenz:
 
 1. **B11 Großer Buch-Reviewer — Pilot ([Brief 154](../../sessions/2026-06-17-154-arch-book-reviewer.md))** ist der nächste Handoff (Batches-Strang): CC-Direct Batch-Driver (Vorbild 131), Finder + adversariale Verifier (Muster 144) über ~30–50 Bücher, Dimensionen Factions/Junctions(Loc+Char)/Facets. Faction-/Junction-Findings → `reviewQueue` (149), Facet-Findings in separaten read-only Vorschlags-Log (kein Apply-Pfad — schützt die 149/150-Content-Warning-Garantie). Synopsis-Qualität bewusst gestrichen; Series-/Event-Junctions out of scope; Voll-Lauf über 889 = Maintainer-Betrieb, kein Acceptance-Kriterium. Read-only ggü. DB (DB-Freeze).
 2. **Danach:** **P12** URL-EN+SSG → **B12** Ask-Tuning (braucht B11-Datenqualität) → **P13** Mobile; B6 dazwischen, wann Luft ist; **B5** läuft als Hand-Kuratierung weiter; **P14** Map ⏸ bis Redditor-Daten; **P15** Map-Chrome-Kohärenz-Pass als eigener Kandidat. **P11** ist nach Product-PR/Merge separat nachzuhalten (Report 153 liegt lokal auf `codex/product-p11-rueckbau`). Hand-Korrekturen an vorhandenen Werken laufen als normaler Codex-Auftrag in `curation-overlay.json` + Dry-Run/Verify, nicht über ein Browser-Admin-Tool.

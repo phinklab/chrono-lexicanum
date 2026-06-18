@@ -2,12 +2,13 @@
 title: Open questions (next-brief queue)
 type: overview
 created: 2026-05-09
-updated: 2026-06-16
+updated: 2026-06-18
 sources:
   - ../../sessions/README.md
   - ../../sessions/archive/2026-06/2026-06-10-137-impl-timeline-data-foundation.md
   - ../../sessions/archive/2026-06/2026-06-12-147-impl-deep-review-fixes.md
   - ../../sessions/2026-06-16-152-impl-timeline-rebuild-tail.md
+  - ../../sessions/2026-06-18-157-impl-incremental-apply-default.md
 related:
   - ./project-state.md
   - ./deferred-questions.md
@@ -34,4 +35,14 @@ Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions
 
 ---
 
-*(Queue aktuell: nur (16b/c). Neue Items aus Impl-Reports kommen wie gewohnt nummeriert dazu.)*
+**(18) Inkrementeller Apply — zwei vertagte Vertiefungen aus Brief 157**
+`Owner: Cowork (Brief-Schnitt)` · `Sessions: 2026-06-18-157-impl-incremental-apply-default.md` · `Follow-up brief: offen`
+
+Brief 157 hat `db:sync` (nicht-destruktiver Voll-Roster-Re-Apply) als Default etabliert; bewusst der einfache, sichere erste Schritt. Zwei Vertiefungen sind ausdrücklich vertagt — erst bauen, wenn ein realer Bedarf sie rechtfertigt:
+
+- **(a) `db:apply` mit Plan/Diff (Out-of-scope B des Briefs).** Ein Verb, das erst einen Plan druckt und nur das Delta upsertet, statt den vollen Roster re-zuapplizieren. Bei wachsender Datenmenge die natürliche Evolution von `db:sync`.
+- **(b) Exakter „DB == kompletter SSOT"-Deep-Diff.** `db:drift` ist bewusst nur ein Health-Check (Slice-`--verify`s + Contiguity + Counts + Podcast-Drift); er fängt **keine** stale Korpus-Junction *innerhalb* einer applizierten Batch. Ein echter Vollvergleich kommt erst, wenn sich der Health-Check als unzureichend erweist.
+
+---
+
+*(Queue aktuell: (16b/c) + (18a/b). Neue Items aus Impl-Reports kommen wie gewohnt nummeriert dazu.)*
