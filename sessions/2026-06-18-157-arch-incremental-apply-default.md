@@ -16,6 +16,8 @@ commits: []
 # Inkrementeller Apply wird Default — `db:rebuild` nur noch Disaster-Recovery
 
 > **Supersedes Brief 156.** Brief 156 (Range-Cap + Podcast-Step im Rebuild-Orchestrator) ist in diesen Brief gefaltet — die Chain-Fixes brauchen beide Apply-Pfade, also gehören sie in *eine* kohärente Änderung. 156 ist zurückgezogen; dieser Brief trägt seinen Inhalt mit.
+>
+> **Rev 2026-06-18 nach Plan-Review (Codex).** Zwei Scope-Schärfungen eingearbeitet: (1) `db:drift` bleibt **klein** — read-only Health-Check (Verifies + Counts + Batch-Contiguity + Podcast-Artifact-Drift), **kein** exakter „DB == kompletter SSOT"-Deep-Diff (das wäre fast die vertagte Plan-Engine). (2) Das Mid-Chain-Versprechen ist **ehrlich abgeschwächt**: `db:sync` verhindert den Halb-Truncate-Horror, aber bei einem Fehlschlag mitten im Lauf können frühe Batches schon neu, späte noch alt sein — sicher, weil re-runnable, **nicht** „exakt konsistent". Plus: Targeted-Mode (`--only`) ist **gestrichen** — Default ist Voll-Roster-Re-Apply, Punkt.
 
 ## Goal
 
@@ -47,7 +49,7 @@ Marktcheck (Bestätigung der Richtung): Full-Refresh / kill-and-fill skaliert ni
 
 1. **Policy-Inversion.** Der Routine-Weg, Änderungen in die DB zu bringen, **truncatet nie**. Default ist ein nicht-destruktiver Inkrement-Apply.
 
-2. **Ein nicht-destruktiver Sync-Verb (Vorschlag `db:sync`, Name verhandelbar).** Im Kern: der `db:rebuild`-Chain **ohne** Schritt 1 (Reset) — Schritte 2–8 idempotent über den **gesamten committeten Roster** (auto-abgeleitet, siehe Entscheid 4) + alle Tails inkl. Podcast. Safe beliebig oft laufbar. Bricht ein Schritt ab, bleibt die zuvor servierte Daten konsistent live (kein Halb-Truncate-Zustand) — man fixt und re-runt. Das wird der dokumentierte Default für „push meine Änderungen".
+2. **Ein nicht-destruktiver Sync-Verb (Vorschlag `db:sync`, Name verhandelbar).** Im Kern: der `db:rebuild`-Chain **ohne** Schritt 1 (Reset) — Schritte 2–8 idempotent über den **gesamten committeten Roster** (auto-abgeleitet, siehe Entscheid 4) + alle Tails inkl. Podcast. Safe beliebig oft laufbar. Der entscheidende Gewinn gegenüber dem Rebuild: **kein Truncate, also nie ein Halb-leerer `works`-Bereich** — die DB serviert durchgehend weiter. Was Sync **nicht** garantiert: dass ein Fehlschlag *mitten* im Lauf keinen Misch-Zustand hinterlässt — fällt Batch 40 von 90 aus, sind 1–39 ggf. schon neu appliziert, 40+ noch alt. Das ist akzeptabel, weil idempotent re-runnable (nochmal laufen → sauberer Endzustand), aber es ist **nicht** „zuvor servierte Daten bleiben exakt konsistent". Das wird der dokumentierte Default für „push meine Änderungen".
 
 3. **`db:rebuild` wird Disaster-Recovery.** Definiere `db:rebuild` als `db:sync` + ein vorangestelltes confirm-gegatetes Truncate. Help-Text + Runbook sagen explizit: „Du brauchst das fast nie — nutze `db:sync`. Dies ist From-Clean-Recovery, wenn der Drift-Check echte Divergenz zeigt." Confirm-Gating bleibt.
 
@@ -55,9 +57,15 @@ Marktcheck (Bestätigung der Richtung): Full-Refresh / kill-and-fill skaliert ni
 
 5. **Podcast-Restore ist fester Chain-Schritt**, platziert **nach** dem Korpus-Re-Apply und **vor** `apply:timeline` (Timeline-Hooks lösen gegen `works.id` auf).
 
-6. **Read-only Drift-Check (Vorschlag `db:drift`, Name verhandelbar).** Berichtet, ob die Live-DB dem committeten SSOT entspricht — zusammengesetzt aus den **bestehenden** `--verify`-Modi + Counts (und ggf. der `refresh:check`-Familie). Schreibt nie. Empfiehlt einen Rebuild **nur** bei echter Divergenz (im Normalbetrieb ~nie).
+6. **Read-only Health-Check, bewusst klein (Vorschlag `db:drift`, Name verhandelbar).** **Kein** exakter „DB == kompletter SSOT"-Vollvergleich in diesem Brief — das wäre fast die vertagte Plan-Engine (Out of scope). Stattdessen ein billiger Health-Check aus **bestehenden** Bausteinen: die `--verify`-Modi der Tails, Counts (`db-counts.ts`), **Batch-Contiguity** (committeter Roster lückenlos und vollständig im Apply-Scope), **Podcast-Artifact-Drift** (committete Shows vs. DB) und ggf. die `refresh:check`-Familie. Schreibt nie. Sagt dem Maintainer „sieht gesund aus" bzw. „hier stimmt was nicht — schau hin / ggf. Rebuild". Ein exakter Vollvergleich kommt später, **nur wenn** sich herausstellt, dass der Health-Check nicht reicht.
 
-7. **Eine „Wie kriege ich Änderung X rein"-Tabelle** im Runbook: pro Änderungs-Typ *ein* Handgriff (neue Batch / neue Reference-Entity / Korrekturen / Timeline / Podcast → jeweils der inkrementelle Befehl, bzw. schlicht `db:sync`). Ein mentales Modell statt sieben.
+7. **Ein Maintainer-Modell, nicht sieben.** Der dokumentierte Alltags-Workflow ist für **jede** Änderung derselbe — egal ob 1 Buch, 3 Bücher, eine kleine Korrektur, eine neue Reference-Entity, Podcast-Folgen oder ein Timeline-Tail:
+
+   ```
+   Quelle (committete Datei) ändern  →  PR / Merge  →  npm run db:sync
+   ```
+
+   **Kein** Targeted-Mode (`--only`), **kein** neues DB-Apply-Log, **keine** extra Tabelle. Bei der heutigen Datenmenge (~2k Works) ist „voller Roster re-apply, aber nicht-destruktiv" die simpelste und robusteste mentale Logik. Das Runbook führt das als *den* Weg; die einzelnen `apply:*`-Verben bleiben als Bausteine existent, sind aber nicht der Maintainer-Pfad.
 
 ## Constraints
 
@@ -81,12 +89,12 @@ Marktcheck (Bestätigung der Richtung): Full-Refresh / kill-and-fill skaliert ni
 
 Die Session ist fertig, wenn:
 
-- [ ] Ein nicht-destruktiver Default-Apply (`db:sync` o.ä.) bringt die Live-DB per idempotentem Upsert auf den vollen committeten SSOT — gesamter Roster + alle Tails (override / audiobook / podcast / timeline / curation) — **ohne je zu truncaten**. Beliebig oft laufbar; ein Mid-Chain-Fehler lässt die zuvor servierten Daten intakt und konsistent (kein Halb-Truncate-Zustand).
+- [ ] Ein nicht-destruktiver Default-Apply (`db:sync` o.ä.) bringt die Live-DB per idempotentem Upsert auf den vollen committeten SSOT — gesamter Roster + alle Tails (override / audiobook / podcast / timeline / curation) — **ohne je zu truncaten**. Beliebig oft laufbar; ein Mid-Chain-Fehler hinterlässt nie einen Halb-leeren `works`-Bereich (Truncate gibt es nicht), sondern höchstens einen idempotent re-runnable Misch-Zustand (frühe Batches neu, späte alt) — ein erneuter Lauf führt zum sauberen Endzustand. Default ist **Voll-Roster-Re-Apply**; kein Targeted-/`--only`-Modus.
 - [ ] Der Apply-Scope deckt **alle** committeten w40k+hh-Batches ab (heute w40k bis 060, hh bis 030), **auto-abgeleitet** vom committeten Bestand statt hand-gepinnt. Ein voller Lauf applied `siege-of-vraks` (Batch 059).
 - [ ] **Preflight-Guard:** eine committed Batch außerhalb des Apply-Scopes lässt Sync **und** Rebuild **laut anhalten, bevor** geschrieben/truncatet wird (klarer Marker).
 - [ ] Der Chain stellt die Podcast-Works wieder her (`apply:podcast -- --all`), **nach** Korpus-Re-Apply, **vor** `apply:timeline`. Die 4 Shows lösen in der Timeline-Resolution auf; die zuvor 6 unauflösbaren Referenzen sind weg (im Dry-Run/Test nachgewiesen).
 - [ ] `db:rebuild` ist als `db:sync` + vorangestelltes confirm-gegatetes Truncate definiert und in Help-Text **und** Runbook explizit als **Disaster-Recovery** markiert („du brauchst das fast nie; nutze `db:sync`").
-- [ ] Ein read-only `db:drift` (o.ä.) berichtet, ob die Live-DB dem committeten SSOT entspricht (Wiederverwendung der bestehenden `--verify`-Logik + Counts / `refresh:check`-Familie), nonzero/klare Ausgabe, schreibt nie, und empfiehlt Rebuild nur bei echter Divergenz.
+- [ ] Ein read-only Health-Check (`db:drift` o.ä.) meldet aus **bestehenden** Bausteinen (Tail-`--verify` + Counts + Batch-Contiguity + Podcast-Artifact-Drift, ggf. `refresh:check`) einen gesund/ungesund-Status, schreibt nie, und weist bei Auffälligkeit auf die Stelle hin. **Kein** exakter DB==SSOT-Vollvergleich in diesem Brief.
 - [ ] Eine „Wie kriege ich Änderung X rein"-Tabelle im Runbook mappt jeden Änderungs-Typ auf *einen* Handgriff.
 - [ ] Stale Inline-Kommentare in `db-rebuild.sh` (+ neuer Sync-Datei) und die Runbook-Spec spiegeln die Realität: Auto-Scope, Podcast-Step, Sync-vs-Rebuild-Trennung, korrekte Batch-Zahl.
 - [ ] `npm run lint` + `npm run typecheck` grün; `npm run test:timeline` grün.
@@ -96,8 +104,7 @@ Die Session ist fertig, wenn:
 Bitte im Report beantworten — Inputs, keine Blocker:
 
 - **Verb-Namen:** `db:sync` (nicht-destruktiver Default) + `db:drift` (read-only Check) ok, oder schlägst du klarere vor? (Contract-Frage, nicht Ästhetik — kurz begründen.)
-- **Sync-Granularität:** Voll-Roster-Re-Apply pro Lauf (einfachstes mentales Modell, bei ~2k Works schnell genug) als Default — plus optionaler `--only <range|overlay>`-Fast-Path für „ich hab nur X geändert"? Mein Lean: Voll-Roster default, targeted als Power-User-Flag.
-- **Drift-Check-Tiefe:** Count-Level vs. exakter Set-/Value-Vergleich (Wiederverwendung der `--verify`-Comparisons). Lean: die bestehenden exakten Vergleiche nutzen, da sie schon da sind. Deckt die `refresh:check`-Familie das teilweise schon ab?
+- **Health-Check-Bausteine:** Welche der bestehenden Signale (Tail-`--verify`, Counts, Batch-Contiguity, Podcast-Artifact-Drift, `refresh:check`) deckst du tatsächlich ab, und deckt `refresh:check` schon Teile davon? (Granularität + Targeted-Mode sind **entschieden** — Voll-Roster, kein `--only`; Drift-Tiefe ist **entschieden** — Health-Check, kein Vollvergleich. Hier nur: was geht günstig mit Bestehendem.)
 - **hh-Range:** heute bis 030 committed — bestätige, dass nichts außerhalb hängt.
 
 ## Notes
