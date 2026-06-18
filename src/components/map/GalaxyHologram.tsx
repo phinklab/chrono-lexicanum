@@ -128,6 +128,11 @@ export default function GalaxyHologram() {
 
   const dragRef = useRef<DragState>({ active: false, sx: 0, sy: 0, ox: 0, oy: 0, moved: 0 });
   const discWrapperRef = useRef<HTMLDivElement | null>(null);
+  // Latest viewport-space pointer position — used to anchor the world codex
+  // tooltip next to the planet that was clicked (world clicks bubble up to the
+  // root, so we read the last press position rather than threading the event
+  // through every disc child).
+  const pointerScreenRef = useRef({ x: 0, y: 0 });
 
   // While AddMode is in `place` phase the disc consumes the next click as a
   // polar coord and dispatches it as a new control point. Single-point types
@@ -156,6 +161,7 @@ export default function GalaxyHologram() {
   };
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    pointerScreenRef.current = { x: e.clientX, y: e.clientY };
     const tgt = e.target as Element | null;
     if (tgt && tgt.closest("button, a, [data-no-drag]")) return;
     dragRef.current = {
@@ -168,6 +174,7 @@ export default function GalaxyHologram() {
     };
   };
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    pointerScreenRef.current = { x: e.clientX, y: e.clientY };
     // Track cursor → polar so AddMode and edit overlays can render a live
     // crosshair / coord readout regardless of which surface intercepts the
     // events. Only sample when an editor surface is actually mounted.
@@ -541,7 +548,13 @@ export default function GalaxyHologram() {
                 visible={detailVisible}
                 segId={detailSeg}
                 factionFilter={state.tweaks.factionFilter}
-                onWorldClick={(w) => dispatch({ type: "select_world", worldId: w.id })}
+                onWorldClick={(w) =>
+                  dispatch({
+                    type: "select_world",
+                    worldId: w.id,
+                    anchor: { ...pointerScreenRef.current },
+                  })
+                }
                 selectedId={state.selectedWorldId}
                 hoveredId={state.hoveredWorld}
                 setHoveredId={(id) => dispatch({ type: "set_hovered_world", id })}
@@ -552,7 +565,13 @@ export default function GalaxyHologram() {
                 dimmed={state.transitioning}
                 segId={detailSeg}
                 factionFilter={state.tweaks.factionFilter}
-                onWorldClick={(w) => dispatch({ type: "select_world", worldId: w.id })}
+                onWorldClick={(w) =>
+                  dispatch({
+                    type: "select_world",
+                    worldId: w.id,
+                    anchor: { ...pointerScreenRef.current },
+                  })
+                }
                 selectedId={state.selectedWorldId}
                 hoveredId={state.hoveredWorld}
                 setHoveredId={(id) => dispatch({ type: "set_hovered_world", id })}

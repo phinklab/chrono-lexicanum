@@ -1,10 +1,11 @@
 "use client";
 
-// Floating codex panel that slides in from the LEFT when a world is selected.
-// Frameless glass card, set off from the viewport edge (not glued to it). Lore
-// + book entries + recorded events + auspex telemetry.
+// Codex tooltip that floats next to the planet you click. A frameless glass
+// card (the site's popup language — see 64-detail-modal.css), anchored to the
+// click position and clamped into the viewport, overlaying the map. Lore + book
+// entries + recorded events + auspex telemetry.
 
-import { useMemo, type CSSProperties } from "react";
+import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 
 import { FACTION_COLORS, SEGMENTUM_WORLDS } from "@/lib/galaxy/data";
 import type { Theme, World } from "@/lib/galaxy/types";
@@ -82,7 +83,10 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
   const state = useGalaxy();
   const { chooseWorld } = useGalaxyActions();
   const world = useMemo(() => findWorldById(state.selectedWorldId), [state.selectedWorldId]);
-  const open = !!world;
+  const anchor = state.worldAnchor;
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const [pos, setPos] = useState<{ left: number; top: number } | null>(null);
+
   // Deterministic per-world vox frequency — same world → same numbers across
   // mounts; no Math.random in render so React 19's purity rules stay happy.
   const voxStable = useMemo(() => {
@@ -92,24 +96,64 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
     const u = (h >>> 0);
     return { mhz: 60 + (u % 40), khz: (u >>> 8) % 100 };
   }, [world]);
+
+  // Place the card next to the clicked planet — preferring its left, falling to
+  // its right when there is no room — and clamp it into the viewport. Measured
+  // here (layout effect, pre-paint) so the vertical centring uses the card's
+  // real height and there is no position flash.
+  useLayoutEffect(() => {
+    // When nothing is selected the component renders null, so a stale `pos`
+    // never paints — no need to clear it here (and clearing it synchronously
+    // would be a needless cascading render).
+    if (!world) return;
+    const place = () => {
+      if (typeof window === "undefined") return;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const M = 14; // viewport margin
+      const GAP = 18; // gap between planet and card
+      const W = Math.min(360, vw - 2 * M);
+      const maxH = Math.min(560, vh - 2 * M);
+      const h = Math.min(cardRef.current?.offsetHeight ?? maxH, maxH);
+      if (!anchor) {
+        // Deep-link (no click to anchor to): rest it top-left over the map.
+        setPos({ left: M + 14, top: Math.min(112, Math.max(M, (vh - h) / 2)) });
+        return;
+      }
+      let left = anchor.x - GAP - W;
+      if (left < M) left = anchor.x + GAP; // no room left → flip right
+      if (left + W > vw - M) left = Math.max(M, vw - W - M);
+      let top = anchor.y - h / 2;
+      top = Math.max(M, Math.min(top, vh - h - M));
+      setPos({ left, top });
+    };
+    place();
+    window.addEventListener("resize", place);
+    return () => window.removeEventListener("resize", place);
+  }, [world, anchor]);
+
+  if (!world) return null;
+
   return (
     <div
+      ref={cardRef}
+      key={world.id}
+      className="world-tooltip"
       style={{
         position: "fixed",
-        left: 28,
-        top: 112,
-        bottom: 28,
-        width: "min(400px, 34vw)",
-        transform: open ? "translateX(0)" : "translateX(-115%)",
-        transition: "transform 0.45s cubic-bezier(.2,.7,.2,1)",
-        // Gold language: no drawn frame — the floating card edge is the drop
-        // shadow plus a faint bone light-catch along the top. Rounded + inset
-        // from the viewport edge so it reads as a panel hovering over the map.
-        background: "linear-gradient(180deg, rgba(6,9,16,0.97) 0%, rgba(2,4,10,0.98) 100%)",
+        left: pos?.left ?? 0,
+        top: pos?.top ?? 0,
+        visibility: pos ? "visible" : "hidden",
+        width: "min(360px, calc(100vw - 28px))",
+        maxHeight: "min(560px, calc(100vh - 28px))",
+        // Site popup language (64-detail-modal.css): no drawn frame — the card
+        // edge is the drop shadow + a faint bone top light-catch.
+        background: "linear-gradient(180deg, rgba(6,9,16,0.98) 0%, rgba(2,4,10,0.99) 100%)",
         backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
         borderRadius: 4,
         boxShadow: `0 30px 80px -20px rgba(0,0,0,0.85), inset 0 1px 0 rgba(232,220,192,0.06)`,
-        pointerEvents: open ? "auto" : "none",
+        pointerEvents: "auto",
         zIndex: 49,
         color: t.primary,
         fontFamily: t.fontBody,
@@ -118,9 +162,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
         overflow: "hidden",
       }}
     >
-      {world && (
-        <>
-          <div style={{ padding: "20px 22px 14px", position: "relative" }}>
+      <div style={{ padding: "20px 22px 14px", position: "relative" }}>
             <Hairline style={{ position: "absolute", left: 0, right: 0, bottom: 0 }} />
             <div
               style={{
@@ -174,8 +216,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
               }}
               style={{
                 position: "absolute",
-                // Panel now floats on the LEFT, so the global burger (top-right)
-                // no longer overlaps — the × sits in the panel's own top-right.
+                // The × sits in the card's own top-right corner.
                 top: 18,
                 right: 14,
                 background: "transparent",
@@ -352,8 +393,6 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
               </div>
             </div>
           </div>
-        </>
-      )}
     </div>
   );
 }

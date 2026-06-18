@@ -142,11 +142,11 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
   }
 
   return (
-    <main className="catalogue catalogue--werke route-snap">
+    <main className="catalogue catalogue--werke">
       <SiteBackground variant="main" position="right bottom" />
       {focusSlug ? <CompendiumFocusOpener href={`/buch/${focusSlug}`} /> : null}
       <section className="catalogue-hero route-act" aria-label="Archive — the media archive">
-        <ScrollScrim maxOpacity={0.86} />
+        <ScrollScrim maxOpacity={0.77} />
         <div className="catalogue-hero__sweep" aria-hidden>
           <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-gold)" />
         </div>

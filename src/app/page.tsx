@@ -67,7 +67,7 @@ export default async function HubPage() {
         className="hub-scrim"
         varName="--hub-scrim-opacity"
         heroSelector=".hub-act--splash"
-        maxOpacity={0.86}
+        maxOpacity={0.77}
       />
 
       <div className="hub-readout" aria-hidden>

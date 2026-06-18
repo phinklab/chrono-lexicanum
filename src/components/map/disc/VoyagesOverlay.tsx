@@ -46,6 +46,7 @@ export default function VoyagesOverlay({ theme, visible }: VoyagesOverlayProps) 
 
   return (
     <svg
+      className="voyages-overlay"
       viewBox="0 0 100 100"
       style={{
         position: "absolute",
@@ -58,41 +59,48 @@ export default function VoyagesOverlay({ theme, visible }: VoyagesOverlayProps) 
       }}
       aria-hidden
     >
-      {/* soft underlay glow */}
+      {/* Dim the disc + labels behind the route so the now-thin line + numerals
+          read clearly. The rect is drawn far past the 0..100 viewBox so its
+          edges fall outside the viewport (the hologram root clips at
+          overflow:hidden); it scales/pans with the disc, and every route mark
+          below is painted AFTER it, so only the map dims — never the path. */}
+      <rect x={-200} y={-200} width={500} height={500} fill="#03040b" fillOpacity={0.46} />
+
+      {/* soft underlay glow — hairline, just enough to lift the line off the murk */}
       <polyline
         points={polyPoints}
         fill="none"
         stroke={color}
-        strokeWidth={1.1}
+        strokeWidth={0.4}
         strokeLinecap="round"
         strokeLinejoin="round"
-        opacity={0.22}
-        style={{ filter: `drop-shadow(0 0 1.2px ${color})` }}
+        opacity={0.3}
+        style={{ filter: `drop-shadow(0 0 0.6px ${color})` }}
       />
       {/* dashed route line */}
       <polyline
         points={polyPoints}
         fill="none"
         stroke={color}
-        strokeWidth={0.5}
+        strokeWidth={0.16}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeDasharray="2 1.5"
+        strokeDasharray="1 0.7"
         opacity={0.95}
       />
       {/* waypoint dots + order numerals */}
       {pts.map(([x, y], i) => (
         <g key={i}>
-          <circle cx={x} cy={y} r={0.85} fill={color} opacity={0.18} />
-          <circle cx={x} cy={y} r={0.42} fill={color} />
+          <circle cx={x} cy={y} r={0.5} fill={color} opacity={0.18} />
+          <circle cx={x} cy={y} r={0.2} fill={color} />
           <text
             x={x}
-            y={y - 1.6}
+            y={y - 1.0}
             textAnchor="middle"
             fontFamily={theme.fontMono}
-            fontSize={1.7}
+            fontSize={0.95}
             fill={color}
-            opacity={0.85}
+            opacity={0.9}
           >
             {i + 1}
           </text>

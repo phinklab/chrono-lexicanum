@@ -87,7 +87,7 @@ export default async function PodcastsPage() {
         className="pod-scrim"
         varName="--pod-scrim-opacity"
         heroSelector=".pod-mast"
-        maxOpacity={0.7}
+        maxOpacity={0.63}
       />
 
       {/* Fixed HUD atmosphere — sweep + readout, pinned to the viewport so they

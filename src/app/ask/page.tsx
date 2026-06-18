@@ -68,7 +68,7 @@ export default async function AskPage({ searchParams }: AskPageProps) {
         className="ask-scrim"
         varName="--ask-scrim-opacity"
         heroSelector=".ask-console__mast"
-        maxOpacity={0.86}
+        maxOpacity={0.77}
       />
 
       <div className="ask-readout" aria-hidden>

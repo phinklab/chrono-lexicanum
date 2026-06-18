@@ -282,14 +282,14 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
         // never overlap when Add Element is toggled on from the rail.
         top: 140,
         right: 240,
-        width: 340,
+        width: 360,
         // Gold language: no drawn frame, no halo glow — depth is the dark
         // drop shadow + a faint bone top light-catch.
         background: "linear-gradient(180deg, rgba(6,9,16,0.97), rgba(2,4,10,0.98))",
         boxShadow: "0 30px 80px -20px rgba(0,0,0,0.85), inset 0 1px 0 rgba(232,220,192,0.06)",
-        padding: 16,
+        padding: 18,
         fontFamily: t.fontMono,
-        fontSize: 10,
+        fontSize: 12,
         color: t.primary,
         zIndex: 6,
         pointerEvents: "auto",
@@ -298,12 +298,20 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
       <div
         style={{
           fontFamily: t.fontDisplay,
-          fontSize: 13,
+          fontSize: 15,
           letterSpacing: "0.32em",
           color: t.accent,
           textTransform: "uppercase",
-          textShadow: `0 0 8px ${t.primary}`,
-          marginBottom: 10,
+          // Site title treatment: faint bloom + hard dark drop, not a tight halo.
+          textShadow: `0 0 22px ${t.primarySoft}, 0 2px 10px rgba(0,0,0,0.9)`,
+          // Terminus hairline divider under the header — the site's popup rule.
+          paddingBottom: 12,
+          marginBottom: 14,
+          backgroundImage:
+            "linear-gradient(90deg, transparent, rgba(201,166,90,0.22) 14%, rgba(201,166,90,0.22) 86%, transparent)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 1px",
+          backgroundPosition: "bottom left",
         }}
       >
         ✚ Add Element
@@ -311,7 +319,7 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
 
       {phase === "idle" && (
         <>
-          <div style={{ opacity: 0.7, fontSize: 10, lineHeight: 1.55, marginBottom: 10 }}>
+          <div style={{ opacity: 0.7, fontSize: 12, lineHeight: 1.6, marginBottom: 12 }}>
             Add a planet or a zone. You&apos;ll click a point on the map, then Save.
           </div>
           <AddBtn t={t} primary onClick={() => setPhase("pick")}>
@@ -365,11 +373,13 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
 
           <div
             style={{
-              marginTop: 10,
-              padding: 8,
-              background: "#0006",
-              border: `1px solid ${swatch}66`,
-              fontSize: 9.5,
+              marginTop: 12,
+              padding: "10px 12px",
+              // Frameless: a faint faction-colour tint + a left colour spine,
+              // not a drawn box (the site's gold language).
+              background: `${swatch}14`,
+              boxShadow: `inset 2px 0 0 ${swatch}`,
+              fontSize: 11,
               color: swatch,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
@@ -378,9 +388,9 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
             <span
               style={{
                 display: "inline-block",
-                width: 8,
-                height: 8,
-                borderRadius: 8,
+                width: 9,
+                height: 9,
+                borderRadius: 9,
                 background: swatch,
                 boxShadow: `0 0 6px ${swatch}`,
                 marginRight: 6,
@@ -405,13 +415,13 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
         <>
           <div
             style={{
-              padding: 10,
-              background: `${swatch}22`,
-              border: `1px solid ${swatch}`,
+              padding: "10px 12px",
+              background: `${swatch}1c`,
+              boxShadow: `inset 2px 0 0 ${swatch}`,
               color: swatch,
               marginBottom: 10,
-              fontSize: 10,
-              lineHeight: 1.55,
+              fontSize: 12,
+              lineHeight: 1.6,
             }}
           >
             <strong style={{ letterSpacing: "0.2em" }}>{form.name || "(unnamed)"}</strong>
@@ -420,10 +430,10 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
               ? `Click the map ${Math.max(0, 2 - pts.length)} more time(s) or more, then "Done placing".`
               : "Click the map once to drop the marker."}
           </div>
-          <div style={{ fontSize: 10, opacity: 0.7, marginBottom: 8 }}>
+          <div style={{ fontSize: 12, opacity: 0.7, marginBottom: 8 }}>
             Captured points: <strong style={{ color: t.accent }}>{pts.length}</strong>
             {pts.length > 0 && (
-              <div style={{ marginTop: 4, fontFamily: t.fontMono, fontSize: 9, opacity: 0.6 }}>
+              <div style={{ marginTop: 4, fontFamily: t.fontMono, fontSize: 10.5, opacity: 0.6 }}>
                 {pts.map(([r, a], i) => (
                   <div key={i}>· PT{i + 1}: r {r.toFixed(3)} · a {a.toFixed(1)}°</div>
                 ))}
@@ -450,11 +460,11 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
 
       {phase === "review" && (
         <>
-          <div style={{ padding: 10, background: `${swatch}22`, border: `1px solid ${swatch}`, marginBottom: 10 }}>
+          <div style={{ padding: "10px 12px", background: `${swatch}1c`, boxShadow: `inset 2px 0 0 ${swatch}`, marginBottom: 10 }}>
             <div
               style={{
                 fontFamily: t.fontDisplay,
-                fontSize: 12,
+                fontSize: 14,
                 color: swatch,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
@@ -464,20 +474,20 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
             >
               ◬ {form.name}
             </div>
-            <div style={{ fontSize: 9, opacity: 0.8, color: swatch }}>
+            <div style={{ fontSize: 11, opacity: 0.8, color: swatch }}>
               {type.label.toUpperCase()}
               {type.kinds && ` · ${form.kind.toUpperCase()}`}
             </div>
           </div>
-          <div style={{ fontSize: 10, opacity: 0.75, marginBottom: 6 }}>
+          <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 6 }}>
             Position{pts.length > 1 ? " (control points)" : ""}:
           </div>
           <div
             style={{
               fontFamily: t.fontMono,
-              fontSize: 9.5,
+              fontSize: 10.5,
               background: "#0008",
-              border: `1px solid ${t.strokeFaint}`,
+              boxShadow: "inset 0 1px 0 rgba(232,220,192,0.05)",
               padding: 8,
               marginBottom: 12,
               color: t.accent,
@@ -489,7 +499,7 @@ export default function AddElementPanel({ theme }: AddElementPanelProps) {
               <div key={i}>· PT{i + 1}: r {r.toFixed(3)} · a {a.toFixed(1)}°</div>
             ))}
           </div>
-          <div style={{ fontSize: 9.5, opacity: 0.6, marginBottom: 10, lineHeight: 1.5 }}>
+          <div style={{ fontSize: 11, opacity: 0.6, marginBottom: 10, lineHeight: 1.55 }}>
             After saving, you can drag the handles to fine-tune in the Warp Editor.
           </div>
           <div style={{ display: "flex", gap: 6 }}>
@@ -532,12 +542,17 @@ function AddBtn({
       onClick={onClick}
       disabled={disabled}
       style={{
-        padding: "8px 12px",
-        background: primary ? t.accent : danger ? "#3a1010" : t.bg0,
-        color: primary ? t.bg0 : danger ? "#ff7766" : t.accent,
-        border: `1px solid ${primary ? t.accent : danger ? "#ff5544" : t.stroke}`,
+        padding: "10px 13px",
+        // Frameless quiet fills (gold language) — no drawn 1px borders.
+        background: primary
+          ? t.accent
+          : danger
+            ? "rgba(60,14,14,0.6)"
+            : "rgba(201,166,90,0.10)",
+        color: primary ? t.bg0 : danger ? "#ff8866" : t.accent,
+        border: "none",
         fontFamily: t.fontMono,
-        fontSize: 10,
+        fontSize: 12,
         fontWeight: primary ? 700 : 400,
         letterSpacing: "0.18em",
         textTransform: "uppercase",
@@ -565,8 +580,8 @@ function AddRowText({
   placeholder?: string;
 }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "4px 0" }}>
-      <div style={{ width: 64, fontSize: 10, color: t.primary, opacity: 0.7 }}>{label}</div>
+    <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "5px 0" }}>
+      <div style={{ width: 72, fontSize: 12, color: t.primary, opacity: 0.7 }}>{label}</div>
       <input
         type="text"
         value={value || ""}
@@ -574,12 +589,12 @@ function AddRowText({
         onChange={(e) => onChange(e.target.value)}
         style={{
           flex: 1,
-          padding: "5px 7px",
+          padding: "7px 9px",
           background: t.bg0,
           color: t.accent,
           border: `1px solid ${t.stroke}`,
           fontFamily: t.fontMono,
-          fontSize: 10.5,
+          fontSize: 12.5,
           letterSpacing: "0.08em",
           outline: "none",
         }}
@@ -607,8 +622,8 @@ function AddRowSelect<T extends string | number>({
   onChange: (v: T) => void;
 }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "4px 0" }}>
-      <div style={{ width: 64, fontSize: 10, color: t.primary, opacity: 0.7 }}>{label}</div>
+    <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "5px 0" }}>
+      <div style={{ width: 72, fontSize: 12, color: t.primary, opacity: 0.7 }}>{label}</div>
       <select
         value={String(value)}
         onChange={(e) => {
@@ -618,12 +633,12 @@ function AddRowSelect<T extends string | number>({
         }}
         style={{
           flex: 1,
-          padding: "5px 7px",
+          padding: "7px 9px",
           background: t.bg0,
           color: t.accent,
           border: `1px solid ${t.stroke}`,
           fontFamily: t.fontMono,
-          fontSize: 10.5,
+          fontSize: 12.5,
           letterSpacing: "0.08em",
         }}
       >

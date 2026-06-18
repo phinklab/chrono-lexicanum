@@ -61,6 +61,10 @@ export interface GalaxyState {
   era: EraId;
   view: GalaxyView;
   selectedWorldId: string | null;
+  // Viewport-space anchor (the click position) for the world codex tooltip, so
+  // the panel can float next to the planet that was clicked. Null when nothing
+  // is selected or when a world is opened via deep-link (no click to anchor to).
+  worldAnchor: { x: number; y: number } | null;
   // Which character "voyage" path overlay is shown on the galaxy view (null =
   // none). Not persisted (no localStorage / hash); resets implicitly only via
   // a full reload.
@@ -94,7 +98,7 @@ export type GalaxyAction =
   | { type: "hydrate"; payload: HydratePayload }
   | { type: "set_era"; era: EraId; data: GalaxyData }
   | { type: "set_view"; view: GalaxyView }
-  | { type: "select_world"; worldId: string | null }
+  | { type: "select_world"; worldId: string | null; anchor?: { x: number; y: number } | null }
   | { type: "select_voyage"; id: string | null }
   | { type: "set_pan"; pan: { x: number; y: number } }
   | { type: "set_zoom"; userZoom: number }
@@ -150,12 +154,18 @@ function reducer(state: GalaxyState, action: GalaxyAction): GalaxyState {
   switch (action.type) {
     case "hydrate": {
       const p = action.payload;
+      // Add Element must never come up pre-armed on load — force it off even if
+      // a previous (pre-demo-lock) session persisted addMode:true into
+      // localStorage. Same for the warp-edit toggle, which is an editor mode.
+      const tweaks = p.tweaks
+        ? { ...p.tweaks, addMode: false, editWarps: false }
+        : state.tweaks;
       return {
         ...state,
         era: p.era ?? state.era,
         view: p.view ?? state.view,
         selectedWorldId: p.selectedWorldId !== undefined ? p.selectedWorldId : state.selectedWorldId,
-        tweaks: p.tweaks ?? state.tweaks,
+        tweaks,
         data: p.data ?? state.data,
         hydrated: true,
       };
@@ -168,6 +178,7 @@ function reducer(state: GalaxyState, action: GalaxyAction): GalaxyState {
         // Switching era resets per-era view bookkeeping; the disc re-mounts.
         view: "galaxy",
         selectedWorldId: null,
+        worldAnchor: null,
         pan: { x: 0, y: 0 },
         userZoom: 1,
         transitioning: false,
@@ -182,7 +193,11 @@ function reducer(state: GalaxyState, action: GalaxyAction): GalaxyState {
     case "set_view":
       return { ...state, view: action.view };
     case "select_world":
-      return { ...state, selectedWorldId: action.worldId };
+      return {
+        ...state,
+        selectedWorldId: action.worldId,
+        worldAnchor: action.worldId ? action.anchor ?? null : null,
+      };
     case "select_voyage":
       return { ...state, selectedVoyageId: action.id };
     case "set_pan":
@@ -206,6 +221,7 @@ function reducer(state: GalaxyState, action: GalaxyAction): GalaxyState {
         ...state,
         view: action.view,
         selectedWorldId: null,
+        worldAnchor: null,
         pan: { x: 0, y: 0 },
         userZoom: 1,
         transitioning: true,
@@ -220,6 +236,7 @@ function reducer(state: GalaxyState, action: GalaxyAction): GalaxyState {
         ...state,
         view: "galaxy",
         selectedWorldId: null,
+        worldAnchor: null,
         pan: { x: 0, y: 0 },
         userZoom: 1,
         transitioning: true,
@@ -433,6 +450,7 @@ function initialState(isAdmin: boolean): GalaxyState {
     era: DEFAULT_ERA,
     view: "galaxy",
     selectedWorldId: null,
+    worldAnchor: null,
     selectedVoyageId: null,
     pan: { x: 0, y: 0 },
     userZoom: 1,

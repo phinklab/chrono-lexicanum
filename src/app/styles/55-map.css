@@ -226,37 +226,133 @@
   top: 50%;
   transform: translateY(-50%);
   margin-right: 16px;
-  width: 264px;
+  width: 312px;
   max-height: 80vh;
   overflow-y: auto;
-  padding: 14px 16px;
-  background: linear-gradient(180deg, rgba(8, 12, 20, 0.95) 0%, rgba(3, 6, 12, 0.97) 100%);
+  padding: 18px 20px 20px;
+  /* Site popup surface (64-detail-modal.css): near-opaque dark, no drawn frame,
+     depth from the drop shadow + a faint bone top light-catch. */
+  background: linear-gradient(180deg, rgba(6, 9, 16, 0.98) 0%, rgba(2, 4, 10, 0.99) 100%);
   box-shadow:
-    0 24px 60px -18px rgba(0, 0, 0, 0.85),
+    0 30px 80px -20px rgba(0, 0, 0, 0.85),
     inset 0 1px 0 rgba(232, 220, 192, 0.06);
-  border-radius: 3px;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  animation: maprailPopIn 0.16s ease-out both;
+  border-radius: 4px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  animation: maprailPopIn 0.18s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 .maprail__pop-head {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 10px;
-  letter-spacing: 0.24em;
+  position: relative;
+  /* Cinzel small-caps title — the site's popup heading voice, not a mono label. */
+  font-family: var(--font-cinzel), serif;
+  font-size: var(--fs-label-lg);
+  font-weight: 400;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--cl-gold);
-  opacity: 0.8;
-  margin-bottom: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+/* Terminus hairline under the popover heading — the gold-language popup rule. */
+.maprail__pop-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(201, 166, 90, 0.22),
+    rgba(201, 166, 90, 0.08) 72%,
+    transparent
+  );
 }
 .maprail__voyages {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 4px;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+/* The popover bodies reuse the global .twk-* control primitives, which are sized
+   and voiced for the compact bottom-right gear. Inside a flyout they must read
+   like the REST OF THE SITE's popups (the centred detail-modal), not like a dev
+   panel — so restyle them in-place to the site reading scale + type voices
+   (Plex Mono tracked labels, Cormorant hints, gold reserved for accents/values).
+   Session 160. */
+.maprail__pop .twk-row { gap: 9px; padding: 3px 0; }
+.maprail__pop .twk-lbl {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cl-bone);
+}
+.maprail__pop .twk-val {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.04em;
+  color: var(--cl-gold);
+}
+.maprail__pop .twk-sect {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.26em;
+  color: color-mix(in srgb, var(--cl-gold) 72%, transparent);
+  padding: 16px 0 8px;
+}
+.maprail__pop .twk-field {
+  height: 38px;
+  font-size: var(--fs-label-lg);
+  letter-spacing: 0.04em;
+  color: var(--cl-bone);
+}
+.maprail__pop .twk-seg { padding: 3px; }
+.maprail__pop .twk-seg button {
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  min-height: 32px;
+}
+.maprail__pop .twk-btn {
+  height: 40px;
+  font-size: var(--fs-label);
+  letter-spacing: 0.16em;
+}
+.maprail__pop .twk-slider { height: 4px; margin: 11px 0; }
+.maprail__pop .twk-hint {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-sm);
+  line-height: 1.5;
+}
+
+/* Voyages route overlay — a gentle fade as the dimming + path appear. */
+@keyframes voyagesFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.voyages-overlay {
+  animation: voyagesFadeIn 0.35s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .voyages-overlay { animation: none; }
+}
+
+/* World codex tooltip — rise + fade as it anchors next to the clicked planet
+   (mirrors the site's detail-modal entrance, 64-detail-modal.css). */
+@keyframes worldTooltipIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.99); }
+  to   { opacity: 1; transform: none; }
+}
+.world-tooltip {
+  animation: worldTooltipIn 0.24s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .world-tooltip { animation: none; }
 }
 
 @media (max-width: 760px) {
   .maprail { right: 14px; }
   .maprail__btn { font-size: 11px; letter-spacing: 0.16em; padding-left: 10px; }
-  .maprail__pop { width: min(264px, 72vw); }
+  .maprail__pop { width: min(300px, 82vw); }
 }

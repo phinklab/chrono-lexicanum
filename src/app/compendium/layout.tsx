@@ -73,7 +73,7 @@ export default function CompendiumLayout({
         className="cmp-scrim"
         varName="--cmp-scrim-opacity"
         heroSelector=".cmp-hero"
-        maxOpacity={0.88}
+        maxOpacity={0.79}
       />
 
       {/* Fixed HUD atmosphere — sweep + readout pinned to the viewport so they sit
