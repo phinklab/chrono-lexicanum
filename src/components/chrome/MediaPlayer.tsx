@@ -11,7 +11,7 @@ import { TRACKS, type AudioTrack } from "@/lib/audio-tracks";
  *     CSS-Höhe). Idle-Breathing wenn pausiert; FFT-Mid-Band-reaktiv beim
  *     Playback. Schwebt über dem Header.
  *   • Header (immer sichtbar) — zwei Zeilen.
- *       Row 1: Eyebrow (AUDITORIVM · CHANNEL 01) ↔ "▴ PLAYLIST" Disclose.
+ *       Row 1: "▴ PLAYLIST" Disclose (rechtsbündig).
  *       Row 2: Play-Glyph (borderless) + "VOL" Toggle + Track-Titel.
  *   • Vol-Popover (absolute über dem VOL-Button) — schmaler Hairline-Slider
  *     mit Mute-Glyph. Mutually exclusive zum Playlist-Panel.
@@ -71,9 +71,6 @@ export default function MediaPlayer() {
 
   const hasTracks = TRACKS.length > 0;
   const currentTrack: AudioTrack | undefined = TRACKS[trackIndex];
-  const channelLabel = hasTracks
-    ? `AUDITORIVM · CHANNEL ${String(trackIndex + 1).padStart(2, "0")}`
-    : "AUDITORIVM · SILENTIVM";
   const trackName = hasTracks
     ? currentTrack?.title ?? "—"
     : "no atmosphere loaded";
@@ -331,7 +328,6 @@ export default function MediaPlayer() {
 
       <div className="media-player__header">
         <div className="media-player__top">
-          <span className="media-player__eyebrow">{channelLabel}</span>
           <button
             type="button"
             className="media-player__disclose"

@@ -1,4 +1,3 @@
-import BottomConsole from "@/components/chrono/BottomConsole";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import MainAuspex from "@/components/chrono/MainAuspex";
@@ -46,7 +45,6 @@ export default async function HubPage() {
     ...compendiumSuggestions,
     ...primarchSuggestions,
   ];
-  const stats = `${novelCount} NOVELS · 7 ERAS · 5 SEGMENTA`;
 
   // The readout carries REAL holdings instead of pseudo-telemetry (the
   // warp-tide/voltage lines died with the lab port, Report 141).
@@ -60,7 +58,7 @@ export default async function HubPage() {
 
   // Three full-viewport "acts" with firm (mandatory) scroll-snap between them:
   // 1 splash → 2 Praefatio + search → 3 the grouped doorways. The fixed
-  // hub.webp + <ScrollScrim> sit behind all three; the BottomConsole is a HUD.
+  // hub.webp + <ScrollScrim> sit behind all three.
   return (
     <main className="hub">
       <HubScrollReset />
@@ -197,8 +195,6 @@ export default async function HubPage() {
 
         <ArchiveFooter mid="BEST EXPERIENCED WITH SOUND" />
       </section>
-
-      <BottomConsole withCards={false} novelCountText={stats} />
     </main>
   );
 }

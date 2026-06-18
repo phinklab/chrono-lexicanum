@@ -159,13 +159,14 @@ body:has(main.hub) .site-bg::after {
   width: 100%;
   height: 100%;
 }
-/* Primary disc — centred behind the title. Centred via margins (NOT transform)
-   so the drift keyframe owns `transform` cleanly. */
+/* Primary disc — set left of centre, behind the title's left flank. Centred on
+   its anchor via margins (NOT transform) so the drift keyframe owns `transform`
+   cleanly. */
 .hub-hero__auspex--main {
   --auspex-size: min(58vh, 74vw, 520px);
   width: var(--auspex-size);
   height: var(--auspex-size);
-  left: 50%;
+  left: 34%;
   top: 58%;
   margin-left: calc(var(--auspex-size) / -2);
   margin-top: calc(var(--auspex-size) / -2);
@@ -174,13 +175,16 @@ body:has(main.hub) .site-bg::after {
   opacity: 0.5;
   animation: hubAuspexDriftA 38s ease-in-out infinite alternate;
 }
-/* Secondary disc — smaller, upper-offset and dimmer, for parallax depth. */
+/* Secondary disc — smaller and dimmer, sitting north-east of the (low, centred)
+   title for parallax depth. Anchored via margins like the primary. */
 .hub-hero__auspex--secondary {
   --auspex-size: min(30vh, 38vw, 300px);
   width: var(--auspex-size);
   height: var(--auspex-size);
-  right: clamp(-30px, 4vw, 70px);
-  top: clamp(80px, 16vh, 190px);
+  left: 62%;
+  top: 46%;
+  margin-left: calc(var(--auspex-size) / -2);
+  margin-top: calc(var(--auspex-size) / -2);
   opacity: 0.22;
   animation: hubAuspexDriftB 53s ease-in-out infinite alternate;
 }
@@ -686,6 +690,7 @@ body:has(main.hub) .site-bg::after {
   }
   .hub-hero__auspex--main {
     --auspex-size: min(70vh, 86vw, 380px);
+    left: 50%;
     top: 54%;
   }
   .hub-hero__heading {

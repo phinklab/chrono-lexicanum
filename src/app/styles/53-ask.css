@@ -154,10 +154,17 @@ body:has(main.ask) .site-bg::after {
 
 .ask-console__grid {
   /* One centered reading column (single-column redesign 2026-06-11) — the old
-     stage+rail two-column grid is gone; the stepper lives inside the stage. */
+     stage+rail two-column grid is gone; the stepper lives inside the stage.
+     As the route-body-snap (min-height:100dvh) it now flex-centres the stage on
+     the screen instead of pinning it to the top after the first snap. When the
+     stage outgrows the viewport (long results) the section grows and the column
+     flows from the top — justify-content:center only bites when it fits. */
   max-width: 900px;
   margin: 0 auto;
-  padding: calc(var(--top-nav-h, 48px) + 24px) clamp(20px, 3vw, 48px) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(72px, 12vh, 120px) clamp(20px, 3vw, 48px);
   scroll-margin-top: 0;
 }
 

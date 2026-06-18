@@ -165,7 +165,15 @@ body:has(main.compendium) .site-bg::after {
   z-index: 4;
   max-width: 1180px;
   margin: 0 auto;
-  padding: calc(var(--top-nav-h, 48px) + 24px) clamp(20px, 3vw, 48px) 80px;
+  /* As the route-body-snap (min-height:100dvh) flex-centre the nav + doors on
+     the screen instead of pinning them cramped to the top after the first snap.
+     Safe for the tall category directories: when content outgrows the viewport
+     the section grows and the column flows from the top (justify-content:center
+     only bites when it fits — i.e. the overview's door grid). */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(72px, 11vh, 110px) clamp(20px, 3vw, 48px);
 }
 
 /* ── Category nav ─────────────────────────────────────────────────────────── */

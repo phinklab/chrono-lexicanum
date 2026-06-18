@@ -42,6 +42,18 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  /* Centred at a hero's top; slides to the top-right corner once the page
+     scrolls (and statically on the Map) so it never overlaps the content that
+     scrolls up under it. Animate ONLY transform so it tweens from the centred
+     translateX(-50%) — the .is-open X-morph drives the inner __line transforms,
+     not the button's, so there is no conflict. */
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* Scrolled → park in the top-right corner (right edge − 16px). The maths:
+   left:50% puts the left edge at 50vw; -100% pulls a full width back and -16px
+   the gap, landing the right edge at 100vw − 16px. */
+.site-burger.is-scrolled {
+  transform: translateX(calc(50vw - 100% - 16px));
 }
 /* top scrim — small dark gradient behind the burger so it stays legible over
    scrolled content. Off at rest; SiteMenu toggles `.is-scrolled` once the page
@@ -75,6 +87,9 @@
 }
 .site-burger.is-scrolled::before {
   opacity: 1;
+  /* Tighter band once parked in the corner — a soft patch around the burger,
+     not a mid-screen bar. */
+  width: 150px;
 }
 
 .site-burger__icon {
@@ -295,6 +310,23 @@
   .site-menu.is-open .site-menu__item:nth-child(4)::before { transition-delay: 0.32s; }
   .site-menu.is-open .site-menu__item:nth-child(5)::before { transition-delay: 0.39s; }
   .site-menu.is-open .site-menu__item:nth-child(6)::before { transition-delay: 0.46s; }
+}
+
+/* Map: the holographic galaxy fills a fixed, non-scrolling viewport, so
+   `.is-scrolled` never fires — but the top-right corner has been cleared
+   (Milky-Way title + Timeline removed) specifically for the burger. Park it
+   there statically on desktop, and light its legibility band over the map.
+   Desktop-scoped so it never overrides the mobile top-right rule below
+   (which is a less-specific `.site-burger` and would otherwise lose to this
+   `:has()` selector regardless of media-query order). */
+@media (min-width: 721px) {
+  body:has(main.map-route) .site-burger {
+    transform: translateX(calc(50vw - 100% - 16px));
+  }
+  body:has(main.map-route) .site-burger::before {
+    opacity: 1;
+    width: 150px;
+  }
 }
 
 /* Mobile: oben rechts (statt zentriert), Label weg, safe-area nudge so the

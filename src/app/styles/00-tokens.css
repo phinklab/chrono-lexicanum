@@ -138,13 +138,15 @@
   from { transform: rotate(360deg); }
   to   { transform: rotate(0deg); }
 }
+/* Reined-in drift (2026-06-18): the discs barely wander from their anchor now
+   instead of sliding ~40px across the splash. */
 @keyframes hubAuspexDriftA {
   from { transform: translate(0, 0); }
-  to   { transform: translate(-44px, -22px); }
+  to   { transform: translate(-14px, -8px); }
 }
 @keyframes hubAuspexDriftB {
   from { transform: translate(0, 0); }
-  to   { transform: translate(38px, -18px); }
+  to   { transform: translate(12px, -7px); }
 }
 @keyframes hubDescentChev {
   0%   { opacity: 0; transform: translateY(-4px); }

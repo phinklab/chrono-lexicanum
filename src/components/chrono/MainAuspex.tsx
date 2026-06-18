@@ -37,15 +37,22 @@ export default function MainAuspex({
   const uid = `ma-${size}-${spinDur}`;
   const ticks = Array.from({ length: 72 });
   const dotsCount = Array.from({ length: 16 });
-  const blips: Array<[number, number]> = [
-    [130, -50],
-    [80, 90],
-    [-150, 60],
-    [-100, -130],
-    [180, -90],
-    [40, 160],
-    [-180, 140],
+  // Blips as fractions of the radius (were fixed px, so on the smaller disc they
+  // spilled outside the rings) and pulled in toward the centre so they read as
+  // part of the instrument on every size.
+  const blipFracs: Array<[number, number]> = [
+    [0.34, -0.13],
+    [0.21, 0.24],
+    [-0.4, 0.16],
+    [-0.27, -0.35],
+    [0.46, -0.23],
+    [0.11, 0.42],
+    [-0.44, 0.36],
   ];
+  const blips: Array<[number, number]> = blipFracs.map(([fx, fy]) => [
+    fx * r,
+    fy * r,
+  ]);
 
   return (
     <svg
@@ -169,9 +176,42 @@ export default function MainAuspex({
         opacity="0.5"
       />
 
-      {/* Center: one hairline circle, no fill — the washed disc + heavy ring
-          read as filled areas over the vista (maintainer fix 2026-06-11). */}
-      <circle r="46" fill="none" stroke={accent} strokeWidth="0.5" opacity="0.4" />
+      {/* Center reticle — a small spinning cogitator core so the disc's middle
+          is no longer static. Stays all-hairline / no-fill (bar a 3px focal
+          dot) to keep the maintainer's 2026-06-11 restraint: the washed disc +
+          heavy ring must not read as a filled blob over the vista. */}
+      <g
+        style={{
+          transformOrigin: "center",
+          animation: `chronoSpinRev ${spinRevDur * 0.55}s linear infinite`,
+        }}
+      >
+        <circle r="46" fill="none" stroke={accent} strokeWidth="0.5" opacity="0.4" />
+        <circle
+          r="30"
+          fill="none"
+          stroke={accent}
+          strokeOpacity="0.3"
+          strokeWidth="0.5"
+          strokeDasharray="2 5"
+        />
+        {[45, 135, 225, 315].map((a) => {
+          const rad = (a * Math.PI) / 180;
+          return (
+            <line
+              key={a}
+              x1={Math.cos(rad) * 22}
+              y1={Math.sin(rad) * 22}
+              x2={Math.cos(rad) * 46}
+              y2={Math.sin(rad) * 46}
+              stroke={accent}
+              strokeOpacity="0.6"
+              strokeWidth="0.8"
+            />
+          );
+        })}
+        <circle r="3" fill={accent} opacity="0.7" />
+      </g>
 
       {blips.map(([x, y], i) => (
         <g key={i}>

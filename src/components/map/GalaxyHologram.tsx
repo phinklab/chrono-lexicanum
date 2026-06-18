@@ -399,7 +399,11 @@ export default function GalaxyHologram() {
         ? "transform 460ms cubic-bezier(.5, .05, .25, 1)"
         : "none"; // wheel-zoom snap
 
-  const titleRight = segmentumDisplayName(state.view, segments);
+  // Only the segmentum name when dived — the galaxy "MILKY WAY · M42" label is
+  // gone (the top-right corner is reserved for the global burger menu).
+  const divedSegmentName = isDived
+    ? segmentumDisplayName(state.view, segments)
+    : null;
 
   return (
     <div
@@ -619,35 +623,40 @@ export default function GalaxyHologram() {
 
       {/* Corner ornaments removed 2026-06-13 (Session 150 eyeballing) — the
           gold language draws no frame; the viewport edge is carried by the
-          vignette alone. Top-left logo + subtitle removed 2026-05-27. */}
-      <div
-        style={{
-          position: "absolute",
-          top: 34,
-          left: 100,
-          right: 100,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-end",
-          pointerEvents: "none",
-        }}
-      >
+          vignette alone. Top-left logo + subtitle removed 2026-05-27. The
+          galaxy "MILKY WAY · M42" title (was top-right) removed 2026-06-18 to
+          free the corner for the burger; the segmentum name now shows top-LEFT
+          while dived, above the "Back to Galactic View" button. */}
+      {isDived && (
         <div
           style={{
-            fontFamily: t.fontDisplay,
-            fontSize: 18,
-            letterSpacing: "0.36em",
-            color: t.accent,
-            // Site title treatment (53-ask.css): faint primary bloom + hard
-            // dark drop — not the old neon halo.
-            textShadow: `0 0 24px ${t.primarySoft}, 0 2px 10px rgba(0, 0, 0, 0.9)`,
-            opacity: 0.92,
-            textAlign: "right",
+            position: "absolute",
+            top: 34,
+            left: 100,
+            right: 100,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            pointerEvents: "none",
           }}
         >
-          {titleRight}
+          <div
+            style={{
+              fontFamily: t.fontDisplay,
+              fontSize: 18,
+              letterSpacing: "0.36em",
+              color: t.accent,
+              // Site title treatment (53-ask.css): faint primary bloom + hard
+              // dark drop — not the old neon halo.
+              textShadow: `0 0 24px ${t.primarySoft}, 0 2px 10px rgba(0, 0, 0, 0.9)`,
+              opacity: 0.92,
+              textAlign: "left",
+            }}
+          >
+            {divedSegmentName}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Gold language (64-detail-modal.css .detail-modal__back): transparent
           text button, no drawn frame — quiet at rest, gold on hover. */}

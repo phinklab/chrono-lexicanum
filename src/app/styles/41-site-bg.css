@@ -41,21 +41,27 @@
  * The viewport remains the scroller so ScrollScrim can darken the fixed art as
  * the reader moves down. */
 html:has(main.route-snap) {
-  scroll-snap-type: y mandatory;
+  /* `proximity`, not `mandatory`: the hero + body-start still pull the scroll
+     into place when you are near them, but a body act taller than the viewport
+     no longer keeps yanking back to its single (start) snap point — so the
+     reader can rest at, and scroll to, the very bottom (the footer). */
+  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
 }
 body:has(main.route-snap) {
   overflow-x: clip;
 }
+/* `scroll-snap-align: start` keeps the hero + body as gentle proximity anchors;
+   `scroll-snap-stop: always` is dropped so an over-tall body is freely
+   scrollable past its start (it was the other half of the can't-reach-bottom
+   trap). */
 .route-act {
   min-height: 100dvh;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 .route-body-snap {
   min-height: 100dvh;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 .route-cue {
