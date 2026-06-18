@@ -189,7 +189,7 @@ body:has(main.hub) .site-bg::after {
 .hub-hero__title {
   position: relative;
   z-index: 3;
-  max-width: 760px;
+  width: min(100%, 980px);
   text-align: center;
 }
 /* Shared gold // kicker — all three act heads use the same eyebrow. */
