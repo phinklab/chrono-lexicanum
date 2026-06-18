@@ -18,7 +18,7 @@ main.compendium {
   /* Cancel the global `main { padding-top: var(--top-nav-h) }` (44-nav-frame.css)
      — the masthead clears the fixed TopNav itself, like /ask + /podcasts. */
   padding: 0 0 56px;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Crisp-top, fade-to-void — the SAME gradient /ask + /podcasts use, because the
@@ -31,17 +31,17 @@ body:has(main.compendium) .site-bg::after {
   pointer-events: none;
   background:
     radial-gradient(
-      ellipse at 50% 34%,
-      transparent 50%,
-      color-mix(in srgb, var(--cl-void) 20%, transparent) 100%
+      ellipse at 50% 30%,
+      transparent 36%,
+      color-mix(in srgb, var(--cl-void) 42%, transparent) 100%
     ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--cl-void) 0%, transparent) 0%,
-      color-mix(in srgb, var(--cl-void) 0%, transparent) 38%,
-      color-mix(in srgb, var(--cl-void) 52%, transparent) 56%,
-      color-mix(in srgb, var(--cl-void) 90%, transparent) 74%,
-      var(--cl-void) 90%
+      color-mix(in srgb, var(--cl-void) 10%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 16%, transparent) 18%,
+      color-mix(in srgb, var(--cl-void) 62%, transparent) 38%,
+      color-mix(in srgb, var(--cl-void) 92%, transparent) 58%,
+      var(--cl-void) 76%
     );
 }
 
@@ -81,7 +81,7 @@ body:has(main.compendium) .site-bg::after {
 .cmp-hud__sweep {
   position: absolute;
   left: 50%;
-  top: 60px;
+  top: clamp(300px, 55vh, 820px);
   width: 360px;
   height: 360px;
   transform: translateX(-50%);
@@ -103,12 +103,16 @@ body:has(main.compendium) .site-bg::after {
 .cmp-hero {
   position: relative;
   z-index: 4;
-  height: clamp(520px, 60vh, 700px);
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
   max-width: none;
   margin: 0;
-  padding: 320px clamp(18px, 4vw, 48px) 0;
+  padding: calc(var(--top-nav-h, 48px) + 40px) clamp(18px, 4vw, 48px) clamp(150px, 21vh, 230px);
   text-align: center;
-  pointer-events: none;
+  pointer-events: auto;
 }
 .cmp-hero__inner {
   position: relative;
@@ -160,8 +164,16 @@ body:has(main.compendium) .site-bg::after {
   position: relative;
   z-index: 4;
   max-width: 1180px;
-  margin: -80px auto 0;
-  padding: 24px clamp(20px, 3vw, 48px) 80px;
+  margin: 0 auto;
+  /* As the route-body-snap (min-height:100dvh) flex-centre the nav + doors on
+     the screen instead of pinning them cramped to the top after the first snap.
+     Safe for the tall category directories: when content outgrows the viewport
+     the section grows and the column flows from the top (justify-content:center
+     only bites when it fits — i.e. the overview's door grid). */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(72px, 11vh, 110px) clamp(20px, 3vw, 48px);
 }
 
 /* ── Category nav ─────────────────────────────────────────────────────────── */
@@ -773,8 +785,8 @@ body:has(main.compendium) .site-bg::after {
    content pulled up -56px) so the four pages stay aligned on narrow screens too. */
 @media (max-width: 720px) {
   .cmp-hero {
-    height: 420px;
-    padding: 240px 14px 0;
+    min-height: 100dvh;
+    padding: calc(var(--top-nav-h, 48px) + 40px) 14px clamp(138px, 24vh, 190px);
   }
   .cmp-hero__heading {
     font-size: clamp(40px, 8vw, 56px);
@@ -784,8 +796,7 @@ body:has(main.compendium) .site-bg::after {
     font-size: var(--fs-read-sm);
   }
   .cmp-body {
-    margin-top: -56px;
-    padding: 18px 14px 0;
+    padding: calc(var(--top-nav-h, 48px) + 18px) 14px 0;
   }
   /* The two-up grid collapses to a single column; the featured door no longer
      needs to span (every segment is already full-width when stacked). */

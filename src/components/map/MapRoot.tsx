@@ -1,16 +1,17 @@
 "use client";
 
 // Client-side root that wraps the Cartographer port — provider + hologram +
-// era switcher + world panel + tweaks panel (gear in the bottom-right). The
-// server route file mounts this and passes the auth-derived isAdmin flag.
+// world panel + floating control rail (right) + tweaks panel (gear in the
+// bottom-right, secondary settings only). The server route file mounts this
+// and passes the auth-derived isAdmin flag.
 
 import { useEffect, useSyncExternalStore } from "react";
 
 import { getTheme } from "@/lib/galaxy/themes";
 
 import { GalaxyProvider, useGalaxy } from "./context";
-import EraSwitcher from "./EraSwitcher";
 import GalaxyHologram from "./GalaxyHologram";
+import MapControlRail from "./MapControlRail";
 import TweaksPanel from "./tweaks/TweaksPanel";
 import WorldPanel from "./WorldPanel";
 
@@ -68,8 +69,8 @@ export default function MapRoot({ initialIsAdmin }: MapRootProps) {
     <GalaxyProvider initialIsAdmin={initialIsAdmin}>
       <ScrollGuard />
       <GalaxyHologram />
-      <EraSwitcher />
       <PanelHost />
+      <MapControlRail />
       <TweaksPanel />
     </GalaxyProvider>
   );

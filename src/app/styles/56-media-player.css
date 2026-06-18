@@ -39,7 +39,7 @@
   flex-direction: column;
   gap: 10px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   pointer-events: none;
 }
 .media-player > * { pointer-events: auto; }
@@ -51,29 +51,16 @@
   gap: 10px;
 }
 
-.media-player__top {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  min-height: 14px;
-}
-
-.media-player__eyebrow {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-xs);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--cl-cyan);
-  opacity: 0.62;
-  line-height: 1;
-}
-
+/* Single control row (Session 158): the PLAYLIST disclose now lives at the end
+   of .media-player__main, after the title, so play / vol / title / PLAYLIST all
+   sit on one horizontally-aligned line. The old two-row .media-player__top
+   wrapper + .media-player__eyebrow are retired. */
 .media-player__disclose {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 2px 0;
+  flex-shrink: 0;
   background: none;
   border: none;
   cursor: pointer;
@@ -81,7 +68,7 @@
   font-size: var(--fs-label);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   opacity: 0.6;
   transition: opacity 220ms ease-out, color 220ms ease-out;
   line-height: 1;
@@ -92,13 +79,13 @@
   color: var(--cl-bone);
 }
 .media-player__disclose:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 2px;
 }
 .media-player__disclose-glyph {
   font-size: var(--fs-label-lg);
   letter-spacing: 0;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   line-height: 1;
 }
 .media-player__disclose-label {
@@ -130,7 +117,7 @@
   -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   font: inherit;
   line-height: 1;
   border-radius: 2px;
@@ -138,11 +125,11 @@
 }
 .media-player__play:hover {
   color: var(--cl-bone);
-  background: color-mix(in srgb, var(--cl-cyan) 5%, transparent);
+  background: color-mix(in srgb, var(--cl-gold) 5%, transparent);
 }
 .media-player__play:disabled { opacity: 0.4; cursor: default; }
 .media-player__play:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 1px;
 }
 .media-player--playing .media-player__play {
@@ -176,7 +163,7 @@
   -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   font: inherit;
   line-height: 1;
   border-radius: 2px;
@@ -185,10 +172,10 @@
 .media-player__vol:hover,
 .media-player__vol.is-open {
   color: var(--cl-bone);
-  background: color-mix(in srgb, var(--cl-cyan) 5%, transparent);
+  background: color-mix(in srgb, var(--cl-gold) 5%, transparent);
 }
 .media-player__vol:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 1px;
 }
 .media-player__vol-icon {
@@ -206,8 +193,9 @@
   left: 0;
   width: 160px;
   padding: 10px 14px;
+  /* Frameless gold language — dark glass wash, no drawn border, no corner
+     brackets (removed 2026-06-18). */
   background: linear-gradient(180deg, rgba(8, 12, 20, 0.92) 0%, rgba(4, 8, 14, 0.96) 100%);
-  border: 1px solid color-mix(in srgb, var(--cl-cyan) 22%, transparent);
   border-radius: 2px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -222,18 +210,6 @@
   pointer-events: auto;
   transform: translateY(0);
 }
-.media-player__vol-popover::before,
-.media-player__vol-popover::after {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-color: color-mix(in srgb, var(--cl-cyan) 50%, transparent);
-  border-style: solid;
-  pointer-events: none;
-}
-.media-player__vol-popover::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
-.media-player__vol-popover::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
 
 .media-player__title {
   flex: 1;
@@ -262,12 +238,12 @@
   display: block;
   width: 100%;
   height: 28px;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
   overflow: visible;
   pointer-events: none;
 }
 .media-player__bars {
-  filter: drop-shadow(0 0 1px color-mix(in oklch, var(--cl-cyan) 26%, transparent));
+  filter: drop-shadow(0 0 1px color-mix(in oklch, var(--cl-gold) 26%, transparent));
   opacity: 0.55;
   transition: opacity 420ms ease-out, filter 420ms ease-out;
 }
@@ -276,7 +252,7 @@
 }
 .media-player--playing .media-player__bars {
   opacity: 1;
-  filter: drop-shadow(0 0 3px color-mix(in oklch, var(--cl-cyan) 65%, transparent));
+  filter: drop-shadow(0 0 3px color-mix(in oklch, var(--cl-gold) 65%, transparent));
 }
 
 /* ─── Panel-Wrap — absolute, floatet auf über die Wave wenn --open.
@@ -310,23 +286,12 @@
 .media-player__panel {
   position: relative;
   padding: 14px 16px 12px;
+  /* Frameless gold language — dark glass wash, no drawn border, no corner
+     brackets (removed 2026-06-18). */
   background: linear-gradient(180deg, rgba(8, 12, 20, 0.84) 0%, rgba(4, 8, 14, 0.94) 100%);
-  border: 1px solid color-mix(in srgb, var(--cl-cyan) 22%, transparent);
   border-radius: 2px;
   backdrop-filter: blur(8px);
 }
-.media-player__panel::before,
-.media-player__panel::after {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-color: color-mix(in srgb, var(--cl-cyan) 50%, transparent);
-  border-style: solid;
-  pointer-events: none;
-}
-.media-player__panel::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
-.media-player__panel::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
 
 .media-player__panel-head {
   display: flex;
@@ -339,9 +304,20 @@
   font-size: var(--fs-label-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
-.media-player__panel-rule { flex: 1; }
+/* Gold Terminus hairline (overrides the global cyan .c-hairline) — a fading
+   scan-line, the house signature, not a box border. */
+.media-player__panel-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--cl-gold) 45%, transparent),
+    transparent
+  );
+}
 .media-player__panel-sect {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-xs);
@@ -365,27 +341,27 @@
   align-items: baseline;
   gap: 12px;
   padding: 8px 6px;
+  /* No row dividers (removed 2026-06-18) — the 2px gap + hover wash separate
+     rows in the frameless idiom. */
   background: none;
   border: none;
-  border-top: 1px solid color-mix(in srgb, var(--cl-cyan) 6%, transparent);
   cursor: pointer;
   color: var(--cl-dim);
   text-align: left;
   font-family: inherit;
   transition: color 200ms ease-out, background 200ms ease-out;
 }
-.media-player__panel-track:first-child { border-top: none; }
 .media-player__panel-track:hover {
   color: var(--cl-bone);
-  background: color-mix(in srgb, var(--cl-cyan) 4%, transparent);
+  background: color-mix(in srgb, var(--cl-gold) 4%, transparent);
 }
 .media-player__panel-track:focus-visible {
-  outline: 1px solid var(--cl-cyan);
+  outline: 1px solid var(--cl-gold);
   outline-offset: 0;
 }
 .media-player__panel-track.is-active {
   color: var(--cl-bone);
-  background: color-mix(in srgb, var(--cl-cyan) 6%, transparent);
+  background: color-mix(in srgb, var(--cl-gold) 6%, transparent);
 }
 .media-player__panel-track-mark {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -395,7 +371,7 @@
   text-align: center;
 }
 .media-player__panel-track.is-active .media-player__panel-track-mark {
-  color: var(--cl-cyan);
+  color: var(--cl-gold);
 }
 .media-player__panel-track-title {
   font-family: var(--font-cormorant), Georgia, serif;
@@ -411,7 +387,7 @@
   display: block;
   width: 32px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cl-cyan-fnt) 60%, transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--cl-gold) 18%, transparent) 60%, transparent);
   opacity: 0;
   transition: opacity 200ms ease-out;
 }
@@ -429,18 +405,18 @@
   background: transparent;
   cursor: pointer;
 }
-.media-player__volume:focus-visible { outline: 1px solid var(--cl-cyan); outline-offset: 2px; }
+.media-player__volume:focus-visible { outline: 1px solid var(--cl-gold); outline-offset: 2px; }
 .media-player__volume::-webkit-slider-runnable-track {
   height: 1px;
   background: linear-gradient(90deg,
-    color-mix(in srgb, var(--cl-cyan) 55%, transparent) 0%,
-    var(--cl-cyan-fnt) 100%);
+    color-mix(in srgb, var(--cl-gold) 55%, transparent) 0%,
+    color-mix(in srgb, var(--cl-gold) 18%, transparent) 100%);
 }
 .media-player__volume::-moz-range-track {
   height: 1px;
   background: linear-gradient(90deg,
-    color-mix(in srgb, var(--cl-cyan) 55%, transparent) 0%,
-    var(--cl-cyan-fnt) 100%);
+    color-mix(in srgb, var(--cl-gold) 55%, transparent) 0%,
+    color-mix(in srgb, var(--cl-gold) 18%, transparent) 100%);
 }
 .media-player__volume::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -448,8 +424,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--cl-cyan);
-  box-shadow: 0 0 6px var(--cl-cyan);
+  background: var(--cl-gold);
+  box-shadow: 0 0 6px var(--cl-gold);
   margin-top: -4px;
   border: none;
 }
@@ -458,8 +434,8 @@
   height: 8px;
   border-radius: 50%;
   border: none;
-  background: var(--cl-cyan);
-  box-shadow: 0 0 6px var(--cl-cyan);
+  background: var(--cl-gold);
+  box-shadow: 0 0 6px var(--cl-gold);
 }
 
 @media (max-width: 900px) {

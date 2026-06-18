@@ -36,6 +36,99 @@
   background-size: 160px 160px;
 }
 
+/* One-act route heroes (/archive, /compendium, /ask): the first viewport is the
+ * atmospheric threshold, the next snap stop is the actual tool/table/register.
+ * The viewport remains the scroller so ScrollScrim can darken the fixed art as
+ * the reader moves down. */
+html:has(main.route-snap) {
+  /* `proximity`, not `mandatory`: the hero + body-start still pull the scroll
+     into place when you are near them, but a body act taller than the viewport
+     no longer keeps yanking back to its single (start) snap point — so the
+     reader can rest at, and scroll to, the very bottom (the footer).
+     `scroll-behavior: auto` (not smooth) so the snap lands near-instantly —
+     the slow smooth glide felt sluggish; CSS only offers smooth vs auto. */
+  scroll-snap-type: y proximity;
+  scroll-behavior: auto;
+}
+body:has(main.route-snap) {
+  overflow-x: clip;
+}
+/* `scroll-snap-align: start` keeps the hero + body as gentle proximity anchors;
+   `scroll-snap-stop: always` is dropped so an over-tall body is freely
+   scrollable past its start (it was the other half of the can't-reach-bottom
+   trap). */
+.route-act {
+  min-height: 100dvh;
+  scroll-snap-align: start;
+}
+.route-body-snap {
+  min-height: 100dvh;
+  scroll-snap-align: start;
+}
+
+.route-cue {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(44px, 8vh, 88px);
+  z-index: 6;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  transform: translateX(-50%);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.route-cue__kicker {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--cl-gold) 55%, transparent);
+  transition: color 200ms;
+}
+.route-cue__label {
+  max-width: min(72vw, 340px);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read);
+  line-height: 1.2;
+  color: var(--cl-bone);
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  transition: color 200ms;
+}
+.route-cue:hover .route-cue__kicker,
+.route-cue:focus-visible .route-cue__kicker {
+  color: var(--cl-gold);
+}
+.route-cue__chev {
+  margin-top: 2px;
+  fill: none;
+  stroke: var(--cl-gold);
+  stroke-width: 1.4;
+  filter: drop-shadow(0 0 6px rgba(201, 166, 90, 0.18));
+}
+.route-cue__chev path {
+  opacity: 0;
+  animation: hubDescentChev 2.4s ease-in-out infinite;
+}
+.route-cue__chev path:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.route-cue__chev path:nth-child(3) {
+  animation-delay: 1s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-cue__chev path {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
 /* Artist credit for the background artwork (Brief 150) — the shared
  * <ArtCreditTag> with the `--site` modifier: fixed bottom-right, the same
  * label/name/links grammar as the cinematic timeline's slot, in site tokens.

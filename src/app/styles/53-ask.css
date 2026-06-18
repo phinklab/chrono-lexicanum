@@ -6,7 +6,7 @@ main.ask {
   position: relative;
   min-height: calc(100vh - var(--top-nav-h, 48px));
   padding: 0 0 56px;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Crisp-top, fade-to-void — /werke's hero treatment, matched in strength: the
@@ -22,17 +22,17 @@ body:has(main.ask) .site-bg::after {
   pointer-events: none;
   background:
     radial-gradient(
-      ellipse at 50% 34%,
-      transparent 50%,
-      color-mix(in srgb, var(--cl-void) 20%, transparent) 100%
+      ellipse at 50% 30%,
+      transparent 36%,
+      color-mix(in srgb, var(--cl-void) 42%, transparent) 100%
     ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--cl-void) 0%, transparent) 0%,
-      color-mix(in srgb, var(--cl-void) 0%, transparent) 22%,
-      color-mix(in srgb, var(--cl-void) 52%, transparent) 40%,
-      color-mix(in srgb, var(--cl-void) 90%, transparent) 60%,
-      var(--cl-void) 78%
+      color-mix(in srgb, var(--cl-void) 10%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 16%, transparent) 18%,
+      color-mix(in srgb, var(--cl-void) 62%, transparent) 38%,
+      color-mix(in srgb, var(--cl-void) 92%, transparent) 58%,
+      var(--cl-void) 76%
     );
 }
 
@@ -62,9 +62,8 @@ body:has(main.ask) .site-bg::after {
   pointer-events: none;
 }
 
-/* Anchored to the top of the relative <main> (inset 0 within it), so the auspex
- * sweep sits at /werke's hero-sweep height and scrolls away with the masthead
- * instead of hovering over the funnel — matching .catalogue-hero__sweep. */
+/* Anchored in the title zone of the route hero so the auspex travels with the
+ * lowered masthead instead of hovering in the old upper band. */
 .ask-hud {
   position: absolute;
   inset: 0;
@@ -78,7 +77,7 @@ body:has(main.ask) .site-bg::after {
 .ask-hud__sweep {
   position: absolute;
   left: 50%;
-  top: 36px;
+  top: clamp(300px, 55vh, 820px);
   width: 320px;
   height: 320px;
   transform: translateX(-50%);
@@ -94,16 +93,16 @@ body:has(main.ask) .site-bg::after {
 
 .ask-console__mast {
   position: relative;
-  /* Compact masthead (maintainer call 2026-06-11): the funnel is the page and
-   * the title is an entrance — roughly half the old 60vh band. Auto height
-   * (min-height only) so the sub can never collide with the funnel below it
-   * on short viewports. */
-  min-height: clamp(300px, 38vh, 420px);
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
   max-width: none;
   margin: 0;
-  padding: clamp(140px, 20vh, 210px) clamp(18px, 4vw, 48px) 30px;
+  padding: calc(var(--top-nav-h, 48px) + 40px) clamp(18px, 4vw, 48px) clamp(150px, 21vh, 230px);
   text-align: center;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 /* Masthead eyebrow — gold mono, replacing the cyan .card-eyebrow default. */
@@ -155,13 +154,18 @@ body:has(main.ask) .site-bg::after {
 
 .ask-console__grid {
   /* One centered reading column (single-column redesign 2026-06-11) — the old
-     stage+rail two-column grid is gone; the stepper lives inside the stage. */
+     stage+rail two-column grid is gone; the stepper lives inside the stage.
+     As the route-body-snap (min-height:100dvh) it now flex-centres the stage on
+     the screen instead of pinning it to the top after the first snap. When the
+     stage outgrows the viewport (long results) the section grows and the column
+     flows from the top — justify-content:center only bites when it fits. */
   max-width: 900px;
   margin: 0 auto;
-  padding: 8px clamp(20px, 3vw, 48px) 0;
-  /* So a reset re-anchored here (AskClient.reset) clears the fixed TopNav
-     instead of tucking the funnel under it. */
-  scroll-margin-top: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(72px, 12vh, 120px) clamp(20px, 3vw, 48px);
+  scroll-margin-top: 0;
 }
 
 /* The one calm reading window: a firmer void wash than the old 0.25 cards
@@ -255,14 +259,14 @@ body:has(main.ask) .site-bg::after {
   }
 
   .ask-hud__sweep {
-    top: 32px;
+    top: clamp(180px, 45vh, 340px);
     width: 240px;
     height: 240px;
   }
 
   .ask-console__mast {
-    min-height: 0;
-    padding: 140px 14px 22px;
+    min-height: 100dvh;
+    padding: calc(var(--top-nav-h, 48px) + 40px) 14px clamp(138px, 24vh, 190px);
   }
 
   .ask-console__title {
@@ -279,7 +283,7 @@ body:has(main.ask) .site-bg::after {
   }
 
   .ask-console__grid {
-    padding: 8px 12px 0;
+    padding: calc(var(--top-nav-h, 48px) + 18px) 12px 0;
   }
 
   .ask-stage {

@@ -15,19 +15,16 @@ export interface ArtCredit {
   links: { label: string; url: string }[];
 }
 
-// piwireddit's artwork credits both the login backdrop and the shared
+// phil kuenzler's artwork credits both the login backdrop and the shared
 // library-nave background carried across Hub / Archive / Compendium / Ask.
-const PIWIREDDIT: ArtCredit = {
-  name: "piwireddit",
-  links: [
-    { label: "PHINKLABS", url: "https://phinklabs.com" },
-    { label: "REDDIT", url: "https://www.reddit.com/user/piwireddit" },
-  ],
+const PHIL_KUENZLER: ArtCredit = {
+  name: "phil kuenzler",
+  links: [{ label: "phinklabs", url: "https://phinklabs.com" }],
 };
 
 const BACKGROUND_ART_CREDITS: Record<string, ArtCredit> = {
-  "/img/login.webp": PIWIREDDIT,
-  "/img/main-bg.webp": PIWIREDDIT,
+  "/img/login.webp": PHIL_KUENZLER,
+  "/img/main-bg.webp": PHIL_KUENZLER,
 };
 
 /** Credit for a `SiteBackground` photo ref, or null when none is registered. */

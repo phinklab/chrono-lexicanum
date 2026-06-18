@@ -10,9 +10,9 @@ import { TRACKS, type AudioTrack } from "@/lib/audio-tracks";
  *   • Wave — immer sichtbar, hairline-dünne 1-px-Bar-Sinuswelle (~24 px
  *     CSS-Höhe). Idle-Breathing wenn pausiert; FFT-Mid-Band-reaktiv beim
  *     Playback. Schwebt über dem Header.
- *   • Header (immer sichtbar) — zwei Zeilen.
- *       Row 1: Eyebrow (AUDITORIVM · CHANNEL 01) ↔ "▴ PLAYLIST" Disclose.
- *       Row 2: Play-Glyph (borderless) + "VOL" Toggle + Track-Titel.
+ *   • Header (immer sichtbar) — EINE Zeile, horizontal ausgerichtet:
+ *       Play-Glyph (borderless) + "VOL" Toggle + Track-Titel (flex:1) +
+ *       "▴ PLAYLIST" Disclose (rechtsbündig durch den flex:1-Titel).
  *   • Vol-Popover (absolute über dem VOL-Button) — schmaler Hairline-Slider
  *     mit Mute-Glyph. Mutually exclusive zum Playlist-Panel.
  *   • Panel-Wrap (absolute, bottom: 100% des Players) — floatet über der
@@ -27,9 +27,9 @@ import { TRACKS, type AudioTrack } from "@/lib/audio-tracks";
  * vermeiden.
  *
  * Interaktion:
- *   • Play-Glyph (links in Row 2) = togglePlay.
- *   • VOL (in Row 2) = toggleVol (Popover mit Slider).
- *   • Disclose "▴ PLAYLIST" (rechts in Row 1) = togglePanel.
+ *   • Play-Glyph (links) = togglePlay.
+ *   • VOL = toggleVol (Popover mit Slider).
+ *   • Disclose "▴ PLAYLIST" (rechts) = togglePanel.
  *   • Vol-Popover und Playlist-Panel sind mutually exclusive.
  *   • Klick außerhalb schließt beides.
  *   • Kein Hover-Trigger.
@@ -71,9 +71,6 @@ export default function MediaPlayer() {
 
   const hasTracks = TRACKS.length > 0;
   const currentTrack: AudioTrack | undefined = TRACKS[trackIndex];
-  const channelLabel = hasTracks
-    ? `AUDITORIVM · CHANNEL ${String(trackIndex + 1).padStart(2, "0")}`
-    : "AUDITORIVM · SILENTIVM";
   const trackName = hasTracks
     ? currentTrack?.title ?? "—"
     : "no atmosphere loaded";
@@ -330,25 +327,6 @@ export default function MediaPlayer() {
       </svg>
 
       <div className="media-player__header">
-        <div className="media-player__top">
-          <span className="media-player__eyebrow">{channelLabel}</span>
-          <button
-            type="button"
-            className="media-player__disclose"
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsVolOpen(false);
-              setIsOpen((o) => !o);
-            }}
-            aria-label={isOpen ? "Close playlist" : "Open playlist"}
-            aria-expanded={isOpen}
-          >
-            <span className="media-player__disclose-glyph" aria-hidden>
-              {isOpen ? "▾" : "▴"}
-            </span>
-            <span className="media-player__disclose-label">PLAYLIST</span>
-          </button>
-        </div>
         <div className="media-player__main">
           <button
             type="button"
@@ -443,6 +421,22 @@ export default function MediaPlayer() {
             </div>
           </div>
           <div className="media-player__title">{trackName}</div>
+          <button
+            type="button"
+            className="media-player__disclose"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsVolOpen(false);
+              setIsOpen((o) => !o);
+            }}
+            aria-label={isOpen ? "Close playlist" : "Open playlist"}
+            aria-expanded={isOpen}
+          >
+            <span className="media-player__disclose-glyph" aria-hidden>
+              {isOpen ? "▾" : "▴"}
+            </span>
+            <span className="media-player__disclose-label">PLAYLIST</span>
+          </button>
         </div>
       </div>
 

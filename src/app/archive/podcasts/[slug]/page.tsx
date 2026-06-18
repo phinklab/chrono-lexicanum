@@ -94,7 +94,7 @@ export default async function PodcastShowPage({
         className="pod-scrim"
         varName="--pod-scrim-opacity"
         heroSelector=".pod-mast"
-        maxOpacity={0.7}
+        maxOpacity={0.63}
       />
 
       <div className="pod-readout" aria-hidden>

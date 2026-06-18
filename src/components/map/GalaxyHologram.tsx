@@ -27,6 +27,7 @@ import SegmentumDetail from "./disc/SegmentumDetail";
 import SegmentumLabels from "./disc/SegmentumLabels";
 import SegmentumWorldLabels from "./disc/SegmentumWorldLabels";
 import { FlatMotes, StarField } from "./disc/Starfields";
+import VoyagesOverlay from "./disc/VoyagesOverlay";
 
 interface ViewportSize {
   w: number;
@@ -55,7 +56,7 @@ const SEG_DIVE: Record<SegmentumId, { r: number; a: number; scale: number }> = {
 };
 
 function segmentumDisplayName(view: GalaxyView, segments: ReturnType<typeof getLiveSegments>): string {
-  if (view === "galaxy") return "MILKY WAY · M42";
+  if (view === "galaxy") return "ASTRONOMICAN · M42";
   const seg = segments.find((s) => s.id === view);
   return (seg?.name || "SEGMENTUM").toUpperCase();
 }
@@ -127,6 +128,11 @@ export default function GalaxyHologram() {
 
   const dragRef = useRef<DragState>({ active: false, sx: 0, sy: 0, ox: 0, oy: 0, moved: 0 });
   const discWrapperRef = useRef<HTMLDivElement | null>(null);
+  // Latest viewport-space pointer position — used to anchor the world codex
+  // tooltip next to the planet that was clicked (world clicks bubble up to the
+  // root, so we read the last press position rather than threading the event
+  // through every disc child).
+  const pointerScreenRef = useRef({ x: 0, y: 0 });
 
   // While AddMode is in `place` phase the disc consumes the next click as a
   // polar coord and dispatches it as a new control point. Single-point types
@@ -155,6 +161,7 @@ export default function GalaxyHologram() {
   };
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    pointerScreenRef.current = { x: e.clientX, y: e.clientY };
     const tgt = e.target as Element | null;
     if (tgt && tgt.closest("button, a, [data-no-drag]")) return;
     dragRef.current = {
@@ -167,6 +174,7 @@ export default function GalaxyHologram() {
     };
   };
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    pointerScreenRef.current = { x: e.clientX, y: e.clientY };
     // Track cursor → polar so AddMode and edit overlays can render a live
     // crosshair / coord readout regardless of which surface intercepts the
     // events. Only sample when an editor surface is actually mounted.
@@ -399,7 +407,9 @@ export default function GalaxyHologram() {
         ? "transform 460ms cubic-bezier(.5, .05, .25, 1)"
         : "none"; // wheel-zoom snap
 
-  const titleRight = segmentumDisplayName(state.view, segments);
+  // Top-left title: the segmentum name when dived, otherwise the galaxy-scale
+  // label "ASTRONOMICAN · M42" when fully zoomed out.
+  const topLeftTitle = segmentumDisplayName(state.view, segments);
 
   return (
     <div
@@ -538,7 +548,13 @@ export default function GalaxyHologram() {
                 visible={detailVisible}
                 segId={detailSeg}
                 factionFilter={state.tweaks.factionFilter}
-                onWorldClick={(w) => dispatch({ type: "select_world", worldId: w.id })}
+                onWorldClick={(w) =>
+                  dispatch({
+                    type: "select_world",
+                    worldId: w.id,
+                    anchor: { ...pointerScreenRef.current },
+                  })
+                }
                 selectedId={state.selectedWorldId}
                 hoveredId={state.hoveredWorld}
                 setHoveredId={(id) => dispatch({ type: "set_hovered_world", id })}
@@ -549,13 +565,21 @@ export default function GalaxyHologram() {
                 dimmed={state.transitioning}
                 segId={detailSeg}
                 factionFilter={state.tweaks.factionFilter}
-                onWorldClick={(w) => dispatch({ type: "select_world", worldId: w.id })}
+                onWorldClick={(w) =>
+                  dispatch({
+                    type: "select_world",
+                    worldId: w.id,
+                    anchor: { ...pointerScreenRef.current },
+                  })
+                }
                 selectedId={state.selectedWorldId}
                 hoveredId={state.hoveredWorld}
                 setHoveredId={(id) => dispatch({ type: "set_hovered_world", id })}
               />
 
               <EditOverlay />
+
+              <VoyagesOverlay theme={t} visible={!isDived && animsOn} />
 
               <PlacementCursor
                 enabled={addModeActive}
@@ -619,16 +643,17 @@ export default function GalaxyHologram() {
 
       {/* Corner ornaments removed 2026-06-13 (Session 150 eyeballing) — the
           gold language draws no frame; the viewport edge is carried by the
-          vignette alone. Top-left logo + subtitle removed 2026-05-27. */}
+          vignette alone. Top-left logo + subtitle removed 2026-05-27. The
+          top-LEFT title now always shows: the segmentum name when dived, the
+          galaxy-scale "ASTRONOMICAN · M42" when zoomed out (Session 158). The
+          top-RIGHT corner stays clear for the global burger menu. */}
       <div
         style={{
           position: "absolute",
-          top: 34,
-          left: 100,
-          right: 100,
+          top: 28,
+          left: 32,
           display: "flex",
           alignItems: "center",
-          justifyContent: "flex-end",
           pointerEvents: "none",
         }}
       >
@@ -642,10 +667,10 @@ export default function GalaxyHologram() {
             // dark drop — not the old neon halo.
             textShadow: `0 0 24px ${t.primarySoft}, 0 2px 10px rgba(0, 0, 0, 0.9)`,
             opacity: 0.92,
-            textAlign: "right",
+            textAlign: "left",
           }}
         >
-          {titleRight}
+          {topLeftTitle}
         </div>
       </div>
 
@@ -665,8 +690,8 @@ export default function GalaxyHologram() {
           }}
           style={{
             position: "absolute",
-            top: 144,
-            left: 100,
+            top: 62,
+            left: 28,
             background: "transparent",
             color: t.accent,
             border: "none",
@@ -752,19 +777,20 @@ export default function GalaxyHologram() {
       <div
         style={{
           position: "absolute",
-          top: 96,
-          right: 100,
+          left: 100,
+          bottom: 128,
           fontFamily: t.fontMono,
           fontSize: 10,
           letterSpacing: "0.24em",
           color: t.primary,
           opacity: 0.65,
           textTransform: "uppercase",
-          textAlign: "right",
+          textAlign: "left",
+          pointerEvents: "none",
         }}
       >
         ZOOM · {Math.round(baseScale * 100)}%
-        <div style={{ marginTop: 4, width: 120, height: 2, background: t.strokeFaint, marginLeft: "auto" }}>
+        <div style={{ marginTop: 4, width: 120, height: 2, background: t.strokeFaint, marginLeft: 0 }}>
           <div
             style={{
               width: `${Math.min(100, ((baseScale - 0.5) / 11.5) * 100)}%`,

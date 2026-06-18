@@ -134,25 +134,6 @@ export default async function CompendiumOverview() {
           );
         })}
       </ul>
-
-      {/* Curation note with marginalia apparatus — honest provenance lines. */}
-      <section className="cmp-note" aria-label="Curation note">
-        <div className="lx-apparatus">
-          <p className="lx-prose cmp-note__text">
-            Every entry in the register is drawn from the archive&rsquo;s own
-            tables and carries its source and confidence in the margin — the
-            compendium shows what the records support, and marks where the
-            curation is still under way.
-          </p>
-          <div className="lx-margin">
-            <div>
-              <b>STATUS</b> CURATION
-            </div>
-            <div>SOURCE · POSTGRES</div>
-            <div>REGEN · WEEKLY</div>
-          </div>
-        </div>
-      </section>
     </section>
   );
 }

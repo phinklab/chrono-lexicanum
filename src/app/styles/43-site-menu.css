@@ -25,35 +25,35 @@
 
 /* ── Burger button ─────────────────────────────────────────────────────── */
 /* Seit dem TopNav-Removal (Session 140 Follow-up) die einzige sichtbare
-   Navigation: auf Desktop oben MITTIG zentriert mit "MENU"/"CLOSE"-Label
-   neben den Strichen; auf Mobile oben rechts, Label ausgeblendet (Philipps
-   Call — Sichtbarkeit über das Label, nicht über dickere Striche). */
+   Navigation. Ab Session 158 steht der Burger fest oben RECHTS (vorher
+   zentriert + scroll-gesteuert nach rechts gewandert — das verrutschte die
+   Zentrierung). `row-reverse` legt das Icon in die Ecke, das "MENU"/"CLOSE"-
+   Label links daneben; auf Mobile bleibt er oben rechts, Label aus. */
 .site-burger {
   position: fixed;
   top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 16px;
   z-index: 81;
   height: 44px;
   padding: 12px 10px;
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   gap: 10px;
   background: transparent;
   border: none;
   cursor: pointer;
 }
-/* top scrim — small dark gradient behind the burger so it stays legible over
-   scrolled content. Off at rest; SiteMenu toggles `.is-scrolled` once the page
-   (or a route's inner scroller) has scrolled. Translucent void falling in from
-   the viewport edge, masked out to the sides — a band, not a box. */
+/* Corner scrim — a soft dark patch behind the burger so it stays legible over
+   any scrolled content or the full-bleed map. Always on (the burger now lives
+   permanently in the corner). Void falling from the top-right corner, masked
+   out toward the left — a patch, not a bar. */
 .site-burger::before {
   content: "";
   position: absolute;
   top: -16px; /* back up to the viewport edge (burger sits at top: 16px) */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
+  right: -16px; /* out to the viewport corner */
+  width: 180px;
   height: 72px;
   z-index: -1;
   pointer-events: none;
@@ -64,17 +64,10 @@
     transparent 100%
   );
   mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    #000 22%,
-    #000 78%,
+    to left,
+    #000 38%,
     transparent 100%
   );
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-.site-burger.is-scrolled::before {
-  opacity: 1;
 }
 
 .site-burger__icon {
@@ -100,7 +93,7 @@
 }
 .site-burger__label {
   font-family: var(--sm-mono);
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.32em;
   color: var(--cl-dim);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
@@ -297,14 +290,12 @@
   .site-menu.is-open .site-menu__item:nth-child(6)::before { transition-delay: 0.46s; }
 }
 
-/* Mobile: oben rechts (statt zentriert), Label weg, safe-area nudge so the
-   burger clears notches/rounded corners. */
+/* Mobile: safe-area nudge so the burger clears notches/rounded corners, Label
+   weg. (The burger is already top-right at every breakpoint now.) */
 @media (max-width: 720px) {
   .site-burger {
     top: calc(8px + env(safe-area-inset-top, 0px));
-    left: auto;
     right: calc(8px + env(safe-area-inset-right, 0px));
-    transform: none;
   }
   .site-burger__label { display: none; }
   .site-burger::before { display: none; } /* mobile burger stays untouched */

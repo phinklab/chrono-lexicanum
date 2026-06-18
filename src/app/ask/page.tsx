@@ -62,12 +62,13 @@ export default async function AskPage({ searchParams }: AskPageProps) {
   }
 
   return (
-    <main className="ask">
+    <main className="ask route-snap">
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
         className="ask-scrim"
         varName="--ask-scrim-opacity"
         heroSelector=".ask-console__mast"
+        maxOpacity={0.77}
       />
 
       <div className="ask-readout" aria-hidden>

@@ -19,6 +19,7 @@ import AuspexSweep from "@/components/chrono/AuspexSweep";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import CompendiumNav from "@/components/compendium/CompendiumNav";
+import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
 import { loadCompendiumCounts } from "@/lib/compendium/loader";
 
@@ -66,13 +67,13 @@ export default function CompendiumLayout({
   children: ReactNode;
 }) {
   return (
-    <main className="compendium">
+    <main className="compendium route-snap">
       <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
         className="cmp-scrim"
         varName="--cmp-scrim-opacity"
         heroSelector=".cmp-hero"
-        maxOpacity={0.72}
+        maxOpacity={0.79}
       />
 
       {/* Fixed HUD atmosphere — sweep + readout pinned to the viewport so they sit
@@ -94,7 +95,7 @@ export default function CompendiumLayout({
         </div>
       </div>
 
-      <header className="cmp-hero">
+      <header className="cmp-hero route-act">
         <FloatingCoord
           x="58%"
           y="150px"
@@ -113,9 +114,10 @@ export default function CompendiumLayout({
             doorway into the books and podcasts behind it.
           </p>
         </div>
+        <RouteScrollCue label="Open the registers" target=".cmp-body" />
       </header>
 
-      <div className="cmp-body">
+      <div className="cmp-body route-body-snap">
         <Suspense fallback={<CompendiumNav counts={null} />}>
           <NavWithCounts />
         </Suspense>

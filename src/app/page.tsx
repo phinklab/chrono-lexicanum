@@ -1,4 +1,3 @@
-import BottomConsole from "@/components/chrono/BottomConsole";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import MainAuspex from "@/components/chrono/MainAuspex";
@@ -46,7 +45,6 @@ export default async function HubPage() {
     ...compendiumSuggestions,
     ...primarchSuggestions,
   ];
-  const stats = `${novelCount} NOVELS · 7 ERAS · 5 SEGMENTA`;
 
   // The readout carries REAL holdings instead of pseudo-telemetry (the
   // warp-tide/voltage lines died with the lab port, Report 141).
@@ -60,7 +58,7 @@ export default async function HubPage() {
 
   // Three full-viewport "acts" with firm (mandatory) scroll-snap between them:
   // 1 splash → 2 Praefatio + search → 3 the grouped doorways. The fixed
-  // hub.webp + <ScrollScrim> sit behind all three; the BottomConsole is a HUD.
+  // hub.webp + <ScrollScrim> sit behind all three.
   return (
     <main className="hub">
       <HubScrollReset />
@@ -69,6 +67,7 @@ export default async function HubPage() {
         className="hub-scrim"
         varName="--hub-scrim-opacity"
         heroSelector=".hub-act--splash"
+        maxOpacity={0.77}
       />
 
       <div className="hub-readout" aria-hidden>
@@ -146,15 +145,15 @@ export default async function HubPage() {
           </p>
         </div>
 
-        <HeroScrollCue label="What can I do here?" target=".hub-act--intro" />
+        <HeroScrollCue label="Enter the archive" target=".hub-act--intro" />
       </section>
 
       {/* ── Act 2 · Praefatio — the reading column with initial + live search ── */}
-      <section className="hub-act hub-act--intro" aria-label="What can I do here?">
+      <section className="hub-act hub-act--intro" aria-label="What lives in the archive?">
         <div className="hub-intro">
           <div className="hub-intro__head">
             <p className="hub-eyebrow">{"PRAEFATIO"}</p>
-            <h2 className="hub-intro__heading">What can I do here?</h2>
+            <h2 className="hub-intro__heading">What lives in the archive?</h2>
           </div>
           <p className="lx-prose lx-initial">
             A hobby — a fan-built archive of the 41st millennium, made with love
@@ -196,8 +195,6 @@ export default async function HubPage() {
 
         <ArchiveFooter mid="BEST EXPERIENCED WITH SOUND" />
       </section>
-
-      <BottomConsole withCards={false} novelCountText={stats} />
     </main>
   );
 }

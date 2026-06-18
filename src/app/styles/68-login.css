@@ -154,6 +154,26 @@ main.login {
   gap: 2px;
 }
 
+.login-field input,
+.login-field input:focus,
+.login-field input:focus-visible,
+.login-field input:user-invalid {
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.login-field input:-webkit-autofill,
+.login-field input:-webkit-autofill:hover,
+.login-field input:-webkit-autofill:focus {
+  border: 0 !important;
+  -webkit-text-fill-color: var(--cl-bone);
+  caret-color: var(--cl-bone);
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  transition: background-color 999999s ease-in-out 0s;
+}
+
 .login-lab {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 10px;

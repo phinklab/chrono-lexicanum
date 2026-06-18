@@ -3,6 +3,7 @@
 import { useMemo, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
+import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import ProcessingPanel from "./ProcessingPanel";
 import QuestionCard from "./QuestionCard";
 import ResultCard from "./ResultCard";
@@ -135,7 +136,7 @@ export default function AskClient({
       </div>
 
       <section className="ask-console" aria-labelledby="ask-title">
-        <header className="ask-console__mast">
+        <header className="ask-console__mast route-act">
           <p className="ask-console__eyebrow">
             {"INTERROGATORIVM · QVINQVE QVAESTIONES"}
           </p>
@@ -147,9 +148,10 @@ export default function AskClient({
             Five questions; the cogitator weighs the catalogue and returns five
             doorways — real recommendations from the archive, not a horoscope.
           </p>
+          <RouteScrollCue label="Begin the questionnaire" target=".ask-console__grid" />
         </header>
 
-        <div className="ask-console__grid" ref={gridRef}>
+        <div className="ask-console__grid route-body-snap" ref={gridRef}>
           <div className="ask-stage">
             {/* PROTOCOLLVM — horizontal stepper across the top of the stage
                 window (single-column redesign 2026-06-11; replaces the side
