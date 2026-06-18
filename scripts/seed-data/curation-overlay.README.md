@@ -26,7 +26,8 @@ a removed auto-edge comes back, an added edge is wiped.
 So the overlay is a **deterministic tail that runs AFTER the auto apply/rebuild**
 and re-asserts the maintainer's decisions. It generalises the proven
 `apply:audiobook-narrators` pattern (committed sidecar + scoped writes + a tail
-slot in `db-rebuild.sh`). The audio path scopes its delete to the *roles* it owns;
+slot in the apply chain `db-sync.sh`, run by both `db:sync` and `db:rebuild`). The
+audio path scopes its delete to the *roles* it owns;
 the curation overlay operates on the *same* roles the auto path owns, so it scopes
 to the exact **edge** instead — a junction row is uniquely `(workId, entityId)`
 (the PK of all three junctions), so:
@@ -162,9 +163,12 @@ value. It is the post-condition check wired as the `db:rebuild` tail.
 Programmatic entry point for the future admin page:
 `applyCurationOverlay({ dryRun?, verify?, file? })` → `OverlayRunResult`.
 
-## Place in `db:rebuild`
+## Place in the apply chain (`db:sync` / `db:rebuild`)
 
-The overlay is the **final tail** of `scripts/db-rebuild.sh` (apply, then
-`--verify`), after the audiobook-credit tail — it must run after the auto
-re-apply so the auto-edges it suppresses exist to be removed and the edges it
-adds are re-asserted last. See `scripts/runbooks/db-rebuild-runbook.md`.
+The overlay is the **final tail** of `scripts/db-sync.sh` (apply, then
+`--verify`), after the audiobook-credit and timeline tails — it must run after the
+auto re-apply so the auto-edges it suppresses exist to be removed and the edges it
+adds are re-asserted last (and its `primaryEraId` field-fix wins over the timeline
+remap). The non-destructive `db:sync` runs this chain; `db:rebuild` runs the same
+chain after a confirm-gated truncate (Brief 157). See
+`scripts/runbooks/db-rebuild-runbook.md`.

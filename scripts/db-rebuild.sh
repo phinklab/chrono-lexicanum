@@ -1,69 +1,44 @@
 #!/usr/bin/env bash
-# db-rebuild.sh — full SSOT rebuild orchestrator (Brief 107).
+# db-rebuild.sh — DISASTER-RECOVERY full SSOT rebuild (Brief 107, redefined in
+# Brief 157).
 #
-# A thin orchestrator that sits ABOVE the existing building blocks and chains
-# them in the one order that makes a from-reset rebuild complete. It does NOT
-# reimplement any of them — it calls them:
+# ⚠ YOU ALMOST NEVER NEED THIS. The routine way to push committed SSOT changes
+# into the live DB is the NON-DESTRUCTIVE `npm run db:sync` — it re-applies the
+# whole roster + every tail idempotently and NEVER truncates. Use this rebuild
+# ONLY for from-clean recovery: a fresh/migrated DB, or when `npm run db:drift`
+# shows real divergence a re-sync can't fix.
 #
-#   1. db:reset-for-ssot --confirm         TRUNCATE works CASCADE. Wipes the works
-#                                          domain (incl. work_persons); REFERENCE
-#                                          tables (persons, factions, characters,
-#                                          locations, …) are preserved.
-#   2. run-phase4-apply.sh <rebuild cfg>   Re-apply the whole crystallized override
-#                                          roster (W40K 1..57 + HH 1..30 = all 859),
-#                                          idempotent delete-then-insert per junction.
-#                                          Restores author|editor work_persons.
-#   3. apply:audiobook-narrators           TAIL — restore the narrator|co_narrator|
-#                                          full_cast work_persons rows. Runs LAST
-#                                          because it resolves externalBookId ->
-#                                          works.id, so the works must exist.
-#   4. apply:audiobook-narrators --verify  Read-only post-condition: DB audio-role
-#                                          count == sidecar-derived expected (today
-#                                          88), nonzero. Mismatch fails the rebuild.
-#   5. apply:timeline                       TAIL — restore the timeline domain
-#                                          (Brief 137/152): re-upsert eras + events,
-#                                          wholesale-rebuild event_works, re-write
-#                                          works.startY/endY/setting* for the named
-#                                          book-dates, remap+retire age_rebirth /
-#                                          long_war. Runs AFTER the corpus re-apply
-#                                          (step 2) because every hook + book-date
-#                                          resolves against works that must exist.
-#                                          Runs BEFORE curation (step 7) because both
-#                                          can write book_details.primary_era_id and
-#                                          hand-curation must win last.
-#   6. apply:timeline --verify              Read-only post-condition (Brief 152):
-#                                          DB era/event id-sets == seed JSON,
-#                                          event_works set == resolved hooks (incl.
-#                                          displayLabel/position) and nonzero, every
-#                                          named book-date exact, no book_details row
-#                                          on a retired era. Mismatch fails the rebuild.
-#   7. apply:curation-overlay              TAIL — re-assert the maintainer's hand
-#                                          overrides (Brief 149). Runs LAST so the
-#                                          auto-edges it suppresses exist to delete
-#                                          and the edges it adds win over the wave,
-#                                          and its primary_era_id field-fix wins over
-#                                          the timeline remap (step 5). Both
-#                                          directions, scoped per (workId, entityId),
-#                                          idempotent.
-#   8. apply:curation-overlay --verify     Read-only post-condition: every final add
-#                                          present, every suppression absent, every
-#                                          field equal. Mismatch fails the rebuild.
+# db:rebuild == db:sync + a prepended, confirm-gated TRUNCATE. The destructive
+# truncate is the ONLY thing this adds over db:sync; the entire restore chain
+# (corpus + podcast + audiobook + timeline + curation, auto-derived scope) lives
+# in scripts/db-sync.sh and is shared by both paths — this orchestrator does not
+# reimplement it.
 #
-# WHY a dedicated orchestrator and not a tail step in run-phase4-apply.sh: that
-# engine runs on EVERY resolver wave + via the loop driver; an audio-apply tacked
-# on there would fire redundantly per wave and couple a rebuild-only concern into
-# the generic engine. The rebuild is the right level (Brief 107 § Notes).
+#   1. db-apply-scope.ts (--check)         PREFLIGHT (read-only) — derive + validate
+#                                          the apply scope from the committed roster
+#                                          BEFORE the truncate. A stray file or a hole
+#                                          HALTS LOUDLY here, so a confirmed rebuild
+#                                          never truncates into an unappliable roster.
+#   2. db:reset-for-ssot --confirm         DESTRUCTIVE TRUNCATE works CASCADE. Wipes the
+#                                          works domain (incl. work_persons, podcasts,
+#                                          event_works, the timeline columns on works);
+#                                          REFERENCE tables (persons, factions,
+#                                          characters, locations, eras, …) are preserved.
+#   3. db:sync                             The full NON-DESTRUCTIVE restore chain:
+#                                          re-apply the auto-derived committed roster +
+#                                          podcast + audiobook + timeline + curation,
+#                                          each verify-gated. (Re-runs the preflight in
+#                                          --emit-config mode; harmless + idempotent.)
 #
-# WHY the order is forgiving: the Brief-105 durability fix scopes the override
-# delete in apply-override.ts to author|editor, and this worker scopes ITS delete
-# to the audio roles — the two paths never clobber each other. So once the 88 rows
-# are applied, every LATER routine re-apply leaves them intact; the rebuild only
-# has to apply them once, at the end.
+# WHY a dedicated orchestrator and not a tail in run-phase4-apply.sh: that engine
+# runs on EVERY resolver wave; a reset/audio/timeline step there would fire
+# redundantly per wave and couple rebuild-only concerns into the generic engine.
+# The rebuild (now: db:sync) is the right level (Brief 107 § Notes).
 #
 # DESTRUCTIVE — truncates `works`. Confirm-gated: refuses without --confirm or
 # DB_RESET_CONFIRM=1, and a naked run never truncates. Fail-fast: a failed step
-# aborts before later steps run (honest non-zero exit). Idempotent + re-runnable:
-# two confirmed runs reach the same end state.
+# aborts before later steps run. Idempotent + re-runnable: two confirmed runs
+# reach the same end state.
 #
 # USAGE
 #   npm run db:rebuild -- --confirm
@@ -71,26 +46,27 @@
 #   bash scripts/db-rebuild.sh --confirm        # direct (if the npm shell can't resolve bash)
 #   npm run db:rebuild -- --help
 #
+# Routine alternative (use this instead): npm run db:sync
+# Read-only health check:                  npm run db:drift
 # Preconditions + full runbook: scripts/runbooks/db-rebuild-runbook.md
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-REBUILD_CONFIG="scripts/db-rebuild.config.json"
-
 print_help() {
   cat >&2 <<'EOF'
-db-rebuild — full SSOT rebuild: reset the works domain, re-apply the whole
-crystallized override roster, restore audiobook credits, then verify.
+db-rebuild — DISASTER-RECOVERY full SSOT rebuild: validate the apply scope,
+TRUNCATE the works domain, then run the full non-destructive db:sync restore.
+
+⚠ You almost never need this. The routine "push my changes" path is the
+non-destructive `npm run db:sync` (no truncate). Use this ONLY for from-clean
+recovery (fresh/migrated DB, or `npm run db:drift` shows real divergence).
+
+db:rebuild == db:sync + a prepended confirm-gated TRUNCATE.
 
 Sequence (each step gates the next; a failure aborts before later steps run):
-  1. db:reset-for-ssot --confirm          TRUNCATE works CASCADE (reference tables preserved)
-  2. run-phase4-apply.sh <rebuild cfg>    re-apply all 859 committed override batches (W40K 1..57 + HH 1..30)
-  3. apply:audiobook-narrators            tail — restore the audio-role work_persons rows (works now exist)
-  4. apply:audiobook-narrators --verify   confirm DB count == sidecar-derived expected (today 88), nonzero
-  5. apply:timeline                       tail — restore eras/events/event_works + book-dates (works now exist)
-  6. apply:timeline --verify              confirm era/event/event_works/book-date state == seed JSON, no retired era
-  7. apply:curation-overlay               tail — re-assert the maintainer's hand overrides (Brief 149); wins on primary_era_id
-  8. apply:curation-overlay --verify      confirm every final add present / suppression absent / field equal
+  1. db-apply-scope (preflight)           validate the apply scope BEFORE truncate (HALTS on a hole/stray)
+  2. db:reset-for-ssot --confirm          TRUNCATE works CASCADE (reference tables preserved)
+  3. db:sync                              the full non-destructive restore chain (corpus + podcast + audiobook + timeline + curation, all verify-gated)
 
 DESTRUCTIVE — truncates `works`. Requires explicit confirmation via either:
   --confirm                  CLI flag.
@@ -102,6 +78,8 @@ Usage:
   bash scripts/db-rebuild.sh --confirm        # direct (if the npm shell can't resolve bash)
   npm run db:rebuild -- --help
 
+Routine alternative (use this instead): npm run db:sync
+Read-only health check:                  npm run db:drift
 Preconditions + full runbook: scripts/runbooks/db-rebuild-runbook.md
 EOF
 }
@@ -126,16 +104,13 @@ fi
 
 if [[ "$CONFIRM" -ne 1 ]]; then
   echo "[db-rebuild] refusing to rebuild (this TRUNCATEs works) without --confirm or DB_RESET_CONFIRM=1" >&2
+  echo "[db-rebuild] for the routine non-destructive path use: npm run db:sync" >&2
   echo "" >&2
   print_help
   exit 1
 fi
 
-[[ -f "$REBUILD_CONFIG" ]] || { echo "[db-rebuild] rebuild config not found: $REBUILD_CONFIG" >&2; exit 1; }
-
 # --- fail-fast step runner --------------------------------------------------
-# Run a labeled step; abort the whole rebuild on failure with a clear marker so
-# a failed reset/apply/audio step is never silently followed by later steps.
 step() {
   local label="$1"; shift
   echo ""
@@ -150,58 +125,28 @@ step() {
   fi
 }
 
-echo "[db-rebuild] starting full SSOT rebuild (confirmed). Rebuild config: $REBUILD_CONFIG"
+echo "[db-rebuild] starting DISASTER-RECOVERY rebuild (confirmed) — truncate + db:sync."
 
-# 1. Reset the works domain. Confirmation is passed through to the reset step;
-#    reference tables (persons/factions/characters/locations/…) are preserved.
-step "1/8 reset works domain (db:reset-for-ssot)" \
+# 1. PREFLIGHT (read-only): validate the apply scope BEFORE the destructive
+#    truncate, so a confirmed rebuild can never truncate into a roster it then
+#    can't fully re-apply. db:sync (step 3) re-runs this in --emit-config mode;
+#    running it here too is harmless (read-only) and is the hard guarantee that
+#    the guard fires before the truncate.
+step "1/3 preflight — validate apply scope before truncate (db-apply-scope)" \
+  npx tsx scripts/db-apply-scope.ts
+
+# 2. DESTRUCTIVE: truncate the works domain. Confirmation is passed through;
+#    reference tables (persons/factions/characters/locations/eras/…) are preserved.
+step "2/3 TRUNCATE works domain (db:reset-for-ssot --confirm)" \
   npm run db:reset-for-ssot -- --confirm
 
-# 2. Re-apply the full crystallized override roster (both domains, all 859).
-#    Idempotent; reproduces the data-complete + consolidated corpus (the merges
-#    are baked into the committed reference JSONs — no separate consolidation step).
-step "2/8 re-apply full corpus (run-phase4-apply.sh)" \
-  bash scripts/run-phase4-apply.sh "$REBUILD_CONFIG"
-
-# 3. TAIL: restore audiobook credits. The works exist now, so every sidecar book
-#    resolves. Runs only after the apply waves succeeded (fail-fast above).
-step "3/8 restore audiobook credits (apply:audiobook-narrators)" \
-  npm run apply:audiobook-narrators
-
-# 4. Verify the audio tail is complete: DB audio-role count == sidecar-derived
-#    expected (today 88), nonzero. Mismatch makes the rebuild fail.
-step "4/8 verify audiobook credits restored (apply:audiobook-narrators --verify)" \
-  npm run apply:audiobook-narrators -- --verify
-
-# 5. TAIL: restore the timeline domain (Brief 137/152). Runs AFTER the corpus
-#    re-apply (step 2) because every event_works hook and book-date resolves
-#    against works.id, so the works must already exist. Runs BEFORE curation
-#    (step 7) on purpose: apply:timeline remaps book_details.primary_era_id
-#    (age_rebirth/long_war retirement) and the curation overlay also writes
-#    primary_era_id — hand-curation must win, so it runs LAST.
-step "5/8 restore timeline (apply:timeline)" \
-  npm run apply:timeline
-
-# 6. Verify the timeline tail (read-only, Brief 152): DB era/event id-sets ==
-#    seed JSON, event_works set == resolved hooks (incl. displayLabel/position)
-#    and nonzero, every named book-date exact, no book_details row on a retired
-#    era. Exact set-/value-equality, not a count. Mismatch makes the rebuild fail.
-step "6/8 verify timeline restored (apply:timeline --verify)" \
-  npm run apply:timeline -- --verify
-
-# 7. TAIL: re-assert the maintainer's hand overrides (Brief 149). Runs LAST so
-#    the auto-edges it suppresses already exist (to delete) and the edges it adds
-#    are re-asserted after the wave; and its primary_era_id field-fix wins over
-#    the step-5 timeline remap. Scoped per (workId, entityId), idempotent.
-#    A book the overlay names but the corpus doesn't carry is skipped gracefully.
-step "7/8 apply hand-override overlay (apply:curation-overlay)" \
-  npm run apply:curation-overlay
-
-# 8. Verify the curation tail: every final add present, every suppression absent,
-#    every field equal. Mismatch makes the rebuild fail.
-step "8/8 verify hand overrides applied (apply:curation-overlay --verify)" \
-  npm run apply:curation-overlay -- --verify
+# 3. The full non-destructive restore chain — corpus + podcast + audiobook +
+#    timeline + curation, auto-derived scope, each verify-gated. Identical to a
+#    standalone `npm run db:sync`; the only difference from a routine sync is the
+#    truncate that ran first (step 2).
+step "3/3 restore everything (db:sync)" \
+  bash scripts/db-sync.sh
 
 echo ""
-echo "[db-rebuild] DONE — works domain rebuilt, override roster re-applied, audiobook credits + timeline + hand overrides restored + verified."
+echo "[db-rebuild] DONE — works domain truncated and fully rebuilt + verified via db:sync."
 exit 0

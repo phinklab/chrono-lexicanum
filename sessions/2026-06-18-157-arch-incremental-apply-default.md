@@ -2,7 +2,7 @@
 session: 2026-06-18-157
 role: architect
 date: 2026-06-18
-status: open
+status: implemented
 slug: incremental-apply-default
 parent: null
 links:
