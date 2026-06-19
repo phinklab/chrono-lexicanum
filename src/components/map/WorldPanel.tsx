@@ -121,9 +121,11 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
         setPos({ left: M + 14, top: Math.min(112, Math.max(M, (vh - h) / 2)) });
         return;
       }
-      let left = anchor.x - GAP - W;
-      if (left < M) left = anchor.x + GAP; // no room left → flip right
-      if (left + W > vw - M) left = Math.max(M, vw - W - M);
+      // Prefer the planet's RIGHT (maintainer); flip to the left only when the
+      // card would overflow the right edge, then clamp into the viewport.
+      let left = anchor.x + GAP;
+      if (left + W > vw - M) left = anchor.x - GAP - W;
+      left = Math.max(M, Math.min(left, vw - W - M));
       // Anchor the card's TOP just above the planet (the title section brackets
       // it) rather than centring a tall card on it — centring floated the panel
       // way up off the planet.
