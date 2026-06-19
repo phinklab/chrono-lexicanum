@@ -40,13 +40,13 @@ main.podcasts .browse-search__input:focus-visible {
   outline: none;
 }
 
-/* ── Fixed backdrop fade + scroll scrim (the /ask treatment) ──────────────── */
-/* Crisp-top, fade-to-void: the cathedral-vox photo is sharp through the upper
- * band (title), then ramps to full void where the content band sits. Neutral
- * void only — no cyan halo, no warm gradient, no bloom. */
-/* Per-show detail page (the index now rides the shared catalogue--vox fade).
-   Fade strength reduced 10% (every void stop ×0.9) so the cathedral-vox photo
-   reads better through the overlay — maintainer polish 2026-06-19. */
+/* ── Fixed backdrop fade ──────────────────────────────────────────────────── */
+/* Per-show detail page. The show hero is now the same 100dvh one-act shell as
+   /archive + /archive/podcasts (the shared .catalogue-hero classes), so it
+   carries the same backdrop fade as the catalogue--vox index — kept in sync
+   with the values in 31-catalogue.css (maintainer polish 2026-06-20). The
+   scroll-darkening scrim is the shared .catalogue-scrim (<ScrollScrim> default),
+   no longer a bespoke .pod-scrim. */
 body:has(main.podcasts) .site-bg::after {
   content: "";
   position: absolute;
@@ -54,140 +54,40 @@ body:has(main.podcasts) .site-bg::after {
   pointer-events: none;
   background:
     radial-gradient(
-      ellipse at 50% 34%,
-      transparent 50%,
-      color-mix(in srgb, var(--cl-void) 18%, transparent) 100%
+      ellipse at 50% 30%,
+      transparent 36%,
+      color-mix(in srgb, var(--cl-void) 38%, transparent) 100%
     ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--cl-void) 0%, transparent) 0%,
-      color-mix(in srgb, var(--cl-void) 0%, transparent) 38%,
-      color-mix(in srgb, var(--cl-void) 47%, transparent) 56%,
-      color-mix(in srgb, var(--cl-void) 81%, transparent) 74%,
-      color-mix(in srgb, var(--cl-void) 90%, transparent) 90%
+      color-mix(in srgb, var(--cl-void) 9%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 14%, transparent) 18%,
+      color-mix(in srgb, var(--cl-void) 56%, transparent) 38%,
+      color-mix(in srgb, var(--cl-void) 83%, transparent) 58%,
+      color-mix(in srgb, var(--cl-void) 90%, transparent) 76%
     );
 }
 
-/* Scroll-darkening scrim — coplanar with .site-bg (z -1), later in the DOM so it
- * paints over the fixed photo while staying below all content. <ScrollScrim>
- * raises --pod-scrim-opacity from 0 as the reader scrolls past the masthead. */
-.pod-scrim {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: var(--cl-void);
-  opacity: var(--pod-scrim-opacity, 0);
-  will-change: opacity;
-}
-
-/* ── HUD atmosphere ───────────────────────────────────────────────────────── */
-/* Absolute within the relative <main>, so the HUD anchors to the top of the page
-   and scrolls away with the masthead (like /werke's hero sweep) instead of
-   hovering over the show list as the reader scrolls. */
-.pod-readout {
-  position: absolute;
-  top: 96px;
-  right: clamp(16px, 4vw, 48px);
-  width: 240px;
-  z-index: 3;
-  pointer-events: none;
-}
-.pod-hud {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.6;
-}
-.pod-hud__sweep {
-  position: absolute;
-  left: 50%;
-  top: 60px;
-  width: 360px;
-  height: 360px;
-  transform: translateX(-50%);
-  aspect-ratio: 1;
-}
-@media (max-width: 900px) {
-  .pod-readout,
-  .pod-hud {
-    display: none;
-  }
-}
-
 /* ── Masthead ─────────────────────────────────────────────────────────────── */
-.pod-mast {
-  position: relative;
-  z-index: 4;
-  /* Same clamp as /ask + /werke so the pages stay aligned. */
-  height: clamp(520px, 60vh, 700px);
-  max-width: none;
-  margin: 0;
-  padding: 320px clamp(18px, 4vw, 48px) 0;
-  text-align: center;
-  pointer-events: none;
-}
-.pod-mast__inner {
-  position: relative;
-}
-.pod-mast__eyebrow {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  /* 0.22em + full gold matches .catalogue-hero__eyebrow — the sibling we clone. */
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--cl-gold);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
-}
-.pod-mast__heading {
-  margin: 12px auto 0;
-  max-width: 920px;
-  font-family: var(--font-cinzel), serif;
-  font-size: clamp(44px, 4.6vw, 64px);
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--cl-bone);
-  /* Gold halo, no cyan — identical to .catalogue-hero__heading. */
-  text-shadow:
-    0 0 32px rgba(201, 166, 90, 0.22),
-    0 4px 14px rgba(0, 0, 0, 0.95);
-}
-/* Show titles can be multi-word — smaller, wrap-friendly, still centred. */
-.pod-mast__heading--show {
+/* The show hero reuses the shared .catalogue-hero* classes (31-catalogue.css) so
+   it matches the /archive + /archive/podcasts mastheads exactly. The only show-
+   specific tweak: a wrap-friendly heading size, since a show title is multi-word
+   where the index headings are a single word. */
+.catalogue-hero__heading--show {
+  margin-inline: auto;
+  max-width: 20ch;
   font-size: clamp(30px, 4vw, 50px);
   letter-spacing: 0.14em;
-  max-width: 20ch;
-}
-/* Terminus line as title ornament — identical to .catalogue-hero__rule, the
-   sibling masthead (Session 142). */
-.pod-mast__rule {
-  width: min(300px, 52vw);
-  height: 1px;
-  margin: 20px auto 0;
-  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
-  opacity: 0.85;
-}
-.pod-mast__sub {
-  max-width: 640px;
-  margin: 14px auto 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-style: italic;
-  font-size: var(--fs-read);
-  font-weight: var(--fw-read);
-  line-height: var(--lh-read);
-  color: var(--cl-bone);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  text-transform: uppercase;
 }
 
-/* ── Content band (pulled up under the masthead) ──────────────────────────── */
+/* ── Content band (a full route-body act below the 100dvh hero) ────────────── */
 .pod-body {
   position: relative;
   z-index: 4;
   max-width: 1180px;
-  margin: -80px auto 0;
-  padding: 24px clamp(20px, 3vw, 48px) 80px;
+  margin: 0 auto;
+  padding: calc(var(--top-nav-h, 48px) + 24px) clamp(20px, 3vw, 48px) 80px;
 }
 
 /* ── Unified archive search (books + podcasts) ────────────────────────────── */
@@ -1041,24 +941,14 @@ body:has(main.podcasts) .browse-suggest__hit {
 
 /* ── Narrow ───────────────────────────────────────────────────────────────── */
 @media (max-width: 720px) {
-  .pod-mast {
-    /* Match /ask + /werke mobile mastheads (420px / title-top 240px). */
-    height: 420px;
-    padding: 240px 14px 0;
-  }
-  .pod-mast__heading {
-    font-size: clamp(40px, 8vw, 56px);
-    letter-spacing: 0.14em;
-  }
-  .pod-mast__heading--show {
-    font-size: clamp(28px, 8vw, 42px);
-  }
-  .pod-mast__sub {
-    font-size: var(--fs-read-sm);
+  /* Long show titles on a narrow screen — pull the wrap-friendly heading down a
+     step from its desktop clamp (the shared .catalogue-hero mobile rules in
+     31-catalogue.css size the single-word index headings). */
+  .catalogue-hero__heading--show {
+    font-size: clamp(26px, 8vw, 42px);
   }
   .pod-body {
-    margin-top: -56px;
-    padding: 18px 14px 0;
+    padding: calc(var(--top-nav-h, 48px) + 18px) 14px 80px;
   }
 
   .pod-card {

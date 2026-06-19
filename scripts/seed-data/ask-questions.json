@@ -74,15 +74,6 @@
         }
       },
       {
-        "id": "guard",
-        "label": "The Common Soldier",
-        "sub": "Astra Militarum — mud, rifles, courage.",
-        "weight": {
-          "faction_guard": 3,
-          "accessible": 1
-        }
-      },
-      {
         "id": "xenos",
         "label": "The Alien",
         "sub": "Aeldari, Necrons, T'au — beyond human.",
@@ -155,20 +146,11 @@
       },
       {
         "id": "trilogy",
-        "label": "A trilogy or short arc",
-        "sub": "3–5 books, complete story.",
+        "label": "2+ books",
+        "sub": "A complete story across several books.",
         "weight": {
           "arc": 3,
-          "series": 1
-        }
-      },
-      {
-        "id": "epic",
-        "label": "A long saga",
-        "sub": "I want to live in the setting for months.",
-        "weight": {
-          "series": 3,
-          "deep_cut": 1
+          "series": 2
         }
       },
       {

@@ -42,7 +42,7 @@ const PROFILES: SmokeProfile[] = [
       experience: "deep",
       faction_love: "heretic",
       tone: "mythic",
-      length: "epic",
+      length: "trilogy",
       era_pref: "heresy",
     },
   },

@@ -10,9 +10,9 @@ export type AskQuestionId = (typeof ASK_QUESTION_IDS)[number];
 
 export const ASK_OPTION_IDS_BY_QUESTION = {
   experience: ["new", "some", "deep"],
-  faction_love: ["imperium", "heretic", "loyalist_sm", "inquisition", "guard", "xenos"],
+  faction_love: ["imperium", "heretic", "loyalist_sm", "inquisition", "xenos"],
   tone: ["grimdark", "heroic", "political", "military", "mythic"],
-  length: ["standalone", "trilogy", "epic", "any_length"],
+  length: ["standalone", "trilogy", "any_length"],
   era_pref: ["heresy", "long_war", "indomitus", "any_era"],
 } as const satisfies Record<AskQuestionId, readonly string[]>;
 

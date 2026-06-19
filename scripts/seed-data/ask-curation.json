@@ -45,17 +45,6 @@
       "book": "the-infinite-and-the-divine",
       "points": 75,
       "note": "B4.3 audit expected this xenos anchor; FanFiAddict calls it out as the obvious undead-robot pick."
-    },
-    {
-      "id": "guard-military-boost-guard-axis",
-      "when": {
-        "faction_love": "guard",
-        "tone": "military"
-      },
-      "action": "boost",
-      "tag": "faction_guard",
-      "points": 20,
-      "note": "Axis-level boost for the Guard/military slice where the audit expected Gaunt/Cain/Cadia-style visibility."
     }
   ]
 }
