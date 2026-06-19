@@ -29,6 +29,7 @@ import { alias } from "drizzle-orm/pg-core";
 import { db } from "@/db/client";
 import { getBlurb } from "@/lib/blurbs";
 import { PRIMARCH_MERGES } from "@/lib/compendium/primarchs";
+import { HOT_ENTITY_IDS } from "./hot-subset";
 import { resolveEpisodeShows, workHref } from "@/lib/work-links";
 import {
   characters as charactersTable,
@@ -551,6 +552,52 @@ export async function listEntityIds(type: EntityType): Promise<string[]> {
       return rows.map((r) => r.id);
     }
     const rows = await db.select({ id: locationsTable.id }).from(locationsTable);
+    return rows.map((r) => r.id);
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * The curated build-time prerender set for one entity type — Brief 161. Returns
+ * only the ids from {@link HOT_ENTITY_IDS} that ACTUALLY exist in the table: one
+ * ID-only `where id in (…)` query over ≤ a few dozen ids — never a `loadEntity`
+ * fanout — so the build path stays lean and the per-deploy build-egress collapses
+ * from ~1300 full entity reads to four tiny id selects. A curated id that was
+ * later renamed/merged away is simply dropped (the route then serves it
+ * on-demand instead of build-prerendering a 404). Same try/catch → [] fallback
+ * as {@link listEntityIds}: an unreachable build-time DB degrades to all-on-demand
+ * rendering (`dynamicParams = true`) rather than failing `next build`.
+ */
+export async function listHotEntityIds(type: EntityType): Promise<string[]> {
+  const ids = [...HOT_ENTITY_IDS[type]];
+  if (ids.length === 0) return [];
+  try {
+    if (type === "character") {
+      const rows = await db
+        .select({ id: charactersTable.id })
+        .from(charactersTable)
+        .where(inArray(charactersTable.id, ids));
+      return rows.map((r) => r.id);
+    }
+    if (type === "faction") {
+      const rows = await db
+        .select({ id: factionsTable.id })
+        .from(factionsTable)
+        .where(inArray(factionsTable.id, ids));
+      return rows.map((r) => r.id);
+    }
+    if (type === "person") {
+      const rows = await db
+        .select({ id: personsTable.id })
+        .from(personsTable)
+        .where(inArray(personsTable.id, ids));
+      return rows.map((r) => r.id);
+    }
+    const rows = await db
+      .select({ id: locationsTable.id })
+      .from(locationsTable)
+      .where(inArray(locationsTable.id, ids));
     return rows.map((r) => r.id);
   } catch {
     return [];

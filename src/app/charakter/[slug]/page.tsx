@@ -11,17 +11,24 @@ import SiteBackground from "@/components/chrome/SiteBackground";
 import CornerAuspex from "@/components/chrono/CornerAuspex";
 import EntityBackLink from "@/components/entity/EntityBackLink";
 import EntityView from "@/components/entity/EntityView";
-import { listEntityIds, loadEntity } from "@/lib/entity/loader";
+import { listHotEntityIds, loadEntity } from "@/lib/entity/loader";
 import { absorbedInto } from "@/lib/compendium/primarchs";
 
 type Params = { slug: string };
 
-// Pre-render every known id at build time; the long tail (and ids added after
-// a build) renders on demand. Never pair with `force-dynamic` — that defeats SSG.
+// Build-prerender only the curated hot subset (Brief 161); the long tail — and
+// any id added after a build — renders on demand and self-caches on first visit.
+// `dynamicParams = true` keeps those on-demand pages identical to prerendered
+// ones; never pair with `force-dynamic` — that defeats SSG.
 export const dynamicParams = true;
 
+// ISR backstop only: these pages change rarely (≈weekly ingestion) and real
+// freshness comes from `POST /api/revalidate` (revalidatePath after an apply
+// run), so the TTL is a long safety-net, not the refresh mechanism — 24 h.
+export const revalidate = 86400;
+
 export async function generateStaticParams() {
-  const ids = await listEntityIds("character");
+  const ids = await listHotEntityIds("character");
   return ids.map((slug) => ({ slug }));
 }
 

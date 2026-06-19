@@ -15,18 +15,42 @@
  * Without `REVALIDATE_TOKEN` in the environment the route is disabled (503) —
  * it is never open by accident.
  *
+ * Beyond the catalogue tags, every call also purges the entity detail routes
+ * (/charakter, /welt, /fraktion, /person) by path. Those routes prerender only a
+ * curated hot subset and serve the long tail via on-demand ISR through
+ * `loadEntity`, which carries NO catalogue tag — so `revalidateTag` alone would
+ * leave an already-rendered entity page stale until its 24 h ISR backstop. The
+ * path purge closes that loop so an apply run's fresh data shows on the next
+ * request (Brief 161).
+ *
  * Best-effort extras per call: the in-process memory caches (`/archive`
  * browse blob, /ask book cache) are cleared too. Those only exist per
  * serverless instance, so other warm instances refresh by TTL — acceptable
  * for a read-mostly catalogue.
  */
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse, type NextRequest } from "next/server";
 import { CATALOGUE_TAGS, resetMemoryCaches } from "@/lib/db-cache";
 import { clearAskRecommendationCache } from "@/lib/ask/recommend";
 import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 
 const KNOWN_TAGS: ReadonlySet<string> = new Set(CATALOGUE_TAGS);
+
+/**
+ * The on-demand-ISR entity detail routes (Brief 161). Purged by path on every
+ * call because their `loadEntity` reads carry no catalogue tag (so the tag loop
+ * misses them) and an entity page is cross-cutting — any catalogue change
+ * (works, factions, characters …) can alter it, so there is no clean per-tag
+ * mapping. Over-purging on-demand pages is cheap: each just re-renders from the
+ * DB on its next visit. The `[slug]` pattern + `'page'` invalidates every slug
+ * under the dynamic segment in one call.
+ */
+const ENTITY_ROUTES = [
+  "/charakter/[slug]",
+  "/welt/[slug]",
+  "/fraktion/[slug]",
+  "/person/[slug]",
+] as const;
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   const expected = process.env.REVALIDATE_TOKEN;
@@ -75,8 +99,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   // Next 16 requires a cacheLife profile; "max" is the documented hard-purge
   // form for route handlers (`updateTag` is server-action-only).
   for (const tag of tags) revalidateTag(tag, "max");
+  // Entity ISR pages carry no catalogue tag (see ENTITY_ROUTES) — purge by path
+  // so already-rendered long-tail pages refresh on next request, not at backstop.
+  for (const route of ENTITY_ROUTES) revalidatePath(route, "page");
   resetMemoryCaches();
   clearAskRecommendationCache();
 
-  return NextResponse.json({ revalidated: tags });
+  return NextResponse.json({ revalidated: tags, paths: [...ENTITY_ROUTES] });
 }
