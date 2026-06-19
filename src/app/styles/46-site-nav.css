@@ -1,0 +1,163 @@
+/* 46-site-nav.css
+   Global left-edge navigation rail (SiteNav.tsx) — the PRIMARY navigation on
+   hover-capable wide screens (≥860px). A thin column of Roman numerals that
+   emerge into titled entries on hover/focus. Below the breakpoint (or with no
+   hover) the rail is hidden and the SiteMenu burger overlay (43-site-menu.css)
+   takes over — see the desktop block at the foot of this file for the hand-off.
+
+   The visual language is the design-export's "emerge nav" rebuilt on the house
+   tokens, NOT its literals: Plex Mono numerals + Latin glosses, Cinzel titles,
+   the gold-dim → gold catch on the numeral, a bone title, a gold hairline rule
+   sized per entry (`--uw`, set inline by the component). Reveal is transform +
+   opacity only; the global reduced-motion clamp (10-base.css) stills it to an
+   instant fade. Layering: z-index 60 sits above page chrome + the MediaPlayer
+   (40) and below the detail-modal overlay (70), so an open modal covers it. */
+
+/* Hidden by default (mobile-first). The desktop @media block turns it on. */
+.site-nav {
+  position: fixed;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+  width: 56px;
+  display: none;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.site-nav__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  text-decoration: none;
+}
+.site-nav__link:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Comfortable click target: a transparent overlay that is part of the <a>. At
+   rest it covers just the numeral box; on reveal it grows to span the emerged
+   title, so the whole visible row is clickable while the resting rail stays a
+   thin 56px strip that never traps clicks over page content. */
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 56px;
+  transition: width 0.45s cubic-bezier(0.16, 0.84, 0.36, 1);
+}
+.site-nav__link:hover::after,
+.site-nav__link:focus-visible::after {
+  width: calc(var(--uw, 200px) + 72px);
+}
+
+/* ── Numeral — the always-visible resting state ──────────────────────────── */
+.site-nav__num {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--cl-gold-dim);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  transition: color 0.45s ease, text-shadow 0.45s ease;
+}
+.site-nav__link:hover .site-nav__num,
+.site-nav__link:focus-visible .site-nav__num {
+  color: var(--cl-gold);
+}
+/* Current route stays lit without a hover. */
+.site-nav__link.is-current .site-nav__num {
+  color: var(--cl-bone);
+  text-shadow: 0 0 14px rgba(201, 166, 90, 0.35);
+}
+
+/* ── Emerging block: title + rule + gloss, revealed right of the numeral ──── */
+.site-nav__reveal {
+  position: absolute;
+  left: 64px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: left;
+  pointer-events: none; /* the click target is the link box + ::after */
+}
+
+.site-nav__title {
+  display: block;
+  font-family: var(--font-cinzel), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.09em;
+  line-height: 1;
+  color: var(--cl-bone);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.16, 0.84, 0.36, 1);
+}
+
+.site-nav__rule {
+  display: block;
+  height: 1px;
+  width: 0;
+  margin-top: 9px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--cl-gold) 75%, transparent),
+    transparent
+  );
+  transition: width 0.6s cubic-bezier(0.16, 0.84, 0.36, 1);
+}
+
+.site-nav__gloss {
+  display: block;
+  margin-top: 8px;
+  font-size: 9px;
+  letter-spacing: 0.26em;
+  color: color-mix(in srgb, var(--cl-gold) 62%, transparent);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.12s;
+}
+
+.site-nav__link:hover .site-nav__title,
+.site-nav__link:focus-visible .site-nav__title {
+  opacity: 1;
+  transform: translateX(0);
+}
+.site-nav__link:hover .site-nav__rule,
+.site-nav__link:focus-visible .site-nav__rule {
+  width: var(--uw, 200px);
+}
+.site-nav__link:hover .site-nav__gloss,
+.site-nav__link:focus-visible .site-nav__gloss {
+  opacity: 1;
+}
+
+/* ── Desktop hand-off ────────────────────────────────────────────────────────
+   On a hover-capable wide screen the rail becomes the primary nav and the burger
+   overlay is removed. Below this (touch / narrow), the rail stays hidden and the
+   burger (43-site-menu.css) is the only navigation — a hover-reveal rail can't be
+   driven by a tap. */
+@media (min-width: 860px) and (hover: hover) and (pointer: fine) {
+  .site-nav {
+    display: block;
+  }
+  .site-burger,
+  .site-menu {
+    display: none;
+  }
+}

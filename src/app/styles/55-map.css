@@ -138,8 +138,9 @@
  * backdrop-filter GPU-beschleunigt, der Perf-Gewinn lohnt den Snap nicht. */
 
 /* ── Floating control rail (right side, frameless) — Session 158 ──────────
-   The five viewer-facing map controls as a floating menu set off from the
-   right edge; popovers fly out to the LEFT. Gold language: text buttons,
+   The five viewer-facing map controls as a floating menu set off from the RIGHT
+   edge; popovers fly out to the LEFT. Moved off the left edge so the global
+   SiteNav rail (46-site-nav.css) owns the left. Gold language: text buttons,
    fading hairline separators, glass popovers, no drawn frame. The popover
    bodies reuse the global .twk-* control classes (mounted by TweaksPanel). */
 @keyframes maprailPopIn {
@@ -148,7 +149,7 @@
 }
 .maprail {
   position: fixed;
-  left: 40px;
+  right: 40px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 6;
@@ -160,18 +161,19 @@
 .maprail > * { pointer-events: auto; }
 
 .maprail__item { position: relative; }
-/* fading hairline separators between items — the gold-language rule, no box */
+/* fading hairline separators between items — the gold-language rule, no box.
+   Right-rail mirror: solid at the screen (right) edge, fading inward (left). */
 .maprail__item + .maprail__item::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  right: 12%;
+  left: 12%;
+  right: 0;
   height: 1px;
   background: linear-gradient(
-    -90deg,
+    90deg,
     transparent,
-    rgba(201, 166, 90, 0.22) 45%,
+    rgba(201, 166, 90, 0.22) 55%,
     rgba(201, 166, 90, 0.22) 100%
   );
 }
@@ -180,11 +182,11 @@
   width: 100%;
   display: flex;
   align-items: center;
-  /* Left-rail mirror: the dot leads at the screen edge, label flush-left. */
-  flex-direction: row-reverse;
+  /* Right-rail: the dot leads at the screen edge, label flush-right. */
+  flex-direction: row;
   justify-content: flex-end;
   gap: 10px;
-  padding: 11px 16px 11px 4px;
+  padding: 11px 4px 11px 16px;
   background: none;
   border: none;
   cursor: pointer;
@@ -220,14 +222,16 @@
   box-shadow: 0 0 8px var(--cl-gold);
 }
 
-/* Right-flyout popover — frameless glass, depth via drop shadow + top
-   light-catch, no drawn border. */
+/* Left-flyout popover — frameless glass, depth via drop shadow + top
+   light-catch, no drawn border. The rail sits at the right edge, so popovers
+   open toward the galaxy (left). */
 .maprail__pop {
   position: absolute;
-  left: 100%;
+  right: 100%;
+  left: auto;
   top: 50%;
   transform: translateY(-50%);
-  margin-left: 16px;
+  margin-right: 16px;
   width: 312px;
   max-height: 80vh;
   overflow-y: auto;
@@ -354,7 +358,7 @@
 }
 
 @media (max-width: 760px) {
-  .maprail { left: 14px; }
+  .maprail { right: 14px; }
   .maprail__btn { font-size: 11px; letter-spacing: 0.16em; padding-right: 10px; }
   .maprail__pop { width: min(300px, 82vw); }
 }
