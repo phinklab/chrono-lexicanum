@@ -52,8 +52,8 @@
   --fs-mono-lg: 13px;   /* dates, kicker rows */
   --fs-mono: 12px;      /* section labels, heads, buttons */
   --fs-mono-sm: 11px;   /* tags, media meta, fine print */
-  --fs-body: 19px;      /* serif reading text */
-  --fs-row-title: 22px; /* index row titles */
+  --fs-body: 21px;      /* serif reading text (2026-06-19: 19px read small) */
+  --fs-row-title: 25px; /* index row titles  (2026-06-19: 22px read small) */
 
   position: fixed;
   inset: 0;
@@ -413,7 +413,7 @@
   font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(18px, 1.55vw, 22px);
+  font-size: clamp(20px, 1.85vw, 25px);
   line-height: 1.6;
   color: var(--parchment-dim);
   max-width: 60ch; /* 44ch wrapped long blurbs past 4 lines — unreadable */

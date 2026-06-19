@@ -273,9 +273,10 @@
    */
   --fs-read-xs:  16px;  /* dense / secondary prose (captions, table cells)   */
   --fs-read-sm:  18px;  /* compact body                                      */
-  --fs-read:     clamp(19px, 1.5vw, 22px); /* standard body — 22px on desktop
-                           (maintainer-tuned 2026-06-11; 26px read too big)   */
-  --fs-read-lg:  clamp(21px, 1.7vw, 25px); /* lead body — one step above     */
+  --fs-read:     clamp(20px, 1.65vw, 24px); /* standard body — 24px on desktop.
+                           Maintainer 2026-06-19: 22px read too small for the serif
+                           subtexts; 26px had been too big — 24 splits the two.   */
+  --fs-read-lg:  clamp(22px, 1.85vw, 27px); /* lead body — one step above       */
   --fw-read:     500;   /* reading weight (400 reads thin on the void)       */
   --lh-read:     1.62;  /* reading line-height (matches .ei-text)            */
 
