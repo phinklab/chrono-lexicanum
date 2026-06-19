@@ -1,7 +1,7 @@
 "use client";
 
-// MapControlRail — the floating right-side control menu (Session 158). Frameless
-// gold language, set off from the viewport edge; popovers fly out to the LEFT.
+// MapControlRail — the floating left-side control menu (Session 158). Frameless
+// gold language, set off from the viewport edge; popovers fly out to the RIGHT.
 // Holds the five viewer-facing controls: Add Element, Emperor's Light, Faction
 // Filter, Segmentum Sizes, Voyages. The bottom-right gear (TweaksPanel) keeps
 // the remaining secondary settings. The control primitives reuse the global

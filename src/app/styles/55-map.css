@@ -148,7 +148,7 @@
 }
 .maprail {
   position: fixed;
-  right: 40px;
+  left: 40px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 6;
@@ -165,11 +165,11 @@
   content: "";
   position: absolute;
   top: 0;
-  left: 12%;
-  right: 0;
+  left: 0;
+  right: 12%;
   height: 1px;
   background: linear-gradient(
-    90deg,
+    -90deg,
     transparent,
     rgba(201, 166, 90, 0.22) 45%,
     rgba(201, 166, 90, 0.22) 100%
@@ -180,9 +180,11 @@
   width: 100%;
   display: flex;
   align-items: center;
+  /* Left-rail mirror: the dot leads at the screen edge, label flush-left. */
+  flex-direction: row-reverse;
   justify-content: flex-end;
   gap: 10px;
-  padding: 11px 4px 11px 16px;
+  padding: 11px 16px 11px 4px;
   background: none;
   border: none;
   cursor: pointer;
@@ -218,14 +220,14 @@
   box-shadow: 0 0 8px var(--cl-gold);
 }
 
-/* Left-flyout popover — frameless glass, depth via drop shadow + top
+/* Right-flyout popover — frameless glass, depth via drop shadow + top
    light-catch, no drawn border. */
 .maprail__pop {
   position: absolute;
-  right: 100%;
+  left: 100%;
   top: 50%;
   transform: translateY(-50%);
-  margin-right: 16px;
+  margin-left: 16px;
   width: 312px;
   max-height: 80vh;
   overflow-y: auto;
@@ -352,7 +354,7 @@
 }
 
 @media (max-width: 760px) {
-  .maprail { right: 14px; }
-  .maprail__btn { font-size: 11px; letter-spacing: 0.16em; padding-left: 10px; }
+  .maprail { left: 14px; }
+  .maprail__btn { font-size: 11px; letter-spacing: 0.16em; padding-right: 10px; }
   .maprail__pop { width: min(300px, 82vw); }
 }
