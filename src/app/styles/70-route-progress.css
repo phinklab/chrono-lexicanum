@@ -111,19 +111,35 @@
 }
 
 /* ── Modal-slot skeleton ────────────────────────────────────────────────────
-   Reuses the real overlay chrome (24/64-detail-modal.css); only the body needs
-   sizing so the panel holds a sensible height with the compact cogitator
-   centred where the entity body will stream in. */
-.detail-modal-panel--skeleton .detail-modal__scroll {
-  display: grid;
-  place-items: center;
-  min-height: min(58vh, 420px);
+   The @modal loading fallback, pared to the loader itself: the compact
+   cogitator centred over the shared backdrop with a quiet "Back" cue beneath —
+   NO card panel, NO top bar / Terminus divider. Only the `.detail-modal-backdrop`
+   scrim is reused (64-detail-modal.css) so the hand-off to the live panel
+   carries no scrim flash. The stack sits above the backdrop (z-index 1, mirrors
+   the real panel) and shares the cogitator's 18px vertical rhythm. */
+.detail-modal-skeleton {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  animation: detailModalFade 0.2s ease-out both;
 }
-/* The skeleton's "Back" is a static cue, not a control — read as the resting
-   affordance (no hover/active), so the chrome matches without implying click. */
-.detail-modal-panel--skeleton .detail-modal__back {
+/* Drop the primitive's own block padding so the cluster is compact and the
+   spacing to "Back" is the stack gap alone (even 18px rhythm throughout). */
+.detail-modal-skeleton .lx-cog {
+  padding: 0;
+}
+/* The skeleton's "Back" is a static cue, not a control — the resting affordance
+   (no hover/active), centred beneath the cogitator. */
+.detail-modal-skeleton__back {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--cl-dim);
 }
