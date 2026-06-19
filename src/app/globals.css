@@ -32,6 +32,7 @@
 @import './styles/67-chronicle-cinematic.css';
 @import './styles/68-login.css';
 @import './styles/69-system-pages.css';
+@import './styles/70-route-progress.css';
 
 /* Tailwind v4 auto-source-detection scans every non-ignored project file as
  * plain text for class tokens. The standalone HTML/CSS/JS design prototypes

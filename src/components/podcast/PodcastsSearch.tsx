@@ -1,8 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import BrowseSearch from "@/components/browse/BrowseSearch";
+import { useRouteNav, useRouteNavState } from "@/components/chrono/RouteProgress";
 import {
   characterFocusHref,
   factionFocusHref,
@@ -31,18 +31,21 @@ import {
  * supplies the routing + the gold-skinned `.pod-search` chrome.
  */
 export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
-  const router = useRouter();
+  // Shared nav transition (see HomeSearch) so a pick lights the global beam +
+  // this console's inline pending state through the click→stream gap.
+  const { navigate } = useRouteNav();
+  const { pendingVisible } = useRouteNavState();
   const [q, setQ] = useState("");
 
   /** Land on /archive with a single param set (or unfiltered when empty). */
   function toWerke(key: string | null, value: string): void {
     if (!key || !value) {
-      router.push("/archive");
+      navigate("/archive");
       return;
     }
     const sp = new URLSearchParams();
     sp.set(key, value);
-    router.push(`/archive?${sp.toString()}`);
+    navigate(`/archive?${sp.toString()}`);
   }
 
   function onPick(s: Suggestion): void {
@@ -51,33 +54,33 @@ export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
         // Consume the draft so onFocus doesn't reopen the dropdown when focus
         // returns here after the book overlay closes (matches Home/WerkeFilters).
         setQ("");
-        router.push(`/buch/${s.value}`);
+        navigate(`/buch/${s.value}`);
         break;
       case "podcast":
         if (s.href) {
           setQ("");
-          router.push(s.href);
+          navigate(s.href);
         }
         break;
       case "faction":
         // Leave /podcasts for the faction hub (books AND podcasts), opened as a
         // popup over the Compendium faction directory — same as Home.
         setQ("");
-        router.push(factionFocusHref(s.value));
+        navigate(factionFocusHref(s.value));
         break;
       case "primarch":
         // Leave /podcasts for the primarch hub (books AND podcasts; union of the
         // merged twins), opened as a popup over the Compendium primarch directory.
         setQ("");
-        router.push(primarchFocusHref(s.value));
+        navigate(primarchFocusHref(s.value));
         break;
       case "character":
         setQ("");
-        router.push(characterFocusHref(s.value));
+        navigate(characterFocusHref(s.value));
         break;
       case "world":
         setQ("");
-        router.push(worldFocusHref(s.value));
+        navigate(worldFocusHref(s.value));
         break;
       case "facet":
         toWerke("facet", s.value);
@@ -107,6 +110,7 @@ export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
         onPick={onPick}
         onSubmit={onSubmit}
         onClear={() => setQ("")}
+        pending={pendingVisible}
         placeholder="Search the archive — a book, podcast or faction…"
         ariaLabel="Search books and podcasts"
       />

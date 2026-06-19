@@ -1,8 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import BrowseSearch from "@/components/browse/BrowseSearch";
+import { useRouteNav, useRouteNavState } from "@/components/chrono/RouteProgress";
 import {
   characterFocusHref,
   factionFocusHref,
@@ -31,18 +31,23 @@ import {
  * mechanics live in the shared console; this wrapper only supplies the routing.
  */
 export default function HomeSearch({ index }: { index: Suggestion[] }) {
-  const router = useRouter();
+  // Every pick navigates through the shared transition so the click→stream gap
+  // lights the global beam + this console's inline pending state, instead of
+  // sitting dead until the target paints. `pendingVisible` is the anti-flash-
+  // gated signal; `aria-busy` inside <BrowseSearch> still tracks raw pending.
+  const { navigate } = useRouteNav();
+  const { pendingVisible } = useRouteNavState();
   const [q, setQ] = useState("");
 
   /** Land on /archive with a single param set (or unfiltered when empty). */
   function toWerke(key: string | null, value: string): void {
     if (!key || !value) {
-      router.push("/archive");
+      navigate("/archive");
       return;
     }
     const sp = new URLSearchParams();
     sp.set(key, value);
-    router.push(`/archive?${sp.toString()}`);
+    navigate(`/archive?${sp.toString()}`);
   }
 
   function onPick(s: Suggestion): void {
@@ -53,14 +58,14 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
         // WerkeFilters does) so when the overlay closes and focus returns to
         // this input, onFocus doesn't reopen the dropdown over the dismissed book.
         setQ("");
-        router.push(`/buch/${s.value}`);
+        navigate(`/buch/${s.value}`);
         break;
       case "podcast":
         // Episodes deep-link to `#ep-<id>` on the show page; shows to the page
         // itself. Both leave Home for /podcasts, so just navigate to `href`.
         if (s.href) {
           setQ("");
-          router.push(s.href);
+          navigate(s.href);
         }
         break;
       case "faction":
@@ -71,7 +76,7 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
         // there. Closing the popup leaves the visitor in the browsable list, not
         // back on Home. Consume the draft like the book pick.
         setQ("");
-        router.push(factionFocusHref(s.value));
+        navigate(factionFocusHref(s.value));
         break;
       case "primarch":
         // Same shape as the faction pick: land in the Compendium primarch
@@ -79,15 +84,15 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
         // and for the merged Alpha Legion twins the union of both). The popup's
         // Back leaves the visitor in the browsable primarch list.
         setQ("");
-        router.push(primarchFocusHref(s.value));
+        navigate(primarchFocusHref(s.value));
         break;
       case "character":
         setQ("");
-        router.push(characterFocusHref(s.value));
+        navigate(characterFocusHref(s.value));
         break;
       case "world":
         setQ("");
-        router.push(worldFocusHref(s.value));
+        navigate(worldFocusHref(s.value));
         break;
       case "facet":
         toWerke("facet", s.value);
@@ -117,6 +122,7 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
         onPick={onPick}
         onSubmit={onSubmit}
         onClear={() => setQ("")}
+        pending={pendingVisible}
         placeholder="Search the archive — a title, author or faction…"
         ariaLabel="Search the archive"
       />
