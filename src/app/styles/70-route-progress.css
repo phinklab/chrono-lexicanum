@@ -1,0 +1,129 @@
+/* 70-route-progress.css
+   Global navigation-pending indicator (perceived latency). A gold hairline
+   beam sweeps the top edge of the viewport while a route transition is in
+   flight — the click→stream gap made legible. Same vocabulary as the cogitator
+   loader: gold on void, hairline, NO glow halo / warm gradient (house
+   aesthetic). Reveal is delay-gated in JS (`.is-active` only past the
+   anti-flash threshold), so instant/cached navigations never paint it.
+   Reduced motion → a static gold rail (no sweep); the global cascade in
+   10-base.css stills the keyframe besides. */
+
+.route-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  /* Above the detail-modal overlay (its root sits well below 9000) so the beam
+     reads even while an entity panel is mid-stream. */
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms ease-out;
+}
+.route-progress.is-active {
+  opacity: 1;
+}
+
+/* Faint gold rail under the beam — the channel being scanned, so the bar reads
+   as a deliberate auspex sweep rather than a lone travelling dash. */
+.route-progress__track {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: color-mix(in oklch, var(--cl-gold) 12%, transparent);
+}
+.route-progress__beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 36%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cl-gold) 50%,
+    transparent
+  );
+  animation: routeProgressSweep 1.1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+}
+
+@keyframes routeProgressSweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+/* Reduced motion: drop the sweep, hold a calm static gold rail that simply
+   appears. The JS-set modifier and the media query converge on the same look
+   (belt + suspenders — covers the pre-hydration window too). */
+.route-progress--static .route-progress__beam {
+  display: none;
+}
+.route-progress--static .route-progress__track {
+  background: color-mix(in oklch, var(--cl-gold) 38%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-progress__beam {
+    display: none;
+  }
+  .route-progress__track {
+    background: color-mix(in oklch, var(--cl-gold) 38%, transparent);
+  }
+}
+
+/* SR-only stable label (the visible beam is aria-hidden). */
+.route-progress__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Inline affordance on the universal search console ──────────────────────
+   While a pick is navigating, the always-present auspex reticle (rendered by
+   <BrowseSearch> in every skin) tints gold and slowly turns — the box the user
+   is looking at acknowledges the click, in concert with the top beam. The form
+   also carries aria-busy. Reduced motion keeps the tint, drops the spin. */
+.browse-search--pending .browse-search__sigil {
+  color: var(--cl-gold);
+  animation: routeSigilSpin 1.4s linear infinite;
+  transition: color 160ms ease-out;
+}
+@keyframes routeSigilSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .browse-search--pending .browse-search__sigil {
+    animation: none;
+  }
+}
+
+/* ── Modal-slot skeleton ────────────────────────────────────────────────────
+   Reuses the real overlay chrome (24/64-detail-modal.css); only the body needs
+   sizing so the panel holds a sensible height with the compact cogitator
+   centred where the entity body will stream in. */
+.detail-modal-panel--skeleton .detail-modal__scroll {
+  display: grid;
+  place-items: center;
+  min-height: min(58vh, 420px);
+}
+/* The skeleton's "Back" is a static cue, not a control — read as the resting
+   affordance (no hover/active), so the chrome matches without implying click. */
+.detail-modal-panel--skeleton .detail-modal__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--cl-dim);
+}

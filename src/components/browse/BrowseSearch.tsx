@@ -42,6 +42,7 @@ export default function BrowseSearch({
   onPick,
   onSubmit,
   onClear,
+  pending = false,
   placeholder = "Search titles, authors, factions, facets…",
   ariaLabel = "Search the book archive",
 }: {
@@ -51,6 +52,10 @@ export default function BrowseSearch({
   onPick: (suggestion: Suggestion) => void;
   onSubmit: (query: string) => void;
   onClear: () => void;
+  /** A pick is navigating (anti-flash-gated). Tints + spins the reticle and
+   *  flags the form `aria-busy`, so the box acknowledges the click while the
+   *  target streams. Parents source this from `useRouteNavState().pendingVisible`. */
+  pending?: boolean;
   placeholder?: string;
   ariaLabel?: string;
 }) {
@@ -160,8 +165,11 @@ export default function BrowseSearch({
   return (
     <form
       ref={rootRef}
-      className="browse-search browse-search--live"
+      className={`browse-search browse-search--live${
+        pending ? " browse-search--pending" : ""
+      }`}
       role="search"
+      aria-busy={pending || undefined}
       onSubmit={onSearchSubmit}
     >
       <svg className="browse-search__sigil" viewBox="0 0 16 16" aria-hidden>

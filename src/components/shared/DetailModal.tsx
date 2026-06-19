@@ -43,6 +43,7 @@
 
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { useRouteNav } from "@/components/chrono/RouteProgress";
 import { TYPE_TO_ROUTE } from "@/lib/entity/types";
 
 /** Single-segment detail links the panel keeps in-shell (→ in-panel replace-nav).
@@ -62,6 +63,10 @@ export default function DetailModal({
   children: React.ReactNode;
 }) {
   const router = useRouter();
+  // In-panel hops navigate through the shared transition so the global beam
+  // lights while the next body streams in this same shell; `router.back()`
+  // (close) stays a direct call — there is no forward wait to signal.
+  const { navigate, replace } = useRouteNav();
   const panelRef = useRef<HTMLDivElement>(null);
   /** The element focused right before the panel opened, restored on close. */
   const triggerRef = useRef<HTMLElement | null>(null);
@@ -188,10 +193,10 @@ export default function DetailModal({
     // modal mounts in this same shell and Back returns here; entity-to-entity
     // links replace (flat) so one Back still closes straight to the origin.
     if (href.startsWith("/buch/")) {
-      router.push(href);
+      navigate(href);
       return;
     }
-    router.replace(href);
+    replace(href);
   }
 
   const titleId = "detail-modal-title";

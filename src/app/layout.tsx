@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import SiteMenu from "@/components/chrome/SiteMenu";
 import MediaPlayer from "@/components/chrome/MediaPlayer";
+import { NavProgressProvider } from "@/components/chrono/RouteProgress";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -77,8 +78,16 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning>
         <SiteMenu />
-        {children}
-        {modal}
+        {/* The shared route-transition provider owns the one `useTransition`
+            that drives the global pending beam + the inline search affordance.
+            Both `children` and the `@modal` slot sit inside it so in-context
+            entity panels can navigate through the same hook. The provider is a
+            client boundary, but its children are server-rendered nodes passed
+            as props — the pages themselves stay server components. */}
+        <NavProgressProvider>
+          {children}
+          {modal}
+        </NavProgressProvider>
         <MediaPlayer />
       </body>
     </html>
