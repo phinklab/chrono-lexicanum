@@ -89,7 +89,7 @@ export default async function PodcastShowPage({
 
   return (
     <main className="podcasts podcasts--show">
-      <SiteBackground variant="vox" position="50% 38%" />
+      <SiteBackground variant="main" position="right bottom" />
       <ScrollScrim
         className="pod-scrim"
         varName="--pod-scrim-opacity"

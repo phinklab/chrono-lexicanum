@@ -77,19 +77,21 @@ body:has(main.hub) .site-bg::after {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  /* Fade strength reduced 10% (every void stop ×0.9) so the vista reads better
+     through the overlay — maintainer polish 2026-06-19. */
   background:
     radial-gradient(
       ellipse at 50% 30%,
       transparent 36%,
-      color-mix(in srgb, var(--cl-void) 42%, transparent) 100%
+      color-mix(in srgb, var(--cl-void) 38%, transparent) 100%
     ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--cl-void) 10%, transparent) 0%,
-      color-mix(in srgb, var(--cl-void) 16%, transparent) 18%,
-      color-mix(in srgb, var(--cl-void) 62%, transparent) 38%,
-      color-mix(in srgb, var(--cl-void) 92%, transparent) 58%,
-      var(--cl-void) 76%
+      color-mix(in srgb, var(--cl-void) 9%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 14%, transparent) 18%,
+      color-mix(in srgb, var(--cl-void) 56%, transparent) 38%,
+      color-mix(in srgb, var(--cl-void) 83%, transparent) 58%,
+      color-mix(in srgb, var(--cl-void) 90%, transparent) 76%
     );
 }
 
@@ -589,7 +591,9 @@ body:has(main.hub) .site-bg::after {
 .hub-explore__title {
   font-family: var(--font-cinzel), serif;
   font-weight: 500;
-  font-size: clamp(15px, 1.7vw, 18px);
+  /* Lifted from clamp(15-18) — the registry titles read too small against the
+     page-body scale (maintainer cleanup 2026-06-19). */
+  font-size: clamp(18px, 1.9vw, 22px);
   letter-spacing: 0.06em;
   color: var(--cl-bone);
   white-space: nowrap;
@@ -603,7 +607,9 @@ body:has(main.hub) .site-bg::after {
   min-width: 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: var(--fs-read-sm);
+  /* Standard page body (--fs-read) — the serif descriptions ran too small at
+     --fs-read-sm to read comfortably (maintainer cleanup 2026-06-19). */
+  font-size: var(--fs-read);
   font-weight: var(--fw-read);
   line-height: 1.4;
   color: var(--cl-dim);

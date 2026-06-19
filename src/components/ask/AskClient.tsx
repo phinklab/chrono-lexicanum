@@ -1,16 +1,14 @@
 "use client";
 
-import { useMemo, useRef, useState, useTransition } from "react";
+import { type CSSProperties, useMemo, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
 import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import ProcessingPanel from "./ProcessingPanel";
 import QuestionCard from "./QuestionCard";
 import ResultCard from "./ResultCard";
-import { roman } from "@/lib/roman";
 import {
   buildAskHref,
-  countAskAnswers,
   firstUnansweredAskIndex,
   isAskAnswersComplete,
   withAskAnswer,
@@ -29,6 +27,17 @@ type AskClientProps = {
   initialIsComplete: boolean;
   result: AskRecommendationResult | null;
   recommendationError: string | null;
+};
+
+/* Short topic word per question — the timeline names each stop the way the
+   chronicle era-band names its eras (a fixed label; the gold cursor carries
+   progress). Keyed by the fixed question-id tuple, so it stays type-complete. */
+const QUESTION_TOPIC: Record<AskQuestionId, string> = {
+  experience: "Reader",
+  faction_love: "Faction",
+  tone: "Tone",
+  length: "Length",
+  era_pref: "Era",
 };
 
 function findOptionLabel(question: AskQuestion, answers: AskAnswers): string | null {
@@ -55,23 +64,28 @@ export default function AskClient({
   const gridRef = useRef<HTMLDivElement>(null);
 
   const answers = isPending && optimisticAnswers ? optimisticAnswers : initialAnswers;
-  const answeredCount = countAskAnswers(answers);
   const draftComplete = isAskAnswersComplete(answers);
   const currentQuestion = questions[activeIndex] ?? questions[0];
   const selectedValue = currentQuestion ? answers[currentQuestion.id] : undefined;
   const showResult = draftComplete && initialIsComplete && !isPending && !editingCompleteProfile;
   const showProcessing = draftComplete && isPending;
-  const statusLabel = showResult
-    ? "Recommendations tuned"
-    : showProcessing
-      ? "Loading recommendations"
-      : `${answeredCount} of ${questions.length} answers recorded`;
+  // The timeline carries progress now, so the nav status stays silent except
+  // while the cogitator is actually working (the old "N of 5 answers recorded"
+  // count and the terminal "Recommendations tuned" line are both retired).
+  const statusLabel = showProcessing ? "Loading recommendations" : "";
+  // Gold fill reaches the live stop; full once the verdict is showing.
+  const fillFraction = showResult
+    ? 1
+    : questions.length > 1
+      ? activeIndex / (questions.length - 1)
+      : 0;
 
   const selectedSummary = useMemo(
     () =>
       questions.map((question, index) => ({
         id: question.id,
         label: question.prompt,
+        topic: QUESTION_TOPIC[question.id],
         value: findOptionLabel(question, answers),
         isCurrent: index === activeIndex && !showResult,
       })),
@@ -153,47 +167,48 @@ export default function AskClient({
 
         <div className="ask-console__grid route-body-snap" ref={gridRef}>
           <div className="ask-stage">
-            {/* PROTOCOLLVM — horizontal stepper across the top of the stage
-                window (single-column redesign 2026-06-11; replaces the side
-                rail). Five roman marks joined by Terminus hairlines; each mark
-                is still a button that revisits its question, and a sealed
-                mark echoes its chosen answer underneath. */}
-            <div className="ask-stepper" aria-label="Ask progress">
-              <div className="ask-stepper__head">
-                <p className="ask-stepper__label">Protocollvm</p>
-                <span className="ask-stepper__count" aria-hidden>
-                  {answeredCount} / {questions.length}
-                </span>
-              </div>
-              <ol className="ask-steps">
+            {/* Progress timeline — the chronicle era-band recast for the funnel
+                (maintainer rework 2026-06-19; the roman stepper is retired). One
+                rail with a gold fill that advances with the reader, five marks.
+                Each mark is a button that revisits its question and names its
+                topic; the dot state carries answered / here / coming. */}
+            <nav
+              className="ask-timeline"
+              aria-label="Ask progress"
+              style={
+                {
+                  "--atl-n": questions.length,
+                  "--atl-fill": fillFraction,
+                } as CSSProperties
+              }
+            >
+              <span className="ask-timeline__line" aria-hidden />
+              <span className="ask-timeline__fill" aria-hidden />
+              <ol className="ask-timeline__stops">
                 {selectedSummary.map((item, index) => {
                   const sealed = Boolean(item.value);
-                  const cls = item.isCurrent ? "cur" : sealed ? "done" : undefined;
+                  const state = item.isCurrent ? "on" : sealed ? "done" : "";
                   return (
-                    <li key={item.id} className={cls}>
+                    <li key={item.id} className={`ask-tl-stop ${state}`}>
                       <button
                         type="button"
-                        className="ask-step"
+                        className="ask-tl-stop__btn"
                         onClick={() => revisitQuestion(index)}
                         aria-current={item.isCurrent ? "step" : undefined}
                         title={item.label}
                       >
-                        <span className="ask-step__mark" aria-hidden>
-                          <span className="ask-step__glyph">
-                            {sealed ? "◆" : "◇"}
-                          </span>
-                          <span className="ask-step__rn">{roman(index + 1)}</span>
+                        <span className="ask-tl-stop__mark" aria-hidden />
+                        <span className="ask-tl-stop__label">{item.topic}</span>
+                        <span className="ask-sr-only">
+                          {item.label}
+                          {item.value ? `: ${item.value}` : ""}
                         </span>
-                        <span className="ask-step__a">
-                          {item.value ?? (item.isCurrent ? "Open" : "—")}
-                        </span>
-                        <span className="ask-sr-only">{item.label}</span>
                       </button>
                     </li>
                   );
                 })}
               </ol>
-            </div>
+            </nav>
 
             <div className="ask-stage__body" aria-live="polite">
             {showProcessing && (
@@ -249,7 +264,6 @@ export default function AskClient({
               <QuestionCard
                 key={currentQuestion.id}
                 question={currentQuestion}
-                index={activeIndex}
                 value={selectedValue}
                 disabled={isPending}
                 onPick={chooseOption}

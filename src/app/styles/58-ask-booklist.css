@@ -25,19 +25,9 @@
   color: var(--row-accent, var(--cl-cyan));
 }
 
-/* ---- Question stage: kicker + prompt + single-column ballot ----
-   Single-column redesign (2026-06-11): the protocol line and the giant roman
-   ornament are gone — the stepper above the stage carries position; a small
-   mono kicker keeps the ordinal next to the question itself. */
-
-.ask-q__kicker {
-  margin: 0 0 10px;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label);
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
-}
+/* ---- Question stage: prompt + single-column ballot ----
+   The ordinal kicker is retired (maintainer rework 2026-06-19) — the timeline
+   above the stage carries position; the question leads with its prompt. */
 
 .ask-q__prompt {
   margin: 0 0 8px;
@@ -45,7 +35,7 @@
   font-weight: 500;
   font-size: clamp(28px, 3.6vw, 38px);
   line-height: 1.25;
-  color: var(--cl-bone);
+  color: var(--ix-parchment);
 }
 
 .ask-q__hint {
@@ -54,15 +44,17 @@
   font-style: italic;
   font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
-  color: var(--cl-dim);
+  color: var(--ix-steel);
 }
 
 /* Ballot — frameless options ◇ → ◆, one full-width row per option so the
    four answers read as a list, not a matrix (single-column redesign). */
+/* Ballot as the index .row list — hairline-divided, no resting fill; the wash +
+   glyph carry hover/selected (maintainer polish 2026-06-19). */
 .ask-ballot {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 0;
   margin: clamp(18px, 3vh, 28px) 0 0;
   padding: 0;
   border: 0;
@@ -74,30 +66,34 @@
   display: grid;
   grid-template-columns: 22px minmax(0, 1fr);
   gap: 12px;
-  padding: 16px 18px 18px;
+  padding: 15px 12px;
   text-align: left;
-  background: color-mix(in srgb, var(--cl-void) 25%, transparent);
+  background: transparent;
   border: 0;
+  border-top: 1px solid var(--ix-hair);
   color: inherit;
   cursor: pointer;
   transition: background 180ms;
 }
 
-/* No per-option underline (line-budget trim 2026-06-12 — four stacked
-   Terminus hairlines read as clutter): wash + glyph carry hover/selected. */
+/* First row sits flush — no leading hairline (the index .row recipe). */
+.ask-opt:first-of-type {
+  border-top: 0;
+}
+
 .ask-opt:hover {
-  background: rgba(10, 14, 22, 0.45);
+  background: var(--ix-hover);
 }
 
 .ask-opt__glyph {
   font-size: 13px;
   line-height: 1.7;
-  color: var(--cl-faint);
+  color: var(--ix-steel);
   transition: color 180ms;
 }
 
 .ask-opt:hover .ask-opt__glyph {
-  color: var(--cl-gold-dim);
+  color: color-mix(in oklch, var(--ix-gold) 70%, transparent);
 }
 
 .ask-opt__body {
@@ -111,7 +107,7 @@
   font-weight: var(--fw-read);
   font-size: var(--fs-read);
   line-height: 1.35;
-  color: var(--cl-bone);
+  color: var(--ix-parchment);
 }
 
 .ask-opt__sub {
@@ -121,136 +117,103 @@
   font-size: var(--fs-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cl-dim);
+  color: var(--ix-steel);
 }
 
 .ask-opt[data-selected="true"] {
-  background: rgba(201, 166, 90, 0.07);
+  background: var(--ix-active);
 }
 
 .ask-opt[data-selected="true"] .ask-opt__glyph {
-  color: var(--cl-gold);
+  color: var(--ix-gold);
 }
 
 .ask-opt[data-selected="true"] .ask-opt__sub {
-  color: var(--cl-dim);
+  color: var(--ix-steel);
 }
 
-/* ---- PROTOCOLLVM — horizontal stepper across the top of the stage ----
-   Single-column redesign (2026-06-11): replaces the side rail. Five roman
-   marks joined by Terminus hairlines, each a button that revisits its
-   question. States: ◆ sealed (gold) · ◇ current (bone) · coming (faint);
-   a sealed mark echoes its chosen answer in small italic serif below. */
-
-/* No closing hairline under the block (line-budget trim 2026-06-12): the
-   inter-mark joints carry the path, whitespace separates it from the prompt. */
-.ask-stepper {
+/* ---- Question timeline — the chronicle era-band, recast for the funnel ----
+   Replaces the roman stepper (maintainer rework 2026-06-19): one horizontal
+   Terminus rail, five marks, a gold progress fill that advances with the
+   reader. Each mark is a button that revisits its question and names its topic;
+   the dot state carries answered / here / coming. Mirrors the .era-band recipe
+   in 67-chronicle-cinematic.css, recoloured to the funnel's --ix-* palette.
+   --atl-n (stop count) and --atl-fill (0–1 progress) come from the component;
+   --atl-edge centres the rail between the first and last mark. */
+.ask-timeline {
+  --atl-edge: calc(50% / var(--atl-n, 5));
   position: relative;
+  height: 58px;
   margin: 0 0 clamp(20px, 3vh, 28px);
-  padding-bottom: 6px;
 }
 
-.ask-stepper__head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
+/* the rail + its gold fill, both pinned at mark-centre height */
+.ask-timeline__line,
+.ask-timeline__fill {
+  position: absolute;
+  top: 10px;
+  height: 1px;
+  pointer-events: none;
+}
+.ask-timeline__line {
+  left: var(--atl-edge);
+  right: var(--atl-edge);
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(125, 135, 153, 0.3) 8%,
+    rgba(125, 135, 153, 0.3) 92%,
+    transparent
+  );
+}
+.ask-timeline__fill {
+  left: var(--atl-edge);
+  width: calc((100% - var(--atl-edge) * 2) * var(--atl-fill, 0));
+  background: var(--ix-gold);
+  box-shadow: 0 0 8px rgba(201, 184, 150, 0.5);
+  opacity: 0.85;
+  transition: width 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.ask-stepper__label {
-  margin: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-xl);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 70%, var(--cl-dim));
-}
-
-.ask-stepper__count {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-lg);
-  letter-spacing: 0.14em;
-  color: var(--cl-dim);
-}
-
-.ask-steps {
+/* equal columns; each centres its mark over the rail with the topic below */
+.ask-timeline__stops {
+  position: relative;
+  z-index: 1;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--atl-n, 5), minmax(0, 1fr));
   margin: 0;
   padding: 0;
 }
-
-.ask-steps > li {
-  position: relative;
+.ask-timeline__stops > li {
   list-style: none;
   min-width: 0;
 }
 
-/* Terminus hairline joining each mark to the previous one, at glyph height;
-   it brightens once the step it leads away from is sealed. */
-.ask-steps > li + li::before {
-  content: "";
-  position: absolute;
-  top: 16px;
-  right: calc(50% + 32px);
-  left: calc(-50% + 32px);
-  height: 1px;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklch, var(--cl-gold) 20%, transparent) 30%,
-    color-mix(in oklch, var(--cl-gold) 20%, transparent) 70%,
-    transparent
-  );
-}
-
-.ask-steps > li.done + li::before {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklch, var(--cl-gold) 45%, transparent) 30%,
-    color-mix(in oklch, var(--cl-gold) 45%, transparent) 70%,
-    transparent
-  );
-}
-
-.ask-step {
+.ask-tl-stop__btn {
   width: 100%;
   display: grid;
   justify-items: center;
-  gap: 7px;
-  padding: 8px 6px 2px;
+  gap: 9px;
+  padding: 0 4px;
   border: 0;
   background: transparent;
   color: inherit;
   cursor: pointer;
 }
 
-.ask-step__mark {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 7px;
+/* the mark sits on the rail; its void fill masks the hairline behind it */
+.ask-tl-stop__mark {
+  width: 11px;
+  height: 11px;
+  margin-top: 5px;
+  border-radius: 50%;
+  border: 1px solid var(--ix-steel);
+  background: var(--cl-void);
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
 }
 
-.ask-step__glyph {
-  font-size: 12px;
-  line-height: 1;
-  color: var(--cl-faint);
-  transition: color 180ms;
-}
-
-.ask-step__rn {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-lg);
-  letter-spacing: 0.16em;
-  color: var(--cl-faint);
-  transition: color 180ms;
-}
-
-.ask-step__a {
+.ask-tl-stop__label {
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -260,31 +223,35 @@
   font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
   line-height: 1.3;
-  color: var(--cl-faint);
-  transition: color 180ms;
+  color: var(--ix-steel-dim);
+  transition: color 0.25s;
 }
 
-.ask-step:hover .ask-step__rn,
-.ask-step:hover .ask-step__glyph {
-  color: var(--cl-bone);
+/* hover — brighten the mark + label, the era-band stop's response */
+.ask-tl-stop__btn:hover .ask-tl-stop__mark {
+  border-color: var(--ix-gold);
+}
+.ask-tl-stop__btn:hover .ask-tl-stop__label {
+  color: var(--ix-parchment);
 }
 
-.ask-steps > li.done .ask-step__glyph,
-.ask-steps > li.done .ask-step__rn {
-  color: var(--cl-gold);
+/* answered (behind the cursor) — gold-dim filled dot, settled label */
+.ask-tl-stop.done .ask-tl-stop__mark {
+  border-color: var(--ix-gold-line);
+  background: rgba(201, 184, 150, 0.3);
+}
+.ask-tl-stop.done .ask-tl-stop__label {
+  color: var(--ix-steel);
 }
 
-.ask-steps > li.done .ask-step__a {
-  color: color-mix(in oklch, var(--cl-gold) 45%, var(--cl-dim));
+/* here — the live mark: solid gold, a calm glow, parchment label */
+.ask-tl-stop.on .ask-tl-stop__mark {
+  border-color: var(--ix-gold);
+  background: var(--ix-gold);
+  box-shadow: 0 0 0 5px rgba(201, 184, 150, 0.12), 0 0 18px rgba(201, 184, 150, 0.55);
 }
-
-.ask-steps > li.cur .ask-step__glyph,
-.ask-steps > li.cur .ask-step__rn {
-  color: var(--cl-bone);
-}
-
-.ask-steps > li.cur .ask-step__a {
-  color: var(--cl-dim);
+.ask-tl-stop.on .ask-tl-stop__label {
+  color: var(--ix-parchment);
 }
 
 /* ---- Processing — cogitator interstitial ---- */
@@ -357,7 +324,7 @@
   right: 0;
   bottom: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  background: linear-gradient(90deg, transparent, var(--ix-gold-line), transparent);
   opacity: 0.6;
 }
 
@@ -368,7 +335,7 @@
   font-weight: 400;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+  color: var(--ix-gold);
 }
 
 .ask-results__count {
@@ -377,7 +344,7 @@
   font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cl-gold);
+  color: var(--ix-gold);
 }
 
 /* Verdict list — rank I spans the full width as dossier, the runners sit in a
@@ -405,6 +372,39 @@
   height: 100%;
 }
 
+/* Runner cards (Ranks II+) recoloured into the index vocabulary — the lx-card
+   wash → transparent with an index hairline foot, muted-gold/steel/parchment
+   accents (maintainer polish 2026-06-19). Scoped to the funnel; the global
+   .lx-card primitive is untouched. */
+.ask-runner {
+  background: transparent;
+}
+.ask-runner::after {
+  color: var(--ix-gold-line);
+}
+.ask-runner:hover {
+  background: var(--ix-hover);
+}
+.ask-runner:hover::after {
+  color: color-mix(in oklch, var(--ix-gold) 55%, transparent);
+}
+.ask-runner .lx-card__folio {
+  color: var(--ix-steel);
+}
+.ask-runner .lx-card__eyebrow {
+  color: var(--ix-steel-dim);
+}
+.ask-runner .lx-card__title {
+  color: var(--ix-parchment);
+}
+.ask-runner:hover .lx-card__title {
+  color: var(--ix-gold);
+}
+.ask-runner .lx-card__snip,
+.ask-runner .lx-card__meta {
+  color: var(--ix-steel);
+}
+
 .ask-prime {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -423,7 +423,7 @@
   font-weight: 400;
   font-size: clamp(64px, 9vw, 96px);
   line-height: 0.9;
-  color: color-mix(in oklch, var(--cl-gold) 38%, transparent);
+  color: color-mix(in oklch, var(--ix-gold) 45%, transparent);
 }
 
 .ask-prime__rank .cap {
@@ -433,7 +433,7 @@
   font-size: var(--fs-label-xs);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--cl-faint);
+  color: var(--ix-steel);
 }
 
 .ask-prime__kicker {
@@ -447,11 +447,11 @@
   font-size: var(--fs-label);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--cl-dim);
+  color: var(--ix-steel);
 }
 
 .ask-prime__tier {
-  color: var(--cl-gold);
+  color: var(--ix-gold);
 }
 
 .ask-prime__title {
@@ -460,11 +460,15 @@
   font-weight: 500;
   font-size: clamp(28px, 3.6vw, 38px);
   letter-spacing: 0.04em;
-  color: var(--cl-bone);
+  color: var(--ix-parchment);
 }
 
 .ask-prime__note {
   max-width: 56ch;
+  /* Standard body (24px desktop) — pinned to match the book synopsis / entity
+     blurb so the verdict's lead prose reads at the same size (maintainer polish
+     2026-06-19). Wins over .lx-prose by loading later at equal specificity. */
+  font-size: var(--fs-read);
 }
 
 .ask-prime__chips {
@@ -493,7 +497,7 @@
   font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--cl-gold);
+  color: var(--ix-gold);
 }
 
 .ask-results__note > span:last-child {
@@ -502,7 +506,7 @@
   font-style: italic;
   font-weight: var(--fw-read);
   line-height: var(--lh-read);
-  color: var(--cl-dim);
+  color: var(--ix-parchment-dim);
 }
 
 .ask-results__note em {
@@ -528,7 +532,7 @@
   right: 0;
   top: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  background: linear-gradient(90deg, transparent, var(--ix-gold-line), transparent);
   opacity: 0.5;
 }
 
@@ -537,7 +541,7 @@
   font-size: var(--fs-label);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+  color: var(--ix-gold);
 }
 
 .ask-results__divider-note {
@@ -545,7 +549,7 @@
   font-size: var(--fs-read-sm);
   font-style: italic;
   font-weight: var(--fw-read);
-  color: var(--cl-faint);
+  color: var(--ix-steel);
 }
 
 .ask-results__divider em {
@@ -590,11 +594,11 @@
 }
 
 .ask-responsa .k {
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+  color: var(--ix-gold);
 }
 
 .ask-responsa .v {
-  color: var(--cl-dim);
+  color: var(--ix-steel);
 }
 
 /* ---- Footer + quiet links ---- */
@@ -650,15 +654,13 @@
 }
 
 @media (max-width: 720px) {
-  /* Compact stepper: marks + count only — the sealed-answer echoes are too
-     cramped at five columns on a phone. */
-  .ask-step__a {
-    display: none;
+  /* Five topic labels don't fit a phone — keep the dotted rail and name only the
+     live stop, so the reader still knows where they are. */
+  .ask-timeline {
+    height: 44px;
   }
-
-  .ask-steps > li + li::before {
-    right: calc(50% + 22px);
-    left: calc(-50% + 22px);
+  .ask-tl-stop:not(.on) .ask-tl-stop__label {
+    display: none;
   }
 
   .ask-verdict-list {

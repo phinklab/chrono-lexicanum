@@ -28,7 +28,10 @@ import {
  *   - empty Enter          → /archive               (open the unfiltered archive)
  *
  * The combobox mechanics live in the shared `<BrowseSearch>`; this wrapper only
- * supplies the routing + the gold-skinned `.pod-search` chrome.
+ * supplies the routing. It renders the bare `<BrowseSearch>` so it drops into the
+ * archive's `.browse-filters` console and inherits the exact `.catalogue--vox`
+ * skin the books view uses — the podcasts index now shares /archive's shell so
+ * toggling WORKS↔PODCASTS shifts nothing (maintainer polish 2026-06-19).
  */
 export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
   // Shared nav transition (see HomeSearch) so a pick lights the global beam +
@@ -99,21 +102,16 @@ export default function PodcastsSearch({ index }: { index: Suggestion[] }) {
   }
 
   return (
-    <div className="pod-search">
-      <span className="pod-search__kicker" aria-hidden>
-        {"SCAN · VOX ET LIBRORVM"}
-      </span>
-      <BrowseSearch
-        index={index}
-        value={q}
-        onValueChange={setQ}
-        onPick={onPick}
-        onSubmit={onSubmit}
-        onClear={() => setQ("")}
-        pending={pendingVisible}
-        placeholder="Search the archive — a book, podcast or faction…"
-        ariaLabel="Search books and podcasts"
-      />
-    </div>
+    <BrowseSearch
+      index={index}
+      value={q}
+      onValueChange={setQ}
+      onPick={onPick}
+      onSubmit={onSubmit}
+      onClear={() => setQ("")}
+      pending={pendingVisible}
+      placeholder="Search the archive — a book, podcast or faction…"
+      ariaLabel="Search books and podcasts"
+    />
   );
 }
