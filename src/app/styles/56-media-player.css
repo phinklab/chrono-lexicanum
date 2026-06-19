@@ -231,6 +231,11 @@
 .media-player--silent .media-player__title {
   color: var(--cl-dim);
 }
+/* Artist credit trailing the now-playing title — dimmed so the song reads
+   first and the performer (vox-caster) sits as a quiet attribution. */
+.media-player__title-artist {
+  color: var(--cl-dim);
+}
 
 /* ─── Wave — IMMER sichtbar, 28px CSS-Höhe, hairline 1-px Bar-Sinuswelle.
  * Sitzt durch DOM-Order als erstes Kind oben im Block, über dem Header. */
@@ -324,6 +329,34 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cl-faint);
+}
+/* Artist channel link — replaces the old "NN TRACKS" tag in the panel head.
+   Same quiet mono tag voice as .media-player__panel-sect, but a real link with
+   the gold hover/focus catch and an external-link mark. */
+.media-player__panel-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--cl-faint);
+  text-decoration: none;
+  transition: color 200ms ease-out;
+}
+.media-player__panel-link:hover,
+.media-player__panel-link:focus-visible {
+  color: var(--cl-gold);
+}
+.media-player__panel-link:focus-visible {
+  outline: 1px solid var(--cl-gold);
+  outline-offset: 2px;
+}
+.media-player__panel-link-arrow {
+  font-size: 0.9em;
+  letter-spacing: 0;
 }
 
 .media-player__panel-list {
