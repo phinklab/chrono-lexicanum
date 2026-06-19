@@ -19,14 +19,6 @@ export interface AskBoundaryCandidate {
 }
 
 const XENOS_ROOTS = ["eldar", "tau", "necrons", "tyranids", "orks"];
-const GUARD_ROOTS = [
-  "astra_militarum",
-  "commissariat",
-  "tempestus_scions",
-  "last_chancers",
-  "ratlings",
-  "ogryns",
-];
 const SINGLE_VOLUME_FORMATS = new Set(["novel", "novella", "short_story", "audio_drama"]);
 const NON_SINGLE_VOLUME_FORMATS = new Set([
   "omnibus",
@@ -57,8 +49,6 @@ function predicateForFactionAnswer(
         f.alignment !== "chaos" && factionInTree(f, ["adeptus_astartes"]);
     case "inquisition":
       return (f) => factionInTree(f, ["inquisition"]);
-    case "guard":
-      return (f) => factionInTree(f, GUARD_ROOTS);
     case "xenos":
       return (f) => f.alignment === "xenos" || factionInTree(f, XENOS_ROOTS);
   }
@@ -93,7 +83,6 @@ function passesLengthBoundary(
     case "standalone":
       return isSingleVolume(candidate);
     case "trilogy":
-    case "epic":
     case "any_length":
       return true;
   }

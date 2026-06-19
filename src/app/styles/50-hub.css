@@ -162,7 +162,7 @@ body:has(main.hub) .site-bg::after {
   height: 100%;
 }
 /* Primary disc — set left of centre, behind the title's left flank. Centred on
-   its anchor via margins (NOT transform) so the drift keyframe owns `transform`
+   its anchor via margins (NOT transform) so the spin keyframe owns `transform`
    cleanly. */
 .hub-hero__auspex--main {
   --auspex-size: min(58vh, 74vw, 520px);
@@ -175,7 +175,12 @@ body:has(main.hub) .site-bg::after {
   /* Gold-on-warm-vista needs more presence than the cyan original did at 0.28 —
      the discs read as "gone" below ~0.4 (maintainer feedback 2026-06-11). */
   opacity: 0.5;
-  animation: hubAuspexDriftA 38s ease-in-out infinite alternate;
+  /* Stay anchored and turn the whole disc — rings, ticks, labels and all —
+     very slowly counter-clockwise, on top of its own internal spins. Replaces
+     the old translate-drift: the maintainer wanted the discs rotating in place
+     (no longer wandering off), the primary opposite the smaller disc. */
+  animation: chronoSpinRev 360s linear infinite;
+  transform-origin: center;
 }
 /* Secondary disc — smaller and dimmer, sitting north-east of the (low, centred)
    title for parallax depth. Anchored via margins like the primary. */
@@ -188,7 +193,11 @@ body:has(main.hub) .site-bg::after {
   margin-left: calc(var(--auspex-size) / -2);
   margin-top: calc(var(--auspex-size) / -2);
   opacity: 0.22;
-  animation: hubAuspexDriftB 53s ease-in-out infinite alternate;
+  /* The smaller "middle" disc stays in place and rotates clockwise — the
+     opposite direction to the primary, and a touch quicker than its very-slow
+     turn. */
+  animation: chronoSpin 180s linear infinite;
+  transform-origin: center;
 }
 
 /* ── Act 1 title — now in normal flow, low in the splash act ───────────────── */

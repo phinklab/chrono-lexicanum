@@ -1,9 +1,9 @@
 "use client";
 
 // Client-side root that wraps the Cartographer port — provider + hologram +
-// world panel + floating control rail (right) + tweaks panel (gear in the
-// bottom-right, secondary settings only). The server route file mounts this
-// and passes the auth-derived isAdmin flag.
+// world panel + floating control rail (right edge, popovers fly left) + tweaks
+// panel (gear in the bottom-right, secondary settings only). The server route
+// file mounts this and passes the auth-derived isAdmin flag.
 
 import { useEffect, useSyncExternalStore } from "react";
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import SiteMenu from "@/components/chrome/SiteMenu";
+import SiteNav from "@/components/chrome/SiteNav";
 import MediaPlayer from "@/components/chrome/MediaPlayer";
 import { NavProgressProvider } from "@/components/chrono/RouteProgress";
 import "./globals.css";
@@ -77,6 +78,11 @@ export default function RootLayout({
       className={`${cinzel.variable} ${cormorant.variable} ${plexMono.variable} ${spaceGrotesk.variable}`}
     >
       <body suppressHydrationWarning>
+        {/* Primary navigation: the left-edge SiteNav rail on hover-capable wide
+            screens; the SiteMenu burger overlay takes over on touch / narrow
+            viewports. The CSS breakpoint in 46-site-nav.css owns the hand-off,
+            so both mount unconditionally and only one is ever visible. */}
+        <SiteNav />
         <SiteMenu />
         {/* The shared route-transition provider owns the one `useTransition`
             that drives the global pending beam + the inline search affordance.

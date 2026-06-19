@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { TRACKS, type AudioTrack } from "@/lib/audio-tracks";
+import { ARTIST_YOUTUBE_URL, TRACKS, type AudioTrack } from "@/lib/audio-tracks";
 
 /**
  * MediaPlayer — sitewide ambient strip, anchored bottom-left, ohne Kasten.
@@ -420,7 +420,12 @@ export default function MediaPlayer() {
               />
             </div>
           </div>
-          <div className="media-player__title">{trackName}</div>
+          <div className="media-player__title">
+            <span className="media-player__title-name">{trackName}</span>
+            {hasTracks && currentTrack?.artist && (
+              <span className="media-player__title-artist"> — {currentTrack.artist}</span>
+            )}
+          </div>
           <button
             type="button"
             className="media-player__disclose"
@@ -450,9 +455,16 @@ export default function MediaPlayer() {
             <div className="media-player__panel-head">
               <span className="media-player__panel-kicker">PLAYLIST</span>
               <span className="c-hairline media-player__panel-rule" />
-              <span className="media-player__panel-sect">
-                {TRACKS.length.toString().padStart(2, "0")} TRACKS
-              </span>
+              <a
+                className="media-player__panel-link"
+                href={ARTIST_YOUTUBE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                tabIndex={isOpen ? 0 : -1}
+              >
+                Artist YouTube
+                <span className="media-player__panel-link-arrow" aria-hidden>↗</span>
+              </a>
             </div>
             <ul className="media-player__panel-list">
               {TRACKS.map((t, i) => {

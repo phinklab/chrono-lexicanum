@@ -281,8 +281,8 @@ check("hard boundaries keep selected length non-negotiable", () => {
   assert.equal(passesHardAskBoundaries(omnibus, { length: "standalone" }), false);
   assert.equal(passesHardAskBoundaries(anthology, { length: "standalone" }), false);
   assert.equal(passesHardAskBoundaries(omnibus, { length: "trilogy" }), true);
-  assert.equal(passesHardAskBoundaries(firstNovel, { length: "epic" }), true);
-  assert.equal(passesHardAskBoundaries(unknownLengthSeries, { length: "epic" }), true);
+  assert.equal(passesHardAskBoundaries(firstNovel, { length: "any_length" }), true);
+  assert.equal(passesHardAskBoundaries(unknownLengthSeries, { length: "any_length" }), true);
 });
 
 console.log("");

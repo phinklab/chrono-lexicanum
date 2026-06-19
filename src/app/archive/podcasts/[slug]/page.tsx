@@ -17,6 +17,7 @@ import AuspexSweep from "@/components/chrono/AuspexSweep";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
+import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import PodcastEpisodeArchive from "@/components/podcast/PodcastEpisodeArchive";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
@@ -90,50 +91,59 @@ export default async function PodcastShowPage({
   return (
     <main className="podcasts podcasts--show">
       <SiteBackground variant="main" position="right bottom" />
-      <ScrollScrim
-        className="pod-scrim"
-        varName="--pod-scrim-opacity"
-        heroSelector=".pod-mast"
-        maxOpacity={0.63}
-      />
 
-      <div className="pod-readout" aria-hidden>
-        <GhostReadout
-          color="var(--cl-gold)"
-          opacity={0.32}
-          lineMs={5000}
-          typeSpeed={80}
-          max={4}
-          lines={readoutLines}
-        />
-      </div>
-      <div className="pod-hud" aria-hidden>
-        <div className="pod-hud__sweep">
-          <AuspexSweep r={170} sweepDuration={16} accent="var(--cl-gold)" />
+      {/* The same one-act hero shell as /archive + /archive/podcasts (the shared
+          .catalogue-hero classes): a 100dvh masthead with the title and auspex
+          parked low, a ghost readout and a NEXT scroll cue into the episode
+          body — so a show page opens with the same rhythm as its index
+          (maintainer polish 2026-06-20). */}
+      <section className="catalogue-hero route-act" aria-label={show.title}>
+        <ScrollScrim maxOpacity={0.77} />
+        <div className="catalogue-hero__sweep" aria-hidden>
+          <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-gold)" />
         </div>
-      </div>
-
-      <section className="pod-mast" aria-label={show.title}>
+        <div className="werke-hero__readout" aria-hidden>
+          <GhostReadout
+            color="var(--cl-gold)"
+            opacity={0.32}
+            lineMs={5000}
+            typeSpeed={80}
+            max={4}
+            lines={readoutLines}
+          />
+        </div>
         <FloatingCoord
           x="42%"
-          y="150px"
+          y="120px"
           label="VOX · DECODE LOCK"
-          delay={1.4}
+          delay={1.2}
           lifetime={5}
           color="var(--cl-gold)"
-          opacity={0.5}
+          opacity={0.55}
         />
-        <div className="pod-mast__inner">
-          <div className="pod-mast__eyebrow">{`// VOX · ${show.title}`}</div>
-          <h1 className="pod-mast__heading pod-mast__heading--show">
+        <FloatingCoord
+          x="58%"
+          y="220px"
+          label={`VOX · ${show.episodeCount} EP`}
+          delay={3.0}
+          lifetime={5}
+          color="var(--cl-gold)"
+          opacity={0.55}
+        />
+        <div className="catalogue-hero__title">
+          <div className="catalogue-hero__eyebrow">{"VOX · ARCHIVVM SONORVM"}</div>
+          <h1 className="catalogue-hero__heading catalogue-hero__heading--show">
             {show.title}
           </h1>
-          <div className="pod-mast__rule" aria-hidden />
-          <p className="pod-mast__sub">{stats} · entity-tagged, newest first.</p>
+          <div className="catalogue-hero__rule" aria-hidden />
+          <p className="catalogue-hero__sub">
+            {stats} · entity-tagged, newest first.
+          </p>
         </div>
+        <RouteScrollCue label="Browse the episodes" target=".pod-body" />
       </section>
 
-      <div className="pod-body">
+      <div className="pod-body route-body-snap">
         {/* The register fork in the controls position — same placement as the
             index, so the switch stays present one level deeper (Session 142). */}
         <div className="pod-controls">
