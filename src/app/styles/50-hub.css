@@ -591,7 +591,9 @@ body:has(main.hub) .site-bg::after {
 .hub-explore__title {
   font-family: var(--font-cinzel), serif;
   font-weight: 500;
-  font-size: clamp(15px, 1.7vw, 18px);
+  /* Lifted from clamp(15-18) — the registry titles read too small against the
+     page-body scale (maintainer cleanup 2026-06-19). */
+  font-size: clamp(18px, 1.9vw, 22px);
   letter-spacing: 0.06em;
   color: var(--cl-bone);
   white-space: nowrap;
@@ -605,7 +607,9 @@ body:has(main.hub) .site-bg::after {
   min-width: 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: var(--fs-read-sm);
+  /* Standard page body (--fs-read) — the serif descriptions ran too small at
+     --fs-read-sm to read comfortably (maintainer cleanup 2026-06-19). */
+  font-size: var(--fs-read);
   font-weight: var(--fw-read);
   line-height: 1.4;
   color: var(--cl-dim);

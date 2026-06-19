@@ -33,7 +33,6 @@ import MediaRows from "./MediaRows";
 import {
   clamp,
   DOT_R,
-  pad3,
   roman,
   siteMenuOpen,
   TIER_MARK,
@@ -530,10 +529,10 @@ export default function CinematicView({
       <header className="era-bar">
         <div className="row1">
           <span className="era-pos">
-            ERA {roman(eraIdx + 1)}/{roman(eras.length)}
+            ERA {eraIdx + 1}/{eras.length}
           </span>
           <span className="entry-count">
-            ENTRY {roman(entry + 1)} / {roman(N)}
+            ENTRY {entry + 1} / {N}
           </span>
         </div>
         <div className="era-rail">
@@ -585,12 +584,13 @@ export default function CinematicView({
         key={`${entry}:${printNonce}`}
       >
         <aside className="dossier" aria-live="polite">
+          {/* Pretitle trimmed to the tier alone (epoch / major / minor). The
+              ENTRY stamp, the date (which read "… YEARS AGO" on deep-history
+              rows) and the APPROX flag are retired — the date still rides the
+              rail node above (maintainer cleanup 2026-06-19). */}
           <div className="d-kicker">
-            <span className="d-stamp">ENTRY {pad3(entry + 1)}</span>
-            <span className="d-date">{ev.dateLabel}</span>
             <span className="d-tier">
               {TIER_MARK[ev.tier]} {ev.tier.toUpperCase()}
-              {ev.approx ? <span className="approx"> · APPROX.</span> : null}
             </span>
           </div>
           <h1 className="d-title">{ev.title}</h1>

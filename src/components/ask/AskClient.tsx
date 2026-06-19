@@ -69,13 +69,10 @@ export default function AskClient({
   const selectedValue = currentQuestion ? answers[currentQuestion.id] : undefined;
   const showResult = draftComplete && initialIsComplete && !isPending && !editingCompleteProfile;
   const showProcessing = draftComplete && isPending;
-  // The timeline carries progress now, so the nav status speaks only the two
-  // terminal states (the old "N of 5 answers recorded" count is retired).
-  const statusLabel = showResult
-    ? "Recommendations tuned"
-    : showProcessing
-      ? "Loading recommendations"
-      : "";
+  // The timeline carries progress now, so the nav status stays silent except
+  // while the cogitator is actually working (the old "N of 5 answers recorded"
+  // count and the terminal "Recommendations tuned" line are both retired).
+  const statusLabel = showProcessing ? "Loading recommendations" : "";
   // Gold fill reaches the live stop; full once the verdict is showing.
   const fillFraction = showResult
     ? 1

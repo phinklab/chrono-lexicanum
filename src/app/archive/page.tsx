@@ -7,7 +7,6 @@ import SiteBackground from "@/components/chrome/SiteBackground";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
-import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
 import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import CompendiumFocusOpener from "@/components/compendium/CompendiumFocusOpener";
@@ -212,8 +211,6 @@ export default async function WerkePage({ searchParams }: WerkePageProps) {
                 for <span className="catalogue-toolbar__query-term">“{params.q}”</span>
               </span>
             )}
-            <span className="catalogue-toolbar__dot" aria-hidden>·</span>
-            <CatalogueTelemetry accent="gold" />
           </div>
         </div>
 

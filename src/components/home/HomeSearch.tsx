@@ -112,9 +112,8 @@ export default function HomeSearch({ index }: { index: Suggestion[] }) {
 
   return (
     <div className="hub-search">
-      <span className="hub-search__kicker" aria-hidden>
-        Query the Archive
-      </span>
+      {/* The "Query the Archive" kicker is retired — the search field's own
+          placeholder already says it (maintainer cleanup 2026-06-19). */}
       <BrowseSearch
         index={index}
         value={q}

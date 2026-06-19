@@ -4,7 +4,6 @@ import SiteBackground from "@/components/chrome/SiteBackground";
 import AuspexSweep from "@/components/chrono/AuspexSweep";
 import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
-import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
 import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import PodcastsSearch from "@/components/podcast/PodcastsSearch";
@@ -159,8 +158,6 @@ export default async function PodcastsPage() {
                 {shows.length} · {shows.length === 1 ? "SHOW" : "SHOWS"}
               </span>
               <span className="catalogue-toolbar__total">/ {totalEpisodes} episodes</span>
-              <span className="catalogue-toolbar__dot" aria-hidden>·</span>
-              <CatalogueTelemetry accent="gold" />
             </div>
           </div>
         )}

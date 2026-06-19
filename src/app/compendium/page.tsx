@@ -11,7 +11,6 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import { COMPENDIUM_CATEGORIES } from "@/lib/compendium/categories";
 import { loadCategoryItems } from "@/lib/compendium/loader";
-import { roman } from "@/lib/roman";
 
 // Rendered per request, never prerendered at build. The overview's cold fill
 // (five category builders + the layout counts) is the heaviest aggregate in the
@@ -63,23 +62,6 @@ function statLine(
   }
 }
 
-/**
- * REGISTRVM eyebrow with stylised folio ranges (Report 141, idea C2-3): each
- * door is a register volume, its page span derived from the REAL entry counts
- * (one entry = one folio page, cumulative across the five registers). A
- * pending register (count 0) carries no range.
- */
-function registerEyebrows(counts: ReadonlyArray<number>): string[] {
-  let page = 0;
-  return counts.map((count, i) => {
-    const start = page + 1;
-    page += count;
-    if (count <= 0) return `Registrvm ${roman(i + 1)}`;
-    const pad = (n: number) => String(n).padStart(3, "0");
-    return `Registrvm ${roman(i + 1)} · pp. ${pad(start)}–${pad(page)}`;
-  });
-}
-
 export default async function CompendiumOverview() {
   const doors = await Promise.all(
     COMPENDIUM_CATEGORIES.map(async (c) => {
@@ -88,7 +70,6 @@ export default async function CompendiumOverview() {
       return { category: c, count: items.length, sumWeight };
     }),
   );
-  const eyebrows = registerEyebrows(doors.map((d) => d.count));
 
   return (
     <section className="cmp-overview" aria-label="Compendium categories">
@@ -107,7 +88,14 @@ export default async function CompendiumOverview() {
             >
               <article className={cls}>
                 <Link href={href} className="cmp-door__head">
-                  <span className="cmp-door__eyebrow">{eyebrows[i]}</span>
+                  {/* The folio-range Registrvm eyebrow is retired — the live
+                      coverage figure (appearances / works credited) leads as the
+                      pretitle now (maintainer cleanup 2026-06-19). */}
+                  {stat ? (
+                    <span className="cmp-door__eyebrow">
+                      <span className="cmp-door__stat-n">{stat.n}</span> {stat.rest}
+                    </span>
+                  ) : null}
                   <span className="cmp-door__label">{c.label}</span>
                   <span className="cmp-door__count">
                     {countCopy(count, c.noun, Boolean(c.pending))}
@@ -116,11 +104,7 @@ export default async function CompendiumOverview() {
 
                 <p className="cmp-door__blurb">{c.blurb}</p>
 
-                {stat ? (
-                  <p className="cmp-door__stat">
-                    <span className="cmp-door__stat-n">{stat.n}</span> {stat.rest}
-                  </p>
-                ) : c.pending ? (
+                {!stat && c.pending ? (
                   <p className="cmp-door__pending">
                     The roster is being curated — this doorway opens soon.
                   </p>
