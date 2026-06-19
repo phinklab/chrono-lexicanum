@@ -195,7 +195,9 @@ main.entity::before {
 .entity-view__blurb-text {
   margin: 0;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: var(--fs-read-lg);
+  /* Standard body (24px desktop) — dropped from the lead-body --fs-read-lg to
+     match the book synopsis (maintainer polish 2026-06-19). */
+  font-size: var(--fs-read);
   font-weight: var(--fw-read);
   line-height: 1.5;
   color: var(--cl-bone);

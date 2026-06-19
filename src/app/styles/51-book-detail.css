@@ -149,7 +149,9 @@ main.book-detail {
   max-width: 60ch;
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
-  font-size: var(--fs-read-lg);
+  /* Standard body (24px desktop) — the lead-body --fs-read-lg ran too large for
+     the long synopsis (maintainer polish 2026-06-19). */
+  font-size: var(--fs-read);
   font-weight: var(--fw-read);
   line-height: 1.55;
   color: rgba(232, 220, 192, 0.88);
