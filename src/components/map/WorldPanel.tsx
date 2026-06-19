@@ -51,7 +51,7 @@ function SectionHeader({ theme, label, sub }: { theme: Theme; label: string; sub
       <span
         style={{
           fontFamily: t.fontDisplay,
-          fontSize: 12,
+          fontSize: 13,
           letterSpacing: t.letterTitle,
           color: t.accent,
           textTransform: "uppercase",
@@ -63,7 +63,7 @@ function SectionHeader({ theme, label, sub }: { theme: Theme; label: string; sub
         <span
           style={{
             fontFamily: t.fontMono,
-            fontSize: 10,
+            fontSize: 11,
             letterSpacing: "0.16em",
             color: t.primary,
             opacity: 0.5,
@@ -111,8 +111,8 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
       const M = 14; // viewport margin
-      const GAP = 18; // gap between planet and card
-      const W = Math.min(360, vw - 2 * M);
+      const GAP = 34; // gap between planet and card
+      const W = Math.min(440, vw - 2 * M);
       const maxH = Math.min(560, vh - 2 * M);
       const h = Math.min(cardRef.current?.offsetHeight ?? maxH, maxH);
       if (!anchor) {
@@ -144,7 +144,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
         left: pos?.left ?? 0,
         top: pos?.top ?? 0,
         visibility: pos ? "visible" : "hidden",
-        width: "min(360px, calc(100vw - 28px))",
+        width: "min(440px, calc(100vw - 28px))",
         maxHeight: "min(560px, calc(100vh - 28px))",
         // Site popup language (64-detail-modal.css): no drawn frame — the card
         // edge is the drop shadow + a faint bone top light-catch.
@@ -167,7 +167,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
             <div
               style={{
                 fontFamily: t.fontMono,
-                fontSize: 11,
+                fontSize: 12,
                 letterSpacing: "0.28em",
                 color: t.primary,
                 opacity: 0.6,
@@ -194,7 +194,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
             <div
               style={{
                 fontFamily: t.fontMono,
-                fontSize: 11,
+                fontSize: 12,
                 letterSpacing: "0.16em",
                 color: world.faction === "neutral" ? t.primary : FACTION_COLORS[world.faction],
                 textTransform: "uppercase",
@@ -242,8 +242,8 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
             <p
               style={{
                 fontFamily: t.fontBody,
-                fontSize: 16,
-                lineHeight: 1.6,
+                fontSize: 18,
+                lineHeight: 1.65,
                 color: t.primary,
                 opacity: 0.9,
                 margin: 0,
@@ -273,7 +273,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                   <div
                     style={{
                       fontFamily: t.fontDisplay,
-                      fontSize: 15,
+                      fontSize: 16,
                       letterSpacing: "0.08em",
                       color: t.accent,
                       marginBottom: 3,
@@ -284,7 +284,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                   <div
                     style={{
                       fontFamily: t.fontMono,
-                      fontSize: 11.5,
+                      fontSize: 12.5,
                       letterSpacing: "0.12em",
                       color: t.primary,
                       opacity: 0.7,
@@ -300,7 +300,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                   <div
                     style={{
                       fontFamily: t.fontMono,
-                      fontSize: 10.5,
+                      fontSize: 11.5,
                       letterSpacing: "0.18em",
                       color: world.faction === "neutral" ? t.primary : FACTION_COLORS[world.faction],
                       opacity: 0.9,
@@ -341,7 +341,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                   <div
                     style={{
                       fontFamily: t.fontMono,
-                      fontSize: 11.5,
+                      fontSize: 12.5,
                       color: t.accent,
                       letterSpacing: "0.1em",
                       paddingTop: 1,
@@ -352,8 +352,8 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
                   <div
                     style={{
                       fontFamily: t.fontBody,
-                      fontSize: 14,
-                      lineHeight: 1.5,
+                      fontSize: 16,
+                      lineHeight: 1.55,
                       color: t.primary,
                       opacity: 0.85,
                       fontStyle: t.id === "astropath" ? "italic" : "normal",
@@ -369,7 +369,7 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
             <div
               style={{
                 fontFamily: t.fontMono,
-                fontSize: 11.5,
+                fontSize: 12.5,
                 color: t.primary,
                 opacity: 0.7,
                 letterSpacing: "0.1em",
