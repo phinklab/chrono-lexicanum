@@ -111,7 +111,8 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
       const M = 14; // viewport margin
-      const GAP = 34; // gap between planet and card
+      const GAP = 64; // horizontal gap between planet and card
+      const HEAD = 64; // card top → just above the planet (title brackets it)
       const W = Math.min(440, vw - 2 * M);
       const maxH = Math.min(560, vh - 2 * M);
       const h = Math.min(cardRef.current?.offsetHeight ?? maxH, maxH);
@@ -123,7 +124,10 @@ export default function WorldPanel({ theme }: WorldPanelProps) {
       let left = anchor.x - GAP - W;
       if (left < M) left = anchor.x + GAP; // no room left → flip right
       if (left + W > vw - M) left = Math.max(M, vw - W - M);
-      let top = anchor.y - h / 2;
+      // Anchor the card's TOP just above the planet (the title section brackets
+      // it) rather than centring a tall card on it — centring floated the panel
+      // way up off the planet.
+      let top = anchor.y - HEAD;
       top = Math.max(M, Math.min(top, vh - h - M));
       setPos({ left, top });
     };
