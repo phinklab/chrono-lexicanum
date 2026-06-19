@@ -20,19 +20,21 @@ body:has(main.ask) .site-bg::after {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  /* Fade strength reduced 10% (every void stop ×0.9) so the oracle photo reads
+     better through the overlay — maintainer polish 2026-06-19. */
   background:
     radial-gradient(
       ellipse at 50% 30%,
       transparent 36%,
-      color-mix(in srgb, var(--cl-void) 42%, transparent) 100%
+      color-mix(in srgb, var(--cl-void) 38%, transparent) 100%
     ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--cl-void) 10%, transparent) 0%,
-      color-mix(in srgb, var(--cl-void) 16%, transparent) 18%,
-      color-mix(in srgb, var(--cl-void) 62%, transparent) 38%,
-      color-mix(in srgb, var(--cl-void) 92%, transparent) 58%,
-      var(--cl-void) 76%
+      color-mix(in srgb, var(--cl-void) 9%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 14%, transparent) 18%,
+      color-mix(in srgb, var(--cl-void) 56%, transparent) 38%,
+      color-mix(in srgb, var(--cl-void) 83%, transparent) 58%,
+      color-mix(in srgb, var(--cl-void) 90%, transparent) 76%
     );
 }
 
@@ -172,6 +174,20 @@ body:has(main.ask) .site-bg::after {
    (the funnel sat hard-to-read directly on the photo), frameless, closed by
    a Terminus base line. Stepper · question · nav all live inside it. */
 .ask-stage {
+  /* Timeline-Index palette, scoped to the funnel (maintainer polish 2026-06-19)
+     so the questionnaire reads in the chronicle-index vocabulary — muted gold,
+     cool steel, parchment, hairline rows. Mirrors the .chron tokens in
+     67-chronicle-cinematic.css. The page masthead keeps the house chrome. */
+  --ix-gold: #c9b896;
+  --ix-gold-line: rgba(201, 184, 150, 0.22);
+  --ix-steel: #7d8799;
+  --ix-steel-dim: #8a93a3;
+  --ix-parchment: #e9dfc8;
+  --ix-parchment-dim: #c7c2b2;
+  --ix-hair: rgba(125, 135, 153, 0.12);
+  --ix-hover: rgba(255, 255, 255, 0.03);
+  --ix-active: rgba(201, 184, 150, 0.05);
+
   position: relative;
   min-width: 0;
   padding: clamp(22px, 3.5vh, 32px) clamp(22px, 3.5vw, 44px) clamp(18px, 2.5vh, 24px);
@@ -188,8 +204,8 @@ body:has(main.ask) .site-bg::after {
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in oklch, var(--cl-gold) 24%, transparent) 22%,
-    color-mix(in oklch, var(--cl-gold) 24%, transparent) 78%,
+    var(--ix-gold-line) 22%,
+    var(--ix-gold-line) 78%,
     transparent
   );
 }

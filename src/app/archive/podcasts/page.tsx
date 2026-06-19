@@ -6,6 +6,7 @@ import FloatingCoord from "@/components/chrono/FloatingCoord";
 import GhostReadout from "@/components/chrono/GhostReadout";
 import CatalogueTelemetry from "@/components/chrono/CatalogueTelemetry";
 import ScrollScrim from "@/components/chrome/ScrollScrim";
+import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import PodcastsSearch from "@/components/podcast/PodcastsSearch";
 import ArchiveModeToggle from "@/components/archive/ArchiveModeToggle";
 import ArchiveFooter from "@/components/chrome/ArchiveFooter";
@@ -80,81 +81,92 @@ export default async function PodcastsPage() {
     "· COGNITIO LINK STABLE",
   ];
 
+  // The podcasts index rides /archive's catalogue shell (Brief-less polish
+  // 2026-06-19): same library backdrop, same 100dvh floated-title hero, same
+  // overlay/scrim, same centred search console + register fork — so toggling
+  // WORKS↔PODCASTS shifts no element. Only the list below swaps (book rows ↔
+  // show cards). The .catalogue--vox modifier shares the --werke styling via
+  // :is() in 61/31; the per-show detail page keeps its own main.podcasts shell.
   return (
-    <main className="podcasts">
-      <SiteBackground variant="vox" position="50% 38%" />
-      <ScrollScrim
-        className="pod-scrim"
-        varName="--pod-scrim-opacity"
-        heroSelector=".pod-mast"
-        maxOpacity={0.63}
-      />
-
-      {/* Fixed HUD atmosphere — sweep + readout, pinned to the viewport so they
-          sit over the crisp top of the cathedral-vox photo (the /ask treatment). */}
-      <div className="pod-readout" aria-hidden>
-        <GhostReadout
-          color="var(--cl-gold)"
-          opacity={0.32}
-          lineMs={5000}
-          typeSpeed={80}
-          max={4}
-          lines={readoutLines}
-        />
-      </div>
-      <div className="pod-hud" aria-hidden>
-        <div className="pod-hud__sweep">
-          <AuspexSweep r={170} sweepDuration={16} accent="var(--cl-gold)" />
+    <main className="catalogue catalogue--vox">
+      <SiteBackground variant="main" position="right bottom" />
+      <section
+        className="catalogue-hero route-act"
+        aria-label="Podcasts — the lore-cast pillar"
+      >
+        <ScrollScrim maxOpacity={0.77} />
+        <div className="catalogue-hero__sweep" aria-hidden>
+          <AuspexSweep r={180} sweepDuration={18} accent="var(--cl-gold)" />
         </div>
-      </div>
-
-      <section className="pod-mast" aria-label="Podcasts — the lore-cast pillar">
+        <div className="werke-hero__readout" aria-hidden>
+          <GhostReadout
+            color="var(--cl-gold)"
+            opacity={0.34}
+            lineMs={5200}
+            typeSpeed={80}
+            max={4}
+            lines={readoutLines}
+          />
+        </div>
         <FloatingCoord
-          x="58%"
-          y="150px"
+          x="42%"
+          y="120px"
           label="VOX · SEGMENTVM SOLAR"
-          delay={1.4}
+          delay={1.2}
           lifetime={5}
           color="var(--cl-gold)"
-          opacity={0.5}
+          opacity={0.55}
         />
-        <div className="pod-mast__inner">
-          <div className="pod-mast__eyebrow">{"VOX · ARCHIVVM SONORVM"}</div>
-          <h1 className="pod-mast__heading">PODCASTS</h1>
-          <div className="pod-mast__rule" aria-hidden />
-          <p className="pod-mast__sub">
+        <FloatingCoord
+          x="58%"
+          y="220px"
+          label="FEED · RSS DIRECT"
+          delay={3.0}
+          lifetime={5}
+          color="var(--cl-gold)"
+          opacity={0.55}
+        />
+        <div className="catalogue-hero__title">
+          <div className="catalogue-hero__eyebrow">{"VOX · ARCHIVVM SONORVM"}</div>
+          <h1 className="catalogue-hero__heading">PODCASTS</h1>
+          <div className="catalogue-hero__rule" aria-hidden />
+          <p className="catalogue-hero__sub">
             {shows.length === 0
               ? "No podcasts in the database yet."
               : `${showWord} · ${totalEpisodes} episodes — play in place, download, or open in your app.`}
           </p>
         </div>
+        <RouteScrollCue label="Browse the podcasts" target=".catalogue-body" />
       </section>
 
-      <div className="pod-body">
-        {searchIndex.length > 0 && <PodcastsSearch index={searchIndex} />}
-
-        {/* The register fork, prominent in the controls position under the
-            search — sibling of /archive's browse-controls row (Session 142;
-            the fixed bottom-right micro-pill is retired). */}
-        <div className="pod-controls">
-          <ArchiveModeToggle active="podcasts" />
-        </div>
+      <div className="catalogue-body route-body-snap">
+        {searchIndex.length > 0 && (
+          <div className="browse-filters" role="group" aria-label="Browse the archive">
+            <PodcastsSearch index={searchIndex} />
+            {/* The register fork (WORKS | PODCASTS) leads the controls row, in
+                the same slot as /archive's WerkeFilters — the toggle is the
+                pivot, so it must not move when the views swap. */}
+            <div className="browse-controls">
+              <ArchiveModeToggle active="podcasts" />
+            </div>
+          </div>
+        )}
 
         {shows.length > 0 && (
-          <div className="pod-toolbar">
-            <span className="pod-toolbar__count">
-              {shows.length} · {shows.length === 1 ? "SHOW" : "SHOWS"}
-            </span>
-            <span className="pod-toolbar__total">/ {totalEpisodes} episodes</span>
-            <span className="pod-toolbar__dot" aria-hidden>
-              ·
-            </span>
-            <CatalogueTelemetry accent="gold" />
+          <div className="catalogue-toolbar">
+            <div className="catalogue-toolbar__left">
+              <span className="catalogue-toolbar__count">
+                {shows.length} · {shows.length === 1 ? "SHOW" : "SHOWS"}
+              </span>
+              <span className="catalogue-toolbar__total">/ {totalEpisodes} episodes</span>
+              <span className="catalogue-toolbar__dot" aria-hidden>·</span>
+              <CatalogueTelemetry accent="gold" />
+            </div>
           </div>
         )}
 
         {shows.length === 0 ? (
-          <div className="pod-empty">
+          <div className="catalogue-empty">
             The database has no podcast feeds yet. Once a feed is ingested its
             shows and episodes will appear here.
           </div>
@@ -166,9 +178,7 @@ export default async function PodcastsPage() {
           </div>
         )}
 
-        {shows.length > 0 && (
-          <ArchiveFooter mid="DIRECT FEED · NO TRACKING" />
-        )}
+        {shows.length > 0 && <ArchiveFooter mid="DIRECT FEED · NO TRACKING" />}
       </div>
     </main>
   );

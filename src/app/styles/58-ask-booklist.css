@@ -30,13 +30,14 @@
    ornament are gone — the stepper above the stage carries position; a small
    mono kicker keeps the ordinal next to the question itself. */
 
+/* Kicker as the index .century-head mono suffix — cool steel, not gold. */
 .ask-q__kicker {
   margin: 0 0 10px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label);
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+  color: var(--ix-steel-dim);
 }
 
 .ask-q__prompt {
@@ -45,7 +46,7 @@
   font-weight: 500;
   font-size: clamp(28px, 3.6vw, 38px);
   line-height: 1.25;
-  color: var(--cl-bone);
+  color: var(--ix-parchment);
 }
 
 .ask-q__hint {
@@ -54,15 +55,17 @@
   font-style: italic;
   font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
-  color: var(--cl-dim);
+  color: var(--ix-steel);
 }
 
 /* Ballot — frameless options ◇ → ◆, one full-width row per option so the
    four answers read as a list, not a matrix (single-column redesign). */
+/* Ballot as the index .row list — hairline-divided, no resting fill; the wash +
+   glyph carry hover/selected (maintainer polish 2026-06-19). */
 .ask-ballot {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 0;
   margin: clamp(18px, 3vh, 28px) 0 0;
   padding: 0;
   border: 0;
@@ -74,30 +77,34 @@
   display: grid;
   grid-template-columns: 22px minmax(0, 1fr);
   gap: 12px;
-  padding: 16px 18px 18px;
+  padding: 15px 12px;
   text-align: left;
-  background: color-mix(in srgb, var(--cl-void) 25%, transparent);
+  background: transparent;
   border: 0;
+  border-top: 1px solid var(--ix-hair);
   color: inherit;
   cursor: pointer;
   transition: background 180ms;
 }
 
-/* No per-option underline (line-budget trim 2026-06-12 — four stacked
-   Terminus hairlines read as clutter): wash + glyph carry hover/selected. */
+/* First row sits flush — no leading hairline (the index .row recipe). */
+.ask-opt:first-of-type {
+  border-top: 0;
+}
+
 .ask-opt:hover {
-  background: rgba(10, 14, 22, 0.45);
+  background: var(--ix-hover);
 }
 
 .ask-opt__glyph {
   font-size: 13px;
   line-height: 1.7;
-  color: var(--cl-faint);
+  color: var(--ix-steel);
   transition: color 180ms;
 }
 
 .ask-opt:hover .ask-opt__glyph {
-  color: var(--cl-gold-dim);
+  color: color-mix(in oklch, var(--ix-gold) 70%, transparent);
 }
 
 .ask-opt__body {
@@ -111,7 +118,7 @@
   font-weight: var(--fw-read);
   font-size: var(--fs-read);
   line-height: 1.35;
-  color: var(--cl-bone);
+  color: var(--ix-parchment);
 }
 
 .ask-opt__sub {
@@ -121,19 +128,19 @@
   font-size: var(--fs-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cl-dim);
+  color: var(--ix-steel);
 }
 
 .ask-opt[data-selected="true"] {
-  background: rgba(201, 166, 90, 0.07);
+  background: var(--ix-active);
 }
 
 .ask-opt[data-selected="true"] .ask-opt__glyph {
-  color: var(--cl-gold);
+  color: var(--ix-gold);
 }
 
 .ask-opt[data-selected="true"] .ask-opt__sub {
-  color: var(--cl-dim);
+  color: var(--ix-steel);
 }
 
 /* ---- PROTOCOLLVM — horizontal stepper across the top of the stage ----
@@ -153,25 +160,18 @@
 .ask-stepper__head {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 12px;
   margin-bottom: 12px;
 }
 
-.ask-stepper__label {
-  margin: 0;
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: var(--fs-label-xl);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 70%, var(--cl-dim));
-}
-
+/* Quiet index-style progress caption — cool steel mono (the "Protocollvm"
+   label is retired; the era-band marks below carry the position). */
 .ask-stepper__count {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-lg);
-  letter-spacing: 0.14em;
-  color: var(--cl-dim);
+  letter-spacing: 0.16em;
+  color: var(--ix-steel);
 }
 
 .ask-steps {
@@ -201,8 +201,8 @@
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in oklch, var(--cl-gold) 20%, transparent) 30%,
-    color-mix(in oklch, var(--cl-gold) 20%, transparent) 70%,
+    color-mix(in oklch, var(--ix-steel) 45%, transparent) 30%,
+    color-mix(in oklch, var(--ix-steel) 45%, transparent) 70%,
     transparent
   );
 }
@@ -211,8 +211,8 @@
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in oklch, var(--cl-gold) 45%, transparent) 30%,
-    color-mix(in oklch, var(--cl-gold) 45%, transparent) 70%,
+    color-mix(in oklch, var(--ix-gold) 55%, transparent) 30%,
+    color-mix(in oklch, var(--ix-gold) 55%, transparent) 70%,
     transparent
   );
 }
@@ -238,7 +238,7 @@
 .ask-step__glyph {
   font-size: 12px;
   line-height: 1;
-  color: var(--cl-faint);
+  color: var(--ix-steel);
   transition: color 180ms;
 }
 
@@ -246,7 +246,7 @@
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: var(--fs-label-lg);
   letter-spacing: 0.16em;
-  color: var(--cl-faint);
+  color: var(--ix-steel);
   transition: color 180ms;
 }
 
@@ -260,31 +260,31 @@
   font-size: var(--fs-read-sm);
   font-weight: var(--fw-read);
   line-height: 1.3;
-  color: var(--cl-faint);
+  color: var(--ix-steel-dim);
   transition: color 180ms;
 }
 
 .ask-step:hover .ask-step__rn,
 .ask-step:hover .ask-step__glyph {
-  color: var(--cl-bone);
+  color: var(--ix-parchment);
 }
 
 .ask-steps > li.done .ask-step__glyph,
 .ask-steps > li.done .ask-step__rn {
-  color: var(--cl-gold);
+  color: var(--ix-gold);
 }
 
 .ask-steps > li.done .ask-step__a {
-  color: color-mix(in oklch, var(--cl-gold) 45%, var(--cl-dim));
+  color: color-mix(in oklch, var(--ix-gold) 55%, var(--ix-steel));
 }
 
 .ask-steps > li.cur .ask-step__glyph,
 .ask-steps > li.cur .ask-step__rn {
-  color: var(--cl-bone);
+  color: var(--ix-parchment);
 }
 
 .ask-steps > li.cur .ask-step__a {
-  color: var(--cl-dim);
+  color: var(--ix-steel);
 }
 
 /* ---- Processing — cogitator interstitial ---- */
@@ -357,7 +357,7 @@
   right: 0;
   bottom: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  background: linear-gradient(90deg, transparent, var(--ix-gold-line), transparent);
   opacity: 0.6;
 }
 
@@ -368,7 +368,7 @@
   font-weight: 400;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+  color: var(--ix-gold);
 }
 
 .ask-results__count {
@@ -377,7 +377,7 @@
   font-size: var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cl-gold);
+  color: var(--ix-gold);
 }
 
 /* Verdict list — rank I spans the full width as dossier, the runners sit in a
@@ -405,6 +405,39 @@
   height: 100%;
 }
 
+/* Runner cards (Ranks II+) recoloured into the index vocabulary — the lx-card
+   wash → transparent with an index hairline foot, muted-gold/steel/parchment
+   accents (maintainer polish 2026-06-19). Scoped to the funnel; the global
+   .lx-card primitive is untouched. */
+.ask-runner {
+  background: transparent;
+}
+.ask-runner::after {
+  color: var(--ix-gold-line);
+}
+.ask-runner:hover {
+  background: var(--ix-hover);
+}
+.ask-runner:hover::after {
+  color: color-mix(in oklch, var(--ix-gold) 55%, transparent);
+}
+.ask-runner .lx-card__folio {
+  color: var(--ix-steel);
+}
+.ask-runner .lx-card__eyebrow {
+  color: var(--ix-steel-dim);
+}
+.ask-runner .lx-card__title {
+  color: var(--ix-parchment);
+}
+.ask-runner:hover .lx-card__title {
+  color: var(--ix-gold);
+}
+.ask-runner .lx-card__snip,
+.ask-runner .lx-card__meta {
+  color: var(--ix-steel);
+}
+
 .ask-prime {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -423,7 +456,7 @@
   font-weight: 400;
   font-size: clamp(64px, 9vw, 96px);
   line-height: 0.9;
-  color: color-mix(in oklch, var(--cl-gold) 38%, transparent);
+  color: color-mix(in oklch, var(--ix-gold) 45%, transparent);
 }
 
 .ask-prime__rank .cap {
@@ -433,7 +466,7 @@
   font-size: var(--fs-label-xs);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--cl-faint);
+  color: var(--ix-steel);
 }
 
 .ask-prime__kicker {
@@ -447,11 +480,11 @@
   font-size: var(--fs-label);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--cl-dim);
+  color: var(--ix-steel);
 }
 
 .ask-prime__tier {
-  color: var(--cl-gold);
+  color: var(--ix-gold);
 }
 
 .ask-prime__title {
@@ -460,7 +493,7 @@
   font-weight: 500;
   font-size: clamp(28px, 3.6vw, 38px);
   letter-spacing: 0.04em;
-  color: var(--cl-bone);
+  color: var(--ix-parchment);
 }
 
 .ask-prime__note {
@@ -493,7 +526,7 @@
   font-size: var(--fs-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--cl-gold);
+  color: var(--ix-gold);
 }
 
 .ask-results__note > span:last-child {
@@ -502,7 +535,7 @@
   font-style: italic;
   font-weight: var(--fw-read);
   line-height: var(--lh-read);
-  color: var(--cl-dim);
+  color: var(--ix-parchment-dim);
 }
 
 .ask-results__note em {
@@ -528,7 +561,7 @@
   right: 0;
   top: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cl-gold-dim), transparent);
+  background: linear-gradient(90deg, transparent, var(--ix-gold-line), transparent);
   opacity: 0.5;
 }
 
@@ -537,7 +570,7 @@
   font-size: var(--fs-label);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+  color: var(--ix-gold);
 }
 
 .ask-results__divider-note {
@@ -545,7 +578,7 @@
   font-size: var(--fs-read-sm);
   font-style: italic;
   font-weight: var(--fw-read);
-  color: var(--cl-faint);
+  color: var(--ix-steel);
 }
 
 .ask-results__divider em {
@@ -590,11 +623,11 @@
 }
 
 .ask-responsa .k {
-  color: color-mix(in oklch, var(--cl-gold) 60%, var(--cl-dim));
+  color: var(--ix-gold);
 }
 
 .ask-responsa .v {
-  color: var(--cl-dim);
+  color: var(--ix-steel);
 }
 
 /* ---- Footer + quiet links ---- */

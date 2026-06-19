@@ -153,14 +153,13 @@ export default function AskClient({
 
         <div className="ask-console__grid route-body-snap" ref={gridRef}>
           <div className="ask-stage">
-            {/* PROTOCOLLVM — horizontal stepper across the top of the stage
-                window (single-column redesign 2026-06-11; replaces the side
-                rail). Five roman marks joined by Terminus hairlines; each mark
-                is still a button that revisits its question, and a sealed
-                mark echoes its chosen answer underneath. */}
+            {/* Progress band — recast in the chronicle-index era-band vocabulary
+                (maintainer polish 2026-06-19; the "Protocollvm" label is retired).
+                Five roman marks joined by Terminus hairlines; each mark is still a
+                button that revisits its question, and a sealed mark echoes its
+                chosen answer underneath. */}
             <div className="ask-stepper" aria-label="Ask progress">
               <div className="ask-stepper__head">
-                <p className="ask-stepper__label">Protocollvm</p>
                 <span className="ask-stepper__count" aria-hidden>
                   {answeredCount} / {questions.length}
                 </span>

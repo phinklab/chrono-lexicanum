@@ -44,6 +44,9 @@ main.podcasts .browse-search__input:focus-visible {
 /* Crisp-top, fade-to-void: the cathedral-vox photo is sharp through the upper
  * band (title), then ramps to full void where the content band sits. Neutral
  * void only — no cyan halo, no warm gradient, no bloom. */
+/* Per-show detail page (the index now rides the shared catalogue--vox fade).
+   Fade strength reduced 10% (every void stop ×0.9) so the cathedral-vox photo
+   reads better through the overlay — maintainer polish 2026-06-19. */
 body:has(main.podcasts) .site-bg::after {
   content: "";
   position: absolute;
@@ -53,15 +56,15 @@ body:has(main.podcasts) .site-bg::after {
     radial-gradient(
       ellipse at 50% 34%,
       transparent 50%,
-      color-mix(in srgb, var(--cl-void) 20%, transparent) 100%
+      color-mix(in srgb, var(--cl-void) 18%, transparent) 100%
     ),
     linear-gradient(
       180deg,
       color-mix(in srgb, var(--cl-void) 0%, transparent) 0%,
       color-mix(in srgb, var(--cl-void) 0%, transparent) 38%,
-      color-mix(in srgb, var(--cl-void) 52%, transparent) 56%,
-      color-mix(in srgb, var(--cl-void) 90%, transparent) 74%,
-      var(--cl-void) 90%
+      color-mix(in srgb, var(--cl-void) 47%, transparent) 56%,
+      color-mix(in srgb, var(--cl-void) 81%, transparent) 74%,
+      color-mix(in srgb, var(--cl-void) 90%, transparent) 90%
     );
 }
 

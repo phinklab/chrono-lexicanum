@@ -394,14 +394,16 @@
   color: var(--cl-bone);
 }
 
-/* ── /werke "query console" layout ────────────────────────────────────────
- * Only /werke (the gold .catalogue surface) stacks into two rows: a prominent
- * search console over a quieter facet-control row. /fraktionen keeps the shared
- * single wrapping row (it renders no .browse-controls), so this is scoped. */
+/* ── archive "query console" layout ───────────────────────────────────────
+ * Both archive views — /archive (WORKS, .catalogue--werke) and the podcasts
+ * index (PODCASTS, .catalogue--vox) — stack into two rows: a prominent search
+ * console over a quieter controls row, so toggling between them shifts nothing.
+ * /fraktionen keeps the shared single wrapping row (it renders no
+ * .browse-controls), so this is scoped to the gold .catalogue surfaces. */
 /* Centred under the masthead text (maintainer adjustment 2026-06-11): the
    search line sits mid-axis like the hub search, the facet controls wrap
    centred beneath it, and the whole zone closes with a Terminus hairline. */
-.catalogue--werke .browse-filters {
+:is(.catalogue--werke, .catalogue--vox) .browse-filters {
   position: relative;
   flex-direction: column;
   align-items: center;
@@ -411,7 +413,7 @@
   background: transparent;
   border: 0;
 }
-.catalogue--werke .browse-filters::after {
+:is(.catalogue--werke, .catalogue--vox) .browse-filters::after {
   content: "";
   position: absolute;
   left: 0;
@@ -428,14 +430,14 @@
 }
 /* Search is one elegant serif line over a Terminus underline (the hub search
    gesture, in gold) — not a heavy boxed control. */
-.catalogue--werke .browse-search {
+:is(.catalogue--werke, .catalogue--vox) .browse-search {
   width: 100%;
   max-width: 560px;
   padding: 0;
   background: transparent;
   border: 0;
 }
-.catalogue--werke .browse-search::after {
+:is(.catalogue--werke, .catalogue--vox) .browse-search::after {
   content: "";
   position: absolute;
   left: 0;
@@ -453,7 +455,7 @@
   opacity: 0.75;
   transition: opacity 200ms, background 200ms;
 }
-.catalogue--werke .browse-search:focus-within::after {
+:is(.catalogue--werke, .catalogue--vox) .browse-search:focus-within::after {
   opacity: 1;
   background: linear-gradient(
     90deg,
@@ -463,16 +465,16 @@
     transparent 100%
   );
 }
-.catalogue--werke .browse-controls {
+:is(.catalogue--werke, .catalogue--vox) .browse-controls {
   justify-content: center;
 }
-.catalogue--werke .browse-search__sigil {
+:is(.catalogue--werke, .catalogue--vox) .browse-search__sigil {
   width: 15px;
   height: 15px;
   margin-left: 1px;
   margin-right: 4px;
 }
-.catalogue--werke .browse-search__input {
+:is(.catalogue--werke, .catalogue--vox) .browse-search__input {
   flex: 1;
   min-width: 0;
   text-align: center;
@@ -482,7 +484,7 @@
   letter-spacing: 0.01em;
   padding: 10px 4px;
 }
-.catalogue--werke .browse-search__input::placeholder {
+:is(.catalogue--werke, .catalogue--vox) .browse-search__input::placeholder {
   font-style: italic;
   letter-spacing: 0.01em;
   text-transform: none;

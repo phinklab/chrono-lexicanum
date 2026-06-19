@@ -77,19 +77,21 @@ body:has(main.hub) .site-bg::after {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  /* Fade strength reduced 10% (every void stop ×0.9) so the vista reads better
+     through the overlay — maintainer polish 2026-06-19. */
   background:
     radial-gradient(
       ellipse at 50% 30%,
       transparent 36%,
-      color-mix(in srgb, var(--cl-void) 42%, transparent) 100%
+      color-mix(in srgb, var(--cl-void) 38%, transparent) 100%
     ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--cl-void) 10%, transparent) 0%,
-      color-mix(in srgb, var(--cl-void) 16%, transparent) 18%,
-      color-mix(in srgb, var(--cl-void) 62%, transparent) 38%,
-      color-mix(in srgb, var(--cl-void) 92%, transparent) 58%,
-      var(--cl-void) 76%
+      color-mix(in srgb, var(--cl-void) 9%, transparent) 0%,
+      color-mix(in srgb, var(--cl-void) 14%, transparent) 18%,
+      color-mix(in srgb, var(--cl-void) 56%, transparent) 38%,
+      color-mix(in srgb, var(--cl-void) 83%, transparent) 58%,
+      color-mix(in srgb, var(--cl-void) 90%, transparent) 76%
     );
 }
 
