@@ -137,3 +137,10 @@ yarn-error.log*
 # resolver-loop wrapper can record outcomes in sessions/resolver-loop-log.md.
 # Regenerated on every invocation; irrelevant in git.
 /scripts/.last-resolver-pass-state.json
+
+# --- preview-invite console output (Brief 163) ------------------------------
+# scripts/preview-console/build.mjs generates console.html from the committed,
+# secret-free template.html. The generated file is what Philipp opens locally
+# (`npm run preview:console`); it is never deployed and never committed. The
+# committed source of truth is template.html + build.mjs + serve.mjs.
+/scripts/preview-console/console.html

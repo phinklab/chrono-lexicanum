@@ -818,6 +818,30 @@ export const eventWorks = pgTable(
 );
 
 // =============================================================================
+// PREVIEW INVITE ACTIVATIONS (Brief 163, 2026-06-20)
+// The sole server-side state for the timed-preview-access feature. One row per
+// invite link that was actually redeemed (Accept clicked), keyed by the link's
+// `jti`. PII-free: no IP, no user-agent, no identity — just "this link was used,
+// first/last when, how many times". The local management console reads this back
+// through the admin-gated `GET /api/preview-invites` to overlay an
+// "activated · <time>" badge. The redemption action upserts here best-effort —
+// a write failure is logged and must NEVER block the cookie/redirect (the table
+// is observability, not an authorization input).
+// =============================================================================
+
+export const previewInviteActivations = pgTable("preview_invite_activations", {
+  // The invite token's `jti` — non-secret, the join key to a minted link.
+  jti: varchar("jti", { length: 64 }).primaryKey(),
+  firstActivatedAt: timestamp("first_activated_at", { withTimezone: true })
+    .defaultNow()
+    .notNull(),
+  lastActivatedAt: timestamp("last_activated_at", { withTimezone: true })
+    .defaultNow()
+    .notNull(),
+  count: integer("count").notNull().default(1),
+});
+
+// =============================================================================
 // COMMUNITY: Submissions
 // =============================================================================
 

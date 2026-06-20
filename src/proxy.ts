@@ -1,18 +1,22 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { PREVIEW_COOKIE, previewGateEnabled } from "@/lib/previewGate";
+import { PREVIEW_COOKIE, previewGateEnabled, previewSecret } from "@/lib/previewGate";
+import { verifyPreviewToken } from "@/lib/previewToken";
 import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 
 // Next.js 16 file convention: this file replaces the pre-v16 `middleware.ts`.
 // The matcher covers every page route (preview gate, session 145) — excluded
-// are /login itself, Next internals, the public/ asset folders, and two machine
-// endpoints that must answer without the preview cookie: /healthz (uptime probe)
-// and /api/revalidate (token-authed cache webhook). Without that exclusion the
-// preview gate would 307-redirect both to /login, breaking the probe and the
-// apply-script webhook (Board 121-P11). The admin-only paths below additionally
-// run the Basic-Auth admin detection.
+// are /login itself, Next internals, the public/ asset folders, and three
+// machine endpoints that must answer without the preview cookie: /healthz
+// (uptime probe), /api/revalidate (token-authed cache webhook), and
+// /api/preview-invites (admin-gated activation read for the local console —
+// Brief 163; it self-checks the admin credential in its own handler precisely
+// BECAUSE the proxy is bypassed for it). Without that exclusion the preview
+// gate would 307-redirect them to /login, breaking the probe, the apply-script
+// webhook (Board 121-P11), and the console's cross-origin read. The admin-only
+// paths below additionally run the Basic-Auth admin detection.
 export const config = {
   matcher: [
-    "/((?!_next/|login|healthz|api/revalidate|img/|audio/|timeline/|lab/|aquila\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
+    "/((?!_next/|login|healthz|api/revalidate|api/preview-invites|img/|audio/|timeline/|lab/|aquila\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
   ],
 };
 
@@ -54,13 +58,30 @@ export async function proxy(req: NextRequest): Promise<NextResponse> {
   forwarded.delete("x-atlas-admin");
 
   // Preview gate — the whole site sits behind /login while in private
-  // preview: any route without the preview cookie redirects there. Local
-  // dev bypasses (NODE_ENV !== "production"); Vercel previews and
-  // production both enforce. PREVIEW_GATE=off disables the gate for launch
-  // without a code change. Runs before the Basic-Auth block because that
-  // block early-returns on non-prod (which includes Vercel previews).
-  if (previewGateEnabled() && req.cookies.get(PREVIEW_COOKIE)?.value !== "1") {
-    return NextResponse.redirect(new URL("/login", req.url));
+  // preview: any route without a valid preview cookie redirects there. Local
+  // dev bypasses (NODE_ENV !== "production"); Vercel previews and production
+  // both enforce. PREVIEW_GATE=off disables the gate for launch without a code
+  // change. Runs before the Basic-Auth block because that block early-returns
+  // on non-prod (which includes Vercel previews).
+  //
+  // Brief 163: the cookie is no longer a dumb "1". When PREVIEW_INVITE_SECRET
+  // is SET, the gate is the enforcement point — it verifies the cookie's HMAC
+  // signature, that `typ === "session"`, and that `exp` is in the future; a
+  // tampered, expired, absent or wrong-`typ` cookie fails closed → /login. This
+  // is what evicts expired sessions and rejects pasted invite tokens. When the
+  // secret is UNSET the feature degrades to pre-163 behaviour: the legacy
+  // presence check (`cl-preview === "1"`) — NOT fail-open to everyone, and NOT a
+  // signature loop it has no key for (so the public site never crashes or locks
+  // out over a missing secret, matching the ATLAS_PASS-missing posture).
+  if (previewGateEnabled()) {
+    const cookie = req.cookies.get(PREVIEW_COOKIE)?.value;
+    const secret = previewSecret();
+    const authed = secret
+      ? (await verifyPreviewToken(cookie, secret, "session")) !== null
+      : cookie === "1";
+    if (!authed) {
+      return NextResponse.redirect(new URL("/login", req.url));
+    }
   }
 
   // Local dev and Vercel preview both bypass the Basic-Auth check:
