@@ -28,7 +28,7 @@ confidence: high
 
 ## Preview-Gate beim Public-Launch entfernen (nicht nur abschalten)
 
-**Owner:** Cowork (Brief-Schnitt beim Launch) → CC (Implementation). **Sessions:** [145-arch-preview-gate](../../sessions/2026-06-13-145-arch-preview-gate.md), [163-arch-timed-preview-access](../../sessions/2026-06-20-163-arch-timed-preview-access.md), Cowork-Maintainer-Diskussion 2026-06-20.
+**Owner:** Cowork (Brief-Schnitt beim Launch) → CC (Implementation). **Sessions:** [145-impl-era-art-login-gate](../../sessions/archive/2026-06/2026-06-12-145-impl-era-art-login-gate.md), [163-arch-timed-preview-access](../../sessions/2026-06-20-163-arch-timed-preview-access.md), Cowork-Maintainer-Diskussion 2026-06-20.
 
 Maintainer-Entscheid 2026-06-20: Der **gesamte Preview-Gate ist temporäres Vor-Launch-Gerüst und wird beim Public-Launch (Reddit) wieder ausgebaut** — nicht bloß per `PREVIEW_GATE=off` inert geschaltet, sondern als Code entfernt. Der Off-Switch ist die Sofort-Maßnahme am Launch-Tag (ein Env-Flip, kein Deploy-Risiko); das Herausnehmen des Codes ist der saubere Nachzug danach. Betroffen ist die komplette Gate-/Invite-Maschinerie aus 145 + 163: die Gate-Logik in `src/proxy.ts` (Preview-Zweig, **nicht** der Basic-Auth-Admin-Block), `src/lib/previewGate.ts`, das `/login`-Console-UI mit Invite-/Accept-State, die Signing-Lib (`previewToken.ts` o. ä.), der `/api/preview-invites`-Read-Endpoint, die lokale HTML-Konsole + ihr Serve-Script, die `preview_invite_activations`-Tabelle (+ Migration zum Droppen) und die `PREVIEW_*`-Env-Vars in `.env.example` / Vercel.
 
