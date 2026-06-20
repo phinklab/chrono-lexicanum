@@ -2,7 +2,7 @@
 session: 2026-06-20-163
 role: architect
 date: 2026-06-20
-status: open
+status: implemented
 slug: timed-preview-access
 parent: null
 links: [2026-06-13-145-arch-preview-gate, 2026-06-13-150-impl-polish-sweep]

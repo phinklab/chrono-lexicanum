@@ -192,3 +192,49 @@ main.login {
 .login-btn {
   margin-top: 8px;
 }
+
+/* --- Invite states (Brief 163) ------------------------------------------- */
+
+/* Accept-invitation state — the credential form is replaced by a single accept
+   action. Centered like the form so the console keeps its column rhythm. */
+.login-invite {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-invite .login-form {
+  gap: 0;
+}
+
+/* Invalid / expired link state — graceful, distinct from the wrong-password
+   error (no blood-red alert), with a quiet "contact me" affordance. */
+.login-expired {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-expired-contact {
+  margin: 6px 0 0;
+  max-width: 36ch;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-read);
+  line-height: 1.5;
+  color: var(--cl-faint);
+  text-align: center;
+}
+
+.login-expired-contact a {
+  color: var(--cl-gold);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklch, var(--cl-gold) 45%, transparent);
+  transition: border-color 0.2s ease;
+}
+
+.login-expired-contact a:hover {
+  border-bottom-color: var(--cl-gold);
+}
