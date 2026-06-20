@@ -2,8 +2,9 @@
 title: Deferred questions (dormant)
 type: overview
 created: 2026-05-09
-updated: 2026-05-15
+updated: 2026-06-20
 sources:
+  - ../../sessions/2026-06-20-163-arch-timed-preview-access.md
   - ../../sessions/archive/2026-05/2026-05-04-042-impl-phase3c-haiku-switch.md
   - ../../sessions/archive/2026-05/2026-05-05-044-impl-phase3e-batch-1.md
   - ../../sessions/archive/2026-05/2026-05-03-039-impl-phase3c-llm-enrichment.md
@@ -22,6 +23,16 @@ confidence: high
 > Items that surfaced during a session but don't belong in the next-brief queue. Either dormant (waiting for a trigger), distant (Phase-4+ ambitions), or model-specific things that became inactive after a switch. Cowork promotes an item back into [`./open-questions.md`](./open-questions.md) when its trigger fires.
 >
 > Created during 051 (Brain Slim Pass) by lifting items 4–8 + the "distant" half of item 9 from the original 11-item queue. Phase-internal sub-phase reminders (3d / 3e / 3f to-dos that were inside item 9) live now in [`./pipeline-state.md`](./pipeline-state.md) under each sub-phase. Post-054 Session-End: ehemalige OQ4 (Anthologie-Re-Test) + OQ5 (Lexicanum-Body-Lore-Pass) hierher migriert — beide durch V2-Pilot strukturell adressiert. **2026-05-15:** OQ2-(c) `chaos`-pov_side-Promote-Pass hierher migriert (moot post-CC-Direct-Curation; ggf. später als isolierter SQL-Hygiene-Mini-Brief).
+
+---
+
+## Preview-Gate beim Public-Launch entfernen (nicht nur abschalten)
+
+**Owner:** Cowork (Brief-Schnitt beim Launch) → CC (Implementation). **Sessions:** [145-arch-preview-gate](../../sessions/2026-06-13-145-arch-preview-gate.md), [163-arch-timed-preview-access](../../sessions/2026-06-20-163-arch-timed-preview-access.md), Cowork-Maintainer-Diskussion 2026-06-20.
+
+Maintainer-Entscheid 2026-06-20: Der **gesamte Preview-Gate ist temporäres Vor-Launch-Gerüst und wird beim Public-Launch (Reddit) wieder ausgebaut** — nicht bloß per `PREVIEW_GATE=off` inert geschaltet, sondern als Code entfernt. Der Off-Switch ist die Sofort-Maßnahme am Launch-Tag (ein Env-Flip, kein Deploy-Risiko); das Herausnehmen des Codes ist der saubere Nachzug danach. Betroffen ist die komplette Gate-/Invite-Maschinerie aus 145 + 163: die Gate-Logik in `src/proxy.ts` (Preview-Zweig, **nicht** der Basic-Auth-Admin-Block), `src/lib/previewGate.ts`, das `/login`-Console-UI mit Invite-/Accept-State, die Signing-Lib (`previewToken.ts` o. ä.), der `/api/preview-invites`-Read-Endpoint, die lokale HTML-Konsole + ihr Serve-Script, die `preview_invite_activations`-Tabelle (+ Migration zum Droppen) und die `PREVIEW_*`-Env-Vars in `.env.example` / Vercel.
+
+**Promote when:** der Public-Launch konkret ansteht (Reddit-Launch-Brief wird geschnitten). Reihenfolge: erst `PREVIEW_GATE=off` am Launch-Tag, dann ein dedizierter Cleanup-Brief, der das Gerüst entfernt. Bis dahin bleibt alles wie gebaut — der Gate schützt die Pre-Launch-Preview.
 
 ---
 
