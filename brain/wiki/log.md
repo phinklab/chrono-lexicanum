@@ -1508,3 +1508,37 @@ Philipp testete den B14-Ansatz nach der CC-Implementierung und verwarf ihn bewus
 **Edits (Coordination-Pass):** `project-state.md` (DB-Apply-Modell in What's running, Timeline-Satz entstaltt, Next-likely-brief, Datums-Bump), `open-questions.md` (OQ 18 neu), `index.md` (open-questions- + project-state-Zeile), `sessions/README.md` (Kopf + Tabelle 157 → implemented), dieser Eintrag.
 
 > **Offen für nächsten Pass (optional):** Runbook-Umbenennung `db-rebuild-runbook.md` → `db-apply-runbook.md` inkl. Link-Fix in diesem `log.md` — CC hat bewusst darauf verzichtet (Dangling-Link über Worktree-Grenze). Kein Druck; Inhalt deckt schon alle drei Befehle ab.
+
+---
+
+## 2026-06-24 · Coordination + Move · Rollup Wave 154–163 (Buch-Reviewer + Stage 3 + Gate F/L + Product-Wave) + ADR-Backfill + Archiv-Sweep
+
+**Anlass:** Nach einer 4-Tage-Lücke hingen die Rollup-Files ~6 Briefs hinter dem Repo (project-state/README Stand 2026-06-18, letzter gemergter PR ist #191 = Brief 163). Voller Koordinations-Pass aus dem Coordination-Worktree, doc-only → direkt auf `main`. Maintainer bestätigte den Ops-Stand (alle Deploy-Schritte erledigt), bevor der Pass lief.
+
+**Eingefaltet — Batches (alle gemergt + DB-seitig appliziert):**
+
+- **B11 Buch-Reviewer voll gelaufen (154, PR #180):** CC-Direct Finder + adversarialer Verifier über alle 889 Bücher. 639 roh → 608 bestätigt → 31 widerlegt (~4,9 %); **96 promoviert** (`reviewQueue` → `curation-overlay.final`) + **Drukhari-Split** in die Referenz-Daten.
+- **Stage 3 Web-Enrichment (155):** die 166 strukturellen Sentinels (21 Faction + 145 Location) per Opus + Web-Search angereichert; read-only `new-entity-proposals.json`, **kein Apply-Pfad** (grep-bewiesen). Factions 100 % (20 new + 1 alias), Locations 99 % (142 new + 2 alias + 1 unresolved). **Load-bearing Befund: 0 echte `gx`/`gy`** — Lexicanum/Fandom geben für tiefe Roman-Welten keine Koordinaten, der „nie raten"-Guard hielt; **53 Welten sind sektor-zugeordnet** = die Map-Kurations-Worklist. Opus hard-enforced (`--enrich` bricht auf non-Opus ab).
+- **Gate F/L Materialisierung (158):** 20 neue Factions + 142 neue Locations + 3 explizite Aliases + 6 Raw-Surface-Brücken in `factions.json`/`locations.json`/`*-aliases.json` promoviert. `new-entity-proposals.json` blieb unverändert/read-only; `Rhamiel` blieb Sentinel.
+
+**Eingefaltet — Product (alle gemergt, PRs #186–#191):**
+
+- **159** Universal Search + Aliases (Factions/Characters/Worlds als First-Class-Suggestions aus den Compendium-Loadern, Alias-Surfaces routen auf Canonical, Worlds-Threshold 3→2; Home-/Archive-Copy-Politur).
+- **160** Background + Scroll-Polish (`main-bg.webp`, Credit `phil kuenzler`/`phinklabs`, Full-Viewport-Masthead + `NEXT`-Cue auf Archive/Compendium/Ask).
+- **161** Perceived-Latency (geteilter `useTransition` → globaler Gold-Beam + wiederverwendete `loading.tsx`-Boundaries, anti-flash-gated; parent 121).
+- **162** Entity-ISR (Arch-Brief war auf der Platte als 161 fehlnummeriert → in diesem Pass nach **162** umbenannt). Build prerendert nur noch eine 96-ID-Hot-Subset (war ~1300), Rest on-demand ISR + `revalidatePath`. **Build-Egress-Problem (Supabase-5-GB-Free) entschärft**; Build-Zeit-Tail bleibt die `max:5`-Pool-Contention aus Review 144 (separates Thema).
+- **163** Timed-Preview-Invite-Links (Custom-HMAC-SHA256, kein neuer Dependency, Migration 0014 `preview_invite_activations`, lokale secret-freie HTML-Konsole). Kanonisches Token-Format im Report als SSOT festgehalten.
+
+**Ops-Stand (Maintainer-bestätigt 2026-06-24):** `db:sync` nach Gate-F/L-Merge gelaufen → 96-Promotions + Drukhari + Gate F/L sind in der Prod-DB; Migration 0014 appliziert; `PREVIEW_INVITE_SECRET` + `REVALIDATE_TOKEN` in Vercel gesetzt. Code- und Deploy-Seite sind sauber.
+
+**ADR-Backfill (Schuld aus 154/155):** neue Decision-Page [`./decisions/book-reviewer-no-apply-path.md`](./decisions/book-reviewer-no-apply-path.md) — Reviewer-Findings (`book-review-queue.json`, Facet-Log, `new-entity-proposals.json`) haben **keinen** Apply-Pfad; Materialisierung ist ein bewusster Hand-Gate (Codex-Auftrag → `curation-overlay.json` bzw. Katalog-JSONs → `db:sync`). Revisit-Trigger dokumentiert.
+
+**Brief-Fixes:** Arch-Brief 161→**162** umbenannt + Frontmatter (`session`/`status: implemented`/`links`) nachgezogen, damit das Entity-ISR-Paar nicht über zwei Nummern splittet (161 = `perceived-latency-feedback`, #186; 162 = `entity-isr-hot-subset`). Kaputter `links:`-Slug in Brief 163 gefixt (`2026-06-13-145-arch-preview-gate` existiert nicht → `2026-06-12-145-impl-era-art-login-gate`) — war ein brain:lint-Blocker.
+
+**OQ-Bewegung:** keine. Die Wave öffnete keine neue OQ; Queue bleibt (16b/c) + (18a/b). 16b (`primaryEraId`-Placeholder) unberührt (Stage 3 war Faction/Location, nicht Timeline).
+
+**Archiv-Sweep:** 152/153/154/155/157/158/159/160/161/162 (arch+impl, wo vorhanden) → `archive/2026-06/`. Root hält nur noch: Boards 121/122, Brief 129 (open), Brief 163 (arch+impl, just-closed).
+
+**Forward-Queue mit Philipp (2026-06-24):** **P14 Map/Sternenkarte** (entsperrt — Redditor-Koordinaten-Excel sichten, dann Reconciliation-Brief auf das `gx`/`gy`-0–1000-Raster; 53 Stage-3-Welten als Worklist; Roh-Quelle nach `scripts/seed-data/source/`) → **B12 Ask-Tuning** (entsperrt) → **P12 URL-EN + `/buch`-SSG** → **P13 Mobile**.
+
+**Edits:** `project-state.md` (Neuschrieb auf Stand 2026-06-24), `sessions/README.md` (Kopf + Active-Threads geslimmt), `open-questions.md` (Datum + Schluss-Note), `decisions/book-reviewer-no-apply-path.md` (neu), `index.md` (ADR-Zeile + Daten), `sessions/2026-06-19-162-arch-entity-isr-hot-subset.md` (rename + Frontmatter), `sessions/2026-06-20-163-arch-timed-preview-access.md` (links-Fix), dieser Eintrag. **Move:** 10 Session-Paare → `archive/2026-06/`.

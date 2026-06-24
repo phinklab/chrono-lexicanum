@@ -1,11 +1,11 @@
 ---
-session: 2026-06-19-161
+session: 2026-06-19-162
 role: architect
 date: 2026-06-19
-status: open
+status: implemented
 slug: entity-isr-hot-subset
 parent: null
-links: []
+links: [2026-06-19-162-impl-entity-isr-hot-subset]
 commits: []
 ---
 

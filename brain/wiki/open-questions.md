@@ -2,13 +2,12 @@
 title: Open questions (next-brief queue)
 type: overview
 created: 2026-05-09
-updated: 2026-06-18
+updated: 2026-06-24
 sources:
   - ../../sessions/README.md
   - ../../sessions/archive/2026-06/2026-06-10-137-impl-timeline-data-foundation.md
-  - ../../sessions/archive/2026-06/2026-06-12-147-impl-deep-review-fixes.md
-  - ../../sessions/2026-06-16-152-impl-timeline-rebuild-tail.md
-  - ../../sessions/2026-06-18-157-impl-incremental-apply-default.md
+  - ../../sessions/archive/2026-06/2026-06-16-152-impl-timeline-rebuild-tail.md
+  - ../../sessions/archive/2026-06/2026-06-18-157-impl-incremental-apply-default.md
 related:
   - ./project-state.md
   - ./deferred-questions.md
@@ -45,4 +44,4 @@ Brief 157 hat `db:sync` (nicht-destruktiver Voll-Roster-Re-Apply) als Default et
 
 ---
 
-*(Queue aktuell: (16b/c) + (18a/b). Neue Items aus Impl-Reports kommen wie gewohnt nummeriert dazu.)*
+*(Queue aktuell: (16b/c) + (18a/b). Die Wave 154–163 (Buch-Reviewer + Stage 3 + Gate F/L + Product-Wave) hat **keine** neue OQ geöffnet — die ADR-Backfill-Schuld aus 154/155 ist im Koordinations-Pass 2026-06-24 abgearbeitet (`decisions/book-reviewer-no-apply-path.md` + `log.md`). Neue Items aus Impl-Reports kommen wie gewohnt nummeriert dazu.)*

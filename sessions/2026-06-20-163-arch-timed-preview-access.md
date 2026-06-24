@@ -5,7 +5,7 @@ date: 2026-06-20
 status: implemented
 slug: timed-preview-access
 parent: null
-links: [2026-06-13-145-arch-preview-gate, 2026-06-13-150-impl-polish-sweep]
+links: [2026-06-12-145-impl-era-art-login-gate, 2026-06-13-150-impl-polish-sweep]
 commits: []
 ---
 
