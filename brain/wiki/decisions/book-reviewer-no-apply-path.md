@@ -14,6 +14,7 @@ related:
   - ./location-policy.md
   - ../project-state.md
 confidence: high
+decision-date: 2026-06-24
 ---
 
 # Buch-Reviewer-Findings haben keinen Apply-Pfad

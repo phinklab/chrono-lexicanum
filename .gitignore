@@ -67,6 +67,12 @@ yarn-error.log*
 # Gitignoring also keeps Tailwind v4 source-detection from scanning them.
 /design-export/
 
+# --- presentations / standalone explainers (local-only, never committed) ----
+# Self-contained HTML decks Cowork builds for Philipp (e.g. the data-provenance
+# explainer). Offline reference material like /design-export/ — keep local,
+# never push. Gitignoring also keeps Tailwind v4 source-detection from scanning.
+/presentation/
+
 # --- scratch / drafts (anything you want to try without committing) --------
 .scratch/
 *.scratch.*

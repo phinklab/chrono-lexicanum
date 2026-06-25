@@ -171,18 +171,16 @@ The original HTML prototype lives **outside the repo** (in `archive/` locally, g
 - Never commit `.env.local`, `node_modules/`, `.next/`, or `archive/`. (Already in `.gitignore`.)
 - Session logs (`sessions/*.md`) ARE committed — they are the project's history.
 
-#### PR policy — docs land direct on `main`, code gets a PR
+#### PR policy — everything reaches `main` through a CC-authored PR; Cowork never commits
 
-A pull request is a code-review + CI mechanism. A change that touches **only documentation** carries no build risk — there is nothing for a PR to catch — so it commits **directly to `main`**, no branch, no PR. Ceremony matched to risk: a hygiene cycle of architect brief + coordination pass no longer costs three PRs. Decided 2026-05-25 with Philipp (Model 1 of three).
+Decided 2026-06-25 with Philipp (Brief 165), **superseding** the 2026-05-25 "doc-only → direct to `main`" model. Two experiences forced the change: the volume of Cowork-initiated doc commits/PRs grew noisy, and the direct-to-`main` workaround tripped the `push: branches:[main]` CI gate (`brain:lint`) and left `main` red. The new contract trades a little latency — docs wait for the next PR — for far fewer pushes and a `main` that only ever moves through a reviewed PR.
 
-- **Doc-only → direct to `main`.** A diff that touches *only* Markdown / docs: architect briefs and implementer reports under `sessions/`, `sessions/README.md`, everything under `brain/**`, `docs/**`, and the top-level `*.md` files (`CLAUDE.md`, `AGENTS.md`, `README.md`, `ROADMAP.md`, …). Covers coordination passes, doc-only briefs (e.g. a repo-hygiene sweep), and pure file moves among those paths. Commit straight to `main` and push. The coordination worktree (`chrono-lexicanum`) sits on `main` for exactly this.
-- **Code / data / config → branch + PR.** A diff that touches anything else — `src/`, `scripts/`, `src/db/` (incl. migrations), `package.json` / `package-lock.json`, `.github/**`, the root `*.config.*` files — goes through a task branch + PR, reviewed and merged as before. The classifier is the **file set**, not the worktree.
-- **Mixed change → PR.** If one logical change genuinely touches docs *and* code, the code drags the docs along — the whole thing goes through the PR. The rule removes the *requirement* of a separate doc PR; it never forbids docs riding inside a code PR.
-- **A code-handing brief.** The architect brief is doc-only → it lands on `main` directly. CC then branches from `main`, implements, and flips the brief's `status: open → implemented` as a one-line edit *inside that code PR*. No separate PR for the brief, none for the status flip.
-- **CI caveat (resolved 2026-06-12).** `ci.yml` trägt seit Session 147 auch den `push: branches: [main]`-Trigger — direct-to-`main` Doc-Commits werden jetzt von CI gelintet. `npm run brain:lint -- --no-write` lokal grün ziehen bleibt trotzdem die Höflichkeit, die einen roten `main` vermeidet.
-- **Branch-protection caveat.** This rule assumes `main` accepts direct pushes. If GitHub branch protection rejects them, relax it for this single-maintainer repo, or fall back to bundling the doc change into the next PR.
-
-Cowork never runs `git` (sandbox — see the KRITISCH banner above): it writes the files and hands Philipp die exakten git-Kommandos zum Einfügen.
+- **Cowork never runs `git` and never hands Philipp a git command for its own output.** No commit, no push, no PR, no `git add …` / `git push origin main` line — ever. Cowork's deliverable is *files in the working tree*: the architect brief plus any `brain/**` / `sessions/README.md` / top-level doc edits. They sit uncommitted until a CC PR carries them.
+- **No direct-to-`main`.** The old "doc-only commits land directly on `main`" path is removed entirely. Every change — code *and* docs — reaches `main` through a CC-authored task branch + PR.
+- **Docs ride in a CC PR.** Cowork's pending doc edits are not committed on their own cadence. CC folds them into a PR: the **brief file** (always a fresh, conflict-free file) rides in the strand code PR that implements it, and CC flips `status: open → implemented` there. `brain/**` + `sessions/README.md` rollups are committed **from the coordination worktree** on a CC task branch + PR — keeps the Brief-095 single-writer invariant, never bundled into a parallel strand PR. If doc-only work accumulates with no code PR in sight, CC runs one batched coordination-worktree doc PR — still CC-authored, still reviewed, never Cowork, never direct to `main`.
+- **Code / data / config → branch + PR (unchanged).** Any diff touching `src/`, `scripts/`, `src/db/` (incl. migrations), `package.json` / `package-lock.json`, `.github/**`, the root `*.config.*` files goes through a task branch + PR, reviewed and merged as before.
+- **CC owns all git.** Branching, staging, committing (incl. Cowork's pending doc files), pushing, opening PRs — all CC. Philipp merges.
+- **`brain:lint` stays green.** `ci.yml` runs `brain:lint` on every PR (and on `push: main` as a safety net). CC gets `npm run brain:lint -- --no-write` green before any PR that touches `brain/**`.
 
 > **⚠ Shell-Konvention für Übergabe an Philipp.** Philipps Default-Shell ist **Windows PowerShell 5.x** (`PS C:\Users\Phil>`-Prompt). PowerShell 5 versteht **kein `&&`** als Befehlstrennzeichen — eine Zeile wie `git add … && git commit … && git push …` bricht mit `Das Token "&&" ist in dieser Version kein gültiges Anweisungstrennzeichen.` Cowork gibt git-Befehle deshalb **immer zeilenweise**, niemals als `&&`-Kette:
 >
@@ -202,14 +200,14 @@ Durable local worktrees:
 - `C:\Users\Phil\chrono-lexicanum-product` = Product/UI strand: HUD, Map, design polish, app shell, music player, login/settings UI, frontend features.
 - `C:\Users\Phil\chrono-lexicanum-batches` = Batch/Ingestion strand: SSOT batches, overrides, resolver, DB-apply, ingestion scripts.
 
-`main` is read-only for **code** work — every code/data/config change goes through a task branch + PR, never a direct commit. **Doc-only changes are the deliberate exception** (§ Git → "PR policy"): they commit straight to `main`, and the coordination worktree (`chrono-lexicanum`) sits on `main` to receive them.
+`main` is read-only — **every** change reaches it through a CC-authored task branch + PR (§ Git → "PR policy"). There is no longer a direct-to-`main` doc path. The coordination worktree (`chrono-lexicanum`) is where Cowork *writes* docs and where CC commits the `brain/**` + `sessions/README.md` rollups (single-writer invariant), but even there nothing lands on `main` without a PR.
 
 **Rollup-Ownership (coordination-worktree-only).** The two strand worktrees (`chrono-lexicanum-product`, `chrono-lexicanum-batches`) **never write** the following files — only the coordination worktree (`chrono-lexicanum`) does:
 
 - `sessions/README.md`
 - everything under `brain/` (`brain/**`) — wiki pages, `brain/CLAUDE.md`, `decisions/`, `workflows/`, `index.md`, `log.md`, `glossary.md`, `outputs/`.
 
-The rule holds in normal sessions, in mechanical runbooks, and as a "short wiki note on the side" — there is no exception. A strand that would previously have updated `project-state.md` / `log.md` / `index.md` / `README.md` records the same facts in its **impl report** (a fresh per-session file — single-writer, conflict-free) instead. Cowork backfills the coordination-only set in a post-merge pass from the coordination worktree; that is the **only** path through which these files change.
+The rule holds in normal sessions, in mechanical runbooks, and as a "short wiki note on the side" — there is no exception. A strand that would previously have updated `project-state.md` / `log.md` / `index.md` / `README.md` records the same facts in its **impl report** (a fresh per-session file — single-writer, conflict-free) instead. Cowork *writes* the coordination-only set in a post-merge pass from the coordination worktree, and **CC commits it via a coordination-worktree PR** (§ Git → "PR policy" — Cowork never commits); that is the **only** path through which these files change.
 
 What strands **do** keep writing (unchanged): their own code/data paths (Product: `src/app/**`, `src/components/**`, `public/lab/**`, `docs/ui-backlog.md`; Batches: `scripts/**`, `src/lib/{seed,resolver,ingestion}/**`, override JSONs under `scripts/seed-data/`, `scripts/logs/ssot-loop-log.md`, `sessions/resolver-dossiers/`), plus their own new per-session impl report. All per-session files are single-writer and never collide.
 
@@ -219,15 +217,15 @@ At the start of any implementation session:
 
 1. Run `git branch --show-current` and `git status --short --branch`.
 2. Infer the strand from the current worktree path. CC always derives the strand itself — never ask the maintainer which worktree this is.
-3. If the current branch is `main`, detached, a bootstrap branch, or a previously merged task branch, create a fresh task branch from `origin/main` before editing — **unless the whole session is doc-only** (§ Git → "PR policy"), in which case edit and commit on `main` directly, no branch:
+3. If the current branch is `main`, detached, a bootstrap branch, or a previously merged task branch, create a fresh task branch from `origin/main` before editing. This now holds for **every** session, doc-only included (§ Git → "PR policy" — no direct-to-`main`):
    - Product/UI: `codex/product-<short-slug>`
    - Batch/Ingestion: `codex/ingest-batches-<short-slug>`
-   - Meta/session-only: `codex/session-<NNN>-<short-slug>` (code-touching meta work only — doc-only meta work needs no branch)
+   - Meta/session-only (incl. doc-only coordination + brain rollups): `codex/session-<NNN>-<short-slug>`
 4. Do not branch from an inflight feature branch unless Philipp explicitly says this session continues that exact branch.
 5. **Before editing any files, announce the detected worktree, strand, and task-branch in one sentence** (e.g. *"Worktree: `chrono-lexicanum-batches`, Strang: Batch/Ingestion, Branch: `codex/ingest-batches-foo`."*). A wrong-folder mistake becomes visible immediately.
 6. **If the task does not match the detected strand** — UI work in the Batches worktree, batch/resolver work in the Product worktree, a Brain/Rollup edit asked for from a strand worktree, or vice versa — **halt and ask back** instead of starting in the wrong place. This is a self-check, not a maintainer question; CC reads the path and decides.
 
-When Philipp says `fertig`, `PR erstellen`, or equivalent (code/data/config work — a doc-only change never reaches this step, see § Git → "PR policy"):
+When Philipp says `fertig`, `PR erstellen`, or equivalent (every session now ends here — doc-only work included, see § Git → "PR policy"):
 
 1. Verify the current worktree status.
 2. Stage only files changed for the current task in this worktree.

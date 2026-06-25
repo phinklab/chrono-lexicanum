@@ -2,7 +2,7 @@
 title: Claude Code session workflow
 type: workflow
 created: 2026-05-09
-updated: 2026-05-25
+updated: 2026-06-25
 sources:
   - ../../../docs/agents/CLAUDE_CODE.md
   - ../../../docs/agents/SESSIONS.md
@@ -23,7 +23,7 @@ confidence: high
 
 1. `git pull` (or `git status` if Philipp already pulled).
 2. **Self-check the worktree.** Run `git branch --show-current` and `git status --short --branch`. Infer the strand from the worktree path — CC always derives the strand itself, never asks the maintainer which worktree this is. **Announce the detected worktree, strand, and task-branch in one sentence** before touching any files (e.g. *"Worktree: `chrono-lexicanum-batches`, Strang: Batch/Ingestion, Branch: `codex/ingest-batches-foo`."*). If the task Philipp gave doesn't match the detected strand — UI work in the Batches worktree, batch/resolver work in the Product worktree, a Brain/Rollup edit from a strand worktree, or vice versa — **halt and ask back** before starting. Detail in [`/CLAUDE.md`](../../../CLAUDE.md) § "Parallel worktrees" + [`/AGENTS.md`](../../../AGENTS.md) § "Parallel worktree git protocol".
-3. List recent files in `sessions/` — sort by name. The brief to pick up is the highest-numbered `*-arch-*.md` with `status: open`.
+3. List recent files in `sessions/` — sort by name. The brief to pick up is the highest-numbered `*-arch-*.md` with `status: open`. **Cowork's briefs are no longer pushed to `main`** (§ "PR policy") — the open brief is an *uncommitted* file in the coordination worktree (`C:\Users\Phil\chrono-lexicanum\sessions\`). In a strand worktree, read it from that path; you'll copy it into your branch to commit it with your work.
 4. Read it end-to-end. Read referenced files (`brain/wiki/architecture.md`, `brain/wiki/roadmap.md`, `brain/wiki/pipeline-state.md`, etc.) the brief points at.
 5. **If anything in the brief is ambiguous or wrong, do NOT silently fix it.** Either ask Philipp in the terminal, or — if Philipp isn't around — write a short `*-impl-*.md` with `status: needs-decision` describing what's unclear, commit, stop.
 
@@ -69,13 +69,13 @@ When a brief touches installs/upgrades:
 - **Don't merge community submissions or run destructive scripts against production.** Anything irreversible against `DATABASE_URL` (truncate, drop, schema reset) is dev-only unless the brief explicitly authorizes.
 - **Don't leave a session without writing a report.** Even a 5-line "implemented as briefed, all green, here's the commit hash" is a contract Cowork relies on.
 
-## PR policy — code gets a PR, docs don't
+## PR policy — everything reaches `main` through a PR; CC carries Cowork's docs
 
-Decided 2026-05-25 with Philipp. Authoritative rule + edge cases: [`/CLAUDE.md`](../../../CLAUDE.md) § Git → "PR policy".
+Decided 2026-06-25 with Philipp (Brief 165), superseding the 2026-05-25 "docs direct to `main`" model. Cowork never commits — it leaves *files in the working tree*, and **CC commits them**. Authoritative rule + edge cases: [`/CLAUDE.md`](../../../CLAUDE.md) § Git → "PR policy".
 
-- **The architect brief reaches CC on `main`, not in a PR.** Briefs are doc-only and commit straight to `main`; `git pull` on session-start already has it. Branch your task branch from `main` as usual.
-- **CC's code work is a PR — always.** Any diff touching `src/`, `scripts/`, `src/db/`, `package.json`, `.github/**`, configs goes through a task branch + PR, exactly as before. Flip the brief's `status: open → implemented` and commit the impl report *inside that same PR* — a doc edit riding inside a code PR is fine.
-- **A doc-only session is the exception.** If CC's whole deliverable touches only Markdown / docs (a repo-hygiene sweep, a docs-only report), it commits directly to `main` — no branch, no PR. That happens only in the **coordination worktree** — strand worktrees never write `brain/**` (Rollup-Ownership). Run `npm run brain:lint -- --no-write` green first.
+- **The architect brief reaches CC as an uncommitted working-tree file, not on `main`.** Cowork writes it into the coordination worktree (`C:\Users\Phil\chrono-lexicanum\sessions\…md`) and no longer pushes it. If you're implementing in a **strand** worktree, read it from that coordination-worktree path and **copy it into your strand branch** so it rides in your PR — the brief file is fresh and conflict-free. Flip its `status: open → implemented` in that same PR. (`brain/**` rollups are *not* conflict-free and never ride a strand PR — see below.)
+- **CC's code work is a PR — always.** Any diff touching `src/`, `scripts/`, `src/db/`, `package.json`, `.github/**`, configs goes through a task branch + PR, exactly as before. The impl report rides inside that same PR.
+- **No direct-to-`main` — ever.** The old doc-only direct-commit path is removed. A doc-only / coordination / `brain/**` rollup deliverable still goes through a task branch + PR, but **from the coordination worktree** (`codex/session-<NNN>-<slug>`) — strand worktrees never write `brain/**` (Rollup-Ownership). Batched is fine. Run `npm run brain:lint -- --no-write` green first.
 - **Mixed change → PR.** Docs + code in one logical change → the whole thing through the PR.
 
 ## Tools CC has that Cowork doesn't
