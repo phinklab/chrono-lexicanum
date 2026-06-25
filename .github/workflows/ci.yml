@@ -1,8 +1,11 @@
 name: ci
 
-# Runs on every PR and on every push to main: doc-only commits land directly
-# on main per the PR policy (CLAUDE.md § Git) and previously skipped CI
-# entirely (Report 144 § B.2) — lint/typecheck/brain:lint now cover that path.
+# Runs on every PR and on every push to main. Post-Brief-165 (CLAUDE.md § Git
+# → "PR policy") every change — code and docs alike — reaches main only through
+# a reviewed, CC-authored PR; there is no direct-to-main path anymore. The
+# push: main trigger is therefore pure defense-in-depth — a safety net that
+# re-checks lint/typecheck/brain:lint on anything that lands on main outside a
+# PR (e.g. an explicitly authorized hotfix), not the doc-only path it once guarded.
 on:
   pull_request:
   push:

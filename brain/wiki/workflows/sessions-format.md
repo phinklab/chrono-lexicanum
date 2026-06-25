@@ -2,7 +2,7 @@
 title: Session log format
 type: workflow
 created: 2026-05-09
-updated: 2026-05-23
+updated: 2026-06-25
 sources:
   - ../../../docs/agents/SESSIONS.md
   - ../../../sessions/_templates/architect-brief.md
@@ -78,14 +78,16 @@ commits: []                # git commit hashes produced by this session
                   ┌─────────────────────────┐
                   │  Cowork writes brief    │
                   │  status: open           │
+                  │  (uncommitted — no push)│
                   └────────────┬────────────┘
                                │
-                          git push
+                    CC picks up + commits
+                       it in its PR
                                │
                   ┌────────────▼────────────┐
                   │  Claude Code reads it   │
                   │  implements             │
-                  │  writes report          │
+                  │  writes report (one PR) │
                   └────────────┬────────────┘
                                │
             ┌──────────────────┼──────────────────┐

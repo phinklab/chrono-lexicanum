@@ -1542,3 +1542,13 @@ Philipp testete den B14-Ansatz nach der CC-Implementierung und verwarf ihn bewus
 **Forward-Queue mit Philipp (2026-06-24):** **P14 Map/Sternenkarte** (entsperrt — Redditor-Koordinaten-Excel sichten, dann Reconciliation-Brief auf das `gx`/`gy`-0–1000-Raster; 53 Stage-3-Welten als Worklist; Roh-Quelle nach `scripts/seed-data/source/`) → **B12 Ask-Tuning** (entsperrt) → **P12 URL-EN + `/buch`-SSG** → **P13 Mobile**.
 
 **Edits:** `project-state.md` (Neuschrieb auf Stand 2026-06-24), `sessions/README.md` (Kopf + Active-Threads geslimmt), `open-questions.md` (Datum + Schluss-Note), `decisions/book-reviewer-no-apply-path.md` (neu), `index.md` (ADR-Zeile + Daten), `sessions/2026-06-19-162-arch-entity-isr-hot-subset.md` (rename + Frontmatter), `sessions/2026-06-20-163-arch-timed-preview-access.md` (links-Fix), dieser Eintrag. **Move:** 10 Session-Paare → `archive/2026-06/`.
+
+---
+
+## 2026-06-25 · Decision · PR-Policy-Reset — Cowork committet nie (Brief 165)
+
+Policy-Wechsel mit Philipp, **löst die 2026-05-25-„doc-only → direct to `main`"-Regel ab.** Auslöser: zu viele Cowork-initiierte Commits/PRs, und der direct-to-`main`-Workaround riss den `push: branches:[main]`-CI-Gate (`brain:lint`) auf → roter `main` (2 blocking findings: Decision-Metadata + Catalog-Freshness).
+
+**Neue Regel:** Cowork führt **nie** `git` aus und gibt Philipp **keine** git-Kommandos für eigenen Output. Cowork liefert *Dateien im Working-Tree* (Brief + `brain/**` + `sessions/README.md`); **CC committet sie im PR**. Kein direct-to-`main` mehr — jede Änderung (Code wie Docs) läuft über einen CC-PR. Der Brief reitet als frische, konfliktfreie Datei im Strang-Code-PR mit; `brain/**`-Rollups committet CC aus dem Koordinations-Worktree (Brief-095-Single-Writer-Invariante).
+
+**Edits (uncommitted, Teil von Brief-165-PR):** `CLAUDE.md` (§ Git → „PR policy" Neuschrieb + Worktree-Querverweise), `AGENTS.md` (§ PR policy + Worktree-Protokoll), `brain/wiki/workflows/cowork-session.md` (§ PR policy + Step 8 + post-CC-Pass), `brain/wiki/workflows/cc-session.md` (§ PR policy + Session-Start 1/3), `sessions/2026-06-25-165-arch-pr-policy-cowork-no-commit.md` (neu), `sessions/README.md` (Active-Threads-Zeile), dieser Eintrag. **Offen an CC (Brief 165):** die 2 `brain:lint` blocking findings fixen → CI grün, dann alles in einem Koordinations-Worktree-PR.

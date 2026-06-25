@@ -2,7 +2,7 @@
 title: Cowork session workflow
 type: workflow
 created: 2026-05-09
-updated: 2026-05-25
+updated: 2026-06-25
 sources:
   - ../../../docs/agents/COWORK.md
   - ../../../docs/agents/SESSIONS.md
@@ -69,19 +69,10 @@ A brief is the most expensive thing Cowork writes: **every token in it is a toke
 5. **Update wiki pages** if the planning changes the system (architecture, roadmap, pipeline-state). Pre-049: `ARCHITECTURE.md` / `ROADMAP.md` top-level. Post-049: `brain/wiki/architecture.md` / `brain/wiki/roadmap.md`.
 6. Write the brief into `sessions/YYYY-MM-DD-NNN-arch-{slug}.md` using the template. Fold any open-questions items in (and prune them from `open-questions.md`).
 7. **Scope-recap before handoff** (§ "Brief scope & length discipline"): re-read the brief once — does it fit one session / one PR / ≈ one CC context-window? Is the prose as short as it can be without losing the spec? If the scope is too big, **split** into sequential briefs (Step N → Brief → PR) rather than ship one fat brief. Never skip this step.
-8. Hand Philipp the doc-only commit lines for the brief — it lands on `main` directly, no PR (§ "PR policy"). PowerShell-safe, **one line each** (PowerShell 5 has no `&&` — see [`/CLAUDE.md`](../../../CLAUDE.md) § Git):
-
-   ```
-   npm run brain:lint -- --no-write
-   git add sessions/<file>
-   git commit -m "Brief NNN: <slug>"
-   git push origin main
-   ```
-
-   Then tell him: "open a terminal in the project folder and run `claude` / `codex` — the brief is on `main` at `sessions/...md`, and CC picks up from there."
+8. **Hand off without any git command** (§ "PR policy" — Cowork never commits). The brief stays *uncommitted* in the working tree. Tell Philipp: "open a terminal in the project folder and run `claude` / `codex` — the brief is at `sessions/...md`; CC picks it up and folds it into its PR (no separate push needed)." Do **not** hand him `git add` / `git commit` / `git push` lines for the brief — that path is gone.
 9. Mark tasks completed.
 
-If Philipp wants Cowork to push code or run builds: gently redirect. "That's a Claude Code job. I've written the brief — you can hand it to him now."
+If Philipp wants Cowork to push code, run builds, or commit anything: gently redirect. "That's a Claude Code job. I've written the brief — you can hand it to him now, and he commits it with his work."
 
 ## After reading a CC implementer report
 
@@ -98,18 +89,19 @@ Per [`./session-end.md`](./session-end.md), the routine is:
 7. Update [`../index.md`](../index.md) and [`../log.md`](../log.md) (the catalog and the operation log).
 8. Update [`../../../sessions/README.md`](../../../sessions/README.md) — Active-threads + the session-table row for the merged PR. (Coordination worktree only — strand worktrees never touch this file.)
 
-This whole pass is doc-only — commit it straight to `main`, no PR (§ "PR policy" below).
+Cowork *writes* this pass; it stays uncommitted until **CC commits it via a coordination-worktree PR** (§ "PR policy" below — Cowork never commits, no direct-to-`main`).
 
-## PR policy — Cowork's output lands direct on `main`
+## PR policy — Cowork never commits; CC carries the docs in a PR
 
-Decided 2026-05-25 with Philipp. A pull request is a code-review + CI mechanism, and Cowork's output — architect briefs, coordination passes, `brain/**` edits — is **doc-only**: there is nothing for a PR to catch. It commits **directly to `main`**, no branch, no PR. Authoritative rule + edge cases: [`/CLAUDE.md`](../../../CLAUDE.md) § Git → "PR policy".
+Decided 2026-06-25 with Philipp (Brief 165), **superseding** the 2026-05-25 "Cowork's output lands direct on `main`" model. That model grew noisy (too many Cowork-initiated pushes) and the direct-to-`main` workaround tripped the `push: main` `brain:lint` CI gate, leaving `main` red. New contract: Cowork produces *files*, CC produces *commits*. Authoritative rule + edge cases: [`/CLAUDE.md`](../../../CLAUDE.md) § Git → "PR policy".
 
 What this means for a Cowork session:
 
-- **The brief and the coordination pass go straight to `main`.** Cowork can't run `git` (sandbox). It writes the files and hands Philipp the exact line — `git add <files> && git commit -m "<msg>" && git push origin main`. The coordination worktree sits on `main` for exactly this; no `codex/session-*` branch for doc-only work.
-- **A coordination pass is never its own PR.** Folding a merged strand PR into `project-state.md` / `pipeline-state.md` / `open-questions.md` / `index.md` / `log.md` / `sessions/README.md` is doc-only — direct to `main`. The old three-PR hygiene cycle (coordination pass + next brief + coordination pass) collapses to direct commits.
-- **A code-handing brief still hands code to CC.** The brief *file* lands on `main` directly; the *implementation* is code → CC's task branch + PR, and CC flips the brief's `status: open → implemented` inside that PR. Cowork opens no PR for the brief.
-- **Run `brain:lint` first.** `ci.yml` gates `brain:lint` on PRs only; a direct-to-`main` doc commit skips CI. Hand Philipp `npm run brain:lint -- --no-write` to run green before the push — until `ci.yml` grows a `push: branches: [main]` trigger.
+- **Cowork never runs `git` and never hands Philipp a git command for its own output.** No `git add` / `git commit` / `git push` line — ever. The brief, the coordination pass, and every `brain/**` / `sessions/README.md` edit sit **uncommitted** in the coordination worktree until a CC PR carries them.
+- **No direct-to-`main`.** The doc-only direct-commit path is gone. Everything reaches `main` through a CC-authored task branch + PR.
+- **The brief rides in the implementing PR.** The brief *file* is fresh and conflict-free, so CC stages it into the strand code PR that implements it and flips `status: open → implemented` there. Cowork opens no PR and pushes nothing.
+- **Coordination passes / brain rollups → CC commits them from the coordination worktree.** Folding a merged strand PR into `project-state.md` / `pipeline-state.md` / `open-questions.md` / `index.md` / `log.md` / `sessions/README.md` is *written* by Cowork, then **committed by CC** on a `codex/session-*` branch + PR from the coordination worktree (single-writer invariant intact). Batched is fine — several passes in one doc PR.
+- **`brain:lint` green before the PR.** CC runs `npm run brain:lint -- --no-write` green before any PR touching `brain/**`. `ci.yml` gates it on every PR (and on `push: main` as a safety net).
 
 ## Tools Cowork actually uses
 
