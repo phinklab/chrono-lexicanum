@@ -1,5 +1,6 @@
 import curationJson from "../../../scripts/seed-data/ask-curation.json";
 
+import { compareByMerit } from "./compare";
 import {
   ASK_OPTION_IDS_BY_QUESTION,
   ASK_QUESTION_IDS,
@@ -221,13 +222,6 @@ function targetLabel(rule: AskCurationPinRule | AskCurationBoostBookRule | AskCu
   return "tag" in rule ? "tag" : "book";
 }
 
-function compareNullableDesc(a: number | null | undefined, b: number | null | undefined): number {
-  if (a == null && b != null) return 1;
-  if (a != null && b == null) return -1;
-  if (a != null && b != null && a !== b) return b - a;
-  return 0;
-}
-
 function compareAppliedRecommendations(a: AppliedRecommendation, b: AppliedRecommendation): number {
   if (a.pinOrder != null || b.pinOrder != null) {
     if (a.pinOrder == null) return 1;
@@ -235,20 +229,10 @@ function compareAppliedRecommendations(a: AppliedRecommendation, b: AppliedRecom
     if (a.pinOrder !== b.pinOrder) return a.pinOrder - b.pinOrder;
   }
 
-  const aRec = a.recommendation;
-  const bRec = b.recommendation;
-  if (aRec.score !== bRec.score) return bRec.score - aRec.score;
-
-  const rating = compareNullableDesc(aRec.rating, bRec.rating);
-  if (rating !== 0) return rating;
-
-  const release = compareNullableDesc(aRec.releaseYear, bRec.releaseYear);
-  if (release !== 0) return release;
-
-  const title = aRec.title.localeCompare(bRec.title, "en");
-  if (title !== 0) return title;
-
-  return aRec.slug.localeCompare(bRec.slug, "en");
+  // Pins compose on top; everything else uses the shared merit comparator
+  // (score → rating → title → slug) so the overlay tail orders identically to
+  // the base ranking and the matrix (Brief 164).
+  return compareByMerit(a.recommendation, b.recommendation);
 }
 
 function roundScore(n: number): number {

@@ -12,8 +12,11 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import process from "node:process";
 
+import { ANCHOR_SLUGS } from "@/lib/ask/anchors";
+import { isHeresyBook } from "@/lib/ask/boundaries";
+import { resolveAskCell } from "@/lib/ask/matrix";
 import { ASK_QUESTIONS } from "@/lib/ask/questions";
-import { recommend } from "@/lib/ask/recommend";
+import { buildAskProfile } from "@/lib/ask/recommend";
 import {
   ASK_WEIGHT_TAGS,
   type AskAnswers,
@@ -56,9 +59,11 @@ interface RecommendationAudit {
   authors: string[];
   score: number;
   primaryEraId?: string | null;
+  startY?: number | null;
   format?: string | null;
   releaseYear?: number | null;
   rating?: number | null;
+  isAnchor: boolean;
   matchedReasonCodes: string[];
   reasons: AskRecommendationReason[];
 }
@@ -237,9 +242,11 @@ function toRecommendationAudit(rec: AskRecommendation, index: number): Recommend
     authors: rec.authors,
     score: rec.score,
     primaryEraId: rec.primaryEraId,
+    startY: rec.startY,
     format: rec.format,
     releaseYear: rec.releaseYear,
     rating: rec.rating,
+    isAnchor: ANCHOR_SLUGS.has(rec.slug),
     matchedReasonCodes,
     reasons: rec.reasons,
   };
@@ -357,7 +364,10 @@ function updateOptionCoverage(
 }
 
 function isHeresy(rec: RecommendationAudit): boolean {
-  return rec.primaryEraId === "great_crusade" || rec.primaryEraId === "horus_heresy";
+  // Same detector as the HH hard gate (boundaries.ts) — startY band + curated
+  // slug supplement — so the audit measures exactly what the gate filters
+  // (Brief 164).
+  return isHeresyBook(rec.primaryEraId ?? null, rec.startY ?? null, rec.slug);
 }
 
 function formatNumber(value: number): string {
@@ -411,72 +421,72 @@ function scenarioAnswers(
   faction: string,
   tone: string,
   length: string,
-  era: string,
 ): AskAnswers {
   return {
     experience: experience as AskAnswers["experience"],
     faction_love: faction as AskAnswers["faction_love"],
     tone: tone as AskAnswers["tone"],
     length: length as AskAnswers["length"],
-    era_pref: era as AskAnswers["era_pref"],
   };
 }
 
+/**
+ * Plausibility anchors, recast for the 4-question contract (Brief 164). Each
+ * scenario lands in a lane that carries a curated anchor, so the expected
+ * family should surface near the top. The Chaos / early-Heresy scenarios use
+ * experience=some, not deep — the deep gate excludes the anchor set, so the
+ * canonical entries only appear for new/some readers.
+ */
 function plausibilityScenarios(): PlausibilityScenario[] {
   return [
     {
-      id: "new-inquisition-political-standalone",
-      label: "Newcomer + Inquisition + standalone/political",
-      answers: scenarioAnswers("new", "inquisition", "political", "standalone", "long_war"),
-      expectedFamilies: ["Eisenhorn", "Bloodlines", "Vaults of Terra"],
+      id: "new-imperium-investigative-standalone",
+      label: "Newcomer + Imperium + investigative + standalone",
+      answers: scenarioAnswers("new", "imperium_of_man", "investigative", "standalone"),
+      expectedFamilies: ["Eisenhorn", "Vaults of Terra"],
       patterns: [
         /eisenhorn|xenos|malleus|hereticus/i,
-        /bloodlines/i,
-        /vaults?[- ]of[- ]terra|carrion[- ]throne|hollow[- ]mountain|dark[- ]city/i,
+        /vaults?[- ]of[- ]terra|carrion[- ]throne|hollow[- ]mountain/i,
       ],
     },
     {
-      id: "new-guard",
-      label: "Newcomer + Guard",
-      answers: scenarioAnswers("new", "guard", "military", "trilogy", "long_war"),
+      id: "new-imperium-military-trilogy",
+      label: "Newcomer + Imperium + military + trilogy",
+      answers: scenarioAnswers("new", "imperium_of_man", "military", "trilogy"),
       expectedFamilies: ["Gaunt", "Cain", "Cadia"],
       patterns: [
         /gaunt|first[- ]and[- ]only|tanith/i,
-        /ciaphas[- ]cain|hero[- ]of[- ]the[- ]imperium/i,
-        /cadia|cadian/i,
+        /ciaphas[- ]cain|for[- ]the[- ]emperor|hero[- ]of[- ]the[- ]imperium/i,
+        /cadia|cadian|fifteen[- ]hours/i,
       ],
     },
     {
-      id: "new-space-marines",
-      label: "Newcomer + Space Marines",
-      answers: scenarioAnswers("new", "loyalist_sm", "heroic", "standalone", "long_war"),
-      expectedFamilies: ["Uriel Ventris", "Brothers of the Snake"],
-      patterns: [/uriel[- ]ventris|ultramarines/i, /brothers[- ]of[- ]the[- ]snake/i],
+      id: "new-space-marines-heroic",
+      label: "Newcomer + Space Marines + heroic",
+      answers: scenarioAnswers("new", "loyalist_sm", "heroic", "standalone"),
+      expectedFamilies: ["Space Wolf", "Brothers of the Snake"],
+      patterns: [/space[- ]wolf|ragnar/i, /brothers[- ]of[- ]the[- ]snake/i],
     },
     {
-      id: "chaos",
-      label: "Chaos path",
-      answers: scenarioAnswers("deep", "heretic", "grimdark", "trilogy", "long_war"),
-      expectedFamilies: ["Night Lords", "Talons/Black Legion", "Iron Warriors"],
-      patterns: [
-        /night[- ]lords/i,
-        /talons?[- ]of[- ]horus|black[- ]legion/i,
-        /iron[- ]warriors|honsou/i,
-      ],
+      id: "chaos-grimdark",
+      label: "Chaos + grimdark (some)",
+      answers: scenarioAnswers("some", "heretic", "grimdark", "trilogy"),
+      expectedFamilies: ["Night Lords", "Soul Hunter"],
+      patterns: [/night[- ]lords/i, /soul[- ]hunter/i],
     },
     {
-      id: "xenos",
-      label: "Xenos path",
-      answers: scenarioAnswers("some", "xenos", "heroic", "standalone", "any_era"),
-      expectedFamilies: ["The Infinite and the Divine"],
-      patterns: [/infinite.*divine/i],
+      id: "xenos-grimdark",
+      label: "Xenos + grimdark (some)",
+      answers: scenarioAnswers("some", "xenos", "grimdark", "standalone"),
+      expectedFamilies: ["The Infinite and the Divine", "Severed"],
+      patterns: [/infinite.*divine/i, /severed/i],
     },
     {
-      id: "explicit-heresy",
-      label: "Explicit Horus Heresy request",
-      answers: scenarioAnswers("some", "loyalist_sm", "mythic", "trilogy", "heresy"),
-      expectedFamilies: ["Horus Rising / early Heresy / HH"],
-      patterns: [/horus[- ]rising|false[- ]gods|galaxy[- ]in[- ]flames|flight[- ]of[- ]the[- ]eisenstein|fulgrim|legion/i],
+      id: "early-heresy",
+      label: "Heretic + heroic (some) — early Heresy",
+      answers: scenarioAnswers("some", "heretic", "heroic", "trilogy"),
+      expectedFamilies: ["Horus Rising / Talon of Horus / Black Legion"],
+      patterns: [/horus[- ]rising|talons?[- ]of[- ]horus|black[- ]legion/i],
     },
   ];
 }
@@ -503,40 +513,135 @@ function evaluatePlausibility(
   });
 }
 
-function heresyExposure(audits: readonly CombinationAudit[]): {
-  explicitHeresyShare: string;
-  nonHeresyNewcomerShare: string;
-  explicitSlots: number;
-  explicitHits: number;
-  nonHeresyNewcomerSlots: number;
-  nonHeresyNewcomerHits: number;
-} {
-  let explicitSlots = 0;
-  let explicitHits = 0;
-  let nonHeresyNewcomerSlots = 0;
-  let nonHeresyNewcomerHits = 0;
+interface GateMetrics {
+  /** Newcomer slots and how many were Horus-Heresy books — the HH gate must
+   *  hold this at 0 (Brief 164). */
+  newcomerSlots: number;
+  newcomerHeresyHits: number;
+  newcomerHeresyShare: string;
+  /** Deep slots and how many were anchor books — the deep gate must hold this
+   *  at 0. */
+  deepSlots: number;
+  deepAnchorHits: number;
+  deepAnchorShare: string;
+  /** Heresy exposure for some/deep readers (no gate; reported for context). */
+  someDeepSlots: number;
+  someDeepHeresyHits: number;
+  someDeepHeresyShare: string;
+}
+
+function gateMetrics(audits: readonly CombinationAudit[]): GateMetrics {
+  let newcomerSlots = 0;
+  let newcomerHeresyHits = 0;
+  let deepSlots = 0;
+  let deepAnchorHits = 0;
+  let someDeepSlots = 0;
+  let someDeepHeresyHits = 0;
 
   for (const audit of audits) {
-    const era = answerValue(audit.answers, "era_pref");
     const experience = answerValue(audit.answers, "experience");
+    const recs = audit.recommendations;
 
-    if (era === "heresy") {
-      explicitSlots += audit.recommendations.length;
-      explicitHits += audit.recommendations.filter(isHeresy).length;
-    } else if (experience === "new") {
-      nonHeresyNewcomerSlots += audit.recommendations.length;
-      nonHeresyNewcomerHits += audit.recommendations.filter(isHeresy).length;
+    if (experience === "new") {
+      newcomerSlots += recs.length;
+      newcomerHeresyHits += recs.filter(isHeresy).length;
+    }
+    if (experience === "deep") {
+      deepSlots += recs.length;
+      deepAnchorHits += recs.filter((rec) => rec.isAnchor).length;
+    }
+    if (experience === "some" || experience === "deep") {
+      someDeepSlots += recs.length;
+      someDeepHeresyHits += recs.filter(isHeresy).length;
     }
   }
 
   return {
-    explicitHeresyShare: percent(explicitHits, explicitSlots),
-    nonHeresyNewcomerShare: percent(nonHeresyNewcomerHits, nonHeresyNewcomerSlots),
-    explicitSlots,
-    explicitHits,
-    nonHeresyNewcomerSlots,
-    nonHeresyNewcomerHits,
+    newcomerSlots,
+    newcomerHeresyHits,
+    newcomerHeresyShare: percent(newcomerHeresyHits, newcomerSlots),
+    deepSlots,
+    deepAnchorHits,
+    deepAnchorShare: percent(deepAnchorHits, deepSlots),
+    someDeepSlots,
+    someDeepHeresyHits,
+    someDeepHeresyShare: percent(someDeepHeresyHits, someDeepSlots),
   };
+}
+
+const CONCRETE_TONES = ["grimdark", "heroic", "investigative", "military"];
+const CONCRETE_FACTIONS = ["imperium_of_man", "loyalist_sm", "heretic", "xenos"];
+
+interface ToneClash {
+  title: string;
+  tones: string[];
+}
+
+interface ToneClashContext {
+  experience: string;
+  faction: string;
+  length: string;
+  clashes: ToneClash[];
+}
+
+interface ToneDistinctness {
+  /** (experience, faction, length) contexts examined over the 4 concrete tones. */
+  contexts: number;
+  /** Contexts where all four tones produced a distinct #1. */
+  distinctContexts: number;
+  /** Contexts where one book is the #1 of two or more tones. */
+  clashes: ToneClashContext[];
+}
+
+/**
+ * Tone is the dominant axis (Brief 164 tuning): holding experience/faction/
+ * length fixed, each of the four concrete tones should give a distinct #1 — so
+ * changing only the tone changes the top result. This measures that across the
+ * 4 concrete factions × 3 experiences × 3 lengths (the `any_*` aggregation cells
+ * are excluded — they merge tones by design). Informational, not a hard gate:
+ * a handful of narrow pools where one book legitimately owns two registers are
+ * accepted (see the PR notes), so this is reported, not enforced.
+ */
+function toneDistinctness(audits: readonly CombinationAudit[]): ToneDistinctness {
+  const groups = new Map<string, Map<string, string>>();
+  for (const audit of audits) {
+    const faction = answerValue(audit.answers, "faction_love");
+    const tone = answerValue(audit.answers, "tone");
+    if (!CONCRETE_FACTIONS.includes(faction) || !CONCRETE_TONES.includes(tone)) continue;
+    const top1 = audit.recommendations[0]?.title;
+    if (!top1) continue;
+    const experience = answerValue(audit.answers, "experience");
+    const length = answerValue(audit.answers, "length");
+    const ctxKey = `${experience}|${faction}|${length}`;
+    const byTone = groups.get(ctxKey) ?? new Map<string, string>();
+    byTone.set(tone, top1);
+    groups.set(ctxKey, byTone);
+  }
+
+  const clashes: ToneClashContext[] = [];
+  let distinctContexts = 0;
+  for (const [ctxKey, byTone] of groups) {
+    const titleToTones = new Map<string, string[]>();
+    for (const [tone, title] of byTone) {
+      const arr = titleToTones.get(title) ?? [];
+      arr.push(tone);
+      titleToTones.set(title, arr);
+    }
+    const dupes = [...titleToTones.entries()].filter(([, tones]) => tones.length > 1);
+    if (dupes.length === 0) {
+      distinctContexts += 1;
+      continue;
+    }
+    const [experience, faction, length] = ctxKey.split("|");
+    clashes.push({
+      experience,
+      faction,
+      length,
+      clashes: dupes.map(([title, tones]) => ({ title, tones })),
+    });
+  }
+
+  return { contexts: groups.size, distinctContexts, clashes };
 }
 
 function renderMarkdown(args: {
@@ -563,7 +668,7 @@ function renderMarkdown(args: {
     if (tag.activeCombos === 0 || tag.combosWithTopNMatch === 0) return false;
     return tag.combosWithTopNMatch / tag.activeCombos < 0.05;
   });
-  const heresy = heresyExposure(audits);
+  const gate = gateMetrics(audits);
 
   const lines: string[] = [];
   lines.push("# Ask Combination Audit");
@@ -588,7 +693,7 @@ function renderMarkdown(args: {
   );
   lines.push("- WH40K Book Club beginner guide: https://wh40kbookclub.com/beginners-guide-to-warhammer-40000/");
   lines.push(
-    "- Expected anchors for review: Eisenhorn/Bloodlines/Vaults of Terra, Gaunt/Cain/Cadia, Uriel Ventris/Brothers of the Snake, Night Lords/Talons/Iron Warriors, The Infinite and the Divine, and explicit-but-not-random Horus Heresy visibility.",
+    "- Lane-scoped anchors (`scripts/seed-data/ask-anchors.json`) seed the canonical entry per slice: Eisenhorn/Vaults of Terra (Imperium-investigative), Gaunt/Cain/Cadia (Imperium-military), Space Wolf/Brothers of the Snake (loyalist SM), Night Lords/Soul Hunter (heretic-grimdark), The Infinite and the Divine (xenos), Horus Rising (heretic + experience=some).",
   );
   lines.push("");
   lines.push("## Score summary");
@@ -604,9 +709,47 @@ function renderMarkdown(args: {
   ]
     .map(formatNumber)
     .join(" / ")}`);
+  lines.push("");
+  lines.push("## Gate verification");
+  lines.push("");
   lines.push(
-    `- Heresy exposure: explicit Heresy combos ${heresy.explicitHeresyShare} (${heresy.explicitHits}/${heresy.explicitSlots} Top-${options.limit} slots); non-Heresy newcomer combos ${heresy.nonHeresyNewcomerShare} (${heresy.nonHeresyNewcomerHits}/${heresy.nonHeresyNewcomerSlots} slots).`,
+    `- **HH gate (newcomer):** ${gate.newcomerHeresyShare} of newcomer Top-${options.limit} slots are Horus-Heresy books (${gate.newcomerHeresyHits}/${gate.newcomerSlots}). Must be 0.`,
   );
+  lines.push(
+    `- **Deep gate (anchors):** ${gate.deepAnchorShare} of deep Top-${options.limit} slots are anchor books (${gate.deepAnchorHits}/${gate.deepSlots}). Must be 0.`,
+  );
+  lines.push(
+    `- Context — some/deep Heresy exposure: ${gate.someDeepHeresyShare} (${gate.someDeepHeresyHits}/${gate.someDeepSlots} slots); no gate, the Heresy is allowed once you're past newcomer.`,
+  );
+  if (gate.newcomerHeresyHits > 0 || gate.deepAnchorHits > 0) {
+    lines.push("");
+    lines.push("> ⚠ A gate invariant is violated above — see the script's non-zero exit.");
+  }
+  lines.push("");
+  lines.push("## Tone distinctness");
+  lines.push("");
+  const toneDistinct = toneDistinctness(audits);
+  lines.push(
+    `Tone is the dominant axis (Brief 164): holding experience/faction/length fixed, each of the four concrete tones should yield a distinct #1. **${toneDistinct.distinctContexts}/${toneDistinct.contexts}** contexts give four distinct tone champions. Informational, not a hard gate.`,
+  );
+  lines.push("");
+  if (toneDistinct.clashes.length === 0) {
+    lines.push("_Every context gives a distinct #1 per tone._");
+  } else {
+    lines.push(
+      "Accepted structural exceptions — one book legitimately owns two registers in a narrow pool, and forcing a split would promote a worse #1:",
+    );
+    lines.push("");
+    lines.push("| Context (experience / faction / length) | Book | Tones sharing #1 |");
+    lines.push("|---|---|---|");
+    for (const clash of toneDistinct.clashes) {
+      for (const entry of clash.clashes) {
+        lines.push(
+          `| ${clash.experience} / ${clash.faction} / ${clash.length} | ${md(entry.title)} | ${entry.tones.join(", ")} |`,
+        );
+      }
+    }
+  }
   lines.push("");
   lines.push("## Plausibility checks");
   lines.push("");
@@ -785,19 +928,25 @@ async function main(): Promise<void> {
   console.log(`outDir: ${options.outDir}`);
 
   for (const combo of combinations) {
-    const result = await recommend(combo.answers, {
+    // Resolve each visible combination through the SAME path production uses:
+    // `resolveAskCell` serves concrete cells from `recommend()` and resolves
+    // `any_faction`/`any_tone` by the deterministic merge of the concrete cells
+    // they span (Brief 164) — so the audit measures what the matrix actually
+    // returns, not a separate live ranking. The book load is cached, so this is
+    // one DB read regardless of the 225 combinations.
+    const cell = await resolveAskCell(combo.answers, {
       limit: options.limit,
-      onError: "throw",
       cacheBooks: true,
     });
-    const recommendations = result.recommendations.map(toRecommendationAudit);
+    const profile = buildAskProfile(combo.answers);
+    const recommendations = cell.map(toRecommendationAudit);
     const audit: CombinationAudit = {
       index: combo.index,
       key: combo.key,
       answers: combo.answers,
       choices: combo.choices,
       answerLabels: Object.fromEntries(combo.choices.map((choice) => [choice.questionId, choice.optionLabel])),
-      activeTags: activeTags(result.profile.weights),
+      activeTags: activeTags(profile.weights),
       topScore: recommendations[0]?.score ?? 0,
       recommendations,
     };
@@ -851,7 +1000,8 @@ async function main(): Promise<void> {
       combinations: audits.length,
       empty: audits.filter((audit) => audit.recommendations.length === 0).length,
       weak: audits.filter((audit) => audit.recommendations.length === 0 || audit.topScore < options.weakScore).length,
-      heresyExposure: heresyExposure(audits),
+      gate: gateMetrics(audits),
+      toneDistinctness: toneDistinctness(audits),
     },
     plausibility,
     bookExposure: exposureList.map((book) => ({
@@ -868,6 +1018,42 @@ async function main(): Promise<void> {
 
   console.log(`markdown written: ${markdownPath}`);
   console.log(`json written: ${jsonPath}`);
+
+  // Hard invariants (Brief 164): every visible combination resolves to ≥1 book,
+  // newcomers never see Horus-Heresy books, and deep readers never see anchors.
+  // A violation fails the audit so it cannot land silently.
+  const gate = gateMetrics(audits);
+  const emptyCombos = audits.filter((audit) => audit.recommendations.length === 0);
+  const violations: string[] = [];
+  if (emptyCombos.length > 0) {
+    violations.push(
+      `${emptyCombos.length} combination(s) returned no recommendations: ${emptyCombos
+        .slice(0, 10)
+        .map((audit) => audit.key)
+        .join(" | ")}${emptyCombos.length > 10 ? " …" : ""}`,
+    );
+  }
+  if (gate.newcomerHeresyHits > 0) {
+    violations.push(
+      `HH gate breached: ${gate.newcomerHeresyHits} Horus-Heresy book(s) reached newcomer slots.`,
+    );
+  }
+  if (gate.deepAnchorHits > 0) {
+    violations.push(
+      `Deep gate breached: ${gate.deepAnchorHits} anchor book(s) reached deep slots.`,
+    );
+  }
+
+  if (violations.length > 0) {
+    console.error("");
+    console.error("[audit-ask-combinations] INVARIANT VIOLATIONS:");
+    for (const violation of violations) console.error(`  - ${violation}`);
+    process.exit(1);
+  }
+
+  console.log(
+    `gates ok: ${audits.length} combinations, all ≥1 result; newcomer-HH ${gate.newcomerHeresyShare}, deep-anchor ${gate.deepAnchorShare}.`,
+  );
   process.exit(0);
 }
 

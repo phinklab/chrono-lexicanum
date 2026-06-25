@@ -40,37 +40,28 @@
     "hint": "Pick the banner you would follow.",
     "options": [
       {
-        "id": "imperium",
-        "label": "The Imperium",
-        "sub": "Duty, faith, grim heroism.",
+        "id": "imperium_of_man",
+        "label": "The Imperium of Man",
+        "sub": "Duty, faith, the long defence of humanity.",
         "weight": {
           "faction_imperium": 3
         }
       },
       {
-        "id": "heretic",
-        "label": "The Traitor Legions",
-        "sub": "Damnation, ambition, Chaos.",
-        "weight": {
-          "faction_chaos": 3,
-          "villain_pov": 2
-        }
-      },
-      {
         "id": "loyalist_sm",
-        "label": "Space Marines",
-        "sub": "The Emperor's finest, loyal to the Throne.",
+        "label": "The Adeptus Astartes",
+        "sub": "Space Marines, loyal to the Throne.",
         "weight": {
           "faction_space_marines": 3
         }
       },
       {
-        "id": "inquisition",
-        "label": "The Inquisition",
-        "sub": "Secrets, heresy-hunting, compromise.",
+        "id": "heretic",
+        "label": "The Traitor Legions",
+        "sub": "Damnation, ambition, the lure of Chaos.",
         "weight": {
-          "faction_inquisition": 3,
-          "accessible": 1
+          "faction_chaos": 3,
+          "villain_pov": 2
         }
       },
       {
@@ -80,6 +71,12 @@
         "weight": {
           "faction_xenos": 3
         }
+      },
+      {
+        "id": "any_faction",
+        "label": "No allegiance",
+        "sub": "Any banner — surprise me.",
+        "weight": {}
       }
     ]
   },
@@ -92,7 +89,7 @@
         "label": "Unrelenting grimdark",
         "sub": "Cold, beautiful, bleak.",
         "weight": {
-          "tone_grim": 3,
+          "tone_grim": 7,
           "villain_pov": 1
         }
       },
@@ -101,15 +98,15 @@
         "label": "Heroic, defiant",
         "sub": "Standing against the dark.",
         "weight": {
-          "tone_heroic": 3
+          "tone_heroic": 7
         }
       },
       {
-        "id": "political",
-        "label": "Political, investigative",
-        "sub": "Intrigue over combat.",
+        "id": "investigative",
+        "label": "Investigative intrigue",
+        "sub": "Secrets and inquiry over open war.",
         "weight": {
-          "tone_political": 3,
+          "tone_political": 7,
           "accessible": 1
         }
       },
@@ -118,16 +115,14 @@
         "label": "Military, visceral",
         "sub": "Battle-focused, unit-level.",
         "weight": {
-          "tone_military": 3
+          "tone_military": 7
         }
       },
       {
-        "id": "mythic",
-        "label": "Mythic, cosmic",
-        "sub": "Primarchs, gods, legend.",
-        "weight": {
-          "tone_mythic": 3
-        }
+        "id": "any_tone",
+        "label": "No preference",
+        "sub": "Any register — surprise me.",
+        "weight": {}
       }
     ]
   },
@@ -157,42 +152,6 @@
         "id": "any_length",
         "label": "No preference",
         "sub": "Short or epic — surprise me.",
-        "weight": {}
-      }
-    ]
-  },
-  {
-    "id": "era_pref",
-    "prompt": "Which age calls to you?",
-    "options": [
-      {
-        "id": "heresy",
-        "label": "The Horus Heresy",
-        "sub": "M30 — brothers turning on brothers.",
-        "weight": {
-          "era_heresy": 3
-        }
-      },
-      {
-        "id": "long_war",
-        "label": "The 41st Millennium",
-        "sub": "The 'present' — before the Rift.",
-        "weight": {
-          "era_m41": 3
-        }
-      },
-      {
-        "id": "indomitus",
-        "label": "The Indomitus Era",
-        "sub": "M42 — Guilliman's return.",
-        "weight": {
-          "era_indomitus": 3
-        }
-      },
-      {
-        "id": "any_era",
-        "label": "No preference",
-        "sub": "Surprise me.",
         "weight": {}
       }
     ]

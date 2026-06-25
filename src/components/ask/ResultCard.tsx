@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment, useState } from "react";
 import Link from "next/link";
 import { FORMAT_LABELS } from "@/lib/book-labels";
 import { partitionByLengthIntent } from "@/lib/ask/length-match";
@@ -14,11 +15,22 @@ import type {
 
 type ResultCardProps = {
   result: AskRecommendationResult;
+  /** Live ranks beyond the Top-6 cell, present only after "Browse deeper". */
+  deeper: AskRecommendation[] | null;
+  deeperRequested: boolean;
+  /** URL that re-renders this profile with the deeper ranks attached. */
+  deeperHref: string;
   questions: readonly AskQuestion[];
   answers: AskAnswers;
   onBack: () => void;
   onReset: () => void;
 };
+
+/* The verdict reveals in stages (Brief 164 Phase 3): the Top-3 render server-
+   side (no JS needed for the first look), "Load more" reveals the rest of the
+   Top-6 cell client-side, and only then does "Browse deeper" go live. */
+const STAGE_INITIAL = 3;
+const STAGE_STEP = 3;
 
 function answerLabel(question: AskQuestion, answers: AskAnswers): string {
   const value = answers[question.id];
@@ -122,49 +134,71 @@ function RunnerRecommendation({
   );
 }
 
-function ResultList({
-  items,
-  offset = 0,
-  label,
+function RecommendationRow({
+  recommendation,
+  index,
+  staged,
 }: {
-  items: readonly AskRecommendation[];
-  offset?: number;
-  label?: string;
+  recommendation: AskRecommendation;
+  index: number;
+  staged: boolean;
 }) {
+  // Items past the initial Top-3 only ever appear after a reveal action, so they
+  // fade in on arrival; `.c-fade-in` is itself gated behind
+  // prefers-reduced-motion (40-primitives.css), so this is motion-safe.
+  const className = [
+    index === 0 ? "ask-verdict-list__prime" : null,
+    staged ? "c-fade-in" : null,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <ol className="ask-verdict-list" aria-label={label}>
-      {items.map((recommendation, index) => {
-        const overall = offset + index;
-        return (
-          <li
-            key={recommendation.id}
-            className={overall === 0 ? "ask-verdict-list__prime" : undefined}
-          >
-            {overall === 0 ? (
-              <PrimeRecommendation recommendation={recommendation} />
-            ) : (
-              <RunnerRecommendation recommendation={recommendation} index={overall} />
-            )}
-          </li>
-        );
-      })}
-    </ol>
+    <li className={className || undefined}>
+      {index === 0 ? (
+        <PrimeRecommendation recommendation={recommendation} />
+      ) : (
+        <RunnerRecommendation recommendation={recommendation} index={index} />
+      )}
+    </li>
   );
 }
 
 export default function ResultCard({
   result,
+  deeper,
+  deeperRequested,
+  deeperHref,
   questions,
   answers,
   onBack,
   onReset,
 }: ResultCardProps) {
-  const recommendations = result.recommendations;
-  const { graded, exact, further } = partitionByLengthIntent(recommendations, answers);
+  const cell = result.recommendations;
+  const { graded, exact, further } = partitionByLengthIntent(cell, answers);
   const noExactLength = graded && exact.length === 0;
-  const splitLength = graded && exact.length > 0 && further.length > 0;
+  // One ordered list so the staging composes; the length divider is an
+  // interstitial row, not a second <ol>. When not graded, `exact` already holds
+  // every pick.
+  const ordered = graded ? [...exact, ...further] : [...exact];
+  const dividerIndex =
+    graded && exact.length > 0 && further.length > 0 ? exact.length : -1;
+
   const lengthQuestion = questions.find((question) => question.id === "length");
   const lengthLabel = lengthQuestion ? answerLabel(lengthQuestion, answers) : null;
+
+  // When the reader lands straight on a deeper URL, skip the staging and show
+  // the whole cell — otherwise the deeper ranks would graft on above hidden
+  // Top-6 rows.
+  const [revealed, setRevealed] = useState(() =>
+    deeperRequested ? ordered.length : Math.min(STAGE_INITIAL, ordered.length),
+  );
+
+  const visibleCount = Math.min(revealed, ordered.length);
+  const canRevealMore = revealed < ordered.length;
+  const deeperItems = deeperRequested && deeper ? deeper : [];
+  const showBrowseDeeper = !canRevealMore && !deeperRequested && cell.length > 0;
+  const totalShown = visibleCount + deeperItems.length;
 
   return (
     <section className="ask-results c-fade-in" aria-labelledby="ask-results-title">
@@ -173,43 +207,99 @@ export default function ResultCard({
           Verdictvm · The archive recommends
         </h2>
         <span className="ask-results__count">
-          {String(recommendations.length).padStart(2, "0")} hits
+          {String(totalShown).padStart(2, "0")} hits
         </span>
       </div>
 
-      {recommendations.length === 0 ? (
+      {cell.length === 0 ? (
         <div className="ask-results__empty">
           <h3>No books matched strongly enough.</h3>
-          <p>Try stepping back and choosing a broader faction, era, or commitment level.</p>
+          <p>Try stepping back and choosing a broader faction, tone, or commitment level.</p>
         </div>
-      ) : noExactLength ? (
-        <>
-          <p className="ask-results__note" role="note">
-            <span className="ask-results__note-key" aria-hidden>
-              {"NO EXACT MATCH"}
-            </span>
-            <span>
-              None of your top picks are{" "}
-              {lengthLabel ? <em>{lengthLabel.toLowerCase()}</em> : "that commitment"}. These are
-              the closest, ranked on the rest of your answers.
-            </span>
-          </p>
-          <ResultList items={further} />
-        </>
-      ) : splitLength ? (
-        <>
-          <ResultList items={exact} />
-          <p className="ask-results__divider">
-            <span className="ask-results__divider-label">Further recommendations</span>
-            <span className="ask-results__divider-note">
-              Strong picks that aren&rsquo;t{" "}
-              {lengthLabel ? <em>{lengthLabel.toLowerCase()}</em> : "that length"}.
-            </span>
-          </p>
-          <ResultList items={further} offset={exact.length} label="Further recommendations" />
-        </>
       ) : (
-        <ResultList items={exact} />
+        <>
+          {noExactLength && (
+            <p className="ask-results__note" role="note">
+              <span className="ask-results__note-key" aria-hidden>
+                {"NO EXACT MATCH"}
+              </span>
+              <span>
+                None of your top picks are{" "}
+                {lengthLabel ? <em>{lengthLabel.toLowerCase()}</em> : "that commitment"}. These are
+                the closest, ranked on the rest of your answers.
+              </span>
+            </p>
+          )}
+
+          <ol className="ask-verdict-list" aria-label="Recommendations">
+            {ordered.slice(0, visibleCount).map((recommendation, index) => (
+              <Fragment key={recommendation.id}>
+                {index === dividerIndex && (
+                  <li className="ask-verdict-list__divider" aria-hidden>
+                    <p className="ask-results__divider">
+                      <span className="ask-results__divider-label">Further recommendations</span>
+                      <span className="ask-results__divider-note">
+                        Strong picks that aren&rsquo;t{" "}
+                        {lengthLabel ? <em>{lengthLabel.toLowerCase()}</em> : "that length"}.
+                      </span>
+                    </p>
+                  </li>
+                )}
+                <RecommendationRow
+                  recommendation={recommendation}
+                  index={index}
+                  staged={index >= STAGE_INITIAL}
+                />
+              </Fragment>
+            ))}
+
+            {deeperItems.length > 0 && (
+              <li className="ask-verdict-list__divider" aria-hidden>
+                <p className="ask-results__divider">
+                  <span className="ask-results__divider-label">Deeper in the archive</span>
+                  <span className="ask-results__divider-note">
+                    Ranked below the top six on the same answers.
+                  </span>
+                </p>
+              </li>
+            )}
+            {deeperItems.map((recommendation, i) => (
+              <RecommendationRow
+                key={recommendation.id}
+                recommendation={recommendation}
+                index={ordered.length + i}
+                staged
+              />
+            ))}
+          </ol>
+
+          <div className="ask-verdict__more">
+            {canRevealMore && (
+              <button
+                type="button"
+                className="lx-btn ask-verdict__more-btn"
+                onClick={() =>
+                  setRevealed((n) => Math.min(ordered.length, n + STAGE_STEP))
+                }
+              >
+                Load more{" "}
+                <span aria-hidden>+{Math.min(STAGE_STEP, ordered.length - revealed)}</span>
+              </button>
+            )}
+            {showBrowseDeeper && (
+              <Link href={deeperHref} scroll={false} className="ask-footlink ask-verdict__deeper">
+                Browse deeper →
+              </Link>
+            )}
+            {deeperRequested && (
+              <p className="ask-verdict__deeper-note" role="note">
+                {deeperItems.length > 0
+                  ? `Showing ${deeperItems.length} more beyond the top six.`
+                  : "No further matches beyond the top six."}
+              </p>
+            )}
+          </div>
+        </>
       )}
 
       <div className="ask-responsa" aria-label="Selected answers">

@@ -368,6 +368,13 @@
   grid-column: 1 / -1;
 }
 
+/* Interstitial rows (length divider, deeper-cut divider) span both columns and
+   don't draw the card grid's box — they only carry the labelled rule. */
+.ask-verdict-list > li.ask-verdict-list__divider {
+  grid-column: 1 / -1;
+  display: block;
+}
+
 .ask-runner {
   height: 100%;
 }
@@ -557,6 +564,40 @@
   color: var(--cl-dim);
 }
 
+/* ---- Staged reveal controls — Load more (+3) → Browse deeper (live) ---- */
+
+.ask-verdict__more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 18px;
+  margin-top: clamp(20px, 3.5vh, 30px);
+}
+
+/* "Load more" reuses the hairline .lx-btn (already transparent) — present but
+   subordinate to the prime's framed "Open record" exit, so it doesn't compete
+   for the eye. The +N count rides in gold mono. */
+.ask-verdict__more-btn span {
+  margin-left: 2px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  color: var(--ix-gold);
+}
+
+.ask-verdict__deeper {
+  letter-spacing: 0.2em;
+}
+
+.ask-verdict__deeper-note {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--fs-read-sm);
+  font-style: italic;
+  font-weight: var(--fw-read);
+  color: var(--ix-steel);
+}
+
 .ask-results__empty {
   padding: 24px 0;
 }
@@ -654,7 +695,7 @@
 }
 
 @media (max-width: 720px) {
-  /* Five topic labels don't fit a phone — keep the dotted rail and name only the
+  /* Four topic labels don't fit a phone — keep the dotted rail and name only the
      live stop, so the reader still knows where they are. */
   .ask-timeline {
     height: 44px;

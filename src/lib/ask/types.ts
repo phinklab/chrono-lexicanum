@@ -3,17 +3,15 @@ export const ASK_QUESTION_IDS = [
   "faction_love",
   "tone",
   "length",
-  "era_pref",
 ] as const;
 
 export type AskQuestionId = (typeof ASK_QUESTION_IDS)[number];
 
 export const ASK_OPTION_IDS_BY_QUESTION = {
   experience: ["new", "some", "deep"],
-  faction_love: ["imperium", "heretic", "loyalist_sm", "inquisition", "xenos"],
-  tone: ["grimdark", "heroic", "political", "military", "mythic"],
+  faction_love: ["imperium_of_man", "loyalist_sm", "heretic", "xenos", "any_faction"],
+  tone: ["grimdark", "heroic", "investigative", "military", "any_tone"],
   length: ["standalone", "trilogy", "any_length"],
-  era_pref: ["heresy", "long_war", "indomitus", "any_era"],
 } as const satisfies Record<AskQuestionId, readonly string[]>;
 
 export type AskOptionIdFor<Q extends AskQuestionId> = (typeof ASK_OPTION_IDS_BY_QUESTION)[Q][number];
@@ -32,17 +30,11 @@ export const ASK_WEIGHT_TAGS = [
   "faction_imperium",
   "faction_chaos",
   "faction_space_marines",
-  "faction_inquisition",
-  "faction_guard",
   "faction_xenos",
   "tone_grim",
   "tone_heroic",
   "tone_political",
   "tone_military",
-  "tone_mythic",
-  "era_heresy",
-  "era_m41",
-  "era_indomitus",
 ] as const;
 
 export type AskWeightTag = (typeof ASK_WEIGHT_TAGS)[number];
@@ -88,6 +80,20 @@ export interface AskRecommendationCurationEffect {
   note?: string;
 }
 
+/** A partial profile (a subset of answers) — used by curation `when` and by the
+ *  lane-scoped anchor signal to bind a book to the slice it anchors. */
+export type AskAnswerSubset = Partial<Record<AskQuestionId, string>>;
+
+/** The lane-scoped anchor merit attached to a recommendation when the active
+ *  profile matches one of the book's anchor lanes (Brief 164). */
+export interface AskRecommendationAnchor {
+  points: number;
+  lane: AskAnswerSubset;
+  sources: string[];
+  confidence: string;
+  note?: string;
+}
+
 export interface AskRecommendation {
   id: string;
   slug: string;
@@ -97,12 +103,14 @@ export interface AskRecommendation {
   matchedTags: AskWeightTag[];
   reasons: AskRecommendationReason[];
   primaryEraId?: string | null;
+  startY?: number | null;
   format?: string | null;
   releaseYear?: number | null;
   rating?: number | null;
   synopsis?: string | null;
   coverUrl?: string | null;
   curation?: AskRecommendationCurationEffect[];
+  anchor?: AskRecommendationAnchor;
 }
 
 export interface AskRecommendationResult {
