@@ -6,6 +6,8 @@
 import { db } from "@/db/client";
 import { factions as factionsTable } from "@/db/schema";
 import { passesHardAskBoundaries } from "./boundaries";
+import { ANCHOR_SLUGS, anchorMeritFor } from "./anchors";
+import { compareByMerit } from "./compare";
 import { applyAskCuration, EMPTY_ASK_CURATION, type AskCurationOverlay } from "./curation";
 import { ASK_QUESTIONS } from "./questions";
 import {
@@ -35,17 +37,11 @@ const TAG_LABELS = {
   faction_imperium: "Imperium",
   faction_chaos: "Chaos",
   faction_space_marines: "Space Marines",
-  faction_inquisition: "Inquisition",
-  faction_guard: "Astra Militarum",
   faction_xenos: "Xenos",
   tone_grim: "Grimdark tone",
   tone_heroic: "Heroic tone",
-  tone_political: "Political/investigative tone",
+  tone_political: "Investigative tone",
   tone_military: "Military tone",
-  tone_mythic: "Mythic/cosmic tone",
-  era_heresy: "Horus Heresy era",
-  era_m41: "M41 era",
-  era_indomitus: "Indomitus era",
 } as const satisfies Record<AskWeightTag, string>;
 
 type AskRecommendErrorMode = "empty" | "throw";
@@ -89,6 +85,7 @@ interface AskBookWork {
   seriesIndex: number | null;
   seriesTotalPlanned: number | null;
   primaryEraId: string | null;
+  isAnchor: boolean;
   authors: string[];
   factions: FactionRef[];
   facets: FacetRef[];
@@ -104,14 +101,6 @@ interface TagEvaluation {
 const EMPTY_SET: ReadonlySet<string> = new Set<string>();
 
 const XENOS_ROOTS = ["eldar", "tau", "necrons", "tyranids", "orks"];
-const GUARD_ROOTS = [
-  "astra_militarum",
-  "commissariat",
-  "tempestus_scions",
-  "last_chancers",
-  "ratlings",
-  "ogryns",
-];
 
 let cachedAskBooks: Promise<AskBookWork[]> | null = null;
 
@@ -288,6 +277,7 @@ async function loadAskBooks(): Promise<AskBookWork[]> {
       seriesIndex: w.bookDetails?.seriesIndex ?? null,
       seriesTotalPlanned: w.bookDetails?.series?.totalPlanned ?? null,
       primaryEraId: w.bookDetails?.primaryEraId ?? null,
+      isAnchor: ANCHOR_SLUGS.has(w.slug),
       authors,
       factions,
       facets,
@@ -418,9 +408,17 @@ function evaluateAccessible(book: AskBookWork): TagEvaluation {
 function evaluateDeepCut(book: AskBookWork): TagEvaluation {
   const entry = firstCategoryFacet(book, "entry_point");
   const lateSeries = book.seriesIndex != null && book.seriesIndex >= 3;
+  // An omnibus is the *accessible* way to buy a whole arc in one volume, not an
+  // obscure deep cut — so its bulk page count must not earn the long-read deep
+  // signal (Brief 164 tuning: popular omnibuses like Fabius Bile: The Omnibus
+  // were floating to the top of the `deep` lane on length alone). Genuine deep
+  // cuts are single uncompromising volumes, late-series entries, or books that
+  // openly require prior context.
+  const isOmnibus = book.format === "omnibus";
   const longRead =
-    hasFacet(book, "length_tier", ["doorstopper"]) ||
-    (book.pageCount != null && book.pageCount >= 650);
+    !isOmnibus &&
+    (hasFacet(book, "length_tier", ["doorstopper"]) ||
+      (book.pageCount != null && book.pageCount >= 650));
 
   if (entry === "requires_context" || lateSeries || longRead) {
     return { multiplier: 1, detail: entryDetail(book) };
@@ -515,56 +513,85 @@ function evaluateVillainPov(book: AskBookWork): TagEvaluation {
   return { multiplier: 0 };
 }
 
-function evaluateTone(
-  book: AskBookWork,
-  groups: ReadonlyArray<{
-    category: string;
-    ids: readonly string[];
-    multiplier?: number;
-  }>,
-): TagEvaluation {
-  let bestMultiplier = 0;
-  const names: string[] = [];
+const TONE_TAGS = ["tone_grim", "tone_heroic", "tone_political", "tone_military"] as const;
+type ToneTag = (typeof TONE_TAGS)[number];
 
-  for (const group of groups) {
-    const matches = matchingFacetNames(book, group.category, group.ids);
-    if (matches.length === 0) continue;
-    names.push(...matches);
-    bestMultiplier = Math.max(bestMultiplier, group.multiplier ?? 1);
-  }
-
-  return bestMultiplier > 0
-    ? { multiplier: bestMultiplier, detail: `Facets: ${[...new Set(names)].join(", ")}` }
-    : { multiplier: 0 };
+interface ToneSignal {
+  category: string;
+  ids: readonly string[];
+  weight: number;
 }
 
-function evaluateEra(book: AskBookWork, tag: AskWeightTag): TagEvaluation {
-  const startY = book.startY;
+// Per-tone facet signals. The weight grades how strongly a facet implies the
+// tone (a direct tone/plot_type facet is a full signal; a thematic echo is
+// partial). Affinities are summed per tone, so a book that hits several signals
+// reads as *more* that tone — the resolution the exclusivity step below needs.
+const TONE_SIGNALS: Record<ToneTag, readonly ToneSignal[]> = {
+  tone_grim: [
+    { category: "tone", ids: ["grimdark", "somber", "cosmic_horror"], weight: 1 },
+    { category: "theme", ids: ["betrayal", "hubris"], weight: 0.65 },
+  ],
+  tone_heroic: [
+    { category: "tone", ids: ["hopepunk", "action_heavy"], weight: 1 },
+    { category: "plot_type", ids: ["last_stand"], weight: 0.85 },
+    {
+      category: "theme",
+      ids: ["loyalty", "brotherhood", "sacrifice", "faith", "redemption"],
+      weight: 0.8,
+    },
+  ],
+  tone_political: [
+    { category: "plot_type", ids: ["political_thriller", "court_intrigue", "mystery"], weight: 1 },
+    { category: "theme", ids: ["doubt", "faith"], weight: 0.6 },
+  ],
+  tone_military: [
+    { category: "plot_type", ids: ["war_story", "siege", "last_stand"], weight: 1 },
+    { category: "theme", ids: ["war", "sacrifice"], weight: 0.75 },
+  ],
+};
 
-  if (tag === "era_heresy") {
-    const matched =
-      book.primaryEraId === "great_crusade" ||
-      book.primaryEraId === "horus_heresy" ||
-      (startY != null && startY >= 30000 && startY < 32000);
-    return matched
-      ? { multiplier: 1, detail: `Era: ${book.primaryEraId ?? "M30/M31"}` }
-      : { multiplier: 0 };
+interface ToneAffinity {
+  score: number;
+  names: string[];
+}
+
+function rawToneAffinity(book: AskBookWork, tag: ToneTag): ToneAffinity {
+  let score = 0;
+  const names: string[] = [];
+  for (const signal of TONE_SIGNALS[tag]) {
+    const matches = matchingFacetNames(book, signal.category, signal.ids);
+    if (matches.length === 0) continue;
+    score += signal.weight;
+    names.push(...matches);
   }
+  return { score, names };
+}
 
-  if (tag === "era_m41") {
-    const matched =
-      book.primaryEraId === "time_ending" ||
-      (startY != null && startY >= 40000 && startY < 42000);
-    return matched
-      ? { multiplier: 1, detail: `Era: ${book.primaryEraId ?? "M41"}` }
-      : { multiplier: 0 };
+/**
+ * Tone is a *primary* axis (Brief 164 tuning): changing only the tone must
+ * change the #1 result. A binary "matches the tone? → full points" rule fails
+ * that — a book that fits several tones wins all of them on the tiebreak. So a
+ * book's contribution to the queried tone is scaled by how *exclusively* that
+ * tone is the book's register: a purely-military novel beats a grim-and-military
+ * one on the military query, and the grim one wins back the grimdark query.
+ * `absol` keeps an absolute floor so a strong single-signal match still scores;
+ * `share` (this tone's affinity over the book's total tone affinity) supplies
+ * the exclusivity that separates the per-tone champions.
+ */
+function evaluateExclusiveTone(book: AskBookWork, tag: ToneTag): TagEvaluation {
+  const self = rawToneAffinity(book, tag);
+  if (self.score <= 0) return { multiplier: 0 };
+  let total = 0;
+  for (const other of TONE_TAGS) {
+    total += other === tag ? self.score : rawToneAffinity(book, other).score;
   }
-
-  const matched =
-    book.primaryEraId === "indomitus" || (startY != null && startY >= 42000);
-  return matched
-    ? { multiplier: 1, detail: `Era: ${book.primaryEraId ?? "M42"}` }
-    : { multiplier: 0 };
+  const absol = Math.min(1, self.score);
+  const share = total > 0 ? self.score / total : 0;
+  // Share-dominant: a book that is primarily some *other* tone scores near zero
+  // here, so it cannot also win this tone's #1. The small floor keeps a genuine
+  // (if non-exclusive) match from collapsing entirely.
+  const multiplier = absol * (0.08 + 0.92 * share);
+  return { multiplier, detail: `Facets: ${[...new Set(self.names)].join(", ")}` };
 }
 
 function evaluateTag(book: AskBookWork, tag: AskWeightTag): TagEvaluation {
@@ -602,50 +629,16 @@ function evaluateTag(book: AskBookWork, tag: AskWeightTag): TagEvaluation {
           factionInTree(f, ["adeptus_astartes"]) ||
           (f.alignment !== "chaos" && hasFacet(book, "protagonist_class", ["space_marine"])),
       );
-    case "faction_inquisition":
-      return bestFactionMatch(book, (f) => factionInTree(f, ["inquisition"]));
-    case "faction_guard":
-      return bestFactionMatch(book, (f) => factionInTree(f, GUARD_ROOTS));
     case "faction_xenos":
       return bestFactionMatch(
         book,
         (f) => f.alignment === "xenos" || factionInTree(f, XENOS_ROOTS),
       );
     case "tone_grim":
-      return evaluateTone(book, [
-        { category: "tone", ids: ["grimdark", "somber", "cosmic_horror"] },
-        { category: "theme", ids: ["betrayal", "hubris"], multiplier: 0.65 },
-      ]);
     case "tone_heroic":
-      return evaluateTone(book, [
-        { category: "tone", ids: ["hopepunk", "action_heavy"] },
-        { category: "plot_type", ids: ["last_stand"], multiplier: 0.85 },
-        {
-          category: "theme",
-          ids: ["loyalty", "brotherhood", "sacrifice", "faith", "redemption"],
-          multiplier: 0.8,
-        },
-      ]);
     case "tone_political":
-      return evaluateTone(book, [
-        { category: "plot_type", ids: ["political_thriller", "court_intrigue", "mystery"] },
-        { category: "theme", ids: ["doubt", "faith"], multiplier: 0.6 },
-      ]);
     case "tone_military":
-      return evaluateTone(book, [
-        { category: "plot_type", ids: ["war_story", "siege", "last_stand"] },
-        { category: "theme", ids: ["war", "sacrifice"], multiplier: 0.75 },
-      ]);
-    case "tone_mythic":
-      return evaluateTone(book, [
-        { category: "tone", ids: ["cosmic_horror", "philosophical"] },
-        { category: "plot_type", ids: ["journey", "character_study"], multiplier: 0.65 },
-        { category: "theme", ids: ["faith", "hubris", "betrayal", "redemption"], multiplier: 0.8 },
-      ]);
-    case "era_heresy":
-    case "era_m41":
-    case "era_indomitus":
-      return evaluateEra(book, tag);
+      return evaluateExclusiveTone(book, tag);
   }
 }
 
@@ -692,6 +685,7 @@ function scoreBook(book: AskBookWork, profile: AskProfile): AskRecommendation {
     matchedTags,
     reasons,
     primaryEraId: book.primaryEraId,
+    startY: book.startY,
     format: book.format,
     releaseYear: book.releaseYear,
     rating: book.rating,
@@ -700,26 +694,26 @@ function scoreBook(book: AskBookWork, profile: AskProfile): AskRecommendation {
   };
 }
 
-function compareNullableDesc(a: number | null | undefined, b: number | null | undefined): number {
-  if (a == null && b != null) return 1;
-  if (a != null && b == null) return -1;
-  if (a != null && b != null && a !== b) return b - a;
-  return 0;
-}
-
-function compareRecommendations(a: AskRecommendation, b: AskRecommendation): number {
-  if (a.score !== b.score) return b.score - a.score;
-
-  const rating = compareNullableDesc(a.rating, b.rating);
-  if (rating !== 0) return rating;
-
-  const release = compareNullableDesc(a.releaseYear, b.releaseYear);
-  if (release !== 0) return release;
-
-  const title = a.title.localeCompare(b.title, "en");
-  if (title !== 0) return title;
-
-  return a.slug.localeCompare(b.slug, "en");
+/**
+ * Apply the lane-scoped anchor merit (Brief 164) to a scored recommendation,
+ * before the overlay tail. The bonus only flows when (a) the active profile
+ * matches one of the book's anchor lanes and (b) the base score is positive —
+ * an anchor must already fit its slice on the real signals, the merit just
+ * lifts the canonical entry to the front of its lane. Capped to one lane per
+ * book (the strongest match) inside `anchorMeritFor`.
+ */
+function withAnchorMerit(
+  recommendation: AskRecommendation,
+  answers: AskAnswers,
+): AskRecommendation {
+  if (recommendation.score <= 0) return recommendation;
+  const merit = anchorMeritFor(recommendation.slug, answers);
+  if (!merit) return recommendation;
+  return {
+    ...recommendation,
+    score: roundPoints(recommendation.score + merit.points),
+    anchor: merit,
+  };
 }
 
 export async function recommend(
@@ -733,10 +727,11 @@ export async function recommend(
     const books = await loadAskBooksForRecommend(options.cacheBooks);
     const baseRecommendations = books
       .filter((book) => passesHardAskBoundaries(book, profile.answers))
-      .map((book) => scoreBook(book, profile));
+      .map((book) => scoreBook(book, profile))
+      .map((recommendation) => withAnchorMerit(recommendation, profile.answers));
     const curation = options.curation === null ? EMPTY_ASK_CURATION : options.curation;
     const recommendations = applyAskCuration(
-      baseRecommendations.sort(compareRecommendations),
+      baseRecommendations.sort(compareByMerit),
       profile.answers,
       curation,
     ).slice(0, limit);

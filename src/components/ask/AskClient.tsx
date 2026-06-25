@@ -9,6 +9,7 @@ import QuestionCard from "./QuestionCard";
 import ResultCard from "./ResultCard";
 import {
   buildAskHref,
+  buildAskSearchParams,
   firstUnansweredAskIndex,
   isAskAnswersComplete,
   withAskAnswer,
@@ -18,6 +19,7 @@ import type {
   AskOptionId,
   AskQuestion,
   AskQuestionId,
+  AskRecommendation,
   AskRecommendationResult,
 } from "@/lib/ask/types";
 
@@ -26,6 +28,8 @@ type AskClientProps = {
   initialAnswers: AskAnswers;
   initialIsComplete: boolean;
   result: AskRecommendationResult | null;
+  deeper: AskRecommendation[] | null;
+  deeperRequested: boolean;
   recommendationError: string | null;
 };
 
@@ -37,7 +41,6 @@ const QUESTION_TOPIC: Record<AskQuestionId, string> = {
   faction_love: "Faction",
   tone: "Tone",
   length: "Length",
-  era_pref: "Era",
 };
 
 function findOptionLabel(question: AskQuestion, answers: AskAnswers): string | null {
@@ -54,6 +57,8 @@ export default function AskClient({
   initialAnswers,
   initialIsComplete,
   result,
+  deeper,
+  deeperRequested,
   recommendationError,
 }: AskClientProps) {
   const router = useRouter();
@@ -70,7 +75,7 @@ export default function AskClient({
   const showResult = draftComplete && initialIsComplete && !isPending && !editingCompleteProfile;
   const showProcessing = draftComplete && isPending;
   // The timeline carries progress now, so the nav status stays silent except
-  // while the cogitator is actually working (the old "N of 5 answers recorded"
+  // while the cogitator is actually working (the old "N of 4 answers recorded"
   // count and the terminal "Recommendations tuned" line are both retired).
   const statusLabel = showProcessing ? "Loading recommendations" : "";
   // Gold fill reaches the live stop; full once the verdict is showing.
@@ -91,6 +96,17 @@ export default function AskClient({
       })),
     [activeIndex, answers, questions, showResult],
   );
+
+  // "Browse deeper" is a real navigation that adds `deeper=1` to the live
+  // profile (it stays in the URL, like the answers). Keyed on answers only, so
+  // toggling deeper does NOT remount the result card — the reveal staging
+  // survives the round-trip; changing an answer does remount it (reset to Top-3).
+  const resultKey = buildAskHref(answers);
+  const deeperHref = useMemo(() => {
+    const params = buildAskSearchParams(answers);
+    params.set("deeper", "1");
+    return `/ask?${params.toString()}`;
+  }, [answers]);
 
   const navigateWithAnswers = (nextAnswers: AskAnswers) => {
     setOptimisticAnswers(nextAnswers);
@@ -152,15 +168,16 @@ export default function AskClient({
       <section className="ask-console" aria-labelledby="ask-title">
         <header className="ask-console__mast route-act">
           <p className="ask-console__eyebrow">
-            {"INTERROGATORIVM · QVINQVE QVAESTIONES"}
+            {"INTERROGATORIVM · QVATTVOR QVAESTIONES"}
           </p>
           <h1 id="ask-title" className="ask-console__title">
             Ask the Archive
           </h1>
           <div className="ask-console__rule" aria-hidden />
           <p className="ask-console__sub">
-            Five questions; the cogitator weighs the catalogue and returns five
-            doorways — real recommendations from the archive, not a horoscope.
+            Four questions; the cogitator weighs the catalogue and returns its
+            strongest doorways — real recommendations from the archive, not a
+            horoscope.
           </p>
           <RouteScrollCue label="Begin the questionnaire" target=".ask-console__grid" />
         </header>
@@ -169,7 +186,7 @@ export default function AskClient({
           <div className="ask-stage">
             {/* Progress timeline — the chronicle era-band recast for the funnel
                 (maintainer rework 2026-06-19; the roman stepper is retired). One
-                rail with a gold fill that advances with the reader, five marks.
+                rail with a gold fill that advances with the reader, four marks.
                 Each mark is a button that revisits its question and names its
                 topic; the dot state carries answered / here / coming. */}
             <nav
@@ -236,7 +253,11 @@ export default function AskClient({
 
             {showResult && !recommendationError && result && (
               <ResultCard
+                key={resultKey}
                 result={result}
+                deeper={deeper}
+                deeperRequested={deeperRequested}
+                deeperHref={deeperHref}
                 questions={questions}
                 answers={answers}
                 onBack={goBack}

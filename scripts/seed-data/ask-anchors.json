@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "_doc": "Lane-scoped Ask anchors (Brief 164). Each entry binds a 'reliable entry point' book to the lane(s) it anchors (a when-style answer subset). Joined in-memory by slug in src/lib/ask/recommend.ts; no DB schema. Membership in this set also excludes the book from every experience=deep cell (deep readers know the classics). Anchor != 'best book absolutely' — 'dependable first read for its profile'. Sources: FanFiAddict + WH40K Book Club beginner guides, Grimdark Magazine, r/40kLore / Horus Heresy reading-order consensus. Philipp confirms/extends this list before merge.",
+  "anchors": [
+    {
+      "book": "xenos",
+      "lanes": [{ "faction_love": "imperium_of_man", "tone": "investigative" }],
+      "sources": ["fanfiaddict", "wh40kbookclub"],
+      "confidence": "high",
+      "note": "Eisenhorn: Xenos — the canonical Inquisition entry point; both starter guides open the Imperium-investigative lane here."
+    },
+    {
+      "book": "eisenhorn-omnibus",
+      "lanes": [{ "faction_love": "imperium_of_man", "tone": "investigative" }],
+      "sources": ["fanfiaddict", "wh40kbookclub"],
+      "confidence": "high",
+      "note": "The Eisenhorn trilogy in one volume — the arc-length version of the same Inquisition starter."
+    },
+    {
+      "book": "ravenor",
+      "lanes": [{ "faction_love": "imperium_of_man", "tone": "investigative" }],
+      "sources": ["wh40kbookclub"],
+      "confidence": "medium",
+      "note": "Ravenor — Abnett's follow-on Inquisition trilogy; a deeper investigative read once Eisenhorn lands."
+    },
+    {
+      "book": "the-carrion-throne",
+      "lanes": [{ "faction_love": "imperium_of_man", "tone": "investigative" }],
+      "sources": ["grimdarkmagazine"],
+      "confidence": "medium",
+      "note": "Vaults of Terra #1 — a newer Inquisition entry set on Holy Terra."
+    },
+    {
+      "book": "first-and-only",
+      "lanes": [{ "faction_love": "imperium_of_man", "tone": "military" }],
+      "sources": ["fanfiaddict", "wh40kbookclub"],
+      "confidence": "high",
+      "note": "Gaunt's Ghosts #1 — the flagship Astra Militarum entry; the military lane's canonical first read."
+    },
+    {
+      "book": "for-the-emperor",
+      "lanes": [{ "faction_love": "imperium_of_man", "tone": "military" }],
+      "sources": ["fanfiaddict", "wh40kbookclub"],
+      "confidence": "high",
+      "note": "Ciaphas Cain #1 — wry, accessible Guard entry; the lighter counterpart to Gaunt."
+    },
+    {
+      "book": "cadia-stands",
+      "lanes": [{ "faction_love": "imperium_of_man", "tone": "military" }],
+      "sources": ["grimdarkmagazine"],
+      "confidence": "medium",
+      "note": "Cadia Stands — the fall of Cadia as a self-contained Guard war."
+    },
+    {
+      "book": "fifteen-hours",
+      "lanes": [{ "faction_love": "imperium_of_man", "tone": "military" }],
+      "sources": ["reddit_40klore"],
+      "confidence": "medium",
+      "note": "Fifteen Hours — a grim standalone everyman-Guardsman entry."
+    },
+    {
+      "book": "helsreach",
+      "lanes": [
+        { "faction_love": "imperium_of_man", "tone": "heroic" },
+        { "faction_love": "loyalist_sm", "tone": "military" }
+      ],
+      "sources": ["fanfiaddict", "grimdarkmagazine"],
+      "confidence": "high",
+      "note": "Helsreach — the Black Templars' last stand at Hive Helsreach; the heroic-Imperium / SM-siege entry."
+    },
+    {
+      "book": "dark-imperium",
+      "lanes": [{ "faction_love": "imperium_of_man", "tone": "heroic" }],
+      "sources": ["wh40kbookclub"],
+      "confidence": "medium",
+      "note": "Dark Imperium — the Indomitus-era Ultramarines entry (Guilliman returned)."
+    },
+    {
+      "book": "baneblade",
+      "lanes": [{ "faction_love": "imperium_of_man", "tone": "grimdark" }],
+      "sources": ["reddit_40klore"],
+      "confidence": "medium",
+      "note": "Baneblade — a grim, self-contained tank-crew war story for the grimdark-Guard slice."
+    },
+    {
+      "book": "space-wolf",
+      "lanes": [{ "faction_love": "loyalist_sm", "tone": "heroic" }],
+      "sources": ["wh40kbookclub"],
+      "confidence": "high",
+      "note": "Space Wolf — Ragnar's saga begins; a classic accessible Space Marine entry."
+    },
+    {
+      "book": "brothers-of-the-snake",
+      "lanes": [{ "faction_love": "loyalist_sm", "tone": "heroic" }],
+      "sources": ["fanfiaddict"],
+      "confidence": "medium",
+      "note": "Brothers of the Snake — episodic Iron Snakes; an approachable single-volume Marine read."
+    },
+    {
+      "book": "nightbringer",
+      "lanes": [{ "faction_love": "loyalist_sm", "tone": "investigative" }],
+      "sources": ["wh40kbookclub"],
+      "confidence": "medium",
+      "note": "Nightbringer — Uriel Ventris #1; an Ultramarines mystery, the SM-investigative entry."
+    },
+    {
+      "book": "legion-of-the-damned",
+      "lanes": [{ "faction_love": "loyalist_sm", "tone": "military" }],
+      "sources": ["reddit_40klore"],
+      "confidence": "medium",
+      "note": "Legion of the Damned — a standalone Space Marine siege; the SM-military entry."
+    },
+    {
+      "book": "ragnar-blackmane",
+      "lanes": [{ "faction_love": "loyalist_sm", "tone": "grimdark" }],
+      "sources": ["grimdarkmagazine"],
+      "confidence": "medium",
+      "note": "Ragnar Blackmane — a self-contained Space Wolves hero novel for the grim SM slice."
+    },
+    {
+      "book": "soul-hunter",
+      "lanes": [{ "faction_love": "heretic", "tone": "grimdark" }],
+      "sources": ["fanfiaddict", "grimdarkmagazine"],
+      "confidence": "high",
+      "note": "Soul Hunter — Night Lords #1; the canonical grimdark-Chaos entry (villain POV)."
+    },
+    {
+      "book": "night-lords-the-omnibus",
+      "lanes": [{ "faction_love": "heretic", "tone": "grimdark" }],
+      "sources": ["fanfiaddict", "grimdarkmagazine"],
+      "confidence": "high",
+      "note": "The Night Lords trilogy in one volume — the arc-length grimdark-Chaos read."
+    },
+    {
+      "book": "the-talon-of-horus",
+      "lanes": [{ "faction_love": "heretic", "tone": "heroic" }],
+      "sources": ["grimdarkmagazine"],
+      "confidence": "medium",
+      "note": "The Talon of Horus — Abaddon forges the Black Legion; the ascendant-Chaos lane."
+    },
+    {
+      "book": "storm-of-iron",
+      "lanes": [{ "faction_love": "heretic", "tone": "military" }],
+      "sources": ["reddit_40klore"],
+      "confidence": "medium",
+      "note": "Storm of Iron — Iron Warriors siege classic; the military-Chaos entry."
+    },
+    {
+      "book": "horus-rising",
+      "lanes": [{ "faction_love": "heretic", "tone": "grimdark", "experience": "some" }],
+      "sources": ["fanfiaddict", "wh40kbookclub", "reddit_40klore"],
+      "confidence": "high",
+      "note": "Horus Rising — Horus Heresy #1; the grimdark gateway to the traitor arc. Tone-scoped to grimdark+some so it anchors the one lane it belongs to instead of blanketing every heretic+some cell regardless of tone (Brief 164 tuning — the bare experience lane made it the #1 for military/investigative/heroic too, so changing tone never moved the top result). Still gated from 'new' by the HH hard gate and excluded from 'deep' by the anchor gate, so seasoned readers get the deeper HH cuts."
+    },
+    {
+      "book": "the-infinite-and-the-divine",
+      "lanes": [{ "faction_love": "xenos", "tone": "grimdark" }],
+      "sources": ["fanfiaddict", "grimdarkmagazine"],
+      "confidence": "high",
+      "note": "The Infinite and the Divine — the obvious Necron pick (FanFiAddict's undead-robot recommendation); the flagship xenos entry. Single-tone lane (grimdark): one book may not anchor two tones of the same faction, or it wins the #1 slot for both and changing tone stops moving the result (Brief 164 tuning). The investigative-xenos lane is Path of the Renegade; Philipp can swap which tone this flagship owns at review."
+    },
+    {
+      "book": "ghazghkull-thraka-prophet-of-the-waaagh",
+      "lanes": [{ "faction_love": "xenos", "tone": "military" }],
+      "sources": ["grimdarkmagazine"],
+      "confidence": "medium",
+      "note": "Ghazghkull Thraka: Prophet of the Waaagh! — a standalone Ork war entry."
+    },
+    {
+      "book": "asurmen-hand-of-asuryan",
+      "lanes": [{ "faction_love": "xenos", "tone": "heroic" }],
+      "sources": ["reddit_40klore"],
+      "confidence": "medium",
+      "note": "Asurmen: Hand of Asuryan — an Aeldari Phoenix Lord entry for the heroic-xenos slice."
+    },
+    {
+      "book": "severed",
+      "lanes": [{ "faction_love": "xenos", "tone": "grimdark" }],
+      "sources": ["reddit_40klore"],
+      "confidence": "low",
+      "note": "Severed — a tightly-rated Necron novella; a short grim-xenos read."
+    },
+    {
+      "book": "path-of-the-renegade",
+      "lanes": [{ "faction_love": "xenos", "tone": "investigative" }],
+      "sources": ["reddit_40klore"],
+      "confidence": "low",
+      "note": "Path of the Renegade — Drukhari court intrigue; the scheming-xenos entry."
+    }
+  ]
+}

@@ -32,6 +32,7 @@ import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse, type NextRequest } from "next/server";
 import { CATALOGUE_TAGS, resetMemoryCaches } from "@/lib/db-cache";
 import { clearAskRecommendationCache } from "@/lib/ask/recommend";
+import { clearAskMatrixCache } from "@/lib/ask/matrix";
 import { timingSafeEqualStr } from "@/lib/timingSafeEqual";
 
 const KNOWN_TAGS: ReadonlySet<string> = new Set(CATALOGUE_TAGS);
@@ -104,6 +105,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   for (const route of ENTITY_ROUTES) revalidatePath(route, "page");
   resetMemoryCaches();
   clearAskRecommendationCache();
+  clearAskMatrixCache();
 
   return NextResponse.json({ revalidated: tags, paths: [...ENTITY_ROUTES] });
 }

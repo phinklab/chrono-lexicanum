@@ -51,10 +51,14 @@ function boundaryCandidate(
   overrides: Partial<AskBoundaryCandidate> = {},
 ): AskBoundaryCandidate {
   return {
+    slug: "test-book",
     format: "novel",
     seriesId: null,
     seriesIndex: null,
     seriesTotalPlanned: null,
+    primaryEraId: "time_ending",
+    startY: null,
+    isAnchor: false,
     factions: [
       {
         role: "primary",
@@ -173,80 +177,86 @@ check("hard boundaries keep selected faction non-negotiable", () => {
       },
     ],
   });
-  const ultramarinesWithSupportingInquisition = boundaryCandidate({
+  const inquisitionOnly = boundaryCandidate({
     factions: [
       {
         role: "primary",
         alignment: "imperium",
-        ancestry: ["ultramarines", "adeptus_astartes", "imperium"],
-      },
-      {
-        role: "supporting",
-        alignment: "imperium",
         ancestry: ["inquisition", "imperium"],
       },
     ],
   });
-  const unrankedUltramarinesWithInquisition = boundaryCandidate({
+  const traitorMarine = boundaryCandidate({
     factions: [
       {
-        role: null,
-        alignment: "imperium",
-        ancestry: ["ultramarines", "adeptus_astartes", "imperium"],
-      },
-      {
-        role: null,
-        alignment: "imperium",
-        ancestry: ["inquisition", "imperium"],
+        role: "primary",
+        alignment: "chaos",
+        ancestry: ["night_lords", "heretic_astartes", "chaos"],
       },
     ],
   });
-  const unrankedInquisitionLead = boundaryCandidate({
-    factions: [
-      {
-        role: null,
-        alignment: "imperium",
-        ancestry: ["inquisition", "imperium"],
-      },
-      {
-        role: null,
-        alignment: "imperium",
-        ancestry: ["ultramarines", "adeptus_astartes", "imperium"],
-      },
-    ],
+  const necronLead = boundaryCandidate({
+    factions: [{ role: "primary", alignment: "xenos", ancestry: ["necrons"] }],
   });
-  const inquisition = boundaryCandidate();
 
-  assert.equal(
-    passesHardAskBoundaries(ultramarines, { faction_love: "inquisition" }),
-    false,
-  );
-  assert.equal(
-    passesHardAskBoundaries(ultramarinesWithSupportingInquisition, {
-      faction_love: "inquisition",
-    }),
-    false,
-  );
-  assert.equal(
-    passesHardAskBoundaries(unrankedUltramarinesWithInquisition, {
-      faction_love: "inquisition",
-    }),
-    false,
-  );
-  assert.equal(
-    passesHardAskBoundaries(unrankedInquisitionLead, {
-      faction_love: "inquisition",
-    }),
-    true,
-  );
-  assert.equal(
-    passesHardAskBoundaries(inquisition, { faction_love: "inquisition" }),
-    true,
-  );
-  assert.equal(
-    passesHardAskBoundaries(ultramarines, { faction_love: "imperium" }),
-    true,
-  );
+  // imperium_of_man — the merged lane (Brief 164): any Imperium-tree primary
+  // passes (the Inquisition + Astartes both sit under `imperium`); the alien is
+  // rejected.
+  assert.equal(passesHardAskBoundaries(inquisitionOnly, { faction_love: "imperium_of_man" }), true);
+  assert.equal(passesHardAskBoundaries(ultramarines, { faction_love: "imperium_of_man" }), true);
+  assert.equal(passesHardAskBoundaries(necronLead, { faction_love: "imperium_of_man" }), false);
+
+  // loyalist_sm — only loyalist Adeptus Astartes: a generic Imperium book (pure
+  // Inquisition) is rejected, a traitor marine is rejected (chaos), a loyal
+  // Astartes passes.
+  assert.equal(passesHardAskBoundaries(ultramarines, { faction_love: "loyalist_sm" }), true);
+  assert.equal(passesHardAskBoundaries(inquisitionOnly, { faction_love: "loyalist_sm" }), false);
+  assert.equal(passesHardAskBoundaries(traitorMarine, { faction_love: "loyalist_sm" }), false);
+
+  // heretic — chaos / heretic astartes pass; loyalists are rejected.
+  assert.equal(passesHardAskBoundaries(traitorMarine, { faction_love: "heretic" }), true);
+  assert.equal(passesHardAskBoundaries(ultramarines, { faction_love: "heretic" }), false);
+
+  // xenos — only the alien.
+  assert.equal(passesHardAskBoundaries(necronLead, { faction_love: "xenos" }), true);
+  assert.equal(passesHardAskBoundaries(inquisitionOnly, { faction_love: "xenos" }), false);
+
+  // any_faction is no gate — the faction boundary never filters.
+  assert.equal(passesHardAskBoundaries(necronLead, { faction_love: "any_faction" }), true);
+  assert.equal(passesHardAskBoundaries(traitorMarine, { faction_love: "any_faction" }), true);
+});
+
+check("HH hard gate keeps Horus Heresy away from newcomers (era + startY + slug)", () => {
+  // Heresy detected by era id, by the M30–M31 startY band, or by the curated
+  // slug supplement — the last covers the many HH books with null startY and
+  // the uniform "time_ending" era.
+  const heresyByEra = boundaryCandidate({ primaryEraId: "horus_heresy" });
+  const heresyByYear = boundaryCandidate({ primaryEraId: "time_ending", startY: 31002 });
+  const heresyBySlug = boundaryCandidate({
+    slug: "garro-sword-of-truth",
+    primaryEraId: "time_ending",
+    startY: null,
+  });
+  const m41 = boundaryCandidate({ primaryEraId: "time_ending", startY: 41000 });
+
+  assert.equal(passesHardAskBoundaries(heresyByEra, { experience: "new" }), false);
+  assert.equal(passesHardAskBoundaries(heresyByYear, { experience: "new" }), false);
+  assert.equal(passesHardAskBoundaries(heresyBySlug, { experience: "new" }), false);
+  assert.equal(passesHardAskBoundaries(m41, { experience: "new" }), true);
+  // some / deep readers can still get the Heresy.
+  assert.equal(passesHardAskBoundaries(heresyByYear, { experience: "some" }), true);
+  assert.equal(passesHardAskBoundaries(heresyBySlug, { experience: "deep" }), true);
+});
+
+check("deep hard gate excludes the anchor set (seasoned readers know the classics)", () => {
+  const anchor = boundaryCandidate({ isAnchor: true });
+  const nonAnchor = boundaryCandidate({ isAnchor: false });
+
+  assert.equal(passesHardAskBoundaries(anchor, { experience: "deep" }), false);
+  assert.equal(passesHardAskBoundaries(nonAnchor, { experience: "deep" }), true);
+  // anchors still surface for new / some (subject to the other gates).
+  assert.equal(passesHardAskBoundaries(anchor, { experience: "some" }), true);
+  assert.equal(passesHardAskBoundaries(anchor, { experience: "new" }), true);
 });
 
 check("hard boundaries keep selected length non-negotiable", () => {

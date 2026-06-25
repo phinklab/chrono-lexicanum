@@ -11,27 +11,40 @@ import {
   isAskAnswersComplete,
   parseAskAnswers,
 } from "@/lib/ask/params";
-import { recommend } from "@/lib/ask/recommend";
-import type { AskRecommendationResult } from "@/lib/ask/types";
+import { getAskMatrixCell } from "@/lib/ask/matrix";
+import { buildAskProfile, recommend } from "@/lib/ask/recommend";
+import type { AskRecommendation, AskRecommendationResult } from "@/lib/ask/types";
 
 export const metadata: Metadata = {
   title: "Ask the Archive - Chrono Lexicanum",
   description:
-    "Answer five questions and get real Warhammer 40,000 novel recommendations from the archive.",
+    "Answer four questions and get real Warhammer 40,000 novel recommendations from the archive.",
 };
 
 interface AskPageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
+/**
+ * How many live ranks to pull when the reader chooses "Browse deeper". The
+ * matrix cell already holds the Top-6; the deeper view ranks wider and shows
+ * what comes after, deduped against the six already on screen (Brief 164).
+ */
+const DEEPER_LIMIT = 24;
+
 const ASK_READOUT_LINES = [
   "· INTERROGATORIVM · ONLINE",
-  "· V QVAESTIONES · FLAT PROFILE",
+  "· IV QVAESTIONES · FLAT PROFILE",
   "· SIGNALS · EXPERIENCE / FACTION",
-  "· SIGNALS · TONE / LENGTH / ERA",
+  "· SIGNALS · TONE / LENGTH",
   "· RECOMMENDATION ENGINE READY",
   "· ARCHIVE QUERY IS SERVER-SIDE",
 ];
+
+function readDeeperFlag(params: Record<string, string | string[] | undefined>): boolean {
+  const value = params.deeper;
+  return (Array.isArray(value) ? value[0] : value) === "1";
+}
 
 function recommendationErrorCopy(error: unknown): string {
   if (error instanceof Error && error.message.trim().length > 0) {
@@ -45,17 +58,31 @@ export default async function AskPage({ searchParams }: AskPageProps) {
   const answers = parseAskAnswers(rawParams);
   const answeredCount = countAskAnswers(answers);
   const isComplete = isAskAnswersComplete(answers);
+  const deeperRequested = isComplete && readDeeperFlag(rawParams);
 
   let result: AskRecommendationResult | null = null;
+  let deeper: AskRecommendation[] | null = null;
   let recommendationError: string | null = null;
 
   if (isComplete) {
     try {
-      // `cacheBooks` keeps the full book load out of the per-answer hot path —
-      // without it every completed questionnaire re-read all ~900 books from
-      // the DB (Report 144 § P.3). The module-level cache is cleared via
-      // `POST /api/revalidate` after ingestion runs.
-      result = await recommend(answers, { limit: 5, onError: "throw", cacheBooks: true });
+      // Hot path (Brief 164 Phase 2): the Top-6 cell is served from the
+      // precomputed matrix — no per-request DB ranking. The matrix builds on
+      // first use and is cleared via `POST /api/revalidate` after an apply run.
+      const cell = await getAskMatrixCell(answers);
+      result = { answers, profile: buildAskProfile(answers), recommendations: cell };
+
+      if (deeperRequested) {
+        // "Browse deeper" is the only live query: rank wider, then drop the six
+        // already shown so the deeper view is purely net-new.
+        const shown = new Set(cell.map((rec) => rec.slug));
+        const wide = await recommend(answers, {
+          limit: DEEPER_LIMIT,
+          onError: "throw",
+          cacheBooks: true,
+        });
+        deeper = wide.recommendations.filter((rec) => !shown.has(rec.slug));
+      }
     } catch (error) {
       recommendationError = recommendationErrorCopy(error);
     }
@@ -106,11 +133,13 @@ export default async function AskPage({ searchParams }: AskPageProps) {
         initialAnswers={answers}
         initialIsComplete={isComplete}
         result={result}
+        deeper={deeper}
+        deeperRequested={deeperRequested}
         recommendationError={recommendationError}
       />
 
       <div className="ask-foot">
-        <ArchiveFooter mid="QVINQVE QVAESTIONES" />
+        <ArchiveFooter mid="QVATTVOR QVAESTIONES" />
       </div>
     </main>
   );

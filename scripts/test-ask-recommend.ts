@@ -27,23 +27,21 @@ type SmokeProfile = {
 
 const PROFILES: SmokeProfile[] = [
   {
-    name: "new inquisition investigator",
+    name: "new imperium investigator",
     answers: {
       experience: "new",
-      faction_love: "inquisition",
-      tone: "political",
+      faction_love: "imperium_of_man",
+      tone: "investigative",
       length: "standalone",
-      era_pref: "long_war",
     },
   },
   {
-    name: "deep chaos heresy reader",
+    name: "deep chaos reader",
     answers: {
       experience: "deep",
       faction_love: "heretic",
-      tone: "mythic",
+      tone: "grimdark",
       length: "trilogy",
-      era_pref: "heresy",
     },
   },
   {
@@ -53,7 +51,6 @@ const PROFILES: SmokeProfile[] = [
       faction_love: "xenos",
       tone: "heroic",
       length: "standalone",
-      era_pref: "any_era",
     },
   },
 ];
@@ -74,7 +71,14 @@ async function check(name: string, fn: () => Promise<void>): Promise<void> {
 }
 
 function assertRecommendationShape(profile: string, result: Awaited<ReturnType<typeof recommend>>): void {
-  assert.equal(result.recommendations.length, 5, `${profile}: expected top 5`);
+  // The hard gates (HH for newcomers, anchor-exclusion for deep) and the
+  // single-volume length gate can legitimately leave a narrow profile with
+  // fewer than the requested limit — Brief 164 guarantees ≥1 per visible combo,
+  // not exactly 5. So assert a non-empty, capped list, not an exact count.
+  assert.ok(
+    result.recommendations.length >= 1 && result.recommendations.length <= 5,
+    `${profile}: expected between 1 and 5 recommendations, got ${result.recommendations.length}`,
+  );
   for (const [idx, rec] of result.recommendations.entries()) {
     const at = `${profile}.recommendations[${idx}]`;
     assert.ok(rec.slug.trim().length > 0, `${at}: slug`);
@@ -133,20 +137,20 @@ async function main(): Promise<void> {
       rules: [
         {
           id: "pin-alpha",
-          when: { tone: "political" },
+          when: { tone: "investigative" },
           action: "pin",
           book: "alpha",
           points: 80,
         },
         {
           id: "ban-alpha",
-          when: { tone: "political" },
+          when: { tone: "investigative" },
           action: "ban",
           book: "alpha",
         },
         {
           id: "boost-alpha",
-          when: { tone: "political" },
+          when: { tone: "investigative" },
           action: "boost",
           book: "alpha",
           points: 100,
@@ -156,7 +160,7 @@ async function main(): Promise<void> {
 
     const result = applyAskCuration(
       [syntheticRecommendation("alpha", 20), syntheticRecommendation("beta", 10)],
-      { tone: "political" },
+      { tone: "investigative" },
       overlay,
     );
 
@@ -169,7 +173,7 @@ async function main(): Promise<void> {
       rules: [
         {
           id: "pin-low",
-          when: { faction_love: "inquisition" },
+          when: { faction_love: "imperium_of_man" },
           action: "pin",
           book: "low",
           points: 15,
@@ -179,7 +183,7 @@ async function main(): Promise<void> {
 
     const result = applyAskCuration(
       [syntheticRecommendation("high", 100), syntheticRecommendation("low", 20)],
-      { faction_love: "inquisition", tone: "political" },
+      { faction_love: "imperium_of_man", tone: "investigative" },
       overlay,
     );
 
@@ -202,7 +206,7 @@ async function main(): Promise<void> {
           id: "boost-axis",
           when: { experience: "new" },
           action: "boost",
-          tag: "faction_guard",
+          tag: "faction_imperium",
           points: 20,
         },
       ],
@@ -210,7 +214,7 @@ async function main(): Promise<void> {
 
     const result = applyAskCuration(
       [
-        syntheticRecommendation("axis-target", 50, [reason("faction_guard")]),
+        syntheticRecommendation("axis-target", 50, [reason("faction_imperium")]),
         syntheticRecommendation("book-target", 45),
         syntheticRecommendation("base", 60),
       ],
