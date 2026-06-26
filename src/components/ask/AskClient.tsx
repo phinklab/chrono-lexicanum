@@ -7,6 +7,7 @@ import RouteScrollCue from "@/components/chrome/RouteScrollCue";
 import ProcessingPanel from "./ProcessingPanel";
 import QuestionCard from "./QuestionCard";
 import ResultCard from "./ResultCard";
+import AskToolTabs from "./AskToolTabs";
 import {
   buildAskHref,
   buildAskSearchParams,
@@ -168,16 +169,17 @@ export default function AskClient({
       <section className="ask-console" aria-labelledby="ask-title">
         <header className="ask-console__mast route-act">
           <p className="ask-console__eyebrow">
-            {"INTERROGATORIVM · QVATTVOR QVAESTIONES"}
+            {"LEXICANVM · WHERE TO BEGIN"}
           </p>
           <h1 id="ask-title" className="ask-console__title">
-            Ask the Archive
+            Find Your Next Book
           </h1>
           <div className="ask-console__rule" aria-hidden />
+          <AskToolTabs active="questionnaire" />
           <p className="ask-console__sub">
-            Four questions; the cogitator weighs the catalogue and returns its
-            strongest doorways — real recommendations from the archive, not a
-            horoscope.
+            Ask the Archive — answer four questions and the cogitator weighs the
+            catalogue, returning its strongest doorways. Real recommendations from
+            the archive, not a horoscope.
           </p>
           <RouteScrollCue label="Begin the questionnaire" target=".ask-console__grid" />
         </header>

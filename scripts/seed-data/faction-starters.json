@@ -1,0 +1,567 @@
+{
+  "version": 1,
+  "_doc": "Faction → curated entry-point picks (Brief 166), generated VERBATIM from Warhammer_OFOC_SSOT.xlsx (two sheets) by `npm run import:faction-starters`. A node is a top-level faction; optional `children` are subfactions (exactly one level). A node carries `picks`, `children`, or both; a group node carries only `children`. Labels are NOT validated against factions.json (verbatim, subfactions without a DB faction are allowed). `picks[0]` is primary; reshuffle cycles in order. The `book` slug (click target /buch/{slug}) is resolved at convert time against book-roster.json — uncertain/unresolved titles carry no `book` and are listed in faction-starters.review.md. Runtime is DB-free. DO NOT hand-edit: re-run the convert step.",
+  "source": "Warhammer_OFOC_SSOT.xlsx",
+  "starters": [
+    {
+      "slug": "adepta-sororitas",
+      "label": "Adepta Sororitas",
+      "picks": [
+        {
+          "title": "Our Martyred Lady",
+          "kind": "audio-drama"
+        },
+        {
+          "title": "Rose at War"
+        },
+        {
+          "title": "Rose in Darkness"
+        },
+        {
+          "title": "Morvenn Vahl - Spear of Faith",
+          "book": "morvenn-vahl-spear-of-faith"
+        }
+      ]
+    },
+    {
+      "slug": "adeptus-custodes",
+      "label": "Adeptus Custodes",
+      "picks": [
+        {
+          "title": "Watchers of the Throne Series",
+          "kind": "series"
+        }
+      ]
+    },
+    {
+      "slug": "adeptus-mechanicus",
+      "label": "Adeptus Mechanicus",
+      "picks": [
+        {
+          "title": "Priests of Mars trilogy",
+          "kind": "trilogy",
+          "book": "priests-of-mars"
+        },
+        {
+          "title": "Belsarius Cawl Trilogy",
+          "kind": "trilogy",
+          "book": "belisarius-cawl-the-great-work"
+        }
+      ]
+    },
+    {
+      "slug": "astra-militarum",
+      "label": "Astra Militarum",
+      "picks": [
+        {
+          "title": "Fifteen Hours",
+          "kind": "audiobook",
+          "book": "fifteen-hours"
+        }
+      ],
+      "children": [
+        {
+          "slug": "aeronautica-imperialis",
+          "label": "Aeronautica Imperialis",
+          "picks": [
+            {
+              "title": "Double Eagle",
+              "book": "double-eagle"
+            }
+          ]
+        },
+        {
+          "slug": "death-korps-of-krieg",
+          "label": "Death Korps of Krieg",
+          "picks": [
+            {
+              "title": "Death Korps Novels (Krieg und Siege of Vraks)",
+              "book": "krieg"
+            }
+          ]
+        },
+        {
+          "slug": "catachan-jungle-fighters",
+          "label": "Catachan Jungle Fighters",
+          "picks": [
+            {
+              "title": "Deathworlder"
+            }
+          ]
+        },
+        {
+          "slug": "cadian",
+          "label": "Cadian",
+          "picks": [
+            {
+              "title": "Cadia Stands",
+              "book": "cadia-stands"
+            },
+            {
+              "title": "Minka Lesk",
+              "book": "minka-lesk-the-last-whiteshield"
+            },
+            {
+              "title": "Catachan Devil",
+              "book": "catachan-devil"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "grey-knights",
+      "label": "Grey Knights",
+      "picks": [
+        {
+          "title": "The Emperors Gift",
+          "book": "the-emperors-gift"
+        },
+        {
+          "title": "Grey Knights Omnibus",
+          "kind": "omnibus",
+          "book": "the-grey-knights-omnibus"
+        }
+      ]
+    },
+    {
+      "slug": "imperial-agents",
+      "label": "Imperial Agents",
+      "picks": [
+        {
+          "title": "Assasinorum Kingmaker",
+          "book": "assassinorum-kingmaker"
+        },
+        {
+          "title": "rites of passage",
+          "book": "rites-of-passage"
+        },
+        {
+          "title": "ciaphas cain series",
+          "kind": "series",
+          "book": "ciaphas-cain-the-anthology"
+        }
+      ]
+    },
+    {
+      "slug": "imperial-knights",
+      "label": "Imperial Knights",
+      "picks": [
+        {
+          "title": "Kingsblade Series",
+          "kind": "series",
+          "book": "kingsblade"
+        },
+        {
+          "title": "Assasinorum Kingmaker",
+          "book": "assassinorum-kingmaker"
+        }
+      ]
+    },
+    {
+      "slug": "space-marines",
+      "label": "Space Marines",
+      "children": [
+        {
+          "slug": "ultramarines",
+          "label": "Ultramarines",
+          "picks": [
+            {
+              "title": "Dark Imperium Trilogy",
+              "kind": "trilogy",
+              "book": "dark-imperium"
+            },
+            {
+              "title": "uriel ventris series",
+              "kind": "series",
+              "book": "the-uriel-ventris-chronicles-vol-1-omnibus"
+            }
+          ]
+        },
+        {
+          "slug": "blood-angels",
+          "label": "Blood Angels",
+          "picks": [
+            {
+              "title": "Dante",
+              "book": "dante"
+            },
+            {
+              "title": "Lords OF Blood: Blood Angels Omnibus",
+              "kind": "omnibus"
+            }
+          ]
+        },
+        {
+          "slug": "dark-angels",
+          "label": "Dark Angels",
+          "picks": [
+            {
+              "title": "The Lion Son of the Forest",
+              "book": "the-lion-sons-of-the-forest"
+            },
+            {
+              "title": "War of Secrets",
+              "book": "war-of-secrets"
+            }
+          ]
+        },
+        {
+          "slug": "black-templars",
+          "label": "Black Templars",
+          "picks": [
+            {
+              "title": "Helsreach",
+              "book": "helsreach"
+            }
+          ]
+        },
+        {
+          "slug": "deathwatch",
+          "label": "Deathwatch",
+          "picks": [
+            {
+              "title": "Deathwatch the Omnibus",
+              "kind": "omnibus",
+              "book": "deathwatch"
+            }
+          ]
+        },
+        {
+          "slug": "imperial-fists",
+          "label": "Imperial Fists",
+          "picks": [
+            {
+              "title": "Fist of the Imperium",
+              "kind": "short-story",
+              "note": "Format uncertain in the source (marked “short story?”).",
+              "book": "fist-of-the-imperium"
+            },
+            {
+              "title": "Apocalypse",
+              "kind": "short-story",
+              "book": "apocalypse"
+            }
+          ]
+        },
+        {
+          "slug": "iron-hands",
+          "label": "Iron Hands",
+          "picks": [
+            {
+              "title": "Wrath of Iron",
+              "book": "wrath-of-iron"
+            },
+            {
+              "title": "The Eye of Medusa",
+              "book": "the-eye-of-medusa"
+            }
+          ]
+        },
+        {
+          "slug": "raven-guard",
+          "label": "Raven Guard",
+          "picks": [
+            {
+              "title": "Apocalypse",
+              "kind": "short-story",
+              "book": "apocalypse"
+            }
+          ]
+        },
+        {
+          "slug": "salamanders",
+          "label": "Salamanders",
+          "picks": [
+            {
+              "title": "Salamanders Omnbius",
+              "book": "salamanders-the-omnibus"
+            }
+          ]
+        },
+        {
+          "slug": "space-wolves",
+          "label": "Space Wolves",
+          "picks": [
+            {
+              "title": "Space Wolfes Omnibus",
+              "kind": "omnibus",
+              "book": "the-space-wolf-omnibus"
+            },
+            {
+              "title": "Battle of the Fang",
+              "book": "battle-of-the-fang"
+            }
+          ]
+        },
+        {
+          "slug": "white-scars",
+          "label": "White Scars",
+          "picks": [
+            {
+              "title": "Masters of the Hunt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "chaos-space-marines",
+      "label": "Chaos Space Marines",
+      "children": [
+        {
+          "slug": "fabius-bile",
+          "label": "Fabius Bile",
+          "picks": [
+            {
+              "title": "Fabius Bile: The Omnibus",
+              "kind": "omnibus",
+              "book": "fabius-bile-the-omnibus"
+            }
+          ]
+        },
+        {
+          "slug": "black-legion",
+          "label": "Black Legion",
+          "picks": [
+            {
+              "title": "The Talon of Horus",
+              "book": "the-talon-of-horus"
+            }
+          ]
+        },
+        {
+          "slug": "red-corsairs",
+          "label": "Red Corsairs",
+          "picks": [
+            {
+              "title": "Huron Blackhart",
+              "book": "huron-blackheart-master-of-the-maelstrom"
+            }
+          ]
+        },
+        {
+          "slug": "alpha-legion",
+          "label": "Alpha Legion",
+          "picks": [
+            {
+              "title": "Renegades Harrowmaster",
+              "book": "renegades-harrowmaster"
+            }
+          ]
+        },
+        {
+          "slug": "death-guard",
+          "label": "Death Guard",
+          "picks": [
+            {
+              "title": "Lords of Silence",
+              "book": "the-lords-of-silence"
+            }
+          ]
+        },
+        {
+          "slug": "night-lords",
+          "label": "Night Lords",
+          "picks": [
+            {
+              "title": "Night Lords Omnibus",
+              "kind": "omnibus",
+              "book": "night-lords-the-omnibus"
+            },
+            {
+              "title": "Lord of the Night",
+              "book": "lord-of-the-night"
+            }
+          ]
+        },
+        {
+          "slug": "thousand-sons",
+          "label": "Thousand Sons",
+          "picks": [
+            {
+              "title": "Ahriman Series",
+              "kind": "series",
+              "book": "ahriman-the-omnibus"
+            },
+            {
+              "title": "Battle of the Fang",
+              "book": "battle-of-the-fang"
+            }
+          ]
+        },
+        {
+          "slug": "world-eaters",
+          "label": "World Eaters",
+          "picks": [
+            {
+              "title": "Angron the Red Angel",
+              "book": "angron-the-red-angel"
+            },
+            {
+              "title": "Kharn Eater of Worlds",
+              "book": "kharn-eater-of-worlds"
+            }
+          ]
+        },
+        {
+          "slug": "emperors-children",
+          "label": "Emperor's Children",
+          "picks": [
+            {
+              "title": "Lucius the Faultless Blade",
+              "book": "lucius-the-faultless-blade"
+            },
+            {
+              "title": "Lord of excess",
+              "book": "renegades-lord-of-excess"
+            }
+          ]
+        },
+        {
+          "slug": "word-bearers",
+          "label": "Word Bearers",
+          "picks": [
+            {
+              "title": "The Word Bearers Omnibus",
+              "kind": "omnibus",
+              "book": "the-word-bearers-omnibus"
+            }
+          ]
+        },
+        {
+          "slug": "iron-warriors",
+          "label": "Iron Warriors",
+          "picks": [
+            {
+              "title": "Storm of Iron",
+              "book": "storm-of-iron"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "aeldari",
+      "label": "Aeldari",
+      "picks": [
+        {
+          "title": "Valedor",
+          "book": "valedor"
+        },
+        {
+          "title": "Path of the Eldar",
+          "book": "path-of-the-eldar-omnibus"
+        }
+      ]
+    },
+    {
+      "slug": "drukhari",
+      "label": "Drukhari",
+      "picks": [
+        {
+          "title": "Lelith Hesperax"
+        },
+        {
+          "title": "Path of the Dark eldar",
+          "book": "path-of-the-dark-eldar-omnibus"
+        }
+      ]
+    },
+    {
+      "slug": "genestealer-cults",
+      "label": "Genestealer Cults",
+      "picks": [
+        {
+          "title": "Day of Ascension",
+          "book": "day-of-ascension"
+        }
+      ]
+    },
+    {
+      "slug": "necrons",
+      "label": "Necrons",
+      "picks": [
+        {
+          "title": "The Infinite and the divine",
+          "book": "the-infinite-and-the-divine"
+        },
+        {
+          "title": "The Twice Dead King - Ruin",
+          "book": "the-twice-dead-king-omnibus"
+        }
+      ]
+    },
+    {
+      "slug": "leagues-of-votann",
+      "label": "Leagues of Votann",
+      "picks": [
+        {
+          "title": "The High Kahls Oath",
+          "book": "the-high-kahls-oath"
+        }
+      ]
+    },
+    {
+      "slug": "orks",
+      "label": "Orks",
+      "picks": [
+        {
+          "title": "Brutal Kunnin",
+          "book": "brutal-kunnin"
+        },
+        {
+          "title": "Ghazghkull Thraka",
+          "book": "ghazghkull-thraka-prophet-of-the-waaagh"
+        }
+      ]
+    },
+    {
+      "slug": "tau-empire",
+      "label": "T'au Empire",
+      "picks": [
+        {
+          "title": "Elemental Council",
+          "book": "elemental-council"
+        },
+        {
+          "title": "Farsight crisis of faith",
+          "book": "farsight"
+        }
+      ]
+    },
+    {
+      "slug": "tyranids",
+      "label": "Tyranids",
+      "picks": [
+        {
+          "title": "The Great Devourer Omnibus",
+          "kind": "omnibus"
+        },
+        {
+          "title": "The long and hungry road"
+        }
+      ]
+    },
+    {
+      "slug": "inquisition",
+      "label": "Inquisition",
+      "picks": [
+        {
+          "title": "Eisenhorn",
+          "book": "eisenhorn-omnibus"
+        },
+        {
+          "title": "Ravenor Series",
+          "kind": "series",
+          "book": "ravenor-the-omnibus"
+        },
+        {
+          "title": "The Inquisition War omnibus",
+          "kind": "omnibus",
+          "book": "the-inquisition-war-omnibus"
+        }
+      ]
+    }
+  ]
+}

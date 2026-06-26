@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "_doc": "Maintainer corrections for the faction-starters convert step (Brief 166, `npm run import:faction-starters`). `overrides` is keyed by the VERBATIM source title as it appears in Warhammer_OFOC_SSOT.xlsx (case-insensitive, trimmed). Value = a book slug to force-link (click target /buch/{slug}), or \"\" to mark a title as intentionally unlinked (suppresses it from faction-starters.review.md). Applied BEFORE fuzzy resolution; re-run-stable and reviewable in the diff. A non-empty slug must exist in book-roster.json or the convert step fails loud. Misses left out of this file stay in the review list as DB-Nachpflege candidates. `labelOverrides` is keyed by the VERBATIM faction/subfaction label (case-insensitive, trimmed) → corrected DISPLAY label; it fixes source spelling (e.g. \"Nekrons\" → \"Necrons\") and feeds the slug, so a corrected label also cleans the URL. Display-only: it never changes which Excel rows match.",
+  "labelOverrides": {
+    "Adeptus Sororitas": "Adepta Sororitas",
+    "Genestealer": "Genestealer Cults",
+    "Nekrons": "Necrons",
+    "Tau": "T'au Empire",
+    "Space Wolfes": "Space Wolves",
+    "Emperors Children": "Emperor's Children",
+    "Black legion": "Black Legion"
+  },
+  "overrides": {
+    "Priests of Mars trilogy": "priests-of-mars",
+    "Belsarius Cawl Trilogy": "belisarius-cawl-the-great-work",
+    "Kingsblade Series": "kingsblade",
+    "Path of the Eldar": "path-of-the-eldar-omnibus",
+    "Path of the Dark eldar": "path-of-the-dark-eldar-omnibus",
+    "Ravenor Series": "ravenor-the-omnibus",
+    "Eisenhorn": "eisenhorn-omnibus",
+    "Minka Lesk": "minka-lesk-the-last-whiteshield",
+    "Dark Imperium Trilogy": "dark-imperium",
+    "uriel ventris series": "the-uriel-ventris-chronicles-vol-1-omnibus",
+    "Huron Blackhart": "huron-blackheart-master-of-the-maelstrom",
+    "Ahriman Series": "ahriman-the-omnibus",
+    "Lord of excess": "renegades-lord-of-excess",
+    "The Twice Dead King - Ruin": "the-twice-dead-king-omnibus",
+
+    "Ghazghkull Thraka": "ghazghkull-thraka-prophet-of-the-waaagh",
+    "ciaphas cain series": "ciaphas-cain-the-anthology",
+    "Deathwatch the Omnibus": "deathwatch",
+    "Farsight crisis of faith": "farsight",
+    "Death Korps Novels (Krieg und Siege of Vraks)": "krieg",
+
+    "Our Martyred Lady (Audiodrama)": "",
+    "Rose at War": "",
+    "Rose in Darkness": "",
+    "Watchers of the Throne Series": "",
+    "Lelith Hesperax": "",
+    "The Great Devourer Omnibus": "",
+    "The long and hungry road": "",
+    "Lords OF Blood: Blood Angels Omnibus": "",
+    "Masters of the Hunt": "",
+    "Deathworlder": ""
+  }
+}
