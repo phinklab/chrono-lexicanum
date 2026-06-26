@@ -63,10 +63,8 @@
 
 .ask-opt {
   position: relative;
-  display: grid;
-  grid-template-columns: 22px minmax(0, 1fr);
-  gap: 12px;
-  padding: 15px 12px;
+  display: block;
+  padding: 15px 12px 15px 16px;
   text-align: left;
   background: transparent;
   border: 0;
@@ -74,6 +72,21 @@
   color: inherit;
   cursor: pointer;
   transition: background 180ms;
+}
+
+/* Selection rule — the diamond glyph is retired (Brief 166); a gold left bar
+   carries the chosen state, drawn only on hover/selected so the resting list
+   stays clean. */
+.ask-opt::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: var(--ix-gold);
+  opacity: 0;
+  transition: opacity 180ms;
 }
 
 /* First row sits flush — no leading hairline (the index .row recipe). */
@@ -85,15 +98,13 @@
   background: var(--ix-hover);
 }
 
-.ask-opt__glyph {
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--ix-steel);
-  transition: color 180ms;
+.ask-opt:hover::before {
+  opacity: 0.4;
 }
 
-.ask-opt:hover .ask-opt__glyph {
-  color: color-mix(in oklch, var(--ix-gold) 70%, transparent);
+.ask-opt:focus-visible {
+  outline: 1px solid var(--ix-gold);
+  outline-offset: -1px;
 }
 
 .ask-opt__body {
@@ -124,7 +135,11 @@
   background: var(--ix-active);
 }
 
-.ask-opt[data-selected="true"] .ask-opt__glyph {
+.ask-opt[data-selected="true"]::before {
+  opacity: 1;
+}
+
+.ask-opt[data-selected="true"] .ask-opt__label {
   color: var(--ix-gold);
 }
 

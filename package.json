@@ -26,6 +26,7 @@
     "ingest:podcast:tag": "tsx scripts/podcast-cc-tag.ts",
     "ingest:podcast:migrate-extractions": "tsx scripts/podcast-migrate-extractions.ts",
     "import:ssot-roster": "tsx scripts/import-ssot-roster.ts",
+    "import:faction-starters": "tsx scripts/import-faction-starters.ts",
     "loop:next": "tsx scripts/loop-next-batch.ts",
     "resolver:next-wave": "tsx scripts/resolver-loop-detect.ts",
     "atlas:regen": "tsx --env-file=.env.local scripts/atlas-regen.ts",

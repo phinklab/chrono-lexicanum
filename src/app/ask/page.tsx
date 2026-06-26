@@ -16,9 +16,9 @@ import { buildAskProfile, recommend } from "@/lib/ask/recommend";
 import type { AskRecommendation, AskRecommendationResult } from "@/lib/ask/types";
 
 export const metadata: Metadata = {
-  title: "Ask the Archive - Chrono Lexicanum",
+  title: "Find Your Next Book - Chrono Lexicanum",
   description:
-    "Answer four questions and get real Warhammer 40,000 novel recommendations from the archive.",
+    "Two ways into the archive: answer four questions, or pick a faction and get a single curated Warhammer 40,000 novel to start with.",
 };
 
 interface AskPageProps {
@@ -33,10 +33,10 @@ interface AskPageProps {
 const DEEPER_LIMIT = 24;
 
 const ASK_READOUT_LINES = [
-  "· INTERROGATORIVM · ONLINE",
+  "· ARCHIVE · WHERE TO BEGIN",
+  "· TWO WAYS IN · ONLINE",
   "· IV QVAESTIONES · FLAT PROFILE",
-  "· SIGNALS · EXPERIENCE / FACTION",
-  "· SIGNALS · TONE / LENGTH",
+  "· VNA FACTIO · VNVS LIBER",
   "· RECOMMENDATION ENGINE READY",
   "· ARCHIVE QUERY IS SERVER-SIDE",
 ];
