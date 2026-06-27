@@ -2,7 +2,7 @@
 title: Project state
 type: overview
 created: 2026-05-09
-updated: 2026-06-24
+updated: 2026-06-26
 sources:
   - ../../sessions/README.md
   - ../../sessions/archive/2026-06/2026-06-17-154-impl-book-reviewer.md
@@ -23,7 +23,7 @@ related:
 confidence: high
 ---
 
-# Project state — 2026-06-24 (Pre-Launch: Discovery-Layer + Buch-Reviewer shipped, Site hinter Preview-Gate, Invite-Links live)
+# Project state — 2026-06-26 (Pre-Launch: Discovery-Layer + Buch-Reviewer shipped, Ask-Overhaul (164) live, Site hinter Preview-Gate, Invite-Links live)
 
 > The "where are we now" anchor. **Nur aktueller Stand. Historie → [`log.md`](./log.md) + git.**
 
@@ -35,7 +35,7 @@ confidence: high
 
 ## Branch & Worktrees
 
-Unverändert: `origin/main` read-only für Code (Task-Branch + PR), Doc-only direkt auf `main`; drei Worktrees (Coordination/Product/Batches); Rollup-Ownership Brief 095 (nur Coordination schreibt `brain/**` + `sessions/README.md`); Cowork fasst nie `git` in der Sandbox an, git-Kommandos an Philipp **zeilenweise** (PowerShell 5, kein `&&`). **Neu seit 147:** `ci.yml` läuft auch auf `push: main` — direct-to-`main` Doc-Commits werden jetzt von CI gelintet (lokales `brain:lint -- --no-write` vor dem Push bleibt trotzdem Pflicht-Höflichkeit). **Ebenfalls neu seit 147:** der Vercel-Build migriert **nicht mehr automatisch** — Migrationen laufen via `npm run db:migrate` lokal oder `.github/workflows/migrate.yml` (workflow_dispatch, Pooler-URL).
+**PR-Policy (Brief 165, ab 2026-06-25):** **jede** Änderung — Code wie Docs — erreicht `main` nur über einen **CC-authored Task-Branch + PR**; **kein direct-to-`main` mehr** (löst die 2026-05-25-„doc-only→`main`"-Regel ab). **Cowork fasst nie `git` an und committet nie** — Cowork-Deliverable sind *Dateien im Working-Tree* (Brief + `brain/**` + `sessions/README.md`), die uncommitted liegen, bis ein CC-PR sie trägt: der Brief reitet im Strang-Code-PR mit (CC flippt dort `status: open → implemented`), die `brain/**`+`README`-Rollups committet CC aus dem Koordinations-Worktree (Brief-095-Single-Writer). Drei Worktrees (Coordination/Product/Batches); Rollup-Ownership Brief 095 unverändert (nur Coordination schreibt `brain/**` + `sessions/README.md`). git läuft Windows-nativ über Philipp/CC, in PowerShell 5 **zeilenweise** (kein `&&`). `ci.yml` läuft auf PRs **und** als Safety-Net auf `push: main`; lokales `brain:lint -- --no-write` vor jedem `brain/**`-Branch bleibt Pflicht. Vercel-Build migriert **nicht** automatisch — Migrationen via `npm run db:migrate` lokal oder `.github/workflows/migrate.yml` (workflow_dispatch, Pooler-URL).
 
 ## Latest state (2026-06-12)
 
@@ -65,7 +65,7 @@ Unverändert: `origin/main` read-only für Code (Task-Branch + PR), Doc-only dir
 
 ## What's open
 
-Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit): **121** offen P7(teilw. via 147)/P8/P9 (Themen/Galerie, warten auf 122-B8/B9) / **P12** URL-Migration EN + `/buch`-SSG / **P13** Mobile-Sweep / **P14** Map ⏸ — jetzt mit Inhalt: **53 sektor-zugeordnete Welten aus Stage 3** sind die Platzierungs-Worklist, und der **Redditor liefert eine Sternenkarte-Koordinaten-Excel** (Stand 2026-06-24: angekündigt, Reconciliation auf das interne `gx`/`gy`-0–1000-Raster ist die eigentliche Arbeit) / **P15** Map-Chrome-Kohärenz-Pass (Kandidat aus 150). **122** offen B5(⏸ Hand)/B6 (geprüft: **nicht** gelaufen, V1/V2-Code liegt komplett)/B7/B8/B9 / **B12** Ask-Logik-Tuning — **jetzt entsperrt** (B11- + Stage-3-Datenqualität liegt vor und ist in der DB). **B14 Local-only Curation Admin Tool am 2026-06-17 verworfen**: Hand-Kuration läuft per Codex-Auftrag an `curation-overlay.json` + Dry-Run/Verify. Erledigt: P1–P6, **P10 (150)**, **P11 (Seiten-Rückbau/Security-Rest, Report 153, gemergt)**, Product-Wave **159/160/161/162/163**, B1, **B2 (149)**, B3 (Full 981/981), B4, B10, **B11 Buch-Reviewer voll gelaufen + appliziert (154 + Stage 3 155 + Gate F/L 158)**, **B13 (151)**, **OQ 16(a) (152)**. Queue: [`open-questions.md`](./open-questions.md) (nur noch 16b/c Timeline-Folgen + 18a/b Apply-Vertiefungen). Character-Sentinels (315) geparkt.
+Strang-Arbeit trackt in den Boards (Status-Spalten = Wahrheit): **121** offen P7(teilw. via 147)/P8/P9 (Themen/Galerie, warten auf 122-B8/B9) / **P12** URL-Migration EN + `/buch`-SSG / **P13** Mobile-Sweep / **P14** Map ⏸ — jetzt mit Inhalt: **53 sektor-zugeordnete Welten aus Stage 3** sind die Platzierungs-Worklist, und der **Redditor liefert eine Sternenkarte-Koordinaten-Excel** (Stand 2026-06-24: angekündigt, Reconciliation auf das interne `gx`/`gy`-0–1000-Raster ist die eigentliche Arbeit) / **P15** Map-Chrome-Kohärenz-Pass (Kandidat aus 150). **122** offen B5(⏸ Hand)/B6 (geprüft: **nicht** gelaufen, V1/V2-Code liegt komplett)/B7/B8/B9 / **B12** Ask-Logik-Tuning — **erledigt via Brief 164** (Ask-Overhaul gemergt + gepullt; Impl-Report war vergessen, im 2026-06-26-Pass nachgetragen). **B14 Local-only Curation Admin Tool am 2026-06-17 verworfen**: Hand-Kuration läuft per Codex-Auftrag an `curation-overlay.json` + Dry-Run/Verify. Erledigt: P1–P6, **P10 (150)**, **P11 (Seiten-Rückbau/Security-Rest, Report 153, gemergt)**, Product-Wave **159/160/161/162/163**, B1, **B2 (149)**, B3 (Full 981/981), B4, B10, **B11 Buch-Reviewer voll gelaufen + appliziert (154 + Stage 3 155 + Gate F/L 158)**, **B13 (151)**, **OQ 16(a) (152)**. Queue: [`open-questions.md`](./open-questions.md) (nur noch 16b/c Timeline-Folgen + 18a/b Apply-Vertiefungen). Character-Sentinels (315) geparkt.
 
 Kleinkram außerhalb Boards/OQs:
 
@@ -76,10 +76,10 @@ Kleinkram außerhalb Boards/OQs:
 
 ## Next likely brief
 
-Aktualisiert 2026-06-24: **die ganze Wave 154/155/157/158/159/160/161/162/163 ist gemergt und (DB-seitig) appliziert** — Buch-Reviewer voll gelaufen, Gate F/L in der Prod-DB, Invite-Links live, Entity-ISR baut nur noch die 96-Hot-Subset. Code- und Deploy-Seite sind sauber; es liegt nichts Ungelandetes herum. Forward-Queue mit Philipp (2026-06-24):
+Aktualisiert 2026-06-26: **Brief 164 (Ask-Overhaul) ist gemergt + gepullt** (Impl-Report war vergessen — im 2026-06-26-Koordinations-Pass nachgetragen); die Wave 154–163 ist gemergt und DB-seitig appliziert. **Neu gebrieft: [166](../../sessions/2026-06-26-166-arch-ask-hub-one-faction-one-book.md)** — `/ask` wird „Find your next book"-Hub mit Fragebogen + neuem Tool „1 Faction, 1 Book" (maintainer-gepflegte Kurations-JSON, Reshuffle) + Diamond-Glyph-Rückbau; Product-Strang, wartet auf CC. Forward-Queue mit Philipp (2026-06-26):
 
-1. **P14 Map / Sternenkarte (entsperrt).** Der Redditor liefert eine Koordinaten-Excel; Stage 3 hinterlässt **53 sektor-zugeordnete Welten** als Platzierungs-Worklist. Architektonischer Kern eines Briefs: das Koordinatensystem der Excel auf das interne `gx`/`gy`-0–1000-Canvas-Raster mappen (Reconciliation), Roh-Quelle nach `scripts/seed-data/source/` (Präzedenz: `Warhammer_Books_SSOT.xlsx`), Apply read-only-vorschlagend → Hand-Gate. **Voraussetzung: die Excel sichten, bevor der Brief geschnitten wird.**
-2. **B12 Ask-Logik-Tuning (entsperrt).** Die `recommend()`-Logik mit der nun vorhandenen B11/Stage-3-Datenqualität schärfen.
+1. **Brief 166 — Ask-Hub + „1 Faction, 1 Book" (gebrieft, wartet auf CC).** Philipp pflegt die Faction→Buch-Liste; CC liefert Schema + Loader + UI + Validierung. Product-Worktree, ein PR.
+2. **P14 Map / Sternenkarte (entsperrt).** Der Redditor liefert eine Koordinaten-Excel; Stage 3 hinterlässt **53 sektor-zugeordnete Welten** als Platzierungs-Worklist. Architektonischer Kern eines Briefs: das Koordinatensystem der Excel auf das interne `gx`/`gy`-0–1000-Canvas-Raster mappen (Reconciliation), Roh-Quelle nach `scripts/seed-data/source/` (Präzedenz: `Warhammer_Books_SSOT.xlsx`), Apply read-only-vorschlagend → Hand-Gate. **Voraussetzung: die Excel sichten, bevor der Brief geschnitten wird.**
 3. **P12 URL-Migration EN + `/buch`-SSG** — reiner Architektur-Schnitt, keine Daten nötig.
 4. **P13 Mobile-Sweep.** Dazwischen wann Luft ist: B6 (Dead-Code), B7 (brain:lint-Guardrail); **B5** läuft als Hand-Kuratierung weiter; **P15** Map-Chrome-Kohärenz als eigener Kandidat. Optional `npm run db:drift` gegen Prod als read-only Bestätigung nach den Applies.
 

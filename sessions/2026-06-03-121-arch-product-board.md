@@ -49,6 +49,7 @@ Optik = deine (frontend-design Skill): Farben, Spacing, Typo, Motion, Copy, Klas
 | P13 | Mobile-Optimierung aller Seiten außer Map (seitenweise, mehrere Sessions) | ☐ |
 | P14 | Map-Komplett-Überarbeitung | ⏸ extern (wartet auf Redditor-Daten: Koordinaten + 100+ Planeten) |
 | P15 | Map-Chrome-Kohärenz-Pass: das /map-Chrome ist nach 150 (Eyeballing-Runden 6–8) in der Gold-Sprache, aber als Stapel akkumulierter Einzel-Fixes (Ornamente/Borders/Glows raus, Popups redesignt, Gelb-Washes raus, Solar klickbar, Backdrop 0.18). Ein kohärenter Design-Pass statt Fix-Stapel. **Distinkt von P14** (kein Daten-Bedarf), Kandidat aus impl 150 „For next session" | ☐ Kandidat |
+| P16 | Ask-Hub „Find your next book": `/ask` trägt ein zweites Tool „1 Faction, 1 Book" (Faction → kuratierter Einstieg aus maintainer-gepflegter `faction-starters.json`, Reshuffle bei ≥2 Picks, Korpus- oder Freiform-Pick); Fragebogen unverändert; + ◇/◆-Glyph-Rückbau in `QuestionCard`. Brief [166](./2026-06-26-166-arch-ask-hub-one-faction-one-book.md) | ☐ gebrieft, wartet auf CC |
 
 ## Optional context (nur laden wenn der Task es braucht)
 

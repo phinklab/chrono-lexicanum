@@ -1552,3 +1552,20 @@ Policy-Wechsel mit Philipp, **löst die 2026-05-25-„doc-only → direct to `ma
 **Neue Regel:** Cowork führt **nie** `git` aus und gibt Philipp **keine** git-Kommandos für eigenen Output. Cowork liefert *Dateien im Working-Tree* (Brief + `brain/**` + `sessions/README.md`); **CC committet sie im PR**. Kein direct-to-`main` mehr — jede Änderung (Code wie Docs) läuft über einen CC-PR. Der Brief reitet als frische, konfliktfreie Datei im Strang-Code-PR mit; `brain/**`-Rollups committet CC aus dem Koordinations-Worktree (Brief-095-Single-Writer-Invariante).
 
 **Edits (uncommitted, Teil von Brief-165-PR):** `CLAUDE.md` (§ Git → „PR policy" Neuschrieb + Worktree-Querverweise), `AGENTS.md` (§ PR policy + Worktree-Protokoll), `brain/wiki/workflows/cowork-session.md` (§ PR policy + Step 8 + post-CC-Pass), `brain/wiki/workflows/cc-session.md` (§ PR policy + Session-Start 1/3), `sessions/2026-06-25-165-arch-pr-policy-cowork-no-commit.md` (neu), `sessions/README.md` (Active-Threads-Zeile), dieser Eintrag. **Offen an CC (Brief 165):** die 2 `brain:lint` blocking findings fixen → CI grün, dann alles in einem Koordinations-Worktree-PR.
+
+---
+
+## 2026-06-26 · Update + Brief 166 · 164/165-Nachtrag + Ask-Hub / „1 Faction, 1 Book"
+
+**Anlass:** Philipp meldet „Ask the Archive fertig". Currency-Check ergab zwei hängende Rollups: Brief **164 (Ask-Overhaul)** ist gemergt + in den Coordination-Worktree gepullt, aber der Impl-Report wurde vergessen und project-state/README/Boards führten Ask/B12 noch als offen; Brief **165 (PR-Policy)** ist implementiert (impl-Report `complete`), aber README listete es „open" und project-state § Branch & Worktrees beschrieb noch das abgelöste „doc-only → direct-to-`main`"-Modell.
+
+**Nachgezogen (Cowork, uncommitted — CC committet via Koordinations-PR):**
+- `project-state.md`: § Branch & Worktrees auf die Brief-165-PR-Policy umgeschrieben (Cowork committet nie; alles über CC-PR; kein direct-to-`main`); B12 als via 164 erledigt markiert; „Next likely brief" auf den 2026-06-26-Stand (164 gemergt, 166 gebrieft → P14/P12/P13); Header + `updated` → 2026-06-26.
+- `index.md`: project-state-Catalog-Zeile `Updated` → 2026-06-26 (paart mit dem Frontmatter-Bump).
+- `sessions/README.md`: 164 + 165 → `implemented`; Brief-166-Zeile ergänzt; Kopf-Nachtrag.
+- Boards: `122` B11 + B12 → ☑ (waren seit Jun 16 stale); `121` neue Zeile P16 (Ask-Hub + „1 Faction, 1 Book" + Diamond-Rückbau, Brief 166).
+- `roadmap.md`: Ideas-Backlog-Eintrag „One Faction, One Book" als zu Brief 166 promoviert markiert (UI-Ort = `/ask`-Hub, nicht Faction-Hubs).
+
+**Neuer Brief:** `sessions/2026-06-26-166-arch-ask-hub-one-faction-one-book.md` (status open). `/ask` → „Find your next book"-Hub mit zwei Tools (Fragebogen unverändert + „1 Faction, 1 Book"), maintainer-gepflegte Kurations-JSON (`faction-starters.json`-Muster wie `ask-anchors.json`, in-memory-Join per Slug, kein DB), Reshuffle bei ≥ 2 Picks, Pick = Korpus-Slug *oder* Freiform-Eintrag; plus ◇/◆-Glyph-Rückbau in `QuestionCard`. URL-/SSR-Vertrag: Fragebogen unangetastet auf `/ask`, Faction-Tool deep-linkbar (Default `/ask/fraktion/[faction]`), Reshuffle ephemeral. Product-Strang, ein PR.
+
+**OQ-Bewegung:** keine. **Boards-Hinweis:** 121/122 sind über 164/B12 hinaus seit Jun 16 breiter stale (Product-Wave 159–163, P11 erledigt aber im Board offen); ein eigener Board-Resync ist als separate Hygiene angemerkt, nicht in diesem Pass vollständig mitgezogen.
