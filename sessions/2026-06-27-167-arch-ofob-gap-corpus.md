@@ -2,7 +2,7 @@
 session: 2026-06-27-167
 role: architect
 date: 2026-06-27
-status: open
+status: implemented
 slug: ofob-gap-corpus
 parent: 2026-06-26-166
 links: [2026-06-26-166, 2026-06-18-157, 2026-06-03-122]

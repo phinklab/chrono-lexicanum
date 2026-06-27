@@ -3498,5 +3498,33 @@
     "primaryFactionId": "raven_guard",
     "lexicanumUrl": null,
     "notes": "Resolver-Pass 16 gap follow-up (restbatch-extension HH-0295..0297, identity web-verified high-confidence): Raven Guard Moritat-Prime 'The Blood Crow' of the 14th Interdiction Company (Forge World Horus Heresy special character, Isstvan V / Drop Site Massacre), POV in Dropsite Massacre (HH-0297, John French). Surface form matches canonical name (direct match). primaryFactionId raven_guard."
+  },
+  {
+    "id": "wulf_khan",
+    "name": "Wulf Khan",
+    "primaryFactionId": "catachan_jungle_fighters",
+    "lexicanumUrl": null,
+    "notes": "Brief 167 (OFOB-gap restbatch-extension ssot-w40k-060, W40K-0593..0598): Major of the Catachan 903rd 'Night Shrikes', POV of Deathworlder (W40K-0593, Victoria Hayward). Surface form 'Major Wulf Khan' is a character-alias. primaryFactionId catachan_jungle_fighters."
+  },
+  {
+    "id": "saint_veres",
+    "name": "Saint Veres",
+    "primaryFactionId": "ecclesiarchy",
+    "lexicanumUrl": null,
+    "notes": "Brief 167 (OFOB-gap restbatch-extension ssot-w40k-060, W40K-0593..0598): martyr-saint whose holy relic (skull) is venerated on the shrine world Opal — mentioned in The Rose in Darkness (W40K-0594, Danie Ware). Surface form matches canonical name (direct match). primaryFactionId ecclesiarchy."
+  },
+  {
+    "id": "lelith_hesperax",
+    "name": "Lelith Hesperax",
+    "primaryFactionId": "drukhari",
+    "lexicanumUrl": null,
+    "notes": "Brief 167 (OFOB-gap restbatch-extension ssot-w40k-060, W40K-0593..0598): peerless Succubus of the Cult of Strife and undisputed champion of Commorragh's arenas, POV of Lelith Hesperax: Queen of Knives (W40K-0596, Mike Brooks). Surface form matches canonical name (direct match). primaryFactionId drukhari."
+  },
+  {
+    "id": "katarinya_greyfax",
+    "name": "Katarinya Greyfax",
+    "primaryFactionId": "inquisition",
+    "lexicanumUrl": null,
+    "notes": "Brief 167 (OFOB-gap restbatch-extension ssot-w40k-060, W40K-0593..0598): Inquisitor of the Ordo Hereticus, supporting in Our Martyred Lady (W40K-0597, Gav Thorpe). Surface forms 'Inquisitor Greyfax' / 'Greyfax' are character-aliases. primaryFactionId inquisition."
   }
 ]
