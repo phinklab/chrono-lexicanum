@@ -4,7 +4,7 @@
   "createdBy": "claude-code",
   "createdAt": "2026-06-10",
   "model": "claude-opus-4-8[1m]",
-  "rationale": "Weekly-refresh promotion wave 3 — the new two-book W40K domain-end restbatch (W40K-0591..0592). The Astra Militarum omnibus Soldiers of the Imperium (Death World / Kasrkin / Witchbringer + four shorts) and the Emperor's Children Chaos novel Renegades: Lord of Excess. Both 2025, both page-rated. Closes W40K coverage at 592/592.",
+  "rationale": "Weekly-refresh promotion wave 3 — the W40K domain-end restbatch. Originally two books (W40K-0591..0592): the Astra Militarum omnibus Soldiers of the Imperium (Death World / Kasrkin / Witchbringer + four shorts) and the Emperor's Children Chaos novel Renegades: Lord of Excess (both 2025, both page-rated). Brief 167 (2026-06-28) EXTENDS this same restbatch from 2 to 8 books (restbatch-extension precedent, Session 136 — NOT a new batch 061; W40K-0593..0598 fall in batch 060's slot W40K-0591..0600) with the six OFOB (Brief 166) gap books, web-researched by Cowork and entered verbatim from the ADD tab of source/OFOB-gap-books.xlsx: Deathworlder (W40K-0593), The Rose in Darkness (0594), The Rose at War (0595), Lelith Hesperax: Queen of Knives (0596), Our Martyred Lady (0597, audio_drama), The Long and Hungry Road (0598, short_story). All six are unrated (no Goodreads value captured in this additive pass). Net-new reference entities added for resolution: characters wulf_khan / saint_veres / lelith_hesperax / katarinya_greyfax, locations lazulai / opal / chertes, plus character-aliases for Augusta Santorus (→ existing sister_superior_augusta), Major Wulf Khan, Inquisitor Greyfax, Greyfax. Restbatch slot now 8/10 filled.",
   "books": [
     {
       "externalBookId": "W40K-0591",
@@ -157,6 +157,328 @@
           "value": 3.86,
           "count": 471,
           "evidenceUrl": "https://www.goodreads.com/book/show/210353156-lord-of-excess"
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0593",
+      "slug": "deathworlder",
+      "overrides": {
+        "synopsis": "On the dying world of Lazulai, all but lost to the tyranids, Major Wulf Khan of the Catachan 903rd 'Night Shrikes' is handed one last mission: lead a squad through the apocalypse to recover a piece of archeotech that could doom or deliver the entire Lazulai System.",
+        "facetIds": [
+          "book",
+          "en",
+          "male",
+          "guardsman",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "last_stand",
+          "grimdark",
+          "war",
+          "sacrifice",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Astra Militarum",
+            "role": "primary"
+          },
+          {
+            "name": "Tyranids",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Lazulai",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Major Wulf Khan",
+            "role": "pov"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0594",
+      "slug": "the-rose-in-darkness",
+      "overrides": {
+        "synopsis": "Sister Superior Augusta of the Order of the Bloody Rose is sent to the shrine world of Opal to recover the skull of Saint Veres during its holiest festival — only to uncover a genestealer cult beneath the surface and a hive fleet bearing down on the planet.",
+        "facetIds": [
+          "book",
+          "en",
+          "female",
+          "sister",
+          "imperium",
+          "planetary",
+          "series_start",
+          "standard",
+          "mystery",
+          "war_story",
+          "grimdark",
+          "faith",
+          "war",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Adepta Sororitas",
+            "role": "primary"
+          },
+          {
+            "name": "Genestealer Cults",
+            "role": "antagonist"
+          },
+          {
+            "name": "Tyranids",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Opal",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Augusta Santorus",
+            "role": "pov"
+          },
+          {
+            "name": "Saint Veres",
+            "role": "mentioned"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0595",
+      "slug": "the-rose-at-war",
+      "overrides": {
+        "synopsis": "A collection of Sister Augusta's missions for the Order of the Bloody Rose, gathering the novellas and short stories that follow the Battle Sister across the Imperium's warzones.",
+        "facetIds": [
+          "book",
+          "en",
+          "female",
+          "sister",
+          "imperium",
+          "galactic",
+          "standalone",
+          "standard",
+          "war_story",
+          "grimdark",
+          "faith",
+          "war",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Adepta Sororitas",
+            "role": "primary"
+          }
+        ],
+        "locations": [],
+        "characters": [
+          {
+            "name": "Augusta Santorus",
+            "role": "pov"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0596",
+      "slug": "lelith-hesperax-queen-of-knives",
+      "overrides": {
+        "synopsis": "Lelith Hesperax — peerless Succubus of the Cult of Strife and undisputed champion of Commorragh's arenas — takes to the road alongside the enigmatic Ynnari death cult.",
+        "facetIds": [
+          "book",
+          "en",
+          "female",
+          "pc_xenos",
+          "xenos",
+          "galactic",
+          "standalone",
+          "standard",
+          "journey",
+          "character_study",
+          "grimdark",
+          "cw_violence",
+          "cw_disturbing"
+        ],
+        "factions": [
+          {
+            "name": "Drukhari",
+            "role": "primary"
+          },
+          {
+            "name": "Ynnari",
+            "role": "supporting"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Commorragh",
+            "role": "mentioned"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Lelith Hesperax",
+            "role": "pov"
+          }
+        ],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "locations",
+            "reason": "Source synopsis names only Commorragh (the Succubus's home arena city) as a mentioned setting; the novel is a road-journey whose en-route worlds are not specified in available sources, so no primary location is asserted."
+          }
+        ],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0597",
+      "slug": "our-martyred-lady",
+      "overrides": {
+        "synopsis": "Amid a schism in the Ecclesiarchy that threatens a second Reign of Blood, the Living Saint Celestine and Inquisitor Greyfax hunt across the Imperium's shrine worlds to root out the heresy behind it.",
+        "facetIds": [
+          "audio_drama",
+          "en",
+          "female",
+          "sister",
+          "inquisitor",
+          "imperium",
+          "galactic",
+          "standalone",
+          "standard",
+          "mystery",
+          "court_intrigue",
+          "grimdark",
+          "faith",
+          "betrayal",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Adepta Sororitas",
+            "role": "primary"
+          },
+          {
+            "name": "Adeptus Ministorum",
+            "role": "primary"
+          },
+          {
+            "name": "Inquisition",
+            "role": "supporting"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Terra",
+            "role": "mentioned"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Saint Celestine",
+            "role": "pov"
+          },
+          {
+            "name": "Inquisitor Greyfax",
+            "role": "supporting"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0598",
+      "slug": "the-long-and-hungry-road",
+      "overrides": {
+        "synopsis": "A rare glimpse inside the tyranid hive mind as a hive fleet's vanguard descends on the doomed world of Chertes, whose defenders mount a resistance that is ultimately consumed.",
+        "facetIds": [
+          "book",
+          "en",
+          "pc_xenos",
+          "xenos",
+          "planetary",
+          "standalone",
+          "last_stand",
+          "war_story",
+          "grimdark",
+          "cosmic_horror",
+          "war",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Tyranids",
+            "role": "primary"
+          },
+          {
+            "name": "Genestealer Cults",
+            "role": "mentioned"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Chertes",
+            "role": "primary"
+          }
+        ],
+        "characters": [],
+        "flags": [
+          {
+            "kind": "low_confidence",
+            "field": "characters",
+            "reason": "Hive-mind-POV short story with no named individual characters in the source (Lexicanum) — zero character junctions by design, not an omission. protagonist_gender and length_tier facets are intentionally omitted: there is no individual viewpoint character, and no length bucket fits a short story."
+          }
+        ],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
         }
       }
     }

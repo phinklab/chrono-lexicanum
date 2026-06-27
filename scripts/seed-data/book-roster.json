@@ -14062,6 +14062,102 @@
       "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
       "notes": null,
       "sourceRow": 0
+    },
+    {
+      "externalBookId": "W40K-0593",
+      "slug": "deathworlder",
+      "title": "Deathworlder",
+      "authors": [
+        "Victoria Hayward"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2024,
+      "format": "novel",
+      "seriesHint": "Astra Militarum (#5)",
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Deathworlder_(Novel)",
+      "notes": "Complete. Catachan 903rd = Astra Militarum; planet Lazulai.",
+      "sourceRow": 0
+    },
+    {
+      "externalBookId": "W40K-0594",
+      "slug": "the-rose-in-darkness",
+      "title": "The Rose in Darkness",
+      "authors": [
+        "Danie Ware"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2023,
+      "format": "novel",
+      "seriesHint": "Adepta Sororitas / Sister Augusta",
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Rose_in_Darkness_(Novel)",
+      "notes": "Complete. Danie Ware's first full-length Augusta novel.",
+      "sourceRow": 0
+    },
+    {
+      "externalBookId": "W40K-0595",
+      "slug": "the-rose-at-war",
+      "title": "The Rose at War",
+      "authors": [
+        "Danie Ware"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2022,
+      "format": "anthology",
+      "seriesHint": "Adepta Sororitas / Sister Augusta",
+      "sourceUrl": "https://www.goodreads.com/series/277420-sister-augusta",
+      "notes": "Anthology (single author) — no single location, by design. Contents: Forsaken; The Crystal Cathedral; Mercy; The Bloodied Rose; Wreck and Ruin; The Rose in Anger; Da Big Mouf.",
+      "sourceRow": 0
+    },
+    {
+      "externalBookId": "W40K-0596",
+      "slug": "lelith-hesperax-queen-of-knives",
+      "title": "Lelith Hesperax: Queen of Knives",
+      "authors": [
+        "Mike Brooks"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2024,
+      "format": "novel",
+      "seriesHint": "Drukhari",
+      "sourceUrl": "https://www.blacklibrary.com/prod-home/new/ebook-lelith-hesperax-queen-of-knives-eng-2024.html",
+      "notes": "Complete. OFOB title 'Lelith Hesperax' → the 2024 novel 'Queen of Knives'.",
+      "sourceRow": 0
+    },
+    {
+      "externalBookId": "W40K-0597",
+      "slug": "our-martyred-lady",
+      "title": "Our Martyred Lady",
+      "authors": [
+        "Gav Thorpe"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2018,
+      "format": "audio_drama",
+      "seriesHint": "Adepta Sororitas",
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/Our_Martyred_Lady_(Audio_Drama)",
+      "notes": "Complete. Format = audio_drama (Gav Thorpe, full-cast incl. Catherine Tate); MP3 box set 2018.",
+      "sourceRow": 0
+    },
+    {
+      "externalBookId": "W40K-0598",
+      "slug": "the-long-and-hungry-road",
+      "title": "The Long and Hungry Road",
+      "authors": [
+        "Adrian Tchaikovsky"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2023,
+      "format": "short_story",
+      "seriesHint": "Tyranids",
+      "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Long_and_Hungry_Road_(Short_Story)",
+      "notes": "DECIDED by Philipp 2026-06-27: add as short_story. Author Tchaikovsky (Excel mis-attributed).",
+      "sourceRow": 0
     }
   ],
   "collections": [

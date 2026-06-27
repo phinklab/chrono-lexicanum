@@ -4059,5 +4059,40 @@
     "tags": [
       "imperium"
     ]
+  },
+  {
+    "id": "lazulai",
+    "name": "Lazulai",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "astra_militarum",
+      "tyranids"
+    ]
+  },
+  {
+    "id": "opal",
+    "name": "Opal",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "sisters_of_battle",
+      "genestealer_cults"
+    ]
+  },
+  {
+    "id": "chertes",
+    "name": "Chertes",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": [
+      "imperium",
+      "tyranids"
+    ]
   }
 ]
