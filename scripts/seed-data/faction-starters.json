@@ -9,13 +9,16 @@
       "picks": [
         {
           "title": "Our Martyred Lady",
-          "kind": "audio-drama"
+          "kind": "audio-drama",
+          "book": "our-martyred-lady"
         },
         {
-          "title": "Rose at War"
+          "title": "Rose at War",
+          "book": "the-rose-at-war"
         },
         {
-          "title": "Rose in Darkness"
+          "title": "Rose in Darkness",
+          "book": "the-rose-in-darkness"
         },
         {
           "title": "Morvenn Vahl - Spear of Faith",
@@ -29,7 +32,8 @@
       "picks": [
         {
           "title": "Watchers of the Throne Series",
-          "kind": "series"
+          "kind": "series",
+          "book": "the-emperors-legion"
         }
       ]
     },
@@ -85,7 +89,8 @@
           "label": "Catachan Jungle Fighters",
           "picks": [
             {
-              "title": "Deathworlder"
+              "title": "Deathworlder",
+              "book": "deathworlder"
             }
           ]
         },
@@ -188,7 +193,8 @@
             },
             {
               "title": "Lords OF Blood: Blood Angels Omnibus",
-              "kind": "omnibus"
+              "kind": "omnibus",
+              "book": "dante"
             }
           ]
         },
@@ -299,7 +305,8 @@
           "label": "White Scars",
           "picks": [
             {
-              "title": "Masters of the Hunt"
+              "title": "Masters of the Hunt",
+              "book": "hunt-for-voldorius"
             }
           ]
         }
@@ -460,7 +467,8 @@
       "label": "Drukhari",
       "picks": [
         {
-          "title": "Lelith Hesperax"
+          "title": "Lelith Hesperax",
+          "book": "lelith-hesperax-queen-of-knives"
         },
         {
           "title": "Path of the Dark eldar",
@@ -536,10 +544,12 @@
       "picks": [
         {
           "title": "The Great Devourer Omnibus",
-          "kind": "omnibus"
+          "kind": "omnibus",
+          "book": "valedor"
         },
         {
-          "title": "The long and hungry road"
+          "title": "The long and hungry road",
+          "book": "the-long-and-hungry-road"
         }
       ]
     },

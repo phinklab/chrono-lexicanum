@@ -32,15 +32,15 @@
     "Farsight crisis of faith": "farsight",
     "Death Korps Novels (Krieg und Siege of Vraks)": "krieg",
 
-    "Our Martyred Lady (Audiodrama)": "",
-    "Rose at War": "",
-    "Rose in Darkness": "",
-    "Watchers of the Throne Series": "",
-    "Lelith Hesperax": "",
-    "The Great Devourer Omnibus": "",
-    "The long and hungry road": "",
-    "Lords OF Blood: Blood Angels Omnibus": "",
-    "Masters of the Hunt": "",
-    "Deathworlder": ""
+    "Our Martyred Lady (Audiodrama)": "our-martyred-lady",
+    "Rose at War": "the-rose-at-war",
+    "Rose in Darkness": "the-rose-in-darkness",
+    "Watchers of the Throne Series": "the-emperors-legion",
+    "Lelith Hesperax": "lelith-hesperax-queen-of-knives",
+    "The Great Devourer Omnibus": "valedor",
+    "The long and hungry road": "the-long-and-hungry-road",
+    "Lords OF Blood: Blood Angels Omnibus": "dante",
+    "Masters of the Hunt": "hunt-for-voldorius",
+    "Deathworlder": "deathworlder"
   }
 }
