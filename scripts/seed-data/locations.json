@@ -101,6 +101,14 @@
     ]
   },
   {
+    "id": "hive_tartarus",
+    "name": "Hive Tartarus",
+    "sector": null,
+    "gx": null,
+    "gy": null,
+    "tags": []
+  },
+  {
     "id": "istvaan_v",
     "name": "Istvaan V",
     "sector": "obscurus",

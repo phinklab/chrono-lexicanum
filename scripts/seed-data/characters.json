@@ -3526,5 +3526,26 @@
     "primaryFactionId": "inquisition",
     "lexicanumUrl": null,
     "notes": "Brief 167 (OFOB-gap restbatch-extension ssot-w40k-060, W40K-0593..0598): Inquisitor of the Ordo Hereticus, supporting in Our Martyred Lady (W40K-0597, Gav Thorpe). Surface forms 'Inquisitor Greyfax' / 'Greyfax' are character-aliases. primaryFactionId inquisition."
+  },
+  {
+    "id": "ambrosius_roth",
+    "name": "Ambrosius Roth",
+    "primaryFactionId": "armageddon_steel_legion",
+    "lexicanumUrl": null,
+    "notes": "Brief 168 (weekly-refresh 2026-W26, ssot-w40k-060 restbatch slot W40K-0599): Major of the Armageddon Steel Legion ordered to hold the walls of Hive Tartarus, one of three POVs in Armageddon: Season of Fire (W40K-0599, Jude Reid). Surface form 'Major Ambrosius Roth' is a character-alias. primaryFactionId armageddon_steel_legion."
+  },
+  {
+    "id": "sabreen",
+    "name": "Sabreen",
+    "primaryFactionId": "order_of_our_martyred_lady",
+    "lexicanumUrl": null,
+    "notes": "Brief 168 (weekly-refresh 2026-W26, ssot-w40k-060 restbatch slot W40K-0599): Sister Superior of the Order of Our Martyred Lady, last guardian of a saint's relics within Hive Tartarus, one of three POVs in Armageddon: Season of Fire (W40K-0599, Jude Reid). Surface form 'Sister Superior Sabreen' is a character-alias. primaryFactionId order_of_our_martyred_lady."
+  },
+  {
+    "id": "gavriel",
+    "name": "Gavriel",
+    "primaryFactionId": "blood_angels",
+    "lexicanumUrl": null,
+    "notes": "Brief 168 (weekly-refresh 2026-W26, ssot-w40k-060 restbatch slot W40K-0599): headstrong young Blood Angel cutting through the ruins of Armageddon on a quest for vengeance, one of three POVs in Armageddon: Season of Fire (W40K-0599, Jude Reid). Surface form 'Brother Gavriel' is a character-alias. primaryFactionId blood_angels."
   }
 ]

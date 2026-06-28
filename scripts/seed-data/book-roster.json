@@ -14158,6 +14158,22 @@
       "sourceUrl": "https://wh40k.lexicanum.com/wiki/The_Long_and_Hungry_Road_(Short_Story)",
       "notes": "DECIDED by Philipp 2026-06-27: add as short_story. Author Tchaikovsky (Excel mis-attributed).",
       "sourceRow": 0
+    },
+    {
+      "externalBookId": "W40K-0599",
+      "slug": "armageddon-season-of-fire",
+      "title": "Armageddon: Season of Fire",
+      "authors": [
+        "Jude Reid"
+      ],
+      "editors": [],
+      "editorialNote": null,
+      "releaseYear": 2026,
+      "format": "novel",
+      "seriesHint": "40k",
+      "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+      "notes": null,
+      "sourceRow": 0
     }
   ],
   "collections": [
