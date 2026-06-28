@@ -2,7 +2,7 @@
 session: 2026-06-27-169
 role: architect
 date: 2026-06-27
-status: open
+status: implemented
 slug: faction-starters-relink
 parent: 2026-06-27-167
 links: [2026-06-27-167, 2026-06-26-166, 2026-06-03-121]
