@@ -767,6 +767,13 @@
     "tone": "line"
   },
   {
+    "id": "armageddon_steel_legion",
+    "name": "Armageddon Steel Legion",
+    "parent": "astra_militarum",
+    "alignment": "imperium",
+    "tone": "line"
+  },
+  {
     "id": "death_korps_of_krieg",
     "name": "Death Korps of Krieg",
     "parent": "astra_militarum",

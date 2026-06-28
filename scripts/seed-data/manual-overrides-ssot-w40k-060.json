@@ -4,7 +4,7 @@
   "createdBy": "claude-code",
   "createdAt": "2026-06-10",
   "model": "claude-opus-4-8[1m]",
-  "rationale": "Weekly-refresh promotion wave 3 — the W40K domain-end restbatch. Originally two books (W40K-0591..0592): the Astra Militarum omnibus Soldiers of the Imperium (Death World / Kasrkin / Witchbringer + four shorts) and the Emperor's Children Chaos novel Renegades: Lord of Excess (both 2025, both page-rated). Brief 167 (2026-06-28) EXTENDS this same restbatch from 2 to 8 books (restbatch-extension precedent, Session 136 — NOT a new batch 061; W40K-0593..0598 fall in batch 060's slot W40K-0591..0600) with the six OFOB (Brief 166) gap books, web-researched by Cowork and entered verbatim from the ADD tab of source/OFOB-gap-books.xlsx: Deathworlder (W40K-0593), The Rose in Darkness (0594), The Rose at War (0595), Lelith Hesperax: Queen of Knives (0596), Our Martyred Lady (0597, audio_drama), The Long and Hungry Road (0598, short_story). All six are unrated (no Goodreads value captured in this additive pass). Net-new reference entities added for resolution: characters wulf_khan / saint_veres / lelith_hesperax / katarinya_greyfax, locations lazulai / opal / chertes, plus character-aliases for Augusta Santorus (→ existing sister_superior_augusta), Major Wulf Khan, Inquisitor Greyfax, Greyfax. Restbatch slot now 8/10 filled.",
+  "rationale": "Weekly-refresh promotion wave 3 — the W40K domain-end restbatch. Originally two books (W40K-0591..0592): the Astra Militarum omnibus Soldiers of the Imperium (Death World / Kasrkin / Witchbringer + four shorts) and the Emperor's Children Chaos novel Renegades: Lord of Excess (both 2025, both page-rated). Brief 167 (2026-06-28) EXTENDS this same restbatch from 2 to 8 books (restbatch-extension precedent, Session 136 — NOT a new batch 061; W40K-0593..0598 fall in batch 060's slot W40K-0591..0600) with the six OFOB (Brief 166) gap books, web-researched by Cowork and entered verbatim from the ADD tab of source/OFOB-gap-books.xlsx: Deathworlder (W40K-0593), The Rose in Darkness (0594), The Rose at War (0595), Lelith Hesperax: Queen of Knives (0596), Our Martyred Lady (0597, audio_drama), The Long and Hungry Road (0598, short_story). All six are unrated (no Goodreads value captured in this additive pass). Net-new reference entities added for resolution: characters wulf_khan / saint_veres / lelith_hesperax / katarinya_greyfax, locations lazulai / opal / chertes, plus character-aliases for Augusta Santorus (→ existing sister_superior_augusta), Major Wulf Khan, Inquisitor Greyfax, Greyfax. Restbatch slot now 8/10 filled. Brief 168 (2026-06-28, weekly-refresh 2026-W26) appends one more book to the same restbatch: Armageddon: Season of Fire (W40K-0599, Jude Reid, 2026) — a three-POV Second-War-for-Armageddon novel (Armageddon Steel Legion / Order of Our Martyred Lady / Blood Angels vs Orks at Hive Tartarus). Net-new reference entities added for resolution: faction armageddon_steel_legion (parent astra_militarum), location hive_tartarus (distinct from the pre-existing Dawn-of-War 'tartarus' planet row), characters ambrosius_roth / sabreen / gavriel, plus character-aliases for the rank-prefixed surface forms (Major Ambrosius Roth / Sister Superior Sabreen / Brother Gavriel). Left unrated (2026 release, no Goodreads value captured in this additive pass). Restbatch slot now 9/10 filled.",
   "books": [
     {
       "externalBookId": "W40K-0591",
@@ -479,6 +479,89 @@
           "status": "unrated",
           "source": "goodreads",
           "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+        }
+      }
+    },
+    {
+      "externalBookId": "W40K-0599",
+      "slug": "armageddon-season-of-fire",
+      "overrides": {
+        "synopsis": "As the Second War for Armageddon reaches its dying days, three defenders face the Ork tide closing on Hive Tartarus. Major Ambrosius Roth of the Armageddon Steel Legion is ordered to hold the hive's walls against a massive xenos assault, outnumbered, outgunned, and rapidly running out of time. Sister Superior Sabreen of the Order of Our Martyred Lady stands as the last guardian of a saint's relics while a deeper evil seeps into the foundations beneath her, forcing an impossible choice. And Brother Gavriel, a headstrong young Blood Angel, carves a path of death and glory through the broken hive on a merciless quest for vengeance as the Imperial line crumbles around them. Across three viewpoints — the Steel Legion, the Sisters of Battle, and the Angels of Death — one battle for Armageddon is fought to its bitter end.",
+        "facetIds": [
+          "book",
+          "en",
+          "ensemble",
+          "multi",
+          "imperium",
+          "planetary",
+          "standalone",
+          "standard",
+          "war_story",
+          "siege",
+          "last_stand",
+          "grimdark",
+          "action_heavy",
+          "war",
+          "faith",
+          "sacrifice",
+          "cw_violence",
+          "cw_death"
+        ],
+        "factions": [
+          {
+            "name": "Astra Militarum",
+            "role": "primary"
+          },
+          {
+            "name": "Armageddon Steel Legion",
+            "role": "primary"
+          },
+          {
+            "name": "Adepta Sororitas",
+            "role": "primary"
+          },
+          {
+            "name": "Order of Our Martyred Lady",
+            "role": "primary"
+          },
+          {
+            "name": "Blood Angels",
+            "role": "primary"
+          },
+          {
+            "name": "Orks",
+            "role": "antagonist"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Armageddon",
+            "role": "primary"
+          },
+          {
+            "name": "Hive Tartarus",
+            "role": "primary"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Major Ambrosius Roth",
+            "role": "pov"
+          },
+          {
+            "name": "Sister Superior Sabreen",
+            "role": "pov"
+          },
+          {
+            "name": "Brother Gavriel",
+            "role": "pov"
+          }
+        ],
+        "flags": [],
+        "rating": {
+          "status": "unrated",
+          "source": "goodreads",
+          "reason": "Weekly-refresh promotion (Brief 168, 2026-W26) — 2026 release with no Goodreads rating captured in this additive detection pass; left explicitly unrated."
         }
       }
     }

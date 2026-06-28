@@ -1,0 +1,183 @@
+{
+  "$generatedBy": "refresh:check (Brief 133 / Board 122-B10)",
+  "isoWeek": "2026-W26",
+  "books": {
+    "status": "ok",
+    "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "csvUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSZFSFiuzKtDuEsxnzWBNsc1JgU2XH0WGt5aDjX11wveRRv3JFspbLcV1xIlERcoumOG2X7RKDUlU83/pub?gid=374689393&single=true&output=csv",
+    "note": null,
+    "newBooks": [
+      {
+        "externalBookId": "W40K-0599",
+        "slug": "armageddon-season-of-fire",
+        "title": "Armageddon: Season of Fire",
+        "authors": [
+          "Jude Reid"
+        ],
+        "editors": [],
+        "editorialNote": null,
+        "releaseYear": 2026,
+        "format": "novel",
+        "seriesHint": "40k",
+        "sourceUrl": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+        "notes": null,
+        "source_kind": "track_of_words",
+        "confidence": 0.6
+      }
+    ],
+    "pendingBooks": [],
+    "formatDefaultedIds": [],
+    "reviewBooks": [],
+    "pendingReviewBooks": [],
+    "consideredRows": 75,
+    "skippedIgnoredRows": 46,
+    "skippedOlderRows": 572,
+    "skippedOutOfScopeRows": 331,
+    "skippedDuplicateRows": 37
+  },
+  "podcasts": {
+    "shows": [
+      {
+        "slug": "the-40k-lorecast",
+        "title": "The 40k Lorecast",
+        "source": "rss",
+        "status": "ok",
+        "note": null,
+        "floorIso": "2026-01-01",
+        "committedCount": 149,
+        "freshCount": 153,
+        "newEpisodes": [
+          {
+            "guid": "ccea1f33-ef34-4da1-951a-150a6f6fee28",
+            "title": "Episode 144 - The Word Bearers pt 1 - The creation of the Imperial Heralds and the complete opposite thing happening on Colchis",
+            "pubDate": "2026-06-22T23:00:40.000Z",
+            "link": "https://the40klorecast.com/"
+          },
+          {
+            "guid": "834f3050-0001-46ab-a143-6b5caea3eb99",
+            "title": "Episode 143 - Legion of the Damned, yeah turns out they were a little over the top.",
+            "pubDate": "2026-06-15T23:00:20.000Z",
+            "link": "https://the40klorecast.com/"
+          },
+          {
+            "guid": "bc46b3cc-dfb0-43d6-88fa-14a34426e965",
+            "title": "Bonus Episode - Our Takes on 11th Edition",
+            "pubDate": "2026-06-12T11:00:26.000Z",
+            "link": "https://the40klorecast.com/"
+          },
+          {
+            "guid": "d6c6bed4-d3eb-4feb-9b04-1ed3a6a0ca3c",
+            "title": "Episode 142 - Space Hulks, yeah.... they can be kind of a nightmare",
+            "pubDate": "2026-06-08T23:00:38.000Z",
+            "link": "https://the40klorecast.com/"
+          }
+        ],
+        "skippedBeforeFloor": 125,
+        "skippedExcludedByTitle": 0
+      },
+      {
+        "slug": "adeptus-ridiculous",
+        "title": "Adeptus Ridiculous",
+        "source": "rss",
+        "status": "ok",
+        "note": null,
+        "floorIso": "2026-01-01",
+        "committedCount": 363,
+        "freshCount": 366,
+        "newEpisodes": [
+          {
+            "guid": "Buzzsprout-19395501",
+            "title": "You Have Been Lied To About 40k Orks | Warhammer 40k Lore",
+            "pubDate": "2026-06-24T16:00:00.000Z",
+            "link": null
+          },
+          {
+            "guid": "Buzzsprout-19361091",
+            "title": "URIEL VENTRIS: Least Depressed Named Ultramarine | Warhammer 40k Lore",
+            "pubDate": "2026-06-17T16:00:00.000Z",
+            "link": null
+          },
+          {
+            "guid": "Buzzsprout-19324978",
+            "title": "CIAPHAS CAIN - HERO OF THE IMPERIUM | Warhammer 40k Lore",
+            "pubDate": "2026-06-10T16:00:00.000Z",
+            "link": null
+          }
+        ],
+        "skippedBeforeFloor": 339,
+        "skippedExcludedByTitle": 0
+      },
+      {
+        "slug": "lorehammer",
+        "title": "Lorehammer - A Warhammer 40k Podcast",
+        "source": "rss",
+        "status": "ok",
+        "note": null,
+        "floorIso": "2026-01-01",
+        "committedCount": 391,
+        "freshCount": 615,
+        "newEpisodes": [
+          {
+            "guid": "9f73e22a-8d83-4d70-939d-4991bc9f6842",
+            "title": "Edition Eras Pt. 2 - 3rd and 4th",
+            "pubDate": "2026-06-26T10:00:00.000Z",
+            "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Edition-Eras-Pt--2---3rd-and-4th-e3l2am9"
+          },
+          {
+            "guid": "4aa58a02-3d7c-44e0-98a0-cb31823a90fd",
+            "title": "Edition Eras Pt. 1 - 1st and 2nd",
+            "pubDate": "2026-06-22T10:00:00.000Z",
+            "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/Edition-Eras-Pt--1---1st-and-2nd-e3l2a8u"
+          },
+          {
+            "guid": "c1740d46-d704-4839-b476-1bd4aff88e1b",
+            "title": "239 - Astartes Armoury: Rare and Retired Vehicles Pt. 3",
+            "pubDate": "2026-06-19T10:00:00.000Z",
+            "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/239---Astartes-Armoury-Rare-and-Retired-Vehicles-Pt--3-e3l0o10"
+          },
+          {
+            "guid": "54fcc386-dcf9-4e35-ac7b-54a6397f597b",
+            "title": "238 - Astartes Armoury: Rare and Retired Vehicles Pt. 2",
+            "pubDate": "2026-06-15T10:00:00.000Z",
+            "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/238---Astartes-Armoury-Rare-and-Retired-Vehicles-Pt--2-e3kpq5f"
+          },
+          {
+            "guid": "9d86842b-1655-4254-9b2d-ed3fd0b6b3f9",
+            "title": "237 - Astartes Armoury: Rare and Retired Vehicles Pt. 1 ",
+            "pubDate": "2026-06-12T10:00:00.000Z",
+            "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/237---Astartes-Armoury-Rare-and-Retired-Vehicles-Pt--1-e3kn4dc"
+          },
+          {
+            "guid": "bf72b37a-7594-4449-847a-b0a12cff3ef9",
+            "title": "236 - Astartes Armoury: Aircraft",
+            "pubDate": "2026-06-08T10:00:00.000Z",
+            "link": "https://podcasters.spotify.com/pod/show/lorehammerpodcast/episodes/236---Astartes-Armoury-Aircraft-e3kfgo4"
+          }
+        ],
+        "skippedBeforeFloor": 524,
+        "skippedExcludedByTitle": 45
+      },
+      {
+        "slug": "luetin09",
+        "title": "Luetin09",
+        "source": "youtube",
+        "status": "ok",
+        "note": null,
+        "floorIso": "2026-01-01",
+        "committedCount": 191,
+        "freshCount": 1854,
+        "newEpisodes": [
+          {
+            "guid": "oMiv_wJqtLc",
+            "title": "40K LEGENDS - TRAZYN THE INFINITE | Warhammer 40,000 Lore/History",
+            "pubDate": "2026-06-13T19:02:18.000Z",
+            "link": "https://www.youtube.com/watch?v=oMiv_wJqtLc"
+          }
+        ],
+        "skippedBeforeFloor": 1849,
+        "skippedExcludedByTitle": 0
+      }
+    ]
+  },
+  "hasFindings": true
+}
