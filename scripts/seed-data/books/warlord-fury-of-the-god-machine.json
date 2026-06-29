@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0088",
+  "slug": "warlord-fury-of-the-god-machine",
+  "title": "Warlord: Fury of the God Machine",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Adeptus Titanicus dual-POV novel. The Pallidus Mor — a stoic Titan Legion still recovering from a near-disastrous Tyranid engagement — is reassigned to a forge world fallen to Chaos and forced to fight alongside the Imperial Hunters, an aristocratic legion whose princeps treat Pallidus Mor as common-stock and chase glory-kills rather than coordinate. Princeps Ferantha Krezoc of Warlord Gloria Vastator holds the line; Princeps Adrel Syagrius of Warlord Augustus Secutor drives the friction until the Chaos enemy forces unwilling cooperation. City-after-city Titan combat anchors the action; beneath it, an Omnissiah-versus-Emperor cult-axis keeps a slow drumbeat. A god-machine novel where the ego-war between Imperium legios runs louder than the Chaos enemy.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "betrayal",
+      "hubris",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Titanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Pallidus Mor",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Hunters",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Ferantha Krezoc",
+        "role": "pov"
+      },
+      {
+        "name": "Adrel Syagrius",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

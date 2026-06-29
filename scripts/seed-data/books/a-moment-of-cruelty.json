@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0503",
+  "slug": "a-moment-of-cruelty",
+  "title": "A Moment of Cruelty",
+  "authors": [
+    "Phil Kelly"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In Mhurghast, mist-bound city of Shyish, the noble Valenth dwell in distant Azyrite splendour while the streets below seethe with beggars and broken veterans. Alabastian Valenth, an ambitious young scion whose appetite for status outstrips his talents, dismisses one such beggar with the petty cruelty of his kind — and finds, to his horror, that the man begins to appear wherever he goes. The pursuit closes by degrees, herding him back to the family estate and a mirror whose surface has been waiting for him. By the time Alabastian understands the shape of the game, he no longer has the standing to refuse the next move.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "neutral",
+      "planetary",
+      "standalone",
+      "novella",
+      "character_study",
+      "mystery",
+      "grimdark",
+      "cosmic_horror",
+      "hubris",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Mhurghast",
+        "role": "primary"
+      },
+      {
+        "name": "Shyish",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Alabastian Valenth",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story",
+        "reason": "Released as a Warhammer Horror Week 2020 eShort (originally The Leper of Mhurghast), not a novel"
+      },
+      {
+        "kind": "data_conflict",
+        "field": "setting",
+        "suggestion": "age_of_sigmar",
+        "reason": "Age of Sigmar story set in Shyish (Mhurghast, Azyrite nobility) populated under a W40K-prefixed roster slot"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.48,
+      "count": 21,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55815529-a-moment-of-cruelty"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

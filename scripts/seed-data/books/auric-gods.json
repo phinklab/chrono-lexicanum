@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0563",
+  "slug": "auric-gods",
+  "title": "Auric Gods",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novella",
+  "seriesHint": "Adeptus Custodes",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When Shield-Captain Cartovandis receives a mysterious distress call from the world of Vorganthian, out on the fringe of the Sol system, he gathers a small band of Custodians to investigate. They arrive to find a planet in the grip of self-annihilation, its cities overrun and its peacekeepers vanished or worse. Meanwhile on Terra, Captain-General Trajann Valoris dispatches a second hand-picked trio of his order on the trail of a dangerous artefact stolen from deep beneath the Imperial Palace itself. As the two missions slowly converge, the Custodes must hunt down the conspirators behind Vorganthian's fall before the madness consuming that world reaches its true target — something far closer to the Throne than any of them had ever feared.",
+    "facetIds": [
+      "book",
+      "male",
+      "custodes",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vorganthian",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Cartovandis",
+        "role": "pov"
+      },
+      {
+        "name": "Trajann Valoris",
+        "role": "supporting"
+      },
+      {
+        "name": "Meroved",
+        "role": "supporting"
+      },
+      {
+        "name": "Ursula Gedd",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Chaos antagonist on Vorganthian described as 'cultists' in available coverage; no specific Chaos sub-faction named, so the cult is left unbound rather than mis-tagged."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.82,
+      "count": 159,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42740938-auric-gods"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

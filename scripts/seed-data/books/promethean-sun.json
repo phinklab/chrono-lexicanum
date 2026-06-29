@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0114",
+  "slug": "promethean-sun",
+  "title": "Promethean Sun",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "At the height of the Great Crusade, the war fleets of three Legions strike at a verdant world held by the Exodite Eldar. While the Iron Hands of Ferrus Manus and Mortarion's Death Guard cut their way across open ground, it is the Salamanders who must brave the deepest, darkest jungles — and the monstrous reptilian beasts and witchery they conceal. As the campaign turns against the Imperium, the primarch Vulkan walks into the alien stronghold himself, intent on unmaking the sorcery at the heart of it. Only by his hand can the world be lit, the Eldar broken, and the promise of compliance kept.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Vulkan",
+        "role": "pov"
+      },
+      {
+        "name": "Ferrus Manus",
+        "role": "supporting"
+      },
+      {
+        "name": "Mortarion",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.54,
+      "count": 725,
+      "evidenceUrl": "https://www.goodreads.com/book/show/11797803-promethean-sun"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

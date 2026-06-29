@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0540",
+  "slug": "bloodlines",
+  "title": "Bloodlines",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Crime",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the towering hive city of Varangantua, Probator Agusto Zidarov is handed the kind of job no honest enforcer wants: find the missing son and heir of the wealthy magnate Udmil Terashova, and find him alive. The trail leads through cell-draining gangs, corporate warfare and the cartel courts that sit above the law. A bust goes bad; a sanctioner dies; a small inquiry becomes an open street war between the gangs and the Lucid Palace. As Zidarov pushes further into the city's dark plumbing, he stops asking who took the boy and starts asking what the powerful are willing to break to keep him quiet.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_crime",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Enforcers",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Varangantua",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Probator Agusto Zidarov",
+        "role": "pov"
+      },
+      {
+        "name": "Udmil Terashova",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.08,
+      "count": 1327,
+      "evidenceUrl": "https://www.goodreads.com/book/show/49090039-bloodlines"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

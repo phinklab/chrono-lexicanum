@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0338",
+  "slug": "broken-sword",
+  "title": "Broken Sword",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Apocalypse",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Set during the second campaign for the Damocles Gulf, this is a quieter, stranger story of the war for hearts as much as worlds. As the T'au Empire pulls human populations into the embrace of the Greater Good, one man turns his back on the Imperium entirely and gives himself to the alien cause. Tasked with capturing the silver-tongued Water Caste envoy orchestrating the conversions, the Raven Guard move through a society being remade from within. The novella spends as much time inside T'au culture and ambition as on the battlefield, asking what the Imperium offers its people that an enemy promising peace and purpose cannot. A sombre tale of faith, defection and the slow tightening of an alien net.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "dual",
+      "planetary",
+      "standalone",
+      "novella",
+      "political_thriller",
+      "character_study",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "T'au Empire",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Damocles Gulf",
+        "role": "supporting"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "central human convert and Water Caste envoy not named in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.33,
+      "count": 12,
+      "evidenceUrl": "https://www.goodreads.com/book/show/60816795-broken-sword"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

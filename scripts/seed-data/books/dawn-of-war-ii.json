@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0211",
+  "slug": "dawn-of-war-ii",
+  "title": "Dawn of War II",
+  "authors": [
+    "Chris Roberson"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "novel",
+  "seriesHint": "Dawn of War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Blood Ravens dispatch a company of Space Marines to the embattled worlds of the Aurelia sub-sector, where Imperial defences are buckling under a sustained ork invasion. Captain Davian Thule leads his warriors from world to world, blunting the greenskin assault and hunting their warlords across war-torn frontier planets. But as the Blood Ravens push deeper into enemy territory, they uncover a far greater horror stirring behind the ork tide: the Tyranids, the great devourer, whose hive fleets threaten to consume everything the Chapter has fought to save. From squad-level skirmishes to a desperate company-wide stand, the marines must hold the line against two relentless foes.",
+    "facetIds": [
+      "book",
+      "male",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Ravens",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Aurelia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Davian Thule",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "Aurelia sub-sector is the established game setting; individual world names in the novelisation not confirmed in sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.11,
+      "count": 131,
+      "evidenceUrl": "https://www.goodreads.com/book/show/4906131-dawn-of-war-ii"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

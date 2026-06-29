@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0533",
+  "slug": "the-martyrs-tomb",
+  "title": "The Martyr's Tomb",
+  "authors": [
+    "Marc Collins"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Dawn of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The shrine worlds of the Golden Chain are crumbling, all but Velua, where Canoness Irinya of the Order of Our Martyred Lady and Champion Gaheris of the Black Templars hold the line against plague-stricken cultists tearing the planet to anarchy. As the Death Guard's true face emerges from the rot, the fate of Velua - and of the wider Indomitus Crusade - turns on the disgraced Rogue Trader Katla Helvintr, called in by Guilliman to do what neither prayer nor blade has managed. Faith, fury and old debts converge over a tomb that was never meant to be opened.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Order of Our Martyred Lady",
+        "role": "primary"
+      },
+      {
+        "name": "Black Templars",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogue Traders",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Velua",
+        "role": "primary"
+      },
+      {
+        "name": "Golden Chain",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Canoness Irinya",
+        "role": "pov"
+      },
+      {
+        "name": "Gaheris",
+        "role": "pov"
+      },
+      {
+        "name": "Katla Helvintr",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.51,
+      "count": 572,
+      "evidenceUrl": "https://www.goodreads.com/book/show/124943688-the-martyr-s-tomb"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

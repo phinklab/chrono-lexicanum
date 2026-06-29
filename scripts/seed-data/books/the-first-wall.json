@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0057",
+  "slug": "the-first-wall",
+  "title": "The First Wall",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Perturabo and his Iron Warriors arrive on Terra to do what they were forged to do: break a wall. The Lion's Gate Spaceport becomes the hinge of the assault — if the traitors take it, they can land the heaviest siege engines directly on the Throneworld's doorstep. Rogal Dorn's Imperial Fists hold the line with every defensive stratagem they know, but the price climbs hour by hour. Around the duel of the two siege-primarchs, a new faith rises inside the Palace as the Lectitio Divinitatus spreads, and a fresh regiment levied from former Africa marches across the ruined continent to reinforce the defenders. The First Wall is the moment the Siege stops being about voids and bastions and starts being about people.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "dual",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "faith",
+      "sacrifice",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      },
+      {
+        "name": "Lion's Gate Spaceport",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Perturabo",
+        "role": "antagonist"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.76,
+      "count": 3142,
+      "evidenceUrl": "https://www.goodreads.com/book/show/51086021-the-first-wall"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

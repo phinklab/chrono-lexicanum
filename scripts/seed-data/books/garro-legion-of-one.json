@@ -1,0 +1,104 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0244",
+  "slug": "garro-legion-of-one",
+  "title": "Garro: Legion of One",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Nathaniel Garro, Tylos Rubio and Macer Varren land on the ruined world of Isstvan III, where Horus first turned on his battle-brothers, hunting an Astartes warrior that Lord Malcador has commanded them to find. The world's wretched refugees rise as plague zombies and the dead climb from the rubble to attack. Among the survivors, Garro recognises a hollowed-out fighter and presses him to remember who he truly is — Garviel Loken, former captain of the Luna Wolves. Loken's mind gradually returns, and the Knights-Errant carry him back toward Terra.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "journey",
+      "war_story",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "redemption",
+      "brotherhood",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Luna Wolves",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan III",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Tylos Rubio",
+        "role": "supporting"
+      },
+      {
+        "name": "Macer Varren",
+        "role": "supporting"
+      },
+      {
+        "name": "Garviel Loken",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.08,
+      "count": 662,
+      "evidenceUrl": "https://www.goodreads.com/book/show/10146826-garro"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

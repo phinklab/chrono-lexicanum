@@ -1,0 +1,121 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0001",
+  "slug": "horus-rising",
+  "title": "Horus Rising",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Two centuries into the Great Crusade, the Emperor has retired to Terra and named his most beloved son Warmaster of the war that will reunite humanity. The 63rd Expedition under Horus, the primarch of the Luna Wolves, moves from world to world, demanding compliance and crushing what refuses. Newly chosen for Horus's inner council — the Mournival — Captain Garviel Loken trades the certainty of war for the harder business of speaking truth to a brother who has begun to need it. On the fleet, remembrancer Mersadie Oliton and the iterator Kyril Sindermann record what they see, and a forbidden cult worshipping the Emperor as a god begins to spread among soldiers and civilians. By the time the expedition reaches a feral world called Davin, the threads of the war that will follow have already been pulled tight.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "philosophical",
+      "grimdark",
+      "brotherhood",
+      "loyalty",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Luna Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Army",
+        "role": "supporting"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "supporting"
+      },
+      {
+        "name": "Interex",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sixty-Three Nineteen",
+        "role": "primary"
+      },
+      {
+        "name": "Murder",
+        "role": "supporting"
+      },
+      {
+        "name": "Xenobia",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Garviel Loken",
+        "role": "pov"
+      },
+      {
+        "name": "Horus",
+        "role": "supporting"
+      },
+      {
+        "name": "Tarik Torgaddon",
+        "role": "supporting"
+      },
+      {
+        "name": "Ezekyle Abaddon",
+        "role": "supporting"
+      },
+      {
+        "name": "Horus Aximand",
+        "role": "supporting"
+      },
+      {
+        "name": "Kyril Sindermann",
+        "role": "supporting"
+      },
+      {
+        "name": "Mersadie Oliton",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.26,
+      "count": 41579,
+      "evidenceUrl": "https://www.goodreads.com/book/show/625603.Horus_Rising"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

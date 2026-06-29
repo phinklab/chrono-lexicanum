@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0118",
+  "slug": "feat-of-iron",
+  "title": "Feat of Iron",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the rugged world of One-Five-Four Four, Ferrus Manus drives his Iron Hands into another grinding compliance, fighting beside the Salamanders and the Death Guard. The terrain is hostile, the Eldar enemy uses ambushes and sorcerous weapons that turn his warriors' own bionics against them — and the primarch's temper is fraying. When a storm engulfs his command and an Eldar trap separates him from his sons, Ferrus is left alone in a cavern that is not entirely real, stalked by serpent-shadows and confronted with visions of his own death, his Legion's ruin, and the brother he most refuses to doubt. Whether he listens to the warning is another matter.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "somber",
+      "action_heavy",
+      "hubris",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "One-Five-Four Four",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ferrus Manus",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.12,
+      "count": 244,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22439649-feat-of-iron"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

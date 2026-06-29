@@ -1,0 +1,123 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0292",
+  "slug": "horus-heresy-the-scripts-volume-i",
+  "title": "Horus Heresy: The Scripts: Volume I",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2012,
+  "format": "scriptbook",
+  "seriesHint": "Other Books",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "This script collection prints the production texts behind the first six Black Library Horus Heresy audio dramas, with editor Christian Dunn's introduction, soundtrack cues, and character notes. Readers follow Konrad Curze hunting deserters in 'The Dark King,' Rogal Dorn arguing with Sigismund atop the Lightning Tower over Terra, Corvus Corax leading the broken Raven Guard out of the Isstvan V trap in 'Raven's Flight,' and Nathaniel Garro's renegade Death Guard in 'Oath of Moment' and 'Legion of One' as they take ship from Isstvan back toward Terra. 'Butcher's Nails' rides with Angron and Kharn through a World Eaters compliance, the implants ever louder. A volume for readers who already know the audios and want the bones beneath the sound.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "space_marine",
+      "dual",
+      "galactic",
+      "requires_context",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "betrayal",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nostramo",
+        "role": "supporting"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Konrad Curze",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "pov"
+      },
+      {
+        "name": "Sigismund",
+        "role": "supporting"
+      },
+      {
+        "name": "Corvus Corax",
+        "role": "pov"
+      },
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Angron",
+        "role": "pov"
+      },
+      {
+        "name": "Kharn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.91,
+      "count": 22,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18080631"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0464",
+  "slug": "plague-war",
+  "title": "Plague War",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Dark Imperium",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Death Guard hold Ultramar by the throat. Roboute Guilliman gathers his armies and his miraculous new Primaris brothers and breaks for Parmenio, where Mortarion's host has dug into rotted soil and hopes to drag the primarch into open battle. Around them, plagues of impossible specificity ravage Ultramar's worlds, while the Death Guard itself begins to split along old Heresy-era seams: Mortarion's command of his Legion is challenged by Typhus and his Plague Marines, each pulling Nurgle's grace in a different direction. As the Plague War rages, strange miracles erupt across Ultramar's shrines and battlefields — saints walking, daemons recoiling, common Guardsmen testifying to glimpses of the Emperor — and the rationalist Guilliman must decide what to do with the faith that is bleeding through the cracks of his own design.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ultramar",
+        "role": "primary"
+      },
+      {
+        "name": "Parmenio",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "pov"
+      },
+      {
+        "name": "Mortarion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Typhus",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.04,
+      "count": 2827,
+      "evidenceUrl": "https://www.goodreads.com/book/show/40593242-plague-war"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

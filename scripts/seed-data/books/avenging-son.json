@@ -1,0 +1,113 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0528",
+  "slug": "avenging-son",
+  "title": "Avenging Son",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Dawn of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Indomitus Crusade begins. With the galaxy split by the Great Rift and Chaos warbands rampant across dozens of sectors, the reborn primarch Roboute Guilliman commits his fleets out of Terra in the largest military undertaking in living memory. The novel braids three perspectives: Guilliman himself, weighing what an Imperium under siege can afford; Fleetmistress VanLeskus, whose eye turns to the Machorta Sound where a Slaughter Host of the Dark Gods has dug in; and Lieutenant Vitrian Messinius of the White Consuls, whose Battlegroup Saint Aster is sent to break the Slaughter Host before it can shut a critical warp lane. By the climax it is clear that Abaddon the Despoiler intends to wall Terra off behind a stone of his own choosing, and that the Crusade's first victory will be measured not in worlds taken but in routes kept open. A series opener that doubles as a state-of-the-Imperium briefing.",
+    "facetIds": [
+      "book",
+      "space_marine",
+      "male",
+      "mixed",
+      "imperium",
+      "galactic",
+      "war_story",
+      "action_heavy",
+      "grimdark",
+      "faith",
+      "war",
+      "sacrifice",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "doorstopper",
+      "series_start",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "White Consuls",
+        "role": "supporting"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Machorta Sound",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "pov"
+      },
+      {
+        "name": "Vitrian Messinius",
+        "role": "pov"
+      },
+      {
+        "name": "VanLeskus",
+        "role": "pov"
+      },
+      {
+        "name": "Belisarius Cawl",
+        "role": "supporting"
+      },
+      {
+        "name": "Abaddon the Despoiler",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.95,
+      "count": 2275,
+      "evidenceUrl": "https://www.goodreads.com/book/show/54999448-avenging-son"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

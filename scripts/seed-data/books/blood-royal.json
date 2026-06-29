@@ -1,0 +1,115 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0164",
+  "slug": "blood-royal",
+  "title": "Blood Royal",
+  "authors": [
+    "Gordon Rennie",
+    "Will McDermott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Kal Jerico would rather be a swaggering Underhive bounty hunter than acknowledge his bloodline, but Lord Gerontius Helmawr has other ideas. Kal is hauled before Necromunda's ruler and sent after Armand Helmawr, his half-brother, who has stolen a priceless House artefact, fled into Hive Primus in a Spyrer rig and started leaving drained bodies behind him. With young Valtin Schemko forced along as witness and liability, Kal descends through family politics, gang danger and reluctant inheritance. The Kal Jerico trilogy begins as dynastic intrigue in an action-noir coat.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "mystery",
+      "journey",
+      "political_thriller",
+      "action_heavy",
+      "satirical",
+      "grimdark",
+      "war",
+      "loyalty",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Helmawr",
+        "role": "primary"
+      },
+      {
+        "name": "Spyrers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "The Spire",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kal Jerico",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Gerontius Helmawr",
+        "role": "supporting"
+      },
+      {
+        "name": "Armand Helmawr",
+        "role": "antagonist"
+      },
+      {
+        "name": "Valtin Schemko",
+        "role": "supporting"
+      },
+      {
+        "name": "Wotan",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

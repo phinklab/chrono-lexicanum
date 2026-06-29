@@ -1,0 +1,107 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0163",
+  "slug": "little-horus",
+  "title": "Little Horus",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Horus Aximand — Little Horus, fifth captain of the Sons of Horus and youngest of the Mournival — has been dreaming. A figure in his sleep walks beside him with a face he cannot quite see, and he wakes uneasy at every dawn of his Legion's new war. Tasked with subjugating Dwell, an Imperial world whose great mausoleum-engines preserve the memories of the honoured dead, Aximand plans the assault with Grael Noctua, then leads his men down into a battle that should be easy. It is not. The Iron Hands captain Shadrak Meduson has brought a Shattered-Legions kill-team to Dwell, including a White Scars hunter named Hibou Khan. By the time the mausoleum belongs to the Sons of Horus, Aximand has been bested in single combat, a brother has died saving him, and Khan's blade has taken away the face he was named for. The dream walks closer now, and the face within it is finally clear.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "chaos",
+      "company",
+      "planetary",
+      "requires_context",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "doubt",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "antagonist"
+      },
+      {
+        "name": "White Scars",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dwell",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Horus Aximand",
+        "role": "pov"
+      },
+      {
+        "name": "Grael Noctua",
+        "role": "supporting"
+      },
+      {
+        "name": "Shadrak Meduson",
+        "role": "antagonist"
+      },
+      {
+        "name": "Hibou Khan",
+        "role": "antagonist"
+      },
+      {
+        "name": "Henricos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Garviel Loken",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.8,
+      "count": 306,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22599235-little-horus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0330",
+  "slug": "the-hunt-of-magnus",
+  "title": "The Hunt for Magnus",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "For two thousand years the Space Wolves have nursed a single, burning grudge: the escape of Magnus the Red, the sorcerer-primarch whose treachery doomed their war on Prospero. Now Great Wolf Harek Ironhelm believes he has caught the scent of his quarry at last. When the ancient enemy resurfaces on the world of Arvion, Ironhelm commits his Chapter to the chase, determined to finish what Leman Russ began and run the traitor to ground no matter the cost. But pride and obsession are perilous guides, and the hunt Ironhelm believes he leads may be a snare laid for him. A tale of vengeance and hubris that sets the stage for the coming battle for the Fang.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "novella",
+      "requires_context",
+      "war_story",
+      "journey",
+      "grimdark",
+      "hubris",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Arvion",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Harek Ironhelm",
+        "role": "pov"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.65,
+      "count": 65,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25511467-the-hunt-for-magnus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0529",
+  "slug": "the-gates-of-bones",
+  "title": "The Gates of Bones",
+  "authors": [
+    "Andy Clark"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Dawn of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The second movement of the Dawn of Fire saga turns from Terra outward. Guilliman commits a great fleet toward the shrine-world of Gathalamor, where a stable warp-route would let the Indomitus Crusade pour into the southern half of the Imperium. The garrison force already on Gathalamor has gone ominously silent, and an ancient xenos race sends warnings the Regent cannot ignore. Guilliman dispatches a reconnaissance: Shield-Captain Achallor of the Adeptus Custodes, an embattled Mordian general's surviving regiment, and a depleted preceptory of Sisters of the Argent Shroud, who together find a world cracking open. Word Bearers and Iron Warriors are dug in beneath the cathedrals, hunting for a blackstone weapon that, if waked, threatens not merely the Crusade but the Throne itself.",
+    "facetIds": [
+      "book",
+      "custodes",
+      "sister",
+      "mixed",
+      "imperium",
+      "planetary",
+      "war_story",
+      "siege",
+      "action_heavy",
+      "grimdark",
+      "faith",
+      "war",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "standard",
+      "mid_series",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Argent Shroud",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gathalamor",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Achallor",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "title",
+        "suggestion": "The Gate of Bones",
+        "note": "Roster title 'The Gates of Bones' (plural) — Black Library, Goodreads and Lexicanum all list the canonical title as 'The Gate of Bones' (singular). Slug 'the-gates-of-bones' inherits the same error."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.04,
+      "count": 1494,
+      "evidenceUrl": "https://www.goodreads.com/book/show/56269793-the-gate-of-bones"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

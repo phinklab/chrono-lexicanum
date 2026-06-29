@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0214",
+  "slug": "the-last-son-of-prospero",
+  "title": "The Last Son of Prospero",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Revuel Arvida, last of the Thousand Sons to walk freely among the loyal Legions, is dying. The flesh-change that consumed his brothers on Prospero has caught up with him at last, and the psychic toll of shepherding his White Scars kinsmen through the ruinstorm has all but finished the work. Jaghatai Khan, who calls Arvida brother in everything but blood, refuses to let him go. But the Sigillite Malcador warns that survival will demand more than mortal medicine: only the Imperial Regent's craft can stitch what is left of Arvida's body back together, and only the Khan can hold what remains of his soul in place while it happens. What returns from that table will not quite be the man who lay down on it — and may yet be more useful, in the war to come, than the Thousand Son who died there.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "character_study",
+      "somber",
+      "philosophical",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Revuel Arvida",
+        "role": "pov"
+      },
+      {
+        "name": "Jaghatai Khan",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.11,
+      "count": 169,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/33556504"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

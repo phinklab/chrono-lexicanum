@@ -1,0 +1,105 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0064",
+  "slug": "garro-knight-of-grey",
+  "title": "Garro: Knight of Grey",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novella",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Among the ashes and fire of the embattled Imperial Palace, the former Knight Errant Nathaniel Garro carries his blade Libertas one last time. The shadow of Horus Lupercal's triumph looms over Terra, and Garro's path — from the brutal betrayal at Isstvan, through his missions as Malcador the Sigillite's Agentia Primus, to the burning Throneworld — has led him toward a destiny that can only end in bloodshed. As he struggles to protect Euphrati Keeler, the first Saint of the nascent Imperial Church, from the horrors of this titanic war, Garro must face his greatest enemy: Mortarion, his former master, the monstrous liege-lord of the traitor Death Guard, and the primarch he once swore unbreakable oaths to. The last knight of grey walks toward a final, shattering confrontation with the father he refused to follow into damnation.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "novella",
+      "war_story",
+      "siege",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "loyalty",
+      "betrayal",
+      "faith",
+      "redemption",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Euphrati Keeler",
+        "role": "supporting"
+      },
+      {
+        "name": "Mortarion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.97,
+      "count": 877,
+      "evidenceUrl": "https://www.goodreads.com/book/show/61677233-garro"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0138",
+  "slug": "angron",
+  "title": "Angron",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2013,
+  "format": "collection",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three stories of the Red Angel, gathered into a single volume. In After Desh'ea, the Emperor has just plucked Angron from the high places of Nuceria and dropped him among his new sons; the captain Kharn is the first World Eater asked to make a primarch out of a still-bleeding gladiator. In Butcher's Nails, Angron rides with Lorgar Aurelian on a punitive campaign and the Word Bearer learns, up close, the shape of the cortical implants that grind his brother's mind to slag. In Lord of the Red Sands, Angron returns to a world where he was once chained, and the World Eaters glimpse the warrior he might have been before the Nails were ever hammered home. Together the three tales trace, in steady and painful steps, the road that ends in the Heresy.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "brotherhood",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_abuse",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nuceria",
+        "role": "primary"
+      },
+      {
+        "name": "Desh'ea",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Angron",
+        "role": "pov"
+      },
+      {
+        "name": "Kharn",
+        "role": "pov"
+      },
+      {
+        "name": "Lorgar",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "anthology",
+        "reason": "Roster lists 'collection' but the volume gathers stories from two different authors (Aaron Dembski-Bowden and Matthew Farrer); Heresy convention treats multi-author short-story compilations as anthologies."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.02,
+      "count": 291,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/17701206"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

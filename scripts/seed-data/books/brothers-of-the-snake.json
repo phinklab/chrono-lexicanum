@@ -1,0 +1,113 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0074",
+  "slug": "brothers-of-the-snake",
+  "title": "Brothers of the Snake",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Episodic Iron Snakes novel — seven linked tales, most first carried in the Inferno! magazine — following Brother-Sergeant Priad of Damocles Squad across roughly twelve years of duty in the Reef Stars sector. When Sergeant Raphon and two squadmates fall on an early mission, Priad inherits Raphon's legendary Lightning Claw and the squad's sergeancy; later episodes carry the squad through boarding actions, Dark Eldar slave-raid response, Ork brawls, and squad-internal reckonings of honour. Iron Snakes culture is Greek-coded — home world Ithaka, fortress-moon Karybdis, oath and hospitality and kin-debt ethics threaded through every tale.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "journey",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Snakes",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ithaka",
+        "role": "primary"
+      },
+      {
+        "name": "Karybdis",
+        "role": "secondary"
+      },
+      {
+        "name": "Reef Stars",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Priad",
+        "role": "pov"
+      },
+      {
+        "name": "Raphon",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "current": "novel",
+        "suggestion": "collection",
+        "sources": [
+          "Lexicanum Brothers of the Snake (Novel); Warhammer 40k Wiki / Fandom Brothers of the Snake; Goodreads"
+        ],
+        "reasoning": "Brothers of the Snake is structurally a fix-up of seven linked short stories (most originally published in Inferno! magazine) framed as a Priad / Damocles-Squad-progression novel over roughly twelve years. SSOT roster lists 'novel'; suggestion 'collection' or 'fix_up'. Same pattern as W40K-0025 Ghostmaker in ssot-w40k-003. Resolver brief later can decide whether to promote a 'fix_up' or 'collection' value into the format taxonomy or keep 'novel' as the umbrella."
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

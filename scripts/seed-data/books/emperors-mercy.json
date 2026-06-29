@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0268",
+  "slug": "emperors-mercy",
+  "title": "Emperor's Mercy",
+  "authors": [
+    "Henry Zou"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "novel",
+  "seriesHint": "Bastion Wars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Inquisitor Obodiah Roth and his retinue are dispatched to the Medina Corridor, a strategically vital cluster of worlds, to recover a set of ancient artefacts before they fall into the wrong hands. But Roth is not the only one hunting them: the Ironclads, a vast and merciless army of traitors, sweep through the subsector crushing all resistance in their search for the same prize. As assassination attempts mount and a terrible cataclysm looms over the Medina worlds, Roth comes to suspect that the deadliest danger may already be inside his own circle, for one of his trusted companions is a traitor. A tense blend of war and mystery that opens the Bastion Wars, pitting one Inquisitor's wits against an enemy that seems unstoppable.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "series_start",
+      "standard",
+      "mystery",
+      "war_story",
+      "political_thriller",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "war",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ironclads",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Medina Corridor",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Inquisitor Obodiah Roth",
+        "role": "pov"
+      },
+      {
+        "name": "Silverstein",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.66,
+      "count": 480,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6535179-emperor-s-mercy"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

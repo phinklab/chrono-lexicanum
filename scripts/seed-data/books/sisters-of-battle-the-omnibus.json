@@ -1,0 +1,116 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0256",
+  "slug": "sisters-of-battle-the-omnibus",
+  "title": "Sisters of Battle: The Omnibus",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "omnibus",
+  "seriesHint": "Sisters of Battle",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Two complete novels and two shorter tales collect the early campaigns of the Adepta Sororitas. In Faith and Fire, the disgraced Sister Miriya hunts the escaped heretic Torris Vaun across the hive world of Neva, uncovering a conspiracy that reaches into the Imperium's heart. In Hammer and Anvil, Miriya and the Hospitaller Sister Verity return to the dead world of Sanctuary 101 to face the soulless necrons that slaughtered its defenders. Alongside them, the shorter works Red and Black and Heart and Soul deepen the bond between the Battle Sisters and test their faith against corruption, doubt, and ancient terror. Together they chart the trials of two very different women bound by devotion to the Emperor and the unending wars of the Sisterhood.",
+    "facetIds": [
+      "book",
+      "female",
+      "sister",
+      "imperium",
+      "planetary",
+      "war_story",
+      "mystery",
+      "siege",
+      "last_stand",
+      "faith",
+      "doubt",
+      "redemption",
+      "sacrifice",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "cw_violence",
+      "cw_death",
+      "series_start",
+      "doorstopper",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Neva",
+        "role": "primary"
+      },
+      {
+        "name": "Van Horne",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanctuary 101",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sister Miriya",
+        "role": "pov"
+      },
+      {
+        "name": "Sister Verity",
+        "role": "supporting"
+      },
+      {
+        "name": "Torris Vaun",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.21,
+      "count": 314,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/32861012-sisters-of-battle"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0254",
+        "displayOrder": 0,
+        "confidence": 0.9,
+        "basis": "Sisters of Battle omnibus follows the two James Swallow novels"
+      },
+      {
+        "externalBookId": "W40K-0255",
+        "displayOrder": 1,
+        "confidence": 0.9,
+        "basis": "Sisters of Battle omnibus follows the two James Swallow novels"
+      }
+    ]
+  }
+}

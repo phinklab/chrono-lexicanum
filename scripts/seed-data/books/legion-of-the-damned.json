@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0285",
+  "slug": "legion-of-the-damned",
+  "title": "Legion of the Damned",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Following the path of a blood-red comet, the berserk warbands of the World Eaters carve a trail of slaughter across the stars. The small cemetery world of Certus-Minor begs the Imperium for protection, and the Excoriators answer, dispatching a force led by the disgraced former Chapter Champion Zachariah Kersh. But the defenders are too few, and against the howling horde their losses mount swiftly. As the last lines crumble and hope drains away, salvation arrives from legend itself: silent, spectral warriors clad in black, the Legion of the Damned, who walk out of myth to stand between the living and the doomed. For Kersh, the battle becomes a trial of faith, will and the chance to redeem a tarnished name.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "siege",
+      "last_stand",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "faith",
+      "sacrifice",
+      "redemption",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Excoriators",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      },
+      {
+        "name": "Legion of the Damned",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Certus-Minor",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zachariah Kersh",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.81,
+      "count": 626,
+      "evidenceUrl": "https://www.goodreads.com/book/show/12323666-legion-of-the-damned"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

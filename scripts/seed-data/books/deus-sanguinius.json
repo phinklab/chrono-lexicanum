@@ -1,0 +1,102 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0218",
+  "slug": "deus-sanguinius",
+  "title": "Deus Sanguinius",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Blood Angels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Blood Angels stand on the brink of civil war. Proclaiming himself the reborn Sanguinius, Arkio commands his brothers to follow him or die, and the Chapter splinters into rival camps. His elder brother Rafen, certain that Arkio has been corrupted by the schemes of the renegade inquisitor Stele, races to expose the truth before the bloodletting becomes total. As the rivals converge on the shrine world of Sabien, the dread Lord of Death Mephiston arrives to pass judgement, and battle-brother is set against battle-brother in a final, tragic reckoning that will decide the soul of the Chapter.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "faith",
+      "betrayal",
+      "redemption",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sabien",
+        "role": "primary"
+      },
+      {
+        "name": "Baal",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rafen",
+        "role": "pov"
+      },
+      {
+        "name": "Arkio",
+        "role": "antagonist"
+      },
+      {
+        "name": "Remius Stele",
+        "role": "antagonist"
+      },
+      {
+        "name": "Mephiston",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.66,
+      "count": 465,
+      "evidenceUrl": "https://www.goodreads.com/book/show/199873.Deus_Sanguinius"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

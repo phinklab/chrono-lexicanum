@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0012",
+  "slug": "for-the-emperor",
+  "title": "For the Emperor",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2003,
+  "format": "novel",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Commissar Ciaphas Cain takes charge of the freshly-merged Valhallan 597th — a fractious blend of the all-male 296th and all-female 301st — and is shipped to Gravalax, an Imperial mining world on the Tau border where civil unrest is threatening to drag both powers into open war. Cain juggles diplomatic duty alongside Inquisitor Amberley Vail, suppresses food riots in the capital, and survives an early assassination attempt on the Tau ambassador whose architects turn out to be neither Tau nor Imperial. Beneath the diplomatic theatre crawls a deeper conspiracy — a genestealer cult engineering the war from the shadows — and Cain spends the novel trying very hard to be somewhere else while accidentally averting an interstellar incident. The book opens Cain's series and presents itself as the first volume of his memoirs, edited and footnoted by Vail.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "mystery",
+      "satirical",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "supporting"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gravalax",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      },
+      {
+        "name": "Regina Kasteen",
+        "role": "supporting"
+      },
+      {
+        "name": "Ruput Broklaw",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

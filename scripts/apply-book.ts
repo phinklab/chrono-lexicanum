@@ -64,6 +64,7 @@ import {
   projectToRosterBook,
   seriesAnchorOf,
   type BookFileV1,
+  type CorpusMode,
   type LoadedBookFile,
 } from "./book-file";
 import { seedReferenceAndFacetProlog } from "./seed-prolog";
@@ -76,8 +77,15 @@ interface ParsedCliArgs {
   slug: string;
   all: boolean;
   verify: boolean;
+  mode: CorpusMode;
   help: boolean;
 }
+
+const VALID_MODES: ReadonlySet<string> = new Set([
+  "additive",
+  "migration-equivalence",
+  "post-retirement",
+]);
 
 function parseCliArgs(argv: string[]): ParsedCliArgs {
   const { values } = parseArgs({
@@ -86,15 +94,27 @@ function parseCliArgs(argv: string[]): ParsedCliArgs {
       slug: { type: "string" },
       all: { type: "boolean", default: false },
       verify: { type: "boolean", default: false },
+      // Brief 171: the corpus now lives ONLY in books/, so post-retirement is
+      // the default (folder-only uniqueness + id-max; the frozen Legacy roster
+      // is out of scope). `additive` is the Teil-A "new release alongside Legacy"
+      // mode, kept for that transitional case.
+      mode: { type: "string", default: "post-retirement" },
       help: { type: "boolean", short: "h", default: false },
     },
     strict: true,
     allowPositionals: false,
   });
+  const mode = String(values.mode ?? "post-retirement");
+  if (!VALID_MODES.has(mode)) {
+    throw new Error(
+      `[apply-book] --mode must be one of additive | migration-equivalence | post-retirement (got "${mode}")`,
+    );
+  }
   return {
     slug: String(values.slug ?? ""),
     all: Boolean(values.all),
     verify: Boolean(values.verify),
+    mode: mode as CorpusMode,
     help: Boolean(values.help),
   };
 }
@@ -107,9 +127,14 @@ scripts/book-apply-shared.ts.
 
 Usage:
   npm run apply:book -- --slug <slug>   # one book, idempotent, targeted
-  npm run apply:book -- --all           # every books/*.json (the db:sync tail)
+  npm run apply:book -- --all           # every books/*.json (the primary corpus step)
   npm run apply:book -- --verify        # read-only presence check (db:drift)
   npm run apply:book -- --help
+
+  --mode <m>   additive | migration-equivalence | post-retirement
+               (default post-retirement — books/ is the SSOT corpus; the frozen
+               Legacy roster is out of scope. additive = Teil-A new-release-
+               alongside-Legacy mode.)
 
 Behaviour:
   - Runs the non-destructive reference/facet seed prolog before validating.
@@ -134,9 +159,13 @@ interface LoadedCorpus {
   knownExternalIds: Set<string>;
 }
 
-/** Load the folder + roster, run the schema + dup-guard gates. Throws on any issue. */
-async function loadAndGuard(): Promise<LoadedCorpus> {
-  const roster = await loadRoster();
+/**
+ * Load the folder, run the schema + dup-guard gates. Throws on any issue. The
+ * Legacy roster is consulted ONLY in `additive` mode (Brief 171) — in
+ * `post-retirement` / `migration-equivalence` the corpus is folder-only and the
+ * frozen Legacy roster is out of scope.
+ */
+async function loadAndGuard(mode: CorpusMode = "post-retirement"): Promise<LoadedCorpus> {
   const { books: folder, issues } = loadBookFiles();
   if (issues.length > 0) {
     throw new Error(
@@ -145,19 +174,21 @@ async function loadAndGuard(): Promise<LoadedCorpus> {
     );
   }
 
-  const collisions = findCorpusCollisions(folder, roster.books);
+  const rosterBooks: RosterBook[] = mode === "additive" ? (await loadRoster()).books : [];
+
+  const collisions = findCorpusCollisions(folder, rosterBooks, mode);
   if (collisions.length > 0) {
     throw new Error(
-      `[apply-book] ${collisions.length} corpus collision(s) (slug/externalBookId across Legacy + books/). Halt.\n` +
+      `[apply-book] ${collisions.length} corpus collision(s) (mode=${mode}). Halt.\n` +
         collisions.map((c) => `  - ${c}`).join("\n"),
     );
   }
 
   const knownExternalIds = new Set<string>([
-    ...roster.books.map((b) => b.externalBookId),
+    ...rosterBooks.map((b) => b.externalBookId),
     ...folder.map((f) => f.book.externalBookId),
   ]);
-  return { folder, rosterBooks: roster.books, knownExternalIds };
+  return { folder, rosterBooks, knownExternalIds };
 }
 
 // =============================================================================
@@ -219,8 +250,8 @@ async function applyBookCollections(
   return rows.length;
 }
 
-async function runApply(mode: { slug: string; all: boolean }): Promise<void> {
-  const { folder, rosterBooks, knownExternalIds } = await loadAndGuard();
+async function runApply(mode: { slug: string; all: boolean; corpusMode: CorpusMode }): Promise<void> {
+  const { folder, knownExternalIds } = await loadAndGuard(mode.corpusMode);
 
   // Select the target set.
   let selected: LoadedBookFile[];
@@ -327,8 +358,8 @@ async function runApply(mode: { slug: string; all: boolean }): Promise<void> {
 // Verify (read-only — db:drift)
 // =============================================================================
 
-async function runVerify(): Promise<void> {
-  const { folder } = await loadAndGuard();
+async function runVerify(mode: CorpusMode): Promise<void> {
+  const { folder } = await loadAndGuard(mode);
   if (folder.length === 0) {
     console.log("[apply-book] verify: books/ is empty — nothing to check (ok).");
     process.exit(0);
@@ -394,10 +425,10 @@ async function main(): Promise<void> {
   }
 
   if (args.verify) {
-    await runVerify();
+    await runVerify(args.mode);
     return;
   }
-  await runApply({ slug: args.slug, all: args.all });
+  await runApply({ slug: args.slug, all: args.all, corpusMode: args.mode });
 }
 
 main().catch((err) => {

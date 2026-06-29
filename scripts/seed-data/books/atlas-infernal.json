@@ -1,0 +1,117 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0079",
+  "slug": "atlas-infernal",
+  "title": "Atlas Infernal",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Standalone Inquisitor-Czevak novel that compresses four crucial decades of High Inquisitor Bronislaw Czevak's life into a single chase. Czevak of the Ordo Xenos — the only human ever known to have been invited to study within the Eldar's Black Library — has stolen from there the Atlas Infernal, a living map of the Webway, and is now hunted simultaneously by three sets of pursuers: the Eldar Harlequins, sent to apprehend him and reclaim the Atlas; rivals within his own Inquisition who would rather kill him than let him keep what he has learned; and his deadliest foe, the Thousand Sons arch-sorcerer Ahzek Ahriman, who wants the knowledge inside the Black Library and inside Czevak's head to exalt himself to godhood. Webway-scale journey / cat-and-mouse pursuit across realspace and warp infrastructure, with Czevak's small allied entourage, Harlequin troupes, Thousand Sons cabals, and Inquisition strike-teams converging at every waypoint.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "galactic",
+      "standalone",
+      "standard",
+      "journey",
+      "mystery",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "philosophical",
+      "hubris",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "Harlequins",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Webway",
+        "role": "primary"
+      },
+      {
+        "name": "Black Library",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bronislaw Czevak",
+        "role": "pov"
+      },
+      {
+        "name": "Ahzek Ahriman",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eldrad Ulthran",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

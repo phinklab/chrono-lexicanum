@@ -1,0 +1,117 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0065",
+  "slug": "eye-of-terror",
+  "title": "Eye of Terror",
+  "authors": [
+    "Barrington J. Bayley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 1999,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the eve of a new Black Crusade, the Rogue Trader Maynard Rugolo runs a lighter-than-lighter cargo into the fringes of the Eye of Terror, calculating that the warp-twisted reefs between Imperial space and Abaddon's pulpits hold both fortunes and short paths home. A parallel thread follows two Space Marines whose fates entwine deep inside the Eye — one a Khornate corsair of long standing, the other a survivor from the time of the Great Crusade whose loyalist faith is being eroded by everything around him, until he must choose between scorning the Emperor or throwing his lot in with the dark gods his warband-brother already serves. Subplots: a Navigator losing his mind under the Eye's constantly-shifting topography; frog-people brokering diamonds with a Chaos merchant; Marine-on-Marine cannibalism; and two Greater Daemons playing a literal game of pieces-on-a-board by smashing two real planets together. Bayley's prose sits closer to British New-Wave SF than to standard 40K — philosophical, surreal, unsettling — and the book is now under Black Library's Heretic Tomes label for cumulative lore drift since 1999.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "dual",
+      "sector",
+      "standalone",
+      "standard",
+      "journey",
+      "war_story",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "philosophical",
+      "somber",
+      "doubt",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Khorne",
+        "role": "antagonist"
+      },
+      {
+        "name": "Black Legion",
+        "role": "background"
+      },
+      {
+        "name": "Rogue Traders",
+        "role": "primary"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Navis Nobilite",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Maynard Rugolo",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "canonicity",
+        "current": "rostered",
+        "suggestion": "heretic_tomes_label",
+        "sources": [
+          "Black Library / Lexicanum: novel sold under the Heretic Tomes brand"
+        ],
+        "reasoning": "Black Library distributes this 1999 Bayley novel under its *Heretic Tomes* label for works no longer consistent with current 40K canon. Roster correctly lists it as a 40K novel; flag is informational for the recommender."
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Beyond Rogue Trader Maynard Rugolo (the named POV), the two Space Marine subplot protagonists and the Navigator who goes mad inside the Eye are described in summary across review sources but their personal names are not consistently surfaced; deliberately left unenumerated rather than invented."
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

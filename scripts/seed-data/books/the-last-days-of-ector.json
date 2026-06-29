@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0341",
+  "slug": "the-last-days-of-ector",
+  "title": "The Last Days of Ector",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Apocalypse",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A tendril of Hive Fleet Leviathan sweeps into the Valedor system, and one by one its five worlds are stripped of all life. Only Ector still stands, held by the Crimson Castellans Space Marines against an enemy beyond counting. As the tyranid swarms close in and the planet's defences crumble, the Chapter faces a choice that honour cannot answer: die where they stand, as their oaths demand, or break off and preserve the warriors and gene-seed their future depends on. A grim prelude to the wider war for Valedor.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "last_stand",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "sacrifice",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Crimson Castellans",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ector",
+        "role": "primary"
+      },
+      {
+        "name": "Valedor",
+        "role": "supporting"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "no named viewpoint characters confirmed in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.84,
+      "count": 82,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22059604-the-last-days-of-ector"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

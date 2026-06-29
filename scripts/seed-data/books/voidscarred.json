@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0141",
+  "slug": "voidscarred",
+  "title": "Voidscarred",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Baron Myrin Stormdawn, ageing chieftain of the Starsplinters, has spent centuries choosing the Aeldari Corsair's free and dangerous third path between craftworld discipline and Drukhari cruelty. When an Ork Freebooter klan threatens his raiding grounds, Stormdawn must bind his Corsairs to Taenar Leotharan, an exiled craftworld admiral whose own disgrace mirrors the Corsairs' restless pride. The result is a void-war about freedom, duty, old debts, and the price of living outside any safe path. A melancholic Aeldari naval adventure with Ork violence snapping at its heels.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "standalone",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "war",
+      "loyalty",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Aeldari",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Aeldari Corsairs",
+        "role": "primary"
+      },
+      {
+        "name": "Starsplinters",
+        "role": "primary"
+      },
+      {
+        "name": "Craftworld Aeldari",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ork Freebooters",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Myrin Stormdawn",
+        "role": "pov"
+      },
+      {
+        "name": "Taenar Leotharan",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": [
+          "Mike Brooks"
+        ],
+        "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + Goonhammer + Frontline-Gaming + Warhammer-Community + Gamescape"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

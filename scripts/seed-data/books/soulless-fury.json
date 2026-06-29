@@ -1,0 +1,130 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0177",
+  "slug": "soulless-fury",
+  "title": "Soulless Fury",
+  "authors": [
+    "Will McDermott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "D'onne Ulanti, still feared downhive as Mad Donna, tears through Hive Primus looking for a young captive taken by House Cawdor. Scrutinator Primus Servalen of the Necromunda Enforcers is sent after her with Lord Helmawr's seal and enough authority to open any door, but the trail is made of bodies, shell casings and Donna's impossible momentum. Dog, KB-88 and the Cawdor-held captive pull both women toward the same destination. A dual-POV manhunt thriller where rescue mission and law-enforcement pursuit collapse into one bloody corridor.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Ulanti",
+        "role": "primary"
+      },
+      {
+        "name": "Necromunda Enforcers",
+        "role": "primary"
+      },
+      {
+        "name": "House Helmawr",
+        "role": "supporting"
+      },
+      {
+        "name": "House Cawdor",
+        "role": "antagonist"
+      },
+      {
+        "name": "Redemptionists",
+        "role": "antagonist"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      },
+      {
+        "name": "The Spire",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "D'onne Ulanti",
+        "role": "pov"
+      },
+      {
+        "name": "Mad Donna",
+        "role": "pov"
+      },
+      {
+        "name": "Scrutinator Primus Servalen",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Helmawr",
+        "role": "supporting"
+      },
+      {
+        "name": "KB-88",
+        "role": "supporting"
+      },
+      {
+        "name": "Dog",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

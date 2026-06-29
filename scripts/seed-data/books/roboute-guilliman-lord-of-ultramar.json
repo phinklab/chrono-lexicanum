@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0081",
+  "slug": "roboute-guilliman-lord-of-ultramar",
+  "title": "Roboute Guilliman: Lord of Ultramar",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Late in the Great Crusade, Roboute Guilliman brings the XIII Legion to the dead world of Thoas to break the last remnants of an ork empire that has fouled the ruins of an ancient human civilisation. The campaign is straightforward; the trouble lies inside his own Legion. The Destroyers, an entire company built around the most apocalyptic weapons the Imperium will permit, are starting to think of themselves as a brotherhood apart, proud of the things their cousins cannot bring themselves to do. Guilliman places an outsider over them and lets the friction become the lesson. Between the chapters, his own treatises on war, morale, and the kind of Imperium that must outlast him offer the quiet counterpoint to the fighting on Thoas.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "war_story",
+      "character_study",
+      "philosophical",
+      "somber",
+      "action_heavy",
+      "war",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Thoas",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.45,
+      "count": 1704,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29430422-roboute-guilliman"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

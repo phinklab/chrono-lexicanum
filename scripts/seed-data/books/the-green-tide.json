@@ -1,0 +1,150 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0147",
+  "slug": "the-green-tide",
+  "title": "The Green Tide",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2026,
+  "format": "omnibus",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Green Tide gathers an Ork-front anthology around two full novels, two novellas, and four short stories, from Warboss and Catachan Devil to Iron Resolve, Prisoners of Waaagh!, and smaller tales of painboyz, mad doks, warp trouble, and enemies forced into the same killing ground. Its common question is brutally simple: how do you fight a species that treats war as appetite, sport, politics, religion, and punchline all at once? The collection ranges from Ork succession brawls to Catachan jungle warfare and Imperial desperation, keeping the tone loud, mean, and weirdly joyful whenever the greenskins get the last laugh.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "mixed",
+      "multi",
+      "imperium",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "action_heavy",
+      "character_study",
+      "political_thriller",
+      "journey",
+      "grimdark",
+      "somber",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "primary"
+      },
+      {
+        "name": "Goffs",
+        "role": "primary"
+      },
+      {
+        "name": "Evil Sunz",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Axes",
+        "role": "primary"
+      },
+      {
+        "name": "Gretchin",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Catachan Jungle Fighters",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gondwa VI",
+        "role": "supporting"
+      },
+      {
+        "name": "Outpost Four",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Da Genrul",
+        "role": "supporting"
+      },
+      {
+        "name": "Zagnob Thundaskuzz",
+        "role": "supporting"
+      },
+      {
+        "name": "Mag Dedfist",
+        "role": "supporting"
+      },
+      {
+        "name": "Snaggi Littletoof",
+        "role": "supporting"
+      },
+      {
+        "name": "Haskell Aldalon",
+        "role": "supporting"
+      },
+      {
+        "name": "Trooper Torvin",
+        "role": "supporting"
+      },
+      {
+        "name": "Nogrok",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": [
+          "Mike Brooks",
+          "Justin Woolley",
+          "Steve Lyons",
+          "Graham McNeill"
+        ],
+        "reason": "Multi-author Ork-themed anthology; roster authors[] empty. Confirmed contributors via Simon-&-Schuster + Lexicanum + Black Library product page + Noble Knight Games product page: Mike Brooks (Warboss), Justin Woolley (Catachan Devil + Prisoners of Waaagh!), Steve Lyons (Iron Resolve), Graham McNeill (The Enemy of My Enemy), additional short-story contributors per Black-Library product page."
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

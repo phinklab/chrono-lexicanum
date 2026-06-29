@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0185",
+  "slug": "armageddon-saint",
+  "title": "Armageddon Saint",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Last Chancers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Years after Kage vanished into the fires beneath Armageddon, the Last Chancers hear of a charred saint gathering desperate followers on the same doomed hive world. The Burned Man is Kage, surviving as miracle, fraud, or both, and Colonel Schaeffer is determined to drag his errant soldier out of the cult before Armageddon drowns in daemons and Orks. Set just before the Great Rift tears the Imperium open, the novel turns the penal-legion formula into a hunt through faith, propaganda, and old command debts. A late-series war-story about whether redemption can exist when everyone wants to spend it.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "standard",
+      "war_story",
+      "character_study",
+      "mystery",
+      "political_thriller",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "hubris",
+      "redemption",
+      "betrayal",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Last Chancers",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lieutenant Kage",
+        "role": "pov"
+      },
+      {
+        "name": "the Burned Man",
+        "role": "pov"
+      },
+      {
+        "name": "Colonel Schaeffer",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

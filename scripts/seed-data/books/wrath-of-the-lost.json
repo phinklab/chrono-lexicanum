@@ -1,0 +1,102 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0126",
+  "slug": "wrath-of-the-lost",
+  "title": "Wrath of the Lost",
+  "authors": [
+    "Chris Forrester"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Flesh Tearers have survived by the gift of Primaris reinforcements from Guilliman and Cawl, but survival has made them hungry for war and careless with home. When silence falls over volcanic Cretacia, Chapter Master Gabriel Seth sends Chaplain Dumah and Apothecary Barachiel back to learn what has taken root there. They find Chaos gnawing at the chapter's ancestral world, and a deeper enemy in their own blood: the Wrath of the Lost, the fury that drags Flesh Tearers toward the monsters they hunt. A brutal homecoming novel about gene-curse, spiritual stewardship, and barely restrained salvation.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "sacrifice",
+      "doubt",
+      "redemption",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Flesh Tearers",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "secondary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cretacia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gabriel Seth",
+        "role": "supporting"
+      },
+      {
+        "name": "Dumah",
+        "role": "pov"
+      },
+      {
+        "name": "Barachiel",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

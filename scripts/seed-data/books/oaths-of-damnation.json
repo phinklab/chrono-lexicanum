@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0582",
+  "slug": "oaths-of-damnation",
+  "title": "Oaths of Damnation",
+  "authors": [
+    "Robbie MacNiven"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "40k - Exorcists",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "The Exorcists are a Space Marine Chapter unlike any other. Their brutal initiation demands that each aspirant endure daemonic possession, and those who survive are rendered forever resistant to Chaos corruption. Those who fail become Broken Ones — living prisons for the terrors expelled from their brethren. When one of these wretched souls escapes and is hunted across the ancient battlefields of Fidem IV, the elite Hexbreakers are dispatched to retrieve him. But for strike force commander Almoner-Lieutenant Daggan Zaidu, the Broken One known as the Red Marshal is more than a loose end — and their connection threatens to unravel the entire mission. Worse still, a warband of Word Bearers has also come to Fidem IV, and their designs on the Broken One are far from holy.",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "mid_series",
+      "standard",
+      "war_story",
+      "grimdark",
+      "faith",
+      "brotherhood",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Exorcists",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fidem IV",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Daggan Zaidu",
+        "role": "pov"
+      },
+      {
+        "name": "Torrin Vey",
+        "role": "pov"
+      },
+      {
+        "name": "The Red Marshal",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.86,
+      "count": 356,
+      "evidenceUrl": "https://www.goodreads.com/book/show/217351369-oaths-of-damnation"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

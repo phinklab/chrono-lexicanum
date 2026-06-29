@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0317",
+  "slug": "spear-of-macragge",
+  "title": "Spear of Macragge",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the frozen world of Damnos, the awakened legions of the necrons grind the Ultramarines toward defeat. With Captain Sicarius struck down and the front collapsing, hope rests on Chief Librarian Varro Tigurius and on Antaro Chronus, the Chapter's peerless tank commander known as the Spear of Macragge. As Chronus leads a massed armoured battle across the dying plains and the siege of Kellenport reaches its climax, the Ultramarines stake everything on one desperate gamble to turn the war. Running alongside the fall of Damnos, this novella fills in the armoured clashes and last stands left untold, a grim ode to sacrifice, machine, and will.",
+    "facetIds": [
+      "book",
+      "novella",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "siege",
+      "standalone",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Damnos",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Antaro Chronus",
+        "role": "pov"
+      },
+      {
+        "name": "Varro Tigurius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.55,
+      "count": 88,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/18453643-spear-of-macragge"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

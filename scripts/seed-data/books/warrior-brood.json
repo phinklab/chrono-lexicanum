@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0250",
+  "slug": "warrior-brood",
+  "title": "Warrior Brood",
+  "authors": [
+    "C.S. Goto"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Deathwatch",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The world of Herodian IV is doomed: the great Hive Fleets of the Tyranids have descended from the void, intent on devouring everything that lives. In the hours before the planet falls, Inquisitor Kalypsia and a kill-team of Deathwatch Space Marines, veterans drawn from many Chapters, are dispatched to a remote research outpost to recover a vital secret. But they have been betrayed, and the truth they uncover may be a fate worse than the swarm itself. Hunted by ravenous alien hordes and a traitor hidden among the Imperium's own, Kalypsia and her warriors must escape a dying world before it is stripped to the bone.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "space_marine",
+      "inquisitor",
+      "imperium",
+      "planetary",
+      "war_story",
+      "mystery",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "brotherhood",
+      "betrayal",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en",
+      "series_start",
+      "standard"
+    ],
+    "factions": [
+      {
+        "name": "Deathwatch",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Herodian IV",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Inquisitor Kalypsia",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.27,
+      "count": 336,
+      "evidenceUrl": "https://www.goodreads.com/book/show/691593.Warrior_Brood"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

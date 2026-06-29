@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0253",
+  "slug": "shadowbreaker",
+  "title": "Shadowbreaker",
+  "authors": [
+    "Steve Parker"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Deathwatch",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Recovered from the wounds of his last mission, Librarian Lyandro Karras leads Talon Squad on the trail of a missing inquisitor. Their only lead is the name of an Imperial world now overrun by the T'au, and a creeping suspicion that the vanished inquisitor may have turned traitor, threatening one of the Inquisition's most closely guarded secrets. To find the truth, Karras and his kill-team must wage war across a planet swarming with hostile xenos while navigating the lethal internal politics of their own masters. Every step tests the balance between personal honour, Chapter loyalty, and the dark duty laid upon them. Some of the deadliest enemies, Karras learns, wear the Imperium's own colours.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "war_story",
+      "political_thriller",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "requires_context",
+      "standard",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Deathwatch",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "T'au",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Lyandro Karras",
+        "role": "pov"
+      },
+      {
+        "name": "Inquisitor Sigma",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "T'au-occupied Imperial world not named in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.98,
+      "count": 371,
+      "evidenceUrl": "https://www.goodreads.com/book/show/44180902-shadowbreaker"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

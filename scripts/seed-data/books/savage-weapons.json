@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0165",
+  "slug": "savage-weapons",
+  "title": "Savage Weapons",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Two years of grinding war across the Aegis sector have left the Dark Angels no closer to breaking the Night Lords than when they began. When the Night Haunter offers a parlay on a dead world named Tsagualsa, Lion El'Jonson accepts. Each primarch comes with only two warriors: Corswain and Alajos for the Lion, Sevatar and Sheng for Konrad Curze. The fleets watch from orbit while the brothers walk the bones of a half-built fortress and talk. The peace lasts exactly until Curze finds the insult Jonson cannot bear, and the Lion drives steel through him in answer. What follows is two primarchs at full fury and three duels at their backs — the first time these brothers cross blades, the first time the Night Lords' First Captain Jago Sevatarion shows the galaxy what he is, and not the last time the Lion will hunt the Night Haunter through the dark.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "sector",
+      "requires_context",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "betrayal",
+      "hubris",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tsagualsa",
+        "role": "primary"
+      },
+      {
+        "name": "Aegis sector",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lion El'Jonson",
+        "role": "pov"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "antagonist"
+      },
+      {
+        "name": "Corswain",
+        "role": "pov"
+      },
+      {
+        "name": "Alajos",
+        "role": "supporting"
+      },
+      {
+        "name": "Sevatar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sheng",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.09,
+      "count": 393,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22599241-savage-weapons"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

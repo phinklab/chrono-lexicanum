@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0199",
+  "slug": "ironfire",
+  "title": "Ironfire",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Warsmith Idriss Krendl is a broken man. The fall of the Schadenhold cost him the favour of his primarch and the use of half his body, and he has been kept alive on Perturabo's sufferance ever since, hauling himself between councils on a litter and a sneer. He has one chance left: two enormous siege guns prised out of the forges of Diamat, and a fortress on the world of Euphoros that no one before him has been able to crack. Krendl's plan, the Ironfire protocol, is as much an experiment in artillery as it is in spite. It exists to bring down a single palace, to wring the data he needs for the walls of Terra from its dying stones, and to put a once-disgraced warsmith back at his primarch's right hand.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "siege",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "hubris",
+      "redemption",
+      "war",
+      "en",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Euphoros",
+        "role": "primary"
+      },
+      {
+        "name": "Diamat",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Idriss Krendl",
+        "role": "pov"
+      },
+      {
+        "name": "Perturabo",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.49,
+      "count": 150,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25478843-ironfire"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

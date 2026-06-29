@@ -1,0 +1,105 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0124",
+  "slug": "void-king",
+  "title": "Void King",
+  "authors": [
+    "Marc Collins"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "As the Indomitus Crusade gathers, Roboute Guilliman orders the Davamir Compact to do what only Rogue Traders might dare: find a passage across the Great Rift. The Compact's three dynasties, Proud Lamertine, Fierce Helvintr, and Cunning Radrexxus, have served since the Great Crusade, but sacred duty cannot keep old rivalries from curdling. When the king dies and succession turns poisonous, Erastus Lamertine must hold the Compact together, follow Guilliman's impossible command, and expose the hidden hands sabotaging the Imperium's dream of unity. Court intrigue, void-voyage, and dynastic betrayal in a Rogue Trader key.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "court_intrigue",
+      "political_thriller",
+      "journey",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "betrayal",
+      "loyalty",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Rogue Traders",
+        "role": "primary"
+      },
+      {
+        "name": "Davamir Compact",
+        "role": "primary"
+      },
+      {
+        "name": "House Lamertine",
+        "role": "primary"
+      },
+      {
+        "name": "House Helvintr",
+        "role": "primary"
+      },
+      {
+        "name": "House Radrexxus",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Indomitus Crusade",
+        "role": "secondary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Great Rift",
+        "role": "primary"
+      },
+      {
+        "name": "Davamir Compact",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Erastus Lamertine",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0109",
+  "slug": "indomitus",
+  "title": "Indomitus",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Crusade Fleet Quintus is desperate for a victory when the Ultramarines cruiser Ithraca's Vengeance becomes trapped in a becalmed system inside the Pariah Nexus. Captain Aeschelus and Lieutenants Nemetus and Praxamedes face a Necron technology-grid that drains souls for the Silent Kingdom, while Overlord Simut, Plasmancer Ah-hotep and Skorpekh Lord Zozar press their own fractured agenda. What begins as a crusade rescue turns into a choice with no clean honor: die trying to break the Nexus, or abandon the sector so Guilliman can be warned. A 9th-edition on-ramp built as last-stand war-story, Necron mystery and new-era primer.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "dual",
+      "sector",
+      "standalone",
+      "standard",
+      "last_stand",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "somber",
+      "sacrifice",
+      "loyalty",
+      "doubt",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "primary"
+      },
+      {
+        "name": "Silent Kingdom",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Pariah Nexus",
+        "role": "primary"
+      },
+      {
+        "name": "Silent Kingdom",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Captain Aeschelus",
+        "role": "pov"
+      },
+      {
+        "name": "Lieutenant Nemetus",
+        "role": "pov"
+      },
+      {
+        "name": "Lieutenant Praxamedes",
+        "role": "pov"
+      },
+      {
+        "name": "Overlord Simut",
+        "role": "antagonist"
+      },
+      {
+        "name": "Plasmancer Ah-hotep",
+        "role": "antagonist"
+      },
+      {
+        "name": "Skorpekh Lord Zozar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "mentioned"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

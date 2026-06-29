@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0058",
+  "slug": "assault-on-black-reach",
+  "title": "Assault on Black Reach",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novella",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Companion novella to the 5th Edition Assault on Black Reach boxed set. Captain Cato Sicarius and the Ultramarines 2nd Company drop on the Ork-held world of Black Reach to break Warboss Zanzag's gathering greenskin host before it can spill out across the wider subsector. The story centres not on Sicarius himself but on Brother-Sergeant Scipio Vorolanus, who watches and judges his captain across the campaign; Sergeants Iulus Fennion and Praxor offer the alternative tactical-squad viewpoints, and Scout-Sergeant Telion runs the recon angle. Three squad sergeants debate Sicarius's bold strategy as the campaign unfolds — self-reflective brotherhood-pieces wrapping a fast Ork-purge plot. Showcase Ultramarines-versus-Orks engagement intended for new readers.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Black Reach",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Scipio Vorolanus",
+        "role": "pov"
+      },
+      {
+        "name": "Cato Sicarius",
+        "role": "supporting"
+      },
+      {
+        "name": "Iulus Fennion",
+        "role": "supporting"
+      },
+      {
+        "name": "Praxor",
+        "role": "supporting"
+      },
+      {
+        "name": "Telion",
+        "role": "supporting"
+      },
+      {
+        "name": "Zanzag",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

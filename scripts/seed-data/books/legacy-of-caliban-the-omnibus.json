@@ -1,0 +1,130 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0386",
+  "slug": "legacy-of-caliban-the-omnibus",
+  "title": "Legacy of Caliban: The Omnibus",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "omnibus",
+  "seriesHint": "The Legacy of Caliban",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The complete Legacy of Caliban trilogy in one volume, gathering Ravenwing, Master of Sanctity, and The Unforgiven alongside the short-story collection Lords of Caliban. Across these tales, the Dark Angels defend mankind while waging a far older and more secret war — the hunt for the Fallen, their own brothers who turned from the Emperor during the Horus Heresy. Through the eyes of the recruit Annael, the warrior Telemenus, Grand Master Sammael, and the Chaplains Sapphon and Asmodai, Gav Thorpe traces a conspiracy that draws the Chapter into a plot to reshape past and future and deliver the Imperium to Chaos. From the surrender of the renegade Cypher to a Death Guard assault on the Rock, this is the most secretive Chapter of the Space Marines laid bare.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "mystery",
+      "siege",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "redemption",
+      "loyalty",
+      "faith",
+      "doubt",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "The Fallen",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Rock",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Annael",
+        "role": "pov"
+      },
+      {
+        "name": "Telemenus",
+        "role": "pov"
+      },
+      {
+        "name": "Sammael",
+        "role": "supporting"
+      },
+      {
+        "name": "Asmodai",
+        "role": "supporting"
+      },
+      {
+        "name": "Sapphon",
+        "role": "supporting"
+      },
+      {
+        "name": "Azrael",
+        "role": "supporting"
+      },
+      {
+        "name": "Cypher",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.1,
+      "count": 152,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29430529-legacy-of-caliban"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0383",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Legacy of Caliban omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0384",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Legacy of Caliban omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0385",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Legacy of Caliban omnibus follows the trilogy"
+      }
+    ]
+  }
+}

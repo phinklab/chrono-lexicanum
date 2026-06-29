@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0312",
+  "slug": "catechism-of-hate",
+  "title": "Catechism of Hate",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the aftermath of the great devourer's assault on Ultramar, the Tyranid menace turns toward the world of Styxia. Chaplain Ortan Cassius, Master of Sanctity of the Ultramarines and a living legend of the Chapter, leads a heavily outnumbered force to hold the planet against the swarm. Where others might feel fear or doubt, Cassius brings only resolve and an unyielding hatred forged in earlier battles against the xenos. As the defence grinds toward its breaking point, the story lays bare the wound at the heart of the old warrior and reveals exactly what fuels his loathing for the alien. A taut last-ditch defence that doubles as a study of one of the Ultramarines' fiercest souls.",
+    "facetIds": [
+      "book",
+      "novella",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Styxia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ortan Cassius",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 111,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13478888-catechism-of-hate"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

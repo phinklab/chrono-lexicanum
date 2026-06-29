@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0074",
+  "slug": "dreams-of-unity",
+  "title": "Dreams of Unity",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Siege of Terra Prequels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Decades after the last surviving Thunder Warriors were hunted from the Throneworld, a handful still walk Terra's underlevels, their failing bodies leased out as muscle and curiosity. Dahren Heruk is one such relic, too stubborn to die quickly and too useful to die in peace, and when a job in the gladiator pits of The Maw turns into a killing he finds himself drawn into a conspiracy that reaches up into the upper Palace. A Custodian shadows his trail, patient and inevitable, and Heruk has to decide whether the answer he is uncovering is worth the manner of death it will earn him. Both an unlikely murder mystery and an elegy for warriors that the new Imperium has chosen to forget.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "multi",
+      "male",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "mystery",
+      "character_study",
+      "somber",
+      "grimdark",
+      "redemption",
+      "doubt",
+      "sacrifice",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thunder Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dahren Heruk",
+        "role": "pov"
+      },
+      {
+        "name": "Kabe",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.08,
+      "count": 191,
+      "evidenceUrl": "https://www.goodreads.com/book/show/37459851-dreams-of-unity"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

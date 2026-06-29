@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0326",
+  "slug": "dantes-canyon",
+  "title": "Dante's Canyon",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the ash wastes of Armageddon, a strike force of White Scars sets a deadly snare for the Orks, luring the greenskin horde toward a promethium refinery where they mean to burn the enemy from existence. But this battle is about more than a single trap. One young warrior among the sons of Chogoris carries a destiny that must not be allowed to die, and it falls to the Stormseer Kanim to keep him alive through the carnage, whatever the price and whatever his brother's own wishes. Amid roaring bikes, blade and bolt, the secrets of the Stormseers and their strange place within the Chapter are laid bare, as Kanim weighs a single life against the storm of war breaking around them all.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "novella",
+      "standalone",
+      "war_story",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kanim",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.55,
+      "count": 51,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23015899-dante-s-canyon"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

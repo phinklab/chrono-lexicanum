@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0289",
+  "slug": "the-death-of-antagonis",
+  "title": "The Death of Antagonis",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A plague of undeath sweeps across the world of Antagonis, raising the dead to prey upon the living. The Black Dragons, a grim and mutated Chapter shunned by much of the Imperium, answer the call to save what souls they can. Allied with the Inquisitor Werner Lettinger and a contingent of the Sisters of Battle, Captain Volos and his warriors wade into a nightmare of contagion and horror. But the rising dead are only a symptom: behind the outbreak lurk the dread powers of Chaos, working toward a darker design. As one costly victory follows another, the Black Dragons find their numbers, their certainties and their unity steadily worn away.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "inquisitor",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "action_heavy",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Dragons",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Antagonis",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Volos",
+        "role": "pov"
+      },
+      {
+        "name": "Werner Lettinger",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Chaos power behind the undeath plague not confidently attributable to a specific god or legion from available sources; generic Chaos faction omitted"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.64,
+      "count": 316,
+      "evidenceUrl": "https://www.goodreads.com/book/show/15803007-the-death-of-antagonis"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

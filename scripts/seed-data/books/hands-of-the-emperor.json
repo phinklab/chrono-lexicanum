@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0200",
+  "slug": "hands-of-the-emperor",
+  "title": "Hands of the Emperor",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Shield-Captain Enobar Stentonox of the Custodian Guard is Master of the Watch above the Imperial Palace, and the Palace's airspace is the most jealously kept sky in the galaxy. When an Imperial Fists working party begins manoeuvring a continent-sized orbital plate into restricted space without warning, the alarms go up and a fleet of unarmed work-engines abruptly becomes a security incident. Stentonox sets out to defuse the standoff before it becomes a shooting war between the Emperor's own protectors, only to discover that the Seventh Legion's commander has reasons of his own for not standing down. A quiet, sharp piece of palace politics, told between two soldiers who would rather die than disgrace the man they both serve.",
+    "facetIds": [
+      "book",
+      "male",
+      "custodes",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "political_thriller",
+      "character_study",
+      "somber",
+      "loyalty",
+      "doubt",
+      "brotherhood",
+      "en",
+      "cw_violence"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Enobar Stentonox",
+        "role": "pov"
+      },
+      {
+        "name": "Constantin Valdor",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.48,
+      "count": 122,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25248604-hands-of-the-emperor"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

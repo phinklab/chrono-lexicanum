@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0324",
+  "slug": "angrons-monolith",
+  "title": "Angron's Monolith",
+  "authors": [
+    "Steve Lyons"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "As the Third War for Armageddon rages, the secretive and distrusted Relictors Chapter descends into the equatorial jungles of that ravaged world. Officially they hunt the feral Orks who swarm the green hell, but their true purpose is darker: somewhere in the undergrowth lie battle-brothers who came seeking an ancient relic, an artefact bound to the traitor primarch Angron himself. The Relictors have always walked the knife's edge, gathering tainted weapons to turn against the enemies of mankind, and the prize they seek on Armageddon may be the most dangerous of all. Stalking through choking jungle against an enemy without number, they must decide how much corruption a loyal warrior can carry before he becomes the very thing he hunts.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "novella",
+      "standalone",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "hubris",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Relictors",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "available sources name no individual viewpoint character"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.54,
+      "count": 83,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22895743-angron-s-monolith"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

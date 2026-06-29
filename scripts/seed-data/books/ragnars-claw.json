@@ -1,0 +1,126 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0153",
+  "slug": "ragnars-claw",
+  "title": "Ragnar's Claw",
+  "authors": [
+    "William King"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2000,
+  "format": "novel",
+  "seriesHint": "Space Wolves (original)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Inquisitor Ivan Sternberg comes to the Fang seeking Space Wolves help to recover the Talisman of Lykos, an Imperial relic he believes can halt the Chaos corruption consuming Aerius. Ragnar Blackmane, Strybjorn Grimskull and Sven Brujothirson escort the mission from the jungles of Galt to Venam's poisoned hives and into the heart of the enemy. The quest turns the old Fenrisian blood-feud into battlefield brotherhood, with Berek Thunderfist and Ranek shaping Ragnar's first wider war. A relic-hunt war-story about loyalty earned under fire.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "supporting"
+      },
+      {
+        "name": "The Fang",
+        "role": "supporting"
+      },
+      {
+        "name": "Aerius",
+        "role": "primary"
+      },
+      {
+        "name": "Galt",
+        "role": "primary"
+      },
+      {
+        "name": "Venam",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ragnar Blackmane",
+        "role": "pov"
+      },
+      {
+        "name": "Strybjorn Grimskull",
+        "role": "supporting"
+      },
+      {
+        "name": "Sven Brujothirson",
+        "role": "supporting"
+      },
+      {
+        "name": "Berek Thunderfist",
+        "role": "supporting"
+      },
+      {
+        "name": "Ranek",
+        "role": "supporting"
+      },
+      {
+        "name": "Ivan Sternberg",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0290",
+  "slug": "death-of-integrity",
+  "title": "Death of Integrity",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Having hunted a genestealer brood across the sector, Chapter Master Caedis of the Blood Drinkers calls upon old allies in the Novamarines to help him destroy a vast, drifting space hulk known as the Death of Integrity. They mean to obliterate it with plasma torpedoes, but the Adeptus Mechanicus intervene, demanding the two Chapters instead board the hulk on a secretive mission into its labyrinthine heart. Amid claustrophobic corridors where lethal xenos wait around every turn, the Astartes press deeper into the dark. For Caedis and his brothers, sons of Sanguinius all, every battle is a struggle against the crimson bloodlust that haunts their gene-line, and the line between glory and damnation grows perilously thin.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "standalone",
+      "standard",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "brotherhood",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Drinkers",
+        "role": "primary"
+      },
+      {
+        "name": "Novamarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Death of Integrity",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Caedis",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.84,
+      "count": 468,
+      "evidenceUrl": "https://www.goodreads.com/book/show/19636229"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

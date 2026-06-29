@@ -1,0 +1,130 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0010",
+  "slug": "the-magos",
+  "title": "The Magos",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Collection bridging the Eisenhorn and Bequin arcs: a chronological set of Eisenhorn short stories (\"Regia Occulta\", \"The Strange Demise of Titus Endor\", \"Master Imus's Transgression\", \"The Curiosity\", \"Gardens of Tycho\", \"Missing in Action\", \"Backcloth for a Crown Additional\", \"Thorn Wishes Talon\", \"Playing Patience\", \"Perihelion\") and a brand-new closing novella, The Magos, in which Eisenhorn confronts Tech-Magos Bure of the Mechanicus and a Necron-trace artefact that may rewrite the price of one of his old bargains. The Magos itself is the longest single piece in the volume and the only original story; the surrounding shorts are reprints. Best read after the Eisenhorn omnibus and before Pariah for full continuity.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "requires_context",
+      "doorstopper",
+      "mystery",
+      "journey",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "hubris",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "background"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sancour",
+        "role": "primary"
+      },
+      {
+        "name": "Gershom",
+        "role": "secondary"
+      },
+      {
+        "name": "Scarus Sector",
+        "role": "primary"
+      },
+      {
+        "name": "Helican Subsector",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gregor Eisenhorn",
+        "role": "pov"
+      },
+      {
+        "name": "Magos Bure",
+        "role": "supporting"
+      },
+      {
+        "name": "Titus Endor",
+        "role": "supporting"
+      },
+      {
+        "name": "Alizebeth Bequin",
+        "role": "appears"
+      },
+      {
+        "name": "Cherubael",
+        "role": "appears"
+      },
+      {
+        "name": "Gideon Ravenor",
+        "role": "appears"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "current": "novel",
+        "suggestion": "collection",
+        "sources": [
+          "Black Library hardcover contents page"
+        ],
+        "reasoning": "The Magos is structurally a collection of 10 reprinted short stories anchored by one new title novella. SSOT classifies it as novel; the data_conflict suggests collection (or anthology). Note: also missing from book-roster.json.collections is the parent-child relationship between The Magos and the included Eisenhorn shorts — that's a Maintainer-Excel edit, not a runtime fix."
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

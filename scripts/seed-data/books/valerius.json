@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0283",
+  "slug": "valerius",
+  "title": "Valerius",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Vice-Caesari Marcus Valerius of the Therion Cohort has spent the war marching where the Lord of Ravens points him. Now Corax has pointed him at Beta-Garmon, into the largest slaughter the Imperium has yet endured, and every soldier in his column understands that this is the end of their road. Valerius is no longer just a commander, though—he is a man visited by holy visions, who believes the God-Emperor whispers to him on the eve of every charge. Whether those visions are divine grace, the strain of a faith that has nowhere else to go, or something else entirely, they may yet guide the cohort to one last meaningful blow against the Warmaster before the planet swallows them all.",
+    "facetIds": [
+      "audio_drama",
+      "novella",
+      "imperium",
+      "guardsman",
+      "male",
+      "planetary",
+      "last_stand",
+      "war_story",
+      "somber",
+      "grimdark",
+      "sacrifice",
+      "faith",
+      "loyalty",
+      "requires_context",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Therion Cohort",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Beta-Garmon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Marcus Valerius",
+        "role": "pov"
+      },
+      {
+        "name": "Corax",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.55,
+      "count": 98,
+      "evidenceUrl": "https://www.goodreads.com/book/show/33398969-valerius"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

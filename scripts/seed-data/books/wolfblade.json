@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0155",
+  "slug": "wolfblade",
+  "title": "Wolfblade",
+  "authors": [
+    "William King"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2003,
+  "format": "novel",
+  "seriesHint": "Space Wolves (original)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After Garm, Ragnar Blackmane is sent far from Fenris to ancient Terra as one of the Wolfblade, the Space Wolves honour-guard sworn to House Belisarius of the Navis Nobilite. Guarding Lady Gabriela Belisarius should be a duty of oath and tradition; instead Ragnar lands in a succession crisis around the dying Paternoval Envoy, with Navigator houses scheming, assassins moving and Chaos pressure leaking through Imperial politics. The saga shifts from saga-fire to court-intrigue: a Fenrisian hunter learning how lethal civilization can be.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "political_thriller",
+      "war_story",
+      "court_intrigue",
+      "mystery",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "loyalty",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Navis Nobilite",
+        "role": "primary"
+      },
+      {
+        "name": "House Belisarius",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Fenris",
+        "role": "supporting"
+      },
+      {
+        "name": "The Fang",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ragnar Blackmane",
+        "role": "pov"
+      },
+      {
+        "name": "Gabriela Belisarius",
+        "role": "supporting"
+      },
+      {
+        "name": "Torin",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

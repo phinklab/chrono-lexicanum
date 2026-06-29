@@ -1,0 +1,118 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0237",
+  "slug": "the-lords-of-terra",
+  "title": "The Lords of Terra",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2018,
+  "format": "audio_drama",
+  "seriesHint": "The Primarchs Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three previously released Primarchs audio dramas gathered as a single set. Perturabo: Stone and Iron sends the newly raised 33rd Grand Battalion of the Iron Warriors into the field beside the Imperial Fists, with the Lord of Iron taking the measure of his officers and teaching them the difference between Dorn's stone and his own iron. Konrad Curze: A Lesson in Darkness follows the Night Lords' first compliance under their newly returned primarch on the peaceful world of Piamen, where Curze applies the terror tactics that will define his legion. Malcador: First Lord of the Imperium turns away from the battle-lines entirely, sitting Malcador the Sigillite at the deathbed of his personal astropath Sibel Niasta for a long, elegiac conversation about friendship, duty, and the cost of the work the Emperor set him.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "hubris",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Astra Telepathica",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Piamen",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Perturabo",
+        "role": "pov"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "pov"
+      },
+      {
+        "name": "Nivalus",
+        "role": "supporting"
+      },
+      {
+        "name": "Sibel Niasta",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "reason": "roster lists this release as a single audio drama, but The Lords of Terra is structurally an anthology re-issuing Stone and Iron, A Lesson in Darkness, and First Lord of the Imperium — three separately released solo-author audio dramas",
+        "suggestion": "anthology"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.88,
+      "count": 34,
+      "evidenceUrl": "https://www.goodreads.com/book/show/41178692-the-lords-of-terra"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

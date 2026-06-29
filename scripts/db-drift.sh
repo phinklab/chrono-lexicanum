@@ -7,8 +7,9 @@
 # Unlike db:sync / db:rebuild it is NOT fail-fast: it runs EVERY check, then prints
 # one summary, so a single red signal doesn't hide the others.
 #
-#   1. db-apply-scope            BATCH CONTIGUITY — committed roster is gap-free and
-#                                fully covered by the apply scope (DB-free).
+#   1. book-corpus-preflight     PER-BOOK CORPUS — every books/*.json parses, is
+#                                slug/id-unique, collects-resolvable, prolog inputs
+#                                present (DB-free; no batch-contiguity claim).
 #   2. db-counts                 COUNTS — junction/reference/works counts (also proves
 #                                the DB is reachable). Informational snapshot.
 #   3. apply:audiobook-narrators --verify   exact sidecar audio-credit set == DB.
@@ -45,7 +46,7 @@ db-drift — READ-ONLY health check. Composes existing read-only signals into a
 single healthy/unhealthy verdict. Writes nothing. NOT fail-fast: runs every check.
 
 Checks:
-  1. db-apply-scope                     batch contiguity (roster gap-free, scope complete) — DB-free
+  1. book-corpus-preflight              per-book corpus parse/unique/collects/prolog — DB-free
   2. db-counts                          junction/reference/works counts (+ DB reachable)
   3. apply:audiobook-narrators --verify exact sidecar audio-credit set == DB
   4. apply:timeline --verify            exact timeline seed state == DB
@@ -92,8 +93,8 @@ check() {
 
 echo "[db-drift] read-only health check — running every signal, then summarizing."
 
-check "batch contiguity (db-apply-scope)" \
-  npx tsx scripts/db-apply-scope.ts
+check "per-book corpus preflight (book-corpus-preflight)" \
+  npx tsx scripts/book-corpus-preflight.ts
 
 check "db counts (DB reachable)" \
   npx tsx --env-file=.env.local scripts/db-counts.ts

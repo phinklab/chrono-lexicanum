@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0384",
+  "slug": "master-of-sanctity",
+  "title": "Master of Sanctity",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "The Legacy of Caliban",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The secret war of the Dark Angels grinds on, and the hunt for the Fallen tightens. The newly raised Master of Sanctity, Sapphon, favours cunning over cruelty, manipulating the captured renegade Astelan in hopes of luring still greater traitors into his grasp. But his methods set him against the merciless Interrogator-Chaplain Asmodai, who sees treachery in every shadow and trusts only pain to break his prisoners — a zeal that strains the Chapter's alliances to the edge of ruin. As Annael takes his place among the Black Knights and Telemenus ascends to the Deathwing, their quarry comes within reach at last. Gav Thorpe's second Legacy of Caliban novel turns on the paranoia that defines the Dark Angels and the cost it exacts on those around them.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "mystery",
+      "court_intrigue",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "loyalty",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "The Fallen",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Asmodai",
+        "role": "pov"
+      },
+      {
+        "name": "Sapphon",
+        "role": "pov"
+      },
+      {
+        "name": "Annael",
+        "role": "supporting"
+      },
+      {
+        "name": "Telemenus",
+        "role": "supporting"
+      },
+      {
+        "name": "Astelan",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.95,
+      "count": 250,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17571719-master-of-sanctity"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0217",
+  "slug": "deus-encarmine",
+  "title": "Deus Encarmine",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2004,
+  "format": "novel",
+  "seriesHint": "Blood Angels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the cemetery world of Cybele, the Blood Angels fight a losing battle against the Word Bearers, until the young battle-brother Arkio turns the tide with a victory so miraculous that his brothers begin to whisper he is the reincarnation of their primarch, Sanguinius. As Arkio takes up the sacred Spear of Telesto and gathers the faithful around him, only his elder brother Rafen senses that something is deeply wrong. Behind the rising cult stands the renegade inquisitor Remius Stele, a secret servant of Chaos engineering a schism that could shatter the Chapter from within. Rafen alone must decide whether his brother is a living saint or a pawn of the Ruinous Powers.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "somber",
+      "faith",
+      "betrayal",
+      "doubt",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cybele",
+        "role": "primary"
+      },
+      {
+        "name": "Shenlong",
+        "role": "supporting"
+      },
+      {
+        "name": "Baal",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rafen",
+        "role": "pov"
+      },
+      {
+        "name": "Arkio",
+        "role": "supporting"
+      },
+      {
+        "name": "Remius Stele",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iskavan the Hated",
+        "role": "antagonist"
+      },
+      {
+        "name": "Mephiston",
+        "role": "supporting"
+      },
+      {
+        "name": "Dante",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.57,
+      "count": 627,
+      "evidenceUrl": "https://www.goodreads.com/book/show/199871.Deus_Encarmine"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

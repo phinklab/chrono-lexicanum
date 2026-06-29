@@ -1,0 +1,105 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0416",
+  "slug": "the-emperor-expects",
+  "title": "The Emperor Expects",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "As the ork onslaught engulfs human space, the squabbling High Lords of Terra are at last shamed into action. High Lord Lansung, master of the Imperial Navy, is manoeuvred into leaving Terra and leading a great fleet to destroy one of the enemy's attack moons, as much to shore up his own standing as to stem the tide. Aboard the warship Colossus, Captain Rafal Kulik is caught between two feuding admirals as the Navy throws itself into a desperate void assault that culminates in a hard-won victory at Port Sanctus. Back on the throneworld, the Inquisition turns on itself as rivals move to unseat Inquisitor Wienand, while Drakan Vangorich watches the rot spread and Koorland, the last of the Imperial Fists, summons a gathering of strength unseen in a thousand years. The third novel of the Beast Arises series.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "court_intrigue",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "hubris",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Navy",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Port Sanctus",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rafal Kulik",
+        "role": "pov"
+      },
+      {
+        "name": "Lansung",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisitor Wienand",
+        "role": "supporting"
+      },
+      {
+        "name": "Drakan Vangorich",
+        "role": "supporting"
+      },
+      {
+        "name": "Koorland",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.81,
+      "count": 904,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26029287-the-emperor-expects"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

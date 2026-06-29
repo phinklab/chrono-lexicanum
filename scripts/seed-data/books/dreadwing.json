@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0136",
+  "slug": "dreadwing",
+  "title": "Dreadwing",
+  "authors": [
+    "David Guymer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With the Ruinstorm broken and Guilliman and Sanguinius racing for Terra, the Lion has turned his Dark Angels to a colder errand: the systematic burning of every traitor world he can reach. Among the ash-fields and dead orbital docks, his Wing lieutenants begin to wonder whether their Primarch still believes the throne can be saved at all — or whether he simply means to leave Horus an empire of cinders. Redloss of the Dreadwing wants to keep killing. Holguin of the Deathwing wants to turn for Terra. Between them, the silent Lion broods on what victory now means, while news from Caliban — and from the man called Luther — gnaws at the edge of every command. A grim study of a Legion losing faith in its own war, and the foreshock that will eventually crack the I Legion in two.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "doubt",
+      "hubris",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Caliban",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lion El'Jonson",
+        "role": "supporting"
+      },
+      {
+        "name": "Redloss",
+        "role": "pov"
+      },
+      {
+        "name": "Holguin",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.5,
+      "count": 225,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42658630-dreadwing"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

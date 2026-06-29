@@ -1,0 +1,131 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0091",
+  "slug": "shroud-of-night",
+  "title": "Shroud of Night",
+  "authors": [
+    "Andy Clark"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "During the Noctis Aeterna, the oceanic hive world Tsadrekha holds an astropathic beacon bright enough to keep the warp-storm dark at bay. Strike-Captain Kassar and the Unsung, an Alpha Legion warband stranded since the Scouring, are sent to seize and corrupt it, but Kharn the Betrayer turns the mission into a many-sided siege. Imperial Fists, Sororitas, Guardsmen and a saint defend the prize while rival Chaos warbands crowd the battlefield. A twisty Alpha Legion infiltration novel where freedom depends on lying faster than every other killer in the dark.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "heist",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "somber",
+      "betrayal",
+      "doubt",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Alpha Legion",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      },
+      {
+        "name": "Khorne",
+        "role": "antagonist"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "antagonist"
+      },
+      {
+        "name": "Slaanesh",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tzeentch",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tsadrekha",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium Nihilus",
+        "role": "secondary"
+      },
+      {
+        "name": "Maelstrom",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kassar",
+        "role": "pov"
+      },
+      {
+        "name": "Khârn the Betrayer",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

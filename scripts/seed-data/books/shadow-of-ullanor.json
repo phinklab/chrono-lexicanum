@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0424",
+  "slug": "shadow-of-ullanor",
+  "title": "Shadow of Ullanor",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Gathered on the ice world of Inwit for a solemn festival of mourning, the successor Chapters of the Imperial Fists resolve to honour their fallen forebears with one final, all-or-nothing assault on the ork home world. At last the Imperium has uncovered a true weakness in the Beast's power, and a handful of surviving Sisters of Silence may be the key to exploiting it. Backed by the full might and arcane technology of the Adeptus Mechanicus, the Space Marines mount their last crusade against the greenskin empire. Koorland and his brothers know that if this attack fails like all the others, there will be no army left to try again — and the galaxy will belong to the orks.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "short",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Inwit",
+        "role": "primary"
+      },
+      {
+        "name": "Ullanor",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Koorland",
+        "role": "pov"
+      },
+      {
+        "name": "Maximus Thane",
+        "role": "supporting"
+      },
+      {
+        "name": "The Beast",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.54,
+      "count": 485,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29430428-shadow-of-ullanor"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

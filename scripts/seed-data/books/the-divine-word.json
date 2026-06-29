@@ -1,0 +1,74 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0171",
+  "slug": "the-divine-word",
+  "title": "The Divine Word",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Commander Marcus Valerius of the Therion Cohort marches alongside the Raven Guard, a soldier of the new Imperium who has always scorned the whispered cult of the Lectitio Divinitatus. Then a sudden flash of certainty — call it instinct, call it prayer — pulls his column off a road that would have been their grave. As Valerius questions whether the vision was a guiding hand or only his own frightened mind, the first quiet seeds of what will one day become the Imperial Creed are sown on a war-torn field. A pocket-sized meditation on faith, doubt, and the difference between hearing the divine and inventing it.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "character_study",
+      "philosophical",
+      "somber",
+      "faith",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Therion Cohort",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Marcus Valerius",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.55,
+      "count": 172,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18243200-the-divine-word"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

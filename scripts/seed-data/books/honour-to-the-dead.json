@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0253",
+  "slug": "honour-to-the-dead",
+  "title": "Honour to the Dead",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Calth burns. In the city of Ithraca, the colossal Battle Titans of the Fire Masters legion stride through the streets, levelling civilian quarters in the name of their new dark masters. The loyalist god-engines of Legio Praesagius — the True Messengers — answer with their own walking arsenals, knowing the fight is almost certainly their last. Three threads weave through the rubble: a Praesagius princeps holding the line, a combat squad of Ultramarines protecting the helpless, and an Ithracan woman fleeing through looters and cultists with her baby boy. As the sky bleeds and the streets crack open, the meaning of the title becomes plain.",
+    "facetIds": [
+      "audio_drama",
+      "mixed",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "sacrifice",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Legio Praesagius",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Fire Masters",
+        "role": "antagonist"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calth",
+        "role": "primary"
+      },
+      {
+        "name": "Ithraca",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "available summaries name no specific POV princeps, sergeant, or Ithracan civilian"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.65,
+      "count": 306,
+      "evidenceUrl": "https://www.goodreads.com/book/show/16130718-honour-to-the-dead"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

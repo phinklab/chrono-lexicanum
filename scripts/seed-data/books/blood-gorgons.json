@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0270",
+  "slug": "blood-gorgons",
+  "title": "Blood Gorgons",
+  "authors": [
+    "Henry Zou"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Bastion Wars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Blood Gorgons, a savage warband of Chaos Space Marines, are summoned back to one of their recruiting worlds when Hauts Bassiq is ravaged by a creeping plague of mutation. With their chapter master lost and the warband teetering on the brink of civil war, Bond-Brother Barsabbas and his squad-lord Sargaul are sent to learn what has befallen the planet. They find a hostile world, a shadowy alien enemy stalking the ruins, and treachery festering within their own ranks. To escape Hauts Bassiq alive, Barsabbas must draw on every reserve of hatred and brotherhood the Legion has bred into him. A largely self-contained tale of corruption and loyalty among the damned.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "cosmic_horror",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Gorgons",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hauts Bassiq",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Barsabbas",
+        "role": "pov"
+      },
+      {
+        "name": "Sargaul",
+        "role": "supporting"
+      },
+      {
+        "name": "Gammadin",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.8,
+      "count": 347,
+      "evidenceUrl": "https://www.goodreads.com/book/show/8697263-blood-gorgons"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

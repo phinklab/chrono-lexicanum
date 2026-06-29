@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0265",
+  "slug": "the-long-night",
+  "title": "The Long Night",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Captured after the running engagement between Lion El'Jonson and Konrad Curze, the Night Lords' First Captain Sevatar languishes in a Dark Angels gaol. The cell is small, the ship is silent, and the killer is going slowly mad - voices crowd his head, prophecies he never asked for, the laughter of dead men. His warder Altani draws him into a strange nightly dialogue, and through the dark hours Sevatar circles questions of damnation, fatherhood and what little compassion remains to a son of the Night Haunter. A claustrophobic character study of the Heresy's most articulate murderer, set in the long silence between the Thramas Crusade and the fleet's eventual breakout.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "requires_context",
+      "character_study",
+      "somber",
+      "philosophical",
+      "grimdark",
+      "doubt",
+      "brotherhood",
+      "cw_violence",
+      "cw_mental_health",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Sevatar",
+        "role": "pov"
+      },
+      {
+        "name": "Altani",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "story is set aboard an unnamed Dark Angels gaol-ship without a concrete geographic anchor"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.3,
+      "count": 383,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24257480-the-long-night"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

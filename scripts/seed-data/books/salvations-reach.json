@@ -1,0 +1,144 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0036",
+  "slug": "salvations-reach",
+  "title": "Salvation's Reach",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Acting on intelligence supplied by the captured Etogaur Mabbon, Gaunt proposes a deep-strike raid on Salvation's Reach — a fortress space hulk hidden in archenemy-held space that hosts Anarch Sek's strategic archive. If the data caches can be seized or destroyed, the Sek-vs-Innokenti civil war inside the Archenemy can be tipped in the Imperium's favour without a single battlefield engagement. The Tanith First — reinforced with fresh Verghastite and Belladon intakes for the assault — embarks on a small black-ops fleet under Captain Spika and pushes into deep Archenemy territory. The mission has a passenger: Felyx Chass, a teenage Verghastite intake who is in fact Merity Chass's child by Gaunt — the son Gaunt never knew he fathered. The raid itself is structured as a heist procedural through the Reach's twisted corridors against Blood Pact and emerging Sons of Sek defenders; the political subplot, with Mabbon's loyalty constantly in doubt and the Sirkle agents still hunting, runs parallel. Closes with the data in Imperial hands and the Victory arc proper opened.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "standard",
+      "war_story",
+      "heist",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Belladon",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sons of Sek",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Salvation's Reach",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Ban Daur",
+        "role": "supporting"
+      },
+      {
+        "name": "Tona Criid",
+        "role": "supporting"
+      },
+      {
+        "name": "Caffran",
+        "role": "supporting"
+      },
+      {
+        "name": "Felyx Chass",
+        "role": "supporting"
+      },
+      {
+        "name": "Mabbon Etogaur",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

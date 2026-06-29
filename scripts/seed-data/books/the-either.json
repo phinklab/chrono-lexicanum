@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0277",
+  "slug": "the-either",
+  "title": "The Either",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Tybalt Marr, the Sons of Horus captain his more glory-hungry brothers have always overlooked, returns to the Warmaster with a trophy at last — the head, he claims, of Shadrak Meduson, the Iron Hands warlord who has bled the traitor advance for months. His boasts fall flat in a war room still reeling from a brazen assassination attempt on Horus himself, and Marr is left to claw back his standing by finishing what others started. Gathering his forces on the conquered world of Dwell, he turns to face the Shattered Legions one more time, certain that this single campaign will finally write his name beside those of his greater brothers. A close character piece about second-rate ambition in the shadow of a Warmaster who barely notices it.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "novella",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "somber",
+      "hubris",
+      "brotherhood",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dwell",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Tybalt Marr",
+        "role": "pov"
+      },
+      {
+        "name": "Shadrak Meduson",
+        "role": "supporting"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.69,
+      "count": 118,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28822335-the-either"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

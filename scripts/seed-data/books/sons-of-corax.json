@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0428",
+  "slug": "sons-of-corax",
+  "title": "Sons of Corax",
+  "authors": [
+    "George Mann"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Legends of the Dark Millennium",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Raven Guard wage war like no other Space Marines, striking from shadow and silence rather than meeting their foes head-on. When the pestilent followers of the Plague God engulf the Sargassion Reach, Captain Koryn leads his Raven Guard into a desperate campaign to hold the region against corruption and decay. They do not fight alone: the headstrong Captain Daed and his Brazen Minotaurs join the war, but the two Chapters could hardly be more different, and their clashing methods threaten the alliance as surely as the enemy does. This collection follows Koryn's shadowed warriors through a series of linked battles, asking whether stealth and patience can prevail where brute strength would fail — before the Reach is lost to damnation.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "company",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Brazen Minotaurs",
+        "role": "supporting"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sargassion Reach",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Captain Koryn",
+        "role": "pov"
+      },
+      {
+        "name": "Captain Daed",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "collection",
+        "reason": "Single-author collection of seven linked Raven Guard stories (Prey, Helion Rain, With Baited Breath, Old Scars, Labyrinth of Sorrows, The Unkindness of Ravens, By Artifice Alone), not a single novel as the roster lists."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 77,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26859398-sons-of-corax"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

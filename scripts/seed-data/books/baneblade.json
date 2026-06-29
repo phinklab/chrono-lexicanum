@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0238",
+  "slug": "baneblade",
+  "title": "Baneblade",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The super-heavy battle tank Mars Triumphant grinds across the war-torn Kalidar system, its crew waging an attritional campaign against a vast ork horde. Honoured Lieutenant Marken Cortein Lo Bannick commands the venerable machine, but he cannot outrun his own past: the old clan prejudices of his homeworld of Paragon have followed him into the regiment, and a dishonour he tried to bury threatens to undo him just as a terrifying new enemy emerges to match the Mars Triumphant gun for gun. As the crew sweats and bleeds inside their rolling fortress, Bannick learns that glory is a trap and that the only road back to honour runs through duty and self-sacrifice. A claustrophobic tank-crew war story.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "series_start",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "redemption",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kalidar",
+        "role": "primary"
+      },
+      {
+        "name": "Paragon",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Marken Cortein Lo Bannick",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.97,
+      "count": 761,
+      "evidenceUrl": "https://www.goodreads.com/book/show/15802988-baneblade"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0066",
+  "slug": "pawns-of-chaos",
+  "title": "Pawns of Chaos",
+  "authors": [
+    "Brian Craig"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2001,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the medieval-tech world of Sigmatus, isolated for generations inside a warp storm and slowly converted into a tributary of the Imperium, an indigenous rebel cult prepares a daemonic summoning to throw the Adeptus Arbites garrison and the thin Imperial Guard occupation force off their soil. The novel is told largely from the cultist side: the rebels are not monsters but human beings worn flat by Imperial exploitation, philosophically reasoning their way toward a pact with the warp. Their summoning succeeds and a Daemon of Chaos comes through, with all the cost such bargains carry. \"Brian Craig\" is a Black-Library pseudonym for the British SF author Brian Stableford; the prose is his usual existential-rumination register, not the standard 40K battle-pulp, and the book now sits under Heretic Tomes for the cumulative canonicity drift that catches several early-period 40K standalones written by SF generalists.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "civilian",
+      "chaos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "political_thriller",
+      "mystery",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "doubt",
+      "betrayal",
+      "hubris",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Arbites",
+        "role": "antagonist"
+      },
+      {
+        "name": "Cult of Chaos",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sigmatus",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "canonicity",
+        "current": "rostered",
+        "suggestion": "heretic_tomes_label",
+        "sources": [
+          "Lexicanum / Fandom: novel listed under Heretic Tomes for canonicity drift"
+        ],
+        "reasoning": "Distributed under Black Library's *Heretic Tomes* label, reserved for works no longer consistent with current 40K canon. Roster correctly carries the book; flag is informational. (Also worth noting: \"Brian Craig\" is the Black-Library pseudonym for the British SF author Brian Stableford — useful for the persons table when the resolver auto-creates the author row.)"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Cultist-side ensemble cast with multiple POVs across the rebel cell; individual character names are not consistently surfaced across review sources beyond the broad ensemble framing. Left unenumerated rather than invented."
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

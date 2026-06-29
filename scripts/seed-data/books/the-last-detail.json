@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0408",
+  "slug": "the-last-detail",
+  "title": "The Last Detail",
+  "authors": [
+    "Phil Kearney"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Space Marine Legends",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On a world torn apart by Chaos, a father and his young son shelter in a bunker beneath their home, the last living souls in a city of ash. When they finally venture out into the ruin of their planet, they stumble upon a gravely wounded Space Marine, a warrior who needs their help to reach his Chapter and call down salvation before the world is lost to damnation forever. Told largely through the eyes of ordinary people rather than the superhuman Astartes, this is a quiet, harrowing story of faith and sacrifice at the very end of all things, and of the price two civilians pay to give their dying world one last chance.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "sacrifice",
+      "faith",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Perreken",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": "Paul Kearney",
+        "reason": "Roster lists the author as 'Phil Kearney'; the story is by Paul Kearney."
+      },
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Sources do not clearly name the wounded Space Marine's Chapter; tagged only at the Adeptus Astartes browse-root."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.9,
+      "count": 42,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18492852-the-last-detail"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

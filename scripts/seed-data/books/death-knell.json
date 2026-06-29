@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0059",
+  "slug": "death-knell",
+  "title": "Death Knell",
+  "authors": [
+    "Phil Kelly"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novella",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Tie-in novella to Games Workshop's Space Marine Heroes miniature line. The coastal Isle of St Capilene has been overrun by the Crimson Slaughter — a renegade Astartes chapter driven to butchery by the never-ceasing echoes of their victims. The renegades have found a daemonic bell in the archipelago's cathedral; its toll silences their inner voices but drives the mortal population to madness and mutation. Captain Thassarius of the Ultramarines storms the island to slay the traitors and silence the bell. When the initial mass-assault collapses, Sergeant Sevastus and a stealth-trained tactical squad — including the combat specialist Aethor and the veteran Titus — are sent to test whether precision can win where speed and belligerence has failed. Squad-level Astartes character-piece around a haunted-cathedral setting.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "mystery",
+      "siege",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Crimson Slaughter",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isle of St Capilene",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sevastus",
+        "role": "pov"
+      },
+      {
+        "name": "Thassarius",
+        "role": "supporting"
+      },
+      {
+        "name": "Aethor",
+        "role": "supporting"
+      },
+      {
+        "name": "Titus",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

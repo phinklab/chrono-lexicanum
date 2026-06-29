@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0245",
+  "slug": "butchers-nails",
+  "title": "Butcher's Nails",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A year after Isstvan, the World Eaters and Word Bearers escort their primarchs Angron and Lorgar toward Terra at Horus's command, but Angron's appetite for wanton slaughter on every world they encounter is slowing the war and fraying the fragile alliance. As the two legions square off against each other over their differing methods, an unexpected intervention by Dark Eldar raiders, determined to murder Angron and prevent his future elevation as a daemon prince of the Blood God, pulls both sides back from the brink. A study of two primarchs already half-lost to the powers they will one day serve.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "standalone",
+      "novella",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Angron",
+        "role": "pov"
+      },
+      {
+        "name": "Lorgar",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.94,
+      "count": 688,
+      "evidenceUrl": "https://www.goodreads.com/book/show/12923435-butcher-s-nails"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

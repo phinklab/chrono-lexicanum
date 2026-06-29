@@ -1,0 +1,119 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0169",
+  "slug": "cardinal-crimson",
+  "title": "Cardinal Crimson",
+  "authors": [
+    "Will McDermott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Kal Jerico's debts finally catch up with him when the crime boss Nemo forces him into a bounty that sounds too clean to be honest. The target leads back to Cardinal Crimson, a Redemptionist demagogue with a crusade to protect and a newcomer to silence before old secrets can ruin him. Kal, Scabbs, Yoland and the metal mastiff Wotan stumble from contract work into mass-execution politics, where every escape route costs someone else blood. Mid-trilogy Necromunda action-comedy with a sharper religious-thriller bite.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "mystery",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "satirical",
+      "grimdark",
+      "war",
+      "loyalty",
+      "betrayal",
+      "brotherhood",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Helmawr",
+        "role": "primary"
+      },
+      {
+        "name": "Redemptionists",
+        "role": "antagonist"
+      },
+      {
+        "name": "House Escher",
+        "role": "supporting"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kal Jerico",
+        "role": "pov"
+      },
+      {
+        "name": "Cardinal Crimson",
+        "role": "antagonist"
+      },
+      {
+        "name": "Nemo",
+        "role": "antagonist"
+      },
+      {
+        "name": "Scabbs",
+        "role": "supporting"
+      },
+      {
+        "name": "Yoland",
+        "role": "supporting"
+      },
+      {
+        "name": "Wotan",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

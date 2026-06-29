@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0287",
+  "slug": "wrath-of-iron",
+  "title": "Wrath of Iron",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "For decades the rulers of the Contqual sub-sector have given themselves over to the worship of Slaanesh, and now their corruption bears terrible fruit: a tear in reality through which daemons pour to claim their mortal pawns. The cold, merciless Iron Hands are tasked with burning away the taint, and on the hive world of Shardenus the fate of a billion souls will be decided. Alongside massed Imperial Guard regiments and the towering war-engines of the Titan Legions, the sons of the Gorgon grind toward the heart of the infestation. But the Iron Hands' contempt for human weakness is itself a kind of damnation, and their relentless logic of war spares neither enemy nor ally.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "siege",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Daemons of Slaanesh",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Shardenus",
+        "role": "primary"
+      },
+      {
+        "name": "Contqual",
+        "role": "supporting"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Named viewpoint characters not confidently attributable from available sources; left empty rather than invented"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 591,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13259827-wrath-of-iron"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

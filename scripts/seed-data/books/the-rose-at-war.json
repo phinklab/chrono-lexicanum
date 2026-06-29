@@ -1,0 +1,65 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0595",
+  "slug": "the-rose-at-war",
+  "title": "The Rose at War",
+  "authors": [
+    "Danie Ware"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "anthology",
+  "seriesHint": "Adepta Sororitas / Sister Augusta",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Anthology (single author) — no single location, by design. Contents: Forsaken; The Crystal Cathedral; Mercy; The Bloodied Rose; Wreck and Ruin; The Rose in Anger; Da Big Mouf.",
+  "source": {
+    "kind": "manual",
+    "url": "https://www.goodreads.com/series/277420-sister-augusta",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A collection of Sister Augusta's missions for the Order of the Bloody Rose, gathering the novellas and short stories that follow the Battle Sister across the Imperium's warzones.",
+    "facetIds": [
+      "book",
+      "en",
+      "female",
+      "sister",
+      "imperium",
+      "galactic",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "faith",
+      "war",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Augusta Santorus",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

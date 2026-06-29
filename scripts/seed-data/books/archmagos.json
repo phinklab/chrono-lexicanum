@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0144",
+  "slug": "archmagos",
+  "title": "Archmagos",
+  "authors": [
+    "Justin D Hill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Belisarius Cawl turns from his clashes with Fabius Bile and Cadia's legacy toward the Attilan Gap, an unstable region whose collapse could break Indomitus Crusade supply lines. He believes the answer lies in control codes hidden on an ancient Necron tomb world trapped at the edge of a black hole, a place where physics and faith in the Machine-God both start to fray. The novel pushes Cawl into explorer, puzzle-solver, and possible techno-heretic at once. A Mechanicus mystery about why the Imperium keeps needing a genius it cannot trust.",
+    "facetIds": [
+      "book",
+      "male",
+      "tech_priest",
+      "imperium",
+      "mid_series",
+      "standard",
+      "mystery",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "journey",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "cosmic_horror",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Indomitus Crusade",
+        "role": "supporting"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Attilan Gap",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Belisarius Cawl",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

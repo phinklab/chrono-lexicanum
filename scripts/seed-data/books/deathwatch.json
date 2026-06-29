@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0252",
+  "slug": "deathwatch",
+  "title": "Deathwatch",
+  "authors": [
+    "Steve Parker"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Deathwatch",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Drawn from a dozen different Chapters and forged into a single kill-team within an ironclad watch fortress, the Space Marines of Talon Squad are alien-hunters without equal. Under the cold command of the enigmatic Inquisitor Sigma, and led by the Death Spectres Librarian Lyandro Karras, their first mission together is a brutal one: descend into a genestealer-infested world and burn the xenos brood from its tunnels before an entire planet is consumed. As the team learns to trust one another against borderline-unsurvivable odds, Karras must reconcile honour to his Chapter with the distasteful duties his Inquisitorial master demands. This is the origin of Talon Squad, the tale of how strangers became brothers in the Emperor's deadliest service.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "brotherhood",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "series_start",
+      "standard",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Deathwatch",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Chiaro",
+        "role": "primary"
+      },
+      {
+        "name": "Watch Fortress Damaroth",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lyandro Karras",
+        "role": "pov"
+      },
+      {
+        "name": "Inquisitor Sigma",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.2,
+      "count": 856,
+      "evidenceUrl": "https://www.goodreads.com/book/show/15802987-deathwatch"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

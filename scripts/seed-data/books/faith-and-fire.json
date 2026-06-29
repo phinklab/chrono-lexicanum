@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0254",
+  "slug": "faith-and-fire",
+  "title": "Faith and Fire",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Sisters of Battle",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the dangerous psychic heretic Torris Vaun escapes from her custody, Sister Miriya of the Order of Our Martyred Lady is disgraced before her sisters and superiors. Determined to redeem herself, she pursues Vaun's trail to the hive world of Neva, taking her squad of Battle Sisters with her. There, alongside the gentle Hospitaller Sister Verity, Miriya uncovers a web of political corruption and a conspiracy that threatens not only Neva but the wider Imperium. As faith wars with doubt and duty with self-worth, the two very different sisters forge an unlikely bond. Miriya must rekindle her conviction and bring the Emperor's fire to bear before Vaun's plans ignite a catastrophe.",
+    "facetIds": [
+      "book",
+      "female",
+      "sister",
+      "imperium",
+      "planetary",
+      "war_story",
+      "mystery",
+      "faith",
+      "doubt",
+      "redemption",
+      "somber",
+      "action_heavy",
+      "cw_violence",
+      "cw_death",
+      "series_start",
+      "standard",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Neva",
+        "role": "primary"
+      },
+      {
+        "name": "Van Horne",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sister Miriya",
+        "role": "pov"
+      },
+      {
+        "name": "Sister Verity",
+        "role": "supporting"
+      },
+      {
+        "name": "Torris Vaun",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.64,
+      "count": 1432,
+      "evidenceUrl": "https://www.goodreads.com/book/show/1138069.Faith_and_Fire"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

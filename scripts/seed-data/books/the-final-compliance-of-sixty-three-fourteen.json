@@ -1,0 +1,75 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0185",
+  "slug": "the-final-compliance-of-sixty-three-fourteen",
+  "title": "The Final Compliance of Sixty-Three Fourteen",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Worlds bound to Horus by oath during the Great Crusade are revisited by his emissaries, and asked to renew their fealty in the Warmaster's name. On the world once catalogued as Sixty-Three Fourteen and now called Goughen, Planetary Governor Mayder Oquin walks the gallery of artefacts he has gathered across a lifetime of compliances, each piece a relic of a culture he helped grind to dust. Above his head a Sons of Horus fleet waits in orbit and the envoys at his gate are tired of waiting too. The conquest of the galaxy reduces in his quiet, dim halls to the conscience of one old man, weighing the Emperor he serves against the son who has come for an answer.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "character_study",
+      "political_thriller",
+      "somber",
+      "philosophical",
+      "doubt",
+      "loyalty",
+      "sacrifice",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Goughen",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mayder Oquin",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.73,
+      "count": 191,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23638885-the-final-compliance-of-sixty-three-fourteen"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

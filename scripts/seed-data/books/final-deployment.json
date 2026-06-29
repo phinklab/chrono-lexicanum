@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0243",
+  "slug": "final-deployment",
+  "title": "Final Deployment",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Tempestus Scions are the Imperium's deadliest mortal soldiers, conditioned from childhood into precision killers. When First Eradicant squad drops into the heart of a planet-wide civil war on Rilis, their commander, Tempestor Traxel, leads with merciless efficiency, but the fighting stirs memories of an old defeat that has never stopped haunting him. Joined by a commissar who embodies the suffering of his past and confronted by an enemy out of the Imperium's darkest history, Traxel's discipline begins to crack. On Rilis he will face the foe that once broke him, and discover there is no price he will refuse to pay for victory. A self-contained story of trauma, command, and the cost of being forged into a weapon.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "cw_language",
+      "en",
+      "standard",
+      "standalone"
+    ],
+    "factions": [
+      {
+        "name": "Tempestus Scions",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Rilis",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Tempestor Traxel",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 112,
+      "evidenceUrl": "https://www.goodreads.com/book/show/224004250-final-deployment"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0013",
+  "slug": "caves-of-ice",
+  "title": "Caves of Ice",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2004,
+  "format": "novel",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The 597th deploys to the ice world Simia Orichalcae to defend a vital promethium refinery from an Ork warband already on the surface. Cain — always looking for an excuse to be anywhere but the front — proposes leading the search for missing miners in the subterranean ice caves below the refinery and instead stumbles onto a sealed Necron tomb beneath the permafrost. The novel braids two grinding frontlines: the surface war with the Orks pressing the refinery, and the underground horror waking below as the Necron Lord stirs to expel the new intruders. Cain manages, more or less by accident, to be in command at both. By the end the Orks are broken, the tomb is resealed at survivor cost, and the official record blandly congratulates the 597th's commissar for the kind of personal heroism Cain spends the rest of his life denying.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "mystery",
+      "satirical",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Simia Orichalcae",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      },
+      {
+        "name": "Regina Kasteen",
+        "role": "supporting"
+      },
+      {
+        "name": "Ruput Broklaw",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

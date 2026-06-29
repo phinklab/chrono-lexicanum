@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0161",
+  "slug": "rebirth",
+  "title": "Rebirth",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After the Burning of Prospero, Menes Kalliston of the Thousand Sons leads a small detail back to the cinders of Tizca on a quiet errand from his primarch, against the warnings of his second-in-command Revuel Arvida. They expect ruins. They find World Eaters waiting in them. Captured and interrogated by Khârn himself, Kalliston is shown the true purpose of his return — a relic from Horus's armour that Magnus once used to reach his fallen brother — and, near the end, he sees into Khârn's tortured mind clearly enough to offer the Eighth Captain a moment of relief from the Butcher's Nails. For an instant it nearly takes. Then the rage answers and Kalliston dies under Khârn's hands. Above the ruins, Arvida discovers his ship taken and uses his Corvidae sight to slip away with a single, bleak conviction: knowledge is power.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "planetary",
+      "requires_context",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "brotherhood",
+      "redemption",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Prospero",
+        "role": "primary"
+      },
+      {
+        "name": "Tizca",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Menes Kalliston",
+        "role": "pov"
+      },
+      {
+        "name": "Revuel Arvida",
+        "role": "pov"
+      },
+      {
+        "name": "Khârn",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.64,
+      "count": 242,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22599263-rebirth"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

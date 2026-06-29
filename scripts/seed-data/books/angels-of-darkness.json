@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0069",
+  "slug": "angels-of-darkness",
+  "title": "Angels of Darkness",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2003,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Two stories run in alternating chapters. In the first, on Piscina IV, a Dark Angels strike force under Master Belial defends an Imperial Guard regiment and a Piscinan PDF against an Ork orbital invasion — a fast-moving conventional-war structure that doubles as the chapter's public face. In the second, the Interrogator-Chaplain Boreas conducts the slow, controlled interrogation of Astelan, one of the Fallen captured in deep-warp transit. Astelan does not deny his identity as a Fallen Angel of the Great Crusade — he argues, calmly and at length, that he served the Lion's true commands and that Luther's later actions misrepresented those commands, that the Lion himself was the traitor and the Fallen the loyalists. Boreas reads the transcript like a noose. Astelan's account is unreliable, deliberately structured to break a young Interrogator-Chaplain's certainties, and the novel's central question is whether the Dark Angels' centuries-old hunt for the Fallen rests on the moral certainty the chapter claims. Foundational text for Fallen-Angels lore.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "mystery",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "doubt",
+      "betrayal",
+      "loyalty",
+      "faith",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Fallen Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Piscina IV",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Boreas",
+        "role": "pov"
+      },
+      {
+        "name": "Astelan",
+        "role": "pov"
+      },
+      {
+        "name": "Belial",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

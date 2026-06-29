@@ -1,0 +1,152 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0037",
+  "slug": "the-warmaster",
+  "title": "The Warmaster",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After the success of the Salvation's Reach raid, the Tanith First races to the strategically vital forge world of Urdesh, where the Sabbat Crusade has converged for a decisive open-ground battle against Anarch Sek's massed armies. Warmaster Macaroth himself commands the Urdesh campaign from a field headquarters at Eltath, and the Archenemy push — Blood Pact infantry led by the elite Sons of Sek — may be aimed not at the planet but at the Warmaster's person, a single-blow attempt to decapitate the entire Crusade command structure. Gaunt, now serving on Macaroth's personal staff, threads regimental command of the Tanith with brokered relationships across the Crusade's senior generals — Cybon, Van Voytz, Kelso, Bulledin, Lugo, Blackwood. The novel runs as a forge-world siege-and-counter-siege procedural, with the regiment's Felyx-Chass subplot deepening and the Sek faction emerging as the dominant Archenemy presence. Closes mid-campaign on Urdesh, with The Anarch continuing the assault on Eltath.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "sector",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "betrayal",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Belladon",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Urdeshi",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sons of Sek",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Urdesh",
+        "role": "primary"
+      },
+      {
+        "name": "Eltath",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Macaroth",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Ban Daur",
+        "role": "supporting"
+      },
+      {
+        "name": "Felyx Chass",
+        "role": "supporting"
+      },
+      {
+        "name": "Mabbon Etogaur",
+        "role": "supporting"
+      },
+      {
+        "name": "Anakwanar Sek",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

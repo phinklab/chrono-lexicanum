@@ -1,0 +1,149 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0233",
+  "slug": "the-last-phoenix",
+  "title": "The Last Phoenix",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2016,
+  "format": "omnibus",
+  "seriesHint": "Horus Heresy Omnibus Editions",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Emperor's Children at the moment of their corruption, told across two novels and the shorts that orbit them. Fulgrim opens with the III Legion at the height of its discipline, perfecting itself in war beside the Iron Hands, until a daemon-bound blade taken from the Laer drips its slow poison into the primarch's mind and ends with the duel that takes Ferrus Manus from the loyalist side. Angel Exterminatus carries the story past that betrayal: Fulgrim and Perturabo of the Iron Warriors lead a joint expedition into the Eye of Terror in pursuit of a weapon out of Eldar prehistory, and the two primarchs' very different ambitions begin to grind against each other. Around the novels the shorter pieces — among them The Crimson Fist and The Reflection Crack'd — follow Lucius the Eternal, Fabius Bile, Alexis Polux at Phall, and the slow unravelling of what the Phoenician once was.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "doorstopper",
+      "war_story",
+      "character_study",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "philosophical",
+      "hubris",
+      "betrayal",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Crimson Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Laer",
+        "role": "primary"
+      },
+      {
+        "name": "Iydris",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      },
+      {
+        "name": "Chemos",
+        "role": "supporting"
+      },
+      {
+        "name": "Phall",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fulgrim",
+        "role": "pov"
+      },
+      {
+        "name": "Perturabo",
+        "role": "pov"
+      },
+      {
+        "name": "Lucius",
+        "role": "supporting"
+      },
+      {
+        "name": "Fabius Bile",
+        "role": "supporting"
+      },
+      {
+        "name": "Alexis Polux",
+        "role": "supporting"
+      },
+      {
+        "name": "Ferrus Manus",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.18,
+      "count": 38,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26029273-the-last-phoenix"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "HH-0005",
+        "displayOrder": 0,
+        "confidence": 0.7,
+        "basis": "Last Phoenix omnibus inferred from Emperor's Children/Phoenix arc titles"
+      },
+      {
+        "externalBookId": "HH-0023",
+        "displayOrder": 1,
+        "confidence": 0.7,
+        "basis": "Last Phoenix omnibus inferred from Emperor's Children/Phoenix arc titles"
+      },
+      {
+        "externalBookId": "HH-0044",
+        "displayOrder": 2,
+        "confidence": 0.7,
+        "basis": "Last Phoenix omnibus inferred from Emperor's Children/Phoenix arc titles"
+      }
+    ]
+  }
+}

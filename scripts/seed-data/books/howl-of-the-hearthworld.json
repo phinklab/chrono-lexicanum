@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0191",
+  "slug": "howl-of-the-hearthworld",
+  "title": "Howl of the Hearthworld",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After Prospero burns, watch packs of the Space Wolves are sent across the galaxy to keep an eye on each primarch in turn, ready to strike if any of them follows Magnus into ruin. The pack Thirteen Falling Stars draws what the others call the worst posting of all: Terra itself, and the Praetorian Rogal Dorn. Sergeant Kargir leads his brothers through the marbled fortress of the Imperial Palace, chafing at standing leash to the Sigillite's design while their Legion bleeds elsewhere, measuring the Imperial Fists against the suspicion that the Vlka Fenryka alone keep faith with the Allfather. The story is a quiet, smouldering portrait of Russ's sons cast as guard-dogs in a court that has never wanted them, told around the campfires they raise in the corners of another Legion's stronghold.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "character_study",
+      "somber",
+      "grimdark",
+      "loyalty",
+      "doubt",
+      "brotherhood",
+      "en",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kargir",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.52,
+      "count": 195,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24492398-howl-of-the-hearthworld"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

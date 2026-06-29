@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0487",
+  "slug": "claws-of-the-genestealer",
+  "title": "Claws of the Genestealer",
+  "authors": [
+    "Cavan Scott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Warhammer Adventures",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Marooned on a remote ice world after fleeing the destruction of Targian, Zelia Lor and her newfound companions are still learning how to survive, and how to put up with each other. Talen distrusts the alien-ape Fleapit, resents the Martian boy Mekki, and bristles at every order Zelia gives. Then something far worse than the cold begins to stalk them through the snow: a Genestealer, one of the most feared xenos in the galaxy, hunting with eerie patience. A faint distress beacon offers the slimmest hope of rescue, but other things move in the white silence, watching the children with hungry eyes. To live long enough to reach the Emperor's Seat, and any clue to Zelia's missing mother, the four of them will have to outpace the creature and learn to rely on one another in the process.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "ensemble",
+      "civilian",
+      "imperium",
+      "squad",
+      "mid_series",
+      "short",
+      "last_stand",
+      "journey",
+      "war_story",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_parental_guidance",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Zelia Lor",
+        "role": "pov"
+      },
+      {
+        "name": "Talen",
+        "role": "pov"
+      },
+      {
+        "name": "Mekki",
+        "role": "pov"
+      },
+      {
+        "name": "Fleapit",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.83,
+      "count": 146,
+      "evidenceUrl": "https://www.goodreads.com/book/show/43122046-claws-of-the-genestealer"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

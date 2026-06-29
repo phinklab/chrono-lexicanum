@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0214",
+  "slug": "dark-adeptus",
+  "title": "Dark Adeptus",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Grey Knights",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A century after it vanished into the warp, the forge world of Chaeroneia tears its way back into reality, its arrival throwing an entire star system out of alignment. Justicar Alaric and a handful of Grey Knights make planetfall to learn what became of it, and find a nightmare of riotous machinery, where titanic war engines have been possessed and the tech-priests who once served the Machine God have been twisted into something monstrous. Alongside uneasy Adeptus Mechanicus allies, Alaric must fight through the corrupted manufactories to the source of the rot and destroy it, before Chaeroneia's horrors spread to the wider Imperium.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "faith",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Grey Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Malleus",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Mechanicum",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Chaeroneia",
+        "role": "primary"
+      },
+      {
+        "name": "Borosis",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Alaric",
+        "role": "pov"
+      },
+      {
+        "name": "Nyxos",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 838,
+      "evidenceUrl": "https://www.goodreads.com/book/show/488315.Dark_Adeptus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

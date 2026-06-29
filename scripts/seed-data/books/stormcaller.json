@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0381",
+  "slug": "stormcaller",
+  "title": "Stormcaller",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Space Wolves (newer)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the plague-stricken shrine world of Ras Shakeh, the Space Wolves of the Jarnhamar pack are pushed to breaking point. As corruption spreads and the Imperium descends in force, the Rune Priest Njal Stormcaller arrives to reinforce his embattled brothers — only to find them divided, each pursuing his own purpose. While the warriors of the Ecclesiarchy fight to reclaim their world, a far darker secret festers beneath the conflict: the source of the plague is bound to the schemes of the Death Guard, and its truth could threaten more than a single world. Chris Wraight's sequel to Blood of Asaheim pits Fenrisian fury against the relentless rot of Nurgle, testing the bonds of a pack already strained by grief and rivalry.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "faith",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ras Shakeh",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Njal Stormcaller",
+        "role": "supporting"
+      },
+      {
+        "name": "Ingvar",
+        "role": "pov"
+      },
+      {
+        "name": "Gunnlaugur",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.15,
+      "count": 442,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18143886-stormcaller"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

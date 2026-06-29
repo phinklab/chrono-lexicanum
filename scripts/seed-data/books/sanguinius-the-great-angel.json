@@ -1,0 +1,74 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0100",
+  "slug": "sanguinius-the-great-angel",
+  "title": "Sanguinius: The Great Angel",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A remembrancer with a ruined reputation joins the Ninth Legion's expedition fleet and is told he may chronicle the Great Angel as he chooses, provided he understands that almost nothing about the Blood Angels is what it appears. The book retells events around the early days of the Heresy from a vantage close to Sanguinius himself — his unique form, his sealed homeworld, the legends his sons let stand because they are easier than the truth. The further the remembrancer goes, the more he learns that the question is not who Sanguinius is, but what kind of Imperium has been built around the answer.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "short",
+      "character_study",
+      "war_story",
+      "philosophical",
+      "somber",
+      "grimdark",
+      "action_heavy",
+      "loyalty",
+      "brotherhood",
+      "doubt",
+      "faith",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Sanguinius",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.03,
+      "count": 920,
+      "evidenceUrl": "https://www.goodreads.com/book/show/61317819-sanguinius"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

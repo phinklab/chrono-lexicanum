@@ -1,0 +1,128 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0485",
+  "slug": "ascension-blackstone-fortress",
+  "title": "Ascension",
+  "authors": [
+    "Darius Hinks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Blackstone Fortress",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Precipice is dying. For weeks the makeshift space port has been hammered by warp-born storms boiling out of the Blackstone Fortress, severing docking arms and snuffing out any chance of evacuation. Inside the storm Janus Draik reads, almost calmly, the letter that has just stripped him of his rank, his titles and his inheritance. He has one last chance to make his name mean something, and only one place left to look. With the help of the missionary Taddeus and his disciple Vorne, the kroot Grekh, the ratlings Rein and Raus, his companions Audus and Isola, and an unnerving alien called the Archivist, Draik leads the survivors deeper into the Fortress than anyone has yet dared to go. To stop the abomination at its heart he will have to rebuild a fragile trust between humans and xenos who have every reason to turn on each other.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "multi",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "mystery",
+      "last_stand",
+      "journey",
+      "somber",
+      "cosmic_horror",
+      "grimdark",
+      "doubt",
+      "sacrifice",
+      "brotherhood",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Rogue Traders",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      },
+      {
+        "name": "Kroot",
+        "role": "supporting"
+      },
+      {
+        "name": "Ratlings",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Precipice",
+        "role": "primary"
+      },
+      {
+        "name": "Blackstone Fortress",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Janus Draik",
+        "role": "pov"
+      },
+      {
+        "name": "Audus",
+        "role": "supporting"
+      },
+      {
+        "name": "Isola",
+        "role": "supporting"
+      },
+      {
+        "name": "Taddeus",
+        "role": "supporting"
+      },
+      {
+        "name": "Vorne",
+        "role": "supporting"
+      },
+      {
+        "name": "Grekh",
+        "role": "supporting"
+      },
+      {
+        "name": "Rein",
+        "role": "supporting"
+      },
+      {
+        "name": "Raus",
+        "role": "supporting"
+      },
+      {
+        "name": "The Archivist",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.74,
+      "count": 160,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55233434"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

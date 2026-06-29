@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0281",
+  "slug": "the-purging-of-kadillus",
+  "title": "The Purging of Kadillus",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When an ork invasion descends on the mining world of Piscina IV, the Dark Angels Third Company believe the greenskin threat is minor and easily contained. Captain Belial trusts in the strength of his Astartes, but the veteran scout-sergeant Naaman has fought orks before and senses something far more dangerous at work. As the xenos numbers swell and a renewed offensive smashes into the defenders, the orks surge toward the vital settlement of Kadillus Harbour. The Dark Angels are forced into a desperate, grinding siege, holding the line against an enemy wielding unexpected technological power. They must endure until Imperial reinforcements arrive, or watch the planet fall to the green tide.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "siege",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Piscina IV",
+        "role": "primary"
+      },
+      {
+        "name": "Kadillus Harbour",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Belial",
+        "role": "pov"
+      },
+      {
+        "name": "Naaman",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 737,
+      "evidenceUrl": "https://www.goodreads.com/book/show/8440710-the-purging-of-kadillus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

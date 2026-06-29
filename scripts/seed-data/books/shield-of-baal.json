@@ -1,0 +1,119 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0304",
+  "slug": "shield-of-baal",
+  "title": "Shield of Baal",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2017,
+  "format": "anthology",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The shieldworlds of the Cryptus system have guarded the approach to Baal for thousands of years. Now the great tyranid swarms of Hive Fleet Leviathan fall upon them, intent on devouring everything in their path before turning toward the Blood Angels' home world itself. As the swarm closes in, Captain Karlaen leads the sons of Sanguinius into the breach, while the soldiers of the Astra Militarum, the battle-sisters of the Adepta Sororitas, and stranger allies still are drawn into the desperate defence. These collected tales follow the war for the Cryptus system from many angles, charting the courage, sacrifice, and horror of a campaign fought to hold the gateway to Baal.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "sector",
+      "war_story",
+      "siege",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "war",
+      "sacrifice",
+      "brotherhood",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "standalone",
+      "standard",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      },
+      {
+        "name": "Necrons",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cryptus System",
+        "role": "primary"
+      },
+      {
+        "name": "Baal",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Karlaen",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.75,
+      "count": 63,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/29430424"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0343",
+        "displayOrder": 0,
+        "confidence": 0.75,
+        "basis": "Shield of Baal anthology inferred from matching Shield of Baal novella titles"
+      },
+      {
+        "externalBookId": "W40K-0344",
+        "displayOrder": 1,
+        "confidence": 0.75,
+        "basis": "Shield of Baal anthology inferred from matching Shield of Baal novella titles"
+      },
+      {
+        "externalBookId": "W40K-0345",
+        "displayOrder": 2,
+        "confidence": 0.75,
+        "basis": "Shield of Baal anthology inferred from matching Shield of Baal novella titles"
+      }
+    ]
+  }
+}

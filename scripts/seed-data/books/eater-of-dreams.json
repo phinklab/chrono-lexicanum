@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0228",
+  "slug": "eater-of-dreams",
+  "title": "Eater of Dreams",
+  "authors": [
+    "Marc Collins"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fel Zharost used to be the Chief Librarian of the VIII Legion. He saw what was coming in the Night Lords and walked away long before Isstvan, exiling himself to the warrens of old Albia, where he tried to die quietly under another name. He does not get to. Malcador the Sigillite has a use for a Night Lords witch with a guilty conscience, and offers him the grey of the Knights-Errant — a chance to bury a sin Fel still carries from his service to Konrad Curze. Riding with him on this first outing is his blood-cousin Macer Varren, late of the World Eaters, who has his own reasons for taking the grey. Together the two failed Legionaries hunt down something Fel left behind a long time ago, and learn whether redemption is a thing the Imperium still gives, or only sells.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "character_study",
+      "journey",
+      "somber",
+      "grimdark",
+      "redemption",
+      "doubt",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "supporting"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Albia",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fel Zharost",
+        "role": "pov"
+      },
+      {
+        "name": "Macer Varren",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.12,
+      "count": 85,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59764745-eater-of-dreams"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0581",
+  "slug": "daemonhammer",
+  "title": "Daemonhammer",
+  "authors": [
+    "Darius Hinks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "40k - Inquisition",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Zealous and uncompromising, Inquisitor Torquemada Coteaz is the scourge of cultist and daemon alike — lord inquisitor and High Protector of the Formosa Sector, a man whose will has broken cults and banished daemons across decades of thankless service. But the long years exact their price, and his body is failing. When sinister tidings from a forgotten corner of the sector hint at spectres from his past — and a mysterious artefact known as the Soul Glass surfaces amid whispers of heresy — Coteaz must confront a terrible choice: relinquish his throne to rivals who would undo his life's work, or seize forbidden power to endure. His interrogators Voltas and Elias are drawn into an investigation that winds through decaying hive cities and heretical conspiracies, as daemonic forces move in the shadows. Should Coteaz succumb to the darkness he has hunted all his life, billions will fall with him.",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "mystery",
+      "grimdark",
+      "doubt",
+      "faith",
+      "hubris",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Ordo Malleus",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Formosa Sector",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Torquemada Coteaz",
+        "role": "pov"
+      },
+      {
+        "name": "Voltas",
+        "role": "supporting"
+      },
+      {
+        "name": "Elias",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.77,
+      "count": 133,
+      "evidenceUrl": "https://www.goodreads.com/book/show/217351424-daemonhammer"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

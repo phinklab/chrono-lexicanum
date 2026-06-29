@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0366",
+  "slug": "lords-of-mars",
+  "title": "Lords of Mars",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Forges of Mars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Having survived the crossing of the Halo Scar, Archmagos Kotov's Explorator fleet pushes deeper into uncharted space aboard the Speranza, chasing the trail of the long-lost Magos Telok and the secret he is said to have found. But the marvels they uncover come at a terrible price: the fleet stumbles into the path of an awakening alien menace whose tombs predate the Imperium, while aboard ship the predatory intelligence Galatea tightens its grip and the rogue trader Roboute Surcouf begins to suspect the expedition is being steered toward catastrophe. A tense, wonder-and-dread middle act about the seductions of forbidden knowledge and the cost of looking too far past the edge of the map.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "tech_priest",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "doorstopper",
+      "journey",
+      "war_story",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Black Templars",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mars",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lexell Kotov",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Surcouf",
+        "role": "pov"
+      },
+      {
+        "name": "Galatea",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tarkis Blaylock",
+        "role": "supporting"
+      },
+      {
+        "name": "Linya Tychon",
+        "role": "supporting"
+      },
+      {
+        "name": "Ven Anders",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.95,
+      "count": 998,
+      "evidenceUrl": "https://www.goodreads.com/book/show/16130625-lords-of-mars"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

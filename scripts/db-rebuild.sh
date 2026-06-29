@@ -14,21 +14,22 @@
 # scope) lives in scripts/db-sync.sh and is shared by both paths — this
 # orchestrator does not reimplement it.
 #
-#   1. db-apply-scope.ts (--check)         PREFLIGHT (read-only) — derive + validate
-#                                          the apply scope from the committed roster
-#                                          BEFORE the truncate. A stray file or a hole
+#   1. book-corpus-preflight.ts            PREFLIGHT (read-only, DB-free) — assert the
+#                                          per-book corpus parses, is slug/id-unique,
+#                                          collects-resolvable, prolog inputs present,
+#                                          BEFORE the truncate. A stray/dup/bad-id
 #                                          HALTS LOUDLY here, so a confirmed rebuild
-#                                          never truncates into an unappliable roster.
+#                                          never truncates into an unappliable corpus.
 #   2. db:reset-for-ssot --confirm         DESTRUCTIVE TRUNCATE works CASCADE. Wipes the
 #                                          works domain (incl. work_persons, podcasts,
 #                                          event_works, the timeline columns on works);
 #                                          REFERENCE tables (persons, factions,
 #                                          characters, locations, eras, …) are preserved.
 #   3. db:sync                             The full NON-DESTRUCTIVE restore chain:
-#                                          re-apply the auto-derived committed roster +
-#                                          per-book + podcast + audiobook + timeline +
-#                                          curation, each verify-gated. (Re-runs the
-#                                          preflight in --emit-config mode; harmless.)
+#                                          re-apply the per-book corpus + podcast +
+#                                          audiobook + timeline + curation, each
+#                                          verify-gated. (Re-runs the preflight;
+#                                          harmless — it is read-only.)
 #
 # WHY a dedicated orchestrator and not a tail in run-phase4-apply.sh: that engine
 # runs on EVERY resolver wave; a reset/audio/timeline step there would fire
@@ -64,9 +65,9 @@ recovery (fresh/migrated DB, or `npm run db:drift` shows real divergence).
 db:rebuild == db:sync + a prepended confirm-gated TRUNCATE.
 
 Sequence (each step gates the next; a failure aborts before later steps run):
-  1. db-apply-scope (preflight)           validate the apply scope BEFORE truncate (HALTS on a hole/stray)
+  1. book-corpus-preflight (preflight)    validate the per-book corpus BEFORE truncate (HALTS on a problem)
   2. db:reset-for-ssot --confirm          TRUNCATE works CASCADE (reference tables preserved)
-  3. db:sync                              the full non-destructive restore chain (corpus + per-book + podcast + audiobook + timeline + curation, all verify-gated)
+  3. db:sync                              the full non-destructive restore chain (per-book corpus + podcast + audiobook + timeline + curation, all verify-gated)
 
 DESTRUCTIVE — truncates `works`. Requires explicit confirmation via either:
   --confirm                  CLI flag.
@@ -127,13 +128,13 @@ step() {
 
 echo "[db-rebuild] starting DISASTER-RECOVERY rebuild (confirmed) — truncate + db:sync."
 
-# 1. PREFLIGHT (read-only): validate the apply scope BEFORE the destructive
-#    truncate, so a confirmed rebuild can never truncate into a roster it then
-#    can't fully re-apply. db:sync (step 3) re-runs this in --emit-config mode;
-#    running it here too is harmless (read-only) and is the hard guarantee that
-#    the guard fires before the truncate.
-step "1/3 preflight — validate apply scope before truncate (db-apply-scope)" \
-  npx tsx scripts/db-apply-scope.ts
+# 1. PREFLIGHT (read-only, DB-free): validate the per-book corpus BEFORE the
+#    destructive truncate, so a confirmed rebuild can never truncate into a corpus
+#    it then can't fully re-apply. db:sync (step 3) re-runs this; running it here
+#    too is harmless (read-only) and is the hard guarantee that the guard fires
+#    before the truncate.
+step "1/3 preflight — validate per-book corpus before truncate (book-corpus-preflight)" \
+  npx tsx scripts/book-corpus-preflight.ts
 
 # 2. DESTRUCTIVE: truncate the works domain. Confirmation is passed through;
 #    reference tables (persons/factions/characters/locations/eras/…) are preserved.

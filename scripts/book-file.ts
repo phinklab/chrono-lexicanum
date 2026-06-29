@@ -268,7 +268,33 @@ export function loadBookFiles(dir: string = BOOKS_DIR): {
 }
 
 // =============================================================================
-// Dup-guard (effective corpus = Legacy roster + folder)
+// Validation modes (Brief 171 Teil B)
+// =============================================================================
+
+/**
+ * How the per-book folder relates to the Legacy roster for dup-guard + id math.
+ *
+ * - `additive` (Brief 170 Teil A): the effective corpus is `Legacy roster +
+ *   books/`. A book with a slug/externalBookId that mirrors a Legacy roster row
+ *   is HARD-RED — the same identity must never live in two worlds. This is the
+ *   "new release alongside the frozen Legacy corpus" mode.
+ * - `migration-equivalence` (Brief 171): Legacy and per-book are two SEPARATE
+ *   source worlds. The converter mirrors the WHOLE Legacy corpus into `books/`,
+ *   so mirror duplicates (same natural identity in both worlds) are EXPECTED —
+ *   the cross-source guard must NOT fire. Only intra-folder uniqueness is checked.
+ * - `post-retirement` (Brief 171): `books/` is the ONLY corpus world. The Legacy
+ *   roster is frozen provenance and is not consulted at all — uniqueness + id-max
+ *   run folder-only.
+ */
+export type CorpusMode = "additive" | "migration-equivalence" | "post-retirement";
+
+/** The cross-source (folder ⇄ Legacy roster) guard only fires in `additive` mode. */
+function checksCrossSource(mode: CorpusMode): boolean {
+  return mode === "additive";
+}
+
+// =============================================================================
+// Dup-guard (effective corpus = Legacy roster + folder, mode-dependent)
 // =============================================================================
 
 interface CorpusBookRef {
@@ -277,25 +303,30 @@ interface CorpusBookRef {
 }
 
 /**
- * Collisions of slug or externalBookId — both INTRA-folder and against the
- * Legacy roster. The dup-guard is "hard red" (Brief 170 §Design): the same
- * identity must never exist in two worlds.
+ * Collisions of slug or externalBookId. INTRA-folder uniqueness is checked in
+ * every mode (two `books/` files must never share an id/slug). The cross-source
+ * check (a folder book mirroring a Legacy roster row) fires only in `additive`
+ * mode (Brief 171 §Validierungsmodi) — in `migration-equivalence` /
+ * `post-retirement` a mirror is expected (the converter mirrors Legacy) or the
+ * Legacy roster is out of scope entirely.
  */
 export function findCorpusCollisions(
   folder: LoadedBookFile[],
   rosterBooks: CorpusBookRef[],
+  mode: CorpusMode = "additive",
 ): string[] {
   const issues: string[] = [];
+  const crossSource = checksCrossSource(mode);
   const rosterIds = new Map(rosterBooks.map((b) => [b.externalBookId, b]));
   const rosterSlugs = new Map(rosterBooks.map((b) => [b.slug, b]));
 
   const seenIds = new Map<string, string>(); // id → filename
   const seenSlugs = new Map<string, string>();
   for (const { filename, book } of folder) {
-    if (rosterIds.has(book.externalBookId)) {
+    if (crossSource && rosterIds.has(book.externalBookId)) {
       issues.push(`${book.externalBookId} (${filename}) collides with a Legacy roster book of the same externalBookId`);
     }
-    if (rosterSlugs.has(book.slug)) {
+    if (crossSource && rosterSlugs.has(book.slug)) {
       issues.push(`${book.slug} (${filename}) collides with a Legacy roster book of the same slug`);
     }
     const idDup = seenIds.get(book.externalBookId);
@@ -330,10 +361,17 @@ export function findUnresolvableCollectMembers(
 
 export type SeriesPrefix = "HH" | "W40K";
 
-/** Effective per-prefix max suffix across Legacy roster AND the per-book folder. */
+/**
+ * Effective per-prefix max suffix. In `additive` / `migration-equivalence` the
+ * max is taken across Legacy roster AND the per-book folder; in
+ * `post-retirement` the Legacy roster is out of scope and the max is folder-only
+ * (after migration the folder mirrors the whole roster, so the value is the same
+ * — but the source of truth is `books/`, not the frozen Legacy roster).
+ */
 export function effectiveMaxSuffix(
   rosterBooks: CorpusBookRef[],
   folder: LoadedBookFile[],
+  mode: CorpusMode = "additive",
 ): Map<SeriesPrefix, number> {
   const max = new Map<SeriesPrefix, number>([
     ["HH", 0],
@@ -346,18 +384,21 @@ export function effectiveMaxSuffix(
     const n = Number.parseInt(externalBookId.slice(prefix.length + 1), 10);
     if (n > (max.get(prefix) ?? 0)) max.set(prefix, n);
   };
-  for (const b of rosterBooks) scan(b.externalBookId);
+  if (mode !== "post-retirement") {
+    for (const b of rosterBooks) scan(b.externalBookId);
+  }
   for (const { book } of folder) scan(book.externalBookId);
   return max;
 }
 
-/** Next free id for a prefix in `additive` mode (effective max + 1). */
+/** Next free id for a prefix (effective max + 1, mode-dependent). */
 export function nextEffectiveId(
   prefix: SeriesPrefix,
   rosterBooks: CorpusBookRef[],
   folder: LoadedBookFile[],
+  mode: CorpusMode = "additive",
 ): string {
-  const n = (effectiveMaxSuffix(rosterBooks, folder).get(prefix) ?? 0) + 1;
+  const n = (effectiveMaxSuffix(rosterBooks, folder, mode).get(prefix) ?? 0) + 1;
   return `${prefix}-${String(n).padStart(4, "0")}`;
 }
 

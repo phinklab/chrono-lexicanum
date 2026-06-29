@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0519",
+  "slug": "gothgul-hollow",
+  "title": "Gothgul Hollow",
+  "authors": [
+    "Anna Stephens"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A lonely moorland town huddles in the wet half-light of Shyish, and on the hill above it the remnants of the Gothghul family keep themselves to themselves. Aaric Gothghul broods in his library over texts no one else will read; his daughter walks the woods alone and unsettles everyone she does not entirely ignore. When fresh terrors begin to manifest in the town below, the disturbance shakes loose a family secret Aaric has spent twenty-five years burying and forces father and daughter, who barely speak, to ride out together. Joined by a plain-spoken sharpshooter and a watchful man of faith, four strangers bound by horror find themselves following a single unfamiliar word, Mhurghast, into a mystery older and hungrier than the family curse they came to break.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "civilian",
+      "neutral",
+      "planetary",
+      "series_start",
+      "standard",
+      "mystery",
+      "journey",
+      "character_study",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "betrayal",
+      "doubt",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Cities of Sigmar",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Shyish",
+        "role": "primary"
+      },
+      {
+        "name": "Gothghul Hollow",
+        "role": "primary"
+      },
+      {
+        "name": "Mhurghast",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Aaric Gothghul",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "setting",
+        "reason": "Age of Sigmar Mortal Realms (Realm of Shyish), not Warhammer 40,000; series Tales of Mhurghast",
+        "suggestion": "age_of_sigmar"
+      },
+      {
+        "kind": "data_conflict",
+        "field": "title",
+        "reason": "Black Library title is 'Gothghul Hollow' (with second h), roster slug uses 'gothgul-hollow'",
+        "suggestion": "gothghul-hollow"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.74,
+      "count": 416,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59251746-gothghul-hollow"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

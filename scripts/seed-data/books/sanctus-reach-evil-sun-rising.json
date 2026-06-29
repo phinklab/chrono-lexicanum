@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0327",
+  "slug": "sanctus-reach-evil-sun-rising",
+  "title": "Sanctus Reach: Evil Sun Rising",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Red Waaagh! is burning its way across the Sanctus Reach, and every Ork for light years rushes to join the slaughter. Among them is Big Mek Uggrim and his Red Sunz, hauling their prized Stompa, Fat Mork, into the warhost of the volatile Warlord Grukk. But war, it turns out, is complicated. Between guarding the secrets of their walking war-engine from greedy rival meks, fending off the schemes of the covetous Big Mek Mogrok, and surviving the whims of a warlord as likely to kill his own followers as the enemy, Uggrim finds that getting to the front to actually krump some humans is harder than it should be. Told entirely through the eyes of the greenskins themselves, this is a gleefully brutal look at Ork ambition, invention and infighting.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "novella",
+      "standalone",
+      "war_story",
+      "satirical",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sanctus Reach",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uggrim",
+        "role": "pov"
+      },
+      {
+        "name": "Grukk",
+        "role": "supporting"
+      },
+      {
+        "name": "Mogrok",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.81,
+      "count": 86,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22663546-evil-sun-rising"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

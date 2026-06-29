@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0119",
+  "slug": "helbrecht-knight-of-the-throne",
+  "title": "Helbrecht: Knight of the Throne",
+  "authors": [
+    "Marc Collins"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After crossing the Rubicon Primaris and receiving both Guilliman's rebuke and the God-Emperor's vision, High Marshal Helbrecht is called to Hevaran, a ruined shrine world forbidden to rebuild. There, with only a small company of chosen Templars, he hunts a relic of Rogal Dorn and faces an ancient enemy shaped to test more than his sword arm. The quest is intimate by Black Templars standards, stripped of crusade-pageantry until faith, wrath, and self-image stand exposed. Pilgrimage, penance, and war fold into one march across sacred desolation.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "journey",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "action_heavy",
+      "faith",
+      "redemption",
+      "sacrifice",
+      "hubris",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hevaran",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Helbrecht",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "mentioned"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "mentioned"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

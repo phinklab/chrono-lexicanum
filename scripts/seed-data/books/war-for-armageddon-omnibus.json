@@ -1,0 +1,109 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0307",
+  "slug": "war-for-armageddon-omnibus",
+  "title": "War for Armageddon Omnibus",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": null,
+  "format": "omnibus",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Armageddon burns. When the ork warlord Ghazghkull Thraka brings his Waaagh! down upon the hive world for a third time, billions of lives hang on whether its cities can hold. At the heart of this collection stands Helsreach, the story of Chaplain Grimaldus and his Black Templars, who vow to defend a doomed hive to the last and must then make good on that oath against an endless green tide. Around it gather novellas and short stories that widen the lens across the whole campaign, following Salamanders, Imperial Guard, and others who bled for Armageddon. Together they draw the many fronts of one of the Imperium's most famous wars into a single sweeping account of faith, endurance, and sacrifice.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "siege",
+      "last_stand",
+      "war_story",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "war",
+      "faith",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "standalone",
+      "doorstopper",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Helsreach",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Grimaldus",
+        "role": "pov"
+      },
+      {
+        "name": "Ghazghkull Thraka",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.36,
+      "count": 243,
+      "evidenceUrl": "https://www.goodreads.com/book/show/40968019-war-for-armageddon"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0279",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Helsreach is the lead novel of War for Armageddon: The Omnibus (Black Library, 2018); contents enumerated by Lexicanum and Black Library. Updated OQ(14)(e)."
+      },
+      {
+        "externalBookId": "W40K-0316",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Blood and Fire is collected in War for Armageddon: The Omnibus (Black Library, 2018) alongside Helsreach; contents enumerated by Lexicanum and Black Library. OQ(14)(e) / Resolver-Pass 6."
+      }
+    ]
+  }
+}

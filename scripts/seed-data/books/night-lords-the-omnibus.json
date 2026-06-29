@@ -1,0 +1,179 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0349",
+  "slug": "night-lords-the-omnibus",
+  "title": "Night Lords: The Omnibus",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "omnibus",
+  "seriesHint": "Night Lords",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The complete saga of the galaxy's most feared traitors, collecting the Night Lords trilogy — Soul Hunter, Blood Reaver and Void Stalker — alongside the short fiction that frames it. Follow Talos, prophet of a murdered Primarch, and his brothers of First Claw across ten thousand years of bitterness: from a black crusade against the forge world of Crythe, through a treacherous alliance with Huron Blackheart's Red Corsairs, to a final hunt on the haunted world of Tsagualsa where the Eldar move to end them. A study of damnation, brotherhood and the long shadow of betrayal, told entirely from the side of the damned.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "xenos",
+      "sector",
+      "galactic",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "character_study",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "action_heavy",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "doubt",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_language",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Black Legion",
+        "role": "supporting"
+      },
+      {
+        "name": "Red Corsairs",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Marines Errant",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Crythe",
+        "role": "supporting"
+      },
+      {
+        "name": "Vilamus",
+        "role": "supporting"
+      },
+      {
+        "name": "Tsagualsa",
+        "role": "supporting"
+      },
+      {
+        "name": "the Maelstrom",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Talos",
+        "role": "pov"
+      },
+      {
+        "name": "Cyrion",
+        "role": "supporting"
+      },
+      {
+        "name": "Xarl",
+        "role": "supporting"
+      },
+      {
+        "name": "Uzas",
+        "role": "supporting"
+      },
+      {
+        "name": "Mercutian",
+        "role": "supporting"
+      },
+      {
+        "name": "Variel the Flayer",
+        "role": "supporting"
+      },
+      {
+        "name": "Septimus",
+        "role": "supporting"
+      },
+      {
+        "name": "Octavia",
+        "role": "supporting"
+      },
+      {
+        "name": "Huron Blackheart",
+        "role": "supporting"
+      },
+      {
+        "name": "The Exalted",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.67,
+      "count": 2435,
+      "evidenceUrl": "https://www.goodreads.com/book/show/21019364-night-lords"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0346",
+        "displayOrder": 0,
+        "confidence": 0.88,
+        "basis": "Night Lords omnibus collects the trilogy and related short story in the section"
+      },
+      {
+        "externalBookId": "W40K-0347",
+        "displayOrder": 1,
+        "confidence": 0.88,
+        "basis": "Night Lords omnibus collects the trilogy and related short story in the section"
+      },
+      {
+        "externalBookId": "W40K-0348",
+        "displayOrder": 2,
+        "confidence": 0.88,
+        "basis": "Night Lords omnibus collects the trilogy and related short story in the section"
+      },
+      {
+        "externalBookId": "W40K-0350",
+        "displayOrder": 3,
+        "confidence": 0.88,
+        "basis": "Night Lords omnibus collects the trilogy and related short story in the section"
+      }
+    ]
+  }
+}

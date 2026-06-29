@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0062",
+  "slug": "warhawk",
+  "title": "Warhawk",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Jaghatai Khan, Warhawk of Chogoris, prepares the most audacious strike of the war: nothing less than the liberation of the Lion's Gate spaceport, the traitor's foothold on Terra. Cut off from reinforcement and weighed down by the death of his sons, the Khan stakes everything on one desperate counter-offensive against an old enemy made far greater than he ever was before. The White Scars charge into open battle rather than wait behind walls to die, and at the height of the assault Jaghatai meets Mortarion in single combat — a clash of ideologies as much as a contest of strength, two brothers whose paths diverged long before the Heresy began. Shiban Khan and the surviving White Scar brotherhoods ride at their primarch's side for what may be the legion's last great charge.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "dual",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Lion's Gate Spaceport",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jaghatai Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Shiban Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Mortarion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.3,
+      "count": 2593,
+      "evidenceUrl": "https://www.goodreads.com/book/show/58058574-warhawk"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0116",
+  "slug": "assassinorum-kingmaker",
+  "title": "Assassinorum: Kingmaker",
+  "authors": [
+    "Robert Rath"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the Knight World Dominion, a secessionist king has become too dangerous for the Imperium to leave alive. Vindicare assassin Absolom Raithe is forced into a three-temple operation with Callidus shapeshifter Sycorax and Vanus analyst Avaaris Koln: kill the ruler, steer the succession, and survive nobles whose oaths are as armoured as their war machines. The assignment turns from clean execution into succession crisis, spy game, and Knight-scale bodyguard problem, with every ally a possible future target. A sharp Officio Assassinorum thriller where the hardest shot may be deciding what political future the bullet is meant to buy.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "heist",
+      "mystery",
+      "political_thriller",
+      "court_intrigue",
+      "grimdark",
+      "action_heavy",
+      "satirical",
+      "betrayal",
+      "loyalty",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Officio Assassinorum",
+        "role": "primary"
+      },
+      {
+        "name": "Vindicare Temple",
+        "role": "primary"
+      },
+      {
+        "name": "Callidus Temple",
+        "role": "primary"
+      },
+      {
+        "name": "Vanus Temple",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Knights",
+        "role": "secondary"
+      },
+      {
+        "name": "House Dominion",
+        "role": "secondary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dominion",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Absolom Raithe",
+        "role": "pov"
+      },
+      {
+        "name": "Sycorax",
+        "role": "pov"
+      },
+      {
+        "name": "Avaaris Koln",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0401",
+  "slug": "azrael",
+  "title": "Azrael",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Space Marine Legends",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Dark Angels guard their secrets more jealously than any other Space Marine Chapter, and only their Supreme Grand Master is trusted to know them all. Azrael has fought at the forefront of battle for centuries, a living legend among his brethren. When the death of Supreme Grand Master Naberius leaves the Chapter leaderless above the world of Rhamiel, Azrael, Grand Master of the Deathwing, must shoulder the burden of command. Forced into an uneasy alliance with the enigmatic Eldar, he walks a razor's edge between the victory the Imperium demands and the buried history his Chapter would die to keep hidden. This is the story of how one warrior rose to lead the Dark Angels, and of the price that elevation exacts.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "loyalty",
+      "war",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Rhamiel",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Azrael",
+        "role": "pov"
+      },
+      {
+        "name": "Naberius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.74,
+      "count": 166,
+      "evidenceUrl": "https://www.goodreads.com/book/show/30753528-azrael"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

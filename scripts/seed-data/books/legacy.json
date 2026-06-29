@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0200",
+  "slug": "legacy",
+  "title": "Legacy",
+  "authors": [
+    "Matthew Farrer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2004,
+  "format": "novel",
+  "seriesHint": "Shira Calpurnia",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The death of a rich and ancient Rogue Trader brings his Charter of Trade — a relic literally signed by the Emperor — to Hydraphur, where Calpurnia must see Hoyyon Phrax's will carried out under Imperial law. Rival heirs decide that due process be damned, and the administrators of a will must take up arms on the side of legal process — while ambitious clerics of the Ecclesiarchy, drawn by the relic, open a second front. The procedural shades into court-intrigue.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "court_intrigue",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "doubt",
+      "loyalty",
+      "sacrifice",
+      "faith",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Arbites",
+        "role": "primary"
+      },
+      {
+        "name": "Rogue Traders",
+        "role": "supporting"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hydraphur",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Shira Calpurnia",
+        "role": "pov"
+      },
+      {
+        "name": "Hoyyon Phrax",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

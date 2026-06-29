@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0561",
+  "slug": "ghost-legion",
+  "title": "Ghost Legion",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "Solomon Akurra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Solomon Akurra, the Alpha Legion Harrowmaster known as the Ghost, has united warring renegade factions under his banner and conquered entire star systems. Wielding what he claims is the Pale Spear — the lost weapon of his primarch — Solomon dreams not of plunder but of empire: a future in which the Imperium is shattered and humanity rebuilt in his own image. As his burgeoning new world draws the gaze of the Imperium, Officio Assassinorum killers begin to circle in the shadows and fury festers within his own ranks. Forced to play the long game against enemies without and dissent within, the Ghost must decide what price he is willing to pay for a vision that may yet consume him and the Legion he has only just begun to forge.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "hubris",
+      "betrayal",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Alpha Legion",
+        "role": "primary"
+      },
+      {
+        "name": "Officio Assassinorum",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Solomon Akurra",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.01,
+      "count": 130,
+      "evidenceUrl": "https://www.goodreads.com/book/show/247963085-ghost-legion"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

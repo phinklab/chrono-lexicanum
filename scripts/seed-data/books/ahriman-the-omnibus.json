@@ -1,0 +1,119 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0373",
+  "slug": "ahriman-the-omnibus",
+  "title": "Ahriman: The Omnibus",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "omnibus",
+  "seriesHint": "Ahriman",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The complete saga of the Thousand Sons' greatest sorcerer, gathered into a single volume. Ahzek Ahriman, protege of the primarch Magnus the Red, was undone by his own hubris: the Rubric he cast to save his Legion instead reduced his brothers to animate dust within their armour. Spurned and exiled, he refuses to abandon them. Across Exile, Sorcerer and Unchanged - plus eight accompanying short stories - Ahriman braves the horrors of the Eye of Terror and the wider galaxy in search of the knowledge to reverse his catastrophe, gathering followers, betraying allies, and edging ever closer to a confrontation with his own past. A doorstop-sized journey through obsession, sorcery and the faint hope of undoing an eternal curse.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "series_start",
+      "doorstopper",
+      "journey",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "redemption",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      },
+      {
+        "name": "Prospero",
+        "role": "supporting"
+      },
+      {
+        "name": "Planet of the Sorcerers",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ahzek Ahriman",
+        "role": "pov"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "supporting"
+      },
+      {
+        "name": "Ctesias",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.16,
+      "count": 373,
+      "evidenceUrl": "https://www.goodreads.com/book/show/30753526-ahriman"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0369",
+        "displayOrder": 0,
+        "confidence": 0.86,
+        "basis": "Ahriman omnibus follows the first trilogy and Exodus anthology"
+      },
+      {
+        "externalBookId": "W40K-0370",
+        "displayOrder": 1,
+        "confidence": 0.86,
+        "basis": "Ahriman omnibus follows the first trilogy and Exodus anthology"
+      },
+      {
+        "externalBookId": "W40K-0371",
+        "displayOrder": 2,
+        "confidence": 0.86,
+        "basis": "Ahriman omnibus follows the first trilogy and Exodus anthology"
+      },
+      {
+        "externalBookId": "W40K-0372",
+        "displayOrder": 3,
+        "confidence": 0.86,
+        "basis": "Ahriman omnibus follows the first trilogy and Exodus anthology"
+      }
+    ]
+  }
+}

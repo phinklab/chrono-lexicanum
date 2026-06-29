@@ -1,0 +1,211 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0042",
+  "slug": "gaunts-ghosts-the-lost-omnibus-8-11",
+  "title": "Gaunt's Ghosts: The Lost Omnibus, 8-11",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "omnibus",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Lost Omnibus collects the four Gaunt's Ghosts novels that follow the Tanith First through the Gereon insertion arc — the regiment's deepest, longest break from regular Crusade duty and the cycle that reshapes it permanently. Book eight (Traitor General) sends Gaunt and the Gereon Twelve — Rawne, Feygor, Brostin, Mkvenner, Larkin, Beltayn, Criid, Mkoll, Varl, Bonin and the medic Curth — on a deep-strike insertion onto Chaos-occupied Gereon to assassinate the traitor Lord General Noches Sturm, threading partisan-warfare procedural and body-horror as the team mutates from breathing tainted air. Book nine (His Last Command) recovers the survivors back to friendly space on Ancreon Sextus, demotes Gaunt from Colonel-Commissar to Commissar, confirms Rawne in regimental command, and introduces the Belladon third intake under Hark and Daur. Book ten (The Armour of Contempt) launches the Imperial liberation of Gereon while running a generational hand-off through Dalin Criid's Belladon recruit training, peeling open the Resistance's tragic post-occupation reckoning. Book eleven (Only in Death) closes The Lost on the fortress-world of Jago, where the regiment garrisons the haunted citadel Hinzerhaus — a half-buried structure that reveals itself as a haunted place with its own designs while a Blood Pact siege builds outside — and emerges from the cycle smaller, quieter and permanently transformed.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "journey",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "cosmic_horror",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Belladon",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Gereon Resistance",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gereon",
+        "role": "primary"
+      },
+      {
+        "name": "Ancreon Sextus",
+        "role": "primary"
+      },
+      {
+        "name": "Jago",
+        "role": "primary"
+      },
+      {
+        "name": "Hinzerhaus",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Dalin Criid",
+        "role": "pov"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Ban Daur",
+        "role": "supporting"
+      },
+      {
+        "name": "Tona Criid",
+        "role": "supporting"
+      },
+      {
+        "name": "Caffran",
+        "role": "supporting"
+      },
+      {
+        "name": "Ana Curth",
+        "role": "supporting"
+      },
+      {
+        "name": "Murtan Feygor",
+        "role": "supporting"
+      },
+      {
+        "name": "Brostin",
+        "role": "supporting"
+      },
+      {
+        "name": "Mkvenner",
+        "role": "supporting"
+      },
+      {
+        "name": "Beltayn",
+        "role": "supporting"
+      },
+      {
+        "name": "Bonin",
+        "role": "supporting"
+      },
+      {
+        "name": "Varl",
+        "role": "supporting"
+      },
+      {
+        "name": "Gerome Landerson",
+        "role": "supporting"
+      },
+      {
+        "name": "Noches Sturm",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0031",
+        "displayOrder": 0,
+        "confidence": 0.98,
+        "basis": "Title explicitly says Gaunt's Ghosts omnibus 8-11"
+      },
+      {
+        "externalBookId": "W40K-0032",
+        "displayOrder": 1,
+        "confidence": 0.98,
+        "basis": "Title explicitly says Gaunt's Ghosts omnibus 8-11"
+      },
+      {
+        "externalBookId": "W40K-0033",
+        "displayOrder": 2,
+        "confidence": 0.98,
+        "basis": "Title explicitly says Gaunt's Ghosts omnibus 8-11"
+      },
+      {
+        "externalBookId": "W40K-0034",
+        "displayOrder": 3,
+        "confidence": 0.98,
+        "basis": "Title explicitly says Gaunt's Ghosts omnibus 8-11"
+      }
+    ]
+  }
+}

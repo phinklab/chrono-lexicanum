@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0169",
+  "slug": "lost-sons",
+  "title": "Lost Sons",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Five years ago, Sanguinius took the Blood Angels into the Signus Cluster and left a small honour-guard behind to keep watch over Baal. Warden Arkad has spent every one of those years pacing his primarch's empty halls, sharpening sword and tongue against the dust of duty. Then the news comes — Signus has gone, the IX Legion is broken on a world it should never have been sent to, and the primarch they have been waiting for is dead. An Errant Knight of Malcador's, the former Ultramarines codicier Tylos Rubio, arrives at Baal with orders to disband what remains. Arkad and his nineteen brothers will decide whether the Blood Angels die quietly with their Father's name, or hunt down the Warmaster who killed him. The story is the quiet hinge on which the surviving Legion turns its colours toward what will one day be the Death Company.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "planetary",
+      "requires_context",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Baal",
+        "role": "primary"
+      },
+      {
+        "name": "Signus Cluster",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Arkad",
+        "role": "pov"
+      },
+      {
+        "name": "Tylos Rubio",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.53,
+      "count": 212,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18241377-lost-sons"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

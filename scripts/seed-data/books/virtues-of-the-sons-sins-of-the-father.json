@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0148",
+  "slug": "virtues-of-the-sons-sins-of-the-father",
+  "title": "Virtues of the Sons/Sins of the Father",
+  "authors": [
+    "Andy Smillie"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "collection",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "This paired audio release puts the two Blood Angels short dramas by Andy Smillie back-to-back. In the prequel \"Sins of the Father\", Sanguinius sits alone with his thoughts in a dark hour, brooding on the futures of his sons and the shadow he sees waiting for them. In \"Virtues of the Sons\" those futures play out: Amit the Flesh Tearer is set against the killer Khârn of the World Eaters, while Azkaellon of the Sanguinary Guard takes up steel against Lucius of the Emperor's Children. Through these duels Sanguinius's chosen confront the twin halves of what their primarch has shaped them to be — the gentle and the savage, the noble and the merciless.",
+    "facetIds": [
+      "audio_drama",
+      "mixed",
+      "space_marine",
+      "imperium",
+      "chaos",
+      "squad",
+      "company",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "somber",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "doubt",
+      "sacrifice",
+      "hubris",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Sanguinius",
+        "role": "pov"
+      },
+      {
+        "name": "Amit",
+        "role": "pov"
+      },
+      {
+        "name": "Azkaellon",
+        "role": "pov"
+      },
+      {
+        "name": "Khârn",
+        "role": "antagonist"
+      },
+      {
+        "name": "Lucius",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.68,
+      "count": 31,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32471064-virtues-of-the-sons-sins-of-the-father"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "HH-0189",
+        "displayOrder": 0,
+        "confidence": 0.92,
+        "basis": "Virtues of the Sons/Sins of the Father collection title explicitly matches the two short stories"
+      },
+      {
+        "externalBookId": "HH-0184",
+        "displayOrder": 1,
+        "confidence": 0.92,
+        "basis": "Virtues of the Sons/Sins of the Father collection title explicitly matches the two short stories"
+      }
+    ]
+  }
+}

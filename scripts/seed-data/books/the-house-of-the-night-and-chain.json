@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0499",
+  "slug": "the-house-of-the-night-and-chain",
+  "title": "The House of the Night and Chain",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Maeson Strock — colonel of the Astra Militarum, broken by war and personal loss — returns to his ancestral home of Malveil to take up the mantle of Planetary Governor. He hopes to purge the political corruption that has settled over his world and to rebuild the relationship with his estranged son and daughter. But the old house has its own pace, its own appetites, and its own ideas about the man it has summoned back. As Strock tries to root out corruption from one direction and reach his children from another, the line between haunted house and haunted mind narrows to a single thread. A first-person Warhammer 40,000 horror novel about trauma, paranoia, and a slow descent into madness.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "political_thriller",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "doubt",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Malveil",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Maeson Strock",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.76,
+      "count": 508,
+      "evidenceUrl": "https://www.goodreads.com/book/show/44451857-the-house-of-night-and-chain"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

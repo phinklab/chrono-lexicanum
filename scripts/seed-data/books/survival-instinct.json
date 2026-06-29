@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0162",
+  "slug": "survival-instinct",
+  "title": "Survival Instinct",
+  "authors": [
+    "Andy Chambers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "D'onne Ulanti, now feared across the Underhive as Mad Donna, drags a Spire-born past behind every knife stroke. When a Guilder hints that he knows why she fell from noble society into Hive Primus, Donna and her House Escher allies are pulled into a trap of secrets, murder and betrayal. Flashbacks rebuild the life she lost while the present-day hunt strips away any illusion that the Underhive has made her simpler. A female-led Necromunda revenge-survival story with courtly trauma curdled into gang violence.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "character_study",
+      "war_story",
+      "mystery",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Escher",
+        "role": "primary"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      },
+      {
+        "name": "The Spire",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "D'onne Ulanti",
+        "role": "pov"
+      },
+      {
+        "name": "Mad Donna",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

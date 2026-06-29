@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0549",
+  "slug": "the-serpent-and-the-saint",
+  "title": "The Serpent and the Saint",
+  "authors": [
+    "Matthew Farrer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Urdesh",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The forge world Urdesh is burning — volcanic skies, manufactoria turned to siegeworks, the Anarch Sek's hosts dug into the bones of the planet. The Sabbat Worlds Crusade pivots on whether the Imperium can hold this single world, and the Imperium is holding it in part because of Saint Sabbat herself, the Beati, walking the line again in mortal flesh. Brother-Captain Priad and the warriors of Damocles Squad — Iron Snakes, oath-bound and superstitious in their Veteran-Chapter way — are tasked with keeping her alive. Matthew Farrer's first Urdesh novel braids two unfamiliar things together: a Space Marine commando piece across ash-choked battlefields, and a quiet, shamanic study of what it costs to escort a living miracle when both the warp and the Archenemy want her dead.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "faith",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Snakes",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Sek",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Urdesh",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Priad",
+        "role": "pov"
+      },
+      {
+        "name": "Saint Sabbat",
+        "role": "supporting"
+      },
+      {
+        "name": "Magister Sek",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.72,
+      "count": 253,
+      "evidenceUrl": "https://www.goodreads.com/book/show/58356250-urdesh"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

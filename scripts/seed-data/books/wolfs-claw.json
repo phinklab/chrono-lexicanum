@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0261",
+  "slug": "wolfs-claw",
+  "title": "Wolf's Claw",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Bjorn the One-Handed, a young pack leader of the Space Wolves, returns from the disastrous trap at the Alaxxes Nebula with his honour wounded as deeply as his maimed arm. The Iron Priests of the Legion have nobler work than fashioning bionics for proud warriors who let themselves be crippled by traitors. If Bjorn intends to fight again - and to bury the shame of the Alpha Legion's ambush - he must seek out the materials for new claws himself and christen them in renegade blood. A short, focused tale set during the Legion's retreat that explains how one of the Heresy's most famous loyalists earned the iconic prosthetic claws he would still wear ten thousand years later.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Alaxxes Nebula",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bjorn the One-Handed",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.49,
+      "count": 180,
+      "evidenceUrl": "https://www.goodreads.com/book/show/21525790-wolf-s-claw"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

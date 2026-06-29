@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0247",
+  "slug": "chem-dog",
+  "title": "Chem Dog",
+  "authors": [
+    "Callum Davis"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Newly posted Commissar Bastun Hasp regards the Savlar Chem-Dogs, a penal legion of addicts, criminals, and castoffs, as mongrels whose worthless lives gain value only when spent in the Emperor's wars. Ordered to lead a kill-team of these unruly soldiers deep into enemy territory, Hasp must wring vital intelligence out of a former Imperial bastion now held by the orks that sacked it. Survival means weathering a doomed counter-offensive against a green tide, assuming the Chem-Dogs do not murder their disdainful new commissar first. A brutal, blackly comic tale of discipline, contempt, and the thin line between a leader and the men he leads.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "commissar",
+      "imperium",
+      "squad",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "satirical",
+      "war",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_language",
+      "cw_crime",
+      "en",
+      "standard",
+      "standalone"
+    ],
+    "factions": [
+      {
+        "name": "Savlar Chem-Dogs",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Bastun Hasp",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "the bastion world is not clearly named in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.06,
+      "count": 69,
+      "evidenceUrl": "https://www.goodreads.com/book/show/249639818-chem-dog"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

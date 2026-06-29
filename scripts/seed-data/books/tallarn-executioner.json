@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0123",
+  "slug": "tallarn-executioner",
+  "title": "Tallarn: Executioner",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Tallarn was a paradise world of orchards and white cities until the Iron Warriors arrived in orbit and bled it dry with virus-bombs. Now its surface is a poisoned crust of dust, ruin, and biological sludge, and the only sound is the grind of armour beneath the toxin clouds. Lieutenant Tahirah of the Jurnian 701st emerges from a deep shelter at the helm of an Executioner battle tank called Lantern, leading the remnants of her regiment in an attempt to harry the Iron Warriors columns rolling across the wasteland. Her crew expects to die. What none of them know is that the war their masters have come to wage on Tallarn has nothing to do with conquest, and that other powers — loyal and not — are quietly steering the slaughter towards an outcome only they understand.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "novella",
+      "requires_context",
+      "female",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Army",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tallarn",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Tahirah",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.78,
+      "count": 353,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18803011-tallarn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

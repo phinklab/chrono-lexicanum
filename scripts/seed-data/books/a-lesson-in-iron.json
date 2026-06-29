@@ -1,0 +1,74 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0103",
+  "slug": "a-lesson-in-iron",
+  "title": "A Lesson in Iron",
+  "authors": [
+    "David Guymer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Primarchs Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Late in the Great Crusade, the Iron Hands flagship Fist of Iron chases a fleeing ork cruiser into the pull of a treacherous warp rift. The hunt should have ended there. Instead, a sister ship of unmistakably Iron Hands make drifts derelict in the same disturbed currents, her hull bearing scars from battles that have not yet been fought. Ferrus Manus boards her with a hand-picked retinue and finds proof that the future has a way of leaving fingerprints. The story is built as a tight ship-board piece — corridors, gun-decks, half-burned banners — but its weight lies in what those discoveries say about the primarch's hardening soul and the legion-fate hanging over the Iron Tenth.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "requires_context",
+      "novella",
+      "mystery",
+      "character_study",
+      "somber",
+      "philosophical",
+      "hubris",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Ferrus Manus",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.5,
+      "count": 115,
+      "evidenceUrl": "https://www.goodreads.com/book/show/43181001-a-lesson-in-iron"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

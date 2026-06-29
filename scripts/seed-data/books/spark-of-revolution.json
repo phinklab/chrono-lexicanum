@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0180",
+  "slug": "spark-of-revolution",
+  "title": "Spark of Revolution",
+  "authors": [
+    "Gary Kloster"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novella",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Breaker Brass is an ogryn slave-labourer in the House of Chains, forging war machines for his House Goliath masters and crushing their enemies with steel fists. When civil war tears through the factorum, a rival gang spends him like scrap and leaves him broken. He rises instead with golden fists, new intelligence and a purpose that can become a servitor revolt. A brutal but strangely hopeful Necromunda novella about a discarded worker discovering the shape of freedom in the machinery built to own him.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "war_story",
+      "character_study",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "redemption",
+      "brotherhood",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Goliath",
+        "role": "primary"
+      },
+      {
+        "name": "House of Chains",
+        "role": "primary"
+      },
+      {
+        "name": "House Helmawr",
+        "role": "supporting"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Breaker Brass",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

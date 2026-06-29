@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0246",
+  "slug": "the-relentless-dead",
+  "title": "The Relentless Dead",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Five centuries ago a Chaos plague consumed Oleris III, leaving a world of tombs, ossuaries, and endless catacombs. Now Colonel Graven and a kill-team of the 401st Death Korps of Krieg are sent into that lightless warren to find an inquisitor who vanished beneath the bone-fields. What they find instead are horrors that should never reach the surface, and whispering spectres that seed fear and suspicion, turning trusted comrades into strangers. As the darkness preys on his men, Graven must wrestle with ghosts of his own: a tragedy of his making that has left him unable to trust anyone, least of all himself. Even the most resolute Korpsman can be unmade in the dark.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "mystery",
+      "war_story",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "faith",
+      "doubt",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en",
+      "standard",
+      "standalone"
+    ],
+    "factions": [
+      {
+        "name": "Death Korps of Krieg",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Oleris III",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Colonel Graven",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.08,
+      "count": 156,
+      "evidenceUrl": "https://www.goodreads.com/book/show/243137437-the-relentless-dead"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

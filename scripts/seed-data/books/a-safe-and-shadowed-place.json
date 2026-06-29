@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0192",
+  "slug": "a-safe-and-shadowed-place",
+  "title": "A Safe and Shadowed Place",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Scattered and leaderless after the Dark Angels broke their pursuit, the remnants of the Night Lords fleet limp toward a long-held rallying point: the world of Sotha, on the fringes of Ultramar. Without Konrad Curze to bind them, the Eighth Legion has fractured into rival warbands, their officers feuding over scraps of authority and revenge. They expect, at worst, a token resistance from Guilliman's sons. What they find is a frontier world that has become one of the strangest and most jealously guarded prizes of the broken Imperium, and a Legion that means to keep it that way. A short prelude to the war that follows, told from inside the disintegrating fleet of the Haunter's children as they discover what Imperium Secundus is willing to hide on a small, dark planet.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "doubt",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sotha",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "available coverage names the warbands collectively rather than identifying individual POV legionaries"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.6,
+      "count": 145,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24513508-a-safe-and-shadowed-place"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

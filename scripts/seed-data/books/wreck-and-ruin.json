@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0258",
+  "slug": "wreck-and-ruin",
+  "title": "Wreck and Ruin",
+  "authors": [
+    "Danie Ware"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novella",
+  "seriesHint": "Sisters of Battle",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Returning home from the horrors of Lautis, Sister Superior Augusta and her squad find their service seized by the secretive Inquisitor Istrix. Ordered to the ravaged, abandoned forge world of Lycheate, the Battle Sisters join the hunt for the dangerous rogue psyker Scafidis Zale. Among the rusting steelworks and their desperate, shadowy inhabitants, Augusta's trust in the hardline Inquisitor is tested and her faith challenged anew. What is Istrix hiding from the Sisterhood, and what price will the Adepta Sororitas pay for following an outsider's orders? To survive Lycheate and its secrets, Augusta and her sisters must cling to both their faith and their fury, even as the ground beneath them turns treacherous.",
+    "facetIds": [
+      "book",
+      "female",
+      "sister",
+      "imperium",
+      "squad",
+      "war_story",
+      "mystery",
+      "journey",
+      "faith",
+      "doubt",
+      "loyalty",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "cw_violence",
+      "cw_death",
+      "requires_context",
+      "novella",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lycheate",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sister Superior Augusta",
+        "role": "pov"
+      },
+      {
+        "name": "Inquisitor Istrix",
+        "role": "supporting"
+      },
+      {
+        "name": "Scafidis Zale",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.02,
+      "count": 132,
+      "evidenceUrl": "https://www.goodreads.com/book/show/48735825-wreck-and-ruin"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

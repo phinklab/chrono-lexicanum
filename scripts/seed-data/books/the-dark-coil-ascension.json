@@ -1,0 +1,118 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0575",
+  "slug": "the-dark-coil-ascension",
+  "title": "The Dark Coil: Ascension",
+  "authors": [
+    "Peter Fehervari"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "omnibus",
+  "seriesHint": "40k - The Dark Coil",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Peter Fehervari, a master of the horror at the heart of the 41st Millennium, returns to the sprawling web of the Dark Coil. In The Reverie, three troubled pilgrims travel to shining Malpertuis, homeworld of the Angels Resplendent, where behind a veneer of enlightenment and artistry an insidious darkness festers within the Space Marine Chapter and the unnatural anomaly that warps the world. In Requiem Infernal, the shattered Darkstar Company of the Exordio Void Breachers seeks healing on the storm-wracked sanctuary world of Vytarn, home to the Adepta Sororitas of the Last Candle; their guide, Sister Hospitaller Asenath Hyades, long ago turned her back on the order, and as the seekers near the sect's bastion the most insidious shadows prove to lie within their own souls. Eight interwoven short stories carry the curse across cursed worlds such as Sarastus, Oblazt and Phaedra, binding fallen and redeemed Chapters, doomed crusaders and damned souls into a whole more sinister than the sum of its parts.",
+    "facetIds": [
+      "book",
+      "en",
+      "doorstopper",
+      "multi",
+      "requires_context",
+      "imperium",
+      "cosmic_horror",
+      "philosophical",
+      "grimdark",
+      "somber",
+      "mystery",
+      "journey",
+      "character_study",
+      "faith",
+      "doubt",
+      "hubris",
+      "cw_disturbing",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Deathwatch",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      },
+      {
+        "name": "T'au",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Malpertuis",
+        "role": "primary"
+      },
+      {
+        "name": "Vytarn",
+        "role": "primary"
+      },
+      {
+        "name": "Sarastus",
+        "role": "supporting"
+      },
+      {
+        "name": "Oblazt",
+        "role": "supporting"
+      },
+      {
+        "name": "Phaedra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Asenath Hyades",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.38,
+      "count": 34,
+      "evidenceUrl": "https://www.goodreads.com/book/show/231345497-the-dark-coil"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

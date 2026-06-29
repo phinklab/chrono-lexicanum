@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0465",
+  "slug": "godblight",
+  "title": "Godblight",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Dark Imperium",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Plague War comes to its end on Iax, the garden world of Ultramar that Mortarion has chosen as his fulcrum. The Death Lord intends to crack Iax open like an egg and let its dying soul widen a wound in the warp wide enough to drag the entire stellar realm in after it. To finish the work he has prepared a weapon Nurgle himself spent eternities brewing: the Godblight, a disease cunning enough and patient enough to kill a son of the Emperor. Roboute Guilliman lands on Iax to stop his brother and finds gods walking the ash-fields beside him. As primarchs grapple in the dying gardens and the powers of the warp lean in over the battlefield, the long Plague War turns on a single duel — and the galaxy holds its breath.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Iax",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "pov"
+      },
+      {
+        "name": "Mortarion",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.25,
+      "count": 2219,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59365851"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

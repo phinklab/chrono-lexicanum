@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0241",
+  "slug": "the-dark-king",
+  "title": "The Dark King",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Konrad Curze, primarch of the Night Lords, has earned the wrath of his brother Rogal Dorn through acts of terror against a newly compliant world during the Great Crusade. Wracked by visions of a galaxy in flames, Curze and Dorn trade philosophical blows over how humanity should be ruled — fear, or order. The Night Haunter escapes an Imperial Fists orbital station and turns his cruel gifts on his brother's sons, setting himself on an inexorable course toward damnation long before the Heresy openly breaks.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "hubris",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Konrad Curze",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.68,
+      "count": 206,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27774075"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0024",
+  "slug": "first-and-only",
+  "title": "First and Only",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 1999,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Sabbat Worlds Crusade is on the verge of collapse when the brutal warmaster Slaydo dies and Macaroth inherits a fractured high command. Commissar Ibram Gaunt, demoted by political enemies to a regimental command, leads the Tanith First-and-Only — the only survivors of his evacuation of the burning forest world of Tanith Magna, who will never see their homeworld again — through campaigns on Voltemand, Pyrites and Fortis Binary toward the Menazoid Epsilon stalingrad. There the Ghosts uncover a clue to a Standard Template Constructor buried under the Necromantic ice, and Gaunt finds himself targeted from within the Imperium by Lord General Dravere and the Jantine Patricians, whose patron's grudge with Gaunt runs back to Slaydo's deathbed. The series opener establishes the regiment cast — Corbec, Rawne, Larkin, Mkoll, Bragg, Caffran, Milo, Dorden — and the Crusade's grinding-attritional war frame.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "series_start",
+      "standard",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Jantine Patricians",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tanith",
+        "role": "mentioned"
+      },
+      {
+        "name": "Voltemand",
+        "role": "secondary"
+      },
+      {
+        "name": "Pyrites",
+        "role": "secondary"
+      },
+      {
+        "name": "Fortis Binary",
+        "role": "secondary"
+      },
+      {
+        "name": "Menazoid Epsilon",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Colm Corbec",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Brin Milo",
+        "role": "supporting"
+      },
+      {
+        "name": "Tolin Dorden",
+        "role": "supporting"
+      },
+      {
+        "name": "Bragg",
+        "role": "supporting"
+      },
+      {
+        "name": "Caffran",
+        "role": "supporting"
+      },
+      {
+        "name": "Lord General Dravere",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

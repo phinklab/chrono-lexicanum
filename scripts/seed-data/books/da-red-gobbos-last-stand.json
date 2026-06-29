@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0557",
+  "slug": "da-red-gobbos-last-stand",
+  "title": "Da Red Gobbo's Last Stand",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novella",
+  "seriesHint": "Da Red Gobbo",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Bodgit is a grot aboard the Freebooter kroozer Da Jolly Smasha, the kind of grot Kaptin Bludhook sends into hopeless places so the kaptin doesn't have to look at him anymore. When Bludhook orders Bodgit to creep through a freshly-emerged space hulk and bring back loot, every reasonable expectation is that Bodgit will die in something's mouth. Instead, somewhere in the dark, the spirit of Da Red Gobbo wakes up inside him. Andi Ewington's first Black Library outing is a tight, hulk-set Christmas novella: a small creature finding spine in the worst conditions imaginable, with Bludhook and his Flash Gitz waiting at the other end of the corridor for whoever — or whatever — walks back out.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "squad",
+      "mid_series",
+      "novella",
+      "war_story",
+      "satirical",
+      "action_heavy",
+      "hopepunk",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "primary"
+      },
+      {
+        "name": "Freebooterz",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Bodgit",
+        "role": "pov"
+      },
+      {
+        "name": "Kaptin Bludhook",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "reason": "roster authors[] is empty; sources consistently credit Andi Ewington",
+        "suggestion": "Andi Ewington"
+      }
+    ],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "no Goodreads page found at lookup (Nov 2025 release, may not yet be indexed under a stable book_id)",
+      "evidenceUrl": "https://www.blacklibrary.com/warhammer-40000/featured/ebook-da-red-gobbos-last-stand-eng-2025.html"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

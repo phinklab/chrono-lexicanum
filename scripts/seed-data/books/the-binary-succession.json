@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0284",
+  "slug": "the-binary-succession",
+  "title": "The Binary Succession",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Imperium is at war for its life, and on Terra the Council that must coordinate that defense is choking on its own procedure. Fabricator General Zagreus Kane's tech-priests are dismissed, talked past, and waved aside by the High Lords—a slight made sharper by the awkward fact that Kane's traitor predecessor Kelbor-Hal still sits on Mars, leaving the Mechanicum's loyalty technically contested. Ambassador Vethorel arrives in the corridors of the Imperial Palace with the unenviable task of negotiating a position of strength for the priesthood of the Machine God while her own delegation fractures around her. The fate of the war effort may turn less on a battlefield than on whether two halves of the Imperium can still hear one another speak.",
+    "facetIds": [
+      "audio_drama",
+      "novella",
+      "imperium",
+      "tech_priest",
+      "female",
+      "galactic",
+      "political_thriller",
+      "court_intrigue",
+      "somber",
+      "philosophical",
+      "loyalty",
+      "hubris",
+      "doubt",
+      "requires_context",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Mechanicum",
+        "role": "primary"
+      },
+      {
+        "name": "High Lords of Terra",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Mars",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Vethorel",
+        "role": "pov"
+      },
+      {
+        "name": "Zagreus Kane",
+        "role": "supporting"
+      },
+      {
+        "name": "Kelbor-Hal",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.05,
+      "count": 197,
+      "evidenceUrl": "https://www.goodreads.com/book/show/34446789"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

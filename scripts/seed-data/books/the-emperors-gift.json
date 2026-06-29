@@ -1,0 +1,118 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0080",
+  "slug": "the-emperors-gift",
+  "title": "The Emperor's Gift",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "First-person Grey Knights novel narrated in retrospect by Hyperion of Squad Castian, covering the chapter's part in the First War of Armageddon and the intra-Imperium fallout remembered as the Months of Shame. Hyperion grows up inside Castian under Justicar Galeo as the squad's daemon-eradication work pulls them across the war and the warp around it. Annika Jarlsdottir — a Fenrisian Inquisitor whose home-world loyalty to Logan Grimnar's Space Wolves collides with Grey Knights methods — anchors the Inquisition end and brings the chapter into a later confrontation with the Wolves over the fate of Armageddon's survivors. Somber and reflective rather than action-march: incorruptible but not infallible, the moral cost is the load-bearing spine.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "philosophical",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "betrayal",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Grey Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Malleus",
+        "role": "supporting"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Fenris",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Hyperion",
+        "role": "pov"
+      },
+      {
+        "name": "Annika Jarlsdottir",
+        "role": "supporting"
+      },
+      {
+        "name": "Justicar Galeo",
+        "role": "supporting"
+      },
+      {
+        "name": "Logan Grimnar",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

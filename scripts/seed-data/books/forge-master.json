@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0319",
+  "slug": "forge-master",
+  "title": "Forge Master",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The campaign against the Overfiend of Octavius reaches its boldest stroke: the Fifth Company of the Salamanders are tasked to board the ork warlord's own flagship and cut the head from the horde. At the heart of the mission stands Techmarine Ha'garen, lately returned from years among the priesthood of Mars and struggling to reconcile the cold logic he learned there with the fire of his Chapter's soul. As the strike team fights through the iron guts of the ork vessel, they uncover a captive whose secret could end the war, if it does not destroy them first. A claustrophobic boarding action threaded with a quiet meditation on what it means to be a son of Nocturne.",
+    "facetIds": [
+      "book",
+      "novella",
+      "space_marine",
+      "male",
+      "imperium",
+      "company",
+      "standalone",
+      "war_story",
+      "grimdark",
+      "philosophical",
+      "action_heavy",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Octavius",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ha'garen",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.63,
+      "count": 49,
+      "evidenceUrl": "https://www.goodreads.com/book/show/20748315-forge-master"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0100",
+  "slug": "celestine",
+  "title": "Celestine",
+  "authors": [
+    "Andy Clark"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Every time Saint Celestine dies, she falls into a realm of torment and must fight her way back to the Emperor's wars. This short novel braids that inner trial with a desperate battle in Imperium Nihilus, where Celestine manifests beside Sisters of Battle, Astra Militarum soldiers and fanatical civilians beneath the Noctis Aeterna. The outer story is last-stand war; the inner one asks what centuries of resurrection do to faith when the reward for dying is only more dying. A saint's legend retold as philosophical horror.",
+    "facetIds": [
+      "book",
+      "female",
+      "sister",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "war_story",
+      "last_stand",
+      "journey",
+      "character_study",
+      "philosophical",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "faith",
+      "sacrifice",
+      "hubris",
+      "doubt",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Imperium Nihilus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Saint Celestine",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "current": "novel",
+        "suggestion": "novella",
+        "reason": "Lexicanum + Track-of-Words + Black Library product page consistently characterise *Celestine* as a 'short novel' / novella-length release (closer to the *Assassinorum: Execution Force* register from ssot-w40k-009 than a standard novel). Valid `book_format` enum has `novella` but no `short_novel`."
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

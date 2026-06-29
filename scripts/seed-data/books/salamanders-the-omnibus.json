@@ -1,0 +1,131 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0276",
+  "slug": "salamanders-the-omnibus",
+  "title": "Salamanders: The Omnibus",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "omnibus",
+  "seriesHint": "Tome of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The complete Tome of Fire trilogy in a single volume, gathering Salamander, Firedrake and Nocturne along with a selection of short stories. On the volcanic world of Nocturne, the Salamanders are a Chapter apart, equal parts smith and warrior. Across these linked tales two rival battle-brothers, the visionary Dak'ir and the proud Tsu'gan, are caught in the unfolding of an ancient prophecy as the renegade Nihilan musters Dragon Warriors, Dark Eldar and Chaos renegades for a war of vengeance. From the hunt for a lost relic, through a desperate rescue in a corsair port, to the final battle for Nocturne itself, this is the full saga of the sons of Vulkan and the price they pay to defend their home.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "planetary",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "journey",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Dragon Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nocturne",
+        "role": "primary"
+      },
+      {
+        "name": "Stratos",
+        "role": "supporting"
+      },
+      {
+        "name": "Port of Anguish",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dak'ir",
+        "role": "pov"
+      },
+      {
+        "name": "Tsu'gan",
+        "role": "pov"
+      },
+      {
+        "name": "Nihilan",
+        "role": "antagonist"
+      },
+      {
+        "name": "Elysius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.11,
+      "count": 217,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17571896-salamanders"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0272",
+        "displayOrder": 0,
+        "confidence": 0.82,
+        "basis": "Salamanders omnibus follows the Tome of Fire novels/anthology block"
+      },
+      {
+        "externalBookId": "W40K-0273",
+        "displayOrder": 1,
+        "confidence": 0.82,
+        "basis": "Salamanders omnibus follows the Tome of Fire novels/anthology block"
+      },
+      {
+        "externalBookId": "W40K-0274",
+        "displayOrder": 2,
+        "confidence": 0.82,
+        "basis": "Salamanders omnibus follows the Tome of Fire novels/anthology block"
+      },
+      {
+        "externalBookId": "W40K-0275",
+        "displayOrder": 3,
+        "confidence": 0.82,
+        "basis": "Salamanders omnibus follows the Tome of Fire novels/anthology block"
+      }
+    ]
+  }
+}

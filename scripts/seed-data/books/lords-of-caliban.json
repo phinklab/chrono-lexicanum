@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0334",
+  "slug": "lords-of-caliban",
+  "title": "Lords of Caliban",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "collection",
+  "seriesHint": "Dark Angels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A collection of Dark Angels tales that circle the Chapter's proudest champions and its oldest shame. Belial, Master of the Deathwing, and Sammael, Master of the Ravenwing, each relive the battles that carried them to their high offices, while other stories reach into the wider war against the Chapter's hidden enemies. Across these pieces the sons of the Lion are shown at their most heroic and their most haunted, bound by oaths they cannot speak aloud and a hunt that never truly ends. Gathered here are short works previously released across ebooks, audio dramas and event anthologies, including a scene from the Chapter's recent history seen from a darker, crueller angle.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "requires_context",
+      "short",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Fallen Angels",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Belial",
+        "role": "pov"
+      },
+      {
+        "name": "Sammael",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "reason": "roster lists novella but this is a six-story short-fiction collection",
+        "suggestion": "collection"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.66,
+      "count": 59,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25763166-lords-of-caliban"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

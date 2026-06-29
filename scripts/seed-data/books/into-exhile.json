@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0210",
+  "slug": "into-exhile",
+  "title": "Into Exhile",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the traitorous allies of Horus and Kelbor-Hal seize Mars, they send elite hunters after a short list of irreplaceable names — and the technoarchaeologist Arkhan Land, discoverer of more lost Golden Age treasures than anyone now living, sits high on it. With the red planet burning around him and enemies keen to either capture or kill him, Land has to abandon his rooms full of relics and put his life in the hands of an Imperial Fists extraction team led by a legionary named Nicanor. Told largely from Nicanor's side of the story and structured in reverse from its grim final moment back to the night the run began, this short is a tight, smoke-filled prequel to The Master of Mankind about getting one stubborn man off a doomed world.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "heist",
+      "journey",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "sacrifice",
+      "doubt",
+      "loyalty",
+      "en",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Mechanicum",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mars",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nicanor",
+        "role": "pov"
+      },
+      {
+        "name": "Arkhan Land",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "slug",
+        "currentValue": "into-exhile",
+        "suggestion": "into-exile",
+        "reason": "roster slug 'into-exhile' is a typo of the canonical title 'Into Exile' (Black Library, Goodreads, Lexicanum all spell it 'Exile')."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.75,
+      "count": 165,
+      "evidenceUrl": "https://www.goodreads.com/book/show/33233215-into-exile"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

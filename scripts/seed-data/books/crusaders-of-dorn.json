@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0300",
+  "slug": "crusaders-of-dorn",
+  "title": "Crusaders of Dorn",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2016,
+  "format": "anthology",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Black Templars are the most zealous of all the sons of Dorn — an endless crusade of warrior-monks who carry the Emperor's wrath to the farthest reaches of the galaxy. This collection gathers seven tales of the Chapter in chronological order, from the first crusade of High Marshal Helbrecht to three stories drawn from the Third War for Armageddon. Pilgrims and champions, sieges and last stands — each tale burns with the unbending faith and martial fury of Sigismund's heirs.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "war",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Helbrecht",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.67,
+      "count": 220,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27276167-crusaders-of-dorn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

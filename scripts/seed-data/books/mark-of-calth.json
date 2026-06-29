@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0025",
+  "slug": "mark-of-calth",
+  "title": "Mark of Calth",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2017,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Eight stories returning to Calth and Ultramar in the months and millennia after the Word Bearers' attack. Graham McNeill's novella Calth That Was rejoins Captain Remus Ventanus in the poisoned undercity caves where the Ultramarines wage an underground war against Kor Phaeron's stranded faithful. Aaron Dembski-Bowden, Anthony Reynolds and Rob Sanders track the same Word Bearer remnant from the other side of the line. Guy Haley's Shards of Erebus, John French's Athame and David Annandale's The Traveller follow the daemon-bound knife Erebus left on the field and the perpetual Oll Persson who picks it up and walks it across the war. Dan Abnett's closing Unmarked sends Oll into the warp with a small band that may or may not still be human.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "dual",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "mystery",
+      "character_study",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "betrayal",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calth",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Remus Ventanus",
+        "role": "pov"
+      },
+      {
+        "name": "Oll Persson",
+        "role": "pov"
+      },
+      {
+        "name": "Kor Phaeron",
+        "role": "antagonist"
+      },
+      {
+        "name": "Erebus",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.68,
+      "count": 2993,
+      "evidenceUrl": "https://www.goodreads.com/book/show/16130716-mark-of-calth"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

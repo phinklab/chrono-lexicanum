@@ -1,0 +1,101 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0481",
+  "slug": "ghost-warrior",
+  "title": "Ghost Warrior",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Rise of the Ynnari",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the wake of the Great Rift, the craftworld of Iyanden reels from successive Tyranid invasions and the fracturing of the galaxy. Then a signal arrives from Ziasuthra, a craftworld lost to memory for millennia, now suddenly returned from sanctuary in the warp. The Spiritseer Iyanna Arienal and Yvraine, Emissary of Ynnead, lead a small Aeldari delegation to open negotiations with their long-vanished kin. Officially they come bearing offers of alliance; in truth, both women seek the last of the croneswords, a relic rumoured to lie behind an ancient webway portal somewhere on Ziasuthra. As they tread carefully through unfamiliar halls and meet the Ziasuthrans face to face, it becomes clear that their hosts have agendas of their own, and that the gathered followers of the Whispering God may be as much in danger as in welcome.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "female",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "series_start",
+      "standard",
+      "mystery",
+      "journey",
+      "war_story",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ynnari",
+        "role": "primary"
+      },
+      {
+        "name": "Iyanden",
+        "role": "supporting"
+      },
+      {
+        "name": "Ziasuthra",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Iyanden",
+        "role": "supporting"
+      },
+      {
+        "name": "Ziasuthra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Yvraine",
+        "role": "pov"
+      },
+      {
+        "name": "Iyanna Arienal",
+        "role": "pov"
+      },
+      {
+        "name": "The Visarch",
+        "role": "supporting"
+      },
+      {
+        "name": "The Yncarne",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.6,
+      "count": 231,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36452571-ghost-warrior"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

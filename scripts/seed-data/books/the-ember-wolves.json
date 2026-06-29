@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0216",
+  "slug": "the-ember-wolves",
+  "title": "The Ember Wolves",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the hive world of Absalom, the engine war that decides which Legio answers to whom rages through the smoke. The Emperor-class god-engines of Legio Castigatra have arrived to anchor a loyalist line — but the Ember Wolves of Legio Audax have been waiting for them since long before the first horn sounded. Princeps Balthus Voltemand leads a six-strong pack of Warhound titans through the city's bones, hunting an engine-kill the way his namesakes once hunted prey on the plains of their lost homeworld. His chosen target is the Warmonger Tantorus Magnificat, a Titan twice the height of any of his own pack. The kill, when it comes at last, is everything he and his princeps brotherhood have trained their whole lives for. What rises afterward, from the wreckage of the thing they brought down, is not.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "chaos",
+      "planetary",
+      "mid_series",
+      "novella",
+      "war_story",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Legio Audax",
+        "role": "primary"
+      },
+      {
+        "name": "Legio Castigatra",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Absalom",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Balthus Voltemand",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.55,
+      "count": 103,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/34564440"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

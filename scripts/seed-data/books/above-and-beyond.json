@@ -1,0 +1,102 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0136",
+  "slug": "above-and-beyond",
+  "title": "Above and Beyond",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Lucille von Shard is now an Imperial fighter ace and living propaganda icon; Kile Simlex, who helped make her famous, has been buried in anonymous scribe-work. A message that claims to come from Shard drags him to the rebel world Deighton, where he finds a pilot worn hollow by endless war and an enemy ace tearing her squadron apart. To survive, Simlex has to help her perform the hero role she no longer believes in, while deciding whether the legend he built is what saved her or what broke her. A sequel to Outgunned that turns aerial combat into a study of fame, burnout, and the machinery that consumes its own heroes.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "political_thriller",
+      "mystery",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "war",
+      "doubt",
+      "redemption",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Aeronautica Imperialis",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Deighton",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lucille von Shard",
+        "role": "pov"
+      },
+      {
+        "name": "Kile Simlex",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": [
+          "Denny Flowers"
+        ],
+        "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + Goodreads + Simon-&-Schuster + The-Unseen-Library + Warhammer-Community"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

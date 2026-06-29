@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0096",
+  "slug": "legacy-of-dorn",
+  "title": "Legacy of Dorn",
+  "authors": [
+    "Mike Lee"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the ork invasion of Rynn's World destroys Arx Tyrannus and leaves the Crimson Fists almost broken, Veteran-Sergeant Sandor Galleas drops behind enemy lines with only a battered Sternguard squad and human survivors from ruined hive-cities. Galleas believes Crimson Fists doctrine is Imperial Fists doctrine perfected, but the wasteland teaches him a different war: ambush, retreat, hunger, civilian courage and losses counted week by week. A successor-chapter survival story about wearing a siege tradition while learning to fight like a guerrilla.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "journey",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Crimson Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "mentioned"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Rynn's World",
+        "role": "primary"
+      },
+      {
+        "name": "Arx Tyrannus",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sandor Galleas",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

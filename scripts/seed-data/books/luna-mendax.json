@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0176",
+  "slug": "luna-mendax",
+  "title": "Luna Mendax",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Garviel Loken, the last loyalist of the broken Mournival, comes back from a secret errand to Caliban at Malcador the Sigillite's bidding and goes to ground in a long-abandoned bio-dome on Luna. Battered by betrayal and bewildered by a galaxy he no longer recognises, he is visited there by his dead brother Tarik Torgaddon — laughing, irreverent, exactly as he was — and cannot tell whether it is a fractured mind speaking back to itself, or whether the dead really do walk on the Mendax side of the Moon. A quiet, melancholic interlude that bridges Loken's resurrection and his return to the war for Terra.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "character_study",
+      "mystery",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "doubt",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Crusader Host",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Luna",
+        "role": "primary"
+      },
+      {
+        "name": "Caliban",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Garviel Loken",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      },
+      {
+        "name": "Tarik Torgaddon",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.93,
+      "count": 169,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22738295"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

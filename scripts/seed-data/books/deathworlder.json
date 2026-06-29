@@ -1,0 +1,75 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0593",
+  "slug": "deathworlder",
+  "title": "Deathworlder",
+  "authors": [
+    "Victoria Hayward"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novel",
+  "seriesHint": "Astra Militarum (#5)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Complete. Catachan 903rd = Astra Militarum; planet Lazulai.",
+  "source": {
+    "kind": "manual",
+    "url": "https://wh40k.lexicanum.com/wiki/Deathworlder_(Novel)",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the dying world of Lazulai, all but lost to the tyranids, Major Wulf Khan of the Catachan 903rd 'Night Shrikes' is handed one last mission: lead a squad through the apocalypse to recover a piece of archeotech that could doom or deliver the entire Lazulai System.",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lazulai",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Major Wulf Khan",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

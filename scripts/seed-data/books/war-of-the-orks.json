@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0489",
+  "slug": "war-of-the-orks",
+  "title": "War of the Orks",
+  "authors": [
+    "Cavan Scott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Adventures",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Still searching for the Emperor's Seat and any clue to her mother's fate, Zelia Lor and her friends, Talen, the Martian boy Mekki, the brilliant alien-ape Fleapit and the dashing pirate captain Harleen Amity, set down on the steaming jungle world of Weald. They have come for water and shelter; what they find is a war. Two enormous tribes of greenskin Orks are fighting each other to extinction beneath the canopy, and a handful of off-worlders blundering through the trees draws the attention of both. Outnumbered and outgunned, the children will have to outthink savage warlords who measure worth in noise and violence. Wits, gadgets and a great deal of luck are all that stand between Zelia's small crew and being trampled underfoot.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "ensemble",
+      "civilian",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "short",
+      "war_story",
+      "journey",
+      "last_stand",
+      "action_heavy",
+      "satirical",
+      "brotherhood",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_parental_guidance",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Rogue Traders",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Weald",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zelia Lor",
+        "role": "pov"
+      },
+      {
+        "name": "Talen",
+        "role": "pov"
+      },
+      {
+        "name": "Mekki",
+        "role": "pov"
+      },
+      {
+        "name": "Fleapit",
+        "role": "supporting"
+      },
+      {
+        "name": "Harleen Amity",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.08,
+      "count": 59,
+      "evidenceUrl": "https://www.goodreads.com/book/show/45032700-war-of-the-orks"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

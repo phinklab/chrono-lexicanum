@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0125",
+  "slug": "the-crimson-fist",
+  "title": "The Crimson Fist",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Months ago the Imperial Fists relief fleet jumped the warp toward Isstvan III, intending to reinforce a campaign that no longer exists. They have not arrived. Stranded in the becalmed Phall system, Captain Alexis Polux holds the squadron together through warp-sickness and silence, waiting for Rogal Dorn's next order. When the Iron Warriors finally translate into Phall and answer an old grudge between primarchs with a fleet of their own, Polux is forced to fight the largest void battle of his life with ships designed for siege escort and a chain of command made of his own steadiness. The novella is at once a duel between the sons of Dorn and Perturabo and the forging of the captain who will lead the survivors of Rynn's World into history as the first Crimson Fist.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "novella",
+      "requires_context",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Phall System",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Alexis Polux",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Perturabo",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.89,
+      "count": 503,
+      "evidenceUrl": "https://www.goodreads.com/book/show/15771341-the-crimson-fist"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

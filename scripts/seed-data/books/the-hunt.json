@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0493",
+  "slug": "the-hunt",
+  "title": "The Hunt",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the Free City of Everyth, in the Realm of Ghur, witch hunter Bered Davan waits for the doom he knows is coming for him. He has been hunting the source of a creeping contagion across the Mortal Realms, but the further he goes, the more he is haunted by the figures from his own past — until guilt and disease begin to look uncomfortably like the same shape. Told in an unusual second-person voice that pulls the reader gradually into Davan's own undoing, this Age of Sigmar Horror short is a slow, deliberate meditation on duty, dread, and the price of business left unfinished.",
+    "facetIds": [
+      "book",
+      "male",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "character_study",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "philosophical",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Free City of Everyth",
+        "role": "primary"
+      },
+      {
+        "name": "Realm of Ghur",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bered Davan",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story"
+      },
+      {
+        "kind": "data_conflict",
+        "field": "setting",
+        "suggestion": "age_of_sigmar"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.54,
+      "count": 50,
+      "evidenceUrl": "https://www.goodreads.com/book/show/45483821-the-hunt"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

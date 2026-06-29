@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0599",
+  "slug": "armageddon-season-of-fire",
+  "title": "Armageddon: Season of Fire",
+  "authors": [
+    "Jude Reid"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "40k",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "As the Second War for Armageddon reaches its dying days, three defenders face the Ork tide closing on Hive Tartarus. Major Ambrosius Roth of the Armageddon Steel Legion is ordered to hold the hive's walls against a massive xenos assault, outnumbered, outgunned, and rapidly running out of time. Sister Superior Sabreen of the Order of Our Martyred Lady stands as the last guardian of a saint's relics while a deeper evil seeps into the foundations beneath her, forcing an impossible choice. And Brother Gavriel, a headstrong young Blood Angel, carves a path of death and glory through the broken hive on a merciless quest for vengeance as the Imperial line crumbles around them. Across three viewpoints — the Steel Legion, the Sisters of Battle, and the Angels of Death — one battle for Armageddon is fought to its bitter end.",
+    "facetIds": [
+      "book",
+      "en",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Armageddon Steel Legion",
+        "role": "primary"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Order of Our Martyred Lady",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Tartarus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Major Ambrosius Roth",
+        "role": "pov"
+      },
+      {
+        "name": "Sister Superior Sabreen",
+        "role": "pov"
+      },
+      {
+        "name": "Brother Gavriel",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "Weekly-refresh promotion (Brief 168, 2026-W26) — 2026 release with no Goodreads rating captured in this additive detection pass; left explicitly unrated."
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

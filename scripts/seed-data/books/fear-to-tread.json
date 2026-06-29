@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0021",
+  "slug": "fear-to-tread",
+  "title": "Fear to Tread",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Lured deep into the Signus Cluster by what looks like an Imperial system gone silent, Sanguinius brings the Blood Angels in expecting a routine Compliance and finds Horus's first deliberate move against his most trusted brother. The cluster has been remade as a warp anchor by Word Bearers ritualists; daemons of Khorne and Slaanesh boil out of the planets, and the Bloodthirster Ka'Bandha hunts the Ninth Legion for a personal reckoning with their primarch. First Captain Raldoron holds the line on the surface while Apothecary Meros wrestles with the Red Thirst stirring through his battle-brothers, and Sanguinius — knowing now that the Warmaster has bait-and-trapped him — turns Signus from grave into proof that the Blood Angels will not break.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "doorstopper",
+      "war_story",
+      "betrayal",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "sacrifice",
+      "brotherhood",
+      "loyalty",
+      "cosmic_horror",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Signus Cluster",
+        "role": "primary"
+      },
+      {
+        "name": "Signus Prime",
+        "role": "primary"
+      },
+      {
+        "name": "Holst Aspyce",
+        "role": "supporting"
+      },
+      {
+        "name": "Phorus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sanguinius",
+        "role": "pov"
+      },
+      {
+        "name": "Raldoron",
+        "role": "pov"
+      },
+      {
+        "name": "Meros",
+        "role": "pov"
+      },
+      {
+        "name": "Kano",
+        "role": "supporting"
+      },
+      {
+        "name": "Ka'Bandha",
+        "role": "antagonist"
+      },
+      {
+        "name": "Madail",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.95,
+      "count": 5011,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13259647-fear-to-tread"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

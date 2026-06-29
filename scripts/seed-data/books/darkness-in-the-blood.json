@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0451",
+  "slug": "darkness-in-the-blood",
+  "title": "Darkness in the Blood",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Dante",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the aftermath of Hive Fleet Leviathan's defeat at Baal and the arrival of Primaris reinforcements, Chapter Master Dante shoulders a new burden — Warden of Imperium Nihilus, charged with holding the galaxy's benighted half together while the Indomitus Crusade pushes outward. He plans a campaign to purge the lingering Tyranid splinters and reclaim lost worlds, but the war he must fight inside his Chapter may prove the crueller one. Chief Librarian Mephiston's psychic might has swelled past anything the Blood Angels have ever sanctioned, and the Flaw — the gene-curse of Sanguinius that drives sons of the Lord of Angels into the Black Rage — is surfacing in the new Primaris brothers who were supposed to be free of it. Admiral Danakan, traumatised by the void-war over Baal, struggles to muster the fleet Dante's offensive demands. And from Mars comes an envoy of Belisarius Cawl, bearing gifts of arcane science that might shore up the Chapter's failing future — or unravel what little remains of its soul.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "war",
+      "faith",
+      "doubt",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Baal",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dante",
+        "role": "pov"
+      },
+      {
+        "name": "Mephiston",
+        "role": "pov"
+      },
+      {
+        "name": "Admiral Danakan",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.94,
+      "count": 748,
+      "evidenceUrl": "https://www.goodreads.com/book/show/50437534"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

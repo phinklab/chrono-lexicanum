@@ -1,0 +1,152 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0067",
+  "slug": "the-end-and-the-death-vol-3",
+  "title": "The End and The Death Vol. 3",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Great Angel Sanguinius lies slain at his brother's hand, and Terra burns as reality itself unravels around the last bastion of mankind. The Hollow Mountain, host to the pilgrims of Saint Euphrati Keeler, becomes one of the final redoubts, held by the Dark Angels while Typhus and the unclean host of the Death Guard tighten their siege. On the Golden Throne, Malcador the Sigillite sits ablaze, burning his soul to buy his master more time. Across the stars, Roboute Guilliman races his Ultramarines fleet toward the Throneworld, hoping to arrive before the end. And aboard the Vengeful Spirit it all comes down to one final, climactic confrontation: the Emperor versus Horus, father against son, blade and wit and will spent in a duel whose outcome will shape ten thousand years of darkness to come.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "dual",
+      "galactic",
+      "series_finale",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "somber",
+      "philosophical",
+      "war",
+      "sacrifice",
+      "betrayal",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons of Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Vengeful Spirit",
+        "role": "primary"
+      },
+      {
+        "name": "Golden Throne",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      },
+      {
+        "name": "Hollow Mountain",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "The Emperor",
+        "role": "pov"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      },
+      {
+        "name": "Typhus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Euphrati Keeler",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.49,
+      "count": 2438,
+      "evidenceUrl": "https://www.goodreads.com/book/show/199239938"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

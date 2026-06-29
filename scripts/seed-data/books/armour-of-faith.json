@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0322",
+  "slug": "armour-of-faith",
+  "title": "Armour of Faith",
+  "authors": [
+    "Graeme Lyon"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sent to hold a seemingly worthless fortress on the war-torn world of Orath, the Ultramarines Chaplain Sentina and his small squad of Centurions discover they stand at the centre of a far darker design. The forces of Chaos mean to tear open a new wound in reality here, a rift that could swallow an entire sector, and only Sentina's faith stands between the Imperium and catastrophe. As daemonic hordes batter the fortress walls and a fell power stirs within its depths, the Chaplain wages two wars at once: one against the inhuman things clawing at the gates, and one against the doubt and temptation rising in his own soul. To prevail he may have to spend not only his life but his faith itself. The concluding chapter of the campaign for Orath.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "novella",
+      "series_finale",
+      "war_story",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Orath",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sentina",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.58,
+      "count": 38,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22604910-armour-of-faith"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

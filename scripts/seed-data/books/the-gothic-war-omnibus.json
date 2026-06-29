@@ -1,0 +1,110 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0188",
+  "slug": "the-gothic-war-omnibus",
+  "title": "The Gothic War Omnibus",
+  "authors": [
+    "Gordon Rennie"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "omnibus",
+  "seriesHint": "The Gothic War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Gothic War Omnibus collects Execution Hour and Shadow Point with a Battlefleet Gothic comic strip, making it the closest complete edition of Gordon Rennie's Imperial Navy campaign. Captain Leoten Sempter and the Lord Solar Macharius carry the reader through Abaddon's Twelfth Black Crusade in the Gothic Sector, where every fleet action is fought under the shadow of the Planet Killer and the worlds it can erase. Because the intended third novel was never written, the omnibus reads as both entry point and memorial to an unfinished naval trilogy: void-war procedure, desperate rearguards, command sacrifice, and Chaos pressure measured in orbital fire.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "sector",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "war",
+      "sacrifice",
+      "hubris",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Navy",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gothic Sector",
+        "role": "primary"
+      },
+      {
+        "name": "Shadow Point",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Captain Leoten Sempter",
+        "role": "pov"
+      },
+      {
+        "name": "Abaddon the Despoiler",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0186",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "TLBranson notes the two Gothic War novels were collected as an omnibus"
+      },
+      {
+        "externalBookId": "W40K-0187",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "TLBranson notes the two Gothic War novels were collected as an omnibus"
+      }
+    ]
+  }
+}

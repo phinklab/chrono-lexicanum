@@ -1,0 +1,133 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0263",
+  "slug": "rogue-trader-omnibus",
+  "title": "Rogue Trader Omnibus",
+  "authors": [
+    "Andy Hoare"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "omnibus",
+  "seriesHint": "Rogue Trader",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three novels and two short stories chart the rise and ruin of rogue trader Lucian Gerrit, a free captain who plies the lawless edges of Imperial space in search of profit and redemption. Across Rogue Star, Star of Damocles, and Savage Scars, Lucian and his quarrelsome dynasty are drawn from the frontier into a sprawling crusade against the tau, a campaign that carries them over the Damocles Gulf and onto the killing fields of Dal'yth. Alongside the White Scars, the Imperial Guard, and the schemers of the crusade council, the Gerrits navigate treachery, faith, and the temptations of alien knowledge, while Lucian's daughter Brielle walks her own perilous path. This collected edition gathers the complete saga of one of the Imperium's most compromised heroes.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "sector",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "journey",
+      "court_intrigue",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Rogue Traders",
+        "role": "primary"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Damocles Gulf",
+        "role": "primary"
+      },
+      {
+        "name": "Dal'yth",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lucian Gerrit",
+        "role": "pov"
+      },
+      {
+        "name": "Brielle Gerrit",
+        "role": "supporting"
+      },
+      {
+        "name": "Sarik",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisitor Grand",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.91,
+      "count": 141,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35297668-rogue-trader"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0260",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Rogue Trader omnibus follows the Rogue Trader trilogy"
+      },
+      {
+        "externalBookId": "W40K-0261",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Rogue Trader omnibus follows the Rogue Trader trilogy"
+      },
+      {
+        "externalBookId": "W40K-0262",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Rogue Trader omnibus follows the Rogue Trader trilogy"
+      }
+    ]
+  }
+}

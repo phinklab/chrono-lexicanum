@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0078",
+  "slug": "a-rose-watered-with-blood",
+  "title": "A Rose Watered with Blood",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "short_story",
+  "seriesHint": "Siege of Terra Prequels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Conqueror is not the ship Lotara Sarrin took command of years ago. Bulkheads twist when no one is looking, paint runs in the wrong direction, and the human crew on whom she still relies has learned to listen to the walls. Below decks, something far older and angrier than any of them remains chained in the dark, and the warp is eating its way slowly into the steel that surrounds it. As the World Eaters' flagship grinds toward Terra and the Siege, Lotara takes her own quiet measure of what the journey is doing to her vessel, her crew and her own command, and lands on a conclusion she would much rather not have reached.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "civilian",
+      "female",
+      "chaos",
+      "company",
+      "requires_context",
+      "novella",
+      "character_study",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "doubt",
+      "betrayal",
+      "hubris",
+      "faith",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_mental_health",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lotara Sarrin",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "Story spielt fast komplett an Bord der Conqueror im Warp-Transit; geographische Orte sind nur als Ziel (Terra) relevant."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.29,
+      "count": 198,
+      "evidenceUrl": "https://www.goodreads.com/book/show/43328271-a-rose-watered-with-blood"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0306",
+  "slug": "the-eye-of-ezekiel",
+  "title": "The Eye of Ezekiel",
+  "authors": [
+    "C.Z. Dunn"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the Adeptus Mechanicus calls in an ancient pact, the Dark Angels are bound to answer. Ezekiel, Grand Master of Librarians and Keeper of the Keys, leads the 5th Company to the world of Honoria, where a vast ork army has overrun the population. Even with the regiments of the Astra Militarum fighting beside them, the Space Marines face daunting odds, and the tech-priests who summoned them clearly have purposes of their own. As the battle for Honoria turns, Ezekiel must keep his Chapter's deepest secrets locked away while working to uncover exactly what the Mechanicus hope to gain from this war. The cost of victory may be measured in far more than blood.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "war_story",
+      "siege",
+      "mystery",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "loyalty",
+      "faith",
+      "doubt",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "standalone",
+      "standard",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Honoria",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ezekiel",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.88,
+      "count": 124,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/32860990-the-eye-of-ezekiel"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

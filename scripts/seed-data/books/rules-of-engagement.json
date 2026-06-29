@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0157",
+  "slug": "rules-of-engagement",
+  "title": "Rules of Engagement",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the long shadow of the Calth atrocity, Roboute Guilliman has set the first stones of a vast work — a book of doctrine that will one day be called the Codex Astartes — and ordered his Ultramarines to test it. Captain Ventanus of the Troublesome Fourth Company is given a sequence of exercises against an enemy his primarch never expected to write rules for: other Space Marines. Each scenario is a small war fought, lost and refought; each refinement another sentence in a manual whose author refuses to believe a Legion brother can be planned against. Out of this brutal apprenticeship, Ventanus begins to see what the Codex will eventually become — and the price the Ultramarines have already paid for needing it at all.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "planetary",
+      "requires_context",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "philosophical",
+      "loyalty",
+      "brotherhood",
+      "war",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calth",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ventanus",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.49,
+      "count": 210,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22599254-rules-of-engagement"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

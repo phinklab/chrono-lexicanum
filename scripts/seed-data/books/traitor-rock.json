@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0471",
+  "slug": "traitor-rock",
+  "title": "Traitor Rock",
+  "authors": [
+    "Justin D. Hill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Cadia",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the war-torn world of Malouri, traitorous forces have entrenched themselves on the supposedly impregnable island fortress of Crannog Mons. After years of stalemate, the task of cracking the siege falls to Minka Lesk and her Cadian 101st — survivors of a homeworld that no longer exists, sent into a meat-grinder mission that threatens to consume them. Amid the slaughter, sacrifice and brutal attrition, the question that haunts Lesk's regiment grows louder with every casualty: what does it mean to be Cadian in a galaxy without Cadia?",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "siege",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Shock",
+        "role": "primary"
+      },
+      {
+        "name": "Traitor Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Malouri",
+        "role": "primary"
+      },
+      {
+        "name": "Crannog Mons",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Minka Lesk",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4,
+      "count": 402,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/58488271"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

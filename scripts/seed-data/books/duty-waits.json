@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0071",
+  "slug": "duty-waits",
+  "title": "Duty Waits",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Siege of Terra Prequels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After the Alpha Legion's brazen infiltration of the Imperial Palace, security on Terra has hardened to a knife edge. Captain Maximus Thane and his Imperial Fists company stand watch over a populace pushed to its limit by rationing, curfew, and the suffocating expectation that Horus will arrive at any moment. When a civilian crowd snaps into open riot in one of the lower precincts, Thane must choose between the patience Rogal Dorn demands of his sons and the discipline his oath demands of him. The choice carries a cost that no parade-ground drill prepared him for, and the brief, ugly engagement leaves both the city and his company changed in ways that cannot be unmade before the real war begins.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Maximus Thane",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.7,
+      "count": 148,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36868195-duty-waits"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

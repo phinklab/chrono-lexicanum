@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0164",
+  "slug": "the-iron-within",
+  "title": "The Iron Within",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Years before the Heresy, the Iron Warriors' Warsmith Barabas Dantioch lost a fortress to a Hrud migration that left him broken and prematurely aged. His Legion set him aside, posting him to garrison the Schadenhold — a fortress hewn from a single colossal stalactite hanging in a cavern of the lifeless world of Lesser Damantyne. Now another Warsmith, Idriss Krendl, arrives at the gate with a fleet and orders to muster every brother for Horus Lupercal's war. Dantioch already knows what has happened on Isstvan, and what answer he must give. Iron Warrior turns on Iron Warrior. In the long, ferocious siege that follows, a forgotten cripple does what his Legion's pride could not: he chooses the Emperor, and makes his enemies pay in cold metal and brotherly blood for the choosing.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "planetary",
+      "standalone",
+      "siege",
+      "last_stand",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "betrayal",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lesser Damantyne",
+        "role": "primary"
+      },
+      {
+        "name": "Schadenhold",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Barabas Dantioch",
+        "role": "pov"
+      },
+      {
+        "name": "Idriss Krendl",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.26,
+      "count": 330,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22599273-the-iron-within"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

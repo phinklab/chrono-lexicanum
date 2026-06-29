@@ -1,0 +1,108 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0089",
+  "slug": "calgars-fury",
+  "title": "Calgar's Fury",
+  "authors": [
+    "Paul Kearney"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Standalone Ultramarines space-hulk novel. The hulk Fury drifts into Ultramar near Iax, its ancient hull carrying both Chaos taint and pre-Imperial archeo-tech that Mechanicus and Inquisition both want before the hulk is destroyed. Marneus Calgar commits five Ultramarines companies to a reconnaissance-in-force, with Inquisition strike-teams and Mechanicus skitarii embedded under their own command and their own agendas. The operation blurs the Imperium faction lines: chapter duty, Inquisition purification urge, and Mechanicus archeo-tech hunger pull in three directions while the hulk's xenos and Chaos defenders close in. A morally murky chapter-piece on inter-Imperium cooperation, with Calgar growing certain the hulk is itself a trap.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "mystery",
+      "siege",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "cosmic_horror",
+      "loyalty",
+      "hubris",
+      "doubt",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Iax",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "secondary"
+      },
+      {
+        "name": "Macragge",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Marneus Calgar",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

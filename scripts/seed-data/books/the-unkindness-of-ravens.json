@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0332",
+  "slug": "the-unkindness-of-ravens",
+  "title": "The Unkindness of Ravens",
+  "authors": [
+    "George Mann"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Raven Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Captain Daed and his Brazen Minotaurs are bleeding out against an impregnable traitor fortress, a rotted bastion whose corruption threatens to spread to neighbouring worlds. Their assault is doomed until salvation arrives in shadow and silence: the Raven Guard, led by Daed's old comrade Captain Koryn. But two Chapters could hardly be less alike. The Minotaurs fight head-on, loud and unyielding; the sons of Corax strike from darkness and misdirection. To break the fortress and halt the spreading rot, these proud warriors must learn to fight as one, or die divided before its walls. A grim siege novella about brotherhood across very different temperaments, and the price of pride when the hour is desperate.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "siege",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Brazen Minotaurs",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos Space Marines",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Captain Koryn",
+        "role": "pov"
+      },
+      {
+        "name": "Captain Daed",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "traitor foes are Nurgle-themed but no specific Chaos legion named in sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.55,
+      "count": 22,
+      "evidenceUrl": "https://www.goodreads.com/book/show/14059210-the-unkindness-of-ravens"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

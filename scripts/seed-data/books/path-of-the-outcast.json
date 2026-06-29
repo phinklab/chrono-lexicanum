@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0353",
+  "slug": "path-of-the-outcast",
+  "title": "Path of the Outcast",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Path of the Eldar",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Restless and unwilling to be bound by the strict discipline of his craftworld, Aradryan abandons Alaitoc to live as an outcast — first a wandering ranger, then a corsair raiding among the stars. His pursuit of freedom and adventure carries him through the wider Eldar world of rangers, corsairs and stranger kin, but his choices set in motion a chain of events that draws the Imperium's wrath toward the home he left behind. The closing book of the Path of the Eldar trilogy follows the outcast whose flight brings catastrophe to Alaitoc, completing the story told across all three viewpoints.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "series_finale",
+      "standard",
+      "journey",
+      "war_story",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Craftworld Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar Corsairs",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Alaitoc",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Aradryan",
+        "role": "pov"
+      },
+      {
+        "name": "Korlandril",
+        "role": "supporting"
+      },
+      {
+        "name": "Thirianna",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.76,
+      "count": 446,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/13259646"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

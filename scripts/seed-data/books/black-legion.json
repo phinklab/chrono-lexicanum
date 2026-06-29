@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0390",
+  "slug": "black-legion",
+  "title": "Black Legion",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Black Legion",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Picking up the tale after the founding of the Black Legion, Iskandar Khayon recounts how Ezekyle Abaddon fought to forge a single host from the warring renegades of the Eye of Terror. As Abaddon's most trusted assassin, Khayon is set against Thagus Daravek — the self-styled Lord of Hosts, a rival who claims the same dark destiny — yet every attempt on his life seems only to make him stronger. While Daravek bars his path at every turn, Abaddon's gaze fixes on a power that will set him on his fated road: out of the Eye, into the galaxy beyond, and toward a reckoning with an enemy long thought lost. Aaron Dembski-Bowden continues his Black Legion saga with a story of ambition, treachery, and the terrible will of the Despoiler.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "grimdark",
+      "philosophical",
+      "betrayal",
+      "loyalty",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Legion",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Iskandar Khayon",
+        "role": "pov"
+      },
+      {
+        "name": "Abaddon",
+        "role": "primary"
+      },
+      {
+        "name": "Thagus Daravek",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.45,
+      "count": 2036,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36206468"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

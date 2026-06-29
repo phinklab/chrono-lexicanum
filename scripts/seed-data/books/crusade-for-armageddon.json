@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0203",
+  "slug": "crusade-for-armageddon",
+  "title": "Crusade for Armageddon",
+  "authors": [
+    "Jonathan Green"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2003,
+  "format": "novel",
+  "seriesHint": "Black Templars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Battle-weary Marshal Brant leads his Black Templars home to Solemnus only to find their world overrun by a marauding ork horde. His brotherhood is shattered, the Chapter's honour stained, and Brant swears a binding vow of vengeance against the warlord responsible. The hunt drives the Templars' crusade fleet to Armageddon, a sulphurous hive-world already drowning in the largest greenskin invasion it has ever faced. Rather than fold into the wider Imperial defence, the Templars pursue their own holy quest for revenge. Told through the eyes of the Space Marines, the planet's hard-pressed militia, and the crew of a towering god-machine, the story builds toward a desperate assault on an ork war-factory where every thread of the battle finally converges.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Collegia Titanica",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Solemnus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Marshal Brant",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.58,
+      "count": 166,
+      "evidenceUrl": "https://www.goodreads.com/book/show/566407.Crusade_for_Armageddon"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

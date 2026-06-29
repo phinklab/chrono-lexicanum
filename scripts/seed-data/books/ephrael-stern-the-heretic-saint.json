@@ -1,0 +1,110 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0106",
+  "slug": "ephrael-stern-the-heretic-saint",
+  "title": "Ephrael Stern: The Heretic Saint",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ephrael Stern, the Thrice-Born and Heretic Saint, has wandered the galaxy for a century with the Harlequin Kyganil, purging daemons and gathering relics by way of the webway. Then the Great Rift leaves her bereft of the Emperor's light, and a stranger offers a new path toward the knowledge that might save the Imperium. Stern and Kyganil enter the webway again, meet Yvraine, and set their course toward the Black Library while Imperium Nihilus and Guilliman's return reshape the age around them. Mythic Sororitas-by-origin adventure, half pilgrimage and half cosmic-horror character study, with faith operating outside Imperial sanction.",
+    "facetIds": [
+      "book",
+      "female",
+      "multi",
+      "dual",
+      "galactic",
+      "requires_context",
+      "standard",
+      "journey",
+      "character_study",
+      "mystery",
+      "grimdark",
+      "cosmic_horror",
+      "philosophical",
+      "somber",
+      "faith",
+      "doubt",
+      "redemption",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Harlequins",
+        "role": "primary"
+      },
+      {
+        "name": "Aeldari",
+        "role": "primary"
+      },
+      {
+        "name": "Ynnari",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Imperium Nihilus",
+        "role": "primary"
+      },
+      {
+        "name": "Webway",
+        "role": "primary"
+      },
+      {
+        "name": "Black Library",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ephrael Stern",
+        "role": "pov"
+      },
+      {
+        "name": "Kyganil",
+        "role": "supporting"
+      },
+      {
+        "name": "Yvraine",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

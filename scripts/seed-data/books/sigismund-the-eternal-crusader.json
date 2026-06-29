@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0112",
+  "slug": "sigismund-the-eternal-crusader",
+  "title": "Sigismund: The Eternal Crusader",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Horus Heresy Characters",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the closing days of the Great Crusade, the remembrancer Solomon Voss is granted a rare audience with the most feared swordsman in the Imperial Fists — Sigismund, First Captain of Dorn's Legion, the warrior already named champion above all champions. Voss has come to understand one question: why does Sigismund insist that war will not end? The answer takes both men back through the formative battles of a Terran boy raised into Dorn's household, through duels of honour with World Eaters and rival Legions, through oaths sworn over corpses and grudges that no peace can settle. By the time Voss closes his notes, he has glimpsed the conviction that will outlive the Imperium itself and burn on as the Eternal Crusade.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "standard",
+      "character_study",
+      "war_story",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "faith",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sigismund",
+        "role": "pov"
+      },
+      {
+        "name": "Solomon Voss",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Kharn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.22,
+      "count": 708,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59893655-sigismund"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

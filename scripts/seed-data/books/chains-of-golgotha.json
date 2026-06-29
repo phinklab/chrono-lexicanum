@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0376",
+  "slug": "chains-of-golgotha",
+  "title": "Chains of Golgotha",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novella",
+  "seriesHint": "Yarrick",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Commissar Sebastian Yarrick has hunted the ork warlord Ghazghkull Thraka across the stars, and on the desolate world of Golgotha he means to end the beast at last. Leading an armoured company into the wastes, Yarrick instead walks into a trap of Thraka's devising. His army is all but annihilated, and the commissar himself is taken - waking aboard the warlord's vast space hulk to face a fate worse than death. Atmospheric and tightly paced, this novella pits Yarrick's iron will against the cunning of his greatest foe, and shows how even defeat can forge a legend.",
+    "facetIds": [
+      "book",
+      "male",
+      "commissar",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "last_stand",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Golgotha",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sebastian Yarrick",
+        "role": "pov"
+      },
+      {
+        "name": "Ghazghkull Thraka",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.96,
+      "count": 212,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17232751-yarrick"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0280",
+  "slug": "children-of-sicarus",
+  "title": "Children of Sicarus",
+  "authors": [
+    "Anthony Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After the wreck of the Infidus Imperator, Kor Phaeron drags the survivors of his Word Bearers into the Eye of Terror and claims the daemon world of Sicarus as their new refuge. The world has other ideas. The Kairic Adept Larazzar and his daemonic warband swarm Kor Phaeron's beachhead, intent on destroying these usurpers before they can put down roots. Bleeding and outnumbered, Kor Phaeron finds strange new allies among the warp's natives — a priest who refuses to stay dead, a prophecy that is uncomfortably accurate, and a tangible thread running all the way back to his distant primarch Lorgar. A short, mythic piece about a faithful demagogue learning the rules of the realm he and his master have invited their legion into.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "requires_context",
+      "novella",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "faith",
+      "hubris",
+      "betrayal",
+      "sacrifice",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Daemons of Tzeentch",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sicarus",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kor Phaeron",
+        "role": "pov"
+      },
+      {
+        "name": "Larazzar",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.55,
+      "count": 119,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32841583-children-of-sicarus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

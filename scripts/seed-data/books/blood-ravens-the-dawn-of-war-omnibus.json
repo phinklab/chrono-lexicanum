@@ -1,0 +1,136 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0210",
+  "slug": "blood-ravens-the-dawn-of-war-omnibus",
+  "title": "Blood Ravens: The Dawn of War Omnibus",
+  "authors": [
+    "C.S. Goto"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "omnibus",
+  "seriesHint": "Dawn of War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The complete saga of Captain Gabriel Angelos and the Blood Ravens, collected in one volume. In Dawn of War the Chapter fights to hold the ruined world of Tartarus against orks, scheming eldar and the treacherous Alpha Legion, while betrayal festers within Gabriel's own command. In Ascension the survivors seek new recruits on Rahe's Paradise, only to unearth buried truths about the Chapter's origins under the watchful eyes of the Sisters of Battle and the eldar Farseer Macha. In Tempest a lone Librarian, lost in the Eye of Terror, fights to recover his own identity on an alien world of forbidden knowledge. Together with a shorter tale of the warrior Isador, these stories trace a Chapter haunted by the secrets of its own past.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "journey",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Ravens",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tartarus",
+        "role": "primary"
+      },
+      {
+        "name": "Rahe's Paradise",
+        "role": "supporting"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gabriel Angelos",
+        "role": "pov"
+      },
+      {
+        "name": "Isador Akios",
+        "role": "supporting"
+      },
+      {
+        "name": "Macha",
+        "role": "antagonist"
+      },
+      {
+        "name": "Rhamah",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.58,
+      "count": 357,
+      "evidenceUrl": "https://www.goodreads.com/book/show/2616550-blood-ravens"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0207",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Dawn of War omnibus follows novels 1-3"
+      },
+      {
+        "externalBookId": "W40K-0208",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Dawn of War omnibus follows novels 1-3"
+      },
+      {
+        "externalBookId": "W40K-0209",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Dawn of War omnibus follows novels 1-3"
+      }
+    ]
+  }
+}

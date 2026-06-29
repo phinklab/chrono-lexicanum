@@ -1,0 +1,76 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0223",
+  "slug": "prologue-to-nikaea",
+  "title": "Prologue To Nikaea",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Long before the council on Nikaea forced the Emperor to weigh the future of the Librarius, Malcador the Sigillite is already worried. A storm coils in the warp that no diviner can read clearly, and its echoes brush against the material plane. Tracing the disturbance to the world of Thawra, Malcador finds a civilization where psykers walk openly — and where they have begun to organise themselves into an army, fighting witch-war against witch-war. Working his way through the burning provinces of Thawra, the Sigillite tries to learn what shape this new power could take if it were not contained, and whether what he is seeing here is a glimpse of the fate that hangs over Magnus and his sons. He leaves the world with answers that will haunt him.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "mystery",
+      "political_thriller",
+      "philosophical",
+      "somber",
+      "grimdark",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Thawra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Malcador the Sigillite",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "story focuses on Malcador's investigation and Thawran psykers; no canonical Astartes/Mechanicus faction confirmed on-page beyond the Sigillite himself"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.63,
+      "count": 152,
+      "evidenceUrl": "https://www.goodreads.com/book/show/41461631-prologue-to-nikaea"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

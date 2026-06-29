@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0217",
+  "slug": "the-laurel-of-defiance",
+  "title": "The Laurel of Defiance",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Shadow Crusade is over. The Word Bearers and their World Eater allies have been broken and turned out of Ultramar, and Roboute Guilliman, with his loyal brother primarchs at his side, has declared the founding of a new Imperium upon the bones of the old. Lucretius Corvo, Ultramarines captain and survivor of more battles than he cares to count, returns to Macragge not for war but for ceremony: the primarchs themselves mean to honour him with the Laurel of Defiance for what he led his men to do on Astagar. Among the great and the good of the new realm, uncomfortable in his finery and uncertain whether the secession he is being decorated for is wisdom or hubris, Corvo lets himself remember the world he holds the laurel for — and wonders whether the man who fought there would recognise the man being thanked for it now.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "novella",
+      "character_study",
+      "war_story",
+      "somber",
+      "philosophical",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Macragge",
+        "role": "primary"
+      },
+      {
+        "name": "Astagar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lucretius Corvo",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.87,
+      "count": 109,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36406001-the-laurel-of-defiance"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

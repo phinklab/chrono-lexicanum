@@ -1,0 +1,136 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0035",
+  "slug": "blood-pact",
+  "title": "Blood Pact",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Pulled off the line for the first time in years, the Tanith First is rotated to the rear-area city of Balopolis on Balhaut — the same world where Macaroth was anointed Warmaster a generation earlier — for furlough, refit and a slow regimental decay born of inactivity. Gaunt is dragged out of that grey rotation by a request from Section: a high-value Blood Pact prisoner, Etogaur Mabbon, is in Inquisitorial custody nearby, refusing to speak to anyone but Gaunt. As Gaunt and a small team begin the interrogation, three rogue Inquisitorial agents — all named Sirkle, all working some agenda inside an internal Sabbat-Crusade conspiracy — attempt to kill Mabbon before he can talk. The novel is structured as a chase-thriller across Balopolis with Major Rawne running the protective detail, Mabbon dropping cryptic intelligence on the Sek-Innokenti split inside the Archenemy, and Gaunt himself emerging from years of grief and decline with a new strategic purpose that will reset the regiment for the Victory arc. Closes with Mabbon held as an Imperial asset and the Tanith First reactivated for a mission only Mabbon can guide.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "mystery",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "doubt",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Belladon",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Balhaut",
+        "role": "primary"
+      },
+      {
+        "name": "Balopolis",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Ana Curth",
+        "role": "supporting"
+      },
+      {
+        "name": "Ban Daur",
+        "role": "supporting"
+      },
+      {
+        "name": "Mabbon Etogaur",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

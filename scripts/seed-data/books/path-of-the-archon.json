@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0357",
+  "slug": "path-of-the-archon",
+  "title": "Path of the Archon",
+  "authors": [
+    "Andy Chambers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Dark Eldar",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Dysjunction has passed, but Commorragh still bears the scars of its passage. Asdrubael Vect moves to crush every hidden challenger before any can seize the moment, while Nyos Yllithian scrambles to find allies who might shield him from the overlord's vengeance. As the Mandrake kings stir and Vect readies his most terrible weapons against his own people, the dark city erupts into open war. The closing book of the Path of the Dark Eldar trilogy brings the struggle for Commorragh to its bloody conclusion, where survival depends on cunning as much as cruelty.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "series_finale",
+      "standard",
+      "court_intrigue",
+      "political_thriller",
+      "war_story",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "hubris",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Mandrakes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Commorragh",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nyos Yllithian",
+        "role": "pov"
+      },
+      {
+        "name": "Asdrubael Vect",
+        "role": "antagonist"
+      },
+      {
+        "name": "Morr",
+        "role": "supporting"
+      },
+      {
+        "name": "Bellathonis",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.95,
+      "count": 261,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/18143887-path-of-the-archon"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

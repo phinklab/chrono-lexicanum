@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0242",
+  "slug": "the-lightning-tower",
+  "title": "The Lightning Tower",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Rogal Dorn, primarch of the Imperial Fists, must tear down the magnificence of the Emperor's Palace and turn it into a fortress as Horus's host bears down on Terra. Wandering into the Investiary, he is met by Malcador the Sigillite, who quietly asks him what he is afraid of. Dorn answers honestly — he fears whatever it was that turned his brothers against the Imperium of Man. A reflective piece, more interior than martial, set in the long months of preparation before the Siege.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "character_study",
+      "somber",
+      "philosophical",
+      "doubt",
+      "loyalty",
+      "faith",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rogal Dorn",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.89,
+      "count": 197,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27774064-the-lightning-tower"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

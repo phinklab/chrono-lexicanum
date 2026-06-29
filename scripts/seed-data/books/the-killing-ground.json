@@ -1,0 +1,118 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0051",
+  "slug": "the-killing-ground",
+  "title": "The Killing Ground",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novel",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Uriel Ventris and Pasanius Lysane, freshly fled from Medrengard with their honour barely intact, fall through the warp and land on the agri-world of Salinas. There they find Governor Leto Barbaden ruling a population riven by the Salinas Liberation Front, while the Khaturians — a people Barbaden massacred during the planet's pacification a generation earlier — haunt the killing ground that scars the western continent. Worse, the Unfleshed — half-aware survivors of Honsou's Daemonculaba forge — have followed Uriel out of the Eye of Terror and prowl the wilderness. Uriel must satisfy his chapter's death-oath investigation, expose Barbaden's old massacre, and reckon with the Unfleshed as kin he is partly responsible for. By novel's end the Unfleshed sacrifice themselves to break the killing ground's spirit-trap, and Uriel returns to Macragge cleared but marked.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "doubt",
+      "sacrifice",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Unfleshed",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "background"
+      },
+      {
+        "name": "Salinas Liberation Front",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Salinas",
+        "role": "primary"
+      },
+      {
+        "name": "Killing Ground",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "mentioned"
+      },
+      {
+        "name": "Macragge",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriel Ventris",
+        "role": "pov"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "supporting"
+      },
+      {
+        "name": "Leto Barbaden",
+        "role": "supporting"
+      },
+      {
+        "name": "Daron Nisato",
+        "role": "supporting"
+      },
+      {
+        "name": "Sylvanus Thayer",
+        "role": "supporting"
+      },
+      {
+        "name": "Honsou",
+        "role": "mentioned"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

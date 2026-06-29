@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0145",
+  "slug": "meduson",
+  "title": "Meduson",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2015,
+  "format": "collection",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Meduson is the Warhammer World exclusive anthology of the Shattered Legions, gathered around a single name. Dan Abnett's title novella gives Shadrak Meduson of the Iron Hands the role of insurgent commander hunting the Sons of Horus from the shadows after the Drop Site Massacre. Guy Haley's \"Unforged\" and \"Unspoken\" widen the war to the brothers who fight beside him. Nick Kyme's \"Immortal Duty\" brings the Salamanders into the alliance. Chris Wraight's \"Grey Talon\" — and, in the Ultimate Edition, \"Hand Elect\" — and John French's \"The Keys of Hel\" chronicle Iron Hands operations across stolen ships and ruined worlds. David Annandale's \"The Noose\", Gav Thorpe's \"Deeds Endure\" and Graham McNeill's \"The Either\" close out the collection as the noose tightens around Meduson himself and the Warmaster's loyalists move to end the insurgency.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "multi",
+      "imperium",
+      "chaos",
+      "company",
+      "galactic",
+      "requires_context",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "betrayal",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Shadrak Meduson",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "shattered-legions guerrilla campaign moves across many minor worlds and ships; no single location dominates the collection"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.71,
+      "count": 253,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25661843-meduson"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

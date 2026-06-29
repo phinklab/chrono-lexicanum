@@ -1,0 +1,148 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0143",
+  "slug": "death-and-defiance",
+  "title": "Death and Defiance",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2014,
+  "format": "collection",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Death and Defiance gathers five short stories from the deepening Horus Heresy, originally exclusive to Warhammer Fest 2014. Andy Smillie's \"Virtues of the Sons\" pairs the Blood Angels Amit and Azkaellon against Khârn of the World Eaters and Lucius of the Emperor's Children, drawing out the twin natures Sanguinius's sons inherit from him. Nick Kyme's \"Imperfect\" frames a game of regicide between Fulgrim and Ferrus Manus that is anything but a game. Aaron Dembski-Bowden's \"Howl of the Hearthworld\" follows a pack of Space Wolves recalled to Terra and chafing against Rogal Dorn's quiet command. Guy Haley's \"A Safe and Shadowed Place\" sends the broken Night Lords fleet drifting into the borders of Imperium Secundus. James Swallow's \"Gunsight\" plants an assassin aboard the Vengeful Spirit with the Warmaster himself in the crosshairs.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "multi",
+      "imperium",
+      "chaos",
+      "squad",
+      "company",
+      "requires_context",
+      "short",
+      "war_story",
+      "character_study",
+      "court_intrigue",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "betrayal",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Officio Assassinorum",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "supporting"
+      },
+      {
+        "name": "Macragge",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Amit",
+        "role": "pov"
+      },
+      {
+        "name": "Khârn",
+        "role": "antagonist"
+      },
+      {
+        "name": "Azkaellon",
+        "role": "pov"
+      },
+      {
+        "name": "Lucius",
+        "role": "antagonist"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "pov"
+      },
+      {
+        "name": "Ferrus Manus",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.61,
+      "count": 137,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22796935-death-and-defiance"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

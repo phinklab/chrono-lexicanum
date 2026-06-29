@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0363",
+  "slug": "fall-of-macharius",
+  "title": "Fall of Macharius",
+  "authors": [
+    "William King"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "The Macharian Crusade",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The conclusion of the Macharian Crusade. In the last years of his conquest, Macharius comes to Loki, a heavily industrialised world held by his arch-nemesis, the traitor Richter — once a trusted advisor, now turned renegade. Richter's betrayal is a symptom of the rot setting into the crusade: dwindling morale, dissent, and exhaustion. Brought to the very edge of the known galaxy and thrust into a plague-ridden hell of trench warfare, Macharius faces his sternest test, while Sergeant Leo Lemuel watches the legend he served begin to crumble. A bleak, mud-and-disease war story about how even the greatest conquests end — in betrayal, attrition, and a slow, grinding fall.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Loki",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Leo Lemuel",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Solar Macharius",
+        "role": "supporting"
+      },
+      {
+        "name": "Richter",
+        "role": "antagonist"
+      },
+      {
+        "name": "Anton",
+        "role": "supporting"
+      },
+      {
+        "name": "Ivan",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.84,
+      "count": 205,
+      "evidenceUrl": "https://www.goodreads.com/book/show/20821607-fall-of-macharius"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

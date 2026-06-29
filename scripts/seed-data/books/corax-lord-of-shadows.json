@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0091",
+  "slug": "corax-lord-of-shadows",
+  "title": "Corax: Lord of Shadows",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sent to break a compliance the Imperial Army cannot finish on its own, Corax leads the Raven Guard against the Carinae Sodality — a civilisation strung across a thousand artificial moons. When the void-city of Zenith unleashes an ancient bio-weapon, Imperial troops are turned against one another and the campaign collapses into massacre. Corax must decide whether to win this war as himself or finish it the way Konrad Curze would. The novel cuts between the Carinae compliance and unrest on Kiavahr, and lingers on the strain inside the Legion known as the Sable Brand — sons of the Raven who carry their primarch's wrath without his restraint.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "short",
+      "character_study",
+      "war_story",
+      "somber",
+      "grimdark",
+      "action_heavy",
+      "hubris",
+      "brotherhood",
+      "war",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Army",
+        "role": "supporting"
+      },
+      {
+        "name": "Carinae Sodality",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Carinae",
+        "role": "primary"
+      },
+      {
+        "name": "Zenith",
+        "role": "supporting"
+      },
+      {
+        "name": "Kiavahr",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Corvus Corax",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.7,
+      "count": 761,
+      "evidenceUrl": "https://www.goodreads.com/book/show/40539784-corax"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

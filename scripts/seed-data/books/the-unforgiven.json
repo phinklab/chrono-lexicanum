@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0385",
+  "slug": "the-unforgiven",
+  "title": "The Unforgiven",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "The Legacy of Caliban",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The most infamous of the Fallen, the enigmatic Cypher, has surrendered himself into the hands of the Dark Angels — and with him comes the hope that the Chapter might finally atone for the sins of its past. But Cypher does nothing without purpose, and his game remains hidden. As Supreme Grand Master Azrael uncovers secrets that will reshape his Chapter, the Death Guard descend upon the Rock itself, forcing a decision whose echoes reach back to the Horus Heresy and forward into an uncertain future. Gav Thorpe brings the Legacy of Caliban trilogy to its close, asking whether the sons of Caliban can ever be redeemed — or whether they are doomed to remain the Unforgiven.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "series_finale",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "redemption",
+      "loyalty",
+      "faith",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "The Fallen",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Rock",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Cypher",
+        "role": "supporting"
+      },
+      {
+        "name": "Azrael",
+        "role": "pov"
+      },
+      {
+        "name": "Asmodai",
+        "role": "supporting"
+      },
+      {
+        "name": "Annael",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.82,
+      "count": 209,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23492372"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

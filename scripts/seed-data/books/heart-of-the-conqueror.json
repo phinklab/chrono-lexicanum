@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0180",
+  "slug": "heart-of-the-conqueror",
+  "title": "Heart of the Conqueror",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "For more than a century the Navigator Nisha Andrasta has steered the flagship Conqueror through the warp, first for the War Hounds and then, after their primarch was found, for the World Eaters of Angron. She has watched the Legion shift around her — the reunion, the joy, the slow ruin — and now, after Lorgar Aurelian's gift on Nuceria has turned her primarch into the maddened thing he was always meant to become, she still pilots a traitor ship with a heart that beats for the Emperor. A short, intimate study of loyalty, complicity, and the cost of seeing too much from the bridge of a Legion gone over.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "female",
+      "civilian",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "novella",
+      "character_study",
+      "political_thriller",
+      "somber",
+      "grimdark",
+      "loyalty",
+      "doubt",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Navis Nobilite",
+        "role": "supporting"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nuceria",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nisha Andrasta",
+        "role": "pov"
+      },
+      {
+        "name": "Angron",
+        "role": "supporting"
+      },
+      {
+        "name": "Lorgar Aurelian",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 179,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23261482-heart-of-the-conqueror"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

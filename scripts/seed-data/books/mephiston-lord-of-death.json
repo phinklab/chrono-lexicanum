@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0335",
+  "slug": "mephiston-lord-of-death",
+  "title": "Mephiston: Lord of Death",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novella",
+  "seriesHint": "Lords of the Space Marines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Mephiston, Chief Librarian of the Blood Angels and the only one of his kind ever to master the Black Rage, marches with the 4th Company toward the Pallevon system, drawn by a rumour touching the memory of their slain primarch. Daemons and renegade Space Marines bar the way, and every battle carries the Blood Angels to the brink of the curse that defines them. But Pallevon hides a truth that strikes deeper than any blade: a question about what, exactly, came back when the warrior Calistarius died and rose again as the Lord of Death. A brooding study of one transhuman hero set amid relentless war, examining the darkness he carries inside himself, and whether he truly commands it.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "doubt",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos Space Marines",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Pallevon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mephiston",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.78,
+      "count": 200,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17241736-mephiston"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

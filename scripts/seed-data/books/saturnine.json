@@ -1,0 +1,141 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0059",
+  "slug": "saturnine",
+  "title": "Saturnine",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Dorn cannot defend everything. The Iron Warriors have taken the Lion's Gate Spaceport; the Eternity Wall Spaceport is the next blow; the inner walls are bleeding faster than the Imperial Fists can reinforce them. With his ammunition spheres draining and no sign of Guilliman or the Lion, the Praetorian of Terra is forced into a series of brutal arithmetic decisions about which gates can be held and which must fall. Saturnine — a fortification deep behind the front line — becomes the staging ground for a gambit that could turn the entire siege. Around Dorn's calculus, Sanguinius takes the field, Perturabo and Mortarion press their assaults, and Abaddon stands at Horus's right hand as the Warmaster prepares the next escalation. Saturnine is the novel where the Siege of Terra becomes a battle of wills between two siegemasters.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "dual",
+      "planetary",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "sacrifice",
+      "loyalty",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      },
+      {
+        "name": "Saturnine Gate",
+        "role": "primary"
+      },
+      {
+        "name": "Lion's Gate Spaceport",
+        "role": "supporting"
+      },
+      {
+        "name": "Eternity Wall Spaceport",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rogal Dorn",
+        "role": "pov"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      },
+      {
+        "name": "Perturabo",
+        "role": "antagonist"
+      },
+      {
+        "name": "Mortarion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ezekyle Abaddon",
+        "role": "antagonist"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.56,
+      "count": 3390,
+      "evidenceUrl": "https://www.goodreads.com/book/show/49090040-saturnine"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

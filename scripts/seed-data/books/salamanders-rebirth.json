@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0277",
+  "slug": "salamanders-rebirth",
+  "title": "Salamanders: Rebirth",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Tome of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Five years have passed since war scarred Nocturne, and the Salamanders are still rebuilding what they lost. While a small party ventures out in search of an errant battle-brother, it falls to the warriors of the 5th Company to take the fight to the enemy. On the war-torn world of Heletine, the Black Legion has come in the name of Chaos, and only Brother-Captain Drakgaard's Salamanders stand against their dark ambition. Victory for the Imperium will depend on an uneasy alliance with the Sisters of Battle of the Ebon Chalice, devout zealots whose faith burns as fiercely as any forge-fire. Amid the ash and ruin of a contested world, old wounds reopen and the Chapter's long road to recovery is tested anew.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "war",
+      "redemption",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sisters of Battle",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Heletine",
+        "role": "primary"
+      },
+      {
+        "name": "Nocturne",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Drakgaard",
+        "role": "primary"
+      },
+      {
+        "name": "Tsu'gan",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 141,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18775062-rebirth"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

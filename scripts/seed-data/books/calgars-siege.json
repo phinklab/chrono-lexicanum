@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0301",
+  "slug": "calgars-siege",
+  "title": "Calgar's Siege",
+  "authors": [
+    "Paul Kearney"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fifty years after Hive Fleet Behemoth was thrown back, the realm of Ultramar is secure enough for Marneus Calgar, Chapter Master of the Ultramarines, to make a goodwill tour of the remote colony world of Zalidar. His arrival coincides with a full-scale ork invasion. Calgar's transport is shot from the sky, and with only a handful of Space Marines at his side he must fight across hostile country to reach Zalathras, the besieged colonial capital. There, against a greenskin horde beyond counting, Calgar takes command of the city's defence and holds its gates through a day and a night of relentless slaughter. It is a stand that should be impossible, and from it a legend is forged that will outlast the men who lived it.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "siege",
+      "last_stand",
+      "war_story",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "loyalty",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "series_start",
+      "standard",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Zalidar",
+        "role": "primary"
+      },
+      {
+        "name": "Zalathras",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Marneus Calgar",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.08,
+      "count": 140,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/30753547"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

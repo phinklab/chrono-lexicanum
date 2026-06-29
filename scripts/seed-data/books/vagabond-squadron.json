@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0143",
+  "slug": "vagabond-squadron",
+  "title": "Vagabond Squadron",
+  "authors": [
+    "Robbie MacNiven"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The 901st Tactical Wing, better known as Vagabond Squadron, flies Valkyrie assault craft in the dirty close-support war that more glamorous pilots prefer to mock. Sent to Kanai Tertius as Ork air power rises over a collapsing Imperial front, the squadron has to keep troops moving, extractions open, and a novice aviator alive under pressure. Robbie MacNiven turns the air war into a cockpit-level ensemble piece: hot engines, chain-of-command friction, and transport pilots proving that survival often depends on the craft everyone else overlooks.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "action_heavy",
+      "character_study",
+      "grimdark",
+      "somber",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Aeronautica Imperialis",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kanai Tertius",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": [
+          "Robbie MacNiven"
+        ],
+        "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + At-Boundary's-Edge + Warhammer-Community + Noble Knight Games"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

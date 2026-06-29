@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0258",
+  "slug": "lucius-the-eternal-blade",
+  "title": "Lucius: The Eternal Blade",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After the III Legion is scattered in the warp following Fulgrim's apotheosis on Iydris, the swordsman Lucius is left to nurse a wounded ego — recently returned from death on a Raven Guard blade and uncertain whether the experiment is Fabius Bile's work or a gift of the Dark Gods. Hungry to prove his worth against the finest blades the galaxy has to offer, he chases the rumour of Sanakht, the legendary duellist of the Thousand Sons, into the Planet of Sorcerers within the Eye of Terror. There the two warriors meet, and the question the drama poses is which of them carries the greater favour with their new masters.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "requires_context",
+      "novella",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "hubris",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Planet of Sorcerers",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lucius",
+        "role": "pov"
+      },
+      {
+        "name": "Sanakht",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.33,
+      "count": 206,
+      "evidenceUrl": "https://www.goodreads.com/book/show/19571610-lucius-the-eternal-blade"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

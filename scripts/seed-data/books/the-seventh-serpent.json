@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0128",
+  "slug": "the-seventh-serpent",
+  "title": "The Seventh Serpent",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Iron Hands cruiser Sisypheum has become a vessel of shattered Legion warriors — Iron Hands, a Salamander, a Raven Guard — bound together by Captain Ulrach Branthan's stasis-locked body and a vendetta that has outlived every chain of command. When the warlord Shadrak Meduson summons them to strike at a hidden Alpha Legion outpost, the crew agrees almost without debate. They are tired of running. They want a victory. But the outpost is not a depot, the operation is not what Meduson described, and Alpharius's sons have built the entire engagement around an answer to a question the loyalists did not know they were asking. The story closes around the Sisypheum like a snare, and the architect waiting at the centre is unlike any opponent the shattered have faced.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "novella",
+      "requires_context",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "betrayal",
+      "brotherhood",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Salamanders",
+        "role": "supporting"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Sharrowkyn",
+        "role": "supporting"
+      },
+      {
+        "name": "Atesh Tarsa",
+        "role": "supporting"
+      },
+      {
+        "name": "Ulrach Branthan",
+        "role": "supporting"
+      },
+      {
+        "name": "Shadrak Meduson",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.11,
+      "count": 367,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23515647-the-seventh-serpent"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

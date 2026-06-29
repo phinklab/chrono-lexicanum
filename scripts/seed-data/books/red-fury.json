@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0219",
+  "slug": "red-fury",
+  "title": "Red Fury",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novel",
+  "seriesHint": "Blood Angels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Bled white by the civil war that nearly destroyed them, the Blood Angels must rebuild their ranks before their enemies sense the weakness. Newly promoted Sergeant Rafen is sent as an emissary to the Flesh Tearers, the Chapter's volatile cousins, to broker reinforcements, a delicate mission that strains tempers on both sides. But as the successor Chapters gather, the traitor Fabius Bile sets a darker plot in motion: using monstrous, blood-maddened creatures as a distraction, he means to steal a sample of Sanguinius's preserved blood from the Red Grail and bend the primarch's gene-legacy to his own twisted experiments.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "mid_series",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Flesh Tearers",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Baal",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rafen",
+        "role": "pov"
+      },
+      {
+        "name": "Noxx",
+        "role": "supporting"
+      },
+      {
+        "name": "Seth",
+        "role": "supporting"
+      },
+      {
+        "name": "Caecus",
+        "role": "supporting"
+      },
+      {
+        "name": "Fabius Bile",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.7,
+      "count": 461,
+      "evidenceUrl": "https://www.goodreads.com/book/show/2275585.Red_Fury"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

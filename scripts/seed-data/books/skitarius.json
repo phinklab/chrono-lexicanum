@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0391",
+  "slug": "skitarius",
+  "title": "Skitarius",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "Adeptus Mechanicus",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On a forge world torn apart by corruption, Alpha Primus Haldron-44 Stroika leads a legion of skitarii into battle. The discovery of an ancient colony ship, the Stella-Xenithica, by the Magos Explorator Omnid Torquora drags Stroika and his cybernetic soldiers into a desperate war against twisted machines, daemon engines, and the servants of the Dark Mechanicum. When a cataclysm severs him from his tech-priest overseers, Stroika must rely on his own augmented instincts to rally his forces and hold the line. Told from the front-line perspective of the Adeptus Mechanicus war machine, this is a portrait of duty and faith expressed through cold steel and ritual, where a soldier built for one purpose discovers the cost of carrying it out alone.",
+    "facetIds": [
+      "book",
+      "male",
+      "tech_priest",
+      "imperium",
+      "planetary",
+      "series_start",
+      "short",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Mechanicum",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Velchanos Magna",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Haldron-44 Stroika",
+        "role": "pov"
+      },
+      {
+        "name": "Omnid Torquora",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "value_outside_vocabulary",
+        "field": "facetIds",
+        "reason": "skitarii protagonist archetype has no exact protagonist_class value; tech_priest used as nearest Mechanicus class"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.39,
+      "count": 392,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25279422-skitarius"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

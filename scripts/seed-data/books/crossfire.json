@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0199",
+  "slug": "crossfire",
+  "title": "Crossfire",
+  "authors": [
+    "Matthew Farrer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2003,
+  "format": "novel",
+  "seriesHint": "Shira Calpurnia",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Newly promoted to arbiter senioris, Shira Calpurnia of the Adeptus Arbites arrives at Hydraphur and lands in a tangle of corruption, civil unrest, and Ecclesiarchy politics — opened by a string of assassination attempts on her own life. The trail leads to a noble house and a conspiracy hidden beneath a religious festival, climaxing in a bell-tower as Calpurnia keeps her quarry talking long enough to read him the law. A rare Arbites-led procedural-mystery in a political-thriller key.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "doubt",
+      "loyalty",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Arbites",
+        "role": "primary"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hydraphur",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Shira Calpurnia",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Medell",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

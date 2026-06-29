@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0127",
+  "slug": "ravenlord",
+  "title": "Ravenlord",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Corax and the surviving Raven Guard have given up on conventional war. Instead they range across the worlds the Warmaster has subjugated, sparking uprisings, gathering disaffected mortals into auxiliary armies, and bleeding the traitor garrisons one ambush at a time. When an old comrade thought lost at Isstvan walks back into their lines and tells of a prison-colony where loyalists are being broken in their thousands, Corax knows the offer is too generous to be honest. He plans the raid anyway. As the Legion drives toward Carandiru he is haunted by older ghosts — the chains he wore on Lycaeus, the failure of the Raptor gene-experiment, the cost his Legion has paid for being his sons. The novella is a study of a primarch who has begun to doubt, even as the war demands he keep choosing.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "novella",
+      "requires_context",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "doubt",
+      "sacrifice",
+      "brotherhood",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Carandiru",
+        "role": "primary"
+      },
+      {
+        "name": "Deliverance",
+        "role": "supporting"
+      },
+      {
+        "name": "Lycaeus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Corax",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.65,
+      "count": 256,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22011883-ravenlord"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

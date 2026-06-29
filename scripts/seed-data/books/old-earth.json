@@ -1,0 +1,109 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0047",
+  "slug": "old-earth",
+  "title": "Old Earth",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Reborn after Numeon's sacrifice on Macragge, Vulkan turns his back on Imperium Secundus and sets a course for Terra with only three Salamanders at his side — a guard he calls his Draaksward. Their journey ranges across half-forgotten worlds, eldar machinations and the deepening shadow of the eldritch Cabal, with Eldrad Ulthran's hand never quite visible on the wheel. In parallel, Shadrak Meduson tries to hold the Shattered Legions together as Tybalt Marr's Sons of Horus close in: three escalating engagements decide whether the vengeful campaign for Ferrus Manus survives at all. Around the edges the perpetual Barthusa Narek and other long-buried threads pull tight. The volume closes Nick Kyme's Salamanders arc and points Vulkan, alone of his brothers, at a war he has only just begun to understand.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "journey",
+      "war_story",
+      "somber",
+      "philosophical",
+      "grimdark",
+      "sacrifice",
+      "brotherhood",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nocturne",
+        "role": "supporting"
+      },
+      {
+        "name": "Macragge",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Vulkan",
+        "role": "pov"
+      },
+      {
+        "name": "Shadrak Meduson",
+        "role": "pov"
+      },
+      {
+        "name": "Tybalt Marr",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eldrad Ulthran",
+        "role": "supporting"
+      },
+      {
+        "name": "Barthusa Narek",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.72,
+      "count": 1384,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36373742-old-earth"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

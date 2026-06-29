@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0543",
+  "slug": "broken-city",
+  "title": "Broken City",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2021,
+  "format": "anthology",
+  "seriesHint": "Warhammer Crime",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Seven stories prowl the back alleys of Varangantua, this time leaning away from the badge and toward everyone else who has to live in the hive. Robert Rath's opening novella Bleedout sets the tone; Chris Wraight returns to his sanctioner Agusto Zidarov, Gary Kloster sends a courier into a parish gone wrong, and Jonathan D. Beer, Gareth Hanrahan, Noah Nguyen and J. C. Stearns each carve out a different precinct of crooks, fixers, civilians and lawmen. The shared city is vast, ancient and crumbling — gangs and criminal cabals run whole territories, the Lex appears only when it suits the powerful, and even small mercies cost. Together the pieces map a place where survival is a negotiated thing, and nobody comes out clean.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "neutral",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Arbites",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Varangantua",
+        "role": "primary"
+      },
+      {
+        "name": "Alecto",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Agusto Zidarov",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.05,
+      "count": 175,
+      "evidenceUrl": "https://www.goodreads.com/book/show/58326581-broken-city"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

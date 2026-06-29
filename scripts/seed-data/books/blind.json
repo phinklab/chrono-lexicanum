@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0201",
+  "slug": "blind",
+  "title": "Blind",
+  "authors": [
+    "Matthew Farrer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Shira Calpurnia",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Newly tested and beset by self-doubt, Adeptus Arbites officer Shira Calpurnia is sent into the Bastion Psykana, the fortress-station known as the Blind Tower that looms over the warfleet anchorage of Hydraphur. Its master, a senior astropath, has been murdered, and the killer is somewhere inside a labyrinth of half-mad telepaths whose minds gaze daily into the void. Far from any help and surrounded by seers, deceit and old grudges, Calpurnia must untangle a web of intrigue while the Tower's own inhabitants work to thwart her at every turn. To name the murderer she will have to trust witnesses who can barely trust their own senses, and confront how little she truly understands of the psykers the Imperium both depends upon and fears.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Arbites",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astra Telepathica",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hydraphur",
+        "role": "primary"
+      },
+      {
+        "name": "Bastion Psykana",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Shira Calpurnia",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 204,
+      "evidenceUrl": "https://www.goodreads.com/book/show/849226.Blind"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

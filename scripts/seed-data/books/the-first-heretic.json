@@ -1,0 +1,122 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0014",
+  "slug": "the-first-heretic",
+  "title": "The First Heretic",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Half a century before Isstvan, the Emperor descends on the freshly compliant world of Khur and razes the city of Monarchia that the Word Bearers had raised in His name, denouncing his most devout son Lorgar for the sin of religion. Shamed and adrift, the XVII Legion begins a Pilgrimage to find any truth that might fill the void the Emperor's silence has left behind. Through the eyes of Captain Argel Tal of the Serrated Sun chapter and his Custodes warden Aquillon, the novel follows the Word Bearers from the burning of Monarchia across the Eye of Terror to Cadia and the gods that wait beyond it, and finally back to a horror at Isstvan that turns Lorgar's first faith into the Imperium's first heresy.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "requires_context",
+      "doorstopper",
+      "character_study",
+      "war_story",
+      "journey",
+      "grimdark",
+      "philosophical",
+      "cosmic_horror",
+      "faith",
+      "betrayal",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Khur",
+        "role": "primary"
+      },
+      {
+        "name": "Monarchia",
+        "role": "primary"
+      },
+      {
+        "name": "Colchis",
+        "role": "supporting"
+      },
+      {
+        "name": "Cadia",
+        "role": "supporting"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Argel Tal",
+        "role": "pov"
+      },
+      {
+        "name": "Lorgar",
+        "role": "supporting"
+      },
+      {
+        "name": "Aquillon",
+        "role": "supporting"
+      },
+      {
+        "name": "Erebus",
+        "role": "supporting"
+      },
+      {
+        "name": "Kor Phaeron",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.35,
+      "count": 10455,
+      "evidenceUrl": "https://www.goodreads.com/book/show/7922982-the-first-heretic"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0459",
+  "slug": "vaults-of-terra-the-omnibus",
+  "title": "Vaults of Terra: The Omnibus",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "omnibus",
+  "seriesHint": "Vaults of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three novels and three companion stories trace the slow uncovering of a conspiracy that reaches all the way to the foot of the Golden Throne. Inquisitor Erasmus Crowl of the Ordo Hereticus, a quiet, methodical, lonely heretic-hunter, drags his new interrogator Luce Spinoza into an investigation that begins beneath the festival processions of Terra — a cult worshipping a False Angel — and that does not stop until the throneworld itself has been changed beyond recognition. Across The Carrion Throne, The Hollow Mountain, and The Dark City, Crowl and Spinoza pursue agents inside the Imperial Palace whose plans involve xenos creatures, faltering Astronomicons, and an ancient machine that holds the soul of mankind together. By the time the Cicatrix Maledictum tears open and the night refuses to leave Terra's sky, the question is no longer who is guilty — it is whether knowing the answer is itself a heresy. Companion stories Argent, Sanguine, and Okira widen the lens on the trilogy's mythos.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "mixed",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "series_finale",
+      "doorstopper",
+      "mystery",
+      "political_thriller",
+      "court_intrigue",
+      "siege",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "betrayal",
+      "sacrifice",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_stigma",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Hereticus",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Drukhari",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Erasmus Crowl",
+        "role": "pov"
+      },
+      {
+        "name": "Luce Spinoza",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.22,
+      "count": 37,
+      "evidenceUrl": "https://www.goodreads.com/book/show/236668748-vaults-of-terra"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0456",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Vaults of Terra omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0457",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Vaults of Terra omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0458",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Vaults of Terra omnibus follows the trilogy"
+      }
+    ]
+  }
+}

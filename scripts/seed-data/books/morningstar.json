@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0240",
+  "slug": "morningstar",
+  "title": "Morningstar",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "audio_drama",
+  "seriesHint": "The Primarchs Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Some time before the muster at Beta-Garmon and the final approach to Terra, Magnus the Red and Ahzek Ahriman walk together through the ruins of Tizca. The Crimson King has been pieced back into something close to whole, and Horus's plans for the siege require a weapon his sorcery alone cannot raise; Magnus believes the city of light still hides what they need, beneath the dust of what the Wolves left of it. The story is a long, intimate two-hander between father and son, picking through the broken pyramids and the older war that brought them low — and as Magnus once again plays the role of teacher, the conversation circles closer to the things he has never quite said to Ahriman, and to the shape of the legacy he means to leave in his most favoured pupil's hands.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "novella",
+      "character_study",
+      "journey",
+      "philosophical",
+      "somber",
+      "cosmic_horror",
+      "hubris",
+      "brotherhood",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tizca",
+        "role": "primary"
+      },
+      {
+        "name": "Prospero",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Magnus the Red",
+        "role": "pov"
+      },
+      {
+        "name": "Ahzek Ahriman",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.41,
+      "count": 96,
+      "evidenceUrl": "https://www.goodreads.com/book/show/49923212"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

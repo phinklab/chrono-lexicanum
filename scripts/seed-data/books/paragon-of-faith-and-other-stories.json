@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0573",
+  "slug": "paragon-of-faith-and-other-stories",
+  "title": "Paragon of Faith and Other Stories",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2026,
+  "format": "anthology",
+  "seriesHint": "40k - Sisters of Battle",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Across two novellas and five short stories, the Battle Sisters of the Adepta Sororitas wage holy war in the Emperor's name. In the title novella, Sister Aenor leads a squad of indomitable Paragon Warsuits in a desperate defence of a sacred pilgrimage world as a hidden menace boils up from below and innumerable cultist hordes close in. As the planet crumbles around her, Aenor must master crippling self-doubt to hold the line. In Saint's Judgement, Sister Hospitaller Docia confronts a virulent plague that twists mind, body and soul, fighting to find a cure before her infirmary is consumed and her faith is the only weapon left to her. The remaining tales carry the Sororitas through battles against daemon engines, corrupting cults and the reclamation of lost shrines, each a chronicle of valiant sacrifice, unbreakable devotion and martial fury.",
+    "facetIds": [
+      "book",
+      "en",
+      "sister",
+      "female",
+      "ensemble",
+      "imperium",
+      "faith",
+      "sacrifice",
+      "doubt",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "standalone",
+      "short",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Sister Aenor",
+        "role": "pov"
+      },
+      {
+        "name": "Sister Hospitaller Docia",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.52,
+      "count": 50,
+      "evidenceUrl": "https://www.goodreads.com/book/show/237444778-paragon-of-faith-and-other-stories"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

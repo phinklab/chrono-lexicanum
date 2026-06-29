@@ -1,0 +1,105 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0037",
+  "slug": "the-silent-war",
+  "title": "The Silent War",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2016,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fourteen stories pulled from the shadows behind the Horus Heresy's main fronts. Malcador the Sigillite, the Emperor's regent on Terra, moves his Knights-Errant and Chosen against threats the legions cannot openly fight: Nathaniel Garro recruiting renegades for the Sigillite's own quiet army, agents of the Selenar gene-cults bargaining for the future of the Imperium, Sisters of Silence and rogue psykers manoeuvring on the edges of Terra itself. James Swallow, Chris Wraight, John French, Graham McNeill, Anthony Reynolds and Rob Sanders contribute tales of subterfuge, sabotage and quiet betrayal. The volume is the first to gather Malcador's secret war as a deliberate strand, expanding the back-channel of the Heresy that the front-line novels barely touch.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "multi",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "standard",
+      "political_thriller",
+      "mystery",
+      "war_story",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "faith",
+      "loyalty",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "supporting"
+      },
+      {
+        "name": "Selenar",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Luna",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Malcador the Sigillite",
+        "role": "pov"
+      },
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Public table of contents for The Silent War names few stories; character roster is intentionally short until per-story sourcing is available."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.75,
+      "count": 1444,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28956064-the-silent-war"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

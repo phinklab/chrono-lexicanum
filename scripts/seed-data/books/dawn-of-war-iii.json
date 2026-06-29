@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0212",
+  "slug": "dawn-of-war-iii",
+  "title": "Dawn of War III",
+  "authors": [
+    "Robbie MacNiven"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Dawn of War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Once every five thousand years, the cursed world of Acheron rises from the warp, and with it the legend of a great weapon buried at its heart. Three armies converge to claim it: the Blood Ravens under Gabriel Angelos, the eldar led by the farseer Macha, and the orks of the warlord Gorgutz. As the three forces tear into one another across Acheron's ruined surface, the true nature of the weapon is revealed, and with it a threat so terrible that the rival commanders must set aside generations of hatred and fight side by side, or be annihilated together.",
+    "facetIds": [
+      "book",
+      "male",
+      "mixed",
+      "space_marine",
+      "multi",
+      "imperium",
+      "xenos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Ravens",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Acheron",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gabriel Angelos",
+        "role": "pov"
+      },
+      {
+        "name": "Macha",
+        "role": "supporting"
+      },
+      {
+        "name": "Gorgutz",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "rating",
+        "reason": "Goodreads aggregation thin (49 ratings) for this niche game tie-in; value retained but small sample"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.73,
+      "count": 49,
+      "evidenceUrl": "https://www.goodreads.com/book/show/34859112-dawn-of-war-iii"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

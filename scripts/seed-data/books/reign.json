@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0552",
+  "slug": "reign",
+  "title": "Reign",
+  "authors": [
+    "Nate Crowley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "The Twice-Dead King",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Crowned at last over a dynasty that no longer has a world to rule, Oltyx leads the surviving Ithakas necrons aboard the dying battleship Akrops, harried across the void by an Imperial crusade fleet large enough to blot stars. Kingship is nothing like the prize his exile turned it into: scheming nobles whisper about the throne, the ship itself is decaying around him, and somewhere in its sepulchral holds the flayer curse — the species' own particular damnation — is quietly spreading among his lords. Nate Crowley's second Twice-Dead King novel is the king's tragedy in close-up: an immortal who finally has what he wanted, and is losing pieces of himself faster than he can defend it, while the dynasty he is supposed to save begins to forget what it was for.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "galactic",
+      "series_finale",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "hubris",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Necrons",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Antikef",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Oltyx",
+        "role": "pov"
+      },
+      {
+        "name": "Djoseras",
+        "role": "supporting"
+      },
+      {
+        "name": "Yenekh",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.21,
+      "count": 1292,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59361173-the-twice-dead-king"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

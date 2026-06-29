@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0182",
+  "slug": "kill-team",
+  "title": "Kill Team",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2001,
+  "format": "novel",
+  "seriesHint": "Last Chancers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After Typhos Prime, Lieutenant Kage is rotting in Imperial detention when Colonel Schaeffer offers him the Last Chancers' usual bargain: useful death instead of useless death. This time the target is a Tau Empire commander, and the cover is an Imperial diplomatic delegation received as honored guests on a Tau world. Kage and a small condemned team must play at civility long enough to position the kill, while Schaeffer keeps the true shape of the mission hidden until retreat is almost fantasy. A lean heist-procedural with satirical diplomatic teeth.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "heist",
+      "mystery",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "satirical",
+      "somber",
+      "betrayal",
+      "doubt",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Last Chancers",
+        "role": "primary"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tau Empire space",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lieutenant Kage",
+        "role": "pov"
+      },
+      {
+        "name": "Colonel Schaeffer",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

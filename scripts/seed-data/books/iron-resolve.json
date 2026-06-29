@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0249",
+  "slug": "iron-resolve",
+  "title": "Iron Resolve",
+  "authors": [
+    "Steve Lyons"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novella",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the forest world of Kallash, an understaffed field hospital becomes the last refuge for the walking wounded of the Mordian Iron Guard, and the next target of a feral ork horde that cuts a bloody path through its defenders. Among the casualties is Guardsman Lucius Myer, who arrived hoping for a reprieve from the front line and instead finds himself facing the longest night of his life. Surrounded by Mordians whose discipline and courage he fears he can never match, Myer must confront his own terror if any of them are to see the dawn. A tense last-stand drama of ordinary soldiers holding an impossible line.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "company",
+      "siege",
+      "last_stand",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "doubt",
+      "loyalty",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en",
+      "novella",
+      "standalone"
+    ],
+    "factions": [
+      {
+        "name": "Mordian Iron Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kallash",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lucius Myer",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.88,
+      "count": 77,
+      "evidenceUrl": "https://www.goodreads.com/book/show/48735424-iron-resolve"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

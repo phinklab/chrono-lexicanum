@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0426",
+  "slug": "deathwatch-legends",
+  "title": "Deathwatch (Legends)",
+  "authors": [
+    "Ian St. Martin"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Legends of the Dark Millennium",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Deathwatch are the Imperium's silent shield against the alien — elite Space Marines drawn from a hundred Chapters and sworn to hunt the xenos wherever it threatens humanity. When two terrible enemies converge on the remote Kurbynola System, an ork invasion crashing headlong into the all-devouring swarm of a tyranid hive fleet, the annihilation that follows threatens to spread across the entire region. Watch Captain Artemis leads his kill-team into the heart of the catastrophe, where they are massively outnumbered and survival seems impossible. As the battle grinds on, Artemis comes to understand the true meaning of duty in the Emperor's service — and the terrible price that must be paid to hold the line.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Deathwatch",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kurbynola System",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Artemis",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.86,
+      "count": 63,
+      "evidenceUrl": "https://www.goodreads.com/book/show/31565342-deathwatch"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0056",
+  "slug": "the-uriel-ventris-chronicles-vol-1-omnibus",
+  "title": "The Uriel Ventris Chronicles Vol. 1 Omnibus",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "omnibus",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The first three Uriel Ventris novels under Black Library's later 'Chronicles' reissue branding — Nightbringer, Warriors of Ultramar, and Dead Sky, Black Sun — content unchanged from the older Ultramarines Omnibus. A 4th Company captain learning what command costs: Ventris is sent first to the mercantile world of Pavonis with Inquisitor Ario Barzano on a corruption-and-conspiracy thread; then to the agri-world of Tarsis Ultra, where the Mortifactors and Imperial Guard hold the line against a Tyranid splinter-fleet; finally on a death-oath into the Eye of Terror itself, to Medrengard, where Honsou's Daemonculaba forges parody-Astartes and the Iron Warriors enter the saga. The canonical entry-point omnibus for the Ventris career.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "mystery",
+      "character_study",
+      "journey",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "somber",
+      "doubt",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "C'tan",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Lords of the Unholy Host",
+        "role": "supporting"
+      },
+      {
+        "name": "Mortifactors",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Pavonis",
+        "role": "primary"
+      },
+      {
+        "name": "Tarsis Ultra",
+        "role": "primary"
+      },
+      {
+        "name": "Medrengard",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriel Ventris",
+        "role": "pov"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "supporting"
+      },
+      {
+        "name": "Ario Barzano",
+        "role": "supporting"
+      },
+      {
+        "name": "Captain Idaeus",
+        "role": "mentioned"
+      },
+      {
+        "name": "Nightbringer",
+        "role": "supporting"
+      },
+      {
+        "name": "Mykola Shonai",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaplain Astador",
+        "role": "supporting"
+      },
+      {
+        "name": "Honsou",
+        "role": "supporting"
+      },
+      {
+        "name": "Ardaric Vaanes",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "duplicate_omnibus",
+        "current": "distinct",
+        "suggestion": "marked-as-repackaging-of-W40K-0050",
+        "sources": [
+          "roster format=omnibus, slug=the-uriel-ventris-chronicles-vol-1-omnibus"
+        ],
+        "reasoning": "Content-identical to W40K-0050 The Ultramarines Omnibus (same three constituent novels). Roster carries both rows because they exist as distinct SKUs in publication (different ISBNs, different cover art, different decade). Resolver should resolve them to the same logical 'first three Ventris novels collection' for recommendation purposes but keep separate book rows for catalogue completeness. No content correction needed; flag is informational."
+      }
+    ]
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0047",
+        "displayOrder": 0,
+        "confidence": 0.85,
+        "basis": "Uriel Ventris Chronicles Vol. 1 repeats the first trilogy collection"
+      },
+      {
+        "externalBookId": "W40K-0048",
+        "displayOrder": 1,
+        "confidence": 0.85,
+        "basis": "Uriel Ventris Chronicles Vol. 1 repeats the first trilogy collection"
+      },
+      {
+        "externalBookId": "W40K-0049",
+        "displayOrder": 2,
+        "confidence": 0.85,
+        "basis": "Uriel Ventris Chronicles Vol. 1 repeats the first trilogy collection"
+      }
+    ]
+  }
+}

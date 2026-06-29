@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0559",
+  "slug": "ghazghkull-thraka-warlord-of-warlords",
+  "title": "Ghazghkull Thraka: Warlord of Warlords",
+  "authors": [
+    "Denny Flowers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "Ghazghkull Thraka",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Slitta da Stabba is a new Blood Axes warboss, freshly elevated, freshly nervous, and now answerable directly to Ghazghkull Mag Uruk Thraka — the unchallenged warlord of the greatest Waaagh! in the galaxy. The Blood Axes have offered up the world of Gabal as tribute: a planet where they have nearly tamed the local humans and now intend to feast on the spectacle. Ghazghkull, of course, decides to come and look at it himself, with six clan heads in tow, each one trying to undercut the others. Then the Black Templars arrive. Denny Flowers' second Ghazghkull novel is a Blood Axes ensemble piece — half political comedy of bickering warbosses, half siege — and asks the very ork question of whether anyone can survive being a courtier to a god of war.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "court_intrigue",
+      "action_heavy",
+      "satirical",
+      "grimdark",
+      "betrayal",
+      "hubris",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Axes",
+        "role": "primary"
+      },
+      {
+        "name": "Black Templars",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gabal",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Slitta da Stabba",
+        "role": "pov"
+      },
+      {
+        "name": "Ghazghkull Mag Uruk Thraka",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "no Goodreads page found at lookup (released 28 March 2026; not yet indexed under a stable book_id)",
+      "evidenceUrl": "https://wh40k.lexicanum.com/wiki/Ghazghkull_Thraka:_Warlord_of_Warlords_(Novel)"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

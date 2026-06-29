@@ -1,0 +1,105 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0393",
+  "slug": "adeptus-mechanicus-omnibus",
+  "title": "Adeptus Mechanicus Omnibus",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "omnibus",
+  "seriesHint": "Adeptus Mechanicus",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "This omnibus collects Rob Sanders' two short Adeptus Mechanicus novels, Skitarius and Tech-Priest, into a single campaign arc. On the corrupted forge world of Velchanos Magna, the cybernetic soldier Haldron-44 Stroika leads his skitarii through the wreckage of war while his master, Magos Omnid Torquora, directs the larger conquest from orbit. Together the two stories chart a single war from the mud of the front line to the cold arithmetic of high command, pitting the faithful of the Machine God against the Iron Warriors and the daemon-touched horrors of the Dark Mechanicum. Titan Legions march, robots awaken, and treachery festers, in a portrait of a war machine that runs on devotion as much as on oil and ammunition.",
+    "facetIds": [
+      "book",
+      "male",
+      "tech_priest",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "hubris",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dark Mechanicum",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Velchanos Magna",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Haldron-44 Stroika",
+        "role": "pov"
+      },
+      {
+        "name": "Omnid Torquora",
+        "role": "pov"
+      },
+      {
+        "name": "Idriss Krendl",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.85,
+      "count": 143,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27276161-adeptus-mechanicus"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0391",
+        "displayOrder": 0,
+        "confidence": 0.9,
+        "basis": "Adeptus Mechanicus omnibus follows Skitarius and Tech-Priest"
+      },
+      {
+        "externalBookId": "W40K-0392",
+        "displayOrder": 1,
+        "confidence": 0.9,
+        "basis": "Adeptus Mechanicus omnibus follows Skitarius and Tech-Priest"
+      }
+    ]
+  }
+}

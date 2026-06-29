@@ -1,0 +1,119 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0044",
+  "slug": "the-crimson-king",
+  "title": "The Crimson King",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Exiled to the Planet of the Sorcerers deep within the Eye of Terror, the Thousand Sons can no longer pretend their Primarch is whole. Magnus the Red is fragmenting: shards of his soul scattered across realities he cannot reach alone. Ahriman gathers a desperate retinue — Hathor Maat, Sobek, Menkaura, Sanakht, Tolbek, and Lucius of the Emperor's Children — and crosses into the warp aboard the Torquetum, a vessel of nested rings that walks between worlds. The hunt that follows takes them through fractured timelines, daemon courts and the buried wreckage of Prospero, while back on the Planet of the Sorcerers Magnus's surviving captains argue over what their father is becoming and what they must do to bring him back. The road to the Rubric of Ahriman begins here.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "mid_series",
+      "standard",
+      "journey",
+      "character_study",
+      "cosmic_horror",
+      "philosophical",
+      "grimdark",
+      "doubt",
+      "hubris",
+      "faith",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Planet of the Sorcerers",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      },
+      {
+        "name": "Prospero",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Magnus the Red",
+        "role": "pov"
+      },
+      {
+        "name": "Ahriman",
+        "role": "pov"
+      },
+      {
+        "name": "Hathor Maat",
+        "role": "supporting"
+      },
+      {
+        "name": "Menkaura",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanakht",
+        "role": "supporting"
+      },
+      {
+        "name": "Tolbek",
+        "role": "supporting"
+      },
+      {
+        "name": "Lucius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.7,
+      "count": 1892,
+      "evidenceUrl": "https://www.goodreads.com/book/show/34466791-the-crimson-king"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

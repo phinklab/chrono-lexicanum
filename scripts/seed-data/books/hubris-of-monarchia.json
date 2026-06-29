@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0288",
+  "slug": "hubris-of-monarchia",
+  "title": "Hubris of Monarchia",
+  "authors": [
+    "Andy Smillie"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "At Calth, the Ultramarines and the Word Bearers are mustering side by side, a great reconciliation to wash away the public humiliation of the Word Bearers on Monarchia. Captain Alcaeus, however, is not at the muster. He is still in the ruined Ghaslakh expanse, hunting a greenskin overlord whose head he means to lay at his Chapter Master's feet before he reports for duty. The hunt is righteous, the cause clean; Alcaeus is sure of both. So sure, in fact, that he is failing to see the quieter wrongness gathering inside his own Legion's order of battle—the slow, patient signs that the brothers waiting for him at Calth may not be the ones who will greet him there.",
+    "facetIds": [
+      "audio_drama",
+      "novella",
+      "imperium",
+      "space_marine",
+      "male",
+      "planetary",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "hubris",
+      "betrayal",
+      "war",
+      "requires_context",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ghaslakh",
+        "role": "primary"
+      },
+      {
+        "name": "Calth",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Alcaeus",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.32,
+      "count": 82,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42861556"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

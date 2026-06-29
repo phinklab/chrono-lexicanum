@@ -1,0 +1,165 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0197",
+  "slug": "soul-drinkers-annihilation-second-omnibus",
+  "title": "Soul Drinkers: Annihilation Second Omnibus",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "omnibus",
+  "seriesHint": "Soul Drinkers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The second half of the Soul Drinkers' arc, collected: the Ork-invasion of Vanqualis and the chapter-civil-war that splits the brothers between renegade-loyalist and openly Chaotic; the flight to the galactic rim where the Necrons stir and the Mechanicus pursues; and at last the Imperial Fists' capture of the chapter and the trial aboard the Phalanx, where Daenyathos's centuries-long corruption-scheme comes home and Sarpedon's tale ends. Three novels and short fiction in one volume — the slow disintegration of a chapter that chose rebellion.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "doorstopper",
+      "war_story",
+      "court_intrigue",
+      "character_study",
+      "last_stand",
+      "political_thriller",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "betrayal",
+      "doubt",
+      "faith",
+      "hubris",
+      "redemption",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Soul Drinkers",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sisters of Battle",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Howling Griffons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vanqualis",
+        "role": "primary"
+      },
+      {
+        "name": "the Phalanx",
+        "role": "primary"
+      },
+      {
+        "name": "Selaaca",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sarpedon",
+        "role": "pov"
+      },
+      {
+        "name": "Daenyathos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iktinos",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0193",
+        "displayOrder": 0,
+        "confidence": 0.82,
+        "basis": "Second Soul Drinkers omnibus follows later series entries"
+      },
+      {
+        "externalBookId": "W40K-0194",
+        "displayOrder": 1,
+        "confidence": 0.82,
+        "basis": "Second Soul Drinkers omnibus follows later series entries"
+      },
+      {
+        "externalBookId": "W40K-0195",
+        "displayOrder": 2,
+        "confidence": 0.82,
+        "basis": "Second Soul Drinkers omnibus follows later series entries"
+      },
+      {
+        "externalBookId": "W40K-0196",
+        "displayOrder": 3,
+        "confidence": 0.82,
+        "basis": "Second Soul Drinkers omnibus follows later series entries"
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0597",
+  "slug": "our-martyred-lady",
+  "title": "Our Martyred Lady",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "audio_drama",
+  "seriesHint": "Adepta Sororitas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Complete. Format = audio_drama (Gav Thorpe, full-cast incl. Catherine Tate); MP3 box set 2018.",
+  "source": {
+    "kind": "manual",
+    "url": "https://wh40k.lexicanum.com/wiki/Our_Martyred_Lady_(Audio_Drama)",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Amid a schism in the Ecclesiarchy that threatens a second Reign of Blood, the Living Saint Celestine and Inquisitor Greyfax hunt across the Imperium's shrine worlds to root out the heresy behind it.",
+    "facetIds": [
+      "audio_drama",
+      "en",
+      "female",
+      "sister",
+      "inquisitor",
+      "imperium",
+      "galactic",
+      "standalone",
+      "standard",
+      "mystery",
+      "court_intrigue",
+      "grimdark",
+      "faith",
+      "betrayal",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Saint Celestine",
+        "role": "pov"
+      },
+      {
+        "name": "Inquisitor Greyfax",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

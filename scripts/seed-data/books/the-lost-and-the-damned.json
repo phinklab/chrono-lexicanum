@@ -1,0 +1,168 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0056",
+  "slug": "the-lost-and-the-damned",
+  "title": "The Lost and the Damned",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With the Solar defences shattered, the traitor host descends on Terra and the ground war for the Imperial Palace begins. The outer walls bear the brunt: trench-lines stretch for hundreds of kilometres, the air is poisoned by Mortarion's plagues, and entire conscript regiments are fed into the line to buy hours. Rogal Dorn, Sanguinius, the Khan, Malcador, and Constantin Valdor coordinate a defence that bends but does not break, while Horus, Angron, Mortarion, and Abaddon test every weak point of the bastion walls. Through the eyes of the mortal Katsuhiro — a press-ganged conscript dragged into the worst of it — the novel makes plain what the Siege costs the trillions for whom no primarch ever speaks.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "civilian",
+      "dual",
+      "planetary",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "war",
+      "sacrifice",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "supporting"
+      },
+      {
+        "name": "Night Lords",
+        "role": "supporting"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Katsuhiro",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      },
+      {
+        "name": "Jaghatai Khan",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      },
+      {
+        "name": "Constantin Valdor",
+        "role": "supporting"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "antagonist"
+      },
+      {
+        "name": "Mortarion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Angron",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ezekyle Abaddon",
+        "role": "antagonist"
+      },
+      {
+        "name": "Zardu Layak",
+        "role": "antagonist"
+      },
+      {
+        "name": "Gendor Skraivok",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.23,
+      "count": 3629,
+      "evidenceUrl": "https://www.goodreads.com/book/show/44451854-the-lost-and-the-damned"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0590",
+  "slug": "leontus",
+  "title": "Leontus",
+  "authors": [
+    "Rob Young"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "40k - Character Series",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Arcadian Leontus, Lord Commander of the Segmentum Solar, has never known defeat — but on the arid world of Fortuna Minor, a Speed Waaagh! strips him of his armies and leaves him stranded with a handful of survivors and freed prisoners. Cut off from reinforcement, outgunned, and hunted by a dangerously cunning ork warlord, the Lord Commander must forge a coherent fighting force from desperate soldiers and prove that tactical genius alone can wrest a world back from the green tide. As the noose tightens and the Waaagh! gathers speed, Leontus learns that the line between a commander's confidence and his hubris can be measured in the blood of the men who follow him. A portrait of command under impossible odds.",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "action_heavy",
+      "war",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fortuna Minor",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Arcadian Leontus",
+        "role": "pov"
+      },
+      {
+        "name": "Darya Nevic",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.81,
+      "count": 218,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/221160742-leontus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

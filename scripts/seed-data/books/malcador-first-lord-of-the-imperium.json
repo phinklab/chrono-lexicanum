@@ -1,0 +1,78 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0235",
+  "slug": "malcador-first-lord-of-the-imperium",
+  "title": "Malcador: First Lord of the Imperium",
+  "authors": [
+    "L.J. Goulding"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "audio_drama",
+  "seriesHint": "The Primarchs Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With the Heresy at its height and the casualty rolls of a galaxy unspooling across his desk, Malcador the Sigillite leaves the palace and sits the long vigil at the bedside of Sibel Niasta, his personal astropath. She is dying, and they both know it. What unfolds across her last hours is not a war council and not a confession but something quieter — a conversation between two old friends about the life they shared, the man Malcador used to be, and the things the Sigillite has done in the Emperor's name that he is no longer certain he can carry alone. Glancing answers about the primarchs, about the future, and about the Emperor Himself drift up out of the talk, but they are not the point. The point is the friendship.",
+    "facetIds": [
+      "audio_drama",
+      "mixed",
+      "civilian",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "character_study",
+      "philosophical",
+      "somber",
+      "faith",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astra Telepathica",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Malcador the Sigillite",
+        "role": "pov"
+      },
+      {
+        "name": "Sibel Niasta",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.31,
+      "count": 207,
+      "evidenceUrl": "https://www.goodreads.com/book/show/37531766-malcador"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

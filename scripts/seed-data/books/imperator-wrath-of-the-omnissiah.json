@@ -1,0 +1,108 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0095",
+  "slug": "imperator-wrath-of-the-omnissiah",
+  "title": "Imperator: Wrath of the Omnissiah",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Casus Belli, a ten-thousand-year-old Imperator Titan of Legio Metalica, marches onto the forge world Nicomedua as a tech-priest secession mutates into open war. Warlord and Reaver Titans, Knight households and skitarii legions clash with corrupted engines, traitor Astartes and cult armies under the shadow of the Cicatrix Maledictum. Inside the god-machine, Magos Exasus has a quieter battlefield: someone in the crew hierarchy is sabotaging the Titan from within. A Titan-war procedural with the scale of a walking city and the tension of a naval mutiny mystery.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "tech_priest",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "mystery",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "faith",
+      "loyalty",
+      "betrayal",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Titanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Legio Metalica",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Knights",
+        "role": "supporting"
+      },
+      {
+        "name": "Skitarii",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dark Mechanicum",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nicomedua",
+        "role": "primary"
+      },
+      {
+        "name": "Casus Belli",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Magos Exasus",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

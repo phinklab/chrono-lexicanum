@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0400",
+  "slug": "shrike",
+  "title": "Shrike",
+  "authors": [
+    "George Mann"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Space Marine Legends",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Kayvaan Shrike is one of the most famous warriors of the Raven Guard, a master of the lightning strike from the shadows. Told as a portrait across three moments of his life, the story follows him from a veteran fighting behind enemy lines with his squad, to a Shadow Captain covering the desperate evacuation of a doomed world, to the heights of Chapter Master. Binding all three together is a single foe: the ork warboss Gorkrusha, who brands every Imperial world he conquers, and whom Shrike faces again and again across the years. As his rank rises, so does his hatred, until the need for vengeance threatens to curdle into an obsession that could cost him everything he has become.",
+    "facetIds": [
+      "book",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "hubris",
+      "war",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Kayvaan Shrike",
+        "role": "pov"
+      },
+      {
+        "name": "Gorkrusha",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "the three life-snapshot worlds are not reliably named in available sources; locations left empty rather than invented"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.67,
+      "count": 144,
+      "evidenceUrl": "https://www.goodreads.com/book/show/30753545-shrike-3"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

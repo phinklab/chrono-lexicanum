@@ -1,0 +1,110 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0141",
+  "slug": "seditions-gate",
+  "title": "Sedition's Gate",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2014,
+  "format": "collection",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Released at the 2014 Horus Heresy Weekender, Sedition's Gate gathers five short stories from across the galaxy at war. Nick Kyme's \"Artefacts\" sees Primarch Vulkan entrust his legacy to a Salamander who will carry it forward as the first Forgefather. In Rob Sanders's \"The Harrowing\", an Alpha Legion infiltration team boards an Imperial vessel and dismantles its crew with cold, methodical precision. Chris Wraight's \"Allegiance\" follows Arvida, an orphaned Thousand Son taken in by the White Scars on Chogoris, as he searches for a place among Jaghatai Khan's warriors. Guy Haley's \"The Laurel of Defiance\" pits the 90th Company of the Ultramarines against a towering Chaos Titan on the world of Astagar. David Annandale's \"Sermon of Exodus\" sends the faithful of Davin out into the void to prove themselves to the dark gods, setting the stage for the doom of Pythos.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "multi",
+      "imperium",
+      "chaos",
+      "company",
+      "planetary",
+      "requires_context",
+      "short",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "betrayal",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Astagar",
+        "role": "primary"
+      },
+      {
+        "name": "Chogoris",
+        "role": "supporting"
+      },
+      {
+        "name": "Davin",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Vulkan",
+        "role": "supporting"
+      },
+      {
+        "name": "Arvida",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.68,
+      "count": 106,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22215392-sedition-s-gate"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

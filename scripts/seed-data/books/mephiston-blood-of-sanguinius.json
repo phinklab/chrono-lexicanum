@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0447",
+  "slug": "mephiston-blood-of-sanguinius",
+  "title": "Mephiston: Blood of Sanguinius",
+  "authors": [
+    "Darius Hinks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Mephiston",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The shrine world of Divinatus Prime has vanished from the light of the Astronomican, and no ship can pierce the veil that shrouds it. Only Mephiston, the Lord of Death and Chief Librarian of the Blood Angels, has any hope of learning its fate. After enacting a powerful blood ritual, he leads an honour guard of his battle-brothers to the stricken world — and finds it consumed by religious civil war, the sacred Blade of Petrific lost amid the upheaval. As he hunts the relic, Mephiston wages a deeper battle against his own nature: the Black Rage he alone has mastered, and the buried secret of how he became the being he now is.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Divinatus Prime",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mephiston",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.63,
+      "count": 612,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32861004-mephiston"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

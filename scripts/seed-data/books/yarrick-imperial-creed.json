@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0585",
+  "slug": "yarrick-imperial-creed",
+  "title": "Yarrick: Imperial Creed",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "40k - Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Before he became the legend who defied the orks on Armageddon, Sebastian Yarrick was a freshly commissioned officer of the Commissariat, uncertain of his place in the brutal machinery of the Imperium. Assigned to the feudal world of Mistral under the watchful eye of Lord Commissar Rasp, Yarrick's first mission plunges him into a baronial uprising that quickly proves far more treacherous than any open battlefield. Imperial politics on Mistral are layered with deception, old loyalties are weaponised, and unlikely alliances must be forged to survive. Heretic cults work in the shadows, the Adepta Sororitas pursue their own zealous agenda, and clandestine agents of the Inquisition move unseen through the turmoil. Told in Yarrick's own voice, this is the story of how faith, will, and brutal experience began to shape the commissar the galaxy would one day fear.",
+    "facetIds": [
+      "book",
+      "en",
+      "male",
+      "commissar",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "political_thriller",
+      "grimdark",
+      "faith",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mistral",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sebastian Yarrick",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Commissar Rasp",
+        "role": "supporting"
+      },
+      {
+        "name": "Cardinal Wangenheim",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "The shadowy heretic cult is embodied in the named antagonist Cardinal Wangenheim; no distinct Chaos faction is confirmed, so it is left unbound rather than tagged."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.03,
+      "count": 339,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18749592-yarrick"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

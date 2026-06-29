@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0584",
+  "slug": "dominion-genesis",
+  "title": "Dominion Genesis",
+  "authors": [
+    "Jonathan D. Beer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "40k - Adeptus Mechanicus",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Gryphonne IV, one of the mightiest forge worlds of the Adeptus Mechanicus, has been devoured by Hive Fleet Leviathan. Its surviving tech-priests are left adrift, stripped of purpose and home. Explorator Talin Sherax refuses to accept oblivion. When word reaches her of a legendary relic from humanity's most distant past — one that might restore all that was lost — she assembles a crew and sets out on a desperate journey across a war-torn galaxy. But the quest demands ever-greater sacrifices, drawing Sherax closer to the edge of outright heresy. Ancient dangers, rival powers, and the scars of loss stand between her and salvation — if salvation is even what she will find at the end of the road.",
+    "facetIds": [
+      "book",
+      "en",
+      "female",
+      "tech_priest",
+      "imperium",
+      "sector",
+      "series_start",
+      "standard",
+      "journey",
+      "grimdark",
+      "redemption",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Fleet Leviathan",
+        "role": "antagonist"
+      },
+      {
+        "name": "Vostroyan Blackbloods",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gryphonne IV",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Talin Sherax",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Reviews mention Orks, Aeldari and Necrons as xenos encountered en route, but name no specific dynasty or warband as a sustained antagonist; only Hive Fleet Leviathan is confirmed."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.8,
+      "count": 237,
+      "evidenceUrl": "https://www.goodreads.com/book/show/218582282-dominion-genesis"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

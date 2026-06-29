@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0154",
+  "slug": "call-of-the-lion",
+  "title": "Call of the Lion",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After five years of fruitless search through the stellar wilderness, the Dark Angels battle-barge Spear of Truth finds traces of human civilization in the DX-619 system. The world of Byzanthis lies open before two very different commanders. Chapter Master Merir Astelan, a Terran veteran, insists on offering the inhabitants the chance to join the Imperium on their own terms. Chapter Master Belath, a younger Calibanite recently raised to higher command, sees only a population to be conquered. Their argument over how compliance should be brought to Byzanthis becomes a mirror of the fracture line running through Lion El'Jonson's Legion itself — a Legion in which any two commanders rarely agree on a single course of action.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "planetary",
+      "standalone",
+      "war_story",
+      "court_intrigue",
+      "character_study",
+      "somber",
+      "philosophical",
+      "loyalty",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Byzanthis",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Merir Astelan",
+        "role": "pov"
+      },
+      {
+        "name": "Belath",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.14,
+      "count": 213,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27504153-call-of-the-lion"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

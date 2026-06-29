@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0305",
+  "slug": "scythes-of-the-emperor",
+  "title": "Scythes of the Emperor",
+  "authors": [
+    "Laurie Goulding"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "anthology",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Scythes of the Emperor have already lost almost everything. With their home world of Sotha consumed by the tyranids of Hive Fleet Kraken, the survivors of the shattered Chapter regroup at the Giant's Coffin on Miral Prime, hunted and humiliated. Newly raised to command, Chapter Master Thracian must turn his warriors' grief and hunger for vengeance into something that can keep them alive, even as the alien menace closes in once more. Gathering a novel together with short stories and more, this collection follows the Scythes through defeat, exile, and the long, bitter struggle to prove that a Chapter on the edge of extinction still has reason to fight.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "war_story",
+      "last_stand",
+      "journey",
+      "action_heavy",
+      "somber",
+      "grimdark",
+      "war",
+      "sacrifice",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "standalone",
+      "standard",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Scythes of the Emperor",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Miral Prime",
+        "role": "primary"
+      },
+      {
+        "name": "Sotha",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Thracian",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.66,
+      "count": 148,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/32902464"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

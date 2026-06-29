@@ -1,0 +1,73 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0181",
+  "slug": "child-of-night",
+  "title": "Child of Night",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Chief Librarian Fel Zharost of the Night Lords abandoned his legion after the Edict of Nikaea and slipped back into the underhive of his birth on Terra. Years later, with the galaxy in flames he knows nothing of, hunters drag him from the dark and put him to question. A Terran prefect who pleads loyalty to the Emperor is cut apart by a single thread Zharost will not let go of: the gene-splicing crimes against a million souls that summoned the VIII Legion as punishers in the first place. Pulled into a captive legionary's memories, Zharost finally sees the Warmaster's heresy that has taken his estranged brothers, and the shape of the judgement he himself has fled from for so long.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "requires_context",
+      "character_study",
+      "somber",
+      "grimdark",
+      "doubt",
+      "betrayal",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fel Zharost",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.61,
+      "count": 214,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23454731-child-of-night"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

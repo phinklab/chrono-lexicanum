@@ -1,0 +1,104 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0054",
+  "slug": "the-buried-dagger",
+  "title": "The Buried Dagger",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The final original Horus Heresy novel braids two strands. Ahead of the traitor armada, Mortarion drives the Death Guard fleet into the warp, only to find it becalmed and rotting, his sons slowly succumbing to a plague unlike any they have known. To save his Legion, the primarch must bargain with the powers of the warp and pay an ancient debt to Nurgle. On Terra, Malcador the Sigillite turns to Nathaniel Garro and the Knights-Errant to unmask an infiltration meant to break the Throneworld before the siege even begins. Garro's loyalty, Mortarion's pride, and Malcador's quiet calculation converge in the moment that closes the Heresy as it was, and opens the road to the Siege of Terra.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "mixed",
+      "space_marine",
+      "dual",
+      "galactic",
+      "series_finale",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "betrayal",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mortarion",
+        "role": "pov"
+      },
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      },
+      {
+        "name": "Calas Typhon",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.15,
+      "count": 2054,
+      "evidenceUrl": "https://www.goodreads.com/book/show/44009586-the-buried-dagger"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0266",
+  "slug": "strategem",
+  "title": "Strategem",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Back from the slaughter of Calth and the choking dark of the Underworld War, Sergeant Aeonid Thiel is summoned to stand before his primarch. Imperium Secundus is fragile - traitor warbands left in the wake of the Shadow Crusade still roam the realm - and Roboute Guilliman knows that the old ways of waging war have been broken by the Heresy. He needs a heretic. He needs the Ultramarine who already breaks doctrine to think. Across a single long conversation about siege, manoeuvre and the discipline of his Legion, the seeds of what will one day be called the Codex Astartes are sown, and Thiel's fall and rehabilitation are weighed against the wars still to come.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "character_study",
+      "philosophical",
+      "somber",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Macragge",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Aeonid Thiel",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "title",
+        "suggestion": "Stratagem",
+        "reason": "roster slug and title spell the work 'Strategem' but Black Library, Lexicanum and the Goodreads entry all use 'Stratagem'"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.44,
+      "count": 150,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23686078-stratagem"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0129",
+  "slug": "tallarn-ironclad",
+  "title": "Tallarn: Ironclad",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Iron Warriors have not lifted the siege of Tallarn. Beneath a permanent shroud of viral toxin, the largest tank battle in human history grinds on across what used to be cities and orchards, dreadnoughts dragging through poisoned slurry while Titans walk the horizon. Perturabo has spent more of his Legion here than any of his lieutenants can rationalise, and an envoy of Horus arrives to ask him why. Around the Lord of Iron's silence the campaign accelerates: the loyalist survivors regroup under makeshift command, the Iron Warrior Hrend pursues a private mission for daemonic power, and a relic called the Black Oculus draws every faction toward a single buried point. By the time Horus himself manifests on the battlefield to demand his son kneel, the war has stopped being about Tallarn at all.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "novella",
+      "requires_context",
+      "mixed",
+      "multi",
+      "dual",
+      "planetary",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Army",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tallarn",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Perturabo",
+        "role": "antagonist"
+      },
+      {
+        "name": "Hrend",
+        "role": "antagonist"
+      },
+      {
+        "name": "Horus",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 266,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24978519-tallarn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

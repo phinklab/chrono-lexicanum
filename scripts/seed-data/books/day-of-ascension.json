@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0113",
+  "slug": "day-of-ascension",
+  "title": "Day of Ascension",
+  "authors": [
+    "Adrian Tchaikovsky"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the forge world Morod, workers spend their lives feeding machines while the Adeptus Mechanicus rule from palatial heights. Genetor Gammat Triskellian sees rot in that stagnation and discovers a hidden congregation promising salvation through angels; the cult sees the same hour as the long-awaited day of ascension. The truth is Genestealer, but the novel lets both sides argue from hunger, faith, and the need to break a world that is already devouring its people. Investigator and convert both get moral teeth before the trap closes. Reform, rebellion, and damnation blur into one uprising. A dual-POV industrial nightmare in a philosophical-cosmic-horror key.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "dual",
+      "planetary",
+      "standalone",
+      "short",
+      "political_thriller",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "philosophical",
+      "somber",
+      "faith",
+      "hubris",
+      "doubt",
+      "betrayal",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Morod",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gammat Triskellian",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0311",
+  "slug": "sanctus",
+  "title": "Sanctus",
+  "authors": [
+    "Darius Hinks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Relictors are a Space Marine Chapter willing to wield the weapons of the enemy against the enemy. Dispatched at the Inquisition's command, they descend on the dying shrine world of Ilissus to plunder its libraries and reliquaries before the planet is scoured clean. With the countdown to annihilation already running, the Relictors fight through the warbands of the Black Legion that infest the ruins, only to realise that the traitor legionaries are far from the deadliest thing waiting for them. As trust frays between the warriors on the surface and their masters in orbit, the Chapter's hunger for forbidden artefacts threatens to damn them more surely than any foe. A tense, claustrophobic tale of zealotry, secrecy, and the cost of fighting fire with fire.",
+    "facetIds": [
+      "book",
+      "novella",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Relictors",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ilissus",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "available sources describe the Relictors and Inquisition factions but name no single clear viewpoint character"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.26,
+      "count": 39,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/13263718-sanctus"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

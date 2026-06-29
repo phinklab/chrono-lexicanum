@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0177",
+  "slug": "riven",
+  "title": "Riven",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Brother Crius of the Iron Hands has spent the war on Terra, chained to the Crusader Host as the Tenth Legion's ceremonial token, only to learn that his father Ferrus Manus is dead at Isstvan V. Rogal Dorn cuts him loose and sends him into the dark on a quiet, half-mad errand: find any of his brothers who survived the slaughter and bring them home for the last defence of the Throne. What Crius finds out among the stars is not the kin he remembers, but something the killing fields have hammered into a stranger, colder shape. A creeping, almost cosmic-horror look at what loss has done to the Sons of Medusa.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "journey",
+      "mystery",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Crusader Host",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Crius",
+        "role": "pov"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 200,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18827371-riven"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

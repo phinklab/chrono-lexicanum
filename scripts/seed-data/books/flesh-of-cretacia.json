@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0313",
+  "slug": "flesh-of-cretacia",
+  "title": "Flesh of Cretacia",
+  "authors": [
+    "Andy Smillie"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Centuries after the great betrayal that scarred the Imperium, the newly founded Flesh Tearers still wander without a world to call their own. Chapter Master Amit leads his warriors to a savage jungle planet in pursuit of an ork infestation, only to find that the greenskins are the least of the dangers waiting beneath the canopy. As scout teams vanish and ancient predators stalk the defenders, one lone warrior is forced to seek an understanding with the planet's feral human tribes. Out of the bloodshed Amit claims the world for his Chapter and names it Cretacia, a brutal home that will breed brutal sons. A primal survival story about a cursed brotherhood finding its identity in blood.",
+    "facetIds": [
+      "book",
+      "novella",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Flesh Tearers",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cretacia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Amit",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.64,
+      "count": 197,
+      "evidenceUrl": "https://www.goodreads.com/book/show/16138233-flesh-of-cretacia"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

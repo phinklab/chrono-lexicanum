@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0359",
+  "slug": "the-masque-of-vyle",
+  "title": "The Masque of Vyle",
+  "authors": [
+    "Andy Chambers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novella",
+  "seriesHint": "Dark Eldar",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When a troupe of Harlequins — the masked, mysterious performer-warriors of the Eldar — discovers a dead craftworld drifting in the webway, they vow to find whoever was responsible and make them pay. Guided by their Shadowseer's ancient art, the trail leads to the Sable Marches, a lawless fringe realm of the dark city's kin. With several suspects among the gathered archons, the troupe resolves to draw out the guilty by staging a performance: the Masque of Vyle, a play designed to expose the truth and deliver a fatal reckoning. A standalone novella that plays like a grim carnival mystery.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "standalone",
+      "novella",
+      "mystery",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Harlequins",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sable Marches",
+        "role": "primary"
+      },
+      {
+        "name": "Webway",
+        "role": "supporting"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "sources describe the Harlequin troupe and its Shadowseer by role rather than by a confirmed proper name; left empty to avoid invention"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.11,
+      "count": 206,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17376137-the-masque-of-vyle"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

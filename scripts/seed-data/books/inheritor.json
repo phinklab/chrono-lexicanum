@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0207",
+  "slug": "inheritor",
+  "title": "Inheritor",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Deep within the great realm of Ultramar, the war world Kronus burns. Torquill Eliphas of the Word Bearers — captain of the Ark of Testimony Chapter, fighting through the Shadow Crusade beside the berserker warbands of the World Eaters — has spent months laying the foundations for something far older than this war. As Lorgar's invasion grinds across Ultramar, Eliphas means to plant on Kronus a Templum Daemonarchia, a structure intended to bind the warp into the stone of a captured planet. A short, lava-lit portrait of an ambitious Word Bearer captain at the moment his name is about to outlive the campaign, and of the dark thing being seeded into the soil of a world ten millennia before its next great war begins.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "war_story",
+      "character_study",
+      "court_intrigue",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "hubris",
+      "faith",
+      "betrayal",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kronus",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Torquill Eliphas",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.19,
+      "count": 129,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28822101-inheritor"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

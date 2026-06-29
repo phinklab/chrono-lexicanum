@@ -1,0 +1,73 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0153",
+  "slug": "the-voice",
+  "title": "The Voice",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Black Ship Validus is found drifting unpowered in the warp, its hold full of captured psykers and its crew silent. The Sisters of Silence — pariahs whose untouchable presence can choke even the most virulent psychic power — are sent to board her and determine what happened. Veteran Amendera Kendel and the novice Leilani Mollitas press through corridors that should be empty, listening for something they should be incapable of hearing. What waits aboard the Validus is a voice that no Sister was ever meant to encounter: a presence that knows their names, knows their fears, and threatens to undo the vow that defines them.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "female",
+      "imperium",
+      "squad",
+      "standalone",
+      "mystery",
+      "last_stand",
+      "cosmic_horror",
+      "somber",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sisters of Silence",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Amendera Kendel",
+        "role": "pov"
+      },
+      {
+        "name": "Leilani Mollitas",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.69,
+      "count": 190,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27463796.The_Voice"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

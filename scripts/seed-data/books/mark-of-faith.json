@@ -1,0 +1,118 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0105",
+  "slug": "mark-of-faith",
+  "title": "Mark of Faith",
+  "authors": [
+    "Rachel Harrison"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After the war for Ophelia VII, Sister Evangeline of the Order of Our Martyred Lady is sent across the Great Rift into Imperium Nihilus to recover the Shield of Saint Katherine. Her companion is Inquisitor Ahri Ravara of the Ordo Hereticus, whose hunt for a Thousand Sons sorcerer is bound to Sofika, the crippled interrogator she once loved and failed to save. With Sister Augusta at Evangeline's side, the pilgrimage becomes a double test of faith: one woman seeking a saint's relic, the other dragging a private vengeance through a broken half of the Imperium. A Sororitas journey-story where miracle, doubt and war all cut the same way.",
+    "facetIds": [
+      "book",
+      "female",
+      "multi",
+      "imperium",
+      "galactic",
+      "standalone",
+      "standard",
+      "journey",
+      "war_story",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "philosophical",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "redemption",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Order of Our Martyred Lady",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Hereticus",
+        "role": "primary"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "secondary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ophelia VII",
+        "role": "secondary"
+      },
+      {
+        "name": "Great Rift",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium Nihilus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sister Evangeline",
+        "role": "pov"
+      },
+      {
+        "name": "Inquisitor Ahri Ravara",
+        "role": "pov"
+      },
+      {
+        "name": "Sister Augusta",
+        "role": "supporting"
+      },
+      {
+        "name": "Sofika",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

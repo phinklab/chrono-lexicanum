@@ -1,0 +1,115 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0170",
+  "slug": "lasgun-wedding",
+  "title": "Lasgun Wedding",
+  "authors": [
+    "Will McDermott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Lord Gerontius Helmawr is dead, the Spire is panicking, and Kal Jerico is the worst possible man to inherit Necromunda's throne. That, naturally, makes him useful. Dragged from Underhive roguery into high-noble succession games, Kal becomes a target for assassins, advisers and marriage-brokers who want a controllable figurehead. With Scabbs, Yoland and Wotan beside him, he has to survive the court that spawned him and work out who arranged his rise. The trilogy closes as action-comedy curdles into court intrigue and reluctant inheritance.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "political_thriller",
+      "mystery",
+      "court_intrigue",
+      "action_heavy",
+      "satirical",
+      "grimdark",
+      "war",
+      "loyalty",
+      "betrayal",
+      "brotherhood",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Helmawr",
+        "role": "primary"
+      },
+      {
+        "name": "House Escher",
+        "role": "supporting"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "The Spire",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kal Jerico",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Gerontius Helmawr",
+        "role": "supporting"
+      },
+      {
+        "name": "Scabbs",
+        "role": "supporting"
+      },
+      {
+        "name": "Yoland",
+        "role": "supporting"
+      },
+      {
+        "name": "Wotan",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

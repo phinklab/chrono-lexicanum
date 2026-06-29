@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0497",
+  "slug": "skull-throne",
+  "title": "Skull Throne",
+  "authors": [
+    "Jake Ozga"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In a silent corner of Shyish, the Realm of Death, a young woman drifts through what little remains of her life in a detached haze. When Chaos raiders cross her path and claim a skull as tribute for their dark god, something stirs in her that wakes her up to herself again. In Nagash's domain even death is not always permanent, and the road that now opens before her is one of patient, mournful vengeance. A short, hypnotic Age of Sigmar Horror tale that pushes its mood and second-person rhythms further than most of the imprint's more conventional offerings.",
+    "facetIds": [
+      "book",
+      "female",
+      "planetary",
+      "standalone",
+      "novella",
+      "last_stand",
+      "character_study",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "philosophical",
+      "hubris",
+      "sacrifice",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Shyish",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story"
+      },
+      {
+        "kind": "data_conflict",
+        "field": "setting",
+        "suggestion": "age_of_sigmar"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.84,
+      "count": 61,
+      "evidenceUrl": "https://www.goodreads.com/book/show/49618269-skull-throne"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

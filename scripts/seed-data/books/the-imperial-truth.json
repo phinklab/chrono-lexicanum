@@ -1,0 +1,115 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0139",
+  "slug": "the-imperial-truth",
+  "title": "The Imperial Truth",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2013,
+  "format": "collection",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Six short stories drawn from across the early decades of the Great Crusade and the first treacheries of the Heresy, gathered from a group of established Black Library voices and edited by Laurie Goulding. Rob Sanders opens with a Custodian errand carried out at the Emperor's own command. Gav Thorpe rides with the Dark Angels under their silent Primarch. Aaron Dembski-Bowden returns Angron to the red sands of Nuceria. James Swallow weighs what is left when a Legion is broken. Nick Kyme follows the Phoenician at the edge of his fall, and Graham McNeill closes with a hidden adoratrice from the early Imperial cult. A sampler that ranges across Legions and decades and never settles long in one set of colours. Originally a 2013 Horus Heresy Weekender exclusive of two thousand numbered hardbacks, later released digitally and folded into the War Without End anthology.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "imperium",
+      "chaos",
+      "galactic",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "betrayal",
+      "faith",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nuceria",
+        "role": "supporting"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Angron",
+        "role": "pov"
+      },
+      {
+        "name": "Lion El'Jonson",
+        "role": "supporting"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "anthology",
+        "reason": "Roster lists 'collection' but the volume gathers stories from six different authors (Sanders, Thorpe, Dembski-Bowden, Swallow, Kyme, McNeill) under editor L.J. Goulding; multi-author short-story compilations are conventionally anthologies."
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "Six independent stories with distinct casts; only the most prominent named POV/figures are tagged at the volume level."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.72,
+      "count": 185,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/17979771"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0546",
+  "slug": "once-a-killer",
+  "title": "Once a Killer",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2023,
+  "format": "anthology",
+  "seriesHint": "Warhammer Crime",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Eight short stories returning to Varangantua, with the camera trained equally on the killers and on those paid to clean up after them. Mitchel Scanlon's title piece follows Sanctioner Kirian Malenko after a former pit fighter on a spree he half-understands; Jonathan D. Beer pits a cartel against a gang-lord over the price of a prisoner in Chains; Mike Brooks' Slate Run drops a bodyguard into a gilded function that turns into a trap. Victoria Hayward, Denny Flowers, Nick Kyme, Gareth Hanrahan and Jude Reid round out the run with stories about old debts, framed corpses and people the city forgot. The collection's recurring question is the title's: whether anyone in Varangantua really leaves what they were before behind.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "neutral",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "doubt",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Arbites",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Varangantua",
+        "role": "primary"
+      },
+      {
+        "name": "Alecto",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kirian Malenko",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.96,
+      "count": 103,
+      "evidenceUrl": "https://www.goodreads.com/book/show/123273902-once-a-killer"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

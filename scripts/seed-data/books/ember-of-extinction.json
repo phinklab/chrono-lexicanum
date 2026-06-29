@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0109",
+  "slug": "ember-of-extinction",
+  "title": "Ember of Extinction",
+  "authors": [
+    "Brandon Easton"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "short_story",
+  "seriesHint": "Primarchs Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Battle of Phall is over, and Perturabo's revenge against Rogal Dorn has slipped through his fingers again — Alexis Pollux and the survivors of the Retribution Fleet have escaped, and the Lord of Iron is left with a forge full of black mood and a hammer waiting to be reborn. Forgebreaker has been entrusted to him to remake, and there is a measure of grim peace in the labour of remaking it, but the rage that returns afterwards is sharper than anything the work could quench. The story is a tight character study: Perturabo at the anvil, Perturabo before his architects, Perturabo plotting the next strike of the Iron Warriors against the Imperial Fists. It is short, but the heat in it carries far past its final page.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "mid_series",
+      "novella",
+      "character_study",
+      "somber",
+      "grimdark",
+      "hubris",
+      "betrayal",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Phall",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Perturabo",
+        "role": "pov"
+      },
+      {
+        "name": "Alexis Pollux",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "title",
+        "suggestion": "Embers of Extinction",
+        "reason": "roster has singular 'Ember of Extinction' but Black Library / Goodreads / Lexicanum spell the canonical title 'Embers of Extinction' (plural)"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.27,
+      "count": 70,
+      "evidenceUrl": "https://www.goodreads.com/book/show/56308892-embers-of-extinction"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

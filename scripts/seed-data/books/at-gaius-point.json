@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0407",
+  "slug": "at-gaius-point",
+  "title": "At Gaius Point",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Space Marine Legends",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When their Thunderhawk goes down over the jungles of Armageddon, only a handful of Flesh Tearers survive, and one of them is already lost. Brother Jarl has succumbed to the Black Rage, the curse that haunts the sons of Sanguinius, and has vanished into the wilds in a fury of madness and slaughter. Brother Zavien sets out alone to track him, following a trail of butchered bodies to the ruined village of Dryfield, where he must do the unthinkable and end his brother's rampage himself. But the killing does not absolve him: the Sisters of Battle who arrive in his wake see only a monster among the dead, and mete out their own merciless justice. A stark meditation on how the Imperium fears the very warriors who bleed for it.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "standalone",
+      "journey",
+      "character_study",
+      "grimdark",
+      "somber",
+      "sacrifice",
+      "doubt",
+      "brotherhood",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Flesh Tearers",
+        "role": "primary"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zavien",
+        "role": "pov"
+      },
+      {
+        "name": "Jarl",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.98,
+      "count": 123,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18221453-at-gaius-point"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

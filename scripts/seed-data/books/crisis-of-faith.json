@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0411",
+  "slug": "crisis-of-faith",
+  "title": "Crisis of Faith",
+  "authors": [
+    "Phil Kelly"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Farsight",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Commander Farsight, the T'au Empire's most gifted young warrior, is handed a crusade: lead a vast fleet back across the Damocles Gulf to retake the colony worlds lost to humanity. With superior battlesuits, advanced weaponry and the blessing of the ethereals, the expedition sets out in a mood of triumphant optimism. Early victories come easily. But as the campaign grinds on, Farsight meets enemies he never anticipated and begins to sense secrets festering within his own ranks. Caught between loyalty to the Greater Good and the uncomfortable truths he uncovers about his masters and the galaxy beyond, he finds not only his courage but his very soul put to the test. The opening novel of the Farsight trilogy follows on from the events of the Damocles campaign.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "series_start",
+      "standard",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "philosophical",
+      "grimdark",
+      "faith",
+      "doubt",
+      "hubris",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "T'au Empire",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Damocles Gulf",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Commander Farsight",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.74,
+      "count": 816,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35150711-crisis-of-faith"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

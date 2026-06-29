@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0160",
+  "slug": "the-last-remembrancer",
+  "title": "The Last Remembrancer",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A lone traitor ship slips into the Sol system and is boarded by the Imperial Fists. Aboard, alive and unbound, is the most celebrated chronicler of the Great Crusade: Solomon Voss, the man whose books taught a generation of Imperial citizens to believe in the dream. Voss has spent the war at Horus Lupercal's side. He is brought to a fortress on Titan, where Rogal Dorn comes to question him, accompanied by the silent, watchful Knight-Errant Iacton Qruze. What follows is an argument as much as an interrogation — between a primarch who still wants to believe in enlightenment and a veteran who has decided that the Imperium will survive only by ruthlessness. Voss has been allowed home for one reason: to break Dorn. By the end, the matter will be settled with Qruze's sword.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "court_intrigue",
+      "character_study",
+      "somber",
+      "philosophical",
+      "grimdark",
+      "doubt",
+      "sacrifice",
+      "betrayal",
+      "faith",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Titan",
+        "role": "primary"
+      },
+      {
+        "name": "Sol System",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rogal Dorn",
+        "role": "primary"
+      },
+      {
+        "name": "Iacton Qruze",
+        "role": "supporting"
+      },
+      {
+        "name": "Solomon Voss",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.95,
+      "count": 289,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22599247-the-last-remembrancer"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

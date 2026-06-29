@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0361",
+  "slug": "angel-of-fire",
+  "title": "Angel of Fire",
+  "authors": [
+    "William King"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "The Macharian Crusade",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The first chronicle of Lord Solar Macharius, the greatest conqueror of the age, told from the foxholes by Sergeant Leo Lemuel of the Imperial Guard. As Macharius drives his crusade across a thousand rebel worlds, Lemuel and his comrades Anton and Ivan are thrown into a brutal planetary war against a heretic cult and the burning daemon-thing it worships — the Angel of Fire. Distinguishing himself amid the slaughter, Lemuel is drawn into the orbit of the Lord Solar himself and the watchful Inquisitor Drake. A grim, ground-level war story about ordinary soldiers caught in the wake of a living legend, and the cost of glory measured in mud and blood.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Leo Lemuel",
+        "role": "pov"
+      },
+      {
+        "name": "Lord Solar Macharius",
+        "role": "supporting"
+      },
+      {
+        "name": "Anton",
+        "role": "supporting"
+      },
+      {
+        "name": "Ivan",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisitor Drake",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.93,
+      "count": 498,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13240204-angel-of-fire"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

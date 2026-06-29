@@ -1,0 +1,152 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0031",
+  "slug": "traitor-general",
+  "title": "Traitor General",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2004,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Lost trilogy opens with the Sabbat Worlds Crusade in retreat from Gereon, a Chaos-occupied agricultural world whose Imperial governor Lord General Noches Sturm sold the planet out and is now reported alive inside the occupation administration. Gaunt hand-picks twelve Ghosts — Rawne, Feygor, Brostin, Mkvenner, Larkin, Beltayn, Criid, Mkoll, Varl, Bonin and the regiment's senior medic Curth — for a deep-strike insertion to assassinate Sturm before he can be turned into an enemy propaganda asset. Cut off behind the lines with no extraction window, the Gereon 12 link up with Major Gerome Landerson and the local Imperial Resistance and crawl across the country toward the capital, drinking poisoned water and breathing Chaos-tainted air that slowly mutates them. The novel's tonal frame is body-horror plus partisan-warfare procedural; the mission target hides a final twist that reshapes the team's purpose on the ground. Closes on the team and the Resistance still trapped on Gereon, awaiting His Last Command.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Gereon Resistance",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gereon",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Tona Criid",
+        "role": "supporting"
+      },
+      {
+        "name": "Murtan Feygor",
+        "role": "supporting"
+      },
+      {
+        "name": "Brostin",
+        "role": "supporting"
+      },
+      {
+        "name": "Mkvenner",
+        "role": "supporting"
+      },
+      {
+        "name": "Beltayn",
+        "role": "supporting"
+      },
+      {
+        "name": "Bonin",
+        "role": "supporting"
+      },
+      {
+        "name": "Varl",
+        "role": "supporting"
+      },
+      {
+        "name": "Ana Curth",
+        "role": "supporting"
+      },
+      {
+        "name": "Gerome Landerson",
+        "role": "supporting"
+      },
+      {
+        "name": "Noches Sturm",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

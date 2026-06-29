@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0254",
+  "slug": "wolf-hunt",
+  "title": "Wolf Hunt",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Severian — once a Luna Wolf, now one of the so-called Outcast Dead at large on Terra — still intends to slip the noose of the Imperial Palace by any means. The enigmatic Imperial hunter Yasu Nagasena dogs his trail through the ferrocrete underbelly of the homeworld, drawing him in widening circles back toward the place where it all began. As news of the massacre at Isstvan V continues to rip through every garrison and chapelry on Terra, both prey and hunter are forced into uncomfortable truths about loyalty, identity, and which side of the line they now stand on. A direct continuation of the events of The Outcast Dead.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "mystery",
+      "journey",
+      "somber",
+      "philosophical",
+      "doubt",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Luna Wolves",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Severian",
+        "role": "pov"
+      },
+      {
+        "name": "Yasu Nagasena",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.84,
+      "count": 232,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17936880-wolf-hunt"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

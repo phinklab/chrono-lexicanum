@@ -1,0 +1,70 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0257",
+  "slug": "kharn-the-eightfold-path",
+  "title": "Kharn: The Eightfold Path",
+  "authors": [
+    "Anthony Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the fighting pits of the World Eaters flagship Conqueror, Khârn and his fellow legionaries compete in ever-bloodier matches against one another — gladiatorial spectacle masquerading as discipline. As the Butcher's Nails dig deeper into every brain, the XII Legion has forsaken its earlier Crimson Path and now walks what its chaplains call the Eightfold Path, openly courting the favour of the Blood God. Set immediately after the events of Betrayer, the short drama uses a single combat between Khârn and one of the elite Devourers as a window into how completely the implants are remaking him, and how little of his old self remains to push back.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "requires_context",
+      "novella",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Khârn",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.75,
+      "count": 230,
+      "evidenceUrl": "https://www.goodreads.com/book/show/19289919.Kharn_The_Eightfold_Path"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

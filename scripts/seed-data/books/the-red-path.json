@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0388",
+  "slug": "the-red-path",
+  "title": "The Red Path",
+  "authors": [
+    "Chris Dows"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Black Crusade",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Kharn the Betrayer, Chosen of Khorne, is a force unchained — leading a warband of howling berzerkers down the Red Path, carrying slaughter to all who cross him. As Abaddon the Despoiler's Thirteenth Black Crusade engulfs the galaxy, the Warmaster seeks to bend Kharn's savagery to his own ends. But the Champion of the Blood God kneels to no one, and his defiance sets him on a collision course not only with the Imperium — where a living saint returns to the world of Salandraxis from her campaigns near the Eye of Terror — but with the Black Legion itself. Chris Dows' novel of the Eater of Worlds is a relentless tale of carnage in which none who stand before Kharn escape unscathed.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Salandraxis",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kharn",
+        "role": "pov"
+      },
+      {
+        "name": "Abaddon",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.6,
+      "count": 137,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32073864-the-red-path"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

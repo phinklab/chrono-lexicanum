@@ -1,0 +1,166 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0159",
+  "slug": "space-wolf-the-second-omnibus",
+  "title": "Space Wolf: The Second Omnibus",
+  "authors": [
+    "William King",
+    "Lee Lightner"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "omnibus",
+  "seriesHint": "Space Wolves (original)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The second Ragnar Blackmane omnibus carries the saga from Fenrisian war-story into Imperial politics and back to Chapter survival. Wolfblade sends Ragnar to Terra as sworn guard to House Belisarius, where Lady Gabriela, Torin and the Paternoval Envoy succession drag him into Navigator-house intrigue. Sons of Fenris throws him into the Hyades campaign, where Dark Angels secrecy nearly turns Chaos-hunting into inter-Chapter war. Wolf's Honour closes the arc with Madox, the Thousand Sons and the Spear of Russ. It is the back-half collection: oath-bound service, suspicion between allies and the cost of becoming a saga-hero.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "series_finale",
+      "doorstopper",
+      "war_story",
+      "political_thriller",
+      "court_intrigue",
+      "mystery",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "betrayal",
+      "sacrifice",
+      "redemption",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Navis Nobilite",
+        "role": "primary"
+      },
+      {
+        "name": "House Belisarius",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos Space Marines",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tzeentch",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Fenris",
+        "role": "supporting"
+      },
+      {
+        "name": "The Fang",
+        "role": "supporting"
+      },
+      {
+        "name": "Hyades",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ragnar Blackmane",
+        "role": "pov"
+      },
+      {
+        "name": "Gabriela Belisarius",
+        "role": "supporting"
+      },
+      {
+        "name": "Torin",
+        "role": "supporting"
+      },
+      {
+        "name": "Madox",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0155",
+        "displayOrder": 0,
+        "confidence": 0.9,
+        "basis": "Second Space Wolf omnibus follows novels 4-6"
+      },
+      {
+        "externalBookId": "W40K-0156",
+        "displayOrder": 1,
+        "confidence": 0.9,
+        "basis": "Second Space Wolf omnibus follows novels 4-6"
+      },
+      {
+        "externalBookId": "W40K-0157",
+        "displayOrder": 2,
+        "confidence": 0.9,
+        "basis": "Second Space Wolf omnibus follows novels 4-6"
+      }
+    ]
+  }
+}

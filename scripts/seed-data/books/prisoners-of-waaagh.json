@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0565",
+  "slug": "prisoners-of-waaagh",
+  "title": "Prisoners of Waaagh!",
+  "authors": [
+    "Justin Wooley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novella",
+  "seriesHint": "Orks",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Veteran Guardsman Marcus van Veenan thought he had found a quiet posting to see out the last of his years in the Astra Militarum — until the world of Rotauri fell beneath Warboss 'Eadbasha's gathering Waaagh!. Taken alive together with several hundred of his comrades, van Veenan is dragged into the heart of the orks' nightmarish stronghold and put to work building a colossal idol to their savage gods. With Imperial discipline crumbling around him and the fate of his regiment resting on shoulders far older than they once were, the weary sergeant must rally the prisoners for a desperate breakout — not only to escape the camp alive, but to carry warning back to the Imperium of the storm now gathering across the sector.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "last_stand",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Rotauri",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Marcus van Veenan",
+        "role": "pov"
+      },
+      {
+        "name": "'Eadbasha",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.02,
+      "count": 60,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/55919783"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

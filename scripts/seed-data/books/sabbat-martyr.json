@@ -1,0 +1,140 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0030",
+  "slug": "sabbat-martyr",
+  "title": "Sabbat Martyr",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2003,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Word has reached the Sabbat Worlds that the Saint herself — six thousand years dead — has been reincarnated on the pious but unimportant world of Herodor, in the Civitas Beati. The Ghosts are pulled there for sainthood-guard duty, and Gaunt arrives to find that the reincarnated Saint is Sanian — the young Hagian priestess from Honour Guard — manipulated into the role by the careerist Lord General Lugo as a tool for his own advancement. The fates conspire faster than Lugo can: the Chaos warmaster Enok Innokenti, recognising the propaganda threat, dispatches nine specialised assassins (one per Holy Wound that originally ended Sabbat's life) at the head of a Blood Pact army to kill the Saint before she can take the stage. The novel pivots from political intrigue to a Civitas-Beati siege, ending Saint-tetralogy with a real-or-fake-saint reveal that lands on real — and that real saint dies, taking Innokenti with her, before the Crusade can fully capitalise. Series turning point.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "doorstopper",
+      "siege",
+      "war_story",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "faith",
+      "sacrifice",
+      "betrayal",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Herodor",
+        "role": "primary"
+      },
+      {
+        "name": "Civitas Beati",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Colm Corbec",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanian",
+        "role": "supporting"
+      },
+      {
+        "name": "Saint Sabbat",
+        "role": "supporting"
+      },
+      {
+        "name": "Lord General Lugo",
+        "role": "antagonist"
+      },
+      {
+        "name": "Enok Innokenti",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

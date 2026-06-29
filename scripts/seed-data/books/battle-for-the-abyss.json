@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0008",
+  "slug": "battle-for-the-abyss",
+  "title": "Battle for the Abyss",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Word Bearers primarch Lorgar consecrates the largest warship ever built — the Furious Abyss — and slips her into the warp aimed at Macragge, with orders to gut the Ultramarines' homeworld from the void before the Heresy is even declared. A scratch fleet of loyalist Space Marines — Ultramarines under Captain Cestus, a Thousand Sons Librarian, a Space Wolf and a World Eater — hunts her down across the empyrean. A void chase becomes a boarding action becomes a last stand inside the engines of the Abyss herself. The Heresy's most divisive opening chapter: less politics than steel and self-sacrifice.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "dual",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "supporting"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "supporting"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      },
+      {
+        "name": "Macragge",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Cestus",
+        "role": "pov"
+      },
+      {
+        "name": "Brynngar",
+        "role": "supporting"
+      },
+      {
+        "name": "Mhotep",
+        "role": "supporting"
+      },
+      {
+        "name": "Skraal",
+        "role": "supporting"
+      },
+      {
+        "name": "Zadkiel",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.42,
+      "count": 9009,
+      "evidenceUrl": "https://www.goodreads.com/book/show/2322177.Battle_for_the_Abyss"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

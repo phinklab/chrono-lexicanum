@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0150",
+  "slug": "blood-games",
+  "title": "Blood Games",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Originally published in the Tales of Heresy anthology, Dan Abnett's \"Blood Games\" is the first true outing for the Adeptus Custodes inside the Horus Heresy. Amon Tauromachian, a Custodian Guard, returns to the Imperial Palace after a year on one of the Blood Games — the training exercises in which the Custodes test the security of the Throneworld by trying to break it themselves. He is given a new mission: travel down into the hives of Hy Brasil and quietly take the measure of a notorious troublemaker whose loyalty has come into question. With half the galaxy already in open rebellion, no hint of sedition can be tolerated on Terra. What Amon finds in the hive draws him into a knot of deceit where nothing and no one is what it seems.",
+    "facetIds": [
+      "book",
+      "male",
+      "custodes",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "political_thriller",
+      "character_study",
+      "somber",
+      "grimdark",
+      "philosophical",
+      "loyalty",
+      "doubt",
+      "faith",
+      "betrayal",
+      "cw_violence",
+      "cw_crime",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Hy Brasil",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Amon Tauromachian",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.04,
+      "count": 290,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27413500-blood-games"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

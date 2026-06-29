@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0186",
+  "slug": "vorax",
+  "title": "Vorax",
+  "authors": [
+    "Matthew Farrer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the Ring of Iron orbiting Mars, an adept of the Dark Mechanicum lays cunning traps for the Imperial Fists tightening their blockade around the red planet. He has counted his enemy and rehearsed his snares, and is sure he holds the geometry of the kill. The corridors of the great forge-ring tell him a darker truth. Loyalist Vorax battle-automata, silent and methodical, are moving through the dark behind him, turning every passage he prepared into a cage. Pride curdles into panic as the hunter understands he has become the hunted, and as the machines that should have been his weapons close on him in the labyrinth of his own engineering.",
+    "facetIds": [
+      "book",
+      "male",
+      "tech_priest",
+      "chaos",
+      "squad",
+      "requires_context",
+      "mystery",
+      "war_story",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "hubris",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Dark Mechanicum",
+        "role": "primary"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mars",
+        "role": "primary"
+      },
+      {
+        "name": "Ring of Iron",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "the Dark Mechanicum adept is unnamed in the available source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.14,
+      "count": 163,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23747824-vorax"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

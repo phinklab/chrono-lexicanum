@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0517",
+  "slug": "the-accursed",
+  "title": "The Accursed",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2021,
+  "format": "anthology",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Twelve original tales of dread gathered from the Mortal Realms and the Imperium of Man. The collection moves between Age of Sigmar haunting and forty-first millennium dread without smoothing the seams, letting each writer bring their own kind of fear: clinical Imperial procedurals that turn inside out, slow-burning folk horror in lonely Shyishan towns, cold cosmic dread on the edge of Imperial space, quiet domestic terror in households that should be safe. Twelve narrators, twelve registers, one shared insistence that the worst thing in either setting is rarely the monster the reader expected. Contributing writers include Peter Fehervari, David Annandale, Ray Cluley, James Brogden, Jake Ozga, Nicholas Kaufmann, Steven Sheil, Richard Strachan, Phil Kelly, Jude Reid, Justin D Hill and Darius Hinks.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "dual",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "war_story",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "faith",
+      "doubt",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "supporting"
+      },
+      {
+        "name": "Soulblight Gravelords",
+        "role": "supporting"
+      },
+      {
+        "name": "Stormcast Eternals",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Shyish",
+        "role": "supporting"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "anthology faction set aggregated from individual story titles and authors; per-story coverage thin in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 140,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59136038-the-accursed"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

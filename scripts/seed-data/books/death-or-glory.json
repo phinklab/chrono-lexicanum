@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0015",
+  "slug": "death-or-glory",
+  "title": "Death or Glory",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Chronologically the earliest Cain story in Amberley Vail's archive: a much younger Cain, en route to the agri-world Perlia under attack by Orks, is forced into an escape pod with his aide Jurgen when his troop transport is gutted in orbit. They crash-land far behind the enemy line. With charm, bluff, and a quantity of luck that even Cain finds embarrassing, he gathers a swelling band of refugees, escaped prisoners and stranded Imperial Guard stragglers, and builds a guerilla resistance across the Perlian wastes against the Ork host of Warboss Gargash Korbul. The novel ends with the duel Cain has been trying to avoid for four hundred pages, Korbul dead at his feet, and the planet-wide hero-reputation that will follow Cain for the rest of his career permanently affixed.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "last_stand",
+      "satirical",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Perlia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      },
+      {
+        "name": "Gargash Korbul",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

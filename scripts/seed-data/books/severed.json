@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0564",
+  "slug": "severed",
+  "title": "Severed",
+  "authors": [
+    "Nate Crowley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novella",
+  "seriesHint": "Necrons",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Deep in the Ghoul Stars, a rebellion threatens the long, deathless reign of Nemesor Zahndrekh and his ever-watchful bodyguard, Vargard Obyron. Tasked by the Phaeron of the Sautekh Dynasty to put the uprising down, the two ancient necrons join forces with an old acquaintance, the Nemesor Setekh, and set course for the world of Doahht — a place where the slumbering legions never woke properly, and the dead now stagger as little more than empty shells. As Zahndrekh, still convinced his court is one of flesh and blood, dreams his stately way through the campaign, Obyron alone must reckon with the horror beneath the broken world, the ghosts of his own ages-long service, and what Setekh truly wants from the dark.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "journey",
+      "character_study",
+      "somber",
+      "philosophical",
+      "loyalty",
+      "brotherhood",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sautekh Dynasty",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Doahht",
+        "role": "primary"
+      },
+      {
+        "name": "Ghoul Stars",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nemesor Zahndrekh",
+        "role": "pov"
+      },
+      {
+        "name": "Vargard Obyron",
+        "role": "pov"
+      },
+      {
+        "name": "Setekh",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.48,
+      "count": 340,
+      "evidenceUrl": "https://www.goodreads.com/book/show/48737441-severed"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

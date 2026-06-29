@@ -1,0 +1,72 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0108",
+  "slug": "the-will-of-the-legion",
+  "title": "The Will of the Legion",
+  "authors": [
+    "Andy Clark"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "short_story",
+  "seriesHint": "Primarchs Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Deep in the campaigns of the Great Crusade, the Imperial Fists' Third Expeditionary Fleet drops out of the warp expecting to meet a long-lost human settlement and welcome it back into the Imperial fold. What greets them instead is a planetary defence that fights as if every concession would be a defeat — and that fights with weapons no separated colony should possess. Rogal Dorn answers the rebuff in the only language his legion was forged to speak. The story is built around the moment a Compliance turns into a punitive war, and around the doubts of the captains nearest the primarch: whether Dorn will choose the world's survival or the Imperium's lesson, and whether those two things have ever truly been the same.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "siege",
+      "character_study",
+      "somber",
+      "action_heavy",
+      "doubt",
+      "loyalty",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.48,
+      "count": 61,
+      "evidenceUrl": "https://www.goodreads.com/book/show/51827314-the-will-of-the-legion"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

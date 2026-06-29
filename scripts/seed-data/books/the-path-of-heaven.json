@@ -1,0 +1,111 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0036",
+  "slug": "the-path-of-heaven",
+  "title": "The Path of Heaven",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Four years into the war, the White Scars have paid for their loyalty to the Emperor in blood. Jaghatai Khan's V Legion has been worn down by running campaigns against Mortarion's Death Guard and Eidolon's surviving Emperor's Children, and the Khan's own restless heart has begun to fray. The Khagan turns at last toward Terra, but the Ruinstorm has closed the obvious roads. His logistician Ilya Ravallion believes a single Navigator family — the Niyad — may know the secret path, and Stormseer Yesugei is sent to reach them. While the Khan races for that opening, Mortarion and Eidolon close in for the kill, dragging the White Scars into a final, desperate engagement among the dying stars of the warp-cyclone known as the Kalium Gate.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kalium Gate",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jaghatai Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Ilya Ravallion",
+        "role": "pov"
+      },
+      {
+        "name": "Yesugei",
+        "role": "pov"
+      },
+      {
+        "name": "Shiban Khan",
+        "role": "supporting"
+      },
+      {
+        "name": "Mortarion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eidolon",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.11,
+      "count": 2502,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28956049-the-path-of-heaven"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

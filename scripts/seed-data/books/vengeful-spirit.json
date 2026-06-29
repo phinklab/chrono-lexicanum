@@ -1,0 +1,121 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0029",
+  "slug": "vengeful-spirit",
+  "title": "Vengeful Spirit",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Horus brings the bulk of his traitor host down on Molech, an old Imperial Knight world hiding a doorway into the warp the Emperor once used and walked away from. Determined to take whatever power his father took, the Warmaster grinds the planetary defenders and House Devine apart in a sustained ground campaign while his sorcerers prepare the descent. In a parallel thread, Garviel Loken — recovered from his collapse and inducted into Malcador's Knights-Errant — boards the Vengeful Spirit itself with a small infiltration team, looking for Mournival brothers he can still talk to and for evidence the Emperor can act on. The novel runs Horus's apotheosis and Loken's clandestine return at each other across five hundred pages, and lets neither finish cleanly.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "dual",
+      "planetary",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "action_heavy",
+      "betrayal",
+      "hubris",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "brotherhood",
+      "cosmic_horror",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "House Devine",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Army",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Molech",
+        "role": "primary"
+      },
+      {
+        "name": "Vengeful Spirit",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Horus",
+        "role": "pov"
+      },
+      {
+        "name": "Garviel Loken",
+        "role": "pov"
+      },
+      {
+        "name": "Iacton Qruze",
+        "role": "supporting"
+      },
+      {
+        "name": "Tylos Rubio",
+        "role": "supporting"
+      },
+      {
+        "name": "Little Horus Aximand",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.91,
+      "count": 3349,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18775295-vengeful-spirit"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

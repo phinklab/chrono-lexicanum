@@ -1,0 +1,137 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0267",
+  "slug": "the-word-bearers-omnibus",
+  "title": "The Word Bearers Omnibus",
+  "authors": [
+    "Anthony Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "omnibus",
+  "seriesHint": "Word Bearers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "This collected edition gathers the complete Word Bearers trilogy, Dark Apostle, Dark Disciple, and Dark Creed, plus the short story Torment, charting the relentless ascent of Marduk from ambitious First Acolyte to Dark Apostle of the traitor Legion. From the enslaved world of Tanakreg and its blasphemous tower, through warzones shared with tyranids and dark eldar raiders, to the climactic assault on the Boros Gate and its White Consuls defenders, Marduk schemes, betrays, and butchers his way toward power. Throughout, he wields a fragment of ancient necron technology that draws the attention of enemies on every side. A grim chronicle of faith, ambition, and treachery told entirely from behind the eyes of the damned.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "faith",
+      "hubris",
+      "betrayal",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "White Consuls",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tanakreg",
+        "role": "supporting"
+      },
+      {
+        "name": "Boros Gate",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Marduk",
+        "role": "pov"
+      },
+      {
+        "name": "Kol Badar",
+        "role": "supporting"
+      },
+      {
+        "name": "Burias",
+        "role": "supporting"
+      },
+      {
+        "name": "Jarulek",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.17,
+      "count": 473,
+      "evidenceUrl": "https://www.goodreads.com/book/show/12808098-word-bearers"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0264",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Word Bearers omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0265",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Word Bearers omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0266",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Word Bearers omnibus follows the trilogy"
+      }
+    ]
+  }
+}

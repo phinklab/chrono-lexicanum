@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0162",
+  "slug": "the-face-of-treachery",
+  "title": "The Face of Treachery",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the bloody wake of the Dropsite Massacre, Commander Branne of the Raven Guard brings a fleet back to Isstvan V to pull his wounded primarch Corax out from beneath the encircling traitor host. The void-war above the killing-ground is unforgiving; the rebel cordon is tighter than any briefing predicted. As starships duel in the dark and Corax's life hangs by a thread, the rescue turns on the loyalty of a single warrior moving inside the enemy fleet — a Space Marine who is not at all who he appears to be. The story sits between 'Raven's Flight' and 'Deliverance Lost' and bridges the moment the XIX Legion's survival changes hands.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "sector",
+      "requires_context",
+      "war_story",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "sacrifice",
+      "betrayal",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan V",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Branne Nev",
+        "role": "pov"
+      },
+      {
+        "name": "Corax",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.66,
+      "count": 186,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22599271-the-face-of-treachery"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

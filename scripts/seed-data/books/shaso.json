@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0431",
+  "slug": "shaso",
+  "title": "Shas'o",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2016,
+  "format": "anthology",
+  "seriesHint": "Legends of the Dark Millennium",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ten tales of the T'au Empire at war, gathered from the front lines of its expansion across the stars. Battlesuit commanders duel Imperial tanks, fire warrior snipers stalk Space Marines, and the cool calculus of the Greater Good is tested against fear, grief and the weight of command. Among the heroes whose campaigns are recounted here are Commander Farsight, the rising Commander Shadowsun, and the ethereal Aun'Shi, alongside the brutal defence of Arkunasha and quieter, stranger stories of caste, duty and the cost of conquest. Together the collection ranges from open planetary warfare to intimate studies of what it means to serve a cause larger than any single life.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "faith",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Tau",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Arkunasha",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Commander Shadowsun",
+        "role": "supporting"
+      },
+      {
+        "name": "Commander Farsight",
+        "role": "supporting"
+      },
+      {
+        "name": "Aun'Shi",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.14,
+      "count": 98,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26859331-shas-o"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

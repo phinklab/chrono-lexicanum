@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0224",
+  "slug": "fifteen-hours",
+  "title": "Fifteen Hours",
+  "authors": [
+    "Mitchel Scanlon"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Seventeen-year-old Arvin Larn is conscripted, drilled and shipped to war, and then, through a clerk's error, delivered to the wrong front entirely. He arrives at Broucheroc, a ruined hive-city that the under-strength Vardan Rifles have held against ceaseless Ork assault for over a decade. The grim arithmetic of the trenches gives a fresh replacement a life expectancy of fifteen hours. Across a single brutal day Larn endures snipers, friendly fire, indifferent officers, foul rations and an all-out greenskin offensive, learning what survival actually costs on a front the Imperium has all but forgotten. A ground-level portrait of the ordinary soldier in an endless war.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Broucheroc",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Arvin Larn",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.93,
+      "count": 1632,
+      "evidenceUrl": "https://www.goodreads.com/book/show/270977.Fifteen_Hours"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

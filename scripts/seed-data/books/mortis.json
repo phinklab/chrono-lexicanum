@@ -1,0 +1,123 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0061",
+  "slug": "mortis",
+  "title": "Mortis",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The victories of Saturnine have faded into yesterday's hope. Horus's host intensifies its assault on the Imperial Palace, the principal spaceports already lost. Now the Warmaster commits the god-engines of Legio Mortis to breach the Mercury Wall, where the loyalist Legio Ignatum stands as the last barrier between Titan and Throne. Ancient rivals among the war-engine legions meet in titanic duel across shattered ramparts, while behind the walls a small band of defenders works to push back the warp's malign intrusion before the Palace's wards collapse entirely. Rogal Dorn, Sigismund, and the Imperial Fists hold the line as Mortarion presses ever closer to the Sanctum, and the Heresy edges another step toward its ending.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "dual",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Legio Ignatum",
+        "role": "primary"
+      },
+      {
+        "name": "Legio Mortis",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      },
+      {
+        "name": "Mercury Wall",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rogal Dorn",
+        "role": "pov"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "pov"
+      },
+      {
+        "name": "Mortarion",
+        "role": "supporting"
+      },
+      {
+        "name": "Sigismund",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.56,
+      "count": 2654,
+      "evidenceUrl": "https://www.goodreads.com/book/show/56269795-mortis"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

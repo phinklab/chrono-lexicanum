@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0131",
+  "slug": "leviathan",
+  "title": "Leviathan",
+  "authors": [
+    "Darius Hinks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On Regium, Lieutenant Castamon of the Ultramarines sees the first signs of a Tyranid invasion before the world itself is ready to believe it. His strike force tries to kill the xenos in the outer system, but Hive Fleet Leviathan answers with stranger beasts, spores that smother cities, and a Genestealer Cult uprising on Ascension Day. Apothecary Biologis Vultis may hold the key to adapting faster than the swarm, while the Harbinger hunts him through the collapse. A 10th-edition launch war-story of biological escalation and planetary dread.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "cosmic_horror",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_objects",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Hive Fleet Leviathan",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Regium",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Castamon",
+        "role": "pov"
+      },
+      {
+        "name": "Vultis",
+        "role": "supporting"
+      },
+      {
+        "name": "The Harbinger",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

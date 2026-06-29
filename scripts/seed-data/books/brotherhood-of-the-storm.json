@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0116",
+  "slug": "brotherhood-of-the-storm",
+  "title": "Brotherhood of the Storm",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "While word of Horus's treachery races across the Imperium, half the Legions silent or already turned, one fleet remains stubbornly unreachable. On the ork-held world of Chondax the White Scars have been at war since Ullanor, and their Khans ride their hunts without orders or news from Terra. Through the eyes of Shiban Khan, his mentor Targutai Yesugei, and the Munitorum officer Ilya Ravallion newly assigned to keep their supplies straight, the V Legion's character takes shape — its honour, its restlessness, its bond to the Khagan Jaghatai. Then the heavens themselves bring word that nothing on Chogoris will be the same again.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "action_heavy",
+      "brotherhood",
+      "war",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Chondax",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Shiban Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Targutai Yesugei",
+        "role": "pov"
+      },
+      {
+        "name": "Ilya Ravallion",
+        "role": "pov"
+      },
+      {
+        "name": "Jaghatai Khan",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.95,
+      "count": 598,
+      "evidenceUrl": "https://www.goodreads.com/book/show/16125311-brotherhood-of-the-storm"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

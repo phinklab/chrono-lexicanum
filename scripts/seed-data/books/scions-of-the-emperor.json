@@ -1,0 +1,158 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0093",
+  "slug": "scions-of-the-emperor",
+  "title": "Scions of the Emperor",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2019,
+  "format": "anthology",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Eight short stories that move through the Great Crusade and the years that bend toward the Heresy, each one circling a different primarch. A young Ferrus Manus crash-lands in perpetual gloom; Mortarion tries to redeem the slaughter on Galaspar with a fresh compliance and finds treachery instead; Jaghatai Khan outmanoeuvres an Iron Warriors warsmith; a Blood Angel sets out to capture beauty in a galaxy at war; a remembrancer rides with Konrad Curze and learns what compliance under the Night Lords really costs; Roboute Guilliman returns to a restless Macragge; Rogal Dorn investigates strange deaths inside the Imperial Palace on the eve of the Siege; and Dark Angels make first contact with Alpharius during the Rangdan Xenocides.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "short",
+      "character_study",
+      "war_story",
+      "court_intrigue",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "philosophical",
+      "brotherhood",
+      "hubris",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Night Lords",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Macragge",
+        "role": "supporting"
+      },
+      {
+        "name": "Galaspar",
+        "role": "supporting"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ferrus Manus",
+        "role": "supporting"
+      },
+      {
+        "name": "Mortarion",
+        "role": "supporting"
+      },
+      {
+        "name": "Jaghatai Khan",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "supporting"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Lion El'Jonson",
+        "role": "supporting"
+      },
+      {
+        "name": "Alpharius",
+        "role": "supporting"
+      },
+      {
+        "name": "Xyrokles",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.93,
+      "count": 317,
+      "evidenceUrl": "https://www.goodreads.com/book/show/43886241-scions-of-the-emperor"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

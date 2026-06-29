@@ -1,0 +1,76 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0184",
+  "slug": "sins-of-the-father",
+  "title": "Sins of the Father",
+  "authors": [
+    "Andy Smillie"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the slow approach to Signus, Sanguinius weighs a darkness in himself and a darker future for his sons. Only Azkaellon of the Sanguinary Guard and Nassir Amit, the Flesh Tearer, hold even a thin promise. Summoned into the ritual Tempest of Angels, the two captains cross blades, and through the duel their primarch takes the measure of what his legion may yet become when the storm finally reaches them: the noble light he has tried to teach his sons, and the older red rage that runs through every son of Baal. The pairing closes on a quiet, terrible understanding of the cost the IX Legion will be asked to pay.",
+    "facetIds": [
+      "book",
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "character_study",
+      "somber",
+      "philosophical",
+      "brotherhood",
+      "doubt",
+      "sacrifice",
+      "en",
+      "cw_violence"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Sanguinius",
+        "role": "pov"
+      },
+      {
+        "name": "Azkaellon",
+        "role": "supporting"
+      },
+      {
+        "name": "Nassir Amit",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.57,
+      "count": 143,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24462944-sins-of-the-father"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

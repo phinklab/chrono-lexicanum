@@ -1,0 +1,128 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0358",
+  "slug": "path-of-the-dark-eldar-omnibus",
+  "title": "Path of the Dark Eldar Omnibus",
+  "authors": [
+    "Andy Chambers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "omnibus",
+  "seriesHint": "Dark Eldar",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The complete Path of the Dark Eldar trilogy, plus three connected short stories, gathered in one volume. In the hidden city of Commorragh, the archon Nyos Yllithian and the haemonculus Bellathonis scheme to unseat the eternal tyrant Asdrubael Vect — but their plotting helps unleash the Dysjunction, a cataclysm that floods the dark city with horrors and sets kabal against kabal. Across Path of the Renegade, Path of the Incubus and Path of the Archon, alongside the incubus Morr's fight to clear his name, the omnibus charts a war of poison, betrayal and survival in the cruellest city of the Eldar.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "series_start",
+      "doorstopper",
+      "court_intrigue",
+      "political_thriller",
+      "war_story",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "betrayal",
+      "hubris",
+      "redemption",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Incubi",
+        "role": "supporting"
+      },
+      {
+        "name": "Mandrakes",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Commorragh",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nyos Yllithian",
+        "role": "pov"
+      },
+      {
+        "name": "Morr",
+        "role": "pov"
+      },
+      {
+        "name": "Asdrubael Vect",
+        "role": "antagonist"
+      },
+      {
+        "name": "Bellathonis",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.25,
+      "count": 172,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22609182-path-of-the-dark-eldar"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0355",
+        "displayOrder": 0,
+        "confidence": 0.86,
+        "basis": "Path of the Dark Eldar omnibus follows the trilogy plus related novella"
+      },
+      {
+        "externalBookId": "W40K-0356",
+        "displayOrder": 1,
+        "confidence": 0.86,
+        "basis": "Path of the Dark Eldar omnibus follows the trilogy plus related novella"
+      },
+      {
+        "externalBookId": "W40K-0357",
+        "displayOrder": 2,
+        "confidence": 0.86,
+        "basis": "Path of the Dark Eldar omnibus follows the trilogy plus related novella"
+      },
+      {
+        "externalBookId": "W40K-0359",
+        "displayOrder": 3,
+        "confidence": 0.86,
+        "basis": "Path of the Dark Eldar omnibus follows the trilogy plus related novella"
+      }
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0394",
+  "slug": "knights-of-the-imperium",
+  "title": "Knights of the Imperium",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Adeptus Mechanicus",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the bio-ships of Hive Fleet Hydra fall upon the world of Vondrak, the towering war-machines of House Cadmus answer the call. Baron Roland of Cadmus dreams of breaking his house free from the control of the Adeptus Mechanicus, but the lords of Mars do not surrender their vassals lightly, and a feared Martian adept, Nemonix, has his own designs upon the noble house. Caught between a ravenous alien swarm outside the walls and a colder, more patient threat within his own ranks, Roland must hold Vondrak and his honour both. A novella that pairs the spectacle of god-machines against the Tyranids with a quieter study of loyalty, vassalage, and the men who rationalise cruelty as duty.",
+    "facetIds": [
+      "book",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "court_intrigue",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vondrak",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Baron Roland of Cadmus",
+        "role": "pov"
+      },
+      {
+        "name": "Nemonix",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "value_outside_vocabulary",
+        "field": "facetIds",
+        "reason": "Imperial Knight pilot has no protagonist_class value; protagonist_class omitted rather than mis-tagged"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.77,
+      "count": 132,
+      "evidenceUrl": "https://www.goodreads.com/book/show/33132593-knights-of-the-imperium"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

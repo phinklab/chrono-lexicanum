@@ -1,0 +1,108 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0001",
+  "slug": "xenos",
+  "title": "Xenos",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2001,
+  "format": "novel",
+  "seriesHint": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+  "series": "eisenhorn",
+  "seriesIndex": 1,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Inquisitor Gregor Eisenhorn of the Ordo Xenos pursues a renegade rogue trader on the ice-world of Hubris and unravels the cult of Pontius Glaw — a discarnate scion of an executed heretic family whose preserved consciousness sells xenos artefacts to anyone willing to pay in souls. The trail crosses the hive of Thracian Primaris and the agri-world of Damask, and forces Eisenhorn into first contact with an alien intelligence that bargains in centuries. He acquires a retinue — savant Aemos, the pariah Bequin, pilot Midas Betancore — and reads, against orders, from the proscribed Necroteuch. Along the way he learns that Inquisitors can become the thing they hunt, and that the slow seduction of useful means is how heretics first persuade themselves.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "series_start",
+      "standard",
+      "mystery",
+      "journey",
+      "grimdark",
+      "philosophical",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hubris",
+        "role": "primary"
+      },
+      {
+        "name": "Thracian Primaris",
+        "role": "secondary"
+      },
+      {
+        "name": "Damask",
+        "role": "secondary"
+      },
+      {
+        "name": "Helican Subsector",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gregor Eisenhorn",
+        "role": "pov"
+      },
+      {
+        "name": "Alizebeth Bequin",
+        "role": "supporting"
+      },
+      {
+        "name": "Midas Betancore",
+        "role": "supporting"
+      },
+      {
+        "name": "Uber Aemos",
+        "role": "supporting"
+      },
+      {
+        "name": "Godwyn Fischig",
+        "role": "supporting"
+      },
+      {
+        "name": "Pontius Glaw",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

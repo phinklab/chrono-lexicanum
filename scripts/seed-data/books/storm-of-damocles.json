@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0302",
+  "slug": "storm-of-damocles",
+  "title": "Storm of Damocles",
+  "authors": [
+    "Justin D. Hill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The war in the Damocles Gulf grinds on between the Imperium and the expanding tau empire. When two full squads of his battle-brothers vanish, the Deathwatch captain Nergui, once a son of the White Scars, sets out to learn what became of them. What he uncovers is worse than loss: the tau have fielded a colossal new war engine, the Stormsurge, powerful enough to bring down even an Imperial Titan. The Deathwatch alone cannot destroy it, so Nergui must call upon his old chapter brothers among the White Scars for aid. The alliance reopens old wounds and tests how far a warrior can change and still belong, even as the fate of the campaign comes to rest on a single desperate strike.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "loyalty",
+      "war",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "standalone",
+      "standard",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Deathwatch",
+        "role": "primary"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "Tau",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Damocles Gulf",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nergui",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.78,
+      "count": 81,
+      "evidenceUrl": "https://www.goodreads.com/book/show/31844624-storm-of-damocles"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

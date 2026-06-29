@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0166",
+  "slug": "fleshworks",
+  "title": "Fleshworks",
+  "authors": [
+    "Lucien Soulban"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "House Delaque agent Uriah Storm is offered the kind of job his masters dream about: seize a cache of elite Van Saar bionic implants and turn a rival House's technology into Delaque advantage. The trail leads into the lower levels of Hive City and the Underhive, where the implants are still attached to owners who object to being harvested. Espionage gives way to surgical horror, and Storm's own House proves nearly as dangerous as the enemy. A shadowy Necromunda spy-thriller with a body-horror edge.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "heist",
+      "political_thriller",
+      "mystery",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "betrayal",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Delaque",
+        "role": "primary"
+      },
+      {
+        "name": "House Van Saar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Hive City",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriah Storm",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

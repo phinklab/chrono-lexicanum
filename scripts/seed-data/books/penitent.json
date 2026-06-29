@@ -1,0 +1,110 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0011",
+  "slug": "penitent",
+  "title": "Penitent",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Beta Bequin goes deeper into the labyrinth of Queen Mab on Sancour, working undercover alongside Gregor Eisenhorn among the city's elite occult-dabblers in pursuit of someone who can decipher the proscribed grimoire she recovered in Pariah. The hunt turns violent fast: a graal — one of the energy-assassins dispatched by the figure called the King in Yellow — attacks a channeling performance. Eisenhorn's small band and Gideon Ravenor's parallel cell, now sworn enemies inside the radical wing of the Inquisition, end up chasing the same shadow at cross purposes, both menaced by the Cognitae, the heretical academy that trained Beta to be a counterfeit Bequin. By the end Beta has chosen which Inquisitor she follows and the King in Yellow's identity has begun to slip toward the page; what is on the page turns out to be much larger than the Bequin arc that started it.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "primary"
+      },
+      {
+        "name": "Cognitae",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sancour",
+        "role": "primary"
+      },
+      {
+        "name": "Queen Mab",
+        "role": "primary"
+      },
+      {
+        "name": "Scarus Sector",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Beta Bequin",
+        "role": "pov"
+      },
+      {
+        "name": "Gregor Eisenhorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Gideon Ravenor",
+        "role": "supporting"
+      },
+      {
+        "name": "Cherubael",
+        "role": "supporting"
+      },
+      {
+        "name": "Renner Lightburn",
+        "role": "supporting"
+      },
+      {
+        "name": "King in Yellow",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

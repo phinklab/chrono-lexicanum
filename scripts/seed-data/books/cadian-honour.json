@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0470",
+  "slug": "cadian-honour",
+  "title": "Cadian Honour",
+  "authors": [
+    "Justin D. Hill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Cadia",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Cadia has fallen, and the survivors of the Cadian 101st have been posted to Potence, capital of the distant Gallows Cluster. The other Imperial regiments look at them coldly; orders read like exile dressed in courtesy; even the local Ecclesiarchy seems to want them gone. Sergeant Minka Lesk, who once held a Kasr against the Black Legion as a Whiteshield, finds herself on what should be an easy garrison world. Then Chaos begins to move through Potence's shrines and palaces, using devotion as its lever. As the rot reaches into the capital itself and Imperial faith is turned into a weapon against loyal subjects, Lesk and what remains of her company must defend not only the Gallows Cluster but the meaning of the word 'Cadian' itself.",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "grimdark",
+      "war",
+      "faith",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Potence",
+        "role": "primary"
+      },
+      {
+        "name": "Gallows Cluster",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Minka Lesk",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Chaos antagonist named in plot summary but no specific sub-faction (Heretic Astartes lineage, daemonic, or pure cult) confirmed in available sources."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.8,
+      "count": 704,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55946813-cadian-honour"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

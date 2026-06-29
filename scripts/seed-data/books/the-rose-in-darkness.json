@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0594",
+  "slug": "the-rose-in-darkness",
+  "title": "The Rose in Darkness",
+  "authors": [
+    "Danie Ware"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Adepta Sororitas / Sister Augusta",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Complete. Danie Ware's first full-length Augusta novel.",
+  "source": {
+    "kind": "manual",
+    "url": "https://wh40k.lexicanum.com/wiki/The_Rose_in_Darkness_(Novel)",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sister Superior Augusta of the Order of the Bloody Rose is sent to the shrine world of Opal to recover the skull of Saint Veres during its holiest festival — only to uncover a genestealer cult beneath the surface and a hive fleet bearing down on the planet.",
+    "facetIds": [
+      "book",
+      "en",
+      "female",
+      "sister",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "mystery",
+      "war_story",
+      "grimdark",
+      "faith",
+      "war",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Opal",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Augusta Santorus",
+        "role": "pov"
+      },
+      {
+        "name": "Saint Veres",
+        "role": "mentioned"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "OFOB-gap addition (Brief 167) — no Goodreads rating captured in this additive pass; left explicitly unrated."
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

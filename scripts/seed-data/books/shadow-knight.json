@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0350",
+  "slug": "shadow-knight",
+  "title": "Shadow Knight",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Night Lords",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On a derelict, drifting Imperial vessel, the Night Lords of First Claw go hunting for salvage and find prey instead — a band of Blood Angels, cut off from rescue and reinforcement. Talos baits his quarry with patience and cruelty, picking the loyalists apart in the dark corridors while his brothers Uzas, Xarl and Cyrion close the trap. But the prophet is tormented by visions he cannot silence, and a grim premonition of fire and death seizes him mid-battle. A sharp, brutal introduction to Talos and First Claw, and the doorway into the Night Lords saga.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "series_start",
+      "novella",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Talos",
+        "role": "pov"
+      },
+      {
+        "name": "Uzas",
+        "role": "supporting"
+      },
+      {
+        "name": "Xarl",
+        "role": "supporting"
+      },
+      {
+        "name": "Cyrion",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "set aboard an unnamed derelict ship in deep space; no concrete world to anchor"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.06,
+      "count": 446,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26170380"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

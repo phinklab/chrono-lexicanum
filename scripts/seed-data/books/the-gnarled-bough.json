@@ -1,0 +1,71 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0523",
+  "slug": "the-gnarled-bough",
+  "title": "The Gnarled Bough",
+  "authors": [
+    "Jamie Mistry-Evans"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In an outlying manor in the realm of death, a servant — a transplant from the verdant realm of life — watches uneasily as his master returns with a desiccated husk taken from the bough of a hateful Spite-Revenant and installs it as a curiosity in the great hall. From the moment the relic crosses the threshold, the manor's quiet routines begin to fray: footfalls in empty corridors, sap-stains where there should be none, dreams full of grasping roots. The servant, who still remembers the living forests of his birth-realm, recognises the trespass for what it is long before his master will, and the small household closes in on the slow harvest the bough has come to take.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "neutral",
+      "planetary",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "character_study",
+      "cw_disturbing",
+      "cw_violence",
+      "cw_death",
+      "novella",
+      "standalone",
+      "en"
+    ],
+    "factions": [],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story",
+        "note": "Roster marks 'novel' but The Gnarled Bough is a Black Library eShort, later collected in The Resting Places anthology"
+      },
+      {
+        "kind": "data_conflict",
+        "field": "domain",
+        "suggestion": "age_of_sigmar",
+        "note": "Roster places this in the W40K domain, but The Gnarled Bough is an Age of Sigmar story set across the realms of Shyish and Ghyran"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.68,
+      "count": 22,
+      "evidenceUrl": "https://www.goodreads.com/book/show/63134448-the-gnarled-bough"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0479",
+  "slug": "fist-of-the-imperium",
+  "title": "Fist of the Imperium",
+  "authors": [
+    "Andy Clark"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Space Marine Conquests",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the mining world of Ghyre, an Imperial Fists Honour Guard has been butchered upon ground they swore to defend, and a hidden cult is poisoning the planet's miners and its complacent aristocracy alike. Primaris Librarian Aster Lydorran is sent to root it out and finds himself locked in a duel of minds with a psyker whose strength rivals his own. Forced to assume command of a fractious Imperial defence, Lydorran must drag the proud sons of Dorn out from behind their walls and accept allies they would normally disdain — because the cult feeding on Ghyre is the harbinger of something far larger, and it is reaching towards Terra itself.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "mystery",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "faith",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ghyre",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Aster Lydorran",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.63,
+      "count": 236,
+      "evidenceUrl": "https://www.goodreads.com/book/show/51086040-fist-of-the-imperium"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0412",
+  "slug": "empire-of-lies",
+  "title": "Empire of Lies",
+  "authors": [
+    "Phil Kelly"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Farsight",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fresh from his costly triumph over the Imperium across the Damocles Gulf, High Commander Farsight turns to his own borders and finds them under siege. Savage ork warbands are tearing through the worlds at the heart of the T'au Empire, and Farsight throws himself into an obsessive war to purge the greenskin infestation, vowing to stop at nothing until every world is cleansed. Yet darker forces move in the shadows of his campaign, forces determined to see the Empire's greatest military mind broken on the daemon-haunted surface of Arthas Moloch. As the fighting drives him toward that cursed world, Farsight is torn between unshakeable faith in the Greater Good and a creeping, monstrous understanding of what the galaxy truly is. The second novel of the Farsight trilogy.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "action_heavy",
+      "philosophical",
+      "grimdark",
+      "faith",
+      "doubt",
+      "hubris",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "T'au Empire",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Arthas Moloch",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Commander Farsight",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.89,
+      "count": 428,
+      "evidenceUrl": "https://www.goodreads.com/book/show/50891589-empire-of-lies"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

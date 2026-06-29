@@ -1,0 +1,126 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0483",
+  "slug": "blackstone-fortress",
+  "title": "Blackstone Fortress",
+  "authors": [
+    "Darius Hinks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Blackstone Fortress",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Janus Draik is a Rogue Trader who has spent his fortune chasing the kind of glory his father refuses to acknowledge. Disowned in all but name, he lingers on the space port of Precipice, a ramshackle outpost clinging to the side of an immense, ancient void-fortress that nobody truly understands. To save his name, Draik gathers an unlikely crew, the missionary Taddeus and his protege Vorne, the kroot tracker Grekh, the ratlings Rein and Raus, and his loyal companions Audus and Isola, and resolves not merely to plunder the Blackstone but to seize it for the Imperium. As the expedition pushes through halls that bend the mind and rooms that should not exist, Draik begins to fear that the Fortress is not being explored so much as it is choosing whom it will let inside.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "multi",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "mystery",
+      "journey",
+      "character_study",
+      "somber",
+      "cosmic_horror",
+      "hubris",
+      "doubt",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Rogue Traders",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      },
+      {
+        "name": "Kroot",
+        "role": "supporting"
+      },
+      {
+        "name": "Ratlings",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Precipice",
+        "role": "primary"
+      },
+      {
+        "name": "Blackstone Fortress",
+        "role": "primary"
+      },
+      {
+        "name": "Western Reaches",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Janus Draik",
+        "role": "pov"
+      },
+      {
+        "name": "Audus",
+        "role": "supporting"
+      },
+      {
+        "name": "Isola",
+        "role": "supporting"
+      },
+      {
+        "name": "Taddeus",
+        "role": "supporting"
+      },
+      {
+        "name": "Vorne",
+        "role": "supporting"
+      },
+      {
+        "name": "Grekh",
+        "role": "supporting"
+      },
+      {
+        "name": "Rein",
+        "role": "supporting"
+      },
+      {
+        "name": "Raus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 648,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42840234-blackstone-fortress"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

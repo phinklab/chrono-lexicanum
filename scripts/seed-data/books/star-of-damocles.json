@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0261",
+  "slug": "star-of-damocles",
+  "title": "Star of Damocles",
+  "authors": [
+    "Andy Hoare"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Rogue Trader",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Rogue trader Lucian Gerrit and his fractious dynasty are swept into a full Imperial crusade against the newly discovered tau, a war that carries the fleet across the desolate void of the Damocles Gulf to the very borders of the alien empire. Lucian sees opportunity where others see only heresy: the tau possess technologies the Imperium could turn to its own ends. But Cardinal Gurney and the fanatical Inquisitor Grand want the xenos exterminated to the last, and much of the campaign is fought not on the battlefield but in the crusade council's chambers, where ambition, faith, and treachery collide. As the human armada finds itself outnumbered and far from home, Lucian's cunning, and the wayward loyalty of his estranged daughter Brielle, may be all that stands between the crusade and disaster.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "court_intrigue",
+      "political_thriller",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Rogue Traders",
+        "role": "primary"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "supporting"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Damocles Gulf",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lucian Gerrit",
+        "role": "pov"
+      },
+      {
+        "name": "Brielle Gerrit",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisitor Grand",
+        "role": "antagonist"
+      },
+      {
+        "name": "Cardinal Gurney",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.32,
+      "count": 142,
+      "evidenceUrl": "https://www.goodreads.com/book/show/1001948.Star_of_Damocles"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

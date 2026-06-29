@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0220",
+  "slug": "child-of-chaos",
+  "title": "Child of Chaos",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Erebus, First Chaplain of the Word Bearers, sits in the ruins of an ancient temple on Davin and tells his own story without flinching from any of it. He speaks of a Colchisian childhood in a dust-blown village, of the ambition that drove him out of it, of the path that led him to the Ruinous Powers, and of the part he played in turning Lorgar — and through Lorgar, half the Legions of the Emperor — toward Chaos. The voice is calm, unrepentant, almost conversational: the testimony of a man entirely at peace with what he has chosen. There is no plea here, no bid for sympathy, no buried suggestion that some kinder reading might still redeem him. Erebus closes that door himself, as carefully as he closes any other.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "squad",
+      "standalone",
+      "novella",
+      "character_study",
+      "philosophical",
+      "grimdark",
+      "hubris",
+      "betrayal",
+      "faith",
+      "cw_violence",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Colchis",
+        "role": "primary"
+      },
+      {
+        "name": "Davin",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Erebus",
+        "role": "pov"
+      },
+      {
+        "name": "Lorgar",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "releaseYear",
+        "reason": "Roster lists 2017; Goodreads/Black Library record first publication in 2018 Events Anthology (later as a 2020 eShort)",
+        "suggestion": "2018"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.17,
+      "count": 143,
+      "evidenceUrl": "https://www.goodreads.com/book/show/53507713-child-of-chaos"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

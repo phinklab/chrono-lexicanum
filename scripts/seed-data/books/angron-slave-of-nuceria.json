@@ -1,0 +1,78 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0092",
+  "slug": "angron-slave-of-nuceria",
+  "title": "Angron: Slave of Nuceria",
+  "authors": [
+    "Ian St. Martin"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Now bearing the name of their primarch, the World Eaters are still recognisably the War Hounds the Emperor first raised — until Angron demands they remake themselves in his image and bolt the Butcher's Nails into their own skulls. Across two timeframes, the novel traces how that order is reached. In the present, the Legion debates a change that will rewrite what they are. In the past, the young Angron is dragged from his mountains into Nuceria's arenas to fight and die for the entertainment of the High Riders, slowly bonding with the other slaves chained beside him. The book lays out, in microcosm, the tragedy that becomes the Heresy.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "short",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "betrayal",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_abuse",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nuceria",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Angron",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.22,
+      "count": 1050,
+      "evidenceUrl": "https://www.goodreads.com/book/show/40593235-angron"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0316",
+  "slug": "blood-and-fire",
+  "title": "Blood and Fire",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the smoking aftermath of the war for Hive Helsreach, the Black Templars Chaplain Grimaldus answers an unexpected distress call from an old comrade. The Celestial Lions, like the Templars sons of Rogal Dorn, have been hunted to the edge of extinction, and they believe the Inquisition itself is engineering their destruction. Honour-bound to stand beside them against a relentless ork horde, Grimaldus must also weigh a far darker truth about the masters he serves. More reflective than the battles that came before it, this is a sombre tale of loyalty, brotherhood, and the uncomfortable secrets buried in the Imperium's wars.",
+    "facetIds": [
+      "book",
+      "novella",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "betrayal",
+      "loyalty",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Celestial Lions",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Grimaldus",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.11,
+      "count": 443,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18144177-blood-and-fire"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

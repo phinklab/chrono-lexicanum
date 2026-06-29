@@ -1,0 +1,140 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0020",
+  "slug": "the-primarchs",
+  "title": "The Primarchs",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2012,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Four novellas, one each for a primarch caught at a turning point of the war. Graham McNeill writes Fulgrim's senior captains watching their primarch unravel under a daemon's hand in The Reflection Crack'd. Nick Kyme rewinds to Ferrus Manus's earliest campaigns and the prophecy the Avenii Eldar try to leave with him in Feat of Iron. Gav Thorpe joins the Lion as the Dark Angels carve a planet apart hunting the World Eater Atramentar through the Iron Hands fortress of Perditus in The Lion. Rob Sanders sets Alpharius and Omegon hunting a hydra inside their own Legion's intelligence network in The Serpent Beneath. The collection trades the Heresy's set-piece battles for character pieces of the men leading them.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "dual",
+      "sector",
+      "mid_series",
+      "standard",
+      "character_study",
+      "war_story",
+      "mystery",
+      "court_intrigue",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "hubris",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "World Eaters",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Perditus",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fulgrim",
+        "role": "supporting"
+      },
+      {
+        "name": "Ferrus Manus",
+        "role": "supporting"
+      },
+      {
+        "name": "Lion El'Jonson",
+        "role": "supporting"
+      },
+      {
+        "name": "Alpharius",
+        "role": "supporting"
+      },
+      {
+        "name": "Omegon",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.6,
+      "count": 3551,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13258970-the-primarchs"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "HH-0117",
+        "displayOrder": 0,
+        "confidence": 0.85,
+        "basis": "The Primarchs anthology contains the four listed Primarchs novellas"
+      },
+      {
+        "externalBookId": "HH-0118",
+        "displayOrder": 1,
+        "confidence": 0.85,
+        "basis": "The Primarchs anthology contains the four listed Primarchs novellas"
+      },
+      {
+        "externalBookId": "HH-0119",
+        "displayOrder": 2,
+        "confidence": 0.85,
+        "basis": "The Primarchs anthology contains the four listed Primarchs novellas"
+      },
+      {
+        "externalBookId": "HH-0120",
+        "displayOrder": 3,
+        "confidence": 0.85,
+        "basis": "The Primarchs anthology contains the four listed Primarchs novellas"
+      }
+    ]
+  }
+}

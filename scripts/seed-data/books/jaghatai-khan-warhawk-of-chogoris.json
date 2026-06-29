@@ -1,0 +1,107 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0088",
+  "slug": "jaghatai-khan-warhawk-of-chogoris",
+  "title": "Jaghatai Khan: Warhawk of Chogoris",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ever since Chogoris was brought back into the fold, the White Scars' culture of warrior-mysticism has fitted badly against the cold rationality of the Imperial Truth. Jaghatai Khan would rather his Legion be left alone to ride at the edge of the Crusade, but the question of psychic power in the Astartes will not let him. As the Librarius project takes shape, his brothers Sanguinius and Magnus press him to take a side, and his own Legion's senior captains begin to fracture along the same line. The book is told as a string of discrete episodes ranging from a vicious campaign against the xenos Nephilim to a return to Chogoris itself and on to the great triumph at Ullanor, with Targutai Yesugei and Hasik Khan carrying much of the weight when the primarch's gaze is elsewhere.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "space_marine",
+      "male",
+      "imperium",
+      "sector",
+      "standalone",
+      "short",
+      "war_story",
+      "character_study",
+      "journey",
+      "philosophical",
+      "action_heavy",
+      "somber",
+      "loyalty",
+      "doubt",
+      "brotherhood",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "Nephilim",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Chogoris",
+        "role": "primary"
+      },
+      {
+        "name": "Ullanor",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jaghatai Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Targutai Yesugei",
+        "role": "pov"
+      },
+      {
+        "name": "Hasik Khan",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.03,
+      "count": 1060,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36373731-jaghatai-khan"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

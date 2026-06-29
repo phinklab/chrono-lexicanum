@@ -1,0 +1,113 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0044",
+  "slug": "sabbat-crusade",
+  "title": "Sabbat Crusade",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2014,
+  "format": "anthology",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The second Sabbat Worlds anthology, edited by Dan Abnett and published by Black Library in 2014, expands the Crusade-anthology format with new fiction from Dan Abnett, Aaron Dembski-Bowden, Nick Kyme, Nik Vincent, John French, Rob Sanders, Matthew Farrer and David Annandale. Abnett contributes four Tanith First pieces — 'Family', 'You Never Know', 'Ghosts and Bad Shadows' and 'A Ghost Return' — that fill in regimental gaps between Salvation's Reach and the Victory arc. John French's 'Son of Sek' centres the rising Anarch infantry tier as a strategic threat; Aaron Dembski-Bowden's 'Arnogaur' explores the Blood Pact officer corps from the inside; Nick Kyme's 'Tempest' returns to the Phantine theatre; Nik Vincent's 'Viduity' and David Annandale's 'The Deeper Wounds' run smaller-scale Crusade-civilian and trooper-level threads. The anthology sits chronologically across the late-Saint and early-Victory arcs, with the Sirkle-style internal-Imperium conspiracy and the Sek/Innokenti Archenemy split as recurring framing concerns.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "guardsman",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "supporting"
+      },
+      {
+        "name": "Belladon",
+        "role": "supporting"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sons of Sek",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sabbat Worlds",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Mabbon Etogaur",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

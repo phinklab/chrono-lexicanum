@@ -1,0 +1,119 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0006",
+  "slug": "ravenor-returned",
+  "title": "Ravenor Returned",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+  "series": "ravenor",
+  "seriesIndex": 2,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ravenor is stripped of Inquisitorial sanction by his own peer Lilean Chase and continues the Flects/Slyte case unofficially, hidden in a slum quarter of Petropolis on Eustis Majoris. He works dark, recruits a renegade-Inquisitor's hag, and chases a daemonic pre-emergence prophecy: a creature called Slyte will be born from within his own retinue. The hunt brings him face to face with Zygmunt Molotch, the heretic he once thought dead, and forces him to make peace with the fact that the official Inquisition is now hunting him as hard as he is hunting Slyte. The book closes one case and opens a year-long siege between Ravenor's people and the daemon they have carried with them since Ravenor opened.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eustis Majoris",
+        "role": "primary"
+      },
+      {
+        "name": "Petropolis",
+        "role": "primary"
+      },
+      {
+        "name": "Scarus Sector",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gideon Ravenor",
+        "role": "pov"
+      },
+      {
+        "name": "Harlon Nayl",
+        "role": "supporting"
+      },
+      {
+        "name": "Kara Swole",
+        "role": "supporting"
+      },
+      {
+        "name": "Patience Kys",
+        "role": "supporting"
+      },
+      {
+        "name": "Carl Thonius",
+        "role": "supporting"
+      },
+      {
+        "name": "Wystan Frauka",
+        "role": "supporting"
+      },
+      {
+        "name": "Zael Efferneti",
+        "role": "supporting"
+      },
+      {
+        "name": "Zygmunt Molotch",
+        "role": "supporting"
+      },
+      {
+        "name": "Lilean Chase",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

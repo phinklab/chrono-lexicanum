@@ -1,0 +1,104 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0052",
+  "slug": "courage-and-honour",
+  "title": "Courage and Honour",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "novel",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Captain Uriel Ventris returns to Pavonis, the mercantile world where his career began in Nightbringer, to defend it against an invasion by the Tau Empire. Shas'O Or'es'ka'an leads the Hunter Cadre's military arm; the Water-Caste envoy Aun'rai conducts the diplomatic infiltration through Pavonis's reduced governing cabinet. The 4th Company fights alongside Lord Winterbourne's Imperial Guard regiment as the Tau split-strike encircles the spires of the planetary capital. The Tau political wing tries to win the world on the terms of the Greater Good while their military wing breaks one Imperial line after another. Uriel carries the Sword of Calth, a chapter-relic blade, into the climactic battle. By the close, the Tau are driven off-world but at heavy cost, and Uriel's stature as a chapter exemplar is reset up for the chapter-scale war that follows in The Chapter's Due.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "political_thriller",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Pavonis",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriel Ventris",
+        "role": "pov"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "supporting"
+      },
+      {
+        "name": "Shas'O Or'es'ka'an",
+        "role": "supporting"
+      },
+      {
+        "name": "Aun'rai",
+        "role": "supporting"
+      },
+      {
+        "name": "Lord Winterbourne",
+        "role": "supporting"
+      },
+      {
+        "name": "Mykola Shonai",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

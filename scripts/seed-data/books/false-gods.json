@@ -1,0 +1,102 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0002",
+  "slug": "false-gods",
+  "title": "False Gods",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After Ullanor, Horus rides the wave of his own glory and his Legion bleeds for it. When a ritual duel on the feral world of Davin leaves the Warmaster mortally wounded, the Word Bearers chaplain Erebus and a serpent-lodge of native priests have him carried to a sealed temple, where a long spirit-walk through the warp shows Horus a future in which the Emperor of Mankind has discarded the species he built. Horus rises restored in body, broken in faith. Garviel Loken senses the change before he can name it. The Mournival splinters; old brothers begin to speak in coded loyalties; an entire Crusade quietly bends toward the conflagration to come.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "character_study",
+      "philosophical",
+      "grimdark",
+      "cosmic_horror",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Luna Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Davin",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Horus",
+        "role": "pov"
+      },
+      {
+        "name": "Garviel Loken",
+        "role": "pov"
+      },
+      {
+        "name": "Erebus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tarik Torgaddon",
+        "role": "supporting"
+      },
+      {
+        "name": "Ezekyle Abaddon",
+        "role": "supporting"
+      },
+      {
+        "name": "Horus Aximand",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.15,
+      "count": 28641,
+      "evidenceUrl": "https://www.goodreads.com/book/show/381817.False_Gods"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

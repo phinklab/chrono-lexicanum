@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0105",
+  "slug": "the-passing-of-angels",
+  "title": "The Passing of Angels",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "short_story",
+  "seriesHint": "Primarchs Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When a world refuses the Imperial Truth and turns to weapons no civilised power should still possess, the duty of bringing it to compliance falls to the Blood Angels. Sanguinius calls forward the Legion's Destroyer Host, the executioners who fight behind faceless death-masks so that the deeds they perform need not follow them home. As his sons burn the proscribed arsenal from the earth, only the primarch himself stands bare-faced before the slaughter, taking each soul into the ledger of his own conscience. Set during the Great Crusade, the piece trades on the contradiction at the centre of Sanguinius — the most luminous of his father's sons, asked to wield the legion's darkest tools — and on a brief, unsettling exchange with Horus that hints at battles yet to come.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "philosophical",
+      "somber",
+      "grimdark",
+      "doubt",
+      "sacrifice",
+      "faith",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Sanguinius",
+        "role": "pov"
+      },
+      {
+        "name": "Horus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.9,
+      "count": 134,
+      "evidenceUrl": "https://www.goodreads.com/book/show/44130002"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

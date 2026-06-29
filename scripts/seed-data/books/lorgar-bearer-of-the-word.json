@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0085",
+  "slug": "lorgar-bearer-of-the-word",
+  "title": "Lorgar: Bearer of the Word",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Long before the Emperor finds him, Lorgar is a strange, golden-skinned child wandering the arid wastes of Colchis with a band of nomads. The disgraced priest Kor Phaeron takes him in for what he can extract from him, and raises him as the centrepiece of a new doctrine that will sweep aside Colchis's exhausted faiths. The Brotherhood of Lorgar grows from a heretical sect into a religious war that rewrites the planet. Through it all the young primarch is haunted by visions of a stranger from the stars who he knows, in his bones, is coming for him. The slave Nairo offers him the only voice that competes with Kor Phaeron's, and Lorgar must find his own footing between the man who made him and the future he can already see.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "civilian",
+      "male",
+      "neutral",
+      "planetary",
+      "standalone",
+      "short",
+      "character_study",
+      "war_story",
+      "court_intrigue",
+      "philosophical",
+      "somber",
+      "faith",
+      "doubt",
+      "hubris",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "cw_abuse",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Covenant of Colchis",
+        "role": "primary"
+      },
+      {
+        "name": "Brotherhood of Lorgar",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Colchis",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lorgar",
+        "role": "pov"
+      },
+      {
+        "name": "Kor Phaeron",
+        "role": "pov"
+      },
+      {
+        "name": "Nairo",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.76,
+      "count": 1102,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36330743-lorgar"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

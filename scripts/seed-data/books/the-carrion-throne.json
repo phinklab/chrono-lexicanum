@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0456",
+  "slug": "the-carrion-throne",
+  "title": "The Carrion Throne",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Vaults of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Pilgrims pour into Terra by the millions as the sacred festival of Sanguinala approaches, and the underhives of the throneworld bloat with them. Among the pious masses, a cult worshipping a being called the False Angel has begun to take root. Inquisitor Erasmus Crowl of the Ordo Hereticus follows the rot down through forgotten levels, dragging with him a freshly-assigned acolyte — Interrogator Luce Spinoza, severe, idealistic, and entirely unconvinced by her new master's quiet methods. The deeper they push, the more they realise that the cult is merely the surface of something much worse: a conspiracy that lifts the carpet on the Imperium's highest offices, and on the Inquisition itself. Heretics close in. So do xenos. So do men with credentials that ought to forbid their presence here. As the festival's processions swell across the Palatine districts, Crowl and Spinoza race a clock no one but they can see — and circle a truth that, if ever spoken aloud, would not survive the speaking.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "mixed",
+      "inquisitor",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "court_intrigue",
+      "character_study",
+      "grimdark",
+      "philosophical",
+      "somber",
+      "faith",
+      "doubt",
+      "betrayal",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_stigma",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Hereticus",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Erasmus Crowl",
+        "role": "pov"
+      },
+      {
+        "name": "Luce Spinoza",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.16,
+      "count": 2524,
+      "evidenceUrl": "https://www.goodreads.com/book/show/30753525-the-carrion-throne"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

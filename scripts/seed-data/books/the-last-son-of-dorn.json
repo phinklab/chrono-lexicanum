@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0423",
+  "slug": "the-last-son-of-dorn",
+  "title": "The Last Son of Dorn",
+  "authors": [
+    "David Guymer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "The Beast Arises",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Imperium stands at its darkest hour. Its fleets are shattered, its armies bled white, and the ork warlord known as the Beast still reigns over a captured world that was once a monument to humanity's triumph. With open battle proving hopeless, Lord Commander Koorland stakes everything on a single audacious strike — sending his new Deathwatch kill-teams and the silent witch-hunters of the Sisters of Silence deep into the enemy's domain. As the last living son of Rogal Dorn, Koorland carries the weight of a legend that demands he never falter, and this gambit will decide whether mankind survives or is finally extinguished beneath the greenskin tide. Everything the war has been building toward turns on what happens next.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "short",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Deathwatch",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ullanor",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Koorland",
+        "role": "pov"
+      },
+      {
+        "name": "Drakan Vangorich",
+        "role": "supporting"
+      },
+      {
+        "name": "The Beast",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.76,
+      "count": 505,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29430536-the-last-son-of-dorn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -230,8 +230,20 @@ function loadInputs(p: LoadPaths): DecideInput {
 }
 
 function main(): void {
-  const result = decideNextBatch(loadInputs(parseArgs(process.argv)));
-  console.log(JSON.stringify(result, null, 2));
+  // RETIRED (Brief 171 Teil B): the batch/slot/loop:next dance is gone — the
+  // corpus lives in scripts/seed-data/books/*.json and new books are scaffolded
+  // there directly (scripts/seed-data/books/README.md + add-book-runbook.md). The
+  // pure `decideNextBatch` core stays exported (the unit test still covers it),
+  // but the CLI refuses. `book-roster.json` + the batches are frozen provenance.
+  console.error(
+    [
+      "[loop:next] RETIRED (Brief 171). No more batch/slot allocation.",
+      "  New books go directly into scripts/seed-data/books/<slug>.json",
+      "  (see scripts/seed-data/books/README.md + scripts/runbooks/add-book-runbook.md).",
+      "  Next free id (folder-only): npm run book:preflight  (prints the per-prefix max).",
+    ].join("\n"),
+  );
+  process.exit(1);
 }
 
 /**

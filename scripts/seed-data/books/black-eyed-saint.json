@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0525",
+  "slug": "black-eyed-saint",
+  "title": "Black-Eyed Saint",
+  "authors": [
+    "Dale Lucas"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A girl stumbles half-dead across the moors and tells the strangers who shelter her of Calignius — a smog-shrouded mining town high in the Blood-Rock Peaks, gripped by a strange epidemic and the slow, watchful sway of a forlorn-looking statue at its centre. Runar Skoldolfr, a hunter, and Tiberius Grim, a veteran priest of Sigmar, lead a small expedition into the haunted vales to answer her plea. What they find is a settlement ruled by old fears and louder fanaticism — friendships souring, faith boiling into anguish, long-buried nightmares stirring under the streets. Separated and isolated, hunter and priest learn there are far worse fates than death, and must find a way to stand together against the daemons that have set themselves between them.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "neutral",
+      "planetary",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "mystery",
+      "journey",
+      "faith",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "cw_mental_health",
+      "standard",
+      "mid_series",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Calignius",
+        "role": "primary"
+      },
+      {
+        "name": "Blood-Rock Peaks",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Runar Skoldolfr",
+        "role": "pov"
+      },
+      {
+        "name": "Tiberius Grim",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "domain",
+        "suggestion": "age_of_sigmar",
+        "note": "Roster places this in the W40K domain, but Black-Eyed Saint is an Age of Sigmar novel and the third entry in Dale Lucas' Tales of Mhurghast series"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.04,
+      "count": 76,
+      "evidenceUrl": "https://www.goodreads.com/book/show/65640680-black-eyed-saint"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

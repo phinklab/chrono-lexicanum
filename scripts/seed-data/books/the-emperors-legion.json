@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0452",
+  "slug": "the-emperors-legion",
+  "title": "The Emperor's Legion",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Watchers of the Throne",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Cadia has fallen. The Cicatrix Maledictum has torn the galaxy in two, and Terra reels under the shock of psykers awakening and warp-storms tearing at her sky. Three sets of eyes track the crisis. Valerian, of the Adeptus Custodes, stalks the lower vaults of the Imperial Palace where things never meant to walk among men have begun to stir. Tanau Aleya, a Sister of Silence, is recalled with her order from a millennium of self-imposed exile to face the daemonic tide. And Aleksei Lev Tieron, chancellor of the Senatorum Imperialis, fights a quieter war in the council chambers — pleading with the Lord of Terra to lift an ancient edict and unleash the Imperium's strongest weapons before the throneworld is overrun. As a daemonic incursion bursts into the Palace itself, the three threads converge: the Custodian and the Null-maiden race to thwart a Black Legion plot to sever Terra from the warp's last conduits, and a returning Primarch sets foot once more on the holy soil his father trod.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "ensemble",
+      "custodes",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "court_intrigue",
+      "grimdark",
+      "action_heavy",
+      "philosophical",
+      "war",
+      "faith",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Sisters of Silence",
+        "role": "primary"
+      },
+      {
+        "name": "High Lords of Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Luna",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Valerian",
+        "role": "pov"
+      },
+      {
+        "name": "Tanau Aleya",
+        "role": "pov"
+      },
+      {
+        "name": "Aleksei Lev Tieron",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.29,
+      "count": 2661,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32861039-the-emperor-s-legion"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

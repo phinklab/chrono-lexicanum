@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0045",
+  "slug": "tallarn",
+  "title": "Tallarn",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "anthology",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Perturabo brings the Iron Warriors down on the agri-world of Tallarn and, in a single act of spite, poisons the surface so utterly that the survivors must fight from inside their tanks. What follows is the largest armoured engagement in the history of the Imperium: dreadnoughts, tank squadrons and Titans grinding across a dead landscape while embedded crews ration air and watch the dosimeter. Threaded through the carnage is the silent war of the Vanus operative Iaeo, who plays her own games against an Alpha Legion infiltration that has been seeded into the planet's soldiery long before the bombardment. Collecting the novellas and short fiction John French has built around the battle, the volume reveals that Perturabo did not come to Tallarn for vengeance alone — he came hunting something buried, and the Black Oculus knows his name.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "mixed",
+      "multi",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Warriors",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Army",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tallarn",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Perturabo",
+        "role": "antagonist"
+      },
+      {
+        "name": "Iaeo",
+        "role": "pov"
+      },
+      {
+        "name": "Hrend",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.75,
+      "count": 1370,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35150631-tallarn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0211",
+  "slug": "the-grey-raven",
+  "title": "The Grey Raven",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Balsar Kurthuri, Chief Librarian of the Raven Guard, has always answered the call of his primarch Corax. He returned to the line squads without complaint when the Edict of Nikaea silenced the Legion's psykers, and unsheathed those same powers again when Horus turned traitor. Summoned back to Terra to stand before the Sigillite Malcador for the apparent crime of unswerving loyalty, Kurthuri arrives in the company of Imperial Fists captain Noriz and the Custodian Arcatus Vindix Centurio. The reception is not what he expected: the moment he steps onto Terran soil, emergency protocols snap into place and the Custodes turn their blades on him. With nothing left but flight, the librarian must elude his pursuers across the cradle of humanity without striking back at warriors he still considers brothers in the Emperor's cause.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "character_study",
+      "somber",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Balsar Kurthuri",
+        "role": "pov"
+      },
+      {
+        "name": "Arcatus Vindix Centurio",
+        "role": "antagonist"
+      },
+      {
+        "name": "Noriz",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.58,
+      "count": 112,
+      "evidenceUrl": "https://www.goodreads.com/book/show/33287171-the-grey-raven"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

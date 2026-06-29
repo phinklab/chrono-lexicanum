@@ -1,0 +1,75 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0309",
+  "slug": "endeavour-of-will",
+  "title": "Endeavour of Will",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Iron Warriors fall upon the Imperial Fists without warning, crippling one of the Chapter's great starforts in a single savage stroke. Captain Darnath Lysander pulls his surviving warriors back to a second stronghold, the Endeavour of Will, to ride out the assault, but the enemy's true weapon is not their guns. As the Iron Warriors' methods come to light, Lysander realises that a creeping techno-contagion threatens to spread through the Imperial Fists' fleet and far beyond it. With time running out, hard and unforgiving choices must be made to keep the corruption from taking hold.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "siege",
+      "last_stand",
+      "war_story",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "novella",
+      "standalone",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Darnath Lysander",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.77,
+      "count": 71,
+      "evidenceUrl": "https://www.goodreads.com/book/show/12725797-endeavour-of-will"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

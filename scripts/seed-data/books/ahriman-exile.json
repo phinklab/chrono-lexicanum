@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0369",
+  "slug": "ahriman-exile",
+  "title": "Ahriman: Exile",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Ahriman",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ahriman, once chief sorcerer of the Thousand Sons, is the architect of the Rubric — the catastrophic spell that doomed his beloved Legion to crumble into dust. Broken by guilt and hunted by his own former brothers, he wanders the Eye of Terror under a false name, reduced to a servant of a Traitor Space Marine warband. But sorcery does not release its masters so easily. Drawn back to the powers of Tzeentch and joined by the renegade Librarian Astraeos, Ahriman begins to gather a following and to plot his return — even as the relentless Inquisitor Iobel closes in on his trail. A dark, introspective study of one of the galaxy's most notorious villains, and the long road of a man who cannot stop trying to undo his greatest mistake.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "series_start",
+      "standard",
+      "character_study",
+      "journey",
+      "grimdark",
+      "philosophical",
+      "cosmic_horror",
+      "redemption",
+      "hubris",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ahriman",
+        "role": "pov"
+      },
+      {
+        "name": "Astraeos",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisitor Iobel",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ctesias",
+        "role": "supporting"
+      },
+      {
+        "name": "Carmenta",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.81,
+      "count": 1255,
+      "evidenceUrl": "https://www.goodreads.com/book/show/16130683-ahriman"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

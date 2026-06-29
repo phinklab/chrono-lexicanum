@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0084",
+  "slug": "dark-hunters-umbra-sumus",
+  "title": "Dark Hunters: Umbra Sumus",
+  "authors": [
+    "Paul Kearney"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Series-start Dark Hunters novel. The chapter — a White-Scars successor whose silent-hunting doctrine descends from the Sahrmatae of homeworld Phobian — repulses a Chaos raid that turns out to be a feint. The real campaign is on Ras Hanem, where the Punishers, a warband the chapter believed destroyed years before, have returned for vengeance and are marauding its hive cities. Captain Jonah Kerne of Mortai Company leads the response: a slow-burning pursuit through fortified districts, joint-arms with PDF and Imperial Guard, and a decapitation strike at the warband's command. A grim chapter-portrait that closes on the motto's literal meaning — we are the shadow.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "series_start",
+      "standard",
+      "war_story",
+      "character_study",
+      "siege",
+      "journey",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Hunters",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Punishers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Phobian",
+        "role": "primary"
+      },
+      {
+        "name": "Ras Hanem",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jonah Kerne",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

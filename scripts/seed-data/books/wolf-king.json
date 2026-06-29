@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0131",
+  "slug": "wolf-king",
+  "title": "Wolf King",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Reeling from the burning of Prospero and the loss of much of their fleet, Leman Russ and his Space Wolves take shelter in the rust-red clouds of the Alaxxes nebula — only to find that the Alpha Legion has been hunting them since they arrived. Outmaneuvered at every turn and abandoned by the White Scars they once called allies, the Rout face annihilation among the dust-laden gas streams. Bjorn and his brothers hunger to bring the fight to their persecutors, but the Wolf King retreats into himself, brooding alone on a war his Legion was never meant to lose. When an unexpected guest steps into Russ's chamber, the Primarch is forced to a decision that will reshape what the Sons of Russ become — and bridges the gap between the earlier Scars and the wider road toward Vengeful Spirit.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "novella",
+      "war_story",
+      "last_stand",
+      "character_study",
+      "grimdark",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Alaxxes Nebula",
+        "role": "primary"
+      },
+      {
+        "name": "Prospero",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Leman Russ",
+        "role": "pov"
+      },
+      {
+        "name": "Bjorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.95,
+      "count": 459,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/26803470-wolf-king"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

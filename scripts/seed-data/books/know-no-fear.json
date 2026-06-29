@@ -1,0 +1,110 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0019",
+  "slug": "know-no-fear",
+  "title": "Know No Fear",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Roboute Guilliman musters his Five Hundred Worlds for what he believes will be a campaign against orks in Veridia, with the Word Bearers riding alongside as allies. Instead, on a single afternoon at Calth, Lorgar's Legion executes the most devastating treacherous strike of the Heresy: orbital ships gut the Ultramarines fleet, ritualists raise daemons through wounds torn in the warp, and the system's own star is wrenched out of true. Told in clipped present-tense reports from sergeants, captains, deck officers and the primarch himself, the novel follows Guilliman as he scrambles to organise an underground war from below Calth's poisoned skies and to turn what the Word Bearers meant as annihilation into the Ultramarines' first defiant stand.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cosmic_horror",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calth",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      },
+      {
+        "name": "Veridia",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "pov"
+      },
+      {
+        "name": "Remus Ventanus",
+        "role": "pov"
+      },
+      {
+        "name": "Lorgar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Kor Phaeron",
+        "role": "antagonist"
+      },
+      {
+        "name": "Erebus",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.3,
+      "count": 8105,
+      "evidenceUrl": "https://www.goodreads.com/book/show/11797636-know-no-fear"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

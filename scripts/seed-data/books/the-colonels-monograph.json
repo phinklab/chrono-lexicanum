@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0500",
+  "slug": "the-colonels-monograph",
+  "title": "The Colonel's Monograph",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novella",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Retired Imperial archivist Teresina Sullo accepts a private commission to catalogue the library of celebrated war hero Colonel Elena Grayloc, who returned from a long campaign only to die at her ancestral seat under circumstances no one will quite explain. Working alone in mist-shrouded Grayloc Manor at Vansen Falls, Sullo finds herself increasingly fixated on a single missing volume — a monograph said to contain the colonel's own account of an event called the Dawn of the Dark Suns. The deeper she digs, the more certain she becomes that the colonel's heroic legend conceals something darker, and the less certain she is whether what answers her in the manor is her own imagination or something worse.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "character_study",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "philosophical",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vansen Falls",
+        "role": "primary"
+      },
+      {
+        "name": "Grayloc Manor",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Teresina Sullo",
+        "role": "pov"
+      },
+      {
+        "name": "Elena Grayloc",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.97,
+      "count": 138,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/48735819"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0410",
+  "slug": "farsight",
+  "title": "Farsight",
+  "authors": [
+    "Phil Kelly"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "novella",
+  "seriesHint": "Farsight",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the young and gifted Commander Farsight is chosen to lead a crusade across the Damocles Gulf, the T'au Empire expects an easy reconquest of its lost colonies. With a mighty fleet and weapons beyond anything their foes can muster, failure seems impossible. Yet behind a parade of early victories, Farsight finds enemies he never anticipated: the brutal, uncompromising armies of mankind, the unsettling secrets carried within his own expedition, and a darkness that preys on the certainties of the Greater Good. As the campaign grinds on, his courage, his loyalty, and his very soul are tested to breaking. A rare look at the grim galaxy through xenos eyes, and the making of one of the T'au's greatest and most dangerous heroes.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "series_start",
+      "standard",
+      "war_story",
+      "journey",
+      "political_thriller",
+      "action_heavy",
+      "philosophical",
+      "faith",
+      "doubt",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "T'au Empire",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Damocles Gulf",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Farsight",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "novel",
+        "reason": "Roster lists format=novella; Lexicanum and the ~816-rating Goodreads work present Farsight: Crisis of Faith as a full-length novel."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.74,
+      "count": 816,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35150711-crisis-of-faith"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

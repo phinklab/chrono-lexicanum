@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0151",
+  "slug": "wolf-at-the-door",
+  "title": "Wolf at the Door",
+  "authors": [
+    "Mike Lee"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Space Wolves' 13th Great Company, under Lord Bulveye, completes the conquest of Kernunnos and answers a muster call from the rest of the Legion. En route, Bulveye diverts to investigate a world hidden by warp storms, where the governor's son Andras has invited the Wolves without authority. When the Dark Eldar of the Kabal of the Shrieking Heart arrive for their regular tribute and destroy the Space Wolves' fleet, the company is stranded. Bulveye leads guerrilla raids from the wilderness, eventually storming a Dark Eldar tower and slaying their Archon. The relief fleet arrives to drive the raiders off, but compliance still demands a price: when Andras refuses to join the Imperium, Bulveye executes him and orders the world bombarded from orbit.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "planetary",
+      "standalone",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "loyalty",
+      "war",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kernunnos",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Bulveye",
+        "role": "pov"
+      },
+      {
+        "name": "Andras",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.97,
+      "count": 214,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27419075-wolf-at-the-door"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

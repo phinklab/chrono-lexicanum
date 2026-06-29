@@ -1,0 +1,110 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0473",
+  "slug": "minka-lesk-the-last-whiteshield",
+  "title": "Minka Lesk: The Last Whiteshield",
+  "authors": [
+    "Justin D. Hill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Cadia",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Five linked stories trace Minka Lesk's path from frightened recruit to seasoned officer of the Cadian Shock. The collection opens as the Thirteenth Black Crusade breaks Cadia and a teenage Whiteshield fights for survival among the ruins of the only home she has ever known. It follows her through the painful task of carrying Cadian honour to a fallen Ecclesiarchy world, where rot in the faith proves as dangerous as any traitor, and into the grinding stalemate of Crannog Mons, where her 101st must end a siege that has already broken better regiments. Across each story the question is the same: what becomes of a soldier whose homeworld no longer exists?",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "sector",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "brotherhood",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Shock",
+        "role": "primary"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Traitor Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cadia",
+        "role": "primary"
+      },
+      {
+        "name": "Crannog Mons",
+        "role": "supporting"
+      },
+      {
+        "name": "Malouri",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Minka Lesk",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "collection",
+        "reason": "Roster lists format as novel; Black Library and Goodreads describe the title as a single-author omnibus collecting three novels (Cadia Stands, Cadian Honour, Traitor Rock) and two short stories (The Place of Pain and Healing, The Battle of Markgraaf Hive)."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.91,
+      "count": 104,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/138538490-minka-lesk"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

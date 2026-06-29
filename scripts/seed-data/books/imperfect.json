@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0190",
+  "slug": "imperfect",
+  "title": "Imperfect",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After his ascension to daemonhood, Fulgrim plays a quiet, monstrous game in the depths of an Emperor's Children flagship. A clone of Ferrus Manus, grown for him in Fabius's laboratory, sits across the regicide board and faces every argument and seduction the daemon-primarch can muster. When the clone refuses, as every clone before has refused, Fulgrim kills him and begins again. He hunts through a thousand variant Ferruses for the one whose loyalty might bend toward the Warmaster, and finds none. The cost of asking is something madder and emptier with every attempt, and the depths beneath the laboratory grow steadily, terribly fuller.",
+    "facetIds": [
+      "book",
+      "male",
+      "daemon",
+      "chaos",
+      "squad",
+      "requires_context",
+      "character_study",
+      "mystery",
+      "cosmic_horror",
+      "grimdark",
+      "philosophical",
+      "hubris",
+      "doubt",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Fulgrim",
+        "role": "pov"
+      },
+      {
+        "name": "Ferrus Manus",
+        "role": "supporting"
+      },
+      {
+        "name": "Fabius Bile",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.77,
+      "count": 180,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24478292-imperfect"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

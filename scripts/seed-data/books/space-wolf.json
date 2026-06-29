@@ -1,0 +1,125 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0152",
+  "slug": "space-wolf",
+  "title": "Space Wolf",
+  "authors": [
+    "William King"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 1999,
+  "format": "novel",
+  "seriesHint": "Space Wolves (original)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On Fenris, Ragnar of the Thunderfist tribe is left dying after Strybjorn Grimskull destroys his family and his world. The Space Wolves take both enemies to the Fang, where gene-seed trials, Blood Claw brutality and Wolf Priest Ranek's discipline turn tribal fury into Chapter loyalty. Ragnar's hatred of Strybjorn has to survive pack-bond, war and the Curse of the Wulfen, especially when his friend Kjel falls to the beast within. A harsh coming-of-age saga of ice, blood-feud and the making of Ragnar Blackmane.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "character_study",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "betrayal",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Marines",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Thunderfist tribe",
+        "role": "primary"
+      },
+      {
+        "name": "Grimskull tribe",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "primary"
+      },
+      {
+        "name": "The Fang",
+        "role": "primary"
+      },
+      {
+        "name": "Asaheim",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ragnar Blackmane",
+        "role": "pov"
+      },
+      {
+        "name": "Ragnar Thunderfist",
+        "role": "pov"
+      },
+      {
+        "name": "Strybjorn Grimskull",
+        "role": "supporting"
+      },
+      {
+        "name": "Sven Brujothirson",
+        "role": "supporting"
+      },
+      {
+        "name": "Kjel",
+        "role": "supporting"
+      },
+      {
+        "name": "Ranek",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

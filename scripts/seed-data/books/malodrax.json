@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0291",
+  "slug": "malodrax",
+  "title": "Malodrax",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Captain Darnath Lysander of the Imperial Fists once endured captivity on Malodrax, a daemon-haunted world ruled by the Iron Warriors. Now, on the orders of his Chapter Master, he must return at the head of a strike force to raze the fortress of Warsmith Kraegon Thul — a final test before he can reclaim his rank as First Captain. As the Imperial Fists fight their way across a planet that warps flesh and mind alike, Lysander relives the ordeal of his imprisonment and the desperate bargain that bought his escape. An older expedition by an Inquisitor threads through the tale, hinting at secrets Malodrax has kept for centuries. Success means redemption; failure means death — and Lysander must keep the cost of his survival hidden from the brothers who fight at his side.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Malodrax",
+        "role": "primary"
+      },
+      {
+        "name": "Kulgarde",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Darnath Lysander",
+        "role": "pov"
+      },
+      {
+        "name": "Kraegon Thul",
+        "role": "antagonist"
+      },
+      {
+        "name": "Corvin Golrukhan",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.46,
+      "count": 217,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17571832"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

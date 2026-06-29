@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0187",
+  "slug": "shadow-point",
+  "title": "Shadow Point",
+  "authors": [
+    "Gordon Rennie"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2003,
+  "format": "novel",
+  "seriesHint": "The Gothic War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Shadow Point keeps Captain Leoten Sempter and the crew of the Lord Solar Macharius inside the Gothic War as the Imperial Navy tries to turn survival into counterattack. The campaign narrows around Shadow Point, a strategic chokepoint that must be held or retaken before Abaddon's fleet can dictate the war, while the Planet Killer remains the threat every order is shaped around. The planned third novel never arrived, so this sequel carries the duology's closing weight: naval engagements, attritional command choices, and the melancholy of a war whose final battle happens beyond the page.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "sector",
+      "series_finale",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "war",
+      "sacrifice",
+      "hubris",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Navy",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gothic Sector",
+        "role": "primary"
+      },
+      {
+        "name": "Shadow Point",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Captain Leoten Sempter",
+        "role": "pov"
+      },
+      {
+        "name": "Abaddon the Despoiler",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

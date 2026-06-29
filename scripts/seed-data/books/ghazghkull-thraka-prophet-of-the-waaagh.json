@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0558",
+  "slug": "ghazghkull-thraka-prophet-of-the-waaagh",
+  "title": "Ghazghkull Thraka: Prophet of the Waaagh!",
+  "authors": [
+    "Nate Crowley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Ghazghkull Thraka",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A radical Ordo Xenos inquisitor named Falx has captured a grot calling himself Makari, the personal banner-bearer of Ghazghkull Mag Uruk Thraka — the warlord whose Waaagh! has eaten worlds. Across the length of a long, distrustful interrogation, Makari pours out the warlord's story: a runt of a beast on a green moon, a head injury, a series of visions, a procession of larger and louder orks who somehow keep ending up dead at the right moment. Inquisitor Falx and her retinue listen, argue, drink, and slowly come unstuck — because if any of what Makari is saying is true, the orks are not the brute, dying species the Imperium has insisted on for centuries. Nate Crowley's Ghazghkull novel uses the interrogation as a back door into ork psychology, ork theology, and the uncomfortable possibility that the Beast was made, not born.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "dual",
+      "galactic",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "philosophical",
+      "satirical",
+      "grimdark",
+      "hubris",
+      "doubt",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ullanor",
+        "role": "supporting"
+      },
+      {
+        "name": "Armageddon",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Makari",
+        "role": "pov"
+      },
+      {
+        "name": "Falx",
+        "role": "pov"
+      },
+      {
+        "name": "Ghazghkull Mag Uruk Thraka",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.3,
+      "count": 1648,
+      "evidenceUrl": "https://www.goodreads.com/book/show/58272429-ghazghkull-thraka"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

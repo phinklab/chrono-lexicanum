@@ -1,0 +1,74 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0494",
+  "slug": "invocations",
+  "title": "Invocations",
+  "authors": [
+    "Lora Gray"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The second Warhammer Horror anthology gathers twelve short tales from ten authors, set across both the 41st millennium and the Mortal Realms. An Imperial priest extracts a monstrous confession; a widower embarks on a doomed pilgrimage; a witch hunter returns to a place of nightmares. From abandoned medicae facilities and frostbitten Imperial outposts to ghostly castle dungeons in the realms of Sigmar, the contributors — David Annandale, Lora Gray, Steven Sheil, Richard Strachan, Jake Ozga, C L Werner, Ray Cluley, Justin D Hill, Nick Kyme, and Peter McLean — reach for everything from creeping cosmic horror to outright body horror.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "faith",
+      "doubt",
+      "betrayal",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "anthology"
+      },
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": "multi-author (Annandale, Gray, Sheil, Strachan, Ozga, Werner, Cluley, Hill, Kyme, McLean)"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.9,
+      "count": 178,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/49921986"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

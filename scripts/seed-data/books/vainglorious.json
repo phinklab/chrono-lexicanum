@@ -1,0 +1,117 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0022",
+  "slug": "vainglorious",
+  "title": "Vainglorious",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Cain's long-deferred retirement is on the line again when Astra Militarum weapon shipments from the newly founded forge world of Ironfound dry up overnight. Sent in nominally as a Commissariat liaison, Cain — with Jurgen at his side and Amberley Vail running parallel Inquisitorial cover — uncovers a tangle of mutinous Skitarii, doctrinal heresy inside the Adeptus Mechanicus magos hierarchy, and a string of insidious assassination attempts that get more personal the deeper he digs. The hidden hand behind it pulls strings inside Ironfound's own Fabricator-General circle, with an agenda that threatens Imperial control of the Damocles Gulf and chains back to the Drechia conspiracy in Choose Your Enemies. Cain emerges nominally a hero, definitely alive, and slightly closer to the retirement that will never come.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "action_heavy",
+      "satirical",
+      "doubt",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Valhallan 597th",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Skitarii",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ironfound",
+        "role": "primary"
+      },
+      {
+        "name": "Damocles Gulf",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      },
+      {
+        "name": "Regina Kasteen",
+        "role": "supporting"
+      },
+      {
+        "name": "Ruput Broklaw",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

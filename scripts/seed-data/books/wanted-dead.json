@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0171",
+  "slug": "wanted-dead",
+  "title": "Wanted: Dead",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Jarene and the Wild Cats are House Escher fighters in Hive Primus, until an ambush leaves a Guilder and their own leader dead and turns the whole crew into outlawed prey. Hunted by Enforcers, guilders, rival Houses and bounty-hungry gangs, Jarene has to keep her sisters alive long enough to prove the killing was a set-up. Mike Brooks frames the chase as Underhive noir: a hunted-gang procedural about Escher loyalty, street justice and survival when Necromunda decides your name is worth more as a corpse.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "war_story",
+      "mystery",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "loyalty",
+      "betrayal",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Escher",
+        "role": "primary"
+      },
+      {
+        "name": "Guilders",
+        "role": "antagonist"
+      },
+      {
+        "name": "Necromunda Enforcers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jarene",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "novella",
+        "note": "Black Library Novella Series 1 #6; SSOT-roster lists as novel"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

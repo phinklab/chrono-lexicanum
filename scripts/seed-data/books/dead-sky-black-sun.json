@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0049",
+  "slug": "dead-sky-black-sun",
+  "title": "Dead Sky, Black Sun",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2004,
+  "format": "novel",
+  "seriesHint": "Ultramarines",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sentenced to a Death Oath for the Vespasian-tactic deployment on Tarsis Ultra, Captain Uriel Ventris and his battle-brother Pasanius Lysane are dispatched into the Eye of Terror to Medrengard, the daemon-forge-world of the Iron Warriors Traitor Legion. Their penance-mission is to locate and return a sample from the Daemonculaba — the horrific biological-industrial complex the Iron Warriors use to incubate Astartes-grade Chaos warriors. Stripped of regimental support, hunted by Iron Warriors Warsmith Honsou and harried by daemon engines and the corrupted infrastructure of a Chaos planet, Ventris and Pasanius link up with Ardaric Vaanes and his Lords of the Unholy Host — a band of fallen Space Marines living rough in Medrengard's wastes — and fight a journey-procedural through the daemon-forge to extract the sample. The novel's register is horror-procedural: corrupted flesh, half-living machinery, the slow attrition of two Loyalist Astartes alone on a Chaos planet. Closes with Ventris and Pasanius returning to Macragge changed but vindicated; Honsou survives the encounter and is permanently set as Ventris's personal antagonist for the remainder of the saga.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "mid_series",
+      "standard",
+      "journey",
+      "war_story",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "doubt",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Lords of the Unholy Host",
+        "role": "supporting"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Medrengard",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriel Ventris",
+        "role": "pov"
+      },
+      {
+        "name": "Pasanius Lysane",
+        "role": "supporting"
+      },
+      {
+        "name": "Ardaric Vaanes",
+        "role": "supporting"
+      },
+      {
+        "name": "Honsou",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

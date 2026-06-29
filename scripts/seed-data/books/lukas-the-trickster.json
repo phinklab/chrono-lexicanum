@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0094",
+  "slug": "lukas-the-trickster",
+  "title": "Lukas the Trickster",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Helwinter has frozen Fenris and Lukas the Strifeson has once again worn out a Wolf Lord's patience. Reassigned to Kjarl Grimblood's Great Company, the Space Wolves' Jackalwolf is barely through the ritual humiliation before Duke Sliscus and his Drukhari raiders descend to hunt legendary prey. Lukas leads Blood Claws and Fenrisian tribes through ambushes, baited traps and folk-tale reversals while Sliscus answers prank with atrocity. Half trickster duel, half chapter argument about whether genius excuses disorder in the ranks.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "journey",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "hubris",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Drukhari",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "primary"
+      },
+      {
+        "name": "Commorragh",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lukas the Strifeson",
+        "role": "pov"
+      },
+      {
+        "name": "Kjarl Grimblood",
+        "role": "supporting"
+      },
+      {
+        "name": "Galerunner",
+        "role": "supporting"
+      },
+      {
+        "name": "Duke Sliscus",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

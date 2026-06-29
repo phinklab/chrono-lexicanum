@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0437",
+  "slug": "castellan",
+  "title": "Castellan",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Castellan Crowe",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Garran Crowe has held the office of Castellan of the Grey Knights for more than a century, and in all that time the daemon voice of the Blade of Antwyr has never ceased its whispering. Now he and his strike force are tested as never before: the world of Sandava III, where they fight, is swallowed whole by the vast warp storm tearing the galaxy in two. Cut off, surrounded by the daemonic and the damned, Crowe must hold his resolve and his sanity together while the Blade seizes on every moment of doubt and despair to work its corruption. With reality itself coming apart around them, the Castellan and his brothers face a trial that will demand everything they have to give.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "last_stand",
+      "siege",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Grey Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sandava III",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Garran Crowe",
+        "role": "pov"
+      },
+      {
+        "name": "The Blade of Antwyr",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.74,
+      "count": 126,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36361311-castellan"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

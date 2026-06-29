@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0073",
+  "slug": "lord-of-the-night",
+  "title": "Lord of the Night",
+  "authors": [
+    "Simon Spurrier"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2005,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Zso Sahaal — First Captain of the VIII Legion, lost in the warp for ten thousand years since the death of his master Konrad Curze — surfaces back into realspace on the sunless hive-world of Equixus, hunting the Corona Nox: the relic he needs to reclaim his scattered legion from his treacherous rival Acerbus. Mita Ashyn, a young Inquisitorial interrogator with growing doubts about her own order's hypocrisy, is sent to Equixus on routine corruption work and finds herself on Sahaal's trail. A hive-noir told from both sides of the chase — neither cleanly hero nor villain — and a Night Lords novel where the legion's primarch-orphaned politics weigh as much as the manhunt itself.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "dual",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Arbites",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "mentioned"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Equixus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zso Sahaal",
+        "role": "pov"
+      },
+      {
+        "name": "Mita Ashyn",
+        "role": "pov"
+      },
+      {
+        "name": "Acerbus",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

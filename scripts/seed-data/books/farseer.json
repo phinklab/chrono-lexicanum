@@ -1,0 +1,107 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0067",
+  "slug": "farseer",
+  "title": "Farseer",
+  "authors": [
+    "William King"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2002,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Rogue Trader Janus Darke, once rich and famous and now skidding toward ruin in a drug-ridden frontier-world dive, finds himself joined at his table by Auric — an alien with cheekbones too sharp for any human gene-line and a manner that bends the room around him. Auric is an Eldar Farseer, and he has a craftworld-scale problem: a Daemon Prince of Slaanesh is hunting Darke's soul, the runes have shown Auric where their paths cross, and only at that intersection can the prince be killed. The novel runs the unlikely alliance — rogue trader, Farseer, and Darke's voidship crew — across a journey into the Eye of Terror, with Inquisition agents converging because no human, even one carrying a Farseer for a passenger, should be inside the Eye even by choice. William King writes the Eldar interior with rare interiority for the early-2000s era; the book is now under Black Library's Heretic Tomes label for the cumulative changes to Eldar canon since 2002.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "journey",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "philosophical",
+      "somber",
+      "doubt",
+      "redemption",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Rogue Traders",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Slaanesh",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Janus Darke",
+        "role": "pov"
+      },
+      {
+        "name": "Auric",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "canonicity",
+        "current": "rostered",
+        "suggestion": "heretic_tomes_label",
+        "sources": [
+          "Black Library / Lexicanum: novel sold under Heretic Tomes brand"
+        ],
+        "reasoning": "Distributed under Black Library's *Heretic Tomes* label for cumulative canonicity drift in Eldar lore since 2002 (pre-9th-edition Aeldari spelling, pre-Ynnari craftworld politics, etc.). Roster correctly carries the book; flag is informational. The 2002 rogue-trader-meets-Farseer concept and Slaanesh-Daemon-Prince soul-hunt plot itself remain narratively intact."
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

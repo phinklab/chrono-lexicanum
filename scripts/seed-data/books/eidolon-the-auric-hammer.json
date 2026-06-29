@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0113",
+  "slug": "eidolon-the-auric-hammer",
+  "title": "Eidolon: The Auric Hammer",
+  "authors": [
+    "Marc Collins"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2024,
+  "format": "novel",
+  "seriesHint": "Horus Heresy Characters",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the eve of the Siege of Terra, Lord Commander Primus Eidolon — the Auric Hammer, the Risen, the Soul-Severed — has fallen far from grace. Once Fulgrim's most decorated lieutenant in the Emperor's Children, he is now a creature compromised by the warp, his appetites and his pride spent. Marooned on the world of Tatricala, hunted by ghosts of past atrocities and seduced by a whispering thing that claims to know him better than he knows himself, Eidolon must choose what is still worth keeping of the warrior he once was. The price of his next breath is paid in soul, and the daemons he cannot banish have come to collect.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "standard",
+      "character_study",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "hubris",
+      "redemption",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tatricala",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Eidolon",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.58,
+      "count": 355,
+      "evidenceUrl": "https://www.goodreads.com/book/show/202190429-eidolon"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

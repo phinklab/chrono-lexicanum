@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0202",
+  "slug": "enforcer-omnibus",
+  "title": "Enforcer Omnibus",
+  "authors": [
+    "Matthew Farrer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "omnibus",
+  "seriesHint": "Shira Calpurnia",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three cases, one unforgiving posting. Newly promoted to the fortress-system of Hydraphur, where the Imperium's warfleets endlessly dock, rearm and depart, Adeptus Arbites officer Shira Calpurnia is plunged straight into the machinery of corruption and murder. In Crossfire she must unravel a string of assassination attempts during a sacred festival; in Legacy she is caught in the vicious, generations-old feud over an ancient trading charter; and in Blind she hunts a killer through a station of half-crazed astropaths. Across all three, Calpurnia's rigid sense of law collides with a society built on ritual, privilege and secrets. This omnibus collects the complete Shira Calpurnia trilogy, a ground-level look at Imperial justice far from the front lines of war.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "sector",
+      "standalone",
+      "doorstopper",
+      "mystery",
+      "political_thriller",
+      "court_intrigue",
+      "grimdark",
+      "somber",
+      "faith",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Arbites",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astra Telepathica",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hydraphur",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Shira Calpurnia",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.73,
+      "count": 394,
+      "evidenceUrl": "https://www.goodreads.com/book/show/7962251-enforcer"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0199",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Enforcer omnibus follows the Shira Calpurnia trilogy"
+      },
+      {
+        "externalBookId": "W40K-0200",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Enforcer omnibus follows the Shira Calpurnia trilogy"
+      },
+      {
+        "externalBookId": "W40K-0201",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Enforcer omnibus follows the Shira Calpurnia trilogy"
+      }
+    ]
+  }
+}

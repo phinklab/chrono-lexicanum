@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0555",
+  "slug": "da-gobbos-demise",
+  "title": "Da Gobbo's Demise",
+  "authors": [
+    "Denny Flowers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novella",
+  "seriesHint": "Da Red Gobbo",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Redsnot was Runtherd Killaskun's least-worst grot, a rank he held by being a more cunning little weasel than his peers. Now Killaskun is dead, the herd is leaderless, and Chaos cultists are closing on their position fast enough that the runts will tear each other apart before the heretics arrive. Just as Redsnot is poised to make himself their new boss, Da Red Gobbo — the legendary patron of grot revolution — saunters in wearing the snazzy goggles and steals the room. Denny Flowers' second Red Gobbo novella treats the legend as something more like a costume than a person: anyone with enough belief and the right gear can be Da Red Gobbo, which is exactly what makes Redsnot dangerous, because he knows it too.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "squad",
+      "mid_series",
+      "novella",
+      "war_story",
+      "satirical",
+      "action_heavy",
+      "hopepunk",
+      "betrayal",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos Cultists",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Redsnot",
+        "role": "pov"
+      },
+      {
+        "name": "Gitzit",
+        "role": "supporting"
+      },
+      {
+        "name": "Da Red Gobbo",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.21,
+      "count": 179,
+      "evidenceUrl": "https://www.goodreads.com/book/show/63291607-da-gobbo-s-demise"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

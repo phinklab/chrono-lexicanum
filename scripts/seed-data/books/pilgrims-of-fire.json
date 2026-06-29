@@ -1,0 +1,132 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0129",
+  "slug": "pilgrims-of-fire",
+  "title": "Pilgrims of Fire",
+  "authors": [
+    "Justin D. Hill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fleet Quintus of the Indomitus Crusade is called the Cursed Fleet for good reason, and the Order of Our Martyred Lady joins it with faith already tested by disaster. Pilgrims of Fire follows two companies of Sisters across a dual timeline around the coming of the Great Rift: one before Cadia's fall, one long after the galaxy has split. Sister Helewise traces Saint Katherine's pilgrimage route toward Cion, a lost shrine world beyond the Cicatrix Maledictum, hoping to learn what became of the Sisters stranded there. Ritual, penance, Arco-flagellants, Penitent Engines, and the terrible choice of Repentia turn the crusade into devotional war-horror.",
+    "facetIds": [
+      "book",
+      "female",
+      "sister",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "character_study",
+      "siege",
+      "grimdark",
+      "somber",
+      "hopepunk",
+      "philosophical",
+      "faith",
+      "sacrifice",
+      "doubt",
+      "redemption",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Sisters of Battle",
+        "role": "primary"
+      },
+      {
+        "name": "Order of Our Martyred Lady",
+        "role": "primary"
+      },
+      {
+        "name": "Sisters Repentia",
+        "role": "primary"
+      },
+      {
+        "name": "Arco-flagellants",
+        "role": "supporting"
+      },
+      {
+        "name": "Penitent Engines",
+        "role": "supporting"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Indomitus Crusade",
+        "role": "secondary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cion",
+        "role": "primary"
+      },
+      {
+        "name": "Fleet Quintus",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium Nihilus",
+        "role": "secondary"
+      },
+      {
+        "name": "Cicatrix Maledictum",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Helewise",
+        "role": "pov"
+      },
+      {
+        "name": "Saint Katherine",
+        "role": "mentioned"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

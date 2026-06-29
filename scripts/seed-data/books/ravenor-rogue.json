@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0007",
+  "slug": "ravenor-rogue",
+  "title": "Ravenor Rogue",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Inquisitor (Eisenhorn/Ravenor/Bequin)",
+  "series": "ravenor",
+  "seriesIndex": 3,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ravenor accepts the verdict of his peers: he is now rogue, and so is his work. The hunt collapses inward as the daemon Slyte gestates inside Carl Thonius, his most trusted savant. Ravenor follows Molotch — and through Molotch the cabal Sons of Stone — across a chain of ruined and forbidden worlds, finally to the stasis-locked tomb on Yassilli Sarum, where Slyte's birth becomes a hostage exchange that Ravenor wins only by losing. The book ends with Thonius dead by his own hand, Slyte aborted, and Ravenor's Inquisitorial seal handed back without ceremony. He keeps the Flects case open in private; the rogue inquisitor has rogue work to finish, and the next page of it is fifty years away.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "inquisitor",
+      "imperium",
+      "sector",
+      "series_finale",
+      "standard",
+      "mystery",
+      "journey",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "betrayal",
+      "hubris",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Yassilli Sarum",
+        "role": "primary"
+      },
+      {
+        "name": "Scarus Sector",
+        "role": "primary"
+      },
+      {
+        "name": "Eustis Majoris",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gideon Ravenor",
+        "role": "pov"
+      },
+      {
+        "name": "Harlon Nayl",
+        "role": "supporting"
+      },
+      {
+        "name": "Kara Swole",
+        "role": "supporting"
+      },
+      {
+        "name": "Patience Kys",
+        "role": "supporting"
+      },
+      {
+        "name": "Carl Thonius",
+        "role": "supporting"
+      },
+      {
+        "name": "Wystan Frauka",
+        "role": "supporting"
+      },
+      {
+        "name": "Zygmunt Molotch",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

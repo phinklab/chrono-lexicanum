@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0501",
+  "slug": "the-oubliette",
+  "title": "The Oubliette",
+  "authors": [
+    "J.S. Stearns"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ashielle Matkosen has just inherited Ceocan from her assassinated father, Lord Governor Ruprekt — and the same conspirators who killed him now mean to end the bloodline. Surrounded by courtiers she dares not trust, she descends into a forgotten oubliette beneath the palace and revives an ancient pact with the creature chained there: a hunter older than any assassin, more comfortable in the dark than any traitor. The pact bites. As Ashielle turns the beast loose on her enemies, she discovers that the conspiracy is only the smaller of the two evils she has invited into her household, and that the line between deliverance and damnation can be crossed without ever knowing the moment of the crossing.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "court_intrigue",
+      "mystery",
+      "grimdark",
+      "cosmic_horror",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Ceocan",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ashielle Matkosen",
+        "role": "pov"
+      },
+      {
+        "name": "Ruprekt Matkosen",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Imperial planetary nobility plot with no clearly identified Browse-Root faction in source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.69,
+      "count": 323,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/52078075"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

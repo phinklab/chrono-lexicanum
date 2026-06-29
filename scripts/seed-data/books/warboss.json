@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0128",
+  "slug": "warboss",
+  "title": "Warboss",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Gazrot Goresnappa is dead beneath the head of his own Gargant, and every boss big enough to smell opportunity wants the title of Warboss. A prophecy points to a mysterious gate under the human city below, promising that whoever finds it first can turn the galaxy green. Da Genrul of the Blood Axes trusts discipline and plans; Zagnob Thundaskuzz of the Evil Sunz trusts speed; Mag Dedfist of the Goffs trusts fists; Snaggi Littletoof trusts that even a grot uprising can have its day. An Ork succession comedy with real teeth, where greenskin politics are absurd, violent, and entirely functional.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "pc_xenos",
+      "xenos",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "satirical",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "hubris",
+      "brotherhood",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Orks",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Axes",
+        "role": "primary"
+      },
+      {
+        "name": "Evil Sunz",
+        "role": "primary"
+      },
+      {
+        "name": "Goffs",
+        "role": "primary"
+      },
+      {
+        "name": "Gretchin",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Gazrot Goresnappa",
+        "role": "mentioned"
+      },
+      {
+        "name": "Da Genrul",
+        "role": "pov"
+      },
+      {
+        "name": "Zagnob Thundaskuzz",
+        "role": "pov"
+      },
+      {
+        "name": "Mag Dedfist",
+        "role": "pov"
+      },
+      {
+        "name": "Snaggi Littletoof",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

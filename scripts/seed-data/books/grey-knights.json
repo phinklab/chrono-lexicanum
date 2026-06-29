@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0213",
+  "slug": "grey-knights",
+  "title": "Grey Knights",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2004,
+  "format": "novel",
+  "seriesHint": "Grey Knights",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Justicar Alaric of the Grey Knights, the Imperium's secret brotherhood of daemon-hunters, is charged with stopping an ancient prophecy: the return of the daemon prince Ghargatuloth. Guided by the Ordo Malleus and the seer Ligeia, Alaric and his squad follow a trail of corruption across a string of Imperial worlds, battling cultists, sorcerers and lesser daemons as they close on the hidden temple where the fiend is destined to rise again. But the deeper they dig, the more they realise the prophecy may be a trap a thousand years in the making, and that their own crusade could be the very thing that brings the daemon back into the world.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "series_start",
+      "standard",
+      "war_story",
+      "mystery",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Grey Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Malleus",
+        "role": "supporting"
+      },
+      {
+        "name": "Tzeentch",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Alaric",
+        "role": "pov"
+      },
+      {
+        "name": "Ligeia",
+        "role": "supporting"
+      },
+      {
+        "name": "Nyxos",
+        "role": "supporting"
+      },
+      {
+        "name": "Ghargatuloth",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "Story spans worlds along the Trail of Saint Evisser, but specific world names not reliably confirmed in sources; left empty rather than invented"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.96,
+      "count": 1589,
+      "evidenceUrl": "https://www.goodreads.com/book/show/752459"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

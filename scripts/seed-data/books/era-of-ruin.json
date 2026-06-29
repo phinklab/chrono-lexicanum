@@ -1,0 +1,123 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0068",
+  "slug": "era-of-ruin",
+  "title": "Era Of Ruin",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Heresy is over, but the wounds it left behind are only beginning to fester. In the ashes of Terra, the shattered Imperium gathers itself: surviving primarchs, broken legions, ordinary men and women whose worlds were unmade and must now be rebuilt. This collection draws together Black Library's principal Horus Heresy authors — Dan Abnett, Aaron Dembski-Bowden, Guy Haley, John French, Nick Kyme, Gav Thorpe, and Chris Wraight — for short fiction set in the immediate aftermath of the Siege. Stories range from Dan Abnett's \"Fragments (All We Have Left)\" through John French's \"Ex Libris\", Chris Wraight's \"Homebound\", and Aaron Dembski-Bowden's \"The Carrion Lord of the Imperium\", glimpsing the threads that will spin out across ten thousand years of grim darkness to come.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "ensemble",
+      "mixed",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "series_finale",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "reason": "roster lists this as a novel, but Era of Ruin is a multi-author Siege of Terra anthology (short stories by Abnett, Dembski-Bowden, French, Haley, Kyme, Thorpe, Wraight)",
+        "suggestion": "anthology"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "per-story character lists for the anthology not reliably enumerable from accessible sources beyond the headline appearances; conservative aggregation chosen over fabrication"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.94,
+      "count": 689,
+      "evidenceUrl": "https://www.goodreads.com/book/show/229201702-era-of-ruin"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

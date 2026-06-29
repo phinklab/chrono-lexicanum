@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0222",
+  "slug": "two-metaphysical-blades",
+  "title": "Two Metaphysical Blades",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Long before the Imperium had a name, in the deep places beneath Terra, the Emperor forged a matched pair of spears — Apollonian and Dionysian, equal and opposite, made to be wielded by two of the great souls He intended to set against the Long Night. The story follows the spears across centuries: Constantin Valdor carries the savant's weapon at his master's side; Leman Russ takes the brawler's blade with him into the wilds of Fenris and the wars of the Great Crusade. As the Heresy splinters everything the Emperor built, Valdor and Russ end up measuring not only their spears against each other, but the very different ways they each chose to serve. A meditation, in episodic vignettes, on what the Emperor was making when He made these two.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "novella",
+      "character_study",
+      "philosophical",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "faith",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Constantin Valdor",
+        "role": "pov"
+      },
+      {
+        "name": "Leman Russ",
+        "role": "pov"
+      },
+      {
+        "name": "the Emperor",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.21,
+      "count": 248,
+      "evidenceUrl": "https://www.goodreads.com/book/show/41271254"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

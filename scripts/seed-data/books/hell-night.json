@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0409",
+  "slug": "hell-night",
+  "title": "Hell Night",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Space Marine Legends",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A strike force of Salamanders led by Sergeants Dak'ir and Tsu'gan, with the Librarian Pyriel at their side, answers a call to the embattled world of Vaporis, where the Imperial Guard's 135th Phalanx are losing a grinding war against Chaos-tainted rebels in the city of Aphium. But a far older horror is stirring. As night falls, the boundary between the living and the dead grows thin: ghostly bells toll across the battlefield and spectres rise from the earth to drag soldiers screaming beneath the ground. Bolter and blade are useless against them, and only Pyriel's psychic might holds the dead at bay. Trapped below the city, the wounded Dak'ir uncovers the buried tragedy that gave Hell Night its name.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "siege",
+      "mystery",
+      "war_story",
+      "grimdark",
+      "cosmic_horror",
+      "faith",
+      "war",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vaporis",
+        "role": "primary"
+      },
+      {
+        "name": "Aphium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dak'ir",
+        "role": "pov"
+      },
+      {
+        "name": "Tsu'gan",
+        "role": "supporting"
+      },
+      {
+        "name": "Pyriel",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.73,
+      "count": 45,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18492860-hell-night"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

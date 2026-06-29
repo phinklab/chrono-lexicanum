@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0236",
+  "slug": "konrad-curze-a-lesson-in-darkness",
+  "title": "Konrad Curze: A Lesson in Darkness",
+  "authors": [
+    "Ian St. Martin"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "audio_drama",
+  "seriesHint": "The Primarchs Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On a peaceful world at the far edge of the galaxy, an Imperial iterator sets down the official compliance of Piamen — a compliance the people themselves do not yet know is coming. Piamen freed itself from xenos overlords generations ago, and when the envoys of the new Imperium arrive its government politely refuses to take the Aquila. The VIII Legion answers, with Konrad Curze newly returned to his sons and eager to show them how he prefers to do this work. The story tracks two threads at once: the iterator's polished prose recording an orderly Imperial victory, and the events unfolding on the ground, where Curze and his captain Nivalus apply the terror tactics that will become the Night Lords' signature. For the legion, it is the first taste of what serving their primarch will mean.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "hubris",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Piamen",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Konrad Curze",
+        "role": "pov"
+      },
+      {
+        "name": "Nivalus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.01,
+      "count": 180,
+      "evidenceUrl": "https://www.goodreads.com/book/show/37664613-konrad-curze"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

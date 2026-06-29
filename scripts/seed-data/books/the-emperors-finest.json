@@ -1,0 +1,109 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0018",
+  "slug": "the-emperors-finest",
+  "title": "The Emperor's Finest",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fresh out of a near-fatal scrape with a Necron tomb world, Cain is seconded to the Reclaimers — an archaeotech-obsessed Space Marine chapter — as Commissariat liaison while they sail to Viridia to suppress a noble-led civil war. The unrest turns out to be a genestealer cult and the Reclaimers' next mission is tracking down the space hulk that brought it. The boarding action goes badly: most of the Marines are devoured by the awakening Tyranid presence inside the hulk, and Cain is left to navigate its lightless corridors with Jurgen, a stowaway band of Orks, and the Viridian Governor's spoiled, infatuated daughter Mira. The novel is the first time Cain serves alongside Astartes for a sustained stretch, and he is — predictably — unimpressed and grateful to make it home. The seventh Cain memoir.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "satirical",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Space Marines",
+        "role": "supporting"
+      },
+      {
+        "name": "Reclaimers",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Viridia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      },
+      {
+        "name": "Mira Sulla",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

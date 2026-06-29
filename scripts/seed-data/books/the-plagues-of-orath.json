@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0299",
+  "slug": "the-plagues-of-orath",
+  "title": "The Plagues of Orath",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2016,
+  "format": "anthology",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A creeping plague stirs on the quiet agri-world of Orath, and the Ultramarines and their Doom Eagles allies race to find its source before the contagion consumes a sector. Across three linked novellas, Librarian Vabion uncovers the rot's origin, Captain Galenus brings the Chapter's engines of war to bear in grinding tank battles, and Chaplain Sentina faces a final, daemon-haunted reckoning where only the ultimate sacrifice can win the day. From the first whisper of sickness to all-out war against the servants of decay, this is the complete tale of the battle for Orath.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Doom Eagles",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Orath",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Vabion",
+        "role": "pov"
+      },
+      {
+        "name": "Galenus",
+        "role": "supporting"
+      },
+      {
+        "name": "Sentina",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.5,
+      "count": 44,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27276166-the-plagues-of-orath"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

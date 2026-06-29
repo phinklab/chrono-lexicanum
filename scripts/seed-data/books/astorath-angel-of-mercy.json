@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0223",
+  "slug": "astorath-angel-of-mercy",
+  "title": "Astorath: Angel of Mercy",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novella",
+  "seriesHint": "Blood Angels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the aftermath of the Devastation of Baal, Commander Dante orders the wastes around the Red Scar scouted for reconquest. The task falls to the Red Wings, a young Blood Angels successor Chapter battered by the war and barely rebuilt, who make planetfall on the rotting world of Dulcis at the edge of the great rift. What they uncover there is no ordinary foe but a creeping psychic horror that warps mind and flesh. Drawn across the void by the Black Rage, Astorath the Grim, Lord High Chaplain and Redeemer of the Lost, descends on Dulcis to stand with the survivors, and to confront a truth that could shake every Chapter of the Blood to its foundations.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Red Wings",
+        "role": "supporting"
+      },
+      {
+        "name": "Enslavers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dulcis",
+        "role": "primary"
+      },
+      {
+        "name": "Baal",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Astorath",
+        "role": "pov"
+      },
+      {
+        "name": "Commander Dante",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.66,
+      "count": 327,
+      "evidenceUrl": "https://www.goodreads.com/book/show/56308423-astorath"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

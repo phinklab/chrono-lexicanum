@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0201",
+  "slug": "by-the-lions-command",
+  "title": "By the Lion's Command",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After the Dark Angels fleet split in the wake of Perditus, Seneschal Corswain leads a pursuit squadron deep into contested space, hunting the Death Guard warships of the warlord Typhon. The trail brings him into orbit above Terra Nullius, a small system that has refused both the Warmaster and the Emperor and declared itself neutral while the galaxy burns. With Typhon's fleet shadowing the system's edge, Corswain has to decide how a son of the Lion answers a world that simply wishes to be left alone: persuasion, demonstration, or the example that other waverers will need to see before they make the same mistake. A tense single-encounter story about the price of neutrality during a civil war and the cold authority of an angel sent to collect it.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "somber",
+      "loyalty",
+      "doubt",
+      "en",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra Nullius",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Corswain",
+        "role": "pov"
+      },
+      {
+        "name": "Typhon",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.44,
+      "count": 140,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25257285-by-the-lion-s-command"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

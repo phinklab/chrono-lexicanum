@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0269",
+  "slug": "flesh-and-iron",
+  "title": "Flesh and Iron",
+  "authors": [
+    "Henry Zou"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Bastion Wars",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the swamp-bound world of Solo-Baston, the Imperium's grip is slipping as an indigenous uprising swells under the banner of the enigmatic Dos Pares. Colonel Fyodor Baeder and the 31st Riverine Regiment, bayou-born guardsmen who cut their teeth fighting swamp orks back home, are sent upriver to reclaim weaponry vital to the war effort, only to be bled white by a ferocious native resistance. As Baeder pushes deeper into the jungle, he uncovers a rebellion that is far more than it seems, its roots fed by the corrupting hand of the Ruinous Powers. A brutal, mud-and-blood campaign of attrition that pushes a single regiment to the edge of annihilation, and its commander to the edge of his faith.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Solo-Baston",
+        "role": "primary"
+      },
+      {
+        "name": "Medina Corridor",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fyodor Baeder",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.69,
+      "count": 299,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6568844-flesh-and-iron"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

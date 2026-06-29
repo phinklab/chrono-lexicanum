@@ -1,0 +1,109 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0547",
+  "slug": "dredge-runners",
+  "title": "Dredge Runners",
+  "authors": [
+    "Alec Worley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novella",
+  "seriesHint": "Baggit and Clodde",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Baggit, a fast-talking ratling sniper with a flexible conscience, and Clodde, an ogryn with a decent heart and big plans, have landed in the wrong column of a vicious crime lord's ledger. Tabidiah Kruger doesn't take losses well — and to get clear of him, the two abhuman deserters are pushed into digging up dirt on the puritan sanctioner Savriel Sabbriatti, supposedly the cleanest badge in Varangantua. The job is meant to be impossible; Sabbriatti's real face turns out to be worse. Caught between a gangster who wants them dead and a lawman whose mercy might be worse than his condemnation, Baggit and Clodde scramble through dredge yards, smoke-houses and rooftop sniping nests, hustling and lying and occasionally shooting their way toward something resembling daylight.",
+    "facetIds": [
+      "audio_drama",
+      "mixed",
+      "pc_xenos",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "heist",
+      "grimdark",
+      "action_heavy",
+      "satirical",
+      "betrayal",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "cw_stigma",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ratlings",
+        "role": "primary"
+      },
+      {
+        "name": "Ogryns",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Arbites",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Varangantua",
+        "role": "primary"
+      },
+      {
+        "name": "Alecto",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Baggit",
+        "role": "pov"
+      },
+      {
+        "name": "Clodde",
+        "role": "pov"
+      },
+      {
+        "name": "Tabidiah Kruger",
+        "role": "antagonist"
+      },
+      {
+        "name": "Savriel Sabbriatti",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "audio_drama",
+        "reason": "Roster lists format=novella, but Dredge Runners shipped as a 2020 full-cast audio drama (Black Library, ~1h)."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.08,
+      "count": 247,
+      "evidenceUrl": "https://www.goodreads.com/book/show/54894837"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

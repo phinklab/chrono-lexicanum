@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0520",
+  "slug": "the-stacks",
+  "title": "The Stacks",
+  "authors": [
+    "Chris Winterton"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "An Inquisitorial archivist is sent into the deepest, most disused racks of a forgotten library to retrieve a single book. The orders are precise: title, shelfmark, no questions. She has done this work long enough to know that the Inquisition only ever asks once, and that asking why the volume has waited so long without anyone fetching it would be its own kind of disobedience. The stacks go on for kilometres. The lamps fail in patches. The further she walks, the more clearly she can hear something that is not quite a voice reading aloud from the book she has come to collect.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "squad",
+      "standalone",
+      "novella",
+      "mystery",
+      "character_study",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "doubt",
+      "hubris",
+      "faith",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_mental_health",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "reason": "Black Library eShort, short story length",
+        "suggestion": "novella"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "archivist protagonist unnamed in available source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.36,
+      "count": 28,
+      "evidenceUrl": "https://www.goodreads.com/book/show/63116069-the-stacks"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

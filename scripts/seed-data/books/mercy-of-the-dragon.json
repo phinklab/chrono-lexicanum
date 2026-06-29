@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0107",
+  "slug": "mercy-of-the-dragon",
+  "title": "Mercy of the Dragon",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "short_story",
+  "seriesHint": "Primarchs Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A stranger walks the black-glass paths of Nocturne in a worn travelling cloak, and the people he passes call him the Outlander. Only Vulkan — Lord of Drakes, foster-son of Nocturne — knows him for what he is, and only Vulkan can be asked what he is being asked. To leave. To lead a legion. To take his place among brothers he has never met and burn the unspoken corners of the galaxy for an Imperium that does not yet exist. The conversation between father and son moves in one strand; in the other, the story flashes forward to Vulkan's first battle at the head of the Salamanders, watched from afar by the Emperor and the molten gaze of Ferrus Manus. The piece is quiet, almost domestic, weighing the cost of leaving a world that has only ever known you as its protector.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "character_study",
+      "journey",
+      "somber",
+      "philosophical",
+      "hopepunk",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Hands",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Nocturne",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Vulkan",
+        "role": "pov"
+      },
+      {
+        "name": "Emperor of Mankind",
+        "role": "supporting"
+      },
+      {
+        "name": "Ferrus Manus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.88,
+      "count": 97,
+      "evidenceUrl": "https://www.goodreads.com/book/show/44361058"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

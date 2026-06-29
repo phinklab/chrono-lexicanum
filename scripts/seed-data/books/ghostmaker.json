@@ -1,0 +1,129 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0025",
+  "slug": "ghostmaker",
+  "title": "Ghostmaker",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2000,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ghostmaker frames its present-tense chapters around the Tanith First-and-Only dug in on the jungle deathworld of Monthax waiting for the order to advance against a Chaos infestation that turns out to also conceal an Eldar warhost — and slots into that framing a series of earlier-published Inferno! magazine flashbacks, one per principal trooper, building the regiment's mythology bit by bit. The flashback chapters give individual showcases to Gaunt, Corbec, Rawne, Larkin, Bragg, Caffran, Mkoll, Milo and Dorden — each on a different Sabbat-Worlds-Crusade theatre, each peeling another layer off the character. The Monthax climax converges into a brief, brutal three-way clash that ends with Gaunt cooperating tactically with the Eldar against the shared Chaos enemy. Structurally a fix-up: linked short stories presented as a novel — the only volume in the series with this shape.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Monthax",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "secondary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Colm Corbec",
+        "role": "pov"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "pov"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "pov"
+      },
+      {
+        "name": "Bragg",
+        "role": "pov"
+      },
+      {
+        "name": "Caffran",
+        "role": "pov"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "pov"
+      },
+      {
+        "name": "Brin Milo",
+        "role": "pov"
+      },
+      {
+        "name": "Tolin Dorden",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "collection",
+        "reason": "Wikipedia, Fandom and Black Library descriptions agree this is a fix-up of linked Inferno!-magazine short stories framed by Monthax present-day chapters, not a unified novel; SSOT roster lists 'novel'."
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

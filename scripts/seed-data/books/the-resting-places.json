@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0526",
+  "slug": "the-resting-places",
+  "title": "The Resting Places",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2023,
+  "format": "anthology",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A horror anthology gathering thirteen short stories from the imprint's 2021 and 2022 Horror Week eShort bundles, with two pieces newly written for the volume. The collection ranges across the breadth of the imprint — hive-city body horror and Chaos cult slow burns from the war-torn future; pestilent gardens and quiet domestic dread from the realms of magic and storm — and brings together a roster of horror voices including David Annandale, Richard Strachan, Darius Hinks, Jake Ozga, James Brogden, R S Wilt, Chris Winterton, J H Archer, Jeremy Lambert, Jamie Mistry-Evans and Chris Thursten. The stories are stand-alone and require no prior reading; together they sketch a map of how the imprint thinks about fear at the small, personal, intimate scale.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "neutral",
+      "dual",
+      "planetary",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "mystery",
+      "character_study",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "cw_mental_health",
+      "standard",
+      "standalone",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Nurgle",
+        "role": "supporting"
+      },
+      {
+        "name": "Drukhari",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hive Blackbracken",
+        "role": "supporting"
+      }
+    ],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "domain",
+        "suggestion": "mixed_w40k_aos",
+        "note": "Anthology contains both Warhammer 40,000 and Age of Sigmar horror short stories; cannot be cleanly classified to a single domain"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.56,
+      "count": 117,
+      "evidenceUrl": "https://www.goodreads.com/book/show/112087511-the-resting-places"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

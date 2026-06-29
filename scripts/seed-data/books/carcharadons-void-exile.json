@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0444",
+  "slug": "carcharadons-void-exile",
+  "title": "Carcharadons: Void Exile",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Carcharodons",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The isolated forge world of Diamantus faces annihilation as a warped space hulk — infested by the forces of Chaos and commanded by the datagnost Voldire, a disciple of the daemon-machine Vashtorr the Arkifane — bears down upon it. The battle-weary Carcharodons make their stand alongside the Adeptus Mechanicus, fighting through a rain of horrors to reach and destroy the hulk before Diamantus is lost. Amid the grinding war and an uneasy alliance with their tech-priest hosts, the void-born Space Marines are forced to confront their uncertain place within a changed and sundered Imperium.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Carcharodons",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Diamantus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Voldire",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "reason": "roster lists no author for this title; Black Library and Goodreads credit Robbie MacNiven",
+        "suggestion": "Robbie MacNiven"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "2025 release with sparse plot coverage; only the antagonist Voldire is reliably named in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.75,
+      "count": 12,
+      "evidenceUrl": "https://www.goodreads.com/book/show/237505772-carcharadons"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

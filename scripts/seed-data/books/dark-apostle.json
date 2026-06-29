@@ -1,0 +1,102 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0264",
+  "slug": "dark-apostle",
+  "title": "Dark Apostle",
+  "authors": [
+    "Anthony Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Word Bearers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Word Bearers descend on the world of Tanakreg as a rare alignment of its twelve planets approaches, smashing the planetary defences and enslaving the survivors. At the command of the Dark Apostle Jarulek, the population is set to raising a monstrous tower whose stones seem mortared with the dead, a structure meant to ring out across the warp when the heavens align. The defenders fight back with Elysian drop troops and the war-engines of the Adeptus Mechanicus, but the true battle is one of faith and ambition within the traitor ranks themselves. Marduk, Jarulek's First Acolyte, watches and waits, hungry for his master's power, and when the tower's terrible purpose is revealed and an ancient sleeping enemy stirs beneath the crust, his moment of betrayal arrives. The opening chapter of one zealot's bloody climb toward apostledom.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "faith",
+      "hubris",
+      "betrayal",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tanakreg",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Marduk",
+        "role": "pov"
+      },
+      {
+        "name": "Jarulek",
+        "role": "supporting"
+      },
+      {
+        "name": "Kol Badar",
+        "role": "supporting"
+      },
+      {
+        "name": "Burias",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.75,
+      "count": 954,
+      "evidenceUrl": "https://www.goodreads.com/book/show/1155173.Dark_Apostle"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

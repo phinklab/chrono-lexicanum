@@ -1,0 +1,89 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0226",
+  "slug": "rebel-winter",
+  "title": "Rebel Winter",
+  "authors": [
+    "Steve Parker"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Captain Sebastev of the Vostroyan Firstborn has earned his rank the hard way, and the frozen battlefields of Danik's World test every bit of it. Caught between a planet-wide rebellion and marauding Orks, his company is ordered to hold the line while the rest of the army withdraws, but the retreat collapses and Sebastev's men are stranded deep behind enemy lines. Burdened with a captured traitor who must be delivered to high command, and shadowed by Colonel Kabanov's hard counsel, the captain leads the shrinking remnant of his company on a desperate march through ice and ambush toward the safety of Imperial lines. A bleak fighting-retreat across a winter war.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "company",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Danik's World",
+        "role": "primary"
+      },
+      {
+        "name": "Grazzen",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Captain Sebastev",
+        "role": "pov"
+      },
+      {
+        "name": "Colonel Kabanov",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.66,
+      "count": 400,
+      "evidenceUrl": "https://www.goodreads.com/book/show/1041270.Rebel_Winter"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

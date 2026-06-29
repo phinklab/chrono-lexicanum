@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0340",
+  "slug": "hunters-snare",
+  "title": "Hunter's Snare",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Apocalypse",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The hunt that began on Agrellan reaches its end. In this sequel to the opening clash of the Damocles campaign, Kor'sarro Khan of the White Scars returns to finish what he swore to do: take the head of Commander Shadowsun. What follows is a lethal duel of feints and traps between two hunters who are, for all their differences, mirror images of one another, each setting snares the other must slip. With the Raven Guard and the wider Imperial defence as backdrop, the story narrows to the deadly dance between Huntmaster and T'au commander as the world of Agrellan hangs in the balance. A taut closing chapter to the saga of the second Damocles Gulf Crusade.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "war_story",
+      "journey",
+      "action_heavy",
+      "grimdark",
+      "loyalty",
+      "war",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Scars",
+        "role": "primary"
+      },
+      {
+        "name": "T'au Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Agrellan",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kor'sarro Khan",
+        "role": "pov"
+      },
+      {
+        "name": "Commander Shadowsun",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.5,
+      "count": 4,
+      "evidenceUrl": "https://www.goodreads.com/book/show/60816802-hunter-s-snare"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

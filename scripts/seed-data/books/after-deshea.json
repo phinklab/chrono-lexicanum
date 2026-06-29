@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0156",
+  "slug": "after-deshea",
+  "title": "After Desh'ea",
+  "authors": [
+    "Matthew Farrer"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Just rescued from the killing-fields of his homeworld, Angron seethes in a darkened hold aboard the War Hounds' flagship — grieving the gladiator-brothers he was forced to abandon and raging against the Legion that has claimed him. Envoy after envoy has gone in to make obeisance; envoy after envoy has been killed with the primarch's bare hands. The Eighth Captain, Kharn, walks in next. He carries no weapon, and when Angron seizes him he refuses to raise a hand against his gene-father. From that refusal a strange, terrible conversation begins — about loss, about purpose, and about the unending war that might serve as a vessel for so much fury. Kharn and Angron emerge together on the bridge; the surviving captains kneel; and Captain Dreagher declares that the War Hounds will now make themselves eaters of worlds.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "standalone",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "hubris",
+      "redemption",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Desh'ea",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Angron",
+        "role": "pov"
+      },
+      {
+        "name": "Kharn",
+        "role": "pov"
+      },
+      {
+        "name": "Dreagher",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4,
+      "count": 282,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27662081-after-desh-ea"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

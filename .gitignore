@@ -131,6 +131,18 @@ yarn-error.log*
 # ARE committed (proof-of-run + audit trail).
 /ingest/.state/
 
+# --- per-book SSOT equivalence proof artifacts (Brief 171) ------------------
+# scripts/equivalence-diff.ts writes its projection-diff report + DB snapshots
+# here. Regenerated on every run, never a corpus source — kept out of git so it
+# never gets mistaken for the committed ingest/.last-run/ digests. The report
+# content is reproduced in the impl report as the named proof artifact.
+/ingest/.equivalence/
+
+# --- per-book read-only Excel export (Brief 171) ----------------------------
+# scripts/books-excel.ts renders books/*.json into a reference .xlsx here. ONE-WAY
+# export (Excel is no longer the SSOT), regenerated on demand — never committed.
+/ingest/.exports/
+
 # --- loop-driver step log (Brief 071) --------------------------------------
 # scripts/run-ssot-loop.sh tees its stdout into this file for post-mortem
 # inspection. Per-run, regenerated on every invocation, irrelevant in git.

@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0260",
+  "slug": "hunters-moon",
+  "title": "Hunter's Moon",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the oceanic world of Pelago — a backwater of fisherfolk who barely know there is an Imperium — old Tidon recounts to his young apprentice the strangest catch of his life. As a young man he sailed with his mentor Ven and his cousin Sareo when a stolen Alpha Legion stormbird came screaming out of the sky and crashed into the swell beside their boat. Boarding the half-sunken hulk, they found a single survivor still alive in the wreckage: a Space Wolf named Felbjorn, one of the Vlka Fenryka watchers Leman Russ had placed aboard his brother Alpharius's ships. What he had seen would not stay on his world.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "multi",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "journey",
+      "somber",
+      "cosmic_horror",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Pelago",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Tidon",
+        "role": "pov"
+      },
+      {
+        "name": "Ven",
+        "role": "supporting"
+      },
+      {
+        "name": "Sareo",
+        "role": "supporting"
+      },
+      {
+        "name": "Felbjorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Leman Russ",
+        "role": "mentioned"
+      },
+      {
+        "name": "Alpharius",
+        "role": "mentioned"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 209,
+      "evidenceUrl": "https://www.goodreads.com/book/show/20661116-hunter_s_moon"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

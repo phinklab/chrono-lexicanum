@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0396",
+  "slug": "jain-zar-the-storm-of-silence",
+  "title": "Jain Zar: The Storm of Silence",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Phoenix Lords",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Jain Zar, the Storm of Silence, was the first warrior recruited by Asurmen and became the deadliest of the Phoenix Lords, founder of the shrieking Howling Banshees. In the present, a swelling ork empire threatens the eldar, and Jain Zar travels to the craftworld Ulthwe to warn of the danger, only to find her plans opposed by the seer Eldrad, who reads a different future in the skein of fate. The second thread reaches back to her origin: a gladiatrix lost and despairing in the wreckage of the Fall, drawn onto a new path by Asurmen, learning to turn her rage into something that might save her people rather than consume them. A study of fury harnessed, and of the burden borne by those who become living legends.",
+    "facetIds": [
+      "book",
+      "pc_xenos",
+      "female",
+      "xenos",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "journey",
+      "somber",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Eldar",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ulthwe",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Jain Zar",
+        "role": "pov"
+      },
+      {
+        "name": "Eldrad Ulthran",
+        "role": "supporting"
+      },
+      {
+        "name": "Asurmen",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "value_outside_vocabulary",
+        "field": "facetIds",
+        "reason": "Phoenix Lord / aspect-warrior aeldari protagonist mapped to pc_xenos; no aeldari-specific protagonist_class value"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.83,
+      "count": 225,
+      "evidenceUrl": "https://www.goodreads.com/book/show/33837137-jain-zar"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

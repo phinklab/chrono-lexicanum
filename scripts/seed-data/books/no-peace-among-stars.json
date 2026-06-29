@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0537",
+  "slug": "no-peace-among-stars",
+  "title": "No Peace Among Stars",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "anthology",
+  "seriesHint": "Dawn of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sixteen short stories from across the 41st Millennium, each cut to the rhythm of a single battlefield. Space Marines hold ridge-lines and reliquaries; Astra Militarum guardsmen and -women fight in trenches that swallow them whole; Adeptus Mechanicus skitarii probe the edges of forge worlds against rising xenos tides and the renewed thunder of Chaos. The Howling Griffons answer the Guns of Enth. Skitarius Ranger Iota-11 walks a colder kind of patrol. Across continents and crusade lines, the Imperium's three core soldier-castes go to work - and pay for every metre.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Howling Griffons",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Iota-11",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "Released 2025-11-07; no reachable Goodreads page during research window.",
+      "evidenceUrl": "https://www.goodreads.com/search?q=No+Peace+Among+Stars+Warhammer"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

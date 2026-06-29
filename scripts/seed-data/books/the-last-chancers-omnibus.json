@@ -1,0 +1,150 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0184",
+  "slug": "the-last-chancers-omnibus",
+  "title": "The Last Chancers Omnibus",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "omnibus",
+  "seriesHint": "Last Chancers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Last Chancers Omnibus gathers 13th Legion, Kill Team, and Annihilation Squad, giving Colonel Schaeffer's penal regiment a full original arc: Ork-incursion attrition on Typhos Prime, a diplomatic-cover assassination among the Tau Empire, and a warp-shattered run to Armageddon to kill von Strab in Acheron. Lieutenant Kage's bitter memoir voice binds the trilogy, from condemned sergeant to sole survivor to haunted almost-psyker, always under Schaeffer's cold arithmetic of redemption through expendability. It is the natural entry point for the original Last Chancers shelf: dirty-mission military fiction with heist turns, command betrayal, and the grim question of whether survival is grace or merely being reused.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "sector",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "journey",
+      "heist",
+      "mystery",
+      "last_stand",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "satirical",
+      "cosmic_horror",
+      "betrayal",
+      "doubt",
+      "faith",
+      "hubris",
+      "loyalty",
+      "sacrifice",
+      "brotherhood",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Last Chancers",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Typhos Prime",
+        "role": "primary"
+      },
+      {
+        "name": "Tau Empire space",
+        "role": "primary"
+      },
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Acheron",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lieutenant Kage",
+        "role": "pov"
+      },
+      {
+        "name": "Colonel Schaeffer",
+        "role": "supporting"
+      },
+      {
+        "name": "Lorii",
+        "role": "supporting"
+      },
+      {
+        "name": "Overlord von Strab",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0181",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Last Chancers omnibus follows the first trilogy"
+      },
+      {
+        "externalBookId": "W40K-0182",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Last Chancers omnibus follows the first trilogy"
+      },
+      {
+        "externalBookId": "W40K-0183",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Last Chancers omnibus follows the first trilogy"
+      }
+    ]
+  }
+}

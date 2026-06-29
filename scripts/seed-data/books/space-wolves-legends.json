@@ -1,0 +1,104 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0434",
+  "slug": "space-wolves-legends",
+  "title": "Space Wolves (Legends)",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2017,
+  "format": "anthology",
+  "seriesHint": "Legends of the Dark Millennium",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A Great Hunt is over, and the Space Wolves gather in the Fang to feast and boast of their victories, but one company has not come home: that of Logan Grimnar, the Great Wolf himself. As word of his death spreads, the Chapter refuses to accept it, and Ulrik the Slayer leads a desperate search across the galaxy for the truth. The hunt drags the Wolves from the dark city of Commorragh to the corruption of the Eye of Terror, throwing them into uneasy alliances with old rivals and exposing a traitor in their own ranks. Across eight interlocking tales, the warriors of Fenris fight not only for their lord but for the future of the Chapter itself.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "loyalty",
+      "betrayal",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Fang",
+        "role": "supporting"
+      },
+      {
+        "name": "Commorragh",
+        "role": "supporting"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ulrik the Slayer",
+        "role": "pov"
+      },
+      {
+        "name": "Krom Dragongaze",
+        "role": "supporting"
+      },
+      {
+        "name": "Logan Grimnar",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.86,
+      "count": 84,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28945607"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

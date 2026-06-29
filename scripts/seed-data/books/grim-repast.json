@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0542",
+  "slug": "grim-repast",
+  "title": "Grim Repast",
+  "authors": [
+    "Marc Collins"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Warhammer Crime",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Probator Quillon Drask works the cold southern district of Polaris in Varangantua, the kind of investigator superiors quietly hand the cases nobody else wants. A single mutilated body draws him into a string of killings whose savagery and ritual frame feel deliberate, and the trail climbs from gutter habs through merchant houses to the polished offices of the dynasties that own the district outright. Drask's own scars — the things he has seen, the things he has done to close earlier files — turn into investigative tools, and into liabilities. Marc Collins' debut is a serial-killer procedural that treats the city as the real perpetrator, with corruption woven so thoroughly through Polaris that catching the killer barely dents the appetite that made him.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "somber",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_crime",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Arbites",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Varangantua",
+        "role": "primary"
+      },
+      {
+        "name": "Polaris",
+        "role": "primary"
+      },
+      {
+        "name": "Alecto",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Quillon Drask",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.85,
+      "count": 432,
+      "evidenceUrl": "https://www.goodreads.com/book/show/58484893-grim-repast"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

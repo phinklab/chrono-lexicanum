@@ -44,6 +44,17 @@
 
 set -euo pipefail
 
+# --- RETIRED (Brief 171 Teil B) --------------------------------------------
+# The SSOT-Loop produced one manual-overrides-ssot-*.json batch per iteration.
+# Brief 171 migrated the whole corpus into per-book SSOT files
+# (scripts/seed-data/books/*.json) and retired the batch world. There is no batch
+# to crystallize anymore; new books are scaffolded directly under books/ (see
+# scripts/seed-data/books/README.md + scripts/runbooks/add-book-runbook.md).
+echo "[run-ssot-loop] RETIRED (Brief 171). The batch SSOT-Loop is gone." >&2
+echo "[run-ssot-loop]   New books go directly into scripts/seed-data/books/<slug>.json." >&2
+echo "[run-ssot-loop]   See scripts/seed-data/books/README.md + add-book-runbook.md." >&2
+exit 1
+
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------

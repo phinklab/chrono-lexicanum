@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0111",
+  "slug": "luther-first-of-the-fallen",
+  "title": "Luther: First of the Fallen",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Horus Heresy Characters",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "From his timeless prison deep within the Rock, Luther tells his own story. Once the noblest knight of Caliban, mentor and brother-in-arms to Lion El'Jonson, he became the First of the Fallen — the man whose betrayal would shape the Dark Angels for ten thousand years. In his own voice, Luther recounts the world that forged him, the hunts that united him with the Lion, the wounds of pride that drove them apart, and the slow seduction of forbidden knowledge that turned a hero into a heretic. Part biography, part confession, this is the testimony of a soul who insists he is the salvation as much as the curse of his Legion, and asks the reader to weigh which is the truer claim.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "requires_context",
+      "standard",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "redemption",
+      "doubt",
+      "hubris",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "The Fallen",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Caliban",
+        "role": "primary"
+      },
+      {
+        "name": "The Rock",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Luther",
+        "role": "pov"
+      },
+      {
+        "name": "Lion El'Jonson",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.93,
+      "count": 801,
+      "evidenceUrl": "https://www.goodreads.com/book/show/55711322-luther"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

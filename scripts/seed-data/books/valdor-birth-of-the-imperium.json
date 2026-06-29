@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0110",
+  "slug": "valdor-birth-of-the-imperium",
+  "title": "Valdor: Birth of the Imperium",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Horus Heresy Characters",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Terra at the close of the Unification Wars: the great cities of the Imperial Palace have only just stopped burning, and the men and women who fought to put the Emperor on his throne are already turning on each other. Constantin Valdor, first Captain-General of the Legio Custodes, stands at the centre of the storm. A High Lord — Grand Provost Kandawire — has begun assembling the case that the destruction of the Thunder Warriors, and the killing field at Mount Ararat that ended their service, were neither honourable nor lawful. The novel weaves three points of view: Valdor in the gallery of the Custodes, Kandawire as she builds her indictment, and the gene-mage Amar Astarte as she watches the first Astartes rise to replace what was so quietly buried. The book is short for its weight: a study of the bargains that make an empire, and of what they cost the woman who tries to bring them to court.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "custodes",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "court_intrigue",
+      "political_thriller",
+      "mystery",
+      "character_study",
+      "somber",
+      "philosophical",
+      "doubt",
+      "betrayal",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "primary"
+      },
+      {
+        "name": "Thunder Warriors",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Mount Ararat",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Constantin Valdor",
+        "role": "pov"
+      },
+      {
+        "name": "Kandawire",
+        "role": "pov"
+      },
+      {
+        "name": "Amar Astarte",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor of Mankind",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.13,
+      "count": 2585,
+      "evidenceUrl": "https://www.goodreads.com/book/show/51085922-valdor"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

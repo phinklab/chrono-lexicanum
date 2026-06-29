@@ -1,0 +1,131 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0240",
+  "slug": "honour-imperialis-omnibus",
+  "title": "Honour Imperialis Omnibus",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2014,
+  "format": "omnibus",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three Imperial Guard novels and four short stories collected as a monument to the Emperor's most famous regiments. In Cadian Blood, the Cadian Shock Troops and a half-company of Raven Guard reclaim the shrine world of Kathur from the plague of Nurgle. In Dead Men Walking, the remorseless Death Korps of Krieg fight to save a mining colony from the awakening Necrons, at a price the survivors never agreed to pay. In Redemption Corps, the storm troopers of Major Mortensen battle orks and the Imperium's own suspicion at once. The accompanying tales follow Cadians, Krieg and others across blighted worlds, drawing together stories of duty, sacrifice and the cost of holding the line.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "last_stand",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "cosmic_horror",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Cadian Shock Troops",
+        "role": "primary"
+      },
+      {
+        "name": "Death Korps of Krieg",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kathur",
+        "role": "primary"
+      },
+      {
+        "name": "Hieronymous Theta",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Parmenion Thade",
+        "role": "pov"
+      },
+      {
+        "name": "Major Mortensen",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "omnibus tags aggregated across three novels and four short stories; only the lead novels' POV characters are asserted"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.92,
+      "count": 118,
+      "evidenceUrl": "https://www.goodreads.com/book/show/20694946-honour-imperialis"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0231",
+        "displayOrder": 0,
+        "confidence": 0.8,
+        "basis": "Honour Imperialis omnibus follows the Cadian Blood / Redemption Corps / Dead Men Walking block"
+      },
+      {
+        "externalBookId": "W40K-0232",
+        "displayOrder": 1,
+        "confidence": 0.8,
+        "basis": "Honour Imperialis omnibus follows the Cadian Blood / Redemption Corps / Dead Men Walking block"
+      },
+      {
+        "externalBookId": "W40K-0233",
+        "displayOrder": 2,
+        "confidence": 0.8,
+        "basis": "Honour Imperialis omnibus follows the Cadian Blood / Redemption Corps / Dead Men Walking block"
+      }
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0231",
+  "slug": "cadian-blood",
+  "title": "Cadian Blood",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the Imperial shrine world of Kathur succumbs to the plague of Nurgle, its population turning renegade or rotting under the Plague of Unbelief, the planet is placed under fleet quarantine and a reclamation force is dispatched to burn the corruption out. The Cadian Shock Troops form the spearhead, fighting alongside a half-company of Raven Guard against an endless tide of the infected and the Death Guard who shepherd them. As officers fall around him, Captain Parmenion Thade is thrust into a command he never sought, holding his soldiers together against a Herald of Nurgle whose every breath spreads despair. A grim, mud-and-blood account of ordinary Cadians enduring the unendurable on a world already lost.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Cadian Shock Troops",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kathur",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Parmenion Thade",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.99,
+      "count": 1029,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6607252-cadian-blood"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

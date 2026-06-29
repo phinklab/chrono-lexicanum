@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0152",
+  "slug": "scions-of-the-storm",
+  "title": "Scions of the Storm",
+  "authors": [
+    "Anthony Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After the humiliation at Monarchia, the Word Bearers have begun to prosecute the Great Crusade with renewed and unforgiving zealotry. Captain Sor Talgron of the 34th Company is dispatched to bring compliance to the world of Forty-Seven Sixteen, whose people pray to graven idols and beg to join the Imperium. Erebus declares the action a holy duty: the world's faith is heresy and must be answered with extermination. Yet as Talgron walks the smoking ruins he begins to see the truth that his Legion will not admit — the heathen idols are images of the Emperor himself, and the people slaughtered in His name had only ever wanted to worship Him. The story introduces Talgron as the introspective conscience of a Legion teetering on the edge of damnation.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "planetary",
+      "standalone",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "faith",
+      "doubt",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Forty-Seven Sixteen",
+        "role": "primary"
+      },
+      {
+        "name": "Monarchia",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sor Talgron",
+        "role": "pov"
+      },
+      {
+        "name": "Erebus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.44,
+      "count": 220,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27425984-scions-of-the-storm"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

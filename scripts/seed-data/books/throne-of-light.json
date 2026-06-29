@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0531",
+  "slug": "throne-of-light",
+  "title": "Throne of Light",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Dawn of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Indomitus Crusade marches on, but the heart of the Imperium is buckling. With Roboute Guilliman finally pushing past the ork threat near Fenris and turning his armies toward Imperium Sanctus, Kor Phaeron - the Dark Cardinal of the Word Bearers - stirs rebellion across Segmentum Solar and sends his priests to hunt the Black Ships before they can ferry Terra's psykers home. As waves of heresy threaten to choke the throneworld itself, Inquisitor Rostov hunts the elusive Hand of Abaddon. When astropathic visions of strange, hopeful miracles bleed out of the relay on Srinagar, his search pivots - the foretelling may be the only light the Imperium has left.",
+    "facetIds": [
+      "book",
+      "male",
+      "multi",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "faith",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Segmentum Solar",
+        "role": "primary"
+      },
+      {
+        "name": "Srinagar",
+        "role": "supporting"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Inquisitor Rostov",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      },
+      {
+        "name": "Kor Phaeron",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.04,
+      "count": 968,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59893653-throne-of-light"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

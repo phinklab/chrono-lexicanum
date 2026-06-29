@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0579",
+  "slug": "ciaphas-cain-the-anthology",
+  "title": "Ciaphas Cain: The Anthology",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "anthology",
+  "seriesHint": "40k - Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Ciaphas Cain is a true hero of the Imperium: brave, stalwart, a cool head under fire... or so the propaganda claims. In truth, the Commissar of the Valhallan 597th is simply a self-serving rogue trying to stay alive in a hostile galaxy, his reputation built on luck, quick thinking and a talent for being in the wrong place at the right time. Now Inquisitor Amberley Vail opens the Cain archive to present a selection of his strangest and most celebrated exploits. With his ever-loyal, malodorous aide Jurgen at his side, Cain hunts a warp-tainted infection on Lentonia, blunders into his first terrifying encounter with the Necrons when tech-priests rouse a slumbering tomb, and uncovers a genestealer cult festering beneath a soldiers' brothel. Across mining worlds and frontier sectors he faces rampaging orks, a tyranid swarm, treacherous heretics and the murder of a fellow commissar that threatens to end his charmed career for good. Collecting the novella Old Soldiers Never Die and thirteen short stories, this is the reluctant hero at his cowardly, quick-witted best.",
+    "facetIds": [
+      "book",
+      "en",
+      "commissar",
+      "male",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "satirical",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_language"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Necrons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lentonia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.28,
+      "count": 498,
+      "evidenceUrl": "https://www.goodreads.com/book/show/198372706-ciaphas-cain"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

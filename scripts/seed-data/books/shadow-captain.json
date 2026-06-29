@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0318",
+  "slug": "shadow-captain",
+  "title": "Shadow Captain",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The war against the Overfiend of Octavius rages on, and on Lepidus Prime the beleaguered defenders gain an unlikely ally: the eldar of Craftworld Saim-Hann. Shadow Captain Krevaan of the Raven Guard sees in their arrival a chance to strike a decisive blow against the ork invaders before the vital city of Reclamation is overrun. But the sons of Corax are masters of secrets and stratagems themselves, and they suspect the eldar's true purpose is anything but selfless. Forging a brittle alliance with an ancient enemy, Krevaan must decide how far to trust those who never reveal their full design. A shadow-game of misdirection and hard calculation set amid open war.",
+    "facetIds": [
+      "book",
+      "novella",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lepidus Prime",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Krevaan",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.65,
+      "count": 48,
+      "evidenceUrl": "https://www.goodreads.com/book/show/20642560-shadow-captain"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

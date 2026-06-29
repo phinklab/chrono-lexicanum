@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0209",
+  "slug": "tempest",
+  "title": "Tempest",
+  "authors": [
+    "C.S. Goto"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Dawn of War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Cast into the Eye of Terror, the Blood Ravens Librarian Rhamah crashes onto a strange world of alien libraries and silent museums, an ancient eldar sanctuary hidden within the storms of the warp. Fighting to protect the precious gene-seed in his keeping, Rhamah finds himself stranded and alone, his memory clouded. When a detachment of grimly familiar Space Marines descends to plunder the world's forbidden knowledge, he is drawn into their clash with the planet's enigmatic guardians. As his distant brothers begin a search to recover him, Rhamah struggles to piece together who he truly is, never suspecting that his own allegiance may decide the fate of this world and the secrets it has kept for ten thousand years.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_finale",
+      "standard",
+      "journey",
+      "mystery",
+      "grimdark",
+      "philosophical",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Ravens",
+        "role": "primary"
+      },
+      {
+        "name": "Eldar",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rhamah",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "The 'strangely familiar' renegade Space Marines who plunder the world are not named in available source coverage; antagonist Astartes faction left unrecorded rather than guessed."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.03,
+      "count": 180,
+      "evidenceUrl": "https://www.goodreads.com/book/show/12992.Dawn_of_War"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

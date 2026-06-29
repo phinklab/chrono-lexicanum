@@ -1,0 +1,113 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0034",
+  "slug": "pharos",
+  "title": "Pharos",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the forest world of Sotha, hidden at the edge of Imperium Secundus, an ancient xenos-built beacon called the Pharos guides ships safely through Ruinstorm-choked space. Roboute Guilliman has staked the survival of his new Imperium on the device, and a small garrison of Ultramarines holds the mountain in which it sleeps. Beyond the warp-storms, Krukesh the Pale of the Night Lords has spent years assembling a fleet for one purpose: to take the Pharos for Konrad Curze. When the assault falls, the defenders are bled white system by system, town by town, until the fighting reaches the beacon-chamber itself. On Macragge, Sanguinius rules as king and Curze lurks in chains, and the two primarchs at last come face to face as their wars on Sotha collide.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "multi",
+      "dual",
+      "planetary",
+      "requires_context",
+      "standard",
+      "siege",
+      "last_stand",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "sacrifice",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sotha",
+        "role": "primary"
+      },
+      {
+        "name": "Mount Pharos",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Krukesh the Pale",
+        "role": "antagonist"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sanguinius",
+        "role": "supporting"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      },
+      {
+        "name": "Oberdeii",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.01,
+      "count": 2680,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28336913-pharos"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

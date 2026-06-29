@@ -1,0 +1,141 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0216",
+  "slug": "the-grey-knights-omnibus",
+  "title": "The Grey Knights Omnibus",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "omnibus",
+  "seriesHint": "Grey Knights",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "This omnibus collects the complete trilogy following Justicar Alaric of the Grey Knights, the Imperium's hidden brotherhood of daemon-hunters. In Grey Knights, Alaric races to stop the prophesied return of the daemon prince Ghargatuloth. In Dark Adeptus, he descends onto the corrupted forge world of Chaeroneia, where machines run riot and tech-priests have been twisted by the warp. In Hammer of Daemons, captured and cast onto the daemon world of Drakaasi, he fights in the arenas of the Blood God in search of a weapon that can win his freedom. Three linked tales of one warrior tested to the very limits of his faith and endurance.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "planetary",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "mystery",
+      "journey",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "faith",
+      "doubt",
+      "hubris",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_abuse",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Grey Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Malleus",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Tzeentch",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dark Mechanicum",
+        "role": "antagonist"
+      },
+      {
+        "name": "Khorne",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Chaeroneia",
+        "role": "primary"
+      },
+      {
+        "name": "Drakaasi",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Alaric",
+        "role": "pov"
+      },
+      {
+        "name": "Nyxos",
+        "role": "supporting"
+      },
+      {
+        "name": "Ghargatuloth",
+        "role": "antagonist"
+      },
+      {
+        "name": "Duke Venalitor",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.12,
+      "count": 1231,
+      "evidenceUrl": "https://www.goodreads.com/book/show/4084720-grey-knights"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0213",
+        "displayOrder": 0,
+        "confidence": 0.95,
+        "basis": "Grey Knights omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0214",
+        "displayOrder": 1,
+        "confidence": 0.95,
+        "basis": "Grey Knights omnibus follows the trilogy"
+      },
+      {
+        "externalBookId": "W40K-0215",
+        "displayOrder": 2,
+        "confidence": 0.95,
+        "basis": "Grey Knights omnibus follows the trilogy"
+      }
+    ]
+  }
+}

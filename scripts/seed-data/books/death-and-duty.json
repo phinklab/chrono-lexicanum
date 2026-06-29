@@ -1,0 +1,77 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0245",
+  "slug": "death-and-duty",
+  "title": "Death And Duty",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "anthology",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Twelve stories of the Astra Militarum, the vast human armies that hold the line where no gene-forged superhuman walks. Here are Catachan jungle fighters and indomitable Cadians, stoic Death Korps of Krieg and the countless nameless soldiers who stand against horrors within, without, and beyond the Imperium. Across worlds of mud, fire, and ruin, ordinary men and women rise to extraordinary duty and learn that no act of courage, however small, is ever truly without consequence. A wide-ranging anthology that turns from the front lines to the trenches to the quiet moments before the guns, gathering the voices of the Imperium's most expendable and most enduring defenders.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_language",
+      "en",
+      "standard",
+      "standalone"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "twelve-story multi-author anthology with no single sustained POV"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "anthology spans many worlds; regimental origins (Catachan, Cadia, Krieg) named but not confirmed as settings"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.87,
+      "count": 60,
+      "evidenceUrl": "https://www.goodreads.com/book/show/231345495-death-and-duty"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

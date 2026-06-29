@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0222",
+  "slug": "sin-of-damnation",
+  "title": "Sin of Damnation",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Blood Angels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Centuries after a Blood Angels boarding party vanished aboard the space hulk Sin of Damnation, the Chapter returns to settle the debt. A squad of Terminators pushes into the derelict's corridors to exterminate the genestealers nesting within, hunting the brood toward its source while the alien hive mind turns every shadow against them. Sergeant Lorenzo, who alone walked away from the first catastrophe, fights to redeem both himself and his brothers. This edition pairs the close-quarters boarding tale with the short story Sanguis Irae, a further glimpse of the sons of Sanguinius at war.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "standalone",
+      "novella",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "redemption",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sin of Damnation",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sergeant Lorenzo",
+        "role": "pov"
+      },
+      {
+        "name": "Captain Raphael",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.57,
+      "count": 87,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23204364-sin-of-damnation"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

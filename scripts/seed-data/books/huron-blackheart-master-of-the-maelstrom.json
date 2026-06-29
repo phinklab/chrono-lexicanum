@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0115",
+  "slug": "huron-blackheart-master-of-the-maelstrom",
+  "title": "Huron Blackheart: Master of the Maelstrom",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Huron Blackheart rules the Red Corsairs from the Maelstrom, but renegade kingship is never still. Guilliman's returned Imperium presses at the borders, while ambitious captains inside Huron's own warband read every fracture as a chance to take the Tyrant of Badab's throne. The book treats Chaos command as court intrigue with bolters: independence gives the Corsairs their bite, and also keeps them tearing at one another. Huron has to make fear, loyalty, and utility look like the same thing. A political warband study about power and what freedom costs when treachery is the native language.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "standalone",
+      "standard",
+      "political_thriller",
+      "war_story",
+      "court_intrigue",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "betrayal",
+      "loyalty",
+      "hubris",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Red Corsairs",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Maelstrom",
+        "role": "primary"
+      },
+      {
+        "name": "Badab",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Huron Blackheart",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

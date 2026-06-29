@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0274",
+  "slug": "raptor",
+  "title": "Raptor",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After Corax's legion was butchered on the killing fields of Isstvan V, the primarch rushed new initiates through an accelerated gene-seed process to refill his ravaged ranks — and unbeknown to him, the procedure was sabotaged in secret. The warriors who emerged were monstrous, marked by mutation, but no less loyal to their gene-father. Sergeant Navar Hef leads a squad of these so-called Raptors aboard a derelict Space Wolves vessel, where they find the twisted corpses of Wulfen and a trail that ends on a dead world. There, Hef learns that the Wulfen had been sent by Malcador himself to test Corax's loyalty — and that if their mission is ever completed, the Raven Guard will be damned for the abominations Corax was forced to make. The truth must die in the dark, even if it takes loyalist blood spilling loyalist blood to keep it buried.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "war_story",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "sacrifice",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Navar Hef",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.6,
+      "count": 125,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23216009-raptor"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

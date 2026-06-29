@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0272",
+  "slug": "garro-burden-of-duty",
+  "title": "Garro: Burden of Duty",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Garro, newly appointed Knight-Errant and answerable only to Malcador the Sigillite, slips aboard the Imperial Fists' mighty starfort Phalanx in search of a single warrior. Hidden behind locked doors are six former Librarians, exiled by the Council of Nikaea and cut off from the war beyond — and from the news that the Great Crusade has shattered into civil war. Garro must reach Yored Massak before Rogal Dorn himself catches up with him, persuade a man who has chosen silence to return to the killing floor, and convince a primarch with a famously short patience that this midnight intrusion is not treachery but the Emperor's will. A talky, close-quarters audio drama about oaths, divided loyalties and the slow gathering of the Knights-Errant.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "mid_series",
+      "novella",
+      "character_study",
+      "court_intrigue",
+      "somber",
+      "philosophical",
+      "loyalty",
+      "doubt",
+      "faith",
+      "brotherhood",
+      "cw_violence",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Phalanx",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nathaniel Garro",
+        "role": "pov"
+      },
+      {
+        "name": "Yored Massak",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.67,
+      "count": 230,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17192485-garro"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

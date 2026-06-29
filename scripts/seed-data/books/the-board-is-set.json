@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0075",
+  "slug": "the-board-is-set",
+  "title": "The Board is Set",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Siege of Terra Prequels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Malcador the Sigillite climbs to one of the highest, quietest chambers of the Imperial Palace and sits down opposite the Master of Mankind across a strange and ancient game-board. The traitor fleets are nearly here; the pieces on the board are a count of all the primarchs, the captains, the worlds and the secrets the Imperium still possesses. As Malcador and the Emperor talk through openings, traps and sacrifices, the game shades into a frank reckoning of what victory will cost, and which pieces, both of them included, will not be left on the table when it is over. A short, contemplative interlude before the Siege, written almost entirely as two voices and one quiet move at a time.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "multi",
+      "male",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "novella",
+      "character_study",
+      "court_intrigue",
+      "philosophical",
+      "somber",
+      "sacrifice",
+      "hubris",
+      "loyalty",
+      "war",
+      "doubt",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Malcador the Sigillite",
+        "role": "pov"
+      },
+      {
+        "name": "The Emperor",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Story ist im Kern ein privater Dialog Malcador/Emperor; keine Faction-Browse-Root passt sauber als 'primary'."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.23,
+      "count": 230,
+      "evidenceUrl": "https://www.goodreads.com/book/show/37660385-the-board-is-set"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

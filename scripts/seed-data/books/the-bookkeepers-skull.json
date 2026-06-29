@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0518",
+  "slug": "the-bookkeepers-skull",
+  "title": "The Bookkeeper's Skull",
+  "authors": [
+    "Justin D. Hill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Rudgard Howe is barely an enforcer cadet, and yet his father, the planet's Chief Enforcer, is already grooming him to inherit a job other men want enough to kill for. As the tithe fleet approaches, Rudgard is sent on his first solo posting to the agri-belt: a chain of distant farmsteads run by ex-Militarum overseers and worked by serfs, where production is everything and the Lex Imperialis is mostly a rumour. At Thorsarbour the crops are rotting in the fields, the workers are no longer working, and something has settled into the silence between them. As Rudgard tries to impose order, he begins to recognise the contours of a cult, the unmistakable joy of those who have stopped fearing pain, and the slow drain of his own certainty about why he came.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "court_intrigue",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "doubt",
+      "faith",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_abuse",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Arbites",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos Cults",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Thorsarbour",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rudgard Howe",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "planetary Enforcers serve local Imperial law and are not strictly Adeptus Arbites; tagged as nearest Browse-Root match"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.82,
+      "count": 330,
+      "evidenceUrl": "https://www.goodreads.com/book/show/59136039-the-bookkeeper-s-skull"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

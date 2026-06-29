@@ -1,0 +1,74 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0155",
+  "slug": "the-last-church",
+  "title": "The Last Church",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "At the bitter end of the Unification Wars on Terra, every faith has been hunted into silence and the last priest of the Church of the Lightning Stone keeps vigil in a building marked for the torch. Uriah Olathaire has long known that the soldiers will come. Tonight, before they arrive, a stranger walks through his door. The visitor calls himself Revelation — quiet, scholarly, terribly familiar — and stays to argue with the old man over wine and candlelight while the horizon grows bright with engines. Their conversation circles faith, knowledge and what humanity will lose when religion is finally outlawed in the name of secular reason. By dawn the church will burn, the stranger will have shown his face, and Uriah will walk back into the flames with a warning that the Imperium's denial of belief will one day undo everything its architect builds.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "mixed",
+      "civilian",
+      "neutral",
+      "squad",
+      "standalone",
+      "character_study",
+      "philosophical",
+      "somber",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Uriah Olathaire",
+        "role": "pov"
+      },
+      {
+        "name": "The Emperor",
+        "role": "primary"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.27,
+      "count": 812,
+      "evidenceUrl": "https://www.goodreads.com/book/show/27558354-the-last-church"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

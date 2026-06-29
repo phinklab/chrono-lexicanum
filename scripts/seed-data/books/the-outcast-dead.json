@@ -1,0 +1,124 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0017",
+  "slug": "the-outcast-dead",
+  "title": "The Outcast Dead",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the astropath Kai Zulane returns from Calth with the wreckage of the Ultramarines vessel Argo still ringing in his skull, the Imperial Palace finds in his mind the one piece of intelligence both sides of the war want most — a vision of how the Heresy ends. Hidden in the cells of the Hollow Mountain while interrogators try to draw the secret out, Kai is broken free by a handful of marooned Legionaries from Traitor Legions whose orders may or may not still apply. Hunted through Terra's choked under-hives by the Black Sentinels of the Astra Telepathica, Kai must decide what to do with knowledge that could decide a civil war — and the renegades around him must decide whether they still answer to the Emperor, to Horus, or only to each other.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "mystery",
+      "political_thriller",
+      "journey",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Astra Telepathica",
+        "role": "primary"
+      },
+      {
+        "name": "Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "supporting"
+      },
+      {
+        "name": "World Eaters",
+        "role": "supporting"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      },
+      {
+        "name": "Hollow Mountain",
+        "role": "supporting"
+      },
+      {
+        "name": "Calth",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kai Zulane",
+        "role": "pov"
+      },
+      {
+        "name": "Atharva",
+        "role": "supporting"
+      },
+      {
+        "name": "Severian",
+        "role": "supporting"
+      },
+      {
+        "name": "Tagore",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.74,
+      "count": 4650,
+      "evidenceUrl": "https://www.goodreads.com/book/show/11161595-the-outcast-dead"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

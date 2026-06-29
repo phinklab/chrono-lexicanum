@@ -1,0 +1,82 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0314",
+  "slug": "traitors-gorge",
+  "title": "Traitor's Gorge",
+  "authors": [
+    "Mike Lee"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Two years after the orks of the warlord Snagrod nearly annihilated the Crimson Fists, Chapter Master Pedro Kantor leads his rebuilt but still-depleted brethren in the grinding work of reclaiming Rynn's World. When an expedition from New Rynn City goes missing, Kantor marches to find them and walks into a carefully laid ambush at a place called Traitor's Gorge. Outmaneuvered and outnumbered, the Crimson Fists face destruction until aid arrives from the most unexpected of quarters. A tense battle-piece about a proud Chapter clawing back its strength and purpose, and the hard bargains survival sometimes demands.",
+    "facetIds": [
+      "book",
+      "novella",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "war_story",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "loyalty",
+      "redemption",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Crimson Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Eldar",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Rynn's World",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Pedro Kantor",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.58,
+      "count": 123,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17835813-traitor-s-gorge"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

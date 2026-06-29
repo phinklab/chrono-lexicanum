@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0202",
+  "slug": "all-that-remains",
+  "title": "All That Remains",
+  "authors": [
+    "James Swallow"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "A hospital transport cast adrift in the warp carries the wounded of a hundred broken regiments — and a secret. As Horus's rebellion stretches the Imperium thin, the dead and dying are counted by the billion; greater still are those evacuated from the front to wait out the war in beds and stasis. On one such vessel a handful of half-conscious Imperial Army troopers piece together what has been happening to comrades who never returned, and discover that the missing have not simply died. A quiet, claustrophobic story about the human cost of the civil war, the men Malcador the Sigillite was already gathering in the dark, and the first foundations of a new kind of warrior the galaxy has not yet heard of.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "guardsman",
+      "imperium",
+      "squad",
+      "requires_context",
+      "mystery",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "sacrifice",
+      "faith",
+      "doubt",
+      "en",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Army",
+        "role": "primary"
+      },
+      {
+        "name": "Knights Errant",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "characters",
+        "reason": "named viewpoint troopers are not surfaced in accessible summaries; only Malcador's framing role is verifiable."
+      },
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "the derelict transport is not given a named registry or system in available sources; warp setting is plot-aspect, not a concrete location."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 125,
+      "evidenceUrl": "https://www.goodreads.com/book/show/25262027-all-that-remains"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

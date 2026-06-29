@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0121",
+  "slug": "outgunned",
+  "title": "Outgunned",
+  "authors": [
+    "Denny Flowers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the swamp-choked world of Bacchus, the Imperium is losing its air war against an Ork incursion and would rather sell a triumph than admit the front is collapsing. Propagandist Kile Simlex arrives to turn Flight Commander Lucille von Shard, a brilliant and poisonous Aeronautica Imperialis ace, into a cinema hero for the war effort. Instead he finds retreating squadrons, a governor massaging the truth, and Shard burning through pilots as fast as the greenskin tide burns territory. Then something vast begins to move in the clouds. A cockpit war-story about propaganda, cowardice, and the lie of Imperial heroism.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "satirical",
+      "war",
+      "hubris",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Aeronautica Imperialis",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bacchus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lucille von Shard",
+        "role": "pov"
+      },
+      {
+        "name": "Kile Simlex",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

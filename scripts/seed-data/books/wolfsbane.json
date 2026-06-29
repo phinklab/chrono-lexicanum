@@ -1,0 +1,110 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0049",
+  "slug": "wolfsbane",
+  "title": "Wolfsbane",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Leman Russ has carried an old vow since the Council of Nikaea: if his brother Horus ever turned, Russ would be the executioner. Now, with the Warmaster's fleet bearing down on Terra, the Primarch of the Space Wolves defies three of his loyal brothers and pulls the Rout out of the Solar defence to keep that promise. Aboard the fleet he carries a spear taken from his own wall on Fenris — a relic that whispers, dreams at him, and waits. Malcador's agents bring back reports of what Horus has become: something no man, not even a primarch, can break alone. Along the way, in the bowels of a forge fleet, a Mechanicum genius named Belisarius Cawl quietly takes his first step into a story that will outlast every legion at the table.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "last_stand",
+      "somber",
+      "grimdark",
+      "action_heavy",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "supporting"
+      },
+      {
+        "name": "Fenris",
+        "role": "supporting"
+      },
+      {
+        "name": "Trisolian",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Leman Russ",
+        "role": "pov"
+      },
+      {
+        "name": "Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Bjorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Belisarius Cawl",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.19,
+      "count": 2065,
+      "evidenceUrl": "https://www.goodreads.com/book/show/38747895-wolfsbane"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

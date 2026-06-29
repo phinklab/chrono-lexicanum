@@ -1,0 +1,121 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0046",
+  "slug": "sabbat-war",
+  "title": "Sabbat War",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2021,
+  "format": "anthology",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The third Sabbat Worlds anthology, edited by Dan Abnett and published by Black Library in 2021, collects ten stories from Dan Abnett, Graham McNeill, Robert Rath, Marc Collins, Matthew Farrer, Justin D. Hill, Edoardo Albert, John French and Rachel Harrison. Abnett opens with 'This is What Victory Feels Like (Forever the Same)' and closes with 'From There to Here', both centred on the Tanith First in the aftermath of The Anarch's Eltath finale. The middle of the volume runs across the wider Crusade — Graham McNeill's 'Whose Voice is Heard No More', Robert Rath's 'Glory Flight' (a Phantine Air Corps piece), Marc Collins's 'The Death of the Prophet', Matthew Farrer's 'Nineteen-Three Coreward, Resolved', Justin D. Hill's 'The Tomb of Vichres', Edoardo Albert's 'Deep' and John French's 'Armaduke' (named for Gaunt's strike-cruiser flagship) — with Rachel Harrison's 'Indomitable Spirit' threading a Severina-Raine-style Commissar-procedural piece. The anthology's umbrella frame is the post-Sek-death strategic re-orientation of the Crusade and the question of what victory actually means at the end of two centuries of war.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "guardsman",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "supporting"
+      },
+      {
+        "name": "Belladon",
+        "role": "supporting"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "supporting"
+      },
+      {
+        "name": "Phantine Air Corps",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      },
+      {
+        "name": "Sons of Sek",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sabbat Worlds",
+        "role": "primary"
+      },
+      {
+        "name": "Urdesh",
+        "role": "mentioned"
+      },
+      {
+        "name": "Eltath",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

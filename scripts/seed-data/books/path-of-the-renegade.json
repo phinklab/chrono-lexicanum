@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0355",
+  "slug": "path-of-the-renegade",
+  "title": "Path of the Renegade",
+  "authors": [
+    "Andy Chambers"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novel",
+  "seriesHint": "Dark Eldar",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "For thousands of years Asdrubael Vect has ruled the hidden Eldar city of Commorragh, crushing every rival who dared challenge him. Now the ambitious archon Nyos Yllithian, aided by the twisted haemonculus Bellathonis, hatches a scheme to revive a long-dead warlord and topple the tyrant. But Commorragh is a city of poison and betrayal, and the plotters cannot see that their own scheming may be hastening a catastrophe that will engulf them all. The first book of the Path of the Dark Eldar trilogy plunges into the murderous politics of the dark city, where every alliance is a knife waiting to turn.",
+    "facetIds": [
+      "book",
+      "male",
+      "pc_xenos",
+      "xenos",
+      "sector",
+      "series_start",
+      "standard",
+      "court_intrigue",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "hubris",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Eldar",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Commorragh",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Nyos Yllithian",
+        "role": "pov"
+      },
+      {
+        "name": "Asdrubael Vect",
+        "role": "antagonist"
+      },
+      {
+        "name": "Bellathonis",
+        "role": "supporting"
+      },
+      {
+        "name": "Morr",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.83,
+      "count": 545,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/12674335"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

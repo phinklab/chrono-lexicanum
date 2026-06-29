@@ -1,0 +1,92 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0173",
+  "slug": "the-gates-of-terra",
+  "title": "The Gates of Terra",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With the Heresy tearing the galaxy in half, Captain Arcadese of the Ultramarines finds himself thrust into command of the Ardent Reef, a ring of gun-bastions and asteroid forts encircling Sol. As Horus's traitor fleet burns toward the Throneworld, Arcadese must hold the line against impossible odds — until the battle takes a final, unexpected turn that reveals just how the Sigillite measures the men he is about to put in charge of Terra's outer wall. A short, claustrophobic piece about duty and the weight of being tested by Malcador without knowing it.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "requires_context",
+      "novella",
+      "war_story",
+      "siege",
+      "action_heavy",
+      "somber",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Ardent Reef",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Arcadese",
+        "role": "pov"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.45,
+      "count": 216,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17649776-the-gates-of-terra"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

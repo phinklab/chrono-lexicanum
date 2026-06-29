@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0238",
+  "slug": "illyrium",
+  "title": "Illyrium",
+  "authors": [
+    "Darius Hinks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "audio_drama",
+  "seriesHint": "The Primarchs Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With the flagship Macragge's Honour under attack and the corridors burning around them, Ultramarines Sergeant Ammon finds himself pinned down beside an unlikely companion: Tarasha Euten, Roboute Guilliman's chamberlain, old in body but still sharp. Cut off from rescue and waiting for the firefight outside to settle, Euten passes the time the only way she knows — by telling Ammon the truth about a campaign the official histories of Macragge have already polished smooth. She walks him through the way young Roboute actually subdued the hill tribes of the Illyrium province, and the lesson she means him to take from it is not the one the chronicles record. By the time help arrives, the sergeant has heard a version of his primarch that the rest of the legion never will.",
+    "facetIds": [
+      "audio_drama",
+      "mixed",
+      "multi",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "character_study",
+      "war_story",
+      "philosophical",
+      "somber",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Macragge",
+        "role": "primary"
+      },
+      {
+        "name": "Illyrium",
+        "role": "primary"
+      },
+      {
+        "name": "Macragge's Honour",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Tarasha Euten",
+        "role": "pov"
+      },
+      {
+        "name": "Ammon",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.62,
+      "count": 109,
+      "evidenceUrl": "https://www.goodreads.com/book/show/49023858-illyrium"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

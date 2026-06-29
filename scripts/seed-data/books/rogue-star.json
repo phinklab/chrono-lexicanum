@@ -1,0 +1,79 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0260",
+  "slug": "rogue-star",
+  "title": "Rogue Star",
+  "authors": [
+    "Andy Hoare"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Rogue Trader",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Lucian Gerrit is a rogue trader, heir to an ancient charter granting trade and conquest rights along the lawless Eastern Fringe. But his inheritance is little more than mounting debt and faded glory. In a final, desperate gamble to restore his dynasty, Gerrit strikes a bargain on a forgotten Imperial world, pledging his family's ships and fortune to one warlord's long war against a rival. As the conflict escalates and his own children pursue their separate ambitions, Gerrit finds himself drawn into something far larger than a frontier squabble: first contact and confrontation with a young, expanding alien power, the T'au Empire. The deal that was meant to save his house may instead cost him everything.",
+    "facetIds": [
+      "book",
+      "male",
+      "civilian",
+      "imperium",
+      "sector",
+      "war_story",
+      "political_thriller",
+      "journey",
+      "action_heavy",
+      "war",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "series_start",
+      "standard",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Rogue Traders",
+        "role": "primary"
+      },
+      {
+        "name": "T'au",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eastern Fringe",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lucian Gerrit",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.28,
+      "count": 226,
+      "evidenceUrl": "https://www.goodreads.com/book/show/1001949.Rogue_Star"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

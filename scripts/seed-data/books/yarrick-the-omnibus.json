@@ -1,0 +1,126 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0379",
+  "slug": "yarrick-the-omnibus",
+  "title": "Yarrick: The Omnibus",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "omnibus",
+  "seriesHint": "Yarrick",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The complete chronicle of Commissar Sebastian Yarrick, gathered into one volume. It follows him from a raw officer freshly out of the schola progenium, navigating the treacherous politics of the world Mistral, through his hunt for the ork warlord Ghazghkull Thraka across Golgotha, to the apocalyptic Second War for Armageddon that cemented his legend. Collecting the novels Imperial Creed and The Pyres of Armageddon, the novella Chains of Golgotha and seven short stories, this omnibus traces the brutal campaigns that transformed a single man into one of the setting's most enduring heroes - and the unbending faith and hatred that drove him.",
+    "facetIds": [
+      "book",
+      "male",
+      "commissar",
+      "imperium",
+      "planetary",
+      "series_start",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "political_thriller",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "faith",
+      "sacrifice",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Golgotha",
+        "role": "supporting"
+      },
+      {
+        "name": "Mistral",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sebastian Yarrick",
+        "role": "pov"
+      },
+      {
+        "name": "Ghazghkull Thraka",
+        "role": "antagonist"
+      },
+      {
+        "name": "Lord Commissar Rasp",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.26,
+      "count": 268,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36373745-yarrick"
+    }
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0376",
+        "displayOrder": 0,
+        "confidence": 0.85,
+        "basis": "Yarrick omnibus follows the Yarrick novella/novel block"
+      },
+      {
+        "externalBookId": "W40K-0377",
+        "displayOrder": 1,
+        "confidence": 0.85,
+        "basis": "Yarrick omnibus follows the Yarrick novella/novel block"
+      },
+      {
+        "externalBookId": "W40K-0378",
+        "displayOrder": 2,
+        "confidence": 0.85,
+        "basis": "Yarrick omnibus follows the Yarrick novella/novel block"
+      }
+    ]
+  }
+}

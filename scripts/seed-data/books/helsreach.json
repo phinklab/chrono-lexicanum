@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0279",
+  "slug": "helsreach",
+  "title": "Helsreach",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2010,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the orks of a vast Waaagh! descend on the industrial world of Armageddon, the Black Templars are among the Chapters that answer the call. Reclusiarch Grimaldus, newly raised to his office and wrestling with his own crisis of faith, is charged with holding the sprawling Hive Helsreach against the xenos flood. Alongside the soldiers of the Armageddon Steel Legion and the towering war-engines of Legio Invigilata, his small band of Templars must turn the hive into a fortress. As the greenskins keep coming and the defenders dwindle, Grimaldus resolves to sell their lives at a terrible price, making his stand in an Imperial temple where faith and fury are all that remain. A defining tale of the Third War for Armageddon.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "last_stand",
+      "siege",
+      "war_story",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "faith",
+      "sacrifice",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Black Templars",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Legio Invigilata",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Armageddon",
+        "role": "primary"
+      },
+      {
+        "name": "Helsreach",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Grimaldus",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.28,
+      "count": 4535,
+      "evidenceUrl": "https://www.goodreads.com/book/show/6949471-helsreach"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

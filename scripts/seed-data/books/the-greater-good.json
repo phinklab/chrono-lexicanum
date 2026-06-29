@@ -1,0 +1,105 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0020",
+  "slug": "the-greater-good",
+  "title": "The Greater Good",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Cain and the 597th deploy to Quadravidia to break a Tau invasion on the marches of the Damocles Gulf; when the Tau abruptly sue for ceasefire under threat from an incoming Tyranid hive fleet, Cain is reluctantly drafted to forge a temporary Imperium-Tau alliance against the Great Devourer. Negotiations put him face-to-face with Tau Water Caste diplomats, an Earth Caste secret experiment that may itself be drawing the hive fleet's attention, and the usual Imperial paranoia that the Tau are the worse of two threats. Amberley Vail's parallel investigation uncovers a Tech-priest project that could end the campaign in either side's favour or destroy all three combatants. The book closes with an unstable peace, no clean victories, and Cain mildly relieved to be a regular Guard officer again. The ninth Cain memoir.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "satirical",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Quadravidia",
+        "role": "primary"
+      },
+      {
+        "name": "Damocles Gulf",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      },
+      {
+        "name": "Regina Kasteen",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

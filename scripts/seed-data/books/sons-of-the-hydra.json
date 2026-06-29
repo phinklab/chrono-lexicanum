@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0093",
+  "slug": "sons-of-the-hydra",
+  "title": "Sons of the Hydra",
+  "authors": [
+    "Rob Sanders"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Occam the Untrue commands the Redacted, a small Alpha Legion warband stitched together from legionaries, renegade Astartes and human Hydra cultists in the Maelstrom. Their next infiltration should be another exercise in lies and misdirection, but Inquisition hunters are closing in, the warband's cover is fraying, and even Occam can no longer tell whether his orders come from the Legion, a rival cell or a deeper game. The mission drives them toward the cold heart of the galaxy, where every false face carries another false face beneath it. A deception-as-warfare novel for readers who like their Chaos plots knotted.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "mystery",
+      "heist",
+      "journey",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "doubt",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Alpha Legion",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Maelstrom",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Occam the Untrue",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0066",
+  "slug": "the-end-and-the-death-vol-2",
+  "title": "The End and The Death Vol. 2",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2023,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Warmaster's bloody seven-year crusade has reached the cradle of mankind. Now Sanguinius, primarch of the Blood Angels, braves the horrors of Horus's flagship Vengeful Spirit with a single purpose: to slay his brother, decapitate the Heresy once and for all, and stop the powers of Chaos from claiming Holy Terra. Far below, Oll Persson, John Grammaticus, and their small band of perpetuals push through the ruined Palace on their own quiet mission to save the Emperor — bearing burdens older than the Imperium itself. The novel alternates between two converging threads: the duel that ends in Sanguinius's death at his brother's hand, and the long pilgrimage of Oll's company through a Terra unmade by warp incursion. Between them, the stage is set for the last confrontation between father and son.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "dual",
+      "galactic",
+      "series_finale",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "journey",
+      "grimdark",
+      "action_heavy",
+      "cosmic_horror",
+      "somber",
+      "war",
+      "betrayal",
+      "sacrifice",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Daemons of Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adeptus Custodes",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperial Fists",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      },
+      {
+        "name": "Vengeful Spirit",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Palace",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sanguinius",
+        "role": "pov"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "pov"
+      },
+      {
+        "name": "Oll Persson",
+        "role": "pov"
+      },
+      {
+        "name": "John Grammaticus",
+        "role": "pov"
+      },
+      {
+        "name": "The Emperor",
+        "role": "supporting"
+      },
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Constantin Valdor",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.22,
+      "count": 2396,
+      "evidenceUrl": "https://www.goodreads.com/book/show/172922673-the-end-and-the-death"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

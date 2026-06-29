@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0255",
+  "slug": "censure",
+  "title": "Censure",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Years into the Underworld War in Calth's arcology network, Sergeant Aeonid Thiel — already attached to Captain Vultius's Ultramarines company under censure for back on Macragge — disobeys orders to come up from the lightless tunnels. Daemonic incursions led by Dark Apostle Kurtha Sedd have overrun a XIII Legion stronghold on the irradiated surface, where solar flares now scour everything that lives. With only a single lowly Imperial Army trooper at his side, Thiel braves the burning plains to drive the Word Bearers out, knowing that his fate when he returns is just as likely to be a bolter to the back of the head as a commendation.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "short",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "loyalty",
+      "brotherhood",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Army",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Calth",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Aeonid Thiel",
+        "role": "pov"
+      },
+      {
+        "name": "Kurtha Sedd",
+        "role": "antagonist"
+      },
+      {
+        "name": "Vultius",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.76,
+      "count": 289,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18304838-censure"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0041",
+  "slug": "gaunts-ghosts-the-saint-omnibus-4-7",
+  "title": "Gaunt's Ghosts: The Saint Omnibus, 4-7",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "omnibus",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The Saint Omnibus collects the four Gaunt's Ghosts novels that span the Saint Sabbat tetralogy and bridge the Sabbat-Worlds Crusade from its mid-campaign stalemates to the reincarnated-Saint pivot point. Book four (Honour Guard) drops the Ghosts on the shrine world of Hagia, where they escort the relics of Saint Sabbat across desert country under sustained Chaos pursuit and inside an open political feud with Lord General Lugo, introducing the Hagian priestess Sanian. Book five (The Guns of Tanith) takes the regiment to Phantine, a smog-poisoned world whose only battlefields are airborne hive-spire assaults, fought alongside the elite Phantine Air Corps and the Urdeshi armoured regiments against entrenched Blood Pact defenders at Cirenholm and Ouranberg, with Caffran's framed-trial subplot tightening the regimental fault lines. Book six (Straight Silver) embeds the Tanith inside a planetary-scale Great-War-style trench stalemate on Aexe Cardinal, where two Aexegarian factions and Blood Pact warbands have locked into a fifty-year static front and the Cuu killer-among-the-Ghosts arc closes around Larkin. Book seven (Sabbat Martyr) returns to the central question of the Crusade — the reincarnated Saint, manipulated into being by Lugo, is besieged at Herodor's Civitas Beati by Anarch Enok Innokenti's nine specialised assassins, one per Holy Wound; the omnibus closes on the Saint's death and the Crusade's permanent strategic re-orientation.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "doorstopper",
+      "war_story",
+      "siege",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "faith",
+      "war",
+      "sacrifice",
+      "betrayal",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "supporting"
+      },
+      {
+        "name": "Phantine Air Corps",
+        "role": "supporting"
+      },
+      {
+        "name": "Urdeshi",
+        "role": "supporting"
+      },
+      {
+        "name": "Aexegarian Forces",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hagia",
+        "role": "primary"
+      },
+      {
+        "name": "Phantine",
+        "role": "primary"
+      },
+      {
+        "name": "Cirenholm",
+        "role": "secondary"
+      },
+      {
+        "name": "Ouranberg",
+        "role": "secondary"
+      },
+      {
+        "name": "Aexe Cardinal",
+        "role": "primary"
+      },
+      {
+        "name": "Herodor",
+        "role": "primary"
+      },
+      {
+        "name": "Civitas Beati",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Colm Corbec",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Caffran",
+        "role": "supporting"
+      },
+      {
+        "name": "Tona Criid",
+        "role": "supporting"
+      },
+      {
+        "name": "Lijah Cuu",
+        "role": "supporting"
+      },
+      {
+        "name": "Sanian",
+        "role": "supporting"
+      },
+      {
+        "name": "Saint Sabbat",
+        "role": "supporting"
+      },
+      {
+        "name": "Vaynom Blenner",
+        "role": "supporting"
+      },
+      {
+        "name": "Lord General Lugo",
+        "role": "antagonist"
+      },
+      {
+        "name": "Enok Innokenti",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": [
+      {
+        "externalBookId": "W40K-0027",
+        "displayOrder": 0,
+        "confidence": 0.98,
+        "basis": "Title explicitly says Gaunt's Ghosts omnibus 4-7"
+      },
+      {
+        "externalBookId": "W40K-0028",
+        "displayOrder": 1,
+        "confidence": 0.98,
+        "basis": "Title explicitly says Gaunt's Ghosts omnibus 4-7"
+      },
+      {
+        "externalBookId": "W40K-0029",
+        "displayOrder": 2,
+        "confidence": 0.98,
+        "basis": "Title explicitly says Gaunt's Ghosts omnibus 4-7"
+      },
+      {
+        "externalBookId": "W40K-0030",
+        "displayOrder": 3,
+        "confidence": 0.98,
+        "basis": "Title explicitly says Gaunt's Ghosts omnibus 4-7"
+      }
+    ]
+  }
+}

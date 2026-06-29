@@ -20,6 +20,12 @@
 #
 # USAGE
 #   ./scripts/run-phase4-apply.sh [scripts/resolver-pass.config.json]
+#
+# ⛔ LEGACY (Brief 171 Teil B): this engine loops `npm run db:apply-override` over a
+# batch range. The corpus now lives in scripts/seed-data/books/*.json and
+# db:apply-override is RETIRED (refuses), so this script no longer applies the
+# corpus — it is relieved from db:sync/db:rebuild (replaced by `apply:book --all`)
+# and kept only as frozen provenance for the legacy resolver/consolidation runbooks.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 

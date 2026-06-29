@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0530",
+  "slug": "the-wolftime",
+  "title": "The Wolftime",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Dawn of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The third Dawn of Fire novel turns to Fenris, depleted by the Indomitus Crusade's calls and now staring down a migration of greenskins under Ghazghkull Mag Uruk Thraka. Guilliman asks more of the Vlka Fenryka than they have left to give. Logan Grimnar and his Great Companions must weigh whether to bind themselves to an ancient rival to hold their world — at the cost of much of what makes them the Wolves of Fenris — or to refuse, hold the line at the prophecy of the Wolftime, and wait for the return of a primarch who may not come in time. The book moves between high-table debate among the Wolf-priests and the brutal pressure of an ork migration that does not negotiate, and reads as much like a story of decisions as of battles.",
+    "facetIds": [
+      "book",
+      "space_marine",
+      "male",
+      "mixed",
+      "imperium",
+      "galactic",
+      "war_story",
+      "siege",
+      "action_heavy",
+      "grimdark",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "standard",
+      "mid_series",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Logan Grimnar",
+        "role": "pov"
+      },
+      {
+        "name": "Ghazghkull Mag Uruk Thraka",
+        "role": "antagonist"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.8,
+      "count": 1134,
+      "evidenceUrl": "https://www.goodreads.com/book/show/58853222-the-wolftime"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

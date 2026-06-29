@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0117",
+  "slug": "krieg",
+  "title": "Krieg",
+  "authors": [
+    "Steve Lyons"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "At Hive Arathron, on the edge of the Octarius War, the Death Korps of Krieg grind forward through siege lines that make even other Imperial forces question their sanity. The present-day assault is braided with the older story of Krieg itself: a planet that rebelled, one loyal commander who chose nuclear ruin over treason, and the army born from the ashes. As Inquisitorial observers search for proof of loyalty or monstrosity, the siege begins to echo the origin myth. The two timelines make the same accusation in different uniforms. A bleak war novel about obedience, sacrifice, and whether a culture built from punishment can do anything except repeat it.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "sector",
+      "standalone",
+      "standard",
+      "siege",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "cosmic_horror",
+      "faith",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Death Korps of Krieg",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Hive Arathron",
+        "role": "primary"
+      },
+      {
+        "name": "Octarius",
+        "role": "primary"
+      },
+      {
+        "name": "Krieg",
+        "role": "secondary"
+      }
+    ],
+    "characters": [],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

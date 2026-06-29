@@ -1,0 +1,112 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0146",
+  "slug": "death-rider",
+  "title": "Death Rider",
+  "authors": [
+    "Rhuairidh James"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2026,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Commissar Valian Hesh is stranded on Rezlan VI with orders that run against every instinct of the Death Korps of Krieg: find the 472nd Siege Regiment and make them retreat before Exterminatus falls. The regiment is dug in against the T'au Empire and preparing the kind of suicidal assault its soldiers were born to consider holy. Hesh has to argue duty against duty while poison skies close over the battlefield and an Imperial warship counts down overhead. A bleak Krieg pressure-cooker about obedience, sacrifice, and the terror of surviving when doctrine demands death.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "character_study",
+      "political_thriller",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "war",
+      "doubt",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Death Korps of Krieg",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "supporting"
+      },
+      {
+        "name": "T'au Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tau Empire",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Rezlan VI",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Valian Hesh",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": [
+          "Rhuairidh James"
+        ],
+        "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + Goonhammer + Warhammer-Community + Archeron-Games"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

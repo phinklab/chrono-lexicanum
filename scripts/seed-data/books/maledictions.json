@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0498",
+  "slug": "maledictions",
+  "title": "Maledictions",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2019,
+  "format": "anthology",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Eleven short stories from the darker corners of the worlds of Warhammer, brought together under the Warhammer Horror imprint. Imperial Guard hunt and are hunted in jungle warfare on Vardan IV; a disgraced commissar fights a creeping plague on the toxic world of Eremus; an interrogator broken by drukhari captivity tries to put herself back together at the remote convent of St. Solangia's; orphan children grow up in a hidden valley they can never leave without dooming everyone within. Contributors include Graham McNeill, Cassandra Khaw, Alec Worley, David Annandale, C L Werner, Peter McLean, J C Stearns, Paul Kane, and Lora Gray.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "war_story",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "faith",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Officio Prefectus",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Drukhari",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Vardan IV",
+        "role": "supporting"
+      },
+      {
+        "name": "Eremus",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dominic Seroff",
+        "role": "pov"
+      },
+      {
+        "name": "Monika",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.71,
+      "count": 485,
+      "evidenceUrl": "https://www.goodreads.com/book/show/40744548-maledictions"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

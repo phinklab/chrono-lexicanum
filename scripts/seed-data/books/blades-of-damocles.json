@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0298",
+  "slug": "blades-of-damocles",
+  "title": "Blades of Damocles",
+  "authors": [
+    "Phil Kelly"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the opening days of the first Damocles Gulf Crusade, the Ultramarines bring war to the Tau sept world of Dal'yth. The daredevil warriors of the Assault Company — among them the glory-hungry sergeants Sicarius and Numitor — fight in the skies, through the streets, and into the Earth caste's testing facilities, chainsword and jump pack against cutting-edge battlesuits. But the brightest stars of the Tau, Commanders Farsight and Shadowsun, hunt the Space Marines toward disaster. Told almost evenly from both sides, this is a clash of doctrines as much as armies — the Codex Astartes against the Code of Fire — and the Ultramarines must master their hunger for glory before it kills them.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "dual",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "hubris",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Tau",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Dal'yth",
+        "role": "primary"
+      },
+      {
+        "name": "Damocles Gulf",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Cato Sicarius",
+        "role": "pov"
+      },
+      {
+        "name": "Numitor",
+        "role": "pov"
+      },
+      {
+        "name": "Shadowsun",
+        "role": "antagonist"
+      },
+      {
+        "name": "Farsight",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.68,
+      "count": 249,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29864761-blades-of-damocles"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

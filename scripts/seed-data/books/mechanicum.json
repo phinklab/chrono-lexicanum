@@ -1,0 +1,109 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0009",
+  "slug": "mechanicum",
+  "title": "Mechanicum",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "While Horus burns Isstvan, Mars chooses sides. Fabricator-General Kelbor-Hal makes deals in the deep forges that bind the Mechanicum to the Warmaster; the heretic Magos Regulus opens the noosphere to corruption. Adept Koriel Zeth and her loyalist Magma City refuse, holding to the Emperor's compact. Lowly tech-savant Dalia Cythera is gathered into a secret project to recover the lost machine-spirits of an ancient intelligence buried beneath the Red Planet. Titan Legions begin to march on one another. Knights of Taranis bleed at the gates. The Mechanicum civil war is told from inside Mars itself — its priests, its calculators, the women and men who built the engines that now hunt each other.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "tech_priest",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "political_thriller",
+      "mystery",
+      "grimdark",
+      "somber",
+      "betrayal",
+      "loyalty",
+      "faith",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Mechanicum",
+        "role": "primary"
+      },
+      {
+        "name": "Knights of Taranis",
+        "role": "supporting"
+      },
+      {
+        "name": "Legio Tempestus",
+        "role": "supporting"
+      },
+      {
+        "name": "Legio Mortis",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mars",
+        "role": "primary"
+      },
+      {
+        "name": "Magma City",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Dalia Cythera",
+        "role": "pov"
+      },
+      {
+        "name": "Koriel Zeth",
+        "role": "pov"
+      },
+      {
+        "name": "Kelbor-Hal",
+        "role": "antagonist"
+      },
+      {
+        "name": "Regulus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Caxton",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.88,
+      "count": 9692,
+      "evidenceUrl": "https://www.goodreads.com/book/show/2941259-mechanicum"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

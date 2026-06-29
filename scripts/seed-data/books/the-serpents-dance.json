@@ -1,0 +1,99 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0226",
+  "slug": "the-serpents-dance",
+  "title": "The Serpent's Dance",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Once an Oblivion Knight of the Silent Sisterhood, Amendera Kendel now wears no rank that the Imperium openly names — she works for Malcador the Sigillite, and she works alone. A trail of betrayed loyalties has led her to the Jovian shipyards above the orbits of Sol, where someone is reshaping a battle-fleet meant for the Warmaster. Disguised as nobility at a glittering function, Kendel moves through aristocrats and minor naval lords, hunting for the right throat to crush, while Helig Gallor — the loyal Death Guard who took the grey of the Knights-Errant — watches her back from the shadows. The deeper she digs, the more certain she becomes that the hand behind the conspiracy belongs to a Legion that does not announce itself, and that the dance she is in is the kind that ends only with a knife.",
+    "facetIds": [
+      "book",
+      "female",
+      "multi",
+      "imperium",
+      "sector",
+      "requires_context",
+      "novella",
+      "mystery",
+      "political_thriller",
+      "court_intrigue",
+      "grimdark",
+      "action_heavy",
+      "betrayal",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Sisters of Silence",
+        "role": "primary"
+      },
+      {
+        "name": "Knights-Errant",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Jupiter",
+        "role": "primary"
+      },
+      {
+        "name": "Sol System",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Amendera Kendel",
+        "role": "pov"
+      },
+      {
+        "name": "Helig Gallor",
+        "role": "supporting"
+      },
+      {
+        "name": "Malcador the Sigillite",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.68,
+      "count": 81,
+      "evidenceUrl": "https://www.goodreads.com/book/show/56157413-the-serpent-s-dance"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

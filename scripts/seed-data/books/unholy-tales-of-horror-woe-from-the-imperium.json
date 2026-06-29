@@ -1,0 +1,80 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0527",
+  "slug": "unholy-tales-of-horror-woe-from-the-imperium",
+  "title": "Unholy Tales of Horror & Woe From The Imperium",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2023,
+  "format": "anthology",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "An omnibus collecting four full-length horror novels from the grim-future imprint. J C Stearns' The Oubliette opens with a young noblewoman dragged into a sealed-off oubliette of a forgotten subsector and the maddening creature waiting for her there. Nick Kyme's Sepulturum follows a medicae in a hive that is going wrong from the inside out as the dead refuse to stay dead. David Annandale's The Deacon of Wounds plunges a parched, plague-touched cardinal-world into a slow rot of body and faith. Justin D Hill's The Bookkeeper's Skull centres on an Adeptus Administratum auditor who finds a heretical reliquary buried in his stack of dusty ledgers. Four novels, four corners of the same idea: that the quieter horrors of the grim-dark future are the ones that walk in unannounced.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "mixed",
+      "civilian",
+      "imperium",
+      "planetary",
+      "cosmic_horror",
+      "grimdark",
+      "somber",
+      "mystery",
+      "faith",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "cw_mental_health",
+      "doorstopper",
+      "standalone",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Ministorum",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Administratum",
+        "role": "supporting"
+      },
+      {
+        "name": "Nurgle",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "omnibus",
+        "note": "Roster marks 'anthology' but Unholy is an omnibus of four full-length novels (The Oubliette by J C Stearns, Sepulturum by Nick Kyme, The Deacon of Wounds by David Annandale, The Bookkeeper's Skull by Justin D Hill), not a collection of short stories"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.07,
+      "count": 68,
+      "evidenceUrl": "https://www.goodreads.com/book/show/63291897-unholy"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

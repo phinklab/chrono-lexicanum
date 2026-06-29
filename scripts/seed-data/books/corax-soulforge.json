@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0121",
+  "slug": "corax-soulforge",
+  "title": "Corax: Soulforge",
+  "authors": [
+    "Gav Thorpe"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After the Dropsite Massacre on Isstvan V, Corax leads the survivors of the Raven Guard in a relentless shadow war against the Warmaster's allies. When the Legion intercepts a stricken Word Bearers vessel far behind enemy lines, the prisoners' confessions point to a darker pact: the priesthood of the forge world Constanix II is forging a new generation of war machines for the traitor cause. Corax orders a strike. Slipping past Mechanicum patrols with Agapito and Branne, he descends into the cathedral-foundries of Constanix to break the alliance and steal what he can — and to confront the rumours about his own genesis that have haunted him since Deliverance. The mission becomes a brutal interrogation of vengeance, command, and the cost of staying the Emperor's son when the Emperor has fallen silent.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "novella",
+      "requires_context",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "doubt",
+      "loyalty",
+      "brotherhood",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Constanix II",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Corax",
+        "role": "pov"
+      },
+      {
+        "name": "Agapito",
+        "role": "supporting"
+      },
+      {
+        "name": "Branne",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.61,
+      "count": 388,
+      "evidenceUrl": "https://www.goodreads.com/book/show/17787837.Corax_Soulforge"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

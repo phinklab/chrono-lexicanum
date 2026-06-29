@@ -1,0 +1,98 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0265",
+  "slug": "dark-disciple",
+  "title": "Dark Disciple",
+  "authors": [
+    "Anthony Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novel",
+  "seriesHint": "Word Bearers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Now bearing a relic of fearsome and uncertain power, Marduk drives the 34th Grand Host of the Word Bearers through the warp in search of the means to unlock its secrets. His hunt plunges the traitors into the heart of a desperate war, where an Imperial fleet fights to buy a doomed world time against the onrushing tide of a tyranid hive fleet. As the battle rages, a crueller predator slips through the frozen dark: dark eldar raiders come to plunder the dying for sport. Surrounded by enemies and rivals alike, Marduk must hold his fractious brethren together and bend every horror of the warzone to his ambition, for among the Word Bearers faith and treachery are never far apart.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "grimdark",
+      "cosmic_horror",
+      "action_heavy",
+      "hubris",
+      "betrayal",
+      "war",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Dark Eldar",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Marduk",
+        "role": "pov"
+      },
+      {
+        "name": "Kol Badar",
+        "role": "supporting"
+      },
+      {
+        "name": "Burias",
+        "role": "supporting"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "warzone world not clearly named in available sources"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.94,
+      "count": 500,
+      "evidenceUrl": "https://www.goodreads.com/book/show/3063811-dark-disciple"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

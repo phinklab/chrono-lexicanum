@@ -1,0 +1,102 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0097",
+  "slug": "blood-of-iax",
+  "title": "Blood of Iax",
+  "authors": [
+    "Robbie MacNiven"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the Dark Imperium era, Strike Force Fulminata brings a Primaris-only Ultramarines force to the ork-held mining world Ikara IX. At its heart are blood-brothers who serve the chapter in opposite ways: Chaplain Kastor, all fire and charge, and Apothecary Polixis, calm guardian of gene-seed and wounded warriors. When Warlord Urgork proves far more cunning than expected and aims his plan at the Apothecary rather than the usual glory targets, the brothers' bond becomes the campaign's hinge. Multi-POV battle fiction with Reivers, Astra Militarum defenders and ork viewpoints orbiting a very Ultramarines question of duty.",
+    "facetIds": [
+      "book",
+      "mixed",
+      "space_marine",
+      "imperium",
+      "company",
+      "standalone",
+      "standard",
+      "war_story",
+      "siege",
+      "mystery",
+      "journey",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Adeptus Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ikara IX",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramar",
+        "role": "mentioned"
+      },
+      {
+        "name": "Iax",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Kastor",
+        "role": "pov"
+      },
+      {
+        "name": "Polixis",
+        "role": "pov"
+      },
+      {
+        "name": "Urgork",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

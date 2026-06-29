@@ -1,0 +1,108 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0139",
+  "slug": "hells-last",
+  "title": "Hell's Last",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Commissar Minka Lesk and the Cadian 101st have survived the death of Cadia and the brutal campaigns that followed, but the jungle world Alia may be where their luck finally rots away. In the Gallows cluster, a rising darkness threatens the sector, and Lesk's dwindling command is pushed into a war where the terrain, weather, supply chain, and enemy all seem designed to grind Cadian endurance into mud. A post-Cadia Astra Militarum story in the Catachan Devil and Krieg vein: command pressure, jungle horror, and soldiers still trying to prove their world did not die with them.",
+    "facetIds": [
+      "book",
+      "female",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "character_study",
+      "siege",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "brotherhood",
+      "sacrifice",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Shock Troops",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian 101st",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Alia",
+        "role": "primary"
+      },
+      {
+        "name": "Gallows Cluster",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Minka Lesk",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "authors",
+        "suggestion": [
+          "Justin D Hill"
+        ],
+        "reason": "Roster authors[] empty; canonical author confirmed by Black Library + Lexicanum + Warhammer-Community + Wargame-Portal"
+      }
+    ]
+  },
+  "collections": {
+    "collects": []
+  }
+}

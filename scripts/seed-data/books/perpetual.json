@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0281",
+  "slug": "perpetual",
+  "title": "Perpetual",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Fleeing the ruin of Calth, the immortal farmer Oll Persson has guided his small band of refugees—including the psyker Katt—through the warped backways of time and space. Now they are stranded in Andrioch, a half-shattered colony perched on the edge of a chasm that pierces the planet to its core, and the path forward has closed. When John Grammaticus steps from the gloom claiming to know the way home, his counsel that Oll abandon his companions to save himself rings false. Pressed by the figure's certainty and Katt's sudden arrival, Oll draws the athame the Cabal once gave him, and discovers the smiling thing wearing Grammaticus's face is not Grammaticus at all but an Alpha Legionary patiently closing the trap.",
+    "facetIds": [
+      "audio_drama",
+      "novella",
+      "imperium",
+      "civilian",
+      "male",
+      "planetary",
+      "mystery",
+      "journey",
+      "somber",
+      "grimdark",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "requires_context",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Alpha Legion",
+        "role": "antagonist"
+      },
+      {
+        "name": "Cabal",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Andrioch",
+        "role": "primary"
+      },
+      {
+        "name": "Calth",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Oll Persson",
+        "role": "pov"
+      },
+      {
+        "name": "Katt",
+        "role": "supporting"
+      },
+      {
+        "name": "John Grammaticus",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.71,
+      "count": 152,
+      "evidenceUrl": "https://www.goodreads.com/book/show/33209677"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

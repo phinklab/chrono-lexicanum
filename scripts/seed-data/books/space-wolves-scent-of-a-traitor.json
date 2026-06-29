@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0430",
+  "slug": "space-wolves-scent-of-a-traitor",
+  "title": "Space Wolves: Scent of a Traitor",
+  "authors": [
+    "C.L. Werner"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Legends of the Dark Millennium",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ulrik the Slayer, ancient Wolf Priest of the Space Wolves, has run his quarry to ground: a renegade Space Marine the Dark Angels have hunted across the stars. Honour demands that Ulrik hand the prisoner over to the secretive sons of the First Legion — but the captive traitor claims to know the fate of the missing Great Wolf, Logan Grimnar, and dangles that knowledge like bait. To listen is to risk corruption; to refuse may doom his Chapter. As Ulrik weighs his oath against his loyalty to a lost lord, he uncovers something far worse: the sorcerous Thousand Sons stand on the brink of completing a terrible ritual, and only the Space Wolves can stop them in time.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "mystery",
+      "journey",
+      "grimdark",
+      "betrayal",
+      "loyalty",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Ulrik the Slayer",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "Sources describe the hunt but do not pin a specific named world for this short story; locations left empty rather than invented."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.72,
+      "count": 29,
+      "evidenceUrl": "https://www.goodreads.com/book/show/28582883-scent-of-a-traitor"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

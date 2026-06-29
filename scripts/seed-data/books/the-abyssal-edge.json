@@ -1,0 +1,93 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0106",
+  "slug": "the-abyssal-edge",
+  "title": "The Abyssal Edge",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "short_story",
+  "seriesHint": "Primarchs Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "An archivist of the Imperial bureaucracy, Orthos Ulatal, lives a small life pieced together from a once-promising career as a fighter pilot. Buried in the files crossing his desk he finds a report that should not exist: a record of Night Lords and Thousand Sons setting blade against blade on the compliance world of Zoah. The trail draws the attention of Sevatar, First Captain of the Eighth, who arrives to make the archivist a different kind of audience. What Sevatar tells him is the version that never made it into Imperial record — the day Konrad Curze and Magnus the Red came within a heartbeat of open war between their legions. The story is shaped as a fireside confession, all the violence carried in a single voice, and ends on a quiet, deeply unsettling note about what the Eighth Legion truly knows of its own future.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "novella",
+      "mystery",
+      "character_study",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "doubt",
+      "betrayal",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Night Lords",
+        "role": "primary"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Zoah",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sevatar",
+        "role": "pov"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "supporting"
+      },
+      {
+        "name": "Magnus the Red",
+        "role": "supporting"
+      },
+      {
+        "name": "Orthos Ulatal",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.17,
+      "count": 164,
+      "evidenceUrl": "https://www.goodreads.com/book/show/44235093-the-abyssal-edge"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

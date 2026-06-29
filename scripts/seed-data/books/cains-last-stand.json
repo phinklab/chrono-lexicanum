@@ -1,0 +1,115 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0017",
+  "slug": "cains-last-stand",
+  "title": "Cain's Last Stand",
+  "authors": [
+    "Sandy Mitchell"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novel",
+  "seriesHint": "Ciaphas Cain",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Cain is in his semi-retirement on Perlia, teaching commissar cadets at the Schola Progenium on the world where his name became a banner eighty years earlier. When Abaddon's 13th Black Crusade spills out of the Eye of Terror, a splinter under Warmaster Varan splits off and lands on Perlia with a specific target: the Shadowlight, a xenos artefact the Adeptus Mechanicus and the Ordos have been quietly studying in the Valley of Daemons. Cain — old, with no command except his handful of cadets and the loyally-stinking Jurgen — defends the planet through a planetary siege he has spent the last decade dreading. Amberley Vail appears, the Shadowlight does what Varan was always going to make it do, and Cain ends the book alive, very tired, and once again credited with a victory he did not plan. The sixth and tonally darkest of the early Cain memoirs.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "last_stand",
+      "satirical",
+      "action_heavy",
+      "grimdark",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Black Legion",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Perlia",
+        "role": "primary"
+      },
+      {
+        "name": "Valley of Daemons",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ciaphas Cain",
+        "role": "pov"
+      },
+      {
+        "name": "Jurgen",
+        "role": "supporting"
+      },
+      {
+        "name": "Amberley Vail",
+        "role": "supporting"
+      },
+      {
+        "name": "Varan",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

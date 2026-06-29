@@ -1,0 +1,135 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0114",
+  "slug": "the-triumph-of-saint-katherine",
+  "title": "The Triumph of Saint Katherine",
+  "authors": [
+    "Danie Ware"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2022,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sister Avra of the Order of Our Martyred Lady is chosen to join the Triumph of Saint Katherine, the sacred procession carrying the saint's bones in reliquary armour from war zone to war zone. On besieged Kiros, six Sisters Pronatus embody the spirits of the great matriarchs and tell Avra the histories behind their Orders while Chaos closes in. Each tale becomes a different answer to martyrdom, discipline, fury, mercy, and duty, and Avra must test her own secret shame against them. She wants redemption through death, but the vision that finds her points to a harder kind of service. A devotional Sisters of Battle war novel, half procession, half vigil, where faith is tested through story before it is tested by fire.",
+    "facetIds": [
+      "book",
+      "female",
+      "sister",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "journey",
+      "grimdark",
+      "hopepunk",
+      "somber",
+      "philosophical",
+      "faith",
+      "redemption",
+      "sacrifice",
+      "doubt",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adepta Sororitas",
+        "role": "primary"
+      },
+      {
+        "name": "Order of Our Martyred Lady",
+        "role": "primary"
+      },
+      {
+        "name": "Orders Pronatus",
+        "role": "primary"
+      },
+      {
+        "name": "Order of the Ebon Chalice",
+        "role": "supporting"
+      },
+      {
+        "name": "Order of the Argent Shroud",
+        "role": "supporting"
+      },
+      {
+        "name": "Order of the Bloody Rose",
+        "role": "supporting"
+      },
+      {
+        "name": "Order of the Sacred Rose",
+        "role": "supporting"
+      },
+      {
+        "name": "Order of the Valorous Heart",
+        "role": "supporting"
+      },
+      {
+        "name": "Ecclesiarchy",
+        "role": "secondary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kiros",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sister Avra",
+        "role": "pov"
+      },
+      {
+        "name": "Saint Katherine",
+        "role": "supporting"
+      },
+      {
+        "name": "Saint Dominica",
+        "role": "supporting"
+      },
+      {
+        "name": "Saint Silvana",
+        "role": "supporting"
+      },
+      {
+        "name": "Saint Mina",
+        "role": "supporting"
+      },
+      {
+        "name": "Saint Arabella",
+        "role": "supporting"
+      },
+      {
+        "name": "Saint Lucia",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

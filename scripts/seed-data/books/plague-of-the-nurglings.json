@@ -1,0 +1,106 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0490",
+  "slug": "plague-of-the-nurglings",
+  "title": "Plague of the Nurglings",
+  "authors": [
+    "Cavan Scott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Adventures",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Zelia Lor and her friends arrive on Aparitus, a roaring forge world of immense industrial cathedrals tended by the cybernetic priests of the Adeptus Mechanicus. They are no longer travelling alone: the stern Inquisitor Jeremias has taken them under his protection, and his presence opens doors that would otherwise stay closed. But Aparitus is not the safe haven it appears to be. A strange sickness begins to spread, leaping from machine to machine and birthing crowds of giggling little daemons, Nurglings, that swarm through the corridors. When Jeremias reaches into the warp to track down a renegade rogue trader, he tears open a wound that the children are unprepared for: their first true encounter with the daemonic servants of the plague god Nurgle.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "ensemble",
+      "civilian",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "short",
+      "war_story",
+      "mystery",
+      "journey",
+      "action_heavy",
+      "cosmic_horror",
+      "faith",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_parental_guidance",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Adeptus Mechanicus",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "antagonist"
+      },
+      {
+        "name": "Nurgle",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Aparitus",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zelia Lor",
+        "role": "pov"
+      },
+      {
+        "name": "Talen",
+        "role": "pov"
+      },
+      {
+        "name": "Mekki",
+        "role": "pov"
+      },
+      {
+        "name": "Fleapit",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisitor Jeremias",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.04,
+      "count": 46,
+      "evidenceUrl": "https://www.goodreads.com/book/show/50891100-plague-of-the-nurglings"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

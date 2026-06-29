@@ -1,0 +1,90 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0215",
+  "slug": "hammer-of-daemons",
+  "title": "Hammer of Daemons",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2008,
+  "format": "novel",
+  "seriesHint": "Grey Knights",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Captured in battle and dragged into the Eye of Terror, Justicar Alaric awakens stripped of his armour and weapons on the daemon world of Drakaasi, a hell ruled by the servants of the Blood God. Forced to fight in gladiatorial arenas for the entertainment of his captors, chief among them the cruel Duke Venalitor, Alaric clings to his faith and his sanity while he searches for the one thing that might win his freedom: a legendary weapon said to have the power to slay daemons. To escape, he must survive endless slaughter, resist corruption, and forge alliances with the unlikeliest of fellow prisoners.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "series_finale",
+      "standard",
+      "war_story",
+      "journey",
+      "last_stand",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_abuse",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Grey Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Khorne",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Drakaasi",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Alaric",
+        "role": "pov"
+      },
+      {
+        "name": "Duke Venalitor",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.87,
+      "count": 693,
+      "evidenceUrl": "https://www.goodreads.com/book/show/1655815.Hammer_of_Daemons"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

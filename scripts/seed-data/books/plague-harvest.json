@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0320",
+  "slug": "plague-harvest",
+  "title": "Plague Harvest",
+  "authors": [
+    "Cavan Scott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the quiet agri-world of Orath, the crops wither and the people sicken as something ancient stirs beneath the soil. Librarian Vabion of the Ultramarines, keeper of the planet's buried secrets and castellan of Fort Kerberos, must set aside old frictions and work with the grim warriors of the Doom Eagles to trace the source of the contagion. But when the dead begin to rise and the true architects of Orath's fate reveal themselves, servants of the plague-god Nurgle, Vabion is left to stand alone against a horror millennia in the making. A creeping tale of corruption and dread that turns a failing harvest into a full daemonic incursion.",
+    "facetIds": [
+      "book",
+      "novella",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "war_story",
+      "mystery",
+      "siege",
+      "grimdark",
+      "cosmic_horror",
+      "faith",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Doom Eagles",
+        "role": "supporting"
+      },
+      {
+        "name": "Daemons of Nurgle",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Orath",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Vabion",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.36,
+      "count": 47,
+      "evidenceUrl": "https://www.goodreads.com/book/show/22019422-plague-harvest"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

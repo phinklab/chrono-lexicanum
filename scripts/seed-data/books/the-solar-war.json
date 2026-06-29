@@ -1,0 +1,126 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0055",
+  "slug": "the-solar-war",
+  "title": "The Solar War",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Siege of Terra",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After seven years of war, Horus's armada arrives in the Sol system and the long-prepared defence of Terra finally begins. Rogal Dorn's outer cordon stretches from Pluto inward — a screen of fortresses, void stations, and bled Imperial Navy squadrons meant not to win, but to slow the Warmaster long enough for the inner walls to be ready. Admiral Su-Kassen marshals what remains of the Sol fleet; Sigismund of the Imperial Fists seeks atonement in single combat; the remembrancer Mersadie Oliton looks for any way back to a Terra she may not recognise. On the traitor side, Abaddon executes Horus's plan as surely as Ahriman bends the warp around it. The first wall, in the void, falls hard.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "ensemble",
+      "space_marine",
+      "dual",
+      "galactic",
+      "series_start",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "loyalty",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperial Navy",
+        "role": "supporting"
+      },
+      {
+        "name": "Thousand Sons",
+        "role": "supporting"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sol System",
+        "role": "primary"
+      },
+      {
+        "name": "Pluto",
+        "role": "supporting"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Rogal Dorn",
+        "role": "supporting"
+      },
+      {
+        "name": "Sigismund",
+        "role": "pov"
+      },
+      {
+        "name": "Mersadie Oliton",
+        "role": "pov"
+      },
+      {
+        "name": "Su-Kassen",
+        "role": "pov"
+      },
+      {
+        "name": "Ezekyle Abaddon",
+        "role": "pov"
+      },
+      {
+        "name": "Ahzek Ahriman",
+        "role": "supporting"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.02,
+      "count": 4259,
+      "evidenceUrl": "https://www.goodreads.com/book/show/42944438-the-solar-war"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

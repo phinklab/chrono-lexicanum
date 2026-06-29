@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0267",
+  "slug": "the-herald-of-sanguinius",
+  "title": "The Herald of Sanguinius",
+  "authors": [
+    "Andy Smillie"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "audio_drama",
+  "seriesHint": "Even More Audio Dramas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Crowned Emperor-Regent of Imperium Secundus by Roboute Guilliman in the wake of the Ruinstorm, the Angel Sanguinius now reigns over a brittle, frightened realm. Three weeks into his accession, the Legions camped on Macragge grow restless, petitioners crowd every gate, and Commander Azkaellon of the Sanguinary Guard trusts none of them. As whispers of betrayal harden into something he can almost touch, Azkaellon must take measures no honest officer would countenance to keep the Angel alive - and to keep the truth of the Blood Angels' nature buried. An intimate piece that hints at one of the oldest secrets of Sanguinius' Legion, even as the new Imperium begins to fracture from within.",
+    "facetIds": [
+      "audio_drama",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "court_intrigue",
+      "political_thriller",
+      "character_study",
+      "somber",
+      "philosophical",
+      "loyalty",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Sanguinary Guard",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Macragge",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sanguinius",
+        "role": "pov"
+      },
+      {
+        "name": "Azkaellon",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.49,
+      "count": 171,
+      "evidenceUrl": "https://www.goodreads.com/book/show/23768358-herald-of-sanguinius"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

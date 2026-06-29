@@ -1,0 +1,111 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0591",
+  "slug": "soldiers-of-the-imperium",
+  "title": "Soldiers of the Imperium",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2025,
+  "format": "omnibus",
+  "seriesHint": "40k - Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "track_of_words",
+    "url": "https://www.trackofwords.com/2020/01/11/keep-track-of-upcoming-black-library-releases/",
+    "confidence": 0.6
+  },
+  "curation": {
+    "synopsis": "Three novels and four short stories follow the soldiers of the Astra Militarum across the most brutal fronts of the 41st Millennium. In Death World by Steve Lyons, Catachan Jungle Fighters are sent to Rogar III to eliminate an ork warboss, only to find the planet's own ecosystem evolving to kill them. In Kasrkin by Edoardo Albert, an elite Cadian commando team led by Captain Obeysekera braves a hostile desert world and T'au-held territory to rescue a downed Imperial general whose capture could break the war effort. In Witchbringer by Steven B. Fischer, former Cadian officer and newly sanctioned primaris psyker Glavia Aerand is deployed to the fog-shrouded death world of Visage, where warp-touched terrain and a haunting premonition force her to confront both the enemy and her own power. Four accompanying short stories deepen the front-line portraits of soldiery, sacrifice, and survival across these campaigns.",
+    "facetIds": [
+      "book",
+      "en",
+      "ensemble",
+      "multi",
+      "imperium",
+      "galactic",
+      "standalone",
+      "doorstopper",
+      "war_story",
+      "grimdark",
+      "war",
+      "sacrifice",
+      "brotherhood",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Catachan Jungle Fighters",
+        "role": "primary"
+      },
+      {
+        "name": "Cadian Kasrkin",
+        "role": "primary"
+      },
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      },
+      {
+        "name": "T'au Empire",
+        "role": "antagonist"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Rogar III",
+        "role": "primary"
+      },
+      {
+        "name": "Dasht i-Kevar",
+        "role": "primary"
+      },
+      {
+        "name": "Visage",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lorenzo",
+        "role": "pov"
+      },
+      {
+        "name": "Captain Obeysekera",
+        "role": "pov"
+      },
+      {
+        "name": "Glavia Aerand",
+        "role": "pov"
+      },
+      {
+        "name": "Commissar Roshant",
+        "role": "supporting"
+      },
+      {
+        "name": "Sergeant Greiss",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4,
+      "count": 22,
+      "evidenceUrl": "https://www.goodreads.com/book/show/216173826-soldiers-of-the-imperium"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

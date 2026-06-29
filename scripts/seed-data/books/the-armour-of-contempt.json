@@ -1,0 +1,145 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0033",
+  "slug": "the-armour-of-contempt",
+  "title": "The Armour of Contempt",
+  "authors": [
+    "Dan Abnett"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2006,
+  "format": "novel",
+  "seriesHint": "Gaunt's Ghosts",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Gereon is recaptured. The third book of The Lost picks up as the Imperium launches a full-scale liberation invasion of the world the Ghosts spent eighteen months crawling through in Traitor General — and the Tanith First, with its complicated history on that ground, is sent back in as one of the lead regiments. The novel runs three intersecting tracks: Gaunt's command level adjusting to the liberation strategy, the now-veteran Gereon-survivors' difficult emotional return to the soil that broke them, and a younger track following Dalin Criid — Tona Criid and Caffran's adopted son, now of conscription age — going through Belladon recruit training under Hark before being committed to the front. The Gereon Resistance, both the noble dead and the survivors found tainted past saving, looms over every page. By novel's end Gereon is nominally retaken, but the Imperial verdict on the Resistance is grim, and the title's irony — the contempt the armour offered the conquerors, and the armour of contempt with which the Imperium answers — lands as a closing theme.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "regiment",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "sacrifice",
+      "doubt",
+      "betrayal",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Tanith First-and-Only",
+        "role": "primary"
+      },
+      {
+        "name": "Verghastite Ghosts",
+        "role": "primary"
+      },
+      {
+        "name": "Belladon",
+        "role": "primary"
+      },
+      {
+        "name": "Commissariat",
+        "role": "primary"
+      },
+      {
+        "name": "Gereon Resistance",
+        "role": "supporting"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Blood Pact",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Gereon",
+        "role": "primary"
+      },
+      {
+        "name": "Sabbat Worlds",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ibram Gaunt",
+        "role": "pov"
+      },
+      {
+        "name": "Dalin Criid",
+        "role": "pov"
+      },
+      {
+        "name": "Viktor Hark",
+        "role": "supporting"
+      },
+      {
+        "name": "Tona Criid",
+        "role": "supporting"
+      },
+      {
+        "name": "Caffran",
+        "role": "supporting"
+      },
+      {
+        "name": "Elim Rawne",
+        "role": "supporting"
+      },
+      {
+        "name": "Oan Mkoll",
+        "role": "supporting"
+      },
+      {
+        "name": "Hlaine Larkin",
+        "role": "supporting"
+      },
+      {
+        "name": "Ban Daur",
+        "role": "supporting"
+      },
+      {
+        "name": "Ana Curth",
+        "role": "supporting"
+      },
+      {
+        "name": "Gerome Landerson",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

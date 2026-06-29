@@ -1,0 +1,78 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0198",
+  "slug": "tallarn-witness",
+  "title": "Tallarn: Witness",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2015,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "The largest tank battle in human history has just ended in the dust of Tallarn, and the victors are still counting. Susada Syn, raised from the survivors of the planet's ruined cities, has been named its first governor-militant, charged with the impossible task of looking at what is left and deciding whether anything can be built from it. Carried over the battlefield on the bridge of a Warlord Titan, he watches a horizon of broken tanks stretch beyond the limits of vision and listens to the artillery commanders and Legion officers around him give him their measure of the cost. A short, quiet coda to the long Tallarn campaign, told entirely in the silence after victory.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "planetary",
+      "requires_context",
+      "character_study",
+      "somber",
+      "grimdark",
+      "philosophical",
+      "war",
+      "sacrifice",
+      "doubt",
+      "en",
+      "cw_death",
+      "cw_violence"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Army",
+        "role": "primary"
+      },
+      {
+        "name": "Iron Warriors",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Tallarn",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Susada Syn",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.4,
+      "count": 144,
+      "evidenceUrl": "https://www.goodreads.com/book/show/24947140-tallarn"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

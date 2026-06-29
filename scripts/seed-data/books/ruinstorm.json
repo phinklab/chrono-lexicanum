@@ -1,0 +1,121 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0046",
+  "slug": "ruinstorm",
+  "title": "Ruinstorm",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Imperium Secundus, the rival realm raised in Ultramar while Terra fell silent, has been exposed as a heretical mistake. Sanguinius, Roboute Guilliman and Lion El'Jonson set their sights on the throneworld and try to break out of Macragge — but the galaxy between them and the Emperor is choked by a roiling warp anomaly, the Word Bearers' Ruinstorm. The three primarchs split their fleets, brave daemon-haunted reefs and dead worlds where Lorgar's priests have remade reality, and confront the prophecies each of them has been hiding. Sanguinius sees the wings of his own death, the Lion bargains with what should not exist, and Guilliman watches the dream of a Secundus he had almost let himself believe in crumble around him. The road to the Siege opens here.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "mid_series",
+      "standard",
+      "journey",
+      "war_story",
+      "somber",
+      "philosophical",
+      "grimdark",
+      "sacrifice",
+      "brotherhood",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Macragge",
+        "role": "primary"
+      },
+      {
+        "name": "Davin",
+        "role": "supporting"
+      },
+      {
+        "name": "Ultramar",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Sanguinius",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "pov"
+      },
+      {
+        "name": "Lion El'Jonson",
+        "role": "pov"
+      },
+      {
+        "name": "Konrad Curze",
+        "role": "antagonist"
+      },
+      {
+        "name": "Kor Phaeron",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.73,
+      "count": 1919,
+      "evidenceUrl": "https://www.goodreads.com/book/show/35297653-ruinstorm"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0538",
+  "slug": "master-of-rites",
+  "title": "Master of Rites",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2025,
+  "format": "novel",
+  "seriesHint": "Dawn of Fire",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Newly raised to Captain of the Ultramarines Sixth Company and burdened with the chapter's old title of Master of Rites, Ferren Areios is sent to the far reaches of Ultramar to take back worlds long abandoned to the Death Guard. Out here the Great Rift hangs close enough to fatten Nurgle's strength, and the Plague Marines have settled in like rot in a wound. As the offensive bogs down and casualty rolls climb to ruinous heights, Areios is pushed to the bone of his chapter's creed - alone in the Plague God's country, fighting not only for the worlds of the Reach but for the parts of himself he can still recognise.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "war",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Ultramarines",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Ultramar",
+        "role": "primary"
+      },
+      {
+        "name": "Great Rift",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ferren Areios",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "Released 2025-12-05; no reachable Goodreads page during research window.",
+      "evidenceUrl": "https://www.goodreads.com/search?q=Master+of+Rites+Rob+Young"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

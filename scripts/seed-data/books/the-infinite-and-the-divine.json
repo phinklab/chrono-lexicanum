@@ -1,0 +1,101 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0108",
+  "slug": "the-infinite-and-the-divine",
+  "title": "The Infinite and the Divine",
+  "authors": [
+    "Robert Rath"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Trazyn the Infinite guards the galleries of Solemnace like a museum, a fortress and a private joke. Orikan the Diviner breaks in to steal a device he believes will lead to the tomb of the last true Necrontyr Phaeron and the secret of undoing biotransference. Their feud stretches across millennia, through lawsuits before the Triarch Council, uneasy alliances, and the human world of Cepharil, also called Serenade, where a signal beneath the surface draws in Necrons, a Genestealer Cult and Imperial extermination. A philosophical, action-heavy rivalry novel with antique arrogance, deadpan comedy and genuine cosmic stakes.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "pc_xenos",
+      "xenos",
+      "galactic",
+      "standalone",
+      "standard",
+      "heist",
+      "mystery",
+      "journey",
+      "character_study",
+      "philosophical",
+      "satirical",
+      "action_heavy",
+      "grimdark",
+      "hubris",
+      "betrayal",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Necrons",
+        "role": "primary"
+      },
+      {
+        "name": "Sautekh Dynasty",
+        "role": "primary"
+      },
+      {
+        "name": "Triarch Council",
+        "role": "supporting"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium of Man",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Solemnace",
+        "role": "primary"
+      },
+      {
+        "name": "Cepharil",
+        "role": "primary"
+      },
+      {
+        "name": "Serenade",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Trazyn the Infinite",
+        "role": "pov"
+      },
+      {
+        "name": "Orikan the Diviner",
+        "role": "pov"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

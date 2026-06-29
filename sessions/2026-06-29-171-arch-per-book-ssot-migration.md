@@ -2,12 +2,14 @@
 session: 2026-06-29-171
 role: architect
 date: 2026-06-29
-status: open
+status: implemented
 slug: per-book-ssot-migration
 parent: 2026-06-28-170
-links: [2026-06-28-170, 2026-06-18-157, 2026-06-25-165]
+links: [2026-06-28-170, 2026-06-18-157, 2026-06-25-165, 2026-06-30-171]
 commits: []
 ---
+
+> **Implemented** — see `sessions/2026-06-30-171-impl-per-book-ssot-migration.md`. The 896-book corpus is migrated to `books/*.json`, equivalence is proven by an empty DB-free projection diff, the batch/Excel/loop machinery is retired, and `apply:book --all` is the primary corpus step. No live/prod DB was touched.
 
 # 171 - Per-Buch-SSOT Teil B: verifizierte Migration und Batch-Retirement
 

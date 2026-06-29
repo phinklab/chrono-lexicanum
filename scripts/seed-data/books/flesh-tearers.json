@@ -1,0 +1,96 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0297",
+  "slug": "flesh-tearers",
+  "title": "Flesh Tearers",
+  "authors": [
+    "Andy Smillie"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "collection",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "None of the sons of Sanguinius are as bloody or as wrathful as the Flesh Tearers, a Chapter forever shadowed by the curse of the Black Rage. These tales follow them from the feral jungle world of Cretacia — where Chapter Master Amit hunts orks and uncovers something older and deadlier in the depths — to the trial of Gabriel Seth, who must answer for his Chapter's very right to exist. As Seth recounts the savage history of the Flesh Tearers, the masters of the Blood Angels successors weigh whether his bloodline should be allowed to endure. Brutal, visceral, and haunted by inheritance, this collection gathers the defining stories of the Emperor's angriest warriors.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "company",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "brotherhood",
+      "war",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Flesh Tearers",
+        "role": "primary"
+      },
+      {
+        "name": "Blood Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Orks",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cretacia",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Gabriel Seth",
+        "role": "pov"
+      },
+      {
+        "name": "Amit",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "collection",
+        "reason": "roster lists 'novel' but the volume is a single-author collection of three novellas (Flesh of Cretacia, Sons of Wrath, Trial by Blood)"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.83,
+      "count": 105,
+      "evidenceUrl": "https://www.goodreads.com/book/show/26029268-flesh-tearers"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

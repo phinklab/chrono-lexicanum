@@ -1,0 +1,85 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0079",
+  "slug": "bringer-of-sorrow",
+  "title": "Bringer of Sorrow",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "short_story",
+  "seriesHint": "Siege of Terra Prequels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After the Blood Angels return from the wars beyond Mars and the Webway, Sanguinius's broken son Zephon comes back to the workshops of the technoarchaeologist Arkhan Land for a problem neither of them is in a hurry to face. The bionics Land once patched into Zephon's ruined frame are themselves now failing, and the only honest fix involves rebuilding work that Land alone is arrogant enough, and gifted enough, to attempt. What unfolds is less a procedure than a long, awkward conversation between two men who do not have many friends, weighed against the question of what Land is willing to do, and to bend, to give Zephon a few more years on his feet.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "multi",
+      "male",
+      "imperium",
+      "company",
+      "requires_context",
+      "novella",
+      "character_study",
+      "somber",
+      "philosophical",
+      "brotherhood",
+      "redemption",
+      "loyalty",
+      "sacrifice",
+      "hubris",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Blood Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Mechanicum",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Arkhan Land",
+        "role": "pov"
+      },
+      {
+        "name": "Zephon",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.16,
+      "count": 158,
+      "evidenceUrl": "https://www.goodreads.com/book/show/44048368-bringer-of-sorrow"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

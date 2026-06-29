@@ -1,0 +1,75 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0218",
+  "slug": "immortal-duty",
+  "title": "Immortal Duty",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ahrem Gallikus is an Iron Hand in name and in oath, but he is also a Medusan Immortal — one of the Legion's disgraced, sworn to fight bare-handed and helmless until the next blow finds them. Now, at the end of the line, he kneels before his own brothers and waits for the executioner's bolt. Before the round is loaded, they let him speak. What he tells is the story of a single boarding action above Isstvan V, when the Iron Hands of the warship Retiarius tried to cut a path through Horus's blockade and rejoin what remained of Ferrus Manus's Legion. It is the story of how the Shattered Legions were born, of what loyalty looks like when there is no Primarch left to demand it, and of what a man condemned to die has left in him to give.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "requires_context",
+      "novella",
+      "war_story",
+      "last_stand",
+      "somber",
+      "grimdark",
+      "sacrifice",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan V",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ahrem Gallikus",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.51,
+      "count": 94,
+      "evidenceUrl": "https://www.goodreads.com/book/show/36630916-immortal-duty"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0161",
+  "slug": "status-deadzone",
+  "title": "Status: Deadzone",
+  "authors": [
+    "Marc Gascoigne",
+    "Andy Jones"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2000,
+  "format": "anthology",
+  "seriesHint": "Necromunda",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Necromunda opens as an anthology of eleven Underhive stories set beneath Hive Primus, where gang houses, Guilders, Redemptionists, raiders, lamplighters and mutant wildlife make survival feel provisional. The collection moves between House Escher, Goliath, Orlock, Cawdor, Delaque and Van Saar corners of hive-bottom life, trading one grand plot for a mosaic of turf wars, bad bargains, hunger and machinery that never stops coughing poison. It reads less like a tour and more like ten doors kicked open at once. An introductory Necromunda volume with grime under its nails: gang fiction, horror vignettes and downhive folk tales in one brutal primer.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "war_story",
+      "character_study",
+      "action_heavy",
+      "grimdark",
+      "war",
+      "loyalty",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_crime",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "House Escher",
+        "role": "primary"
+      },
+      {
+        "name": "House Goliath",
+        "role": "primary"
+      },
+      {
+        "name": "House Orlock",
+        "role": "primary"
+      },
+      {
+        "name": "House Cawdor",
+        "role": "primary"
+      },
+      {
+        "name": "House Delaque",
+        "role": "primary"
+      },
+      {
+        "name": "House Van Saar",
+        "role": "primary"
+      },
+      {
+        "name": "Guilders",
+        "role": "supporting"
+      },
+      {
+        "name": "Redemptionists",
+        "role": "supporting"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Necromunda",
+        "role": "primary"
+      },
+      {
+        "name": "Hive Primus",
+        "role": "primary"
+      },
+      {
+        "name": "Underhive",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

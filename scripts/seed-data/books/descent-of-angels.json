@@ -1,0 +1,100 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0006",
+  "slug": "descent-of-angels",
+  "title": "Descent of Angels",
+  "authors": [
+    "Mitchel Scanlon"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2007,
+  "format": "novel",
+  "seriesHint": "Original Horus Heresy",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "On the feral world of Caliban, the great beasts hunt children in the woods and the knightly Order under Lion El'Jonson hunts them back. Two young cousins, Zahariel and Nemiel, rise from squire to knight through the Order's long apprenticeship, learning steel and stoicism under masters whose loyalties to the Lion and to his old companion Luther do not always run the same way. When the Imperium arrives and the Lion is named primarch of the Dark Angels Legion, the Order is folded in. Years later on Sarosh, far from home, news of Horus's betrayal forces a son of Caliban to choose between the men who taught him to fight and the larger war demanding his sword.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "character_study",
+      "war_story",
+      "somber",
+      "philosophical",
+      "brotherhood",
+      "loyalty",
+      "faith",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "The Order",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Caliban",
+        "role": "primary"
+      },
+      {
+        "name": "Sarosh",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Zahariel",
+        "role": "pov"
+      },
+      {
+        "name": "Nemiel",
+        "role": "supporting"
+      },
+      {
+        "name": "Lion El'Jonson",
+        "role": "supporting"
+      },
+      {
+        "name": "Luther",
+        "role": "supporting"
+      },
+      {
+        "name": "Sar Daviel",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.63,
+      "count": 11903,
+      "evidenceUrl": "https://www.goodreads.com/book/show/768929.Descent_of_Angels"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

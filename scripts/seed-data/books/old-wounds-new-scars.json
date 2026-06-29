@@ -1,0 +1,83 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0076",
+  "slug": "old-wounds-new-scars",
+  "title": "Old Wounds, New Scars",
+  "authors": [
+    "Graham McNeill"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "short_story",
+  "seriesHint": "Siege of Terra Prequels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Returning to Terra is not a thing the Perpetual Alivia Sureka chose lightly, but the call she cannot name has only grown louder, and the children she calls her own deserve at least the protection of walls. The warp passage from ruined Molech is a long, brutal one: a battered transport carrying refugees, a crew dwindling under spiritual strain, and an old soldier who is not so old as he looks. As Alivia steadies the ship through storms that bite at the hull and at her memory, she catches premonitions of what waits ahead and remembers more than she would like of what she has already buried. The Throneworld is close. So is the war.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "civilian",
+      "female",
+      "imperium",
+      "sector",
+      "requires_context",
+      "novella",
+      "journey",
+      "character_study",
+      "somber",
+      "philosophical",
+      "faith",
+      "sacrifice",
+      "doubt",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Molech",
+        "role": "primary"
+      },
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Alivia Sureka",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Alivia Sureka ist Perpetual ohne formelle Faction-Bindung; Refugee-Transport ist nicht eindeutig Astra-Militarum oder Mechanicus."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 101,
+      "evidenceUrl": "https://www.goodreads.com/book/show/43069017-old-wounds-new-scars"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

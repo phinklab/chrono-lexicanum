@@ -1,0 +1,76 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0241",
+  "slug": "shadowsword",
+  "title": "Shadowsword",
+  "authors": [
+    "Guy Haley"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Honoured Lieutenant Lo Bannick and the crew of the super-heavy Baneblade Cortein's Honour are thrown into the Geratomro warzone, assigned to support a squadron of Shadowsword tank-hunters in a war that will decide the fate of three star systems. As the campaign grinds on, Bannick discovers that the secessionists he was sent to crush are not the simple traitors he was promised, and the new allies who fight beside his crew test everything he believes about the Imperium he serves. Sealed inside the roaring, oil-stinking belly of his tank, Bannick must hold his men together through armoured battles that threaten not only their lives but the certainties that have carried him this far.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "sector",
+      "war_story",
+      "grimdark",
+      "action_heavy",
+      "war",
+      "loyalty",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_language",
+      "en",
+      "standard",
+      "mid_series"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Geratomro",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lo Bannick",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.18,
+      "count": 305,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29430425-shadowsword"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

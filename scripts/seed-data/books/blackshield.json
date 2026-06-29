@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0208",
+  "slug": "blackshield",
+  "title": "Blackshield",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "short_story",
+  "seriesHint": "Horus Heresy Short Stories",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Sergeant Khorak of the Deathshroud should already be dead, but the breaking of his Legion at Isstvan has left him drifting at the edge of the Imperium with a handful of equally lost Death Guard, raiding what little falls within reach. The hunt finds him before the Imperium does: a band of warriors in crudely overpainted black armour, led by another disowned son of Mortarion — the Blackshield Crysos Morturg. What follows is less a war between two sides of the Heresy than a private reckoning between two answers to the same question: what does a Death Guard become when his Legion no longer wants him? A short, hard-edged introduction to one of the Heresy's most enigmatic renegade captains.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "dual",
+      "squad",
+      "requires_context",
+      "war_story",
+      "character_study",
+      "mystery",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "loyalty",
+      "doubt",
+      "betrayal",
+      "brotherhood",
+      "en",
+      "cw_violence",
+      "cw_death"
+    ],
+    "factions": [
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Blackshields",
+        "role": "primary"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Khorak",
+        "role": "pov"
+      },
+      {
+        "name": "Crysos Morturg",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "locations",
+        "reason": "the raid and confrontation are set on unnamed fringe worlds at the edge of the Imperium; no concrete planet or system is identified in accessible summaries."
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.64,
+      "count": 123,
+      "evidenceUrl": "https://www.goodreads.com/book/show/31449766-blackshield"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

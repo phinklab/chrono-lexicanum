@@ -1,0 +1,78 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0492",
+  "slug": "the-wicked-and-the-damned",
+  "title": "The Wicked and the Damned",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2019,
+  "format": "anthology",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Three strangers — a commissar, an officer of the Astra Militarum, and an Imperial priest — find themselves stranded together on the mist-shrouded cemetery world of Silence, surrounded by the dead and tended by sinister mortuary-servitors. As they wait for an unknown reckoning, each is compelled in turn to tell the last thing they remember: a ghost story, a monster saga, and a tale of psychological horror that, braided together, draw the strangers towards one terrible truth. The opening volume of the Warhammer Horror imprint links three Warhammer 40,000 novellas — by Josh Reynolds, Phil Kelly, and David Annandale — through a frame whose meaning only sharpens in the final pages.",
+    "facetIds": [
+      "book",
+      "ensemble",
+      "multi",
+      "imperium",
+      "planetary",
+      "standalone",
+      "standard",
+      "mystery",
+      "character_study",
+      "cosmic_horror",
+      "somber",
+      "grimdark",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Astra Militarum",
+        "role": "supporting"
+      },
+      {
+        "name": "Officio Prefectus",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Silence",
+        "role": "primary"
+      }
+    ],
+    "characters": [],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.72,
+      "count": 732,
+      "evidenceUrl": "https://www.goodreads.com/book/show/40744547-the-wicked-and-the-damned"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

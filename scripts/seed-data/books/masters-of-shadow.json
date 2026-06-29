@@ -1,0 +1,86 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0480",
+  "slug": "masters-of-shadow",
+  "title": "Masters of Shadow",
+  "authors": [
+    "Thomas Parrott"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "Space Marine Conquests",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Perdition was once a cemetery world; under Word Bearer occupation it has become a chain of mines where its surviving people are forced to break and defile the relics of the Imperial dead. Primaris Lieutenant Turan Raakis leads a Raven Guard Vanguard team into Perdition's wastes to wage the kind of patient, lightless war his primarch would recognise: sabotage, ambush, and the slow forging of a rebellion out of the world's broken inhabitants. To free Perdition, Raakis must convince mortals who have nothing left to gamble what little remains — and live up to a legacy that demands every shadow be made into a weapon.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "mid_series",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "sacrifice",
+      "faith",
+      "loyalty",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Raven Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Perdition",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Turan Raakis",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "rating",
+        "reason": "Goodreads page records only 1 rating (1.00, 0 reviews) — too thin to aggregate; publication status disputed in third-party reporting (some sources describe the title as never released by Black Library)."
+      }
+    ],
+    "rating": {
+      "status": "unrated",
+      "source": "goodreads",
+      "reason": "Only 1 rating and 0 reviews on the Goodreads page — not a meaningful aggregate; will revisit if reader engagement grows or if publication status is clarified.",
+      "evidenceUrl": "https://www.goodreads.com/book/show/52757606-masters-of-shadow"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0504",
+  "slug": "pentimento",
+  "title": "Pentimento",
+  "authors": [
+    "Nick Kyme"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novel",
+  "seriesHint": "Warhammer Horror",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "In the city of Durgov, a killer is dissecting their victims and arranging them in tableaux that no honest mind could mistake for the work of madness. Mabeth, a forensic sketch-artist called from one of these scenes to the next, finds herself convinced that the murderer is an artist of some terrible kind — and that what she is being asked to copy is a series of works in progress. As she begins, almost without noticing, to restore old paintings of her own and to lose track of which images are hers and which were already there, the gap between hunter and accomplice narrows. The title is a painter's term for what hides beneath a finished surface; the story circles what hides beneath Mabeth's.",
+    "facetIds": [
+      "book",
+      "female",
+      "civilian",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "mystery",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "cw_violence",
+      "cw_disturbing",
+      "cw_death",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "name": "Durgov",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Mabeth",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "data_conflict",
+        "field": "format",
+        "suggestion": "short_story",
+        "reason": "Released as a Warhammer Horror Week 2020 eShort; later reprinted inside The Harrowed Paths anthology, not a standalone novel"
+      },
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "Civilian sketch-artist plot; no Browse-Root 40K faction clearly attached in source coverage"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.79,
+      "count": 42,
+      "evidenceUrl": "https://www.goodreads.com/en/book/show/55818612"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

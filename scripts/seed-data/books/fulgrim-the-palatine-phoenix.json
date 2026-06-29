@@ -1,0 +1,76 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0086",
+  "slug": "fulgrim-the-palatine-phoenix",
+  "title": "Fulgrim: The Palatine Phoenix",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2017,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Stung by the perception that his Legion is more parade-ground than warband, Fulgrim takes the Emperor's Children's first solo compliance with a deliberately small honour-guard of seven Astartes to the world of Byzas. Byzas is governed by a baroque aristocracy of feuding houses, and Fulgrim turns out to be perfectly at home there: he charms the planet's governor into compliance almost on arrival and then has to keep the result alive against the inevitable run of conspiracies and clumsy assassins that follow. The action is mostly drawing-room and corridor rather than open warfare, and Fulgrim spends as much time defending his ideal of perfection in argument as he does with a sword. The seeds of what the III Legion will become are visible already, but so is the genuine, almost likeable conviction that lets him plant them.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "space_marine",
+      "male",
+      "imperium",
+      "planetary",
+      "standalone",
+      "short",
+      "court_intrigue",
+      "political_thriller",
+      "character_study",
+      "philosophical",
+      "hubris",
+      "brotherhood",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Byzas",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fulgrim",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.82,
+      "count": 1147,
+      "evidenceUrl": "https://www.goodreads.com/book/show/34466783-fulgrim"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

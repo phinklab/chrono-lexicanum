@@ -1,0 +1,94 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0096",
+  "slug": "alpharius-head-of-the-hydra",
+  "title": "Alpharius: Head of the Hydra",
+  "authors": [
+    "Mike Brooks"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2021,
+  "format": "novel",
+  "seriesHint": "The Primarchs",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Alpharius tells his own story, and the first thing he tells you is not to believe him. In a first-person confession that doubles back on itself, the lord of the Alpha Legion claims he was not the last primarch found by Horus but the first — discovered by the Emperor on Terra and hidden away as His private blade. Sensing from boyhood that he is somehow incomplete, Alpharius follows clues across the Great Crusade until they lead him to the Rangdan Xenocides and a meeting with Lion El'Jonson that will change the shape of his Legion forever. The truth about Omegon waits at the end. Whether any of it is true is another question.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "galactic",
+      "requires_context",
+      "short",
+      "character_study",
+      "war_story",
+      "political_thriller",
+      "grimdark",
+      "philosophical",
+      "action_heavy",
+      "doubt",
+      "betrayal",
+      "loyalty",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Alpha Legion",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "supporting"
+      },
+      {
+        "name": "Rangdan",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Terra",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Alpharius",
+        "role": "pov"
+      },
+      {
+        "name": "Omegon",
+        "role": "supporting"
+      },
+      {
+        "name": "Lion El'Jonson",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.46,
+      "count": 1675,
+      "evidenceUrl": "https://www.goodreads.com/book/show/57741231-alpharius"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

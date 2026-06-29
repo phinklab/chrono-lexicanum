@@ -1,0 +1,103 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0115",
+  "slug": "aurelian",
+  "title": "Aurelian",
+  "authors": [
+    "Aaron Dembski-Bowden"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2011,
+  "format": "novella",
+  "seriesHint": "Horus Heresy Novellas",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Four days after the Drop Site Massacre on Isstvan V, Horus Lupercal gathers his traitor brothers in council for the first time. The mood is uneasy — and uneasier still when Lorgar, primarch of the Word Bearers, suddenly draws blade on Fulgrim and accuses the Phoenician of no longer being his brother at all. To understand this moment, the story winds back to a pilgrimage years in the making: Lorgar's voyage into the Eye of Terror in the company of the daemon Ingethel, who promised the Word Bearer truths the Emperor would never permit him to know. What Lorgar sees there — of mankind's destiny, of the throne on Terra, of the choice between gods and tyrants — sets the tone for everything that comes after.",
+    "facetIds": [
+      "book",
+      "audiobook",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "requires_context",
+      "novella",
+      "journey",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "philosophical",
+      "faith",
+      "doubt",
+      "hubris",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Word Bearers",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "supporting"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      },
+      {
+        "name": "Isstvan V",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Lorgar Aurelian",
+        "role": "pov"
+      },
+      {
+        "name": "Ingethel",
+        "role": "antagonist"
+      },
+      {
+        "name": "Horus Lupercal",
+        "role": "supporting"
+      },
+      {
+        "name": "Fulgrim",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.14,
+      "count": 1334,
+      "evidenceUrl": "https://www.goodreads.com/book/show/12998311-aurelian"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

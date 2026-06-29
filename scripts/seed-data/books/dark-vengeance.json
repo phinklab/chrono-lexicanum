@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0333",
+  "slug": "dark-vengeance",
+  "title": "Dark Vengeance",
+  "authors": [
+    "C.Z. Dunn"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Dark Angels",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Newly raised to Company Master, the Dark Angel Balthasar leads his brethren to Bane's Landing, resting place of the ancient and powerful Hellfire Stone. He is not the only one hunting it. Kranon the Relentless, lord of the renegade Crimson Slaughter, means to use the stone to tear open the veil and call his daemonic masters into the world. As the Dark Angels and their Ravenwing outriders race the traitors to the prize, Balthasar's Chaplain Seraphicus, Librarian Turmiel and Sergeant Arion are drawn into a sprawling battle told from many viewpoints, while old secrets of the Chapter hover at its edges. The clash between the loyal Balthasar and the damned Kranon builds toward a single, decisive confrontation over the fate of a world.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "loyalty",
+      "faith",
+      "brotherhood",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Crimson Slaughter",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bane's Landing",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Balthasar",
+        "role": "pov"
+      },
+      {
+        "name": "Kranon the Relentless",
+        "role": "antagonist"
+      },
+      {
+        "name": "Seraphicus",
+        "role": "supporting"
+      },
+      {
+        "name": "Turmiel",
+        "role": "supporting"
+      },
+      {
+        "name": "Arion",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.41,
+      "count": 110,
+      "evidenceUrl": "https://www.goodreads.com/book/show/15852343-dark-vengeance"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "HH-0142",
+  "slug": "echoes-of-ruin",
+  "title": "Echoes of Ruin",
+  "authors": [],
+  "editors": [],
+  "authorship": {
+    "editorialNote": "various"
+  },
+  "releaseYear": 2014,
+  "format": "collection",
+  "seriesHint": "Horus Heresy Collections",
+  "series": null,
+  "seriesIndex": null,
+  "notes": "Collection/anthology row present; individual contents not explicitly recoverable from TLBranson list.",
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/horus-heresy-reading-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Echoes of Ruin is the first audio drama anthology of the Horus Heresy, collecting seven short pieces from the years of betrayal. David Annandale's \"Veritas Ferrum\" drops listeners into the fleet battle above Isstvan V as the Iron Hands try to survive the treachery of their brothers. John French's \"Warmaster\" is a monologue from Horus himself, brooding on his father, his rebel sons, and the burden of the title that has become his name. Guy Haley's \"Strike and Fade\" follows Salamander survivors of the Drop Site Massacre as they bait an ambush for hunting Night Lords. Graham McNeill's \"Lucius: The Eternal Blade\" and Anthony Reynolds's \"Khârn: The Eightfold Path\" study the swordsman of the Emperor's Children and the equerry of Angron in moments of butchery. Gav Thorpe's \"Cypher: Guardian of Order\" turns to the Dark Angels, and Chris Wraight's \"Wolf's Claw\" finds a young Bjorn of the Space Wolves earning the augmetic that will outlast every brother he serves with.",
+    "facetIds": [
+      "audio_drama",
+      "ensemble",
+      "space_marine",
+      "multi",
+      "imperium",
+      "chaos",
+      "squad",
+      "company",
+      "requires_context",
+      "novella",
+      "war_story",
+      "character_study",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "betrayal",
+      "war",
+      "brotherhood",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Iron Hands",
+        "role": "primary"
+      },
+      {
+        "name": "Sons of Horus",
+        "role": "primary"
+      },
+      {
+        "name": "Salamanders",
+        "role": "primary"
+      },
+      {
+        "name": "Night Lords",
+        "role": "antagonist"
+      },
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "World Eaters",
+        "role": "primary"
+      },
+      {
+        "name": "Dark Angels",
+        "role": "primary"
+      },
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Isstvan V",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Horus",
+        "role": "pov"
+      },
+      {
+        "name": "Lucius",
+        "role": "pov"
+      },
+      {
+        "name": "Khârn",
+        "role": "pov"
+      },
+      {
+        "name": "Cypher",
+        "role": "pov"
+      },
+      {
+        "name": "Bjorn",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.59,
+      "count": 61,
+      "evidenceUrl": "https://www.goodreads.com/book/show/49870858-echoes-of-ruin"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

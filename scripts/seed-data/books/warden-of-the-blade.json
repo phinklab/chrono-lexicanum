@@ -1,0 +1,91 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0436",
+  "slug": "warden-of-the-blade",
+  "title": "Warden of the Blade",
+  "authors": [
+    "David Annandale"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Castellan Crowe",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Garran Crowe, Brotherhood Champion of the Purifiers of the Grey Knights, carries a burden no other warrior could bear: he is the warden of the Blade of Antwyr, a malevolent daemon weapon whose voice never leaves his head, forever urging him to draw on a power he must never unleash. His vigil is first tested at Sandava II, where Crowe and his fellow Purifiers march under Castellan Gavallan to burn out a daemonic plague threatening to consume the world. But the corruption they face is far more cunning and powerful than they expect, and as the battle turns, Crowe must contend not only with the enemy before him but with the Blade itself, which seeks to break its keeper and drown the galaxy in blood.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "character_study",
+      "siege",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "faith",
+      "doubt",
+      "sacrifice",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Grey Knights",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos Daemons",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Sandava II",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Garran Crowe",
+        "role": "pov"
+      },
+      {
+        "name": "Castellan Gavallan",
+        "role": "supporting"
+      },
+      {
+        "name": "The Blade of Antwyr",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.69,
+      "count": 188,
+      "evidenceUrl": "https://www.goodreads.com/book/show/32471248"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

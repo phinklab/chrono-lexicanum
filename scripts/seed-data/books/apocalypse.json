@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0478",
+  "slug": "apocalypse",
+  "title": "Apocalypse",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2019,
+  "format": "novel",
+  "seriesHint": "Space Marine Conquests",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With the Great Rift torn across the galaxy, Lieutenant Heyd Calder is sent by Roboute Guilliman to hold the cardinal world of Almace against an oncoming Word Bearers crusade. He arrives commanding Primaris brothers drawn from Imperial Fists, White Scars and Raven Guard, and finds the Cardinal-Governor as guarded as any besieger. As traitor fleets close in and the system burns, Calder pieces together what the Ecclesiarchy on Almace is hiding — and why this minor seat suddenly matters to the Heretic Astartes. To save the world, he must convince the priesthood to fight beside him before the cathedral cities are lost altogether.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "sector",
+      "mid_series",
+      "standard",
+      "war_story",
+      "siege",
+      "political_thriller",
+      "grimdark",
+      "action_heavy",
+      "faith",
+      "loyalty",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Fists",
+        "role": "primary"
+      },
+      {
+        "name": "White Scars",
+        "role": "supporting"
+      },
+      {
+        "name": "Raven Guard",
+        "role": "supporting"
+      },
+      {
+        "name": "Adeptus Ministorum",
+        "role": "supporting"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Almace",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Heyd Calder",
+        "role": "pov"
+      },
+      {
+        "name": "Roboute Guilliman",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.01,
+      "count": 446,
+      "evidenceUrl": "https://www.goodreads.com/book/show/43257540-apocalypse"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

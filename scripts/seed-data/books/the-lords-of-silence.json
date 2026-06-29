@@ -1,0 +1,117 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0098",
+  "slug": "the-lords-of-silence",
+  "title": "The Lords of Silence",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2018,
+  "format": "novel",
+  "seriesHint": "Standalone",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "First-Captain Vorx leads the Lords of Silence, a Death Guard warband sailing with Abaddon's Thirteenth Black Crusade, when their grand cruiser Solace is flung off course into a nameless stretch of the warp. Vorx, Biologus Putrifier Slert and Tallyman Philemon must discover where they are, how to rejoin the war for Ultramar, and which of their own made the ship jump. A Word Bearers encounter turns the problem into an uneasy Chaos alliance, but the real pleasure is stranger: plague monks conducting a slow whodunnit inside Astartes ranks. Patient, rancid and oddly funny, this is Death Guard as implacable routine horror.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "standalone",
+      "standard",
+      "war_story",
+      "mystery",
+      "journey",
+      "political_thriller",
+      "character_study",
+      "grimdark",
+      "cosmic_horror",
+      "somber",
+      "philosophical",
+      "betrayal",
+      "hubris",
+      "doubt",
+      "brotherhood",
+      "loyalty",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_mental_health",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Death Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "primary"
+      },
+      {
+        "name": "Nurgle",
+        "role": "primary"
+      },
+      {
+        "name": "Word Bearers",
+        "role": "supporting"
+      },
+      {
+        "name": "Black Legion",
+        "role": "mentioned"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Solace",
+        "role": "primary"
+      },
+      {
+        "name": "Eye of Terror",
+        "role": "mentioned"
+      },
+      {
+        "name": "Ultramar",
+        "role": "mentioned"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Vorx",
+        "role": "pov"
+      },
+      {
+        "name": "Slert",
+        "role": "supporting"
+      },
+      {
+        "name": "Philemon",
+        "role": "supporting"
+      },
+      {
+        "name": "Abaddon the Despoiler",
+        "role": "mentioned"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0198",
+  "slug": "traitor-by-deed",
+  "title": "Traitor by Deed",
+  "authors": [
+    "Ben Counter"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2020,
+  "format": "novella",
+  "seriesHint": "Soul Drinkers",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "An Indomitus-Crusade reconquest sends a chapter of Primaris Astartes — newborn legions bearing the name and heraldry of the Soul Drinkers lost before the Cicatrix Maledictum — to bring Kepris back to the Emperor's rule. The world has fallen to a cult led by the arch-heretic Yeceqath, the Voice of All, and beneath that conspiracy something far older waits. A tight standalone novella that re-establishes the chapter for the post-Maledictum era.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "planetary",
+      "standalone",
+      "novella",
+      "war_story",
+      "mystery",
+      "last_stand",
+      "action_heavy",
+      "grimdark",
+      "somber",
+      "cosmic_horror",
+      "betrayal",
+      "faith",
+      "hubris",
+      "brotherhood",
+      "loyalty",
+      "sacrifice",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Soul Drinkers",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Kepris",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Yeceqath the Voice of All",
+        "role": "antagonist"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

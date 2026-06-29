@@ -1,0 +1,84 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0438",
+  "slug": "primogenitor",
+  "title": "Primogenitor",
+  "authors": [
+    "Josh Reynolds"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2016,
+  "format": "novel",
+  "seriesHint": "Fabius Bile",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Once the chief apothecary of the Emperor's Children and a geneticist without equal, Fabius Bile is now an outcast among traitors, exiled even by his own kind for the monstrous experiments that mark his every step with twisted abominations. Holed up in the depths of the Eye of Terror, he wants only to be left to his work, until a former pupil arrives with word of a prize too great to ignore: a chance, perhaps, to unlock the one secret that has always eluded him and stave off his own inevitable end. Drawn back into the cauldron of war, Bile sets out on a grotesque odyssey through the warbands and horrors of the Eye, surrounded by allies he cannot trust and rivals who would gladly see him dead.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "galactic",
+      "series_start",
+      "standard",
+      "journey",
+      "character_study",
+      "war_story",
+      "grimdark",
+      "philosophical",
+      "satirical",
+      "cosmic_horror",
+      "hubris",
+      "betrayal",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_abuse",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Emperor's Children",
+        "role": "primary"
+      },
+      {
+        "name": "Heretic Astartes",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Fabius Bile",
+        "role": "pov"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.18,
+      "count": 1686,
+      "evidenceUrl": "https://www.goodreads.com/book/show/29430435-fabius-bile"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

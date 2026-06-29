@@ -1,0 +1,76 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0310",
+  "slug": "fateweaver",
+  "title": "Fateweaver",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2012,
+  "format": "novella",
+  "seriesHint": "Space Marine Battles",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "When the White Consuls answer a distress call from the void, they expect a rescue. What waits for them is far worse than the plea suggested. As a psychic shockwave tears through their astropathic choir, the Space Marines realise they have been drawn into a design far older and subtler than any battle plan. Kairos Fateweaver, the twin-headed oracle of Tzeentch and master of every twisting probability, has been moving them like pieces on a board since long before they arrived. To break free of the daemon's web, the White Consuls must contend with an enemy who has already foreseen every move they might make.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "mystery",
+      "war_story",
+      "cosmic_horror",
+      "philosophical",
+      "grimdark",
+      "faith",
+      "doubt",
+      "hubris",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "novella",
+      "standalone",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "White Consuls",
+        "role": "primary"
+      },
+      {
+        "name": "Daemons of Tzeentch",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Kairos Fateweaver",
+        "role": "antagonist"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.68,
+      "count": 63,
+      "evidenceUrl": "https://www.goodreads.com/book/show/13263707-fateweaver"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

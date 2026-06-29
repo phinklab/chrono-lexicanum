@@ -1,0 +1,97 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0370",
+  "slug": "ahriman-sorcerer",
+  "title": "Ahriman: Sorcerer",
+  "authors": [
+    "John French"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2014,
+  "format": "novel",
+  "seriesHint": "Ahriman",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Ahriman, greatest sorcerer of the Thousand Sons, now commands a fleet of his exiled brothers and has summoned the warlords of his scattered Legion. Still consumed by the need to mend the Rubric that turned his brothers to dust, he hunts a secret artefact — the Athenaeum of Kalimakus, a grimoire said to hold the lost words of his primarch Magnus the Red, and perhaps the flaw at the heart of his great spell. But every move is a layer in a deeper scheme, as befits a servant of Tzeentch, and the Inquisition has not abandoned the chase. The second part of Ahriman's tale tightens the web of manipulation and counter-manipulation, a grim and cerebral descent toward salvation or damnation.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "chaos",
+      "sector",
+      "mid_series",
+      "standard",
+      "character_study",
+      "court_intrigue",
+      "grimdark",
+      "philosophical",
+      "cosmic_horror",
+      "redemption",
+      "hubris",
+      "doubt",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Thousand Sons",
+        "role": "primary"
+      },
+      {
+        "name": "Inquisition",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Eye of Terror",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ahriman",
+        "role": "pov"
+      },
+      {
+        "name": "Astraeos",
+        "role": "supporting"
+      },
+      {
+        "name": "Inquisitor Iobel",
+        "role": "supporting"
+      },
+      {
+        "name": "Ctesias",
+        "role": "supporting"
+      },
+      {
+        "name": "Carmenta",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.9,
+      "count": 683,
+      "evidenceUrl": "https://www.goodreads.com/book/show/18775043-ahriman"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

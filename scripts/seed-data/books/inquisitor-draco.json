@@ -1,0 +1,125 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0148",
+  "slug": "inquisitor-draco",
+  "title": "Inquisitor / Draco",
+  "authors": [
+    "Ian Watson"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 1990,
+  "format": "novel",
+  "seriesHint": "The Inquisition War",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "Inquisitor Jaq Draco of the Ordo Malleus begins with a covert watch over a Genestealer purge and finds a deeper heresy moving inside the Imperium itself. The trail leads to the Hydra, a rogue Inquisition cabal chasing mind-slavery as salvation and dragging Draco toward the same corruption it claims to defeat. Around him gather the trilogy's strange retinue: Meh'Lindi the Callidus Assassin, Vitali Googol the Navigator, and Grimm the Squat engineer. The first Warhammer 40,000 novel reads like feverish Inquisition noir, half founding text and half early-canon hallucination.",
+    "facetIds": [
+      "book",
+      "male",
+      "inquisitor",
+      "imperium",
+      "planetary",
+      "standard",
+      "mystery",
+      "war_story",
+      "political_thriller",
+      "character_study",
+      "journey",
+      "grimdark",
+      "somber",
+      "philosophical",
+      "cosmic_horror",
+      "war",
+      "doubt",
+      "betrayal",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "cw_socio_political",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Inquisition",
+        "role": "primary"
+      },
+      {
+        "name": "Ordo Malleus",
+        "role": "primary"
+      },
+      {
+        "name": "Officio Assassinorum",
+        "role": "primary"
+      },
+      {
+        "name": "Callidus Temple",
+        "role": "primary"
+      },
+      {
+        "name": "Navis Nobilite",
+        "role": "primary"
+      },
+      {
+        "name": "Squats",
+        "role": "primary"
+      },
+      {
+        "name": "Imperium",
+        "role": "primary"
+      },
+      {
+        "name": "Hydra",
+        "role": "antagonist"
+      },
+      {
+        "name": "Genestealer Cults",
+        "role": "antagonist"
+      },
+      {
+        "name": "Tyranids",
+        "role": "antagonist"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [],
+    "characters": [
+      {
+        "name": "Jaq Draco",
+        "role": "pov"
+      },
+      {
+        "name": "Meh'Lindi",
+        "role": "supporting"
+      },
+      {
+        "name": "Vitali Googol",
+        "role": "supporting"
+      },
+      {
+        "name": "Grimm",
+        "role": "supporting"
+      },
+      {
+        "name": "Obispal",
+        "role": "supporting"
+      }
+    ],
+    "flags": []
+  },
+  "collections": {
+    "collects": []
+  }
+}

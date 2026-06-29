@@ -1,0 +1,87 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0229",
+  "slug": "ice-guard",
+  "title": "Ice Guard",
+  "authors": [
+    "Steve Lyons"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2009,
+  "format": "novel",
+  "seriesHint": "Imperial Guard",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "With the ice world of Cressida already written off and slated for destruction, Colonel Stanislav Steele of the Valhallan Ice Warriors is handed one last task: slip onto the doomed planet, find a stranded Imperial confessor, and get him off-world before the fleet above virus-bombs Cressida to ash. Steele hand-picks a squad of nine for the run. But the surface is crawling with an enemy bent on slaughtering every soul left behind, and the clock is merciless. Between hostile ground, an implacable foe and the death sentence hanging in orbit, Steele's stealth mission becomes a race that almost no one is meant to survive. A taut behind-the-lines rescue under a falling sky.",
+    "facetIds": [
+      "book",
+      "male",
+      "guardsman",
+      "imperium",
+      "squad",
+      "standalone",
+      "standard",
+      "war_story",
+      "journey",
+      "grimdark",
+      "somber",
+      "action_heavy",
+      "sacrifice",
+      "loyalty",
+      "faith",
+      "war",
+      "cw_violence",
+      "cw_death",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Imperial Guard",
+        "role": "primary"
+      },
+      {
+        "name": "Chaos",
+        "role": "antagonist"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Cressida",
+        "role": "primary"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Colonel Stanislav Steele",
+        "role": "pov"
+      }
+    ],
+    "flags": [
+      {
+        "kind": "low_confidence",
+        "field": "factions",
+        "reason": "sources confirm a Chaos occupation but name no specific Chaos sub-faction"
+      }
+    ],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 3.45,
+      "count": 293,
+      "evidenceUrl": "https://www.goodreads.com/book/show/5877085-ice-guard"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}

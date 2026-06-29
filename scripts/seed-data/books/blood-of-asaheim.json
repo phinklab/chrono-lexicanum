@@ -1,0 +1,95 @@
+{
+  "$schema": "book-v1",
+  "externalBookId": "W40K-0380",
+  "slug": "blood-of-asaheim",
+  "title": "Blood of Asaheim",
+  "authors": [
+    "Chris Wraight"
+  ],
+  "editors": [],
+  "authorship": {
+    "editorialNote": null
+  },
+  "releaseYear": 2013,
+  "format": "novel",
+  "seriesHint": "Space Wolves (newer)",
+  "series": null,
+  "seriesIndex": null,
+  "notes": null,
+  "source": {
+    "kind": "excel",
+    "url": "https://www.tlbranson.com/warhammer-40k-books-in-order/",
+    "confidence": null
+  },
+  "curation": {
+    "synopsis": "After fifty-seven years apart - Ingvar serving in the secretive ranks of the Deathwatch, his pack-brothers fighting on without him - the Space Wolves of the Jarnhamar pack are reunited, and the bond between them is no longer what it was. Sent to defend an important shrine world against the plague-ridden warriors of the Death Guard, the Grey Hunters find themselves at odds with the world's pious defenders, the Sisters of Battle, who regard the wild sons of Fenris as little better than the enemy. As the foe closes in and treachery surfaces from within, pack-leader Gunnlaugr must hold his warriors together even as old tensions threaten to tear them apart. A visceral story of brotherhood, loyalty and the fault-lines that war exposes.",
+    "facetIds": [
+      "book",
+      "male",
+      "space_marine",
+      "imperium",
+      "squad",
+      "planetary",
+      "series_start",
+      "standard",
+      "war_story",
+      "siege",
+      "grimdark",
+      "action_heavy",
+      "somber",
+      "brotherhood",
+      "loyalty",
+      "betrayal",
+      "faith",
+      "cw_violence",
+      "cw_death",
+      "cw_disturbing",
+      "en"
+    ],
+    "factions": [
+      {
+        "name": "Space Wolves",
+        "role": "primary"
+      },
+      {
+        "name": "Death Guard",
+        "role": "antagonist"
+      },
+      {
+        "name": "Adepta Sororitas",
+        "role": "supporting"
+      },
+      {
+        "name": "Ordo Xenos",
+        "role": "supporting"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Fenris",
+        "role": "supporting"
+      }
+    ],
+    "characters": [
+      {
+        "name": "Ingvar",
+        "role": "pov"
+      },
+      {
+        "name": "Gunnlaugr",
+        "role": "supporting"
+      }
+    ],
+    "flags": [],
+    "rating": {
+      "status": "rated",
+      "source": "goodreads",
+      "value": 4.06,
+      "count": 674,
+      "evidenceUrl": "https://www.goodreads.com/book/show/15803005-blood-of-asaheim"
+    }
+  },
+  "collections": {
+    "collects": []
+  }
+}
