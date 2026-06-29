@@ -20,7 +20,7 @@ confidence: high
 
 > Items the **next** architect brief MUST address. The queue is intentionally small (3–5 items). Cowork prunes here when an item lands in a brief or is otherwise resolved. Dormant/distant items live in [`./deferred-questions.md`](./deferred-questions.md). Strang-Backlog lebt in den Boards 121/122; operativer Kleinkram in `project-state.md` § What's open.
 >
-> **Geschlossene OQs liegen in git + [`log.md`](./log.md).** OQ (15) Compendium-Taxonomie 2026-06-12 geschlossen (shipped; Rest → Boards 121-P8/P9 + 122-B8/B9). **OQ (17) Deep-Review-Rest 2026-06-12 geschlossen**: Gate-Ausnahmen `/healthz`+`/api/revalidate`, statische CSP, `/buecher` stilllegen, FilterRail löschen → Board **121-P11**; `/buch`-SSG vor Launch → **121-P12**. **OQ 16(a) 2026-06-16 geschlossen** durch Brief 152 / PR #177: `db:rebuild` hat jetzt `apply:timeline` + read-only Verify als Tail-Schritt 5/8 + 6/8.
+> **Geschlossene OQs liegen in git + [`log.md`](./log.md).** OQ (15) Compendium-Taxonomie 2026-06-12 geschlossen (shipped; Rest → Boards 121-P8/P9 + 122-B8/B9). **OQ (17) Deep-Review-Rest 2026-06-12 geschlossen**: Gate-Ausnahmen `/healthz`+`/api/revalidate`, statische CSP, `/buecher` stilllegen, FilterRail löschen → Board **121-P11**; `/buch`-SSG vor Launch → **121-P12**. **OQ 16(a) 2026-06-16 geschlossen** durch Brief 152 / PR #177: `db:rebuild` hat jetzt `apply:timeline` + read-only Verify als Tail-Schritt 5/8 + 6/8. **OQ (18a) durch Brief 170 Teil A (per-book-ssot) geliefert** (PR #201, 2026-06-30): targeted apply via `apply:book --slug/--all` + additiver `db:sync`-Tail. **OQ (18b) → Brief 171 Teil B** (2026-06-30 `open`): exakter Aequivalenz-Deep-Diff via leerem Snapshot-Diff-Gate der Migration; ob `db:drift` danach ein wiederkehrender Korpus-Deep-Diff wird oder Health-Check + per-Buch-`--verify` bleibt, entscheidet 171.
 
 Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions: …` (raw sources) · `Follow-up brief: …` (if known).
 
@@ -34,14 +34,4 @@ Format per item: **(N) <Title>** with `Owner: …` (who has to act) · `Sessions
 
 ---
 
-**(18) Inkrementeller Apply — zwei vertagte Vertiefungen aus Brief 157**
-`Owner: Cowork (Brief-Schnitt)` · `Sessions: 2026-06-18-157-impl-incremental-apply-default.md` · `Follow-up brief: offen`
-
-Brief 157 hat `db:sync` (nicht-destruktiver Voll-Roster-Re-Apply) als Default etabliert; bewusst der einfache, sichere erste Schritt. Zwei Vertiefungen sind ausdrücklich vertagt — erst bauen, wenn ein realer Bedarf sie rechtfertigt:
-
-- **(a) `db:apply` mit Plan/Diff (Out-of-scope B des Briefs).** Ein Verb, das erst einen Plan druckt und nur das Delta upsertet, statt den vollen Roster re-zuapplizieren. Bei wachsender Datenmenge die natürliche Evolution von `db:sync`.
-- **(b) Exakter „DB == kompletter SSOT"-Deep-Diff.** `db:drift` ist bewusst nur ein Health-Check (Slice-`--verify`s + Contiguity + Counts + Podcast-Drift); er fängt **keine** stale Korpus-Junction *innerhalb* einer applizierten Batch. Ein echter Vollvergleich kommt erst, wenn sich der Health-Check als unzureichend erweist.
-
----
-
-*(Queue aktuell: (16b/c) + (18a/b). Die Wave 154–163 (Buch-Reviewer + Stage 3 + Gate F/L + Product-Wave) hat **keine** neue OQ geöffnet — die ADR-Backfill-Schuld aus 154/155 ist im Koordinations-Pass 2026-06-24 abgearbeitet (`decisions/book-reviewer-no-apply-path.md` + `log.md`). Neue Items aus Impl-Reports kommen wie gewohnt nummeriert dazu.)*
+*(Queue aktuell: (16b/c). 18a ist durch Brief 170 Teil A geliefert; 18b liegt bei Brief 171 Teil B (`open`) — beide aus der Queue, siehe Kopfnotiz. Die Wave 154–163 (Buch-Reviewer + Stage 3 + Gate F/L + Product-Wave) hat **keine** neue OQ geöffnet — die ADR-Backfill-Schuld aus 154/155 ist im Koordinations-Pass 2026-06-24 abgearbeitet (`decisions/book-reviewer-no-apply-path.md` + `log.md`). Neue Items aus Impl-Reports kommen wie gewohnt nummeriert dazu.)*
