@@ -14,7 +14,10 @@
 #   3. apply:audiobook-narrators --verify   exact sidecar audio-credit set == DB.
 #   4. apply:timeline --verify              exact timeline seed state == DB.
 #   5. apply:curation-overlay --verify      every hand override add/suppress/field == DB.
-#   6. refresh:audit-artifacts   PODCAST-ARTIFACT-DRIFT — committed podcast artifacts
+#   6. apply:book --verify       PER-BOOK TAIL (Brief 170 Teil A) — every committed
+#                                scripts/seed-data/books/*.json is present in `works`
+#                                (slug + book_details row). Empty folder = clean pass.
+#   7. refresh:audit-artifacts   PODCAST-ARTIFACT-DRIFT — committed podcast artifacts
 #                                vs DB episode guids, per show.
 #
 # STRICTLY READ-ONLY: every sub-step is a read-only probe or a `--verify` mode. It
@@ -47,7 +50,8 @@ Checks:
   3. apply:audiobook-narrators --verify exact sidecar audio-credit set == DB
   4. apply:timeline --verify            exact timeline seed state == DB
   5. apply:curation-overlay --verify    every hand override add/suppress/field == DB
-  6. refresh:audit-artifacts            podcast artifact <-> DB episode-guid drift
+  6. apply:book --verify                every per-book SSOT file present in works (empty folder = pass)
+  7. refresh:audit-artifacts            podcast artifact <-> DB episode-guid drift
 
 Does NOT do an exact DB==COMPLETE-SSOT deep diff (deferred, by design). If a check
 is red: re-sync with `npm run db:sync`; if it stays red, investigate / rebuild.
@@ -102,6 +106,9 @@ check "timeline tail (apply:timeline --verify)" \
 
 check "curation tail (apply:curation-overlay --verify)" \
   npm run apply:curation-overlay -- --verify
+
+check "per-book tail (apply:book --verify)" \
+  npm run apply:book -- --verify
 
 check "podcast artifact drift (refresh:audit-artifacts)" \
   npm run refresh:audit-artifacts

@@ -265,10 +265,11 @@ function reviewPromptSection(proposal: RefreshProposal): string[] {
     "",
     "For each candidate, decide promote / ignore / defer:",
     "",
-    "Books (proposal.json → books.newBooks[] / books.pendingBooks[], roster-extension-shaped):",
-    "  • Promote: copy the chosen rows verbatim into",
-    "    scripts/seed-data/book-roster.extension.json (books[]), then",
-    "    `npm run import:ssot-roster` to merge them into book-roster.json.",
+    "Books (proposal.json → books.newBooks[] / books.pendingBooks[]):",
+    "  • Promote (per-book path, Brief 170): scaffold scripts/seed-data/books/<slug>.json from the",
+    "    chosen row (its allocated externalBookId is in proposal.json), curate it, then",
+    "    `npm run apply:book -- --slug <slug>`. NO batch file / slot / book-roster.extension.json /",
+    "    import:ssot-roster / loop:next. See scripts/runbooks/add-book-runbook.md.",
     '  • Ignore (reprint / wrong edition / out of scope): `npm run refresh:ignore-book -- --title "<title>"`.',
     "  • Defer: leave it — it rides the pending backlog and never re-opens this PR on its own.",
     "  • Collisions (books.reviewBooks[]): a human call — new edition/omnibus vs duplicate.",
@@ -329,9 +330,10 @@ export function buildReportMarkdown(
     ...podcastsSection(podcasts, opts.episodeSinceDate),
     "## Promote (maintainer, after review)",
     "",
-    "- **Books:** copy the chosen rows from `proposal.json` into " +
-      "`scripts/seed-data/book-roster.extension.json`, then `npm run import:ssot-roster` to merge, " +
-      "and curate/apply as usual. See `scripts/runbooks/weekly-refresh-runbook.md`.",
+    "- **Books (per-book path, Brief 170):** scaffold `scripts/seed-data/books/<slug>.json` from the " +
+      "chosen `proposal.json` row (allocated externalBookId included), curate, then " +
+      "`npm run apply:book -- --slug <slug>` — no batch/slot/extension/import:ssot-roster/loop:next. " +
+      "See `scripts/runbooks/add-book-runbook.md` (+ `weekly-refresh-runbook.md` §Promote).",
     "- **Podcasts:** `npm run ingest:podcast -- --show <slug>` then `npm run apply:podcast`.",
     "- **Afterwards:** `npm run refresh:mark-reviewed -- --books` (after merging this PR — even if " +
       "you promote/ignore nothing): marks everything listed here as seen, so next week's PR only " +

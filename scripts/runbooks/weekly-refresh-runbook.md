@@ -284,38 +284,44 @@ Two sibling files complete the podcast side:
 The detection pass only **proposes**. Promotion is maintainer-triggered and travels the
 existing, quality-gated apply paths.
 
-**Books** (`proposal.json` `books.newBooks[]` are already `book-roster.json`-shaped + carry
-`source_kind`/`confidence`):
+**Books** (`proposal.json` `books.newBooks[]` carry the identity + `source_kind`/`confidence`
+the per-book file needs — they seed the scaffold, they are no longer pasted into a roster
+extension). Promotion now travels the **per-book SSOT path** (Brief 170 Teil A), not the
+batch / slot / `loop:next` / `book-roster.extension.json` dance:
 
 1. Review `report.md`; drop the false positives (reprints/edition re-issues flagged via
    the review table or the subtitle-drift limitation above).
-2. Paste the chosen rows verbatim into `scripts/seed-data/book-roster.extension.json`'s
-   `books[]` array (the additive promotion target — extra provenance keys like
-   `source_kind`/`confidence` are ignored on merge). Or tell Claude Code in the terminal
-   which rows fit and let it paste them.
-3. `npm run import:ssot-roster` — reads the Excel **and** the extension and merges the new
-   rows into `book-roster.json` (`extension: N merged` in the log). An empty/absent extension
-   is a no-op, so this is safe to run anytime.
-4. `npm run loop:next` now surfaces the new book(s) as the next curation batch.
-5. Standard per-book curation (`claude -p` override → `npm run db:apply-override`) — each new
-   book gets the same tagging (factions/locations/characters/synopsis) as the 859 and lands
-   in the DB via the existing idempotent apply path.
-6. `npm run refresh:mark-reviewed -- --books` — stamp everything you've now looked at as
+2. For each chosen book, scaffold one `scripts/seed-data/books/<slug>.json`
+   (`$schema: "book-v1"`): copy `externalBookId` / `slug` / `title` / `authors` / `editors`
+   / `releaseYear` / `format` / `series` from the proposal row, then fill `curation`
+   (synopsis + facets + factions/locations/characters) — the same tagging the 859 got. The
+   full station-by-station flow lives in
+   [`scripts/runbooks/add-book-runbook.md`](./add-book-runbook.md). Or tell Claude Code in
+   the terminal which rows fit and let it scaffold them.
+3. `npm run test:book-file` — DB-free gate: schema, dup-guard against the effective corpus
+   (Legacy roster + `books/`), additive id allocation, curation validation. Fix any red
+   before applying.
+4. **On Philipp's explicit go** (the DB-write gate — § add-book-runbook): `npm run apply:book -- --slug <slug>`.
+   Idempotent; writes works/book_details/junctions/persons; `primary_era_id = "time_ending"`;
+   the reference/facet **prolog runs first**, so a brand-new faction/location/facet resolves
+   without a full `db:sync`. (`--all` re-applies every per-book file — it is also the
+   `db:sync` step-3 tail.)
+5. `npm run refresh:mark-reviewed -- --books` — stamp everything you've now looked at as
    seen, so next week's report/PR only shows what is genuinely new. Run this EVEN IF you
    promote/ignore nothing (you've reviewed the list and chosen to defer); the deferred
    books move to the pending backlog instead of re-leading the report (§ Book backlog
    cursor, note the sequencing trap).
 
-> **The extension is additive + permanent.** The Excel SSOT (`source/Warhammer_Books_SSOT.xlsx`)
-> is the FROZEN original 859; every book promoted from the refresh accretes in
-> `book-roster.extension.json` and never needs hand-typing into the binary Excel.
-> `import:ssot-roster` always emits `Excel + extension`, so re-runs stay byte-stable (an
-> unchanged extension ⇒ byte-identical roster). `parseExtensionFile` firewalls the merge:
-> external ids must match `W40K-####`/`HH-####`, ids/slugs may not collide with the roster or
-> each other, `format` must be a valid `book_format` enum value — any violation is a loud-error
-> that aborts the import. Collection membership for a *new anthology* is not yet expressible in
-> the extension (a non-empty `collections[]` is a loud-error) — add those edges via the Excel
-> if/when needed. The Excel SSOT itself is never written by the refresh path.
+> **The per-book file is the additive promotion target now (Brief 170 Teil A).** Each book
+> promoted from the refresh is one git-versioned `scripts/seed-data/books/<slug>.json`,
+> applied idempotently via `apply:book` — **no** batch / slot / `loop:next`, **no**
+> `book-roster.extension.json`, **no** `import:ssot-roster` for refresh promotions. The
+> Excel SSOT (`source/Warhammer_Books_SSOT.xlsx`) + `book-roster.json` stay the FROZEN,
+> authoritative Legacy corpus (the original 859 + crystallized batches); per-book files
+> accrete *alongside* them and the dup-guard rejects any slug/externalBookId that already
+> lives in either world. A new anthology expresses its membership in its own file's
+> `collections.collects[]` (the collection owns the edges) — no Excel edit needed. The
+> Legacy roster + Excel are never written by the refresh or per-book path.
 
 **Podcasts** (`proposal.json` `podcasts.shows[].newEpisodes[]` are report-only, NOT roster
 rows). The intended loop is conversational — review the report WITH Claude Code in the

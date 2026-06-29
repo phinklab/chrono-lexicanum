@@ -3,9 +3,9 @@
 # committed SSOT changes into the live DB.
 #
 # This is `db:rebuild` MINUS the truncate. It re-applies the WHOLE committed
-# override roster + every tail (podcast / audiobook / timeline / curation)
-# idempotently, in the one order that resolves, and NEVER truncates. Safe to run
-# any number of times — two runs reach the same end state.
+# override roster + every tail (per-book / podcast / audiobook / timeline /
+# curation) idempotently, in the one order that resolves, and NEVER truncates.
+# Safe to run any number of times — two runs reach the same end state.
 #
 # The chain is the existing building blocks, chained; it reimplements none of them:
 #
@@ -21,25 +21,35 @@
 #                                          hh 1..30), idempotent delete-then-insert
 #                                          per junction. Restores author|editor
 #                                          work_persons + every resolved junction.
-#   3. apply:podcast --all                 TAIL — restore the 4 committed podcast
+#   3. apply:book --all                    TAIL (additive, Brief 170 Teil A) — apply
+#                                          every per-book SSOT file under
+#                                          scripts/seed-data/books/*.json. Runs after
+#                                          the Legacy corpus and BEFORE the
+#                                          podcast/timeline/curation tails so per-book
+#                                          works exist when book-dates + curation edges
+#                                          resolve against works.id. Idempotent; an
+#                                          EMPTY books/ folder is a clean no-op (Teil A
+#                                          ships it empty), so this step is invisible
+#                                          until the first book is promoted per-book.
+#   4. apply:podcast --all                 TAIL — restore the 4 committed podcast
 #                                          shows + episodes (the truncate-less sync
 #                                          rarely needs this, but a rebuild's
 #                                          truncate wipes them, so it lives in the
 #                                          shared chain). Runs AFTER the corpus and
 #                                          BEFORE timeline: timeline event_works
 #                                          hooks resolve against the podcast works.
-#   4. apply:audiobook-narrators           TAIL — restore narrator|co_narrator|
+#   5. apply:audiobook-narrators           TAIL — restore narrator|co_narrator|
 #                                          full_cast work_persons (works exist now).
-#   5. apply:audiobook-narrators --verify  Read-only post-condition (exact sidecar set).
-#   6. apply:timeline                      TAIL — restore eras/events/event_works +
+#   6. apply:audiobook-narrators --verify  Read-only post-condition (exact sidecar set).
+#   7. apply:timeline                      TAIL — restore eras/events/event_works +
 #                                          book-dates (every hook + book-date
 #                                          resolves against works.id, incl. podcasts).
-#   7. apply:timeline --verify             Read-only post-condition (exact seed set).
-#   8. apply:curation-overlay              TAIL — re-assert the maintainer's hand
+#   8. apply:timeline --verify             Read-only post-condition (exact seed set).
+#   9. apply:curation-overlay              TAIL — re-assert the maintainer's hand
 #                                          overrides. Runs LAST so its edges win and
 #                                          its primary_era_id field-fix beats the
 #                                          timeline remap.
-#   9. apply:curation-overlay --verify     Read-only post-condition (every add/suppress/field).
+#  10. apply:curation-overlay --verify     Read-only post-condition (every add/suppress/field).
 #
 # NON-DESTRUCTIVE — never truncates, so the DB serves continuously and there is no
 # half-empty `works` window. What it does NOT guarantee: that a failure MID-CHAIN
@@ -71,19 +81,20 @@ DERIVED_CONFIG="ingest/.state/db-apply.derived.config.json"
 print_help() {
   cat >&2 <<'EOF'
 db-sync — NON-DESTRUCTIVE default apply. Re-apply the whole committed SSOT roster
-+ every tail (podcast / audiobook / timeline / curation) into the live DB,
-idempotently, WITHOUT ever truncating. This is the routine "push my changes" path.
++ every tail (per-book / podcast / audiobook / timeline / curation) into the live
+DB, idempotently, WITHOUT ever truncating. This is the routine "push my changes" path.
 
 Sequence (each step gates the next; a failure aborts before later steps run):
   1. db-apply-scope --emit-config         PREFLIGHT — derive + validate the apply scope (HALTS on a hole/stray)
   2. run-phase4-apply.sh <derived cfg>    re-apply the whole auto-derived committed roster (w40k 1..60 + hh 1..30)
-  3. apply:podcast --all                  tail — restore the 4 committed podcast shows (before timeline)
-  4. apply:audiobook-narrators            tail — restore the audio-role work_persons rows
-  5. apply:audiobook-narrators --verify   confirm DB == sidecar-derived set, nonzero
-  6. apply:timeline                       tail — restore eras/events/event_works + book-dates
-  7. apply:timeline --verify              confirm era/event/event_works/book-date state == seed JSON
-  8. apply:curation-overlay               tail — re-assert the maintainer's hand overrides; wins on primary_era_id
-  9. apply:curation-overlay --verify      confirm every add present / suppression absent / field equal
+  3. apply:book --all                     tail (additive) — apply per-book SSOT files (empty books/ = no-op)
+  4. apply:podcast --all                  tail — restore the 4 committed podcast shows (before timeline)
+  5. apply:audiobook-narrators            tail — restore the audio-role work_persons rows
+  6. apply:audiobook-narrators --verify   confirm DB == sidecar-derived set, nonzero
+  7. apply:timeline                       tail — restore eras/events/event_works + book-dates
+  8. apply:timeline --verify              confirm era/event/event_works/book-date state == seed JSON
+  9. apply:curation-overlay               tail — re-assert the maintainer's hand overrides; wins on primary_era_id
+ 10. apply:curation-overlay --verify      confirm every add present / suppression absent / field equal
 
 NON-DESTRUCTIVE: never truncates. Safe to run repeatedly (idempotent). A mid-chain
 failure never leaves a half-empty works domain — at worst a re-runnable mixed
@@ -130,49 +141,59 @@ echo "[db-sync] starting non-destructive SSOT sync (no truncate)."
 # 1. PREFLIGHT (read-only): derive the apply scope from the committed roster and
 #    assert it is gap-free, BEFORE anything is written. A stray/misnamed override
 #    file or a hole in a domain's 1..max run halts the run here.
-step "1/9 preflight — derive + validate apply scope (db-apply-scope)" \
+step "1/10 preflight — derive + validate apply scope (db-apply-scope)" \
   npx tsx scripts/db-apply-scope.ts --emit-config "$DERIVED_CONFIG"
 
 # 2. Re-apply the full crystallized override roster (auto-derived scope, both
 #    domains). Idempotent; reproduces the data-complete + consolidated corpus.
-step "2/9 re-apply full committed corpus (run-phase4-apply.sh)" \
+step "2/10 re-apply full committed corpus (run-phase4-apply.sh)" \
   bash scripts/run-phase4-apply.sh "$DERIVED_CONFIG"
 
-# 3. TAIL: restore the committed podcast shows + episodes. Runs AFTER the corpus
-#    (the works exist) and BEFORE timeline (step 6) because timeline event_works
+# 3. TAIL (additive, Brief 170 Teil A): apply every per-book SSOT file under
+#    scripts/seed-data/books/*.json. Runs AFTER the Legacy corpus and BEFORE the
+#    podcast/timeline/curation tails so per-book works exist when timeline
+#    book-dates and curation edges resolve against works.id. apply:book seeds its
+#    own reference/facet prolog and is idempotent; an EMPTY books/ folder is a
+#    clean no-op (Teil A ships the folder empty), so this step stays invisible
+#    until the first book is promoted via the per-book path.
+step "3/10 apply per-book SSOT files (apply:book --all)" \
+  npm run apply:book -- --all
+
+# 4. TAIL: restore the committed podcast shows + episodes. Runs AFTER the corpus
+#    (the works exist) and BEFORE timeline (step 7) because timeline event_works
 #    hooks with role=podcast resolve against these podcast works.
-step "3/9 restore podcast works (apply:podcast --all)" \
+step "4/10 restore podcast works (apply:podcast --all)" \
   npm run apply:podcast -- --all
 
-# 4. TAIL: restore audiobook credits. The works exist now, so every sidecar book
+# 5. TAIL: restore audiobook credits. The works exist now, so every sidecar book
 #    resolves.
-step "4/9 restore audiobook credits (apply:audiobook-narrators)" \
+step "5/10 restore audiobook credits (apply:audiobook-narrators)" \
   npm run apply:audiobook-narrators
 
-# 5. Verify the audio tail (read-only): DB audio-role set == sidecar-derived set, nonzero.
-step "5/9 verify audiobook credits restored (apply:audiobook-narrators --verify)" \
+# 6. Verify the audio tail (read-only): DB audio-role set == sidecar-derived set, nonzero.
+step "6/10 verify audiobook credits restored (apply:audiobook-narrators --verify)" \
   npm run apply:audiobook-narrators -- --verify
 
-# 6. TAIL: restore the timeline domain. Runs AFTER the corpus + podcast re-apply
+# 7. TAIL: restore the timeline domain. Runs AFTER the corpus + podcast re-apply
 #    because every event_works hook + book-date resolves against works.id. Runs
-#    BEFORE curation (step 8) so hand-curation wins last on primary_era_id.
-step "6/9 restore timeline (apply:timeline)" \
+#    BEFORE curation (step 9) so hand-curation wins last on primary_era_id.
+step "7/10 restore timeline (apply:timeline)" \
   npm run apply:timeline
 
-# 7. Verify the timeline tail (read-only): era/event/event_works/book-date state == seed JSON.
-step "7/9 verify timeline restored (apply:timeline --verify)" \
+# 8. Verify the timeline tail (read-only): era/event/event_works/book-date state == seed JSON.
+step "8/10 verify timeline restored (apply:timeline --verify)" \
   npm run apply:timeline -- --verify
 
-# 8. TAIL: re-assert the maintainer's hand overrides. Runs LAST so the auto-edges
+# 9. TAIL: re-assert the maintainer's hand overrides. Runs LAST so the auto-edges
 #    it suppresses exist to delete, its add-edges win over the wave, and its
-#    primary_era_id field-fix wins over the step-6 timeline remap.
-step "8/9 apply hand-override overlay (apply:curation-overlay)" \
+#    primary_era_id field-fix wins over the step-7 timeline remap.
+step "9/10 apply hand-override overlay (apply:curation-overlay)" \
   npm run apply:curation-overlay
 
-# 9. Verify the curation tail (read-only): every final add present, every suppression absent.
-step "9/9 verify hand overrides applied (apply:curation-overlay --verify)" \
+# 10. Verify the curation tail (read-only): every final add present, every suppression absent.
+step "10/10 verify hand overrides applied (apply:curation-overlay --verify)" \
   npm run apply:curation-overlay -- --verify
 
 echo ""
-echo "[db-sync] DONE — committed SSOT synced into the live DB (corpus + podcast + audiobook + timeline + hand overrides), no truncate."
+echo "[db-sync] DONE — committed SSOT synced into the live DB (corpus + per-book + podcast + audiobook + timeline + hand overrides), no truncate."
 exit 0
